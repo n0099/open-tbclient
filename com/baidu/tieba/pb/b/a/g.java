@@ -8,22 +8,22 @@ import tbclient.ExcPbPage.ExcContent;
 public class g implements c {
     private int aJO;
     private String color;
-    private SpannableStringBuilder miw;
+    private SpannableStringBuilder miL;
     private int textSize;
 
     public g() {
         this.aJO = 0;
         this.textSize = -1;
-        this.miw = new SpannableStringBuilder();
+        this.miL = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
         this.aJO = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.miw = new SpannableStringBuilder();
+            this.miL = new SpannableStringBuilder();
             if (excContent != null) {
-                this.miw.append((CharSequence) excContent.text);
+                this.miL.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
                 this.aJO = excContent.align.intValue();
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void t(CharSequence charSequence) {
         if (charSequence != null) {
-            this.miw.append(charSequence);
+            this.miL.append(charSequence);
         }
     }
 
@@ -52,11 +52,11 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence dtw() {
-        return this.miw;
+    public CharSequence dtD() {
+        return this.miL;
     }
 
-    public int dty() {
+    public int dtF() {
         return this.aJO;
     }
 
@@ -65,7 +65,7 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean dtx() {
+    public boolean dtE() {
         return (this.aJO > 0 && this.aJO < 3) || !StringUtils.isNull(this.color);
     }
 

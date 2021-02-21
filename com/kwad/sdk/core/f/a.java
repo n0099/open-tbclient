@@ -22,7 +22,7 @@ import com.kwad.sdk.utils.f;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static InterfaceC1094a f9126b;
+    private static InterfaceC1096a f9126b;
 
     /* renamed from: a  reason: collision with root package name */
     private static String f9125a = "";
@@ -30,7 +30,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1094a {
+    public interface InterfaceC1096a {
         @WorkerThread
         void a(String str);
     }

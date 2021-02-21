@@ -5,35 +5,35 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 abstract class b<E> extends AbstractQueue<E> {
-    private final AtomicReference<LinkedQueueNode<E>> qqj = new AtomicReference<>();
-    private final AtomicReference<LinkedQueueNode<E>> qqk = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<E>> qqJ = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<E>> qqK = new AtomicReference<>();
 
-    protected final LinkedQueueNode<E> eNv() {
-        return this.qqj.get();
+    protected final LinkedQueueNode<E> eND() {
+        return this.qqJ.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> eNw() {
-        return this.qqj.get();
+    public final LinkedQueueNode<E> eNE() {
+        return this.qqJ.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(LinkedQueueNode<E> linkedQueueNode) {
-        this.qqj.lazySet(linkedQueueNode);
+        this.qqJ.lazySet(linkedQueueNode);
     }
 
-    protected final LinkedQueueNode<E> eNx() {
-        return this.qqk.get();
+    protected final LinkedQueueNode<E> eNF() {
+        return this.qqK.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> eNy() {
-        return this.qqk.get();
+    public final LinkedQueueNode<E> eNG() {
+        return this.qqK.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(LinkedQueueNode<E> linkedQueueNode) {
-        this.qqk.lazySet(linkedQueueNode);
+        this.qqK.lazySet(linkedQueueNode);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -44,21 +44,21 @@ abstract class b<E> extends AbstractQueue<E> {
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
         LinkedQueueNode<E> lvNext;
-        LinkedQueueNode<E> eNx = eNx();
-        LinkedQueueNode<E> eNv = eNv();
+        LinkedQueueNode<E> eNF = eNF();
+        LinkedQueueNode<E> eND = eND();
         int i = 0;
-        while (eNx != eNv && i < Integer.MAX_VALUE) {
+        while (eNF != eND && i < Integer.MAX_VALUE) {
             do {
-                lvNext = eNx.lvNext();
+                lvNext = eNF.lvNext();
             } while (lvNext == null);
             i++;
-            eNx = lvNext;
+            eNF = lvNext;
         }
         return i;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final boolean isEmpty() {
-        return eNx() == eNv();
+        return eNF() == eND();
     }
 }

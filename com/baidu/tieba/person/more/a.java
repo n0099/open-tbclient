@@ -10,18 +10,18 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
-    private BdTypeListView gzb;
-    private d msV;
+    private BdTypeListView gzp;
+    private d mtk;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, ab<h> abVar) {
-        this.gzb = bdTypeListView;
-        this.msV = new d(tbPageContext, h.muc);
-        this.msV.c(abVar);
-        this.bns.add(this.msV);
-        this.gzb.addAdapters(this.bns);
+        this.gzp = bdTypeListView;
+        this.mtk = new d(tbPageContext, h.mur);
+        this.mtk.c(abVar);
+        this.bns.add(this.mtk);
+        this.gzp.addAdapters(this.bns);
     }
 
     public void notifyDataSetChanged() {
-        this.msV.notifyDataSetChanged();
+        this.mtk.notifyDataSetChanged();
     }
 }

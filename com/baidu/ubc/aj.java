@@ -11,8 +11,8 @@ import org.json.JSONObject;
 class aj {
     private static final boolean DEBUG = AppConfig.isDebug();
     private boolean ezw = false;
-    private int oTu = 0;
-    private int oTv = 614400;
+    private int oTU = 0;
+    private int oTV = 614400;
     private JSONArray duV = new JSONArray();
     private SparseArray<Integer> ezs = new SparseArray<>();
     private ArrayList<String> ezt = new ArrayList<>();
@@ -51,20 +51,20 @@ class aj {
         }
     }
 
-    public void Nm(int i) {
-        if (i >= 0) {
-            this.oTv = i;
-        }
-    }
-
     public void Nn(int i) {
-        if (i > 0) {
-            this.oTu += i;
+        if (i >= 0) {
+            this.oTV = i;
         }
     }
 
-    public boolean ehV() {
-        return this.oTu >= this.oTv;
+    public void No(int i) {
+        if (i > 0) {
+            this.oTU += i;
+        }
+    }
+
+    public boolean eid() {
+        return this.oTU >= this.oTV;
     }
 
     public boolean mp(int i) {
@@ -75,7 +75,7 @@ class aj {
         return this.duV.length() == 0;
     }
 
-    public JSONObject ehW() {
+    public JSONObject eie() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {

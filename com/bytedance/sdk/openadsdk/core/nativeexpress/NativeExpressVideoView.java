@@ -14,7 +14,7 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.bytedance.sdk.openadsdk.utils.x;
 /* loaded from: classes6.dex */
-public class NativeExpressVideoView extends NativeExpressView implements g, c.b, c.InterfaceC1011c {
+public class NativeExpressVideoView extends NativeExpressView implements g, c.b, c.InterfaceC1013c {
 
     /* renamed from: a  reason: collision with root package name */
     int f6620a;
@@ -296,7 +296,7 @@ public class NativeExpressVideoView extends NativeExpressView implements g, c.b,
         this.f6620a = 5;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1011c
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1013c
     public void f() {
         u.b("NativeExpressVideoView", "onVideoLoad");
         if (this.l != null) {
@@ -304,7 +304,7 @@ public class NativeExpressVideoView extends NativeExpressView implements g, c.b,
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1011c
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1013c
     public void a(int i, int i2) {
         u.b("NativeExpressVideoView", "onVideoError,errorCode:" + i + ",extraCode:" + i2);
         if (this.l != null) {

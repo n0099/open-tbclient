@@ -14,7 +14,7 @@ import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
 import com.qq.e.comm.util.AdError;
 /* loaded from: classes6.dex */
 public class bu extends an {
-    public UnifiedInterstitialAD pPZ;
+    public UnifiedInterstitialAD pQz;
 
     /* loaded from: classes6.dex */
     public class a implements UnifiedInterstitialADListener {
@@ -25,7 +25,7 @@ public class bu extends an {
         public void onADClicked() {
             m.a("GDTUnifiedInterstitialAd onADClicked");
             bu buVar = bu.this;
-            ah ahVar = buVar.pPn;
+            ah ahVar = buVar.pPN;
             if (ahVar != null) {
                 ((aa) ahVar).c(buVar.f7754a.f7762a);
             }
@@ -35,7 +35,7 @@ public class bu extends an {
         public void onADClosed() {
             m.a("GDTUnifiedInterstitialAd onADClosed");
             bu buVar = bu.this;
-            ah ahVar = buVar.pPn;
+            ah ahVar = buVar.pPN;
             if (ahVar != null) {
                 ((aa) ahVar).a(buVar.f7754a.f7762a);
             }
@@ -45,7 +45,7 @@ public class bu extends an {
         public void onADExposure() {
             m.a("GDTUnifiedInterstitialAd onADExposure");
             bu buVar = bu.this;
-            ah ahVar = buVar.pPn;
+            ah ahVar = buVar.pPN;
             if (ahVar != null) {
                 ((aa) ahVar).d(buVar.f7754a.f7762a);
             }
@@ -54,7 +54,7 @@ public class bu extends an {
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
         public void onADLeftApplication() {
             m.a("GDTUnifiedInterstitialAd onADLeftApplication");
-            ah ahVar = bu.this.pPn;
+            ah ahVar = bu.this.pPN;
             if (ahVar != null) {
                 if (((aa) ahVar) == null) {
                     throw null;
@@ -73,11 +73,11 @@ public class bu extends an {
             m.a("GDTUnifiedInterstitialAd onADReceive");
             bu buVar = bu.this;
             buVar.f7755b = false;
-            ak akVar = buVar.pPm;
+            ak akVar = buVar.pPM;
             if (akVar != null) {
                 ((x) akVar).b(buVar.f7754a.f7762a);
             }
-            AdRipper.ripGDTUnifiedInterstitial(bu.this.pPZ);
+            AdRipper.ripGDTUnifiedInterstitial(bu.this.pQz);
         }
 
         @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
@@ -85,7 +85,7 @@ public class bu extends an {
             m.a("GDTUnifiedInterstitialAd onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg());
             bu buVar = bu.this;
             buVar.f7755b = false;
-            ak akVar = buVar.pPm;
+            ak akVar = buVar.pPM;
             if (akVar != null) {
                 ((x) akVar).a(buVar.f7754a.f7762a, adError.getErrorCode(), adError.getErrorMsg());
             }
@@ -104,10 +104,10 @@ public class bu extends an {
     @Override // com.fun.ad.an
     public void a() {
         super.a();
-        UnifiedInterstitialAD unifiedInterstitialAD = this.pPZ;
+        UnifiedInterstitialAD unifiedInterstitialAD = this.pQz;
         if (unifiedInterstitialAD != null) {
             unifiedInterstitialAD.destroy();
-            this.pPZ = null;
+            this.pQz = null;
         }
     }
 
@@ -116,9 +116,9 @@ public class bu extends an {
     }
 
     @Override // com.fun.ad.an
-    public FunRippedAd eAp() {
+    public FunRippedAd eAx() {
         AdRipper.RippedGDTAd rippedGDTUnifiedInterstitialAd;
-        UnifiedInterstitialAD unifiedInterstitialAD = this.pPZ;
+        UnifiedInterstitialAD unifiedInterstitialAD = this.pQz;
         if (unifiedInterstitialAD == null || (rippedGDTUnifiedInterstitialAd = AdRipper.getRippedGDTUnifiedInterstitialAd(unifiedInterstitialAD, false)) == null) {
             return null;
         }
@@ -146,7 +146,7 @@ public class bu extends an {
             if (!(context instanceof Activity)) {
                 m.a("GDTUnifiedInterstitialAd context is not activity");
                 this.f7755b = false;
-                ak akVar2 = this.pPm;
+                ak akVar2 = this.pPM;
                 if (akVar2 != null) {
                     ((x) akVar2).a(this.f7754a.f7762a, 0, "Custom error message: context is not activity");
                     return;
@@ -158,9 +158,9 @@ public class bu extends an {
             unifiedInterstitialAD.setMinVideoDuration(0);
             unifiedInterstitialAD.setMaxVideoDuration(0);
             unifiedInterstitialAD.setVideoPlayPolicy(1);
-            this.pPZ = unifiedInterstitialAD;
+            this.pQz = unifiedInterstitialAD;
             h(unifiedInterstitialAD);
-            ak akVar3 = this.pPm;
+            ak akVar3 = this.pPM;
             if (akVar3 != null) {
                 ((x) akVar3).a(this.f7754a.f7762a);
             }
@@ -170,12 +170,12 @@ public class bu extends an {
     @Override // com.fun.ad.an
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
         super.a(activity, funAdView, ahVar);
-        UnifiedInterstitialAD unifiedInterstitialAD = this.pPZ;
+        UnifiedInterstitialAD unifiedInterstitialAD = this.pQz;
         if (unifiedInterstitialAD != null) {
             a(activity, unifiedInterstitialAD);
             return;
         }
-        ah ahVar2 = this.pPn;
+        ah ahVar2 = this.pPN;
         if (ahVar2 != null) {
             ((aa) ahVar2).a(this.f7754a.f7762a, 0, "Custom error message: mUnifiedInterstitialAD is null when show");
         }

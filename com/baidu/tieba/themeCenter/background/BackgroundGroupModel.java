@@ -15,11 +15,11 @@ import java.util.List;
 public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     private List<b> mGroupList;
     private com.baidu.tieba.themeCenter.dressCenter.e mRecommand;
-    private com.baidu.adp.framework.listener.a nGA;
-    private com.baidu.adp.framework.listener.a nGB;
-    private BackgroundGroupActivity nGx;
-    private a nGy;
-    private boolean nGz;
+    private BackgroundGroupActivity nGX;
+    private a nGY;
+    private boolean nGZ;
+    private com.baidu.adp.framework.listener.a nHa;
+    private com.baidu.adp.framework.listener.a nHb;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -32,24 +32,24 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
             i2 = 9;
         }
         if (!StringUtils.isNull(str)) {
-            if (i == com.baidu.tieba.themeCenter.c.nFC) {
-                com.baidu.tieba.themeCenter.b.a(this.nGx.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-            } else if (i == com.baidu.tieba.themeCenter.c.nFD) {
-                com.baidu.tieba.themeCenter.b.a(this.nGx.getPageContext(), z ? 4 : 2, str, i2);
+            if (i == com.baidu.tieba.themeCenter.c.nGc) {
+                com.baidu.tieba.themeCenter.b.a(this.nGX.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+            } else if (i == com.baidu.tieba.themeCenter.c.nGd) {
+                com.baidu.tieba.themeCenter.b.a(this.nGX.getPageContext(), z ? 4 : 2, str, i2);
             }
         }
     }
 
     public BackgroundGroupModel(BackgroundGroupActivity backgroundGroupActivity) {
         super(backgroundGroupActivity.getPageContext());
-        this.nGA = new com.baidu.adp.framework.listener.a(1003033, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GROUP) { // from class: com.baidu.tieba.themeCenter.background.BackgroundGroupModel.1
+        this.nHa = new com.baidu.adp.framework.listener.a(1003033, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GROUP) { // from class: com.baidu.tieba.themeCenter.background.BackgroundGroupModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
                     if ((responsedMessage instanceof BackgroundGroupHttpResponseMessage) || (responsedMessage instanceof BackgroundGroupSocketResponseMessage)) {
                         if (responsedMessage.getError() != 0) {
-                            if (BackgroundGroupModel.this.nGy != null) {
-                                BackgroundGroupModel.this.nGy.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.mRecommand, BackgroundGroupModel.this.mGroupList);
+                            if (BackgroundGroupModel.this.nGY != null) {
+                                BackgroundGroupModel.this.nGY.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.mRecommand, BackgroundGroupModel.this.mGroupList);
                                 return;
                             }
                             return;
@@ -63,14 +63,14 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                             BackgroundGroupModel.this.mRecommand = backgroundGroupSocketResponseMessage.getRecommand();
                             BackgroundGroupModel.this.mGroupList = backgroundGroupSocketResponseMessage.getGroupList();
                         }
-                        if (BackgroundGroupModel.this.nGy != null) {
-                            BackgroundGroupModel.this.nGy.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.mRecommand, BackgroundGroupModel.this.mGroupList);
+                        if (BackgroundGroupModel.this.nGY != null) {
+                            BackgroundGroupModel.this.nGY.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.mRecommand, BackgroundGroupModel.this.mGroupList);
                         }
                     }
                 }
             }
         };
-        this.nGB = new com.baidu.adp.framework.listener.a(1003036, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET) { // from class: com.baidu.tieba.themeCenter.background.BackgroundGroupModel.2
+        this.nHb = new com.baidu.adp.framework.listener.a(1003036, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET) { // from class: com.baidu.tieba.themeCenter.background.BackgroundGroupModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 DressItemData Ki;
@@ -80,20 +80,20 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                         BackgroundSetRequestMessage backgroundSetRequestMessage = (BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra();
                         int propId = backgroundSetRequestMessage.getPropId();
                         if (responsedMessage.getError() == 0) {
-                            if (propId == BackgroundGroupModel.this.nGx.getPropId() && (Ki = BackgroundGroupModel.this.Ki(propId)) != null) {
+                            if (propId == BackgroundGroupModel.this.nGX.getPropId() && (Ki = BackgroundGroupModel.this.Ki(propId)) != null) {
                                 TiebaStatic.log(new ar("c10286").ap("obj_id", propId).ap("obj_type", Ki.getFreeUserLevel()));
                             }
                             com.baidu.tbadk.core.sharedPref.b.brQ().putInt(SharedPrefConfig.CURRENT_USED_PERSONAL_BACKGROUND + TbadkCoreApplication.getCurrentAccount(), propId);
                             BackgroundGroupModel.this.Kh(propId);
-                            BackgroundGroupModel.this.nGy.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.mRecommand, BackgroundGroupModel.this.mGroupList);
+                            BackgroundGroupModel.this.nGY.a(responsedMessage.getError(), responsedMessage.getErrorString(), BackgroundGroupModel.this.mRecommand, BackgroundGroupModel.this.mGroupList);
                         } else if (responsedMessage.getError() != 2270014) {
-                            int i = com.baidu.tieba.themeCenter.c.nFD;
-                            if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nFE) {
-                                i = com.baidu.tieba.themeCenter.c.nFC;
+                            int i = com.baidu.tieba.themeCenter.c.nGd;
+                            if (responsedMessage.getError() == com.baidu.tieba.themeCenter.c.nGe) {
+                                i = com.baidu.tieba.themeCenter.c.nGc;
                             }
                             boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                             if (!fromDetail) {
-                                if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == BackgroundGroupModel.this.getUniqueId()) && propId == BackgroundGroupModel.this.nGx.getPropId() && (Ki2 = BackgroundGroupModel.this.Ki(propId)) != null) {
+                                if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == BackgroundGroupModel.this.getUniqueId()) && propId == BackgroundGroupModel.this.nGX.getPropId() && (Ki2 = BackgroundGroupModel.this.Ki(propId)) != null) {
                                     BackgroundGroupModel.this.a(i, responsedMessage.getErrorString(), Ki2, fromDetail);
                                 }
                             }
@@ -102,20 +102,20 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                 }
             }
         };
-        this.nGx = backgroundGroupActivity;
-        this.nGz = backgroundGroupActivity.getIntent().getBooleanExtra("member_buy_show", false);
-        dRc();
-        registerListener(this.nGA);
-        dRd();
-        registerListener(this.nGB);
+        this.nGX = backgroundGroupActivity;
+        this.nGZ = backgroundGroupActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        dRk();
+        registerListener(this.nHa);
+        dRl();
+        registerListener(this.nHb);
     }
 
-    private void dRc() {
+    private void dRk() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GROUP, BackgroundGroupSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GROUP, 1003033, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void dRd() {
+    private void dRl() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET, BackgroundSetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET, 1003036, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
@@ -132,11 +132,11 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     }
 
     public void a(a aVar) {
-        this.nGy = aVar;
+        this.nGY = aVar;
     }
 
-    public boolean dKP() {
-        return this.nGz;
+    public boolean dKX() {
+        return this.nGZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

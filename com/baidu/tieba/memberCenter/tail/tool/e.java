@@ -14,9 +14,9 @@ import com.baidu.tieba.memberCenter.tail.data.TailData;
 /* loaded from: classes9.dex */
 public class e {
     private TextView fjs;
-    private TailData lsM;
-    private ImageView ltn;
-    private View lto;
+    private ImageView ltC;
+    private View ltD;
+    private TailData lta;
     private Context mContext;
     private View mRootView;
 
@@ -25,45 +25,45 @@ public class e {
         this.mContext = context;
         this.mRootView.setTag(this);
         this.fjs = (TextView) this.mRootView.findViewById(R.id.tail_tool_item_text);
-        this.ltn = (ImageView) this.mRootView.findViewById(R.id.tail_tool_item_selected);
-        this.lto = this.mRootView.findViewById(R.id.tail_tool_item_scope);
-        this.lto.setTag(this);
+        this.ltC = (ImageView) this.mRootView.findViewById(R.id.tail_tool_item_selected);
+        this.ltD = this.mRootView.findViewById(R.id.tail_tool_item_scope);
+        this.ltD.setTag(this);
         return this.mRootView;
     }
 
     public void setText(String str) {
-        this.fjs.setText(TbFaceManager.bCO().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.Op(str), null));
+        this.fjs.setText(TbFaceManager.bCO().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.Oq(str), null));
     }
 
     public void setColor(String str) {
-        this.fjs.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.Oo(str));
+        this.fjs.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.Op(str));
     }
 
     public void a(TailData tailData) {
         if (tailData != null) {
             setText(tailData.getContent());
             setColor(tailData.getFontColor());
-            this.ltn.setSelected(tailData.isSelected());
+            this.ltC.setSelected(tailData.isSelected());
         }
     }
 
     public void b(TailData tailData) {
-        this.lsM = tailData;
+        this.lta = tailData;
     }
 
-    public TailData dfT() {
-        return this.lsM;
+    public TailData dga() {
+        return this.lta;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this.lto, R.drawable.tail_item_bg);
+        ap.setBackgroundResource(this.ltD, R.drawable.tail_item_bg);
         ap.setViewTextColor(this.fjs, R.color.CAM_X0106, 1);
-        ap.setBackgroundResource(this.ltn, R.drawable.tail_tool_list_item_checkbox_bg);
-        ap.setImageResource(this.ltn, R.drawable.tail_tool_list_item_checkbox_selector);
+        ap.setBackgroundResource(this.ltC, R.drawable.tail_tool_list_item_checkbox_bg);
+        ap.setImageResource(this.ltC, R.drawable.tail_tool_list_item_checkbox_selector);
     }
 
     public void M(View.OnClickListener onClickListener) {
-        this.lto.setOnClickListener(onClickListener);
+        this.ltD.setOnClickListener(onClickListener);
     }
 }

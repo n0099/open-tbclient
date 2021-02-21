@@ -15,10 +15,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class Aegon {
     public static String LIBRARY_NAME = "aegon";
-    public static SignalStrengthListener pXG;
-    public static volatile CronetUrlRequestContext pXI;
+    public static SignalStrengthListener pYg;
+    public static volatile CronetUrlRequestContext pYi;
     public static Context sApplicationContext;
-    public static final Object pXH = new Object();
+    public static final Object pYh = new Object();
     public static AtomicBoolean sInitialized = new AtomicBoolean();
 
     /* loaded from: classes3.dex */
@@ -35,27 +35,27 @@ public class Aegon {
         } else {
             System.loadLibrary(LIBRARY_NAME);
         }
-        com.kuaishou.aegon.a.a.a(com.kuaishou.aegon.a.hx(str, str2));
+        com.kuaishou.aegon.a.a.a(com.kuaishou.aegon.a.hz(str, str2));
         Log.i("Aegon", "Initialize finished, cost = " + (System.nanoTime() - nanoTime));
         sApplicationContext = context;
         sInitialized.set(true);
         Handler handler = new Handler(context.getMainLooper());
-        runnable = d.pXN;
+        runnable = d.pYn;
         handler.postDelayed(runnable, IMConnection.RETRY_DELAY_TIMES);
     }
 
     @Nullable
-    public static CronetEngine eCp() {
+    public static CronetEngine eCx() {
         CronetUrlRequestContext cronetUrlRequestContext;
         Runnable runnable;
         Runnable runnable2;
-        CronetUrlRequestContext cronetUrlRequestContext2 = pXI;
+        CronetUrlRequestContext cronetUrlRequestContext2 = pYi;
         if (cronetUrlRequestContext2 != null) {
             return cronetUrlRequestContext2;
         }
         if (sInitialized.get()) {
-            synchronized (pXH) {
-                if (pXI == null && sApplicationContext != null) {
+            synchronized (pYh) {
+                if (pYi == null && sApplicationContext != null) {
                     long nanoTime = System.nanoTime();
                     NativeCronetEngineBuilderWithLibraryLoaderImpl nativeCronetEngineBuilderWithLibraryLoaderImpl = new NativeCronetEngineBuilderWithLibraryLoaderImpl(sApplicationContext);
                     nativeCronetEngineBuilderWithLibraryLoaderImpl.mLibraryLoader = new VersionSafeCallbacks$LibraryLoader(new CronetEngine$Builder$LibraryLoader() { // from class: com.kuaishou.aegon.Aegon.1
@@ -63,14 +63,14 @@ public class Aegon {
                         public void loadLibrary(String str) {
                         }
                     });
-                    pXI = new CronetUrlRequestContext(nativeCronetEngineBuilderWithLibraryLoaderImpl);
-                    runnable = b.pXL;
+                    pYi = new CronetUrlRequestContext(nativeCronetEngineBuilderWithLibraryLoaderImpl);
+                    runnable = b.pYl;
                     CronetLibraryLoader.postToInitThread(runnable);
-                    runnable2 = c.pXM;
+                    runnable2 = c.pYm;
                     com.kuaishou.aegon.a.a.a(runnable2);
                     Log.i("Aegon", "Create cronet engine finished, cost = " + (System.nanoTime() - nanoTime));
                 }
-                cronetUrlRequestContext = pXI;
+                cronetUrlRequestContext = pYi;
             }
             return cronetUrlRequestContext;
         }

@@ -355,7 +355,7 @@ public class ab implements t {
             sb.append("tiebaclient!!!");
             addPostData("sign", com.baidu.adp.lib.util.s.toMd5(sb.toString()));
             if (this.eZW.bta().eZZ) {
-                addPostData("sig", StringU.Eu(sb.toString()));
+                addPostData("sig", StringU.Es(sb.toString()));
             }
         }
         if (TbConfig.getDebugSwitch()) {
@@ -723,7 +723,7 @@ public class ab implements t {
                             bVar.setErrorCode(i4);
                             bVar.rw(this.eZW.btb().mNetErrorCode);
                             bVar.setException(dVar.exception);
-                            bVar.Dy(dVar.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.LM + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mg + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mh);
+                            bVar.Dw(dVar.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.LM + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mg + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.Mh);
                             bVar.setUrl(dVar.url);
                             bVar.Mn = dVar.Mn;
                             bVar.Mo = dVar.Mo;
@@ -748,7 +748,7 @@ public class ab implements t {
                             bVar2.setErrorCode(i5);
                             bVar2.rw(this.eZW.btb().mNetErrorCode);
                             bVar2.setException(dVar2.exception);
-                            bVar2.Dy(dVar2.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.LM + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mg + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mh);
+                            bVar2.Dw(dVar2.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.LM + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mg + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.Mh);
                             bVar2.setUrl(dVar2.url);
                             bVar2.Mn = dVar2.Mn;
                             bVar2.Mo = dVar2.Mo;
@@ -773,7 +773,7 @@ public class ab implements t {
                             bVar3.setErrorCode(i6);
                             bVar3.rw(this.eZW.btb().mNetErrorCode);
                             bVar3.setException(dVar3.exception);
-                            bVar3.Dy(dVar3.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.LM + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mg + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mh);
+                            bVar3.Dw(dVar3.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.LM + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mg + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.Mh);
                             bVar3.setUrl(dVar3.url);
                             bVar3.Mn = dVar3.Mn;
                             bVar3.Mo = dVar3.Mo;
@@ -795,7 +795,7 @@ public class ab implements t {
                         bVar4.setErrorCode(i7);
                         bVar4.rw(this.eZW.btb().mNetErrorCode);
                         bVar4.setException(dVar4.exception);
-                        bVar4.Dy(dVar4.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.LM + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mg + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mh);
+                        bVar4.Dw(dVar4.Mj + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.LM + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mf + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mg + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.Mh);
                         bVar4.setUrl(dVar4.url);
                         bVar4.Mn = dVar4.Mn;
                         bVar4.Mo = dVar4.Mo;

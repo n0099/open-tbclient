@@ -7,7 +7,7 @@ import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.util.UrlManager;
-import com.baidu.tieba.recapp.i;
+import com.baidu.tieba.recapp.j;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -16,21 +16,21 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public final class a implements i {
+public final class a implements j {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a ggH = new a();
-    private final List<i.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, i.b> mHandlers = new ConcurrentHashMap<>();
-    private i.c ggI = null;
+    private static a ggM = new a();
+    private final List<j.a> mListeners = new LinkedList();
+    private final ConcurrentHashMap<String, j.b> mHandlers = new ConcurrentHashMap<>();
+    private j.c ggN = null;
 
     private a() {
     }
 
-    public static a bLi() {
-        return ggH;
+    public static a bLn() {
+        return ggM;
     }
 
-    public void a(final i.a aVar) {
+    public void a(final j.a aVar) {
         if (l.isMainThread()) {
             b(aVar);
         } else {
@@ -44,17 +44,17 @@ public final class a implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(i.a aVar) {
+    public void b(j.a aVar) {
         if (!this.mListeners.contains(aVar)) {
             this.mListeners.add(aVar);
         }
     }
 
-    public void a(i.c cVar) {
-        this.ggI = cVar;
+    public void a(j.c cVar) {
+        this.ggN = cVar;
     }
 
-    public boolean a(Context context, String[] strArr, boolean z, i.d dVar, boolean z2, Bundle bundle) {
+    public boolean a(Context context, String[] strArr, boolean z, j.d dVar, boolean z2, Bundle bundle) {
         return a(context, "", strArr, z, dVar, z2, bundle);
     }
 
@@ -63,7 +63,7 @@ public final class a implements i {
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
-        for (i.a aVar : this.mListeners) {
+        for (j.a aVar : this.mListeners) {
             if (aVar != null && (c = aVar.c(context, strArr)) != 3) {
                 return c;
             }
@@ -71,29 +71,29 @@ public final class a implements i {
         return 3;
     }
 
-    public boolean a(Context context, String str, String[] strArr, boolean z, i.d dVar, boolean z2, Bundle bundle) {
+    public boolean a(Context context, String str, String[] strArr, boolean z, j.d dVar, boolean z2, Bundle bundle) {
         if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
             return false;
         }
         boolean z3 = false;
         String str2 = strArr[0];
-        i.b bVar = this.mHandlers.get(getSchemaKey(str2));
+        j.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.l(context, getInnerParamPair(EB(str2)));
+            bVar.l(context, getInnerParamPair(Ez(str2)));
             return true;
         }
-        Iterator<i.a> it = this.mListeners.iterator();
+        Iterator<j.a> it = this.mListeners.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            i.a next = it.next();
+            j.a next = it.next();
             if (next != null && next.c(context, strArr) != 3) {
                 z3 = true;
                 break;
             }
         }
-        if (!z3 && this.ggI != null) {
+        if (!z3 && this.ggN != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 return true;
             }
@@ -102,7 +102,7 @@ public final class a implements i {
         return z3;
     }
 
-    private String EB(String str) {
+    private String Ez(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -139,24 +139,24 @@ public final class a implements i {
         return str;
     }
 
-    @Override // com.baidu.tieba.recapp.i
+    @Override // com.baidu.tieba.recapp.j
     public boolean a(Context context, String[] strArr, Bundle bundle) {
         return a(context, strArr, false, null, false, bundle);
     }
 
-    @Override // com.baidu.tieba.recapp.i
+    @Override // com.baidu.tieba.recapp.j
     public void a(Context context, String[] strArr, boolean z, Bundle bundle) {
         a(context, strArr, false, null, z, bundle);
     }
 
-    private void a(Context context, String str, String str2, boolean z, i.d dVar, boolean z2, Bundle bundle) {
+    private void a(Context context, String str, String str2, boolean z, j.d dVar, boolean z2, Bundle bundle) {
         if (pattern.matcher(str2).find()) {
-            this.ggI.b(context, str, str2, z, dVar, z2, bundle);
+            this.ggN.b(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
-    @Override // com.baidu.tieba.recapp.i
-    public boolean EC(String str) {
+    @Override // com.baidu.tieba.recapp.j
+    public boolean EA(String str) {
         return pattern.matcher(str).find();
     }
 }

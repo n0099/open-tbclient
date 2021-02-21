@@ -51,8 +51,8 @@ public interface a extends IInterface {
 
     /* renamed from: com.ss.android.socialbase.downloader.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static abstract class AbstractBinderC1251a extends Binder implements a {
-        public AbstractBinderC1251a() {
+    public static abstract class AbstractBinderC1253a extends Binder implements a {
+        public AbstractBinderC1253a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.model.DownloadAidlTask");
         }
 
@@ -64,7 +64,7 @@ public interface a extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                 return (a) queryLocalInterface;
             }
-            return new C1252a(iBinder);
+            return new C1254a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -180,12 +180,12 @@ public interface a extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.g.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class C1252a implements a {
+        private static class C1254a implements a {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f13150a;
 
-            C1252a(IBinder iBinder) {
+            C1254a(IBinder iBinder) {
                 this.f13150a = iBinder;
             }
 

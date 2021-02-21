@@ -8,15 +8,15 @@ import com.baidu.tieba.ala.alaar.makeup.h;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaMakeupResponseMessage extends JsonHttpResponsedMessage {
-    private String gss;
-    private com.baidu.tieba.ala.alaar.makeup.a.c gsu;
+    private String gsG;
+    private com.baidu.tieba.ala.alaar.makeup.a.c gsI;
 
     public AlaMakeupResponseMessage() {
         super(1021214);
     }
 
-    public com.baidu.tieba.ala.alaar.makeup.a.c bPo() {
-        return this.gsu;
+    public com.baidu.tieba.ala.alaar.makeup.a.c bPv() {
+        return this.gsI;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -26,24 +26,24 @@ public class AlaMakeupResponseMessage extends JsonHttpResponsedMessage {
             h.d("MKNetLoader", "decodeLogicInBackGround: " + jSONObject);
         }
         if (jSONObject == null || hasError()) {
-            if (StringUtils.isNullObject(this.gss)) {
-                this.gss = com.baidu.live.d.xc().getString("sp_ar_makeup_result", "");
+            if (StringUtils.isNullObject(this.gsG)) {
+                this.gsG = com.baidu.live.d.xc().getString("sp_ar_makeup_result", "");
             }
-            if (!TextUtils.isEmpty(this.gss)) {
-                jSONObject = new JSONObject(this.gss);
+            if (!TextUtils.isEmpty(this.gsG)) {
+                jSONObject = new JSONObject(this.gsG);
             }
         } else {
-            this.gss = jSONObject.toString();
-            if (!TextUtils.isEmpty(this.gss)) {
-                com.baidu.live.d.xc().putString("sp_ar_makeup_result", this.gss);
+            this.gsG = jSONObject.toString();
+            if (!TextUtils.isEmpty(this.gsG)) {
+                com.baidu.live.d.xc().putString("sp_ar_makeup_result", this.gsG);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
-            this.gsu = new com.baidu.tieba.ala.alaar.makeup.a.c(e.bPk());
-            this.gsu.dE(optJSONObject);
+            this.gsI = new com.baidu.tieba.ala.alaar.makeup.a.c(e.bPr());
+            this.gsI.dE(optJSONObject);
             if (h.isDebug()) {
-                h.d("MKNetLoader", "decodeLogicInBackGround-size: " + this.gsu.size());
+                h.d("MKNetLoader", "decodeLogicInBackGround-size: " + this.gsI.size());
             }
         }
     }

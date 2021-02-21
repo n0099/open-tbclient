@@ -13,7 +13,7 @@ public class c {
             cbVar.eUi = new n(funNativeAd);
             cbVar.eUc = true;
             cbVar.eUd = funNativeAd.mAid;
-            com.baidu.tieba.h.a.cNj().e(str, cbVar);
+            com.baidu.tieba.h.a.cNq().e(str, cbVar);
         }
     }
 

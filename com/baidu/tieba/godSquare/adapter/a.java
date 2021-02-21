@@ -9,28 +9,28 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
-    private BdTypeListView gzb;
-    private d jXv;
-    private GodSquareRecGodAdapter jXw;
-    private GodSquareHotGodAdapter jXx;
+    private BdTypeListView gzp;
+    private d jXJ;
+    private GodSquareRecGodAdapter jXK;
+    private GodSquareHotGodAdapter jXL;
 
-    public List<com.baidu.adp.widget.ListView.a> bRD() {
+    public List<com.baidu.adp.widget.ListView.a> bRK() {
         return this.bns;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.gzb = bdTypeListView;
-        this.jXv = new d(tbPageContext);
-        this.jXw = new GodSquareRecGodAdapter(tbPageContext);
-        this.jXx = new GodSquareHotGodAdapter(tbPageContext);
-        this.bns.add(this.jXv);
-        this.bns.add(this.jXw);
-        this.bns.add(this.jXx);
+        this.gzp = bdTypeListView;
+        this.jXJ = new d(tbPageContext);
+        this.jXK = new GodSquareRecGodAdapter(tbPageContext);
+        this.jXL = new GodSquareHotGodAdapter(tbPageContext);
+        this.bns.add(this.jXJ);
+        this.bns.add(this.jXK);
+        this.bns.add(this.jXL);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gzb != null && (this.gzb.getAdapter() instanceof e)) {
-            this.gzb.getAdapter().notifyDataSetChanged();
+        if (this.gzp != null && (this.gzp.getAdapter() instanceof e)) {
+            this.gzp.getAdapter().notifyDataSetChanged();
         }
     }
 }

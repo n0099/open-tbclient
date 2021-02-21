@@ -17,12 +17,12 @@ import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public class a extends d {
-    private long nOZ;
+    private long nPz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str) {
         super(str);
-        this.nOZ = 88200L;
+        this.nPz = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:107:0x0200 A[SYNTHETIC] */
@@ -34,7 +34,7 @@ public class a extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void Uu(String str) {
+    public void UG(String str) {
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream;
         int i;
@@ -51,15 +51,15 @@ public class a extends d {
             if (this.channelCount == 0) {
                 this.channelCount = 1;
             }
-            this.nOZ = (this.sampleRate * 16) / 8;
-            fileInputStream = new FileInputStream(this.nPe);
+            this.nPz = (this.sampleRate * 16) / 8;
+            fileInputStream = new FileInputStream(this.nPE);
             try {
                 fileOutputStream = new FileOutputStream(str);
                 try {
-                    MediaCodec dTr = dTr();
-                    dTr.start();
-                    ByteBuffer[] inputBuffers = dTr.getInputBuffers();
-                    ByteBuffer[] outputBuffers = dTr.getOutputBuffers();
+                    MediaCodec dTz = dTz();
+                    dTz.start();
+                    ByteBuffer[] inputBuffers = dTz.getInputBuffers();
+                    ByteBuffer[] outputBuffers = dTz.getOutputBuffers();
                     boolean z2 = false;
                     long j2 = 0;
                     MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
@@ -71,7 +71,7 @@ public class a extends d {
                     boolean z4 = false;
                     ByteBuffer[] byteBufferArr = outputBuffers;
                     while (!z4) {
-                        if (z2 || (dequeueInputBuffer = dTr.dequeueInputBuffer(10000L)) < 0) {
+                        if (z2 || (dequeueInputBuffer = dTz.dequeueInputBuffer(10000L)) < 0) {
                             i = i4;
                         } else {
                             ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
@@ -86,7 +86,7 @@ public class a extends d {
                                 z = i2 == -1 ? true : z3;
                             }
                             if (z) {
-                                dTr.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                dTz.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                                 i = i4;
                                 i3 = i2;
                                 bArr = bArr2;
@@ -95,19 +95,19 @@ public class a extends d {
                             } else {
                                 byteBuffer.put(bArr2, 0, i2);
                                 int i5 = i4 + i2;
-                                dTr.queueInputBuffer(dequeueInputBuffer, 0, i2, j2, 0);
+                                dTz.queueInputBuffer(dequeueInputBuffer, 0, i2, j2, 0);
                                 i = i5;
                                 i3 = i2;
                                 bArr = bArr2;
                                 z3 = z;
-                                j2 = (long) ((1000000.0d * (i5 / 2.0d)) / this.nOZ);
+                                j2 = (long) ((1000000.0d * (i5 / 2.0d)) / this.nPz);
                             }
                         }
-                        int dequeueOutputBuffer = dTr.dequeueOutputBuffer(bufferInfo, 10000L);
+                        int dequeueOutputBuffer = dTz.dequeueOutputBuffer(bufferInfo, 10000L);
                         if (dequeueOutputBuffer >= 0) {
                             if ((bufferInfo.flags & 2) != 0) {
                                 BdLog.i("audio encoder: codec config buffer");
-                                dTr.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                dTz.releaseOutputBuffer(dequeueOutputBuffer, false);
                                 i4 = i;
                             } else {
                                 if (bufferInfo.size != 0) {
@@ -125,7 +125,7 @@ public class a extends d {
                                         byteBuffer2.get(bArr3, 7, i6);
                                         fileOutputStream.write(bArr3, 0, bArr3.length);
                                         BdLog.i(bArr3.length + " bytes written.");
-                                        dTr.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                        dTz.releaseOutputBuffer(dequeueOutputBuffer, false);
                                         if ((bufferInfo.flags & 4) == 0) {
                                             j3 = j;
                                             i4 = i;
@@ -139,15 +139,15 @@ public class a extends d {
                                     }
                                 }
                                 j = j3;
-                                dTr.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                dTz.releaseOutputBuffer(dequeueOutputBuffer, false);
                                 if ((bufferInfo.flags & 4) == 0) {
                                 }
                             }
                         } else if (dequeueOutputBuffer == -3) {
                             i4 = i;
-                            byteBufferArr = dTr.getOutputBuffers();
+                            byteBufferArr = dTz.getOutputBuffers();
                         } else if (dequeueOutputBuffer == -2) {
-                            BdLog.i("format change : " + dTr.getOutputFormat());
+                            BdLog.i("format change : " + dTz.getOutputFormat());
                             i4 = i;
                         } else {
                             i4 = i;
@@ -224,7 +224,7 @@ public class a extends d {
     }
 
     @TargetApi(16)
-    private MediaCodec dTr() throws IOException {
+    private MediaCodec dTz() throws IOException {
         MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
         MediaFormat mediaFormat = new MediaFormat();
         mediaFormat.setString(IMediaFormat.KEY_MIME, "audio/mp4a-latm");

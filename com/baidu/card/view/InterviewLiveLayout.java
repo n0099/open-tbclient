@@ -113,10 +113,10 @@ public class InterviewLiveLayout extends FrameLayout implements p<com.baidu.tbad
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Dk = c.bCP().Dk(d.mw().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.akO ? 13 : 14));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = c.bCP().Di(d.mw().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.akO ? 13 : 14));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i = Di.getHeight();
                         i2 = width;
                     } else {
                         i = 0;

@@ -52,14 +52,14 @@ public class c extends BdBaseModel {
     private Dialog biA;
     public aq bvg;
     private Context context;
-    private AnimatorSet hDy;
+    private AnimatorSet hDM;
     private View mContentView;
-    private boolean hDz = false;
+    private boolean hDN = false;
     private Handler handler = new Handler();
-    private boolean hDA = false;
-    private boolean hDB = false;
-    public boolean hOh = false;
-    public boolean hOi = false;
+    private boolean hDO = false;
+    private boolean hDP = false;
+    public boolean hOv = false;
+    public boolean hOw = false;
     private HttpMessageListener bBe = new HttpMessageListener(1031064) { // from class: com.baidu.tieba.yuyinala.liveroom.p.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -69,7 +69,7 @@ public class c extends BdBaseModel {
                     GetYuyinSuperCustomerInfoHttpResponseMessage getYuyinSuperCustomerInfoHttpResponseMessage = (GetYuyinSuperCustomerInfoHttpResponseMessage) httpResponsedMessage;
                     if (getYuyinSuperCustomerInfoHttpResponseMessage.Ox() != null) {
                         c.this.bvg = getYuyinSuperCustomerInfoHttpResponseMessage.Ox();
-                        b.ebL().bvg = c.this.bvg;
+                        b.ebT().bvg = c.this.bvg;
                         c.this.xg();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913189, "refreshInfo"));
                     }
@@ -83,14 +83,14 @@ public class c extends BdBaseModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage.getData() instanceof String) && c.this.context != null) {
                 String str = (String) customResponsedMessage.getData();
-                if ("consumeSuc".equals(str) && !c.this.hOi) {
-                    c.this.hOi = true;
+                if ("consumeSuc".equals(str) && !c.this.hOw) {
+                    c.this.hOw = true;
                     BdLog.d("consumeSuc");
                     c.this.a(c.this.aJZ, c.this.aJZ.aIz.userId);
                 }
-                if ("chargeSuc".equals(str) && !c.this.hOh) {
+                if ("chargeSuc".equals(str) && !c.this.hOv) {
                     BdLog.d("chargeSuc");
-                    c.this.hOh = true;
+                    c.this.hOv = true;
                     c.this.a(c.this.aJZ, c.this.aJZ.aIz.userId);
                 }
             }
@@ -145,8 +145,8 @@ public class c extends BdBaseModel {
         JSONArray jSONArray;
         if (!TbadkCoreApplication.getInst().isMobileBaidu() && this.aJZ != null && this.aJZ.aIz != null) {
             if (this.aJZ.mLiveInfo == null || this.aJZ.mLiveInfo.screen_direction != 2) {
-                BdLog.d("deal--isTiming:" + this.hDz);
-                if (!this.hDz && TbadkCoreApplication.isLogin() && this.bvg != null && this.bvg.aKc != 1 && !TextUtils.isEmpty(this.bvg.aKd)) {
+                BdLog.d("deal--isTiming:" + this.hDN);
+                if (!this.hDN && TbadkCoreApplication.isLogin() && this.bvg != null && this.bvg.aKc != 1 && !TextUtils.isEmpty(this.bvg.aKd)) {
                     if (this.bvg == null || this.bvg.aKf) {
                         int i = this.bvg.limit;
                         String string = d.xc().getString("super_constomer_show_trace_monthly", "");
@@ -204,7 +204,7 @@ public class c extends BdBaseModel {
                                         }
                                     }
                                 }, i3 * 1000);
-                                this.hDz = true;
+                                this.hDN = true;
                                 return;
                             }
                             return;
@@ -267,8 +267,8 @@ public class c extends BdBaseModel {
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
                 BdLog.d("dialog onShow 播放动画");
-                if (c.this.hDy != null) {
-                    c.this.hDy.start();
+                if (c.this.hDM != null) {
+                    c.this.hDM.start();
                 }
             }
         });
@@ -277,10 +277,10 @@ public class c extends BdBaseModel {
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 BdLog.d("dialog 停止动画");
-                if (c.this.hDy != null) {
-                    c.this.hDy.cancel();
+                if (c.this.hDM != null) {
+                    c.this.hDM.cancel();
                 }
-                c.this.hDz = false;
+                c.this.hDN = false;
             }
         });
         TbImageView tbImageView = (TbImageView) inflate.findViewById(a.f.super_bg);
@@ -328,11 +328,11 @@ public class c extends BdBaseModel {
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(tbImageView2, "scaleY", 1.0f, 1.2f, 1.0f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
-        this.hDy = new AnimatorSet();
-        this.hDy.play(ofFloat).with(ofFloat2);
-        this.hDy.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.hDy.setDuration(2000L);
-        this.hDy.setStartDelay(0L);
+        this.hDM = new AnimatorSet();
+        this.hDM.play(ofFloat).with(ofFloat2);
+        this.hDM.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.hDM.setDuration(2000L);
+        this.hDM.setStartDelay(0L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -389,22 +389,22 @@ public class c extends BdBaseModel {
     }
 
     public void onResume() {
-        if (this.hDB || !this.hDA || this.context == null || this.aJZ == null || this.aJZ.aIz == null) {
+        if (this.hDP || !this.hDO || this.context == null || this.aJZ == null || this.aJZ.aIz == null) {
         }
     }
 
     public void release() {
-        this.hDz = false;
+        this.hDN = false;
         this.aJZ = null;
-        this.hOh = false;
-        this.hOi = false;
+        this.hOv = false;
+        this.hOw = false;
         this.handler.removeCallbacksAndMessages(null);
         FA();
         this.bvg = null;
-        b.ebL().bvg = null;
-        if (this.hDy != null) {
-            this.hDy.cancel();
-            this.hDy = null;
+        b.ebT().bvg = null;
+        if (this.hDM != null) {
+            this.hDM.cancel();
+            this.hDM = null;
         }
         this.context = null;
     }

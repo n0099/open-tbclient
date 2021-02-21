@@ -9,17 +9,17 @@ public interface a extends IInterface {
 
     /* renamed from: com.heytap.openid.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static abstract class AbstractBinderC1060a extends Binder implements a {
+    public static abstract class AbstractBinderC1062a extends Binder implements a {
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.heytap.openid.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes15.dex */
-        public static class C1061a implements a {
+        public static class C1063a implements a {
 
             /* renamed from: a  reason: collision with root package name */
             public IBinder f7902a;
 
-            public C1061a(IBinder iBinder) {
+            public C1063a(IBinder iBinder) {
                 this.f7902a = iBinder;
             }
 
@@ -51,7 +51,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1061a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1063a(iBinder) : (a) queryLocalInterface;
         }
     }
 }

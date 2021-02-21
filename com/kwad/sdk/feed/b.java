@@ -57,7 +57,7 @@ public class b extends AbstractKsFeedAd {
 
     /* renamed from: com.kwad.sdk.feed.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1117b {
+    public interface InterfaceC1119b {
         void a();
     }
 
@@ -89,22 +89,22 @@ public class b extends AbstractKsFeedAd {
         if (aVar == null) {
             return;
         }
-        aVar.setAdClickListener(new a.InterfaceC1118a() { // from class: com.kwad.sdk.feed.b.2
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1118a
+        aVar.setAdClickListener(new a.InterfaceC1120a() { // from class: com.kwad.sdk.feed.b.2
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1120a
             public void a() {
                 if (b.this.f9846a != null) {
                     b.this.f9846a.onAdClicked();
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1118a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1120a
             public void b() {
                 if (b.this.f9846a != null) {
                     b.this.f9846a.onAdShow();
                 }
             }
 
-            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1118a
+            @Override // com.kwad.sdk.feed.widget.base.a.InterfaceC1120a
             public void c() {
                 if (b.this.f9846a != null) {
                     b.this.f9846a.onDislikeClicked();
@@ -124,10 +124,10 @@ public class b extends AbstractKsFeedAd {
         return !TextUtils.isEmpty(this.g.adStyleInfo.feedAdInfo.templateConfig);
     }
 
-    public com.kwad.sdk.feed.widget.base.a a(final InterfaceC1117b interfaceC1117b) {
+    public com.kwad.sdk.feed.widget.base.a a(final InterfaceC1119b interfaceC1119b) {
         Context context = KsAdSDK.getContext();
         if (context == null) {
-            interfaceC1117b.a();
+            interfaceC1119b.a();
         }
         this.c = a(context);
         this.c.setMargin(ao.a(context, 16.0f));
@@ -141,8 +141,8 @@ public class b extends AbstractKsFeedAd {
                     @Override // com.kwad.sdk.feed.widget.l.a
                     public void a() {
                         b.this.a(b.this.c);
-                        if (interfaceC1117b != null) {
-                            interfaceC1117b.a();
+                        if (interfaceC1119b != null) {
+                            interfaceC1119b.a();
                         }
                     }
                 });
@@ -152,12 +152,12 @@ public class b extends AbstractKsFeedAd {
                     ((com.kwad.sdk.feed.widget.a) this.c).a(this.h);
                 }
                 a(this.c);
-                if (interfaceC1117b != null) {
-                    interfaceC1117b.a();
+                if (interfaceC1119b != null) {
+                    interfaceC1119b.a();
                 }
             }
-        } else if (interfaceC1117b != null) {
-            interfaceC1117b.a();
+        } else if (interfaceC1119b != null) {
+            interfaceC1119b.a();
         }
         return this.c;
     }

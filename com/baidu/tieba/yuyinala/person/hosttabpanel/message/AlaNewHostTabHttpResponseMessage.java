@@ -14,14 +14,14 @@ import org.json.JSONObject;
 public class AlaNewHostTabHttpResponseMessage extends JsonHttpResponsedMessage {
     private AlaLiveUserInfoData aId;
     private AlaLiveUserInfoData aIz;
-    private List<AlaLiveInfoData> hVO;
+    private List<AlaLiveInfoData> hWc;
     private boolean mHasMore;
     private AlaLocationData mLocationData;
     private AlaRelationData mRelationData;
 
     public AlaNewHostTabHttpResponseMessage() {
         super(1031072);
-        this.hVO = new ArrayList();
+        this.hWc = new ArrayList();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -60,7 +60,7 @@ public class AlaNewHostTabHttpResponseMessage extends JsonHttpResponsedMessage {
                     this.aIz.parserJson(optJSONObject6);
                 }
             }
-            ListUtils.clear(this.hVO);
+            ListUtils.clear(this.hWc);
             JSONObject optJSONObject7 = optJSONObject.optJSONObject("live_record_info");
             if (optJSONObject7 != null) {
                 JSONArray optJSONArray = optJSONObject7.optJSONArray("record_list");
@@ -70,7 +70,7 @@ public class AlaNewHostTabHttpResponseMessage extends JsonHttpResponsedMessage {
                         if (jSONObject2 != null) {
                             AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                             alaLiveInfoData.parserJson(jSONObject2);
-                            this.hVO.add(alaLiveInfoData);
+                            this.hWc.add(alaLiveInfoData);
                         }
                     }
                 }

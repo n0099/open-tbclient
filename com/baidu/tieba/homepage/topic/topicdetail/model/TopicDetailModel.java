@@ -19,14 +19,14 @@ import com.baidu.tieba.message.RequestBlessMessage;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class TopicDetailModel extends BdBaseModel {
-    private com.baidu.adp.framework.listener.a kjc;
-    private com.baidu.tieba.homepage.topic.topicdetail.a koO;
-    private com.baidu.tieba.homepage.topic.topicdetail.a.a koP;
+    private com.baidu.adp.framework.listener.a kjq;
+    private com.baidu.tieba.homepage.topic.topicdetail.a kpc;
+    private com.baidu.tieba.homepage.topic.topicdetail.a.a kpd;
     private TbPageContext<?> mPageContext;
 
     public TopicDetailModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.kjc = new com.baidu.adp.framework.listener.a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
+        this.kjq = new com.baidu.adp.framework.listener.a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -45,8 +45,8 @@ public class TopicDetailModel extends BdBaseModel {
                     if (j == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
                         j = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
                     }
-                    if (j != 0 && TopicDetailModel.this.koP != null && TopicDetailModel.this.koP.kou != null && TopicDetailModel.this.koP.kou.koz != null && TopicDetailModel.this.koP.kou.koz.pkId == j) {
-                        TopicDetailModel.this.koP.kou.koz.userPkId = j2;
+                    if (j != 0 && TopicDetailModel.this.kpd != null && TopicDetailModel.this.kpd.koI != null && TopicDetailModel.this.kpd.koI.koN != null && TopicDetailModel.this.kpd.koI.koN.pkId == j) {
+                        TopicDetailModel.this.kpd.koI.koN.userPkId = j2;
                     }
                 }
             }
@@ -55,21 +55,21 @@ public class TopicDetailModel extends BdBaseModel {
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_DETAIL, 309629) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.koO != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.kpc != null) {
                     if (responsedMessage instanceof ResponseHttpGetTopicDetailMessage) {
-                        TopicDetailModel.this.koP = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.kpd = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
                     if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
-                        TopicDetailModel.this.koP = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.kpd = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
-                    TopicDetailModel.this.koO.a(responsedMessage.getError(), TopicDetailModel.this.koP);
+                    TopicDetailModel.this.kpc.a(responsedMessage.getError(), TopicDetailModel.this.kpd);
                 }
             }
         });
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_THREAD, 309631) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.3
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.koO != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.kpc != null) {
                     List<n> list = null;
                     boolean z = false;
                     if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
@@ -80,21 +80,21 @@ public class TopicDetailModel extends BdBaseModel {
                         list = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getDataList();
                         z = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getHasMore();
                     }
-                    TopicDetailModel.this.koO.a(responsedMessage.getError(), z, list);
+                    TopicDetailModel.this.kpc.a(responsedMessage.getError(), z, list);
                 }
             }
         });
-        registerListener(this.kjc);
+        registerListener(this.kjq);
     }
 
     public void a(com.baidu.tieba.homepage.topic.topicdetail.a aVar) {
-        this.koO = aVar;
+        this.kpc = aVar;
     }
 
     public void gI(long j) {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.koO != null) {
-                this.koO.a(-1, null);
+            if (this.kpc != null) {
+                this.kpc.a(-1, null);
                 return;
             }
             return;
@@ -108,8 +108,8 @@ public class TopicDetailModel extends BdBaseModel {
 
     public void f(long j, long j2, long j3) {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.koO != null) {
-                this.koO.a(-1, false, null);
+            if (this.kpc != null) {
+                this.kpc.a(-1, false, null);
                 return;
             }
             return;

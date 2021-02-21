@@ -23,132 +23,132 @@ import com.baidu.tieba.newinterest.fragment.InterestedForumFragment;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b.InterfaceC0819b {
+public class a implements View.OnClickListener, InterestedForumAdapter.a, b.a, b.InterfaceC0820b {
     private BdListView.e WH = new BdListView.e() { // from class: com.baidu.tieba.newinterest.a.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (a.this.lEM.hasMore()) {
-                a.this.lEM.djx();
+            if (a.this.lFa.hasMore()) {
+                a.this.lFa.djE();
                 a.this.WX();
             }
         }
     };
-    private PbListView gAi;
-    private final BdRecyclerView ipO;
-    private final InterestedForumFragment lEL;
-    private final b lEM;
-    private InterestedForumAdapter lEN;
-    private final TBSpecificationBtn lEO;
-    private final TBSpecificationBtn lEP;
+    private PbListView gAw;
+    private final BdRecyclerView iqc;
+    private final InterestedForumFragment lEZ;
+    private final b lFa;
+    private InterestedForumAdapter lFb;
+    private final TBSpecificationBtn lFc;
+    private final TBSpecificationBtn lFd;
     private final TbPageContext<BaseFragmentActivity> mPageContext;
 
     public a(InterestedForumFragment interestedForumFragment, BdRecyclerView bdRecyclerView, TBSpecificationBtn tBSpecificationBtn, TBSpecificationBtn tBSpecificationBtn2, TbPageContext<BaseFragmentActivity> tbPageContext, b bVar) {
-        this.lEL = interestedForumFragment;
-        this.ipO = bdRecyclerView;
-        this.lEM = bVar;
+        this.lEZ = interestedForumFragment;
+        this.iqc = bdRecyclerView;
+        this.lFa = bVar;
         this.mPageContext = tbPageContext;
-        this.lEP = tBSpecificationBtn;
-        this.lEO = tBSpecificationBtn2;
+        this.lFd = tBSpecificationBtn;
+        this.lFc = tBSpecificationBtn2;
         initUI();
-        cGL();
+        cGS();
     }
 
     private void initUI() {
-        this.lEN = new InterestedForumAdapter();
-        this.ipO.setLayoutManager(new LinearLayoutManager(this.ipO.getContext()));
-        this.ipO.setAdapter(this.lEN);
-        this.gAi = new PbListView(this.ipO.getContext());
-        this.gAi.createView();
-        this.gAi.setContainerBackgroundColorResId(R.color.CAM_X0205);
-        this.gAi.setLineGone();
-        this.gAi.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.gAi.setTextSize(R.dimen.tbfontsize33);
-        this.gAi.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.ipO.setNextPage(this.gAi);
+        this.lFb = new InterestedForumAdapter();
+        this.iqc.setLayoutManager(new LinearLayoutManager(this.iqc.getContext()));
+        this.iqc.setAdapter(this.lFb);
+        this.gAw = new PbListView(this.iqc.getContext());
+        this.gAw.createView();
+        this.gAw.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.gAw.setLineGone();
+        this.gAw.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.gAw.setTextSize(R.dimen.tbfontsize33);
+        this.gAw.setNoMoreTextColorId(R.color.CAM_X0110);
+        this.iqc.setNextPage(this.gAw);
         WX();
     }
 
-    private void cGL() {
-        this.ipO.setOnSrollToBottomListener(this.WH);
-        this.lEM.a((b.InterfaceC0819b) this);
-        this.lEM.a((b.a) this);
-        this.lEN.a(this);
-        this.lEP.setOnClickListener(this);
+    private void cGS() {
+        this.iqc.setOnSrollToBottomListener(this.WH);
+        this.lFa.a((b.InterfaceC0820b) this);
+        this.lFa.a((b.a) this);
+        this.lFb.a(this);
+        this.lFd.setOnClickListener(this);
     }
 
     public void WX() {
-        this.gAi.setTopExtraViewGone();
-        this.gAi.startLoadData();
-        this.gAi.setText(this.ipO.getContext().getString(R.string.list_loading));
-        this.gAi.showEmptyView(l.getDimens(this.ipO.getContext(), R.dimen.tbds217));
+        this.gAw.setTopExtraViewGone();
+        this.gAw.startLoadData();
+        this.gAw.setText(this.iqc.getContext().getString(R.string.list_loading));
+        this.gAw.showEmptyView(l.getDimens(this.iqc.getContext(), R.dimen.tbds217));
     }
 
-    public void djq() {
-        this.gAi.av(this.ipO.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.ipO.getContext(), R.dimen.tbds178));
-        this.gAi.setTextSize(R.dimen.tbds36);
-        this.gAi.setNoMoreTextColorId(R.color.CAM_X0109);
-        this.gAi.endLoadData();
-        this.gAi.showEmptyView(l.getDimens(this.ipO.getContext(), R.dimen.tbds217));
+    public void djx() {
+        this.gAw.av(this.iqc.getContext().getString(R.string.interested_forum_list_no_more), l.getDimens(this.iqc.getContext(), R.dimen.tbds178));
+        this.gAw.setTextSize(R.dimen.tbds36);
+        this.gAw.setNoMoreTextColorId(R.color.CAM_X0109);
+        this.gAw.endLoadData();
+        this.gAw.showEmptyView(l.getDimens(this.iqc.getContext(), R.dimen.tbds217));
     }
 
-    public void djo() {
-        this.lEN.djo();
+    public void djv() {
+        this.lFb.djv();
     }
 
     public void fd(List<com.baidu.tieba.newinterest.data.b> list) {
-        this.lEM.fj(list);
-        this.lEM.djx();
+        this.lFa.fj(list);
+        this.lFa.djE();
     }
 
     @Override // com.baidu.tieba.newinterest.b.b.a
-    public void bTe() {
+    public void bTl() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(0)));
     }
 
-    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0819b
+    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0820b
     public void a(c cVar) {
-        if (cVar != null && cVar.lES != null && !y.isEmpty(cVar.lES)) {
-            if (this.ipO.getVisibility() == 8) {
-                this.ipO.setVisibility(0);
+        if (cVar != null && cVar.lFg != null && !y.isEmpty(cVar.lFg)) {
+            if (this.iqc.getVisibility() == 8) {
+                this.iqc.setVisibility(0);
             }
-            this.lEN.cv(cVar.lES);
-            this.lEL.djr();
+            this.lFb.cv(cVar.lFg);
+            this.lEZ.djy();
         }
-        if (!this.lEM.hasMore()) {
-            djq();
+        if (!this.lFa.hasMore()) {
+            djx();
         }
     }
 
-    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0819b
+    @Override // com.baidu.tieba.newinterest.b.b.InterfaceC0820b
     public void onError(int i, String str) {
-        this.lEL.onError(str);
+        this.lEZ.onError(str);
     }
 
     @Override // com.baidu.tieba.newinterest.adapter.InterestedForumAdapter.a
     public void ac(int i, boolean z) {
-        if (i > 0 && !this.lEP.isEnabled()) {
-            this.lEP.setEnabled(true);
-            this.lEP.setText(this.ipO.getResources().getString(R.string.start_the_trip));
+        if (i > 0 && !this.lFd.isEnabled()) {
+            this.lFd.setEnabled(true);
+            this.lFd.setText(this.iqc.getResources().getString(R.string.start_the_trip));
         } else if (i == 0) {
-            this.lEP.setEnabled(false);
-            this.lEP.setText(this.ipO.getResources().getString(R.string.try_to_select));
+            this.lFd.setEnabled(false);
+            this.lFd.setText(this.iqc.getResources().getString(R.string.try_to_select));
         }
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
         if (!z) {
-            this.lEO.setText(this.mPageContext.getString(R.string.select_all));
-            this.lEO.setConfig(bVar);
+            this.lFc.setText(this.mPageContext.getString(R.string.select_all));
+            this.lFc.setConfig(bVar);
             return;
         }
-        this.lEO.setText(this.mPageContext.getString(R.string.unselect_all));
+        this.lFc.setText(this.mPageContext.getString(R.string.unselect_all));
         bVar.pT(R.color.CAM_X0109);
-        this.lEO.setConfig(bVar);
+        this.lFc.setConfig(bVar);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.lEP) {
+        if (view == this.lFd) {
             try {
-                this.lEM.fh(this.lEN.djn());
+                this.lFa.fh(this.lFb.dju());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

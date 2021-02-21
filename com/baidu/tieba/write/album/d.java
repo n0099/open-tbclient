@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
 public class d {
-    private static d odY;
+    private static d oey;
     private BroadcastReceiver bLP;
     private ContentObserver bLQ;
     private Handler mHandler = new Handler(Looper.getMainLooper());
@@ -22,7 +22,7 @@ public class d {
     private Runnable bLR = new Runnable() { // from class: com.baidu.tieba.write.album.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.m48do(false);
+            d.this.m47do(false);
         }
     };
 
@@ -31,16 +31,16 @@ public class d {
         void dp(boolean z);
     }
 
-    public static d dWO() {
-        if (odY == null) {
+    public static d dWW() {
+        if (oey == null) {
             synchronized (d.class) {
-                if (odY == null) {
-                    odY = new d();
-                    odY.init(TbadkCoreApplication.getInst());
+                if (oey == null) {
+                    oey = new d();
+                    oey.init(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return odY;
+        return oey;
     }
 
     private d() {
@@ -74,7 +74,7 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void p(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            m48do(true);
+            m47do(true);
             return;
         }
         this.handler.removeCallbacks(this.bLR);
@@ -82,7 +82,7 @@ public class d {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public void m48do(boolean z) {
+    public void m47do(boolean z) {
         Iterator<a> it = this.mListeners.iterator();
         while (it.hasNext()) {
             it.next().dp(z);
@@ -111,6 +111,6 @@ public class d {
         inst.unregisterReceiver(this.bLP);
         inst.getContentResolver().unregisterContentObserver(this.bLQ);
         this.handler.removeCallbacks(this.bLR);
-        odY = null;
+        oey = null;
     }
 }

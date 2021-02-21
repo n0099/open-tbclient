@@ -18,7 +18,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void OQ(String str) {
+    public void OR(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         HttpMessage httpMessage = new HttpMessage(1003350);
         httpMessage.addParam("package_ids", str);

@@ -38,7 +38,7 @@ public class h {
                     System.loadLibrary(str2);
                 }
             });
-            Aegon.eCp();
+            Aegon.eCx();
             Aegon.setDebug(false);
         }
     }

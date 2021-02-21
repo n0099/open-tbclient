@@ -1,262 +1,107 @@
 package com.baidu.tieba.recapp;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.cache.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class b implements l, n {
-    private static volatile b mQT;
-    private final AtomicReference<com.baidu.adp.lib.cache.l<String>> mQU = new AtomicReference<>(null);
-    private AtomicReference<com.baidu.adp.lib.cache.l<String>> mQV = new AtomicReference<>(null);
-    private boolean mQZ = false;
-    private boolean mRa = false;
-    private CustomMessageListener mRb = new CustomMessageListener(CmdConfigCustom.CMD_SPLASH_AD_JUMP_URL) { // from class: com.baidu.tieba.recapp.b.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921022 && (customResponsedMessage.getData() instanceof String)) {
-                com.baidu.tieba.ad.a.bLi().a(TbadkCoreApplication.getInst(), new String[]{(String) customResponsedMessage.getData()}, null);
+import com.baidu.tbadk.core.util.TiebaStatic;
+import java.io.File;
+/* loaded from: classes.dex */
+public class b {
+    private static String mRi = TbadkCoreApplication.getInst().getApp().getExternalCacheDir() + "/nadDir";
+
+    public static File Rk(@NonNull String str) {
+        return !com.baidu.tieba.a.bJg().bJo() ? com.baidu.tbadk.core.util.o.GetFile(str) : Ro(getFilePath(str));
+    }
+
+    public static String Rl(String str) {
+        return getFilePath(Rm(str));
+    }
+
+    private static String getFilePath(@NonNull String str) {
+        if (!com.baidu.tieba.a.bJg().bJo()) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(com.baidu.tbadk.core.util.o.getCacheDir());
+            File file = new File(sb.toString());
+            if (!file.exists()) {
+                file.mkdirs();
             }
+            sb.append("/");
+            sb.append(str);
+            return sb.toString();
         }
-    };
-    private HashMap<String, g> mQW = new HashMap<>();
-    private int mQX = 0;
-    private String mQY = dDc();
-
-    public static b dCX() {
-        if (mQT == null) {
-            synchronized (b.class) {
-                if (mQT == null) {
-                    mQT = new b();
-                }
-            }
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(mRi);
+        File file2 = new File(sb2.toString());
+        if (!file2.exists()) {
+            file2.mkdirs();
         }
-        return mQT;
+        sb2.append("/");
+        sb2.append(str);
+        return sb2.toString();
     }
 
-    private b() {
-        MessageManager.getInstance().registerListener(this.mRb);
+    public static String Rm(@NonNull String str) {
+        return str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk";
     }
 
-    @Override // com.baidu.tieba.recapp.l
-    public void dCY() {
-        if (!this.mQZ) {
-            Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.b.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    com.baidu.adp.lib.cache.l lVar = (com.baidu.adp.lib.cache.l) b.this.mQU.get();
-                    if (lVar != null) {
-                        lVar.a(b.this.mQY, new l.a<String>() { // from class: com.baidu.tieba.recapp.b.2.1
-                            /* JADX DEBUG: Method merged with bridge method */
-                            @Override // com.baidu.adp.lib.cache.l.a
-                            /* renamed from: fd */
-                            public void onItemGet(String str, String str2) {
-                                if (!TextUtils.isEmpty(str2)) {
-                                    Iterator it = b.this.Rj(str2).iterator();
-                                    while (it.hasNext()) {
-                                        g gVar = (g) it.next();
-                                        if (gVar != null) {
-                                            b.this.mQW.put(gVar.forumName, gVar);
-                                            b.this.mQZ = true;
-                                        }
-                                    }
-                                }
-                            }
-                        });
-                    }
-                }
-            };
-            if (this.mQU.get() == null) {
-                new a(this.mQU, "frs.refresh.count", runnable).execute(new Void[0]);
-            }
-        }
+    public static String gh(@NonNull String str, @NonNull String str2) {
+        return str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2 + ".tmp";
     }
 
-    @Override // com.baidu.tieba.recapp.l
-    public void f(String str, int i, boolean z) {
-        if (i == 1) {
-            l(str, true, z);
-        } else if (i == 2) {
-            l(str, false, z);
-        }
-    }
-
-    private void l(String str, boolean z, boolean z2) {
-        dDd();
-        g gVar = this.mQW.get(str);
-        if (gVar == null) {
-            gVar = new g();
-            gVar.forumName = str;
-            this.mQW.put(gVar.forumName, gVar);
-        }
-        gVar.az(z, z2);
-        I(this.mQW);
-    }
-
-    private synchronized void I(HashMap<String, g> hashMap) {
-        com.baidu.adp.lib.cache.l<String> lVar = this.mQU.get();
-        if (lVar != null) {
-            JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, g> entry : hashMap.entrySet()) {
-                JSONObject ajv = entry.getValue().ajv();
-                if (ajv != null) {
-                    jSONArray.put(ajv);
-                }
-            }
-            lVar.asyncSet(this.mQY, jSONArray.toString(), 86400000L);
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.l
-    public int ba(String str, boolean z) {
-        return m(str, true, z);
-    }
-
-    @Override // com.baidu.tieba.recapp.l
-    public int bb(String str, boolean z) {
-        return m(str, false, z);
-    }
-
-    private int m(String str, boolean z, boolean z2) {
-        g gVar = this.mQW.get(str);
-        if (gVar == null || !Rk(dDc())) {
-            return 0;
-        }
-        return gVar.ay(z, z2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<g> Rj(String str) {
-        ArrayList<g> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(new g(jSONArray.optJSONObject(i)));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return arrayList;
-    }
-
-    @Override // com.baidu.tieba.recapp.n
-    public void dCZ() {
-        if (!this.mRa) {
-            Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.b.3
-                @Override // java.lang.Runnable
-                public void run() {
-                    ((com.baidu.adp.lib.cache.l) b.this.mQV.get()).a(b.this.mQY, new l.a<String>() { // from class: com.baidu.tieba.recapp.b.3.1
-                        /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.adp.lib.cache.l.a
-                        /* renamed from: fd */
-                        public void onItemGet(String str, String str2) {
-                            if (!TextUtils.isEmpty(str2)) {
-                                try {
-                                    b.this.mQX = Integer.parseInt(str2);
-                                } catch (NumberFormatException e) {
-                                    b.this.mQX = 0;
-                                }
-                                b.this.mRa = true;
-                            }
-                        }
-                    });
-                }
-            };
-            if (this.mQV.get() == null) {
-                new a(this.mQV, "hot.splash.count", runnable).execute(new Void[0]);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.n
-    public void dDa() {
-        com.baidu.adp.lib.cache.l<String> lVar = this.mQV.get();
-        if (lVar != null) {
-            dDd();
-            this.mQX++;
-            lVar.asyncSet(this.mQY, Integer.toString(this.mQX), 86400000L);
-        }
-    }
-
-    @Override // com.baidu.tieba.recapp.n
-    public int dDb() {
-        if (Rk(dDc())) {
-            return this.mQX;
-        }
-        return 0;
-    }
-
-    private String dDc() {
-        return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-    }
-
-    private boolean Rk(String str) {
-        if (TextUtils.isEmpty(this.mQY)) {
+    public static boolean Rn(@NonNull String str) {
+        if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.mQY.equals(str);
+        return af(Rk(Rm(str)));
     }
 
-    private void dDd() {
-        String dDc = dDc();
-        if (!Rk(dDc)) {
-            this.mQW.clear();
-            this.mQX = 0;
-            this.mQY = dDc;
+    public static boolean gi(@NonNull String str, @NonNull String str2) {
+        if (TbadkCoreApplication.getInst().getSharedPreferences(SharedPrefConfig.APP_DOWNLOAD_PROGRESS, 0).getLong(str, 0L) == 0) {
+            return false;
         }
+        return af(Rk(gh(str, str2)));
     }
 
-    /* loaded from: classes8.dex */
-    private static final class a extends BdAsyncTask<Void, Void, Void> {
-        private final AtomicReference<com.baidu.adp.lib.cache.l<String>> mRf;
-        private final String mRg;
-        private final Runnable mRh;
+    public static File createFileIfNotFound(@NonNull String str) {
+        return com.baidu.tbadk.core.util.o.CreateFileIfNotFoundAbsolutePath(getFilePath(str));
+    }
 
-        private a(AtomicReference<com.baidu.adp.lib.cache.l<String>> atomicReference, String str, Runnable runnable) {
-            this.mRf = atomicReference;
-            this.mRg = str;
-            this.mRh = runnable;
-            setPriority(4);
-        }
+    public static File Ro(@NonNull String str) {
+        return com.baidu.tbadk.core.util.o.GetFileByAbsolutePath(str);
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            if (this.mRf.get() == null) {
-                synchronized (a.class) {
-                    if (this.mRf.get() == null) {
-                        this.mRf.set(com.baidu.tbadk.core.c.a.bqr().As(this.mRg));
+    public static void Rp(String str) {
+        deleteFileOrDir(Rk(Rm(str)));
+    }
+
+    public static void deleteFileOrDir(File file) {
+        if (file != null) {
+            try {
+                if (file.exists()) {
+                    if (file.isDirectory()) {
+                        File[] listFiles = file.listFiles();
+                        int length = listFiles.length;
+                        for (int i = 0; i < length; i++) {
+                            if (listFiles[i].isFile()) {
+                                listFiles[i].delete();
+                            } else {
+                                deleteFileOrDir(listFiles[i]);
+                            }
+                        }
                     }
+                    file.delete();
                 }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                TiebaStatic.file(e, "FileHelper.deleteFileOrDir");
             }
-            return null;
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Void r2) {
-            super.onPostExecute((a) r2);
-            if (this.mRh != null) {
-                this.mRh.run();
-            }
-        }
+    public static boolean af(File file) {
+        return file != null && file.exists() && file.isFile();
     }
 }

@@ -10,24 +10,24 @@ import java.util.List;
 public class c {
     private final List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
     private com.baidu.adp.base.f eVB;
-    private BdTypeListView gzb;
-    private b jyn;
+    private BdTypeListView gzp;
+    private b jyB;
 
     public c(com.baidu.adp.base.f fVar, BdTypeListView bdTypeListView) {
         this.eVB = fVar;
-        this.gzb = bdTypeListView;
+        this.gzp = bdTypeListView;
         Kw();
     }
 
     private void Kw() {
-        this.jyn = new b((TbPageContext) this.eVB, com.baidu.tieba.frs.game.strategy.data.b.jxv);
-        this.bns.add(this.jyn);
-        this.gzb.addAdapters(this.bns);
+        this.jyB = new b((TbPageContext) this.eVB, com.baidu.tieba.frs.game.strategy.data.b.jxJ);
+        this.bns.add(this.jyB);
+        this.gzp.addAdapters(this.bns);
     }
 
     public void setData(List<n> list) {
-        if (this.gzb != null) {
-            this.gzb.setData(list);
+        if (this.gzp != null) {
+            this.gzp.setData(list);
         }
     }
 
@@ -40,8 +40,8 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        if (this.gzb.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.gzb.getAdapter().notifyDataSetChanged();
+        if (this.gzp.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.gzp.getAdapter().notifyDataSetChanged();
         }
     }
 }

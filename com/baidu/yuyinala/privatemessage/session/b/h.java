@@ -8,23 +8,23 @@ import java.util.HashSet;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class h {
-    private static h pjr = null;
-    private Map<String, String> pjs = new HashMap();
-    private HashSet<String> pjt = new HashSet<>();
+    private static h pjR = null;
+    private Map<String, String> pjS = new HashMap();
+    private HashSet<String> pjT = new HashSet<>();
 
-    public static h emR() {
-        if (pjr == null) {
+    public static h emZ() {
+        if (pjR == null) {
             synchronized (h.class) {
-                if (pjr == null) {
-                    pjr = new h();
+                if (pjR == null) {
+                    pjR = new h();
                 }
             }
         }
-        return pjr;
+        return pjR;
     }
 
-    public Map<String, String> emS() {
-        return this.pjs;
+    public Map<String, String> ena() {
+        return this.pjS;
     }
 
     public static String encode(String str) {
@@ -54,7 +54,7 @@ public class h {
     private void a(Context context, HashMap<String, String> hashMap, g gVar) {
     }
 
-    public String Ys(String str) {
-        return this.pjs.get(str);
+    public String YE(String str) {
+        return this.pjS.get(str);
     }
 }

@@ -13,20 +13,20 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes5.dex */
 public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
-    static final long pHl = TimeUnit.MINUTES.toMillis(5);
-    private final v<V> pHi;
+    static final long pHL = TimeUnit.MINUTES.toMillis(5);
+    private final v<V> pHI;
     @GuardedBy("this")
-    final g<K, b<K, V>> pHm;
+    final g<K, b<K, V>> pHM;
     @GuardedBy("this")
-    final g<K, b<K, V>> pHn;
-    private final a pHp;
-    private final com.facebook.common.internal.j<q> pHq;
+    final g<K, b<K, V>> pHN;
+    private final a pHP;
+    private final com.facebook.common.internal.j<q> pHQ;
     @GuardedBy("this")
-    protected q pHr;
+    protected q pHR;
     @GuardedBy("this")
-    final Map<Bitmap, Object> pHo = new WeakHashMap();
+    final Map<Bitmap, Object> pHO = new WeakHashMap();
     @GuardedBy("this")
-    private long pHs = SystemClock.uptimeMillis();
+    private long pHS = SystemClock.uptimeMillis();
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -41,16 +41,16 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
     /* loaded from: classes5.dex */
     public static class b<K, V> {
         public final K key;
-        public final com.facebook.common.references.a<V> pHw;
-        public int pHx = 0;
-        public boolean pHy = false;
+        public final com.facebook.common.references.a<V> pHW;
+        public int pHX = 0;
+        public boolean pHY = false;
         @Nullable
-        public final c<K> pHz;
+        public final c<K> pHZ;
 
         private b(K k, com.facebook.common.references.a<V> aVar, @Nullable c<K> cVar) {
             this.key = (K) com.facebook.common.internal.g.checkNotNull(k);
-            this.pHw = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(com.facebook.common.references.a.b(aVar));
-            this.pHz = cVar;
+            this.pHW = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(com.facebook.common.references.a.b(aVar));
+            this.pHZ = cVar;
         }
 
         static <K, V> b<K, V> b(K k, com.facebook.common.references.a<V> aVar, @Nullable c<K> cVar) {
@@ -59,12 +59,12 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
     }
 
     public h(v<V> vVar, a aVar, com.facebook.common.internal.j<q> jVar) {
-        this.pHi = vVar;
-        this.pHm = new g<>(a(vVar));
-        this.pHn = new g<>(a(vVar));
-        this.pHp = aVar;
-        this.pHq = jVar;
-        this.pHr = this.pHq.get();
+        this.pHI = vVar;
+        this.pHM = new g<>(a(vVar));
+        this.pHN = new g<>(a(vVar));
+        this.pHP = aVar;
+        this.pHQ = jVar;
+        this.pHR = this.pHQ.get();
     }
 
     private v<b<K, V>> a(final v<V> vVar) {
@@ -73,7 +73,7 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
             @Override // com.facebook.imagepipeline.b.v
             /* renamed from: j */
             public int bq(b<K, V> bVar) {
-                return vVar.bq(bVar.pHw.get());
+                return vVar.bq(bVar.pHW.get());
             }
         };
     }
@@ -89,10 +89,10 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
         com.facebook.common.references.a<V> aVar3;
         com.facebook.common.internal.g.checkNotNull(k);
         com.facebook.common.internal.g.checkNotNull(aVar);
-        evK();
+        evS();
         synchronized (this) {
-            remove = this.pHm.remove(k);
-            b<K, V> remove2 = this.pHn.remove(k);
+            remove = this.pHM.remove(k);
+            b<K, V> remove2 = this.pHN.remove(k);
             if (remove2 != null) {
                 f(remove2);
                 aVar2 = i(remove2);
@@ -101,7 +101,7 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
             }
             if (bt(aVar.get())) {
                 b<K, V> b2 = b.b(k, aVar, cVar);
-                this.pHn.put(k, b2);
+                this.pHN.put(k, b2);
                 aVar3 = a(b2);
             } else {
                 aVar3 = null;
@@ -109,15 +109,15 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
         }
         com.facebook.common.references.a.c(aVar2);
         d(remove);
-        evL();
+        evT();
         return aVar3;
     }
 
     private synchronized boolean bt(V v) {
         boolean z;
-        int bq = this.pHi.bq(v);
-        if (bq <= this.pHr.pHH && evM() <= this.pHr.pHE - 1) {
-            z = evN() <= this.pHr.pHD - bq;
+        int bq = this.pHI.bq(v);
+        if (bq <= this.pHR.pIh && evU() <= this.pHR.pIe - 1) {
+            z = evV() <= this.pHR.pId - bq;
         }
         return z;
     }
@@ -129,8 +129,8 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
         com.facebook.common.references.a<V> aVar;
         com.facebook.common.internal.g.checkNotNull(k);
         synchronized (this) {
-            remove = this.pHm.remove(k);
-            b<K, V> bVar = this.pHn.get(k);
+            remove = this.pHM.remove(k);
+            b<K, V> bVar = this.pHN.get(k);
             if (bVar == null) {
                 aVar = null;
             } else {
@@ -138,14 +138,14 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
             }
         }
         d(remove);
-        evK();
-        evL();
+        evS();
+        evT();
         return aVar;
     }
 
     private synchronized com.facebook.common.references.a<V> a(final b<K, V> bVar) {
         g(bVar);
-        return com.facebook.common.references.a.a(bVar.pHw.get(), new com.facebook.common.references.c<V>() { // from class: com.facebook.imagepipeline.b.h.2
+        return com.facebook.common.references.a.a(bVar.pHW.get(), new com.facebook.common.references.c<V>() { // from class: com.facebook.imagepipeline.b.h.2
             @Override // com.facebook.common.references.c
             public void release(V v) {
                 h.this.b(bVar);
@@ -168,16 +168,16 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
             bVar = null;
         }
         e(bVar);
-        evK();
-        evL();
+        evS();
+        evT();
     }
 
     private synchronized boolean c(b<K, V> bVar) {
         boolean z;
-        if (bVar.pHy || bVar.pHx != 0) {
+        if (bVar.pHY || bVar.pHX != 0) {
             z = false;
         } else {
-            this.pHm.put(bVar.key, bVar);
+            this.pHM.put(bVar.key, bVar);
             z = true;
         }
         return z;
@@ -190,12 +190,12 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
         com.facebook.common.internal.g.checkNotNull(k);
         com.facebook.common.references.a<V> aVar = null;
         synchronized (this) {
-            remove = this.pHm.remove(k);
+            remove = this.pHM.remove(k);
             if (remove != null) {
-                b<K, V> remove2 = this.pHn.remove(k);
+                b<K, V> remove2 = this.pHN.remove(k);
                 com.facebook.common.internal.g.checkNotNull(remove2);
-                com.facebook.common.internal.g.checkState(remove2.pHx == 0);
-                com.facebook.common.references.a<V> aVar2 = remove2.pHw;
+                com.facebook.common.internal.g.checkState(remove2.pHX == 0);
+                com.facebook.common.references.a<V> aVar2 = remove2.pHW;
                 z = true;
                 aVar = aVar2;
             } else {
@@ -213,59 +213,59 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
         ArrayList<b<K, V>> b2;
         ArrayList<b<K, V>> b3;
         synchronized (this) {
-            b2 = this.pHm.b(hVar);
-            b3 = this.pHn.b(hVar);
+            b2 = this.pHM.b(hVar);
+            b3 = this.pHN.b(hVar);
             bn(b3);
         }
         bl(b3);
         bm(b2);
-        evK();
-        evL();
+        evS();
+        evT();
         return b3.size();
     }
 
     @Override // com.facebook.imagepipeline.b.p
     public synchronized boolean d(com.facebook.common.internal.h<K> hVar) {
-        return !this.pHn.a(hVar).isEmpty();
+        return !this.pHN.a(hVar).isEmpty();
     }
 
     public synchronized boolean contains(K k) {
-        return this.pHn.contains(k);
+        return this.pHN.contains(k);
     }
 
-    private synchronized void evK() {
-        if (this.pHs + pHl <= SystemClock.uptimeMillis()) {
-            this.pHs = SystemClock.uptimeMillis();
-            this.pHr = this.pHq.get();
+    private synchronized void evS() {
+        if (this.pHS + pHL <= SystemClock.uptimeMillis()) {
+            this.pHS = SystemClock.uptimeMillis();
+            this.pHR = this.pHQ.get();
         }
     }
 
-    private void evL() {
-        ArrayList<b<K, V>> dZ;
+    private void evT() {
+        ArrayList<b<K, V>> ea;
         synchronized (this) {
-            dZ = dZ(Math.min(this.pHr.pHG, this.pHr.pHE - evM()), Math.min(this.pHr.pHF, this.pHr.pHD - evN()));
-            bn(dZ);
+            ea = ea(Math.min(this.pHR.pIg, this.pHR.pIe - evU()), Math.min(this.pHR.pIf, this.pHR.pId - evV()));
+            bn(ea);
         }
-        bl(dZ);
-        bm(dZ);
+        bl(ea);
+        bm(ea);
     }
 
     @Nullable
-    private synchronized ArrayList<b<K, V>> dZ(int i, int i2) {
+    private synchronized ArrayList<b<K, V>> ea(int i, int i2) {
         ArrayList<b<K, V>> arrayList;
         int max = Math.max(i, 0);
         int max2 = Math.max(i2, 0);
-        if (this.pHm.getCount() <= max && this.pHm.getSizeInBytes() <= max2) {
+        if (this.pHM.getCount() <= max && this.pHM.getSizeInBytes() <= max2) {
             arrayList = null;
         } else {
             arrayList = new ArrayList<>();
             while (true) {
-                if (this.pHm.getCount() <= max && this.pHm.getSizeInBytes() <= max2) {
+                if (this.pHM.getCount() <= max && this.pHM.getSizeInBytes() <= max2) {
                     break;
                 }
-                K evJ = this.pHm.evJ();
-                this.pHm.remove(evJ);
-                arrayList.add(this.pHn.remove(evJ));
+                K evR = this.pHM.evR();
+                this.pHM.remove(evR);
+                arrayList.add(this.pHN.remove(evR));
             }
         }
         return arrayList;
@@ -290,14 +290,14 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
     }
 
     private static <K, V> void d(@Nullable b<K, V> bVar) {
-        if (bVar != null && bVar.pHz != null) {
-            bVar.pHz.e(bVar.key, false);
+        if (bVar != null && bVar.pHZ != null) {
+            bVar.pHZ.e(bVar.key, false);
         }
     }
 
     private static <K, V> void e(@Nullable b<K, V> bVar) {
-        if (bVar != null && bVar.pHz != null) {
-            bVar.pHz.e(bVar.key, true);
+        if (bVar != null && bVar.pHZ != null) {
+            bVar.pHZ.e(bVar.key, true);
         }
     }
 
@@ -313,34 +313,34 @@ public class h<K, V> implements com.facebook.common.memory.b, p<K, V> {
     private synchronized void f(b<K, V> bVar) {
         synchronized (this) {
             com.facebook.common.internal.g.checkNotNull(bVar);
-            com.facebook.common.internal.g.checkState(bVar.pHy ? false : true);
-            bVar.pHy = true;
+            com.facebook.common.internal.g.checkState(bVar.pHY ? false : true);
+            bVar.pHY = true;
         }
     }
 
     private synchronized void g(b<K, V> bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        com.facebook.common.internal.g.checkState(!bVar.pHy);
-        bVar.pHx++;
+        com.facebook.common.internal.g.checkState(!bVar.pHY);
+        bVar.pHX++;
     }
 
     private synchronized void h(b<K, V> bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        com.facebook.common.internal.g.checkState(bVar.pHx > 0);
-        bVar.pHx--;
+        com.facebook.common.internal.g.checkState(bVar.pHX > 0);
+        bVar.pHX--;
     }
 
     @Nullable
     private synchronized com.facebook.common.references.a<V> i(b<K, V> bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        return (bVar.pHy && bVar.pHx == 0) ? bVar.pHw : null;
+        return (bVar.pHY && bVar.pHX == 0) ? bVar.pHW : null;
     }
 
-    public synchronized int evM() {
-        return this.pHn.getCount() - this.pHm.getCount();
+    public synchronized int evU() {
+        return this.pHN.getCount() - this.pHM.getCount();
     }
 
-    public synchronized int evN() {
-        return this.pHn.getSizeInBytes() - this.pHm.getSizeInBytes();
+    public synchronized int evV() {
+        return this.pHN.getSizeInBytes() - this.pHM.getSizeInBytes();
     }
 }

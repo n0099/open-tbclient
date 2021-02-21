@@ -13,19 +13,19 @@ public class b implements n {
     public String cover;
     public String desc;
     public cb eJQ;
-    public int iBm;
-    public boolean jbp;
+    public int iBA;
+    public boolean jbD;
     public int likeNum;
     public int time;
 
     public b(ThreadInfo threadInfo, boolean z) {
         c(threadInfo);
-        this.jbp = z;
+        this.jbD = z;
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.lyN;
+        return a.lzb;
     }
 
     private void c(ThreadInfo threadInfo) {
@@ -33,7 +33,7 @@ public class b implements n {
             this.eJQ = new cb();
             this.eJQ.a(threadInfo);
             this.desc = threadInfo.title;
-            this.iBm = threadInfo.reply_num.intValue();
+            this.iBA = threadInfo.reply_num.intValue();
             this.likeNum = threadInfo.agree_num.intValue();
             if (!y.isEmpty(this.eJQ.bnZ())) {
                 Iterator<MediaData> it = this.eJQ.bnZ().iterator();

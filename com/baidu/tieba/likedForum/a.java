@@ -8,10 +8,10 @@ import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes.dex */
 public class a {
-    private List<ForumInfo> jPl;
+    private List<ForumInfo> jPz;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
-    private InterfaceC0778a lgK = null;
+    private InterfaceC0779a lgY = null;
     private com.baidu.adp.framework.listener.a netMessageListener = new com.baidu.adp.framework.listener.a(1003316, CmdConfigSocket.CMD_GET_BOTTLE_FORUM_LIST) { // from class: com.baidu.tieba.likedForum.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -19,20 +19,20 @@ public class a {
                 if ((responsedMessage instanceof GetBottleForumListHttpResMessage) || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetBottleForumListReqMessage) || a.this.mRequestId == ((GetBottleForumListReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.lgK != null) {
-                                a.this.lgK.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            if (a.this.lgY != null) {
+                                a.this.lgY.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
                                 return;
                             }
                             return;
                         }
                         if (responsedMessage instanceof GetBottleForumListHttpResMessage) {
-                            a.this.jPl = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
+                            a.this.jPz = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
                         }
                         if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
-                            a.this.jPl = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
+                            a.this.jPz = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
                         }
-                        if (a.this.lgK != null) {
-                            a.this.lgK.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.jPl);
+                        if (a.this.lgY != null) {
+                            a.this.lgY.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.jPz);
                         }
                     }
                 }
@@ -42,7 +42,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.likedForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0778a {
+    public interface InterfaceC0779a {
         void a(boolean z, int i, String str, List<ForumInfo> list);
     }
 
@@ -62,8 +62,8 @@ public class a {
         return false;
     }
 
-    public void a(InterfaceC0778a interfaceC0778a) {
-        this.lgK = interfaceC0778a;
+    public void a(InterfaceC0779a interfaceC0779a) {
+        this.lgY = interfaceC0779a;
     }
 
     public void destroy() {

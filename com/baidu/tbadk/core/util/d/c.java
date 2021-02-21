@@ -18,7 +18,7 @@ public class c implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, boolean z, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.bCP().Dk(str);
+        return com.baidu.tbadk.imageManager.c.bCP().Di(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

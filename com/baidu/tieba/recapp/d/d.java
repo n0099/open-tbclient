@@ -19,7 +19,7 @@ public class d {
 
     public e a(AdCard.f fVar, e eVar) {
         if (fVar != null && fVar.style != null) {
-            if (eVar == null || !gl(fVar.style, eVar.mXJ)) {
+            if (eVar == null || !gn(fVar.style, eVar.mYj)) {
                 if (this.epo == null) {
                     return null;
                 }
@@ -40,7 +40,7 @@ public class d {
         return eVar;
     }
 
-    private boolean gl(String str, String str2) {
+    private boolean gn(String str, String str2) {
         if ("apk_download".equals(str)) {
             return "apk_download".equals(str2);
         }

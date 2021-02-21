@@ -35,7 +35,7 @@ public class e extends a<ca, ThreadCardViewHolder<cb>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, cb cbVar) {
-                t.csu().mG(true);
+                t.csB().mG(true);
                 e.this.g(view, cbVar);
             }
         };

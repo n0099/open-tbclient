@@ -79,7 +79,7 @@ public class ba {
     }
 
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
-        return (T) a(cls, str, a(objArr)).invoke(null, m184a(objArr));
+        return (T) a(cls, str, a(objArr)).invoke(null, m183a(objArr));
     }
 
     public static <T> T a(Object obj, String str) {
@@ -190,7 +190,7 @@ public class ba {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static Object[] m184a(Object... objArr) {
+    private static Object[] m183a(Object... objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -212,6 +212,6 @@ public class ba {
     }
 
     public static <T> T b(Object obj, String str, Object... objArr) {
-        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m184a(objArr));
+        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m183a(objArr));
     }
 }

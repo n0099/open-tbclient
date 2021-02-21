@@ -27,9 +27,9 @@ public class b implements Runnable {
     private ArrayList<MediaModel> dkh;
     private String dle;
     private String dlh;
-    private com.baidu.swan.apps.media.chooser.listener.d gmI;
-    private HandlerC0604b gmJ;
-    private a gmK;
+    private com.baidu.swan.apps.media.chooser.listener.d gmW;
+    private HandlerC0605b gmX;
+    private a gmY;
     private Context mContext;
 
     public b(Context context, Bundle bundle, com.baidu.swan.apps.media.chooser.listener.d dVar) {
@@ -38,15 +38,15 @@ public class b implements Runnable {
         this.dle = u.h(bundle, "swanAppId");
         this.djp = u.c(bundle, "compressed", false);
         this.dlh = u.h(bundle, "swanTmpPath");
-        this.gmI = dVar;
-        this.gmJ = new HandlerC0604b(context);
+        this.gmW = dVar;
+        this.gmX = new HandlerC0605b(context);
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        bNM();
-        if (this.gmJ != null) {
-            this.gmJ.sendEmptyMessage(1);
+        bNT();
+        if (this.gmX != null) {
+            this.gmX.sendEmptyMessage(1);
         }
         if (this.djp) {
             Iterator<MediaModel> it = this.dkh.iterator();
@@ -77,13 +77,13 @@ public class b implements Runnable {
                 }
             }
         }
-        if (this.gmJ != null) {
-            this.gmJ.sendEmptyMessage(2);
+        if (this.gmX != null) {
+            this.gmX.sendEmptyMessage(2);
         }
-        if (this.gmI != null) {
-            this.gmI.a(true, null, this.dkh);
+        if (this.gmW != null) {
+            this.gmW.a(true, null, this.dkh);
         }
-        bNN();
+        bNU();
     }
 
     private void i(MediaModel mediaModel) {
@@ -128,10 +128,10 @@ public class b implements Runnable {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes9.dex */
     public class a extends com.baidu.swan.apps.v.a {
-        private HandlerC0604b gmJ;
+        private HandlerC0605b gmX;
 
-        public a(HandlerC0604b handlerC0604b) {
-            this.gmJ = handlerC0604b;
+        public a(HandlerC0605b handlerC0605b) {
+            this.gmX = handlerC0605b;
         }
 
         @Override // com.baidu.swan.apps.v.a, android.app.Application.ActivityLifecycleCallbacks
@@ -139,40 +139,40 @@ public class b implements Runnable {
             if (!(activity instanceof SwanAppActivity) && !(activity instanceof SwanAppAlbumActivity) && !(activity instanceof SwanAppAlbumPreviewActivity)) {
                 return;
             }
-            if (this.gmJ.gmM != null && this.gmJ.gmM.isShowing()) {
-                this.gmJ.gmM.cancel();
-                this.gmJ.gmM = null;
+            if (this.gmX.gna != null && this.gmX.gna.isShowing()) {
+                this.gmX.gna.cancel();
+                this.gmX.gna = null;
             }
-            if (this.gmJ != null) {
-                this.gmJ.removeMessages(1);
-                this.gmJ.removeMessages(2);
-                this.gmJ = null;
+            if (this.gmX != null) {
+                this.gmX.removeMessages(1);
+                this.gmX.removeMessages(2);
+                this.gmX = null;
             }
-            b.this.bNN();
+            b.this.bNU();
         }
     }
 
-    private void bNM() {
-        this.gmK = new a(this.gmJ);
-        com.baidu.swan.apps.t.a.awW().registerActivityLifecycleCallbacks(this.gmK);
+    private void bNT() {
+        this.gmY = new a(this.gmX);
+        com.baidu.swan.apps.t.a.awW().registerActivityLifecycleCallbacks(this.gmY);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNN() {
-        if (this.gmK != null) {
-            com.baidu.swan.apps.t.a.awW().unregisterActivityLifecycleCallbacks(this.gmK);
-            this.gmK = null;
+    public void bNU() {
+        if (this.gmY != null) {
+            com.baidu.swan.apps.t.a.awW().unregisterActivityLifecycleCallbacks(this.gmY);
+            this.gmY = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.aiapps.apps.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class HandlerC0604b extends Handler {
-        private Dialog gmM;
+    public static class HandlerC0605b extends Handler {
+        private Dialog gna;
         private WeakReference<Context> mReference;
 
-        private HandlerC0604b(Context context) {
+        private HandlerC0605b(Context context) {
             this.mReference = new WeakReference<>(context);
         }
 
@@ -182,21 +182,21 @@ public class b implements Runnable {
                 case 1:
                     Context context = this.mReference.get();
                     if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
-                        this.gmM = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
-                        this.gmM.setContentView(R.layout.swanapp_progress_dialog);
-                        this.gmM.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.t.a.axs().aii() ? 0 : 8);
-                        this.gmM.setCancelable(false);
-                        this.gmM.show();
+                        this.gna = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
+                        this.gna.setContentView(R.layout.swanapp_progress_dialog);
+                        this.gna.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.t.a.axs().aii() ? 0 : 8);
+                        this.gna.setCancelable(false);
+                        this.gna.show();
                         return;
                     }
                     return;
                 case 2:
-                    if (this.gmM != null && this.gmM.isShowing()) {
+                    if (this.gna != null && this.gna.isShowing()) {
                         Context context2 = this.mReference.get();
                         if ((context2 instanceof Activity) && !((Activity) context2).isFinishing()) {
-                            this.gmM.cancel();
+                            this.gna.cancel();
                         }
-                        this.gmM = null;
+                        this.gna = null;
                         return;
                     }
                     return;

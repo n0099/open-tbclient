@@ -94,7 +94,7 @@ public class d {
 
     /* renamed from: com.kwai.sodler.lib.ext.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static final class C1163d {
+    private static final class C1165d {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(ClassLoader classLoader, File file) {
             Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
@@ -142,7 +142,7 @@ public class d {
             if (file != null) {
                 if (file.exists()) {
                     if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || Build.VERSION.SDK_INT > 25) {
-                        C1163d.b(classLoader, file);
+                        C1165d.b(classLoader, file);
                     } else if (Build.VERSION.SDK_INT == 24) {
                         c.b(classLoader, file);
                     } else if (Build.VERSION.SDK_INT >= 23) {

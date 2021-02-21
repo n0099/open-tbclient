@@ -11,18 +11,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.data.e;
 /* loaded from: classes10.dex */
 public class ConcernTabEmptyView extends com.baidu.tieba.card.b<e> {
-    private ViewHolder gHX;
+    private ViewHolder gIl;
 
     public ConcernTabEmptyView(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gHX = new ViewHolder(getView());
+        this.gIl = new ViewHolder(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        ap.setViewTextColor(this.gHX.textView, R.color.CAM_X0109);
-        ap.setBackgroundColor(this.gHX.bTo, R.color.CAM_X0204);
+        ap.setViewTextColor(this.gIl.textView, R.color.CAM_X0109);
+        ap.setBackgroundColor(this.gIl.bTo, R.color.CAM_X0204);
     }
 
     @Override // com.baidu.tieba.card.b

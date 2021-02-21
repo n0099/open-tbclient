@@ -128,10 +128,10 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
     static final class b<T, U, V> extends io.reactivex.observers.a<Object> {
         boolean done;
         final long index;
-        final a qpL;
+        final a qql;
 
         b(a aVar, long j) {
-            this.qpL = aVar;
+            this.qql = aVar;
             this.index = j;
         }
 
@@ -140,7 +140,7 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
             if (!this.done) {
                 this.done = true;
                 dispose();
-                this.qpL.timeout(this.index);
+                this.qql.timeout(this.index);
             }
         }
 
@@ -151,14 +151,14 @@ public final class ObservableTimeout<T, U, V> extends io.reactivex.internal.oper
                 return;
             }
             this.done = true;
-            this.qpL.innerError(th);
+            this.qql.innerError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.qpL.timeout(this.index);
+                this.qql.timeout(this.index);
             }
         }
     }

@@ -112,7 +112,7 @@ public class c extends a<ca, ThreadCardViewHolder<cb>> {
         this.fUm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.newdetail.adapter.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cwZ */
+            /* renamed from: cxg */
             public GifView makeObject() {
                 GifView gifView = new GifView(c.this.mPageContext.getPageActivity());
                 boolean isShowImages = com.baidu.tbadk.core.k.bkT().isShowImages();
@@ -176,7 +176,7 @@ public class c extends a<ca, ThreadCardViewHolder<cb>> {
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, cb cbVar) {
-                t.csu().mG(true);
+                t.csB().mG(true);
                 c.this.g(view, cbVar);
             }
         };

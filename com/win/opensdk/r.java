@@ -5,5 +5,5 @@ public interface r<T> {
 
     void ck(int i, String str);
 
-    void eIP();
+    void eIX();
 }

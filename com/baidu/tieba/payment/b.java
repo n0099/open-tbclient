@@ -7,10 +7,10 @@ import com.baidu.adp.lib.f.g;
 /* loaded from: classes9.dex */
 public class b extends WebChromeClient {
     private com.baidu.tieba.tbadkCore.e.c callback;
-    private PayVcodeActivity lHn;
+    private PayVcodeActivity lHB;
 
     public b(PayVcodeActivity payVcodeActivity) {
-        this.lHn = payVcodeActivity;
+        this.lHB = payVcodeActivity;
     }
 
     public void setOnJsPromptCallback(com.baidu.tieba.tbadkCore.e.c cVar) {
@@ -19,7 +19,7 @@ public class b extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.lHn != null && g.a(this.lHn.getPageContext())) {
+        if ((this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) && this.lHB != null && g.a(this.lHB.getPageContext())) {
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
         return true;

@@ -7,8 +7,12 @@ import java.io.Serializable;
 public interface IDownloadModel extends Serializable {
     String adId();
 
+    String getAppJson();
+
     @NonNull
     DownloadStatus getCurrentState();
+
+    String getDownloadKey();
 
     String getExtInfo();
 

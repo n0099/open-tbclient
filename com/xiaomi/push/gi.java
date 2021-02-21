@@ -169,7 +169,7 @@ public class gi extends gj {
             sb.append("<thread>").append(this.c).append("</thread>");
         }
         if (BdStatsConstant.StatsType.ERROR.equalsIgnoreCase(this.f14051b) && (a2 = a()) != null) {
-            sb.append(a2.m344a());
+            sb.append(a2.m343a());
         }
         sb.append(o());
         sb.append("</message>");

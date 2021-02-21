@@ -17,85 +17,85 @@ public class b<T extends a> implements a {
     @Nullable
     private ColorFilter mColorFilter;
     @Nullable
-    private T pEz;
+    private T pEZ;
 
     public b(@Nullable T t) {
-        this.pEz = t;
+        this.pEZ = t;
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getFrameCount() {
-        if (this.pEz == null) {
+        if (this.pEZ == null) {
             return 0;
         }
-        return this.pEz.getFrameCount();
+        return this.pEZ.getFrameCount();
     }
 
     @Override // com.facebook.fresco.animation.a.d
-    public int Ps(int i) {
-        if (this.pEz == null) {
+    public int Pt(int i) {
+        if (this.pEZ == null) {
             return 0;
         }
-        return this.pEz.Ps(i);
+        return this.pEZ.Pt(i);
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getLoopCount() {
-        if (this.pEz == null) {
+        if (this.pEZ == null) {
             return 0;
         }
-        return this.pEz.getLoopCount();
+        return this.pEZ.getLoopCount();
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public boolean a(Drawable drawable, Canvas canvas, int i) {
-        return this.pEz != null && this.pEz.a(drawable, canvas, i);
+        return this.pEZ != null && this.pEZ.a(drawable, canvas, i);
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public void setAlpha(@IntRange(from = 0, to = 255) int i) {
-        if (this.pEz != null) {
-            this.pEz.setAlpha(i);
+        if (this.pEZ != null) {
+            this.pEZ.setAlpha(i);
         }
         this.mAlpha = i;
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public void setColorFilter(ColorFilter colorFilter) {
-        if (this.pEz != null) {
-            this.pEz.setColorFilter(colorFilter);
+        if (this.pEZ != null) {
+            this.pEZ.setColorFilter(colorFilter);
         }
         this.mColorFilter = colorFilter;
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public void setBounds(@Nullable Rect rect) {
-        if (this.pEz != null) {
-            this.pEz.setBounds(rect);
+        if (this.pEZ != null) {
+            this.pEZ.setBounds(rect);
         }
         this.mBounds = rect;
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public void clear() {
-        if (this.pEz != null) {
-            this.pEz.clear();
+        if (this.pEZ != null) {
+            this.pEZ.clear();
         }
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public int getIntrinsicWidth() {
-        if (this.pEz == null) {
+        if (this.pEZ == null) {
             return -1;
         }
-        return this.pEz.getIntrinsicWidth();
+        return this.pEZ.getIntrinsicWidth();
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public int getIntrinsicHeight() {
-        if (this.pEz == null) {
+        if (this.pEZ == null) {
             return -1;
         }
-        return this.pEz.getIntrinsicHeight();
+        return this.pEZ.getIntrinsicHeight();
     }
 }

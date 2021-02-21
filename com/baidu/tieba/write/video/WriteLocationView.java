@@ -17,8 +17,8 @@ public class WriteLocationView extends LocationInfoView {
     private LocationModel fDG;
     private int fDM;
     private final LocationModel.a fDU;
-    private final CustomMessageListener nzk;
-    private BaseActivity<?> ohs;
+    private final CustomMessageListener nzK;
+    private BaseActivity<?> ohS;
 
     public WriteLocationView(Context context) {
         this(context, null);
@@ -30,15 +30,15 @@ public class WriteLocationView extends LocationInfoView {
         this.fDU = new LocationModel.a() { // from class: com.baidu.tieba.write.video.WriteLocationView.1
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void bCh() {
-                WriteLocationView.this.ohs.showToast(R.string.no_network_guide);
+                WriteLocationView.this.ohS.showToast(R.string.no_network_guide);
                 WriteLocationView.this.c(0, true, null);
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void onFail(String str) {
-                BaseActivity baseActivity = WriteLocationView.this.ohs;
+                BaseActivity baseActivity = WriteLocationView.this.ohS;
                 if (StringUtils.isNull(str)) {
-                    str = WriteLocationView.this.ohs.getResources().getString(R.string.location_fail);
+                    str = WriteLocationView.this.ohS.getResources().getString(R.string.location_fail);
                 }
                 baseActivity.showToast(str);
                 WriteLocationView.this.c(0, true, null);
@@ -53,7 +53,7 @@ public class WriteLocationView extends LocationInfoView {
                 }
             }
         };
-        this.nzk = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.2
+        this.nzK = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -61,7 +61,7 @@ public class WriteLocationView extends LocationInfoView {
                     ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                     if (responsedSelectLocation.isShowLocation()) {
                         WriteLocationView.this.fDG.yC(false);
-                        WriteLocationView.this.fDG.gA(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                        WriteLocationView.this.fDG.gC(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                         WriteLocationView.this.c(2, true, responsedSelectLocation.getName());
                         return;
                     }

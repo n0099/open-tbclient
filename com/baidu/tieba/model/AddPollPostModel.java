@@ -12,8 +12,8 @@ import com.baidu.tieba.model.message.AddPollPostSocketResponseMessage;
 /* loaded from: classes.dex */
 public class AddPollPostModel extends BdBaseModel {
     private long eCy;
-    private a ltK;
-    private com.baidu.adp.framework.listener.a ltL;
+    private a ltY;
+    private com.baidu.adp.framework.listener.a ltZ;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,7 +22,7 @@ public class AddPollPostModel extends BdBaseModel {
 
     public AddPollPostModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.ltL = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006) { // from class: com.baidu.tieba.model.AddPollPostModel.1
+        this.ltZ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ADD_POLL_POST, 309006) { // from class: com.baidu.tieba.model.AddPollPostModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 String str;
@@ -45,17 +45,17 @@ public class AddPollPostModel extends BdBaseModel {
                             i = addPollPostSocketResponseMessage.getIdl().data.error_code.intValue();
                             str = addPollPostSocketResponseMessage.getIdl().data.error_msg;
                         }
-                        if (AddPollPostModel.this.ltK != null) {
-                            AddPollPostModel.this.ltK.aL(i, str);
+                        if (AddPollPostModel.this.ltY != null) {
+                            AddPollPostModel.this.ltY.aL(i, str);
                         }
                     }
                 }
             }
         };
-        cOu();
+        cOB();
     }
 
-    private void cOu() {
+    private void cOB() {
         com.baidu.tieba.tbadkCore.a.a.a(309006, AddPollPostSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
     }
@@ -71,15 +71,15 @@ public class AddPollPostModel extends BdBaseModel {
     }
 
     public void registerListener() {
-        registerListener(this.ltL);
+        registerListener(this.ltZ);
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.ltL);
+        MessageManager.getInstance().unRegisterListener(this.ltZ);
     }
 
     public void a(a aVar) {
-        this.ltK = aVar;
+        this.ltY = aVar;
     }
 
     public void setTid(long j) {

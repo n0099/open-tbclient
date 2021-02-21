@@ -11,28 +11,28 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class b {
     private List<EmotionPackageData> caS;
-    private BdListView lCV;
-    private SingleThreadEmotionHorizontalAdater lDg;
-    private e lDh;
+    private BdListView lDj;
+    private SingleThreadEmotionHorizontalAdater lDu;
+    private e lDv;
 
     public b(TbPageContext<?> tbPageContext, BdListView bdListView) {
-        this.lCV = bdListView;
-        this.lDh = new e(tbPageContext);
-        this.lDh.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.lCV.addHeaderView(this.lDh.getView());
+        this.lDj = bdListView;
+        this.lDv = new e(tbPageContext);
+        this.lDv.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.lDj.addHeaderView(this.lDv.getView());
         this.caS = new ArrayList();
-        this.lDg = new SingleThreadEmotionHorizontalAdater(this.caS, tbPageContext);
-        this.lCV.setAdapter((ListAdapter) this.lDg);
+        this.lDu = new SingleThreadEmotionHorizontalAdater(this.caS, tbPageContext);
+        this.lDj.setAdapter((ListAdapter) this.lDu);
     }
 
     public void fa(List<EmotionPackageData> list) {
-        if (list != null && this.lDh != null && this.lDg != null) {
-            this.lDh.t(Integer.valueOf(list.size()));
+        if (list != null && this.lDv != null && this.lDu != null) {
+            this.lDv.t(Integer.valueOf(list.size()));
             this.caS.clear();
             if (list != null) {
                 this.caS.addAll(list);
             }
-            this.lDg.notifyDataSetChanged();
+            this.lDu.notifyDataSetChanged();
         }
     }
 }

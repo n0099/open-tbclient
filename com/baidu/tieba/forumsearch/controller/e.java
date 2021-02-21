@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes8.dex */
 public class e {
-    public static void Kc(String str) {
+    public static void Kd(String str) {
         int i;
         if (!StringUtils.isNull(str)) {
             String string = com.baidu.tbadk.core.sharedPref.b.brQ().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.SEARCH_FORUM_HISTORY), "");
@@ -39,7 +39,7 @@ public class e {
         }
     }
 
-    public static ArrayList<String> cBc() {
+    public static ArrayList<String> cBj() {
         JSONException e;
         ArrayList<String> arrayList = null;
         String string = com.baidu.tbadk.core.sharedPref.b.brQ().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.SEARCH_FORUM_HISTORY), "");
@@ -76,7 +76,7 @@ public class e {
         }
     }
 
-    public static void Kd(String str) {
+    public static void Ke(String str) {
         if (!StringUtils.isNull(str)) {
             String string = com.baidu.tbadk.core.sharedPref.b.brQ().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.SEARCH_FORUM_HISTORY), "");
             if (!StringUtils.isNull(string)) {

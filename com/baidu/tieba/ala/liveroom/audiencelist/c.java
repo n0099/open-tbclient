@@ -27,27 +27,27 @@ import com.baidu.live.view.AlphaGradientHListView;
 public class c {
     private ab aDd;
     private ViewGroup bRb;
-    private com.baidu.live.liveroom.a.a htH;
-    private a htI;
-    public FrameLayout htJ;
-    public FrameLayout htK;
-    private AlphaGradientHListView htL;
-    private String htM;
-    private boolean htN;
+    private com.baidu.live.liveroom.a.a htV;
+    private a htW;
+    public FrameLayout htX;
+    public FrameLayout htY;
+    private AlphaGradientHListView htZ;
+    private String hua;
+    private boolean hub;
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mTbPageContext;
     private String otherParams;
-    private int hsl = a.C0195a.anim_fade_in_and_out;
-    private AdapterView.c htO = new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.1
+    private int hsz = a.C0195a.anim_fade_in_and_out;
+    private AdapterView.c huc = new AdapterView.c() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.1
         @Override // com.baidu.live.tieba.horizonallist.widget.AdapterView.c
         public void a(AdapterView<?> adapterView, View view, int i, long j) {
-            u uVar = (u) c.this.htI.getItem(i);
+            u uVar = (u) c.this.htW.getItem(i);
             if (uVar != null && uVar.aId.disableClick == 0) {
-                if (c.this.htH != null) {
-                    c.this.htH.dF(5);
+                if (c.this.htV != null) {
+                    c.this.htV.dF(5);
                 }
-                AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), String.valueOf(uVar.aId.userId), uVar.aId.userName, uVar.aId.portrait, uVar.aId.sex, uVar.aId.levelId, null, null, 0L, uVar.aId.fansCount, uVar.aId.followCount, uVar.aId.userStatus, c.this.mGroupId, c.this.mLiveId, c.this.htN, c.this.htM, uVar.aId.appId, uVar.aId.userName);
+                AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(c.this.getPageContext().getPageActivity(), String.valueOf(uVar.aId.userId), uVar.aId.userName, uVar.aId.portrait, uVar.aId.sex, uVar.aId.levelId, null, null, 0L, uVar.aId.fansCount, uVar.aId.followCount, uVar.aId.userStatus, c.this.mGroupId, c.this.mLiveId, c.this.hub, c.this.hua, uVar.aId.appId, uVar.aId.userName);
                 alaPersonCardActivityConfig.setOtherParams(c.this.otherParams);
                 alaPersonCardActivityConfig.setExtInfo(uVar.aId.extInfoJson);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
@@ -55,7 +55,7 @@ public class c {
             }
         }
     };
-    CustomMessageListener gNs = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.2
+    CustomMessageListener gNG = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.audiencelist.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -71,9 +71,9 @@ public class c {
 
     public c(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar, boolean z) {
         this.mTbPageContext = tbPageContext;
-        this.htH = aVar;
-        this.htN = z;
-        MessageManager.getInstance().registerListener(this.gNs);
+        this.htV = aVar;
+        this.hub = z;
+        MessageManager.getInstance().registerListener(this.gNG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -84,37 +84,37 @@ public class c {
     public void a(String str, String str2, String str3, ab abVar) {
         this.mGroupId = str;
         this.mLiveId = str2;
-        this.htM = str3;
+        this.hua = str3;
         this.aDd = abVar;
     }
 
     public void c(ViewGroup viewGroup, int i, int i2) {
         if (viewGroup != null) {
-            if (this.htJ == null) {
-                this.htJ = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_live_audience_list_layout, (ViewGroup) null);
+            if (this.htX == null) {
+                this.htX = (FrameLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_live_audience_list_layout, (ViewGroup) null);
             }
-            if (this.bRb != null && this.bRb.indexOfChild(this.htJ) > 0) {
-                this.bRb.removeView(this.htJ);
+            if (this.bRb != null && this.bRb.indexOfChild(this.htX) > 0) {
+                this.bRb.removeView(this.htX);
             }
             this.bRb = viewGroup;
-            this.htJ.setId(a.f.ala_liveroom_audience);
-            this.htK = (FrameLayout) this.htJ.findViewById(a.f.content_layout);
-            this.htL = (AlphaGradientHListView) this.htJ.findViewById(a.f.ala_live_guest_listview);
-            this.htL.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds0));
-            this.htI = new a(getPageContext().getPageActivity());
-            this.htL.setAdapter((ListAdapter) this.htI);
-            this.htL.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.e.sdk_transparent_bg));
-            this.htL.setOnItemClickListener(this.htO);
-            this.htL.setColor(getPageContext().getResources().getColor(a.c.sdk_white_alpha100), getPageContext().getResources().getColor(a.c.sdk_white_alpha0));
-            this.htL.setNeedAlphaShade(true);
+            this.htX.setId(a.f.ala_liveroom_audience);
+            this.htY = (FrameLayout) this.htX.findViewById(a.f.content_layout);
+            this.htZ = (AlphaGradientHListView) this.htX.findViewById(a.f.ala_live_guest_listview);
+            this.htZ.setDividerWidth(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds0));
+            this.htW = new a(getPageContext().getPageActivity());
+            this.htZ.setAdapter((ListAdapter) this.htW);
+            this.htZ.setSelector(getPageContext().getPageActivity().getResources().getDrawable(a.e.sdk_transparent_bg));
+            this.htZ.setOnItemClickListener(this.huc);
+            this.htZ.setColor(getPageContext().getResources().getColor(a.c.sdk_white_alpha100), getPageContext().getResources().getColor(a.c.sdk_white_alpha0));
+            this.htZ.setNeedAlphaShade(true);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds82));
             layoutParams.addRule(1, i);
             layoutParams.addRule(8, i);
             layoutParams.addRule(0, i2);
             layoutParams.leftMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds10);
             layoutParams.rightMargin = BdUtilHelper.dip2px(getPageContext().getPageActivity(), -6.0f);
-            ccq();
-            this.bRb.addView(this.htJ, layoutParams);
+            ccx();
+            this.bRb.addView(this.htX, layoutParams);
         }
     }
 
@@ -122,22 +122,22 @@ public class c {
     }
 
     public void e(v vVar) {
-        if (this.htI != null) {
-            this.htI.d(vVar);
-            this.htI.notifyDataSetChanged();
+        if (this.htW != null) {
+            this.htW.d(vVar);
+            this.htW.notifyDataSetChanged();
         }
     }
 
     public boolean c(u uVar) {
-        if (this.htI == null || !this.htI.b(uVar)) {
+        if (this.htW == null || !this.htW.b(uVar)) {
             return false;
         }
-        this.htI.notifyDataSetChanged();
+        this.htW.notifyDataSetChanged();
         return true;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gNs);
+        MessageManager.getInstance().unRegisterListener(this.gNG);
     }
 
     public String Lo() {
@@ -148,12 +148,12 @@ public class c {
         this.otherParams = str;
     }
 
-    public void ccq() {
-        if (this.htL != null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), this.hsl);
+    public void ccx() {
+        if (this.htZ != null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), this.hsz);
             loadAnimation.setFillEnabled(true);
             loadAnimation.setFillAfter(true);
-            this.htL.setAnimation(loadAnimation);
+            this.htZ.setAnimation(loadAnimation);
         }
     }
 }

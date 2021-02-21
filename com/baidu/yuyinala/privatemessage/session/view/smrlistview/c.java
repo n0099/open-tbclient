@@ -21,7 +21,7 @@ public class c {
         this.mItems.add(eVar);
     }
 
-    public List<e> ene() {
+    public List<e> enm() {
         return this.mItems;
     }
 

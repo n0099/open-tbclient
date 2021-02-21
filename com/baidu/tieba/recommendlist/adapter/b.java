@@ -33,20 +33,20 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.b, 
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.recommendlist.data.b bVar, a aVar) {
-        List<IAdapterData> list = bVar.naK;
-        if (a(aVar.nao, list)) {
-            aVar.nap = new com.baidu.tieba.recommendlist.adapter.a(this.mContext, com.baidu.tieba.recommendlist.data.a.naH);
-            aVar.nao.addAdapter(aVar.nap);
+        List<IAdapterData> list = bVar.nbk;
+        if (a(aVar.naP, list)) {
+            aVar.naQ = new com.baidu.tieba.recommendlist.adapter.a(this.mContext, com.baidu.tieba.recommendlist.data.a.nbh);
+            aVar.naP.addAdapter(aVar.naQ);
         }
         if (list.size() > 3) {
-            aVar.nap.Io(102);
-            aVar.nao.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16));
+            aVar.naQ.Io(102);
+            aVar.naP.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16));
         } else {
-            aVar.nap.Io(101);
-            aVar.nao.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds30));
+            aVar.naQ.Io(101);
+            aVar.naP.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds30));
         }
-        aVar.nap.setAlaLiveShowData(this.bxN);
-        aVar.nao.setData(bVar.naK);
+        aVar.naQ.setAlaLiveShowData(this.bxN);
+        aVar.naP.setData(bVar.nbk);
         return view;
     }
 
@@ -60,14 +60,14 @@ public class b extends AbsDelegateAdapter<com.baidu.tieba.recommendlist.data.b, 
 
     /* loaded from: classes11.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private HTypeListView nao;
-        private com.baidu.tieba.recommendlist.adapter.a nap;
+        private HTypeListView naP;
+        private com.baidu.tieba.recommendlist.adapter.a naQ;
 
         private a(View view) {
             super(view);
-            this.nao = (HTypeListView) view.findViewById(a.f.followListView);
-            this.nap = new com.baidu.tieba.recommendlist.adapter.a(view.getContext(), com.baidu.tieba.recommendlist.data.a.naH);
-            this.nao.addAdapter(this.nap);
+            this.naP = (HTypeListView) view.findViewById(a.f.followListView);
+            this.naQ = new com.baidu.tieba.recommendlist.adapter.a(view.getContext(), com.baidu.tieba.recommendlist.data.a.nbh);
+            this.naP.addAdapter(this.naQ);
         }
     }
 }

@@ -118,7 +118,7 @@ public class p {
     }
 
     public void beX() {
-        if (g.ehx().yx(this.mId)) {
+        if (g.ehF().yx(this.mId)) {
             this.eyH = UBC.getUBCContext().aDx();
         }
     }

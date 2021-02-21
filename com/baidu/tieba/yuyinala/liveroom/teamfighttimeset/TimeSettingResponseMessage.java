@@ -4,7 +4,7 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.BaseJsonHttpResponsedMess
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class TimeSettingResponseMessage extends BaseJsonHttpResponsedMessage {
-    private com.baidu.tieba.yuyinala.liveroom.datingnavigation.a ouB;
+    private com.baidu.tieba.yuyinala.liveroom.datingnavigation.a ovb;
 
     public TimeSettingResponseMessage() {
         super(1031085);
@@ -14,13 +14,13 @@ public class TimeSettingResponseMessage extends BaseJsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031085) {
-            if (this.ouB == null) {
-                this.ouB = new com.baidu.tieba.yuyinala.liveroom.datingnavigation.a();
+            if (this.ovb == null) {
+                this.ovb = new com.baidu.tieba.yuyinala.liveroom.datingnavigation.a();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.ouB.ouA = optJSONObject.optString("activity_stage");
-                this.ouB.ouz = optJSONObject.optString("num_fields");
+                this.ovb.ova = optJSONObject.optString("activity_stage");
+                this.ovb.ouZ = optJSONObject.optString("num_fields");
             }
         }
     }

@@ -31,17 +31,17 @@ public class d {
     private String bdi;
     private boolean bnF;
     private CommonEmptyView bwJ;
-    private ALaCharmCardActivity gNH;
-    private com.baidu.tieba.ala.charm.view.g gNI;
-    private View gNJ;
-    private View.OnClickListener gNK = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.5
+    private PbListView gNM;
+    private ALaCharmCardActivity gNV;
+    private com.baidu.tieba.ala.charm.view.g gNW;
+    private View gNX;
+    private View.OnClickListener gNY = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ViewHelper.checkUpIsLogin(view.getContext());
         }
     };
-    private PbListView gNy;
-    private TextView gel;
+    private TextView ger;
     private String mGroupId;
     private BdListView mListView;
     private String mLiveId;
@@ -49,13 +49,13 @@ public class d {
     private View mRootView;
 
     public d(ALaCharmCardActivity aLaCharmCardActivity, String str, String str2, boolean z, String str3, String str4, String str5) {
-        this.gNH = aLaCharmCardActivity;
+        this.gNV = aLaCharmCardActivity;
         this.mGroupId = str;
         this.mLiveId = str2;
         this.bnF = z;
         this.aDB = str3;
         this.bdi = str5;
-        this.mRootView = this.gNH.getLayoutInflater().inflate(a.g.online_list_detail_layout, (ViewGroup) null);
+        this.mRootView = this.gNV.getLayoutInflater().inflate(a.g.online_list_detail_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.detail_list);
         this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
         if (TbadkCoreApplication.isLogin()) {
@@ -63,31 +63,31 @@ public class d {
         } else {
             str4 = TextUtils.isEmpty(str4) ? "主播" : str4;
             TextView textView = (TextView) this.mRootView.findViewById(a.f.toLogin_text);
-            String string = this.gNH.getString(a.h.online_toLogin);
+            String string = this.gNV.getString(a.h.online_toLogin);
             Object[] objArr = new Object[1];
             objArr[0] = str4.length() > 5 ? str4.substring(0, 5) + StringHelper.STRING_MORE : str4;
             textView.setText(String.format(string, objArr));
-            textView.setOnClickListener(this.gNK);
+            textView.setOnClickListener(this.gNY);
             this.mRootView.findViewById(a.f.toLogin_layout).setVisibility(0);
         }
-        this.gNI = new com.baidu.tieba.ala.charm.view.g(aLaCharmCardActivity.getPageContext(), this.bnF);
-        this.gNI.setLiveId(this.mLiveId);
-        this.gNI.a(this.mListView);
-        this.mListView.setAdapter((ListAdapter) this.gNI);
+        this.gNW = new com.baidu.tieba.ala.charm.view.g(aLaCharmCardActivity.getPageContext(), this.bnF);
+        this.gNW.setLiveId(this.mLiveId);
+        this.gNW.a(this.mListView);
+        this.mListView.setAdapter((ListAdapter) this.gNW);
         this.mListView.setEmptyView(this.bwJ);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.charm.d.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                d.this.a(d.this.gNI.getItem(i));
+                d.this.a(d.this.gNW.getItem(i));
             }
         });
-        this.gel = (TextView) this.mRootView.findViewById(a.f.top_text);
-        if (this.gNy == null) {
-            this.gNy = new PbListView(this.gNH);
-            this.gNy.setTextColor(this.gNH.getResources().getColor(a.c.sdk_cp_cont_j));
-            this.gNy.setSkinType(0);
-            this.gNy.setContainerBackgroundColorResId(a.c.sdk_transparent);
-            this.gNy.createView();
+        this.ger = (TextView) this.mRootView.findViewById(a.f.top_text);
+        if (this.gNM == null) {
+            this.gNM = new PbListView(this.gNV);
+            this.gNM.setTextColor(this.gNV.getResources().getColor(a.c.sdk_cp_cont_j));
+            this.gNM.setSkinType(0);
+            this.gNM.setContainerBackgroundColorResId(a.c.sdk_transparent);
+            this.gNM.createView();
         }
     }
 
@@ -95,7 +95,7 @@ public class d {
         if (this.bnF) {
             fg(j);
         }
-        this.gNI.setData(list);
+        this.gNW.setData(list);
         a(list, alaLiveUserInfoData);
     }
 
@@ -104,15 +104,15 @@ public class d {
         int i2 = 0;
         if (TbadkCoreApplication.isLogin() && !this.bnF && alaLiveUserInfoData != null) {
             final int paddingBottom = this.mListView.getPaddingBottom();
-            final int dimensionPixelSize = this.gNH.getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds128);
+            final int dimensionPixelSize = this.gNV.getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds128);
             this.mListView.setPadding(this.mListView.getPaddingLeft(), this.mListView.getPaddingTop(), this.mListView.getRight(), this.mListView.getResources().getDimensionPixelOffset(a.d.sdk_ds128) + paddingBottom);
-            this.gNJ = this.mRootView.findViewById(a.f.layout_bottom);
-            this.gNJ.setVisibility(0);
+            this.gNX = this.mRootView.findViewById(a.f.layout_bottom);
+            this.gNX.setVisibility(0);
             CharmItemView charmItemView = (CharmItemView) this.mRootView.findViewById(a.f.item_bottom);
             charmItemView.setData(2, alaLiveUserInfoData.rank, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
-            charmItemView.gPv.setData(alaLiveUserInfoData);
-            charmItemView.gPr.setTextColor(1728053247);
-            charmItemView.gPu.setVisibility(8);
+            charmItemView.gPJ.setData(alaLiveUserInfoData);
+            charmItemView.gPF.setTextColor(1728053247);
+            charmItemView.gPI.setVisibility(8);
             if (!TextUtils.isEmpty(this.bdi)) {
                 if (list != null) {
                     while (true) {
@@ -138,11 +138,11 @@ public class d {
                         public void onScroll(AbsListView absListView, int i3, int i4, int i5) {
                             if (i >= i3 && i < i3 + i4) {
                                 d.this.mListView.setPadding(d.this.mListView.getPaddingLeft(), d.this.mListView.getPaddingTop(), d.this.mListView.getPaddingRight(), paddingBottom);
-                                d.this.gNJ.setVisibility(8);
+                                d.this.gNX.setVisibility(8);
                                 return;
                             }
                             d.this.mListView.setPadding(d.this.mListView.getPaddingLeft(), d.this.mListView.getPaddingTop(), d.this.mListView.getPaddingRight(), paddingBottom + dimensionPixelSize);
-                            d.this.gNJ.setVisibility(0);
+                            d.this.gNX.setVisibility(0);
                         }
                     });
                 }
@@ -170,7 +170,7 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(u uVar) {
         if (uVar != null && uVar.aId != null && uVar.aId.disableClick == 0) {
-            AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(this.gNH.getPageContext().getPageActivity(), uVar.aId.userId + "", uVar.aId.userName, uVar.aId.portrait, uVar.aId.sex, uVar.aId.levelId, null, null, 0L, uVar.aId.fansCount, uVar.aId.fansCount, uVar.aId.userStatus, this.mGroupId, this.mLiveId, this.bnF, this.aDB, null, uVar.aId.userName);
+            AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(this.gNV.getPageContext().getPageActivity(), uVar.aId.userId + "", uVar.aId.userName, uVar.aId.portrait, uVar.aId.sex, uVar.aId.levelId, null, null, 0L, uVar.aId.fansCount, uVar.aId.fansCount, uVar.aId.userStatus, this.mGroupId, this.mLiveId, this.bnF, this.aDB, null, uVar.aId.userName);
             alaPersonCardActivityConfig.setOtherParams(this.mOtherParams);
             alaPersonCardActivityConfig.setExtInfo(uVar.aId.extInfoJson);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
@@ -178,13 +178,13 @@ public class d {
     }
 
     public void ff(long j) {
-        if (this.gel != null) {
-            this.gel.setText(String.format(this.gNH.getString(a.h.online_count), j.numFormatOverWanNaForAudienceNum(j)));
+        if (this.ger != null) {
+            this.ger.setText(String.format(this.gNV.getString(a.h.online_count), j.numFormatOverWanNaForAudienceNum(j)));
         }
     }
 
     private void fg(long j) {
-        ((TextView) this.mRootView.findViewById(a.f.tv_value_total)).setText(String.format(this.gNH.getString(a.h.charm_host_total_value), StringHelper.formatValue(j)));
+        ((TextView) this.mRootView.findViewById(a.f.tv_value_total)).setText(String.format(this.gNV.getString(a.h.charm_host_total_value), StringHelper.formatValue(j)));
     }
 
     public View getRootView() {
@@ -204,10 +204,10 @@ public class d {
     }
 
     public void aB(String str, boolean z) {
-        this.mListView.setNextPage(this.gNy);
-        this.gNy.endLoadDataWithNoMore(str);
+        this.mListView.setNextPage(this.gNM);
+        this.gNM.endLoadDataWithNoMore(str);
         if (z) {
-            this.gNy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.4
+            this.gNM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     d.this.aoj();
@@ -222,7 +222,7 @@ public class d {
     }
 
     public void t(long j, int i) {
-        ArrayList<u> data = this.gNI.getData();
+        ArrayList<u> data = this.gNW.getData();
         if (data != null && data.size() != 0) {
             int i2 = -1;
             for (int i3 = 0; i3 < data.size(); i3++) {
@@ -231,7 +231,7 @@ public class d {
                 }
             }
             if (i2 != -1) {
-                this.gNI.bE(i2, i);
+                this.gNW.bF(i2, i);
             }
         }
     }

@@ -105,7 +105,7 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hw m296a(String str) {
+    public static hw m295a(String str) {
         hw[] values;
         if (f389a == null) {
             synchronized (hw.class) {
@@ -122,12 +122,12 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m297a(int i) {
+    public static String m296a(int i) {
         return i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m298a(Context context) {
+    public static void m297a(Context context) {
         ClientReportClient.updateConfig(context, a(context));
     }
 
@@ -136,7 +136,7 @@ public class fa {
     }
 
     private static void a(Context context, hq hqVar) {
-        if (m299a(context.getApplicationContext())) {
+        if (m298a(context.getApplicationContext())) {
             com.xiaomi.push.service.bj.a(context.getApplicationContext(), hqVar);
         } else if (f14006a != null) {
             f14006a.uploader(context, hqVar);
@@ -164,7 +164,7 @@ public class fa {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m299a(Context context) {
+    public static boolean m298a(Context context) {
         return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
     }
 }

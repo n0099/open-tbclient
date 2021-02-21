@@ -30,7 +30,7 @@ public class d implements com.kwad.sdk.plugin.b {
 
     private void b(final Context context) {
         com.kwad.sdk.core.d.a.b("ContentPluginImpl", "初次获取Gid: initGId");
-        com.yxcorp.kuaishou.addfp.a.eJu().a(context, true, new com.yxcorp.kuaishou.addfp.b() { // from class: com.kwad.sdk.contentalliance.d.1
+        com.yxcorp.kuaishou.addfp.a.eJC().a(context, true, new com.yxcorp.kuaishou.addfp.b() { // from class: com.kwad.sdk.contentalliance.d.1
             @Override // com.yxcorp.kuaishou.addfp.b
             public void a(int i, String str) {
                 com.kwad.sdk.core.d.a.d("ContentPluginImpl", "初次获取Gid: initGId onFailed errorCode:" + i + "errorMessage :" + str);
@@ -79,7 +79,7 @@ public class d implements com.kwad.sdk.plugin.b {
         }
         ae.d(context, str);
         try {
-            com.yxcorp.kuaishou.addfp.a.eJu().a(context, str);
+            com.yxcorp.kuaishou.addfp.a.eJC().a(context, str);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.d("ContentPluginImpl", "ContentPluginImpl KWEGIDDFP setEGid error : " + th);
         }

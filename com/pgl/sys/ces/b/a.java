@@ -8,7 +8,7 @@ import android.hardware.SensorManager;
 import java.text.DecimalFormat;
 /* loaded from: classes6.dex */
 public final class a implements SensorEventListener {
-    private static a qag = null;
+    private static a qaG = null;
 
     /* renamed from: a  reason: collision with root package name */
     private SensorManager f11404a;
@@ -17,7 +17,7 @@ public final class a implements SensorEventListener {
     private int f11405b;
     private int c = 0;
     private float[] d = new float[3];
-    private DecimalFormat qaf = new DecimalFormat("0.0");
+    private DecimalFormat qaF = new DecimalFormat("0.0");
 
     private a(Context context) {
         this.f11404a = null;
@@ -58,14 +58,14 @@ public final class a implements SensorEventListener {
     }
 
     public static a iv(Context context) {
-        if (qag == null) {
+        if (qaG == null) {
             synchronized (a.class) {
-                if (qag == null) {
-                    qag = new a(context);
+                if (qaG == null) {
+                    qaG = new a(context);
                 }
             }
         }
-        return qag;
+        return qaG;
     }
 
     public String a() {
@@ -84,7 +84,7 @@ public final class a implements SensorEventListener {
             e.printStackTrace();
             return append.toString();
         } finally {
-            String str = this.qaf.format(this.d[0]) + ", " + this.qaf.format(this.d[1]) + ", " + this.qaf.format(this.d[2]);
+            String str = this.qaF.format(this.d[0]) + ", " + this.qaF.format(this.d[1]) + ", " + this.qaF.format(this.d[2]);
             c();
             this.c = 0;
         }

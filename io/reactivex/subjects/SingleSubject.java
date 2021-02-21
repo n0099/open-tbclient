@@ -6,19 +6,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
 public final class SingleSubject<T> extends w<T> implements y<T> {
-    static final SingleDisposable[] qsJ = new SingleDisposable[0];
-    static final SingleDisposable[] qsK = new SingleDisposable[0];
+    static final SingleDisposable[] qtj = new SingleDisposable[0];
+    static final SingleDisposable[] qtk = new SingleDisposable[0];
     Throwable error;
     T value;
     final AtomicBoolean once = new AtomicBoolean();
-    final AtomicReference<SingleDisposable<T>[]> observers = new AtomicReference<>(qsJ);
+    final AtomicReference<SingleDisposable<T>[]> observers = new AtomicReference<>(qtj);
 
     SingleSubject() {
     }
 
     @Override // io.reactivex.y
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.observers.get() == qsK) {
+        if (this.observers.get() == qtk) {
             bVar.dispose();
         }
     }
@@ -28,7 +28,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
         io.reactivex.internal.functions.a.m(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.value = t;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qsK)) {
+            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qtk)) {
                 singleDisposable.actual.onSuccess(t);
             }
         }
@@ -39,7 +39,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
         io.reactivex.internal.functions.a.m(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.error = th;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qsK)) {
+            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qtk)) {
                 singleDisposable.actual.onError(th);
             }
             return;
@@ -72,7 +72,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
         SingleDisposable<T>[] singleDisposableArr2;
         do {
             singleDisposableArr = this.observers.get();
-            if (singleDisposableArr == qsK) {
+            if (singleDisposableArr == qtk) {
                 return false;
             }
             int length = singleDisposableArr.length;
@@ -104,7 +104,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        singleDisposableArr2 = qsJ;
+                        singleDisposableArr2 = qtj;
                     } else {
                         singleDisposableArr2 = new SingleDisposable[length - 1];
                         System.arraycopy(singleDisposableArr, 0, singleDisposableArr2, 0, i);

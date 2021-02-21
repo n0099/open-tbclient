@@ -10,13 +10,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class BasicTaskItemView extends LinearLayout {
-    private View.OnClickListener gjP;
-    private TextView llA;
-    private View llB;
-    private View llt;
-    private TbImageView llx;
-    private TextView lly;
-    private TextView llz;
+    private View.OnClickListener gkd;
+    private View llH;
+    private TbImageView llL;
+    private TextView llM;
+    private TextView llN;
+    private TextView llO;
+    private View llP;
     private Context mContext;
     private View mRootView;
 
@@ -40,17 +40,17 @@ public class BasicTaskItemView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.index_task_item, this);
-        this.llt = this.mRootView.findViewById(R.id.ly_desc);
-        this.llx = (TbImageView) this.mRootView.findViewById(R.id.task_icon);
-        this.lly = (TextView) this.mRootView.findViewById(R.id.txt_title);
-        this.llz = (TextView) this.mRootView.findViewById(R.id.txt_desc);
-        this.llA = (TextView) this.mRootView.findViewById(R.id.txt_status);
-        this.llA.setOnClickListener(this.gjP);
-        this.llt.setOnClickListener(this.gjP);
-        this.llB = this.mRootView.findViewById(R.id.divider_line);
+        this.llH = this.mRootView.findViewById(R.id.ly_desc);
+        this.llL = (TbImageView) this.mRootView.findViewById(R.id.task_icon);
+        this.llM = (TextView) this.mRootView.findViewById(R.id.txt_title);
+        this.llN = (TextView) this.mRootView.findViewById(R.id.txt_desc);
+        this.llO = (TextView) this.mRootView.findViewById(R.id.txt_status);
+        this.llO.setOnClickListener(this.gkd);
+        this.llH.setOnClickListener(this.gkd);
+        this.llP = this.mRootView.findViewById(R.id.divider_line);
     }
 
     public void setOnCommenClickListener(View.OnClickListener onClickListener) {
-        this.gjP = onClickListener;
+        this.gkd = onClickListener;
     }
 }

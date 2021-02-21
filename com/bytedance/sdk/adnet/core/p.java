@@ -15,8 +15,8 @@ public class p<T> {
     public long f;
     public Map<String, Object> g;
     public long h;
-    public final b.a pvo;
-    public final VAdError pvp;
+    public final b.a pvO;
+    public final VAdError pvP;
 
     /* loaded from: classes6.dex */
     public interface a<T> {
@@ -42,7 +42,7 @@ public class p<T> {
     }
 
     public boolean a() {
-        return this.pvp == null;
+        return this.pvP == null;
     }
 
     private p(T t, b.a aVar) {
@@ -51,8 +51,8 @@ public class p<T> {
         this.f = 0L;
         this.h = 0L;
         this.f6047a = t;
-        this.pvo = aVar;
-        this.pvp = null;
+        this.pvO = aVar;
+        this.pvP = null;
         if (aVar != null) {
             this.h = aVar.f6063a;
         }
@@ -64,8 +64,8 @@ public class p<T> {
         this.f = 0L;
         this.h = 0L;
         this.f6047a = null;
-        this.pvo = null;
-        this.pvp = vAdError;
+        this.pvO = null;
+        this.pvP = vAdError;
         if (this.h == 0 && vAdError != null && vAdError.networkResponse != null) {
             this.h = vAdError.networkResponse.f6042a;
         }
@@ -82,10 +82,10 @@ public class p<T> {
     }
 
     public String a(String str, @Nullable String str2) {
-        if (this.pvo == null || this.pvo.h == null) {
+        if (this.pvO == null || this.pvO.h == null) {
             return str2;
         }
-        String str3 = this.pvo.h.get(str);
+        String str3 = this.pvO.h.get(str);
         return str3 == null ? str2 : str3;
     }
 }

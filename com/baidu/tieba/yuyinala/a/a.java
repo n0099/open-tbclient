@@ -24,9 +24,9 @@ import com.baidu.tieba.yuyinala.data.h;
 public class a {
     private Activity activity;
     private String liveId;
-    private b oqN;
+    private b oro;
     private String roomId;
-    private HttpMessageListener gQK = new HttpMessageListener(1031076) { // from class: com.baidu.tieba.yuyinala.a.a.1
+    private HttpMessageListener gQY = new HttpMessageListener(1031076) { // from class: com.baidu.tieba.yuyinala.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -38,7 +38,7 @@ public class a {
                 return;
             }
             if ((httpResponsedMessage instanceof RedPktSendHttpResponseMessage) && httpResponsedMessage.getError() == 0) {
-                c.a(a.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gTh, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gTi, "send_redpacket");
+                c.a(a.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gTv, ((RedPktSendHttpResponseMessage) httpResponsedMessage).gTw, "send_redpacket");
                 a.this.activity.finish();
                 return;
             }
@@ -47,8 +47,8 @@ public class a {
             } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
                 BdUtilHelper.showToast(a.this.activity, httpResponsedMessage.getErrorString());
             }
-            if (a.this.oqN != null) {
-                a.this.oqN.mY(true);
+            if (a.this.oro != null) {
+                a.this.oro.mY(true);
             }
         }
     };
@@ -70,7 +70,7 @@ public class a {
     public a(Activity activity) {
         this.activity = activity;
         initView();
-        bTV();
+        bUc();
     }
 
     private void initView() {
@@ -79,10 +79,10 @@ public class a {
             this.liveId = intent.getStringExtra("live_id");
             this.roomId = intent.getStringExtra("room_id");
         }
-        this.oqN = new b(this.activity, this);
+        this.oro = new b(this.activity, this);
     }
 
-    private static void bTU() {
+    private static void bUb() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031076, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -92,21 +92,21 @@ public class a {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void bTV() {
-        bTU();
-        MessageManager.getInstance().registerListener(this.gQK);
+    private void bUc() {
+        bUb();
+        MessageManager.getInstance().registerListener(this.gQY);
         MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(1031076);
-        MessageManager.getInstance().unRegisterListener(this.gQK);
+        MessageManager.getInstance().unRegisterListener(this.gQY);
         MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }
 
     public View getView() {
-        if (this.oqN != null) {
-            return this.oqN.getView();
+        if (this.oro != null) {
+            return this.oro.getView();
         }
         return null;
     }
@@ -117,21 +117,21 @@ public class a {
             hVar.setRoomId(this.roomId);
             hVar.setParams();
             MessageManager.getInstance().sendMessage(hVar);
-            if (this.oqN != null) {
-                this.oqN.mY(false);
+            if (this.oro != null) {
+                this.oro.mY(false);
             }
         }
     }
 
     public void FN() {
-        if (this.oqN != null) {
-            this.oqN.FN();
+        if (this.oro != null) {
+            this.oro.FN();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.oqN != null) {
-            this.oqN.onKeyboardVisibilityChanged(z);
+        if (this.oro != null) {
+            this.oro.onKeyboardVisibilityChanged(z);
         }
     }
 }

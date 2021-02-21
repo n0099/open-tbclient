@@ -14,7 +14,7 @@ public class a extends Exception implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Rz */
+        /* renamed from: RA */
         public a[] newArray(int i) {
             return new a[i];
         }

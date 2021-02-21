@@ -16,13 +16,13 @@ public class GuardClubRankInfoView extends RelativeLayout {
     private HeadImageView aDr;
     private TextView aDt;
     private TextView bhZ;
-    private TextView hcf;
-    private TextView hcg;
-    private a hch;
+    private TextView hct;
+    private TextView hcu;
+    private a hcv;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void bVY();
+        void bWf();
     }
 
     public GuardClubRankInfoView(Context context, AttributeSet attributeSet) {
@@ -31,19 +31,19 @@ public class GuardClubRankInfoView extends RelativeLayout {
     }
 
     public void setCallback(a aVar) {
-        this.hch = aVar;
+        this.hcv = aVar;
     }
 
     public void setData(String str, String str2, String str3, String str4, boolean z) {
-        this.hcf.setText(str);
+        this.hct.setText(str);
         this.aDr.startLoad(str2, 12, false, false);
         this.bhZ.setText(str3);
         this.aDt.setText(str4);
-        this.hcg.setVisibility(z ? 0 : 4);
+        this.hcu.setVisibility(z ? 0 : 4);
         if (isNumeric(str)) {
-            this.hcf.setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize40));
+            this.hct.setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize40));
         } else {
-            this.hcf.setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize20));
+            this.hct.setTextSize(0, getResources().getDimensionPixelOffset(a.d.sdk_fontsize20));
         }
     }
 
@@ -71,19 +71,19 @@ public class GuardClubRankInfoView extends RelativeLayout {
         setBackgroundColor(Color.parseColor("#FF201443"));
         setPadding(getResources().getDimensionPixelOffset(a.d.sdk_ds20), 0, 0, 0);
         LayoutInflater.from(getContext()).inflate(a.g.live_guard_club_rank_info, (ViewGroup) this, true);
-        this.hcf = (TextView) findViewById(a.f.tv_rank);
+        this.hct = (TextView) findViewById(a.f.tv_rank);
         this.aDr = (HeadImageView) findViewById(a.f.iv_avatar);
         this.bhZ = (TextView) findViewById(a.f.tv_name);
         this.aDt = (TextView) findViewById(a.f.tv_content);
-        this.hcg = (TextView) findViewById(a.f.tv_hit);
+        this.hcu = (TextView) findViewById(a.f.tv_hit);
         this.aDr.setIsRound(true);
         this.aDr.setAutoChangeStyle(false);
         this.aDr.setDefaultBgResource(a.e.sdk_default_avatar);
-        this.hcg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
+        this.hcu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GuardClubRankInfoView.this.hch != null) {
-                    GuardClubRankInfoView.this.hch.bVY();
+                if (GuardClubRankInfoView.this.hcv != null) {
+                    GuardClubRankInfoView.this.hcv.bWf();
                 }
             }
         });

@@ -17,7 +17,7 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.glide.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1123a<T> {
+    public interface InterfaceC1125a<T> {
         T b();
     }
 
@@ -26,15 +26,15 @@ public final class a {
     public static final class b<T> implements Pools.Pool<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final InterfaceC1123a<T> f10012a;
+        private final InterfaceC1125a<T> f10012a;
 
         /* renamed from: b  reason: collision with root package name */
         private final d<T> f10013b;
         private final Pools.Pool<T> c;
 
-        b(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1123a<T> interfaceC1123a, @NonNull d<T> dVar) {
+        b(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1125a<T> interfaceC1125a, @NonNull d<T> dVar) {
             this.c = pool;
-            this.f10012a = interfaceC1123a;
+            this.f10012a = interfaceC1125a;
             this.f10013b = dVar;
         }
 
@@ -81,9 +81,9 @@ public final class a {
 
     @NonNull
     public static <T> Pools.Pool<List<T>> a(int i) {
-        return a(new Pools.SynchronizedPool(i), new InterfaceC1123a<List<T>>() { // from class: com.kwad.sdk.glide.g.a.a.2
+        return a(new Pools.SynchronizedPool(i), new InterfaceC1125a<List<T>>() { // from class: com.kwad.sdk.glide.g.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1123a
+            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1125a
             @NonNull
             /* renamed from: a */
             public List<T> b() {
@@ -99,18 +99,18 @@ public final class a {
     }
 
     @NonNull
-    public static <T extends c> Pools.Pool<T> a(int i, @NonNull InterfaceC1123a<T> interfaceC1123a) {
-        return a(new Pools.SynchronizedPool(i), interfaceC1123a);
+    public static <T extends c> Pools.Pool<T> a(int i, @NonNull InterfaceC1125a<T> interfaceC1125a) {
+        return a(new Pools.SynchronizedPool(i), interfaceC1125a);
     }
 
     @NonNull
-    private static <T extends c> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1123a<T> interfaceC1123a) {
-        return a(pool, interfaceC1123a, b());
+    private static <T extends c> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1125a<T> interfaceC1125a) {
+        return a(pool, interfaceC1125a, b());
     }
 
     @NonNull
-    private static <T> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1123a<T> interfaceC1123a, @NonNull d<T> dVar) {
-        return new b(pool, interfaceC1123a, dVar);
+    private static <T> Pools.Pool<T> a(@NonNull Pools.Pool<T> pool, @NonNull InterfaceC1125a<T> interfaceC1125a, @NonNull d<T> dVar) {
+        return new b(pool, interfaceC1125a, dVar);
     }
 
     @NonNull

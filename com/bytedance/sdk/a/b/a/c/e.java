@@ -15,7 +15,7 @@ public final class e {
     private static final Pattern f5880a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
 
     public static long d(com.bytedance.sdk.a.b.b bVar) {
-        return b(bVar.epE());
+        return b(bVar.epM());
     }
 
     public static long b(v vVar) {
@@ -34,7 +34,7 @@ public final class e {
     }
 
     public static void a(p pVar, s sVar, v vVar) {
-        if (pVar != p.ppg) {
+        if (pVar != p.ppI) {
             List<o> a2 = o.a(sVar, vVar);
             if (!a2.isEmpty()) {
                 pVar.a(sVar, a2);
@@ -43,7 +43,7 @@ public final class e {
     }
 
     public static boolean e(com.bytedance.sdk.a.b.b bVar) {
-        if (bVar.epm().b().equals(HttpHead.METHOD_NAME)) {
+        if (bVar.epu().b().equals(HttpHead.METHOD_NAME)) {
             return false;
         }
         int c = bVar.c();

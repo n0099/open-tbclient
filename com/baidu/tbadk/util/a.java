@@ -29,11 +29,11 @@ public class a {
         z = (aVar == null || this.ftX == null || aVar.bvU() != this.ftX.bvU()) ? true : true;
         this.ftX = aVar;
         if (z) {
-            DF("zan_or_cai_smallflow");
+            DD("zan_or_cai_smallflow");
         }
     }
 
-    private void DF(String str) {
+    private void DD(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 

@@ -15,12 +15,12 @@ public class k {
     private int mRate;
     private String mType;
     private String mVersion;
-    private String oTb;
-    private String oTc;
-    private String oTd;
-    private String oTe;
-    private String oTf;
-    private int oTg = 2;
+    private String oTB;
+    private String oTC;
+    private String oTD;
+    private String oTE;
+    private String oTF;
+    private int oTG = 2;
 
     public k(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
@@ -47,8 +47,8 @@ public class k {
         this.eyA = i;
     }
 
-    public void Xk(String str) {
-        this.oTb = str;
+    public void Xw(String str) {
+        this.oTB = str;
     }
 
     public String getId() {
@@ -75,8 +75,8 @@ public class k {
         return this.eyy;
     }
 
-    public String ehB() {
-        return this.oTb;
+    public String ehJ() {
+        return this.oTB;
     }
 
     public int beM() {
@@ -103,12 +103,12 @@ public class k {
         return this.eyB;
     }
 
-    public String ehC() {
-        return this.oTc;
+    public String ehK() {
+        return this.oTC;
     }
 
-    public void Xl(String str) {
-        this.oTc = str;
+    public void Xx(String str) {
+        this.oTC = str;
     }
 
     public void setVersion(String str) {
@@ -119,35 +119,35 @@ public class k {
         return TextUtils.isEmpty(this.mVersion) ? "0" : this.mVersion;
     }
 
-    public void Xm(String str) {
-        this.oTd = str;
+    public void Xy(String str) {
+        this.oTD = str;
     }
 
-    public String ehD() {
-        return this.oTd;
+    public String ehL() {
+        return this.oTD;
     }
 
-    public void Xn(String str) {
-        this.oTe = str;
+    public void Xz(String str) {
+        this.oTE = str;
     }
 
-    public String ehE() {
-        return this.oTe;
+    public String ehM() {
+        return this.oTE;
     }
 
-    public String ehF() {
-        return this.oTf;
+    public String ehN() {
+        return this.oTF;
     }
 
-    public void Xo(String str) {
-        this.oTf = str;
+    public void XA(String str) {
+        this.oTF = str;
     }
 
-    public int ehG() {
-        return this.oTg;
+    public int ehO() {
+        return this.oTG;
     }
 
-    public void Ni(int i) {
-        this.oTg = i;
+    public void Nj(int i) {
+        this.oTG = i;
     }
 }

@@ -12,41 +12,41 @@ import java.util.List;
 public class e {
     private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
     private TbPageContext mTbPageContext;
-    private HTypeListView msi;
-    private c msj;
-    private b msk;
-    private a msl;
+    private a msA;
+    private HTypeListView msx;
+    private c msy;
+    private b msz;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.msi = hTypeListView;
+        this.msx = hTypeListView;
         Kw();
     }
 
     private void Kw() {
-        this.msj = new c(this.mTbPageContext, o.agC);
-        this.msk = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.mst);
-        this.msl = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.mrV);
-        this.bns.add(this.msj);
-        this.bns.add(this.msk);
-        this.bns.add(this.msl);
-        this.msi.addAdapters(this.bns);
+        this.msy = new c(this.mTbPageContext, o.agC);
+        this.msz = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.msI);
+        this.msA = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.msl);
+        this.bns.add(this.msy);
+        this.bns.add(this.msz);
+        this.bns.add(this.msA);
+        this.msx.addAdapters(this.bns);
     }
 
     public void setDatas(List<n> list) {
-        if (this.msi != null) {
-            this.msi.setData(list);
+        if (this.msx != null) {
+            this.msx.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.msi != null && (this.msi.getAdapter() instanceof TypeAdapter)) {
-            ((TypeAdapter) this.msi.getAdapter()).notifyDataSetChanged();
+        if (this.msx != null && (this.msx.getAdapter() instanceof TypeAdapter)) {
+            ((TypeAdapter) this.msx.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.msj.H(onClickListener);
-        this.msk.H(onClickListener);
+        this.msy.H(onClickListener);
+        this.msz.H(onClickListener);
     }
 }

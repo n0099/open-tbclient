@@ -8,33 +8,33 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public final class ba {
-    private static final BlockingQueue<Runnable> qki = new LinkedBlockingQueue(210);
-    private static final ThreadFactory qku = new ThreadFactory() { // from class: com.win.opensdk.ba.1
-        private final AtomicInteger qjZ = new AtomicInteger(1);
+    private static final BlockingQueue<Runnable> qkI = new LinkedBlockingQueue(210);
+    private static final ThreadFactory qkU = new ThreadFactory() { // from class: com.win.opensdk.ba.1
+        private final AtomicInteger qkz = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
         public final Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "T#" + this.qjZ.getAndIncrement());
+            return new Thread(runnable, "T#" + this.qkz.getAndIncrement());
         }
     };
-    private static ba qkv;
-    private ThreadPoolExecutor qkn = new ThreadPoolExecutor(5, 60, 1, TimeUnit.SECONDS, qki, qku);
+    private static ba qkV;
+    private ThreadPoolExecutor qkN = new ThreadPoolExecutor(5, 60, 1, TimeUnit.SECONDS, qkI, qkU);
 
     private ba() {
     }
 
-    private static synchronized ba eJj() {
+    private static synchronized ba eJr() {
         ba baVar;
         synchronized (ba.class) {
-            if (qkv == null) {
-                qkv = new ba();
+            if (qkV == null) {
+                qkV = new ba();
             }
-            baVar = qkv;
+            baVar = qkV;
         }
         return baVar;
     }
 
     public static void C(Runnable runnable) {
-        eJj().qkn.execute(runnable);
+        eJr().qkN.execute(runnable);
     }
 }

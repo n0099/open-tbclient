@@ -13,9 +13,9 @@ public class FaceShopModel extends BdBaseModel<r> {
     public static final int LOAD_REFRESH = 1;
     public static final int PAGE_MAX_NUM = 10;
     private int cdp;
-    private float iUY;
-    private FaceShopData iVO;
-    private a iWf;
+    private float iVm;
+    private FaceShopData iWc;
+    private a iWt;
     private boolean mHasMore;
     private int mScreenHeight;
     private int mScreenWidth;
@@ -29,35 +29,35 @@ public class FaceShopModel extends BdBaseModel<r> {
 
     public FaceShopModel(r rVar) {
         super(rVar.getPageContext());
-        this.iWf = null;
+        this.iWt = null;
         this.mScreenWidth = 0;
         this.mScreenHeight = 0;
-        this.iVO = null;
+        this.iWc = null;
         this.mHasMore = false;
         this.cdp = 0;
         TbadkApplication inst = TbadkApplication.getInst();
         this.mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(inst);
         this.mScreenHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(inst);
-        this.iUY = inst.getResources().getDisplayMetrics().density;
+        this.iVm = inst.getResources().getDisplayMetrics().density;
     }
 
-    public FaceShopData czo() {
-        return this.iVO;
+    public FaceShopData czv() {
+        return this.iWc;
     }
 
     public boolean getHasMore() {
         return this.mHasMore;
     }
 
-    public void JO(String str) {
+    public void JP(String str) {
         this.mStType = str;
     }
 
     public void loadData(int i) {
-        if (this.iWf == null) {
-            this.iWf = new a();
-            this.iWf.setPriority(3);
-            this.iWf.execute(Integer.valueOf(i));
+        if (this.iWt == null) {
+            this.iWt = new a();
+            this.iWt.setPriority(3);
+            this.iWt.execute(Integer.valueOf(i));
         }
     }
 
@@ -65,10 +65,10 @@ public class FaceShopModel extends BdBaseModel<r> {
     private class a extends BdAsyncTask<Object, FaceShopData, FaceShopData> {
         private com.baidu.tbadk.core.util.aa cml;
         private int fUt;
-        private volatile boolean iUZ;
+        private volatile boolean iVn;
 
         private a() {
-            this.iUZ = false;
+            this.iVn = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class FaceShopModel extends BdBaseModel<r> {
         public FaceShopData doInBackground(Object... objArr) {
             this.fUt = ((Integer) objArr[0]).intValue();
             try {
-                if (!this.iUZ) {
+                if (!this.iVn) {
                     this.cml = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_LIST);
                     if (this.fUt == 1) {
                         FaceShopModel.this.cdp = 0;
@@ -87,7 +87,7 @@ public class FaceShopModel extends BdBaseModel<r> {
                     }
                     this.cml.addPostData("scr_w", String.valueOf(FaceShopModel.this.mScreenWidth));
                     this.cml.addPostData("scr_h", String.valueOf(FaceShopModel.this.mScreenHeight));
-                    this.cml.addPostData("scr_dip", String.valueOf(FaceShopModel.this.iUY));
+                    this.cml.addPostData("scr_dip", String.valueOf(FaceShopModel.this.iVm));
                     this.cml.addPostData("offset", String.valueOf(FaceShopModel.this.cdp));
                     this.cml.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(10));
                     this.cml.addPostData("st_type", FaceShopModel.this.mStType);
@@ -105,27 +105,27 @@ public class FaceShopModel extends BdBaseModel<r> {
         /* renamed from: b */
         public void onPostExecute(FaceShopData faceShopData) {
             super.onPostExecute(faceShopData);
-            FaceShopModel.this.iWf = null;
+            FaceShopModel.this.iWt = null;
             if (faceShopData != null) {
                 FaceShopModel.this.mHasMore = faceShopData.has_more == 1;
                 if (this.fUt == 1) {
-                    FaceShopModel.this.iVO = faceShopData;
+                    FaceShopModel.this.iWc = faceShopData;
                 } else if (this.fUt == 2) {
-                    FaceShopModel.this.iVO.add(faceShopData);
+                    FaceShopModel.this.iWc.add(faceShopData);
                 }
             }
-            FaceShopModel.this.mLoadDataCallBack.callback(FaceShopModel.this.iVO);
+            FaceShopModel.this.mLoadDataCallBack.callback(FaceShopModel.this.iWc);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.iUZ = true;
+            this.iVn = true;
             if (this.cml != null) {
                 this.cml.cancelNetConnect();
                 this.cml = null;
             }
-            FaceShopModel.this.iWf = null;
+            FaceShopModel.this.iWt = null;
         }
     }
 
@@ -136,8 +136,8 @@ public class FaceShopModel extends BdBaseModel<r> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iWf != null) {
-            this.iWf.cancel();
+        if (this.iWt != null) {
+            this.iWt.cancel();
             return true;
         }
         return true;

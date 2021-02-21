@@ -22,7 +22,7 @@ import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 import com.vivo.push.PushClientConstants;
 /* loaded from: classes2.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private CustomMessageListener kOg;
+    private CustomMessageListener kOu;
     private MessageRedDotView tipView;
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -73,7 +73,7 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.kOg = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.kOu = new CustomMessageListener(CmdConfigCustom.CMD_HOME_NOTIFY_MSG) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -96,7 +96,7 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.kOg);
+        MessageManager.getInstance().registerListener(this.kOu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -132,6 +132,6 @@ public class ImMessageCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.kOg);
+        MessageManager.getInstance().unRegisterListener(this.kOu);
     }
 }

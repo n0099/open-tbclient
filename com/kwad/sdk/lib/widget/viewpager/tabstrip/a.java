@@ -33,7 +33,7 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
 
     /* renamed from: com.kwad.sdk.lib.widget.viewpager.tabstrip.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1142a {
+    public interface InterfaceC1144a {
         void a(Bundle bundle);
     }
 
@@ -108,8 +108,8 @@ public class a extends PagerAdapter implements PagerSlidingTabStrip.c.a {
         }
         this.g.put(i, bundle);
         KsFragment a2 = a(i);
-        if (a2 instanceof InterfaceC1142a) {
-            ((InterfaceC1142a) a2).a(bundle);
+        if (a2 instanceof InterfaceC1144a) {
+            ((InterfaceC1144a) a2).a(bundle);
         }
     }
 

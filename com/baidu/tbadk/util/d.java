@@ -24,7 +24,7 @@ public class d {
     private static final Hashtable<String, ArrayList<a<Integer, Integer>>> fMt = new Hashtable<>();
     private static boolean fMu = true;
 
-    public static void DK(final String str) {
+    public static void DI(final String str) {
         rx.d.bX("").c(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.tbadk.util.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
@@ -188,9 +188,12 @@ public class d {
 
     public static void L(Intent intent) {
         if (!TextUtils.isEmpty(intent.getDataString())) {
-            String substring = intent.getDataString().substring(8);
+            String str = "";
+            if (intent.getDataString().length() > 8) {
+                str = intent.getDataString().substring(8);
+            }
             String action = intent.getAction();
-            ArrayList<a<Integer, Integer>> arrayList = fMt.get(substring);
+            ArrayList<a<Integer, Integer>> arrayList = fMt.get(str);
             if (arrayList != null && arrayList.size() != 0) {
                 Iterator<a<Integer, Integer>> it = arrayList.iterator();
                 while (it.hasNext()) {

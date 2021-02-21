@@ -27,13 +27,13 @@ import com.baidu.tieba.barselect.segment.VotedAreaLayout;
 /* loaded from: classes8.dex */
 public class FloatMyRecordCard extends LinearLayout {
     private TextView eIO;
-    private f iph;
-    private TextView isO;
-    private ImageView isP;
-    private d isS;
-    private TextView itn;
-    private BazhuHeadView ito;
-    private VotedAreaLayout itp;
+    private f ipv;
+    private TextView itB;
+    private BazhuHeadView itC;
+    private VotedAreaLayout itD;
+    private TextView itc;
+    private ImageView itd;
+    private d itg;
     private Context mContext;
     private View.OnClickListener onClickListener;
     private int status;
@@ -47,9 +47,9 @@ public class FloatMyRecordCard extends LinearLayout {
         this.onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.view.FloatMyRecordCard.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatMyRecordCard.this.isS != null && FloatMyRecordCard.this.isS.getUid() != 0) {
+                if (FloatMyRecordCard.this.itg != null && FloatMyRecordCard.this.itg.getUid() != 0) {
                     long j = b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    long uid = FloatMyRecordCard.this.isS.getUid();
+                    long uid = FloatMyRecordCard.this.itg.getUid();
                     if (FloatMyRecordCard.this.getContext() instanceof Activity) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(FloatMyRecordCard.this.getContext()).createNormalConfig(uid, uid == j, false)));
                     }
@@ -68,71 +68,71 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     private void tz() {
-        this.itn = (TextView) findViewById(R.id.tv_voted_rank);
-        this.ito = (BazhuHeadView) findViewById(R.id.user_avatar);
-        if (this.ito.getHeadView() != null) {
-            this.ito.getHeadView().setIsRound(true);
+        this.itB = (TextView) findViewById(R.id.tv_voted_rank);
+        this.itC = (BazhuHeadView) findViewById(R.id.user_avatar);
+        if (this.itC.getHeadView() != null) {
+            this.itC.getHeadView().setIsRound(true);
         }
         this.eIO = (TextView) findViewById(R.id.user_name);
-        this.isP = (ImageView) findViewById(R.id.grade);
-        this.isO = (TextView) findViewById(R.id.vote_id);
-        this.itp = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
+        this.itd = (ImageView) findViewById(R.id.grade);
+        this.itc = (TextView) findViewById(R.id.vote_id);
+        this.itD = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
     }
 
     public void setData(f fVar) {
         String str;
-        this.iph = fVar;
-        if (this.iph != null && this.iph.crp() != null) {
-            e crp = this.iph.crp();
-            if (crp != null) {
-                this.status = crp.getStatus();
+        this.ipv = fVar;
+        if (this.ipv != null && this.ipv.crw() != null) {
+            e crw = this.ipv.crw();
+            if (crw != null) {
+                this.status = crw.getStatus();
             }
-            this.isS = this.iph.cro();
+            this.itg = this.ipv.crv();
         }
-        if (this.iph == null || this.isS == null || this.status != com.baidu.tieba.barselect.a.d.itl) {
+        if (this.ipv == null || this.itg == null || this.status != com.baidu.tieba.barselect.a.d.itz) {
             setVisibility(8);
             return;
         }
-        int rank = this.isS.getRank();
+        int rank = this.itg.getRank();
         if (rank < 10) {
-            this.itn.setText("0" + rank);
+            this.itB.setText("0" + rank);
         } else {
-            this.itn.setText("" + rank);
+            this.itB.setText("" + rank);
         }
         if (rank == 2) {
-            this.itn.setTextColor(getResources().getColor(R.color.common_color_10263));
+            this.itB.setTextColor(getResources().getColor(R.color.common_color_10263));
         } else if (rank == 3) {
-            this.itn.setTextColor(getResources().getColor(R.color.common_color_10266));
+            this.itB.setTextColor(getResources().getColor(R.color.common_color_10266));
         }
-        this.ito.BA(this.isS.getPortrait());
-        this.ito.setOnClickListener(this.onClickListener);
-        this.eIO.setText(au.cutChineseAndEnglishWithSuffix(this.isS.getNickname(), 14, StringHelper.STRING_MORE));
-        setGrade(this.isS.crb());
-        if (this.isS.cra() < 1000) {
-            String str2 = "0000" + this.isS.cra();
+        this.itC.BA(this.itg.getPortrait());
+        this.itC.setOnClickListener(this.onClickListener);
+        this.eIO.setText(au.cutChineseAndEnglishWithSuffix(this.itg.getNickname(), 14, StringHelper.STRING_MORE));
+        setGrade(this.itg.cri());
+        if (this.itg.crh() < 1000) {
+            String str2 = "0000" + this.itg.crh();
             str = str2.substring(str2.length() - 4, str2.length());
         } else {
-            str = "" + this.isS.cra();
+            str = "" + this.itg.crh();
         }
-        this.isO.setText("NO." + str);
-        this.itp.setMyRecordData(this.isS);
+        this.itc.setText("NO." + str);
+        this.itD.setMyRecordData(this.itg);
     }
 
     public void setGrade(int i) {
-        ap.setImageResource(this.isP, BitmapHelper.getGradeResourceIdInEnterForum(i));
+        ap.setImageResource(this.itd, BitmapHelper.getGradeResourceIdInEnterForum(i));
     }
 
     public void uu(int i) {
-        if (this.isS != null) {
-            if (this.isS.getRank() > 3) {
-                ap.setViewTextColor(this.itn, R.color.CAM_X0105, 1, i);
+        if (this.itg != null) {
+            if (this.itg.getRank() > 3) {
+                ap.setViewTextColor(this.itB, R.color.CAM_X0105, 1, i);
             }
             ap.setViewTextColor(this.eIO, R.color.CAM_X0105, 1, i);
-            setGrade(this.isS.crb());
-            ap.setViewTextColor(this.isO, R.color.CAM_X0109, 1, i);
-            this.itp.uu(i);
+            setGrade(this.itg.cri());
+            ap.setViewTextColor(this.itc, R.color.CAM_X0109, 1, i);
+            this.itD.uu(i);
             ap.setBackgroundColor(this, R.color.CAM_X0201, i);
-            setGrade(this.isS.crb());
+            setGrade(this.itg.cri());
         }
     }
 }

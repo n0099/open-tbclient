@@ -8,31 +8,31 @@ import java.nio.charset.Charset;
 public abstract class c implements Closeable {
     public abstract long b();
 
-    public abstract y epn();
+    public abstract y epv();
 
-    public abstract com.bytedance.sdk.a.a.e epo();
+    public abstract com.bytedance.sdk.a.a.e epw();
 
     public final InputStream c() {
-        return epo().eot();
+        return epw().eoB();
     }
 
     public final String e() throws IOException {
-        com.bytedance.sdk.a.a.e epo = epo();
+        com.bytedance.sdk.a.a.e epw = epw();
         try {
-            return epo.b(com.bytedance.sdk.a.b.a.c.a(epo, epK()));
+            return epw.b(com.bytedance.sdk.a.b.a.c.a(epw, epS()));
         } finally {
-            com.bytedance.sdk.a.b.a.c.a(epo);
+            com.bytedance.sdk.a.b.a.c.a(epw);
         }
     }
 
-    private Charset epK() {
-        y epn = epn();
-        return epn != null ? epn.a(com.bytedance.sdk.a.b.a.c.poY) : com.bytedance.sdk.a.b.a.c.poY;
+    private Charset epS() {
+        y epv = epv();
+        return epv != null ? epv.a(com.bytedance.sdk.a.b.a.c.ppA) : com.bytedance.sdk.a.b.a.c.ppA;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.bytedance.sdk.a.b.a.c.a(epo());
+        com.bytedance.sdk.a.b.a.c.a(epw());
     }
 
     public static c a(y yVar, byte[] bArr) {
@@ -45,7 +45,7 @@ public abstract class c implements Closeable {
         }
         return new c() { // from class: com.bytedance.sdk.a.b.c.1
             @Override // com.bytedance.sdk.a.b.c
-            public y epn() {
+            public y epv() {
                 return y.this;
             }
 
@@ -55,7 +55,7 @@ public abstract class c implements Closeable {
             }
 
             @Override // com.bytedance.sdk.a.b.c
-            public com.bytedance.sdk.a.a.e epo() {
+            public com.bytedance.sdk.a.a.e epw() {
                 return eVar;
             }
         };

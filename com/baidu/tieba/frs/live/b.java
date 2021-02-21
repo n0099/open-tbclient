@@ -14,16 +14,16 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.card.z;
 /* loaded from: classes2.dex */
 public class b implements CustomMessageTask.CustomRunnable<cb>, z {
-    private com.baidu.tieba.frs.b.b jEk;
-    private int jEl;
-    private int jqp = 3;
+    private com.baidu.tieba.frs.b.b jEy;
+    private int jEz;
+    private int jqD = 3;
     private BdUniqueId mPageId;
     private TbPageTag mTbPageTag;
 
     public b(com.baidu.tieba.frs.b.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
-        this.jEk = null;
+        this.jEy = null;
         this.mTbPageTag = null;
-        this.jEk = bVar;
+        this.jEy = bVar;
         this.mTbPageTag = tbPageTag;
         this.mPageId = bdUniqueId;
     }
@@ -35,20 +35,20 @@ public class b implements CustomMessageTask.CustomRunnable<cb>, z {
             cb data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 aw(data);
-                com.baidu.tieba.frs.b.c.cKe().a(this.jEk, data, 1);
-                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jEk, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cKl().a(this.jEy, data, 1);
+                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jEy, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
                 aw(data);
-                com.baidu.tieba.frs.b.c.cKe().a(this.jEk, data, 2);
-                com.baidu.tieba.frs.b.a.a(data, 2, this.mPageId, this.jEk, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cKl().a(this.jEy, data, 2);
+                com.baidu.tieba.frs.b.a.a(data, 2, this.mPageId, this.jEy, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
                 aw(data);
-                com.baidu.tieba.frs.b.c.cKe().a(this.jEk, data, 4);
-                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jEk, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cKl().a(this.jEy, data, 4);
+                com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jEy, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
                 ax(data);
-                com.baidu.tieba.frs.b.c.cKe().a(this.jEk, data);
-                com.baidu.tieba.frs.b.a.a(data, this.mPageId, this.jEk, this.mTbPageTag);
+                com.baidu.tieba.frs.b.c.cKl().a(this.jEy, data);
+                com.baidu.tieba.frs.b.a.a(data, this.mPageId, this.jEy, this.mTbPageTag);
             }
         }
         return null;
@@ -70,9 +70,9 @@ public class b implements CustomMessageTask.CustomRunnable<cb>, z {
             arVar.v("star_id", j);
             arVar.dR("extra", cbVar.mRecomExtra);
             arVar.dR(VideoPlayActivityConfig.SOURCE_FROM, cbVar.mRecomSource);
-            if (this.jEl == 14) {
+            if (this.jEz == 14) {
                 arVar.ap("obj_locate", 1);
-            } else if (this.jEl == 13) {
+            } else if (this.jEz == 13) {
                 arVar.ap("obj_locate", 2);
             }
             TiebaStatic.log(arVar);
@@ -95,12 +95,12 @@ public class b implements CustomMessageTask.CustomRunnable<cb>, z {
             arVar.v("star_id", j);
             arVar.dR("extra", cbVar.mRecomExtra);
             arVar.dR(VideoPlayActivityConfig.SOURCE_FROM, cbVar.mRecomSource);
-            if (this.jEl == 14) {
+            if (this.jEz == 14) {
                 arVar.ap("obj_locate", 1);
-            } else if (this.jEl == 13) {
+            } else if (this.jEz == 13) {
                 arVar.ap("obj_locate", 2);
             }
-            t.csu().e(arVar);
+            t.csB().e(arVar);
         }
     }
 
@@ -110,10 +110,10 @@ public class b implements CustomMessageTask.CustomRunnable<cb>, z {
 
     @Override // com.baidu.tieba.card.z
     public void uX(int i) {
-        this.jqp = i;
+        this.jqD = i;
     }
 
     public void zX(int i) {
-        this.jEl = i;
+        this.jEz = i;
     }
 }

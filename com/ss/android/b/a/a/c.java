@@ -29,12 +29,12 @@ public class c implements com.ss.android.a.a.b.c {
     private String m;
     private String n;
     private String o;
-    private Map<String, String> puS;
+    private Map<String, String> pvs;
     private boolean q;
-    private com.ss.android.a.a.d.b qaA;
-    private JSONObject qaB;
-    private f qaC;
-    private ah qaD;
+    private com.ss.android.a.a.d.b qba;
+    private JSONObject qbb;
+    private f qbc;
+    private ah qbd;
     private boolean r;
     private boolean s;
     private boolean u;
@@ -52,7 +52,7 @@ public class c implements com.ss.android.a.a.b.c {
         this.e = aVar.e;
         this.f = aVar.f;
         this.g = aVar.g;
-        this.qaA = aVar.qaA;
+        this.qba = aVar.qba;
         this.i = aVar.i;
         this.j = aVar.j;
         this.k = aVar.k;
@@ -60,20 +60,20 @@ public class c implements com.ss.android.a.a.b.c {
         this.m = aVar.A;
         this.n = aVar.l;
         this.o = aVar.m;
-        this.puS = aVar.n;
+        this.pvs = aVar.n;
         this.q = aVar.o;
         this.r = aVar.p;
         this.s = aVar.q;
-        this.qaB = aVar.r;
+        this.qbb = aVar.r;
         this.u = aVar.s;
         this.v = aVar.t;
         this.w = aVar.u;
         this.x = aVar.v;
         this.y = aVar.w;
         this.z = aVar.x;
-        this.qaC = aVar.qaE;
+        this.qbc = aVar.qbe;
         this.B = aVar.B;
-        this.qaD = aVar.qaD;
+        this.qbd = aVar.qbd;
         this.D = aVar.D;
         this.E = aVar.E;
         this.F = aVar.F;
@@ -126,7 +126,7 @@ public class c implements com.ss.android.a.a.b.c {
 
     @Override // com.ss.android.a.a.b.c
     public Map<String, String> j() {
-        return this.puS;
+        return this.pvs;
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -156,7 +156,7 @@ public class c implements com.ss.android.a.a.b.c {
 
     @Override // com.ss.android.a.a.b.c
     public JSONObject p() {
-        return this.qaB;
+        return this.qbb;
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -195,17 +195,17 @@ public class c implements com.ss.android.a.a.b.c {
     }
 
     @Override // com.ss.android.a.a.b.c
-    public com.ss.android.a.a.d.b eDV() {
-        return this.qaA;
+    public com.ss.android.a.a.d.b eEd() {
+        return this.qba;
     }
 
     @Override // com.ss.android.a.a.b.c
-    public List<String> eDW() {
+    public List<String> eEe() {
         return this.i;
     }
 
     @Override // com.ss.android.a.a.b.c
-    public JSONObject eDX() {
+    public JSONObject eEf() {
         return this.j;
     }
 
@@ -215,8 +215,8 @@ public class c implements com.ss.android.a.a.b.c {
     }
 
     @Override // com.ss.android.a.a.b.c
-    public f eDY() {
-        return this.qaC;
+    public f eEg() {
+        return this.qbc;
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -225,8 +225,8 @@ public class c implements com.ss.android.a.a.b.c {
     }
 
     @Override // com.ss.android.a.a.b.c
-    public ah eDZ() {
-        return this.qaD;
+    public ah eEh() {
+        return this.qbd;
     }
 
     @Override // com.ss.android.a.a.b.c
@@ -243,12 +243,12 @@ public class c implements com.ss.android.a.a.b.c {
         this.f12919b = j;
     }
 
-    public c aaw(String str) {
+    public c aaI(String str) {
         this.f = str;
         return this;
     }
 
-    public c aax(String str) {
+    public c aaJ(String str) {
         this.k = str;
         return this;
     }
@@ -275,9 +275,9 @@ public class c implements com.ss.android.a.a.b.c {
         private String l;
         private String m;
         private Map<String, String> n;
-        private com.ss.android.a.a.d.b qaA;
-        private ah qaD;
-        private f qaE;
+        private com.ss.android.a.a.d.b qba;
+        private ah qbd;
+        private f qbe;
         private JSONObject r;
         private String t;
         private String u;
@@ -307,28 +307,28 @@ public class c implements com.ss.android.a.a.b.c {
             return this;
         }
 
-        public a QQ(int i) {
+        public a QR(int i) {
             this.d = i;
             return this;
         }
 
-        public a aay(String str) {
+        public a aaK(String str) {
             this.e = str;
             return this;
         }
 
-        public a aaz(String str) {
+        public a aaL(String str) {
             this.f = str;
             return this;
         }
 
-        public a aaA(String str) {
+        public a aaM(String str) {
             this.g = str;
             return this;
         }
 
         public a a(com.ss.android.a.a.d.b bVar) {
-            this.qaA = bVar;
+            this.qba = bVar;
             return this;
         }
 
@@ -337,17 +337,17 @@ public class c implements com.ss.android.a.a.b.c {
             return this;
         }
 
-        public a aaB(String str) {
+        public a aaN(String str) {
             this.k = str;
             return this;
         }
 
-        public a aaC(String str) {
+        public a aaO(String str) {
             this.l = str;
             return this;
         }
 
-        public a aaD(String str) {
+        public a aaP(String str) {
             this.m = str;
             return this;
         }
@@ -362,12 +362,12 @@ public class c implements com.ss.android.a.a.b.c {
             return this;
         }
 
-        public a QR(int i) {
+        public a QS(int i) {
             this.w = i;
             return this;
         }
 
-        public a aaE(String str) {
+        public a aaQ(String str) {
             this.x = str;
             return this;
         }
@@ -377,7 +377,7 @@ public class c implements com.ss.android.a.a.b.c {
             return this;
         }
 
-        public c eEg() {
+        public c eEo() {
             return new c(this);
         }
     }

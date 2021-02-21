@@ -67,7 +67,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a Dn(String str) {
+    public a Dl(String str) {
         return null;
     }
 

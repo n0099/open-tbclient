@@ -17,35 +17,35 @@ import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes9.dex */
 public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
-    LinearLayout laC;
-    TbImageView leP;
-    TextView leQ;
-    TbImageView leR;
-    TextView leS;
-    TextView leT;
-    HeadImageView leU;
-    private final int leV;
-    private final int leW;
+    LinearLayout laQ;
+    TbImageView lfd;
+    TextView lfe;
+    TbImageView lff;
+    TextView lfg;
+    TextView lfh;
+    HeadImageView lfi;
+    private final int lfj;
+    private final int lfk;
     TextView title;
 
     public RankDetailTrendCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.leV = com.baidu.adp.lib.util.l.getEquipmentWidth(tbPageContext.getPageActivity());
-        this.leW = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds24) * 2;
+        this.lfj = com.baidu.adp.lib.util.l.getEquipmentWidth(tbPageContext.getPageActivity());
+        this.lfk = tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds24) * 2;
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbO() {
-        this.laC = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_rank_trend, (ViewGroup) null);
-        this.leP = (TbImageView) z(this.laC, R.id.leftIcon);
-        this.leQ = (TextView) z(this.laC, R.id.item);
-        this.title = (TextView) z(this.laC, R.id.trend_title);
-        this.leR = (TbImageView) z(this.laC, R.id.trend);
-        this.leS = (TextView) z(this.laC, R.id.trend_text);
-        this.leT = (TextView) z(this.laC, R.id.btn_post);
-        this.leU = (HeadImageView) z(this.laC, R.id.head);
-        this.leU.setIsRound(true);
-        return this.laC;
+    protected View dbV() {
+        this.laQ = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_rank_trend, (ViewGroup) null);
+        this.lfd = (TbImageView) z(this.laQ, R.id.leftIcon);
+        this.lfe = (TextView) z(this.laQ, R.id.item);
+        this.title = (TextView) z(this.laQ, R.id.trend_title);
+        this.lff = (TbImageView) z(this.laQ, R.id.trend);
+        this.lfg = (TextView) z(this.laQ, R.id.trend_text);
+        this.lfh = (TextView) z(this.laQ, R.id.btn_post);
+        this.lfi = (HeadImageView) z(this.laQ, R.id.head);
+        this.lfi.setIsRound(true);
+        return this.laQ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,8 +53,8 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(RankDetailTrendCard rankDetailTrendCard, int i) {
         com.baidu.tbadk.r.a.a(this.eUY, getRootView());
-        ap.setBackgroundResource(this.laC, R.drawable.addresslist_item_bg);
-        ap.setViewTextColor(this.leQ, R.color.CAM_X0108);
+        ap.setBackgroundResource(this.laQ, R.drawable.addresslist_item_bg);
+        ap.setViewTextColor(this.lfe, R.color.CAM_X0108);
         ap.setViewTextColor(this.title, R.color.CAM_X0105);
         setTrendTextColor(rankDetailTrendCard);
     }
@@ -64,96 +64,96 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     /* renamed from: a */
     public void d(final RankDetailTrendCard rankDetailTrendCard) {
         if (rankDetailTrendCard.getRank() == 1) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.leU.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.lfi.getLayoutParams();
             layoutParams.topMargin = getResources().getDimensionPixelSize(R.dimen.ds24);
-            this.leU.setLayoutParams(layoutParams);
+            this.lfi.setLayoutParams(layoutParams);
         } else {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.leU.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.lfi.getLayoutParams();
             layoutParams2.topMargin = getResources().getDimensionPixelSize(R.dimen.ds20);
-            this.leU.setLayoutParams(layoutParams2);
+            this.lfi.setLayoutParams(layoutParams2);
         }
         if (!TextUtils.isEmpty(rankDetailTrendCard.getIconUrl())) {
-            this.leP.setVisibility(0);
-            this.leP.setImageDrawable(null);
-            this.leP.startLoad(rankDetailTrendCard.getIconUrl(), 10, false);
-            this.leQ.setVisibility(8);
+            this.lfd.setVisibility(0);
+            this.lfd.setImageDrawable(null);
+            this.lfd.startLoad(rankDetailTrendCard.getIconUrl(), 10, false);
+            this.lfe.setVisibility(8);
         } else if (rankDetailTrendCard.getRank() <= 0) {
-            this.leP.setVisibility(8);
-            this.leQ.setVisibility(8);
+            this.lfd.setVisibility(8);
+            this.lfe.setVisibility(8);
         } else {
             if (rankDetailTrendCard.getRank() <= 3) {
-                this.leP.setVisibility(0);
-                this.leQ.setVisibility(8);
+                this.lfd.setVisibility(0);
+                this.lfe.setVisibility(8);
                 switch (rankDetailTrendCard.getRank()) {
                     case 1:
-                        ap.setImageResource(this.leP, R.drawable.icon_grade_shaitu1);
+                        ap.setImageResource(this.lfd, R.drawable.icon_grade_shaitu1);
                         break;
                     case 2:
-                        ap.setImageResource(this.leP, R.drawable.icon_grade_shaitu2);
+                        ap.setImageResource(this.lfd, R.drawable.icon_grade_shaitu2);
                         break;
                     case 3:
-                        ap.setImageResource(this.leP, R.drawable.icon_grade_shaitu3);
+                        ap.setImageResource(this.lfd, R.drawable.icon_grade_shaitu3);
                         break;
                     default:
-                        this.leP.setVisibility(8);
-                        ap.setImageResource(this.leP, R.drawable.icon_grade_shaitu1);
+                        this.lfd.setVisibility(8);
+                        ap.setImageResource(this.lfd, R.drawable.icon_grade_shaitu1);
                         break;
                 }
             } else {
-                this.leP.setVisibility(8);
-                this.leQ.setVisibility(0);
+                this.lfd.setVisibility(8);
+                this.lfe.setVisibility(0);
             }
             if (rankDetailTrendCard.getRank() <= 9) {
-                this.leQ.setText("0" + rankDetailTrendCard.getRank() + "");
+                this.lfe.setText("0" + rankDetailTrendCard.getRank() + "");
             } else {
-                this.leQ.setText(rankDetailTrendCard.getRank() + "");
+                this.lfe.setText(rankDetailTrendCard.getRank() + "");
             }
-            ap.setViewTextColor(this.leQ, R.color.CAM_X0108);
+            ap.setViewTextColor(this.lfe, R.color.CAM_X0108);
         }
         if (!TextUtils.isEmpty(rankDetailTrendCard.getPostUrl()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnText()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnDone())) {
-            this.leT.setVisibility(0);
-            a(this.leT, rankDetailTrendCard.isDone(), rankDetailTrendCard.getBtnText(), rankDetailTrendCard.getBtnDone());
-            this.leT.setTag(rankDetailTrendCard.getPostUrl());
-            this.leT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.RankDetailTrendCardView.1
+            this.lfh.setVisibility(0);
+            a(this.lfh, rankDetailTrendCard.isDone(), rankDetailTrendCard.getBtnText(), rankDetailTrendCard.getBtnDone());
+            this.lfh.setTag(rankDetailTrendCard.getPostUrl());
+            this.lfh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.RankDetailTrendCardView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (bh.checkUpIsLogin(RankDetailTrendCardView.this.getContext())) {
-                        com.baidu.tieba.lego.a.b.dbk().a(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
+                        com.baidu.tieba.lego.a.b.dbr().a(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
                     }
                 }
             });
-            this.leR.setVisibility(8);
-            this.leS.setVisibility(8);
+            this.lff.setVisibility(8);
+            this.lfg.setVisibility(8);
         } else {
-            this.leT.setVisibility(8);
+            this.lfh.setVisibility(8);
             if (!TextUtils.isEmpty(rankDetailTrendCard.getPicTrendUrl())) {
-                this.leR.setVisibility(0);
-                this.leS.setVisibility(8);
-                this.leR.setImageDrawable(null);
-                this.leR.startLoad(rankDetailTrendCard.getPicTrendUrl(), 10, false);
+                this.lff.setVisibility(0);
+                this.lfg.setVisibility(8);
+                this.lff.setImageDrawable(null);
+                this.lff.startLoad(rankDetailTrendCard.getPicTrendUrl(), 10, false);
             } else if (!TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
-                this.leS.setVisibility(0);
-                this.leR.setVisibility(8);
-                this.leS.setText(rankDetailTrendCard.getTrendText());
+                this.lfg.setVisibility(0);
+                this.lff.setVisibility(8);
+                this.lfg.setText(rankDetailTrendCard.getTrendText());
                 setTrendTextColor(rankDetailTrendCard);
-                this.leS.setMaxWidth((this.leV - this.leW) / 2);
+                this.lfg.setMaxWidth((this.lfj - this.lfk) / 2);
             } else {
-                this.leS.setVisibility(8);
+                this.lfg.setVisibility(8);
                 switch (rankDetailTrendCard.getPicTrendType()) {
                     case 1:
-                        this.leR.setVisibility(0);
-                        ap.setImageResource(this.leR, R.drawable.icon_arrow_ranking_up);
+                        this.lff.setVisibility(0);
+                        ap.setImageResource(this.lff, R.drawable.icon_arrow_ranking_up);
                         break;
                     case 2:
-                        this.leR.setVisibility(0);
-                        ap.setImageResource(this.leR, R.drawable.icon_arrow_ranking_keep);
+                        this.lff.setVisibility(0);
+                        ap.setImageResource(this.lff, R.drawable.icon_arrow_ranking_keep);
                         break;
                     case 3:
-                        this.leR.setVisibility(0);
-                        ap.setImageResource(this.leR, R.drawable.icon_arrow_ranking_down);
+                        this.lff.setVisibility(0);
+                        ap.setImageResource(this.lff, R.drawable.icon_arrow_ranking_down);
                         break;
                     default:
-                        this.leR.setVisibility(8);
+                        this.lff.setVisibility(8);
                         break;
                 }
             }
@@ -161,11 +161,11 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         ap.setViewTextColor(this.title, R.color.CAM_X0105);
         this.title.setText(rankDetailTrendCard.getCardTitle());
         if (TextUtils.isEmpty(rankDetailTrendCard.getPicUrl())) {
-            this.leU.setVisibility(8);
+            this.lfi.setVisibility(8);
         } else {
-            this.leU.setVisibility(0);
-            this.leU.setTag(rankDetailTrendCard.getPicUrl());
-            this.leU.startLoad(rankDetailTrendCard.getPicUrl(), 10, false);
+            this.lfi.setVisibility(0);
+            this.lfi.setTag(rankDetailTrendCard.getPicUrl());
+            this.lfi.startLoad(rankDetailTrendCard.getPicUrl(), 10, false);
         }
         setCardOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.RankDetailTrendCardView.2
             @Override // android.view.View.OnClickListener
@@ -177,7 +177,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
 
     private void setTrendTextColor(RankDetailTrendCard rankDetailTrendCard) {
         if (rankDetailTrendCard != null && !TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
-            a(this.leS, rankDetailTrendCard.getTrendColor(), rankDetailTrendCard.getTrendColorNight(), R.color.CAM_X0308);
+            a(this.lfg, rankDetailTrendCard.getTrendColor(), rankDetailTrendCard.getTrendColorNight(), R.color.CAM_X0308);
         }
     }
 }

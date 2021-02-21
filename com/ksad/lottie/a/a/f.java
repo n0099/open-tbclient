@@ -11,7 +11,7 @@ import com.ksad.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class f implements d, j, a.InterfaceC1065a {
+public class f implements d, j, a.InterfaceC1067a {
     private final com.ksad.lottie.model.layer.a c;
     private final String d;
     private final com.ksad.lottie.a.b.a<Integer, Integer> f;
@@ -45,7 +45,7 @@ public class f implements d, j, a.InterfaceC1065a {
         aVar.a(this.g);
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1065a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
     public void a() {
         this.i.invalidateSelf();
     }

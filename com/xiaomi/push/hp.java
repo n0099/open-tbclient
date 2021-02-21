@@ -28,9 +28,9 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
     public int compareTo(hp hpVar) {
         int a2;
         if (getClass().equals(hpVar.getClass())) {
-            int compareTo = Boolean.valueOf(m370a()).compareTo(Boolean.valueOf(hpVar.m370a()));
+            int compareTo = Boolean.valueOf(m369a()).compareTo(Boolean.valueOf(hpVar.m369a()));
             if (compareTo == 0) {
-                if (!m370a() || (a2 = iy.a(this.f524a, hpVar.f524a)) == 0) {
+                if (!m369a() || (a2 = iy.a(this.f524a, hpVar.f524a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -41,7 +41,7 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m369a() {
+    public void m368a() {
         if (this.f524a == null) {
             throw new jj("Required field 'uploadDataItems' was not present! Struct: " + toString());
         }
@@ -56,20 +56,20 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m515a();
+        jiVar.m514a();
         while (true) {
-            jf m511a = jiVar.m511a();
-            if (m511a.f14173a == 0) {
+            jf m510a = jiVar.m510a();
+            if (m510a.f14173a == 0) {
                 jiVar.f();
-                m369a();
+                m368a();
                 return;
             }
-            switch (m511a.f857a) {
+            switch (m510a.f857a) {
                 case 1:
-                    if (m511a.f14173a == 15) {
-                        jg m512a = jiVar.m512a();
-                        this.f524a = new ArrayList(m512a.f858a);
-                        for (int i = 0; i < m512a.f858a; i++) {
+                    if (m510a.f14173a == 15) {
+                        jg m511a = jiVar.m511a();
+                        this.f524a = new ArrayList(m511a.f858a);
+                        for (int i = 0; i < m511a.f858a; i++) {
                             hq hqVar = new hq();
                             hqVar.a(jiVar);
                             this.f524a.add(hqVar);
@@ -77,11 +77,11 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m511a.f14173a);
+                        jl.a(jiVar, m510a.f14173a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m511a.f14173a);
+                    jl.a(jiVar, m510a.f14173a);
                     break;
             }
             jiVar.g();
@@ -89,23 +89,23 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m370a() {
+    public boolean m369a() {
         return this.f524a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m371a(hp hpVar) {
+    public boolean m370a(hp hpVar) {
         if (hpVar == null) {
             return false;
         }
-        boolean m370a = m370a();
-        boolean m370a2 = hpVar.m370a();
-        return !(m370a || m370a2) || (m370a && m370a2 && this.f524a.equals(hpVar.f524a));
+        boolean m369a = m369a();
+        boolean m369a2 = hpVar.m369a();
+        return !(m369a || m369a2) || (m369a && m369a2 && this.f524a.equals(hpVar.f524a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m369a();
+        m368a();
         jiVar.a(f523a);
         if (this.f524a != null) {
             jiVar.a(f14099a);
@@ -117,12 +117,12 @@ public class hp implements ix<hp, Object>, Serializable, Cloneable {
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m519a();
+        jiVar.m518a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hp)) {
-            return m371a((hp) obj);
+            return m370a((hp) obj);
         }
         return false;
     }

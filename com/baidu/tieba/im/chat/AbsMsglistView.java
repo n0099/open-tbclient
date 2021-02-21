@@ -84,7 +84,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
 
     /* loaded from: classes.dex */
     public interface a {
-        void cUr();
+        void cUy();
 
         void e(VoiceData.VoiceModel voiceModel);
     }
@@ -126,13 +126,13 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
                             }
                         }
                     } else if (aVar.code == 8) {
-                        AbsMsglistView.this.mContext.cUK();
+                        AbsMsglistView.this.mContext.cUR();
                     } else if (aVar.code == 4) {
                         if (aVar.data != null && (aVar.data instanceof String)) {
                             AbsMsglistView.this.mTextContent = (String) aVar.data;
                         }
                     } else if (aVar.code == 14) {
-                        AbsMsglistView.this.mContext.cUL();
+                        AbsMsglistView.this.mContext.cUS();
                     }
                 }
             }
@@ -657,7 +657,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.d<MsglistActivit
     public void onDeletedVoice(String str) {
         this.mModel = null;
         if (this.mCallback != null) {
-            this.mCallback.cUr();
+            this.mCallback.cUy();
         }
     }
 

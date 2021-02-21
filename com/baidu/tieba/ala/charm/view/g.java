@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class g extends BaseAdapter {
-    private String gPK;
+    private String gPY;
     private boolean isHost;
     private BdListView mListView;
     private TbPageContext mPageContext;
@@ -24,7 +24,7 @@ public class g extends BaseAdapter {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            g.this.bF(message.arg1, message.arg2);
+            g.this.bG(message.arg1, message.arg2);
         }
     };
     private ArrayList<u> eVV = new ArrayList<>();
@@ -75,8 +75,8 @@ public class g extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.gPM = (CharmPokeItemView) view.findViewById(a.f.pokeItem);
-            aVar2.gPF = (CharmItemView) view.findViewById(a.f.item);
+            aVar2.gQa = (CharmPokeItemView) view.findViewById(a.f.pokeItem);
+            aVar2.gPT = (CharmItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -90,15 +90,15 @@ public class g extends BaseAdapter {
                 z = alaLiveUserInfoData.extInfoJson.optInt("is_mysterious_man") == 1;
             }
             if (!this.isHost || item.hadPoked == 0 || z) {
-                aVar.gPM.setVisibility(8);
-                aVar.gPF.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
-                aVar.gPF.gPv.setData(alaLiveUserInfoData);
-                aVar.gPF.setVisibility(0);
+                aVar.gQa.setVisibility(8);
+                aVar.gPT.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
+                aVar.gPT.gPJ.setData(alaLiveUserInfoData);
+                aVar.gPT.setVisibility(0);
             } else {
-                aVar.gPF.setVisibility(8);
-                aVar.gPM.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L, item.hadPoked, alaLiveUserInfoData.userId, this.gPK);
-                aVar.gPM.gPv.setData(alaLiveUserInfoData);
-                aVar.gPM.setVisibility(0);
+                aVar.gPT.setVisibility(8);
+                aVar.gQa.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L, item.hadPoked, alaLiveUserInfoData.userId, this.gPY);
+                aVar.gQa.gPJ.setData(alaLiveUserInfoData);
+                aVar.gQa.setVisibility(0);
             }
             this.mPageContext.getLayoutMode().onModeChanged(view);
         }
@@ -109,7 +109,7 @@ public class g extends BaseAdapter {
         this.mListView = bdListView;
     }
 
-    public void bE(int i, int i2) {
+    public void bF(int i, int i2) {
         u uVar = this.eVV.get(i);
         uVar.hadPoked = 1;
         this.eVV.set(i, uVar);
@@ -120,7 +120,7 @@ public class g extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bF(int i, int i2) {
+    public void bG(int i, int i2) {
         if (this.mListView != null) {
             int firstVisiblePosition = this.mListView.getFirstVisiblePosition();
             int lastVisiblePosition = this.mListView.getLastVisiblePosition();
@@ -130,24 +130,24 @@ public class g extends BaseAdapter {
                     if (i2 != 0) {
                         return;
                     }
-                    aVar.gPM.gPx.setVisibility(8);
+                    aVar.gQa.gPL.setVisibility(8);
                     return;
                 }
-                aVar.gPM.gPx.setEnabled(false);
-                aVar.gPM.gPx.setText(this.mPageContext.getString(a.h.sdk_poke_had_poked));
+                aVar.gQa.gPL.setEnabled(false);
+                aVar.gQa.gPL.setText(this.mPageContext.getString(a.h.sdk_poke_had_poked));
             }
         }
     }
 
     public void setLiveId(String str) {
-        this.gPK = str;
+        this.gPY = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a {
-        private CharmItemView gPF;
-        private CharmPokeItemView gPM;
+        private CharmItemView gPT;
+        private CharmPokeItemView gQa;
 
         private a() {
         }

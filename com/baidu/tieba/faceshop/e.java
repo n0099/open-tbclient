@@ -48,9 +48,9 @@ public class e implements com.baidu.tbadk.download.c {
             try {
                 fileInputStream = new FileInputStream(downloadData.getPath());
                 try {
-                    int b2 = a.cyo().b(downloadData.getId(), fileInputStream);
-                    EmotionGroupData JC = i.cyE().JC(downloadData.getId());
-                    if (JC == null) {
+                    int b2 = a.cyv().b(downloadData.getId(), fileInputStream);
+                    EmotionGroupData JD = i.cyL().JD(downloadData.getId());
+                    if (JD == null) {
                         if (b2 == 0) {
                             if (fileInputStream != null) {
                                 try {
@@ -63,21 +63,21 @@ public class e implements com.baidu.tbadk.download.c {
                             }
                             return false;
                         }
-                        JC = new EmotionGroupData();
-                        JC.setBytesLength((int) downloadData.getSize());
-                        JC.setBytesReceived((int) downloadData.getLength());
-                        JC.setDownloadUrl(downloadData.getUrl());
-                        JC.setGroupId(downloadData.getId());
-                        JC.setEmotionsCount(b2);
-                        JC.setHeight(downloadData.getHeight());
-                        JC.setWidth(downloadData.getWidth());
-                        JC.setDownloadTime(System.currentTimeMillis());
-                        JC.setGroupDesc(downloadData.getDescription());
-                        JC.setGroupName(downloadData.getName());
-                        JC.setStatus(1);
-                        i.cyE().a(JC);
+                        JD = new EmotionGroupData();
+                        JD.setBytesLength((int) downloadData.getSize());
+                        JD.setBytesReceived((int) downloadData.getLength());
+                        JD.setDownloadUrl(downloadData.getUrl());
+                        JD.setGroupId(downloadData.getId());
+                        JD.setEmotionsCount(b2);
+                        JD.setHeight(downloadData.getHeight());
+                        JD.setWidth(downloadData.getWidth());
+                        JD.setDownloadTime(System.currentTimeMillis());
+                        JD.setGroupDesc(downloadData.getDescription());
+                        JD.setGroupName(downloadData.getName());
+                        JD.setStatus(1);
+                        i.cyL().a(JD);
                     }
-                    i.cyE().a(downloadData.getStatusMsg(), JC);
+                    i.cyL().a(downloadData.getStatusMsg(), JD);
                     downloadData.setStatusMsg(null);
                     if (fileInputStream != null) {
                         try {
@@ -123,7 +123,7 @@ public class e implements com.baidu.tbadk.download.c {
     @Override // com.baidu.tbadk.download.c
     public void onFileUpdateProgress(DownloadData downloadData) {
         if (downloadData != null) {
-            f.cyr().b(downloadData);
+            f.cyy().b(downloadData);
         }
     }
 
@@ -132,9 +132,9 @@ public class e implements com.baidu.tbadk.download.c {
         if (downloadData == null) {
             return false;
         }
-        EmotionGroupData JC = i.cyE().JC(downloadData.getId());
-        if (JC != null && b.Jx(downloadData.getId())) {
-            i.cyE().a(downloadData.getStatusMsg(), JC);
+        EmotionGroupData JD = i.cyL().JD(downloadData.getId());
+        if (JD != null && b.Jy(downloadData.getId())) {
+            i.cyL().a(downloadData.getStatusMsg(), JD);
             downloadData.setStatusMsg(null);
             return false;
         }

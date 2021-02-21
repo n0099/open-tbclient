@@ -9,21 +9,21 @@ public final class am {
 
     /* renamed from: java  reason: collision with other field name */
     public String f23java;
-    JSONObject qkd;
+    JSONObject qkD;
 
-    public final void abF(String str) {
+    public final void abR(String str) {
         JSONObject jSONObject = new JSONObject(str);
         this.java = jSONObject.optInt(Constants.KEYS.RET);
         this.f23java = jSONObject.optString("msg");
         String optString = jSONObject.optString("data");
         try {
-            optString = bc.abI(optString);
+            optString = bc.abU(optString);
         } catch (Exception e) {
         }
         if (!TextUtils.isEmpty(optString)) {
-            this.qkd = new JSONObject(optString);
+            this.qkD = new JSONObject(optString);
         } else {
-            this.qkd = new JSONObject();
+            this.qkD = new JSONObject();
         }
     }
 }

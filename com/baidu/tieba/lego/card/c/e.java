@@ -9,17 +9,17 @@ public class e {
     public static boolean ar(Activity activity) {
         Resources resources;
         int identifier;
-        if (!dbM() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE)) <= 0) {
+        if (!dbT() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE)) <= 0) {
             return false;
         }
         return resources.getBoolean(identifier);
     }
 
-    public static boolean dbM() {
-        return dbN() >= 14;
+    public static boolean dbT() {
+        return dbU() >= 14;
     }
 
-    public static int dbN() {
+    public static int dbU() {
         try {
             return Integer.parseInt(Build.VERSION.SDK);
         } catch (NumberFormatException e) {

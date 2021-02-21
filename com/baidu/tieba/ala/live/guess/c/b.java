@@ -8,7 +8,7 @@ public class b {
         return (int) (0.5f + (Resources.getSystem().getDisplayMetrics().density * f));
     }
 
-    public static boolean Hg(String str) {
+    public static boolean Hh(String str) {
         return Pattern.compile("^[-\\+]?[\\d]*$").matcher(str).matches();
     }
 

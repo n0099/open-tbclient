@@ -7,8 +7,8 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes9.dex */
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     private int freeChance;
-    private a jUT;
-    private com.baidu.adp.framework.listener.a jbH;
+    private a jVh;
+    private com.baidu.adp.framework.listener.a jbV;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -27,7 +27,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
 
     public FreeGiftChanceModel(com.baidu.adp.base.f<GiftTabActivity> fVar) {
         super(fVar);
-        this.jbH = new com.baidu.adp.framework.listener.a(1003047, CmdConfigSocket.CMD_USER_FREE_CHANCE) { // from class: com.baidu.tieba.gift.giftTab.FreeGiftChanceModel.1
+        this.jbV = new com.baidu.adp.framework.listener.a(1003047, CmdConfigSocket.CMD_USER_FREE_CHANCE) { // from class: com.baidu.tieba.gift.giftTab.FreeGiftChanceModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -37,8 +37,8 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                         } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
                             FreeGiftChanceModel.this.freeChance = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                         }
-                        if (FreeGiftChanceModel.this.jUT != null) {
-                            FreeGiftChanceModel.this.jUT.c(responsedMessage.getError(), responsedMessage.getErrorString(), FreeGiftChanceModel.this.freeChance);
+                        if (FreeGiftChanceModel.this.jVh != null) {
+                            FreeGiftChanceModel.this.jVh.c(responsedMessage.getError(), responsedMessage.getErrorString(), FreeGiftChanceModel.this.freeChance);
                         }
                     }
                 }
@@ -55,7 +55,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     private void registerListener() {
-        registerListener(this.jbH);
+        registerListener(this.jbV);
     }
 
     private void registerTask() {
@@ -64,6 +64,6 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public void a(a aVar) {
-        this.jUT = aVar;
+        this.jVh = aVar;
     }
 }

@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
 import com.baidu.tieba.homepage.lowFlows.a;
 /* loaded from: classes2.dex */
 public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
-    private a.c kgY;
+    private a.c khm;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kgY = new com.baidu.tieba.homepage.lowFlows.e.a(getPageContext());
-        this.kgY.loadData();
+        this.khm = new com.baidu.tieba.homepage.lowFlows.e.a(getPageContext());
+        this.khm.loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.kgY != null) {
-            this.kgY.loadData();
+        if (this.khm != null) {
+            this.khm.loadData();
         }
         if (getIntent() != null) {
             com.baidu.tieba.homepage.lowFlows.d.a.aK("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra(LowFlowsActivityConfig.TAB_CODE));
@@ -34,16 +34,16 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kgY != null) {
-            this.kgY.onChangeSkinType(i);
+        if (this.khm != null) {
+            this.khm.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.kgY != null) {
-            this.kgY.loadData();
+        if (this.khm != null) {
+            this.khm.loadData();
         }
     }
 

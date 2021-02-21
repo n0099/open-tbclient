@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class f {
     private String mAppCachePath = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
     private BdUniqueId mPageId;
-    private e ogr;
+    private e ogR;
 
     public f(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -36,7 +36,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.ogr = eVar;
+        this.ogR = eVar;
     }
 
     /* loaded from: classes8.dex */
@@ -57,7 +57,7 @@ public class f {
             com.baidu.adp.lib.Disk.ops.c cVar2 = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, aw.getNameMd5FromUrl(cVar.imageUrl + 42), DiskFileOperate.Action.READ);
             cVar2.setSubFolder(true);
             cVar2.setIsFormatData(false);
-            ImageUploadResult f = new com.baidu.tbadk.img.f(null).f(gN(cVar2.buildPath(), cVar2.getName()), true, false);
+            ImageUploadResult f = new com.baidu.tbadk.img.f(null).f(gP(cVar2.buildPath(), cVar2.getName()), true, false);
             if (f != null && f.picInfo != null) {
                 if (f.picInfo.originPic != null && !StringUtils.isNull(f.picInfo.originPic.picUrl)) {
                     str = f.picInfo.originPic.picUrl;
@@ -68,7 +68,7 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.ogc;
+                str = cVar.ogC;
             }
             aa aaVar = new aa();
             aaVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
@@ -82,7 +82,7 @@ public class f {
             aaVar.addPostData("new_vcode", "1");
             aaVar.addPostData("content", cVar.comment);
             aaVar.addPostData("fid", cVar.forumId);
-            aaVar.addPostData("kw", cVar.ogb);
+            aaVar.addPostData("kw", cVar.ogB);
             aaVar.addPostData("is_hide", "0");
             aaVar.addPostData("call_from", "2");
             aaVar.addPostData("title", cVar.comment);
@@ -95,7 +95,7 @@ public class f {
                 aaVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 aaVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dOk().getLocationData();
+            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dOs().getLocationData();
             if (locationData != null) {
                 aaVar.addPostData("name", locationData.getFormatted_address());
                 aaVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());
@@ -110,13 +110,13 @@ public class f {
             aaVar.addPostData("share_abstract", cVar.content);
             aaVar.addPostData("share_image", str);
             aaVar.addPostData("share_h5_url", cVar.linkUrl);
-            aaVar.addPostData("share_swan_app_key", cVar.oga);
-            aaVar.addPostData("share_swan_path", cVar.ogd);
+            aaVar.addPostData("share_swan_app_key", cVar.ogA);
+            aaVar.addPostData("share_swan_path", cVar.ogD);
             String postNetData = aaVar.postNetData();
             d dVar = new d();
             try {
                 JSONObject jSONObject = new JSONObject(postNetData);
-                dVar.ogf = jSONObject.optString("msg");
+                dVar.ogF = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -134,7 +134,7 @@ public class f {
             if (errorData.error_code != 0 && !j.isNetWorkAvailable()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
             }
-            dVar.oge = errorData;
+            dVar.ogE = errorData;
             AntiData antiData = new AntiData();
             try {
                 antiData.parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
@@ -144,7 +144,7 @@ public class f {
             return dVar;
         }
 
-        public String gN(String str, String str2) {
+        public String gP(String str, String str2) {
             String str3 = f.this.mAppCachePath + str2;
             if (str != null) {
                 return f.this.mAppCachePath + str + "/" + str2;
@@ -157,8 +157,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.ogr != null) {
-                f.this.ogr.a(dVar);
+            if (f.this.ogR != null) {
+                f.this.ogR.a(dVar);
             }
         }
     }

@@ -20,14 +20,14 @@ public final class a {
     /* renamed from: b  reason: collision with root package name */
     private static final String[] f5945b = new String[0];
     private static final String[] c = {"*"};
-    private static final a pqM = new a();
+    private static final a prm = new a();
     private final AtomicBoolean e = new AtomicBoolean(false);
     private final CountDownLatch f = new CountDownLatch(1);
     private byte[] g;
     private byte[] h;
 
-    public static a epA() {
-        return pqM;
+    public static a epI() {
+        return prm;
     }
 
     public String a(String str) {
@@ -75,7 +75,7 @@ public final class a {
         }
         byte[][] bArr = new byte[strArr.length];
         for (int i2 = 0; i2 < strArr.length; i2++) {
-            bArr[i2] = strArr[i2].getBytes(c.poY);
+            bArr[i2] = strArr[i2].getBytes(c.ppA);
         }
         int i3 = 0;
         while (true) {
@@ -198,7 +198,7 @@ public final class a {
                     i6 = i11 + i10 + 1;
                     i7 = length;
                 } else {
-                    return new String(bArr, i10, i12, c.poY);
+                    return new String(bArr, i10, i12, c.ppA);
                 }
             }
             length = i7;
@@ -219,7 +219,7 @@ public final class a {
                 } catch (InterruptedIOException e) {
                     z2 = true;
                 } catch (IOException e2) {
-                    e.epz().a(5, "Failed to read public suffix list", e2);
+                    e.epH().a(5, "Failed to read public suffix list", e2);
                     if (!z) {
                         return;
                     }

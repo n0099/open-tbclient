@@ -24,26 +24,26 @@ import com.baidu.tieba.ala.h;
 /* loaded from: classes10.dex */
 public class a implements View.OnClickListener {
     private static String bitmapWHRatio;
-    View.OnClickListener gJa;
-    private h gUX;
-    private String gWq;
-    private C0633a gXq;
-    private cb gyA;
+    View.OnClickListener gJo;
+    private h gVl;
+    private String gWE;
+    private C0634a gXE;
+    private cb gyO;
     private View mRootView;
     public int mSkinType;
     private TbPageContext<?> mTbPageContext;
 
     /* renamed from: com.baidu.tieba.ala.gamelist.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0633a {
+    public static class C0634a {
         public TextView aYx;
-        public TbImageView gJc;
-        public TextView gJd;
-        public TextView gJe;
-        public RelativeLayout gJf;
-        public ClickableHeaderImageView gJg;
-        public TextView gJh;
-        public TbImageView gWt;
+        public TbImageView gJq;
+        public TextView gJr;
+        public TextView gJs;
+        public RelativeLayout gJt;
+        public ClickableHeaderImageView gJu;
+        public TextView gJv;
+        public TbImageView gWH;
     }
 
     public View getView() {
@@ -56,48 +56,48 @@ public class a implements View.OnClickListener {
             return;
         }
         getView().setVisibility(0);
-        this.gyA = cbVar;
-        this.gXq.gJc.setDrawerType(0);
-        this.gXq.gJc.setBorderSurroundContent(true);
-        this.gXq.gJc.setDrawBorder(true);
-        this.gXq.gJc.startLoad(this.gyA.boj().cover, 10, false);
-        this.gXq.gJe.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, au.numberUniformFormatExtra(this.gyA.boj().audience_count)));
-        this.gXq.gJg.setData(this.gyA);
-        this.gXq.gJg.setIsRound(true);
-        this.gXq.gJg.setBorderSurroundContent(true);
-        this.gXq.gJh.setText(this.gyA.getTitle());
-        if (this.gyA.bnQ() != null) {
-            String name_show = this.gyA.bnQ().getName_show();
+        this.gyO = cbVar;
+        this.gXE.gJq.setDrawerType(0);
+        this.gXE.gJq.setBorderSurroundContent(true);
+        this.gXE.gJq.setDrawBorder(true);
+        this.gXE.gJq.startLoad(this.gyO.boj().cover, 10, false);
+        this.gXE.gJs.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, au.numberUniformFormatExtra(this.gyO.boj().audience_count)));
+        this.gXE.gJu.setData(this.gyO);
+        this.gXE.gJu.setIsRound(true);
+        this.gXE.gJu.setBorderSurroundContent(true);
+        this.gXE.gJv.setText(this.gyO.getTitle());
+        if (this.gyO.bnQ() != null) {
+            String name_show = this.gyO.bnQ().getName_show();
             if (ag.getTextLengthWithEmoji(name_show) > 10) {
                 name_show = ag.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
-            this.gXq.aYx.setText(name_show);
+            this.gXE.aYx.setText(name_show);
         }
         if ("16:9".equals(bitmapWHRatio)) {
-            String str = this.gyA.boj().label_name;
+            String str = this.gyO.boj().label_name;
             if (au.isEmpty(str)) {
-                String fixedBarText = UtilHelper.getFixedBarText(this.gyA.bnU(), 6, true);
+                String fixedBarText = UtilHelper.getFixedBarText(this.gyO.bnU(), 6, true);
                 if (!TextUtils.isEmpty(fixedBarText)) {
                     String string = this.mTbPageContext.getPageActivity().getResources().getString(R.string.chosen_pb_original_bar, fixedBarText);
-                    this.gXq.gJd.setBackgroundResource(R.drawable.transparent_bg);
-                    this.gXq.gJd.setText(string);
-                    this.gXq.gJd.setTextSize(0, this.mTbPageContext.getResources().getDimension(R.dimen.fontsize20));
-                    this.gXq.gJd.setVisibility(0);
+                    this.gXE.gJr.setBackgroundResource(R.drawable.transparent_bg);
+                    this.gXE.gJr.setText(string);
+                    this.gXE.gJr.setTextSize(0, this.mTbPageContext.getResources().getDimension(R.dimen.fontsize20));
+                    this.gXE.gJr.setVisibility(0);
                 }
-            } else if (!str.equals(this.gWq)) {
-                this.gXq.gJd.setBackgroundResource(R.drawable.game_label_bg);
-                this.gXq.gJd.setText(str);
-                this.gXq.gJd.setTextSize(0, this.mTbPageContext.getResources().getDimension(R.dimen.ds16));
-                this.gXq.gJd.setVisibility(0);
+            } else if (!str.equals(this.gWE)) {
+                this.gXE.gJr.setBackgroundResource(R.drawable.game_label_bg);
+                this.gXE.gJr.setText(str);
+                this.gXE.gJr.setTextSize(0, this.mTbPageContext.getResources().getDimension(R.dimen.ds16));
+                this.gXE.gJr.setVisibility(0);
             }
         }
-        if (this.gyA.bnQ() == null || this.gyA.bnQ().getAlaUserData() == null || au.isEmpty(this.gyA.bnQ().getAlaUserData().great_anchor_icon)) {
-            this.gXq.gWt.setVisibility(8);
+        if (this.gyO.bnQ() == null || this.gyO.bnQ().getAlaUserData() == null || au.isEmpty(this.gyO.bnQ().getAlaUserData().great_anchor_icon)) {
+            this.gXE.gWH.setVisibility(8);
         } else {
-            this.gXq.gWt.setVisibility(0);
-            this.gXq.gWt.startLoad(this.gyA.bnQ().getAlaUserData().great_anchor_icon, 10, false);
+            this.gXE.gWH.setVisibility(0);
+            this.gXE.gWH.startLoad(this.gyO.bnQ().getAlaUserData().great_anchor_icon, 10, false);
         }
-        this.gXq.aYx.setOnClickListener(this.gJa);
+        this.gXE.aYx.setOnClickListener(this.gJo);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -105,22 +105,22 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getPageActivity().getString(R.string.no_network_guide));
-        } else if (this.gyA != null && this.gyA.boj() != null) {
-            if (this.gUX != null) {
-                this.gUX.S(this.gyA);
+        } else if (this.gyO != null && this.gyO.boj() != null) {
+            if (this.gVl != null) {
+                this.gVl.S(this.gyO);
             }
-            d.bOE().bOF();
-            TiebaStatic.log(new ar("c12116").v("obj_id", this.gyA.boj().live_id));
+            d.bOL().bOM();
+            TiebaStatic.log(new ar("c12116").v("obj_id", this.gyO.boj().live_id));
         }
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundResource(this.gXq.gJf, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.gXq.gJd, R.color.CAM_X0101);
-            ap.setViewTextColor(this.gXq.gJe, R.color.CAM_X0101);
-            ap.setViewTextColor(this.gXq.aYx, R.color.CAM_X0109);
-            ap.setViewTextColor(this.gXq.gJh, R.color.CAM_X0105);
+            ap.setBackgroundResource(this.gXE.gJt, R.drawable.addresslist_item_bg);
+            ap.setViewTextColor(this.gXE.gJr, R.color.CAM_X0101);
+            ap.setViewTextColor(this.gXE.gJs, R.color.CAM_X0101);
+            ap.setViewTextColor(this.gXE.aYx, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gXE.gJv, R.color.CAM_X0105);
             this.mSkinType = i;
         }
     }

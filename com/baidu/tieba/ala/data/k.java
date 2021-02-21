@@ -9,7 +9,7 @@ public class k {
     private String aXE;
     private String aXI;
     private int aXJ;
-    private String gSO;
+    private String gTc;
     private int giftId;
     private String giftName;
     private String portrait;
@@ -23,14 +23,14 @@ public class k {
         this.aXC = jSONObject.optLong("pay_userid");
         this.aXE = jSONObject.optString("pay_username");
         this.portrait = jSONObject.optString("bd_portrait");
-        this.gSO = jSONObject.optString("ext_info");
+        this.gTc = jSONObject.optString("ext_info");
     }
 
     public int getGiftId() {
         return this.giftId;
     }
 
-    public String bUn() {
+    public String bUu() {
         return this.aXI;
     }
 
@@ -38,7 +38,7 @@ public class k {
         return this.aXJ;
     }
 
-    public long bUo() {
+    public long bUv() {
         return this.aXC;
     }
 
@@ -46,7 +46,7 @@ public class k {
         return this.portrait;
     }
 
-    public String bUp() {
-        return this.gSO;
+    public String bUw() {
+        return this.gTc;
     }
 }

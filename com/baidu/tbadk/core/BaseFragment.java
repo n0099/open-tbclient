@@ -281,7 +281,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         this.mRefreshView.attachView(view, z);
         this.mRefreshView.showRefreshButton();
         this.mRefreshView.rn(R.drawable.new_pic_emotion_03);
-        this.mRefreshView.Dm(getString(R.string.no_data_common_txt));
+        this.mRefreshView.Dk(getString(R.string.no_data_common_txt));
     }
 
     public void showNoDataNoRefreshView(View view, boolean z) {
@@ -291,7 +291,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         this.mRefreshView.attachView(view, z);
         this.mRefreshView.hideRefreshButton();
         this.mRefreshView.rn(R.drawable.new_pic_emotion_05);
-        this.mRefreshView.Dm(getString(R.string.new_text_no_search_result));
+        this.mRefreshView.Dk(getString(R.string.new_text_no_search_result));
     }
 
     public void showNetRefreshViewNoClick(View view, String str, boolean z) {
@@ -311,7 +311,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         this.mRefreshView.attachView(view, z);
         this.mRefreshView.rn(R.drawable.new_pic_emotion_08);
         this.mRefreshView.hideRefreshButton();
-        this.mRefreshView.Dm(str);
+        this.mRefreshView.Dk(str);
     }
 
     public void setNetRefreshViewTopMargin(int i) {
@@ -631,7 +631,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
             onPrimary();
         }
         if (!TextUtils.equals(getClass().getName(), "com.baidu.tieba.flutter.view.TbFlutterFragment") && !this.isPrimary && getCurrentPageKey() != null && !TextUtils.equals(com.baidu.tbadk.pageExtra.d.bDM(), getCurrentPageKey())) {
-            com.baidu.tbadk.pageExtra.d.Dp(getCurrentPageKey());
+            com.baidu.tbadk.pageExtra.d.Dn(getCurrentPageKey());
         }
     }
 

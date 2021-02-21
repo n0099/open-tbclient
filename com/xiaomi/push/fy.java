@@ -27,7 +27,7 @@ public final class fy {
         f14034a = 5000;
         f14035b = 330000;
         try {
-            for (ClassLoader classLoader : m331a()) {
+            for (ClassLoader classLoader : m330a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -86,7 +86,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m330a() {
+    public static String m329a() {
         return "3.1.0";
     }
 
@@ -100,7 +100,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static ClassLoader[] m331a() {
+    private static ClassLoader[] m330a() {
         ClassLoader[] classLoaderArr = {fy.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {

@@ -35,7 +35,7 @@ public final class d {
         synchronized (d.class) {
             try {
                 if (TextUtils.isEmpty(f14386b)) {
-                    String d = Orange.eJA().d();
+                    String d = Orange.eJI().d();
                     com.yxcorp.kuaishou.addfp.android.b.b.b("user dis :" + d);
                     if (!TextUtils.isEmpty(d)) {
                         byte[] bytes = d.getBytes();
@@ -64,7 +64,7 @@ public final class d {
                 String str = "";
                 if (Build.VERSION.SDK_INT < 29) {
                     try {
-                        str = f.jh(context).qmb.b();
+                        str = f.jh(context).qmB.b();
                     } catch (Throwable th) {
                     }
                     if (TextUtils.isEmpty(str) || str.startsWith("KWE")) {
@@ -118,7 +118,7 @@ public final class d {
             monitor-exit(r1)
             return r0
         Lf:
-            com.yxcorp.kuaishou.addfp.android.Orange r0 = com.yxcorp.kuaishou.addfp.android.Orange.eJA()     // Catch: java.lang.Throwable -> L3f
+            com.yxcorp.kuaishou.addfp.android.Orange r0 = com.yxcorp.kuaishou.addfp.android.Orange.eJI()     // Catch: java.lang.Throwable -> L3f
             java.lang.String r0 = r0.d()     // Catch: java.lang.Throwable -> L3f
             java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L3f
             java.lang.String r3 = "nammm :"
@@ -198,7 +198,7 @@ public final class d {
                 return "";
             }
             try {
-                a2 = f.jh(context).qmb.a();
+                a2 = f.jh(context).qmB.a();
             } catch (Throwable th) {
             }
             if ((TextUtils.isEmpty(a2) || a2.startsWith("KWE")) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
@@ -215,8 +215,8 @@ public final class d {
     private static String c() {
         byte[] hardwareAddress;
         try {
-            InetAddress eJC = eJC();
-            if (eJC == null || (hardwareAddress = NetworkInterface.getByInetAddress(eJC).getHardwareAddress()) == null) {
+            InetAddress eJK = eJK();
+            if (eJK == null || (hardwareAddress = NetworkInterface.getByInetAddress(eJK).getHardwareAddress()) == null) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer();
@@ -248,7 +248,7 @@ public final class d {
 
     public static String d(Context context) {
         try {
-            String m = com.yxcorp.kuaishou.addfp.a.eJu().m(context, b.qlY.b(), false);
+            String m = com.yxcorp.kuaishou.addfp.a.eJC().m(context, b.qmy.b(), false);
             return !TextUtils.isEmpty(m) ? m : "KWE_N";
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -392,12 +392,12 @@ public final class d {
             if (TextUtils.isEmpty(a2) && TextUtils.isEmpty(str)) {
                 return "KWE_N";
             }
-            LinkedHashMap abP = c.jf(context).abP(a2);
-            if (abP == null || abP.size() == 0) {
-                abP = c.jf(context).abP(str);
+            LinkedHashMap acb = c.jf(context).acb(a2);
+            if (acb == null || acb.size() == 0) {
+                acb = c.jf(context).acb(str);
             }
-            if (abP != null && abP.size() > 0) {
-                ListIterator listIterator = new ArrayList(abP.entrySet()).listIterator(abP.size());
+            if (acb != null && acb.size() > 0) {
+                ListIterator listIterator = new ArrayList(acb.entrySet()).listIterator(acb.size());
                 JSONObject jSONObject = new JSONObject();
                 while (listIterator.hasPrevious() && i < 10) {
                     try {
@@ -420,7 +420,7 @@ public final class d {
         }
     }
 
-    private static InetAddress eJC() {
+    private static InetAddress eJK() {
         Throwable th;
         InetAddress inetAddress;
         try {
@@ -537,7 +537,7 @@ public final class d {
             if (TextUtils.isEmpty(b2) || f14385a.equals(Config.DEF_MAC_ID)) {
                 if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{"android.permission.ACCESS_WIFI_STATE"}) && context != null) {
                     try {
-                        f14385a = f.jh(context).qmc.a();
+                        f14385a = f.jh(context).qmC.a();
                     } catch (Throwable th) {
                     }
                     if (TextUtils.isEmpty(f14385a)) {

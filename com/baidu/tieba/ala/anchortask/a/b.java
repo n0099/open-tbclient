@@ -19,21 +19,21 @@ import com.kwad.sdk.collector.AppStatusRules;
 public class b {
     private ab alaLiveShowData;
     private Context context;
-    private int gKT;
-    public com.baidu.tieba.ala.anchortask.c.b gLc;
-    private com.baidu.tieba.ala.anchortask.b.a gLd;
-    private String gLe;
-    private String gLf;
+    private int gLh;
+    public com.baidu.tieba.ala.anchortask.c.b gLq;
+    private com.baidu.tieba.ala.anchortask.b.a gLr;
+    private String gLs;
+    private String gLt;
     private Handler handler = new Handler();
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!TextUtils.isEmpty(b.this.gLe)) {
+            if (!TextUtils.isEmpty(b.this.gLs)) {
                 c cVar = new c();
-                cVar.url = b.this.gLe;
+                cVar.url = b.this.gLs;
                 cVar.bWs = 510.0f;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
-                b.this.bSF();
+                b.this.bSM();
                 b.this.handler.removeCallbacksAndMessages(null);
                 b.this.handler.postDelayed(b.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
             }
@@ -42,33 +42,33 @@ public class b {
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.b.2
         @Override // java.lang.Runnable
         public void run() {
-            b.this.bSF();
+            b.this.bSM();
             b.this.handler.postDelayed(b.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
         }
     };
-    private Runnable gLg = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.b.3
+    private Runnable gLu = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.gLd != null && d.xc().getBoolean("new_anchor_assist_task_show", true)) {
+            if (b.this.gLr != null && d.xc().getBoolean("new_anchor_assist_task_show", true)) {
                 c cVar = new c();
-                cVar.url = b.this.gLd.gLj;
+                cVar.url = b.this.gLr.gLx;
                 cVar.bWs = 510.0f;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
                 d.xc().putBoolean("new_anchor_assist_task_show", false);
             }
         }
     };
-    private HttpMessageListener gKW = new HttpMessageListener(1021230) { // from class: com.baidu.tieba.ala.anchortask.a.b.4
+    private HttpMessageListener gLk = new HttpMessageListener(1021230) { // from class: com.baidu.tieba.ala.anchortask.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetNewAnchorAssistTaskInfoHttpResponseMessage) && b.this.gLc != null) {
-                b.this.gLd = ((GetNewAnchorAssistTaskInfoHttpResponseMessage) httpResponsedMessage).gLd;
-                if (b.this.gLd != null) {
-                    b.this.gLe = b.this.gLd.gLe;
-                    b.this.gLf = b.this.gLd.gLf;
-                    b.this.gLc.gLM.setText(b.this.gLd.gLk + "");
-                    b.this.gLc.gLL.setText(b.this.gLd.gLl + "");
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetNewAnchorAssistTaskInfoHttpResponseMessage) && b.this.gLq != null) {
+                b.this.gLr = ((GetNewAnchorAssistTaskInfoHttpResponseMessage) httpResponsedMessage).gLr;
+                if (b.this.gLr != null) {
+                    b.this.gLs = b.this.gLr.gLs;
+                    b.this.gLt = b.this.gLr.gLt;
+                    b.this.gLq.gMa.setText(b.this.gLr.gLy + "");
+                    b.this.gLq.gLZ.setText(b.this.gLr.gLz + "");
                 }
             }
         }
@@ -76,13 +76,13 @@ public class b {
 
     public b(Context context) {
         this.context = context;
-        this.gLc = new com.baidu.tieba.ala.anchortask.c.b(context);
+        this.gLq = new com.baidu.tieba.ala.anchortask.c.b(context);
         initTasks();
-        if (this.gLc.getView() != null) {
-            this.gLc.getView().setOnClickListener(this.onClickListener);
+        if (this.gLq.getView() != null) {
+            this.gLq.getView().setOnClickListener(this.onClickListener);
         }
         this.handler.postDelayed(this.runnable, 10000L);
-        this.handler.postDelayed(this.gLg, 11000L);
+        this.handler.postDelayed(this.gLu, 11000L);
     }
 
     public void a(ab abVar) {
@@ -96,10 +96,10 @@ public class b {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetNewAnchorAssistTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gKW);
+        MessageManager.getInstance().registerListener(this.gLk);
     }
 
-    public void bSF() {
+    public void bSM() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;
@@ -113,14 +113,14 @@ public class b {
 
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.gKW);
-        if (this.gLc != null) {
-            this.gLc.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.gLk);
+        if (this.gLq != null) {
+            this.gLq.onDestroy();
         }
     }
 
     public void ua(int i) {
-        this.gKT = i;
+        this.gLh = i;
         if (i == 0) {
             this.handler.removeCallbacksAndMessages(null);
         }

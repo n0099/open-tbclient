@@ -24,7 +24,7 @@ public class JumpUnknownSourceActivity extends Activity {
     @Nullable
     private Intent c;
     private JSONObject d;
-    private j qee;
+    private j qeE;
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
@@ -59,20 +59,20 @@ public class JumpUnknownSourceActivity extends Activity {
             }
         }
         b();
-        if (this.qee != null && !this.qee.b()) {
-            this.qee.a();
-        } else if (this.qee == null) {
+        if (this.qeE != null && !this.qeE.b()) {
+            this.qeE.a();
+        } else if (this.qeE == null) {
             finish();
         }
     }
 
     private void b() {
-        if (this.qee == null && this.f13063b != null) {
+        if (this.qeE == null && this.f13063b != null) {
             try {
-                c eFi = d.eFn().eFi();
+                c eFq = d.eFv().eFq();
                 k kVar = null;
-                if (eFi != null) {
-                    kVar = eFi.iz(this);
+                if (eFq != null) {
+                    kVar = eFq.iz(this);
                 }
                 com.ss.android.socialbase.appdownloader.d.a aVar = kVar == null ? new com.ss.android.socialbase.appdownloader.d.a(this) : kVar;
                 int a2 = i.a(this, "appdownloader_tip");
@@ -82,7 +82,7 @@ public class JumpUnknownSourceActivity extends Activity {
                 if (TextUtils.isEmpty(optString)) {
                     optString = getString(i.a(this, "appdownloader_jump_unknown_source_tips"));
                 }
-                aVar.QV(a2).aaJ(optString).h(a3, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
+                aVar.QW(a2).aaV(optString).h(a3, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity.3
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (!b.a(JumpUnknownSourceActivity.this, JumpUnknownSourceActivity.this.c, JumpUnknownSourceActivity.this.d)) {
@@ -107,7 +107,7 @@ public class JumpUnknownSourceActivity extends Activity {
                         JumpUnknownSourceActivity.this.finish();
                     }
                 }).BY(false);
-                this.qee = aVar.eEY();
+                this.qeE = aVar.eFg();
             } catch (Exception e) {
                 e.printStackTrace();
             }

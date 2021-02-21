@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a extends BaseAdapter {
-    private int lDY;
-    private final List<com.baidu.tieba.newinterest.data.b> lDZ;
-    private b lEa;
+    private int lEm;
+    private final List<com.baidu.tieba.newinterest.data.b> lEn;
+    private b lEo;
     private final Context mContext;
 
     /* loaded from: classes8.dex */
@@ -28,16 +28,16 @@ public class a extends BaseAdapter {
     }
 
     public a(List<com.baidu.tieba.newinterest.data.b> list, Context context) {
-        this.lDZ = list;
+        this.lEn = list;
         this.mContext = context;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lDZ == null) {
+        if (this.lEn == null) {
             return 0;
         }
-        return this.lDZ.size();
+        return this.lEn.size();
     }
 
     @Override // android.widget.Adapter
@@ -52,36 +52,36 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        final C0818a c0818a;
+        final C0819a c0819a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.list_item_interest_selection, viewGroup, false);
-            C0818a c0818a2 = new C0818a(view);
-            view.setTag(c0818a2);
-            c0818a = c0818a2;
+            C0819a c0819a2 = new C0819a(view);
+            view.setTag(c0819a2);
+            c0819a = c0819a2;
         } else {
-            c0818a = (C0818a) view.getTag();
+            c0819a = (C0819a) view.getTag();
         }
-        final com.baidu.tieba.newinterest.data.b bVar = this.lDZ.get(i);
+        final com.baidu.tieba.newinterest.data.b bVar = this.lEn.get(i);
         if (bVar.getIcon() > 0) {
-            SvgManager.bsR().a(c0818a.lEe, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
+            SvgManager.bsR().a(c0819a.lEs, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
         }
-        c0818a.lEf.setText(bVar.getText());
-        a(c0818a.lEg, bVar);
+        c0819a.lEt.setText(bVar.getText());
+        a(c0819a.lEu, bVar);
         if (bVar.isSelected()) {
-            this.lDY++;
+            this.lEm++;
         }
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newinterest.adapter.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (!bVar.isSelected() && a.this.lDY >= 10) {
+                if (!bVar.isSelected() && a.this.lEm >= 10) {
                     l.showToast(a.this.mContext.getApplicationContext(), a.this.mContext.getApplicationContext().getString(R.string.max_interest_select_num));
                     return;
                 }
                 bVar.setSelected(!bVar.isSelected());
-                a.this.a(c0818a.lEg, bVar);
+                a.this.a(c0819a.lEu, bVar);
                 a.this.a(bVar);
-                if (a.this.lEa != null) {
-                    a.this.lEa.Fj(a.this.lDY);
+                if (a.this.lEo != null) {
+                    a.this.lEo.Fj(a.this.lEm);
                 }
                 if (bVar.isSelected()) {
                     ar arVar = new ar("c13682");
@@ -95,9 +95,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public List<com.baidu.tieba.newinterest.data.b> djm() {
+    public List<com.baidu.tieba.newinterest.data.b> djt() {
         ArrayList arrayList = new ArrayList();
-        for (com.baidu.tieba.newinterest.data.b bVar : this.lDZ) {
+        for (com.baidu.tieba.newinterest.data.b bVar : this.lEn) {
             if (bVar.isSelected()) {
                 arrayList.add(bVar);
             }
@@ -107,16 +107,16 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.newinterest.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0818a {
-        public ImageView lEe;
-        public TextView lEf;
-        public ImageView lEg;
+    public static class C0819a {
+        public ImageView lEs;
+        public TextView lEt;
+        public ImageView lEu;
 
-        public C0818a(View view) {
-            this.lEe = (ImageView) view.findViewById(R.id.interest_icon);
-            this.lEf = (TextView) view.findViewById(R.id.interest_text);
-            this.lEg = (ImageView) view.findViewById(R.id.select_status_view);
-            ap.setViewTextColor(this.lEf, R.color.CAM_X0105);
+        public C0819a(View view) {
+            this.lEs = (ImageView) view.findViewById(R.id.interest_icon);
+            this.lEt = (TextView) view.findViewById(R.id.interest_text);
+            this.lEu = (ImageView) view.findViewById(R.id.select_status_view);
+            ap.setViewTextColor(this.lEt, R.color.CAM_X0105);
             ap.setBackgroundResource(view, R.drawable.bg_interest_item_selection);
         }
     }
@@ -133,13 +133,13 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.newinterest.data.b bVar) {
         if (bVar.isSelected()) {
-            this.lDY++;
+            this.lEm++;
         } else {
-            this.lDY--;
+            this.lEm--;
         }
     }
 
     public void a(b bVar) {
-        this.lEa = bVar;
+        this.lEo = bVar;
     }
 }

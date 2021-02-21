@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b extends d<StrangerListActivity> {
-    private NoNetworkView gAh;
-    private BdListView kDw;
-    private StrangerListActivity kQd;
-    private StrangerListAdapter kQi;
-    private ImageView kQj;
+    private NoNetworkView gAv;
+    private BdListView kDK;
+    private StrangerListActivity kQr;
+    private StrangerListAdapter kQw;
+    private ImageView kQx;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
 
     public b(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext());
         strangerListActivity.setContentView(R.layout.officialbar_msg_activity);
-        this.kQd = strangerListActivity;
+        this.kQr = strangerListActivity;
         l(strangerListActivity);
         m(strangerListActivity);
     }
@@ -33,34 +33,34 @@ public class b extends d<StrangerListActivity> {
         this.mNavigationBar.setCenterTextTitle(strangerListActivity.getPageContext().getString(R.string.stranger_list_activity_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.kQj = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.kQd);
-        SvgManager.bsR().a(this.kQj, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.kQx = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.stranger_delete, this.kQr);
+        SvgManager.bsR().a(this.kQx, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.mRootView = (ViewGroup) strangerListActivity.findViewById(R.id.root_view);
-        this.gAh = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
+        this.gAv = (NoNetworkView) this.mRootView.findViewById(R.id.no_network_view);
     }
 
     public void onChangeSkinType(int i) {
-        this.kQd.getLayoutMode().setNightMode(i == 1);
-        this.kQd.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.kQd.getPageContext(), i);
-        this.gAh.onChangeSkinType(this.kQd.getPageContext(), i);
-        this.kQi.notifyDataSetChanged();
-        SvgManager.bsR().a(this.kQj, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.kQr.getLayoutMode().setNightMode(i == 1);
+        this.kQr.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.kQr.getPageContext(), i);
+        this.gAv.onChangeSkinType(this.kQr.getPageContext(), i);
+        this.kQw.notifyDataSetChanged();
+        SvgManager.bsR().a(this.kQx, R.drawable.icon_pure_topbar_delete44_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private void m(StrangerListActivity strangerListActivity) {
-        this.kDw = (BdListView) strangerListActivity.findViewById(R.id.msg_list);
-        this.kDw.setOnItemClickListener(strangerListActivity);
-        this.kDw.setOnItemLongClickListener(strangerListActivity);
-        this.kQi = new StrangerListAdapter(strangerListActivity);
-        this.kDw.setAdapter((ListAdapter) this.kQi);
+        this.kDK = (BdListView) strangerListActivity.findViewById(R.id.msg_list);
+        this.kDK.setOnItemClickListener(strangerListActivity);
+        this.kDK.setOnItemLongClickListener(strangerListActivity);
+        this.kQw = new StrangerListAdapter(strangerListActivity);
+        this.kDK.setAdapter((ListAdapter) this.kQw);
     }
 
-    public StrangerListAdapter cYY() {
-        return this.kQi;
+    public StrangerListAdapter cZf() {
+        return this.kQw;
     }
 
-    public View cYZ() {
-        return this.kQj;
+    public View cZg() {
+        return this.kQx;
     }
 }

@@ -16,8 +16,8 @@ public class b extends com.kwad.sdk.draw.a.a {
     private DrawCardH5 d;
     private AdTemplate e;
     private AdInfo f;
-    private a.InterfaceC1110a g = new a.InterfaceC1110a() { // from class: com.kwad.sdk.draw.b.b.b.1
-        @Override // com.kwad.sdk.draw.b.b.a.InterfaceC1110a
+    private a.InterfaceC1112a g = new a.InterfaceC1112a() { // from class: com.kwad.sdk.draw.b.b.b.1
+        @Override // com.kwad.sdk.draw.b.b.a.InterfaceC1112a
         public void a() {
             b.this.e();
         }
@@ -91,7 +91,7 @@ public class b extends com.kwad.sdk.draw.a.a {
         super.b_();
         this.c.a();
         this.d.a();
-        this.f9675a.f.a((a.InterfaceC1110a) null);
+        this.f9675a.f.a((a.InterfaceC1112a) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

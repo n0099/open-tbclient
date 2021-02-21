@@ -18,13 +18,13 @@ import com.baidu.tieba.R;
 public class ShowPicCardView extends FrameLayout implements View.OnClickListener {
     private ImageView dvq;
     private boolean fWn;
-    private LinearLayout iYr;
+    private LinearLayout iYF;
     private Context mContext;
     private View mRootView;
     private TextView mTitle;
-    private com.baidu.tieba.tbadkCore.data.a moX;
-    private TbImageView moY;
-    private TextView moZ;
+    private com.baidu.tieba.tbadkCore.data.a mpm;
+    private TbImageView mpn;
+    private TextView mpo;
 
     public ShowPicCardView(Context context) {
         this(context, null, 0);
@@ -42,7 +42,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     }
 
     public com.baidu.tieba.tbadkCore.data.a getData() {
-        return this.moX;
+        return this.mpm;
     }
 
     public void setSupportNoImage() {
@@ -51,10 +51,10 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     private void init() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.pic_show_cardview_layout, (ViewGroup) this, true);
-        this.moY = (TbImageView) findViewById(R.id.pic_img);
-        this.iYr = (LinearLayout) findViewById(R.id.bottom_ll);
+        this.mpn = (TbImageView) findViewById(R.id.pic_img);
+        this.iYF = (LinearLayout) findViewById(R.id.bottom_ll);
         this.mTitle = (TextView) findViewById(R.id.title_ll);
-        this.moZ = (TextView) findViewById(R.id.desc_ll);
+        this.mpo = (TextView) findViewById(R.id.desc_ll);
         this.dvq = (ImageView) findViewById(R.id.show_pic_icon);
     }
 
@@ -64,8 +64,8 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     public void setData(com.baidu.tieba.tbadkCore.data.a aVar) {
         int i;
-        if (aVar != null && this.moX != aVar) {
-            this.moX = aVar;
+        if (aVar != null && this.mpm != aVar) {
+            this.mpm = aVar;
             if (!StringUtils.isNULL(aVar.getTitle())) {
                 this.mTitle.setVisibility(0);
                 this.mTitle.setText(aVar.getTitle());
@@ -73,22 +73,22 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
                 this.mTitle.setVisibility(8);
             }
             if (!StringUtils.isNULL(aVar.getDescription())) {
-                this.moZ.setVisibility(0);
-                this.moZ.setText(aVar.getDescription());
+                this.mpo.setVisibility(0);
+                this.mpo.setText(aVar.getDescription());
             } else {
-                this.moZ.setVisibility(8);
+                this.mpo.setVisibility(8);
             }
             if (this.fWn) {
-                this.moY.setSupportNoImage(true);
+                this.mpn.setSupportNoImage(true);
             }
             int imageWidth = aVar.getImageWidth();
             int imageHeight = aVar.getImageHeight();
             if (imageWidth > 0 && imageHeight > 0) {
-                this.moY.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.moY.setOnClickListener(this);
-                this.moY.setInterceptOnClick(true);
-                this.moY.setDefaultResource(R.drawable.icon_click);
-                this.moY.startLoad(aVar.dMX(), 18, false);
+                this.mpn.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.mpn.setOnClickListener(this);
+                this.mpn.setInterceptOnClick(true);
+                this.mpn.setDefaultResource(R.drawable.icon_click);
+                this.mpn.startLoad(aVar.dNf(), 18, false);
                 int equipmentWidth = l.getEquipmentWidth(this.mContext) - (l.getDimens(this.mContext, R.dimen.ds30) * 2);
                 float f = imageHeight / imageWidth;
                 if (f > 1.7777778f) {
@@ -98,22 +98,22 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
                 } else {
                     i = (int) (f * equipmentWidth);
                 }
-                this.moY.setLayoutParams(new FrameLayout.LayoutParams(equipmentWidth, i));
-                removeView(this.moY);
-                addView(this.moY);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.iYr.getLayoutParams();
+                this.mpn.setLayoutParams(new FrameLayout.LayoutParams(equipmentWidth, i));
+                removeView(this.mpn);
+                addView(this.mpn);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.iYF.getLayoutParams();
                 layoutParams.width = equipmentWidth;
                 layoutParams.height = l.getDimens(this.mContext, R.dimen.ds110);
-                removeView(this.iYr);
-                addView(this.iYr, layoutParams);
+                removeView(this.iYF);
+                addView(this.iYF, layoutParams);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.moX != null) {
-            com.baidu.tbadk.browser.a.startWebActivity(this.mContext, this.moX.dMY());
+        if (this.mpm != null) {
+            com.baidu.tbadk.browser.a.startWebActivity(this.mContext, this.mpm.dNg());
         }
     }
 

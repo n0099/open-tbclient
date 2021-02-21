@@ -20,10 +20,10 @@ public final class k {
     }
 
     public static k g(com.bytedance.sdk.a.b.b bVar) {
-        return new k(bVar.epC(), bVar.c(), bVar.d());
+        return new k(bVar.epK(), bVar.c(), bVar.d());
     }
 
-    public static k YB(String str) throws IOException {
+    public static k YN(String str) throws IOException {
         w wVar;
         String str2;
         int i = 9;

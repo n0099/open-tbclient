@@ -10,11 +10,11 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class a extends b {
-    private SpecialLiveFragment gGx;
+    private SpecialLiveFragment gGL;
 
     public a(String str, String str2) {
-        this.gGx = SpecialLiveFragment.en(str, str2);
-        getFragmentTabStructure().frag = this.gGx;
+        this.gGL = SpecialLiveFragment.en(str, str2);
+        getFragmentTabStructure().frag = this.gGL;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

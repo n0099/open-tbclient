@@ -11,8 +11,8 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.data.n;
 /* loaded from: classes11.dex */
 public class AlaChallengeHistoryHeaderView extends LinearLayout {
-    private TextView ihX;
-    private TextView ihY;
+    private TextView iil;
+    private TextView iim;
 
     public AlaChallengeHistoryHeaderView(Context context) {
         super(context);
@@ -31,14 +31,14 @@ public class AlaChallengeHistoryHeaderView extends LinearLayout {
 
     private void init() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.ala_challenge_list_header_layout, this);
-        this.ihX = (TextView) inflate.findViewById(a.f.challenge_success_rate);
-        this.ihY = (TextView) inflate.findViewById(a.f.challenge_success_num);
+        this.iil = (TextView) inflate.findViewById(a.f.challenge_success_rate);
+        this.iim = (TextView) inflate.findViewById(a.f.challenge_success_num);
     }
 
     public void setData(n nVar) {
         if (nVar != null) {
-            this.ihX.setText(String.format("%s%s", nVar.gSQ, "%"));
-            this.ihY.setText(nVar.gSP);
+            this.iil.setText(String.format("%s%s", nVar.gTe, "%"));
+            this.iim.setText(nVar.gTd);
         }
     }
 }

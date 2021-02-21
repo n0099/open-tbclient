@@ -10,14 +10,14 @@ public class a {
     public com.baidu.live.u.f brO;
     public long enterTime;
     public String fromType;
-    public boolean hBA;
-    public com.baidu.live.u.e hBs;
-    public com.baidu.tieba.ala.liveroom.n.d hBt;
-    public AlaLiveView hBu;
-    public AlaLoopViewPager hBv;
-    public boolean hBw;
-    public boolean hBx = false;
-    public boolean hBy = false;
-    public ArrayList<AlaBroadcastGiftToastData> hBz;
+    public com.baidu.live.u.e hBG;
+    public com.baidu.tieba.ala.liveroom.n.d hBH;
+    public AlaLiveView hBI;
+    public AlaLoopViewPager hBJ;
+    public boolean hBK;
+    public boolean hBL = false;
+    public boolean hBM = false;
+    public ArrayList<AlaBroadcastGiftToastData> hBN;
+    public boolean hBO;
     public TbPageContext pageContext;
 }

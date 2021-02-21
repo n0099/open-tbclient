@@ -18,7 +18,7 @@ public final class j {
     }
 
     public String a() {
-        String e = com.bytedance.tea.crash.h.erd().e();
+        String e = com.bytedance.tea.crash.h.erl().e();
         if (TextUtils.isEmpty(e) || "0".equals(e)) {
             return this.f7656a.getString("device_id", "0");
         }

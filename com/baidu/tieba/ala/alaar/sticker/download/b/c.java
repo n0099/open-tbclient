@@ -23,48 +23,48 @@ public class c implements com.baidu.tieba.ala.alaar.sticker.download.a.d {
 
     /* loaded from: classes11.dex */
     private static class a implements Runnable {
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.c gsS;
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.a gsU;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.c gtg;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.a gti;
 
         public a(com.baidu.tieba.ala.alaar.sticker.download.a.c cVar) {
-            this.gsS = cVar;
-            this.gsU = this.gsS.bPL();
+            this.gtg = cVar;
+            this.gti = this.gtg.bPS();
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            switch (this.gsS.getStatus()) {
+            switch (this.gtg.getStatus()) {
                 case 102:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTING");
-                    this.gsU.onConnecting();
+                    this.gti.onConnecting();
                     return;
                 case 103:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.gsS.getLength() + " acceptRanges: " + this.gsS.isAcceptRanges());
-                    this.gsU.onConnected(this.gsS.getLength(), this.gsS.isAcceptRanges());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.gtg.getLength() + " acceptRanges: " + this.gtg.isAcceptRanges());
+                    this.gti.onConnected(this.gtg.getLength(), this.gtg.isAcceptRanges());
                     return;
                 case 104:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.gsS.getFinished() + " length: " + this.gsS.getLength() + " percent: " + this.gsS.getPercent());
-                    this.gsU.onProgress(this.gsS.getFinished(), this.gsS.getLength(), this.gsS.getPercent());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.gtg.getFinished() + " length: " + this.gtg.getLength() + " percent: " + this.gtg.getPercent());
+                    this.gti.onProgress(this.gtg.getFinished(), this.gtg.getLength(), this.gtg.getPercent());
                     return;
                 case 105:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.gsS.getSavedPath());
-                    if (!this.gsS.getCalledCompleted()) {
-                        this.gsS.setCalledCompleted(true);
-                        this.gsU.onCompleted(this.gsS.getSavedPath());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.gtg.getSavedPath());
+                    if (!this.gtg.getCalledCompleted()) {
+                        this.gtg.setCalledCompleted(true);
+                        this.gti.onCompleted(this.gtg.getSavedPath());
                         return;
                     }
                     return;
                 case 106:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PAUSED");
-                    this.gsU.onDownloadPaused();
+                    this.gti.onDownloadPaused();
                     return;
                 case 107:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CANCELED");
-                    this.gsU.onDownloadCanceled();
+                    this.gti.onDownloadCanceled();
                     return;
                 case 108:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.gsS.getException().getCause());
-                    this.gsU.a((DownloadException) this.gsS.getException());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.gtg.getException().getCause());
+                    this.gti.a((DownloadException) this.gtg.getException());
                     return;
                 default:
                     return;

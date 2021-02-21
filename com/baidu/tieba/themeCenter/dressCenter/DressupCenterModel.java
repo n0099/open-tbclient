@@ -8,14 +8,14 @@ import com.baidu.tbadk.TbConfig;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
-    private com.baidu.adp.framework.listener.a jbH = new com.baidu.adp.framework.listener.a(1003030, CmdConfigSocket.CMD_DRESSUP_CENTER) { // from class: com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.1
+    private com.baidu.adp.framework.listener.a jbV = new com.baidu.adp.framework.listener.a(1003030, CmdConfigSocket.CMD_DRESSUP_CENTER) { // from class: com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof DressupCenterHttpResponseMessage) || (responsedMessage instanceof DressupCenterSocketResponseMessage)) {
                     if (responsedMessage.getError() != 0) {
-                        if (DressupCenterModel.this.nIQ != null) {
-                            DressupCenterModel.this.nIQ.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
+                        if (DressupCenterModel.this.nJq != null) {
+                            DressupCenterModel.this.nJq.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
                             return;
                         }
                         return;
@@ -31,8 +31,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
                         DressupCenterModel.this.mRecommand = dressupCenterSocketResponseMessage.getRecommand();
                         DressupCenterModel.this.mThemeCarouselList = dressupCenterSocketResponseMessage.getThemeCarouselList();
                     }
-                    if (DressupCenterModel.this.nIQ != null) {
-                        DressupCenterModel.this.nIQ.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
+                    if (DressupCenterModel.this.nJq != null) {
+                        DressupCenterModel.this.nJq.a(responsedMessage.getError(), responsedMessage.getErrorString(), DressupCenterModel.this.mThemeCarouselList, DressupCenterModel.this.mRecommand, DressupCenterModel.this.mThemeList);
                     }
                 }
             }
@@ -41,8 +41,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     private e mRecommand;
     private List<com.baidu.tieba.themeCenter.dressCenter.a> mThemeCarouselList;
     private List<d> mThemeList;
-    private boolean nGz;
-    private a nIQ;
+    private boolean nGZ;
+    private a nJq;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -50,9 +50,9 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public DressupCenterModel(DressupCenterActivity dressupCenterActivity) {
-        this.nGz = dressupCenterActivity.getIntent().getBooleanExtra("member_buy_show", false);
+        this.nGZ = dressupCenterActivity.getIntent().getBooleanExtra("member_buy_show", false);
         registerTask();
-        registerListener(this.jbH);
+        registerListener(this.jbV);
     }
 
     private void registerTask() {
@@ -72,14 +72,14 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     public void a(a aVar) {
-        this.nIQ = aVar;
+        this.nJq = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.jbH);
+        MessageManager.getInstance().unRegisterListener(this.jbV);
     }
 
-    public boolean dKP() {
-        return this.nGz;
+    public boolean dKX() {
+        return this.nGZ;
     }
 }

@@ -78,7 +78,7 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             shareItem.ae(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
             if (z) {
-                f.ctz().b(shareDialogConfig);
+                f.ctG().b(shareDialogConfig);
                 return;
             }
             shareDialogConfig.isCopyLink = true;
@@ -197,7 +197,7 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
                 boolean z2 = false;
                 shareDialogConfig.setIsAlaLive((cbVar.getThreadType() != 49 || cbVar.getThreadType() == 60) ? true : true);
                 shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
-                f.ctz().b(shareDialogConfig);
+                f.ctG().b(shareDialogConfig);
             }
             z = true;
             String shareImageUrl2 = getShareImageUrl(cbVar);
@@ -249,7 +249,7 @@ public class SharepluginPlugin implements FlutterPlugin, MethodChannel.MethodCal
             boolean z22 = false;
             shareDialogConfig2.setIsAlaLive((cbVar.getThreadType() != 49 || cbVar.getThreadType() == 60) ? true : true);
             shareDialogConfig2.setFrom(ShareDialogConfig.From.PersonPolymeric);
-            f.ctz().b(shareDialogConfig2);
+            f.ctG().b(shareDialogConfig2);
         }
     }
 

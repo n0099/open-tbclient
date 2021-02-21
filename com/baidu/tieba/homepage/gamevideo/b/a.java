@@ -18,21 +18,21 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private TbPageContext eUY;
-    private GameVideoGridView keT;
-    private com.baidu.tieba.homepage.gamevideo.a.b keU;
-    private InterfaceC0744a keV;
+    private GameVideoGridView kfh;
+    private com.baidu.tieba.homepage.gamevideo.a.b kfi;
+    private InterfaceC0745a kfj;
     private BdUniqueId mBdUniqueId;
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.a.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (a.this.keU != null && i < a.this.keU.getCount() && a.this.keU.getItem(i) != null && (a.this.keU.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
-                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.keU.getItem(i);
+            if (a.this.kfi != null && i < a.this.kfi.getCount() && a.this.kfi.getItem(i) != null && (a.this.kfi.getItem(i) instanceof com.baidu.tieba.homepage.gamevideo.c.a)) {
+                com.baidu.tieba.homepage.gamevideo.c.a aVar = (com.baidu.tieba.homepage.gamevideo.c.a) a.this.kfi.getItem(i);
                 if (aVar.enable == 1) {
-                    a.this.keU.BO(aVar.sub_class_id);
-                    if (a.this.keV != null) {
-                        a.this.keV.a(aVar);
+                    a.this.kfi.BO(aVar.sub_class_id);
+                    if (a.this.kfj != null) {
+                        a.this.kfj.a(aVar);
                     }
-                    a.this.cQd();
+                    a.this.cQk();
                     com.baidu.tbadk.core.sharedPref.b.brQ().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
                     com.baidu.tbadk.core.sharedPref.b.brQ().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
                     TiebaStatic.log(new ar("c13485").ap("obj_type", aVar.sub_class_id));
@@ -45,7 +45,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0744a {
+    public interface InterfaceC0745a {
         void a(com.baidu.tieba.homepage.gamevideo.c.a aVar);
     }
 
@@ -57,19 +57,19 @@ public class a {
 
     private void init() {
         this.mRootView = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.game_video_choose_fullscreen_layout, (ViewGroup) null);
-        this.keT = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
-        this.keU = new com.baidu.tieba.homepage.gamevideo.a.b(this.eUY, 101, this.mBdUniqueId);
-        this.keT.setNumColumns(4);
-        this.keT.setAdapter((ListAdapter) this.keU);
-        this.keT.setOnItemClickListener(this.mOnItemClickListener);
+        this.kfh = (GameVideoGridView) this.mRootView.findViewById(R.id.id_game_video_choose_full_gridview);
+        this.kfi = new com.baidu.tieba.homepage.gamevideo.a.b(this.eUY, 101, this.mBdUniqueId);
+        this.kfh.setNumColumns(4);
+        this.kfh.setAdapter((ListAdapter) this.kfi);
+        this.kfh.setOnItemClickListener(this.mOnItemClickListener);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.id_game_video_choose_full_title);
         onChangeSkinType();
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {
         if (!y.isEmpty(list)) {
-            this.keU.setData(list);
-            this.keU.notifyDataSetChanged();
+            this.kfi.setData(list);
+            this.kfi.notifyDataSetChanged();
         }
     }
 
@@ -92,19 +92,19 @@ public class a {
         }
     }
 
-    public void cQd() {
+    public void cQk() {
         if (this.mRootView != null && this.mRootView.getParent() != null) {
             ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
         }
     }
 
-    public void a(InterfaceC0744a interfaceC0744a) {
-        this.keV = interfaceC0744a;
+    public void a(InterfaceC0745a interfaceC0745a) {
+        this.kfj = interfaceC0745a;
     }
 
     public void onDestroy() {
-        if (this.keT != null) {
-            this.keT.onDestroy();
+        if (this.kfh != null) {
+            this.kfh.onDestroy();
         }
     }
 }

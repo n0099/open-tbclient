@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes5.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] qsc = new Object[0];
-    private final SubjectSubscriptionManager<T> qEu;
+    private static final Object[] qsC = new Object[0];
+    private final SubjectSubscriptionManager<T> qEU;
 
-    public static <T> a<T> eOb() {
+    public static <T> a<T> eOj() {
         return f(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.qEu = subjectSubscriptionManager;
+        this.qEU = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.qEu.getLatest() == null || this.qEu.active) {
-            Object eMS = NotificationLite.eMS();
-            for (SubjectSubscriptionManager.b<T> bVar : this.qEu.terminate(eMS)) {
-                bVar.ck(eMS);
+        if (this.qEU.getLatest() == null || this.qEU.active) {
+            Object eNa = NotificationLite.eNa();
+            for (SubjectSubscriptionManager.b<T> bVar : this.qEU.terminate(eNa)) {
+                bVar.ck(eNa);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.qEu.getLatest() == null || this.qEu.active) {
+        if (this.qEU.getLatest() == null || this.qEU.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.qEu.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.qEU.terminate(error)) {
                 try {
                     bVar.ck(error);
                 } catch (Throwable th2) {
@@ -66,9 +66,9 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.qEu.getLatest() == null || this.qEu.active) {
+        if (this.qEU.getLatest() == null || this.qEU.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.qEu.next(next)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.qEU.next(next)) {
                 bVar.ck(next);
             }
         }

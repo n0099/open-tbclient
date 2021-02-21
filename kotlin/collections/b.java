@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 @kotlin.e
 /* loaded from: classes6.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State qsP = State.NotReady;
-    private T qsQ;
+    private State qtp = State.NotReady;
+    private T qtq;
 
-    protected abstract void eKS();
+    protected abstract void eLa();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.l(this.qsP, State.Failed)) {
-            switch (this.qsP) {
+        if (!kotlin.jvm.internal.p.l(this.qtp, State.Failed)) {
+            switch (this.qtp) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return eKR();
+                    return eKZ();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.qsP = State.NotReady;
-            return this.qsQ;
+            this.qtp = State.NotReady;
+            return this.qtq;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean eKR() {
-        this.qsP = State.Failed;
-        eKS();
-        return kotlin.jvm.internal.p.l(this.qsP, State.Ready);
+    private final boolean eKZ() {
+        this.qtp = State.Failed;
+        eLa();
+        return kotlin.jvm.internal.p.l(this.qtp, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bR(T t) {
-        this.qsQ = t;
-        this.qsP = State.Ready;
+        this.qtq = t;
+        this.qtp = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.qsP = State.Done;
+        this.qtp = State.Done;
     }
 }

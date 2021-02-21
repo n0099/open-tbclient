@@ -62,7 +62,7 @@ public class b {
             if (nVar.beQ()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", g.ehx().yC(nVar.getId()));
+            jSONObject.put("idtype", g.ehF().yC(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());
@@ -128,7 +128,7 @@ public class b {
             file.mkdirs();
         }
         File file2 = new File(file, "filequality");
-        if (file2.length() > g.ehx().ehy()) {
+        if (file2.length() > g.ehF().ehG()) {
             if (file2.delete()) {
                 file2 = new File(file, "filequality");
             } else {
@@ -155,7 +155,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void B(Exception exc) {
-        ac.ehP().Xu(Log.getStackTraceString(exc));
+        ac.ehX().XG(Log.getStackTraceString(exc));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */

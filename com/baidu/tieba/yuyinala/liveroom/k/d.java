@@ -44,20 +44,20 @@ import org.json.JSONObject;
 public class d extends BdBaseModel {
     private ab aDd;
     private BdPageContext<?> bkx;
-    private Handler hJP;
-    private aw hJT;
-    private int hJY;
-    private BdAlertDialog hKf;
-    private HttpMessageListener hKn;
-    private HttpMessageListener hKx;
-    private a.InterfaceC0926a owA;
-    private AlaGetVerifyStrategyResponseHttpMessage owS;
+    private HttpMessageListener hKB;
+    private HttpMessageListener hKL;
+    private Handler hKd;
+    private aw hKh;
+    private int hKm;
+    private BdAlertDialog hKt;
+    private a.InterfaceC0928a oxa;
+    private AlaGetVerifyStrategyResponseHttpMessage oxs;
 
     public d(BdPageContext<?> bdPageContext) {
         super(bdPageContext);
-        this.hJP = new Handler();
-        this.hJY = 1;
-        this.hKx = new HttpMessageListener(1031030) { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.1
+        this.hKd = new Handler();
+        this.hKm = 1;
+        this.hKL = new HttpMessageListener(1031030) { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -65,18 +65,18 @@ public class d extends BdBaseModel {
                     if (httpResponsedMessage.getError() != 0 || httpResponsedMessage.hasError()) {
                         UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem("1534", "create_live", UbcStatConstant.Page.VOICE_CREATE_ROOM, null), httpResponsedMessage, true);
                     }
-                    d.this.hJT = ((AlaUpdateLiveTbResponseMessage) httpResponsedMessage).ciO();
-                    if (d.this.hJT != null) {
-                        if (d.this.hJT.mErrorCode == 0) {
+                    d.this.hKh = ((AlaUpdateLiveTbResponseMessage) httpResponsedMessage).ciV();
+                    if (d.this.hKh != null) {
+                        if (d.this.hKh.mErrorCode == 0) {
                             JSONObject jSONObject = new JSONObject();
                             JSONObject jSONObject2 = new JSONObject();
                             try {
-                                jSONObject2.put(LogConfig.VALUE_LIVE_HK_RECORD_START, d.this.hJT.aOd);
-                                jSONObject2.put("user_verify", d.this.hJT.aOf);
-                                jSONObject2.put("certify", d.this.hJT.aOh);
-                                if (d.this.hJT.mLiveSdkInfo != null && d.this.hJT.mLiveSdkInfo.mCastIds != null) {
-                                    jSONObject2.put(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_CHAT_CAST_ID, d.this.hJT.mLiveSdkInfo.mCastIds.chatMCastId);
-                                    jSONObject2.put("ensure_mcast_id", d.this.hJT.mLiveSdkInfo.mCastIds.ensureMCastId);
+                                jSONObject2.put(LogConfig.VALUE_LIVE_HK_RECORD_START, d.this.hKh.aOd);
+                                jSONObject2.put("user_verify", d.this.hKh.aOf);
+                                jSONObject2.put("certify", d.this.hKh.aOh);
+                                if (d.this.hKh.mLiveSdkInfo != null && d.this.hKh.mLiveSdkInfo.mCastIds != null) {
+                                    jSONObject2.put(YuyinAlaLiveRoomActivityConfig.SDK_AUDIO_ROOM_CHAT_CAST_ID, d.this.hKh.mLiveSdkInfo.mCastIds.chatMCastId);
+                                    jSONObject2.put("ensure_mcast_id", d.this.hKh.mLiveSdkInfo.mCastIds.ensureMCastId);
                                 }
                                 jSONObject.put("result", jSONObject2);
                             } catch (JSONException e) {
@@ -84,23 +84,23 @@ public class d extends BdBaseModel {
                             }
                             UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem("1534", UbcStatConstant.ContentType.UBC_TYPE_CREATE_LIVE_SUCC, UbcStatConstant.Page.VOICE_CREATE_ROOM, null).setContentExt(jSONObject), httpResponsedMessage, true);
                         }
-                        if (d.this.hJT.aOd != 1 || d.this.hJT.aOf != 1) {
-                            d.this.hJP.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.1.1
+                        if (d.this.hKh.aOd != 1 || d.this.hKh.aOf != 1) {
+                            d.this.hKd.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    d.this.cjk();
+                                    d.this.cjr();
                                 }
                             }, 200L);
                             return;
-                        } else if (d.this.hJT.mErrorCode != 0) {
-                            if (d.this.hJT.mErrorCode == 220012) {
-                                d.this.b(d.this.hJT.mErrorCode, d.this.hJT.mErrorMsg, 6, d.this.aDd);
+                        } else if (d.this.hKh.mErrorCode != 0) {
+                            if (d.this.hKh.mErrorCode == 220012) {
+                                d.this.b(d.this.hKh.mErrorCode, d.this.hKh.mErrorMsg, 6, d.this.aDd);
                                 return;
                             }
                         } else {
                             d.this.aDd = new ab();
                             d.this.aDd.bx(true);
-                            d.this.aDd.mLiveInfo = d.this.hJT.mLiveInfo;
+                            d.this.aDd.mLiveInfo = d.this.hKh.mLiveInfo;
                             d.this.aDd.isHost = true;
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913081, d.this.aDd));
                         }
@@ -113,7 +113,7 @@ public class d extends BdBaseModel {
                 }
             }
         };
-        this.hKn = new HttpMessageListener(1031028) { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.2
+        this.hKB = new HttpMessageListener(1031028) { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -132,9 +132,9 @@ public class d extends BdBaseModel {
                         JSONObject jSONObject = new JSONObject();
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put(LogConfig.VALUE_LIVE_HK_RECORD_START, alaGetVerifyStrategyResponseHttpMessage.hJk);
-                            jSONObject2.put("user_verify", alaGetVerifyStrategyResponseHttpMessage.hJm);
-                            jSONObject2.put("certify", alaGetVerifyStrategyResponseHttpMessage.hJp);
+                            jSONObject2.put(LogConfig.VALUE_LIVE_HK_RECORD_START, alaGetVerifyStrategyResponseHttpMessage.hJy);
+                            jSONObject2.put("user_verify", alaGetVerifyStrategyResponseHttpMessage.hJA);
+                            jSONObject2.put("certify", alaGetVerifyStrategyResponseHttpMessage.hJD);
                             jSONObject.put("result", jSONObject2);
                         } catch (JSONException e) {
                             BdLog.e(e);
@@ -142,21 +142,21 @@ public class d extends BdBaseModel {
                         UbcStatisticManager.getInstance().logSendResponse(new UbcStatisticItem("1534", UbcStatConstant.ContentType.UBC_TYPE_CREATE_STRATEGY_SUCC, UbcStatConstant.Page.VOICE_CREATE_ROOM, null).setContentExt(jSONObject), httpResponsedMessage, true);
                     }
                     if (httpResponsedMessage.getError() == 0) {
-                        if (alaGetVerifyStrategyResponseHttpMessage.hJm != 1 || alaGetVerifyStrategyResponseHttpMessage.hJk != 1 || alaGetVerifyStrategyResponseHttpMessage.hJp != 1) {
-                            d.this.owS = alaGetVerifyStrategyResponseHttpMessage;
-                            if (alaGetVerifyStrategyResponseHttpMessage.hJp != 1) {
-                                d.this.hJP.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.2.2
+                        if (alaGetVerifyStrategyResponseHttpMessage.hJA != 1 || alaGetVerifyStrategyResponseHttpMessage.hJy != 1 || alaGetVerifyStrategyResponseHttpMessage.hJD != 1) {
+                            d.this.oxs = alaGetVerifyStrategyResponseHttpMessage;
+                            if (alaGetVerifyStrategyResponseHttpMessage.hJD != 1) {
+                                d.this.hKd.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.2.2
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        d.this.cjj();
+                                        d.this.cjq();
                                     }
                                 }, 200L);
                                 return;
-                            } else if (alaGetVerifyStrategyResponseHttpMessage.hJm != 1 || alaGetVerifyStrategyResponseHttpMessage.hJk != 1) {
-                                d.this.hJP.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.2.3
+                            } else if (alaGetVerifyStrategyResponseHttpMessage.hJA != 1 || alaGetVerifyStrategyResponseHttpMessage.hJy != 1) {
+                                d.this.hKd.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.2.3
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        d.this.ez(alaGetVerifyStrategyResponseHttpMessage.hJs, alaGetVerifyStrategyResponseHttpMessage.hJt);
+                                        d.this.ez(alaGetVerifyStrategyResponseHttpMessage.hJG, alaGetVerifyStrategyResponseHttpMessage.hJH);
                                     }
                                 }, 200L);
                                 return;
@@ -164,32 +164,32 @@ public class d extends BdBaseModel {
                                 return;
                             }
                         }
-                        d.this.owS = null;
+                        d.this.oxs = null;
                     }
                 }
             }
         };
         this.bkx = bdPageContext;
         initTasks();
-        registerListener(this.hKx);
-        registerListener(this.hKn);
+        registerListener(this.hKL);
+        registerListener(this.hKB);
     }
 
-    public void a(a.InterfaceC0926a interfaceC0926a) {
-        this.owA = interfaceC0926a;
+    public void a(a.InterfaceC0928a interfaceC0928a) {
+        this.oxa = interfaceC0928a;
     }
 
-    public void cjh() {
+    public void cjo() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1031028));
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem("1526", UbcStatConstant.ContentType.UBC_TYPE_STRATEGY, UbcStatConstant.Page.VOICE_CREATE_ROOM, null));
     }
 
-    public aw cjo() {
-        return this.hJT;
+    public aw cjv() {
+        return this.hKh;
     }
 
     public void b(String str, String str2, String str3, int i, double d, double d2, String str4, String str5, int i2, String str6, String str7, String str8, int i3, int i4, int i5, int i6, String str9, String str10) {
-        if (!cjs()) {
+        if (!cjz()) {
             HttpMessage httpMessage = new HttpMessage(1031030);
             httpMessage.addParam("forum_name", str);
             httpMessage.addParam("forum_id", str2);
@@ -246,7 +246,7 @@ public class d extends BdBaseModel {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private boolean cjs() {
+    private boolean cjz() {
         return !ListUtils.isEmpty(MessageManager.getInstance().findMessage(1031030, getUniqueId()));
     }
 
@@ -261,31 +261,31 @@ public class d extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, String str, int i2, Object obj) {
-        if (this.owA != null) {
-            this.owA.a(i, str, i2, obj);
+        if (this.oxa != null) {
+            this.oxa.a(i, str, i2, obj);
         }
     }
 
-    public void cjk() {
-        if (this.hKf != null) {
-            this.hKf.dismiss();
-            this.hKf = null;
+    public void cjr() {
+        if (this.hKt != null) {
+            this.hKt.dismiss();
+            this.hKt = null;
         }
         String string = this.bkx.getString(a.h.ala_live_no_permission_tip);
-        this.hKf = new BdAlertDialog(this.bkx.getPageActivity());
-        this.hKf.setAutoNight(false);
-        this.hKf.setMessage(string);
-        this.hKf.setPositiveButton(this.bkx.getString(a.h.sdk_dialog_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.3
+        this.hKt = new BdAlertDialog(this.bkx.getPageActivity());
+        this.hKt.setAutoNight(false);
+        this.hKt.setMessage(string);
+        this.hKt.setPositiveButton(this.bkx.getString(a.h.sdk_dialog_ok), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.3
             @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
             public void onClick(BdAlertDialog bdAlertDialog) {
                 d.this.b(bdAlertDialog);
             }
         });
-        this.hKf.setCancelable(false);
-        this.hKf.setCanceledOnTouchOutside(false);
-        this.hKf.isShowTitleAndMessage();
-        this.hKf.create(this.bkx);
-        this.hKf.show();
+        this.hKt.setCancelable(false);
+        this.hKt.setCanceledOnTouchOutside(false);
+        this.hKt.isShowTitleAndMessage();
+        this.hKt.create(this.bkx);
+        this.hKt.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -293,34 +293,34 @@ public class d extends BdBaseModel {
         bdAlertDialog.dismiss();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913086));
         this.bkx.getPageActivity().finish();
-        this.owS = null;
-        this.hKf = null;
+        this.oxs = null;
+        this.hKt = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ez(String str, String str2) {
-        if (this.hKf != null) {
-            this.hKf.dismiss();
-            this.hKf = null;
+        if (this.hKt != null) {
+            this.hKt.dismiss();
+            this.hKt = null;
         }
         String string = this.bkx.getString(a.h.ala_live_no_permission);
-        this.hKf = new BdAlertDialog(this.bkx.getPageActivity());
-        this.hKf.setAutoNight(false);
+        this.hKt = new BdAlertDialog(this.bkx.getPageActivity());
+        this.hKt.setAutoNight(false);
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             str2 = string;
         } else {
-            this.hKf.setTitle(str);
+            this.hKt.setTitle(str);
         }
-        this.hKf.setMessage(str2);
+        this.hKt.setMessage(str2);
         if (TbadkCoreApplication.getInst().isOther()) {
-            this.hKf.setPositiveButton(this.bkx.getString(a.h.sdk_know), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.4
+            this.hKt.setPositiveButton(this.bkx.getString(a.h.sdk_know), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.4
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
                     d.this.FA();
                 }
             });
         } else {
-            this.hKf.setPositiveButton(this.bkx.getString(a.h.dialog_to_appeal), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.5
+            this.hKt.setPositiveButton(this.bkx.getString(a.h.dialog_to_appeal), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.5
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
                     if (TbadkCoreApplication.getInst().isTieba()) {
@@ -343,73 +343,73 @@ public class d extends BdBaseModel {
                     d.this.FA();
                 }
             });
-            this.hKf.setNegativeButton(this.bkx.getString(a.h.sdk_dialog_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.6
+            this.hKt.setNegativeButton(this.bkx.getString(a.h.sdk_dialog_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.6
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
                     d.this.FA();
                 }
             });
         }
-        this.hKf.setCancelable(false);
-        this.hKf.setCanceledOnTouchOutside(false);
-        this.hKf.setTitleShowCenter(true);
-        this.hKf.setMessageShowCenter(true);
-        this.hKf.isShowTitleAndMessage();
-        this.hKf.create(this.bkx);
-        this.hKf.show();
+        this.hKt.setCancelable(false);
+        this.hKt.setCanceledOnTouchOutside(false);
+        this.hKt.setTitleShowCenter(true);
+        this.hKt.setMessageShowCenter(true);
+        this.hKt.isShowTitleAndMessage();
+        this.hKt.create(this.bkx);
+        this.hKt.show();
     }
 
-    public void cjj() {
-        if (this.hKf != null) {
-            this.hKf.dismiss();
-            this.hKf = null;
+    public void cjq() {
+        if (this.hKt != null) {
+            this.hKt.dismiss();
+            this.hKt = null;
         }
         String string = this.bkx.getString(a.h.ala_live_no_auth);
-        this.hKf = new BdAlertDialog(this.bkx.getPageActivity());
-        this.hKf.setAutoNight(false);
-        this.hKf.setMessage(string);
+        this.hKt = new BdAlertDialog(this.bkx.getPageActivity());
+        this.hKt.setAutoNight(false);
+        this.hKt.setMessage(string);
         if (TbadkCoreApplication.getInst().isRegistedIntent(FaceRecognitionActivityConfig.class) && RealAuthenManager.getInstance().getRealAuthen() != null) {
-            this.hKf.setPositiveButton(this.bkx.getString(a.h.dialog_to_auth), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.7
+            this.hKt.setPositiveButton(this.bkx.getString(a.h.dialog_to_auth), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.7
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
-                    d.this.cji();
+                    d.this.cjp();
                     d.this.FA();
                 }
             });
-            this.hKf.setNegativeButton(this.bkx.getString(a.h.sdk_dialog_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.8
+            this.hKt.setNegativeButton(this.bkx.getString(a.h.sdk_dialog_cancel), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.8
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
                     d.this.FA();
                 }
             });
         } else {
-            this.hKf.setPositiveButton(this.bkx.getString(a.h.sdk_know), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.9
+            this.hKt.setPositiveButton(this.bkx.getString(a.h.sdk_know), new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.k.d.9
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog) {
                     d.this.FA();
                 }
             });
         }
-        this.hKf.setCancelable(false);
-        this.hKf.setCanceledOnTouchOutside(false);
-        this.hKf.setTitleShowCenter(true);
-        this.hKf.setMessageShowCenter(true);
-        this.hKf.isShowTitleAndMessage();
-        this.hKf.create(this.bkx);
-        this.hKf.show();
+        this.hKt.setCancelable(false);
+        this.hKt.setCanceledOnTouchOutside(false);
+        this.hKt.setTitleShowCenter(true);
+        this.hKt.setMessageShowCenter(true);
+        this.hKt.isShowTitleAndMessage();
+        this.hKt.create(this.bkx);
+        this.hKt.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cji() {
+    public void cjp() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913222, new FaceRecognitionActivityConfig(this.bkx.getPageActivity(), "")));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void FA() {
-        if (this.hKf != null) {
-            this.hKf.dismiss();
-            this.hKf = null;
+        if (this.hKt != null) {
+            this.hKt.dismiss();
+            this.hKt = null;
         }
-        this.owS = null;
+        this.oxs = null;
     }
 }

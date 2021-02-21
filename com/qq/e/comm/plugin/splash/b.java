@@ -71,8 +71,8 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     private boolean G;
     private Runnable H;
     private File I;
-    private volatile EnumC1208b J;
-    private volatile EnumC1208b K;
+    private volatile EnumC1210b J;
+    private volatile EnumC1210b K;
     private File L;
     private boolean M;
     private int N;
@@ -149,7 +149,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qq.e.comm.plugin.splash.b$b  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public enum EnumC1208b {
+    public enum EnumC1210b {
         Unknown,
         Downloading,
         Downloaded,
@@ -243,8 +243,8 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
         this.E = 1800000L;
         this.F = false;
         this.G = false;
-        this.J = EnumC1208b.Unknown;
-        this.K = EnumC1208b.Unknown;
+        this.J = EnumC1210b.Unknown;
+        this.K = EnumC1210b.Unknown;
         this.N = 1;
         this.O = a.Unknown;
         this.P = new j();
@@ -537,7 +537,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             GDTLogger.d("广告图片下载成功时开屏广告已超时或者在展示：" + this.P);
             return;
         }
-        this.J = EnumC1208b.Downloaded;
+        this.J = EnumC1210b.Downloaded;
         k.a(this.K, this.J, this.e, 0, null, str, this.g.G());
         this.I = file;
         if (this.w == q.IMG) {
@@ -570,7 +570,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, long j, int i, Exception exc) {
-        this.J = EnumC1208b.Failed;
+        this.J = EnumC1210b.Failed;
         if (!this.P.i() || this.g == null) {
             GDTLogger.d("广告图片下载失败时开屏广告已超时或者在展示：" + this.P);
             return;
@@ -604,7 +604,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             GDTLogger.d("广告视频下载成功时开屏广告已超时或者在展示：" + this.P);
             return;
         }
-        this.K = EnumC1208b.Downloaded;
+        this.K = EnumC1210b.Downloaded;
         GDTLogger.d("开屏视频下载成功耗时ms:" + j + " 大小:" + file.length() + " url:" + str);
         k.b(this.K, this.J, this.e, 0, null, this.g.o(), str);
         if (j > 0) {
@@ -617,18 +617,18 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str, long j, int i, Exception exc) {
-        this.K = EnumC1208b.Failed;
+        this.K = EnumC1210b.Failed;
         if (!this.P.i() || this.g == null) {
             GDTLogger.d("广告视频下载完成时开屏广告已超时或者在展示：" + this.P);
             return;
         }
         GDTLogger.d("开屏视频下载失败耗时:" + j + " url:" + str);
-        if (this.J == EnumC1208b.Downloaded) {
+        if (this.J == EnumC1210b.Downloaded) {
             GDTLogger.d("开屏视频转图文成功");
             k.b(this.K, this.J, this.e, i, exc, null, str);
             this.w = q.IMG;
             m();
-        } else if (this.J == EnumC1208b.Downloading) {
+        } else if (this.J == EnumC1210b.Downloading) {
             GDTLogger.d("开屏视频转图文，图文尚在下载中");
             this.w = q.IMG;
         } else {
@@ -815,7 +815,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             this.H = new Runnable() { // from class: com.qq.e.comm.plugin.splash.b.16
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.P.i() && b.this.w == q.VIDEO && b.this.J == EnumC1208b.Downloaded) {
+                    if (b.this.P.i() && b.this.w == q.VIDEO && b.this.J == EnumC1210b.Downloaded) {
                         GDTLogger.d("开屏视频拉取超时，转图片成功");
                         b.this.w = q.IMG;
                         b.this.m();
@@ -848,7 +848,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     }
 
     private void q() {
-        this.J = EnumC1208b.Downloading;
+        this.J = EnumC1210b.Downloading;
         final String o = this.g.o();
         final long currentTimeMillis = System.currentTimeMillis();
         com.qq.e.comm.plugin.p.a.a().a(o, new com.qq.e.comm.plugin.p.b() { // from class: com.qq.e.comm.plugin.splash.b.17
@@ -873,7 +873,7 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
     }
 
     private void r() {
-        this.K = EnumC1208b.Downloading;
+        this.K = EnumC1210b.Downloading;
         final String G = this.g.G();
         File f = ah.f();
         String a2 = ah.a(G);
@@ -1244,12 +1244,12 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
             GDTLogger.d("删除损坏视频文件失败:" + this.L.getAbsolutePath());
         }
         this.L = null;
-        if (this.J == EnumC1208b.Downloaded && this.P.h()) {
+        if (this.J == EnumC1210b.Downloaded && this.P.h()) {
             GDTLogger.d("转图片开屏成功");
             this.w = q.IMG;
             k.a(false, i, this.e, this.g.G(), exc);
             a(this.I);
-        } else if (this.J == EnumC1208b.Downloading && this.P.g()) {
+        } else if (this.J == EnumC1210b.Downloading && this.P.g()) {
             GDTLogger.d("图片尚在下载中，等待下载结束");
             this.w = q.IMG;
             this.C = true;
@@ -1373,8 +1373,8 @@ public class b extends FrameLayout implements NSPVI, f.a, com.qq.e.comm.plugin.a
         this.B = null;
         this.g = null;
         this.I = null;
-        this.J = EnumC1208b.Unknown;
-        this.K = EnumC1208b.Unknown;
+        this.J = EnumC1210b.Unknown;
+        this.K = EnumC1210b.Unknown;
         this.L = null;
         this.M = false;
         this.N = 1;

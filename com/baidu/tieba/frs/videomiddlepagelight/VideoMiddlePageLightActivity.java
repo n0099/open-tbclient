@@ -41,37 +41,37 @@ import kotlin.text.l;
 /* loaded from: classes2.dex */
 public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     static final /* synthetic */ j[] $$delegatedProperties = {s.a(new PropertyReference1Impl(s.G(VideoMiddlePageLightActivity.class), "viewModel", "getViewModel()Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;"))};
-    private NoNetworkView gVA;
-    private NavigationBar gjF;
-    private BdTypeRecyclerView iNV;
-    private com.baidu.tieba.frs.videomiddlepagelight.a jNK;
-    private DividerItemDecoration jNL;
-    private GestureDetector jNM;
-    private boolean jNN;
-    private int jNO;
-    private boolean jNP;
+    private NoNetworkView gVO;
+    private NavigationBar gjT;
+    private BdTypeRecyclerView iOj;
+    private com.baidu.tieba.frs.videomiddlepagelight.a jNY;
+    private DividerItemDecoration jNZ;
+    private GestureDetector jOa;
+    private boolean jOb;
+    private int jOc;
+    private boolean jOd;
     private g loadingView;
     private View rootView;
-    private final kotlin.c jNJ = kotlin.d.b(new VideoMiddlePageLightActivity$viewModel$2(this));
-    private final a jNQ = new a();
-    private final VideoMiddlePageLightActivity$scrollListener$1 jNR = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.frs.videomiddlepagelight.VideoMiddlePageLightActivity$scrollListener$1
+    private final kotlin.c jNX = kotlin.d.b(new VideoMiddlePageLightActivity$viewModel$2(this));
+    private final a jOe = new a();
+    private final VideoMiddlePageLightActivity$scrollListener$1 jOf = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.frs.videomiddlepagelight.VideoMiddlePageLightActivity$scrollListener$1
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             boolean z;
             int i2;
             p.o(recyclerView, "rv");
             super.onScrollStateChanged(recyclerView, i);
-            z = VideoMiddlePageLightActivity.this.jNN;
+            z = VideoMiddlePageLightActivity.this.jOb;
             if (!z || i != 0) {
-                Integer value = VideoMiddlePageLightActivity.this.cMu().cMO().getValue();
+                Integer value = VideoMiddlePageLightActivity.this.cMB().cMV().getValue();
                 if (value != null && i == 0) {
                     if (VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getFirstCompletelyVisiblePosition() == -1) {
                         if (VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getFirstVisiblePosition() != -1) {
                             int firstVisiblePosition = VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getFirstVisiblePosition();
-                            Integer value2 = VideoMiddlePageLightActivity.this.cMu().cMO().getValue();
+                            Integer value2 = VideoMiddlePageLightActivity.this.cMB().cMV().getValue();
                             if (value2 == null || firstVisiblePosition != value2.intValue()) {
-                                VideoMiddlePageLightActivity.this.jNP = true;
-                                VideoMiddlePageLightActivity.this.cMu().AZ(VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getFirstVisiblePosition());
+                                VideoMiddlePageLightActivity.this.jOd = true;
+                                VideoMiddlePageLightActivity.this.cMB().AZ(VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getFirstVisiblePosition());
                             }
                         }
                     } else if (value.intValue() < VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getFirstCompletelyVisiblePosition()) {
@@ -81,12 +81,12 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     }
                 }
                 if (!VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).canScrollVertically(1)) {
-                    if (p.l(VideoMiddlePageLightActivity.this.cMu().cMM().getValue(), false) && p.l(VideoMiddlePageLightActivity.this.cMu().cML().getValue(), false)) {
+                    if (p.l(VideoMiddlePageLightActivity.this.cMB().cMT().getValue(), false) && p.l(VideoMiddlePageLightActivity.this.cMB().cMS().getValue(), false)) {
                         VideoMiddlePageLightActivity.this.showToast(R.string.no_more_video_content);
                         return;
                     } else if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                         VideoMiddlePageLightActivity.this.showToast(R.string.hard_loading);
-                        VideoMiddlePageLightActivity.this.cMu().loadData();
+                        VideoMiddlePageLightActivity.this.cMB().loadData();
                         return;
                     } else {
                         VideoMiddlePageLightActivity.this.showToast(R.string.neterror);
@@ -95,9 +95,9 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                 }
                 return;
             }
-            VideoMiddlePageLightActivity.this.jNN = false;
+            VideoMiddlePageLightActivity.this.jOb = false;
             VideoMiddlePageLightActivity videoMiddlePageLightActivity = VideoMiddlePageLightActivity.this;
-            i2 = VideoMiddlePageLightActivity.this.jNO;
+            i2 = VideoMiddlePageLightActivity.this.jOc;
             videoMiddlePageLightActivity.AV(i2);
         }
 
@@ -109,8 +109,8 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
 
             @Override // java.lang.Runnable
             public final void run() {
-                VideoMiddlePageLightActivity.this.jNP = true;
-                VideoMiddlePageLightActivity.this.cMu().AZ(VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getFirstCompletelyVisiblePosition());
+                VideoMiddlePageLightActivity.this.jOd = true;
+                VideoMiddlePageLightActivity.this.cMB().AZ(VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getFirstCompletelyVisiblePosition());
             }
         }
 
@@ -122,40 +122,40 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
 
             @Override // java.lang.Runnable
             public final void run() {
-                VideoMiddlePageLightActivity.this.jNP = true;
-                VideoMiddlePageLightActivity.this.cMu().AZ(VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getLastCompletelyVisiblePosition());
+                VideoMiddlePageLightActivity.this.jOd = true;
+                VideoMiddlePageLightActivity.this.cMB().AZ(VideoMiddlePageLightActivity.g(VideoMiddlePageLightActivity.this).getLastCompletelyVisiblePosition());
             }
         }
     };
-    private final CustomMessageListener jNS = new b(MessageConfig.CMD_NETWORK_CHANGED);
+    private final CustomMessageListener jOg = new b(MessageConfig.CMD_NETWORK_CHANGED);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final VideoMiddlePageViewModel cMu() {
-        kotlin.c cVar = this.jNJ;
+    public final VideoMiddlePageViewModel cMB() {
+        kotlin.c cVar = this.jNX;
         j jVar = $$delegatedProperties[0];
         return (VideoMiddlePageViewModel) cVar.getValue();
     }
 
     public static final /* synthetic */ com.baidu.tieba.frs.videomiddlepagelight.a a(VideoMiddlePageLightActivity videoMiddlePageLightActivity) {
-        com.baidu.tieba.frs.videomiddlepagelight.a aVar = videoMiddlePageLightActivity.jNK;
+        com.baidu.tieba.frs.videomiddlepagelight.a aVar = videoMiddlePageLightActivity.jNY;
         if (aVar == null) {
-            p.acg("adapterManager");
+            p.acs("adapterManager");
         }
         return aVar;
     }
 
     public static final /* synthetic */ GestureDetector b(VideoMiddlePageLightActivity videoMiddlePageLightActivity) {
-        GestureDetector gestureDetector = videoMiddlePageLightActivity.jNM;
+        GestureDetector gestureDetector = videoMiddlePageLightActivity.jOa;
         if (gestureDetector == null) {
-            p.acg("listGestureDetector");
+            p.acs("listGestureDetector");
         }
         return gestureDetector;
     }
 
     public static final /* synthetic */ BdTypeRecyclerView g(VideoMiddlePageLightActivity videoMiddlePageLightActivity) {
-        BdTypeRecyclerView bdTypeRecyclerView = videoMiddlePageLightActivity.iNV;
+        BdTypeRecyclerView bdTypeRecyclerView = videoMiddlePageLightActivity.iOj;
         if (bdTypeRecyclerView == null) {
-            p.acg("recyclerView");
+            p.acs("recyclerView");
         }
         return bdTypeRecyclerView;
     }
@@ -170,9 +170,9 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             if (Math.abs(f2) > 1000 && f2 < 0) {
-                VideoMiddlePageLightActivity.this.cMu().cMS();
+                VideoMiddlePageLightActivity.this.cMB().cMZ();
             } else if (Math.abs(f2) > 1000 && f2 > 0) {
-                VideoMiddlePageLightActivity.this.cMu().cMT();
+                VideoMiddlePageLightActivity.this.cMB().cNa();
             }
             return true;
         }
@@ -190,7 +190,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof NetWorkChangedMessage) && ((NetWorkChangedMessage) customResponsedMessage).getCmd() == 2000994 && !customResponsedMessage.hasError()) {
                 if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    VideoMiddlePageLightActivity.this.cMu().cMU();
+                    VideoMiddlePageLightActivity.this.cMB().cNb();
                 } else {
                     VideoMiddlePageLightActivity.this.showToast(R.string.neterror);
                 }
@@ -202,36 +202,36 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        VideoMiddlePageViewModel cMu = cMu();
+        VideoMiddlePageViewModel cMB = cMB();
         String stringExtra = getIntent().getStringExtra("PARAM_FID");
         if (stringExtra == null) {
             stringExtra = "";
         }
-        cMu.Ln(stringExtra);
-        VideoMiddlePageViewModel cMu2 = cMu();
+        cMB.Lo(stringExtra);
+        VideoMiddlePageViewModel cMB2 = cMB();
         String stringExtra2 = getIntent().getStringExtra("st_type");
         if (stringExtra2 == null) {
             stringExtra2 = "";
         }
-        cMu2.setStType(stringExtra2);
-        VideoMiddlePageViewModel cMu3 = cMu();
+        cMB2.setStType(stringExtra2);
+        VideoMiddlePageViewModel cMB3 = cMB();
         String stringExtra3 = getIntent().getStringExtra("yuelaou_locate");
         if (stringExtra3 == null) {
             stringExtra3 = "";
         }
-        cMu3.setYuelaouLocate(stringExtra3);
-        VideoMiddlePageViewModel cMu4 = cMu();
+        cMB3.setYuelaouLocate(stringExtra3);
+        VideoMiddlePageViewModel cMB4 = cMB();
         String stringExtra4 = getIntent().getStringExtra("PARAM_FROM");
         if (stringExtra4 == null) {
             stringExtra4 = "";
         }
-        cMu4.setFrom(stringExtra4);
-        VideoMiddlePageViewModel cMu5 = cMu();
+        cMB4.setFrom(stringExtra4);
+        VideoMiddlePageViewModel cMB5 = cMB();
         Serializable serializableExtra = getIntent().getSerializableExtra("param_video_thread_info");
         if (serializableExtra == null) {
             throw new TypeCastException("null cannot be cast to non-null type com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo");
         }
-        cMu5.a((VideoSerializeVideoThreadInfo) serializableExtra);
+        cMB5.a((VideoSerializeVideoThreadInfo) serializableExtra);
         setContentView(R.layout.video_middle_page_light_layout);
         View findViewById = findViewById(R.id.video_middle_page_light_root);
         p.n(findViewById, "findViewById(R.id.video_middle_page_light_root)");
@@ -239,88 +239,88 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         this.loadingView = new g(this, getResources().getDimensionPixelSize(R.dimen.ds120));
         View findViewById2 = findViewById(R.id.video_middle_page_light_navigation_bar);
         p.n(findViewById2, "findViewById(R.id.video_…age_light_navigation_bar)");
-        this.gjF = (NavigationBar) findViewById2;
-        NavigationBar navigationBar = this.gjF;
+        this.gjT = (NavigationBar) findViewById2;
+        NavigationBar navigationBar = this.gjT;
         if (navigationBar == null) {
-            p.acg("navigationBar");
+            p.acs("navigationBar");
         }
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        NavigationBar navigationBar2 = this.gjF;
+        NavigationBar navigationBar2 = this.gjT;
         if (navigationBar2 == null) {
-            p.acg("navigationBar");
+            p.acs("navigationBar");
         }
         navigationBar2.setCenterTextTitle(getString(R.string.tieba_video));
         View findViewById3 = findViewById(R.id.video_middle_page_light_no_network_view);
         p.n(findViewById3, "findViewById(R.id.video_…ge_light_no_network_view)");
-        this.gVA = (NoNetworkView) findViewById3;
+        this.gVO = (NoNetworkView) findViewById3;
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            NoNetworkView noNetworkView = this.gVA;
+            NoNetworkView noNetworkView = this.gVO;
             if (noNetworkView == null) {
-                p.acg("noNetworkView");
+                p.acs("noNetworkView");
             }
             noNetworkView.setVisibility(0);
         }
         View findViewById4 = findViewById(R.id.video_middle_page_light_list_view);
         p.n(findViewById4, "findViewById(R.id.video_…dle_page_light_list_view)");
-        this.iNV = (BdTypeRecyclerView) findViewById4;
-        BdTypeRecyclerView bdTypeRecyclerView = this.iNV;
+        this.iOj = (BdTypeRecyclerView) findViewById4;
+        BdTypeRecyclerView bdTypeRecyclerView = this.iOj;
         if (bdTypeRecyclerView == null) {
-            p.acg("recyclerView");
+            p.acs("recyclerView");
         }
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        this.jNL = new DividerItemDecoration(this, 1);
-        DividerItemDecoration dividerItemDecoration = this.jNL;
+        this.jNZ = new DividerItemDecoration(this, 1);
+        DividerItemDecoration dividerItemDecoration = this.jNZ;
         if (dividerItemDecoration == null) {
-            p.acg("cardDividerLine");
+            p.acs("cardDividerLine");
         }
         dividerItemDecoration.setDrawable(ap.getDrawable(R.drawable.shape_card_video_middle_page_divider));
-        BdTypeRecyclerView bdTypeRecyclerView2 = this.iNV;
+        BdTypeRecyclerView bdTypeRecyclerView2 = this.iOj;
         if (bdTypeRecyclerView2 == null) {
-            p.acg("recyclerView");
+            p.acs("recyclerView");
         }
-        DividerItemDecoration dividerItemDecoration2 = this.jNL;
+        DividerItemDecoration dividerItemDecoration2 = this.jNZ;
         if (dividerItemDecoration2 == null) {
-            p.acg("cardDividerLine");
+            p.acs("cardDividerLine");
         }
         bdTypeRecyclerView2.addItemDecoration(dividerItemDecoration2);
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            BdTypeRecyclerView bdTypeRecyclerView3 = this.iNV;
+            BdTypeRecyclerView bdTypeRecyclerView3 = this.iOj;
             if (bdTypeRecyclerView3 == null) {
-                p.acg("recyclerView");
+                p.acs("recyclerView");
             }
             bdTypeRecyclerView3.setVisibility(8);
-            NoNetworkView noNetworkView2 = this.gVA;
+            NoNetworkView noNetworkView2 = this.gVO;
             if (noNetworkView2 == null) {
-                p.acg("noNetworkView");
+                p.acs("noNetworkView");
             }
             noNetworkView2.setVisibility(0);
         }
-        registerListener(this.jNS);
+        registerListener(this.jOg);
         TbPageContext pageContext = getPageContext();
         p.n(pageContext, "pageContext");
-        BdTypeRecyclerView bdTypeRecyclerView4 = this.iNV;
+        BdTypeRecyclerView bdTypeRecyclerView4 = this.iOj;
         if (bdTypeRecyclerView4 == null) {
-            p.acg("recyclerView");
+            p.acs("recyclerView");
         }
-        VideoMiddlePageViewModel cMu6 = cMu();
-        p.n(cMu6, "viewModel");
-        this.jNK = new com.baidu.tieba.frs.videomiddlepagelight.a(pageContext, bdTypeRecyclerView4, cMu6);
-        cMu().loadData();
+        VideoMiddlePageViewModel cMB6 = cMB();
+        p.n(cMB6, "viewModel");
+        this.jNY = new com.baidu.tieba.frs.videomiddlepagelight.a(pageContext, bdTypeRecyclerView4, cMB6);
+        cMB().loadData();
         showLoadingView();
-        cMu().cMK().observe(this, new c());
-        this.jNM = new GestureDetector(this, this.jNQ);
-        BdTypeRecyclerView bdTypeRecyclerView5 = this.iNV;
+        cMB().cMR().observe(this, new c());
+        this.jOa = new GestureDetector(this, this.jOe);
+        BdTypeRecyclerView bdTypeRecyclerView5 = this.iOj;
         if (bdTypeRecyclerView5 == null) {
-            p.acg("recyclerView");
+            p.acs("recyclerView");
         }
         bdTypeRecyclerView5.setOnTouchListener(new d());
-        BdTypeRecyclerView bdTypeRecyclerView6 = this.iNV;
+        BdTypeRecyclerView bdTypeRecyclerView6 = this.iOj;
         if (bdTypeRecyclerView6 == null) {
-            p.acg("recyclerView");
+            p.acs("recyclerView");
         }
-        bdTypeRecyclerView6.addOnScrollListener(this.jNR);
-        cMu().cMO().observe(this, new e());
-        cMu().cMN().observe(this, new f());
+        bdTypeRecyclerView6.addOnScrollListener(this.jOf);
+        cMB().cMV().observe(this, new e());
+        cMB().cMU().observe(this, new f());
         if (Build.VERSION.SDK_INT >= 28) {
             if (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this)) {
                 Window window = getWindow();
@@ -371,8 +371,8 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         @Override // androidx.lifecycle.Observer
         /* renamed from: r */
         public final void onChanged(Integer num) {
-            if (VideoMiddlePageLightActivity.this.jNP) {
-                VideoMiddlePageLightActivity.this.jNP = false;
+            if (VideoMiddlePageLightActivity.this.jOd) {
+                VideoMiddlePageLightActivity.this.jOd = false;
                 return;
             }
             VideoMiddlePageLightActivity videoMiddlePageLightActivity = VideoMiddlePageLightActivity.this;
@@ -389,7 +389,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.lifecycle.Observer
-        /* renamed from: Lm */
+        /* renamed from: Ln */
         public final void onChanged(String str) {
             if (str != null) {
                 if (!l.isBlank(str)) {
@@ -403,20 +403,20 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.jNP = true;
-        cMu().cMU();
+        this.jOd = true;
+        cMB().cNb();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.tieba.frs.videomiddlepagelight.a aVar = this.jNK;
+        com.baidu.tieba.frs.videomiddlepagelight.a aVar = this.jNY;
         if (aVar == null) {
-            p.acg("adapterManager");
+            p.acs("adapterManager");
         }
         if (aVar != null) {
-            aVar.cMv();
+            aVar.cMC();
         }
     }
 
@@ -428,29 +428,29 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        cMu().cMP().setValue(configuration);
+        cMB().cMW().setValue(configuration);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        NavigationBar navigationBar = this.gjF;
+        NavigationBar navigationBar = this.gjT;
         if (navigationBar == null) {
-            p.acg("navigationBar");
+            p.acs("navigationBar");
         }
         navigationBar.onChangeSkinType(getPageContext(), i);
-        NoNetworkView noNetworkView = this.gVA;
+        NoNetworkView noNetworkView = this.gVO;
         if (noNetworkView == null) {
-            p.acg("noNetworkView");
+            p.acs("noNetworkView");
         }
         noNetworkView.onChangeSkinType(getPageContext(), i);
-        DividerItemDecoration dividerItemDecoration = this.jNL;
+        DividerItemDecoration dividerItemDecoration = this.jNZ;
         if (dividerItemDecoration == null) {
-            p.acg("cardDividerLine");
+            p.acs("cardDividerLine");
         }
         dividerItemDecoration.setDrawable(ap.getDrawable(R.drawable.shape_card_video_middle_page_divider));
         g gVar = this.loadingView;
         if (gVar == null) {
-            p.acg("loadingView");
+            p.acs("loadingView");
         }
         gVar.onChangeSkinType();
     }
@@ -459,9 +459,9 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.frs.videomiddlepagelight.a aVar = this.jNK;
+        com.baidu.tieba.frs.videomiddlepagelight.a aVar = this.jNY;
         if (aVar == null) {
-            p.acg("adapterManager");
+            p.acs("adapterManager");
         }
         if (aVar != null) {
             aVar.onDestroy();
@@ -471,7 +471,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     public final void showLoadingView() {
         g gVar = this.loadingView;
         if (gVar == null) {
-            p.acg("loadingView");
+            p.acs("loadingView");
         }
         if (!gVar.isViewAttached()) {
             Window window = getWindow();
@@ -482,7 +482,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             FrameLayout frameLayout = (FrameLayout) decorView;
             g gVar2 = this.loadingView;
             if (gVar2 == null) {
-                p.acg("loadingView");
+                p.acs("loadingView");
             }
             gVar2.attachView(frameLayout, false);
         }
@@ -491,7 +491,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     public final void hideLoadingView() {
         g gVar = this.loadingView;
         if (gVar == null) {
-            p.acg("loadingView");
+            p.acs("loadingView");
         }
         if (gVar.isViewAttached()) {
             Window window = getWindow();
@@ -502,7 +502,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             FrameLayout frameLayout = (FrameLayout) decorView;
             g gVar2 = this.loadingView;
             if (gVar2 == null) {
-                p.acg("loadingView");
+                p.acs("loadingView");
             }
             gVar2.dettachView(frameLayout);
         }
@@ -510,49 +510,49 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
 
     public final void AV(int i) {
         if (i != -1) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.iNV;
+            BdTypeRecyclerView bdTypeRecyclerView = this.iOj;
             if (bdTypeRecyclerView == null) {
-                p.acg("recyclerView");
+                p.acs("recyclerView");
             }
             if (bdTypeRecyclerView.getFirstVisiblePosition() != -1) {
-                BdTypeRecyclerView bdTypeRecyclerView2 = this.iNV;
+                BdTypeRecyclerView bdTypeRecyclerView2 = this.iOj;
                 if (bdTypeRecyclerView2 == null) {
-                    p.acg("recyclerView");
+                    p.acs("recyclerView");
                 }
                 if (i < bdTypeRecyclerView2.getFirstVisiblePosition()) {
-                    BdTypeRecyclerView bdTypeRecyclerView3 = this.iNV;
+                    BdTypeRecyclerView bdTypeRecyclerView3 = this.iOj;
                     if (bdTypeRecyclerView3 == null) {
-                        p.acg("recyclerView");
+                        p.acs("recyclerView");
                     }
                     bdTypeRecyclerView3.smoothScrollToPosition(i);
                     return;
                 }
-                BdTypeRecyclerView bdTypeRecyclerView4 = this.iNV;
+                BdTypeRecyclerView bdTypeRecyclerView4 = this.iOj;
                 if (bdTypeRecyclerView4 == null) {
-                    p.acg("recyclerView");
+                    p.acs("recyclerView");
                 }
                 if (i <= bdTypeRecyclerView4.getLastCompletelyVisiblePosition()) {
-                    BdTypeRecyclerView bdTypeRecyclerView5 = this.iNV;
+                    BdTypeRecyclerView bdTypeRecyclerView5 = this.iOj;
                     if (bdTypeRecyclerView5 == null) {
-                        p.acg("recyclerView");
+                        p.acs("recyclerView");
                     }
                     int firstVisiblePosition = i - bdTypeRecyclerView5.getFirstVisiblePosition();
                     if (firstVisiblePosition >= 0) {
-                        BdTypeRecyclerView bdTypeRecyclerView6 = this.iNV;
+                        BdTypeRecyclerView bdTypeRecyclerView6 = this.iOj;
                         if (bdTypeRecyclerView6 == null) {
-                            p.acg("recyclerView");
+                            p.acs("recyclerView");
                         }
                         if (firstVisiblePosition < bdTypeRecyclerView6.getChildCount()) {
-                            BdTypeRecyclerView bdTypeRecyclerView7 = this.iNV;
+                            BdTypeRecyclerView bdTypeRecyclerView7 = this.iOj;
                             if (bdTypeRecyclerView7 == null) {
-                                p.acg("recyclerView");
+                                p.acs("recyclerView");
                             }
                             View childAt = bdTypeRecyclerView7.getChildAt(firstVisiblePosition);
                             p.n(childAt, "recyclerView.getChildAt(movePosition)");
                             int top = childAt.getTop();
-                            BdTypeRecyclerView bdTypeRecyclerView8 = this.iNV;
+                            BdTypeRecyclerView bdTypeRecyclerView8 = this.iOj;
                             if (bdTypeRecyclerView8 == null) {
-                                p.acg("recyclerView");
+                                p.acs("recyclerView");
                             }
                             bdTypeRecyclerView8.smoothScrollBy(0, top);
                             return;
@@ -561,13 +561,13 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                     }
                     return;
                 }
-                BdTypeRecyclerView bdTypeRecyclerView9 = this.iNV;
+                BdTypeRecyclerView bdTypeRecyclerView9 = this.iOj;
                 if (bdTypeRecyclerView9 == null) {
-                    p.acg("recyclerView");
+                    p.acs("recyclerView");
                 }
                 bdTypeRecyclerView9.smoothScrollToPosition(i);
-                this.jNN = true;
-                this.jNO = i;
+                this.jOb = true;
+                this.jOc = i;
             }
         }
     }

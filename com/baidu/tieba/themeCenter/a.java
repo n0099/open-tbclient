@@ -3,17 +3,17 @@ package com.baidu.tieba.themeCenter;
 import tbclient.ThemeCardPropMain;
 /* loaded from: classes9.dex */
 public class a {
-    public static long nFo = 1350000;
+    public static long nFO = 1350000;
     private String activityUrl;
     private long cardId;
     private int dailyPrevilegeStatus = 0;
     private String description;
     private int freeUserLevel;
     private int inUse;
-    private String lmL;
-    private String nFp;
-    private String nFq;
-    private int nFr;
+    private String lmZ;
+    private String nFP;
+    private String nFQ;
+    private int nFR;
     private String title;
 
     public void a(ThemeCardPropMain themeCardPropMain) {
@@ -21,13 +21,13 @@ public class a {
             this.cardId = themeCardPropMain.props_id.longValue();
             this.title = themeCardPropMain.title;
             this.description = themeCardPropMain.description;
-            this.nFp = themeCardPropMain.example_url;
-            this.lmL = themeCardPropMain.permission;
-            this.nFq = themeCardPropMain.props_state_img;
+            this.nFP = themeCardPropMain.example_url;
+            this.lmZ = themeCardPropMain.permission;
+            this.nFQ = themeCardPropMain.props_state_img;
             this.inUse = themeCardPropMain.in_use.intValue();
             this.freeUserLevel = themeCardPropMain.free_user_level.intValue();
             this.activityUrl = themeCardPropMain.activity_url;
-            this.nFr = themeCardPropMain.is_finished.intValue();
+            this.nFR = themeCardPropMain.is_finished.intValue();
         }
     }
 
@@ -55,31 +55,31 @@ public class a {
         this.description = str;
     }
 
-    public String dQO() {
-        return this.nFp;
+    public String dQW() {
+        return this.nFP;
     }
 
-    public void TR(String str) {
-        this.nFp = str;
+    public void Ud(String str) {
+        this.nFP = str;
     }
 
-    public String dQP() {
-        return this.lmL;
+    public String dQX() {
+        return this.lmZ;
     }
 
-    public void TS(String str) {
-        this.lmL = str;
+    public void Ue(String str) {
+        this.lmZ = str;
     }
 
-    public String dQQ() {
-        return this.nFq;
+    public String dQY() {
+        return this.nFQ;
     }
 
-    public void TT(String str) {
-        this.nFq = str;
+    public void Uf(String str) {
+        this.nFQ = str;
     }
 
-    public int dQR() {
+    public int dQZ() {
         return this.inUse;
     }
 
@@ -99,12 +99,12 @@ public class a {
         this.activityUrl = str;
     }
 
-    public int dQS() {
-        return this.nFr;
+    public int dRa() {
+        return this.nFR;
     }
 
     public void Ke(int i) {
-        this.nFr = i;
+        this.nFR = i;
     }
 
     public void setDailyPrevilegeStatus(int i) {

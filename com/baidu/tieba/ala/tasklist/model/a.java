@@ -14,10 +14,10 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 /* loaded from: classes11.dex */
 public class a extends BdBaseModel {
-    private AlaLiveUserInfoData ihs;
-    private au iht;
-    private InterfaceC0694a ihu;
-    private HttpMessageListener ihv = new HttpMessageListener(1021065) { // from class: com.baidu.tieba.ala.tasklist.model.a.1
+    private AlaLiveUserInfoData ihG;
+    private au ihH;
+    private InterfaceC0695a ihI;
+    private HttpMessageListener ihJ = new HttpMessageListener(1021065) { // from class: com.baidu.tieba.ala.tasklist.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -26,21 +26,21 @@ public class a extends BdBaseModel {
                 int error = httpResponsedMessage.getError();
                 LiveFlowerTaskListResponsedMessage liveFlowerTaskListResponsedMessage = (LiveFlowerTaskListResponsedMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    if (a.this.ihu != null) {
-                        a.this.ihu.aJ(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.ihI != null) {
+                        a.this.ihI.aJ(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                a.this.ihs = liveFlowerTaskListResponsedMessage.ihs;
-                a.this.iht = liveFlowerTaskListResponsedMessage.iht;
-                if (a.this.ihu != null) {
-                    a.this.ihu.a(liveFlowerTaskListResponsedMessage.ihs, liveFlowerTaskListResponsedMessage.iht);
+                a.this.ihG = liveFlowerTaskListResponsedMessage.ihG;
+                a.this.ihH = liveFlowerTaskListResponsedMessage.ihH;
+                if (a.this.ihI != null) {
+                    a.this.ihI.a(liveFlowerTaskListResponsedMessage.ihG, liveFlowerTaskListResponsedMessage.ihH);
                 }
             }
         }
     };
-    private HttpMessageListener ihw = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.tasklist.model.a.2
+    private HttpMessageListener ihK = new HttpMessageListener(1021066) { // from class: com.baidu.tieba.ala.tasklist.model.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -49,17 +49,17 @@ public class a extends BdBaseModel {
                 int error = httpResponsedMessage.getError();
                 LiveFlowerTaskRewardResponsedMessage liveFlowerTaskRewardResponsedMessage = (LiveFlowerTaskRewardResponsedMessage) httpResponsedMessage;
                 if (statusCode != 200 || error != 0) {
-                    if (a.this.ihu != null) {
-                        a.this.ihu.aJ(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    if (a.this.ihI != null) {
+                        a.this.ihI.aJ(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         return;
                     }
                     return;
                 }
-                a.this.ihs = liveFlowerTaskRewardResponsedMessage.ihs;
-                a.this.iht = liveFlowerTaskRewardResponsedMessage.iht;
-                a.this.cpd();
-                if (a.this.ihu != null) {
-                    a.this.ihu.a(liveFlowerTaskRewardResponsedMessage.ihs, liveFlowerTaskRewardResponsedMessage.iht);
+                a.this.ihG = liveFlowerTaskRewardResponsedMessage.ihG;
+                a.this.ihH = liveFlowerTaskRewardResponsedMessage.ihH;
+                a.this.cpk();
+                if (a.this.ihI != null) {
+                    a.this.ihI.a(liveFlowerTaskRewardResponsedMessage.ihG, liveFlowerTaskRewardResponsedMessage.ihH);
                 }
             }
         }
@@ -67,24 +67,24 @@ public class a extends BdBaseModel {
 
     /* renamed from: com.baidu.tieba.ala.tasklist.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0694a {
+    public interface InterfaceC0695a {
         void a(AlaLiveUserInfoData alaLiveUserInfoData, au auVar);
 
         void aJ(int i, String str);
     }
 
     public a() {
-        cpa();
-        cpb();
-        MessageManager.getInstance().registerListener(this.ihv);
-        MessageManager.getInstance().registerListener(this.ihw);
+        cph();
+        cpi();
+        MessageManager.getInstance().registerListener(this.ihJ);
+        MessageManager.getInstance().registerListener(this.ihK);
     }
 
-    public au coZ() {
-        return this.iht;
+    public au cpg() {
+        return this.ihH;
     }
 
-    private void cpa() {
+    private void cph() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021065, b.avX);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -93,7 +93,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void cpb() {
+    private void cpi() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021066, b.avY);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -102,7 +102,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cpc() {
+    public void cpj() {
         HttpMessage httpMessage = new HttpMessage(1021065);
         httpMessage.setTag(getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -116,13 +116,13 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpd() {
+    public void cpk() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_pickup"));
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.ihv);
-        MessageManager.getInstance().unRegisterListener(this.ihw);
+        MessageManager.getInstance().unRegisterListener(this.ihJ);
+        MessageManager.getInstance().unRegisterListener(this.ihK);
         MessageManager.getInstance().unRegisterTask(1021065);
         MessageManager.getInstance().unRegisterTask(1021066);
         cancelMessage();
@@ -139,7 +139,7 @@ public class a extends BdBaseModel {
         return true;
     }
 
-    public void a(InterfaceC0694a interfaceC0694a) {
-        this.ihu = interfaceC0694a;
+    public void a(InterfaceC0695a interfaceC0695a) {
+        this.ihI = interfaceC0695a;
     }
 }

@@ -5,56 +5,56 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.view.PullRefreshFrameLayout;
 /* loaded from: classes2.dex */
 public class o {
-    private View jix;
-    private int jiy = -1;
-    private int jiz = -1;
+    private View jiL;
+    private int jiM = -1;
+    private int jiN = -1;
 
     public o(View view) {
-        this.jix = view;
+        this.jiL = view;
     }
 
     public int getOriginHeight() {
-        return this.jiy;
+        return this.jiM;
     }
 
     public void setOriginHeight(int i) {
-        this.jiy = i;
+        this.jiM = i;
     }
 
     public void yC(int i) {
-        this.jiz = i;
+        this.jiN = i;
     }
 
     public void setHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.jix != null && (layoutParams = this.jix.getLayoutParams()) != null) {
+        if (this.jiL != null && (layoutParams = this.jiL.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.jiz = i;
-            this.jix.setLayoutParams(layoutParams);
+            this.jiN = i;
+            this.jiL.setLayoutParams(layoutParams);
         }
     }
 
     public void v(double d) {
-        if (this.jix != null) {
-            int i = (int) (this.jiy + (PullRefreshFrameLayout.fiM * d));
-            ViewGroup.LayoutParams layoutParams = this.jix.getLayoutParams();
+        if (this.jiL != null) {
+            int i = (int) (this.jiM + (PullRefreshFrameLayout.fiM * d));
+            ViewGroup.LayoutParams layoutParams = this.jiL.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
-                this.jiz = layoutParams.height;
-                this.jix.setLayoutParams(layoutParams);
+                this.jiN = layoutParams.height;
+                this.jiL.setLayoutParams(layoutParams);
             }
         }
     }
 
     public int getHeight() {
         ViewGroup.LayoutParams layoutParams;
-        if (this.jix == null || (layoutParams = this.jix.getLayoutParams()) == null) {
+        if (this.jiL == null || (layoutParams = this.jiL.getLayoutParams()) == null) {
             return 0;
         }
         return layoutParams.height;
     }
 
-    public int cDm() {
-        return this.jiz;
+    public int cDt() {
+        return this.jiN;
     }
 }

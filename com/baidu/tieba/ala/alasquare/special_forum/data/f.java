@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes10.dex */
 public class f extends BaseCardInfo {
-    public static final BdUniqueId gCp = BdUniqueId.gen();
-    public AlaInfoData gGJ;
-    public boolean gGK;
+    public static final BdUniqueId gCD = BdUniqueId.gen();
+    public AlaInfoData gGX;
+    public boolean gGY;
     public UserData mUserData;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return gCp;
+        return gCD;
     }
 }

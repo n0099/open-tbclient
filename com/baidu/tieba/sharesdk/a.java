@@ -32,14 +32,14 @@ public class a {
     }
 
     public void a(int i, ShareItem shareItem, boolean z) {
-        Location ctF;
+        Location ctM;
         if (shareItem != null) {
             if (!j.isNetWorkAvailable()) {
                 l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                 return;
             }
-            if (z && (ctF = ctF()) != null) {
-                shareItem.location = ctF;
+            if (z && (ctM = ctM()) != null) {
+                shareItem.location = ctM;
             }
             g gVar = new g(this.mContext, null);
             if (i == 3) {
@@ -130,7 +130,7 @@ public class a {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location ctF() {
+    private Location ctM() {
         if (ae.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();

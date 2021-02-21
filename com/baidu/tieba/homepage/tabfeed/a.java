@@ -24,97 +24,97 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bns = new LinkedList();
-    private BdTypeRecyclerView iNV;
-    private HomePageTabFeedFragment kmD;
-    private p kmE;
-    private e kmF;
-    private g kmG;
-    private f kmH;
-    private h kmI;
-    private q kmJ;
-    private i kmK;
-    private k kmL;
-    private m kmM;
-    private l kmN;
-    private o kmO;
-    private d kmP;
-    private com.baidu.tieba.homepage.tabfeed.a.b kmQ;
-    private com.baidu.tieba.homepage.tabfeed.a.a kmR;
-    private com.baidu.tieba.homepage.tabfeed.a.c kmS;
-    private j kmT;
-    private n kmU;
+    private BdTypeRecyclerView iOj;
+    private HomePageTabFeedFragment kmR;
+    private p kmS;
+    private e kmT;
+    private g kmU;
+    private f kmV;
+    private h kmW;
+    private q kmX;
+    private i kmY;
+    private k kmZ;
+    private m kna;
+    private l knb;
+    private o knc;
+    private d knd;
+    private com.baidu.tieba.homepage.tabfeed.a.b kne;
+    private com.baidu.tieba.homepage.tabfeed.a.a knf;
+    private com.baidu.tieba.homepage.tabfeed.a.c kng;
+    private j knh;
+    private n kni;
 
     public a(HomePageTabFeedFragment homePageTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.kmD = homePageTabFeedFragment;
-        this.iNV = bdTypeRecyclerView;
+        this.kmR = homePageTabFeedFragment;
+        this.iOj = bdTypeRecyclerView;
         Kw();
     }
 
     private void Kw() {
-        this.kmE = new p(this.kmD.getPageContext(), cb.eQs, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmE.a(this.iNV);
-        this.bns.add(this.kmE);
-        this.kmF = new e(this.kmD.getPageContext(), cb.eQx, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmF.a(this.iNV);
-        this.bns.add(this.kmF);
-        this.kmG = new g(this.kmD.getPageContext(), cb.eQv, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmG.a(this.iNV);
-        this.bns.add(this.kmG);
-        this.kmH = new f(this.kmD.getPageContext(), cb.eQw, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmH.a(this.iNV);
-        this.bns.add(this.kmH);
-        this.kmI = new h(this.kmD.getPageContext(), cb.eQt, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmI.a(this.iNV);
-        this.bns.add(this.kmI);
-        this.kmJ = new q(this.kmD.getPageContext(), cb.eQK, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmJ.a(this.iNV);
-        this.bns.add(this.kmJ);
-        this.kmK = new i(this.kmD.getPageContext(), cb.eQC, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmK.a(this.iNV);
-        this.bns.add(this.kmK);
-        this.kmL = new k(this.kmD.getPageContext(), cb.eQD, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmL.a(this.iNV);
-        this.bns.add(this.kmL);
-        this.kmM = new m(this.kmD.getPageContext(), cb.eQF, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmM.a(this.iNV);
-        this.bns.add(this.kmM);
-        this.kmN = new l(this.kmD.getPageContext(), cb.eQG, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmN.a(this.iNV);
-        this.bns.add(this.kmN);
-        this.kmO = new o(this.kmD.getPageContext(), cb.eQy, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmO.a(this.iNV);
-        this.bns.add(this.kmO);
-        this.kmP = new d(this.kmD.getPageContext(), cb.eQB, this.kmD.getUniqueId(), this.kmD.getTabName());
-        this.kmP.a(this.iNV);
-        this.bns.add(this.kmP);
-        this.kmS = new com.baidu.tieba.homepage.tabfeed.a.c(this.kmD.getPageContext(), com.baidu.tieba.card.data.j.TYPE, this.kmD.getTabName());
+        this.kmS = new p(this.kmR.getPageContext(), cb.eQs, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.kmS.a(this.iOj);
         this.bns.add(this.kmS);
-        this.kmQ = new com.baidu.tieba.homepage.tabfeed.a.b(this.kmD.getPageContext(), bt.eMV);
-        this.kmQ.a(this.iNV);
-        this.bns.add(this.kmQ);
-        this.kmR = new com.baidu.tieba.homepage.tabfeed.a.a(this.kmD.getPageContext(), bo.eMV);
-        this.kmR.a(this.iNV);
-        this.bns.add(this.kmR);
-        this.kmT = new j(this.kmD.getPageContext());
-        this.kmT.a(this.iNV);
+        this.kmT = new e(this.kmR.getPageContext(), cb.eQx, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.kmT.a(this.iOj);
         this.bns.add(this.kmT);
-        this.kmU = new n(this.kmD.getPageContext());
-        this.kmU.a(this.iNV);
+        this.kmU = new g(this.kmR.getPageContext(), cb.eQv, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.kmU.a(this.iOj);
         this.bns.add(this.kmU);
-        this.iNV.addAdapters(this.bns);
+        this.kmV = new f(this.kmR.getPageContext(), cb.eQw, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.kmV.a(this.iOj);
+        this.bns.add(this.kmV);
+        this.kmW = new h(this.kmR.getPageContext(), cb.eQt, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.kmW.a(this.iOj);
+        this.bns.add(this.kmW);
+        this.kmX = new q(this.kmR.getPageContext(), cb.eQK, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.kmX.a(this.iOj);
+        this.bns.add(this.kmX);
+        this.kmY = new i(this.kmR.getPageContext(), cb.eQC, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.kmY.a(this.iOj);
+        this.bns.add(this.kmY);
+        this.kmZ = new k(this.kmR.getPageContext(), cb.eQD, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.kmZ.a(this.iOj);
+        this.bns.add(this.kmZ);
+        this.kna = new m(this.kmR.getPageContext(), cb.eQF, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.kna.a(this.iOj);
+        this.bns.add(this.kna);
+        this.knb = new l(this.kmR.getPageContext(), cb.eQG, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.knb.a(this.iOj);
+        this.bns.add(this.knb);
+        this.knc = new o(this.kmR.getPageContext(), cb.eQy, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.knc.a(this.iOj);
+        this.bns.add(this.knc);
+        this.knd = new d(this.kmR.getPageContext(), cb.eQB, this.kmR.getUniqueId(), this.kmR.getTabName());
+        this.knd.a(this.iOj);
+        this.bns.add(this.knd);
+        this.kng = new com.baidu.tieba.homepage.tabfeed.a.c(this.kmR.getPageContext(), com.baidu.tieba.card.data.j.TYPE, this.kmR.getTabName());
+        this.bns.add(this.kng);
+        this.kne = new com.baidu.tieba.homepage.tabfeed.a.b(this.kmR.getPageContext(), bt.eMV);
+        this.kne.a(this.iOj);
+        this.bns.add(this.kne);
+        this.knf = new com.baidu.tieba.homepage.tabfeed.a.a(this.kmR.getPageContext(), bo.eMV);
+        this.knf.a(this.iOj);
+        this.bns.add(this.knf);
+        this.knh = new j(this.kmR.getPageContext());
+        this.knh.a(this.iOj);
+        this.bns.add(this.knh);
+        this.kni = new n(this.kmR.getPageContext());
+        this.kni.a(this.iOj);
+        this.bns.add(this.kni);
+        this.iOj.addAdapters(this.bns);
     }
 
     public void notifyDataSetChanged() {
-        this.iNV.getAdapter().notifyDataSetChanged();
+        this.iOj.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(ArrayList<com.baidu.adp.widget.ListView.n> arrayList) {
-        this.iNV.setData(arrayList);
+        this.iOj.setData(arrayList);
     }
 
     public void setTabName(String str) {
-        if (this.kmR != null) {
-            this.kmR.setTabName(str);
+        if (this.knf != null) {
+            this.knf.setTabName(str);
         }
     }
 }

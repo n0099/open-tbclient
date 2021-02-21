@@ -8,14 +8,14 @@ import tbclient.ThemeBgProp;
 /* loaded from: classes9.dex */
 public class b {
     private String groupName;
-    private List<DressItemData> jxx;
+    private List<DressItemData> jxL;
 
     public void a(ThemeBubbleInMain themeBubbleInMain) {
         if (themeBubbleInMain != null) {
             this.groupName = themeBubbleInMain.bubble_category;
-            this.jxx = new ArrayList();
+            this.jxL = new ArrayList();
             for (ThemeBgProp themeBgProp : themeBubbleInMain.props) {
-                this.jxx.add(new DressItemData(themeBgProp));
+                this.jxL.add(new DressItemData(themeBgProp));
             }
         }
     }
@@ -25,6 +25,6 @@ public class b {
     }
 
     public List<DressItemData> getBubbleList() {
-        return this.jxx;
+        return this.jxL;
     }
 }

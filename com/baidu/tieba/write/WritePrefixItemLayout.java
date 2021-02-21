@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class WritePrefixItemLayout extends LinearLayout {
-    private TextView gws;
+    private TextView gwG;
     private Context mContext;
-    private TextView odq;
-    private ImageView odr;
-    private View ods;
+    private TextView odQ;
+    private ImageView odR;
+    private View odS;
 
     public WritePrefixItemLayout(Context context) {
         this(context, null);
@@ -34,40 +34,40 @@ public class WritePrefixItemLayout extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.gws = (TextView) findViewById(R.id.prefix_text);
-        this.odq = (TextView) findViewById(R.id.prefix_no_tip);
-        this.odr = (ImageView) findViewById(R.id.prefix_checked);
-        this.ods = findViewById(R.id.prefix_item_divider);
-        this.gws.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.odq).nY(R.color.CAM_X0109);
-        this.odr.setImageDrawable(WebPManager.a(R.drawable.icon_pure_set_list_ok16, ap.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-        ap.setBackgroundColor(this.ods, R.color.CAM_X0204);
+        this.gwG = (TextView) findViewById(R.id.prefix_text);
+        this.odQ = (TextView) findViewById(R.id.prefix_no_tip);
+        this.odR = (ImageView) findViewById(R.id.prefix_checked);
+        this.odS = findViewById(R.id.prefix_item_divider);
+        this.gwG.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.odQ).nY(R.color.CAM_X0109);
+        this.odR.setImageDrawable(WebPManager.a(R.drawable.icon_pure_set_list_ok16, ap.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+        ap.setBackgroundColor(this.odS, R.color.CAM_X0204);
         ap.setBackgroundResource(this, R.drawable.addresslist_item_bg);
     }
 
     public void setPrefixText(String str) {
-        this.gws.setText(str);
+        this.gwG.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.gws.setTextColor(i);
+        this.gwG.setTextColor(i);
     }
 
     public void zy(boolean z) {
-        this.odq.setVisibility(z ? 0 : 8);
+        this.odQ.setVisibility(z ? 0 : 8);
     }
 
     public void zz(boolean z) {
         if (z) {
-            this.odr.setVisibility(0);
+            this.odR.setVisibility(0);
         } else {
-            this.odr.setVisibility(8);
+            this.odR.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.ods.getLayoutParams()).setMargins(l.getDimens(this.mContext, R.dimen.ds30), 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
+            ((LinearLayout.LayoutParams) this.odS.getLayoutParams()).setMargins(l.getDimens(this.mContext, R.dimen.ds30), 0, l.getDimens(this.mContext, R.dimen.ds30), 0);
         }
     }
 }

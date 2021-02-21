@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public abstract class ac implements Cloneable {
-    private static final SimpleDateFormat pmz = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    private static final SimpleDateFormat pmZ = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 
     /* renamed from: a  reason: collision with root package name */
     public long f5776a = System.currentTimeMillis();
@@ -26,7 +26,7 @@ public abstract class ac implements Cloneable {
     String g;
 
     @NonNull
-    public abstract ac B(@NonNull Cursor cursor);
+    public abstract ac C(@NonNull Cursor cursor);
 
     protected abstract void a(@NonNull JSONObject jSONObject);
 
@@ -43,7 +43,7 @@ public abstract class ac implements Cloneable {
     protected abstract ac eR(@NonNull JSONObject jSONObject);
 
     public static String a(long j) {
-        return pmz.format(new Date(j));
+        return pmZ.format(new Date(j));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -97,7 +97,7 @@ public abstract class ac implements Cloneable {
         }
     }
 
-    public static ac Yw(String str) {
+    public static ac YI(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             return ad.f5778a.get(jSONObject.optString("k_cls", "")).clone().eR(jSONObject);
@@ -108,7 +108,7 @@ public abstract class ac implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: enR */
+    /* renamed from: enZ */
     public ac clone() {
         try {
             return (ac) super.clone();

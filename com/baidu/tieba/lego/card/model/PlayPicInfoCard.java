@@ -25,9 +25,9 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
     /* loaded from: classes9.dex */
     public static class b {
         public String desc;
-        public int lbZ;
-        public int lca;
-        public int lcb;
+        public int lcn;
+        public int lco;
+        public int lcp;
         public String pic;
         public String picId;
         public String scheme;
@@ -49,8 +49,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
 
     /* loaded from: classes9.dex */
     public static class a {
-        public com.baidu.tieba.lego.card.model.b lbX;
-        public com.baidu.tieba.lego.card.model.a lbY;
+        public com.baidu.tieba.lego.card.model.b lcl;
+        public com.baidu.tieba.lego.card.model.a lcm;
         public String mForumName;
         public String mScheme;
 
@@ -58,16 +58,16 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
             if (jSONObject != null) {
                 this.mForumName = jSONObject.optString("lbText");
                 this.mScheme = jSONObject.optString("lbScheme");
-                this.lbX = new com.baidu.tieba.lego.card.model.b();
-                this.lbX.content = jSONObject.optString("rText");
-                this.lbX.type = jSONObject.optInt("rIconType");
-                this.lbX.url = jSONObject.optString("rIcon");
-                this.lbX.lbN = jSONObject.optString("rIconN");
+                this.lcl = new com.baidu.tieba.lego.card.model.b();
+                this.lcl.content = jSONObject.optString("rText");
+                this.lcl.type = jSONObject.optInt("rIconType");
+                this.lcl.url = jSONObject.optString("rIcon");
+                this.lcl.lcb = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    this.lbY = new com.baidu.tieba.lego.card.model.a(optJSONObject);
-                    if (!this.lbY.isValid()) {
-                        this.lbY = null;
+                    this.lcm = new com.baidu.tieba.lego.card.model.a(optJSONObject);
+                    if (!this.lcm.isValid()) {
+                        this.lcm = null;
                     }
                 }
             }
@@ -84,22 +84,22 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
 
     /* loaded from: classes9.dex */
     public static class c {
-        public String lcc;
-        public int lcd;
-        public int lce;
+        public String lcq;
+        public int lcr;
+        public int lcs;
         public String picUrl;
 
         private c(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.picUrl = jSONObject.optString("pic");
-                this.lcc = jSONObject.optString("picN");
-                this.lcd = jSONObject.optInt("xPos");
-                this.lce = jSONObject.optInt("yPos");
+                this.lcq = jSONObject.optString("picN");
+                this.lcr = jSONObject.optInt("xPos");
+                this.lcs = jSONObject.optInt("yPos");
             }
         }
 
         public boolean isValid() {
-            return (TextUtils.isEmpty(this.picUrl) && TextUtils.isEmpty(this.lcc) && this.lcd == 0 && this.lce == 0) ? false : true;
+            return (TextUtils.isEmpty(this.picUrl) && TextUtils.isEmpty(this.lcq) && this.lcr == 0 && this.lcs == 0) ? false : true;
         }
 
         public static c eB(JSONObject jSONObject) {
@@ -131,10 +131,10 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
                 bVar.pic = optString;
                 bVar.scheme = optJSONObject.optString("scheme");
                 bVar.desc = optJSONObject.optString("desc");
-                bVar.lbZ = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("descColor", ""));
-                bVar.lca = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("descColorNight", ""));
+                bVar.lcn = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("descColor", ""));
+                bVar.lco = com.baidu.tieba.lego.card.c.b.rM(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
-                bVar.lcb = optInt <= 1 ? 1 : optInt;
+                bVar.lcp = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
             }
         }
@@ -159,8 +159,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
             int i2 = i;
             if (it.hasNext()) {
                 b next = it.next();
-                if (next != null && next.lcb > i2) {
-                    i2 = next.lcb;
+                if (next != null && next.lcp > i2) {
+                    i2 = next.lcp;
                 }
                 i = i2;
             } else {

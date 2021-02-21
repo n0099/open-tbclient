@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class TabItemView extends RelativeLayout {
-    private TextView kyT;
+    private TextView kzh;
     private View mRootView;
     private TextView mTextView;
 
@@ -17,7 +17,7 @@ public class TabItemView extends RelativeLayout {
         super(context);
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.topic_tab_item_view, this);
         this.mTextView = (TextView) this.mRootView.findViewById(R.id.topic_tab_item_textview);
-        this.kyT = (TextView) this.mRootView.findViewById(R.id.topic_tab_item_red_tip);
+        this.kzh = (TextView) this.mRootView.findViewById(R.id.topic_tab_item_red_tip);
     }
 
     public TextView getTextView() {
@@ -25,10 +25,10 @@ public class TabItemView extends RelativeLayout {
     }
 
     public TextView getRedTipView() {
-        return this.kyT;
+        return this.kzh;
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this.kyT, R.drawable.icon_news_down_bar_one);
+        ap.setBackgroundResource(this.kzh, R.drawable.icon_news_down_bar_one);
     }
 }

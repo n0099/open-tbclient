@@ -18,74 +18,74 @@ import com.baidu.yuyinala.privatemessage.implugin.util.f;
 /* loaded from: classes11.dex */
 public class e {
     private boolean mIsLoading = false;
-    private b peg;
-    private a peh;
+    private b peG;
+    private a peH;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void els();
+        void elA();
     }
 
-    public static e elr() {
+    public static e elz() {
         return new e();
     }
 
-    public void NL(int i) {
-        if (this.peg != null && this.mIsLoading) {
-            this.peg.NM(i);
+    public void NM(int i) {
+        if (this.peG != null && this.mIsLoading) {
+            this.peG.NN(i);
         }
     }
 
     public void showToast(Context context, String str) {
-        if (this.peg != null && this.mIsLoading) {
-            this.peg.hideLoading();
+        if (this.peG != null && this.mIsLoading) {
+            this.peG.hideLoading();
         }
-        this.peg = new b(context);
-        this.peg.showToast(str);
+        this.peG = new b(context);
+        this.peG.showToast(str);
+    }
+
+    public void bu(Context context, String str) {
+        if (this.peG != null && this.mIsLoading) {
+            this.peG.hideLoading();
+        }
+        this.peG = new b(context);
+        this.peG.YB(str);
     }
 
     public void bv(Context context, String str) {
-        if (this.peg != null && this.mIsLoading) {
-            this.peg.hideLoading();
+        if (this.peG != null && this.mIsLoading) {
+            this.peG.hideLoading();
         }
-        this.peg = new b(context);
-        this.peg.Yp(str);
-    }
-
-    public void bw(Context context, String str) {
-        if (this.peg != null && this.mIsLoading) {
-            this.peg.hideLoading();
-        }
-        this.peg = new b(context);
-        this.peg.Yq(str);
+        this.peG = new b(context);
+        this.peG.YC(str);
     }
 
     public void hideLoading() {
-        if (this.peg != null && this.mIsLoading) {
-            this.peg.hideLoading();
+        if (this.peG != null && this.mIsLoading) {
+            this.peG.hideLoading();
         }
     }
 
     public void dismiss() {
         hideLoading();
-        if (this.peg != null) {
-            this.peg.cancel();
+        if (this.peG != null) {
+            this.peG.cancel();
         }
-        this.peh = null;
+        this.peH = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class b extends Toast {
-        private TextView hxD;
+        private TextView hxR;
         private Context mContext;
         private Handler mHandler;
         private WindowManager.LayoutParams mParams;
         private Runnable mRunnable;
         private View mView;
         private WindowManager mWM;
-        private ImageView pei;
-        private ImageView pej;
+        private ImageView peI;
+        private ImageView peJ;
 
         @SuppressLint({"InflateParams"})
         public b(Context context) {
@@ -94,12 +94,12 @@ public class e {
             this.mContext = context;
             this.mWM = (WindowManager) this.mContext.getSystemService("window");
             this.mView = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_menu_toast_dialog, (ViewGroup) null);
-            this.hxD = (TextView) this.mView.findViewById(a.f.tipsText);
-            this.pei = (ImageView) this.mView.findViewById(a.f.tipsImage);
-            this.pej = (ImageView) this.mView.findViewById(a.f.subscribe_image);
+            this.hxR = (TextView) this.mView.findViewById(a.f.tipsText);
+            this.peI = (ImageView) this.mView.findViewById(a.f.tipsImage);
+            this.peJ = (ImageView) this.mView.findViewById(a.f.subscribe_image);
         }
 
-        public void NM(int i) {
+        public void NN(int i) {
             if (this.mWM != null && this.mView != null && e.this.mIsLoading && this.mParams != null) {
                 this.mParams.y = i;
                 this.mWM.updateViewLayout(this.mView, this.mParams);
@@ -110,53 +110,53 @@ public class e {
             if (this.mView != null) {
                 e.this.mIsLoading = false;
                 try {
-                    ((AnimationDrawable) this.pei.getDrawable()).stop();
+                    ((AnimationDrawable) this.peI.getDrawable()).stop();
                     this.mWM.removeView(this.mView);
                 } catch (Exception e) {
                     Log.e("ToastDialog", e.getMessage());
                 }
-                if (e.this.peh != null) {
-                    e.this.peh.els();
+                if (e.this.peH != null) {
+                    e.this.peH.elA();
                 }
-                e.this.peh = null;
+                e.this.peH = null;
                 this.mHandler.removeCallbacks(this.mRunnable);
             }
         }
 
         public void showToast(String str) {
-            this.pei.setVisibility(8);
-            this.pej.setVisibility(8);
+            this.peI.setVisibility(8);
+            this.peJ.setVisibility(8);
             setView(this.mView);
             setDuration(0);
             setGravity(80, 0, ((int) this.mContext.getResources().getDimension(a.d.bd_im_chat_bottom_bar)) + 44);
             if (!TextUtils.isEmpty(str)) {
-                this.hxD.setText(str);
+                this.hxR.setText(str);
             }
             show();
         }
 
-        public void Yp(String str) {
-            this.pei.setVisibility(8);
-            this.pej.setVisibility(8);
+        public void YB(String str) {
+            this.peI.setVisibility(8);
+            this.peJ.setVisibility(8);
             setView(this.mView);
             setDuration(0);
             setGravity(17, 0, 0);
             if (!TextUtils.isEmpty(str)) {
-                this.hxD.setText(str);
+                this.hxR.setText(str);
             }
             show();
         }
 
-        public void Yq(String str) {
-            this.pei.setVisibility(8);
+        public void YC(String str) {
+            this.peI.setVisibility(8);
             this.mView.setMinimumHeight(f.dip2px(this.mContext, 104.0f));
             this.mView.setPadding(f.dip2px(this.mContext, 26.0f), 0, f.dip2px(this.mContext, 26.0f), 0);
-            this.hxD.setTextSize(13.0f);
+            this.hxR.setTextSize(13.0f);
             setView(this.mView);
             setDuration(0);
             setGravity(17, 0, 0);
             if (!TextUtils.isEmpty(str)) {
-                this.hxD.setText(str);
+                this.hxR.setText(str);
             }
             show();
         }

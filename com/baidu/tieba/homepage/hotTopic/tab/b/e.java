@@ -30,6 +30,6 @@ public class e implements n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.kgB;
+        return a.kgP;
     }
 }

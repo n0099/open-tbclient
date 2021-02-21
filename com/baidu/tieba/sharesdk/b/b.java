@@ -1,5 +1,5 @@
 package com.baidu.tieba.sharesdk.b;
 /* loaded from: classes8.dex */
 public interface b {
-    void dl(int i, int i2);
+    void dm(int i, int i2);
 }

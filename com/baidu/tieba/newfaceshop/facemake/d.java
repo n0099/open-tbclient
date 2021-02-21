@@ -17,7 +17,7 @@ import com.baidu.tieba.face.data.FaceData;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class d extends BaseAdapter {
-    private a lAY;
+    private a lBm;
     private List<FaceData> mList;
     private Context mContext = BdBaseApplication.getInst().getApp();
     private com.baidu.tbadk.img.b fyF = new com.baidu.tbadk.img.b();
@@ -53,7 +53,7 @@ public class d extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.lAY = aVar;
+        this.lBm = aVar;
     }
 
     public d(List<FaceData> list) {
@@ -76,7 +76,7 @@ public class d extends BaseAdapter {
         if (faceData != null) {
             if (faceData.type == 4) {
                 ap.setImageResource(bVar.feK, R.drawable.emotion_icon_add_pic);
-                bVar.lBb.setVisibility(8);
+                bVar.lBp.setVisibility(8);
             } else if (faceData.type == 1) {
                 bVar.feK.setImageDrawable(null);
                 a(faceData.emotionImageData, viewGroup, bVar);
@@ -89,7 +89,7 @@ public class d extends BaseAdapter {
             }
             bVar.feK.setTag(bVar.feK.getId(), faceData);
         }
-        bVar.lBb.setTag(faceData);
+        bVar.lBp.setTag(faceData);
         return view;
     }
 
@@ -97,7 +97,7 @@ public class d extends BaseAdapter {
         if (emotionImageData != null) {
             bVar.feK.setTag(emotionImageData.getThumbUrl());
             bVar.feK.startLoad(emotionImageData.getThumbUrl(), 10, false);
-            bVar.lBb.setVisibility(0);
+            bVar.lBp.setVisibility(0);
         }
     }
 
@@ -119,7 +119,7 @@ public class d extends BaseAdapter {
                 aVar.drawImageTo(bVar.feK);
                 bVar.feK.setTag(null);
             }
-            bVar.lBb.setVisibility(0);
+            bVar.lBp.setVisibility(0);
         }
     }
 
@@ -143,7 +143,7 @@ public class d extends BaseAdapter {
                     }
                 }, false, false);
             }
-            bVar.lBb.setVisibility(0);
+            bVar.lBp.setVisibility(0);
         }
     }
 
@@ -151,7 +151,7 @@ public class d extends BaseAdapter {
     /* loaded from: classes9.dex */
     public class b {
         public TbImageView feK;
-        public ImageView lBb;
+        public ImageView lBp;
 
         b() {
         }
@@ -159,24 +159,24 @@ public class d extends BaseAdapter {
         /* JADX INFO: Access modifiers changed from: private */
         public void am(View view) {
             this.feK = (TbImageView) view.findViewById(R.id.image);
-            this.lBb = (ImageView) view.findViewById(R.id.delete_icon);
+            this.lBp = (ImageView) view.findViewById(R.id.delete_icon);
             ViewGroup.LayoutParams layoutParams = this.feK.getLayoutParams();
             layoutParams.width = d.this.mWidth;
             layoutParams.height = d.this.mWidth;
-            ap.setImageResource(this.lBb, R.drawable.icon_live_close_n);
+            ap.setImageResource(this.lBp, R.drawable.icon_live_close_n);
             this.feK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.d.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (d.this.lAY != null && view2.getTag(view2.getId()) != null && (view2.getTag(view2.getId()) instanceof FaceData) && ((FaceData) view2.getTag(view2.getId())).type == 4) {
-                        d.this.lAY.onAdd();
+                    if (d.this.lBm != null && view2.getTag(view2.getId()) != null && (view2.getTag(view2.getId()) instanceof FaceData) && ((FaceData) view2.getTag(view2.getId())).type == 4) {
+                        d.this.lBm.onAdd();
                     }
                 }
             });
-            this.lBb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.d.b.2
+            this.lBp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.d.b.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (d.this.lAY != null && view2.getTag() != null && (view2.getTag() instanceof FaceData)) {
-                        d.this.lAY.a((FaceData) view2.getTag());
+                    if (d.this.lBm != null && view2.getTag() != null && (view2.getTag() instanceof FaceData)) {
+                        d.this.lBm.a((FaceData) view2.getTag());
                     }
                 }
             });

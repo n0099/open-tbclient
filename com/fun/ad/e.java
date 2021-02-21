@@ -13,7 +13,7 @@ import com.fun.ad.sdk.FunAdView;
 import com.fun.ad.sdk.FunRippedAd;
 /* loaded from: classes6.dex */
 public class e extends bd {
-    public TTInteractionAd pOA;
+    public TTInteractionAd pPa;
 
     /* loaded from: classes6.dex */
     public class a implements TTAdNative.InteractionAdListener {
@@ -25,7 +25,7 @@ public class e extends bd {
             m.a("CSJInteractionAd onError code: " + i + ", message: " + str);
             e eVar = e.this;
             eVar.f7767b = false;
-            ba baVar = eVar.pPA;
+            ba baVar = eVar.pQa;
             if (baVar != null) {
                 ((aj) baVar).a(eVar.f7766a.f7762a, i, str);
             }
@@ -36,8 +36,8 @@ public class e extends bd {
             m.a("CSJInteractionAd onInteractionAdLoad");
             e eVar = e.this;
             eVar.f7767b = false;
-            eVar.pOA = tTInteractionAd;
-            ba baVar = eVar.pPA;
+            eVar.pPa = tTInteractionAd;
+            ba baVar = eVar.pQa;
             if (baVar != null) {
                 ((aj) baVar).b(eVar.f7766a.f7762a);
             }
@@ -54,9 +54,9 @@ public class e extends bd {
         public void onAdClicked() {
             m.a("CSJInteractionAd onAdClicked");
             e eVar = e.this;
-            ax axVar = eVar.pPB;
+            ax axVar = eVar.pQb;
             if (axVar != null) {
-                ((am) axVar).a(eVar.f7766a.f7762a, null, eVar.pOA.getInteractionType());
+                ((am) axVar).a(eVar.f7766a.f7762a, null, eVar.pPa.getInteractionType());
             }
         }
 
@@ -64,7 +64,7 @@ public class e extends bd {
         public void onAdDismiss() {
             m.a("CSJInteractionAd onAdDismiss");
             e eVar = e.this;
-            ax axVar = eVar.pPB;
+            ax axVar = eVar.pQb;
             if (axVar != null) {
                 ((am) axVar).b(eVar.f7766a.f7762a);
             }
@@ -74,9 +74,9 @@ public class e extends bd {
         public void onAdShow() {
             m.a("CSJInteractionAd onAdShow");
             e eVar = e.this;
-            ax axVar = eVar.pPB;
+            ax axVar = eVar.pQb;
             if (axVar != null) {
-                ((am) axVar).b(eVar.f7766a.f7762a, null, eVar.pOA.getInteractionType());
+                ((am) axVar).b(eVar.f7766a.f7762a, null, eVar.pPa.getInteractionType());
             }
         }
     }
@@ -88,25 +88,25 @@ public class e extends bd {
     @Override // com.fun.ad.bd
     public void a() {
         super.a();
-        this.pOA = null;
+        this.pPa = null;
     }
 
     @Override // com.fun.ad.bd
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         super.a(activity, funAdView, axVar);
-        TTInteractionAd tTInteractionAd = this.pOA;
+        TTInteractionAd tTInteractionAd = this.pPa;
         if (tTInteractionAd == null) {
             return;
         }
         tTInteractionAd.setAdInteractionListener(new b());
-        this.pOA.setDownloadListener(new bj(null));
-        this.pOA.showInteractionAd(activity);
+        this.pPa.setDownloadListener(new bj(null));
+        this.pPa.showInteractionAd(activity);
     }
 
     @Override // com.fun.ad.bd
-    public FunRippedAd eAp() {
+    public FunRippedAd eAx() {
         AdRipper.RippedCSJAd rippedCSJAd;
-        TTInteractionAd tTInteractionAd = this.pOA;
+        TTInteractionAd tTInteractionAd = this.pPa;
         if (tTInteractionAd == null || (rippedCSJAd = AdRipper.getRippedCSJAd(tTInteractionAd, false)) == null) {
             return null;
         }
@@ -129,8 +129,8 @@ public class e extends bd {
             this.f7767b = true;
             AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f7766a.f7762a).setSupportDeepLink(true);
             au.a aVar = this.f7766a;
-            this.pPC.loadInteractionAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).build(), new a());
-            ba baVar2 = this.pPA;
+            this.pQc.loadInteractionAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).build(), new a());
+            ba baVar2 = this.pQa;
             if (baVar2 != null) {
                 ((aj) baVar2).a(this.f7766a.f7762a);
             }

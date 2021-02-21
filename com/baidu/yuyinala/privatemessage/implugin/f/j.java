@@ -7,22 +7,22 @@ import org.json.JSONObject;
 public class j {
     private static JSONObject mData;
     private static String mType;
-    private static String pao;
-    private static int pap;
-    private static int paq;
-    private static int par = -1;
+    private static String paP;
+    private static int paQ;
+    private static int paR;
+    private static int paS = -1;
 
-    public static void Ye(String str) {
+    public static void Yq(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            par = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (par == 0) {
+            paS = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (paS == 0) {
                 mData = jSONObject.optJSONObject("data");
                 if (mData != null) {
                     mType = mData.optString("type");
-                    pao = mData.optString("third_id");
-                    pap = mData.optInt("has_sub");
-                    paq = mData.optInt("notify");
+                    paP = mData.optString("third_id");
+                    paQ = mData.optInt("has_sub");
+                    paR = mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -35,9 +35,9 @@ public class j {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("type", mType);
-                jSONObject.put("third_id", pao);
-                jSONObject.put("has_sub", "" + pap);
-                jSONObject.put("notify", "" + paq);
+                jSONObject.put("third_id", paP);
+                jSONObject.put("has_sub", "" + paQ);
+                jSONObject.put("notify", "" + paR);
                 mData = jSONObject;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -46,28 +46,28 @@ public class j {
     }
 
     public static String getType() {
-        return Yf("type") ? mType : "";
+        return Yr("type") ? mType : "";
     }
 
     public static void AK(boolean z) {
-        pap = z ? 1 : 0;
+        paQ = z ? 1 : 0;
         Mk();
     }
 
-    public static boolean ejR() {
-        return Yf("has_sub") && pap == 1;
+    public static boolean ejZ() {
+        return Yr("has_sub") && paQ == 1;
     }
 
-    public static String ejQ() {
-        return Yf("third_id") ? pao : "";
+    public static String ejY() {
+        return Yr("third_id") ? paP : "";
     }
 
     public static boolean isNeedNotify() {
-        return Yf("notify") && paq == 1;
+        return Yr("notify") && paR == 1;
     }
 
     private static boolean isDataValid() {
-        return par == 0;
+        return paS == 0;
     }
 
     public static JSONObject getData() {
@@ -77,7 +77,7 @@ public class j {
         return null;
     }
 
-    private static boolean Yf(String str) {
+    private static boolean Yr(String str) {
         return isDataValid() && mData != null && mData.has(str);
     }
 }

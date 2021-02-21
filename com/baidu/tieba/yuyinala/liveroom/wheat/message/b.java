@@ -8,6 +8,6 @@ public class b extends HttpMessage {
         addParam("room_id", str);
         addParam("uk", str2);
         addParam("apply_type", str3);
-        addParam("im_uk", com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecJ().ecE());
+        addParam("im_uk", com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().ecM());
     }
 }

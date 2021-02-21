@@ -1,9 +1,8 @@
 package com.baidu.ufosdk.ui;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public final class fb implements View.OnClickListener {
+final class fb implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ fa f5591a;

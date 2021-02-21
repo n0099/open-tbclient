@@ -17,31 +17,31 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements d {
-    private int hNi = 1;
-    private int hNj = -1;
-    private AlaLivePlayer hNk;
-    private f hNl;
+    private int hNw = 1;
+    private int hNx = -1;
+    private AlaLivePlayer hNy;
+    private f hNz;
     private Uri mUri;
 
     public b(Context context) {
-        if (this.hNk == null) {
-            this.hNk = AlaLivePlayer.createLivePlayer(context);
+        if (this.hNy == null) {
+            this.hNy = AlaLivePlayer.createLivePlayer(context);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void d(Context context, Uri uri) {
-        if (this.hNk == null) {
-            this.hNk = AlaLivePlayer.createLivePlayer(context);
+        if (this.hNy == null) {
+            this.hNy = AlaLivePlayer.createLivePlayer(context);
         }
         this.mUri = uri;
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void setPlayerCallback(f fVar) {
-        this.hNl = fVar;
-        if (this.hNk != null) {
-            this.hNk.setPlayerCallback(new AlaLivePlayerCallback() { // from class: com.baidu.tieba.ala.liveroom.r.b.1
+        this.hNz = fVar;
+        if (this.hNy != null) {
+            this.hNy.setPlayerCallback(new AlaLivePlayerCallback() { // from class: com.baidu.tieba.ala.liveroom.r.b.1
                 @Override // com.baidu.ala.player.AlaLivePlayerCallback
                 public void onStreamChanged(int i, int i2) {
                 }
@@ -60,8 +60,8 @@ public class b implements d {
 
                 @Override // com.baidu.ala.player.AlaLivePlayerCallback
                 public void onFirstFrame(int i, int i2, int i3) {
-                    if (b.this.hNl != null) {
-                        b.this.hNl.a(b.this, CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, 0);
+                    if (b.this.hNz != null) {
+                        b.this.hNz.a(b.this, CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, 0);
                     }
                 }
 
@@ -82,17 +82,17 @@ public class b implements d {
 
     @Override // com.baidu.live.liveroom.e.d
     public void b(int i, JSONObject jSONObject) {
-        if (this.hNj == -1) {
-            this.hNj = i;
+        if (this.hNx == -1) {
+            this.hNx = i;
         }
-        if (this.hNk != null) {
-            this.hNk.setStartInfo(i, jSONObject.optString("liveId"), jSONObject.optString("sessionId"), jSONObject.optString("clientIp"), jSONObject.optString("level"), jSONObject.optInt("sessionLine"), TbConfig.getSubappType());
+        if (this.hNy != null) {
+            this.hNy.setStartInfo(i, jSONObject.optString("liveId"), jSONObject.optString("sessionId"), jSONObject.optString("clientIp"), jSONObject.optString("level"), jSONObject.optInt("sessionLine"), TbConfig.getSubappType());
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public View MS() {
-        return this.hNk;
+        return this.hNy;
     }
 
     @Override // com.baidu.live.liveroom.e.d
@@ -107,26 +107,26 @@ public class b implements d {
     @Override // com.baidu.live.liveroom.e.d
     public void setVideoScalingMode(int i) {
         if (i == 0) {
-            this.hNk.setRenderVideoModel(this.hNj, 1);
+            this.hNy.setRenderVideoModel(this.hNx, 1);
         } else {
-            this.hNk.setRenderVideoModel(this.hNj, 2);
+            this.hNy.setRenderVideoModel(this.hNx, 2);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void start() {
-        this.hNk.setStatConfigBeforeStart(TbadkCoreApplication.getInst().getApp().getFilesDir().getAbsolutePath() + "/live_sdk_log/", "http://c.tieba.baidu.com/ala/sys/mlog", com.baidu.live.ae.a.Qj().buX.aLz);
-        if (this.hNj == -1) {
-            this.hNj = 1;
+        this.hNy.setStatConfigBeforeStart(TbadkCoreApplication.getInst().getApp().getFilesDir().getAbsolutePath() + "/live_sdk_log/", "http://c.tieba.baidu.com/ala/sys/mlog", com.baidu.live.ae.a.Qj().buX.aLz);
+        if (this.hNx == -1) {
+            this.hNx = 1;
         }
         AlaLivePlayer.AlaLivePlayerConf alaLivePlayerConf = new AlaLivePlayer.AlaLivePlayerConf();
-        alaLivePlayerConf.index = this.hNj;
+        alaLivePlayerConf.index = this.hNx;
         alaLivePlayerConf.url = this.mUri.toString();
         alaLivePlayerConf.param = new LinearLayout.LayoutParams(-1, -1);
         ArrayList arrayList = new ArrayList();
         arrayList.add(alaLivePlayerConf);
-        this.hNk.start2(arrayList);
-        this.hNi = 2;
+        this.hNy.start2(arrayList);
+        this.hNw = 2;
     }
 
     @Override // com.baidu.live.liveroom.e.d
@@ -135,16 +135,16 @@ public class b implements d {
 
     @Override // com.baidu.live.liveroom.e.d
     public void resume() {
-        if (this.hNk != null) {
-            this.hNk.resume();
+        if (this.hNy != null) {
+            this.hNy.resume();
         }
     }
 
     @Override // com.baidu.live.liveroom.e.d
     public void stop() {
-        if (this.hNk != null) {
-            this.hNk.stop();
-            this.hNi = 4;
+        if (this.hNy != null) {
+            this.hNy.stop();
+            this.hNw = 4;
         }
     }
 
@@ -155,10 +155,10 @@ public class b implements d {
 
     @Override // com.baidu.live.liveroom.e.d
     public void release() {
-        if (this.hNk != null) {
-            this.hNk.stop();
-            this.hNk.destroy();
-            this.hNi = 4;
+        if (this.hNy != null) {
+            this.hNy.stop();
+            this.hNy.destroy();
+            this.hNw = 4;
         }
     }
 

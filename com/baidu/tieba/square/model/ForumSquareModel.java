@@ -33,13 +33,13 @@ public class ForumSquareModel extends BdBaseModel {
     private CustomMessageListener fnA;
     private boolean isLoading;
     private CustomMessageListener mLikeForumListener;
-    private d nrG;
-    private final HashMap<String, c> nrH;
-    private final List<String> nrI;
+    private d nsg;
+    private final HashMap<String, c> nsh;
+    private final List<String> nsi;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s(long j, boolean z) {
-        for (Map.Entry<String, c> entry : this.nrH.entrySet()) {
+        for (Map.Entry<String, c> entry : this.nsh.entrySet()) {
             c value = entry.getValue();
             if (value != null && !y.isEmpty(value.getDataList())) {
                 for (n nVar : value.getDataList()) {
@@ -58,18 +58,18 @@ public class ForumSquareModel extends BdBaseModel {
     public void b(com.baidu.tieba.square.data.d dVar) {
         String str = dVar.className;
         if (TextUtils.isEmpty(str)) {
-            str = (String) y.getItem(this.nrI, 0);
+            str = (String) y.getItem(this.nsi, 0);
             dVar.className = str;
         }
         String str2 = str;
-        c cVar = this.nrH.get(str2);
+        c cVar = this.nsh.get(str2);
         if (cVar == null) {
             cVar = new c();
-            this.nrH.put(str2, cVar);
+            this.nsh.put(str2, cVar);
         }
         cVar.a(dVar);
-        if (this.nrG != null) {
-            this.nrG.d(str2, this.nrI, cVar.getDataList());
+        if (this.nsg != null) {
+            this.nsg.d(str2, this.nsi, cVar.getDataList());
         }
     }
 
@@ -90,10 +90,10 @@ public class ForumSquareModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tieba.square.data.d dVar) {
-        if (y.isEmpty(this.nrI) && dVar != null && !y.isEmpty(dVar.npI)) {
-            for (String str : dVar.npI) {
-                if (!TextUtils.isEmpty(str) && !this.nrI.contains(str)) {
-                    this.nrI.add(str);
+        if (y.isEmpty(this.nsi) && dVar != null && !y.isEmpty(dVar.nqi)) {
+            for (String str : dVar.nqi) {
+                if (!TextUtils.isEmpty(str) && !this.nsi.contains(str)) {
+                    this.nsi.add(str);
                 }
             }
         }
@@ -102,8 +102,8 @@ public class ForumSquareModel extends BdBaseModel {
     public ForumSquareModel(Context context, d dVar) {
         super(UtilHelper.getTbPageContext(context));
         this.isLoading = false;
-        this.nrH = new HashMap<>();
-        this.nrI = new ArrayList();
+        this.nsh = new HashMap<>();
+        this.nsi = new ArrayList();
         this.mLikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_PERSON_LIKE_FORUM) { // from class: com.baidu.tieba.square.model.ForumSquareModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -153,13 +153,13 @@ public class ForumSquareModel extends BdBaseModel {
                     Object extra = responsedMessage.getOrginalMessage().getExtra();
                     String str2 = extra instanceof ForumSquareRequestMessage ? ((ForumSquareRequestMessage) extra).className : null;
                     ForumSquareModel.this.c(data);
-                    if (y.isEmpty(ForumSquareModel.this.nrI)) {
-                        if (ForumSquareModel.this.nrG != null) {
-                            ForumSquareModel.this.nrG.e(errorData);
+                    if (y.isEmpty(ForumSquareModel.this.nsi)) {
+                        if (ForumSquareModel.this.nsg != null) {
+                            ForumSquareModel.this.nsg.e(errorData);
                         }
                     } else if (ForumSquareModel.this.mErrorCode != 0 || data == null) {
-                        if (ForumSquareModel.this.nrG != null) {
-                            ForumSquareModel.this.nrG.a(str2, errorData);
+                        if (ForumSquareModel.this.nsg != null) {
+                            ForumSquareModel.this.nsg.a(str2, errorData);
                         }
                     } else {
                         ForumSquareModel.this.b(data);
@@ -167,7 +167,7 @@ public class ForumSquareModel extends BdBaseModel {
                 }
             }
         };
-        this.nrG = dVar;
+        this.nsg = dVar;
         this.eDt.getHttpMessageListener().setSelfListener(true);
         this.eDt.getSocketMessageListener().setSelfListener(true);
         registerListener(this.eDt);
@@ -175,24 +175,24 @@ public class ForumSquareModel extends BdBaseModel {
         registerListener(this.fnA);
     }
 
-    public c SK(String str) {
+    public c SW(String str) {
         if (str == null) {
             return null;
         }
-        return this.nrH.get(str);
+        return this.nsh.get(str);
     }
 
-    public void SL(String str) {
+    public void SX(String str) {
         c cVar;
         ForumSquareRequestMessage forumSquareRequestMessage = new ForumSquareRequestMessage();
         forumSquareRequestMessage.className = str;
         if (TextUtils.isEmpty(str)) {
             cVar = new c();
         } else {
-            cVar = this.nrH.get(str);
+            cVar = this.nsh.get(str);
             if (cVar == null) {
                 cVar = new c();
-                this.nrH.put(str, cVar);
+                this.nsh.put(str, cVar);
             }
         }
         forumSquareRequestMessage.pn = cVar.pn + 1;
@@ -204,11 +204,11 @@ public class ForumSquareModel extends BdBaseModel {
         return this.isLoading;
     }
 
-    public boolean SM(String str) {
+    public boolean SY(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        c cVar = this.nrH.get(str);
+        c cVar = this.nsh.get(str);
         return cVar != null ? cVar.hasMore : false;
     }
 

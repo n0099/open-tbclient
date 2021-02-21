@@ -11,25 +11,25 @@ import com.baidu.tbadk.core.util.y;
 import tbclient.SmartApp;
 /* loaded from: classes.dex */
 public class k extends b {
-    public static String iAu = "";
-    public static String iAv = "";
-    public static String iAw = "";
-    public static String iAx = "";
-    public static String iAy = "";
-    public static String iAz = "";
-    public static String iAA = "";
-    public static String iAB = "";
-    public static String iAC = "";
-    public static String iAD = "";
-    public static String iAE = "";
-    public static String iAF = "";
-    public static String iAG = "";
-    public static String iAH = "";
     public static String iAI = "";
     public static String iAJ = "";
     public static String iAK = "";
+    public static String iAL = "";
+    public static String iAM = "";
+    public static String iAN = "";
+    public static String iAO = "";
+    public static String iAP = "";
+    public static String iAQ = "";
+    public static String iAR = "";
+    public static String iAS = "";
+    public static String iAT = "";
+    public static String iAU = "";
+    public static String iAV = "";
+    public static String iAW = "";
+    public static String iAX = "";
+    public static String iAY = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId iAL = BdUniqueId.gen();
+    public static final BdUniqueId iAZ = BdUniqueId.gen();
     public static final BdUniqueId eQI = BdUniqueId.gen();
     public static final BdUniqueId eQP = BdUniqueId.gen();
     public static final BdUniqueId eQQ = BdUniqueId.gen();
@@ -37,24 +37,24 @@ public class k extends b {
     public static final BdUniqueId eQS = BdUniqueId.gen();
     public static final BdUniqueId eQW = BdUniqueId.gen();
     public static final BdUniqueId eQX = BdUniqueId.gen();
-    public static final BdUniqueId iAM = BdUniqueId.gen();
-    public static final BdUniqueId iAN = BdUniqueId.gen();
+    public static final BdUniqueId iBa = BdUniqueId.gen();
+    public static final BdUniqueId iBb = BdUniqueId.gen();
     public static final BdUniqueId eQr = BdUniqueId.gen();
-    public static final BdUniqueId iAO = BdUniqueId.gen();
-    public static final BdUniqueId iAP = BdUniqueId.gen();
-    public static final BdUniqueId iAQ = BdUniqueId.gen();
-    public static final BdUniqueId iAR = BdUniqueId.gen();
-    public static final BdUniqueId iAS = BdUniqueId.gen();
-    public static final BdUniqueId iAT = BdUniqueId.gen();
-    public static final BdUniqueId iAU = BdUniqueId.gen();
+    public static final BdUniqueId iBc = BdUniqueId.gen();
+    public static final BdUniqueId iBd = BdUniqueId.gen();
+    public static final BdUniqueId iBe = BdUniqueId.gen();
+    public static final BdUniqueId iBf = BdUniqueId.gen();
+    public static final BdUniqueId iBg = BdUniqueId.gen();
+    public static final BdUniqueId iBh = BdUniqueId.gen();
+    public static final BdUniqueId iBi = BdUniqueId.gen();
     public static final BdUniqueId eQD = BdUniqueId.gen();
     public static final BdUniqueId eQF = BdUniqueId.gen();
     public static final BdUniqueId eQG = BdUniqueId.gen();
-    public boolean iAV = false;
+    public boolean iBj = false;
     public boolean isLinkThread = false;
     public boolean eQc = false;
-    public boolean iAW = false;
-    public boolean iAX = false;
+    public boolean iBk = false;
+    public boolean iBl = false;
     public boolean fCP = true;
 
     public static boolean ae(cb cbVar) {
@@ -78,25 +78,25 @@ public class k extends b {
         if (this.eJQ == null) {
             return TYPE;
         }
-        if (this.iAm && b.iAc.length > 1) {
+        if (this.iAA && b.iAq.length > 1) {
             BdUniqueId type = this.eJQ.getType();
             if (type == cb.eQm || type == cb.eQI || type == cb.eQU || type == cb.eQJ) {
                 if (this.eQi) {
-                    indexOf = b.iAa.indexOf(b.izR);
+                    indexOf = b.iAo.indexOf(b.iAf);
                 } else {
-                    indexOf = b.iAa.indexOf(b.izQ);
+                    indexOf = b.iAo.indexOf(b.iAe);
                 }
                 if (this.ePW) {
-                    indexOf2 = b.iAb.indexOf(b.izS);
+                    indexOf2 = b.iAp.indexOf(b.iAg);
                 } else if (this.ePV) {
-                    indexOf2 = b.iAb.indexOf(b.izU);
-                } else if (this.iAj) {
-                    indexOf2 = b.iAb.indexOf(b.izT);
+                    indexOf2 = b.iAp.indexOf(b.iAi);
+                } else if (this.iAx) {
+                    indexOf2 = b.iAp.indexOf(b.iAh);
                 } else {
-                    indexOf2 = b.iAb.indexOf(b.izV);
+                    indexOf2 = b.iAp.indexOf(b.iAj);
                 }
-                if (indexOf >= 0 && indexOf < b.iAc.length && indexOf2 >= 0 && indexOf2 < b.iAc[0].length) {
-                    return b.iAc[indexOf][indexOf2];
+                if (indexOf >= 0 && indexOf < b.iAq.length && indexOf2 >= 0 && indexOf2 < b.iAq[0].length) {
+                    return b.iAq[indexOf][indexOf2];
                 }
             }
             return type;
@@ -119,28 +119,28 @@ public class k extends b {
                 }
                 return eQP;
             } else if (this.ePR) {
-                return iAN;
+                return iBb;
             } else {
                 if (this.ePS) {
-                    return iAO;
+                    return iBc;
                 }
-                if (this.iAj) {
-                    return iAP;
+                if (this.iAx) {
+                    return iBd;
                 }
                 if (this.ePV) {
-                    return iAQ;
+                    return iBe;
                 }
                 if (this.ePW) {
-                    return iAR;
+                    return iBf;
                 }
                 if (this.ePX) {
-                    return iAS;
+                    return iBg;
                 }
                 if (this.ePY) {
-                    return iAU;
+                    return iBi;
                 }
-                if (this.iAl) {
-                    return iAT;
+                if (this.iAz) {
+                    return iBh;
                 }
                 if (this.eQi) {
                     return eQr;
@@ -171,11 +171,11 @@ public class k extends b {
         return this.eJQ;
     }
 
-    public boolean csU() {
+    public boolean ctb() {
         return (this.eJQ == null || y.getCount(this.eJQ.bod()) == 0) ? false : true;
     }
 
-    public boolean csV() {
+    public boolean ctc() {
         return this.eJQ == null || this.eJQ.boU();
     }
 
@@ -185,77 +185,77 @@ public class k extends b {
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csQ() {
+    public ar csX() {
         SmartApp boE;
-        if (csU()) {
-            ar IR = IR(iAz);
-            if (IR != null) {
-                IR.setPosition(this.position);
+        if (ctb()) {
+            ar IS = IS(iAN);
+            if (IS != null) {
+                IS.setPosition(this.position);
                 if (bln() != null) {
                     cb bln = bln();
-                    IR.ap("obj_name", bln.bpv() != null && (bln.bpv().dNz() != null || bln.bpv().bHH() != null) ? 1 : 0);
+                    IS.ap("obj_name", bln.bpv() != null && (bln.bpv().dNH() != null || bln.bpv().bHH() != null) ? 1 : 0);
                     if (bln.bnQ() != null) {
-                        IR.ap(TiebaInitialize.Params.AB_TYPE, bln.bnQ().hadConcerned() ? 1 : 0);
+                        IS.ap(TiebaInitialize.Params.AB_TYPE, bln.bnQ().hadConcerned() ? 1 : 0);
                     }
-                    IR.ap("is_full", bln.bpI() ? 1 : 0);
+                    IS.ap("is_full", bln.bpI() ? 1 : 0);
                 }
             }
-            return IR;
-        } else if (csV()) {
-            ar IR2 = IR(iAF);
-            if (IR2 != null) {
-                IR2.setPosition(this.position);
+            return IS;
+        } else if (ctc()) {
+            ar IS2 = IS(iAT);
+            if (IS2 != null) {
+                IS2.setPosition(this.position);
                 if (bln() != null && (boE = bln().boE()) != null) {
-                    TiebaStatic.deleteParamByKey(IR2, "obj_type");
-                    IR2.dR("obj_type", boE.id);
-                    IR2.dR("obj_name", boE.name);
-                    return IR2;
+                    TiebaStatic.deleteParamByKey(IS2, "obj_type");
+                    IS2.dR("obj_type", boE.id);
+                    IS2.dR("obj_name", boE.name);
+                    return IS2;
                 }
-                return IR2;
+                return IS2;
             }
-            return IR2;
+            return IS2;
         } else if (bmv()) {
             return null;
         } else {
-            ar IR3 = IR(iAu);
-            if (IR3 != null) {
-                IR3.setPosition(this.position);
-                IR3.dR(TiebaInitialize.Params.AB_ACTION, "show");
+            ar IS3 = IS(iAI);
+            if (IS3 != null) {
+                IS3.setPosition(this.position);
+                IS3.dR(TiebaInitialize.Params.AB_ACTION, "show");
                 if (bln() != null) {
                     cb bln2 = bln();
-                    boolean z = (bln2.bpv() == null || (bln2.bpv().dNz() == null && bln2.bpv().bHH() == null)) ? false : true;
-                    IR3.ap("obj_name", z ? 1 : 0);
-                    if (z && bln2.bpv().dNz() != null && bln2.bpv().dNz().bHz() != null && bln2.bpv().dNz().bHz().size() > 0) {
-                        IR3.ap(TiebaInitialize.Params.OBJ_TO, bln2.bpv().nxe ? 2 : 1);
+                    boolean z = (bln2.bpv() == null || (bln2.bpv().dNH() == null && bln2.bpv().bHH() == null)) ? false : true;
+                    IS3.ap("obj_name", z ? 1 : 0);
+                    if (z && bln2.bpv().dNH() != null && bln2.bpv().dNH().bHz() != null && bln2.bpv().dNH().bHz().size() > 0) {
+                        IS3.ap(TiebaInitialize.Params.OBJ_TO, bln2.bpv().nxE ? 2 : 1);
                     }
                     if (bln2.bnQ() != null) {
-                        IR3.ap(TiebaInitialize.Params.AB_TYPE, bln2.bnQ().hadConcerned() ? 1 : 0);
+                        IS3.ap(TiebaInitialize.Params.AB_TYPE, bln2.bnQ().hadConcerned() ? 1 : 0);
                     }
-                    IR3.ap("is_full", bln2.bpI() ? 1 : 0);
+                    IS3.ap("is_full", bln2.bpI() ? 1 : 0);
                     if (bln2.getBaijiahaoData() != null) {
-                        IR3.dR("obj_param4", bln2.getBaijiahaoData().oriUgcNid);
+                        IS3.dR("obj_param4", bln2.getBaijiahaoData().oriUgcNid);
                     }
-                    IR3.ap("obj_param5", ai(bln2));
+                    IS3.ap("obj_param5", ai(bln2));
                     if (bln2.bpV()) {
-                        IR3.ap("obj_param6", 2);
+                        IS3.ap("obj_param6", 2);
                     } else {
-                        IR3.ap("obj_param6", 1);
+                        IS3.ap("obj_param6", 1);
                     }
                     if (bln2.bqb()) {
-                        IR3.ap("gua_type", 1);
+                        IS3.ap("gua_type", 1);
                     } else if (bln2.bpW() != null) {
-                        IR3.ap("gua_type", 2);
+                        IS3.ap("gua_type", 2);
                     } else {
-                        IR3.ap("gua_type", 0);
+                        IS3.ap("gua_type", 0);
                     }
                 }
             }
-            return IR3;
+            return IS3;
         }
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar IS(String str) {
+    public ar IT(String str) {
         int i;
         ar arVar = new ar(str);
         if (this.eJQ != null) {
@@ -282,68 +282,68 @@ public class k extends b {
             }
             arVar.ap("obj_type", i);
             arVar.dR("obj_id", this.eJQ.bnQ().getUserId());
-            arVar.ap("obj_param1", csM() ? 2 : 1);
+            arVar.ap("obj_param1", csT() ? 2 : 1);
         }
         return arVar;
     }
 
-    public ar IU(String str) {
-        ar IR = IR(str);
-        if (IR != null) {
-            IR.dR("ab_tag", csI()).dR(TiebaInitialize.Params.AB_ACTION, "show");
+    public ar IV(String str) {
+        ar IS = IS(str);
+        if (IS != null) {
+            IS.dR("ab_tag", csP()).dR(TiebaInitialize.Params.AB_ACTION, "show");
             if (bln() != null) {
                 cb bln = bln();
-                boolean z = (bln.bpv() == null || (bln.bpv().dNz() == null && bln.bpv().bHH() == null)) ? false : true;
-                IR.ap("obj_name", z ? 1 : 0);
-                if (z && bln.bpv().dNz() != null && bln.bpv().dNz().bHz() != null && bln.bpv().dNz().bHz().size() > 0) {
-                    IR.ap(TiebaInitialize.Params.OBJ_TO, bln.bpv().nxe ? 2 : 1);
+                boolean z = (bln.bpv() == null || (bln.bpv().dNH() == null && bln.bpv().bHH() == null)) ? false : true;
+                IS.ap("obj_name", z ? 1 : 0);
+                if (z && bln.bpv().dNH() != null && bln.bpv().dNH().bHz() != null && bln.bpv().dNH().bHz().size() > 0) {
+                    IS.ap(TiebaInitialize.Params.OBJ_TO, bln.bpv().nxE ? 2 : 1);
                 }
             }
         }
-        return IR;
+        return IS;
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csO() {
-        ar IR;
+    public ar csV() {
+        ar IS;
         SmartApp boE;
-        if (csU()) {
-            IR = IR(iAA);
-        } else if (csV()) {
-            ar IR2 = IR(iAG);
-            if (IR2 != null && bln() != null && (boE = bln().boE()) != null) {
-                TiebaStatic.deleteParamByKey(IR2, "obj_type");
-                IR2.dR("obj_type", boE.id);
-                IR2.dR("obj_name", boE.name);
-                return IR2;
+        if (ctb()) {
+            IS = IS(iAO);
+        } else if (ctc()) {
+            ar IS2 = IS(iAU);
+            if (IS2 != null && bln() != null && (boE = bln().boE()) != null) {
+                TiebaStatic.deleteParamByKey(IS2, "obj_type");
+                IS2.dR("obj_type", boE.id);
+                IS2.dR("obj_name", boE.name);
+                return IS2;
             }
-            return IR2;
+            return IS2;
         } else {
-            IR = IR(iAv);
-            if (IR != null) {
-                IR.dR(TiebaInitialize.Params.AB_ACTION, "click");
+            IS = IS(iAJ);
+            if (IS != null) {
+                IS.dR(TiebaInitialize.Params.AB_ACTION, "click");
                 if (bln() != null) {
                     cb bln = bln();
                     if (bln.getBaijiahaoData() != null) {
-                        IR.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
+                        IS.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
                     }
-                    IR.ap("obj_param5", ai(bln));
+                    IS.ap("obj_param5", ai(bln));
                 }
             }
         }
-        if (IR != null && bln() != null) {
-            IR.ap("is_full", bln().bpI() ? 1 : 0);
+        if (IS != null && bln() != null) {
+            IS.ap("is_full", bln().bpI() ? 1 : 0);
         }
-        return IR;
+        return IS;
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csN() {
-        if (csU()) {
-            return IR(iAB);
+    public ar csU() {
+        if (ctb()) {
+            return IS(iAP);
         }
         if (l.ae(this.eJQ)) {
-            ar az = az(iAJ, true);
+            ar az = az(iAX, true);
             if (az != null && bln() != null) {
                 cb bln = bln();
                 if (bln.getBaijiahaoData() != null) {
@@ -355,9 +355,9 @@ public class k extends b {
             }
             return az;
         }
-        ar aV = aV(iAw, 0);
+        ar aV = aV(iAK, 0);
         if (aV != null) {
-            aV.dR("ab_tag", csI()).dR(TiebaInitialize.Params.AB_ACTION, "click");
+            aV.dR("ab_tag", csP()).dR(TiebaInitialize.Params.AB_ACTION, "click");
             if (bln() != null) {
                 cb bln2 = bln();
                 if (bln2.getBaijiahaoData() != null) {
@@ -372,9 +372,9 @@ public class k extends b {
         return aV;
     }
 
-    public ar csW() {
+    public ar ctd() {
         if (l.ae(this.eJQ)) {
-            ar az = az(iAI, true);
+            ar az = az(iAW, true);
             if (az != null && bln() != null) {
                 cb bln = bln();
                 if (bln.getBaijiahaoData() != null) {
@@ -390,59 +390,59 @@ public class k extends b {
                 return az;
             }
             return az;
-        } else if (csU()) {
-            return IR(iAC);
+        } else if (ctb()) {
+            return IS(iAQ);
         } else {
-            ar IR = IR(iAx);
-            if (IR != null) {
-                IR.dR("ab_tag", csI()).dR(TiebaInitialize.Params.AB_ACTION, "click");
+            ar IS = IS(iAL);
+            if (IS != null) {
+                IS.dR("ab_tag", csP()).dR(TiebaInitialize.Params.AB_ACTION, "click");
                 if (bln() != null) {
                     cb bln2 = bln();
                     if (bln2.getBaijiahaoData() != null) {
-                        IR.dR("obj_param4", bln2.getBaijiahaoData().oriUgcNid);
+                        IS.dR("obj_param4", bln2.getBaijiahaoData().oriUgcNid);
                     }
-                    IR.ap("obj_param5", ai(bln2));
-                    IR.dR(IntentConfig.NID, bln2.bmo());
+                    IS.ap("obj_param5", ai(bln2));
+                    IS.dR(IntentConfig.NID, bln2.bmo());
                     if (bln2.bpV()) {
-                        IR.ap(TiebaInitialize.Params.OBJ_PARAM2, 2);
-                        return IR;
+                        IS.ap(TiebaInitialize.Params.OBJ_PARAM2, 2);
+                        return IS;
                     }
-                    IR.ap(TiebaInitialize.Params.OBJ_PARAM2, 1);
-                    return IR;
+                    IS.ap(TiebaInitialize.Params.OBJ_PARAM2, 1);
+                    return IS;
                 }
-                return IR;
+                return IS;
             }
-            return IR;
+            return IS;
         }
     }
 
-    public ar csX() {
-        if (csU()) {
-            return IR(iAD);
+    public ar cte() {
+        if (ctb()) {
+            return IS(iAR);
         }
-        ar IR = IR(iAy);
-        if (IR != null) {
-            IR.dR(TiebaInitialize.Params.AB_ACTION, "click");
+        ar IS = IS(iAM);
+        if (IS != null) {
+            IS.dR(TiebaInitialize.Params.AB_ACTION, "click");
             if (bln() != null) {
                 cb bln = bln();
                 if (bln.getBaijiahaoData() != null) {
-                    IR.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
+                    IS.dR("obj_param4", bln.getBaijiahaoData().oriUgcNid);
                 }
-                IR.ap("obj_param5", ai(bln));
-                return IR;
+                IS.ap("obj_param5", ai(bln));
+                return IS;
             }
-            return IR;
+            return IS;
         }
-        return IR;
+        return IS;
     }
 
-    public ar csY() {
-        return IR(iAE);
+    public ar ctf() {
+        return IS(iAS);
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csP() {
-        ar az = az(iAH, true);
+    public ar csW() {
+        ar az = az(iAV, true);
         if (bln() != null) {
             cb bln = bln();
             if (bln.getBaijiahaoData() != null) {
@@ -454,16 +454,16 @@ public class k extends b {
         return az;
     }
 
-    public ar IV(String str) {
-        ar IR = IR(str);
+    public ar IW(String str) {
+        ar IS = IS(str);
         if (this.eJQ != null && this.eJQ.bnQ() != null) {
-            IR.ap(TiebaInitialize.Params.AB_TYPE, this.eJQ.bnQ().hadConcerned() ? 1 : 0);
+            IS.ap(TiebaInitialize.Params.AB_TYPE, this.eJQ.bnQ().hadConcerned() ? 1 : 0);
         }
-        return IR;
+        return IS;
     }
 
-    public ar IW(String str) {
-        return IR(str);
+    public ar IX(String str) {
+        return IS(str);
     }
 
     public int ah(cb cbVar) {

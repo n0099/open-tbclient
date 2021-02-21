@@ -20,8 +20,8 @@ public class d {
                 tbPageContext = ((BaseFragmentActivity) context).getPageContext();
             }
             if (tbPageContext != null) {
-                if (abVar.nvA != null) {
-                    com.baidu.tieba.aiapps.a.b(abVar.nvA.id, abVar.nvA.link, "1191003700000000", abVar.nvA.eEp);
+                if (abVar.nwa != null) {
+                    com.baidu.tieba.aiapps.a.b(abVar.nwa.id, abVar.nwa.link, "1191003700000000", abVar.nwa.eEp);
                 } else {
                     bf.bsV().b(tbPageContext, new String[]{abVar.link});
                 }
@@ -33,7 +33,7 @@ public class d {
         if (abVar != null) {
             ar arVar = new ar("c13627");
             arVar.dR("fid", abVar.forumId);
-            arVar.ap("obj_type", abVar.nvA == null ? 1 : 2);
+            arVar.ap("obj_type", abVar.nwa == null ? 1 : 2);
             arVar.ap("obj_locate", abVar.index);
             arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
             arVar.dR("obj_name", abVar.name);
@@ -45,7 +45,7 @@ public class d {
         if (abVar != null) {
             ar arVar = new ar("c13626");
             arVar.dR("fid", abVar.forumId);
-            arVar.ap("obj_type", abVar.nvA == null ? 1 : 2);
+            arVar.ap("obj_type", abVar.nwa == null ? 1 : 2);
             arVar.ap("obj_locate", abVar.index);
             arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
             arVar.dR("obj_name", abVar.name);

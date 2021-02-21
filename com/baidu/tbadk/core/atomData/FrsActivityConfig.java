@@ -19,7 +19,7 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tbadk.util.ab;
 import com.baidu.tieba.frs.d.j;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.recapp.r;
+import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes.dex */
 public class FrsActivityConfig extends IntentConfig {
@@ -202,12 +202,12 @@ public class FrsActivityConfig extends IntentConfig {
         } else {
             frsRequestData.setIsGood(0);
         }
-        frsRequestData.gv("forum_name", k.getUrlEncode(stringExtra));
-        frsRequestData.gv("client_type", "2");
+        frsRequestData.gx("forum_name", k.getUrlEncode(stringExtra));
+        frsRequestData.gx("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
         j.a(i, frsRequestData);
-        frsRequestData.SU("2");
+        frsRequestData.Tg("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
         frsRequestData.setWithGroup(1);
@@ -229,9 +229,9 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.hG(longExtra);
         j.a(i, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (cb.eRa.get() && r.dDm().dDg() != null) {
-            int ba = r.dDm().dDg().ba(stringExtra, false);
-            int bb = r.dDm().dDg().bb(stringExtra, false);
+        if (cb.eRa.get() && s.dDt().dDn() != null) {
+            int ba = s.dDt().dDn().ba(stringExtra, false);
+            int bb = s.dDt().dDn().bb(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 ba++;
             } else if (frsRequestData.getLoadType() == 2) {

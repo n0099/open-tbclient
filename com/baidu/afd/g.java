@@ -13,7 +13,7 @@ public class g implements j {
                 e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
                 g.this.aay.a(eVar);
                 if (eVar.aav && eVar.aax != null) {
-                    com.baidu.tieba.recapp.report.e.dEm().a(com.baidu.tieba.recapp.report.h.a(g.this.aay, eVar.aax));
+                    com.baidu.tieba.recapp.report.e.dEu().a(com.baidu.tieba.recapp.report.h.a(g.this.aay, eVar.aax));
                 }
             }
         }

@@ -19,8 +19,8 @@ public class f {
     private ContriInfo mContriInfo;
     private bu mReplyPrivacyTip;
     private VideoEasterEggData mVideoEasterEggData;
-    private String nBe;
-    private String nBf;
+    private String nBE;
+    private String nBF;
     private String preMsg;
     private String videoId;
     private String threadId = null;
@@ -37,19 +37,19 @@ public class f {
         return this.errorCode != 0;
     }
 
-    public boolean dPn() {
+    public boolean dPv() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean dPo() {
+    public boolean dPw() {
         return this.errorCode == 1990055;
     }
 
-    public boolean dPp() {
+    public boolean dPx() {
         return this.errorCode == 3250012;
     }
 
-    public boolean dPq() {
+    public boolean dPy() {
         return this.errorCode == 227001;
     }
 
@@ -65,7 +65,7 @@ public class f {
         this.errorString = str;
     }
 
-    public AntiData cBs() {
+    public AntiData cBz() {
         return this.antiData;
     }
 
@@ -109,20 +109,20 @@ public class f {
         return this.isCopyTWZhibo;
     }
 
-    public String dPr() {
-        return this.nBe;
+    public String dPz() {
+        return this.nBE;
     }
 
-    public void TI(String str) {
-        this.nBe = str;
+    public void TU(String str) {
+        this.nBE = str;
     }
 
-    public String dPs() {
-        return this.nBf;
+    public String dPA() {
+        return this.nBF;
     }
 
-    public void TJ(String str) {
-        this.nBf = str;
+    public void TV(String str) {
+        this.nBF = str;
     }
 
     public CustomDialogData getActivityDialog() {

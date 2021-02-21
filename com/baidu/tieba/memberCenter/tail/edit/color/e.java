@@ -6,13 +6,13 @@ import android.widget.ListAdapter;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class e {
-    private GridView lsw;
+    private GridView lsK;
 
     public e(ViewGroup viewGroup) {
-        this.lsw = (GridView) viewGroup.findViewById(R.id.tail_edit_color_gridview);
+        this.lsK = (GridView) viewGroup.findViewById(R.id.tail_edit_color_gridview);
     }
 
     public void a(a aVar) {
-        this.lsw.setAdapter((ListAdapter) aVar);
+        this.lsK.setAdapter((ListAdapter) aVar);
     }
 }

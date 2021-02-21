@@ -5,10 +5,10 @@ import com.baidu.adp.widget.ListView.n;
 import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes2.dex */
 public class d implements n {
-    public static BdUniqueId jvp = BdUniqueId.gen();
+    public static BdUniqueId jvD = BdUniqueId.gen();
     private boolean isManager;
-    private String jvq;
-    private String jvr;
+    private String jvE;
+    private String jvF;
     private int level;
     private String portrait;
     private int status;
@@ -20,14 +20,14 @@ public class d implements n {
         this.isManager = dataRes.is_manager.intValue() == 1;
         this.level = dataRes.bazhu.user_level.intValue();
         if (dataRes.bazhu.baijiahao_info != null) {
-            this.jvq = dataRes.bazhu.baijiahao_info.auth_desc;
+            this.jvE = dataRes.bazhu.baijiahao_info.auth_desc;
         }
-        this.jvr = dataRes.publish_time;
+        this.jvF = dataRes.publish_time;
         this.status = dataRes.audit_status.intValue();
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jvp;
+        return jvD;
     }
 }

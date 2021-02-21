@@ -44,7 +44,7 @@ public final class w {
             iiVar.f679a.f610c = str.substring(str.indexOf("/") + 1);
             flVar.a(iw.a(iiVar), kVar.c);
             flVar.a((short) 1);
-            com.xiaomi.channel.commonutils.logger.b.m80a("try send mi push message. packagename:" + iiVar.f684b + " action:" + iiVar.f677a);
+            com.xiaomi.channel.commonutils.logger.b.m79a("try send mi push message. packagename:" + iiVar.f684b + " action:" + iiVar.f677a);
             return flVar;
         } catch (NullPointerException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -109,16 +109,16 @@ public final class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(XMPushService xMPushService, ii iiVar) {
         df.a(iiVar.b(), xMPushService.getApplicationContext(), iiVar, -1);
-        fs m545a = xMPushService.m545a();
-        if (m545a == null) {
+        fs m544a = xMPushService.m544a();
+        if (m544a == null) {
             throw new gd("try send msg while connection is null.");
         }
-        if (!m545a.m321a()) {
+        if (!m544a.m320a()) {
             throw new gd("Don't support XMPP connection.");
         }
         fl a2 = a(l.a((Context) xMPushService), xMPushService, iiVar);
         if (a2 != null) {
-            m545a.b(a2);
+            m544a.b(a2);
         }
     }
 
@@ -135,16 +135,16 @@ public final class w {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(XMPushService xMPushService, String str, byte[] bArr) {
         df.a(str, xMPushService.getApplicationContext(), bArr);
-        fs m545a = xMPushService.m545a();
-        if (m545a == null) {
+        fs m544a = xMPushService.m544a();
+        if (m544a == null) {
             throw new gd("try send msg while connection is null.");
         }
-        if (!m545a.m321a()) {
+        if (!m544a.m320a()) {
             throw new gd("Don't support XMPP connection.");
         }
         fl a2 = a(xMPushService, bArr);
         if (a2 != null) {
-            m545a.b(a2);
+            m544a.b(a2);
         } else {
             o.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
         }

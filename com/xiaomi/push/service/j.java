@@ -56,12 +56,12 @@ class j extends XMPushService.i {
             next.a("uploadWay", "longXMPushService");
             ii a4 = w.a(this.f992a, a2, next, hm.Notification);
             if (!TextUtils.isEmpty(this.f14307b) && !TextUtils.equals(this.f992a, this.f14307b)) {
-                if (a4.m444a() == null) {
+                if (a4.m443a() == null) {
                     hz hzVar = new hz();
                     hzVar.a("-1");
                     a4.a(hzVar);
                 }
-                a4.m444a().b("ext_traffic_source_pkg", this.f14307b);
+                a4.m443a().b("ext_traffic_source_pkg", this.f14307b);
             }
             byte[] a5 = iw.a(a4);
             xMPushService = this.f14306a.f14305a;

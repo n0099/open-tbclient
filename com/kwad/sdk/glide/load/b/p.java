@@ -22,17 +22,17 @@ public class p {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Map<Class<?>, C1127a<?>> f10106a = new HashMap();
+        private final Map<Class<?>, C1129a<?>> f10106a = new HashMap();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.kwad.sdk.glide.load.b.p$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C1127a<Model> {
+        public static class C1129a<Model> {
 
             /* renamed from: a  reason: collision with root package name */
             final List<n<Model, ?>> f10107a;
 
-            public C1127a(List<n<Model, ?>> list) {
+            public C1129a(List<n<Model, ?>> list) {
                 this.f10107a = list;
             }
         }
@@ -42,11 +42,11 @@ public class p {
 
         @Nullable
         public <Model> List<n<Model, ?>> a(Class<Model> cls) {
-            C1127a<?> c1127a = this.f10106a.get(cls);
-            if (c1127a == null) {
+            C1129a<?> c1129a = this.f10106a.get(cls);
+            if (c1129a == null) {
                 return null;
             }
-            return (List<n<Model, ?>>) c1127a.f10107a;
+            return (List<n<Model, ?>>) c1129a.f10107a;
         }
 
         public void a() {
@@ -54,7 +54,7 @@ public class p {
         }
 
         public <Model> void a(Class<Model> cls, List<n<Model, ?>> list) {
-            if (this.f10106a.put(cls, new C1127a<>(list)) != null) {
+            if (this.f10106a.put(cls, new C1129a<>(list)) != null) {
                 throw new IllegalStateException("Already cached loaders for model: " + cls);
             }
         }

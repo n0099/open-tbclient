@@ -13,7 +13,7 @@ public abstract class a implements c {
     private c.a c;
     private c.f d;
     private c.g e;
-    private c.InterfaceC1009c f;
+    private c.InterfaceC1011c f;
     private c.d g;
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.c
@@ -37,8 +37,8 @@ public abstract class a implements c {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.c
-    public final void a(c.InterfaceC1009c interfaceC1009c) {
-        this.f = interfaceC1009c;
+    public final void a(c.InterfaceC1011c interfaceC1011c) {
+        this.f = interfaceC1011c;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.c

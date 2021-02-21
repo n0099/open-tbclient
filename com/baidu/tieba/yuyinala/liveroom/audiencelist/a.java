@@ -58,63 +58,63 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0921a c0921a;
+        C0923a c0923a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.yuyin_ala_live_audience_header_image, (ViewGroup) null);
-            C0921a c0921a2 = new C0921a(view);
-            c0921a2.hty.setDefaultResource(a.e.sdk_icon_default_avatar100);
-            c0921a2.hty.setIsRound(true);
-            c0921a2.hty.setDrawBorder(true);
-            c0921a2.hty.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-            c0921a2.hty.setAutoChangeStyle(false);
-            c0921a2.hty.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            c0921a2.htz.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            view.setTag(c0921a2);
-            c0921a = c0921a2;
+            C0923a c0923a2 = new C0923a(view);
+            c0923a2.htM.setDefaultResource(a.e.sdk_icon_default_avatar100);
+            c0923a2.htM.setIsRound(true);
+            c0923a2.htM.setDrawBorder(true);
+            c0923a2.htM.setBorderColor(this.mContext.getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+            c0923a2.htM.setAutoChangeStyle(false);
+            c0923a2.htM.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            c0923a2.htN.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            view.setTag(c0923a2);
+            c0923a = c0923a2;
         } else {
-            c0921a = (C0921a) view.getTag();
+            c0923a = (C0923a) view.getTag();
         }
         u uVar = (u) getItem(i);
-        c0921a.hty.setDrawBorder(true);
+        c0923a.htM.setDrawBorder(true);
         if (i == 0 && uVar.aId.contribution > 0) {
-            c0921a.htz.setVisibility(0);
-            c0921a.htz.setImageResource(a.e.pic_live_top1);
-            c0921a.htA.setBackgroundResource(a.e.round_header_day_list_bg_1);
+            c0923a.htN.setVisibility(0);
+            c0923a.htN.setImageResource(a.e.pic_live_top1);
+            c0923a.htO.setBackgroundResource(a.e.round_header_day_list_bg_1);
         } else if (i == 1 && uVar.aId.contribution > 0) {
-            c0921a.htz.setVisibility(0);
-            c0921a.htz.setImageResource(a.e.pic_live_top2);
-            c0921a.htA.setBackgroundResource(a.e.round_header_day_list_bg_2);
+            c0923a.htN.setVisibility(0);
+            c0923a.htN.setImageResource(a.e.pic_live_top2);
+            c0923a.htO.setBackgroundResource(a.e.round_header_day_list_bg_2);
         } else if (i == 2 && uVar.aId.contribution > 0) {
-            c0921a.htz.setVisibility(0);
-            c0921a.htz.setImageResource(a.e.pic_live_top3);
-            c0921a.htA.setBackgroundResource(a.e.round_header_day_list_bg_3);
+            c0923a.htN.setVisibility(0);
+            c0923a.htN.setImageResource(a.e.pic_live_top3);
+            c0923a.htO.setBackgroundResource(a.e.round_header_day_list_bg_3);
         } else {
-            c0921a.htz.setVisibility(8);
-            c0921a.htA.setBackgroundResource(a.e.round_header_day_list_bg_normal);
+            c0923a.htN.setVisibility(8);
+            c0923a.htO.setBackgroundResource(a.e.round_header_day_list_bg_normal);
         }
-        c0921a.htA.setText(uVar.aId.contributionStr);
+        c0923a.htO.setText(uVar.aId.contributionStr);
         if (uVar.aId.contribution <= 0) {
-            c0921a.htA.setVisibility(4);
+            c0923a.htO.setVisibility(4);
         } else {
-            c0921a.htA.setVisibility(0);
+            c0923a.htO.setVisibility(0);
         }
-        m.a(c0921a.hty, uVar.aId.portrait, true, !StringUtils.isNull(uVar.aId.appId));
+        m.a(c0923a.htM, uVar.aId.portrait, true, !StringUtils.isNull(uVar.aId.appId));
         return view;
     }
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.audiencelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0921a {
-        public TextView htA;
-        public HeadImageView hty;
-        public ImageView htz;
+    public static class C0923a {
+        public HeadImageView htM;
+        public ImageView htN;
+        public TextView htO;
         public View rootView;
 
-        public C0921a(View view) {
+        public C0923a(View view) {
             this.rootView = view;
-            this.hty = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
-            this.htz = (ImageView) view.findViewById(a.f.ala_live_room_audience_pendant);
-            this.htA = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
+            this.htM = (HeadImageView) view.findViewById(a.f.ala_live_room_audience_header_img);
+            this.htN = (ImageView) view.findViewById(a.f.ala_live_room_audience_pendant);
+            this.htO = (TextView) view.findViewById(a.f.ala_live_room_audience_charm_count);
         }
     }
 }

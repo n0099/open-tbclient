@@ -42,7 +42,7 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1007a {
+    public interface InterfaceC1009a {
         void a(boolean z);
     }
 
@@ -200,10 +200,10 @@ public class a {
         return optString != null && optString.equalsIgnoreCase(j.a(file));
     }
 
-    public void a(final l lVar, final InterfaceC1007a interfaceC1007a) {
+    public void a(final l lVar, final InterfaceC1009a interfaceC1009a) {
         if (lVar == null || lVar.F() == null || TextUtils.isEmpty(lVar.F().j())) {
             com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -701, (String) null);
-            a(interfaceC1007a, false);
+            a(interfaceC1009a, false);
             return;
         }
         final String j = lVar.F().j();
@@ -216,7 +216,7 @@ public class a {
                 com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -702, (String) null);
                 b(file);
                 this.c.remove(lVar);
-                a(interfaceC1007a, true);
+                a(interfaceC1009a, true);
                 return;
             }
             try {
@@ -288,7 +288,7 @@ public class a {
                                     ((File) pVar.f6047a).delete();
                                 } catch (Throwable th4) {
                                 }
-                                a.this.a(interfaceC1007a, z);
+                                a.this.a(interfaceC1009a, z);
                             }
                         }, 5);
                         return;
@@ -298,7 +298,7 @@ public class a {
                         i = Long.valueOf(pVar.h).intValue();
                     }
                     com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i, (String) null);
-                    a.this.a(interfaceC1007a, false);
+                    a.this.a(interfaceC1009a, false);
                 }
 
                 @Override // com.bytedance.sdk.adnet.core.p.a
@@ -310,32 +310,32 @@ public class a {
                     if (pVar != null) {
                         if (pVar.h != 0) {
                             i = Long.valueOf(pVar.h).intValue();
-                        } else if (pVar.pvp != null && pVar.pvp.networkResponse != null && pVar.pvp.networkResponse.f6042a != 0) {
-                            i = pVar.pvp.networkResponse.f6042a;
+                        } else if (pVar.pvP != null && pVar.pvP.networkResponse != null && pVar.pvP.networkResponse.f6042a != 0) {
+                            i = pVar.pvP.networkResponse.f6042a;
                         }
-                        if (pVar.pvp != null) {
-                            str = pVar.pvp.getMessage();
+                        if (pVar.pvP != null) {
+                            str = pVar.pvP.getMessage();
                         }
                     }
                     com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i, str);
-                    a.this.a(interfaceC1007a, false);
+                    a.this.a(interfaceC1009a, false);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final InterfaceC1007a interfaceC1007a, final boolean z) {
+    public void a(final InterfaceC1009a interfaceC1009a, final boolean z) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            if (interfaceC1007a != null) {
-                interfaceC1007a.a(z);
+            if (interfaceC1009a != null) {
+                interfaceC1009a.a(z);
             }
-        } else if (interfaceC1007a != null) {
+        } else if (interfaceC1009a != null) {
             this.g.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.g.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (interfaceC1007a != null) {
-                        interfaceC1007a.a(z);
+                    if (interfaceC1009a != null) {
+                        interfaceC1009a.a(z);
                     }
                 }
             });

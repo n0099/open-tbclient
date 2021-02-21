@@ -20,7 +20,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes2.dex */
 public class a {
-    private final c kbR = new c();
+    private final c kcf = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -72,9 +72,9 @@ public class a {
             }
         }
         com.baidu.tbadk.a.a.a.bj(linkedList);
-        com.baidu.tieba.recapp.report.b.dEl().q("CONCERN", arrayList);
-        this.kbR.gcs = linkedList;
-        return this.kbR;
+        com.baidu.tieba.recapp.report.b.dEt().q("CONCERN", arrayList);
+        this.kcf.gcy = linkedList;
+        return this.kcf;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -91,19 +91,19 @@ public class a {
                 kVar2.isLinkThread = cbVar.isLinkThread();
                 kVar2.eQc = cbVar.boU();
                 if (!cbVar.isLinkThread() && !cbVar.boU()) {
-                    kVar2.iAV = cbVar.bnT();
+                    kVar2.iBj = cbVar.bnT();
                 }
                 kVar2.eJQ = cbVar;
-                kVar2.iAW = true;
+                kVar2.iBk = true;
                 kVar = kVar2;
             }
             kVar.tid = cbVar.getTid();
             if (k.ae(cbVar)) {
-                kVar.IQ("1");
+                kVar.IR("1");
             } else if (l.ae(cbVar)) {
-                kVar.IQ("2");
+                kVar.IR("2");
             }
-            kVar.iAm = true;
+            kVar.iAA = true;
             if (d.bjg() && kVar.bln() != null && kVar.bln().bnQ() != null) {
                 if (kVar.bln().bnQ().hadConcerned() || az.x(cbVar)) {
                     com.baidu.tieba.homepage.personalize.model.d.a(kVar);
@@ -170,7 +170,7 @@ public class a {
             } else if (j.ae(cbVar)) {
                 j jVar = new j(cbVar);
                 jVar.tid = cbVar.getTid();
-                jVar.IQ("3");
+                jVar.IR("3");
                 if (jVar.isValid()) {
                     arrayList.add(jVar);
                 }
@@ -181,7 +181,7 @@ public class a {
             } else {
                 k kVar4 = new k();
                 kVar4.eJQ = cbVar;
-                kVar4.IQ(kVar4.eJQ.isLinkThread() ? "4" : "1");
+                kVar4.IR(kVar4.eJQ.isLinkThread() ? "4" : "1");
                 kVar4.position = i;
                 kVar4.isLinkThread = false;
                 if (concernData != null) {
@@ -214,7 +214,7 @@ public class a {
                     }
                 }
             } else {
-                if (!com.baidu.tieba.homepage.concern.d.cOV()) {
+                if (!com.baidu.tieba.homepage.concern.d.cPc()) {
                     list.clear();
                 }
                 for (int count2 = y.getCount(list2) - 1; count2 >= 0; count2--) {
@@ -226,7 +226,7 @@ public class a {
                     }
                 }
             }
-            this.kbR.klK = y.getCount(list) - count;
+            this.kcf.klY = y.getCount(list) - count;
         }
     }
 

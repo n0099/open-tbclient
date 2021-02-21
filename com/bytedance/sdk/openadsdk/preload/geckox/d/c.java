@@ -256,7 +256,7 @@ public class c extends com.bytedance.sdk.openadsdk.preload.a.d<Map<String, List<
             throw new NetworkErrorException("net work get failed, code: " + a2.c + ", url:" + str);
         } catch (Exception e2) {
             com.bytedance.sdk.openadsdk.preload.geckox.statistic.e.a(this.d, this.i);
-            throw new C1030c("request failed：url:" + str + ", caused by:" + e2.getMessage(), e2);
+            throw new C1032c("request failed：url:" + str + ", caused by:" + e2.getMessage(), e2);
         }
     }
 
@@ -307,8 +307,8 @@ public class c extends com.bytedance.sdk.openadsdk.preload.a.d<Map<String, List<
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1030c extends RuntimeException {
-        C1030c(String str, Throwable th) {
+    public static class C1032c extends RuntimeException {
+        C1032c(String str, Throwable th) {
             super(str, th);
         }
     }

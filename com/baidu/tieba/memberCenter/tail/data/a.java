@@ -1,9 +1,9 @@
 package com.baidu.tieba.memberCenter.tail.data;
 /* loaded from: classes9.dex */
 public class a {
-    private int lrM;
+    private int lsa;
 
     public a(int i) {
-        this.lrM = i;
+        this.lsa = i;
     }
 }

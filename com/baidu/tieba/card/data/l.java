@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class l extends b implements com.baidu.tbadk.core.util.g.a {
-    public boolean iAX = false;
-    public boolean iBc = true;
+    public boolean iBl = false;
+    public boolean iBq = true;
     public int sourceType = 0;
     public static final BdUniqueId eQK = BdUniqueId.gen();
-    public static String iAI = "";
-    public static String iAJ = "";
-    public static String iAY = "";
-    public static String iAH = "";
-    public static String iAZ = "";
-    public static String iBa = "";
-    public static String iBb = "";
+    public static String iAW = "";
+    public static String iAX = "";
+    public static String iBm = "";
+    public static String iAV = "";
+    public static String iBn = "";
+    public static String iBo = "";
+    public static String iBp = "";
 
     public l(cb cbVar) {
         this.eJQ = cbVar;
@@ -32,25 +32,25 @@ public class l extends b implements com.baidu.tbadk.core.util.g.a {
         if (this.eJQ == null) {
             return k.TYPE;
         }
-        if (this.iAm) {
+        if (this.iAA) {
             if (this.eQi) {
                 return cb.eQn;
             }
             return this.eJQ.getType();
         } else if (this.ePR) {
-            return k.iAN;
+            return k.iBb;
         } else {
-            if (this.iAk) {
+            if (this.iAy) {
                 return eQK;
             }
             if (this.ePX) {
-                return k.iAS;
+                return k.iBg;
             }
             if (this.ePY) {
-                return k.iAU;
+                return k.iBi;
             }
-            if (this.iAl) {
-                return k.iAT;
+            if (this.iAz) {
+                return k.iBh;
             }
             if (this.eQi) {
                 return k.eQr;
@@ -88,7 +88,7 @@ public class l extends b implements com.baidu.tbadk.core.util.g.a {
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar IS(String str) {
+    public ar IT(String str) {
         ar arVar = new ar(str);
         if (this.eJQ != null) {
             arVar.v("fid", this.eJQ.getFid());
@@ -100,7 +100,7 @@ public class l extends b implements com.baidu.tbadk.core.util.g.a {
             } else if (this.eJQ.bmv()) {
                 arVar.ap("obj_type", 2);
             }
-            arVar.ap("obj_param1", csM() ? 2 : 1);
+            arVar.ap("obj_param1", csT() ? 2 : 1);
             if (this.eJQ.bnQ() != null) {
                 arVar.dR("obj_id", this.eJQ.bnQ().getUserId());
             }
@@ -109,11 +109,11 @@ public class l extends b implements com.baidu.tbadk.core.util.g.a {
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csQ() {
-        ar az = az(iAY, true);
+    public ar csX() {
+        ar az = az(iBm, true);
         if (az != null && bln() != null) {
             cb bln = bln();
-            az.ap("obj_name", bln.bpv() != null && (bln.bpv().dNz() != null || bln.bpv().bHH() != null) ? 1 : 0);
+            az.ap("obj_name", bln.bpv() != null && (bln.bpv().dNH() != null || bln.bpv().bHH() != null) ? 1 : 0);
             if (bln.bnQ() != null) {
                 az.ap(TiebaInitialize.Params.AB_TYPE, bln.bnQ().hadConcerned() ? 1 : 0);
             }
@@ -132,7 +132,7 @@ public class l extends b implements com.baidu.tbadk.core.util.g.a {
     }
 
     public ar b(cb cbVar, int i) {
-        ar az = az(iAH, true);
+        ar az = az(iAV, true);
         if (az != null) {
             if (i != -1) {
                 az.ap("click_locate", i);
@@ -153,8 +153,8 @@ public class l extends b implements com.baidu.tbadk.core.util.g.a {
         return b(cbVar, -1);
     }
 
-    public ar csZ() {
-        ar az = az(iBb, true);
+    public ar ctg() {
+        ar az = az(iBp, true);
         if (az != null && bln() != null) {
             cb bln = bln();
             if (bln.getBaijiahaoData() != null) {
@@ -167,8 +167,8 @@ public class l extends b implements com.baidu.tbadk.core.util.g.a {
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csN() {
-        ar az = az(iAJ, true);
+    public ar csU() {
+        ar az = az(iAX, true);
         if (az != null && bln() != null) {
             cb bln = bln();
             if (bln.getBaijiahaoData() != null) {
@@ -181,7 +181,7 @@ public class l extends b implements com.baidu.tbadk.core.util.g.a {
     }
 
     public ar ak(cb cbVar) {
-        ar az = az(iAI, true);
+        ar az = az(iAW, true);
         if (az != null && bln() != null) {
             cb bln = bln();
             if (bln.getBaijiahaoData() != null) {
@@ -222,8 +222,8 @@ public class l extends b implements com.baidu.tbadk.core.util.g.a {
     }
 
     @Override // com.baidu.tieba.card.data.b
-    public ar csP() {
-        ar az = az(iAH, true);
+    public ar csW() {
+        ar az = az(iAV, true);
         if (bln() != null) {
             cb bln = bln();
             if (bln.getBaijiahaoData() != null) {

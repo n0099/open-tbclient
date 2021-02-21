@@ -15,10 +15,10 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class ForumEmotionVoteEntryView extends RelativeLayout {
-    private View ixs;
-    private int jaw;
-    private int jax;
-    private LinearLayout jay;
+    private View ixG;
+    private int jaK;
+    private int jaL;
+    private LinearLayout jaM;
     private TextView title;
 
     public ForumEmotionVoteEntryView(Context context) {
@@ -38,15 +38,15 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.forum_emotion_vote_entry_view, this);
-        this.jay = (LinearLayout) findViewById(R.id.forum_vote_avatars);
-        this.jaw = context.getResources().getDimensionPixelSize(R.dimen.ds40);
-        this.jax = context.getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.jaM = (LinearLayout) findViewById(R.id.forum_vote_avatars);
+        this.jaK = context.getResources().getDimensionPixelSize(R.dimen.ds40);
+        this.jaL = context.getResources().getDimensionPixelSize(R.dimen.ds4);
         this.title = (TextView) findViewById(R.id.forum_emotion_vote_title);
-        this.ixs = findViewById(R.id.forum_vote_bottom_line);
+        this.ixG = findViewById(R.id.forum_vote_bottom_line);
     }
 
     public void setAvatarList(List<String> list) {
-        this.jay.removeAllViews();
+        this.jaM.removeAllViews();
         if (list != null && !list.isEmpty()) {
             for (String str : list) {
                 if (!StringUtils.isNull(str)) {
@@ -54,11 +54,11 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
                     tbImageView.setDrawerType(1);
                     tbImageView.setIsRound(true);
                     tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.jaw, this.jaw);
-                    layoutParams.leftMargin = this.jax;
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.jaK, this.jaK);
+                    layoutParams.leftMargin = this.jaL;
                     layoutParams.gravity = 17;
                     tbImageView.startLoad(str, 10, false);
-                    this.jay.addView(tbImageView, layoutParams);
+                    this.jaM.addView(tbImageView, layoutParams);
                 }
             }
         }
@@ -66,8 +66,8 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
 
     public void onChangeSkin(int i) {
         ap.setBackgroundColor(this, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.jay, R.color.CAM_X0201);
+        ap.setBackgroundColor(this.jaM, R.color.CAM_X0201);
         ap.setViewTextColor(this.title, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.ixs, R.color.common_color_10312);
+        ap.setBackgroundColor(this.ixG, R.color.common_color_10312);
     }
 }

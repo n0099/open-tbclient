@@ -8,10 +8,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b {
     private TbPageContext<BaseFragmentActivity> eUY;
-    private Animation jJc;
+    private Animation jJq;
 
     public b(TbPageContext<BaseFragmentActivity> tbPageContext) {
         this.eUY = tbPageContext;
-        this.jJc = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.frs_like);
+        this.jJq = AnimationUtils.loadAnimation(this.eUY.getPageActivity(), R.anim.frs_like);
     }
 }

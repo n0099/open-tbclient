@@ -22,17 +22,17 @@ public class e {
     private MediaCodec mEncoder;
     private Surface mInputSurface;
     private int mTrackIndex;
-    private g nxU;
-    private c pNK;
+    private g nyu;
+    private c pOk;
     private Bundle dsU = new Bundle();
-    private long pOl = 0;
-    private boolean pOi = false;
+    private long pOL = 0;
+    private boolean pOI = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, k.class);
         k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
-            this.nxU = kVar.dgY();
+            this.nyu = kVar.dhf();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -50,11 +50,11 @@ public class e {
         }
         this.mTrackIndex = -1;
         this.chH = false;
-        this.pNK = cVar;
+        this.pOk = cVar;
     }
 
     public synchronized void requestStop() {
-        this.pOi = true;
+        this.pOI = true;
     }
 
     public Surface getInputSurface() {
@@ -67,15 +67,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.pNK != null) {
+        if (this.pOk != null) {
             try {
-                this.pNK.stop();
+                this.pOk.stop();
             } catch (IllegalStateException e) {
-                if (this.nxU != null) {
-                    this.nxU.bK(17, com.baidu.tieba.l.a.o(e));
+                if (this.nyu != null) {
+                    this.nyu.bK(17, com.baidu.tieba.l.a.o(e));
                 }
             }
-            this.pNK = null;
+            this.pOk = null;
         }
     }
 
@@ -98,19 +98,19 @@ public class e {
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.mTrackIndex = this.pNK.f(outputFormat);
-                if (!this.pNK.start()) {
-                    synchronized (this.pNK) {
-                        while (!this.pNK.isStarted() && !this.pOi) {
+                this.mTrackIndex = this.pOk.f(outputFormat);
+                if (!this.pOk.start()) {
+                    synchronized (this.pOk) {
+                        while (!this.pOk.isStarted() && !this.pOI) {
                             try {
-                                this.pNK.wait(100L);
+                                this.pOk.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.pOi) {
+                if (!this.pOI) {
                     this.chH = true;
                 } else {
                     return;
@@ -131,12 +131,12 @@ public class e {
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.pNK.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
+                    this.pOk.c(this.mTrackIndex, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pOl >= 500) {
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.pOL >= 500) {
                     this.mEncoder.setParameters(this.dsU);
-                    this.pOl = System.currentTimeMillis();
+                    this.pOL = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

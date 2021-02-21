@@ -32,18 +32,18 @@ import org.json.JSONObject;
 public class b {
     private ab aDd;
     private long buN;
-    private String hEs;
-    private String hEt;
-    private boolean hEu;
+    private String hEG;
+    private String hEH;
+    private boolean hEI;
     private TbPageContext mPageContext;
     private String mTips;
-    private h ora;
-    private a ovo;
-    private c ovp;
-    private com.baidu.tieba.yuyinala.liveroom.h.a ovq;
-    public dg ovr;
-    private boolean hEx = true;
-    private boolean hEy = false;
+    private h orB;
+    private a ovO;
+    private c ovP;
+    private com.baidu.tieba.yuyinala.liveroom.h.a ovQ;
+    public dg ovR;
+    private boolean hEL = true;
+    private boolean hEM = false;
     private CustomMessageListener bci = new CustomMessageListener(2501033) { // from class: com.baidu.tieba.yuyinala.liveroom.h.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -56,7 +56,7 @@ public class b {
 
     /* loaded from: classes11.dex */
     public interface a {
-        boolean cbM();
+        boolean cbT();
     }
 
     public b(TbPageContext tbPageContext) {
@@ -65,12 +65,12 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.ovo = aVar;
+        this.ovO = aVar;
     }
 
     public void h(ab abVar) {
         if (abVar != null) {
-            this.hEu = false;
+            this.hEI = false;
             dj djVar = abVar.aIU;
             if (djVar != null) {
                 try {
@@ -78,11 +78,11 @@ public class b {
                 } catch (NumberFormatException e) {
                     e.printStackTrace();
                 }
-                this.hEs = djVar.cover;
-                this.hEt = djVar.room_name;
+                this.hEG = djVar.cover;
+                this.hEH = djVar.room_name;
                 Mi();
                 registerListener();
-                cfM();
+                cfT();
             }
         }
     }
@@ -92,11 +92,11 @@ public class b {
     }
 
     public void oq(boolean z) {
-        this.hEx = z;
+        this.hEL = z;
     }
 
     private void IZ() {
-        this.hEu = false;
+        this.hEI = false;
         this.aDd = null;
         FA();
         LiveTimerManager.getInstance().removeLiveTimerTask("yuyin_guide_follow_float", true);
@@ -108,10 +108,10 @@ public class b {
     }
 
     private void Mj() {
-        this.ovp = new c();
-        this.ovr = new dg();
-        this.ovr.parserJson(com.baidu.live.d.xc().getString("guide_follow_float_config", "{}"));
-        this.mTips = this.ovr.aTw;
+        this.ovP = new c();
+        this.ovR = new dg();
+        this.ovR.parserJson(com.baidu.live.d.xc().getString("guide_follow_float_config", "{}"));
+        this.mTips = this.ovR.aTw;
         String string = com.baidu.live.d.xc().getString("guide_follow_float_times_date_yuyin", "");
         if (!TextUtils.isEmpty(string)) {
             try {
@@ -119,11 +119,11 @@ public class b {
                 String optString = jSONObject.optString("date");
                 String b2 = k.b(new Date());
                 if (optString.equals(b2)) {
-                    this.ovp.hEE = jSONObject.optBoolean("hasShowMax");
-                    if (!this.ovp.hEE) {
-                        this.ovp.date = b2;
-                        this.ovp.brp = jSONObject.optInt("times");
-                        this.ovp.ovu = jSONObject.optInt("clickTimes");
+                    this.ovP.hES = jSONObject.optBoolean("hasShowMax");
+                    if (!this.ovP.hES) {
+                        this.ovP.date = b2;
+                        this.ovP.brp = jSONObject.optInt("times");
+                        this.ovP.ovU = jSONObject.optInt("clickTimes");
                     }
                 }
             } catch (JSONException e) {
@@ -133,21 +133,21 @@ public class b {
     }
 
     private void Mi() {
-        if (this.ovp == null) {
-            this.ovp = new c();
+        if (this.ovP == null) {
+            this.ovP = new c();
         }
-        String str = this.ovp.date;
+        String str = this.ovP.date;
         if (!TextUtils.isEmpty(str) && !str.equals(k.b(new Date()))) {
-            this.ovp.hEE = false;
-            this.ovp.brp = 0;
+            this.ovP.hES = false;
+            this.ovP.brp = 0;
         }
     }
 
-    private void cfM() {
+    private void cfT() {
         int i;
-        if (!this.hEu && TbadkCoreApplication.isLogin() && !this.ovp.hEE && this.ovr != null) {
-            if (!k.b(new Date()).equals(this.ovp.date) || this.ovp.brp < this.ovr.aTv) {
-                if ((!k.b(new Date()).equals(this.ovp.date) || this.ovp.brp < this.ovr.aTv - 1 || this.ovp.ovu != 0) && (i = this.ovr.aTu) > 0) {
+        if (!this.hEI && TbadkCoreApplication.isLogin() && !this.ovP.hES && this.ovR != null) {
+            if (!k.b(new Date()).equals(this.ovP.date) || this.ovP.brp < this.ovR.aTv) {
+                if ((!k.b(new Date()).equals(this.ovP.date) || this.ovP.brp < this.ovR.aTv - 1 || this.ovP.ovU != 0) && (i = this.ovR.aTu) > 0) {
                     LiveTimerManager.getInstance().addLiveTimerTask("yuyin_guide_follow_float", this.buN, new OnLiveTimerListener() { // from class: com.baidu.tieba.yuyinala.liveroom.h.b.2
                         @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                         public void onComplete(boolean z) {
@@ -165,76 +165,76 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void os(boolean z) {
-        if (z && this.hEx && !this.hEy && !this.ovp.hEE && this.ovo != null && !this.ovo.cbM()) {
-            cfO();
+        if (z && this.hEL && !this.hEM && !this.ovP.hES && this.ovO != null && !this.ovO.cbT()) {
+            cfV();
         }
     }
 
-    private void cfO() {
-        this.hEu = true;
-        cfP();
-        cfQ();
+    private void cfV() {
+        this.hEI = true;
+        cfW();
+        cfX();
     }
 
-    private void cfP() {
-        if (this.ovq == null) {
-            this.ovq = new d(this.mPageContext.getPageActivity());
-            this.ovq.a(new a.InterfaceC0924a() { // from class: com.baidu.tieba.yuyinala.liveroom.h.b.3
-                @Override // com.baidu.tieba.yuyinala.liveroom.h.a.InterfaceC0924a
+    private void cfW() {
+        if (this.ovQ == null) {
+            this.ovQ = new d(this.mPageContext.getPageActivity());
+            this.ovQ.a(new a.InterfaceC0926a() { // from class: com.baidu.tieba.yuyinala.liveroom.h.b.3
+                @Override // com.baidu.tieba.yuyinala.liveroom.h.a.InterfaceC0926a
                 public void onConfirm() {
-                    b.this.ebk();
-                    b.this.ebm();
-                    b.this.ebj();
+                    b.this.ebs();
+                    b.this.ebu();
+                    b.this.ebr();
                 }
             });
         }
         if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing()) {
-            this.ovq.o(this.hEs, this.hEt, this.mTips);
-            ebn();
+            this.ovQ.o(this.hEG, this.hEH, this.mTips);
+            ebv();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebj() {
+    public void ebr() {
         String b2 = k.b(new Date());
-        if (b2.equals(this.ovp.date)) {
-            this.ovp.ovu++;
+        if (b2.equals(this.ovP.date)) {
+            this.ovP.ovU++;
         } else {
-            this.ovp.date = b2;
-            this.ovp.ovu = 1;
+            this.ovP.date = b2;
+            this.ovP.ovU = 1;
         }
-        com.baidu.live.d.xc().putString("guide_follow_float_times_date_yuyin", this.ovp.toJsonString());
+        com.baidu.live.d.xc().putString("guide_follow_float_times_date_yuyin", this.ovP.toJsonString());
     }
 
-    private void cfQ() {
+    private void cfX() {
         String b2 = k.b(new Date());
-        if (b2.equals(this.ovp.date)) {
-            this.ovp.brp++;
+        if (b2.equals(this.ovP.date)) {
+            this.ovP.brp++;
         } else {
-            this.ovp.date = b2;
-            this.ovp.brp = 1;
+            this.ovP.date = b2;
+            this.ovP.brp = 1;
         }
-        if (com.baidu.live.ae.a.Qj().buX != null && com.baidu.live.ae.a.Qj().buX.aMM != null && this.ovr != null) {
-            if (this.ovp.brp >= this.ovr.aTv) {
-                this.ovp.hEE = true;
+        if (com.baidu.live.ae.a.Qj().buX != null && com.baidu.live.ae.a.Qj().buX.aMM != null && this.ovR != null) {
+            if (this.ovP.brp >= this.ovR.aTv) {
+                this.ovP.hES = true;
             }
-            com.baidu.live.d.xc().putString("guide_follow_float_times_date_yuyin", this.ovp.toJsonString());
+            com.baidu.live.d.xc().putString("guide_follow_float_times_date_yuyin", this.ovP.toJsonString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebk() {
+    public void ebs() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());
         } else if (BdUtilHelper.isNetOk()) {
             if (this.aDd != null && this.aDd.aIU != null) {
-                this.ovq.LW(3);
-                this.ora = new h(this.mPageContext.getPageActivity());
-                this.ora.y(this.aDd.aIU.aTK, this.aDd.aIU.live_id, 1);
-                this.ora.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.h.b.4
+                this.ovQ.LX(3);
+                this.orB = new h(this.mPageContext.getPageActivity());
+                this.orB.y(this.aDd.aIU.aTK, this.aDd.aIU.live_id, 1);
+                this.orB.a(new h.a() { // from class: com.baidu.tieba.yuyinala.liveroom.h.b.4
                     @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
                     public void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage) {
-                        b.this.ovq.LW(4);
+                        b.this.ovQ.LX(4);
                         SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.h.b.4.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -243,12 +243,12 @@ public class b {
                         }, 1000L);
                         BdUtilHelper.showToast(b.this.mPageContext.getPageActivity(), "收藏成功，将收到房间的开播提醒", 3000);
                         MessageManager.getInstance().dispatchResponsedMessage(new YuyinFollowRoomMessage(new FollowRoom(true, b.this.aDd.aIU.live_id)));
-                        b.this.ebl();
+                        b.this.ebt();
                     }
 
                     @Override // com.baidu.tieba.yuyinala.liveroom.roomcard.h.a
                     public void onFail(int i, String str) {
-                        b.this.ovq.LW(1);
+                        b.this.ovQ.LX(1);
                         BdUtilHelper.showToast(b.this.mPageContext.getPageActivity(), "房间收藏失败", 3000);
                     }
                 });
@@ -259,7 +259,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebl() {
+    public void ebt() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
@@ -272,36 +272,36 @@ public class b {
     }
 
     public void FA() {
-        if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing() && this.ovq != null) {
-            this.ovq.dismiss();
-            this.ovq = null;
+        if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing() && this.ovQ != null) {
+            this.ovQ.dismiss();
+            this.ovQ = null;
         }
     }
 
     public void bkp() {
-        if (this.ovq != null && this.ovq.isShowing()) {
-            this.ovq.cfK();
+        if (this.ovQ != null && this.ovQ.isShowing()) {
+            this.ovQ.cfR();
         }
     }
 
-    public void ebm() {
+    public void ebu() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
             jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDd.aIU.croom_id);
-            jSONObject.put("show_num", this.ovp.brp);
+            jSONObject.put("show_num", this.ovP.brp);
         } catch (Exception e) {
             BdLog.e(e);
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "collectguide_clk").setContentExt(null, UbcStatConstant.SubPage.POPUP, jSONObject));
     }
 
-    public void ebn() {
+    public void ebv() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
             jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDd.aIU.croom_id);
-            jSONObject.put("show_num", this.ovp.brp + 1);
+            jSONObject.put("show_num", this.ovP.brp + 1);
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.VOICE_ROOM, "collectguide_show").setContentExt(null, UbcStatConstant.SubPage.POPUP, jSONObject));
         } catch (Exception e) {
             BdLog.e(e);

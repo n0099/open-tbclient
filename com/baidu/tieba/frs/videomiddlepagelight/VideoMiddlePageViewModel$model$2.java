@@ -29,17 +29,17 @@ final class VideoMiddlePageViewModel$model$2 extends Lambda implements kotlin.jv
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void p(List<? extends BaseCardInfo> list, boolean z) {
             p.o(list, "newData");
-            VideoMiddlePageViewModel$model$2.this.this$0.cML().setValue(false);
-            VideoMiddlePageViewModel$model$2.this.this$0.cMM().setValue(Boolean.valueOf(z));
+            VideoMiddlePageViewModel$model$2.this.this$0.cMS().setValue(false);
+            VideoMiddlePageViewModel$model$2.this.this$0.cMT().setValue(Boolean.valueOf(z));
             VideoMiddlePageViewModel$model$2.this.this$0.cv(n.q(list));
-            VideoMiddlePageViewModel$model$2.this.this$0.cMN().setValue("");
+            VideoMiddlePageViewModel$model$2.this.this$0.cMU().setValue("");
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void vz(String str) {
             p.o(str, "errMsg");
-            VideoMiddlePageViewModel$model$2.this.this$0.cML().setValue(false);
-            VideoMiddlePageViewModel$model$2.this.this$0.cMN().setValue(str);
+            VideoMiddlePageViewModel$model$2.this.this$0.cMS().setValue(false);
+            VideoMiddlePageViewModel$model$2.this.this$0.cMU().setValue(str);
         }
     }
 

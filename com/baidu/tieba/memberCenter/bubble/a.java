@@ -10,23 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<BubbleChooseActivity> iVb;
-    private boolean lkO;
+    private TbPageContext<BubbleChooseActivity> iVp;
+    private boolean llc;
     private int mBottom;
     private List<BubbleListData.BubbleData> mData = new ArrayList();
     private int mTop;
 
     public void tT(boolean z) {
-        this.lkO = z;
+        this.llc = z;
     }
 
     public a(TbPageContext<BubbleChooseActivity> tbPageContext) {
-        this.iVb = tbPageContext;
-        this.mBottom = (int) this.iVb.getResources().getDimension(R.dimen.ds30);
-        this.mTop = (int) this.iVb.getResources().getDimension(R.dimen.ds30);
+        this.iVp = tbPageContext;
+        this.mBottom = (int) this.iVp.getResources().getDimension(R.dimen.ds30);
+        this.mTop = (int) this.iVp.getResources().getDimension(R.dimen.ds30);
     }
 
-    public List<BubbleListData.BubbleData> cSb() {
+    public List<BubbleListData.BubbleData> cSi() {
         return this.mData;
     }
 
@@ -57,7 +57,7 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         BubbleView bubbleView;
         if (view == null) {
-            BubbleView bubbleView2 = new BubbleView(this.iVb.getPageActivity());
+            BubbleView bubbleView2 = new BubbleView(this.iVp.getPageActivity());
             bubbleView = bubbleView2;
             view = bubbleView2;
         } else {
@@ -76,9 +76,9 @@ public class a extends BaseAdapter {
         BubbleListData.BubbleData item = getItem(i);
         if (item != null) {
             bubbleView.setShowName(true);
-            bubbleView.setData(item, this.lkO);
+            bubbleView.setData(item, this.llc);
         }
-        bubbleView.D(this.iVb);
+        bubbleView.D(this.iVp);
         return view;
     }
 

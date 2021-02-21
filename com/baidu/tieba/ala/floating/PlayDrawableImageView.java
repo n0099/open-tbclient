@@ -9,29 +9,29 @@ import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.floating.PlayDrawable;
 /* loaded from: classes11.dex */
 public class PlayDrawableImageView extends ImageView {
-    private PlayDrawable gUw;
+    private PlayDrawable gUK;
 
     public PlayDrawableImageView(Context context) {
         super(context);
-        this.gUw = null;
+        this.gUK = null;
         init();
     }
 
     public PlayDrawableImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gUw = null;
+        this.gUK = null;
         init();
     }
 
     public PlayDrawableImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gUw = null;
+        this.gUK = null;
         init();
     }
 
     private void init() {
-        this.gUw = new PlayDrawable();
-        setImageDrawable(this.gUw);
+        this.gUK = new PlayDrawable();
+        setImageDrawable(this.gUK);
         setBackgroundResource(a.e.video_player_playbtn_bg);
         setIconState(PlayDrawable.IconState.PLAY_STATE);
     }
@@ -43,8 +43,8 @@ public class PlayDrawableImageView extends ImageView {
     }
 
     public void setIconState(PlayDrawable.IconState iconState) {
-        if (this.gUw != null) {
-            this.gUw.setIconState(iconState);
+        if (this.gUK != null) {
+            this.gUK.setIconState(iconState);
         }
     }
 

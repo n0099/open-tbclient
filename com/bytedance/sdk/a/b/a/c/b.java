@@ -20,60 +20,60 @@ public final class b implements x {
     @Override // com.bytedance.sdk.a.b.x
     public com.bytedance.sdk.a.b.b a(x.a aVar) throws IOException {
         b.a aVar2;
-        com.bytedance.sdk.a.b.b epJ;
+        com.bytedance.sdk.a.b.b epR;
         g gVar = (g) aVar;
-        c epj = gVar.epj();
-        com.bytedance.sdk.a.b.a.b.g epi = gVar.epi();
-        com.bytedance.sdk.a.b.a.b.c cVar = (com.bytedance.sdk.a.b.a.b.c) gVar.eph();
-        ab epm = gVar.epm();
+        c epr = gVar.epr();
+        com.bytedance.sdk.a.b.a.b.g epq = gVar.epq();
+        com.bytedance.sdk.a.b.a.b.c cVar = (com.bytedance.sdk.a.b.a.b.c) gVar.epp();
+        ab epu = gVar.epu();
         long currentTimeMillis = System.currentTimeMillis();
-        gVar.epl().c(gVar.epk());
-        epj.d(epm);
-        gVar.epl().a(gVar.epk(), epm);
+        gVar.ept().c(gVar.eps());
+        epr.d(epu);
+        gVar.ept().a(gVar.eps(), epu);
         b.a aVar3 = null;
-        if (!f.c(epm.b()) || epm.eqv() == null) {
+        if (!f.c(epu.b()) || epu.eqD() == null) {
             aVar2 = null;
         } else {
-            if (HTTP.EXPECT_CONTINUE.equalsIgnoreCase(epm.a(HTTP.EXPECT_DIRECTIVE))) {
-                epj.a();
-                gVar.epl().e(gVar.epk());
-                aVar3 = epj.Ba(true);
+            if (HTTP.EXPECT_CONTINUE.equalsIgnoreCase(epu.a(HTTP.EXPECT_DIRECTIVE))) {
+                epr.a();
+                gVar.ept().e(gVar.eps());
+                aVar3 = epr.Ba(true);
             }
             if (aVar3 == null) {
-                gVar.epl().d(gVar.epk());
-                a aVar4 = new a(epj.a(epm, epm.eqv().b()));
+                gVar.ept().d(gVar.eps());
+                a aVar4 = new a(epr.a(epu, epu.eqD().b()));
                 com.bytedance.sdk.a.a.d b2 = com.bytedance.sdk.a.a.l.b(aVar4);
-                epm.eqv().a(b2);
+                epu.eqD().a(b2);
                 b2.close();
-                gVar.epl().a(gVar.epk(), aVar4.f5877a);
+                gVar.ept().a(gVar.eps(), aVar4.f5877a);
                 aVar2 = aVar3;
             } else {
                 if (!cVar.d()) {
-                    epi.d();
+                    epq.d();
                 }
                 aVar2 = aVar3;
             }
         }
-        epj.b();
+        epr.b();
         if (aVar2 == null) {
-            gVar.epl().e(gVar.epk());
-            aVar2 = epj.Ba(false);
+            gVar.ept().e(gVar.eps());
+            aVar2 = epr.Ba(false);
         }
-        com.bytedance.sdk.a.b.b epJ2 = aVar2.f(epm).a(epi.epf().eoY()).is(currentTimeMillis).it(System.currentTimeMillis()).epJ();
-        gVar.epl().a(gVar.epk(), epJ2);
-        int c = epJ2.c();
+        com.bytedance.sdk.a.b.b epR2 = aVar2.f(epu).a(epq.epn().epg()).is(currentTimeMillis).it(System.currentTimeMillis()).epR();
+        gVar.ept().a(gVar.eps(), epR2);
+        int c = epR2.c();
         if (this.f5876a && c == 101) {
-            epJ = epJ2.epG().a(com.bytedance.sdk.a.b.a.c.poR).epJ();
+            epR = epR2.epO().a(com.bytedance.sdk.a.b.a.c.ppt).epR();
         } else {
-            epJ = epJ2.epG().a(epj.c(epJ2)).epJ();
+            epR = epR2.epO().a(epr.c(epR2)).epR();
         }
-        if ("close".equalsIgnoreCase(epJ.epm().a(HTTP.CONN_DIRECTIVE)) || "close".equalsIgnoreCase(epJ.a(HTTP.CONN_DIRECTIVE))) {
-            epi.d();
+        if ("close".equalsIgnoreCase(epR.epu().a(HTTP.CONN_DIRECTIVE)) || "close".equalsIgnoreCase(epR.a(HTTP.CONN_DIRECTIVE))) {
+            epq.d();
         }
-        if ((c == 204 || c == 205) && epJ.epF().b() > 0) {
-            throw new ProtocolException("HTTP " + c + " had non-zero Content-Length: " + epJ.epF().b());
+        if ((c == 204 || c == 205) && epR.epN().b() > 0) {
+            throw new ProtocolException("HTTP " + c + " had non-zero Content-Length: " + epR.epN().b());
         }
-        return epJ;
+        return epR;
     }
 
     /* loaded from: classes6.dex */

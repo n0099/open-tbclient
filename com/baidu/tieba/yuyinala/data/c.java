@@ -12,7 +12,7 @@ public class c extends g {
     public String aTK;
     public String cover;
     public int eRx;
-    public ArrayList<a> gSH;
+    public ArrayList<a> gSV;
     public String liveId;
     public int rank;
     public String room_name;
@@ -28,12 +28,12 @@ public class c extends g {
         this.eRx = jSONObject.optInt("live_status");
         JSONArray optJSONArray = jSONObject.optJSONArray("bro_list");
         if (optJSONArray != null) {
-            this.gSH = new ArrayList<>();
+            this.gSV = new ArrayList<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 a aVar = new a();
                 aVar.parserJson(optJSONObject);
-                this.gSH.add(aVar);
+                this.gSV.add(aVar);
             }
         }
     }

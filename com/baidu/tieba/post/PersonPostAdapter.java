@@ -6,37 +6,37 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes8.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
-    private int[] gWK;
-    private PersonThreadFragment mLB;
-    private PersonReplyFragment mLC;
+    private int[] gWY;
+    private PersonThreadFragment mLQ;
+    private PersonReplyFragment mLR;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.dAW());
-        this.mLC = new PersonReplyFragment();
-        this.mLC.setArguments(bundle);
-        this.mLC.a(personPostActivity);
-        this.mLB = new PersonThreadFragment();
-        this.mLB.setArguments(bundle);
-        this.mLB.a((d) personPostActivity);
-        this.mLB.a((b) personPostActivity);
-        this.gWK = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.dBd());
+        this.mLR = new PersonReplyFragment();
+        this.mLR.setArguments(bundle);
+        this.mLR.a(personPostActivity);
+        this.mLQ = new PersonThreadFragment();
+        this.mLQ.setArguments(bundle);
+        this.mLQ.a((d) personPostActivity);
+        this.mLQ.a((b) personPostActivity);
+        this.gWY = new int[]{0, 1};
     }
 
-    public PersonThreadFragment dAX() {
-        return this.mLB;
+    public PersonThreadFragment dBe() {
+        return this.mLQ;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.mLB;
+                return this.mLQ;
             case 1:
-                return this.mLC;
+                return this.mLR;
             default:
                 return null;
         }
@@ -48,6 +48,6 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     }
 
     public int Dj(int i) {
-        return this.gWK[i];
+        return this.gWY[i];
     }
 }

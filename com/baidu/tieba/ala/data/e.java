@@ -6,10 +6,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
-    public ArrayList<a> gSA;
-    public long gSg;
-    public String gSy;
-    public boolean gSz;
+    public String gSM;
+    public boolean gSN;
+    public ArrayList<a> gSO;
+    public long gSu;
     public String portrait;
     public String userName;
 
@@ -18,20 +18,20 @@ public class e {
         if (optJSONObject != null) {
             this.userName = optJSONObject.optString("user_name");
             this.portrait = optJSONObject.optString("bd_portrait");
-            this.gSy = optJSONObject.optString("name_suffix");
+            this.gSM = optJSONObject.optString("name_suffix");
         }
-        this.gSz = jSONObject.optInt("loot_result") == 1;
-        this.gSg = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+        this.gSN = jSONObject.optInt("loot_result") == 1;
+        this.gSu = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         JSONArray optJSONArray = jSONObject.optJSONArray("loot_list");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             int length = optJSONArray.length();
-            this.gSA = new ArrayList<>(length);
+            this.gSO = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                 if (jSONObject2 != null) {
                     a aVar = new a();
                     aVar.parserJson(jSONObject2);
-                    this.gSA.add(aVar);
+                    this.gSO.add(aVar);
                 }
             }
         }

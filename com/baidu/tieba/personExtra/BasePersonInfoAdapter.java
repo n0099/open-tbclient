@@ -7,45 +7,45 @@ import com.baidu.tbadk.core.BaseFragment;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
-    private int[] gWK;
-    private ArrayList<BaseFragment> mvF;
+    private int[] gWY;
+    private ArrayList<BaseFragment> mvU;
 
-    protected abstract BaseFragment dxd();
+    protected abstract BaseFragment dxk();
 
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.mvF = new ArrayList<>();
+        this.mvU = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment dxd = dxd();
-        dxd.setArguments(bundle);
-        this.mvF.add(dxd);
+        BaseFragment dxk = dxk();
+        dxk.setArguments(bundle);
+        this.mvU.add(dxk);
         if (!z) {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
-            BaseFragment dxd2 = dxd();
-            dxd2.setArguments(bundle2);
-            this.mvF.add(dxd2);
-            this.gWK = new int[]{0, 1};
+            BaseFragment dxk2 = dxk();
+            dxk2.setArguments(bundle2);
+            this.mvU.add(dxk2);
+            this.gWY = new int[]{0, 1};
             return;
         }
-        this.gWK = new int[]{0};
+        this.gWY = new int[]{0};
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= this.gWK.length || i < 0) {
+        if (i >= this.gWY.length || i < 0) {
             return null;
         }
-        return this.mvF.get(i);
+        return this.mvU.get(i);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.gWK.length;
+        return this.gWY.length;
     }
 
     public int Dj(int i) {
-        return this.gWK[i];
+        return this.gWY[i];
     }
 }

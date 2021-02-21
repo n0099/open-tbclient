@@ -7,16 +7,16 @@ public class a {
 
     /* renamed from: com.kwad.sdk.emotion.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1111a {
+    public static class C1113a {
 
         /* renamed from: a  reason: collision with root package name */
         private final a f9755a;
 
-        private C1111a() {
+        private C1113a() {
             this.f9755a = new a();
         }
 
-        public C1111a a(String str) {
+        public C1113a a(String str) {
             this.f9755a.f9754a = str;
             return this;
         }
@@ -33,8 +33,8 @@ public class a {
         this.f9754a = str;
     }
 
-    public static C1111a a() {
-        return new C1111a();
+    public static C1113a a() {
+        return new C1113a();
     }
 
     public String b() {

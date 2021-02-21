@@ -4,7 +4,7 @@ import android.content.Intent;
 import java.net.URISyntaxException;
 /* loaded from: classes3.dex */
 public final class bs {
-    public static Intent abO(String str) {
+    public static Intent aca(String str) {
         try {
             return Intent.parseUri(str, 1);
         } catch (URISyntaxException e) {

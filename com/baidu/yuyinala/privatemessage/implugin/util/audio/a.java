@@ -17,7 +17,7 @@ public class a implements AudioManager.OnAudioFocusChangeListener {
         return 1 == this.mAudioManager.requestAudioFocus(this, 3, 2);
     }
 
-    public boolean emu() {
+    public boolean emC() {
         return 1 == this.mAudioManager.abandonAudioFocus(this);
     }
 

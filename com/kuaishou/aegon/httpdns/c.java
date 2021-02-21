@@ -10,7 +10,7 @@ public final /* synthetic */ class c implements Runnable {
         this.f8116a = str;
     }
 
-    public static Runnable ZS(String str) {
+    public static Runnable aae(String str) {
         return new c(str);
     }
 

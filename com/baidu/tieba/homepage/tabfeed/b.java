@@ -15,11 +15,11 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnItemData;
 /* loaded from: classes2.dex */
 public class b {
-    public static void Mg(String str) {
+    public static void Mh(String str) {
         ar arVar = new ar(str);
         arVar.ap("obj_type", 1);
         arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-        t.csu().e(arVar);
+        t.csB().e(arVar);
     }
 
     public static void b(String str, Object obj, int i) {
@@ -31,26 +31,26 @@ public class b {
             arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
             arVar.v("tid", specialColumnItemData.threadId);
             arVar.v("obj_id", specialColumnItemData.liveId);
-            t.csu().e(arVar);
+            t.csB().e(arVar);
         } else if (obj instanceof MetaData) {
             ar arVar2 = new ar(str);
             arVar2.ap("obj_type", 1);
             arVar2.ap("obj_locate", i);
             arVar2.v("uid", ((MetaData) obj).getUserIdLong());
-            t.csu().e(arVar2);
+            t.csB().e(arVar2);
         } else if (obj instanceof bn) {
             ar arVar3 = new ar(str);
             arVar3.ap("obj_type", 1);
             arVar3.ap("obj_locate", i);
             arVar3.v("fid", ((bn) obj).getForumId());
-            t.csu().e(arVar3);
+            t.csB().e(arVar3);
         } else if (obj instanceof l) {
             ar arVar4 = new ar(str);
             arVar4.ap("obj_type", 1);
             arVar4.dR("uid", TbadkCoreApplication.getCurrentAccount());
             arVar4.ap("obj_locate", i);
             arVar4.dR("obj_param1", ((l) obj).blK());
-            t.csu().e(arVar4);
+            t.csB().e(arVar4);
         }
     }
 
@@ -126,9 +126,9 @@ public class b {
     public static void a(com.baidu.tbadk.core.data.a aVar, String str) {
         if (aVar != null && aVar.bln() != null) {
             if (aVar.bln().bmv()) {
-                t.csu().e(m.b(aVar.bln(), str));
+                t.csB().e(m.b(aVar.bln(), str));
             } else {
-                t.csu().e(m.a(aVar.bln(), str));
+                t.csB().e(m.a(aVar.bln(), str));
             }
         }
     }

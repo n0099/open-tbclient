@@ -14,63 +14,63 @@ import com.baidu.tieba.write.a;
 /* loaded from: classes.dex */
 public class e extends h {
     private int fOr;
-    private ValueAnimator jIo;
-    private ValueAnimator jIp;
-    private ValueAnimator jhh;
-    private ValueAnimator ocN;
-    private ValueAnimator ocO;
-    private float ocP;
-    private float ocQ;
-    private AnimatorSet ocR;
-    private ValueAnimator ocS;
-    private float ocT;
-    private float ocU;
-    private float ocV;
-    private float ocW;
-    private a.c ocX;
-    private com.baidu.tieba.b.d ocY;
+    private ValueAnimator jIC;
+    private ValueAnimator jID;
+    private ValueAnimator jhv;
+    private ValueAnimator odn;
+    private ValueAnimator odo;
+    private float odp;
+    private float odq;
+    private AnimatorSet odr;
+    private ValueAnimator ods;
+    private float odt;
+    private float odu;
+    private float odv;
+    private float odw;
+    private a.c odx;
+    private com.baidu.tieba.b.d ody;
 
     public e(Context context, a.c cVar) {
         super(context, cVar);
-        this.ocW = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X009);
-        this.ocX = cVar;
+        this.odw = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X009);
+        this.odx = cVar;
         this.fOr = l.getDimens(this.mContext, R.dimen.tbds0);
         init();
     }
 
     private void init() {
-        this.ocR = new AnimatorSet();
-        this.ocN = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.ocN.setDuration(450L);
-        this.ocN.setInterpolator(new OvershootInterpolator());
-        this.ocN.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.1
+        this.odr = new AnimatorSet();
+        this.odn = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.odn.setDuration(450L);
+        this.odn.setInterpolator(new OvershootInterpolator());
+        this.odn.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if ((e.this.ocP != 0.0f || e.this.ocQ != 0.0f) && valueAnimator.isRunning()) {
-                    e.this.ocX.ocn.setCrossFade(valueAnimator.getAnimatedFraction(), false);
-                    e.this.ocX.ocn.setTranslationX(e.this.ocP - (e.this.ocP * valueAnimator.getAnimatedFraction()));
-                    e.this.ocX.ocn.setTranslationY(e.this.ocQ - (e.this.ocQ * valueAnimator.getAnimatedFraction()));
-                    e.this.ocX.ocn.setRotation((-90.0f) * valueAnimator.getAnimatedFraction());
+                if ((e.this.odp != 0.0f || e.this.odq != 0.0f) && valueAnimator.isRunning()) {
+                    e.this.odx.ocO.setCrossFade(valueAnimator.getAnimatedFraction(), false);
+                    e.this.odx.ocO.setTranslationX(e.this.odp - (e.this.odp * valueAnimator.getAnimatedFraction()));
+                    e.this.odx.ocO.setTranslationY(e.this.odq - (e.this.odq * valueAnimator.getAnimatedFraction()));
+                    e.this.odx.ocO.setRotation((-90.0f) * valueAnimator.getAnimatedFraction());
                 }
             }
         });
-        this.ocN.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.6
+        this.odn.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.6
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 if (e.this.eZA != null) {
                     e.this.eZA.setVisibility(4);
                     e.this.eZA.setAlpha(0.0f);
                 }
-                e.this.ocX.ocn.setEndIcon(R.drawable.icon_pure_frs_issue24, e.this.fOr, "webp");
+                e.this.odx.ocO.setEndIcon(R.drawable.icon_pure_frs_issue24, e.this.fOr, "webp");
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                e.this.ocX.ocn.setTranslationX(0.0f);
-                e.this.ocX.ocn.setTranslationY(0.0f);
-                e.this.ocX.ocn.setRotation(-90.0f);
-                e.this.ocX.ocn.setEndIcon(R.drawable.icon_pure_frs_issue24, e.this.fOr, "webp");
-                e.this.ocX.ocn.setCrossFade(1.0f, false);
+                e.this.odx.ocO.setTranslationX(0.0f);
+                e.this.odx.ocO.setTranslationY(0.0f);
+                e.this.odx.ocO.setRotation(-90.0f);
+                e.this.odx.ocO.setEndIcon(R.drawable.icon_pure_frs_issue24, e.this.fOr, "webp");
+                e.this.odx.ocO.setCrossFade(1.0f, false);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -82,33 +82,33 @@ public class e extends h {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.ocO = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.ocO.setDuration(450L);
-        this.ocO.setInterpolator(new AccelerateInterpolator());
-        this.ocO.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.7
+        this.odo = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.odo.setDuration(450L);
+        this.odo.setInterpolator(new AccelerateInterpolator());
+        this.odo.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.7
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if ((e.this.ocP != 0.0f || e.this.ocQ != 0.0f) && valueAnimator.isRunning()) {
-                    e.this.ocX.ocn.setCrossFade(valueAnimator.getAnimatedFraction(), true);
-                    e.this.ocX.ocn.setTranslationX(e.this.ocP * valueAnimator.getAnimatedFraction());
-                    e.this.ocX.ocn.setTranslationY(e.this.ocQ * valueAnimator.getAnimatedFraction());
-                    e.this.ocX.ocn.setRotation((-90.0f) + (90.0f * valueAnimator.getAnimatedFraction()));
+                if ((e.this.odp != 0.0f || e.this.odq != 0.0f) && valueAnimator.isRunning()) {
+                    e.this.odx.ocO.setCrossFade(valueAnimator.getAnimatedFraction(), true);
+                    e.this.odx.ocO.setTranslationX(e.this.odp * valueAnimator.getAnimatedFraction());
+                    e.this.odx.ocO.setTranslationY(e.this.odq * valueAnimator.getAnimatedFraction());
+                    e.this.odx.ocO.setRotation((-90.0f) + (90.0f * valueAnimator.getAnimatedFraction()));
                 }
             }
         });
-        this.ocO.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.8
+        this.odo.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.8
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                e.this.ocX.ocn.setEndIcon(R.drawable.icon_pure_frs_issue24, e.this.fOr, "webp");
+                e.this.odx.ocO.setEndIcon(R.drawable.icon_pure_frs_issue24, e.this.fOr, "webp");
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                e.this.ocX.ocn.setTranslationX(e.this.ocP);
-                e.this.ocX.ocn.setTranslationY(e.this.ocQ);
-                e.this.ocX.ocn.setRotation(0.0f);
-                e.this.ocX.ocn.setEndIcon(0, 0, "");
-                e.this.ocX.ocn.setCrossFade(1.0f, true);
+                e.this.odx.ocO.setTranslationX(e.this.odp);
+                e.this.odx.ocO.setTranslationY(e.this.odq);
+                e.this.odx.ocO.setRotation(0.0f);
+                e.this.odx.ocO.setEndIcon(0, 0, "");
+                e.this.odx.ocO.setCrossFade(1.0f, true);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -120,59 +120,28 @@ public class e extends h {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.jIo = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.jIo.setDuration(416L);
-        this.jIo.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.9
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (valueAnimator.isRunning()) {
-                    e.this.ocX.oco.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    e.this.ocX.obJ.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    e.this.ocX.obS.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                }
-            }
-        });
-        this.jIo.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.10
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                e.this.ocX.oco.setAlpha(1.0f);
-                e.this.ocX.obJ.setAlpha(1.0f);
-                e.this.ocX.obS.setAlpha(1.0f);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                onAnimationEnd(animator);
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-        this.jIp = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.jIp.setDuration(200L);
-        this.jIp.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.11
+        this.jIC = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.jIC.setDuration(416L);
+        this.jIC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.9
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning()) {
-                    e.this.ocX.obJ.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    e.this.ocX.obS.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    e.this.odx.ocP.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    e.this.odx.ocj.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    e.this.odx.oct.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.jIp.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.12
+        this.jIC.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.10
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                e.this.ocX.obJ.setAlpha(0.0f);
-                e.this.ocX.obS.setAlpha(0.0f);
+                e.this.odx.ocP.setAlpha(1.0f);
+                e.this.odx.ocj.setAlpha(1.0f);
+                e.this.odx.oct.setAlpha(1.0f);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -184,45 +153,76 @@ public class e extends h {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.ocS = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.ocS.setDuration(240L);
-        this.ocS.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.13
+        this.jID = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.jID.setDuration(200L);
+        this.jID.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.11
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning()) {
-                    e.this.ocX.oco.setTranslationY(e.this.ocT - (e.this.ocT * valueAnimator.getAnimatedFraction()));
+                    e.this.odx.ocj.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    e.this.odx.oct.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.ocR.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.2
+        this.jID.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.12
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                e.this.ocX.ocd.setClickable(false);
-                e.this.ocX.oca.setClickable(false);
-                e.this.ocX.obX.setClickable(false);
-                e.this.ocX.obU.setClickable(false);
-                e.this.ocX.ocf.setClickable(false);
-                e.this.ocX.och.setClickable(false);
-                e.this.ocX.ock.setClickable(false);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                com.baidu.tieba.b.e aF = new com.baidu.tieba.b.e(e.this.ocV).aG(0.5f).aF(800.0f);
-                e.this.ocY = new com.baidu.tieba.b.d(e.this.ocX.oco, com.baidu.tieba.b.d.iop).a(aF);
-                e.this.ocY.start();
-                e.this.ocX.oco.setTranslationY(0.0f);
+                e.this.odx.ocj.setAlpha(0.0f);
+                e.this.odx.oct.setAlpha(0.0f);
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationCancel(Animator animator) {
+                onAnimationEnd(animator);
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationRepeat(Animator animator) {
+            }
+        });
+        this.ods = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.ods.setDuration(240L);
+        this.ods.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.13
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                if (valueAnimator.isRunning()) {
+                    e.this.odx.ocP.setTranslationY(e.this.odt - (e.this.odt * valueAnimator.getAnimatedFraction()));
+                }
+            }
+        });
+        this.odr.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.2
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator) {
+                e.this.odx.ocE.setClickable(false);
+                e.this.odx.ocB.setClickable(false);
+                e.this.odx.ocy.setClickable(false);
+                e.this.odx.ocv.setClickable(false);
+                e.this.odx.ocG.setClickable(false);
+                e.this.odx.ocI.setClickable(false);
+                e.this.odx.ocL.setClickable(false);
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                com.baidu.tieba.b.e aF = new com.baidu.tieba.b.e(e.this.odv).aG(0.5f).aF(800.0f);
+                e.this.ody = new com.baidu.tieba.b.d(e.this.odx.ocP, com.baidu.tieba.b.d.ioD).a(aF);
+                e.this.ody.start();
+                e.this.odx.ocP.setTranslationY(0.0f);
                 e.this.mState = 2;
-                if (e.this.odj != null) {
-                    e.this.odj.Lh(e.this.mState);
+                if (e.this.odJ != null) {
+                    e.this.odJ.Li(e.this.mState);
                 }
-                e.this.ocX.ocd.setClickable(true);
-                e.this.ocX.oca.setClickable(true);
-                e.this.ocX.obX.setClickable(true);
-                e.this.ocX.obU.setClickable(true);
-                e.this.ocX.ocf.setClickable(true);
-                e.this.ocX.och.setClickable(true);
-                e.this.ocX.ock.setClickable(true);
+                e.this.odx.ocE.setClickable(true);
+                e.this.odx.ocB.setClickable(true);
+                e.this.odx.ocy.setClickable(true);
+                e.this.odx.ocv.setClickable(true);
+                e.this.odx.ocG.setClickable(true);
+                e.this.odx.ocI.setClickable(true);
+                e.this.odx.ocL.setClickable(true);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -234,41 +234,41 @@ public class e extends h {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.jhh = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.jhh.setDuration(200L);
-        this.jhh.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.3
+        this.jhv = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.jhv.setDuration(200L);
+        this.jhv.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.write.e.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 if (valueAnimator.isRunning()) {
-                    e.this.ocX.oco.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    e.this.ocX.oco.setTranslationY(e.this.ocU * valueAnimator.getAnimatedFraction());
+                    e.this.odx.ocP.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    e.this.odx.ocP.setTranslationY(e.this.odu * valueAnimator.getAnimatedFraction());
                 }
             }
         });
-        this.jhh.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.4
+        this.jhv.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.write.e.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                e.this.ocX.ocd.setClickable(false);
-                e.this.ocX.oca.setClickable(false);
-                e.this.ocX.obX.setClickable(false);
-                e.this.ocX.obU.setClickable(false);
-                e.this.ocX.ocf.setClickable(false);
-                e.this.ocX.och.setClickable(false);
-                e.this.ocX.ock.setClickable(false);
+                e.this.odx.ocE.setClickable(false);
+                e.this.odx.ocB.setClickable(false);
+                e.this.odx.ocy.setClickable(false);
+                e.this.odx.ocv.setClickable(false);
+                e.this.odx.ocG.setClickable(false);
+                e.this.odx.ocI.setClickable(false);
+                e.this.odx.ocL.setClickable(false);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                e.this.ocX.oco.setAlpha(0.0f);
-                e.this.ocX.oco.setTranslationY(e.this.ocU);
+                e.this.odx.ocP.setAlpha(0.0f);
+                e.this.odx.ocP.setTranslationY(e.this.odu);
                 e.this.Sf();
-                e.this.ocX.ocd.setClickable(true);
-                e.this.ocX.oca.setClickable(true);
-                e.this.ocX.obX.setClickable(true);
-                e.this.ocX.obU.setClickable(true);
-                e.this.ocX.ocf.setClickable(true);
-                e.this.ocX.och.setClickable(true);
-                e.this.ocX.ock.setClickable(true);
+                e.this.odx.ocE.setClickable(true);
+                e.this.odx.ocB.setClickable(true);
+                e.this.odx.ocy.setClickable(true);
+                e.this.odx.ocv.setClickable(true);
+                e.this.odx.ocG.setClickable(true);
+                e.this.odx.ocI.setClickable(true);
+                e.this.odx.ocL.setClickable(true);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -280,51 +280,51 @@ public class e extends h {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.ocX.obW.setVisibility(0);
-        this.ocX.obT.setVisibility(0);
-        this.ocX.obZ.setVisibility(0);
-        this.ocX.occ.setVisibility(0);
-        this.ocX.ocf.setVisibility(0);
-        if (this.ocX.och.getVisibility() != 8) {
-            this.ocX.och.setVisibility(0);
+        this.odx.ocx.setVisibility(0);
+        this.odx.ocu.setVisibility(0);
+        this.odx.ocA.setVisibility(0);
+        this.odx.ocD.setVisibility(0);
+        this.odx.ocG.setVisibility(0);
+        if (this.odx.ocI.getVisibility() != 8) {
+            this.odx.ocI.setVisibility(0);
         }
-        this.ocT = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds360);
-        this.ocV = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds25);
-        this.ocU = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds177);
-        this.ocR.play(this.ocS);
+        this.odt = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds360);
+        this.odv = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds25);
+        this.odu = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds177);
+        this.odr.play(this.ods);
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dWt() {
+    public void dWB() {
         if (this.mState == 4) {
             this.mState = 1;
-            if (this.odj != null) {
-                this.odj.Lh(this.mState);
+            if (this.odJ != null) {
+                this.odJ.Li(this.mState);
             }
             clearAnimation();
-            Le(0);
-            this.jIo.start();
-            this.ocR.start();
-            dWv();
+            Lf(0);
+            this.jIC.start();
+            this.odr.start();
+            dWD();
         }
     }
 
-    private void dWv() {
-        this.ocX.ocn.post(new Runnable() { // from class: com.baidu.tieba.write.e.5
+    private void dWD() {
+        this.odx.ocO.post(new Runnable() { // from class: com.baidu.tieba.write.e.5
             @Override // java.lang.Runnable
             public void run() {
-                if (e.this.odo != null && e.this.ocP == 0.0f && e.this.ocQ == 0.0f) {
-                    e.this.ocX.ocn.getGlobalVisibleRect(e.this.odp);
-                    e.this.ocP = e.this.odo.centerX() - e.this.odp.centerX();
-                    e.this.ocQ = e.this.odo.centerY() - e.this.odp.centerY();
+                if (e.this.odO != null && e.this.odp == 0.0f && e.this.odq == 0.0f) {
+                    e.this.odx.ocO.getGlobalVisibleRect(e.this.odP);
+                    e.this.odp = e.this.odO.centerX() - e.this.odP.centerX();
+                    e.this.odq = e.this.odO.centerY() - e.this.odP.centerY();
                 }
-                e.this.ocX.ocn.setVisibility(0);
-                e.this.ocX.ocn.setTranslationX(e.this.ocP);
-                e.this.ocX.ocn.setTranslationY(e.this.ocQ);
+                e.this.odx.ocO.setVisibility(0);
+                e.this.odx.ocO.setTranslationX(e.this.odp);
+                e.this.odx.ocO.setTranslationY(e.this.odq);
                 if (e.this.eZA instanceof OvalActionButton) {
-                    ((OvalActionButton) e.this.eZA).a(e.this.ocX.ocn);
+                    ((OvalActionButton) e.this.eZA).a(e.this.odx.ocO);
                 }
-                e.this.ocN.start();
+                e.this.odn.start();
             }
         });
     }
@@ -333,18 +333,18 @@ public class e extends h {
     public void aAZ() {
         if (this.mState == 2) {
             this.mState = 3;
-            if (this.odj != null) {
-                this.odj.Lh(this.mState);
+            if (this.odJ != null) {
+                this.odJ.Li(this.mState);
             }
             clearAnimation();
-            this.jIp.start();
-            this.ocO.start();
-            this.jhh.start();
+            this.jID.start();
+            this.odo.start();
+            this.jhv.start();
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dWu() {
+    public void dWC() {
         Sf();
     }
 
@@ -355,14 +355,14 @@ public class e extends h {
         }
         this.mState = 4;
         clearAnimation();
-        Le(8);
-        this.ocX.ocn.setVisibility(4);
+        Lf(8);
+        this.odx.ocO.setVisibility(4);
         if (this.eZA != null) {
             this.eZA.setVisibility(0);
             this.eZA.setAlpha(1.0f);
         }
-        if (this.odj != null) {
-            this.odj.Lh(this.mState);
+        if (this.odJ != null) {
+            this.odJ.Li(this.mState);
         }
     }
 
@@ -372,15 +372,15 @@ public class e extends h {
     }
 
     private void clearAnimation() {
-        this.ocN.cancel();
-        this.ocO.cancel();
-        this.jIp.cancel();
-        this.jIo.cancel();
+        this.odn.cancel();
+        this.odo.cancel();
+        this.jID.cancel();
+        this.jIC.cancel();
     }
 
-    private void Le(int i) {
-        this.ocX.obS.setVisibility(i);
-        this.ocX.obJ.setVisibility(i);
-        this.ocX.oco.setVisibility(i);
+    private void Lf(int i) {
+        this.odx.oct.setVisibility(i);
+        this.odx.ocj.setVisibility(i);
+        this.odx.ocP.setVisibility(i);
     }
 }

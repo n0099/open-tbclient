@@ -12,8 +12,8 @@ public class c {
 
     /* renamed from: a  reason: collision with root package name */
     private static int f13035a = 8;
-    private static volatile c qdD;
-    private a<Integer, Bitmap> qdE;
+    private static volatile c qed;
+    private a<Integer, Bitmap> qee;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
@@ -33,24 +33,24 @@ public class c {
         }
     }
 
-    public static c eFv() {
-        if (qdD == null) {
+    public static c eFD() {
+        if (qed == null) {
             synchronized (c.class) {
-                if (qdD == null) {
-                    qdD = new c();
+                if (qed == null) {
+                    qed = new c();
                 }
             }
         }
-        return qdD;
+        return qed;
     }
 
     private c() {
-        this.qdE = null;
-        this.qdE = new a<>(f13035a, f13035a / 2);
+        this.qee = null;
+        this.qee = new a<>(f13035a, f13035a / 2);
     }
 
     public Bitmap a(int i) {
-        return this.qdE.get(Integer.valueOf(i));
+        return this.qee.get(Integer.valueOf(i));
     }
 
     public void a(final int i, final String str) {
@@ -64,7 +64,7 @@ public class c {
                             g b2 = com.ss.android.socialbase.downloader.downloader.b.b(true, 0, str, null);
                             if (b2 != null) {
                                 inputStream = b2.a();
-                                c.this.qdE.put(Integer.valueOf(i), BitmapFactory.decodeStream(inputStream));
+                                c.this.qee.put(Integer.valueOf(i), BitmapFactory.decodeStream(inputStream));
                                 com.ss.android.socialbase.downloader.m.d.a(inputStream);
                                 return;
                             }

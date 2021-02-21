@@ -7,13 +7,13 @@ import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
 public final class ObservableRepeatUntil<T> extends a<T, T> {
-    final e qoC;
+    final e qpc;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         SequentialDisposable sequentialDisposable = new SequentialDisposable();
         uVar.onSubscribe(sequentialDisposable);
-        new RepeatUntilObserver(uVar, this.qoC, sequentialDisposable, this.source).subscribeNext();
+        new RepeatUntilObserver(uVar, this.qpc, sequentialDisposable, this.source).subscribeNext();
     }
 
     /* loaded from: classes5.dex */

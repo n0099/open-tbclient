@@ -12,16 +12,16 @@ import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class CharmValueView extends FrameLayout {
-    private ValueAnimator oKA;
-    private ValueAnimator oKB;
-    private ValueAnimator oKC;
-    private int oKD;
-    private int oKE;
-    private View oKv;
-    private View oKw;
-    private CharmProgressBar oKx;
-    private TextView oKy;
-    private ValueAnimator oKz;
+    private View oKV;
+    private View oKW;
+    private CharmProgressBar oKX;
+    private TextView oKY;
+    private ValueAnimator oKZ;
+    private ValueAnimator oLa;
+    private ValueAnimator oLb;
+    private ValueAnimator oLc;
+    private int oLd;
+    private int oLe;
 
     public CharmValueView(@NonNull Context context) {
         this(context, null, 0);
@@ -38,106 +38,106 @@ public class CharmValueView extends FrameLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyinala_liveroom_charm_value_view_layout, this);
-        this.oKx = (CharmProgressBar) findViewById(a.f.charm_pb);
-        this.oKy = (TextView) findViewById(a.f.yuyin_sdk_wheat_charm_value_text);
-        this.oKw = findViewById(a.f.eighty_iv);
-        this.oKv = findViewById(a.f.hundred_fl);
+        this.oKX = (CharmProgressBar) findViewById(a.f.charm_pb);
+        this.oKY = (TextView) findViewById(a.f.yuyin_sdk_wheat_charm_value_text);
+        this.oKW = findViewById(a.f.eighty_iv);
+        this.oKV = findViewById(a.f.hundred_fl);
     }
 
     public void setProgress(int i) {
-        dH(this.oKE, i);
-        this.oKE = i;
+        dI(this.oLe, i);
+        this.oLe = i;
         if (i < 80) {
-            eeS();
-            eeT();
+            efa();
+            efb();
         } else if (i < 100) {
-            eeQ();
-            eeT();
+            eeY();
+            efb();
         } else {
-            eeR();
-            eeS();
+            eeZ();
+            efa();
         }
     }
 
     public void setCharmValue(int i) {
-        dI(this.oKD, i);
-        this.oKD = i;
-    }
-
-    private void dH(int i, int i2) {
-        c(this.oKC);
-        this.oKC = ValueAnimator.ofInt(i, i2);
-        this.oKC.setDuration(700L);
-        this.oKC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                CharmValueView.this.oKx.setProgress(((Integer) valueAnimator.getAnimatedValue()).intValue());
-            }
-        });
-        b(this.oKC);
+        dJ(this.oLd, i);
+        this.oLd = i;
     }
 
     private void dI(int i, int i2) {
-        c(this.oKB);
-        this.oKB = ValueAnimator.ofInt(i, i2);
-        this.oKB.setDuration(700L);
-        this.oKB.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.2
+        c(this.oLc);
+        this.oLc = ValueAnimator.ofInt(i, i2);
+        this.oLc.setDuration(700L);
+        this.oLc.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                CharmValueView.this.oKy.setText(CharmValueView.this.hR(((Integer) valueAnimator.getAnimatedValue()).intValue()));
+                CharmValueView.this.oKX.setProgress(((Integer) valueAnimator.getAnimatedValue()).intValue());
             }
         });
-        b(this.oKB);
+        b(this.oLc);
     }
 
-    private void eeQ() {
-        if (this.oKz == null) {
-            this.oKz = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.oKz.setDuration(700L);
-            this.oKz.setRepeatMode(2);
-            this.oKz.setRepeatCount(-1);
-            this.oKz.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.3
+    private void dJ(int i, int i2) {
+        c(this.oLb);
+        this.oLb = ValueAnimator.ofInt(i, i2);
+        this.oLb.setDuration(700L);
+        this.oLb.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.2
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                CharmValueView.this.oKY.setText(CharmValueView.this.hR(((Integer) valueAnimator.getAnimatedValue()).intValue()));
+            }
+        });
+        b(this.oLb);
+    }
+
+    private void eeY() {
+        if (this.oKZ == null) {
+            this.oKZ = ValueAnimator.ofFloat(0.0f, 1.0f);
+            this.oKZ.setDuration(700L);
+            this.oKZ.setRepeatMode(2);
+            this.oKZ.setRepeatCount(-1);
+            this.oKZ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    CharmValueView.this.oKw.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    CharmValueView.this.oKW.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
         }
-        b(this.oKz);
-        this.oKw.setVisibility(0);
+        b(this.oKZ);
+        this.oKW.setVisibility(0);
     }
 
-    private void eeR() {
-        if (this.oKA == null) {
-            this.oKA = ValueAnimator.ofFloat(1.0f, 1.2f);
-            this.oKA.setDuration(700L);
-            this.oKA.setRepeatMode(2);
-            this.oKA.setRepeatCount(-1);
-            this.oKA.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.4
+    private void eeZ() {
+        if (this.oLa == null) {
+            this.oLa = ValueAnimator.ofFloat(1.0f, 1.2f);
+            this.oLa.setDuration(700L);
+            this.oLa.setRepeatMode(2);
+            this.oLa.setRepeatCount(-1);
+            this.oLa.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.CharmValueView.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    CharmValueView.this.oKv.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                    CharmValueView.this.oKv.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    CharmValueView.this.oKV.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                    CharmValueView.this.oKV.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             });
         }
-        b(this.oKA);
+        b(this.oLa);
     }
 
-    private void eeS() {
-        c(this.oKz);
-        this.oKw.setVisibility(8);
+    private void efa() {
+        c(this.oKZ);
+        this.oKW.setVisibility(8);
     }
 
-    private void eeT() {
-        c(this.oKA);
-        this.oKv.setScaleX(1.0f);
-        this.oKv.setScaleY(1.0f);
+    private void efb() {
+        c(this.oLa);
+        this.oKV.setScaleX(1.0f);
+        this.oKV.setScaleY(1.0f);
     }
 
-    private void eeU() {
-        c(this.oKB);
-        this.oKy.setText(hR(this.oKD));
+    private void efc() {
+        c(this.oLb);
+        this.oKY.setText(hR(this.oLd));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -145,9 +145,9 @@ public class CharmValueView extends FrameLayout {
         return j < 10000 ? String.valueOf(j) : String.format("%.1f", Double.valueOf((j * 1.0d) / 10000.0d)) + "万";
     }
 
-    private void eeV() {
-        c(this.oKC);
-        this.oKx.setProgress(this.oKE);
+    private void efd() {
+        c(this.oLc);
+        this.oKX.setProgress(this.oLe);
     }
 
     private void b(ValueAnimator valueAnimator) {
@@ -165,9 +165,9 @@ public class CharmValueView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        eeS();
-        eeT();
-        eeU();
-        eeV();
+        efa();
+        efb();
+        efc();
+        efd();
     }
 }

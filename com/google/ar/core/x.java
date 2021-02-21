@@ -26,38 +26,38 @@ final class x extends com.google.a.b.a.a.a.e {
             int i = bundle.getInt("error.code", -100);
             int i2 = bundle.getInt("install.status", 0);
             if (i2 == 4) {
-                this.f7874b.pRE.a(p.COMPLETED);
+                this.f7874b.pSe.a(p.COMPLETED);
             } else if (i != 0) {
                 Log.w("ARCore-InstallService", new StringBuilder(51).append("requestInstall = ").append(i).append(", launching fullscreen.").toString());
-                w wVar = this.f7874b.pRQ;
-                w.b(this.f7874b.f7857a, this.f7874b.pRE);
+                w wVar = this.f7874b.pSq;
+                w.b(this.f7874b.f7857a, this.f7874b.pSe);
             } else if (bundle.containsKey("resolution.intent")) {
-                w wVar2 = this.f7874b.pRQ;
-                w.a(this.f7874b.f7857a, bundle, this.f7874b.pRE);
+                w wVar2 = this.f7874b.pSq;
+                w.a(this.f7874b.f7857a, bundle, this.f7874b.pSe);
             } else {
                 switch (i2) {
                     case 1:
                     case 2:
                     case 3:
-                        this.f7874b.pRE.a(p.ACCEPTED);
+                        this.f7874b.pSe.a(p.ACCEPTED);
                         return;
                     case 4:
-                        this.f7874b.pRE.a(p.COMPLETED);
+                        this.f7874b.pSe.a(p.COMPLETED);
                         return;
                     case 5:
-                        this.f7874b.pRE.a(new FatalException("Unexpected FAILED install status without error."));
+                        this.f7874b.pSe.a(new FatalException("Unexpected FAILED install status without error."));
                         return;
                     case 6:
-                        this.f7874b.pRE.a(p.CANCELLED);
+                        this.f7874b.pSe.a(p.CANCELLED);
                         return;
                     case 7:
                     case 8:
                     case 9:
                     default:
-                        this.f7874b.pRE.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
+                        this.f7874b.pSe.a(new FatalException(new StringBuilder(38).append("Unexpected install status: ").append(i2).toString()));
                         return;
                     case 10:
-                        this.f7874b.pRE.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+                        this.f7874b.pSe.a(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
                         return;
                 }
             }

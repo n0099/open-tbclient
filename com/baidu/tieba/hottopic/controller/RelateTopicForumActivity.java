@@ -19,8 +19,8 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {
-    public LikeModel kbT;
-    private com.baidu.tieba.hottopic.view.d ktM;
+    public LikeModel kch;
+    private com.baidu.tieba.hottopic.view.d kua;
     private ArrayList<RelateForumItemData> dataList = new ArrayList<>();
     private String fey = "";
     private CustomMessageListener fSx = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.1
@@ -34,10 +34,10 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     if (gJ != null) {
                         gJ.followNum++;
                         gJ.setIsLiked(true);
-                        j cTN = RelateTopicForumActivity.this.ktM.cTN();
-                        if (cTN != null) {
-                            cTN.setData(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.fey);
-                            cTN.notifyDataSetChanged();
+                        j cTU = RelateTopicForumActivity.this.kua.cTU();
+                        if (cTU != null) {
+                            cTU.setData(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.fey);
+                            cTU.notifyDataSetChanged();
                         }
                     }
                 }
@@ -55,23 +55,23 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     if (gJ != null) {
                         gJ.followNum--;
                         gJ.setIsLiked(false);
-                        j cTN = RelateTopicForumActivity.this.ktM.cTN();
-                        if (cTN != null) {
-                            cTN.setData(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.fey);
-                            cTN.notifyDataSetChanged();
+                        j cTU = RelateTopicForumActivity.this.kua.cTU();
+                        if (cTU != null) {
+                            cTU.setData(RelateTopicForumActivity.this.dataList, RelateTopicForumActivity.this.fey);
+                            cTU.notifyDataSetChanged();
                         }
                     }
                 }
             }
         }
     };
-    private e iIX = new e() { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.3
+    private e iJl = new e() { // from class: com.baidu.tieba.hottopic.controller.RelateTopicForumActivity.3
         @Override // com.baidu.adp.base.e
         public void callback(Object obj) {
-            if (AntiHelper.bX(RelateTopicForumActivity.this.kbT.getErrorCode(), RelateTopicForumActivity.this.kbT.getErrorString())) {
-                AntiHelper.br(RelateTopicForumActivity.this.getActivity(), RelateTopicForumActivity.this.kbT.getErrorString());
-            } else if (!StringUtils.isNull(RelateTopicForumActivity.this.kbT.getErrorString())) {
-                l.showToast(TbadkCoreApplication.getInst(), RelateTopicForumActivity.this.kbT.getErrorString());
+            if (AntiHelper.bX(RelateTopicForumActivity.this.kch.getErrorCode(), RelateTopicForumActivity.this.kch.getErrorString())) {
+                AntiHelper.bq(RelateTopicForumActivity.this.getActivity(), RelateTopicForumActivity.this.kch.getErrorString());
+            } else if (!StringUtils.isNull(RelateTopicForumActivity.this.kch.getErrorString())) {
+                l.showToast(TbadkCoreApplication.getInst(), RelateTopicForumActivity.this.kch.getErrorString());
             }
         }
     };
@@ -81,22 +81,22 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initData(bundle);
-        this.kbT = new LikeModel(getPageContext());
-        this.kbT.setLoadDataCallBack(this.iIX);
+        this.kch = new LikeModel(getPageContext());
+        this.kch.setLoadDataCallBack(this.iJl);
         registerListener();
         initUI();
         TiebaStatic.log("c10335a");
     }
 
     private void initUI() {
-        this.ktM = new com.baidu.tieba.hottopic.view.d((RelateTopicForumActivity) getPageContext().getOrignalPage(), this.dataList);
-        cSZ();
+        this.kua = new com.baidu.tieba.hottopic.view.d((RelateTopicForumActivity) getPageContext().getOrignalPage(), this.dataList);
+        cTg();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ktM.onChangeSkinType(i);
+        this.kua.onChangeSkinType(i);
     }
 
     private void initData(Bundle bundle) {
@@ -126,12 +126,12 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         return this.fey;
     }
 
-    private void cSZ() {
-        if (this.ktM != null) {
+    private void cTg() {
+        if (this.kua != null) {
             if (this.dataList.isEmpty()) {
-                this.ktM.bSr();
+                this.kua.bSy();
             } else {
-                this.ktM.WY();
+                this.kua.WY();
             }
         }
     }

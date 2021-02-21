@@ -20,41 +20,41 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class d {
     private BdListView WO;
-    private NavigationBar iUI;
-    private NoNetworkView jCY;
-    private MemberTaskCenterActivity lnV;
-    private b lof;
-    private View loh;
-    private TbImageView loi;
-    private TextView loj;
+    private NavigationBar iUW;
+    private NoNetworkView jDm;
+    private MemberTaskCenterActivity lol;
+    private b lov;
+    private View lox;
+    private TbImageView loy;
+    private TextView loz;
     private View mRootView;
 
     public d(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
-        this.lnV = memberTaskCenterActivity;
+        this.lol = memberTaskCenterActivity;
         memberTaskCenterActivity.setContentView(R.layout.member_task_center_activity);
         this.mRootView = memberTaskCenterActivity.findViewById(R.id.root_view);
-        this.jCY = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
-        this.iUI = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.view_navigation_bar);
-        this.iUI.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.iUI.setTitleText(R.string.member_task_center);
+        this.jDm = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
+        this.iUW = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.view_navigation_bar);
+        this.iUW.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.iUW.setTitleText(R.string.member_task_center);
         this.WO = (BdListView) memberTaskCenterActivity.findViewById(R.id.member_task_list);
-        this.loh = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.member_task_center_header_view, (ViewGroup) null);
+        this.lox = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.member_task_center_header_view, (ViewGroup) null);
         BdListViewHelper.a(memberTaskCenterActivity.getActivity(), this.WO, BdListViewHelper.HeadType.DEFAULT);
-        this.loi = (TbImageView) this.loh.findViewById(R.id.advert_image_view);
-        this.loi.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.loj = (TextView) this.loh.findViewById(R.id.current_score_num);
-        this.loi.setOnClickListener(onClickListener);
-        this.lof = new b(memberTaskCenterActivity);
-        this.lof.H(onClickListener);
-        this.WO.addHeaderView(this.loh);
-        this.WO.setAdapter((ListAdapter) this.lof);
+        this.loy = (TbImageView) this.lox.findViewById(R.id.advert_image_view);
+        this.loy.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.loz = (TextView) this.lox.findViewById(R.id.current_score_num);
+        this.loy.setOnClickListener(onClickListener);
+        this.lov = new b(memberTaskCenterActivity);
+        this.lov.H(onClickListener);
+        this.WO.addHeaderView(this.lox);
+        this.WO.setAdapter((ListAdapter) this.lov);
     }
 
     public void a(String str, List<r> list, long j) {
-        this.loi.startLoad(str, 10, false);
-        this.loj.setText(fM(this.lnV.getResources().getString(R.string.current_score), String.valueOf(j)));
-        this.lof.setData(list);
-        this.lof.notifyDataSetChanged();
+        this.loy.startLoad(str, 10, false);
+        this.loz.setText(fM(this.lol.getResources().getString(R.string.current_score), String.valueOf(j)));
+        this.lov.setData(list);
+        this.lov.notifyDataSetChanged();
     }
 
     private SpannableString fM(String str, String str2) {
@@ -73,8 +73,8 @@ public class d {
     }
 
     public void onChangeSkinType(int i) {
-        this.iUI.onChangeSkinType(this.lnV.getPageContext(), i);
-        this.jCY.onChangeSkinType(this.lnV.getPageContext(), i);
-        ap.setBackgroundColor(this.loj, R.color.CAM_X0205);
+        this.iUW.onChangeSkinType(this.lol.getPageContext(), i);
+        this.jDm.onChangeSkinType(this.lol.getPageContext(), i);
+        ap.setBackgroundColor(this.loz, R.color.CAM_X0205);
     }
 }

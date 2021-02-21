@@ -59,7 +59,7 @@ public final class a {
     }
 
     public static i awX() {
-        return e.bNF();
+        return e.bNM();
     }
 
     public static al awY() {
@@ -87,7 +87,7 @@ public final class a {
     }
 
     public static h axe() {
-        return com.baidu.tieba.aiapps.apps.barcode.c.bMX();
+        return com.baidu.tieba.aiapps.apps.barcode.c.bNe();
     }
 
     public static w axf() {
@@ -103,7 +103,7 @@ public final class a {
     }
 
     public static r axi() {
-        return com.baidu.tieba.aiapps.apps.b.b.bMY();
+        return com.baidu.tieba.aiapps.apps.b.b.bNf();
     }
 
     public static j axj() {
@@ -111,15 +111,15 @@ public final class a {
     }
 
     public static z axk() {
-        return com.baidu.tieba.aiapps.apps.e.a.b.bNe();
+        return com.baidu.tieba.aiapps.apps.e.a.b.bNl();
     }
 
     public static com.baidu.swan.apps.t.b.f axl() {
-        return com.baidu.tieba.aiapps.apps.f.c.bNx();
+        return com.baidu.tieba.aiapps.apps.f.c.bNE();
     }
 
     public static p axm() {
-        return com.baidu.tieba.aiapps.apps.m.d.bNO();
+        return com.baidu.tieba.aiapps.apps.m.d.bNV();
     }
 
     public static u axn() {
@@ -127,7 +127,7 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.t.b.d axo() {
-        return com.baidu.tieba.aiapps.apps.d.b.bNd();
+        return com.baidu.tieba.aiapps.apps.d.b.bNk();
     }
 
     public static q axp() {
@@ -143,7 +143,7 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.adaptation.a.a axs() {
-        return com.baidu.tieba.aiapps.apps.i.c.bNH();
+        return com.baidu.tieba.aiapps.apps.i.c.bNO();
     }
 
     public static l axt() {
@@ -175,7 +175,7 @@ public final class a {
     }
 
     public static ac axA() {
-        return com.baidu.tieba.aiapps.apps.c.b.bNa();
+        return com.baidu.tieba.aiapps.apps.c.b.bNh();
     }
 
     public static aj axB() {
@@ -192,7 +192,7 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.t.b.g axE() {
-        return com.baidu.tieba.aiapps.apps.k.b.bNK();
+        return com.baidu.tieba.aiapps.apps.k.b.bNR();
     }
 
     public static af axF() {
@@ -232,7 +232,7 @@ public final class a {
     }
 
     public static com.baidu.swan.apps.t.b.k axO() {
-        return com.baidu.tieba.aiapps.apps.n.c.bNQ();
+        return com.baidu.tieba.aiapps.apps.n.c.bNX();
     }
 
     public static com.baidu.swan.apps.adaptation.a.ab axP() {

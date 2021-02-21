@@ -21,7 +21,7 @@ public class ak extends ac {
 
     public ak(String str, String str2, int i) {
         this.k = 1;
-        this.i = b.enu();
+        this.i = b.enC();
         this.j = str;
         this.l = str2;
         this.m = i;
@@ -35,7 +35,7 @@ public class ak extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     @NonNull
-    public ac B(@NonNull Cursor cursor) {
+    public ac C(@NonNull Cursor cursor) {
         this.f5776a = cursor.getLong(0);
         this.f5777b = cursor.getLong(1);
         this.c = cursor.getString(2);

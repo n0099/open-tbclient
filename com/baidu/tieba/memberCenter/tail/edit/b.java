@@ -26,10 +26,10 @@ public class b {
     private ViewGroup bbd;
     private EditText cBd;
     private EditorTools fBd;
-    private ImageView lsm;
-    private TextView lsn;
-    private ImageView lso;
-    private FrameLayout lsp;
+    private ImageView lsA;
+    private TextView lsB;
+    private ImageView lsC;
+    private FrameLayout lsD;
     private BaseActivity<?> mActivity;
     private ProgressBar mProgressBar;
     private Window mWindow;
@@ -43,20 +43,20 @@ public class b {
         this.mWindow = baseActivity.getWindow();
         this.bbd = (ViewGroup) this.mWindow.findViewById(R.id.tail_edit_root);
         this.cBd = (EditText) this.mWindow.findViewById(R.id.tail_edit_edittext);
-        this.lsm = (ImageView) this.mWindow.findViewById(R.id.tail_edit_submit);
-        this.lsm.setOnClickListener(onClickListener);
-        this.lso = (ImageView) this.mWindow.findViewById(R.id.tail_edit_cancel);
-        this.lso.setOnClickListener(onClickListener2);
-        this.lsn = (TextView) this.mWindow.findViewById(R.id.tail_edit_text_number);
-        this.lsp = (FrameLayout) this.mWindow.findViewById(R.id.tail_edit_editor);
+        this.lsA = (ImageView) this.mWindow.findViewById(R.id.tail_edit_submit);
+        this.lsA.setOnClickListener(onClickListener);
+        this.lsC = (ImageView) this.mWindow.findViewById(R.id.tail_edit_cancel);
+        this.lsC.setOnClickListener(onClickListener2);
+        this.lsB = (TextView) this.mWindow.findViewById(R.id.tail_edit_text_number);
+        this.lsD = (FrameLayout) this.mWindow.findViewById(R.id.tail_edit_editor);
         this.mProgressBar = (ProgressBar) this.mWindow.findViewById(R.id.tail_edit_progress);
     }
 
     public void b(EditorTools editorTools) {
-        this.lsp.addView(editorTools, new LinearLayout.LayoutParams(-1, -2));
+        this.lsD.addView(editorTools, new LinearLayout.LayoutParams(-1, -2));
     }
 
-    public void dfV() {
+    public void dgc() {
         if (this.cBd.getSelectionStart() > 0) {
             String substring = this.cBd.getText().toString().substring(0, this.cBd.getSelectionStart());
             Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
@@ -68,13 +68,13 @@ public class b {
         }
     }
 
-    public void cT(int i, int i2) {
-        this.lsn.setText(i + "/" + i2);
+    public void cU(int i, int i2) {
+        this.lsB.setText(i + "/" + i2);
         int i3 = R.color.CAM_X0109;
         if (i == i2) {
             i3 = R.color.CAM_X0301;
         }
-        ap.setViewTextColor(this.lsn, i3, 1);
+        ap.setViewTextColor(this.lsB, i3, 1);
     }
 
     public void setContent(String str) {
@@ -82,19 +82,19 @@ public class b {
     }
 
     public void setColor(String str) {
-        this.cBd.setTextColor(c.Oo(str));
+        this.cBd.setTextColor(c.Op(str));
     }
 
     public String getContent() {
         return this.cBd.getText().toString();
     }
 
-    public void dfW() {
+    public void dgd() {
         this.mActivity.ShowSoftKeyPadDelay(this.cBd);
         this.cBd.setSelection(this.cBd.length());
     }
 
-    public void dfX() {
+    public void dge() {
         this.cBd.setSelection(this.cBd.length());
     }
 
@@ -107,7 +107,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tbadk.editortools.b bVar, String str) {
         this.fBd = new EditorTools(this.mActivity.getPageContext().getPageActivity());
-        dfY();
+        dgf();
         a(bVar);
         b(bVar, str);
         this.fBd.build();
@@ -116,7 +116,7 @@ public class b {
         b(this.fBd);
     }
 
-    private void dfY() {
+    private void dgf() {
         this.fBd.setBarMaxLauCount(4);
         this.fBd.setBarLauncherType(1);
         this.fBd.kN(true);
@@ -154,7 +154,7 @@ public class b {
     }
 
     public void tV(boolean z) {
-        this.lsm.setEnabled(z);
+        this.lsA.setEnabled(z);
     }
 
     public void showProgressBar() {

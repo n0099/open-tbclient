@@ -91,8 +91,8 @@ public class a extends AbstractKsNativeAd {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final View view, final s.a aVar) {
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f8127a, new a.InterfaceC1092a() { // from class: com.kwad.sdk.a.a.3
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f8127a, new a.InterfaceC1094a() { // from class: com.kwad.sdk.a.a.3
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 com.kwad.sdk.core.report.b.a(a.this.f8127a, aVar);
                 if (a.this.d != null) {
@@ -108,12 +108,12 @@ public class a extends AbstractKsNativeAd {
             b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(b2);
         }
-        b2.setViewCallback(new a.InterfaceC1103a() { // from class: com.kwad.sdk.a.a.4
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
+        b2.setViewCallback(new a.InterfaceC1105a() { // from class: com.kwad.sdk.a.a.4
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1105a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1105a
             public void a(View view) {
                 if (!a.this.f8127a.mPvReported && a.this.d != null) {
                     a.this.d.onAdShow(a.this);
@@ -121,11 +121,11 @@ public class a extends AbstractKsNativeAd {
                 com.kwad.sdk.core.report.b.a(a.this.f8127a, (JSONObject) null);
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1105a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1103a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1105a
             public void b() {
             }
         });

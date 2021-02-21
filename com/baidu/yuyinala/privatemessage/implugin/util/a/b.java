@@ -18,13 +18,13 @@ import java.io.IOException;
 /* loaded from: classes11.dex */
 public class b {
     private static final String TAG;
-    private static final boolean pho;
-    public static double php;
+    private static final boolean phO;
+    public static double phP;
 
     static {
-        pho = Build.VERSION.SDK_INT >= 11;
+        phO = Build.VERSION.SDK_INT >= 11;
         TAG = b.class.getSimpleName();
-        php = 1.778d;
+        phP = 1.778d;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [106=5, 108=4, 109=4, 110=4] */
@@ -187,7 +187,7 @@ public class b {
 
     @TargetApi(11)
     private static void e(BitmapFactory.Options options) {
-        if (pho) {
+        if (phO) {
             options.inMutable = true;
         }
     }
@@ -218,10 +218,10 @@ public class b {
         if (floor <= 1) {
             return 1;
         }
-        return floor <= 8 ? Oa(floor) : (floor / 8) * 8;
+        return floor <= 8 ? Ob(floor) : (floor / 8) * 8;
     }
 
-    private static int Oa(int i) throws IllegalArgumentException {
+    private static int Ob(int i) throws IllegalArgumentException {
         if (i <= 0) {
             throw new IllegalArgumentException();
         }

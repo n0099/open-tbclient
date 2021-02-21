@@ -45,7 +45,7 @@ public class m extends com.baidu.adp.widget.ListView.a<bv, CardViewHolder<a>> {
         a(new w() { // from class: com.baidu.tieba.enterForum.tabfeed.a.m.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                aVar.cxa();
+                aVar.cxh();
                 ar arVar = new ar("c13647");
                 arVar.v("uid", TbadkApplication.getCurrentAccountId());
                 arVar.ap("obj_id", m.this.getPositionByType(i) + 1);
@@ -60,35 +60,35 @@ public class m extends com.baidu.adp.widget.ListView.a<bv, CardViewHolder<a>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bv bvVar, CardViewHolder<a> cardViewHolder) {
-        if (bvVar == null || cardViewHolder == null || cardViewHolder.ctb() == null) {
+        if (bvVar == null || cardViewHolder == null || cardViewHolder.cti() == null) {
             return null;
         }
-        cardViewHolder.ctb().a(bvVar);
+        cardViewHolder.cti().a(bvVar);
         ar arVar = new ar("c13646");
         arVar.v("uid", TbadkApplication.getCurrentAccountId());
         arVar.ap("obj_id", getPositionByType(i) + 1);
         arVar.dR("resource_id", this.mTabName);
         TiebaStatic.log(arVar);
-        return cardViewHolder.ctb().getView();
+        return cardViewHolder.cti().getView();
     }
 
     /* loaded from: classes2.dex */
     public static class a extends com.baidu.tieba.card.b<bv> {
-        private TbImageView iOE;
-        private String iOF;
+        private TbImageView iOS;
+        private String iOT;
         private TbPageContext<?> mPageContext;
 
         public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
             this.mPageContext = tbPageContext;
-            this.iOE = (TbImageView) getView().findViewById(R.id.image);
-            this.iOE.setOnClickListener(this);
-            this.iOE.setConrers(15);
-            this.iOE.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.iOE.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-            this.iOE.setDrawCorner(true);
-            this.iOE.setAutoChangeStyle(true);
-            this.iOE.setPlaceHolder(2);
+            this.iOS = (TbImageView) getView().findViewById(R.id.image);
+            this.iOS.setOnClickListener(this);
+            this.iOS.setConrers(15);
+            this.iOS.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.iOS.setRadius(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+            this.iOS.setDrawCorner(true);
+            this.iOS.setAutoChangeStyle(true);
+            this.iOS.setPlaceHolder(2);
         }
 
         @Override // com.baidu.tieba.card.b
@@ -104,24 +104,24 @@ public class m extends com.baidu.adp.widget.ListView.a<bv, CardViewHolder<a>> {
         @Override // com.baidu.tieba.card.b
         public void a(bv bvVar) {
             if (bvVar != null) {
-                this.iOF = bvVar.res_link;
-                this.iOE.setScaleType(ImageView.ScaleType.FIT_XY);
-                this.iOE.setPlaceHolder(2);
-                this.iOE.startLoad(bvVar.res_image, 10, false);
+                this.iOT = bvVar.res_link;
+                this.iOS.setScaleType(ImageView.ScaleType.FIT_XY);
+                this.iOS.setPlaceHolder(2);
+                this.iOS.startLoad(bvVar.res_image, 10, false);
             }
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public void cxa() {
-            if (!TextUtils.isEmpty(this.iOF)) {
-                bf.bsV().b(this.mPageContext, new String[]{this.iOF});
+        public void cxh() {
+            if (!TextUtils.isEmpty(this.iOT)) {
+                bf.bsV().b(this.mPageContext, new String[]{this.iOT});
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == this.iOE) {
-                cxa();
+            if (view == this.iOS) {
+                cxh();
             }
         }
     }

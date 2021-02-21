@@ -22,13 +22,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.dressCenter.e;
 /* loaded from: classes9.dex */
 public class MemberRecommendView extends FrameLayout {
-    private TbImageView jYE;
-    private int loW;
+    private TbImageView jYS;
+    private int lpk;
     private Context mContext;
     private View mRootView;
     private TextView mTitleView;
-    private TextView nFl;
-    private e nFm;
+    private TextView nFL;
+    private e nFM;
 
     public MemberRecommendView(Context context) {
         super(context);
@@ -50,18 +50,18 @@ public class MemberRecommendView extends FrameLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.member_extend_view, this);
-        this.jYE = (TbImageView) this.mRootView.findViewById(R.id.vip_icon);
-        this.jYE.setDefaultResource(R.drawable.icon_vip_orange);
-        this.jYE.setDefaultBgResource(R.drawable.transparent_bg);
+        this.jYS = (TbImageView) this.mRootView.findViewById(R.id.vip_icon);
+        this.jYS.setDefaultResource(R.drawable.icon_vip_orange);
+        this.jYS.setDefaultBgResource(R.drawable.transparent_bg);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.title_view);
-        this.nFl = (TextView) this.mRootView.findViewById(R.id.jump_button);
-        this.nFl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.MemberRecommendView.1
+        this.nFL = (TextView) this.mRootView.findViewById(R.id.jump_button);
+        this.nFL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.MemberRecommendView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
                 TbPageContext tbPageContext;
                 int i = 9;
-                switch (MemberRecommendView.this.loW) {
+                switch (MemberRecommendView.this.lpk) {
                     case 1:
                         TiebaStatic.log("c10261");
                         i = 8;
@@ -71,7 +71,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 3:
                     case 9:
                         TiebaStatic.log("c10266");
-                        if (MemberRecommendView.this.loW != 9) {
+                        if (MemberRecommendView.this.lpk != 9) {
                             str = "";
                             break;
                         } else {
@@ -82,13 +82,13 @@ public class MemberRecommendView extends FrameLayout {
                     case 5:
                         TiebaStatic.log("c10278");
                         i = 12;
-                        str = MemberRecommendView.this.loW == 4 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND : MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
+                        str = MemberRecommendView.this.lpk == 4 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND : MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
                         break;
                     case 6:
                     case 7:
                         TiebaStatic.log("c10762");
                         i = 19;
-                        str = MemberRecommendView.this.loW == 7 ? MemberPayStatistic.REFER_PAGE_ALL_BUBBLE : MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
+                        str = MemberRecommendView.this.lpk == 7 ? MemberPayStatistic.REFER_PAGE_ALL_BUBBLE : MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
                         break;
                     case 8:
                         i = 22;
@@ -100,7 +100,7 @@ public class MemberRecommendView extends FrameLayout {
                         i = 0;
                         break;
                 }
-                if (MemberRecommendView.this.nFm != null && (tbPageContext = (TbPageContext) j.K(MemberRecommendView.this.mContext)) != null) {
+                if (MemberRecommendView.this.nFM != null && (tbPageContext = (TbPageContext) j.K(MemberRecommendView.this.mContext)) != null) {
                     MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
                     memberPayActivityConfig.setReferPageClickZone(str, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, memberPayActivityConfig));
@@ -111,15 +111,15 @@ public class MemberRecommendView extends FrameLayout {
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.nFm = eVar;
-            this.jYE.startLoad(this.nFm.getIconUrl(), 10, false);
-            this.mTitleView.setText(this.nFm.dRo());
-            if (StringUtils.isNull(this.nFm.dRp())) {
-                this.nFl.setVisibility(8);
+            this.nFM = eVar;
+            this.jYS.startLoad(this.nFM.getIconUrl(), 10, false);
+            this.mTitleView.setText(this.nFM.dRw());
+            if (StringUtils.isNull(this.nFM.dRx())) {
+                this.nFL.setVisibility(8);
                 return;
             }
-            this.nFl.setVisibility(0);
-            this.nFl.setText(this.nFm.dRp());
+            this.nFL.setVisibility(0);
+            this.nFL.setText(this.nFM.dRx());
         }
     }
 
@@ -132,14 +132,14 @@ public class MemberRecommendView extends FrameLayout {
     }
 
     public int getFromType() {
-        return this.loW;
+        return this.lpk;
     }
 
     public void setFromType(int i) {
-        this.loW = i;
+        this.lpk = i;
     }
 
     public View getButton() {
-        return this.nFl;
+        return this.nFL;
     }
 }

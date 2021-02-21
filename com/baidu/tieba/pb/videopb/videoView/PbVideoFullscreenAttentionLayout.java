@@ -19,9 +19,9 @@ import com.tencent.connect.common.Constants;
 import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
-    private HeadImageView mmZ;
-    private PbVideoFullscreenLikeBtn mna;
-    private an mnb;
+    private HeadImageView mno;
+    private PbVideoFullscreenLikeBtn mnp;
+    private an mnq;
     private BdUniqueId uniqueId;
 
     public PbVideoFullscreenAttentionLayout(Context context) {
@@ -41,13 +41,13 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
 
     private void init(Context context) {
         inflate(context, R.layout.pb_video_attention, this);
-        this.mmZ = (HeadImageView) findViewById(R.id.attention_img);
-        this.mna = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
-        this.mmZ.setIsRound(true);
-        this.mmZ.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
-        this.mmZ.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
-        this.mmZ.setAutoChangeStyle(false);
-        this.mna.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
+        this.mno = (HeadImageView) findViewById(R.id.attention_img);
+        this.mnp = (PbVideoFullscreenLikeBtn) findViewById(R.id.concern_video_info_item);
+        this.mno.setIsRound(true);
+        this.mno.setBorderWidth(l.getDimens(context, R.dimen.tbds3));
+        this.mno.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
+        this.mno.setAutoChangeStyle(false);
+        this.mnp.setConfig(new com.baidu.tbadk.core.view.commonBtn.a());
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -55,25 +55,25 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     }
 
     public void setOnClickEvent(View.OnClickListener onClickListener) {
-        this.mna.setOnclickEvent(onClickListener);
+        this.mnp.setOnclickEvent(onClickListener);
     }
 
     public void setData(cb cbVar) {
         if (cbVar != null && cbVar.bnQ() != null) {
             String AV = r.AV(cbVar.bnQ().getAvater());
             if (AV.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.mmZ.startLoad(AV, 10, false);
+                this.mno.startLoad(AV, 10, false);
             } else {
-                this.mmZ.startLoad(AV, 25, false);
+                this.mno.startLoad(AV, 25, false);
             }
             if (cbVar.bnQ().getBaijiahaoInfo() != null && cbVar.bnQ().getBaijiahaoInfo().auth_id.intValue() > 0) {
-                this.mmZ.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(cbVar.bnQ().getBaijiahaoInfo().auth_id.intValue(), 1));
-                this.mmZ.setShowV(true);
-                this.mmZ.setGodIconWidth(R.dimen.tbds31);
+                this.mno.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(cbVar.bnQ().getBaijiahaoInfo().auth_id.intValue(), 1));
+                this.mno.setShowV(true);
+                this.mno.setGodIconWidth(R.dimen.tbds31);
             } else {
-                this.mmZ.setBjhAuthIconRes(0);
-                this.mmZ.setIsBigV(cbVar.bnQ().isBigV());
-                this.mmZ.setShowV(cbVar.bnQ().isBigV());
+                this.mno.setBjhAuthIconRes(0);
+                this.mno.setIsBigV(cbVar.bnQ().isBigV());
+                this.mno.setShowV(cbVar.bnQ().isBigV());
             }
             aY(cbVar);
         }
@@ -83,20 +83,20 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         if (cbVar != null && cbVar.bnQ() != null) {
             String str = cbVar.tid;
             int aZ = aZ(cbVar);
-            if (this.mnb == null) {
+            if (this.mnq == null) {
                 if (getContext() instanceof PbActivity) {
-                    this.mnb = new an(((PbActivity) getContext()).getPageContext(), this.mna, -1);
-                    this.mnb.Ag(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
-                    this.mnb.l(this.uniqueId);
+                    this.mnq = new an(((PbActivity) getContext()).getPageContext(), this.mnp, -1);
+                    this.mnq.Ag(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
+                    this.mnq.l(this.uniqueId);
                 } else {
                     return;
                 }
             }
-            this.mnb.a(cbVar.bnQ());
-            this.mnb.setTid(str);
-            this.mnb.setThreadData(cbVar);
-            this.mnb.lYB = true;
-            this.mnb.Ga(aZ);
+            this.mnq.a(cbVar.bnQ());
+            this.mnq.setTid(str);
+            this.mnq.setThreadData(cbVar);
+            this.mnq.lYQ = true;
+            this.mnq.Ga(aZ);
         }
     }
 
@@ -110,7 +110,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         return 1;
     }
 
-    public boolean dvt() {
-        return (this.mnb == null || this.mnb.bvs() == null || !this.mnb.bvs().getIsLike()) ? false : true;
+    public boolean dvA() {
+        return (this.mnq == null || this.mnq.bvs() == null || !this.mnq.bvs().getIsLike()) ? false : true;
     }
 }

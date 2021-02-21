@@ -15,7 +15,7 @@ public class u {
 
     /* loaded from: classes9.dex */
     interface a {
-        void czx();
+        void czE();
 
         void da(List<String> list);
     }
@@ -44,7 +44,7 @@ public class u {
                             if (!com.baidu.tbadk.core.util.y.isEmpty(arrayList2)) {
                                 aVar.da(arrayList2);
                             } else {
-                                aVar.czx();
+                                aVar.czE();
                             }
                         }
                     }
@@ -54,7 +54,7 @@ public class u {
     }
 
     private void a(final ImageFileInfo imageFileInfo, final b bVar) {
-        com.baidu.tieba.newfaceshop.a.dij().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.u.2
+        com.baidu.tieba.newfaceshop.a.diq().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.u.2
             @Override // java.lang.Runnable
             public void run() {
                 String filePath = imageFileInfo.getFilePath();

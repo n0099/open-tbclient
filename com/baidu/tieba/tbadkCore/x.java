@@ -4,37 +4,37 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.cb;
 /* loaded from: classes.dex */
 public class x extends cb {
-    public static final BdUniqueId nvo = BdUniqueId.gen();
+    public static final BdUniqueId nvO = BdUniqueId.gen();
     private String fortune_desc;
-    private boolean nvp;
-    private r nvq;
+    private boolean nvP;
+    private r nvQ;
 
-    public boolean dMQ() {
-        return this.nvp;
+    public boolean dMY() {
+        return this.nvP;
     }
 
     public void yn(boolean z) {
-        this.nvp = z;
+        this.nvP = z;
     }
 
-    public String dMR() {
+    public String dMZ() {
         return this.fortune_desc;
     }
 
-    public void SW(String str) {
+    public void Ti(String str) {
         this.fortune_desc = str;
     }
 
-    public r dMS() {
-        return this.nvq;
+    public r dNa() {
+        return this.nvQ;
     }
 
     public void a(r rVar) {
-        this.nvq = rVar;
+        this.nvQ = rVar;
     }
 
     @Override // com.baidu.tbadk.core.data.cb, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return nvo;
+        return nvO;
     }
 }

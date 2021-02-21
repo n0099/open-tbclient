@@ -12,35 +12,35 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class i {
     Context context;
-    ViewGroup.LayoutParams ikk;
-    RelativeLayout ikl;
-    ArrayList<HeadImageView> ikj = new ArrayList<>();
+    ViewGroup.LayoutParams iky;
+    RelativeLayout ikz;
+    ArrayList<HeadImageView> ikx = new ArrayList<>();
     boolean loop = false;
     Handler handler = new Handler(Looper.getMainLooper());
     int position = 0;
 
     public i(ArrayList<String> arrayList, HeadImageView headImageView, RelativeLayout relativeLayout) {
-        this.ikk = headImageView.getLayoutParams();
+        this.iky = headImageView.getLayoutParams();
         this.context = headImageView.getContext();
-        this.ikl = relativeLayout;
+        this.ikz = relativeLayout;
         headImageView.setVisibility(8);
         if (arrayList == null) {
-            this.ikj.add(wG(0));
-            this.ikj.add(wG(1));
-            this.ikj.add(wG(0));
-            this.ikj.add(wG(1));
+            this.ikx.add(wG(0));
+            this.ikx.add(wG(1));
+            this.ikx.add(wG(0));
+            this.ikx.add(wG(1));
             return;
         }
         Iterator<String> it = arrayList.iterator();
         while (it.hasNext()) {
-            this.ikj.add(Iz(it.next()));
+            this.ikx.add(IA(it.next()));
         }
     }
 
     public void sz() {
-        if (!this.ikj.isEmpty()) {
-            if (this.ikj.size() == 1) {
-                this.ikj.get(this.position).setVisibility(0);
+        if (!this.ikx.isEmpty()) {
+            if (this.ikx.size() == 1) {
+                this.ikx.get(this.position).setVisibility(0);
                 return;
             }
             this.loop = true;
@@ -48,15 +48,15 @@ public class i {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (i.this.position == 0) {
-                        i.this.ikj.get(i.this.position).setVisibility(0);
-                        i.this.ikj.get(i.this.ikj.size() - 1).setVisibility(8);
-                    } else if (i.this.position == i.this.ikj.size() - 1) {
-                        i.this.ikj.get(i.this.position - 1).setVisibility(8);
-                        i.this.ikj.get(i.this.position).setVisibility(0);
+                        i.this.ikx.get(i.this.position).setVisibility(0);
+                        i.this.ikx.get(i.this.ikx.size() - 1).setVisibility(8);
+                    } else if (i.this.position == i.this.ikx.size() - 1) {
+                        i.this.ikx.get(i.this.position - 1).setVisibility(8);
+                        i.this.ikx.get(i.this.position).setVisibility(0);
                         i.this.position = -1;
                     } else {
-                        i.this.ikj.get(i.this.position - 1).setVisibility(8);
-                        i.this.ikj.get(i.this.position).setVisibility(0);
+                        i.this.ikx.get(i.this.position - 1).setVisibility(8);
+                        i.this.ikx.get(i.this.position).setVisibility(0);
                     }
                     i.this.position++;
                     if (i.this.loop) {
@@ -64,41 +64,41 @@ public class i {
                         return;
                     }
                     i.this.handler.removeCallbacksAndMessages(null);
-                    Iterator<HeadImageView> it = i.this.ikj.iterator();
+                    Iterator<HeadImageView> it = i.this.ikx.iterator();
                     while (it.hasNext()) {
                         HeadImageView next = it.next();
                         next.setVisibility(8);
-                        i.this.ikl.removeView(next);
+                        i.this.ikz.removeView(next);
                     }
-                    i.this.ikj.clear();
+                    i.this.ikx.clear();
                 }
             }, 500L);
         }
     }
 
-    public void cmg() {
+    public void cmn() {
         this.handler.removeCallbacksAndMessages(null);
         this.loop = false;
-        Iterator<HeadImageView> it = this.ikj.iterator();
+        Iterator<HeadImageView> it = this.ikx.iterator();
         while (it.hasNext()) {
             HeadImageView next = it.next();
             next.setVisibility(8);
-            this.ikl.removeView(next);
+            this.ikz.removeView(next);
         }
-        this.ikj.clear();
+        this.ikx.clear();
     }
 
-    public boolean cpI() {
-        return this.ikj.size() != 0;
+    public boolean cpP() {
+        return this.ikx.size() != 0;
     }
 
-    private HeadImageView Iz(String str) {
+    private HeadImageView IA(String str) {
         HeadImageView headImageView = new HeadImageView(this.context);
         headImageView.startLoad(str, 25, false, false);
         headImageView.setIsRound(true);
         headImageView.setAutoChangeStyle(false);
         headImageView.setVisibility(8);
-        this.ikl.addView(headImageView, this.ikk);
+        this.ikz.addView(headImageView, this.iky);
         return headImageView;
     }
 
@@ -112,7 +112,7 @@ public class i {
         headImageView.setIsRound(true);
         headImageView.setAutoChangeStyle(false);
         headImageView.setVisibility(8);
-        this.ikl.addView(headImageView, this.ikk);
+        this.ikz.addView(headImageView, this.iky);
         return headImageView;
     }
 }

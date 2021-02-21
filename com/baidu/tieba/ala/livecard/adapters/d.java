@@ -10,7 +10,7 @@ import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.h;
 /* loaded from: classes10.dex */
 public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
-    private com.baidu.tieba.ala.livecard.a.d hmV;
+    private com.baidu.tieba.ala.livecard.a.d hnj;
     private String mForumName;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -34,9 +34,9 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
         if (this.mPageContext == null) {
             return null;
         }
-        this.hmV = new com.baidu.tieba.ala.livecard.a.d(this.mPageContext);
-        this.hmV.setForumName(this.mForumName);
-        return new FrsPageAlaStageViewHolder(this.hmV);
+        this.hnj = new com.baidu.tieba.ala.livecard.a.d(this.mPageContext);
+        this.hnj.setForumName(this.mForumName);
+        return new FrsPageAlaStageViewHolder(this.hnj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,12 +46,12 @@ public class d extends k<h, FrsPageAlaStageViewHolder> implements z {
         super.a(i, view, viewGroup, (ViewGroup) hVar, (h) frsPageAlaStageViewHolder);
         if (hVar != null) {
             int i2 = 0;
-            if (this.jfG != null) {
-                i2 = this.jfG.getTopThreadSize();
+            if (this.jfU != null) {
+                i2 = this.jfU.getTopThreadSize();
             }
-            frsPageAlaStageViewHolder.hnd.eOs = (i + 1) - i2;
-            frsPageAlaStageViewHolder.hnd.setForumName(this.mForumName);
-            frsPageAlaStageViewHolder.hnd.a(hVar);
+            frsPageAlaStageViewHolder.hnr.eOs = (i + 1) - i2;
+            frsPageAlaStageViewHolder.hnr.setForumName(this.mForumName);
+            frsPageAlaStageViewHolder.hnr.a(hVar);
         }
         return view;
     }

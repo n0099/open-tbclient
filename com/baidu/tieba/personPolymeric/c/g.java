@@ -10,12 +10,12 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes8.dex */
 public class g extends BaseCardInfo {
-    public static final BdUniqueId mBC = BdUniqueId.gen();
+    public static final BdUniqueId mBR = BdUniqueId.gen();
     public String Op;
     public int giftNum = 0;
-    public boolean mBD;
-    public String mBE;
-    public List<com.baidu.adp.widget.ListView.n> mBF;
+    public boolean mBS;
+    public String mBT;
+    public List<com.baidu.adp.widget.ListView.n> mBU;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
@@ -24,7 +24,7 @@ public class g extends BaseCardInfo {
         if (user != null && !y.isEmpty(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.Op = user.name;
-            this.mBE = user.name_show;
+            this.mBT = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -32,28 +32,28 @@ public class g extends BaseCardInfo {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.mBD = false;
+                this.mBS = false;
             } else {
-                this.mBD = true;
+                this.mBS = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.mBF = new ArrayList();
+            this.mBU = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.mBF.add(oVar);
+                    this.mBU.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !y.isEmpty(this.mBF);
+        return !y.isEmpty(this.mBU);
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mBC;
+        return mBR;
     }
 }

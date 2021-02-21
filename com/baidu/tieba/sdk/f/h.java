@@ -12,7 +12,7 @@ public class h implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
         try {
-            com.baidu.tieba.sdk.a.dFp().bj(TbadkCoreApplication.getInst(), EncryptionHelper.getDecryptUserId(map.get(TbEnum.SystemMessage.KEY_USER_ID)));
+            com.baidu.tieba.sdk.a.dFx().bi(TbadkCoreApplication.getInst(), EncryptionHelper.getDecryptUserId(map.get(TbEnum.SystemMessage.KEY_USER_ID)));
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

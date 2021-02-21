@@ -4,8 +4,8 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class RedPktSendHttpResponseMessage extends JsonHttpResponsedMessage {
-    public long gTh;
-    public long gTi;
+    public long gTv;
+    public long gTw;
 
     public RedPktSendHttpResponseMessage() {
         super(1031076);
@@ -16,8 +16,8 @@ public class RedPktSendHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.gTh = optJSONObject.optLong("red_packet_id");
-            this.gTi = optJSONObject.optLong("red_packet_balance");
+            this.gTv = optJSONObject.optLong("red_packet_id");
+            this.gTw = optJSONObject.optLong("red_packet_balance");
         }
     }
 }

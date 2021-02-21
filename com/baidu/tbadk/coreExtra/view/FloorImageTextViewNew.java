@@ -91,7 +91,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 jSONArray2 = jSONArray;
                 if (imageUrlData == null && jSONArray2 != null && jSONArray2.length() > 0) {
                     this.fwt = true;
-                    com.baidu.tieba.view.c.dVQ().setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    com.baidu.tieba.view.c.dVY().setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     TbRichText a2 = TbRichTextView.a(getContext(), jSONArray2, false);
                     f(Cn(a2.toString()));
                     this.eIA.setText(a2);

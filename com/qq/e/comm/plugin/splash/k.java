@@ -30,10 +30,10 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(int i, b.EnumC1208b enumC1208b, boolean z, com.qq.e.comm.plugin.y.c cVar) {
+    public static void a(int i, b.EnumC1210b enumC1210b, boolean z, com.qq.e.comm.plugin.y.c cVar) {
         com.qq.e.comm.plugin.y.d dVar = new com.qq.e.comm.plugin.y.d();
         dVar.a("fd", Integer.valueOf(i));
-        if (enumC1208b != b.EnumC1208b.Unknown) {
+        if (enumC1210b != b.EnumC1210b.Unknown) {
             u.a(1010062, 3, cVar, dVar);
         } else {
             u.a(1010062, z ? 2 : 1, cVar, dVar);
@@ -113,10 +113,10 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(b.EnumC1208b enumC1208b, b.EnumC1208b enumC1208b2, com.qq.e.comm.plugin.y.c cVar, int i, Exception exc, String str, String str2) {
-        if (enumC1208b != b.EnumC1208b.Unknown) {
-            b(enumC1208b, enumC1208b2, cVar, i, exc, str, str2);
-        } else if (enumC1208b2 == b.EnumC1208b.Downloaded) {
+    public static void a(b.EnumC1210b enumC1210b, b.EnumC1210b enumC1210b2, com.qq.e.comm.plugin.y.c cVar, int i, Exception exc, String str, String str2) {
+        if (enumC1210b != b.EnumC1210b.Unknown) {
+            b(enumC1210b, enumC1210b2, cVar, i, exc, str, str2);
+        } else if (enumC1210b2 == b.EnumC1210b.Downloaded) {
             u.a(1010016, cVar);
         } else {
             u.a(1010015, i, cVar, a(str, exc, true, (String) null));
@@ -210,16 +210,16 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void b(b.EnumC1208b enumC1208b, b.EnumC1208b enumC1208b2, com.qq.e.comm.plugin.y.c cVar, int i, Exception exc, String str, String str2) {
-        if (enumC1208b == b.EnumC1208b.Downloading || enumC1208b2 == b.EnumC1208b.Downloading) {
+    public static void b(b.EnumC1210b enumC1210b, b.EnumC1210b enumC1210b2, com.qq.e.comm.plugin.y.c cVar, int i, Exception exc, String str, String str2) {
+        if (enumC1210b == b.EnumC1210b.Downloading || enumC1210b2 == b.EnumC1210b.Downloading) {
             return;
         }
-        if (enumC1208b == b.EnumC1208b.Downloaded) {
+        if (enumC1210b == b.EnumC1210b.Downloaded) {
             u.a(1010040, cVar);
-            if (enumC1208b2 == b.EnumC1208b.Failed) {
+            if (enumC1210b2 == b.EnumC1210b.Failed) {
                 u.a(1010043, i, cVar, a(str, exc, true, (String) null));
             }
-        } else if (enumC1208b2 == b.EnumC1208b.Downloaded) {
+        } else if (enumC1210b2 == b.EnumC1210b.Downloaded) {
             u.a(1010044, i, cVar, a((String) null, exc, true, str2));
         } else {
             u.a(1010045, i, cVar, a(str, exc, true, str2));

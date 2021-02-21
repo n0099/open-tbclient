@@ -17,7 +17,7 @@ public class a {
 
     /* renamed from: b  reason: collision with root package name */
     private boolean f14355b = false;
-    private static volatile a qlI = null;
+    private static volatile a qmi = null;
     private static Object d = new Object();
     private static HandlerThread e = null;
     private static Handler f = null;
@@ -134,14 +134,14 @@ public class a {
     }
 
     public static a jc(Context context) {
-        if (qlI == null) {
+        if (qmi == null) {
             synchronized (a.class) {
-                if (qlI == null) {
-                    qlI = new a(context);
+                if (qmi == null) {
+                    qmi = new a(context);
                 }
             }
         }
-        return qlI;
+        return qmi;
     }
 
     public final boolean a() {

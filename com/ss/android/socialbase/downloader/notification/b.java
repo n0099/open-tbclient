@@ -16,25 +16,25 @@ public class b {
     /* renamed from: b  reason: collision with root package name */
     private final Set<String> f13254b = new HashSet();
     private final SparseArray<a> d = new SparseArray<>();
-    private static volatile b qit = null;
+    private static volatile b qiT = null;
     private static final Object c = new Object();
 
     private b() {
     }
 
-    public static b eIB() {
-        if (qit == null) {
+    public static b eIJ() {
+        if (qiT == null) {
             synchronized (b.class) {
-                if (qit == null) {
-                    qit = new b();
+                if (qiT == null) {
+                    qiT = new b();
                 }
             }
         }
-        return qit;
+        return qiT;
     }
 
     public void a(int i) {
-        c h = f.iB(com.ss.android.socialbase.downloader.downloader.b.eGu()).h(i);
+        c h = f.iB(com.ss.android.socialbase.downloader.downloader.b.eGC()).h(i);
         if (h != null) {
             a(h);
             b(h);
@@ -42,11 +42,11 @@ public class b {
     }
 
     void a(c cVar) {
-        k eGk = com.ss.android.socialbase.downloader.downloader.b.eGk();
-        if (eGk != null && cVar.aQ()) {
+        k eGs = com.ss.android.socialbase.downloader.downloader.b.eGs();
+        if (eGs != null && cVar.aQ()) {
             cVar.e(3);
             try {
-                eGk.a(cVar);
+                eGs.a(cVar);
             } catch (SQLiteException e) {
                 e.printStackTrace();
             }
@@ -60,7 +60,7 @@ public class b {
     }
 
     static boolean c(c cVar) {
-        return cVar.aQ() && b(cVar.eHd());
+        return cVar.aQ() && b(cVar.eHl());
     }
 
     static boolean b(int i) {
@@ -68,14 +68,14 @@ public class b {
     }
 
     public void a(int i, int i2, Notification notification) {
-        Context eGu = com.ss.android.socialbase.downloader.downloader.b.eGu();
-        if (eGu != null && i != 0 && notification != null) {
+        Context eGC = com.ss.android.socialbase.downloader.downloader.b.eGC();
+        if (eGC != null && i != 0 && notification != null) {
             try {
-                Intent intent = new Intent(eGu, DownloadNotificationService.class);
+                Intent intent = new Intent(eGC, DownloadNotificationService.class);
                 intent.setAction("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY");
                 intent.putExtra("DOWNLOAD_NOTIFICATION_EXTRA_STATUS", i2);
                 intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", i);
-                eGu.startService(intent);
+                eGC.startService(intent);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -83,13 +83,13 @@ public class b {
     }
 
     public void c(int i) {
-        Context eGu = com.ss.android.socialbase.downloader.downloader.b.eGu();
-        if (eGu != null && i != 0) {
+        Context eGC = com.ss.android.socialbase.downloader.downloader.b.eGC();
+        if (eGC != null && i != 0) {
             try {
-                Intent intent = new Intent(eGu, DownloadNotificationService.class);
+                Intent intent = new Intent(eGC, DownloadNotificationService.class);
                 intent.setAction("android.ss.intent.action.DOWNLOAD_NOTIFICATION_CANCEL");
                 intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", i);
-                eGu.startService(intent);
+                eGC.startService(intent);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -104,7 +104,7 @@ public class b {
         }
     }
 
-    public a Sa(int i) {
+    public a Sb(int i) {
         a aVar;
         if (i == 0) {
             return null;
@@ -119,7 +119,7 @@ public class b {
         return aVar;
     }
 
-    public a Sb(int i) {
+    public a Sc(int i) {
         a aVar;
         if (i == 0) {
             return null;
@@ -131,7 +131,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SparseArray<a> eIC() {
+    public SparseArray<a> eIK() {
         SparseArray<a> sparseArray;
         synchronized (this.d) {
             sparseArray = this.d;
@@ -140,9 +140,9 @@ public class b {
     }
 
     public void f(int i) {
-        Sa(i);
+        Sb(i);
         if (i != 0) {
-            eIB().c(i);
+            eIJ().c(i);
         }
     }
 }

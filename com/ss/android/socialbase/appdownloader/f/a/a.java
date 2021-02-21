@@ -15,10 +15,10 @@ class a implements j {
     private int m;
     private int n;
     private int o;
-    private d qdX;
-    private g qdY;
+    private d qex;
+    private g qey;
     private boolean c = false;
-    private C1230a qdZ = new C1230a();
+    private C1232a qez = new C1232a();
 
     public a() {
         g();
@@ -27,24 +27,24 @@ class a implements j {
     public void a(InputStream inputStream) {
         a();
         if (inputStream != null) {
-            this.qdX = new d(inputStream, false);
+            this.qex = new d(inputStream, false);
         }
     }
 
     public void a() {
         if (this.c) {
             this.c = false;
-            this.qdX.a();
-            this.qdX = null;
-            this.qdY = null;
+            this.qex.a();
+            this.qex = null;
+            this.qey = null;
             this.e = null;
-            this.qdZ.a();
+            this.qez.a();
             g();
         }
     }
 
     public int b() throws i, IOException {
-        if (this.qdX == null) {
+        if (this.qex == null) {
             throw new i("Parser is not opened.", this, null);
         }
         try {
@@ -75,7 +75,7 @@ class a implements j {
 
     public String a(int i) {
         int i2 = this.l[e(i) + 1];
-        return i2 == -1 ? "" : this.qdY.a(i2);
+        return i2 == -1 ? "" : this.qey.a(i2);
     }
 
     public int b(int i) {
@@ -86,10 +86,10 @@ class a implements j {
         return this.l[e(i) + 4];
     }
 
-    public String Rl(int i) {
+    public String Rm(int i) {
         int e = e(i);
         if (this.l[e + 3] == 3) {
-            return this.qdY.a(this.l[e + 2]);
+            return this.qey.a(this.l[e + 2]);
         }
         int i2 = this.l[e + 4];
         return "";
@@ -132,11 +132,11 @@ class a implements j {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private final void h() throws IOException {
-        if (this.qdY == null) {
-            b.a(this.qdX, 524291);
-            this.qdX.c();
-            this.qdY = g.a(this.qdX);
-            this.qdZ.e();
+        if (this.qey == null) {
+            b.a(this.qex, 524291);
+            this.qex.c();
+            this.qey = g.a(this.qex);
+            this.qez.e();
             this.c = true;
         }
         if (this.h != 1) {
@@ -145,66 +145,66 @@ class a implements j {
             while (true) {
                 if (this.g) {
                     this.g = false;
-                    this.qdZ.f();
+                    this.qez.f();
                 }
-                if (i == 3 && this.qdZ.d() == 1 && this.qdZ.b() == 0) {
+                if (i == 3 && this.qez.d() == 1 && this.qez.b() == 0) {
                     this.h = 1;
                     return;
                 }
-                int b2 = i == 0 ? 1048834 : this.qdX.b();
+                int b2 = i == 0 ? 1048834 : this.qex.b();
                 if (b2 == 524672) {
-                    int b3 = this.qdX.b();
+                    int b3 = this.qex.b();
                     if (b3 < 8 || b3 % 4 != 0) {
                         break;
                     }
-                    this.e = this.qdX.b((b3 / 4) - 2);
+                    this.e = this.qex.b((b3 / 4) - 2);
                 } else if (b2 < 1048832 || b2 > 1048836) {
                     break;
                 } else if (b2 == 1048834 && i == -1) {
                     this.h = 0;
                     return;
                 } else {
-                    this.qdX.c();
-                    int b4 = this.qdX.b();
-                    this.qdX.c();
+                    this.qex.c();
+                    int b4 = this.qex.b();
+                    this.qex.c();
                     if (b2 == 1048832 || b2 == 1048833) {
                         if (b2 == 1048832) {
-                            this.qdZ.a(this.qdX.b(), this.qdX.b());
+                            this.qez.a(this.qex.b(), this.qex.b());
                         } else {
-                            this.qdX.c();
-                            this.qdX.c();
-                            this.qdZ.c();
+                            this.qex.c();
+                            this.qex.c();
+                            this.qez.c();
                         }
                     } else {
                         this.i = b4;
                         if (b2 == 1048834) {
-                            this.k = this.qdX.b();
-                            this.j = this.qdX.b();
-                            this.qdX.c();
-                            int b5 = this.qdX.b();
+                            this.k = this.qex.b();
+                            this.j = this.qex.b();
+                            this.qex.c();
+                            int b5 = this.qex.b();
                             this.m = (b5 >>> 16) - 1;
                             int i2 = b5 & SupportMenu.USER_MASK;
-                            this.n = this.qdX.b();
+                            this.n = this.qex.b();
                             this.o = (this.n >>> 16) - 1;
                             this.n = (this.n & SupportMenu.USER_MASK) - 1;
-                            this.l = this.qdX.b(i2 * 5);
+                            this.l = this.qex.b(i2 * 5);
                             for (int i3 = 3; i3 < this.l.length; i3 += 5) {
                                 int[] iArr = this.l;
                                 iArr[i3] = iArr[i3] >>> 24;
                             }
-                            this.qdZ.e();
+                            this.qez.e();
                             this.h = 2;
                             return;
                         } else if (b2 == 1048835) {
-                            this.k = this.qdX.b();
-                            this.j = this.qdX.b();
+                            this.k = this.qex.b();
+                            this.j = this.qex.b();
                             this.h = 3;
                             this.g = true;
                             return;
                         } else if (b2 == 1048836) {
-                            this.j = this.qdX.b();
-                            this.qdX.c();
-                            this.qdX.c();
+                            this.j = this.qex.b();
+                            this.qex.c();
+                            this.qex.c();
                             this.h = 4;
                             return;
                         }
@@ -217,7 +217,7 @@ class a implements j {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.ss.android.socialbase.appdownloader.f.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1230a {
+    public static final class C1232a {
 
         /* renamed from: a  reason: collision with root package name */
         private int[] f13044a = new int[32];

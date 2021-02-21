@@ -27,7 +27,7 @@ public abstract class h<T> implements Runnable {
 
     public void cancel() {
         if (this.mState.compareAndSet(0, 2)) {
-            esv();
+            esD();
         }
     }
 
@@ -37,7 +37,7 @@ public abstract class h<T> implements Runnable {
     protected void onFailure(Exception exc) {
     }
 
-    protected void esv() {
+    protected void esD() {
     }
 
     protected void ba(T t) {

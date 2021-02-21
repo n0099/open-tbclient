@@ -4,22 +4,22 @@ public interface e {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cih();
+        void cio();
 
-        void cii();
+        void cip();
     }
 
     /* loaded from: classes11.dex */
     public interface b {
-        void cij();
+        void ciq();
 
-        void cik();
+        void cir();
 
-        void cil();
+        void cis();
 
-        boolean cim();
+        boolean cit();
 
-        void cin();
+        void ciu();
 
         void d(com.baidu.tieba.ala.category.b.a aVar);
 

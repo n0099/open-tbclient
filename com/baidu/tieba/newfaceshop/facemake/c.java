@@ -11,8 +11,8 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 /* loaded from: classes9.dex */
 public class c {
-    public static final String lAf = com.baidu.tieba.newfaceshop.c.lAf + "draft/";
-    public static final String lAF = lAf + "upload_draft";
+    public static final String lAt = com.baidu.tieba.newfaceshop.c.lAt + "draft/";
+    public static final String lAT = lAt + "upload_draft";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [46=4] */
     public static void a(FaceGroupDraft faceGroupDraft) {
@@ -20,12 +20,12 @@ public class c {
         ObjectOutputStream objectOutputStream2 = null;
         try {
             try {
-                File file = new File(lAf);
+                File file = new File(lAt);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                dix();
-                objectOutputStream = new ObjectOutputStream(new FileOutputStream(lAF));
+                diE();
+                objectOutputStream = new ObjectOutputStream(new FileOutputStream(lAT));
             } catch (Throwable th) {
                 th = th;
             }
@@ -58,10 +58,10 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4] */
-    public static FaceGroupDraft diw() {
+    public static FaceGroupDraft diD() {
         ObjectInputStream objectInputStream;
         FaceGroupDraft faceGroupDraft;
-        File file = new File(lAF);
+        File file = new File(lAT);
         try {
             if (!file.exists()) {
                 return null;
@@ -119,8 +119,8 @@ public class c {
         }
     }
 
-    public static void dix() {
-        File file = new File(lAF);
+    public static void diE() {
+        File file = new File(lAT);
         if (file.exists()) {
             file.delete();
         }

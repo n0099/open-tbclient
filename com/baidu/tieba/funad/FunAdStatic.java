@@ -10,11 +10,11 @@ public class FunAdStatic {
     public static String Tag = "tag";
 
     static {
-        com.baidu.tieba.h.b.jSS.set(new d());
-        cNp();
+        com.baidu.tieba.h.b.jTg.set(new d());
+        cNw();
     }
 
-    private static void cNp() {
+    private static void cNw() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new CustomMessageTask.CustomRunnable<a.b>() { // from class: com.baidu.tieba.funad.FunAdStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<a.b> run(CustomMessage<a.b> customMessage) {

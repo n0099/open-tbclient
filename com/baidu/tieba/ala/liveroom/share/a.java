@@ -17,15 +17,15 @@ import com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView;
 /* loaded from: classes11.dex */
 public class a extends Dialog {
     private ab aDd;
-    private b hNF;
-    private View hNG;
+    private b hNT;
+    private View hNU;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public a(@NonNull Context context, TbPageContext tbPageContext, ab abVar, b bVar) {
         super(context);
         this.mContext = context;
-        this.hNF = bVar;
+        this.hNT = bVar;
         this.mPageContext = tbPageContext;
         this.aDd = abVar;
         initView();
@@ -34,15 +34,15 @@ public class a extends Dialog {
     private void initView() {
         ShareEntity T = T(this.aDd);
         if (T != null) {
-            this.hNG = new AlaLandscapeShareView(this.mPageContext, T, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
+            this.hNU = new AlaLandscapeShareView(this.mPageContext, T, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
                 @Override // com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView.a
                 public void onClick(View view) {
-                    if (a.this.hNF != null) {
-                        a.this.hNF.dismiss();
+                    if (a.this.hNT != null) {
+                        a.this.hNT.dismiss();
                     }
                 }
             });
-            setContentView(this.hNG);
+            setContentView(this.hNU);
             int screenWidth = n.getScreenWidth(this.mContext);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
@@ -62,7 +62,7 @@ public class a extends Dialog {
     private void GD() {
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, BdUtilHelper.dip2px(this.mContext, 200.0f), 0.0f);
         translateAnimation.setDuration(250L);
-        this.hNG.startAnimation(translateAnimation);
+        this.hNU.startAnimation(translateAnimation);
     }
 
     private ShareEntity T(ab abVar) {

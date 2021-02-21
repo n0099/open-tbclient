@@ -5,9 +5,9 @@ import org.json.JSONObject;
 public class c {
     public String aIu;
     public String appUrl;
-    public String hBB;
-    public String hBC;
-    public String hBD;
+    public String hBP;
+    public String hBQ;
+    public String hBR;
     public int needToast;
     public String packageName;
     public String portrait;
@@ -21,9 +21,9 @@ public class c {
             if (optJSONObject != null) {
                 this.packageName = optJSONObject.optString("package_name", "");
                 this.appUrl = optJSONObject.optString("app_url", "");
-                this.hBB = optJSONObject.optString("app_deeplink_url", "");
-                this.hBC = optJSONObject.optString("app_backup_deeplink_url", "");
-                this.hBD = optJSONObject.optString("app_clipboard_url", "");
+                this.hBP = optJSONObject.optString("app_deeplink_url", "");
+                this.hBQ = optJSONObject.optString("app_backup_deeplink_url", "");
+                this.hBR = optJSONObject.optString("app_clipboard_url", "");
             }
             this.aIu = jSONObject.optString("toast_text", "");
             this.subappType = jSONObject.optString("subapp_type", "");

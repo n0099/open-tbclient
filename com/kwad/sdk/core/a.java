@@ -19,7 +19,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.core.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class C1088a {
+    public static final class C1090a {
 
         /* renamed from: a  reason: collision with root package name */
         private static final a f9034a = new a();
@@ -31,7 +31,7 @@ public class a {
     }
 
     public static a a() {
-        return C1088a.f9034a;
+        return C1090a.f9034a;
     }
 
     public DownloadParams a(String str) {

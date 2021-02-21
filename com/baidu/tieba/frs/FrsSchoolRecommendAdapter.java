@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.bs;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class FrsSchoolRecommendAdapter extends k<bq, FrsSchoolRecommendViewHolder> {
-    private com.baidu.tieba.frs.view.d jkg;
+    private com.baidu.tieba.frs.view.d jku;
 
     public FrsSchoolRecommendAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -21,8 +21,8 @@ public class FrsSchoolRecommendAdapter extends k<bq, FrsSchoolRecommendViewHolde
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bs */
     public FrsSchoolRecommendViewHolder e(ViewGroup viewGroup) {
-        this.jkg = new com.baidu.tieba.frs.view.d(this.mPageContext, this.mPageId);
-        return new FrsSchoolRecommendViewHolder(this.jkg);
+        this.jku = new com.baidu.tieba.frs.view.d(this.mPageContext, this.mPageId);
+        return new FrsSchoolRecommendViewHolder(this.jku);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class FrsSchoolRecommendAdapter extends k<bq, FrsSchoolRecommendViewHolde
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bq bqVar, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) bqVar, (bq) frsSchoolRecommendViewHolder);
-        this.jkg = frsSchoolRecommendViewHolder.jkh;
+        this.jku = frsSchoolRecommendViewHolder.jkv;
         ArrayList<bs> bmX = bqVar.bmX();
         if (bmX.size() <= 0) {
             return null;
@@ -50,18 +50,18 @@ public class FrsSchoolRecommendAdapter extends k<bq, FrsSchoolRecommendViewHolde
                 xVar.a(ayVar);
             }
         }
-        this.jkg.onChangeSkinType(this.mPageContext, this.mSkinType);
-        frsSchoolRecommendViewHolder.jkh.a(xVar);
+        this.jku.onChangeSkinType(this.mPageContext, this.mSkinType);
+        frsSchoolRecommendViewHolder.jkv.a(xVar);
         return frsSchoolRecommendViewHolder.getView();
     }
 
     /* loaded from: classes2.dex */
     public class FrsSchoolRecommendViewHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.frs.view.d jkh;
+        public com.baidu.tieba.frs.view.d jkv;
 
         public FrsSchoolRecommendViewHolder(com.baidu.tieba.frs.view.d dVar) {
             super(dVar.getView());
-            this.jkh = dVar;
+            this.jkv = dVar;
         }
     }
 }

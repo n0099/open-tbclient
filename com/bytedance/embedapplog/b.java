@@ -19,35 +19,35 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class b {
     @SuppressLint({"StaticFieldLeak"})
-    private static volatile cn pmm;
+    private static volatile cn pmM;
     @SuppressLint({"StaticFieldLeak"})
-    public static m pmn;
-    private static volatile h pmp;
-    public static f pmr;
+    public static m pmN;
+    private static volatile h pmP;
+    public static f pmR;
 
     /* renamed from: b  reason: collision with root package name */
     private static boolean f5795b = true;
     private static boolean c = false;
-    private static ao pmo = new ao();
-    public static ConcurrentHashMap<String, String> pmq = new ConcurrentHashMap<>(4);
+    private static ao pmO = new ao();
+    public static ConcurrentHashMap<String, String> pmQ = new ConcurrentHashMap<>(4);
 
     public static void a(@NonNull Context context, @NonNull l lVar) {
         if (!au.f5788b && Looper.myLooper() != Looper.getMainLooper()) {
             au.a(new RuntimeException("Wrong thread!"));
-        } else if (pmm != null) {
+        } else if (pmM != null) {
             au.a(new RuntimeException("Init Twice!"));
             return;
-        } else if (lVar.enO() == null) {
+        } else if (lVar.enW() == null) {
             au.a(new RuntimeException("need to involve setSensitiveInfoProvider!"));
             return;
         }
         Application application = (Application) context.getApplicationContext();
-        bx enV = bx.enV();
+        bx eod = bx.eod();
         cn cnVar = new cn(application, lVar);
         m mVar = new m(application, cnVar);
-        enV.a(application, cnVar, mVar, new bs(lVar.enC()));
-        pmm = cnVar;
-        pmn = mVar;
+        eod.a(application, cnVar, mVar, new bs(lVar.enK()));
+        pmM = cnVar;
+        pmN = mVar;
         au.d("Inited", null);
     }
 
@@ -55,46 +55,46 @@ public final class b {
         bx.a();
     }
 
-    public static h enl() {
-        return pmp;
+    public static h ent() {
+        return pmP;
     }
 
-    public static f enm() {
-        return pmr;
+    public static f enu() {
+        return pmR;
     }
 
     public static void K(HashMap<String, Object> hashMap) {
-        if (pmn != null) {
-            pmn.a(hashMap);
+        if (pmN != null) {
+            pmN.a(hashMap);
         }
     }
 
-    public static String enn() {
-        if (pmn != null) {
-            return pmn.q();
-        }
-        return null;
-    }
-
-    @Nullable
-    public static JSONObject eno() {
-        if (pmm != null) {
-            return pmm.eoi();
+    public static String env() {
+        if (pmN != null) {
+            return pmN.q();
         }
         return null;
     }
 
     @Nullable
-    public static String enp() {
-        if (pmm != null) {
-            return pmm.t();
+    public static JSONObject enw() {
+        if (pmM != null) {
+            return pmM.eoq();
+        }
+        return null;
+    }
+
+    @Nullable
+    public static String enx() {
+        if (pmM != null) {
+            return pmM.t();
         }
         return null;
     }
 
     public static <T> T B(String str, T t) {
-        if (pmn != null) {
-            return (T) pmn.C(str, t);
+        if (pmN != null) {
+            return (T) pmN.C(str, t);
         }
         return null;
     }
@@ -105,11 +105,11 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static byte[] Yu(String str) {
+    public static byte[] YG(String str) {
         GZIPOutputStream gZIPOutputStream;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(8192);
         try {
-            if (enq()) {
+            if (eny()) {
                 gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
                 try {
                     gZIPOutputStream.write(str.getBytes("UTF-8"));
@@ -125,7 +125,7 @@ public final class b {
                             }
                         }
                         byte[] byteArray = byteArrayOutputStream.toByteArray();
-                        if (!enq()) {
+                        if (!eny()) {
                         }
                     } catch (Throwable th2) {
                         GZIPOutputStream gZIPOutputStream2 = gZIPOutputStream;
@@ -155,7 +155,7 @@ public final class b {
             gZIPOutputStream = null;
         }
         byte[] byteArray2 = byteArrayOutputStream.toByteArray();
-        return !enq() ? TTEncryptUtils.a(byteArray2, byteArray2.length) : byteArray2;
+        return !eny() ? TTEncryptUtils.a(byteArray2, byteArray2.length) : byteArray2;
     }
 
     public static void c(@NonNull String str, @NonNull String str2, String str3, long j, long j2, JSONObject jSONObject) {
@@ -207,38 +207,38 @@ public final class b {
         v(str, jSONObject);
     }
 
-    public static boolean enq() {
+    public static boolean eny() {
         return true;
     }
 
-    public static boolean enr() {
+    public static boolean enz() {
         return f5795b;
     }
 
     public static String getDid() {
-        return pmn != null ? pmn.g() : "";
+        return pmN != null ? pmN.g() : "";
     }
 
     public static String getSsid() {
-        return pmn != null ? pmn.k() : "";
+        return pmN != null ? pmN.k() : "";
     }
 
-    public static String ens() {
-        return pmn != null ? pmn.l() : "";
+    public static String enA() {
+        return pmN != null ? pmN.l() : "";
     }
 
     public static void a(g gVar) {
-        pmo.b(gVar);
+        pmO.b(gVar);
     }
 
     @NonNull
-    public static g ent() {
-        return pmo;
+    public static g enB() {
+        return pmO;
     }
 
-    public static int enu() {
-        if (pmm != null) {
-            return pmm.i();
+    public static int enC() {
+        if (pmM != null) {
+            return pmM.i();
         }
         return 0;
     }
@@ -248,9 +248,9 @@ public final class b {
         ba.b(iVar);
     }
 
-    public static l env() {
-        if (pmm != null) {
-            return pmm.eom();
+    public static l enD() {
+        if (pmM != null) {
+            return pmM.eou();
         }
         return null;
     }

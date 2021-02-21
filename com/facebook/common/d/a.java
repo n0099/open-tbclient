@@ -7,28 +7,28 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class a {
-    public static final Map<String, String> pyX = ImmutableMap.of("mkv", "video/x-matroska", "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
+    public static final Map<String, String> pzx = ImmutableMap.of("mkv", "video/x-matroska", "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
 
-    public static boolean Zj(@Nullable String str) {
+    public static boolean Zv(@Nullable String str) {
         return str != null && str.startsWith("video/");
     }
 
     @Nullable
-    public static String Zk(String str) {
-        String Zl = Zl(str);
-        if (Zl == null) {
+    public static String Zw(String str) {
+        String Zx = Zx(str);
+        if (Zx == null) {
             return null;
         }
-        String lowerCase = Zl.toLowerCase(Locale.US);
+        String lowerCase = Zx.toLowerCase(Locale.US);
         String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
         if (mimeTypeFromExtension == null) {
-            return pyX.get(lowerCase);
+            return pzx.get(lowerCase);
         }
         return mimeTypeFromExtension;
     }
 
     @Nullable
-    private static String Zl(String str) {
+    private static String Zx(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         if (lastIndexOf < 0 || lastIndexOf == str.length() - 1) {
             return null;

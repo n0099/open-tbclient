@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 public class g extends BdBaseModel {
     private final HttpMessageListener bBe;
     private Context bNw;
-    private a ozf;
+    private a ozF;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -20,7 +20,7 @@ public class g extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.ozf = aVar;
+        this.ozF = aVar;
     }
 
     public g(Context context) {
@@ -34,12 +34,12 @@ public class g extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomCardInfoHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.getUniqueId() && g.this.ozf != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomCardInfoHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.getUniqueId() && g.this.ozF != null) {
                     AlaGetRoomCardInfoHttpResponseMessage alaGetRoomCardInfoHttpResponseMessage = (AlaGetRoomCardInfoHttpResponseMessage) httpResponsedMessage;
                     if (alaGetRoomCardInfoHttpResponseMessage.getError() != 0 || !alaGetRoomCardInfoHttpResponseMessage.isSuccess()) {
-                        g.this.ozf.onFail(alaGetRoomCardInfoHttpResponseMessage.getError(), alaGetRoomCardInfoHttpResponseMessage.getErrorString());
+                        g.this.ozF.onFail(alaGetRoomCardInfoHttpResponseMessage.getError(), alaGetRoomCardInfoHttpResponseMessage.getErrorString());
                     } else {
-                        g.this.ozf.b(alaGetRoomCardInfoHttpResponseMessage);
+                        g.this.ozF.b(alaGetRoomCardInfoHttpResponseMessage);
                     }
                 }
             }

@@ -25,11 +25,11 @@ public class aa {
     /* renamed from: b  reason: collision with root package name */
     static final String[] f5773b = {"aid", "version_code", "ab_client", "ab_version", "ab_feature", "ab_group", "iid", "device_platform"};
     public static final String[] c = {"tt_data", "device_platform"};
-    private static com.bytedance.embedapplog.util.a pmy = com.bytedance.embedapplog.util.a.Or(0);
+    private static com.bytedance.embedapplog.util.a pmY = com.bytedance.embedapplog.util.a.Os(0);
 
     private static String a(String str) {
         String[] strArr;
-        if (!TextUtils.isEmpty(str) && b.enq()) {
+        if (!TextUtils.isEmpty(str) && b.eny()) {
             Uri parse = Uri.parse(str);
             String query = parse.getQuery();
             ArrayList<Pair> arrayList = new ArrayList();
@@ -44,7 +44,7 @@ public class aa {
             for (Pair pair : arrayList) {
                 buildUpon.appendQueryParameter((String) pair.first, (String) pair.second);
             }
-            buildUpon.appendQueryParameter("tt_info", new String(Base64.encode(b.Yu(query), 8)));
+            buildUpon.appendQueryParameter("tt_info", new String(Base64.encode(b.YG(query), 8)));
             return buildUpon.build().toString();
         }
         return str;
@@ -362,21 +362,21 @@ public class aa {
     }
 
     public static void a(int i) {
-        pmy = com.bytedance.embedapplog.util.a.Or(i);
+        pmY = com.bytedance.embedapplog.util.a.Os(i);
     }
 
-    public static com.bytedance.embedapplog.util.a enQ() {
-        return pmy;
+    public static com.bytedance.embedapplog.util.a enY() {
+        return pmY;
     }
 
     public static JSONObject w(String str, JSONObject jSONObject) {
         HashMap hashMap = new HashMap(2);
-        if (b.enq()) {
+        if (b.eny()) {
             hashMap.put("Content-Type", "application/octet-stream;tt-data=a");
         } else {
             hashMap.put("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
         }
-        String a2 = a(1, a(str), hashMap, b.Yu(jSONObject.toString()));
+        String a2 = a(1, a(str), hashMap, b.YG(jSONObject.toString()));
         if (a2 != null) {
             try {
                 return new JSONObject(a2);
@@ -439,7 +439,7 @@ public class aa {
         int i;
         int i2;
         HashMap hashMap = new HashMap(2);
-        if (b.enq()) {
+        if (b.eny()) {
             hashMap.put("Content-Type", "application/octet-stream;tt-data=a");
         } else {
             hashMap.put("Content-Type", AbstractBceClient.DEFAULT_CONTENT_TYPE);
@@ -524,7 +524,7 @@ public class aa {
     */
     public static JSONObject y(String str, JSONObject jSONObject) {
         JSONObject jSONObject2;
-        String a2 = a(1, str, null, b.Yu(jSONObject.toString()));
+        String a2 = a(1, str, null, b.YG(jSONObject.toString()));
         if (a2 != null) {
             try {
                 jSONObject2 = new JSONObject(a2);
@@ -548,7 +548,7 @@ public class aa {
     */
     public static JSONObject z(String str, JSONObject jSONObject) {
         JSONObject jSONObject2;
-        String a2 = a(1, str, null, b.Yu(jSONObject.toString()));
+        String a2 = a(1, str, null, b.YG(jSONObject.toString()));
         if (a2 != null) {
             try {
                 jSONObject2 = new JSONObject(a2);

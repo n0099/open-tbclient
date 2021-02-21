@@ -29,7 +29,7 @@ import com.baidu.tieba.tbadkCore.data.m;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class SchemaRouteActivity extends BaseActivity {
-    private final f.a jhO = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
+    private final f.a jic = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
         @Override // com.baidu.tbadk.BdToken.f.a
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(f.PARAM_URL) instanceof String)) {
@@ -79,7 +79,7 @@ public class SchemaRouteActivity extends BaseActivity {
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
                 Uri data = intent.getData();
                 if (f.r(data)) {
-                    f.bhH().a(dataString, data, this.jhO);
+                    f.bhH().a(dataString, data, this.jic);
                 } else {
                     TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getActivity());
                     tbWebViewActivityConfig.setUri(intent.getData());

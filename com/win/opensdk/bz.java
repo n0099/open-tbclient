@@ -18,6 +18,6 @@ public final class bz {
 
     /* renamed from: java  reason: collision with other field name */
     int[] f42java;
-    boolean qiQ;
+    boolean qjQ;
     boolean qjq;
 }

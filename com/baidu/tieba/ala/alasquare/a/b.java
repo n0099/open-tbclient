@@ -6,16 +6,16 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes10.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId gyz = BdUniqueId.gen();
-    public cb gyA;
+    public static final BdUniqueId gyN = BdUniqueId.gen();
+    public cb gyO;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return gyz;
+        return gyN;
     }
 
     public cb bln() {
-        return this.gyA;
+        return this.gyO;
     }
 
     public ar az(String str, boolean z) {

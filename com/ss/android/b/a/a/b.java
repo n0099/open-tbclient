@@ -20,7 +20,7 @@ public class b implements com.ss.android.a.a.b.b {
     private boolean k;
     private boolean l;
     private String m;
-    private JSONObject pwM;
+    private JSONObject pxm;
 
     public b() {
     }
@@ -39,7 +39,7 @@ public class b implements com.ss.android.a.a.b.b {
         this.k = aVar.k;
         this.l = aVar.l;
         this.m = aVar.m;
-        this.pwM = aVar.pwM;
+        this.pxm = aVar.pxm;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -88,7 +88,7 @@ public class b implements com.ss.android.a.a.b.b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public Object eDT() {
+    public Object eEb() {
         return this.i;
     }
 
@@ -108,8 +108,8 @@ public class b implements com.ss.android.a.a.b.b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public JSONObject eDU() {
-        return this.pwM;
+    public JSONObject eEc() {
+        return this.pxm;
     }
 
     /* loaded from: classes6.dex */
@@ -131,49 +131,49 @@ public class b implements com.ss.android.a.a.b.b {
         private boolean k = true;
         private boolean l = false;
         private String m;
-        private JSONObject pwM;
+        private JSONObject pxm;
 
-        public a aan(String str) {
+        public a aaz(String str) {
             this.f12916a = str;
             return this;
         }
 
-        public a aao(String str) {
+        public a aaA(String str) {
             this.f12917b = str;
             return this;
         }
 
-        public a aap(String str) {
+        public a aaB(String str) {
             this.d = str;
             return this;
         }
 
-        public a aaq(String str) {
+        public a aaC(String str) {
             this.e = str;
             return this;
         }
 
-        public a aar(String str) {
+        public a aaD(String str) {
             this.f = str;
             return this;
         }
 
-        public a aas(String str) {
+        public a aaE(String str) {
             this.g = str;
             return this;
         }
 
         @Deprecated
-        public a aat(String str) {
+        public a aaF(String str) {
             return this;
         }
 
-        public a aau(String str) {
+        public a aaG(String str) {
             this.h = str;
             return this;
         }
 
-        public a QP(int i) {
+        public a QQ(int i) {
             this.j = i;
             return this;
         }
@@ -193,12 +193,12 @@ public class b implements com.ss.android.a.a.b.b {
             return this;
         }
 
-        public a aav(String str) {
+        public a aaH(String str) {
             this.m = str;
             return this;
         }
 
-        public b eEf() {
+        public b eEn() {
             return new b(this);
         }
     }

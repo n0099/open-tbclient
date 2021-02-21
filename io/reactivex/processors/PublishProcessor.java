@@ -8,8 +8,8 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes5.dex */
 public final class PublishProcessor<T> extends a<T> {
-    static final PublishSubscription[] qsi = new PublishSubscription[0];
-    static final PublishSubscription[] qsj = new PublishSubscription[0];
+    static final PublishSubscription[] qsI = new PublishSubscription[0];
+    static final PublishSubscription[] qsJ = new PublishSubscription[0];
     Throwable error;
     final AtomicReference<PublishSubscription<T>[]> subscribers;
 
@@ -37,7 +37,7 @@ public final class PublishProcessor<T> extends a<T> {
         PublishSubscription<T>[] publishSubscriptionArr2;
         do {
             publishSubscriptionArr = this.subscribers.get();
-            if (publishSubscriptionArr == qsi) {
+            if (publishSubscriptionArr == qsI) {
                 return false;
             }
             int length = publishSubscriptionArr.length;
@@ -53,7 +53,7 @@ public final class PublishProcessor<T> extends a<T> {
         PublishSubscription<T>[] publishSubscriptionArr2;
         do {
             publishSubscriptionArr = this.subscribers.get();
-            if (publishSubscriptionArr != qsi && publishSubscriptionArr != qsj) {
+            if (publishSubscriptionArr != qsI && publishSubscriptionArr != qsJ) {
                 int length = publishSubscriptionArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -69,7 +69,7 @@ public final class PublishProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        publishSubscriptionArr2 = qsj;
+                        publishSubscriptionArr2 = qsJ;
                     } else {
                         publishSubscriptionArr2 = new PublishSubscription[length - 1];
                         System.arraycopy(publishSubscriptionArr, 0, publishSubscriptionArr2, 0, i);
@@ -86,7 +86,7 @@ public final class PublishProcessor<T> extends a<T> {
 
     @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        if (this.subscribers.get() == qsi) {
+        if (this.subscribers.get() == qsI) {
             dVar.cancel();
         } else {
             dVar.request(Long.MAX_VALUE);
@@ -96,7 +96,7 @@ public final class PublishProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onNext(T t) {
         io.reactivex.internal.functions.a.m(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != qsi) {
+        if (this.subscribers.get() != qsI) {
             for (PublishSubscription<T> publishSubscription : this.subscribers.get()) {
                 publishSubscription.onNext(t);
             }
@@ -106,20 +106,20 @@ public final class PublishProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.m(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == qsi) {
+        if (this.subscribers.get() == qsI) {
             io.reactivex.d.a.onError(th);
             return;
         }
         this.error = th;
-        for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(qsi)) {
+        for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(qsI)) {
             publishSubscription.onError(th);
         }
     }
 
     @Override // org.a.c
     public void onComplete() {
-        if (this.subscribers.get() != qsi) {
-            for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(qsi)) {
+        if (this.subscribers.get() != qsI) {
+            for (PublishSubscription<T> publishSubscription : this.subscribers.getAndSet(qsI)) {
                 publishSubscription.onComplete();
             }
         }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes8.dex */
 public class c {
     private BdUniqueId agC;
-    private a ndH;
+    private a neh;
     private d pageData;
     private int mPageNum = 1;
     private com.baidu.adp.framework.listener.a eDt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692) { // from class: com.baidu.tieba.setting.forbiddenforum.c.1
@@ -26,8 +26,8 @@ public class c {
                     }
                     if (responsedMessage.getError() == 0) {
                         if (c.this.mPageNum == 1 && (pageData == null || y.isEmpty(pageData.dataList))) {
-                            if (c.this.ndH != null) {
-                                c.this.ndH.a(null);
+                            if (c.this.neh != null) {
+                                c.this.neh.a(null);
                             }
                         } else if (pageData != null) {
                             c.this.pageData.dataList.addAll(pageData.dataList);
@@ -37,12 +37,12 @@ public class c {
                                 c.this.pageData.hasMore = pageData.hasMore;
                                 c.e(c.this);
                             }
-                            if (c.this.ndH != null) {
-                                c.this.ndH.a(pageData);
+                            if (c.this.neh != null) {
+                                c.this.neh.a(pageData);
                             }
                         }
-                    } else if (c.this.ndH != null) {
-                        c.this.ndH.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                    } else if (c.this.neh != null) {
+                        c.this.neh.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
@@ -99,7 +99,7 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Sj(String str) {
+    public void Sv(String str) {
         if (this.pageData != null && !y.isEmpty(this.pageData.dataList)) {
             for (b bVar : this.pageData.dataList) {
                 if (bVar != null && bVar.forumId != null && bVar.forumId.equals(str)) {
@@ -111,6 +111,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.ndH = aVar;
+        this.neh = aVar;
     }
 }

@@ -10,20 +10,20 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
     private TbPageContext<?> mPageContext;
-    private BackgroundGroupModel nGl;
-    private c nGm;
-    private d nGn;
-    private BackgroundGroupModel.a nGo = new BackgroundGroupModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundGroupActivity.1
+    private BackgroundGroupModel nGL;
+    private c nGM;
+    private d nGN;
+    private BackgroundGroupModel.a nGO = new BackgroundGroupModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundGroupActivity.1
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.a
         public void a(int i, String str, com.baidu.tieba.themeCenter.dressCenter.e eVar, List<b> list) {
-            BackgroundGroupActivity.this.hideLoadingView(BackgroundGroupActivity.this.nGm.getRootView());
-            BackgroundGroupActivity.this.nGm.cOA();
+            BackgroundGroupActivity.this.hideLoadingView(BackgroundGroupActivity.this.nGM.getRootView());
+            BackgroundGroupActivity.this.nGM.cOH();
             if (i == 0) {
-                BackgroundGroupActivity.this.nGm.a(eVar, list, BackgroundGroupActivity.this.nGl.dKP());
+                BackgroundGroupActivity.this.nGM.a(eVar, list, BackgroundGroupActivity.this.nGL.dKX());
                 return;
             }
             BackgroundGroupActivity.this.showToast(str);
-            BackgroundGroupActivity.this.nGm.cAH();
+            BackgroundGroupActivity.this.nGM.cAO();
         }
     };
 
@@ -33,14 +33,14 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         super.onCreate(bundle);
         TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
         this.mPageContext = getPageContext();
-        this.nGl = new BackgroundGroupModel(this);
-        this.nGl.a(this.nGo);
-        this.nGn = new d(this.mPageContext, this.nGl.getUniqueId());
-        this.nGn.setFrom(1);
-        this.nGm = new c(this, this.nGn);
-        this.nGm.cOz();
-        showLoadingView(this.nGm.getRootView());
-        this.nGl.LoadData();
+        this.nGL = new BackgroundGroupModel(this);
+        this.nGL.a(this.nGO);
+        this.nGN = new d(this.mPageContext, this.nGL.getUniqueId());
+        this.nGN.setFrom(1);
+        this.nGM = new c(this, this.nGN);
+        this.nGM.cOG();
+        showLoadingView(this.nGM.getRootView());
+        this.nGL.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,8 +49,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         super.onResume();
         if (TbadkCoreApplication.getInst().getThemeWebviewOpen()) {
             TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
-            showLoadingView(this.nGm.getRootView());
-            this.nGl.LoadData();
+            showLoadingView(this.nGM.getRootView());
+            this.nGL.LoadData();
         }
     }
 
@@ -58,8 +58,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.nGm != null) {
-            this.nGm.bzn();
+        if (this.nGM != null) {
+            this.nGM.bzn();
         }
     }
 
@@ -72,14 +72,14 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (this.nGl != null && this.nGm != null) {
-            showLoadingView(this.nGm.getRootView());
-            this.nGl.LoadData();
+        if (this.nGL != null && this.nGM != null) {
+            showLoadingView(this.nGM.getRootView());
+            this.nGL.LoadData();
         }
     }
 
     public int getPropId() {
-        return this.nGn.getPropId();
+        return this.nGN.getPropId();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a

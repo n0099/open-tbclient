@@ -5,7 +5,7 @@ import android.app.ActivityManager;
 import android.os.Build;
 /* loaded from: classes6.dex */
 public class g {
-    static final a pvZ;
+    static final a pwz;
 
     /* loaded from: classes6.dex */
     private static class a {
@@ -32,13 +32,13 @@ public class g {
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            pvZ = new b();
+            pwz = new b();
         } else {
-            pvZ = new a();
+            pwz = new a();
         }
     }
 
     public static long a(ActivityManager.MemoryInfo memoryInfo) {
-        return pvZ.a(memoryInfo);
+        return pwz.a(memoryInfo);
     }
 }

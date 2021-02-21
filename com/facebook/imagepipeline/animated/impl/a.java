@@ -13,29 +13,29 @@ public class a implements com.facebook.imagepipeline.animated.base.a {
     private final int mDurationMs;
     @GuardedBy("this")
     @Nullable
-    private Bitmap nNK;
-    private final com.facebook.imagepipeline.animated.b.a pFv;
-    private final d pGt;
-    private final com.facebook.imagepipeline.animated.base.b pGu;
-    private final Rect pGv;
-    private final int[] pGw;
-    private final int[] pGx;
-    private final AnimatedDrawableFrameInfo[] pGy;
-    private final Rect pGz = new Rect();
-    private final Rect pGA = new Rect();
+    private Bitmap nOk;
+    private final com.facebook.imagepipeline.animated.b.a pFV;
+    private final d pGT;
+    private final com.facebook.imagepipeline.animated.base.b pGU;
+    private final Rect pGV;
+    private final int[] pGW;
+    private final int[] pGX;
+    private final AnimatedDrawableFrameInfo[] pGY;
+    private final Rect pGZ = new Rect();
+    private final Rect pHa = new Rect();
 
     public a(com.facebook.imagepipeline.animated.b.a aVar, d dVar, Rect rect) {
-        this.pFv = aVar;
-        this.pGt = dVar;
-        this.pGu = dVar.evx();
-        this.pGw = this.pGu.getFrameDurations();
-        this.pFv.fixFrameDurations(this.pGw);
-        this.mDurationMs = this.pFv.t(this.pGw);
-        this.pGx = this.pFv.u(this.pGw);
-        this.pGv = a(this.pGu, rect);
-        this.pGy = new AnimatedDrawableFrameInfo[this.pGu.getFrameCount()];
-        for (int i = 0; i < this.pGu.getFrameCount(); i++) {
-            this.pGy[i] = this.pGu.OO(i);
+        this.pFV = aVar;
+        this.pGT = dVar;
+        this.pGU = dVar.evF();
+        this.pGW = this.pGU.getFrameDurations();
+        this.pFV.fixFrameDurations(this.pGW);
+        this.mDurationMs = this.pFV.t(this.pGW);
+        this.pGX = this.pFV.u(this.pGW);
+        this.pGV = a(this.pGU, rect);
+        this.pGY = new AnimatedDrawableFrameInfo[this.pGU.getFrameCount()];
+        for (int i = 0; i < this.pGU.getFrameCount(); i++) {
+            this.pGY[i] = this.pGU.OP(i);
         }
     }
 
@@ -48,88 +48,88 @@ public class a implements com.facebook.imagepipeline.animated.base.a {
 
     @Override // com.facebook.imagepipeline.animated.base.a
     public int getFrameCount() {
-        return this.pGu.getFrameCount();
+        return this.pGU.getFrameCount();
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
     public int getLoopCount() {
-        return this.pGu.getLoopCount();
+        return this.pGU.getLoopCount();
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
     public int getWidth() {
-        return this.pGu.getWidth();
+        return this.pGU.getWidth();
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
     public int getHeight() {
-        return this.pGu.getHeight();
+        return this.pGU.getHeight();
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
-    public int evv() {
-        return this.pGv.width();
+    public int evD() {
+        return this.pGV.width();
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
-    public int evw() {
-        return this.pGv.height();
+    public int evE() {
+        return this.pGV.height();
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
-    public AnimatedDrawableFrameInfo OO(int i) {
-        return this.pGy[i];
+    public AnimatedDrawableFrameInfo OP(int i) {
+        return this.pGY[i];
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
-    public int Py(int i) {
-        return this.pGw[i];
+    public int Pz(int i) {
+        return this.pGW[i];
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
     public com.facebook.imagepipeline.animated.base.a m(Rect rect) {
-        return a(this.pGu, rect).equals(this.pGv) ? this : new a(this.pFv, this.pGt, rect);
+        return a(this.pGU, rect).equals(this.pGV) ? this : new a(this.pFV, this.pGT, rect);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.a
     public void d(int i, Canvas canvas) {
-        com.facebook.imagepipeline.animated.base.c OQ = this.pGu.OQ(i);
+        com.facebook.imagepipeline.animated.base.c OR = this.pGU.OR(i);
         try {
-            if (this.pGu.erK()) {
-                a(canvas, OQ);
+            if (this.pGU.erS()) {
+                a(canvas, OR);
             } else {
-                b(canvas, OQ);
+                b(canvas, OR);
             }
         } finally {
-            OQ.dispose();
+            OR.dispose();
         }
     }
 
-    private synchronized void dY(int i, int i2) {
-        if (this.nNK != null && (this.nNK.getWidth() < i || this.nNK.getHeight() < i2)) {
-            dSX();
+    private synchronized void dZ(int i, int i2) {
+        if (this.nOk != null && (this.nOk.getWidth() < i || this.nOk.getHeight() < i2)) {
+            dTf();
         }
-        if (this.nNK == null) {
-            this.nNK = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        if (this.nOk == null) {
+            this.nOk = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
         }
-        this.nNK.eraseColor(0);
+        this.nOk.eraseColor(0);
     }
 
     private void a(Canvas canvas, com.facebook.imagepipeline.animated.base.c cVar) {
-        double width = this.pGv.width() / this.pGu.getWidth();
-        double height = this.pGv.height() / this.pGu.getHeight();
+        double width = this.pGV.width() / this.pGU.getWidth();
+        double height = this.pGV.height() / this.pGU.getHeight();
         int round = (int) Math.round(cVar.getWidth() * width);
         int round2 = (int) Math.round(cVar.getHeight() * height);
         int xOffset = (int) (width * cVar.getXOffset());
         int yOffset = (int) (height * cVar.getYOffset());
         synchronized (this) {
-            int width2 = this.pGv.width();
-            int height2 = this.pGv.height();
-            dY(width2, height2);
-            cVar.renderFrame(round, round2, this.nNK);
-            this.pGz.set(0, 0, width2, height2);
-            this.pGA.set(xOffset, yOffset, width2 + xOffset, height2 + yOffset);
-            canvas.drawBitmap(this.nNK, this.pGz, this.pGA, (Paint) null);
+            int width2 = this.pGV.width();
+            int height2 = this.pGV.height();
+            dZ(width2, height2);
+            cVar.renderFrame(round, round2, this.nOk);
+            this.pGZ.set(0, 0, width2, height2);
+            this.pHa.set(xOffset, yOffset, width2 + xOffset, height2 + yOffset);
+            canvas.drawBitmap(this.nOk, this.pGZ, this.pHa, (Paint) null);
         }
     }
 
@@ -139,21 +139,21 @@ public class a implements com.facebook.imagepipeline.animated.base.a {
         int xOffset = cVar.getXOffset();
         int yOffset = cVar.getYOffset();
         synchronized (this) {
-            dY(width, height);
-            cVar.renderFrame(width, height, this.nNK);
-            this.pGz.set(0, 0, width, height);
-            this.pGA.set(0, 0, width, height);
+            dZ(width, height);
+            cVar.renderFrame(width, height, this.nOk);
+            this.pGZ.set(0, 0, width, height);
+            this.pHa.set(0, 0, width, height);
             canvas.save();
             canvas.translate(xOffset, yOffset);
-            canvas.drawBitmap(this.nNK, this.pGz, this.pGA, (Paint) null);
+            canvas.drawBitmap(this.nOk, this.pGZ, this.pHa, (Paint) null);
             canvas.restore();
         }
     }
 
-    private synchronized void dSX() {
-        if (this.nNK != null) {
-            this.nNK.recycle();
-            this.nNK = null;
+    private synchronized void dTf() {
+        if (this.nOk != null) {
+            this.nOk.recycle();
+            this.nOk = null;
         }
     }
 }

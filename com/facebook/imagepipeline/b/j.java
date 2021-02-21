@@ -5,45 +5,45 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class j implements f {
-    private static j pHA = null;
+    private static j pIa = null;
 
     protected j() {
     }
 
-    public static synchronized j evQ() {
+    public static synchronized j evY() {
         j jVar;
         synchronized (j.class) {
-            if (pHA == null) {
-                pHA = new j();
+            if (pIa == null) {
+                pIa = new j();
             }
-            jVar = pHA;
+            jVar = pIa;
         }
         return jVar;
     }
 
     @Override // com.facebook.imagepipeline.b.f
     public com.facebook.cache.common.b a(ImageRequest imageRequest, Object obj) {
-        return new c(W(imageRequest.ezX()).toString(), imageRequest.ezZ(), imageRequest.eAa(), imageRequest.eAb(), null, null, obj);
+        return new c(W(imageRequest.eAf()).toString(), imageRequest.eAh(), imageRequest.eAi(), imageRequest.eAj(), null, null, obj);
     }
 
     @Override // com.facebook.imagepipeline.b.f
     public com.facebook.cache.common.b b(ImageRequest imageRequest, Object obj) {
         String str;
         com.facebook.cache.common.b bVar;
-        com.facebook.imagepipeline.request.b eAf = imageRequest.eAf();
-        if (eAf != null) {
-            bVar = eAf.ezg();
-            str = eAf.getClass().getName();
+        com.facebook.imagepipeline.request.b eAn = imageRequest.eAn();
+        if (eAn != null) {
+            bVar = eAn.ezo();
+            str = eAn.getClass().getName();
         } else {
             str = null;
             bVar = null;
         }
-        return new c(W(imageRequest.ezX()).toString(), imageRequest.ezZ(), imageRequest.eAa(), imageRequest.eAb(), bVar, str, obj);
+        return new c(W(imageRequest.eAf()).toString(), imageRequest.eAh(), imageRequest.eAi(), imageRequest.eAj(), bVar, str, obj);
     }
 
     @Override // com.facebook.imagepipeline.b.f
     public com.facebook.cache.common.b c(ImageRequest imageRequest, @Nullable Object obj) {
-        return a(imageRequest, imageRequest.ezX(), obj);
+        return a(imageRequest, imageRequest.eAf(), obj);
     }
 
     @Override // com.facebook.imagepipeline.b.f

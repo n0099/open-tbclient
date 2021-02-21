@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes5.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> qye = new AtomicReference<>();
-    private final g qEk;
-    private final g qEl;
-    private final g qEm;
+    private static final AtomicReference<Schedulers> qyE = new AtomicReference<>();
+    private final g qEK;
+    private final g qEL;
+    private final g qEM;
 
-    private static Schedulers eNX() {
+    private static Schedulers eOf() {
         Schedulers schedulers;
         while (true) {
-            schedulers = qye.get();
+            schedulers = qyE.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (qye.compareAndSet(null, schedulers)) {
+                if (qyE.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.eNZ();
+                schedulers.eOh();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g eNO = f.eNJ().eNO();
-        g eNS = eNO.eNS();
-        if (eNS != null) {
-            this.qEk = eNS;
+        rx.c.g eNW = f.eNR().eNW();
+        g eOa = eNW.eOa();
+        if (eOa != null) {
+            this.qEK = eOa;
         } else {
-            this.qEk = rx.c.g.eNP();
+            this.qEK = rx.c.g.eNX();
         }
-        g eNT = eNO.eNT();
-        if (eNT != null) {
-            this.qEl = eNT;
+        g eOb = eNW.eOb();
+        if (eOb != null) {
+            this.qEL = eOb;
         } else {
-            this.qEl = rx.c.g.eNQ();
+            this.qEL = rx.c.g.eNY();
         }
-        g eNU = eNO.eNU();
-        if (eNU != null) {
-            this.qEm = eNU;
+        g eOc = eNW.eOc();
+        if (eOc != null) {
+            this.qEM = eOc;
         } else {
-            this.qEm = rx.c.g.eNR();
+            this.qEM = rx.c.g.eNZ();
         }
     }
 
     public static g immediate() {
-        return e.qCs;
+        return e.qCS;
     }
 
     public static g trampoline() {
-        return j.qCP;
+        return j.qDp;
     }
 
     public static g newThread() {
-        return c.k(eNX().qEm);
+        return c.k(eOf().qEM);
     }
 
     public static g computation() {
-        return c.i(eNX().qEk);
+        return c.i(eOf().qEK);
     }
 
     public static g io() {
-        return c.j(eNX().qEl);
+        return c.j(eOf().qEL);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = qye.getAndSet(null);
+        Schedulers andSet = qyE.getAndSet(null);
         if (andSet != null) {
-            andSet.eNZ();
+            andSet.eOh();
         }
     }
 
     public static void start() {
-        Schedulers eNX = eNX();
-        eNX.eNY();
-        synchronized (eNX) {
-            d.qCq.start();
+        Schedulers eOf = eOf();
+        eOf.eOg();
+        synchronized (eOf) {
+            d.qCQ.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers eNX = eNX();
-        eNX.eNZ();
-        synchronized (eNX) {
-            d.qCq.shutdown();
+        Schedulers eOf = eOf();
+        eOf.eOh();
+        synchronized (eOf) {
+            d.qCQ.shutdown();
         }
     }
 
-    synchronized void eNY() {
-        if (this.qEk instanceof h) {
-            ((h) this.qEk).start();
+    synchronized void eOg() {
+        if (this.qEK instanceof h) {
+            ((h) this.qEK).start();
         }
-        if (this.qEl instanceof h) {
-            ((h) this.qEl).start();
+        if (this.qEL instanceof h) {
+            ((h) this.qEL).start();
         }
-        if (this.qEm instanceof h) {
-            ((h) this.qEm).start();
+        if (this.qEM instanceof h) {
+            ((h) this.qEM).start();
         }
     }
 
-    synchronized void eNZ() {
-        if (this.qEk instanceof h) {
-            ((h) this.qEk).shutdown();
+    synchronized void eOh() {
+        if (this.qEK instanceof h) {
+            ((h) this.qEK).shutdown();
         }
-        if (this.qEl instanceof h) {
-            ((h) this.qEl).shutdown();
+        if (this.qEL instanceof h) {
+            ((h) this.qEL).shutdown();
         }
-        if (this.qEm instanceof h) {
-            ((h) this.qEm).shutdown();
+        if (this.qEM instanceof h) {
+            ((h) this.qEM).shutdown();
         }
     }
 }

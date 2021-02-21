@@ -10,8 +10,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
     private TextView bMg;
-    private TextView iGY;
-    private TextView kFQ;
+    private TextView iHm;
+    private TextView kGe;
     private Context mContext;
     private LinearLayout mRootView;
 
@@ -23,7 +23,7 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
 
     public void setConfirmButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.kFQ.setOnClickListener(onClickListener);
+            this.kGe.setOnClickListener(onClickListener);
         }
     }
 
@@ -31,14 +31,14 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.forum_broadcast_major_question_dialog, this);
         this.mRootView = (LinearLayout) findViewById(R.id.forum_broadcast_question);
         this.bMg = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_title);
-        this.iGY = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_content);
-        this.kFQ = (TextView) this.mRootView.findViewById(R.id.known_icon);
+        this.iHm = (TextView) this.mRootView.findViewById(R.id.forum_broadcast_question_content);
+        this.kGe = (TextView) this.mRootView.findViewById(R.id.known_icon);
         this.bMg.setText(R.string.subscribe_bar_title);
-        this.iGY.setText(R.string.forum_broadcast_major_history_hint);
-        this.kFQ.setText(R.string.know);
+        this.iHm.setText(R.string.forum_broadcast_major_history_hint);
+        this.kGe.setText(R.string.know);
         ap.setBackgroundResource(this.mRootView, R.drawable.bg_frs_private_dialog);
         ap.setViewTextColor(this.bMg, R.color.CAM_X0105);
-        ap.setViewTextColor(this.iGY, R.color.CAM_X0107);
-        ap.setViewTextColor(this.kFQ, R.color.CAM_X0302);
+        ap.setViewTextColor(this.iHm, R.color.CAM_X0107);
+        ap.setViewTextColor(this.kGe, R.color.CAM_X0302);
     }
 }

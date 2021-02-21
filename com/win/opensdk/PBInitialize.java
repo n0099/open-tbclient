@@ -35,13 +35,13 @@ public class PBInitialize {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        final ao eJd = ao.eJd();
+        final ao eJl = ao.eJl();
         if (context == null) {
             throw new RuntimeException("Error:Context is not allowed to be null");
         }
-        eJd.qiN = context.getApplicationContext();
+        eJl.qjn = context.getApplicationContext();
         if (!TextUtils.isEmpty(str)) {
-            az.bK(context, str);
+            az.bJ(context, str);
         }
         ba.C(new Runnable() { // from class: com.win.opensdk.ao.1
             @Override // java.lang.Runnable
@@ -76,14 +76,14 @@ public class PBInitialize {
             }
         });
         final ab iO = ab.iO(context);
-        if (iO.m59java()) {
-            iO.qjj = System.currentTimeMillis();
+        if (iO.m58java()) {
+            iO.qjJ = System.currentTimeMillis();
             ba.C(new Runnable() { // from class: com.win.opensdk.ab.1
                 @Override // java.lang.Runnable
                 public final void run() {
                     String str2 = "";
                     try {
-                        str2 = ab.f7case + ak.T(ak.iP(iO.qiN));
+                        str2 = ab.f7case + ak.T(ak.iP(iO.qjn));
                     } catch (UnsupportedEncodingException e3) {
                     }
                     ai.a(str2, new r<am>() { // from class: com.win.opensdk.ab.1.1
@@ -93,18 +93,18 @@ public class PBInitialize {
 
                         @Override // com.win.opensdk.r
                         public final /* synthetic */ void bH(am amVar) {
-                            iO.qjP = System.currentTimeMillis() - iO.qjj;
+                            iO.qkp = System.currentTimeMillis() - iO.qjJ;
                             ab.a(iO, amVar);
                         }
 
                         @Override // com.win.opensdk.r
-                        public final void eIP() {
+                        public final void eIX() {
                         }
 
                         @Override // com.win.opensdk.r
                         public final void ck(int i, String str3) {
-                            iO.qjP = System.currentTimeMillis() - iO.qjj;
-                            w.iN(iO.qiN).H(i, iO.qjP).eIP();
+                            iO.qkp = System.currentTimeMillis() - iO.qjJ;
+                            w.iN(iO.qjn).H(i, iO.qkp).eIX();
                         }
                     });
                 }

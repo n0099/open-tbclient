@@ -8,11 +8,11 @@ import com.baidu.tieba.hottopic.view.HotTopicPkView;
 /* loaded from: classes8.dex */
 public class HotTopicPkItemHolder extends TypeAdapter.ViewHolder {
     public int ajU;
-    public TextView kvM;
-    public TextView kvN;
-    public HotTopicPkView kvO;
-    public TextView kvP;
-    public TextView kvQ;
+    public TextView kwa;
+    public TextView kwb;
+    public HotTopicPkView kwc;
+    public TextView kwd;
+    public TextView kwe;
 
     public HotTopicPkItemHolder(View view) {
         super(view);
@@ -22,11 +22,11 @@ public class HotTopicPkItemHolder extends TypeAdapter.ViewHolder {
 
     private void dj(View view) {
         if (view != null) {
-            this.kvM = (TextView) view.findViewById(R.id.pk_item_theme_title);
-            this.kvN = (TextView) view.findViewById(R.id.pk_topic_title);
-            this.kvO = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
-            this.kvP = (TextView) view.findViewById(R.id.pk_topic_positive);
-            this.kvQ = (TextView) view.findViewById(R.id.pk_topic_opposing);
+            this.kwa = (TextView) view.findViewById(R.id.pk_item_theme_title);
+            this.kwb = (TextView) view.findViewById(R.id.pk_topic_title);
+            this.kwc = (HotTopicPkView) view.findViewById(R.id.pk_topic_view);
+            this.kwd = (TextView) view.findViewById(R.id.pk_topic_positive);
+            this.kwe = (TextView) view.findViewById(R.id.pk_topic_opposing);
         }
     }
 }

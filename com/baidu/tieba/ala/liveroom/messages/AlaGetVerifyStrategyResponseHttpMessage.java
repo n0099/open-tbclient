@@ -7,26 +7,26 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaGetVerifyStrategyResponseHttpMessage extends JsonHttpResponsedMessage {
-    public int hJk;
-    public String hJl;
-    public int hJm;
-    public String hJn;
-    public int hJo;
-    public int hJp;
-    public String hJq;
-    public int hJr;
-    public String hJs;
-    public String hJt;
+    public int hJA;
+    public String hJB;
+    public int hJC;
+    public int hJD;
+    public String hJE;
+    public int hJF;
+    public String hJG;
+    public String hJH;
+    public int hJy;
+    public String hJz;
     public int verifyType;
 
     public AlaGetVerifyStrategyResponseHttpMessage() {
         super(1003303);
-        this.hJk = 0;
-        this.hJm = 2;
-        this.hJo = 0;
+        this.hJy = 0;
+        this.hJA = 2;
+        this.hJC = 0;
         this.verifyType = 0;
-        this.hJp = 0;
-        this.hJr = 0;
+        this.hJD = 0;
+        this.hJF = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -40,35 +40,35 @@ public class AlaGetVerifyStrategyResponseHttpMessage extends JsonHttpResponsedMe
                 if (optJSONObject2 != null) {
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject(LogConfig.VALUE_LIVE_HK_RECORD_START);
                     if (optJSONObject3 != null) {
-                        this.hJk = optJSONObject3.optInt("switch");
-                        this.hJl = optJSONObject3.optString("text");
+                        this.hJy = optJSONObject3.optInt("switch");
+                        this.hJz = optJSONObject3.optString("text");
                         String optString = optJSONObject3.optString("toast_content");
-                        this.hJt = optString;
+                        this.hJH = optString;
                         if (!StringUtils.isNull(optString) && (split = optString.split("\\\\n")) != null) {
                             if (split.length == 2) {
-                                this.hJs = split[0];
-                                this.hJt = split[1];
+                                this.hJG = split[0];
+                                this.hJH = split[1];
                             } else if (split.length == 1) {
-                                this.hJt = split[0];
+                                this.hJH = split[0];
                             }
                         }
                     }
                     JSONObject optJSONObject4 = optJSONObject2.optJSONObject("certify");
                     if (optJSONObject4 != null) {
-                        this.hJp = optJSONObject4.optInt("switch");
-                        this.hJq = optJSONObject4.optString("text");
+                        this.hJD = optJSONObject4.optInt("switch");
+                        this.hJE = optJSONObject4.optString("text");
                     }
                     JSONObject optJSONObject5 = optJSONObject2.optJSONObject("user_verify");
                     if (optJSONObject5 != null) {
-                        this.hJm = optJSONObject5.optInt("switch");
-                        this.hJo = optJSONObject5.optInt("in_testlist");
-                        this.hJn = optJSONObject5.optString("text");
+                        this.hJA = optJSONObject5.optInt("switch");
+                        this.hJC = optJSONObject5.optInt("in_testlist");
+                        this.hJB = optJSONObject5.optString("text");
                         this.verifyType = optJSONObject5.optInt("type");
                     }
                 }
                 JSONObject optJSONObject6 = optJSONObject.optJSONObject("open_live_check");
                 if (optJSONObject6 != null) {
-                    this.hJr = optJSONObject6.optInt("nickname_check");
+                    this.hJF = optJSONObject6.optInt("nickname_check");
                 }
             }
         }

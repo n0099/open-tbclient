@@ -31,13 +31,13 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.lra != null) {
-            a.e eVar = this.mData.lra;
+        if (this.mData != null && this.mData.lro != null) {
+            a.e eVar = this.mData.lro;
             AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
             if (currentAccountObj != null && eVar != null && currentAccountObj.getID() != null && currentAccountObj.getID().equals(eVar.mId)) {
-                a.b bVar = eVar.lrl;
-                if (bVar != null && bVar.lrd > bVar.lre && !StringUtils.isNull(bVar.lrf)) {
-                    currentAccountObj.setMemberIconUrl(bVar.lrf);
+                a.b bVar = eVar.lrz;
+                if (bVar != null && bVar.lrr > bVar.lrs && !StringUtils.isNull(bVar.lrt)) {
+                    currentAccountObj.setMemberIconUrl(bVar.lrt);
                 } else {
                     currentAccountObj.setMemberIconUrl(null);
                 }

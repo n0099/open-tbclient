@@ -13,13 +13,13 @@ public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     private String aif;
     private com.baidu.adp.widget.ListView.s amk;
     public BdUniqueId fGZ;
-    private byte kbt;
+    private byte kbH;
     private TbPageContext<?> mPageContext;
 
     public z(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b2) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
-        this.kbt = b2;
+        this.kbH = b2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: bd */
     public ThreadCardViewHolder<com.baidu.tieba.homepage.concern.a.c> e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.fGZ, this.kbt));
+        aVar.c(new com.baidu.tieba.homepage.concern.view.b(this.mPageContext, this.fGZ, this.kbH));
         aVar.ti().bz(0);
         aVar.ti().bB(0);
         aVar.ti().bA(0);
@@ -52,7 +52,7 @@ public class z extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 

@@ -16,8 +16,8 @@ public class z {
             boolean bfx = ajVar.bfx();
             for (int i = 0; i < length; i++) {
                 try {
-                    if (bfx != g.ehx().yw(bfw.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + bfx + "  content " + ajVar.ehW().toString());
+                    if (bfx != g.ehF().yw(bfw.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + bfx + "  content " + ajVar.eie().toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

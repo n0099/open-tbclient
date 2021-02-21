@@ -14,13 +14,13 @@ import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes10.dex */
 public class c extends k<cb, FrsPageAlaEmptyLiveViewHolder> implements z {
-    private com.baidu.tieba.ala.livecard.a.b hmO;
-    private ab<cb> hmP;
+    private com.baidu.tieba.ala.livecard.a.b hnc;
+    private ab<cb> hnd;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.hmP = new ab<cb>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.hnd = new ab<cb>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
@@ -45,19 +45,19 @@ public class c extends k<cb, FrsPageAlaEmptyLiveViewHolder> implements z {
         if (this.mPageContext == null) {
             return null;
         }
-        this.hmO = new com.baidu.tieba.ala.livecard.a.b(this.mPageContext);
-        this.hmO.o(this.mPageId);
-        this.hmO.setForumName(this.mForumName);
-        return new FrsPageAlaEmptyLiveViewHolder(this.hmO);
+        this.hnc = new com.baidu.tieba.ala.livecard.a.b(this.mPageContext);
+        this.hnc.o(this.mPageId);
+        this.hnc.setForumName(this.mForumName);
+        return new FrsPageAlaEmptyLiveViewHolder(this.hnc);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, cb cbVar, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
-        frsPageAlaEmptyLiveViewHolder.hnb.a(cbVar);
-        frsPageAlaEmptyLiveViewHolder.hnb.setForumName(this.mForumName);
-        frsPageAlaEmptyLiveViewHolder.hnb.c(this.hmP);
+        frsPageAlaEmptyLiveViewHolder.hnp.a(cbVar);
+        frsPageAlaEmptyLiveViewHolder.hnp.setForumName(this.mForumName);
+        frsPageAlaEmptyLiveViewHolder.hnp.c(this.hnd);
         if (cbVar != null) {
             cbVar.bpd();
         }

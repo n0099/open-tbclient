@@ -19,8 +19,8 @@ import com.baidu.tieba.faceshop.emotiondetail.data.EmotionDetailData;
 /* loaded from: classes9.dex */
 public class EmotionDetailImageView extends FrameLayout {
     private static final float fVZ = l.getEquipmentDensity(TbadkCoreApplication.getInst());
-    private int gzZ;
-    private ImageView iZL;
+    private int gAn;
+    private ImageView iZZ;
     private ProgressBar mProgressBar;
 
     public EmotionDetailImageView(Context context) {
@@ -49,24 +49,24 @@ public class EmotionDetailImageView extends FrameLayout {
         this.mProgressBar.setLayoutParams(layoutParams);
         this.mProgressBar.setIndeterminate(true);
         addView(this.mProgressBar);
-        this.gzZ = l.getEquipmentWidth(getContext());
+        this.gAn = l.getEquipmentWidth(getContext());
     }
 
     public void a(final EmotionDetailData emotionDetailData, int i, boolean z) {
         if (emotionDetailData != null && emotionDetailData.pic_info != null && !TextUtils.isEmpty(emotionDetailData.pic_info.pic_url)) {
             if (z) {
-                this.iZL = new GifView(getContext());
-                ((GifView) this.iZL).setSupportNoImage(false);
+                this.iZZ = new GifView(getContext());
+                ((GifView) this.iZZ).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
                 gifInfo.mSharpText = emotionDetailData.pic_info.thumbnail;
                 gifInfo.mDynamicUrl = emotionDetailData.pic_info.pic_url;
                 gifInfo.mStaticUrl = emotionDetailData.pic_info.pic_url;
                 gifInfo.mGifWidth = emotionDetailData.pic_info.width;
                 gifInfo.mGifHeight = emotionDetailData.pic_info.height;
-                this.iZL.setTag(gifInfo.mSharpText);
-                ((GifView) this.iZL).a(gifInfo);
-                a(this.iZL, emotionDetailData.pic_info.width, emotionDetailData.pic_info.height, 200, 200);
-                addView(this.iZL);
+                this.iZZ.setTag(gifInfo.mSharpText);
+                ((GifView) this.iZZ).a(gifInfo);
+                a(this.iZZ, emotionDetailData.pic_info.width, emotionDetailData.pic_info.height, 200, 200);
+                addView(this.iZZ);
                 this.mProgressBar.setVisibility(8);
                 return;
             }
@@ -84,10 +84,10 @@ public class EmotionDetailImageView extends FrameLayout {
                 public void onLoaded(a aVar, String str, int i2) {
                     EmotionDetailImageView.this.mProgressBar.setVisibility(8);
                     if (aVar != null) {
-                        EmotionDetailImageView.this.iZL = new TbMemeImageView(EmotionDetailImageView.this.getContext());
-                        ((TbMemeImageView) EmotionDetailImageView.this.iZL).f(aVar);
-                        EmotionDetailImageView.this.a(EmotionDetailImageView.this.iZL, emotionDetailData.pic_info.width, emotionDetailData.pic_info.height, 200, 200);
-                        EmotionDetailImageView.this.addView(EmotionDetailImageView.this.iZL);
+                        EmotionDetailImageView.this.iZZ = new TbMemeImageView(EmotionDetailImageView.this.getContext());
+                        ((TbMemeImageView) EmotionDetailImageView.this.iZZ).f(aVar);
+                        EmotionDetailImageView.this.a(EmotionDetailImageView.this.iZZ, emotionDetailData.pic_info.width, emotionDetailData.pic_info.height, 200, 200);
+                        EmotionDetailImageView.this.addView(EmotionDetailImageView.this.iZZ);
                     }
                 }
             }, null);
@@ -96,8 +96,8 @@ public class EmotionDetailImageView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(ImageView imageView, int i, int i2, int i3, int i4) {
-        if (this.gzZ > 0) {
-            i3 = this.gzZ;
+        if (this.gAn > 0) {
+            i3 = this.gAn;
             i4 = (int) (i3 * 0.5f);
         }
         int[] imageResize = l.getImageResize(i, i2, i3, i4);

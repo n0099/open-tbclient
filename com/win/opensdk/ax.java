@@ -5,17 +5,17 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public final class ax {
-    public static boolean abE(String str) {
+    public static boolean abQ(String str) {
         return !TextUtils.isEmpty(str) && str.length() > 3;
     }
 
-    public static boolean bJ(Context context, String str) {
-        String m63b = az.m63b(context);
-        if (TextUtils.isEmpty(m63b)) {
+    public static boolean bI(Context context, String str) {
+        String m62b = az.m62b(context);
+        if (TextUtils.isEmpty(m62b)) {
             return false;
         }
         try {
-            JSONArray jSONArray = new JSONArray(m63b);
+            JSONArray jSONArray = new JSONArray(m62b);
             if (jSONArray.length() > 0) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     String optString = jSONArray.optString(i);

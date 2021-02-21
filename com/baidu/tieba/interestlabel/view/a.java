@@ -12,66 +12,66 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a implements View.OnClickListener {
-    private ViewGroup ipp;
-    private TextView kXW;
-    private TextView kXX;
-    private ImageView kXY;
-    private TextView kXZ;
-    private ImageView kYa;
-    private TextView kYb;
-    private int kYc;
-    private int kYd;
-    private int kYe;
+    private ViewGroup ipD;
+    private TextView kYk;
+    private TextView kYl;
+    private ImageView kYm;
+    private TextView kYn;
+    private ImageView kYo;
+    private TextView kYp;
+    private int kYq;
+    private int kYr;
+    private int kYs;
 
     public a(Context context) {
-        this.ipp = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
-        this.kXW = (TextView) this.ipp.findViewById(R.id.choose_like_label);
-        this.kXX = (TextView) this.ipp.findViewById(R.id.recommend_interest_thread);
-        this.kXY = (ImageView) this.ipp.findViewById(R.id.male_icon);
-        this.kXZ = (TextView) this.ipp.findViewById(R.id.male_text);
-        this.kYa = (ImageView) this.ipp.findViewById(R.id.female_icon);
-        this.kYb = (TextView) this.ipp.findViewById(R.id.female_text);
-        this.kXY.setOnClickListener(this);
-        this.kYa.setOnClickListener(this);
+        this.ipD = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
+        this.kYk = (TextView) this.ipD.findViewById(R.id.choose_like_label);
+        this.kYl = (TextView) this.ipD.findViewById(R.id.recommend_interest_thread);
+        this.kYm = (ImageView) this.ipD.findViewById(R.id.male_icon);
+        this.kYn = (TextView) this.ipD.findViewById(R.id.male_text);
+        this.kYo = (ImageView) this.ipD.findViewById(R.id.female_icon);
+        this.kYp = (TextView) this.ipD.findViewById(R.id.female_text);
+        this.kYm.setOnClickListener(this);
+        this.kYo.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        ap.setViewTextColor(this.kXW, R.color.CAM_X0105);
-        ap.setViewTextColor(this.kXX, R.color.CAM_X0109);
-        ap.setImageResource(this.kXY, R.drawable.img_lable_boy_n);
-        ap.setViewTextColor(this.kXZ, R.color.CAM_X0109);
-        ap.setImageResource(this.kYa, R.drawable.img_lable_girl_n);
-        ap.setViewTextColor(this.kYb, R.color.CAM_X0109);
+        ap.setViewTextColor(this.kYk, R.color.CAM_X0105);
+        ap.setViewTextColor(this.kYl, R.color.CAM_X0109);
+        ap.setImageResource(this.kYm, R.drawable.img_lable_boy_n);
+        ap.setViewTextColor(this.kYn, R.color.CAM_X0109);
+        ap.setImageResource(this.kYo, R.drawable.img_lable_girl_n);
+        ap.setViewTextColor(this.kYp, R.color.CAM_X0109);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
         if (y.getCount(list) == 2) {
-            this.kYc = list.get(0).labelId;
-            this.kYd = list.get(1).labelId;
+            this.kYq = list.get(0).labelId;
+            this.kYr = list.get(1).labelId;
         }
     }
 
-    public ViewGroup daM() {
-        return this.ipp;
+    public ViewGroup daT() {
+        return this.ipD;
     }
 
-    public int daN() {
-        return this.kYe;
+    public int daU() {
+        return this.kYs;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (view == this.kXY) {
+        if (view == this.kYm) {
             z = true;
         } else {
-            z = view == this.kYa ? false : false;
+            z = view == this.kYo ? false : false;
         }
-        this.kYe = z ? this.kYc : this.kYd;
-        ap.setImageResource(this.kXY, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-        ap.setViewTextColor(this.kXZ, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
-        ap.setImageResource(this.kYa, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
-        ap.setViewTextColor(this.kYb, z ? R.color.CAM_X0109 : R.color.CAM_X0301);
+        this.kYs = z ? this.kYq : this.kYr;
+        ap.setImageResource(this.kYm, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
+        ap.setViewTextColor(this.kYn, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
+        ap.setImageResource(this.kYo, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
+        ap.setViewTextColor(this.kYp, z ? R.color.CAM_X0109 : R.color.CAM_X0301);
     }
 }

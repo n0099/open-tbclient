@@ -6,8 +6,8 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 public class e extends HttpMessage {
     private long anchorId;
     private int biX;
-    private long ham;
-    private String han;
+    private long haA;
+    private String haB;
     private String sign;
 
     public e() {
@@ -16,20 +16,20 @@ public class e extends HttpMessage {
     }
 
     public void fq(long j) {
-        this.ham = j;
-    }
-
-    public void GR(String str) {
-        this.han = str;
+        this.haA = j;
     }
 
     public void GS(String str) {
+        this.haB = str;
+    }
+
+    public void GT(String str) {
         this.sign = str;
     }
 
     public void setParams() {
-        addParam("guard_club_id", this.ham);
-        addParam("club_name", this.han);
+        addParam("guard_club_id", this.haA);
+        addParam("club_name", this.haB);
         addParam("sign", this.sign);
         addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.anchorId + ""));
         addParam("client_type", this.biX);

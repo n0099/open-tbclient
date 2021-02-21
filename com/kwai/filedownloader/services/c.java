@@ -13,7 +13,7 @@ public class c {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        c.InterfaceC1159c f10986a;
+        c.InterfaceC1161c f10986a;
 
         /* renamed from: b  reason: collision with root package name */
         Integer f10987b;

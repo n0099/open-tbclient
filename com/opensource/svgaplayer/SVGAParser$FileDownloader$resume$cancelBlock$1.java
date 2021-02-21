@@ -19,7 +19,7 @@ final class SVGAParser$FileDownloader$resume$cancelBlock$1 extends Lambda implem
     @Override // kotlin.jvm.a.a
     public /* bridge */ /* synthetic */ h invoke() {
         invoke2();
-        return h.qsO;
+        return h.qto;
     }
 
     @Override // kotlin.jvm.a.a

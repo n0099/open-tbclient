@@ -11,8 +11,8 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class a extends d {
     private Gson eIH;
-    private c iFu;
-    private HashMap<String, String> iFv;
+    private c iFI;
+    private HashMap<String, String> iFJ;
 
     public a(int i) {
         super(i);
@@ -24,8 +24,8 @@ public class a extends d {
     /* renamed from: d */
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String Jc = Jc(httpMessageTask.getUrl());
-        if (Jc != null && this.iFu != null) {
+        String Jd = Jd(httpMessageTask.getUrl());
+        if (Jd != null && this.iFI != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
@@ -36,27 +36,27 @@ public class a extends d {
             } else {
                 json = this.eIH.toJson(httpMessage.getParams());
             }
-            this.iFu.aE(httpMessageTask.getUrl(), this.eIH.toJson(Jc), this.eIH.toJson(json));
+            this.iFI.aE(httpMessageTask.getUrl(), this.eIH.toJson(Jd), this.eIH.toJson(json));
         }
         return httpMessage;
     }
 
-    public String Jc(String str) {
+    public String Jd(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.iFv != null) {
-            return this.iFv.get(replace);
+        if (this.iFJ != null) {
+            return this.iFJ.get(replace);
         }
         return null;
     }
 
     public void G(HashMap<String, String> hashMap) {
-        this.iFv = hashMap;
+        this.iFJ = hashMap;
     }
 
     public void a(c cVar) {
-        this.iFu = cVar;
+        this.iFI = cVar;
     }
 }

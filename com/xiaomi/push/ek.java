@@ -92,45 +92,45 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public a a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 8:
-                        a(bVar.m179b());
+                        a(bVar.m178b());
                         break;
                     case 16:
-                        a(bVar.m180b());
+                        a(bVar.m179b());
                         break;
                     case 26:
-                        a(bVar.m173a());
+                        a(bVar.m172a());
                         break;
                     case 34:
-                        b(bVar.m173a());
+                        b(bVar.m172a());
                         break;
                     case 42:
-                        c(bVar.m173a());
+                        c(bVar.m172a());
                         break;
                     case 50:
-                        d(bVar.m173a());
+                        d(bVar.m172a());
                         break;
                     case 58:
-                        e(bVar.m173a());
+                        e(bVar.m172a());
                         break;
                     case 64:
-                        b(bVar.m179b());
+                        b(bVar.m178b());
                         break;
                     case 72:
-                        c(bVar.m179b());
+                        c(bVar.m178b());
                         break;
                     case 80:
-                        d(bVar.m179b());
+                        d(bVar.m178b());
                         break;
                     case 90:
-                        f(bVar.m173a());
+                        f(bVar.m172a());
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -154,37 +154,37 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m204a(1, c());
+                cVar.m203a(1, c());
             }
             if (b()) {
-                cVar.m218b(2, a());
+                cVar.m217b(2, a());
             }
-            if (m268c()) {
-                cVar.m208a(3, a());
+            if (m267c()) {
+                cVar.m207a(3, a());
             }
-            if (m270d()) {
-                cVar.m208a(4, b());
+            if (m269d()) {
+                cVar.m207a(4, b());
             }
-            if (m272e()) {
-                cVar.m208a(5, m267c());
+            if (m271e()) {
+                cVar.m207a(5, m266c());
             }
-            if (m274f()) {
-                cVar.m208a(6, m269d());
+            if (m273f()) {
+                cVar.m207a(6, m268d());
             }
             if (g()) {
-                cVar.m208a(7, m271e());
+                cVar.m207a(7, m270e());
             }
             if (h()) {
-                cVar.m204a(8, d());
+                cVar.m203a(8, d());
             }
             if (i()) {
-                cVar.m204a(9, e());
+                cVar.m203a(9, e());
             }
             if (j()) {
-                cVar.m204a(10, f());
+                cVar.m203a(10, f());
             }
             if (k()) {
-                cVar.m208a(11, m273f());
+                cVar.m207a(11, m272f());
             }
         }
 
@@ -199,20 +199,20 @@ public final class ek {
             if (b()) {
                 a2 += com.xiaomi.push.c.b(2, a());
             }
-            if (m268c()) {
+            if (m267c()) {
                 a2 += com.xiaomi.push.c.a(3, a());
             }
-            if (m270d()) {
+            if (m269d()) {
                 a2 += com.xiaomi.push.c.a(4, b());
             }
-            if (m272e()) {
-                a2 += com.xiaomi.push.c.a(5, m267c());
+            if (m271e()) {
+                a2 += com.xiaomi.push.c.a(5, m266c());
             }
-            if (m274f()) {
-                a2 += com.xiaomi.push.c.a(6, m269d());
+            if (m273f()) {
+                a2 += com.xiaomi.push.c.a(6, m268d());
             }
             if (g()) {
-                a2 += com.xiaomi.push.c.a(7, m271e());
+                a2 += com.xiaomi.push.c.a(7, m270e());
             }
             if (h()) {
                 a2 += com.xiaomi.push.c.a(8, d());
@@ -224,7 +224,7 @@ public final class ek {
                 a2 += com.xiaomi.push.c.a(10, f());
             }
             if (k()) {
-                a2 += com.xiaomi.push.c.a(11, m273f());
+                a2 += com.xiaomi.push.c.a(11, m272f());
             }
             this.e = a2;
             return a2;
@@ -269,12 +269,12 @@ public final class ek {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public String m267c() {
+        public String m266c() {
             return this.f322c;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m268c() {
+        public boolean m267c() {
             return this.f323c;
         }
 
@@ -295,12 +295,12 @@ public final class ek {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public String m269d() {
+        public String m268d() {
             return this.f324d;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m270d() {
+        public boolean m269d() {
             return this.f325d;
         }
 
@@ -315,12 +315,12 @@ public final class ek {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public String m271e() {
+        public String m270e() {
             return this.f326e;
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m272e() {
+        public boolean m271e() {
             return this.f327e;
         }
 
@@ -335,12 +335,12 @@ public final class ek {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public String m273f() {
+        public String m272f() {
             return this.f;
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m274f() {
+        public boolean m273f() {
             return this.f328f;
         }
 
@@ -411,24 +411,24 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public b a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 8:
-                        a(bVar.m176a());
+                        a(bVar.m175a());
                         break;
                     case 24:
-                        a(bVar.m179b());
+                        a(bVar.m178b());
                         break;
                     case 32:
-                        b(bVar.m179b());
+                        b(bVar.m178b());
                         break;
                     case 40:
-                        c(bVar.m179b());
+                        c(bVar.m178b());
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -447,16 +447,16 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (b()) {
-                cVar.m209a(1, a());
+                cVar.m208a(1, a());
             }
-            if (m275c()) {
-                cVar.m204a(3, c());
+            if (m274c()) {
+                cVar.m203a(3, c());
             }
-            if (m276d()) {
-                cVar.m204a(4, d());
+            if (m275d()) {
+                cVar.m203a(4, d());
             }
-            if (m277e()) {
-                cVar.m204a(5, e());
+            if (m276e()) {
+                cVar.m203a(5, e());
             }
         }
 
@@ -468,13 +468,13 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public int b() {
             int a2 = b() ? 0 + com.xiaomi.push.c.a(1, a()) : 0;
-            if (m275c()) {
+            if (m274c()) {
                 a2 += com.xiaomi.push.c.a(3, c());
             }
-            if (m276d()) {
+            if (m275d()) {
                 a2 += com.xiaomi.push.c.a(4, d());
             }
-            if (m277e()) {
+            if (m276e()) {
                 a2 += com.xiaomi.push.c.a(5, e());
             }
             this.d = a2;
@@ -503,7 +503,7 @@ public final class ek {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m275c() {
+        public boolean m274c() {
             return this.f331c;
         }
 
@@ -512,7 +512,7 @@ public final class ek {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m276d() {
+        public boolean m275d() {
             return this.f332d;
         }
 
@@ -521,7 +521,7 @@ public final class ek {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m277e() {
+        public boolean m276e() {
             return this.e;
         }
     }
@@ -572,30 +572,30 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public c a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m173a());
+                        a(bVar.m172a());
                         break;
                     case 18:
-                        b(bVar.m173a());
+                        b(bVar.m172a());
                         break;
                     case 26:
-                        c(bVar.m173a());
+                        c(bVar.m172a());
                         break;
                     case 34:
-                        d(bVar.m173a());
+                        d(bVar.m172a());
                         break;
                     case 42:
-                        e(bVar.m173a());
+                        e(bVar.m172a());
                         break;
                     case 50:
-                        f(bVar.m173a());
+                        f(bVar.m172a());
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -619,22 +619,22 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m208a(1, a());
+                cVar.m207a(1, a());
             }
             if (b()) {
-                cVar.m208a(2, b());
+                cVar.m207a(2, b());
             }
-            if (m278c()) {
-                cVar.m208a(3, c());
+            if (m277c()) {
+                cVar.m207a(3, c());
             }
-            if (m279d()) {
-                cVar.m208a(4, d());
+            if (m278d()) {
+                cVar.m207a(4, d());
             }
-            if (m280e()) {
-                cVar.m208a(5, e());
+            if (m279e()) {
+                cVar.m207a(5, e());
             }
-            if (m281f()) {
-                cVar.m208a(6, f());
+            if (m280f()) {
+                cVar.m207a(6, f());
             }
         }
 
@@ -649,16 +649,16 @@ public final class ek {
             if (b()) {
                 a2 += com.xiaomi.push.c.a(2, b());
             }
-            if (m278c()) {
+            if (m277c()) {
                 a2 += com.xiaomi.push.c.a(3, c());
             }
-            if (m279d()) {
+            if (m278d()) {
                 a2 += com.xiaomi.push.c.a(4, d());
             }
-            if (m280e()) {
+            if (m279e()) {
                 a2 += com.xiaomi.push.c.a(5, e());
             }
-            if (m281f()) {
+            if (m280f()) {
                 a2 += com.xiaomi.push.c.a(6, f());
             }
             this.f13977a = a2;
@@ -692,7 +692,7 @@ public final class ek {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m278c() {
+        public boolean m277c() {
             return this.f336c;
         }
 
@@ -707,7 +707,7 @@ public final class ek {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m279d() {
+        public boolean m278d() {
             return this.f337d;
         }
 
@@ -722,7 +722,7 @@ public final class ek {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m280e() {
+        public boolean m279e() {
             return this.f338e;
         }
 
@@ -737,7 +737,7 @@ public final class ek {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m281f() {
+        public boolean m280f() {
             return this.f339f;
         }
     }
@@ -782,24 +782,24 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public d a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 8:
-                        a(bVar.m176a());
+                        a(bVar.m175a());
                         break;
                     case 18:
-                        a(bVar.m173a());
+                        a(bVar.m172a());
                         break;
                     case 26:
-                        b(bVar.m173a());
+                        b(bVar.m172a());
                         break;
                     case 34:
-                        c(bVar.m173a());
+                        c(bVar.m172a());
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -829,16 +829,16 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (b()) {
-                cVar.m209a(1, a());
+                cVar.m208a(1, a());
             }
-            if (m282c()) {
-                cVar.m208a(2, a());
+            if (m281c()) {
+                cVar.m207a(2, a());
             }
             if (d()) {
-                cVar.m208a(3, b());
+                cVar.m207a(3, b());
             }
             if (e()) {
-                cVar.m208a(4, c());
+                cVar.m207a(4, c());
             }
         }
 
@@ -850,7 +850,7 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public int b() {
             int a2 = b() ? 0 + com.xiaomi.push.c.a(1, a()) : 0;
-            if (m282c()) {
+            if (m281c()) {
                 a2 += com.xiaomi.push.c.a(2, a());
             }
             if (d()) {
@@ -890,7 +890,7 @@ public final class ek {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m282c() {
+        public boolean m281c() {
             return this.f343c;
         }
 
@@ -976,33 +976,33 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public e a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 8:
                         a(bVar.c());
                         break;
                     case 18:
-                        a(bVar.m173a());
+                        a(bVar.m172a());
                         break;
                     case 26:
-                        b(bVar.m173a());
+                        b(bVar.m172a());
                         break;
                     case 34:
-                        c(bVar.m173a());
+                        c(bVar.m172a());
                         break;
                     case 40:
-                        b(bVar.m179b());
+                        b(bVar.m178b());
                         break;
                     case 50:
-                        d(bVar.m173a());
+                        d(bVar.m172a());
                         break;
                     case 58:
-                        e(bVar.m173a());
+                        e(bVar.m172a());
                         break;
                     case 66:
-                        f(bVar.m173a());
+                        f(bVar.m172a());
                         break;
                     case 74:
                         b bVar2 = new b();
@@ -1010,10 +1010,10 @@ public final class ek {
                         a(bVar2);
                         break;
                     case 80:
-                        c(bVar.m179b());
+                        c(bVar.m178b());
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -1046,34 +1046,34 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m217b(1, c());
+                cVar.m216b(1, c());
             }
             if (b()) {
-                cVar.m208a(2, a());
+                cVar.m207a(2, a());
             }
-            if (m284c()) {
-                cVar.m208a(3, b());
+            if (m283c()) {
+                cVar.m207a(3, b());
             }
-            if (m286d()) {
-                cVar.m208a(4, m283c());
+            if (m285d()) {
+                cVar.m207a(4, m282c());
             }
-            if (m288e()) {
-                cVar.m204a(5, d());
+            if (m287e()) {
+                cVar.m203a(5, d());
             }
-            if (m289f()) {
-                cVar.m208a(6, m285d());
+            if (m288f()) {
+                cVar.m207a(6, m284d());
             }
             if (g()) {
-                cVar.m208a(7, m287e());
+                cVar.m207a(7, m286e());
             }
             if (h()) {
-                cVar.m208a(8, f());
+                cVar.m207a(8, f());
             }
             if (i()) {
-                cVar.m207a(9, (com.xiaomi.push.e) a());
+                cVar.m206a(9, (com.xiaomi.push.e) a());
             }
             if (j()) {
-                cVar.m204a(10, e());
+                cVar.m203a(10, e());
             }
         }
 
@@ -1088,20 +1088,20 @@ public final class ek {
             if (b()) {
                 b2 += com.xiaomi.push.c.a(2, a());
             }
-            if (m284c()) {
+            if (m283c()) {
                 b2 += com.xiaomi.push.c.a(3, b());
             }
-            if (m286d()) {
-                b2 += com.xiaomi.push.c.a(4, m283c());
+            if (m285d()) {
+                b2 += com.xiaomi.push.c.a(4, m282c());
             }
-            if (m288e()) {
+            if (m287e()) {
                 b2 += com.xiaomi.push.c.a(5, d());
             }
-            if (m289f()) {
-                b2 += com.xiaomi.push.c.a(6, m285d());
+            if (m288f()) {
+                b2 += com.xiaomi.push.c.a(6, m284d());
             }
             if (g()) {
-                b2 += com.xiaomi.push.c.a(7, m287e());
+                b2 += com.xiaomi.push.c.a(7, m286e());
             }
             if (h()) {
                 b2 += com.xiaomi.push.c.a(8, f());
@@ -1155,12 +1155,12 @@ public final class ek {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public String m283c() {
+        public String m282c() {
             return this.f349c;
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m284c() {
+        public boolean m283c() {
             return this.f350c;
         }
 
@@ -1175,12 +1175,12 @@ public final class ek {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public String m285d() {
+        public String m284d() {
             return this.f351d;
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m286d() {
+        public boolean m285d() {
             return this.f352d;
         }
 
@@ -1195,12 +1195,12 @@ public final class ek {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public String m287e() {
+        public String m286e() {
             return this.e;
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m288e() {
+        public boolean m287e() {
             return this.f353e;
         }
 
@@ -1215,7 +1215,7 @@ public final class ek {
         }
 
         /* renamed from: f  reason: collision with other method in class */
-        public boolean m289f() {
+        public boolean m288f() {
             return this.f354f;
         }
 
@@ -1279,15 +1279,15 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public f a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m173a());
+                        a(bVar.m172a());
                         break;
                     case 18:
-                        b(bVar.m173a());
+                        b(bVar.m172a());
                         break;
                     case 26:
                         b bVar2 = new b();
@@ -1295,7 +1295,7 @@ public final class ek {
                         a(bVar2);
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -1328,13 +1328,13 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m208a(1, a());
+                cVar.m207a(1, a());
             }
             if (b()) {
-                cVar.m208a(2, b());
+                cVar.m207a(2, b());
             }
             if (c()) {
-                cVar.m207a(3, (com.xiaomi.push.e) a());
+                cVar.m206a(3, (com.xiaomi.push.e) a());
             }
         }
 
@@ -1415,21 +1415,21 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public g a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m173a());
+                        a(bVar.m172a());
                         break;
                     case 18:
-                        b(bVar.m173a());
+                        b(bVar.m172a());
                         break;
                     case 26:
-                        c(bVar.m173a());
+                        c(bVar.m172a());
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -1453,13 +1453,13 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m208a(1, a());
+                cVar.m207a(1, a());
             }
             if (b()) {
-                cVar.m208a(2, b());
+                cVar.m207a(2, b());
             }
-            if (m290c()) {
-                cVar.m208a(3, c());
+            if (m289c()) {
+                cVar.m207a(3, c());
             }
         }
 
@@ -1474,7 +1474,7 @@ public final class ek {
             if (b()) {
                 a2 += com.xiaomi.push.c.a(2, b());
             }
-            if (m290c()) {
+            if (m289c()) {
                 a2 += com.xiaomi.push.c.a(3, c());
             }
             this.f13985a = a2;
@@ -1508,7 +1508,7 @@ public final class ek {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m290c() {
+        public boolean m289c() {
             return this.f362c;
         }
     }
@@ -1553,18 +1553,18 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public h a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 8:
-                        a(bVar.m179b());
+                        a(bVar.m178b());
                         break;
                     case 18:
-                        a(bVar.m173a());
+                        a(bVar.m172a());
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -1588,10 +1588,10 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m204a(1, c());
+                cVar.m203a(1, c());
             }
             if (b()) {
-                cVar.m208a(2, a());
+                cVar.m207a(2, a());
             }
         }
 
@@ -1659,15 +1659,15 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public i a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m172a());
+                        a(bVar.m171a());
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -1680,7 +1680,7 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m206a(1, a());
+                cVar.m205a(1, a());
             }
         }
 
@@ -1747,12 +1747,12 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public j a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m172a());
+                        a(bVar.m171a());
                         break;
                     case 18:
                         b bVar2 = new b();
@@ -1760,7 +1760,7 @@ public final class ek {
                         a(bVar2);
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -1782,10 +1782,10 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m206a(1, a());
+                cVar.m205a(1, a());
             }
             if (b()) {
-                cVar.m207a(2, (com.xiaomi.push.e) a());
+                cVar.m206a(2, (com.xiaomi.push.e) a());
             }
         }
 
@@ -1875,30 +1875,30 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public k a(com.xiaomi.push.b bVar) {
             while (true) {
-                int m170a = bVar.m170a();
-                switch (m170a) {
+                int m169a = bVar.m169a();
+                switch (m169a) {
                     case 0:
                         break;
                     case 10:
-                        a(bVar.m173a());
+                        a(bVar.m172a());
                         break;
                     case 18:
-                        b(bVar.m173a());
+                        b(bVar.m172a());
                         break;
                     case 24:
-                        a(bVar.m171a());
+                        a(bVar.m170a());
                         break;
                     case 32:
-                        b(bVar.m171a());
+                        b(bVar.m170a());
                         break;
                     case 40:
-                        a(bVar.m176a());
+                        a(bVar.m175a());
                         break;
                     case 48:
-                        a(bVar.m179b());
+                        a(bVar.m178b());
                         break;
                     default:
-                        if (!a(bVar, m170a)) {
+                        if (!a(bVar, m169a)) {
                             break;
                         } else {
                             break;
@@ -1928,22 +1928,22 @@ public final class ek {
         @Override // com.xiaomi.push.e
         public void a(com.xiaomi.push.c cVar) {
             if (a()) {
-                cVar.m208a(1, a());
+                cVar.m207a(1, a());
             }
             if (b()) {
-                cVar.m208a(2, b());
+                cVar.m207a(2, b());
             }
-            if (m291c()) {
-                cVar.m205a(3, a());
+            if (m290c()) {
+                cVar.m204a(3, a());
             }
             if (d()) {
-                cVar.m205a(4, b());
+                cVar.m204a(4, b());
             }
             if (f()) {
-                cVar.m209a(5, e());
+                cVar.m208a(5, e());
             }
             if (g()) {
-                cVar.m204a(6, c());
+                cVar.m203a(6, c());
             }
         }
 
@@ -1958,7 +1958,7 @@ public final class ek {
             if (b()) {
                 a2 += com.xiaomi.push.c.a(2, b());
             }
-            if (m291c()) {
+            if (m290c()) {
                 a2 += com.xiaomi.push.c.a(3, a());
             }
             if (d()) {
@@ -2006,7 +2006,7 @@ public final class ek {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m291c() {
+        public boolean m290c() {
             return this.c;
         }
 

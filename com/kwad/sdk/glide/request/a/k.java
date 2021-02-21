@@ -48,17 +48,17 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
         private final View c;
         private final List<i> d = new ArrayList();
         @Nullable
-        private ViewTreeObserver$OnPreDrawListenerC1134a e;
+        private ViewTreeObserver$OnPreDrawListenerC1136a e;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.kwad.sdk.glide.request.a.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static final class ViewTreeObserver$OnPreDrawListenerC1134a implements ViewTreeObserver.OnPreDrawListener {
+        public static final class ViewTreeObserver$OnPreDrawListenerC1136a implements ViewTreeObserver.OnPreDrawListener {
 
             /* renamed from: a  reason: collision with root package name */
             private final WeakReference<a> f10351a;
 
-            ViewTreeObserver$OnPreDrawListenerC1134a(@NonNull a aVar) {
+            ViewTreeObserver$OnPreDrawListenerC1136a(@NonNull a aVar) {
                 this.f10351a = new WeakReference<>(aVar);
             }
 
@@ -162,7 +162,7 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
             }
             if (this.e == null) {
                 ViewTreeObserver viewTreeObserver = this.c.getViewTreeObserver();
-                this.e = new ViewTreeObserver$OnPreDrawListenerC1134a(this);
+                this.e = new ViewTreeObserver$OnPreDrawListenerC1136a(this);
                 viewTreeObserver.addOnPreDrawListener(this.e);
             }
         }

@@ -82,7 +82,7 @@ public class al {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo255c() {
+        public void mo254c() {
         }
     }
 

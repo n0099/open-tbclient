@@ -6,30 +6,30 @@ public class f {
     private String desc;
     private String imgUrl;
     private String linkUrl;
-    private boolean lmA;
-    private boolean lmB;
-    private String lmC;
-    private int lmD;
+    private boolean lmO;
+    private boolean lmP;
+    private String lmQ;
+    private int lmR;
     private String title;
     private int updateType;
 
     public f(VipSpecialItem vipSpecialItem) {
-        this.lmA = false;
-        this.lmB = false;
+        this.lmO = false;
+        this.lmP = false;
         this.title = vipSpecialItem.title;
         this.desc = vipSpecialItem.desc;
         this.imgUrl = vipSpecialItem.img_url;
         this.linkUrl = vipSpecialItem.link;
-        this.lmC = vipSpecialItem.update_time;
-        this.lmD = vipSpecialItem.id.intValue();
+        this.lmQ = vipSpecialItem.update_time;
+        this.lmR = vipSpecialItem.id.intValue();
         this.updateType = vipSpecialItem.type.intValue();
-        this.lmA = false;
+        this.lmO = false;
     }
 
     public f(boolean z, boolean z2) {
-        this.lmA = false;
-        this.lmB = false;
-        this.lmA = z;
-        this.lmB = z2;
+        this.lmO = false;
+        this.lmP = false;
+        this.lmO = z;
+        this.lmP = z2;
     }
 }

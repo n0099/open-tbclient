@@ -19,7 +19,7 @@ public class n extends bt {
             m.a("CSJNative onError code: " + i + ", message: " + str);
             n nVar = n.this;
             nVar.f7767b = false;
-            ba baVar = nVar.pPA;
+            ba baVar = nVar.pQa;
             if (baVar != null) {
                 ((aj) baVar).a(nVar.f7766a.f7762a, i, str);
             }
@@ -30,14 +30,14 @@ public class n extends bt {
             m.a("CSJNative onFeedAdLoad");
             n.this.f7767b = false;
             if (list != null && !list.isEmpty()) {
-                n.this.pPW = list.get(0);
-                m.a("CSJNative onFeedAdLoad imageMode: " + n.this.pPW.getImageMode());
+                n.this.pQw = list.get(0);
+                m.a("CSJNative onFeedAdLoad imageMode: " + n.this.pQw.getImageMode());
                 n nVar = n.this;
-                ba baVar = nVar.pPA;
+                ba baVar = nVar.pQa;
                 if (baVar != null) {
                     ((aj) baVar).b(nVar.f7766a.f7762a);
                 }
-                AdRipper.ripCSJ(n.this.pPW);
+                AdRipper.ripCSJ(n.this.pQw);
                 return;
             }
             m.a("CSJNative onFeedAdLoad error: adList is null or empty");
@@ -52,8 +52,8 @@ public class n extends bt {
     public void c() {
         AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f7766a.f7762a).setSupportDeepLink(true);
         au.a aVar = this.f7766a;
-        this.pPC.loadFeedAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).setAdCount(1).build(), new a());
-        ba baVar = this.pPA;
+        this.pQc.loadFeedAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).setAdCount(1).build(), new a());
+        ba baVar = this.pQa;
         if (baVar != null) {
             ((aj) baVar).a(this.f7766a.f7762a);
         }

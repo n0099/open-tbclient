@@ -20,83 +20,83 @@ import java.util.Date;
 /* loaded from: classes8.dex */
 public class b extends com.baidu.adp.base.c<OfficialBarFeedActivity> {
     private LinearLayout fxX;
-    private TextView jPo;
-    private View kBL;
-    private BarImageView kBM;
-    private TextView kBN;
-    private RelativeLayout kBO;
-    private OfficialFeedItemImage kBP;
-    private OfficialFeedItemBottom kBQ;
-    private OfficialBarFeedMsglistAdapter.c kBR;
-    private boolean kBS;
+    private TextView jPC;
+    private View kBZ;
+    private BarImageView kCa;
+    private TextView kCb;
+    private RelativeLayout kCc;
+    private OfficialFeedItemImage kCd;
+    private OfficialFeedItemBottom kCe;
+    private OfficialBarFeedMsglistAdapter.c kCf;
+    private boolean kCg;
 
     public b(TbPageContext<OfficialBarFeedActivity> tbPageContext, boolean z) {
         super(tbPageContext, R.layout.official_feed_item_container);
-        this.kBR = null;
-        this.kBS = z;
+        this.kCf = null;
+        this.kCg = z;
         init();
     }
 
     private void init() {
-        this.kBM = (BarImageView) findViewById(R.id.bar_icon);
-        this.jPo = (TextView) findViewById(R.id.bar_name);
-        this.kBN = (TextView) findViewById(R.id.message_time);
+        this.kCa = (BarImageView) findViewById(R.id.bar_icon);
+        this.jPC = (TextView) findViewById(R.id.bar_name);
+        this.kCb = (TextView) findViewById(R.id.message_time);
         this.fxX = (LinearLayout) findViewById(R.id.item_container);
-        this.kBO = (RelativeLayout) findViewById(R.id.official_bar_feed_item);
-        this.kBL = findViewById(R.id.official_bar_feed_item_bg);
-        if (this.kBS) {
-            this.kBL.setVisibility(8);
+        this.kCc = (RelativeLayout) findViewById(R.id.official_bar_feed_item);
+        this.kBZ = findViewById(R.id.official_bar_feed_item_bg);
+        if (this.kCg) {
+            this.kBZ.setVisibility(8);
         }
     }
 
     public void onChangeSkinType() {
-        ap.setViewTextColor(this.kBN, R.color.CAM_X0109);
-        ap.setViewTextColor(this.jPo, R.color.CAM_X0105);
-        if (this.kBP != null) {
-            this.kBP.cVf();
+        ap.setViewTextColor(this.kCb, R.color.CAM_X0109);
+        ap.setViewTextColor(this.jPC, R.color.CAM_X0105);
+        if (this.kCd != null) {
+            this.kCd.cVm();
         }
-        if (this.kBQ != null) {
-            this.kBQ.cVf();
+        if (this.kCe != null) {
+            this.kCe.cVm();
         }
-        if (this.kBS) {
+        if (this.kCg) {
             com.baidu.tbadk.core.util.f.a.btu().pg(R.color.CAM_X0205).pb(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).pc(R.color.CAM_X0804).pa(4369).pd(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).pe(0).pf(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bv(this.fxX);
         } else {
-            com.baidu.tbadk.core.util.f.a.btu().pg(R.color.CAM_X0205).pb(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).pc(R.color.CAM_X0804).pa(4369).pd(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).pe(0).pf(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bv(this.kBL);
+            com.baidu.tbadk.core.util.f.a.btu().pg(R.color.CAM_X0205).pb(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).pc(R.color.CAM_X0804).pa(4369).pd(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).pe(0).pf(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bv(this.kBZ);
         }
     }
 
-    public void a(Context context, final a.C0760a c0760a, com.baidu.tieba.im.db.pojo.a aVar, com.baidu.tieba.im.forum.broadcast.data.b bVar, int i, boolean z, final int i2) {
+    public void a(Context context, final a.C0761a c0761a, com.baidu.tieba.im.db.pojo.a aVar, com.baidu.tieba.im.forum.broadcast.data.b bVar, int i, boolean z, final int i2) {
         String dY;
-        if (c0760a != null) {
-            if (this.kBS) {
-                this.kBM.setVisibility(8);
-                this.jPo.setVisibility(8);
-                this.kBN.setTextSize(0, l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds40));
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.kBN.getLayoutParams();
+        if (c0761a != null) {
+            if (this.kCg) {
+                this.kCa.setVisibility(8);
+                this.jPC.setVisibility(8);
+                this.kCb.setTextSize(0, l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds40));
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.kCb.getLayoutParams();
                 layoutParams.removeRule(11);
                 layoutParams.addRule(14);
-                this.kBN.setLayoutParams(layoutParams);
+                this.kCb.setLayoutParams(layoutParams);
                 int dimens = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10);
                 int dimens2 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5);
                 int dimens3 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds52);
-                this.kBO.setPadding(0, l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31), 0, 0);
-                this.fxX.setPadding(dimens, dimens2, dimens, StringUtils.isNull(c0760a.text) ? 0 : dimens3 + dimens);
+                this.kCc.setPadding(0, l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31), 0, 0);
+                this.fxX.setPadding(dimens, dimens2, dimens, StringUtils.isNull(c0761a.text) ? 0 : dimens3 + dimens);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fxX.getLayoutParams();
                 layoutParams2.topMargin = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds27);
                 this.fxX.setLayoutParams(layoutParams2);
             } else {
-                this.kBM.setShowOval(true);
-                this.kBM.setAutoChangeStyle(true);
-                this.kBM.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-                this.kBM.setStrokeColorResId(R.color.CAM_X0401);
-                this.kBM.setPlaceHolder(1);
+                this.kCa.setShowOval(true);
+                this.kCa.setAutoChangeStyle(true);
+                this.kCa.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+                this.kCa.setStrokeColorResId(R.color.CAM_X0401);
+                this.kCa.setPlaceHolder(1);
             }
-            if (!this.kBS && aVar != null) {
-                this.kBM.startLoad(aVar.cVR(), 10, false);
-                this.jPo.setText(String.format("%s%s", aVar.getForumName(), context.getString(R.string.forum)));
+            if (!this.kCg && aVar != null) {
+                this.kCa.startLoad(aVar.cVY(), 10, false);
+                this.jPC.setText(String.format("%s%s", aVar.getForumName(), context.getString(R.string.forum)));
             }
-            long j = c0760a.createTime * 1000;
-            if (this.kBS) {
+            long j = c0761a.createTime * 1000;
+            if (this.kCg) {
                 dY = k.getTimeStringNoYear(new Date(j));
             } else {
                 dY = au.dY(j);
@@ -104,40 +104,40 @@ public class b extends com.baidu.adp.base.c<OfficialBarFeedActivity> {
                     dY = au.getFormatTimeShort(j);
                 }
             }
-            this.kBN.setText(dY);
-            this.kBQ = new OfficialFeedItemBottom(context);
-            if (this.kBS) {
+            this.kCb.setText(dY);
+            this.kCe = new OfficialFeedItemBottom(context);
+            if (this.kCg) {
                 int dimens4 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29);
-                this.kBQ.setPadding(dimens4, 0, dimens4, 0);
+                this.kCe.setPadding(dimens4, 0, dimens4, 0);
             }
-            this.kBQ.setData(c0760a, z);
+            this.kCe.setData(c0761a, z);
             this.fxX.removeAllViews();
-            this.kBO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
+            this.kCc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.kBR != null) {
-                        b.this.kBR.a(b.this.kBO, c0760a, i2, 0L);
+                    if (b.this.kCf != null) {
+                        b.this.kCf.a(b.this.kCc, c0761a, i2, 0L);
                     }
                 }
             });
             if (z) {
-                this.kBP = new OfficialFeedItemImage(context, this.kBS);
-                if (this.kBS) {
-                    this.kBP.cVg();
-                    this.kBQ.CM(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29));
+                this.kCd = new OfficialFeedItemImage(context, this.kCg);
+                if (this.kCg) {
+                    this.kCd.cVn();
+                    this.kCe.CM(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29));
                 }
-                this.fxX.addView(this.kBP);
-                this.fxX.addView(this.kBQ);
-                this.kBP.setData(c0760a, i, bVar);
+                this.fxX.addView(this.kCd);
+                this.fxX.addView(this.kCe);
+                this.kCd.setData(c0761a, i, bVar);
             } else {
-                if (this.kBS) {
+                if (this.kCg) {
                     int dimens5 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10);
                     int dimens6 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5);
                     int dimens7 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds53);
                     this.fxX.setPadding(dimens5, dimens6 + dimens7, dimens5, dimens7 + dimens5);
-                    this.kBQ.CM(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds26));
+                    this.kCe.CM(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds26));
                 }
-                this.fxX.addView(this.kBQ);
+                this.fxX.addView(this.kCe);
             }
             onChangeSkinType();
         }
@@ -145,6 +145,6 @@ public class b extends com.baidu.adp.base.c<OfficialBarFeedActivity> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(OfficialBarFeedMsglistAdapter.c cVar) {
-        this.kBR = cVar;
+        this.kCf = cVar;
     }
 }

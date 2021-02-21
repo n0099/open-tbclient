@@ -37,14 +37,14 @@ import java.util.Map;
 public class j implements com.baidu.live.x.c {
     private int aKa;
     private String bdj;
-    private long gpB;
-    private int hLd;
-    private long ijf;
-    private BdUniqueId iko;
-    private m ikp;
-    private p ikq;
-    private long ikt;
-    private boolean iku;
+    private long gpP;
+    private int hLr;
+    private long ijt;
+    private BdUniqueId ikC;
+    private m ikD;
+    private p ikE;
+    private long ikH;
+    private boolean ikI;
     private Context mContext;
     private boolean mHasInited;
     private boolean mIsHost;
@@ -55,35 +55,35 @@ public class j implements com.baidu.live.x.c {
     private long mUserId;
     private String mUserName;
     private String otherParams;
-    private long ikn = 5000;
+    private long ikB = 5000;
     private Handler mHandler = new Handler();
-    private boolean gLK = true;
-    private boolean ikr = false;
-    private long iks = 17;
-    private String ikv = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
-    private ArrayList<String> ikw = new ArrayList<>();
-    private Map<String, Long> ikx = new HashMap();
-    private final Runnable hdA = new Runnable() { // from class: com.baidu.tieba.ala.view.j.1
+    private boolean gLY = true;
+    private boolean ikF = false;
+    private long ikG = 17;
+    private String ikJ = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
+    private ArrayList<String> ikK = new ArrayList<>();
+    private Map<String, Long> ikL = new HashMap();
+    private final Runnable hdO = new Runnable() { // from class: com.baidu.tieba.ala.view.j.1
         @Override // java.lang.Runnable
         public void run() {
-            if (j.this.ijf <= 0) {
-                j.this.ijf = 0L;
+            if (j.this.ijt <= 0) {
+                j.this.ijt = 0L;
             } else {
-                if (j.this.ijf == 300 && j.this.ikq != null && !j.this.ikw.contains(j.this.ikq.Vn())) {
-                    j.this.ikw.add(j.this.ikq.Vn());
+                if (j.this.ijt == 300 && j.this.ikE != null && !j.this.ikK.contains(j.this.ikE.Vn())) {
+                    j.this.ikK.add(j.this.ikE.Vn());
                     AlaBroadcastGiftToastData alaBroadcastGiftToastData = new AlaBroadcastGiftToastData();
                     alaBroadcastGiftToastData.localBroadcastType = 1;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913103, alaBroadcastGiftToastData));
                 }
                 j.d(j.this);
             }
-            if (j.this.ijf <= 1) {
+            if (j.this.ijt <= 1) {
                 j.this.resetData();
             }
-            for (Map.Entry entry : j.this.ikx.entrySet()) {
+            for (Map.Entry entry : j.this.ikL.entrySet()) {
                 if (System.currentTimeMillis() / 1000 == ((Long) entry.getValue()).longValue()) {
-                    j.this.iko = BdUniqueId.gen();
-                    j.this.ikp.a(j.this.mUserId, (String) entry.getKey(), 1, 1, j.this.iko);
+                    j.this.ikC = BdUniqueId.gen();
+                    j.this.ikD.a(j.this.mUserId, (String) entry.getKey(), 1, 1, j.this.ikC);
                 }
             }
             j.this.startCountDown();
@@ -92,43 +92,43 @@ public class j implements com.baidu.live.x.c {
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.j.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            j.this.IA("hour");
-            LogManager.getCommonLogger().doClickHourRankEntryLog(j.this.bdj, j.this.ikv, j.this.otherParams);
+            j.this.IB("hour");
+            LogManager.getCommonLogger().doClickHourRankEntryLog(j.this.bdj, j.this.ikJ, j.this.otherParams);
         }
     };
-    private n gUP = new n() { // from class: com.baidu.tieba.ala.view.j.3
+    private n gVd = new n() { // from class: com.baidu.tieba.ala.view.j.3
         @Override // com.baidu.tieba.ala.g.n
         public void a(int i, String str, Object obj) {
             if (i == 0 && obj != null && (obj instanceof AlaGetHourRankListResponseMessage)) {
                 AlaGetHourRankListResponseMessage alaGetHourRankListResponseMessage = (AlaGetHourRankListResponseMessage) obj;
-                p clN = alaGetHourRankListResponseMessage.clN();
-                if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == j.this.iko) {
-                    j.this.d(clN);
+                p clU = alaGetHourRankListResponseMessage.clU();
+                if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == j.this.ikC) {
+                    j.this.d(clU);
                 } else if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() == j.this.aCW) {
-                    j.this.e(clN);
+                    j.this.e(clU);
                 }
-                j.this.ikn = clN.bUw();
-                j.this.iks = clN.bUx();
+                j.this.ikB = clU.bUD();
+                j.this.ikG = clU.bUE();
             }
-            if (!j.this.ikr && j.this.iky != null) {
-                j.this.mHandler.removeCallbacks(j.this.iky);
-                j.this.mHandler.postDelayed(j.this.iky, j.this.ikn);
+            if (!j.this.ikF && j.this.ikM != null) {
+                j.this.mHandler.removeCallbacks(j.this.ikM);
+                j.this.mHandler.postDelayed(j.this.ikM, j.this.ikB);
             }
         }
     };
-    private Runnable iky = new Runnable() { // from class: com.baidu.tieba.ala.view.j.4
+    private Runnable ikM = new Runnable() { // from class: com.baidu.tieba.ala.view.j.4
         @Override // java.lang.Runnable
         public void run() {
-            if (j.this.ikp != null) {
-                j.this.ikp.l(j.this.mUserId, "");
+            if (j.this.ikD != null) {
+                j.this.ikD.l(j.this.mUserId, "");
             }
         }
     };
     private BdUniqueId aCW = BdUniqueId.gen();
 
     static /* synthetic */ long d(j jVar) {
-        long j = jVar.ijf;
-        jVar.ijf = j - 1;
+        long j = jVar.ijt;
+        jVar.ijt = j - 1;
         return j;
     }
 
@@ -141,23 +141,23 @@ public class j implements com.baidu.live.x.c {
         this.mIsHost = z;
         this.mPortrait = str2;
         this.bdj = str4;
-        this.gpB = j2;
+        this.gpP = j2;
         this.otherParams = str3;
         initView();
-        this.ikp = new m(this.aCW, this.gUP);
-        this.ikp.l(this.mUserId, "");
+        this.ikD = new m(this.aCW, this.gVd);
+        this.ikD.l(this.mUserId, "");
     }
 
     public void startCountDown() {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
-            this.mHandler.removeCallbacks(this.hdA);
-            this.mHandler.postDelayed(this.hdA, 1000L);
+            this.mHandler.removeCallbacks(this.hdO);
+            this.mHandler.postDelayed(this.hdO, 1000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(p pVar) {
-        if (pVar != null && pVar.getList() != null && pVar.getList().size() > 0 && pVar.getList().get(0).gSH != null && pVar.getList().get(0).gSH.size() > 0) {
+        if (pVar != null && pVar.getList() != null && pVar.getList().size() > 0 && pVar.getList().get(0).gSV != null && pVar.getList().get(0).gSV.size() > 0) {
             AlaBroadcastGiftToastData alaBroadcastGiftToastData = new AlaBroadcastGiftToastData();
             alaBroadcastGiftToastData.localBroadcastType = 2;
             alaBroadcastGiftToastData.receiver = pVar.getList().get(0).getName_show();
@@ -166,7 +166,7 @@ public class j implements com.baidu.live.x.c {
             } else {
                 alaBroadcastGiftToastData.live_id = -1L;
             }
-            alaBroadcastGiftToastData.sender = pVar.getList().get(0).gSH.get(0).getName_show();
+            alaBroadcastGiftToastData.sender = pVar.getList().get(0).gSV.get(0).getName_show();
             alaBroadcastGiftToastData.feed_id = this.bdj;
             alaBroadcastGiftToastData.otherParams = this.otherParams;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913103, alaBroadcastGiftToastData));
@@ -176,73 +176,73 @@ public class j implements com.baidu.live.x.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(p pVar) {
         if (pVar != null) {
-            this.ikx.put(pVar.Vn(), Long.valueOf(pVar.bUz()));
-            if (a(this.ikq, pVar)) {
-                this.ikt = System.currentTimeMillis();
-                eF(f(pVar), b(this.ikq, pVar));
-                this.ikq = pVar;
+            this.ikL.put(pVar.Vn(), Long.valueOf(pVar.bUG()));
+            if (a(this.ikE, pVar)) {
+                this.ikH = System.currentTimeMillis();
+                eF(f(pVar), b(this.ikE, pVar));
+                this.ikE = pVar;
             } else {
-                this.ikq = pVar;
+                this.ikE = pVar;
                 if (!this.mHasInited) {
                     this.mHasInited = true;
                     this.mTextView.setText(f(pVar));
                     this.mRootView.setVisibility(0);
-                    this.hLd = BdUtilHelper.getTextWidth(this.mPaint, f(pVar));
+                    this.hLr = BdUtilHelper.getTextWidth(this.mPaint, f(pVar));
                     ViewGroup.LayoutParams layoutParams = this.mTextView.getLayoutParams();
-                    layoutParams.width = this.hLd;
+                    layoutParams.width = this.hLr;
                     this.mTextView.setLayoutParams(layoutParams);
-                } else if (pVar.bUA() != null && !this.iku) {
+                } else if (pVar.bUH() != null && !this.ikI) {
                     this.mTextView.setText(f(pVar));
-                    this.hLd = BdUtilHelper.getTextWidth(this.mPaint, f(pVar));
+                    this.hLr = BdUtilHelper.getTextWidth(this.mPaint, f(pVar));
                     ViewGroup.LayoutParams layoutParams2 = this.mTextView.getLayoutParams();
-                    layoutParams2.width = this.hLd;
+                    layoutParams2.width = this.hLr;
                     this.mTextView.setLayoutParams(layoutParams2);
                 }
             }
-            this.ijf = pVar.bUy();
+            this.ijt = pVar.bUF();
             startCountDown();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetData() {
-        this.ikt = System.currentTimeMillis();
-        this.ikq = null;
+        this.ikH = System.currentTimeMillis();
+        this.ikE = null;
     }
 
     private boolean a(p pVar, p pVar2) {
-        if (pVar2 == null || System.currentTimeMillis() - this.ikt < this.iks * 1000 || pVar == null || pVar.bUA() == null) {
+        if (pVar2 == null || System.currentTimeMillis() - this.ikH < this.ikG * 1000 || pVar == null || pVar.bUH() == null) {
             return false;
         }
-        if (pVar.bUA().aGy > 0 || pVar2.bUA().aGy <= 0) {
-            return (pVar.bUA().aGy > 0 || pVar2.bUA().aGy > 0) ? true : true;
+        if (pVar.bUH().aGy > 0 || pVar2.bUH().aGy <= 0) {
+            return (pVar.bUH().aGy > 0 || pVar2.bUH().aGy > 0) ? true : true;
         }
         return false;
     }
 
     private String f(p pVar) {
-        if (pVar.bUA().aGy < 1) {
+        if (pVar.bUH().aGy < 1) {
             return this.mContext.getString(a.h.hour_rank_list_entry_no);
         }
-        return String.format(this.mContext.getString(a.h.hour_rank_list_entry_text_def), StringHelper.formatForHourRankValue(pVar.bUA().aGy) + "");
+        return String.format(this.mContext.getString(a.h.hour_rank_list_entry_text_def), StringHelper.formatForHourRankValue(pVar.bUH().aGy) + "");
     }
 
     private String b(p pVar, p pVar2) {
-        if (pVar.bUA().aGy == pVar2.bUA().aGy) {
-            this.ikv = "change";
-            if (pVar2.bUA().aGy <= 0) {
+        if (pVar.bUH().aGy == pVar2.bUH().aGy) {
+            this.ikJ = "change";
+            if (pVar2.bUH().aGy <= 0) {
                 return this.mContext.getString(a.h.hour_rank_list_entry_diff_no);
             }
-            if (pVar2.bUA().aGy == 1) {
-                return String.format(this.mContext.getString(a.h.hour_rank_list_entry_diff_down), StringHelper.formatForHourRankValue(pVar2.bUA().aGz - pVar2.bUA().aGB) + "");
-            } else if (pVar2.bUA().aGy <= 1) {
+            if (pVar2.bUH().aGy == 1) {
+                return String.format(this.mContext.getString(a.h.hour_rank_list_entry_diff_down), StringHelper.formatForHourRankValue(pVar2.bUH().aGz - pVar2.bUH().aGB) + "");
+            } else if (pVar2.bUH().aGy <= 1) {
                 return "";
             } else {
-                return String.format(this.mContext.getString(a.h.hour_rank_list_entry_diff_up), StringHelper.formatForHourRankValue((pVar2.bUA().aGA - pVar2.bUA().aGz) + 1) + "");
+                return String.format(this.mContext.getString(a.h.hour_rank_list_entry_diff_up), StringHelper.formatForHourRankValue((pVar2.bUH().aGA - pVar2.bUH().aGz) + 1) + "");
             }
         }
-        this.ikv = "up_down";
-        int i = pVar2.bUA().aGy - pVar.bUA().aGy;
+        this.ikJ = "up_down";
+        int i = pVar2.bUH().aGy - pVar.bUH().aGy;
         return i < 0 ? String.format(this.mContext.getString(a.h.hour_rank_list_entry_updown_up), (-i) + "") : i > 0 ? String.format(this.mContext.getString(a.h.hour_rank_list_entry_updown_down), i + "") : "";
     }
 
@@ -270,27 +270,27 @@ public class j implements com.baidu.live.x.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IA(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new s(this.mContext, this.aKa, this.mUserId, this.mUserName, str, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, this.mIsHost, this.mPortrait, this.otherParams, this.bdj, this.gpB, this.ikq == null ? com.baidu.live.utils.j.fb(0) : this.ikq.Vn())));
+    public void IB(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new s(this.mContext, this.aKa, this.mUserId, this.mUserName, str, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, this.mIsHost, this.mPortrait, this.otherParams, this.bdj, this.gpP, this.ikE == null ? com.baidu.live.utils.j.fb(0) : this.ikE.Vn())));
     }
 
     @Override // com.baidu.live.x.c
     public void setCanVisible(boolean z) {
-        this.gLK = z;
+        this.gLY = z;
     }
 
     @Override // com.baidu.live.x.c
     public void PA() {
-        this.ikr = false;
-        if (this.ikp != null) {
-            this.ikp.l(this.mUserId, "");
+        this.ikF = false;
+        if (this.ikD != null) {
+            this.ikD.l(this.mUserId, "");
         }
     }
 
     @Override // com.baidu.live.x.c
     public void PB() {
-        this.ikr = true;
-        this.mHandler.removeCallbacks(this.iky);
+        this.ikF = true;
+        this.mHandler.removeCallbacks(this.ikM);
     }
 
     private void eF(final String str, String str2) {
@@ -301,7 +301,7 @@ public class j implements com.baidu.live.x.c {
             layoutParams.width = textWidth;
             this.mTextView.setLayoutParams(layoutParams);
         }
-        if (textWidth > this.hLd) {
+        if (textWidth > this.hLr) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mTextView, "translationX", 0.0f, -this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds190));
             ofFloat.setDuration(2800L);
             ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.j.5
@@ -324,7 +324,7 @@ public class j implements com.baidu.live.x.c {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mTextView.getLayoutParams();
             layoutParams.width = textWidth;
             textView.setLayoutParams(layoutParams);
-            this.hLd = textWidth;
+            this.hLr = textWidth;
         }
     }
 
@@ -333,8 +333,8 @@ public class j implements com.baidu.live.x.c {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.ikp != null) {
-            this.ikp.destory();
+        if (this.ikD != null) {
+            this.ikD.destory();
         }
     }
 }

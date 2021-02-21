@@ -10,28 +10,28 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
     public static String HEAD = "tb_oficial_msg_";
-    private static a kFa;
+    private static a kFo;
 
     private l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized l cVJ() {
+    public static synchronized l cVQ() {
         l lVar;
         synchronized (l.class) {
-            if (kFa == null) {
-                kFa = new l();
+            if (kFo == null) {
+                kFo = new l();
             }
-            lVar = (l) kFa;
+            lVar = (l) kFo;
         }
         return lVar;
     }
 
-    public static List<String> cVK() {
+    public static List<String> cVR() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = h.cVz().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+            cursor = h.cVG().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));
@@ -46,12 +46,12 @@ public class l extends a {
         return arrayList;
     }
 
-    public static List<com.baidu.tieba.im.db.pojo.a> cVL() {
+    public static List<com.baidu.tieba.im.db.pojo.a> cVS() {
         ArrayList arrayList;
         Cursor cursor;
         try {
             try {
-                cursor = h.cVz().rawQuery("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                cursor = h.cVG().rawQuery("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
                 if (cursor != null) {
                     try {
                         arrayList = new ArrayList(cursor.getCount());
@@ -60,7 +60,7 @@ public class l extends a {
                                 com.baidu.tieba.im.db.pojo.a aVar = new com.baidu.tieba.im.db.pojo.a();
                                 aVar.setGid(cursor.getString(cursor.getColumnIndex("gid")));
                                 aVar.setUnReadCount(cursor.getInt(cursor.getColumnIndex("unread_count")));
-                                aVar.MT(cursor.getString(cursor.getColumnIndex("group_head")));
+                                aVar.MU(cursor.getString(cursor.getColumnIndex("group_head")));
                                 aVar.setForumName(cursor.getString(cursor.getColumnIndex("group_name")));
                                 aVar.setUserType(cursor.getInt(cursor.getColumnIndex("user_type")));
                                 int columnIndex = cursor.getColumnIndex("visit_time");
@@ -105,7 +105,7 @@ public class l extends a {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("read_count", Integer.valueOf(i));
-            BdLog.d("updateReadCount result = " + h.cVz().b(HEAD + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)}));
+            BdLog.d("updateReadCount result = " + h.cVG().b(HEAD + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)}));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,7 +116,7 @@ public class l extends a {
             ContentValues contentValues = new ContentValues();
             contentValues.put("visit_time", Long.valueOf(j2));
             contentValues.put("unread_count", (Integer) 0);
-            BdLog.d("updateReadCount result = " + h.cVz().b("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)}));
+            BdLog.d("updateReadCount result = " + h.cVG().b("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)}));
         } catch (Exception e) {
             e.printStackTrace();
         }

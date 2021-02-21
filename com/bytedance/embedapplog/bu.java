@@ -8,12 +8,12 @@ public class bu extends bv {
 
     /* renamed from: b  reason: collision with root package name */
     private boolean f5815b;
-    private final m png;
+    private final m pnG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(Context context, m mVar) {
         super(context);
-        this.png = mVar;
+        this.pnG = mVar;
     }
 
     @Override // com.bytedance.embedapplog.bv
@@ -27,16 +27,16 @@ public class bu extends bv {
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] enU() {
-        return cc.pnm;
+    long[] eoc() {
+        return cc.pnM;
     }
 
     @Override // com.bytedance.embedapplog.bv
     boolean d() {
-        if (this.png.o() != 0) {
-            JSONObject a2 = this.png.a();
+        if (this.pnG.o() != 0) {
+            JSONObject a2 = this.pnG.a();
             if (a2 != null) {
-                this.f5815b = aa.x(ab.a(this.f5816a, this.png.a(), aa.enQ().eoa(), true, b.enm()), a2);
+                this.f5815b = aa.x(ab.a(this.f5816a, this.pnG.a(), aa.enY().eoj(), true, b.enu()), a2);
             } else {
                 au.a(null);
             }

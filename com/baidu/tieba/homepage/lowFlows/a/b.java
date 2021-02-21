@@ -107,7 +107,7 @@ public class b extends a<ca, ThreadCardViewHolder<cb>> {
         this.fUm = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.homepage.lowFlows.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cwZ */
+            /* renamed from: cxg */
             public GifView makeObject() {
                 GifView gifView = new GifView(b.this.mPageContext.getPageActivity());
                 boolean isShowImages = k.bkT().isShowImages();

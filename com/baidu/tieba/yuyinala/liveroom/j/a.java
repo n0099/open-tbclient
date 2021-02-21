@@ -20,19 +20,19 @@ public abstract class a {
     protected String giftId;
     protected String giftName;
     protected long groupId;
-    protected long hAw;
+    protected long hAK;
     protected boolean isDynamic;
     protected int isShow;
     protected long liveId;
     protected long msgId;
-    protected com.baidu.live.data.a ovK;
-    protected c.a ovL;
+    protected com.baidu.live.data.a owk;
+    protected c.a owl;
 
-    protected abstract void ebt();
+    protected abstract void ebB();
 
     public void a(com.baidu.tieba.yuyinala.liveroom.data.a aVar, com.baidu.live.im.data.b bVar, JSONObject jSONObject, c.a aVar2) {
-        this.ovL = aVar2;
-        this.ovK = bVar.KZ();
+        this.owl = aVar2;
+        this.owk = bVar.KZ();
         this.msgId = bVar.getMsgId();
         this.bno = bVar.bno;
         this.giftId = jSONObject.optString(LogConfig.LOG_GIFT_ID);
@@ -51,13 +51,13 @@ public abstract class a {
         this.isShow = jSONObject.optInt("flag_show");
         this.liveId = 0L;
         this.groupId = 0L;
-        this.hAw = 0L;
-        if (aVar.oud != null && aVar.oud.Fm() != null && aVar.oud.Fm().mLiveInfo != null) {
-            this.liveId = aVar.oud.Fm().mLiveInfo.live_id;
-            this.groupId = aVar.oud.Fm().mLiveInfo.group_id;
-            this.hAw = aVar.oud.Fm().aId.userId;
-            this.appId = aVar.oud.Fm().mLiveInfo.appId;
+        this.hAK = 0L;
+        if (aVar.ouE != null && aVar.ouE.Fm() != null && aVar.ouE.Fm().mLiveInfo != null) {
+            this.liveId = aVar.ouE.Fm().mLiveInfo.live_id;
+            this.groupId = aVar.ouE.Fm().mLiveInfo.group_id;
+            this.hAK = aVar.ouE.Fm().aId.userId;
+            this.appId = aVar.ouE.Fm().mLiveInfo.appId;
         }
-        ebt();
+        ebB();
     }
 }

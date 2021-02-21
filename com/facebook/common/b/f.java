@@ -13,16 +13,16 @@ import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class f<V> implements RunnableFuture<V>, ScheduledFuture<V> {
     private final Handler mHandler;
-    private final FutureTask<V> pyJ;
+    private final FutureTask<V> pzj;
 
     public f(Handler handler, Callable<V> callable) {
         this.mHandler = handler;
-        this.pyJ = new FutureTask<>(callable);
+        this.pzj = new FutureTask<>(callable);
     }
 
     public f(Handler handler, Runnable runnable, @Nullable V v) {
         this.mHandler = handler;
-        this.pyJ = new FutureTask<>(runnable, v);
+        this.pzj = new FutureTask<>(runnable, v);
     }
 
     @Override // java.util.concurrent.Delayed
@@ -39,31 +39,31 @@ public class f<V> implements RunnableFuture<V>, ScheduledFuture<V> {
 
     @Override // java.util.concurrent.RunnableFuture, java.lang.Runnable
     public void run() {
-        this.pyJ.run();
+        this.pzj.run();
     }
 
     @Override // java.util.concurrent.Future
     public boolean cancel(boolean z) {
-        return this.pyJ.cancel(z);
+        return this.pzj.cancel(z);
     }
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        return this.pyJ.isCancelled();
+        return this.pzj.isCancelled();
     }
 
     @Override // java.util.concurrent.Future
     public boolean isDone() {
-        return this.pyJ.isDone();
+        return this.pzj.isDone();
     }
 
     @Override // java.util.concurrent.Future
     public V get() throws InterruptedException, ExecutionException {
-        return this.pyJ.get();
+        return this.pzj.get();
     }
 
     @Override // java.util.concurrent.Future
     public V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
-        return this.pyJ.get(j, timeUnit);
+        return this.pzj.get(j, timeUnit);
     }
 }

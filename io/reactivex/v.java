@@ -6,9 +6,9 @@ import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public abstract class v {
-    static final long qno = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
+    static final long qnO = TimeUnit.MINUTES.toNanos(Long.getLong("rx2.scheduler.drift-tolerance", 15).longValue());
 
-    public abstract c eKi();
+    public abstract c eKq();
 
     public long a(TimeUnit timeUnit) {
         return timeUnit.convert(System.currentTimeMillis(), TimeUnit.MILLISECONDS);
@@ -22,16 +22,16 @@ public abstract class v {
     }
 
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
-        c eKi = eKi();
-        a aVar = new a(io.reactivex.d.a.G(runnable), eKi);
-        eKi.c(aVar, j, timeUnit);
+        c eKq = eKq();
+        a aVar = new a(io.reactivex.d.a.G(runnable), eKq);
+        eKq.c(aVar, j, timeUnit);
         return aVar;
     }
 
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
-        c eKi = eKi();
-        b bVar = new b(io.reactivex.d.a.G(runnable), eKi);
-        io.reactivex.disposables.b b2 = eKi.b(bVar, j, j2, timeUnit);
+        c eKq = eKq();
+        b bVar = new b(io.reactivex.d.a.G(runnable), eKq);
+        io.reactivex.disposables.b b2 = eKq.b(bVar, j, j2, timeUnit);
         return b2 == EmptyDisposable.INSTANCE ? b2 : bVar;
     }
 
@@ -65,39 +65,39 @@ public abstract class v {
         /* loaded from: classes5.dex */
         public final class a implements Runnable {
             long count;
-            final Runnable qnp;
-            final long qns;
-            long qnt;
-            long qnu;
+            final Runnable qnP;
+            final long qnS;
+            long qnT;
+            long qnU;
             final SequentialDisposable sd;
 
             a(long j, Runnable runnable, long j2, SequentialDisposable sequentialDisposable, long j3) {
-                this.qnp = runnable;
+                this.qnP = runnable;
                 this.sd = sequentialDisposable;
-                this.qns = j3;
-                this.qnt = j2;
-                this.qnu = j;
+                this.qnS = j3;
+                this.qnT = j2;
+                this.qnU = j;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 long j;
-                this.qnp.run();
+                this.qnP.run();
                 if (!this.sd.isDisposed()) {
                     long a2 = c.this.a(TimeUnit.NANOSECONDS);
-                    if (v.qno + a2 < this.qnt || a2 >= this.qnt + this.qns + v.qno) {
-                        j = this.qns + a2;
-                        long j2 = this.qns;
+                    if (v.qnO + a2 < this.qnT || a2 >= this.qnT + this.qnS + v.qnO) {
+                        j = this.qnS + a2;
+                        long j2 = this.qnS;
                         long j3 = this.count + 1;
                         this.count = j3;
-                        this.qnu = j - (j2 * j3);
+                        this.qnU = j - (j2 * j3);
                     } else {
-                        long j4 = this.qnu;
+                        long j4 = this.qnU;
                         long j5 = this.count + 1;
                         this.count = j5;
-                        j = j4 + (j5 * this.qns);
+                        j = j4 + (j5 * this.qnS);
                     }
-                    this.qnt = a2;
+                    this.qnT = a2;
                     this.sd.replace(c.this.c(this, j - a2, TimeUnit.NANOSECONDS));
                 }
             }
@@ -107,11 +107,11 @@ public abstract class v {
     /* loaded from: classes5.dex */
     static class b implements io.reactivex.disposables.b, Runnable {
         volatile boolean disposed;
-        final Runnable qnr;
+        final Runnable qnR;
         final c worker;
 
         b(Runnable runnable, c cVar) {
-            this.qnr = runnable;
+            this.qnR = runnable;
             this.worker = cVar;
         }
 
@@ -119,7 +119,7 @@ public abstract class v {
         public void run() {
             if (!this.disposed) {
                 try {
-                    this.qnr.run();
+                    this.qnR.run();
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.N(th);
                     this.worker.dispose();
@@ -143,20 +143,20 @@ public abstract class v {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static final class a implements io.reactivex.disposables.b, Runnable {
-        final Runnable qnp;
-        final c qnq;
+        final Runnable qnP;
+        final c qnQ;
         Thread runner;
 
         a(Runnable runnable, c cVar) {
-            this.qnp = runnable;
-            this.qnq = cVar;
+            this.qnP = runnable;
+            this.qnQ = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             this.runner = Thread.currentThread();
             try {
-                this.qnp.run();
+                this.qnP.run();
             } finally {
                 dispose();
                 this.runner = null;
@@ -165,16 +165,16 @@ public abstract class v {
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            if (this.runner == Thread.currentThread() && (this.qnq instanceof io.reactivex.internal.schedulers.f)) {
-                ((io.reactivex.internal.schedulers.f) this.qnq).shutdown();
+            if (this.runner == Thread.currentThread() && (this.qnQ instanceof io.reactivex.internal.schedulers.f)) {
+                ((io.reactivex.internal.schedulers.f) this.qnQ).shutdown();
             } else {
-                this.qnq.dispose();
+                this.qnQ.dispose();
             }
         }
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.qnq.isDisposed();
+            return this.qnQ.isDisposed();
         }
     }
 }

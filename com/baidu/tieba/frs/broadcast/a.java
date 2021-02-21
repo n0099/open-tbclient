@@ -24,7 +24,7 @@ public class a {
     private TbPageContext context;
     private String forumId;
     private String forumName;
-    private HttpMessageListener jie = new HttpMessageListener(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS) { // from class: com.baidu.tieba.frs.broadcast.a.3
+    private HttpMessageListener jis = new HttpMessageListener(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS) { // from class: com.baidu.tieba.frs.broadcast.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -48,7 +48,7 @@ public class a {
     public a(TbPageContext tbPageContext) {
         this.context = tbPageContext;
         registerTask();
-        tbPageContext.registerListener(this.jie);
+        tbPageContext.registerListener(this.jis);
     }
 
     public void e(int i, String str, String str2, String str3) {
@@ -56,7 +56,7 @@ public class a {
         this.forumId = str;
         this.forumName = str2;
         this.threadId = str3;
-        Kp(str);
+        Kq(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -77,7 +77,7 @@ public class a {
                 b.brQ().putBoolean("key_forum_broadcast_no_tip_again", aVar.bqv());
                 aVar.dismiss();
                 if (i == 0) {
-                    new ScreenTopToast(a.this.context.getPageActivity()).US(a.this.context.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).UU(a.this.context.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.broadcast.a.1.1
+                    new ScreenTopToast(a.this.context.getPageActivity()).Ve(a.this.context.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).Vg(a.this.context.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.broadcast.a.1.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             HashMap hashMap = new HashMap();
@@ -118,7 +118,7 @@ public class a {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private void Kp(String str) {
+    private void Kq(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("forum_id", str);

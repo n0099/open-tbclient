@@ -22,18 +22,18 @@ public abstract class b<T, R> implements d<R>, j<T> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (eKl()) {
+            if (eKt()) {
                 this.actual.onSubscribe(this);
-                eKm();
+                eKu();
             }
         }
     }
 
-    protected boolean eKl() {
+    protected boolean eKt() {
         return true;
     }
 
-    protected void eKm() {
+    protected void eKu() {
     }
 
     @Override // org.a.c
@@ -62,7 +62,7 @@ public abstract class b<T, R> implements d<R>, j<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Sj(int i) {
+    public final int Sk(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;

@@ -8,6 +8,6 @@ public class b {
     public static final void a(Throwable th, Throwable th2) {
         p.o(th, "$receiver");
         p.o(th2, "exception");
-        kotlin.internal.c.qth.a(th, th2);
+        kotlin.internal.c.qtH.a(th, th2);
     }
 }

@@ -16,13 +16,13 @@ public abstract class a<K, A> {
     private com.ksad.lottie.e.a<K> f;
 
     /* renamed from: a  reason: collision with root package name */
-    final List<InterfaceC1065a> f7959a = new ArrayList();
+    final List<InterfaceC1067a> f7959a = new ArrayList();
     private boolean c = false;
     private float e = 0.0f;
 
     /* renamed from: com.ksad.lottie.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1065a {
+    public interface InterfaceC1067a {
         void a();
     }
 
@@ -83,8 +83,8 @@ public abstract class a<K, A> {
         b();
     }
 
-    public void a(InterfaceC1065a interfaceC1065a) {
-        this.f7959a.add(interfaceC1065a);
+    public void a(InterfaceC1067a interfaceC1067a) {
+        this.f7959a.add(interfaceC1067a);
     }
 
     public void b() {

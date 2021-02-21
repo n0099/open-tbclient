@@ -16,20 +16,20 @@ import tbclient.SportScheduleInfo;
 /* loaded from: classes2.dex */
 public class b {
     private TbPageContext eUY;
-    private String ggy;
-    private TextView gxV;
-    private TbImageView jHa;
-    private TbImageView jHb;
-    private TextView jHc;
-    private TextView jHd;
-    private TextView jHe;
-    private TextView jHf;
-    private TextView jHg;
-    private final View.OnClickListener jiV = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.b.1
+    private String ggD;
+    private TextView gyj;
+    private TbImageView jHo;
+    private TbImageView jHp;
+    private TextView jHq;
+    private TextView jHr;
+    private TextView jHs;
+    private TextView jHt;
+    private TextView jHu;
+    private final View.OnClickListener jjj = new View.OnClickListener() { // from class: com.baidu.tieba.frs.sportspage.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!au.isEmpty(b.this.ggy)) {
-                bf.bsV().a(b.this.eUY, new String[]{b.this.ggy}, true);
+            if (!au.isEmpty(b.this.ggD)) {
+                bf.bsV().a(b.this.eUY, new String[]{b.this.ggD}, true);
                 TiebaStatic.log(new ar("c13418").dR("fid", b.this.mForumId));
             }
         }
@@ -42,30 +42,30 @@ public class b {
             this.eUY = frsSportsRecommendFragment.getPageContext();
             BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
             this.mRootView = view.findViewById(R.id.frs_sports_schedule_card_layout);
-            this.gxV = (TextView) view.findViewById(R.id.frs_sports_tab_view);
-            this.jHa = (TbImageView) view.findViewById(R.id.frs_sports_schedule_left_team_icon);
-            this.jHb = (TbImageView) view.findViewById(R.id.frs_sports_schedule_right_team_icon);
-            this.jHc = (TextView) view.findViewById(R.id.frs_sports_schedule_left_team_name);
-            this.jHd = (TextView) view.findViewById(R.id.frs_sports_schedule_right_team_name);
-            this.jHe = (TextView) view.findViewById(R.id.frs_sports_schedule_match_top);
-            this.jHf = (TextView) view.findViewById(R.id.frs_sports_schedule_match_middle);
-            this.jHg = (TextView) view.findViewById(R.id.frs_sports_schedule_match_bottom);
-            this.jHa.setPageId(uniqueId);
-            this.jHb.setPageId(uniqueId);
+            this.gyj = (TextView) view.findViewById(R.id.frs_sports_tab_view);
+            this.jHo = (TbImageView) view.findViewById(R.id.frs_sports_schedule_left_team_icon);
+            this.jHp = (TbImageView) view.findViewById(R.id.frs_sports_schedule_right_team_icon);
+            this.jHq = (TextView) view.findViewById(R.id.frs_sports_schedule_left_team_name);
+            this.jHr = (TextView) view.findViewById(R.id.frs_sports_schedule_right_team_name);
+            this.jHs = (TextView) view.findViewById(R.id.frs_sports_schedule_match_top);
+            this.jHt = (TextView) view.findViewById(R.id.frs_sports_schedule_match_middle);
+            this.jHu = (TextView) view.findViewById(R.id.frs_sports_schedule_match_bottom);
+            this.jHo.setPageId(uniqueId);
+            this.jHp.setPageId(uniqueId);
         }
     }
 
     public void a(SportScheduleInfo sportScheduleInfo, String str) {
         if (sportScheduleInfo == null) {
             this.mRootView.setVisibility(8);
-            this.gxV.setVisibility(0);
-            this.gxV.setText(R.string.frs_sports_recommend_tab_txt);
+            this.gyj.setVisibility(0);
+            this.gyj.setText(R.string.frs_sports_recommend_tab_txt);
             return;
         }
         this.mRootView.setVisibility(0);
-        this.gxV.setVisibility(8);
-        this.jHa.startLoad(sportScheduleInfo.home_team_icon, 10, false);
-        this.jHb.startLoad(sportScheduleInfo.guest_team_icon, 10, false);
+        this.gyj.setVisibility(8);
+        this.jHo.startLoad(sportScheduleInfo.home_team_icon, 10, false);
+        this.jHp.startLoad(sportScheduleInfo.guest_team_icon, 10, false);
         String str2 = sportScheduleInfo.home_team_name;
         if (au.getChineseAndEnglishLength(str2) > 14) {
             str2 = au.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
@@ -74,24 +74,24 @@ public class b {
         if (au.getChineseAndEnglishLength(str3) > 14) {
             str3 = au.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
         }
-        this.jHc.setText(str2);
-        this.jHd.setText(str3);
-        this.jHe.setText(sportScheduleInfo.match_top_info);
-        this.jHf.setText(sportScheduleInfo.match_middle_info);
-        this.jHg.setText(sportScheduleInfo.match_bottom_info);
-        this.ggy = sportScheduleInfo.msg_url;
+        this.jHq.setText(str2);
+        this.jHr.setText(str3);
+        this.jHs.setText(sportScheduleInfo.match_top_info);
+        this.jHt.setText(sportScheduleInfo.match_middle_info);
+        this.jHu.setText(sportScheduleInfo.match_bottom_info);
+        this.ggD = sportScheduleInfo.msg_url;
         this.mForumId = str;
-        this.mRootView.setOnClickListener(this.jiV);
+        this.mRootView.setOnClickListener(this.jjj);
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundResource(this.mRootView, R.drawable.bg_sports_frs_schedule_card_shape);
-        ap.setBackgroundResource(this.gxV, R.drawable.bg_sports_frs_schedule_card_shape);
-        ap.setViewTextColor(this.gxV, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jHc, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jHd, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jHe, R.color.CAM_X0108);
-        ap.setViewTextColor(this.jHf, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jHg, R.color.CAM_X0108);
+        ap.setBackgroundResource(this.gyj, R.drawable.bg_sports_frs_schedule_card_shape);
+        ap.setViewTextColor(this.gyj, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jHq, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jHr, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jHs, R.color.CAM_X0108);
+        ap.setViewTextColor(this.jHt, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jHu, R.color.CAM_X0108);
     }
 }

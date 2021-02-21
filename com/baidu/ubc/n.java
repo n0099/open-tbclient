@@ -14,13 +14,13 @@ class n {
     private String mId;
     private int mOption;
     private long mTime;
-    private String oTd;
+    private String oTD;
 
     public n(String str, String str2, int i) {
         this.mContent = "";
         this.eyI = false;
         this.acm = "";
-        this.oTd = "0";
+        this.oTD = "0";
         this.mId = str;
         this.eyE = str;
         this.eyF = -1;
@@ -35,7 +35,7 @@ class n {
         this.mContent = "";
         this.eyI = false;
         this.acm = "";
-        this.oTd = "0";
+        this.oTD = "0";
         this.mId = str;
         this.eyE = str;
         this.eyF = -1;
@@ -50,7 +50,7 @@ class n {
         this.mContent = "";
         this.eyI = false;
         this.acm = "";
-        this.oTd = "0";
+        this.oTD = "0";
         this.mId = str2;
         this.eyE = str;
         this.eyF = i;
@@ -65,7 +65,7 @@ class n {
         this.mContent = "";
         this.eyI = false;
         this.acm = "";
-        this.oTd = "0";
+        this.oTD = "0";
         this.mId = str2;
         this.eyE = str;
         this.eyF = i;
@@ -137,16 +137,16 @@ class n {
     }
 
     public void beX() {
-        if (this.mId != null && this.mId.equals(this.eyE) && g.ehx().yx(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.eyE) && g.ehF().yx(this.mId)) {
             this.eyH = UBC.getUBCContext().aDx();
         }
     }
 
-    public void Xm(String str) {
-        this.oTd = str;
+    public void Xy(String str) {
+        this.oTD = str;
     }
 
-    public String ehD() {
-        return this.oTd;
+    public String ehL() {
+        return this.oTD;
     }
 }

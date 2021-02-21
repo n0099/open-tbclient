@@ -24,7 +24,7 @@ public class n {
 
     private static long b(Context context) {
         try {
-            return ai(context.getFilesDir().getParentFile());
+            return aj(context.getFilesDir().getParentFile());
         } catch (Exception e) {
             return 0L;
         }
@@ -50,7 +50,7 @@ public class n {
         File externalFilesDir;
         try {
             if (a() && (externalFilesDir = context.getExternalFilesDir(null)) != null) {
-                return ai(externalFilesDir.getParentFile());
+                return aj(externalFilesDir.getParentFile());
             }
         } catch (Exception e) {
         }
@@ -111,14 +111,14 @@ public class n {
         }
     }
 
-    public static long ai(File file) {
+    public static long aj(File file) {
         long length;
         long j = 0;
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    length = ai(file2);
+                    length = aj(file2);
                 } else {
                     length = file2.length();
                 }

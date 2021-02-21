@@ -15,21 +15,21 @@ import com.baidu.tieba.ala.live.guess.view.b;
 /* loaded from: classes11.dex */
 public class c extends com.baidu.tieba.ala.live.guess.view.a implements View.OnClickListener {
     private RelativeLayout amz;
-    private LinearLayout hif;
-    private TextView hig;
-    private a hih;
-    private TextView hii;
-    private FrameLayout hij;
+    private LinearLayout hit;
+    private TextView hiu;
+    private a hiv;
+    private TextView hiw;
+    private FrameLayout hix;
 
     /* loaded from: classes11.dex */
     public interface a {
         void anC();
 
-        void bXi();
+        void bXp();
     }
 
     public void a(a aVar) {
-        this.hih = aVar;
+        this.hiv = aVar;
     }
 
     public c(Context context) {
@@ -38,24 +38,24 @@ public class c extends com.baidu.tieba.ala.live.guess.view.a implements View.OnC
 
     @Override // com.baidu.tieba.ala.live.guess.view.a
     public void ED() {
-        this.hig.setOnClickListener(this);
-        this.hif.setOnClickListener(this);
+        this.hiu.setOnClickListener(this);
+        this.hit.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.view.a
-    void bXL() {
+    void bXS() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_follow_dialog, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.view.a
     public void initView() {
-        this.hii = (TextView) this.mRootView.findViewById(a.f.tv_follow_content);
+        this.hiw = (TextView) this.mRootView.findViewById(a.f.tv_follow_content);
         this.amz = (RelativeLayout) this.mRootView.findViewById(a.f.layout_panel);
-        this.hif = (LinearLayout) this.mRootView.findViewById(a.f.frame_exit);
-        this.hig = (TextView) this.mRootView.findViewById(a.f.tv_guess_follow);
-        this.hij = (FrameLayout) this.mRootView.findViewById(a.f.frame_icon);
-        bXR();
-        this.mDialog.setOnKeyListener(new b.DialogInterface$OnKeyListenerC0647b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.view.c.1
+        this.hit = (LinearLayout) this.mRootView.findViewById(a.f.frame_exit);
+        this.hiu = (TextView) this.mRootView.findViewById(a.f.tv_guess_follow);
+        this.hix = (FrameLayout) this.mRootView.findViewById(a.f.frame_icon);
+        bXY();
+        this.mDialog.setOnKeyListener(new b.DialogInterface$OnKeyListenerC0648b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.view.c.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                 return false;
@@ -63,22 +63,22 @@ public class c extends com.baidu.tieba.ala.live.guess.view.a implements View.OnC
         }));
     }
 
-    private void bXR() {
+    private void bXY() {
         com.baidu.tieba.ala.live.guess.c.c.o(this.amz, 300, 240);
-        com.baidu.tieba.ala.live.guess.c.c.c(this.hij, 300, 118, -60, 0, 0, 0);
-        com.baidu.tieba.ala.live.guess.c.c.c(this.hig, 190, 44, 25, 25, 0, 0);
-        com.baidu.tieba.ala.live.guess.c.c.c(this.hii, 20);
+        com.baidu.tieba.ala.live.guess.c.c.c(this.hix, 300, 118, -60, 0, 0, 0);
+        com.baidu.tieba.ala.live.guess.c.c.c(this.hiu, 190, 44, 25, 25, 0, 0);
+        com.baidu.tieba.ala.live.guess.c.c.c(this.hiw, 20);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hif) {
-            if (this.hih != null) {
-                this.hih.anC();
+        if (view == this.hit) {
+            if (this.hiv != null) {
+                this.hiv.anC();
                 dismiss();
             }
-        } else if (view == this.hig) {
-            this.hih.bXi();
+        } else if (view == this.hiu) {
+            this.hiv.bXp();
             dismiss();
         }
     }

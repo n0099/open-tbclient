@@ -90,10 +90,10 @@ public class GridImageLayout extends RelativeLayout {
                 int i2;
                 float f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Dk = com.baidu.tbadk.imageManager.c.bCP().Dk(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fUt));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = com.baidu.tbadk.imageManager.c.bCP().Di(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fUt));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i = Di.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -157,10 +157,10 @@ public class GridImageLayout extends RelativeLayout {
                 int i2;
                 float f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Dk = com.baidu.tbadk.imageManager.c.bCP().Dk(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fUt));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = com.baidu.tbadk.imageManager.c.bCP().Di(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fUt));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i = Di.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -224,10 +224,10 @@ public class GridImageLayout extends RelativeLayout {
                 int i22;
                 float f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Dk = com.baidu.tbadk.imageManager.c.bCP().Dk(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fUt));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i2 = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = com.baidu.tbadk.imageManager.c.bCP().Di(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), GridImageLayout.this.fUt));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i2 = Di.getHeight();
                         i22 = width;
                     } else {
                         i2 = 0;

@@ -16,7 +16,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, ComplaintBarlordViewHo
     private int mSkinType;
 
     public a(com.baidu.adp.base.f fVar) {
-        super(fVar.getPageActivity(), b.jcg, fVar.getUniqueId());
+        super(fVar.getPageActivity(), b.jcu, fVar.getUniqueId());
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -59,12 +59,12 @@ public class a extends com.baidu.adp.widget.ListView.a<b, ComplaintBarlordViewHo
             ap.setBackgroundResource(complaintBarlordViewHolder.bMd, R.drawable.frs_member_manito_bg);
             ap.setBackgroundColor(complaintBarlordViewHolder.mLineView, R.color.CAM_X0204);
             ap.setViewTextColor(complaintBarlordViewHolder.mTitleView, R.color.CAM_X0105, 1);
-            ap.setImageResource(complaintBarlordViewHolder.idj, R.drawable.icon_arrow12_gray66_right);
+            ap.setImageResource(complaintBarlordViewHolder.idB, R.drawable.icon_arrow12_gray66_right);
         }
     }
 
     private void a(ComplaintBarlordViewHolder complaintBarlordViewHolder, b bVar) {
-        complaintBarlordViewHolder.mTitleView.setText(bVar.jch);
+        complaintBarlordViewHolder.mTitleView.setText(bVar.jcv);
         complaintBarlordViewHolder.bMd.setTag(bVar.mUrl);
         complaintBarlordViewHolder.bMd.setOnClickListener(this.mClickListener);
     }

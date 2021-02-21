@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.File;
 /* loaded from: classes10.dex */
 public interface a {
-    void j(Context context, File file);
+    void i(Context context, File file);
 
-    boolean k(Context context, File file);
+    boolean j(Context context, File file);
 }

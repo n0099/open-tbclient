@@ -61,7 +61,7 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
                 bVar.url = jSONObject.optString("url");
                 bVar.thumbnail = jSONObject.optString("thumbnail");
                 bVar.name = jSONObject.optString("name");
-                bVar.lAy = jSONObject.optString("thumbname");
+                bVar.lAM = jSONObject.optString("thumbname");
                 bVar.width = jSONObject.optInt("width");
                 bVar.height = jSONObject.optInt("height");
                 arrayList.add(bVar);

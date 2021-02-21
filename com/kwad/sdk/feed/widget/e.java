@@ -141,8 +141,8 @@ public class e extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
             return;
         }
         com.kwad.sdk.core.download.b.b.a(this.i, view == this.l);
-        com.kwad.sdk.core.download.b.a.a(ao.a(this), this.f9862a, new a.InterfaceC1092a() { // from class: com.kwad.sdk.feed.widget.e.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(ao.a(this), this.f9862a, new a.InterfaceC1094a() { // from class: com.kwad.sdk.feed.widget.e.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 e.this.k();
             }

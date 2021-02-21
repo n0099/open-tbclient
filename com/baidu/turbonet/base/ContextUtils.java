@@ -21,7 +21,7 @@ public class ContextUtils {
         }
     }
 
-    public static void efR() {
+    public static void efZ() {
         if (sApplicationContext == null) {
             throw new RuntimeException("Cannot have native global application context be null.");
         }

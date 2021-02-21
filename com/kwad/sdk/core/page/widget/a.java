@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a extends View implements ap.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private InterfaceC1103a f9370a;
+    private InterfaceC1105a f9370a;
 
     /* renamed from: b  reason: collision with root package name */
     private View f9371b;
@@ -25,7 +25,7 @@ public class a extends View implements ap.a {
 
     /* renamed from: com.kwad.sdk.core.page.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1103a {
+    public interface InterfaceC1105a {
         void a();
 
         void a(View view);
@@ -166,7 +166,7 @@ public class a extends View implements ap.a {
         }
     }
 
-    public void setViewCallback(InterfaceC1103a interfaceC1103a) {
-        this.f9370a = interfaceC1103a;
+    public void setViewCallback(InterfaceC1105a interfaceC1105a) {
+        this.f9370a = interfaceC1105a;
     }
 }

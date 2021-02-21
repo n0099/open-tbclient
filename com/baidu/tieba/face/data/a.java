@@ -4,8 +4,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private int cdp;
-    private int hWZ;
-    private List<EmotionImageData> iSv;
+    private int hXn;
+    private List<EmotionImageData> iSJ;
 
     public int getPage() {
         return this.cdp;
@@ -15,19 +15,19 @@ public class a {
         this.cdp = i;
     }
 
-    public int cyf() {
-        return this.hWZ;
+    public int cym() {
+        return this.hXn;
     }
 
     public void setHasMore(int i) {
-        this.hWZ = i;
+        this.hXn = i;
     }
 
-    public List<EmotionImageData> cyg() {
-        return this.iSv;
+    public List<EmotionImageData> cyn() {
+        return this.iSJ;
     }
 
     public void cV(List<EmotionImageData> list) {
-        this.iSv = list;
+        this.iSJ = list;
     }
 }

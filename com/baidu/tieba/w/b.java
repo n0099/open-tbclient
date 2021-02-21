@@ -11,7 +11,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public static final String FILE_SEP = File.separator;
     private String mPath;
     private String mUrl;
-    private a nVW;
+    private a nWw;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.nVW = aVar;
+        this.nWw = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         e eVar = new e();
         eVar.lU().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return dVJ();
+            return dVR();
         }
         return "";
     }
@@ -49,29 +49,29 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.nVW != null) {
+        if (this.nWw != null) {
             if (!au.isEmpty(str)) {
-                this.nVW.b(true, str, this.mUrl);
+                this.nWw.b(true, str, this.mUrl);
             } else {
-                this.nVW.b(false, null, null);
+                this.nWw.b(false, null, null);
             }
         }
     }
 
-    private String dVJ() {
+    private String dVR() {
         File file = new File(this.mPath + FILE_SEP + "videosplash.temp");
         File file2 = new File(this.mPath + FILE_SEP + (s.toMd5(this.mUrl) + ".mp4"));
         if (file2.exists()) {
             file2.delete();
         }
         if (file.renameTo(file2)) {
-            ah(file2);
+            ai(file2);
             return file2.getAbsolutePath();
         }
         return "";
     }
 
-    private void ah(File file) {
+    private void ai(File file) {
         File[] listFiles;
         if (!au.isEmpty(this.mPath)) {
             File file2 = new File(this.mPath);

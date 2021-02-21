@@ -167,11 +167,11 @@ public class c {
         this.fGa.remove(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a Dj(String str) {
+    public com.baidu.adp.widget.ImageView.a Dh(String str) {
         return this.fFZ.get(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a Dk(String str) {
+    public com.baidu.adp.widget.ImageView.a Di(String str) {
         return this.fGa.get(str);
     }
 

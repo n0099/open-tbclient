@@ -6,12 +6,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.recapp.t;
+import java.io.File;
 /* loaded from: classes8.dex */
 public class j implements com.baidu.tbadk.download.c {
     @Override // com.baidu.tbadk.download.c
@@ -24,8 +24,8 @@ public class j implements com.baidu.tbadk.download.c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            i.dDz().c(downloadData);
-            i.dDz().b(downloadData);
+            i.dDF().c(downloadData);
+            i.dDF().b(downloadData);
         }
     }
 
@@ -55,24 +55,25 @@ public class j implements com.baidu.tbadk.download.c {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", tag[0], "is_detail", tag[2], "ref_type", tag[1]);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            i.dDz().b(downloadData);
+            i.dDF().b(downloadData);
             String path = downloadData.getPath();
-            com.baidu.tieba.ad.download.b.a.ghz.get().bLC().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.dDz().Rs(downloadData.getId()) : path);
-            if (downloadData.isNeedInvokeApk()) {
-                UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
+            String Rl = TextUtils.isEmpty(path) ? com.baidu.tieba.recapp.b.Rl(downloadData.getId()) : path;
+            com.baidu.tieba.ad.download.b.a.ghF.get().bLH().onSuccess(downloadData.getId(), Rl);
+            if (downloadData.isNeedInvokeApk() && !t.Rx(Rl)) {
+                com.baidu.tieba.recapp.b.deleteFileOrDir(new File(Rl));
             }
         }
     }
 
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        i dDz = i.dDz();
+        i dDF = i.dDF();
         if (i == 3) {
-            dDz.k(downloadData);
+            dDF.k(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, downloadData));
         } else {
-            dDz.l(downloadData);
+            dDF.l(downloadData);
         }
-        i.dDz().b(downloadData);
+        i.dDF().b(downloadData);
     }
 }

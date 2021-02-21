@@ -73,12 +73,12 @@ public class d {
             return this;
         }
 
-        public a aaj(String str) {
+        public a aav(String str) {
             this.f12906b = str;
             return this;
         }
 
-        public a aak(String str) {
+        public a aaw(String str) {
             this.c = str;
             return this;
         }
@@ -93,7 +93,7 @@ public class d {
             return this;
         }
 
-        public a aal(String str) {
+        public a aax(String str) {
             this.f = str;
             return this;
         }
@@ -113,7 +113,7 @@ public class d {
             return this;
         }
 
-        public a QM(int i) {
+        public a QN(int i) {
             this.k = i;
             return this;
         }
@@ -123,12 +123,12 @@ public class d {
             return this;
         }
 
-        public a aam(String str) {
+        public a aay(String str) {
             this.m = str;
             return this;
         }
 
-        public d eEd() {
+        public d eEl() {
             if (TextUtils.isEmpty(this.f12905a)) {
                 this.f12905a = "umeng";
             }

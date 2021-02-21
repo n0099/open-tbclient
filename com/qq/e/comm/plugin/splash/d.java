@@ -30,7 +30,7 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
     public static class a implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        a.InterfaceC1205a f12510a;
+        a.InterfaceC1207a f12510a;
 
         /* renamed from: b  reason: collision with root package name */
         boolean f12511b;
@@ -38,8 +38,8 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
         boolean d = false;
         Queue<ADEvent> e = new LinkedList();
 
-        public a(a.InterfaceC1205a interfaceC1205a) {
-            this.f12510a = interfaceC1205a;
+        public a(a.InterfaceC1207a interfaceC1207a) {
+            this.f12510a = interfaceC1207a;
         }
 
         void a() {
@@ -111,8 +111,8 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public int b(final BaseSplashAd baseSplashAd) {
         final long currentTimeMillis = System.currentTimeMillis();
-        a aVar = new a(new a.InterfaceC1205a() { // from class: com.qq.e.comm.plugin.splash.d.1
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+        a aVar = new a(new a.InterfaceC1207a() { // from class: com.qq.e.comm.plugin.splash.d.1
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void a() {
                 if (d.this.j()) {
                     return;
@@ -123,7 +123,7 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
                 }
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public boolean a(ADEvent aDEvent) {
                 int i;
                 boolean z;
@@ -149,12 +149,12 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
                 return false;
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void b() {
                 d.this.a((d) baseSplashAd, 70142);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void b(ADEvent aDEvent) {
                 if (d.this.h == null || !d.this.d((d) baseSplashAd)) {
                     return;
@@ -162,7 +162,7 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
                 d.this.h.onADEvent(aDEvent);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void c() {
                 d.this.b((d) baseSplashAd, 70132);
             }

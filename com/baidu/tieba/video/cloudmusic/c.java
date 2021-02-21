@@ -6,9 +6,9 @@ public interface c {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void cFx();
+        void cFE();
 
-        void dSi();
+        void dSq();
     }
 
     /* loaded from: classes8.dex */

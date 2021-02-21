@@ -55,18 +55,18 @@ public final class j implements h {
 
     /* renamed from: java  reason: collision with other field name */
     private ag f63java;
-    private boolean qiQ;
-    private y qjp;
+    private y qjP;
+    private boolean qjQ;
+    private y.Ccase qjR;
     private boolean qjq;
-    private y.Ccase qjr;
 
     public j(y yVar) {
-        this.qjp = yVar;
+        this.qjP = yVar;
     }
 
     @Override // com.win.opensdk.h
     public final boolean java() {
-        return this.qiQ;
+        return this.qjq;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(13:14|(1:16)(1:42)|17|(1:19)(1:41)|20|(7:22|(1:24)(2:37|(1:39))|25|(1:36)(1:29)|30|31|32)|40|25|(1:27)|36|30|31|32) */
@@ -80,12 +80,12 @@ public final class j implements h {
     public final void a(y yVar) {
         int[] iArr;
         boolean z;
-        if (this.qjp != null && !this.qjq) {
-            String str = this.qjp.getMraidMideaType() == af.BANNER ? "inline" : "interstitial";
-            this.qiQ = yVar.getMraidState().equals(ag.STATE_EXPANDED);
+        if (this.qjP != null && !this.qjQ) {
+            String str = this.qjP.getMraidMideaType() == af.BANNER ? "inline" : "interstitial";
+            this.qjq = yVar.getMraidState().equals(ag.STATE_EXPANDED);
             g.e(yVar, "javascript:window.mraidbridge.setPlacementType('" + str + "')");
-            if (!this.qiQ) {
-                if (this.qjp != null) {
+            if (!this.qjq) {
+                if (this.qjP != null) {
                     boolean z2 = ax(new Intent("android.intent.action.VIEW", Uri.parse("sms:11035000")));
                     boolean z3 = ax(new Intent("android.intent.action.VIEW", Uri.parse("tel:11035000")));
                     if (Build.VERSION.SDK_INT >= 14) {
@@ -94,35 +94,35 @@ public final class j implements h {
                         } else if (ax(new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event"))) {
                             z = true;
                         }
-                        boolean z4 = this.qjp.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.qjp.getContext().getPackageName()) != 0 && Build.VERSION.SDK_INT >= 11;
+                        boolean z4 = this.qjP.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.qjP.getContext().getPackageName()) != 0 && Build.VERSION.SDK_INT >= 11;
                         boolean z5 = f((Activity) yVar.getViewContext(), yVar);
-                        g.e(this.qjp, "javascript:window.mraidbridge.setSupports(" + z2 + "," + z3 + "," + z + "," + z4 + "," + z5 + ")");
+                        g.e(this.qjP, "javascript:window.mraidbridge.setSupports(" + z2 + "," + z3 + "," + z + "," + z4 + "," + z5 + ")");
                     }
                     z = false;
-                    if (this.qjp.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.qjp.getContext().getPackageName()) != 0) {
+                    if (this.qjP.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.qjP.getContext().getPackageName()) != 0) {
                     }
                     boolean z52 = f((Activity) yVar.getViewContext(), yVar);
-                    g.e(this.qjp, "javascript:window.mraidbridge.setSupports(" + z2 + "," + z3 + "," + z + "," + z4 + "," + z52 + ")");
+                    g.e(this.qjP, "javascript:window.mraidbridge.setSupports(" + z2 + "," + z3 + "," + z + "," + z4 + "," + z52 + ")");
                 }
                 a();
-                eIQ();
-                if (this.qjp != null) {
+                eIY();
+                if (this.qjP != null) {
                     try {
                         int[] iArr2 = new int[2];
-                        this.qjp.getLocationOnScreen(iArr2);
-                        iArr2[1] = iArr2[1] - (this.qjp.getViewContext() instanceof Activity ? ((Activity) this.qjp.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
-                        this.qjp.measure(0, 0);
-                        bi.b(this.qjp.getViewContext(), new int[]{this.qjp.getMeasuredWidth(), this.qjp.getMeasuredHeight()});
-                        g.e(this.qjp, "javascript:window.mraidbridge.setDefaultPosition(" + iArr2[0] + "," + iArr2[1] + "," + iArr[0] + "," + iArr[1] + ")");
+                        this.qjP.getLocationOnScreen(iArr2);
+                        iArr2[1] = iArr2[1] - (this.qjP.getViewContext() instanceof Activity ? ((Activity) this.qjP.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
+                        this.qjP.measure(0, 0);
+                        bi.b(this.qjP.getViewContext(), new int[]{this.qjP.getMeasuredWidth(), this.qjP.getMeasuredHeight()});
+                        g.e(this.qjP, "javascript:window.mraidbridge.setDefaultPosition(" + iArr2[0] + "," + iArr2[1] + "," + iArr[0] + "," + iArr[1] + ")");
                     } catch (Exception e) {
                     }
                 }
             }
-            this.qjp.eIP();
+            this.qjP.eIX();
             a(yVar, yVar.getMraidState());
             g.e(yVar, "javascript:window.mraidbridge.notifyReadyEvent()");
-            this.qjq = true;
-            CW(this.qjp.java());
+            this.qjQ = true;
+            CW(this.qjP.java());
         }
     }
 
@@ -139,26 +139,26 @@ public final class j implements h {
     }
 
     private boolean ax(Intent intent) {
-        if (this.qjp == null) {
+        if (this.qjP == null) {
             return false;
         }
         try {
-            return this.qjp.getContext().getPackageManager().queryIntentActivities(intent, 0).size() > 0;
+            return this.qjP.getContext().getPackageManager().queryIntentActivities(intent, 0).size() > 0;
         } catch (Exception e) {
             return false;
         }
     }
 
     private void CW(boolean z) {
-        if (this.qjp != null && this.qjq) {
+        if (this.qjP != null && this.qjQ) {
             this.f13752a = z;
-            g.b(this.qjp, z);
+            g.b(this.qjP, z);
         }
     }
 
     @Override // com.win.opensdk.h
     public final void Q(int i, int i2, int i3, int i4) {
-        if (this.qjp != null) {
+        if (this.qjP != null) {
             try {
                 int[] iArr = new int[4];
                 if (iArr[0] != i || iArr[1] != i2 || iArr[2] != i3 || iArr[3] != i4) {
@@ -166,14 +166,14 @@ public final class j implements h {
                     iArr[1] = i2;
                     iArr[2] = i3;
                     iArr[3] = i4;
-                    int[] iArr2 = {i, i2 - (this.qjp.getViewContext() instanceof Activity ? ((Activity) this.qjp.getViewContext()).getWindow().findViewById(16908290).getTop() : 0), i3, i4};
-                    bi.b(this.qjp.getViewContext(), iArr2);
+                    int[] iArr2 = {i, i2 - (this.qjP.getViewContext() instanceof Activity ? ((Activity) this.qjP.getViewContext()).getWindow().findViewById(16908290).getTop() : 0), i3, i4};
+                    bi.b(this.qjP.getViewContext(), iArr2);
                     int i5 = iArr2[0];
                     int i6 = iArr2[1];
                     int i7 = iArr2[2];
                     int i8 = iArr2[3];
-                    g.e(this.qjp, "javascript:window.mraidbridge.setCurrentPosition(" + i5 + "," + i6 + "," + i7 + "," + i8 + ")");
-                    g.e(this.qjp, "javascript:window.mraidbridge.notifySizeChangeEvent(" + i7 + "," + i8 + ")");
+                    g.e(this.qjP, "javascript:window.mraidbridge.setCurrentPosition(" + i5 + "," + i6 + "," + i7 + "," + i8 + ")");
+                    g.e(this.qjP, "javascript:window.mraidbridge.notifySizeChangeEvent(" + i7 + "," + i8 + ")");
                 }
             } catch (Exception e) {
             }
@@ -181,31 +181,31 @@ public final class j implements h {
     }
 
     @Override // com.win.opensdk.h
-    public final void eIP() {
+    public final void eIX() {
         Activity activity;
         try {
-            if (this.qjp != null) {
-                if (this.f13753b || this.c || this.qiQ) {
-                    this.qjp.eIQ();
-                    a(this.qjp, ag.STATE_DEFAULT);
-                    if (!this.qjp.eJn() && !this.qiQ) {
-                        this.qjp.getDispatcher().eIQ();
+            if (this.qjP != null) {
+                if (this.f13753b || this.c || this.qjq) {
+                    this.qjP.eIY();
+                    a(this.qjP, ag.STATE_DEFAULT);
+                    if (!this.qjP.eJv() && !this.qjq) {
+                        this.qjP.getDispatcher().eIY();
                     }
-                    if (!this.qjp.m79a() && !this.qiQ) {
-                        this.qjp.getDispatcher().eIQ();
+                    if (!this.qjP.m78a() && !this.qjq) {
+                        this.qjP.getDispatcher().eIY();
                     }
-                    if ((this.qjp.getViewContext() instanceof Activity) && (activity = (Activity) this.qjp.getViewContext()) != null) {
+                    if ((this.qjP.getViewContext() instanceof Activity) && (activity = (Activity) this.qjP.getViewContext()) != null) {
                         activity.setRequestedOrientation(-1);
                     }
                     this.f13753b = false;
                     this.c = false;
-                    this.qjr = null;
-                } else if (this.qjp.eJn()) {
-                    this.qjp.getDispatcher().eIQ();
-                } else if (this.qjp.m79a()) {
-                    this.qjp.getDispatcher().eIQ();
+                    this.qjR = null;
+                } else if (this.qjP.eJv()) {
+                    this.qjP.getDispatcher().eIY();
+                } else if (this.qjP.m78a()) {
+                    this.qjP.getDispatcher().eIY();
                 } else {
-                    y yVar = this.qjp;
+                    y yVar = this.qjP;
                     if (yVar.getVisibility() == 8) {
                         return;
                     }
@@ -217,9 +217,9 @@ public final class j implements h {
     }
 
     private void CX(boolean z) {
-        if (this.qjp != null) {
+        if (this.qjP != null) {
             try {
-                this.qjp.setMRAIDUseCustomClose(z);
+                this.qjP.setMRAIDUseCustomClose(z);
             } catch (Exception e) {
             }
         }
@@ -230,7 +230,7 @@ public final class j implements h {
         DisplayMetrics displayMetrics;
         char c;
         String decode;
-        if (this.qjp != null) {
+        if (this.qjP != null) {
             String str = null;
             try {
                 Iterator<Pair<String, String>> it = arrayList.iterator();
@@ -300,12 +300,12 @@ public final class j implements h {
                 }
                 if (!TextUtils.isEmpty(str)) {
                     try {
-                        this.qjr = new y.Ccase(this.qjp.getViewContext(), this.qjp.getMraidMideaType(), this);
-                        this.qjr.loadUrl(str);
+                        this.qjR = new y.Ccase(this.qjP.getViewContext(), this.qjP.getMraidMideaType(), this);
+                        this.qjR.loadUrl(str);
                     } catch (Exception e3) {
                     }
                 } else {
-                    y yVar = this.qjp;
+                    y yVar = this.qjP;
                     ((WindowManager) yVar.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(new DisplayMetrics());
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(yVar.getLayoutParams());
                     int i3 = i != -1 ? (int) ((i * displayMetrics.density) + 0.5d) : i;
@@ -315,25 +315,25 @@ public final class j implements h {
                     layoutParams.gravity = 17;
                     yVar.setLayoutParams(layoutParams);
                 }
-                a(this.qjp, ag.STATE_EXPANDED);
+                a(this.qjP, ag.STATE_EXPANDED);
                 this.f13753b = true;
                 CX(z);
-                this.qjp.getDispatcher();
+                this.qjP.getDispatcher();
             } catch (Exception e4) {
             }
         }
     }
 
     @Override // com.win.opensdk.h
-    public final boolean abE(String str) {
-        if (this.qjp == null || TextUtils.isEmpty(str)) {
+    public final boolean abQ(String str) {
+        if (this.qjP == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.qjp.getDispatcher().abE(str);
+        return this.qjP.getDispatcher().abQ(str);
     }
 
     private void bq(ArrayList<Pair<String, String>> arrayList) {
-        if (this.qjp != null) {
+        if (this.qjP != null) {
             String str = null;
             Iterator<Pair<String, String>> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -342,7 +342,7 @@ public final class j implements h {
             }
             if (str != null) {
                 final String decode = Uri.decode(str);
-                AlertDialog.Builder builder = new AlertDialog.Builder(bi.ew(this.qjp));
+                AlertDialog.Builder builder = new AlertDialog.Builder(bi.ew(this.qjP));
                 builder.setTitle(d.e.store_picture_title);
                 builder.setMessage(d.e.store_picture_message);
                 builder.setPositiveButton(d.e.store_picture_accept, new DialogInterface.OnClickListener() { // from class: com.win.opensdk.j.1
@@ -381,7 +381,7 @@ public final class j implements h {
                             }
                             try {
                                 if (file.canWrite()) {
-                                    fileOutputStream.write(!z ? bc.abL(decode.substring(decode.lastIndexOf(",") + 1, decode.length())) : Base64.decode(decode.substring(decode.lastIndexOf(",") + 1, decode.length()), 0));
+                                    fileOutputStream.write(!z ? bc.abX(decode.substring(decode.lastIndexOf(",") + 1, decode.length())) : Base64.decode(decode.substring(decode.lastIndexOf(",") + 1, decode.length()), 0));
                                 }
                                 try {
                                     fileOutputStream.close();
@@ -394,7 +394,7 @@ public final class j implements h {
                                     } catch (IOException e6) {
                                     }
                                 }
-                                j.this.qjp.getDispatcher().abE(null);
+                                j.this.qjP.getDispatcher().abQ(null);
                             } catch (IOException e7) {
                                 if (fileOutputStream != null) {
                                     try {
@@ -402,7 +402,7 @@ public final class j implements h {
                                     } catch (IOException e8) {
                                     }
                                 }
-                                j.this.qjp.getDispatcher().abE(null);
+                                j.this.qjP.getDispatcher().abQ(null);
                             } catch (IllegalArgumentException e9) {
                                 if (fileOutputStream != null) {
                                     try {
@@ -410,7 +410,7 @@ public final class j implements h {
                                     } catch (IOException e10) {
                                     }
                                 }
-                                j.this.qjp.getDispatcher().abE(null);
+                                j.this.qjP.getDispatcher().abQ(null);
                             } catch (Throwable th3) {
                                 th = th3;
                                 fileOutputStream2 = fileOutputStream;
@@ -423,9 +423,9 @@ public final class j implements h {
                                 throw th;
                             }
                         } else {
-                            DownloadManager downloadManager = (DownloadManager) j.this.qjp.getContext().getSystemService("download");
+                            DownloadManager downloadManager = (DownloadManager) j.this.qjP.getContext().getSystemService("download");
                             DownloadManager.Request request = new DownloadManager.Request(Uri.parse(decode));
-                            if (j.this.qjp.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", j.this.qjp.getContext().getPackageName()) == 0) {
+                            if (j.this.qjP.getContext().getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", j.this.qjP.getContext().getPackageName()) == 0) {
                                 request.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, decode.split("/")[decode.split("/").length - 1]);
                                 try {
                                     request.allowScanningByMediaScanner();
@@ -435,7 +435,7 @@ public final class j implements h {
                                 }
                             }
                         }
-                        j.this.qjp.getDispatcher().abE(null);
+                        j.this.qjP.getDispatcher().abQ(null);
                     }
                 });
                 builder.setNegativeButton(d.e.store_picture_decline, new DialogInterface.OnClickListener() { // from class: com.win.opensdk.j.2
@@ -451,7 +451,7 @@ public final class j implements h {
     private void a(ArrayList<Pair<String, String>> arrayList) {
         boolean z;
         int i;
-        if (this.qjp != null) {
+        if (this.qjP != null) {
             int i2 = aj.java;
             Iterator<Pair<String, String>> it = arrayList.iterator();
             int i3 = i2;
@@ -476,8 +476,8 @@ public final class j implements h {
                     i3 = i;
                 }
             }
-            if ((this.f13753b || this.qjp.eJn() || this.qjp.m79a()) && (this.qjp.getViewContext() instanceof Activity)) {
-                Activity activity = (Activity) this.qjp.getViewContext();
+            if ((this.f13753b || this.qjP.eJv() || this.qjP.m78a()) && (this.qjP.getViewContext() instanceof Activity)) {
+                Activity activity = (Activity) this.qjP.getViewContext();
                 if (z2) {
                     activity.setRequestedOrientation(-1);
                     return;
@@ -542,7 +542,7 @@ public final class j implements h {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private void b(ArrayList<Pair<String, String>> arrayList) {
         char c;
-        if (this.qjp != null) {
+        if (this.qjP != null) {
             Iterator<Pair<String, String>> it = arrayList.iterator();
             String str = "top-right";
             int i = -1;
@@ -628,7 +628,7 @@ public final class j implements h {
                     MraidLayout.java.valueOf(str.replace('-', '_'));
                 } catch (IllegalArgumentException e2) {
                 }
-                y yVar = this.qjp;
+                y yVar = this.qjP;
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 ((WindowManager) yVar.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(yVar.getLayoutParams());
@@ -637,12 +637,12 @@ public final class j implements h {
                 layoutParams.width = (int) ((f * i2) + 0.5d);
                 layoutParams.gravity = 17;
                 yVar.setLayoutParams(layoutParams);
-                this.qjp.getDispatcher().abE(null);
-                a(this.qjp, ag.STATE_RESIZED);
+                this.qjP.getDispatcher().abQ(null);
+                a(this.qjP, ag.STATE_RESIZED);
                 this.c = true;
                 return;
             }
-            g.e(this.qjp, "javascript:window.mraidbridge.notifyErrorEvent('Resize called with resizeProperties larger than the screen.','mraid.resize()')");
+            g.e(this.qjP, "javascript:window.mraidbridge.notifyErrorEvent('Resize called with resizeProperties larger than the screen.','mraid.resize()')");
         }
     }
 
@@ -650,23 +650,23 @@ public final class j implements h {
         g.d(yVar, agVar.toString());
         if (agVar != ag.STATE_EXPANDED) {
             if (this.f63java == ag.STATE_EXPANDED && agVar == ag.STATE_DEFAULT) {
-                yVar.getDispatcher().eIQ();
+                yVar.getDispatcher().eIY();
             } else if (agVar == ag.STATE_HIDDEN) {
-                yVar.getDispatcher().eIQ();
+                yVar.getDispatcher().eIY();
             }
         }
         this.f63java = agVar;
     }
 
     @Override // com.win.opensdk.h
-    public final void eIQ() {
-        if (this.qjp != null) {
+    public final void eIY() {
+        if (this.qjP != null) {
             try {
-                int[] ja = bi.ja(this.qjp.getViewContext());
+                int[] ja = bi.ja(this.qjP.getViewContext());
                 int i = ja[0];
-                int top = ja[1] - (this.qjp.getViewContext() instanceof Activity ? ((Activity) this.qjp.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
-                float f = this.qjp.getViewContext().getResources().getDisplayMetrics().density;
-                g.a(this.qjp, (int) ((i / f) + 0.5f), (int) ((top / f) + 0.5f));
+                int top = ja[1] - (this.qjP.getViewContext() instanceof Activity ? ((Activity) this.qjP.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
+                float f = this.qjP.getViewContext().getResources().getDisplayMetrics().density;
+                g.a(this.qjP, (int) ((i / f) + 0.5f), (int) ((top / f) + 0.5f));
             } catch (Exception e) {
             }
         }
@@ -674,12 +674,12 @@ public final class j implements h {
 
     @Override // com.win.opensdk.h
     public final void a() {
-        if (this.qjp != null) {
+        if (this.qjP != null) {
             try {
-                int[] jb = bi.jb(this.qjp.getViewContext());
+                int[] jb = bi.jb(this.qjP.getViewContext());
                 this.f62java = jb[0];
                 this.f61case = jb[1];
-                g.b(this.qjp, this.f62java, this.f61case);
+                g.b(this.qjP, this.f62java, this.f61case);
             } catch (Exception e) {
             }
         }
@@ -688,13 +688,13 @@ public final class j implements h {
     @Override // com.win.opensdk.h
     public final void b() {
         boolean java2;
-        if (this.qjp != null && this.f13752a != (java2 = this.qjp.java())) {
+        if (this.qjP != null && this.f13752a != (java2 = this.qjP.java())) {
             CW(java2);
         }
     }
 
     @Override // com.win.opensdk.h
-    public final void abF(String str) {
+    public final void abR(String str) {
         boolean z = true;
         try {
             String host = Uri.parse(str).getHost();
@@ -710,7 +710,7 @@ public final class j implements h {
                     }
                 }
                 if ("close".equals(host)) {
-                    eIP();
+                    eIX();
                 } else if (!"createCalendarEvent".equals(host)) {
                     if ("expand".equals(host)) {
                         bp(arrayList);
@@ -721,7 +721,7 @@ public final class j implements h {
                             Pair<String, String> next = it.next();
                             str3 = ((String) next.first).equals("url") ? Uri.decode((String) next.second) : str3;
                         }
-                        abE(str3);
+                        abQ(str3);
                     } else if (!"playVideo".equals(host)) {
                         if (ResizeImageAction.ACTION_NAME.equals(host)) {
                             b(arrayList);
@@ -733,19 +733,19 @@ public final class j implements h {
                             CX(Boolean.parseBoolean((String) arrayList.get(0).second));
                         }
                     }
-                } else if (this.qjp != null) {
+                } else if (this.qjP != null) {
                     if (Build.VERSION.SDK_INT < 14 || (!ax(new Intent("android.intent.action.EDIT").setData(CalendarContract.Events.CONTENT_URI)) && !ax(new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event")))) {
                         z = false;
                     }
                     if (z) {
                         try {
-                            o abG = arrayList.size() > 0 ? o.abG(URLDecoder.decode((String) arrayList.get(0).second, "UTF-8")) : null;
-                            if (abG != null) {
+                            o abS = arrayList.size() > 0 ? o.abS(URLDecoder.decode((String) arrayList.get(0).second, "UTF-8")) : null;
+                            if (abS != null) {
                                 try {
-                                    Intent eIR = abG.eIR();
-                                    eIR.setFlags(268435456);
-                                    this.qjp.getContext().startActivity(eIR);
-                                    this.qjp.getDispatcher().abE(null);
+                                    Intent eIZ = abS.eIZ();
+                                    eIZ.setFlags(268435456);
+                                    this.qjP.getContext().startActivity(eIZ);
+                                    this.qjP.getDispatcher().abQ(null);
                                 } catch (ActivityNotFoundException e) {
                                 }
                             }

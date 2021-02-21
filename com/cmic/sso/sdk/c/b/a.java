@@ -22,10 +22,10 @@ public class a extends g {
     private String k;
     private long l;
     private String m;
-    private JSONObject pwM;
+    private JSONObject pxm;
 
     public void a(JSONObject jSONObject) {
-        this.pwM = jSONObject;
+        this.pxm = jSONObject;
     }
 
     public void a(long j) {
@@ -104,20 +104,20 @@ public class a extends g {
             jSONObject.put("sourceid", this.i);
             jSONObject.put("authenticated_appid", this.j);
             jSONObject.put("genTokenByAppid", this.k);
-            jSONObject.put("rcData", this.pwM);
+            jSONObject.put("rcData", this.pxm);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jSONObject;
     }
 
-    public String YV(String str) {
+    public String Zh(String str) {
         return dD(this.f7700a + this.c + str + this.d);
     }
 
     /* renamed from: com.cmic.sso.sdk.c.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static class C1039a {
+    public static class C1041a {
 
         /* renamed from: a  reason: collision with root package name */
         private String f7702a;

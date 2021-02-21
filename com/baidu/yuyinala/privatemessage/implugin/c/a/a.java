@@ -15,12 +15,12 @@ import java.net.URL;
 public class a extends AsyncTask<String, Integer, Integer> {
     private String mFilePath;
     private String mUrl;
-    private b oZZ;
-    private int paa = 0;
+    private b paB;
+    private int paC = 0;
 
     public a(Context context, String str, String str2, b bVar) {
         this.mUrl = str;
-        this.oZZ = bVar;
+        this.paB = bVar;
         this.mFilePath = str2;
     }
 
@@ -162,10 +162,10 @@ public class a extends AsyncTask<String, Integer, Integer> {
             try {
                 if (numArr.length > 0) {
                     Integer num = numArr[0];
-                    if (num.intValue() > this.paa) {
-                        this.paa = num.intValue();
-                        if (this.oZZ != null) {
-                            this.oZZ.onProgress(this.paa);
+                    if (num.intValue() > this.paC) {
+                        this.paC = num.intValue();
+                        if (this.paB != null) {
+                            this.paB.onProgress(this.paC);
                         }
                     }
                 }
@@ -188,8 +188,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFailed(int i) {
         try {
-            if (this.oZZ != null) {
-                this.oZZ.onFailed(i);
+            if (this.paB != null) {
+                this.paB.onFailed(i);
             }
         } catch (Exception e) {
             c.e("AsyncDownloadTask", "notifyFailed:" + e.getMessage());
@@ -198,8 +198,8 @@ public class a extends AsyncTask<String, Integer, Integer> {
 
     private void notifyFinished() {
         try {
-            if (this.oZZ != null) {
-                this.oZZ.Yd(this.mFilePath);
+            if (this.paB != null) {
+                this.paB.Yp(this.mFilePath);
             }
             if (c.isDebugMode()) {
                 c.d("AsyncDownloadTask", "donwLoad finshed sucess:" + System.currentTimeMillis());

@@ -9,7 +9,7 @@ import kotlin.jvm.internal.p;
 /* loaded from: classes6.dex */
 public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     public static final a Companion = new a(null);
-    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> qsM = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
+    private static final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> qtm = AtomicReferenceFieldUpdater.newUpdater(SafePublicationLazyImpl.class, Object.class, "_value");
     private volatile Object _value;
 
     /* renamed from: final  reason: not valid java name */
@@ -19,18 +19,18 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     public SafePublicationLazyImpl(kotlin.jvm.a.a<? extends T> aVar) {
         p.o(aVar, "initializer");
         this.initializer = aVar;
-        this._value = g.qsN;
-        this.f1023final = g.qsN;
+        this._value = g.qtn;
+        this.f1023final = g.qtn;
     }
 
     @Override // kotlin.c
     public T getValue() {
         T t = (T) this._value;
-        if (t == g.qsN) {
+        if (t == g.qtn) {
             kotlin.jvm.a.a<? extends T> aVar = this.initializer;
             if (aVar != null) {
                 T invoke = aVar.invoke();
-                if (Companion.eKQ().compareAndSet(this, g.qsN, invoke)) {
+                if (Companion.eKY().compareAndSet(this, g.qtn, invoke)) {
                     this.initializer = null;
                     return invoke;
                 }
@@ -41,7 +41,7 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
     }
 
     public boolean isInitialized() {
-        return this._value != g.qsN;
+        return this._value != g.qtn;
     }
 
     public String toString() {
@@ -63,8 +63,8 @@ public final class SafePublicationLazyImpl<T> implements Serializable, c<T> {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> eKQ() {
-            return SafePublicationLazyImpl.qsM;
+        public final AtomicReferenceFieldUpdater<SafePublicationLazyImpl<?>, Object> eKY() {
+            return SafePublicationLazyImpl.qtm;
         }
     }
 }

@@ -15,14 +15,14 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.card.m;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, CardViewHolder<com.baidu.tieba.card.e>> {
-    private ab jze;
-    private com.baidu.tieba.card.e jzg;
+    private ab jzs;
+    private com.baidu.tieba.card.e jzu;
     private String mForumId;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.iDT);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.iEh);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -32,20 +32,20 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, Card
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<com.baidu.tieba.card.e> e(ViewGroup viewGroup) {
-        this.jzg = new com.baidu.tieba.card.e(this.mPageContext);
-        return new CardViewHolder<>(this.jzg);
+        this.jzu = new com.baidu.tieba.card.e(this.mPageContext);
+        return new CardViewHolder<>(this.jzu);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.b bVar, CardViewHolder<com.baidu.tieba.card.e> cardViewHolder) {
-        if (cardViewHolder.ctb() == null) {
+        if (cardViewHolder.cti() == null) {
             return null;
         }
-        cardViewHolder.ctb().a(bVar);
-        cardViewHolder.ctb().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.ctb().c(new ab<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.c.1
+        cardViewHolder.cti().a(bVar);
+        cardViewHolder.cti().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.cti().c(new ab<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
@@ -54,7 +54,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, Card
                 c.this.a(view2, bVar2);
             }
         });
-        return cardViewHolder.ctb().getView();
+        return cardViewHolder.cti().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -63,14 +63,14 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, Card
         createFromThreadCfg.setForumId(String.valueOf(bVar.bln().getFid()));
         createFromThreadCfg.setForumName(bVar.bln().bnU());
         createFromThreadCfg.setStartFrom(0);
-        m.IM(bVar.bln().getTid());
+        m.IN(bVar.bln().getTid());
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
-        if (this.jze != null) {
-            this.jze.a(view, bVar);
+        if (this.jzs != null) {
+            this.jzs.a(view, bVar);
         }
     }
 
     public void d(ab abVar) {
-        this.jze = abVar;
+        this.jzs = abVar;
     }
 }

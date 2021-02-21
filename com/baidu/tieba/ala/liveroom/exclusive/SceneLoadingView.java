@@ -14,9 +14,9 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class SceneLoadingView extends View {
     private ValueAnimator dwJ;
-    private int hCN;
-    private ValueAnimator.AnimatorUpdateListener hCO;
-    private int hxm;
+    private int hDb;
+    private ValueAnimator.AnimatorUpdateListener hDc;
+    private int hxA;
     private Paint mPaint;
     private int mSize;
 
@@ -30,17 +30,17 @@ public class SceneLoadingView extends View {
 
     public SceneLoadingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hCN = 0;
-        this.hCO = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.SceneLoadingView.1
+        this.hDb = 0;
+        this.hDc = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.exclusive.SceneLoadingView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                SceneLoadingView.this.hCN = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                SceneLoadingView.this.hDb = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 SceneLoadingView.this.invalidate();
             }
         };
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.SceneLoadingView, i, 0);
         this.mSize = obtainStyledAttributes.getDimensionPixelSize(a.j.SceneLoadingView_loading_view_size, vy(32));
-        this.hxm = obtainStyledAttributes.getInt(a.j.SceneLoadingView_android_color, -1);
+        this.hxA = obtainStyledAttributes.getInt(a.j.SceneLoadingView_android_color, -1);
         obtainStyledAttributes.recycle();
         rX();
     }
@@ -51,13 +51,13 @@ public class SceneLoadingView extends View {
 
     private void rX() {
         this.mPaint = new Paint();
-        this.mPaint.setColor(this.hxm);
+        this.mPaint.setColor(this.hxA);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     public void setColor(int i) {
-        this.hxm = i;
+        this.hxA = i;
         this.mPaint.setColor(i);
         invalidate();
     }
@@ -70,7 +70,7 @@ public class SceneLoadingView extends View {
     public void start() {
         if (this.dwJ == null) {
             this.dwJ = ValueAnimator.ofInt(0, 11);
-            this.dwJ.addUpdateListener(this.hCO);
+            this.dwJ.addUpdateListener(this.hDc);
             this.dwJ.setDuration(600L);
             this.dwJ.setRepeatMode(1);
             this.dwJ.setRepeatCount(-1);
@@ -83,7 +83,7 @@ public class SceneLoadingView extends View {
 
     public void stop() {
         if (this.dwJ != null) {
-            this.dwJ.removeUpdateListener(this.hCO);
+            this.dwJ.removeUpdateListener(this.hDc);
             this.dwJ.removeAllUpdateListeners();
             this.dwJ.cancel();
             this.dwJ = null;
@@ -121,7 +121,7 @@ public class SceneLoadingView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
-        b(canvas, this.hCN * 30);
+        b(canvas, this.hDb * 30);
         canvas.restoreToCount(saveLayer);
     }
 

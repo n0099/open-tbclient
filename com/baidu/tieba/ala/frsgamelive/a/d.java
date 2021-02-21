@@ -9,36 +9,36 @@ import java.util.List;
 public class d {
     private final List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
     private com.baidu.adp.base.f eVB;
-    private BdTypeMultiColumnListView gUY;
-    private e gUZ;
-    private h gVa;
+    private BdTypeMultiColumnListView gVm;
+    private e gVn;
+    private h gVo;
 
     public d(com.baidu.adp.base.f fVar, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         this.eVB = fVar;
-        this.gUY = bdTypeMultiColumnListView;
+        this.gVm = bdTypeMultiColumnListView;
         Kw();
     }
 
     private void Kw() {
-        this.gUZ = new e((TbPageContext) this.eVB, com.baidu.tieba.ala.frsgamelive.b.c.gVi);
-        this.gVa = new h((TbPageContext) this.eVB, com.baidu.tieba.ala.frsgamelive.b.c.gVj);
-        this.bns.add(this.gUZ);
-        this.bns.add(this.gVa);
-        this.gUY.addAdapters(this.bns);
+        this.gVn = new e((TbPageContext) this.eVB, com.baidu.tieba.ala.frsgamelive.b.c.gVw);
+        this.gVo = new h((TbPageContext) this.eVB, com.baidu.tieba.ala.frsgamelive.b.c.gVx);
+        this.bns.add(this.gVn);
+        this.bns.add(this.gVo);
+        this.gVm.addAdapters(this.bns);
     }
 
     public void setDatas(List<n> list) {
-        if (this.gUY != null) {
-            this.gUY.setData(list);
+        if (this.gVm != null) {
+            this.gVm.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.h hVar) {
-        if (this.gUZ != null) {
-            this.gUZ.a(hVar);
+        if (this.gVn != null) {
+            this.gVn.a(hVar);
         }
-        if (this.gVa != null) {
-            this.gVa.a(hVar);
+        if (this.gVo != null) {
+            this.gVo.a(hVar);
         }
     }
 }

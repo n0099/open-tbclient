@@ -25,12 +25,12 @@ public class b {
         return this.g;
     }
 
-    public b QS(int i) {
+    public b QT(int i) {
         this.d = i;
         return this;
     }
 
-    public b QT(int i) {
+    public b QU(int i) {
         this.g = i;
         return this;
     }

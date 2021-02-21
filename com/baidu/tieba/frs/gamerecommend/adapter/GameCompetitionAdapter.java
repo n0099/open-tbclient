@@ -18,15 +18,15 @@ import com.baidu.tieba.card.CardFrsGameCompetitionLayout;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public class GameCompetitionAdapter extends k<com.baidu.tieba.e.c, CardFrsGameCompetitionHolder> {
-    private com.baidu.adp.lib.d.b<CardFrsGameCompetitionItemView> jrL;
+    private com.baidu.adp.lib.d.b<CardFrsGameCompetitionItemView> jrZ;
     private String mForumId;
 
     public GameCompetitionAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.jrL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameCompetitionItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter.1
+        this.jrZ = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameCompetitionItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cIb */
+            /* renamed from: cIi */
             public CardFrsGameCompetitionItemView makeObject() {
                 CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = new CardFrsGameCompetitionItemView(GameCompetitionAdapter.this.mContext);
                 cardFrsGameCompetitionItemView.setForumId(GameCompetitionAdapter.this.mForumId);
@@ -62,7 +62,7 @@ public class GameCompetitionAdapter extends k<com.baidu.tieba.e.c, CardFrsGameCo
     /* renamed from: bH */
     public CardFrsGameCompetitionHolder e(ViewGroup viewGroup) {
         CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder = new CardFrsGameCompetitionHolder(LayoutInflater.from(this.mContext).inflate(R.layout.card_frs_game_competition_layout, viewGroup, false));
-        cardFrsGameCompetitionHolder.jzm.setViewPool(this.jrL);
+        cardFrsGameCompetitionHolder.jzA.setViewPool(this.jrZ);
         return cardFrsGameCompetitionHolder;
     }
 
@@ -70,39 +70,39 @@ public class GameCompetitionAdapter extends k<com.baidu.tieba.e.c, CardFrsGameCo
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.c cVar, CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder) {
-        if (cVar != null && cVar.ctQ() != null) {
+        if (cVar != null && cVar.ctX() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            cardFrsGameCompetitionHolder.jzk.setText(cVar.ctQ().title);
-            cardFrsGameCompetitionHolder.jzk.setTextColor(ap.getColor(skinType, R.color.CAM_X0105));
-            cardFrsGameCompetitionHolder.jzm.setPageContext(this.mPageContext);
-            cardFrsGameCompetitionHolder.jzm.setData(cVar.ctQ().sub_nodes);
-            cardFrsGameCompetitionHolder.jzl.setMaxOverScrollDistance(cardFrsGameCompetitionHolder.jzm.getChildItemWidth());
-            cardFrsGameCompetitionHolder.jzj.setBackgroundColor(ap.getColor(skinType, R.color.CAM_X0201));
-            ap.setBackgroundResource(cardFrsGameCompetitionHolder.jzn, R.color.CAM_X0205);
-            ap.setBackgroundResource(cardFrsGameCompetitionHolder.iZj, R.color.CAM_X0205);
+            cardFrsGameCompetitionHolder.jzy.setText(cVar.ctX().title);
+            cardFrsGameCompetitionHolder.jzy.setTextColor(ap.getColor(skinType, R.color.CAM_X0105));
+            cardFrsGameCompetitionHolder.jzA.setPageContext(this.mPageContext);
+            cardFrsGameCompetitionHolder.jzA.setData(cVar.ctX().sub_nodes);
+            cardFrsGameCompetitionHolder.jzz.setMaxOverScrollDistance(cardFrsGameCompetitionHolder.jzA.getChildItemWidth());
+            cardFrsGameCompetitionHolder.jzx.setBackgroundColor(ap.getColor(skinType, R.color.CAM_X0201));
+            ap.setBackgroundResource(cardFrsGameCompetitionHolder.jzB, R.color.CAM_X0205);
+            ap.setBackgroundResource(cardFrsGameCompetitionHolder.iZx, R.color.CAM_X0205);
         }
         return cardFrsGameCompetitionHolder.getView();
     }
 
     /* loaded from: classes2.dex */
     public class CardFrsGameCompetitionHolder extends TypeAdapter.ViewHolder {
-        private View iZj;
-        private LinearLayout jzj;
-        private TextView jzk;
-        private FlexibleHorizontalScrollView jzl;
-        private CardFrsGameCompetitionLayout jzm;
-        private View jzn;
+        private View iZx;
+        private CardFrsGameCompetitionLayout jzA;
+        private View jzB;
+        private LinearLayout jzx;
+        private TextView jzy;
+        private FlexibleHorizontalScrollView jzz;
 
         public CardFrsGameCompetitionHolder(View view) {
             super(view);
-            this.jzj = (LinearLayout) view.findViewById(R.id.card_game_competition_content);
-            this.jzk = (TextView) view.findViewById(R.id.game_competition_title);
-            this.jzl = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_competition_scroll_container);
-            this.jzm = (CardFrsGameCompetitionLayout) view.findViewById(R.id.game_competition_container);
-            this.jzm.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds20));
-            this.jzm.setItemWidth(((l.getDimens(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.jzn = view.findViewById(R.id.divider_line_1);
-            this.iZj = view.findViewById(R.id.divider_line_2);
+            this.jzx = (LinearLayout) view.findViewById(R.id.card_game_competition_content);
+            this.jzy = (TextView) view.findViewById(R.id.game_competition_title);
+            this.jzz = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_competition_scroll_container);
+            this.jzA = (CardFrsGameCompetitionLayout) view.findViewById(R.id.game_competition_container);
+            this.jzA.setItemSpace(l.getDimens(view.getContext(), R.dimen.tbds20));
+            this.jzA.setItemWidth(((l.getDimens(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
+            this.jzB = view.findViewById(R.id.divider_line_1);
+            this.iZx = view.findViewById(R.id.divider_line_2);
         }
     }
 }

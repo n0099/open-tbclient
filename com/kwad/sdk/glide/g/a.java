@@ -19,7 +19,7 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.glide.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C1122a extends InputStream {
+    private static class C1124a extends InputStream {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
@@ -28,7 +28,7 @@ public final class a {
         /* renamed from: b  reason: collision with root package name */
         private int f10010b = -1;
 
-        C1122a(@NonNull ByteBuffer byteBuffer) {
+        C1124a(@NonNull ByteBuffer byteBuffer) {
             this.f10009a = byteBuffer;
         }
 
@@ -230,7 +230,7 @@ public final class a {
 
     @NonNull
     public static InputStream b(@NonNull ByteBuffer byteBuffer) {
-        return new C1122a(byteBuffer);
+        return new C1124a(byteBuffer);
     }
 
     @Nullable

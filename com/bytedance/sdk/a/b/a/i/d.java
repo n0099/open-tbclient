@@ -186,11 +186,11 @@ final class d {
             case '_':
                 return this.g[this.c];
             default:
-                return epB();
+                return epJ();
         }
     }
 
-    private char epB() {
+    private char epJ() {
         int i;
         int i2;
         int a2 = a(this.c);

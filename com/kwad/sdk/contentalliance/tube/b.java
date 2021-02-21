@@ -91,7 +91,7 @@ public class b {
         fVar.f9168b = this.f.getPageScene();
         fVar.c = 100L;
         com.kwad.sdk.core.d.a.a("TubeFeedLoadManager", "pageScene=" + fVar.f9168b + " lastPhotoId=" + j);
-        final a.C1084a c1084a = new a.C1084a(fVar, this.e, j, 15);
+        final a.C1086a c1086a = new a.C1086a(fVar, this.e, j, 15);
         this.c = new i<com.kwad.sdk.contentalliance.tube.b.a, AdResultData>() { // from class: com.kwad.sdk.contentalliance.tube.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -110,7 +110,7 @@ public class b {
             @NonNull
             /* renamed from: c */
             public com.kwad.sdk.contentalliance.tube.b.a b() {
-                return new com.kwad.sdk.contentalliance.tube.b.a(c1084a);
+                return new com.kwad.sdk.contentalliance.tube.b.a(c1086a);
             }
         };
         this.c.a(new j<com.kwad.sdk.contentalliance.tube.b.a, AdResultData>() { // from class: com.kwad.sdk.contentalliance.tube.b.2

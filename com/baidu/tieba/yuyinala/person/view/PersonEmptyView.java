@@ -11,9 +11,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 /* loaded from: classes11.dex */
 public class PersonEmptyView extends LinearLayout {
-    private ImageView gPd;
-    private TextView gPe;
-    private TextView gPf;
+    private ImageView gPr;
+    private TextView gPs;
+    private TextView gPt;
 
     public PersonEmptyView(Context context) {
         super(context);
@@ -33,33 +33,33 @@ public class PersonEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.ala_person_empty_view, this);
-        this.gPd = (ImageView) findViewById(a.f.empty_image);
+        this.gPr = (ImageView) findViewById(a.f.empty_image);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            ViewGroup.LayoutParams layoutParams = this.gPd.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.gPr.getLayoutParams();
             layoutParams.height = (int) getContext().getResources().getDimension(a.d.sdk_ds250);
             layoutParams.width = (int) getContext().getResources().getDimension(a.d.sdk_ds334);
-            this.gPd.setPadding(0, (int) getContext().getResources().getDimension(a.d.sdk_ds64), 0, 0);
-            this.gPd.setLayoutParams(layoutParams);
+            this.gPr.setPadding(0, (int) getContext().getResources().getDimension(a.d.sdk_ds64), 0, 0);
+            this.gPr.setLayoutParams(layoutParams);
         }
-        this.gPe = (TextView) findViewById(a.f.empty_text);
-        this.gPf = (TextView) findViewById(a.f.empty_sub_text);
+        this.gPs = (TextView) findViewById(a.f.empty_text);
+        this.gPt = (TextView) findViewById(a.f.empty_sub_text);
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.gPd.setImageResource(i);
+            this.gPr.setImageResource(i);
         } else {
-            this.gPd.setVisibility(8);
+            this.gPr.setVisibility(8);
         }
         if (i2 != -1) {
-            this.gPe.setText(i2);
+            this.gPs.setText(i2);
         } else {
-            this.gPe.setVisibility(8);
+            this.gPs.setVisibility(8);
         }
         if (i3 != -1) {
-            this.gPf.setText(i3);
+            this.gPt.setText(i3);
         } else {
-            this.gPf.setVisibility(8);
+            this.gPt.setVisibility(8);
         }
     }
 }

@@ -25,7 +25,7 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<cb>> {
     public BdUniqueId fGZ;
-    private BdTypeRecyclerView jqK;
+    private BdTypeRecyclerView jqY;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,7 +45,7 @@ public class d extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
         s sVar = new s(this.mPageContext.getPageActivity());
         sVar.sY();
         aVar.a((h) sVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.jqK);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.jqY);
         a2.setSourceForPb(2);
         ThreadCardViewHolder<cb> threadCardViewHolder = new ThreadCardViewHolder<>(a2);
         threadCardViewHolder.setPageId(this.fGZ);
@@ -81,6 +81,6 @@ public class d extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
     }
 
     public void a(BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jqK = bdTypeRecyclerView;
+        this.jqY = bdTypeRecyclerView;
     }
 }

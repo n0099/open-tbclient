@@ -30,14 +30,14 @@ public class a {
     private final Map<Integer, Pair<Integer, Integer>> c = new ConcurrentHashMap();
     private final Map<Integer, Pair<Integer, Integer>> d = new ConcurrentHashMap();
     private final Map<Integer, Pair<Float, Integer>> e = new ConcurrentHashMap();
-    private volatile C1192a f = null;
+    private volatile C1194a f = null;
     private Set<Integer> g = Collections.newSetFromMap(new ConcurrentHashMap());
     private View.OnAttachStateChangeListener h;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.qq.e.comm.plugin.ad.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static class C1192a {
+    public static class C1194a {
 
         /* renamed from: a  reason: collision with root package name */
         private SensorManager f11875a;
@@ -45,15 +45,15 @@ public class a {
         /* renamed from: b  reason: collision with root package name */
         private Sensor f11876b;
         private Sensor c;
-        private C1193a d;
+        private C1195a d;
         private float[] e = new float[3];
         private float[] f = new float[3];
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.qq.e.comm.plugin.ad.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes15.dex */
-        public class C1193a implements SensorEventListener {
-            private C1193a() {
+        public class C1195a implements SensorEventListener {
+            private C1195a() {
             }
 
             @Override // android.hardware.SensorEventListener
@@ -64,10 +64,10 @@ public class a {
             public void onSensorChanged(SensorEvent sensorEvent) {
                 switch (sensorEvent.sensor.getType()) {
                     case 1:
-                        C1192a.this.e = sensorEvent.values;
+                        C1194a.this.e = sensorEvent.values;
                         return;
                     case 2:
-                        C1192a.this.f = sensorEvent.values;
+                        C1194a.this.f = sensorEvent.values;
                         return;
                     default:
                         return;
@@ -75,7 +75,7 @@ public class a {
             }
         }
 
-        C1192a(Context context) {
+        C1194a(Context context) {
             this.f11875a = (SensorManager) context.getSystemService("sensor");
             this.f11876b = this.f11875a.getDefaultSensor(1);
             this.c = this.f11875a.getDefaultSensor(2);
@@ -95,7 +95,7 @@ public class a {
 
         public void a() {
             if (this.d == null) {
-                this.d = new C1193a();
+                this.d = new C1195a();
                 this.f11875a.registerListener(this.d, this.f11876b, 1);
                 this.f11875a.registerListener(this.d, this.c, 2);
                 ai.a("gdt_tag_p", "ADMonitor.SensorDetector start");
@@ -177,7 +177,7 @@ public class a {
             return;
         }
         if (this.f == null) {
-            this.f = new C1192a(view.getContext().getApplicationContext());
+            this.f = new C1194a(view.getContext().getApplicationContext());
         }
         int b2 = b(view);
         if (!this.g.contains(Integer.valueOf(b2))) {

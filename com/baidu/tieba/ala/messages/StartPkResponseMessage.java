@@ -6,16 +6,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class StartPkResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<String> hTA;
-    private int hTz;
+    private int hTN;
+    private ArrayList<String> hTO;
     private int interval;
     private long logId;
     private long pkID;
 
     public StartPkResponseMessage(int i) {
         super(i);
-        this.hTz = -1;
-        this.hTA = new ArrayList<>();
+        this.hTN = -1;
+        this.hTO = new ArrayList<>();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -23,7 +23,7 @@ public class StartPkResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hTz = optJSONObject.optInt("match_status");
+            this.hTN = optJSONObject.optInt("match_status");
             this.pkID = optJSONObject.optLong("pk_id");
             this.interval = optJSONObject.optInt("pk_start_interval");
             JSONArray optJSONArray = optJSONObject.optJSONArray("portrait_list");
@@ -31,7 +31,7 @@ public class StartPkResponseMessage extends JsonHttpResponsedMessage {
             while (true) {
                 int i3 = i2;
                 if (i3 < optJSONArray.length()) {
-                    this.hTA.add(((JSONObject) optJSONArray.get(i3)).optString("portrait"));
+                    this.hTO.add(((JSONObject) optJSONArray.get(i3)).optString("portrait"));
                     i2 = i3 + 1;
                 } else {
                     this.logId = jSONObject.optLong("logid");
@@ -41,11 +41,11 @@ public class StartPkResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public int clU() {
-        return this.hTz;
+    public int cmb() {
+        return this.hTN;
     }
 
-    public long clS() {
+    public long clZ() {
         return this.pkID;
     }
 
@@ -53,8 +53,8 @@ public class StartPkResponseMessage extends JsonHttpResponsedMessage {
         return this.interval;
     }
 
-    public ArrayList<String> clV() {
-        return this.hTA;
+    public ArrayList<String> cmc() {
+        return this.hTO;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage

@@ -7,8 +7,8 @@ import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public final class SingleAmb<T> extends w<T> {
-    private final Iterable<? extends aa<? extends T>> qnX;
-    private final aa<? extends T>[] qqb;
+    private final Iterable<? extends aa<? extends T>> qox;
+    private final aa<? extends T>[] qqB;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.lang.Object[] */
     /* JADX WARN: Multi-variable type inference failed */
@@ -16,13 +16,13 @@ public final class SingleAmb<T> extends w<T> {
     protected void b(y<? super T> yVar) {
         int length;
         Object[] objArr;
-        aa<? extends T>[] aaVarArr = this.qqb;
+        aa<? extends T>[] aaVarArr = this.qqB;
         if (aaVarArr == null) {
             aa<? extends T>[] aaVarArr2 = new aa[8];
             try {
                 int i = 0;
                 aa<? extends T>[] aaVarArr3 = aaVarArr2;
-                for (aa<? extends T> aaVar : this.qnX) {
+                for (aa<? extends T> aaVar : this.qox) {
                     if (aaVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), yVar);
                         return;

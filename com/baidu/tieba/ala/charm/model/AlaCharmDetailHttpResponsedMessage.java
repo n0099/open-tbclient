@@ -5,7 +5,7 @@ import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaCharmDetailHttpResponsedMessage extends JsonHttpResponsedMessage {
-    public ALaCharmDataList gOG;
+    public ALaCharmDataList gOU;
 
     public AlaCharmDetailHttpResponsedMessage() {
         super(1021002);
@@ -15,8 +15,8 @@ public class AlaCharmDetailHttpResponsedMessage extends JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.gOG = new ALaCharmDataList();
-            this.gOG.parserJson(jSONObject);
+            this.gOU = new ALaCharmDataList();
+            this.gOU.parserJson(jSONObject);
         }
     }
 }

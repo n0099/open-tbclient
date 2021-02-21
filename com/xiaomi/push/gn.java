@@ -145,7 +145,7 @@ public class gn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m344a() {
+    public String m343a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<error code=\"").append(this.f14061a).append("\"");
         if (this.f481a != null) {
@@ -168,7 +168,7 @@ public class gn {
             sb.append(this.d);
             sb.append("</text>");
         }
-        for (gg ggVar : m345a()) {
+        for (gg ggVar : m344a()) {
             sb.append(ggVar.d());
         }
         sb.append("</error>");
@@ -176,7 +176,7 @@ public class gn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<gg> m345a() {
+    public synchronized List<gg> m344a() {
         return this.f482a == null ? Collections.emptyList() : Collections.unmodifiableList(this.f482a);
     }
 

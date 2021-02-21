@@ -13,7 +13,7 @@ public class e {
     public int type;
     private ArrayList<a> bGk = new ArrayList<>();
     private ArrayList<a> eOQ = new ArrayList<>();
-    private d hlc = new d();
+    private d hlq = new d();
     private int eOS = 0;
     private int eOT = 0;
 
@@ -42,11 +42,11 @@ public class e {
                             this.eOQ.add(aVar2);
                         }
                     }
-                    this.hlc.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.hlc != null) {
-                        this.pageNum = this.hlc.bmD();
-                        this.eOU = this.hlc.bmB();
-                        this.hasMore = this.hlc.bmF() == 1;
+                    this.hlq.parserJson(jSONObject.optJSONObject("page"));
+                    if (this.hlq != null) {
+                        this.pageNum = this.hlq.bmD();
+                        this.eOU = this.hlq.bmB();
+                        this.hasMore = this.hlq.bmF() == 1;
                     }
                     this.eOS = jSONObject.optInt("tafriendnum", 0);
                     this.eOT = jSONObject.optInt("commonfriendnum", 0);

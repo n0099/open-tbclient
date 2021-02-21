@@ -47,7 +47,7 @@ public class GDTNativeUnifiedImgView extends v0 {
         super.a(activity, aVar, nativeUnifiedADData, ahVar);
         m.a("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight());
         this.e = (nativeUnifiedADData.getPictureWidth() * 1.0f) / (nativeUnifiedADData.getPictureHeight() * 1.0f);
-        ap.a.pPq.a(getContext(), nativeUnifiedADData.getImgUrl(), this.d);
+        ap.a.pPQ.a(getContext(), nativeUnifiedADData.getImgUrl(), this.d);
     }
 
     @Override // com.fun.ad.v0, android.view.View

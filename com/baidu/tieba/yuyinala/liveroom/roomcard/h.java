@@ -12,7 +12,7 @@ public class h extends BdBaseModel {
     private BdUniqueId aCW = BdUniqueId.gen();
     private final HttpMessageListener bBe;
     private Context bNw;
-    private a ozh;
+    private a ozH;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -22,7 +22,7 @@ public class h extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.ozh = aVar;
+        this.ozH = aVar;
     }
 
     public h(Context context) {
@@ -37,12 +37,12 @@ public class h extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetCollectRoomHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.getUniqueId() && h.this.ozh != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetCollectRoomHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.getUniqueId() && h.this.ozH != null) {
                     AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage = (AlaGetCollectRoomHttpResponseMessage) httpResponsedMessage;
                     if (alaGetCollectRoomHttpResponseMessage.getError() != 0 || !alaGetCollectRoomHttpResponseMessage.isSuccess()) {
-                        h.this.ozh.onFail(alaGetCollectRoomHttpResponseMessage.getError(), alaGetCollectRoomHttpResponseMessage.getErrorString());
+                        h.this.ozH.onFail(alaGetCollectRoomHttpResponseMessage.getError(), alaGetCollectRoomHttpResponseMessage.getErrorString());
                     } else {
-                        h.this.ozh.a(alaGetCollectRoomHttpResponseMessage);
+                        h.this.ozH.a(alaGetCollectRoomHttpResponseMessage);
                     }
                 }
             }

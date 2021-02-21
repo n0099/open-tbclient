@@ -17,9 +17,9 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alaar.messages.AlaMakeupResponseMessage;
 /* loaded from: classes11.dex */
 public class i extends BdBaseModel {
-    private com.baidu.tieba.ala.alaar.makeup.a.c gsh;
+    private com.baidu.tieba.ala.alaar.makeup.a.c gsv;
     private BdUniqueId aCW = BdUniqueId.gen();
-    private HttpMessageListener gsi = new HttpMessageListener(1021214) { // from class: com.baidu.tieba.ala.alaar.makeup.i.1
+    private HttpMessageListener gsw = new HttpMessageListener(1021214) { // from class: com.baidu.tieba.ala.alaar.makeup.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -30,7 +30,7 @@ public class i extends BdBaseModel {
     };
 
     public void init() {
-        bPt();
+        bPA();
         registerListener();
     }
 
@@ -53,7 +53,7 @@ public class i extends BdBaseModel {
         }
     }
 
-    private void bPt() {
+    private void bPA() {
         String str = TbConfig.SERVER_ADDRESS + "ala/sys/getBeautyConf";
         if (h.isDebug()) {
             h.d("MKNetLoader", "registerFilterAndBeautyTask: " + str);
@@ -67,16 +67,16 @@ public class i extends BdBaseModel {
 
     private void registerListener() {
         if (h.isDebug()) {
-            h.d("MKNetLoader", "registerListener: " + this.gsi);
+            h.d("MKNetLoader", "registerListener: " + this.gsw);
         }
-        registerListener(this.gsi);
+        registerListener(this.gsw);
     }
 
     private void unregisterListener() {
         if (h.isDebug()) {
-            h.d("MKNetLoader", "unregisterListener: " + this.gsi);
+            h.d("MKNetLoader", "unregisterListener: " + this.gsw);
         }
-        MessageManager.getInstance().unRegisterListener(this.gsi);
+        MessageManager.getInstance().unRegisterListener(this.gsw);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -108,18 +108,18 @@ public class i extends BdBaseModel {
             return;
         }
         AlaMakeupResponseMessage alaMakeupResponseMessage = (AlaMakeupResponseMessage) httpResponsedMessage;
-        this.gsh = alaMakeupResponseMessage.bPo();
+        this.gsv = alaMakeupResponseMessage.bPv();
         if (h.isDebug()) {
-            h.d("MKNetLoader", "onGetMakeup: " + (this.gsh == null ? "null" : Integer.valueOf(this.gsh.size())));
+            h.d("MKNetLoader", "onGetMakeup: " + (this.gsv == null ? "null" : Integer.valueOf(this.gsv.size())));
         }
-        if (this.gsh != null && alaMakeupResponseMessage.getOrginalMessage() != null) {
-            this.gsh.aCj = alaMakeupResponseMessage.getOrginalMessage().getTag();
+        if (this.gsv != null && alaMakeupResponseMessage.getOrginalMessage() != null) {
+            this.gsv.aCj = alaMakeupResponseMessage.getOrginalMessage().getTag();
         }
-        if (this.gsh != null) {
-            aF(this.gsh.aCb, com.baidu.minivideo.arface.a.getVersion());
+        if (this.gsv != null) {
+            aF(this.gsv.aCb, com.baidu.minivideo.arface.a.getVersion());
         }
         if (this.mLoadDataCallBack != null) {
-            this.mLoadDataCallBack.callback(this.gsh);
+            this.mLoadDataCallBack.callback(this.gsv);
         }
     }
 

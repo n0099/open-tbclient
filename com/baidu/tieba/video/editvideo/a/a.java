@@ -16,11 +16,11 @@ import java.util.List;
 public class a extends BaseAdapter {
     private f eVB;
     private List<PendantData> mList;
-    private InterfaceC0885a nLZ;
+    private InterfaceC0887a nMz;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0885a {
+    public interface InterfaceC0887a {
         void a(View view, int i, PendantData pendantData);
     }
 
@@ -59,20 +59,20 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.eVB.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.nMb = (TextView) view.findViewById(R.id.cover_text);
-            bVar.nMc = (TbImageView) view.findViewById(R.id.pendant_image);
-            bVar.nMd = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
-            bVar.nMc.setDefaultBgResource(R.color.transparent);
-            bVar.nMc.setDefaultResource(R.color.CAM_X0101);
+            bVar.nMB = (TextView) view.findViewById(R.id.cover_text);
+            bVar.nMC = (TbImageView) view.findViewById(R.id.pendant_image);
+            bVar.nMD = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
+            bVar.nMC.setDefaultBgResource(R.color.transparent);
+            bVar.nMC.setDefaultResource(R.color.CAM_X0101);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.nLZ != null) {
+                    if (a.this.nMz != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.nMc.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.nMc.getTag();
+                        if (bVar2.nMC.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.nMC.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.nLZ.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.nMz.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -85,60 +85,60 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.nMc.setTag(Integer.valueOf(i));
+            bVar.nMC.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.nMb.setVisibility(0);
-                    bVar.nMc.setVisibility(8);
-                    bVar.nMd.setVisibility(8);
-                    bVar.nMb.setTextColor(ap.getColor(R.color.CAM_X0110));
-                    bVar.nMb.setText("No");
-                    bVar.nMb.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.nMB.setVisibility(0);
+                    bVar.nMC.setVisibility(8);
+                    bVar.nMD.setVisibility(8);
+                    bVar.nMB.setTextColor(ap.getColor(R.color.CAM_X0110));
+                    bVar.nMB.setText("No");
+                    bVar.nMB.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.nMb.setVisibility(0);
-                    bVar.nMc.setVisibility(8);
-                    bVar.nMd.setVisibility(8);
-                    bVar.nMb.setTextColor(ap.getColor(R.color.CAM_X0111));
-                    bVar.nMb.setText("T");
-                    bVar.nMb.setBackgroundColor(ap.getColor(R.color.CAM_X0302));
+                    bVar.nMB.setVisibility(0);
+                    bVar.nMC.setVisibility(8);
+                    bVar.nMD.setVisibility(8);
+                    bVar.nMB.setTextColor(ap.getColor(R.color.CAM_X0111));
+                    bVar.nMB.setText("T");
+                    bVar.nMB.setBackgroundColor(ap.getColor(R.color.CAM_X0302));
                     break;
                 case 2:
-                    bVar.nMb.setVisibility(0);
-                    bVar.nMc.setVisibility(8);
-                    bVar.nMd.setVisibility(8);
-                    bVar.nMb.setTextColor(ap.getColor(R.color.CAM_X0111));
-                    bVar.nMb.setText("T");
-                    bVar.nMb.setBackgroundColor(ap.getColor(R.color.CAM_X0109));
+                    bVar.nMB.setVisibility(0);
+                    bVar.nMC.setVisibility(8);
+                    bVar.nMD.setVisibility(8);
+                    bVar.nMB.setTextColor(ap.getColor(R.color.CAM_X0111));
+                    bVar.nMB.setText("T");
+                    bVar.nMB.setBackgroundColor(ap.getColor(R.color.CAM_X0109));
                     break;
                 case 3:
-                    bVar.nMb.setVisibility(0);
-                    bVar.nMc.setVisibility(8);
-                    bVar.nMd.setVisibility(8);
-                    bVar.nMb.setTextColor(ap.getColor(R.color.CAM_X0109));
-                    bVar.nMb.setText("T");
-                    bVar.nMb.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.nMB.setVisibility(0);
+                    bVar.nMC.setVisibility(8);
+                    bVar.nMD.setVisibility(8);
+                    bVar.nMB.setTextColor(ap.getColor(R.color.CAM_X0109));
+                    bVar.nMB.setText("T");
+                    bVar.nMB.setBackgroundDrawable(ap.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 default:
-                    bVar.nMb.setVisibility(8);
-                    bVar.nMc.setVisibility(0);
-                    bVar.nMd.setVisibility(8);
-                    bVar.nMc.startLoad(pendantData.img, 10, false);
+                    bVar.nMB.setVisibility(8);
+                    bVar.nMC.setVisibility(0);
+                    bVar.nMD.setVisibility(8);
+                    bVar.nMC.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
         return view;
     }
 
-    public void a(InterfaceC0885a interfaceC0885a) {
-        this.nLZ = interfaceC0885a;
+    public void a(InterfaceC0887a interfaceC0887a) {
+        this.nMz = interfaceC0887a;
     }
 
     /* loaded from: classes8.dex */
     public class b {
-        public TextView nMb;
-        public TbImageView nMc;
-        public ProgressBar nMd;
+        public TextView nMB;
+        public TbImageView nMC;
+        public ProgressBar nMD;
 
         public b() {
         }

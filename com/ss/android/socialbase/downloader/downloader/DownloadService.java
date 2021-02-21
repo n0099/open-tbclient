@@ -18,7 +18,7 @@ public class DownloadService extends Service {
     public void onCreate() {
         super.onCreate();
         b.a(this);
-        this.f13127a = b.eGl();
+        this.f13127a = b.eGt();
         this.f13127a.a(new WeakReference(this));
     }
 
@@ -37,9 +37,9 @@ public class DownloadService extends Service {
             com.ss.android.socialbase.downloader.f.a.b(f13126b, "DownloadService onStartCommand");
         }
         this.f13127a.c();
-        ExecutorService eGc = b.eGc();
-        if (eGc != null) {
-            eGc.execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.DownloadService.1
+        ExecutorService eGk = b.eGk();
+        if (eGk != null) {
+            eGk.execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.DownloadService.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (DownloadService.this.f13127a != null) {

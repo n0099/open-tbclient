@@ -1,8 +1,8 @@
 package com.baidu.tieba.video.meida;
 /* loaded from: classes8.dex */
 public abstract class c {
-    String nPa;
-    a nPb;
+    String nPA;
+    a nPB;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -12,14 +12,14 @@ public abstract class c {
     /* loaded from: classes8.dex */
     public static class b {
         public int channel;
-        public String nPc;
-        public int nPd;
+        public String nPC;
+        public int nPD;
         public long sampleRate;
         public int size;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
-        this.nPa = str;
+        this.nPA = str;
     }
 }

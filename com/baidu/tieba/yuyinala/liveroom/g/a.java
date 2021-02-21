@@ -47,14 +47,14 @@ public class a {
     private cp aRu;
     private Dialog biA;
     private Context context;
-    private AnimatorSet hDy;
+    private AnimatorSet hDM;
     private View mContentView;
     private String otherParams;
-    private boolean hDz = false;
+    private boolean hDN = false;
     private Handler handler = new Handler();
-    private boolean hDA = false;
-    private boolean hDB = false;
-    private boolean hDC = false;
+    private boolean hDO = false;
+    private boolean hDP = false;
+    private boolean hDQ = false;
 
     public void FA() {
         if (this.biA != null && this.biA.isShowing()) {
@@ -107,8 +107,8 @@ public class a {
                 if (booleanValue) {
                     this.aJZ.aIz.isNewUser = true;
                 }
-                this.hDA = this.aJZ.aIz.isNewUser;
-                if (this.hDA && !this.hDz && TbadkCoreApplication.isLogin() && (bvVar = com.baidu.live.ae.a.Qj().bAS) != null && bvVar.aPP != null && bvVar.aPP.aSv && (coVar = bvVar.aPM) != null) {
+                this.hDO = this.aJZ.aIz.isNewUser;
+                if (this.hDO && !this.hDN && TbadkCoreApplication.isLogin() && (bvVar = com.baidu.live.ae.a.Qj().bAS) != null && bvVar.aPP != null && bvVar.aPP.aSv && (coVar = bvVar.aPM) != null) {
                     this.aRu = coVar.aRu;
                     if (this.aRu != null && this.aRu.aRF && !TextUtils.isEmpty(this.aRu.aRD)) {
                         int i4 = this.aRu.aRp;
@@ -178,7 +178,7 @@ public class a {
                                         }
                                     }
                                 }, i2 * 1000);
-                                this.hDz = true;
+                                this.hDN = true;
                             }
                             return;
                         }
@@ -221,7 +221,7 @@ public class a {
                                 }
                             }
                         }, i2 * 1000);
-                        this.hDz = true;
+                        this.hDN = true;
                     }
                 }
             }
@@ -239,7 +239,7 @@ public class a {
         dialog.setCanceledOnTouchOutside(false);
         this.mContentView = inflate;
         this.biA = dialog;
-        cfn();
+        cfu();
         inflate.findViewById(a.f.main_layout).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.g.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -284,26 +284,26 @@ public class a {
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(tbImageView2, "scaleY", 1.0f, 1.2f, 1.0f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
-        this.hDy = new AnimatorSet();
-        this.hDy.play(ofFloat).with(ofFloat2);
-        this.hDy.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.hDy.setDuration(2000L);
-        this.hDy.setStartDelay(0L);
+        this.hDM = new AnimatorSet();
+        this.hDM.play(ofFloat).with(ofFloat2);
+        this.hDM.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.hDM.setDuration(2000L);
+        this.hDM.setStartDelay(0L);
         dialog.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.tieba.yuyinala.liveroom.g.a.4
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                if (a.this.hDy != null) {
-                    a.this.hDy.start();
+                if (a.this.hDM != null) {
+                    a.this.hDM.start();
                 }
             }
         });
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.g.a.5
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (a.this.hDy != null) {
-                    a.this.hDy.cancel();
+                if (a.this.hDM != null) {
+                    a.this.hDM.cancel();
                 }
-                a.this.hDz = false;
+                a.this.hDN = false;
             }
         });
         tbImageView.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.yuyinala.liveroom.g.a.6
@@ -376,46 +376,46 @@ public class a {
     }
 
     public void onResume() {
-        if (!this.hDB && this.hDA && this.context != null && this.aJZ != null && this.aJZ.aIz != null && !this.aJZ.aIz.isNewUser) {
+        if (!this.hDP && this.hDO && this.context != null && this.aJZ != null && this.aJZ.aIz != null && !this.aJZ.aIz.isNewUser) {
             FA();
-            if (this.hDA && this.aRu != null) {
+            if (this.hDO && this.aRu != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098, this.aRu.aIu));
             }
-            this.hDB = true;
-            cfm();
+            this.hDP = true;
+            cft();
         }
     }
 
     public void o(ab abVar) {
-        if (!this.hDC && this.hDA && abVar != null && abVar.aIz != null) {
+        if (!this.hDQ && this.hDO && abVar != null && abVar.aIz != null) {
             boolean z = abVar.aIz.isNewUser;
             this.aJZ = abVar;
-            if (!z && this.hDA) {
+            if (!z && this.hDO) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913115));
-                this.hDC = true;
-                cfm();
+                this.hDQ = true;
+                cft();
             }
         }
     }
 
-    private void cfm() {
-        if (this.hDB && this.hDC) {
-            this.hDA = false;
+    private void cft() {
+        if (this.hDP && this.hDQ) {
+            this.hDO = false;
         }
     }
 
     public void release() {
-        this.hDz = false;
+        this.hDN = false;
         this.aJZ = null;
         this.handler.removeCallbacksAndMessages(null);
         FA();
-        if (this.hDy != null) {
-            this.hDy.cancel();
-            this.hDy = null;
+        if (this.hDM != null) {
+            this.hDM.cancel();
+            this.hDM = null;
         }
     }
 
-    private void cfn() {
+    private void cfu() {
         TbImageView tbImageView = (TbImageView) this.mContentView.findViewById(a.f.rechargeBg_imageView);
         tbImageView.setDefaultBgResource(a.e.sdk_shape_transparent);
         TbImageView tbImageView2 = (TbImageView) this.mContentView.findViewById(a.f.recharge_imageView);

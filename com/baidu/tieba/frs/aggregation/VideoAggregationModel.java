@@ -21,9 +21,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class VideoAggregationModel extends BdBaseModel {
-    private a joj;
-    private final HttpMessageListener jok;
-    private final HttpMessageListener jol;
+    private a jox;
+    private final HttpMessageListener joy;
+    private final HttpMessageListener joz;
     private String mFrom;
     private String mId;
     private boolean mIsLoading;
@@ -47,17 +47,17 @@ public class VideoAggregationModel extends BdBaseModel {
 
     public VideoAggregationModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.jok = new HttpMessageListener(1003360) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationModel.1
+        this.joy = new HttpMessageListener(1003360) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003360 || !(httpResponsedMessage instanceof VideoAggregationResponseMessage)) {
-                    VideoAggregationModel.this.joj.vz(BdStatsConstant.StatsType.ERROR);
+                    VideoAggregationModel.this.jox.vz(BdStatsConstant.StatsType.ERROR);
                     return;
                 }
                 VideoAggregationModel.this.mIsLoading = false;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    VideoAggregationModel.this.joj.e(((VideoAggregationResponseMessage) httpResponsedMessage).mDataList, VideoAggregationModel.this.mPn == 1, ((VideoAggregationResponseMessage) httpResponsedMessage).mHasMore);
+                    VideoAggregationModel.this.jox.e(((VideoAggregationResponseMessage) httpResponsedMessage).mDataList, VideoAggregationModel.this.mPn == 1, ((VideoAggregationResponseMessage) httpResponsedMessage).mHasMore);
                     return;
                 }
                 VideoAggregationModel.b(VideoAggregationModel.this);
@@ -65,20 +65,20 @@ public class VideoAggregationModel extends BdBaseModel {
                 if (TextUtils.isEmpty(errorString)) {
                     errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                 }
-                VideoAggregationModel.this.joj.vz(errorString);
+                VideoAggregationModel.this.jox.vz(errorString);
             }
         };
-        this.jol = new HttpMessageListener(1003378) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationModel.2
+        this.joz = new HttpMessageListener(1003378) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoAggregationResponseMessage)) {
-                    VideoAggregationModel.this.joj.vz(BdStatsConstant.StatsType.ERROR);
+                    VideoAggregationModel.this.jox.vz(BdStatsConstant.StatsType.ERROR);
                     return;
                 }
                 VideoAggregationModel.this.mIsLoading = false;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    VideoAggregationModel.this.joj.e(((VideoAggregationResponseMessage) httpResponsedMessage).mDataList, VideoAggregationModel.this.mPn == 1, ((VideoAggregationResponseMessage) httpResponsedMessage).mHasMore);
+                    VideoAggregationModel.this.jox.e(((VideoAggregationResponseMessage) httpResponsedMessage).mDataList, VideoAggregationModel.this.mPn == 1, ((VideoAggregationResponseMessage) httpResponsedMessage).mHasMore);
                     return;
                 }
                 VideoAggregationModel.b(VideoAggregationModel.this);
@@ -86,18 +86,18 @@ public class VideoAggregationModel extends BdBaseModel {
                 if (TextUtils.isEmpty(errorString)) {
                     errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                 }
-                VideoAggregationModel.this.joj.vz(errorString);
+                VideoAggregationModel.this.jox.vz(errorString);
             }
         };
         this.mPageContext = tbPageContext;
-        this.joj = aVar;
+        this.jox = aVar;
         registerTask();
-        this.jok.setTag(getUniqueId());
-        this.jok.setSelfListener(true);
-        this.jol.setTag(getUniqueId());
-        this.jol.setSelfListener(true);
-        registerListener(this.jok);
-        registerListener(this.jol);
+        this.joy.setTag(getUniqueId());
+        this.joy.setSelfListener(true);
+        this.joz.setTag(getUniqueId());
+        this.joz.setSelfListener(true);
+        registerListener(this.joy);
+        registerListener(this.joz);
     }
 
     public void setId(String str) {
@@ -108,7 +108,7 @@ public class VideoAggregationModel extends BdBaseModel {
         this.mFrom = str;
     }
 
-    public void Ko(String str) {
+    public void Kp(String str) {
         this.st_type = str;
     }
 
@@ -147,7 +147,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         g gVar = new g();
                         gVar.parseJson(jSONArray.optString(i2));
-                        if (gVar.jnS != null) {
+                        if (gVar.jog != null) {
                             this.mDataList.add(gVar);
                         }
                     }
@@ -156,7 +156,7 @@ public class VideoAggregationModel extends BdBaseModel {
         }
     }
 
-    public void cFw() {
+    public void cFD() {
         this.mPn = 0;
         LoadData();
     }

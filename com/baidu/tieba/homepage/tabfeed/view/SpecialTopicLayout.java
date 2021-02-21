@@ -47,11 +47,11 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
     private boolean alV;
     private int alX;
     private PullLeftRefreshLayout.a alZ;
-    private f<SpecialColumnItemData> kgb;
-    private RefreshView koc;
-    private PullLeftRefreshLayout kod;
-    private HorizontalAdapter koe;
-    private SpecialColumnListData kof;
+    private f<SpecialColumnItemData> kgp;
+    private RefreshView koq;
+    private PullLeftRefreshLayout kor;
+    private HorizontalAdapter kos;
+    private SpecialColumnListData kot;
     private View mBottomLine;
     private View.OnClickListener mOnClickListener;
     private TbPageContext<?> mPageContext;
@@ -70,19 +70,19 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
         this.alZ = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout.1
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
             public void bGW() {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HomePageTabFeedCollegeSecondActivityConfig(SpecialTopicLayout.this.mPageContext.getPageActivity(), SpecialTopicLayout.this.kof)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HomePageTabFeedCollegeSecondActivityConfig(SpecialTopicLayout.this.mPageContext.getPageActivity(), SpecialTopicLayout.this.kot)));
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view == SpecialTopicLayout.this.alP) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HomePageTabFeedCollegeSecondActivityConfig(SpecialTopicLayout.this.mPageContext.getPageActivity(), SpecialTopicLayout.this.kof)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HomePageTabFeedCollegeSecondActivityConfig(SpecialTopicLayout.this.mPageContext.getPageActivity(), SpecialTopicLayout.this.kot)));
                     b.c("c13755", true, 0);
                 }
             }
         };
-        this.kgb = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout.3
+        this.kgp = new f<SpecialColumnItemData>() { // from class: com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
@@ -123,29 +123,29 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
         this.mTitle = (TextView) findViewById(R.id.tv_title);
         this.alQ = (ImageView) findViewById(R.id.iv_into);
         this.alP = findViewById(R.id.layout_into);
-        this.kod = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
+        this.kor = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         this.mTopLine = findViewById(R.id.divider_line_top);
         this.mBottomLine = findViewById(R.id.divider_line_bottom);
-        this.koe = new HorizontalAdapter(this.mPageContext);
+        this.kos = new HorizontalAdapter(this.mPageContext);
         int dimens = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds44);
         int dimens2 = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds44);
         this.mRecyclerView.addItemDecoration(new SpaceItemDecoration(dimens, l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds11), dimens2));
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this.mPageContext.getPageActivity(), 0, false));
-        this.mRecyclerView.setAdapter(this.koe);
+        this.mRecyclerView.setAdapter(this.kos);
         this.mRecyclerView.setClipChildren(false);
-        this.koc = new RefreshView(getContext());
-        this.kod.setRefreshViewAndListener(this.koc);
-        this.kod.setCallback(this.alZ);
-        this.koe.setOnItemCoverListener(this.kgb);
+        this.koq = new RefreshView(getContext());
+        this.kor.setRefreshViewAndListener(this.koq);
+        this.kor.setCallback(this.alZ);
+        this.kos.setOnItemCoverListener(this.kgp);
         this.alQ.setClickable(false);
         this.alP.setOnClickListener(this.mOnClickListener);
     }
 
     public void setShowMore(boolean z) {
         this.alV = z;
-        if (this.kod != null) {
-            this.kod.setEnablePull(z);
+        if (this.kor != null) {
+            this.kor.setEnablePull(z);
         }
     }
 
@@ -155,8 +155,8 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
     public void C(SpecialColumnListData specialColumnListData) {
         if (specialColumnListData != null) {
             this.mTitle.setText(specialColumnListData.title);
-            this.koe.setData(specialColumnListData.cSb());
-            this.kof = specialColumnListData;
+            this.kos.setData(specialColumnListData.cSi());
+            this.kot = specialColumnListData;
             this.mTopLine.setVisibility(0);
             this.mBottomLine.setVisibility(8);
             com.baidu.tbadk.a.b.b.bl(this.mTopLine);
@@ -170,8 +170,8 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
         ap.setViewTextColor(this.mTitle, this.alX);
         SvgManager.bsR().a(this.alQ, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         com.baidu.tbadk.a.b.b.bm(this.mTopLine);
-        this.koc.onChangeSkinType();
-        this.koe.notifyDataSetChanged();
+        this.koq.onChangeSkinType();
+        this.kos.notifyDataSetChanged();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -228,9 +228,9 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
         /* loaded from: classes2.dex */
         public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
             private TbImageView feK;
-            private ImageView kgT;
-            private TextView koh;
-            private SpecialColumnItemData koi;
+            private ImageView khh;
+            private TextView kov;
+            private SpecialColumnItemData kow;
             private int mIconResId;
             private View mMaskView;
             private int mSkinType;
@@ -239,8 +239,8 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
             public a(View view) {
                 super(view);
                 this.mSkinType = 3;
-                this.kgT = (ImageView) view.findViewById(R.id.video_play_iv);
-                this.koh = (TextView) view.findViewById(R.id.text_tv);
+                this.khh = (ImageView) view.findViewById(R.id.video_play_iv);
+                this.kov = (TextView) view.findViewById(R.id.text_tv);
                 this.mTitleView = (TextView) view.findViewById(R.id.tv_content);
                 this.feK = (TbImageView) view.findViewById(R.id.iv_imageView);
                 this.feK.setConrers(15);
@@ -254,13 +254,13 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
 
             public void a(SpecialColumnItemData specialColumnItemData) {
                 if (specialColumnItemData != null) {
-                    this.koi = specialColumnItemData;
+                    this.kow = specialColumnItemData;
                     this.feK.startLoad(specialColumnItemData.image, 10, false);
-                    this.koh.setText(specialColumnItemData.text);
+                    this.kov.setText(specialColumnItemData.text);
                     this.mTitleView.setText(specialColumnItemData.title);
-                    b(this.koi);
+                    b(this.kow);
                     if (HorizontalAdapter.this.ajq != null) {
-                        HorizontalAdapter.this.ajq.b(this.itemView, this.koi, getAdapterPosition(), getItemId());
+                        HorizontalAdapter.this.ajq.b(this.itemView, this.kow, getAdapterPosition(), getItemId());
                     }
                     Cc(TbadkCoreApplication.getInst().getSkinType());
                 }
@@ -268,15 +268,15 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
 
             private void b(SpecialColumnItemData specialColumnItemData) {
                 if (specialColumnItemData != null && specialColumnItemData.specialType == 2) {
-                    this.kgT.setVisibility(0);
+                    this.khh.setVisibility(0);
                     this.mIconResId = R.drawable.ic_icon_pure_video_play12_svg;
-                    SvgManager.bsR().a(this.kgT, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.bsR().a(this.khh, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                 } else if (specialColumnItemData != null && (specialColumnItemData.specialType == 3 || specialColumnItemData.specialType == 4)) {
-                    this.kgT.setVisibility(0);
+                    this.khh.setVisibility(0);
                     this.mIconResId = R.drawable.ic_icon_pure_common_live12_svg;
-                    SvgManager.bsR().a(this.kgT, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.bsR().a(this.khh, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                 } else {
-                    this.kgT.setVisibility(8);
+                    this.khh.setVisibility(8);
                     this.mIconResId = 0;
                 }
             }
@@ -284,9 +284,9 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
             private void Cc(int i) {
                 if (this.mSkinType != i) {
                     ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-                    ap.setViewTextColor(this.koh, R.color.CAM_X0101);
+                    ap.setViewTextColor(this.kov, R.color.CAM_X0101);
                     ap.l(this.itemView, R.color.CAM_X0205, R.color.CAM_X0204);
-                    SvgManager.bsR().a(this.kgT, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.bsR().a(this.khh, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                     com.baidu.tbadk.core.util.f.a.btv().oO(0).aO(R.color.CAM_X0601, R.color.CAM_X0607).oV(l.getDimens(HorizontalAdapter.this.mPageContext.getPageActivity(), R.dimen.tbds10)).bv(this.mMaskView);
                 }
                 this.mSkinType = i;
@@ -297,7 +297,7 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
                 int adapterPosition = getAdapterPosition();
                 long itemId = getItemId();
                 if (HorizontalAdapter.this.ajq != null) {
-                    HorizontalAdapter.this.ajq.a(this.itemView, this.koi, adapterPosition, itemId);
+                    HorizontalAdapter.this.ajq.a(this.itemView, this.kow, adapterPosition, itemId);
                 }
             }
         }

@@ -295,27 +295,27 @@ public class a {
                     AdvertAppInfo advertAppInfo = arrayList.get(i2);
                     if (advertAppInfo != null) {
                         if (i2 != size - 1) {
-                            sb.append(advertAppInfo.eLB).append("|");
+                            sb.append(advertAppInfo.eLA).append("|");
                             sb2.append(advertAppInfo.adPosition).append("|");
-                            sb3.append(advertAppInfo.eLu).append("|");
-                            sb4.append(advertAppInfo.eLD.eLM).append("|");
+                            sb3.append(advertAppInfo.eLt).append("|");
+                            sb4.append(advertAppInfo.eLC.eLM).append("|");
                             sb5.append(advertAppInfo.extensionInfo).append("|");
                             sb6.append(advertAppInfo.price).append("|");
-                            sb7.append(advertAppInfo.eLv).append("|");
+                            sb7.append(advertAppInfo.eLu).append("|");
                             sb8.append(advertAppInfo.cOQ).append("|");
-                            sb9.append(advertAppInfo.eLz).append("|");
+                            sb9.append(advertAppInfo.eLy).append("|");
                             sb10.append(advertAppInfo.cpid).append("|");
                             sb11.append(advertAppInfo.abtest).append("|");
                         } else {
-                            sb.append(advertAppInfo.eLB);
+                            sb.append(advertAppInfo.eLA);
                             sb2.append(advertAppInfo.adPosition);
-                            sb3.append(advertAppInfo.eLu);
-                            sb4.append(advertAppInfo.eLD.eLM);
+                            sb3.append(advertAppInfo.eLt);
+                            sb4.append(advertAppInfo.eLC.eLM);
                             sb5.append(advertAppInfo.extensionInfo);
                             sb6.append(advertAppInfo.price);
-                            sb7.append(advertAppInfo.eLv);
+                            sb7.append(advertAppInfo.eLu);
                             sb8.append(advertAppInfo.cOQ);
-                            sb9.append(advertAppInfo.eLz);
+                            sb9.append(advertAppInfo.eLy);
                             sb10.append(advertAppInfo.cpid);
                             sb11.append(advertAppInfo.abtest);
                         }
@@ -347,8 +347,8 @@ public class a {
             return;
         }
         c a2 = h.a(downloadStaticsData, 101, 0);
-        a2.gk(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "start");
-        e.dEm().a(a2);
+        a2.gm(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "start");
+        e.dEu().a(a2);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
@@ -378,8 +378,8 @@ public class a {
             } else {
                 return;
             }
-            a2.gk(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, str2);
-            e.dEm().a(a2);
+            a2.gm(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, str2);
+            e.dEu().a(a2);
         }
     }
 
@@ -388,12 +388,12 @@ public class a {
         if (downloadStaticsData != null) {
             c a2 = h.a(downloadStaticsData, 101, 0);
             a2.setDownloadStaticsData(null);
-            a2.gk(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "delete");
-            e.dEm().a(a2);
+            a2.gm(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "delete");
+            e.dEu().a(a2);
         }
     }
 
     public void b(AdvertAppInfo advertAppInfo) {
-        this.fAK.put(advertAppInfo.eLx, advertAppInfo);
+        this.fAK.put(advertAppInfo.eLw, advertAppInfo);
     }
 }

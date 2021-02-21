@@ -10,29 +10,29 @@ import java.util.List;
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bns = new LinkedList();
     private TbPageContext<?> mPageContext;
-    private BdTypeRecyclerView npC;
-    private b npD;
-    private u npE;
+    private BdTypeRecyclerView nqc;
+    private b nqd;
+    private u nqe;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.npC = bdTypeRecyclerView;
+        this.nqc = bdTypeRecyclerView;
         Kw();
     }
 
     private void Kw() {
-        this.npD = new b(this.mPageContext);
-        this.bns.add(this.npD);
-        this.npE = new u(this.mPageContext);
-        this.bns.add(this.npE);
-        this.npC.addAdapters(this.bns);
+        this.nqd = new b(this.mPageContext);
+        this.bns.add(this.nqd);
+        this.nqe = new u(this.mPageContext);
+        this.bns.add(this.nqe);
+        this.nqc.addAdapters(this.bns);
     }
 
     public void notifyDataSetChanged() {
-        this.npC.getAdapter().notifyDataSetChanged();
+        this.nqc.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(List<n> list) {
-        this.npC.setData(list);
+        this.nqc.setData(list);
     }
 }

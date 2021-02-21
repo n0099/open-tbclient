@@ -16,9 +16,9 @@ public abstract class bd {
 
     /* renamed from: b  reason: collision with root package name */
     public boolean f7767b = false;
-    public ba pPA;
-    public ax pPB;
-    public TTAdNative pPC;
+    public ba pQa;
+    public ax pQb;
+    public TTAdNative pQc;
 
     public bd(au.a aVar) {
         this.f7766a = aVar;
@@ -26,22 +26,22 @@ public abstract class bd {
 
     public void a() {
         m.a("CSJAdLoader destroy adId: " + this.f7766a.f7762a);
-        this.pPA = null;
-        this.pPB = null;
+        this.pQa = null;
+        this.pQb = null;
     }
 
-    public abstract FunRippedAd eAp();
+    public abstract FunRippedAd eAx();
 
     public void a(Context context, FunAdSlot funAdSlot, ba baVar) {
         m.a("CSJAdLoader load adId: " + this.f7766a.f7762a);
-        if (this.pPC == null) {
-            this.pPC = TTAdSdk.getAdManager().createAdNative(context);
+        if (this.pQc == null) {
+            this.pQc = TTAdSdk.getAdManager().createAdNative(context);
         }
-        this.pPA = baVar;
+        this.pQa = baVar;
     }
 
     public void a(Activity activity, FunAdView funAdView, ax axVar) {
         m.a("CSJAdLoader show adId: " + this.f7766a.f7762a);
-        this.pPB = axVar;
+        this.pQb = axVar;
     }
 }

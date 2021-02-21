@@ -21,8 +21,8 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     private TbImageView ams;
     private ImageView amu;
     private cb eJQ;
-    private View mJe;
-    private EMTextView mJf;
+    private View mJt;
+    private EMTextView mJu;
 
     public FakeVideoContainer(Context context) {
         super(context);
@@ -48,11 +48,11 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     protected void init() {
         inflate(getContext(), R.layout.fake_video_container, this);
         this.ams = (TbImageView) findViewById(R.id.video_thumbnail);
-        this.mJe = findViewById(R.id.black_mask);
+        this.mJt = findViewById(R.id.black_mask);
         this.amu = (ImageView) findViewById(R.id.video_play);
-        this.mJf = (EMTextView) findViewById(R.id.fake_video_info);
+        this.mJu = (EMTextView) findViewById(R.id.fake_video_info);
         this.amu.setImageDrawable(WebPManager.a(R.drawable.icon_pure_video_play44, ap.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-        com.baidu.tbadk.core.elementsMaven.c.br(this.mJf).nY(R.color.CAM_X0101).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.mJu).nY(R.color.CAM_X0101).oa(R.string.F_X01);
         this.ams.bGo();
         this.ams.setDrawCorner(false);
         this.ams.setPlaceHolder(3);

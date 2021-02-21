@@ -16,13 +16,13 @@ public interface Framedata {
 
     boolean amI();
 
-    ByteBuffer eMj();
+    ByteBuffer eMr();
 
-    boolean eMk();
+    boolean eMs();
 
-    boolean eMl();
+    boolean eMt();
 
-    boolean eMm();
+    boolean eMu();
 
-    Opcode eMn();
+    Opcode eMv();
 }

@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaGetChallengeHistoryListResponseMessage extends JsonHttpResponsedMessage {
-    public ArrayList<a> grd;
-    public n hTj;
+    public ArrayList<a> grr;
+    public n hTx;
 
     public AlaGetChallengeHistoryListResponseMessage() {
         super(1021118);
@@ -21,18 +21,18 @@ public class AlaGetChallengeHistoryListResponseMessage extends JsonHttpResponsed
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("history_list");
             if (optJSONArray != null) {
-                this.grd = new ArrayList<>();
+                this.grr = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     a aVar = new a();
                     aVar.parseJson(optJSONObject);
-                    this.grd.add(aVar);
+                    this.grr.add(aVar);
                 }
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_pk_info");
             if (optJSONObject2 != null) {
-                this.hTj = new n();
-                this.hTj.parseJson(optJSONObject2);
+                this.hTx = new n();
+                this.hTx.parseJson(optJSONObject2);
             }
         }
     }

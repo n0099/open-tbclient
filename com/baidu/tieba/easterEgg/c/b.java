@@ -16,30 +16,30 @@ import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class b extends k {
     private Gson eIH;
-    private c iFu;
-    private HashMap<String, String> iFv;
-    private SparseArray<String> iFw;
+    private c iFI;
+    private HashMap<String, String> iFJ;
+    private SparseArray<String> iFK;
 
     public b(int i) {
         super(i);
         this.eIH = new Gson();
-        cuy();
+        cuF();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.iFw.get(socketMessage.getCmd());
-        if (str != null && this.iFv != null && this.iFv.get(str) != null && this.iFu != null) {
-            this.iFu.aE(str, this.eIH.toJson(this.iFv.get(str)), this.eIH.toJson(this.eIH.toJson(socketMessage.getData())));
+        String str = this.iFK.get(socketMessage.getCmd());
+        if (str != null && this.iFJ != null && this.iFJ.get(str) != null && this.iFI != null) {
+            this.iFI.aE(str, this.eIH.toJson(this.iFJ.get(str)), this.eIH.toJson(this.eIH.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void cuy() {
+    private void cuF() {
         int i;
-        this.iFw = new SparseArray<>();
+        this.iFK = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!y.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -49,7 +49,7 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!au.isEmpty(str) && str.contains("=") && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.iFw.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.iFK.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
@@ -57,10 +57,10 @@ public class b extends k {
     }
 
     public void G(HashMap<String, String> hashMap) {
-        this.iFv = hashMap;
+        this.iFJ = hashMap;
     }
 
     public void a(c cVar) {
-        this.iFu = cVar;
+        this.iFI = cVar;
     }
 }

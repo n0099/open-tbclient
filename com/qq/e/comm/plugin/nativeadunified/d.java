@@ -448,7 +448,7 @@ public class d implements ACTD, b.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         GDTLogger.d("NativeAdDetailPage stopVideo() mVideoView: " + this.d);
-        this.r.a(b.EnumC1203b.AUTO_PAUSE);
+        this.r.a(b.EnumC1205b.AUTO_PAUSE);
         if (this.d != null) {
             this.d.a();
         }
@@ -509,8 +509,8 @@ public class d implements ACTD, b.a {
         if (this.o == null) {
             this.o = new com.qq.e.comm.plugin.gdtnativead.a.a(this.f12267b, this.s.z(), this.s);
             this.o.a(this);
-            this.o.a(new a.InterfaceC1195a() { // from class: com.qq.e.comm.plugin.nativeadunified.d.7
-                @Override // com.qq.e.comm.plugin.gdtnativead.a.a.InterfaceC1195a
+            this.o.a(new a.InterfaceC1197a() { // from class: com.qq.e.comm.plugin.nativeadunified.d.7
+                @Override // com.qq.e.comm.plugin.gdtnativead.a.a.InterfaceC1197a
                 public void a() {
                     if (d.this.d != null && d.this.d.c() && d.this.g != null) {
                         d.this.g.d();
@@ -520,7 +520,7 @@ public class d implements ACTD, b.a {
                     d.this.j();
                 }
 
-                @Override // com.qq.e.comm.plugin.gdtnativead.a.a.InterfaceC1195a
+                @Override // com.qq.e.comm.plugin.gdtnativead.a.a.InterfaceC1197a
                 public void b() {
                     d.this.g.k();
                     d.this.o.postDelayed(new Runnable() { // from class: com.qq.e.comm.plugin.nativeadunified.d.7.1
@@ -690,7 +690,7 @@ public class d implements ACTD, b.a {
             return;
         }
         ai.a(this.f12266a, "onPause() MediaStatus: " + this.r.h());
-        if (this.r.h() != b.EnumC1203b.PLAYING || this.k) {
+        if (this.r.h() != b.EnumC1205b.PLAYING || this.k) {
             return;
         }
         e();
@@ -703,9 +703,9 @@ public class d implements ACTD, b.a {
             return;
         }
         ai.a(this.f12266a, "onResume: mediaStatus = " + this.r.h());
-        if (this.r.h() == b.EnumC1203b.AUTO_PAUSE) {
+        if (this.r.h() == b.EnumC1205b.AUTO_PAUSE) {
             this.r.e_();
-            this.r.a(b.EnumC1203b.PLAYING);
+            this.r.a(b.EnumC1205b.PLAYING);
         }
         if (this.s.z() != null) {
             Message obtain = Message.obtain();

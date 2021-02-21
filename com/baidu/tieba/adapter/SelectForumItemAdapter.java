@@ -23,14 +23,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class SelectForumItemAdapter extends RecyclerView.Adapter<a> {
-    private d ghS;
+    private d gih;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.adapter.SelectForumItemAdapter.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             j jVar = (j) view.getTag();
             if (jVar != null) {
                 if (!jVar.fAh) {
-                    SelectForumItemAdapter.this.ghS.Eo(jVar.fAi);
+                    SelectForumItemAdapter.this.gih.Em(jVar.fAi);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, jVar.fAi));
                     return;
                 }
@@ -44,7 +44,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<a> {
     private int mType;
 
     public SelectForumItemAdapter(d dVar) {
-        this.ghS = dVar;
+        this.gih = dVar;
     }
 
     public void setType(int i) {
@@ -69,23 +69,23 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<a> {
     public void onBindViewHolder(@NonNull a aVar, int i) {
         j jVar = (j) y.getItem(this.mDataList, i);
         if (jVar != null) {
-            aVar.ghU.setPlaceHolder(1);
-            aVar.ghU.setShowOval(true);
-            aVar.ghU.setShowOuterBorder(true);
-            aVar.ghU.setShowInnerBorder(false);
-            aVar.ghU.setStrokeColorResId(R.color.CAM_X0401);
-            aVar.ghU.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            aVar.ghU.startLoad(jVar.aVj, 10, false);
-            aVar.ghV.setText(jVar.forumName);
-            ap.setViewTextColor(aVar.ghV, R.color.CAM_X0105);
+            aVar.gij.setPlaceHolder(1);
+            aVar.gij.setShowOval(true);
+            aVar.gij.setShowOuterBorder(true);
+            aVar.gij.setShowInnerBorder(false);
+            aVar.gij.setStrokeColorResId(R.color.CAM_X0401);
+            aVar.gij.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            aVar.gij.startLoad(jVar.aVj, 10, false);
+            aVar.gik.setText(jVar.forumName);
+            ap.setViewTextColor(aVar.gik, R.color.CAM_X0105);
             if (jVar.level <= 0) {
-                aVar.ghW.setVisibility(8);
+                aVar.gil.setVisibility(8);
             } else {
-                aVar.ghW.setVisibility(0);
-                ap.setImageResource(aVar.ghW, BitmapHelper.getGradeResourceIdInEnterForum(jVar.level));
+                aVar.gil.setVisibility(0);
+                ap.setImageResource(aVar.gil, BitmapHelper.getGradeResourceIdInEnterForum(jVar.level));
             }
-            aVar.ghX.setVisibility(jVar.fAg ? 0 : 8);
-            ap.setViewTextColor(aVar.ghX, R.color.CAM_X0302);
+            aVar.gim.setVisibility(jVar.fAg ? 0 : 8);
+            ap.setViewTextColor(aVar.gim, R.color.CAM_X0302);
             aVar.itemView.setTag(jVar);
             ap.setBackgroundResource(aVar.itemView, R.drawable.forum_selected_view_bg);
             aVar.itemView.setOnClickListener(this.mClickListener);
@@ -100,17 +100,17 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a extends RecyclerView.ViewHolder {
-        BarImageView ghU;
-        TextView ghV;
-        ImageView ghW;
-        TextView ghX;
+        BarImageView gij;
+        TextView gik;
+        ImageView gil;
+        TextView gim;
 
         public a(View view) {
             super(view);
-            this.ghU = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
-            this.ghV = (TextView) view.findViewById(R.id.cell_select_forum_name);
-            this.ghW = (ImageView) view.findViewById(R.id.cell_select_forum_level);
-            this.ghX = (TextView) view.findViewById(R.id.cell_select_forum_lately);
+            this.gij = (BarImageView) view.findViewById(R.id.cell_select_forum_img);
+            this.gik = (TextView) view.findViewById(R.id.cell_select_forum_name);
+            this.gil = (ImageView) view.findViewById(R.id.cell_select_forum_level);
+            this.gim = (TextView) view.findViewById(R.id.cell_select_forum_lately);
         }
     }
 }

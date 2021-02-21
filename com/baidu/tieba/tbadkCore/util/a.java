@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean nzE = true;
-    private static Boolean nzF = true;
+    private static Boolean nAe = true;
+    private static Boolean nAf = true;
 
-    public static void Tt(String str) {
+    public static void TF(String str) {
         bY(13, str);
     }
 
-    public static void dOv() {
+    public static void dOD() {
         JP(2);
     }
 
@@ -33,11 +33,11 @@ public class a {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> dOw() {
+    public static ArrayList<String> dOE() {
         return JQ(0);
     }
 
-    public static ArrayList<String> dOx() {
+    public static ArrayList<String> dOF() {
         return JQ(1);
     }
 
@@ -68,11 +68,11 @@ public class a {
         return arrayList;
     }
 
-    public static void Tu(String str) {
+    public static void TG(String str) {
         bZ(0, str);
     }
 
-    public static void Tv(String str) {
+    public static void TH(String str) {
         bZ(1, str);
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public static void Tw(String str) {
+    public static void TI(String str) {
         ca(0, str);
     }
 
@@ -114,11 +114,11 @@ public class a {
         }
     }
 
-    public static void dOy() {
+    public static void dOG() {
         JR(0);
     }
 
-    public static void dOz() {
+    public static void dOH() {
         JR(1);
     }
 
@@ -136,7 +136,7 @@ public class a {
         }
     }
 
-    public static ArrayList<MarkData> dOA() {
+    public static ArrayList<MarkData> dOI() {
         Cursor cursor;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return null;
@@ -191,7 +191,7 @@ public class a {
     }
 
     public static void t(Boolean bool) {
-        nzE = bool;
+        nAe = bool;
     }
 
     public static void byf() {
@@ -216,7 +216,7 @@ public class a {
         }
     }
 
-    public static void dOB() {
+    public static void dOJ() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {

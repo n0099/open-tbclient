@@ -4,13 +4,13 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes5.dex */
 public class i {
-    final a pKG;
-    private final com.facebook.common.references.c<byte[]> pyZ;
+    final a pLg;
+    private final com.facebook.common.references.c<byte[]> pzz;
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
-        com.facebook.common.internal.g.checkArgument(rVar.pLd > 0);
-        this.pKG = new a(cVar, rVar, n.eyL());
-        this.pyZ = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
+        com.facebook.common.internal.g.checkArgument(rVar.pLD > 0);
+        this.pLg = new a(cVar, rVar, n.eyT());
+        this.pzz = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             public void release(byte[] bArr) {
@@ -19,12 +19,12 @@ public class i {
         };
     }
 
-    public com.facebook.common.references.a<byte[]> PA(int i) {
-        return com.facebook.common.references.a.a(this.pKG.get(i), this.pyZ);
+    public com.facebook.common.references.a<byte[]> PB(int i) {
+        return com.facebook.common.references.a.a(this.pLg.get(i), this.pzz);
     }
 
     public void release(byte[] bArr) {
-        this.pKG.release(bArr);
+        this.pLg.release(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,8 +35,8 @@ public class i {
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        d<byte[]> PU(int i) {
-            return new o(PR(i), this.pKo.pLd, 0);
+        d<byte[]> PV(int i) {
+            return new o(PS(i), this.pKO.pLD, 0);
         }
     }
 }

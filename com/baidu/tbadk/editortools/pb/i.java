@@ -66,9 +66,9 @@ public class i extends com.baidu.tbadk.editortools.c {
                                     hVar.a((j) aVar.data);
                                     hVar.setSpanGroupManager(((j) aVar.data).mSpanGroupManager);
                                 } else if (aVar.data instanceof String) {
-                                    hVar.CY((String) aVar.data);
+                                    hVar.CW((String) aVar.data);
                                 } else if (aVar.data instanceof SpanGroupManager) {
-                                    hVar.CY(aVar.data.toString());
+                                    hVar.CW(aVar.data.toString());
                                     hVar.setSpanGroupManager((SpanGroupManager) aVar.data);
                                 }
                                 i.this.fEn = false;
@@ -143,7 +143,7 @@ public class i extends com.baidu.tbadk.editortools.c {
             qU.fCh = 1;
         }
         if (!this.isBJH) {
-            if (com.baidu.tieba.tbadkCore.voice.c.dOT() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, bBh.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
+            if (com.baidu.tieba.tbadkCore.voice.c.dPb() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, bBh.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
                 mVar.fCh = 2;
                 bBh.b(mVar);
             }

@@ -44,7 +44,7 @@ public final class d {
 
     /* renamed from: com.win.opensdk.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C1275d {
+    public static final class C1277d {
         public static final int mraid = 2131624042;
     }
 

@@ -64,9 +64,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             optString2 = "";
                         }
                         if (!StringUtils.isNull(optString3)) {
-                            a Dk = c.bCP().Dk(optString4 + 10);
-                            if (Dk != null && Dk.getRawBitmap() != null) {
-                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, Dk.getRawBitmap(), false);
+                            a Di = c.bCP().Di(optString4 + 10);
+                            if (Di != null && Di.getRawBitmap() != null) {
+                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, Di.getRawBitmap(), false);
                                 return;
                             } else if (!StringUtils.isNull(optString4)) {
                                 final String str = optString2;

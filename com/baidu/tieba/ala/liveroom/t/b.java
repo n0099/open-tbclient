@@ -12,10 +12,10 @@ import com.baidu.live.x.c;
 public class b extends com.baidu.tieba.ala.liveroom.a {
     private int aKa;
     private String bdj;
-    private long gpB;
-    private c hNC;
-    private long hND;
-    private String hNE;
+    private long gpP;
+    private c hNQ;
+    private long hNR;
+    private String hNS;
     private boolean mIsHost;
     private String mPortrait;
     public String otherParams;
@@ -26,18 +26,18 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
 
     public void a(int i, long j, String str, boolean z, String str2, String str3, String str4, long j2) {
         this.aKa = i;
-        this.hND = j;
-        this.hNE = str;
+        this.hNR = j;
+        this.hNS = str;
         this.mIsHost = z;
         this.mPortrait = str2;
         this.bdj = str4;
-        this.gpB = j2;
+        this.gpP = j2;
         this.otherParams = str3;
     }
 
     public void setCanVisible(boolean z) {
-        if (this.hNC != null) {
-            this.hNC.setCanVisible(z);
+        if (this.hNQ != null) {
+            this.hNQ.setCanVisible(z);
         }
     }
 
@@ -50,59 +50,59 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     }
 
     private void aO(ViewGroup viewGroup) {
-        if (this.hNC == null) {
-            com.baidu.live.x.a aVar = new com.baidu.live.x.a(getPageContext().getPageActivity(), this.aKa, this.hND, this.mIsHost, this.mPortrait, this.otherParams, this.bdj, this.gpB);
-            aVar.userName = this.hNE;
+        if (this.hNQ == null) {
+            com.baidu.live.x.a aVar = new com.baidu.live.x.a(getPageContext().getPageActivity(), this.aKa, this.hNR, this.mIsHost, this.mPortrait, this.otherParams, this.bdj, this.gpP);
+            aVar.userName = this.hNS;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913036, c.class, aVar);
             if (runTask != null && runTask.getData() != null) {
-                this.hNC = (c) runTask.getData();
+                this.hNQ = (c) runTask.getData();
             }
         }
         aN(viewGroup);
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.hNC != null && viewGroup != null && this.hNC.Px() != null && viewGroup.indexOfChild(this.hNC.Px()) < 0) {
-            this.hNC.Px().setId(a.f.ala_liveroom_ranklist);
+        if (this.hNQ != null && viewGroup != null && this.hNQ.Px() != null && viewGroup.indexOfChild(this.hNQ.Px()) < 0) {
+            this.hNQ.Px().setId(a.f.ala_liveroom_ranklist);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(1, a.f.ala_rank_level_entry);
             layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
             layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
             layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds16);
-            viewGroup.addView(this.hNC.Px(), layoutParams);
-            this.hNC.setCanVisible(false);
+            viewGroup.addView(this.hNQ.Px(), layoutParams);
+            this.hNQ.setCanVisible(false);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void Ar() {
         super.Ar();
-        if (this.hNC != null && this.hNC.Px() != null && this.hNC.Px().getParent() != null) {
-            ((ViewGroup) this.hNC.Px().getParent()).removeView(this.hNC.Px());
+        if (this.hNQ != null && this.hNQ.Px() != null && this.hNQ.Px().getParent() != null) {
+            ((ViewGroup) this.hNQ.Px().getParent()).removeView(this.hNQ.Px());
         }
-        if (this.hNC != null) {
-            this.hNC.destory();
-            this.hNC = null;
+        if (this.hNQ != null) {
+            this.hNQ.destory();
+            this.hNQ = null;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.hNC != null) {
-            this.hNC.destory();
-            this.hNC = null;
+        if (this.hNQ != null) {
+            this.hNQ.destory();
+            this.hNQ = null;
         }
     }
 
-    public void ckl() {
-        if (this.hNC != null) {
-            this.hNC.PA();
+    public void cks() {
+        if (this.hNQ != null) {
+            this.hNQ.PA();
         }
     }
 
-    public void ckm() {
-        if (this.hNC != null) {
-            this.hNC.PB();
+    public void ckt() {
+        if (this.hNQ != null) {
+            this.hNQ.PB();
         }
     }
 }

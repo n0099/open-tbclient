@@ -9,9 +9,9 @@ public class c {
     public String forumId;
     public String imageUrl;
     public String linkUrl;
-    public String oga;
-    public String ogb;
-    public String ogc;
-    public String ogd;
+    public String ogA;
+    public String ogB;
+    public String ogC;
+    public String ogD;
     public String title;
 }

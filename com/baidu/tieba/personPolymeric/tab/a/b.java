@@ -18,19 +18,19 @@ import java.util.Iterator;
 /* loaded from: classes8.dex */
 public class b {
     private TbPageContext eUY;
-    private int hWN;
+    private int hXb;
     private BdUniqueId mBdUniqueId;
-    private com.baidu.tieba.personPolymeric.tab.fragments.a mDl;
-    private final CustomMessageListener mDm = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
+    private com.baidu.tieba.personPolymeric.tab.fragments.a mDC;
+    private final CustomMessageListener mDD = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof cb) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.mDl != null && b.this.mDl.dzm()) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof cb) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.mDC != null && b.this.mDC.dzt()) {
                 b.this.ba((cb) customResponsedMessage.getData());
             }
         }
     };
-    private final CustomMessageListener mDn = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
+    private final CustomMessageListener mDE = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,12 +39,12 @@ public class b {
             }
         }
     };
-    private final CustomMessageListener mDo = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
+    private final CustomMessageListener mDF = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                b.this.QB((String) customResponsedMessage.getData());
+                b.this.QC((String) customResponsedMessage.getData());
             }
         }
     };
@@ -52,14 +52,14 @@ public class b {
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.personPolymeric.tab.fragments.a aVar, int i) {
         this.eUY = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.mDl = aVar;
-        this.hWN = i;
-        this.mDm.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.mDm);
-        this.mDn.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.mDn);
-        this.mDo.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.mDo);
+        this.mDC = aVar;
+        this.hXb = i;
+        this.mDD.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.mDD);
+        this.mDE.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.mDE);
+        this.mDF.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.mDF);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,10 +71,10 @@ public class b {
         cardPersonDynamicThreadData.postId = cbVar.eTM;
         cardPersonDynamicThreadData.isPrivacy = cbVar.isPrivacy;
         if (cbVar != null && cbVar.getBaijiahaoData() != null) {
-            cardPersonDynamicThreadData.iBB = cbVar.getBaijiahaoData().oriUgcNid;
+            cardPersonDynamicThreadData.iBP = cbVar.getBaijiahaoData().oriUgcNid;
         }
         q qVar = new q(this.eUY);
-        qVar.py(this.hWN == 1);
+        qVar.py(this.hXb == 1);
         qVar.create();
         qVar.a(new q.a() { // from class: com.baidu.tieba.personPolymeric.tab.a.b.1
             @Override // com.baidu.tieba.card.q.a
@@ -93,18 +93,18 @@ public class b {
     public void a(boolean z, cb cbVar) {
         cb i;
         boolean z2 = false;
-        if (cbVar != null && this.mDl != null && !y.isEmpty(this.mDl.cSb()) && this.mDl.dzl() != null && this.mDl.dzl().dzn() != null) {
+        if (cbVar != null && this.mDC != null && !y.isEmpty(this.mDC.cSi()) && this.mDC.dzs() != null && this.mDC.dzs().dzu() != null) {
             int i2 = 0;
             while (true) {
-                if (i2 >= this.mDl.cSb().size()) {
+                if (i2 >= this.mDC.cSi().size()) {
                     break;
                 }
-                n nVar = this.mDl.cSb().get(i2);
+                n nVar = this.mDC.cSi().get(i2);
                 if (nVar != null && (i = com.baidu.tieba.personPolymeric.tab.b.a.i(nVar)) != null && !StringUtils.isNull(i.tid) && i.tid.equals(cbVar.tid)) {
                     i.isPrivacy = z;
                     com.baidu.tieba.card.data.b aE = com.baidu.tieba.personPolymeric.tab.b.a.aE(i);
                     if (aE != null) {
-                        this.mDl.cSb().set(i2, aE);
+                        this.mDC.cSi().set(i2, aE);
                         z2 = true;
                         break;
                     }
@@ -112,17 +112,17 @@ public class b {
                 i2++;
             }
             if (z2) {
-                this.mDl.dzl().fD(this.mDl.cSb());
+                this.mDC.dzs().fD(this.mDC.cSi());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void QB(String str) {
+    public void QC(String str) {
         boolean z;
         cb i;
-        if (!StringUtils.isNull(str) && this.mDl != null && !y.isEmpty(this.mDl.cSb()) && this.mDl.dzl() != null && this.mDl.dzl().dzn() != null) {
-            Iterator<n> it = this.mDl.cSb().iterator();
+        if (!StringUtils.isNull(str) && this.mDC != null && !y.isEmpty(this.mDC.cSi()) && this.mDC.dzs() != null && this.mDC.dzs().dzu() != null) {
+            Iterator<n> it = this.mDC.cSi().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -136,7 +136,7 @@ public class b {
                 }
             }
             if (z) {
-                this.mDl.dzl().fD(this.mDl.cSb());
+                this.mDC.dzs().fD(this.mDC.cSi());
             }
         }
     }
@@ -145,8 +145,8 @@ public class b {
     public void removeThread(String str) {
         boolean z;
         cb i;
-        if (!StringUtils.isNull(str) && this.mDl != null && !y.isEmpty(this.mDl.cSb()) && this.mDl.dzl() != null && this.mDl.dzl().dzn() != null) {
-            Iterator<n> it = this.mDl.cSb().iterator();
+        if (!StringUtils.isNull(str) && this.mDC != null && !y.isEmpty(this.mDC.cSi()) && this.mDC.dzs() != null && this.mDC.dzs().dzu() != null) {
+            Iterator<n> it = this.mDC.cSi().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -160,7 +160,7 @@ public class b {
                 }
             }
             if (z) {
-                this.mDl.dzl().fD(this.mDl.cSb());
+                this.mDC.dzs().fD(this.mDC.cSi());
             }
         }
     }

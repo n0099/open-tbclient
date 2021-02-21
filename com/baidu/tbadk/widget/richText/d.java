@@ -46,18 +46,18 @@ public class d extends BitmapDrawable {
         com.baidu.adp.widget.ImageView.a aVar;
         if (this.mId > 0 && this.mContext != null) {
             com.baidu.tbadk.imageManager.c bCP = com.baidu.tbadk.imageManager.c.bCP();
-            com.baidu.adp.widget.ImageView.a Dk = (bCP == null || this.mKey == null) ? null : bCP.Dk(this.mKey);
-            if (Dk == null) {
+            com.baidu.adp.widget.ImageView.a Di = (bCP == null || this.mKey == null) ? null : bCP.Di(this.mKey);
+            if (Di == null) {
                 Bitmap resBitmap = BitmapHelper.getResBitmap(this.mContext, this.mId);
                 if (resBitmap != null) {
-                    Dk = new com.baidu.adp.widget.ImageView.a(resBitmap, false, (String) null);
+                    Di = new com.baidu.adp.widget.ImageView.a(resBitmap, false, (String) null);
                 }
-                if (bCP != null && Dk != null && this.mKey != null) {
-                    bCP.b(this.mKey, Dk);
+                if (bCP != null && Di != null && this.mKey != null) {
+                    bCP.b(this.mKey, Di);
                 }
-                aVar = Dk;
+                aVar = Di;
             } else {
-                aVar = Dk;
+                aVar = Di;
             }
             if (aVar != null) {
                 int width = aVar.getWidth();

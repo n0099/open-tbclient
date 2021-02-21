@@ -13,18 +13,18 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public class d extends k<c, CardViewHolder<b>> {
-    private b jmE;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> jmF;
-    private com.baidu.adp.lib.d.b<TbImageView> jmG;
+    private b jmS;
+    private com.baidu.adp.lib.d.b<ConstrainImageLayout> jmT;
+    private com.baidu.adp.lib.d.b<TbImageView> jmU;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.jmF = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.ad.d.1
+        this.jmT = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.ad.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cFf */
+            /* renamed from: cFm */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(d.this.mPageContext.getPageActivity());
             }
@@ -50,7 +50,7 @@ public class d extends k<c, CardViewHolder<b>> {
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.jmG = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.ad.d.2
+        this.jmU = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.ad.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
             /* renamed from: buL */
@@ -94,11 +94,11 @@ public class d extends k<c, CardViewHolder<b>> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<b> e(ViewGroup viewGroup) {
-        this.jmE = new b(this.mPageContext);
-        this.jmE.setSingleImageRatio(0.75d);
-        this.jmE.setConstrainLayoutPool(this.jmF);
-        this.jmE.setConstrainImagePool(this.jmG);
-        return new CardViewHolder<>(this.jmE);
+        this.jmS = new b(this.mPageContext);
+        this.jmS.setSingleImageRatio(0.75d);
+        this.jmS.setConstrainLayoutPool(this.jmT);
+        this.jmS.setConstrainImagePool(this.jmU);
+        return new CardViewHolder<>(this.jmS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,7 +106,7 @@ public class d extends k<c, CardViewHolder<b>> {
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, CardViewHolder<b> cardViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (c) cardViewHolder);
-        cardViewHolder.ctb().a(cVar);
+        cardViewHolder.cti().a(cVar);
         return cardViewHolder.getView();
     }
 }

@@ -5,17 +5,17 @@ import com.baidu.live.data.o;
 import java.util.List;
 /* loaded from: classes11.dex */
 public interface b {
-    void Hd(String str);
-
     void He(String str);
 
     void Hf(String str);
+
+    void Hg(String str);
 
     void a(o.c cVar, boolean z, String str);
 
     void a(StringBuilder sb);
 
-    void bI(int i, int i2);
+    void bJ(int i, int i2);
 
     void f(SpannableStringBuilder spannableStringBuilder);
 

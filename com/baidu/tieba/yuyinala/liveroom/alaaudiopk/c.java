@@ -2,14 +2,14 @@ package com.baidu.tieba.yuyinala.liveroom.alaaudiopk;
 /* loaded from: classes11.dex */
 public class c {
     public int activity_stage;
-    public int osL;
-    public int osM;
-    public int osN;
-    public String osO;
-    public a osP;
-    public int osQ;
-    public int osR = 0;
-    public int osS = 500;
+    public int otl;
+    public int otm;
+    public int otn;
+    public String oto;
+    public a otp;
+    public int otq;
+    public int otr = 0;
+    public int ots = 500;
 
     /* loaded from: classes11.dex */
     public static class a {

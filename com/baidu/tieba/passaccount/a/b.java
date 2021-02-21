@@ -22,22 +22,22 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.app.LoginDialogActivity;
 /* loaded from: classes8.dex */
 public class b implements View.OnClickListener, a {
-    private LoginDialogActivity lGg;
-    private View lGh;
-    private View lGi;
-    private View lGj;
-    private ImageView lGk;
-    private TextView lGl;
-    private TextView lGm;
-    private TextView lGn;
-    private TextView lGo;
-    private TextView lGp;
-    private TextView lGq;
-    private TextView lGr;
-    private TextView lGs;
-    private TextView lGt;
-    private TextView lGu;
-    private TextView lGv;
+    private TextView lGA;
+    private TextView lGB;
+    private TextView lGC;
+    private TextView lGD;
+    private TextView lGE;
+    private TextView lGF;
+    private TextView lGG;
+    private TextView lGH;
+    private TextView lGI;
+    private TextView lGJ;
+    private LoginDialogActivity lGu;
+    private View lGv;
+    private View lGw;
+    private View lGx;
+    private ImageView lGy;
+    private TextView lGz;
     private String operator;
     private int operatorType;
     private String phoneNum;
@@ -92,50 +92,50 @@ public class b implements View.OnClickListener, a {
 
     @Override // com.baidu.tieba.passaccount.a.a
     public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
-        this.lGg = loginDialogActivity;
+        this.lGu = loginDialogActivity;
         View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.onekey_login_dialog_activity_layout, viewGroup, true);
-        this.lGh = inflate.findViewById(R.id.dialog_background);
-        this.lGi = inflate.findViewById(R.id.dialog_layout);
-        this.lGj = inflate.findViewById(R.id.close_btn_layout);
-        this.lGk = (ImageView) inflate.findViewById(R.id.close_btn_view);
-        this.lGl = (TextView) inflate.findViewById(R.id.dialog_title);
-        this.lGm = (TextView) inflate.findViewById(R.id.dialog_subtitle);
-        this.lGn = (TextView) inflate.findViewById(R.id.user_number);
-        this.lGo = (TextView) inflate.findViewById(R.id.login_btn);
-        this.lGp = (TextView) inflate.findViewById(R.id.other_login_btn);
-        this.lGq = (TextView) inflate.findViewById(R.id.tip_1);
-        this.lGr = (TextView) inflate.findViewById(R.id.operator_text);
-        this.lGs = (TextView) inflate.findViewById(R.id.tip_2);
-        this.lGt = (TextView) inflate.findViewById(R.id.agreement_text);
-        this.lGu = (TextView) inflate.findViewById(R.id.tip_3);
-        this.lGv = (TextView) inflate.findViewById(R.id.privacy_text);
-        this.lGh.setOnClickListener(this);
-        this.lGj.setOnClickListener(this);
-        this.lGk.setOnClickListener(this);
-        this.lGi.setOnClickListener(this);
-        this.lGo.setOnClickListener(this);
-        this.lGp.setOnClickListener(this);
-        this.lGr.setOnClickListener(this);
-        this.lGt.setOnClickListener(this);
+        this.lGv = inflate.findViewById(R.id.dialog_background);
+        this.lGw = inflate.findViewById(R.id.dialog_layout);
+        this.lGx = inflate.findViewById(R.id.close_btn_layout);
+        this.lGy = (ImageView) inflate.findViewById(R.id.close_btn_view);
+        this.lGz = (TextView) inflate.findViewById(R.id.dialog_title);
+        this.lGA = (TextView) inflate.findViewById(R.id.dialog_subtitle);
+        this.lGB = (TextView) inflate.findViewById(R.id.user_number);
+        this.lGC = (TextView) inflate.findViewById(R.id.login_btn);
+        this.lGD = (TextView) inflate.findViewById(R.id.other_login_btn);
+        this.lGE = (TextView) inflate.findViewById(R.id.tip_1);
+        this.lGF = (TextView) inflate.findViewById(R.id.operator_text);
+        this.lGG = (TextView) inflate.findViewById(R.id.tip_2);
+        this.lGH = (TextView) inflate.findViewById(R.id.agreement_text);
+        this.lGI = (TextView) inflate.findViewById(R.id.tip_3);
+        this.lGJ = (TextView) inflate.findViewById(R.id.privacy_text);
         this.lGv.setOnClickListener(this);
+        this.lGx.setOnClickListener(this);
+        this.lGy.setOnClickListener(this);
+        this.lGw.setOnClickListener(this);
+        this.lGC.setOnClickListener(this);
+        this.lGD.setOnClickListener(this);
+        this.lGF.setOnClickListener(this);
+        this.lGH.setOnClickListener(this);
+        this.lGJ.setOnClickListener(this);
         initData();
     }
 
     private void initData() {
-        this.lGn.setText(this.phoneNum);
+        this.lGB.setText(this.phoneNum);
         Fn(this.operatorType);
     }
 
     private void Fn(int i) {
         switch (i) {
             case 1:
-                this.lGr.setText(R.string.onekey_login_dialog_activity_operator_1);
+                this.lGF.setText(R.string.onekey_login_dialog_activity_operator_1);
                 return;
             case 2:
-                this.lGr.setText(R.string.onekey_login_dialog_activity_operator_2);
+                this.lGF.setText(R.string.onekey_login_dialog_activity_operator_2);
                 return;
             case 3:
-                this.lGr.setText(R.string.onekey_login_dialog_activity_operator_3);
+                this.lGF.setText(R.string.onekey_login_dialog_activity_operator_3);
                 return;
             default:
                 return;
@@ -144,19 +144,19 @@ public class b implements View.OnClickListener, a {
 
     @Override // com.baidu.tieba.passaccount.a.a
     public void rx(int i) {
-        ap.setBackgroundResource(this.lGi, R.drawable.nav_bg_corner_shape, i);
-        SvgManager.bsR().a(this.lGk, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGl).nY(R.color.CAM_X0105).nZ(R.dimen.T_X05).oa(R.string.F_X02);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGm).nY(R.color.CAM_X0108).nZ(R.dimen.T_X08).oa(R.string.F_X01);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGn).nY(R.color.CAM_X0105).nZ(R.dimen.T_X03).oa(R.string.F_X02);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGp).nY(R.color.CAM_X0107).nZ(R.dimen.T_X07).oa(R.string.F_X01);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGo).nY(R.color.CAM_X0101).nZ(R.dimen.T_X05).oa(R.string.F_X01).og(R.string.J_X01).setBackGroundColor(R.color.CAM_X0302);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGq).nY(R.color.CAM_X0108).nZ(R.dimen.tbds29).oa(R.string.F_X01);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGs).nY(R.color.CAM_X0108).nZ(R.dimen.tbds29).oa(R.string.F_X01);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGu).nY(R.color.CAM_X0108).nZ(R.dimen.tbds29).oa(R.string.F_X01);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGr).nY(R.color.CAM_X0302).nZ(R.dimen.tbds29).oa(R.string.F_X01);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGt).nY(R.color.CAM_X0302).nZ(R.dimen.tbds29).oa(R.string.F_X01);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.lGv).nY(R.color.CAM_X0302).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        ap.setBackgroundResource(this.lGw, R.drawable.nav_bg_corner_shape, i);
+        SvgManager.bsR().a(this.lGy, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGz).nY(R.color.CAM_X0105).nZ(R.dimen.T_X05).oa(R.string.F_X02);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGA).nY(R.color.CAM_X0108).nZ(R.dimen.T_X08).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGB).nY(R.color.CAM_X0105).nZ(R.dimen.T_X03).oa(R.string.F_X02);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGD).nY(R.color.CAM_X0107).nZ(R.dimen.T_X07).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGC).nY(R.color.CAM_X0101).nZ(R.dimen.T_X05).oa(R.string.F_X01).og(R.string.J_X01).setBackGroundColor(R.color.CAM_X0302);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGE).nY(R.color.CAM_X0108).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGG).nY(R.color.CAM_X0108).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGI).nY(R.color.CAM_X0108).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGF).nY(R.color.CAM_X0302).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGH).nY(R.color.CAM_X0302).nZ(R.dimen.tbds29).oa(R.string.F_X01);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.lGJ).nY(R.color.CAM_X0302).nZ(R.dimen.tbds29).oa(R.string.F_X01);
     }
 
     @Override // com.baidu.tieba.passaccount.a.a
@@ -172,40 +172,40 @@ public class b implements View.OnClickListener, a {
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.dialog_background || id == R.id.close_btn_layout || id == R.id.close_btn_view) {
-            djN();
+            djU();
         } else if (id == R.id.login_btn) {
             login();
         } else if (id == R.id.operator_text) {
-            djK();
+            djR();
         } else if (id == R.id.agreement_text) {
-            djL();
+            djS();
         } else if (id == R.id.privacy_text) {
-            djM();
+            djT();
         } else if (id == R.id.other_login_btn) {
-            djJ();
+            djQ();
         }
     }
 
-    private String OX(String str) {
+    private String OY(String str) {
         if (TextUtils.isEmpty(str) || str.length() <= 7) {
             return null;
         }
-        return str.substring(0, 8) + MD5Util.toMd5((str.substring(8, str.length()) + MD5Util.toMd5(SapiUtils.getClientId(this.lGg).toUpperCase().getBytes(), false)).getBytes(), false);
+        return str.substring(0, 8) + MD5Util.toMd5((str.substring(8, str.length()) + MD5Util.toMd5(SapiUtils.getClientId(this.lGu).toUpperCase().getBytes(), false)).getBytes(), false);
     }
 
     private void login() {
-        this.lGg.showLoading();
-        PassportSDK.getInstance().loadOneKeyLogin(this.lGg, OX(this.sign), new OneKeyLoginCallback() { // from class: com.baidu.tieba.passaccount.a.b.1
+        this.lGu.showLoading();
+        PassportSDK.getInstance().loadOneKeyLogin(this.lGu, OY(this.sign), new OneKeyLoginCallback() { // from class: com.baidu.tieba.passaccount.a.b.1
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
-                b.this.lGg.djF();
-                b.this.lGg.OW("yijiandenglu");
+                b.this.lGu.djM();
+                b.this.lGu.OX("yijiandenglu");
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
             public void onFail(OneKeyLoginResult oneKeyLoginResult) {
-                b.this.lGg.closeLoadingDialog();
-                b.this.lGg.showToast(String.format(b.this.lGg.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+                b.this.lGu.closeLoadingDialog();
+                b.this.lGu.showToast(String.format(b.this.lGu.getString(R.string.onekey_login_fail), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
             }
 
             @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
@@ -214,36 +214,36 @@ public class b implements View.OnClickListener, a {
         });
     }
 
-    private void djJ() {
-        this.lGg.finish();
-        new LoginActivityConfig((Context) this.lGg, true).start();
+    private void djQ() {
+        this.lGu.finish();
+        new LoginActivityConfig((Context) this.lGu, true).start();
     }
 
-    private void djK() {
+    private void djR() {
         switch (this.operatorType) {
             case 1:
-                new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_operator_1), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
+                new TbWebViewActivityConfig(this.lGu, this.lGu.getResources().getString(R.string.onekey_login_dialog_activity_operator_1), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
                 return;
             case 2:
-                new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_operator_2), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
+                new TbWebViewActivityConfig(this.lGu, this.lGu.getResources().getString(R.string.onekey_login_dialog_activity_operator_2), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
                 return;
             case 3:
-                new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_operator_3), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+                new TbWebViewActivityConfig(this.lGu, this.lGu.getResources().getString(R.string.onekey_login_dialog_activity_operator_3), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
                 return;
             default:
                 return;
         }
     }
 
-    private void djL() {
-        new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_agreement_text), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
+    private void djS() {
+        new TbWebViewActivityConfig(this.lGu, this.lGu.getResources().getString(R.string.onekey_login_dialog_activity_agreement_text), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
     }
 
-    private void djM() {
-        new TbWebViewActivityConfig(this.lGg, this.lGg.getResources().getString(R.string.onekey_login_dialog_activity_privacy_text), "http://privacy.baidu.com/mdetail?id=288", false).start();
+    private void djT() {
+        new TbWebViewActivityConfig(this.lGu, this.lGu.getResources().getString(R.string.onekey_login_dialog_activity_privacy_text), "http://privacy.baidu.com/mdetail?id=288", false).start();
     }
 
-    private void djN() {
-        this.lGg.finish();
+    private void djU() {
+        this.lGu.finish();
     }
 }

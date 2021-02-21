@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public abstract class a extends BaseAdapter {
-    protected int gFu;
+    protected int gFI;
     protected Context mContext;
     protected List<com.baidu.tieba.ala.alasquare.recent_history.b.b> mData = new ArrayList();
     protected TbPageContext mPageContext;

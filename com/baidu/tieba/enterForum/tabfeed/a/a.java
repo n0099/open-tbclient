@@ -24,7 +24,7 @@ public class a extends com.baidu.adp.widget.ListView.a<cb, ThreadCardViewHolder<
     private ab<cb> agg;
     private s amk;
     public BdUniqueId fGZ;
-    private NEGFeedBackView.a gdO;
+    private NEGFeedBackView.a gdT;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -35,7 +35,7 @@ public class a extends com.baidu.adp.widget.ListView.a<cb, ThreadCardViewHolder<
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, cb cbVar) {
-                t.csu().mG(true);
+                t.csB().mG(true);
                 com.baidu.tieba.enterForum.a.a(view, cbVar, a.this.mTabName);
             }
         };
@@ -87,7 +87,7 @@ public class a extends com.baidu.adp.widget.ListView.a<cb, ThreadCardViewHolder<
         }
         cbVar.eOs = getPositionByType(i) + 1;
         threadCardViewHolder.tj().setPosition(i);
-        threadCardViewHolder.aK(true).a(this.gdO);
+        threadCardViewHolder.aK(true).a(this.gdT);
         threadCardViewHolder.a(true, Align.ALIGN_RIGHT_BOTTOM);
         threadCardViewHolder.b((ThreadCardViewHolder<cb>) cbVar);
         threadCardViewHolder.tj().a(this.agg);

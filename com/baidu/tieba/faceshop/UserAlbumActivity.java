@@ -28,21 +28,21 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public class UserAlbumActivity extends BaseFragmentActivity implements AbsListView.OnScrollListener, PopupWindow.OnDismissListener, y.a, com.baidu.tieba.newfaceshop.facemake.f {
-    private static int iWB = 10;
+    private static int iWP = 10;
     private GridView djx;
-    private TextView iWC;
-    private TextView iWD;
-    private y iWE;
-    private com.baidu.tieba.newfaceshop.facemake.g iWF;
-    private com.baidu.tbadk.album.b iWG;
-    private int iWJ;
-    private com.baidu.tbadk.album.a iWK;
+    private TextView iWQ;
+    private TextView iWR;
+    private y iWS;
+    private com.baidu.tieba.newfaceshop.facemake.g iWT;
+    private com.baidu.tbadk.album.b iWU;
+    private int iWX;
+    private com.baidu.tbadk.album.a iWY;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private View rootView;
     private List<ImageFileInfo> mImageList = new ArrayList();
-    private List<ImageFileInfo> iWH = new ArrayList();
-    private LinkedHashMap<String, ImageFileInfo> iWI = new LinkedHashMap<>();
+    private List<ImageFileInfo> iWV = new ArrayList();
+    private LinkedHashMap<String, ImageFileInfo> iWW = new LinkedHashMap<>();
     private String eGL = com.baidu.tbadk.album.a.ALBUM_ID_ALL;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,7 +54,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         ap.setBackgroundResource(this.rootView, R.color.CAM_X0201);
         initView();
         initSetting();
-        czA();
+        czH();
     }
 
     private void initView() {
@@ -64,14 +64,14 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         this.djx = (GridView) this.rootView.findViewById(R.id.grid_view);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.album_all));
-        this.iWC = this.mNavigationBar.mCenterText;
-        this.iWC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.1
+        this.iWQ = this.mNavigationBar.mCenterText;
+        this.iWQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Drawable drawable = ap.getDrawable(R.drawable.icon_emotion_albumarrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                UserAlbumActivity.this.iWC.setCompoundDrawables(null, null, drawable, null);
-                UserAlbumActivity.this.iWG.a(new com.baidu.tbadk.album.c() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.1.1
+                UserAlbumActivity.this.iWQ.setCompoundDrawables(null, null, drawable, null);
+                UserAlbumActivity.this.iWU.a(new com.baidu.tbadk.album.c() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.1.1
                     @Override // com.baidu.tbadk.album.c
                     public void onPreLoad() {
                     }
@@ -79,23 +79,23 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                     @Override // com.baidu.tbadk.album.c
                     public void bl(List<com.baidu.tbadk.album.a> list) {
                         if (!com.baidu.tbadk.core.util.y.isEmpty(list)) {
-                            if (UserAlbumActivity.this.iWK != null) {
-                                list.add(0, UserAlbumActivity.this.iWK);
+                            if (UserAlbumActivity.this.iWY != null) {
+                                list.add(0, UserAlbumActivity.this.iWY);
                             }
-                            if (!UserAlbumActivity.this.iWE.isShowing()) {
-                                UserAlbumActivity.this.iWE.setData(list, UserAlbumActivity.this.eGL);
-                                UserAlbumActivity.this.iWE.O(UserAlbumActivity.this.mNavigationBar);
+                            if (!UserAlbumActivity.this.iWS.isShowing()) {
+                                UserAlbumActivity.this.iWS.setData(list, UserAlbumActivity.this.eGL);
+                                UserAlbumActivity.this.iWS.O(UserAlbumActivity.this.mNavigationBar);
                             }
                         }
                     }
                 });
             }
         });
-        this.iWC.setCompoundDrawablePadding(com.baidu.adp.lib.util.l.getDimens(getPageContext().getPageActivity(), R.dimen.ds8));
-        ap.setViewTextColor(this.iWC, R.color.CAM_X0302);
+        this.iWQ.setCompoundDrawablePadding(com.baidu.adp.lib.util.l.getDimens(getPageContext().getPageActivity(), R.dimen.ds8));
+        ap.setViewTextColor(this.iWQ, R.color.CAM_X0302);
         Drawable drawable = ap.getDrawable(R.drawable.icon_emotion_albumarrow_down);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        this.iWC.setCompoundDrawables(null, null, drawable, null);
+        this.iWQ.setCompoundDrawables(null, null, drawable, null);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -105,12 +105,12 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         if (this.mNavigationBar.getBackImageView() != null) {
             SvgManager.bsR().a(this.mNavigationBar.getBackImageView(), R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        this.iWD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.add), new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.3
+        this.iWR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.add), new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                UserAlbumActivity.this.iWI = UserAlbumActivity.this.iWF.div();
+                UserAlbumActivity.this.iWW = UserAlbumActivity.this.iWT.diC();
                 ArrayList arrayList = new ArrayList();
-                for (Map.Entry entry : UserAlbumActivity.this.iWI.entrySet()) {
+                for (Map.Entry entry : UserAlbumActivity.this.iWW.entrySet()) {
                     arrayList.add(entry.getValue());
                 }
                 Intent intent = new Intent();
@@ -119,24 +119,24 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 UserAlbumActivity.this.finish();
             }
         });
-        this.iWD.setPadding(0, 0, com.baidu.adp.lib.util.l.getDimens(getPageContext().getPageActivity(), R.dimen.ds34), 0);
-        ap.setViewTextColor(this.iWD, R.color.CAM_X0302);
+        this.iWR.setPadding(0, 0, com.baidu.adp.lib.util.l.getDimens(getPageContext().getPageActivity(), R.dimen.ds34), 0);
+        ap.setViewTextColor(this.iWR, R.color.CAM_X0302);
     }
 
     private void initSetting() {
-        this.iWG = new com.baidu.tbadk.album.b(getActivity());
-        this.iWF = new com.baidu.tieba.newfaceshop.facemake.g(this, this.mImageList);
-        this.iWF.OT(getPageContext().getString(R.string.can_select_only_ten));
-        this.iWF.b(this);
-        this.djx.setAdapter((ListAdapter) this.iWF);
+        this.iWU = new com.baidu.tbadk.album.b(getActivity());
+        this.iWT = new com.baidu.tieba.newfaceshop.facemake.g(this, this.mImageList);
+        this.iWT.OU(getPageContext().getString(R.string.can_select_only_ten));
+        this.iWT.b(this);
+        this.djx.setAdapter((ListAdapter) this.iWT);
         this.djx.setOnScrollListener(this);
-        this.iWE = new y(getPageContext().getPageActivity());
-        this.iWE.setOnDismissListener(this);
-        this.iWE.a(this);
+        this.iWS = new y(getPageContext().getPageActivity());
+        this.iWS.setOnDismissListener(this);
+        this.iWS.a(this);
     }
 
-    private void czA() {
-        this.iWG.a(com.baidu.tbadk.album.a.ALBUM_ID_ALL, new com.baidu.tbadk.album.d() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.4
+    private void czH() {
+        this.iWU.a(com.baidu.tbadk.album.a.ALBUM_ID_ALL, new com.baidu.tbadk.album.d() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.4
             @Override // com.baidu.tbadk.album.d
             public void onPreLoad() {
             }
@@ -146,15 +146,15 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                 if (!com.baidu.tbadk.core.util.y.isEmpty(list2)) {
                     UserAlbumActivity.this.djx.setVisibility(0);
                     UserAlbumActivity.this.mNoDataView.setVisibility(8);
-                    UserAlbumActivity.this.iWH.clear();
-                    UserAlbumActivity.this.iWH.addAll(list2);
+                    UserAlbumActivity.this.iWV.clear();
+                    UserAlbumActivity.this.iWV.addAll(list2);
                     UserAlbumActivity.this.mImageList.addAll(list2);
-                    UserAlbumActivity.this.iWK = new com.baidu.tbadk.album.a();
-                    UserAlbumActivity.this.iWK.setAlbumId(com.baidu.tbadk.album.a.ALBUM_ID_ALL);
-                    UserAlbumActivity.this.iWK.setCount(list2.size() + "");
-                    UserAlbumActivity.this.iWK.setName(UserAlbumActivity.this.getPageContext().getString(R.string.album_all));
-                    UserAlbumActivity.this.iWK.a(list2.get(0));
-                    UserAlbumActivity.this.iWF.notifyDataSetChanged();
+                    UserAlbumActivity.this.iWY = new com.baidu.tbadk.album.a();
+                    UserAlbumActivity.this.iWY.setAlbumId(com.baidu.tbadk.album.a.ALBUM_ID_ALL);
+                    UserAlbumActivity.this.iWY.setCount(list2.size() + "");
+                    UserAlbumActivity.this.iWY.setName(UserAlbumActivity.this.getPageContext().getString(R.string.album_all));
+                    UserAlbumActivity.this.iWY.a(list2.get(0));
+                    UserAlbumActivity.this.iWT.notifyDataSetChanged();
                     return;
                 }
                 UserAlbumActivity.this.djx.setVisibility(8);
@@ -166,10 +166,10 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 2) {
-            this.iWF.dq(true);
-        } else if (this.iWF.isScroll()) {
-            this.iWF.dq(false);
-            czB();
+            this.iWT.dq(true);
+        } else if (this.iWT.isScroll()) {
+            this.iWT.dq(false);
+            czI();
         }
     }
 
@@ -177,18 +177,18 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
-    private void czB() {
-        if (this.iWF != null && this.iWF.diM() != null) {
+    private void czI() {
+        if (this.iWT != null && this.iWT.diT() != null) {
             int childCount = this.djx.getChildCount();
             int firstVisiblePosition = this.djx.getFirstVisiblePosition();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.djx.getChildAt(i);
                 if (childAt != null) {
                     TbImageView tbImageView = (TbImageView) childAt.findViewById(R.id.image);
-                    ImageFileInfo item = this.iWF.getItem(firstVisiblePosition + i);
+                    ImageFileInfo item = this.iWT.getItem(firstVisiblePosition + i);
                     if (item != null && tbImageView != null) {
                         tbImageView.setTag(item.toCachedKey(false));
-                        this.iWF.diM().a(item, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.5
+                        this.iWT.diT().a(item, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.5
                             @Override // com.baidu.tbadk.imageManager.b
                             public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                                 TbImageView tbImageView2 = (TbImageView) UserAlbumActivity.this.djx.findViewWithTag(str);
@@ -211,12 +211,12 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        if (this.iWF != null) {
-            this.iWI = this.iWF.div();
+        if (this.iWT != null) {
+            this.iWW = this.iWT.diC();
         }
         Drawable drawable = ap.getDrawable(R.drawable.icon_emotion_albumarrow_down);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        this.iWC.setCompoundDrawables(null, null, drawable, null);
+        this.iWQ.setCompoundDrawables(null, null, drawable, null);
     }
 
     @Override // com.baidu.tieba.faceshop.y.a
@@ -224,7 +224,7 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
         if (aVar != null) {
             this.eGL = aVar.getAlbumId();
             this.mNavigationBar.setCenterTextTitle(aVar.getName());
-            this.iWG.a(aVar.getAlbumId(), new com.baidu.tbadk.album.d() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.6
+            this.iWU.a(aVar.getAlbumId(), new com.baidu.tbadk.album.d() { // from class: com.baidu.tieba.faceshop.UserAlbumActivity.6
                 @Override // com.baidu.tbadk.album.d
                 public void onPreLoad() {
                 }
@@ -235,37 +235,37 @@ public class UserAlbumActivity extends BaseFragmentActivity implements AbsListVi
                     if (!com.baidu.tbadk.core.util.y.isEmpty(list2)) {
                         UserAlbumActivity.this.mImageList.addAll(list2);
                     }
-                    UserAlbumActivity.this.iWF.notifyDataSetChanged();
+                    UserAlbumActivity.this.iWT.notifyDataSetChanged();
                 }
             });
         }
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.f
-    public void czC() {
-        this.iWJ++;
-        czF();
+    public void czJ() {
+        this.iWX++;
+        czM();
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.f
-    public void czD() {
-        if (this.iWJ > 0) {
-            this.iWJ--;
+    public void czK() {
+        if (this.iWX > 0) {
+            this.iWX--;
         }
-        czF();
+        czM();
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.f
-    public boolean czE() {
-        return this.iWJ < iWB;
+    public boolean czL() {
+        return this.iWX < iWP;
     }
 
-    private void czF() {
+    private void czM() {
         String string = getPageContext().getString(R.string.add);
-        if (this.iWJ > 0) {
-            this.iWD.setText("(" + this.iWJ + ") " + string);
+        if (this.iWX > 0) {
+            this.iWR.setText("(" + this.iWX + ") " + string);
         } else {
-            this.iWD.setText(string);
+            this.iWR.setText(string);
         }
     }
 }

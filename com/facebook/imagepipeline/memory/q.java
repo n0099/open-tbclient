@@ -4,61 +4,61 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes5.dex */
 public class q {
-    private c pGH;
-    private com.facebook.common.memory.g pGK;
-    private i pGM;
-    private com.facebook.common.memory.j pGY;
-    private final p pKU;
-    private k pKV;
-    private com.facebook.common.memory.a pKW;
+    private c pHh;
+    private com.facebook.common.memory.g pHk;
+    private i pHm;
+    private com.facebook.common.memory.j pHy;
+    private final p pLu;
+    private k pLv;
+    private com.facebook.common.memory.a pLw;
 
     public q(p pVar) {
-        this.pKU = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.pLu = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
-    public c eyX() {
-        if (this.pGH == null) {
-            this.pGH = new c(this.pKU.ewN(), this.pKU.eyO(), this.pKU.eyP());
+    public c ezf() {
+        if (this.pHh == null) {
+            this.pHh = new c(this.pLu.ewV(), this.pLu.eyW(), this.pLu.eyX());
         }
-        return this.pGH;
+        return this.pHh;
     }
 
-    public i eyY() {
-        if (this.pGM == null) {
-            this.pGM = new i(this.pKU.ewN(), this.pKU.eyS());
+    public i ezg() {
+        if (this.pHm == null) {
+            this.pHm = new i(this.pLu.ewV(), this.pLu.eza());
         }
-        return this.pGM;
+        return this.pHm;
     }
 
-    public int eyZ() {
-        return this.pKU.eyS().pLd;
+    public int ezh() {
+        return this.pLu.eza().pLD;
     }
 
-    public k eza() {
-        if (this.pKV == null) {
-            this.pKV = new k(this.pKU.ewN(), this.pKU.eyQ(), this.pKU.eyR());
+    public k ezi() {
+        if (this.pLv == null) {
+            this.pLv = new k(this.pLu.ewV(), this.pLu.eyY(), this.pLu.eyZ());
         }
-        return this.pKV;
+        return this.pLv;
     }
 
-    public com.facebook.common.memory.g ezb() {
-        if (this.pGK == null) {
-            this.pGK = new m(eza(), ezc());
+    public com.facebook.common.memory.g ezj() {
+        if (this.pHk == null) {
+            this.pHk = new m(ezi(), ezk());
         }
-        return this.pGK;
+        return this.pHk;
     }
 
-    public com.facebook.common.memory.j ezc() {
-        if (this.pGY == null) {
-            this.pGY = new com.facebook.common.memory.j(ezd());
+    public com.facebook.common.memory.j ezk() {
+        if (this.pHy == null) {
+            this.pHy = new com.facebook.common.memory.j(ezl());
         }
-        return this.pGY;
+        return this.pHy;
     }
 
-    public com.facebook.common.memory.a ezd() {
-        if (this.pKW == null) {
-            this.pKW = new j(this.pKU.ewN(), this.pKU.eyT(), this.pKU.eyU());
+    public com.facebook.common.memory.a ezl() {
+        if (this.pLw == null) {
+            this.pLw = new j(this.pLu.ewV(), this.pLu.ezb(), this.pLu.ezc());
         }
-        return this.pKW;
+        return this.pLw;
     }
 }

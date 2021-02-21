@@ -38,7 +38,7 @@ public class n {
         return true;
     }
 
-    public static boolean DM(String str) {
+    public static boolean DK(String str) {
         int indexOf;
         return str != null && (indexOf = str.indexOf("tiebapic")) > 0 && indexOf < 20;
     }

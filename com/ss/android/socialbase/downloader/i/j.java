@@ -12,11 +12,11 @@ public class j {
     private AtomicReference<k> e;
     private final ArrayList<b> f;
     private int g;
-    private final c qgq;
+    private final c qgQ;
 
     /* loaded from: classes6.dex */
     private static class a {
-        public static final j qgr = new j();
+        public static final j qgR = new j();
     }
 
     /* loaded from: classes6.dex */
@@ -24,12 +24,12 @@ public class j {
         void a(k kVar);
     }
 
-    public static j eIo() {
-        return a.qgr;
+    public static j eIw() {
+        return a.qgR;
     }
 
     private j() {
-        this.qgq = new c(0.05d);
+        this.qgQ = new c(0.05d);
         this.c = false;
         this.d = new AtomicReference<>(k.UNKNOWN);
         this.f = new ArrayList<>();
@@ -39,11 +39,11 @@ public class j {
         double d = ((j * 1.0d) / j2) * 8.0d;
         if (j2 != 0 && d >= 3.0d) {
             try {
-                this.qgq.a(d);
-                k eIp = eIp();
+                this.qgQ.a(d);
+                k eIx = eIx();
                 if (this.c) {
                     this.g++;
-                    if (eIp != this.e.get()) {
+                    if (eIx != this.e.get()) {
                         this.c = false;
                         this.g = 1;
                     }
@@ -53,9 +53,9 @@ public class j {
                         this.d.set(this.e.get());
                         d();
                     }
-                } else if (this.d.get() != eIp) {
+                } else if (this.d.get() != eIx) {
                     this.c = true;
-                    this.e = new AtomicReference<>(eIp);
+                    this.e = new AtomicReference<>(eIx);
                 }
             } catch (Throwable th) {
             }
@@ -65,7 +65,7 @@ public class j {
     private boolean c() {
         double d;
         double d2;
-        if (this.qgq == null) {
+        if (this.qgQ == null) {
             return false;
         }
         try {
@@ -89,7 +89,7 @@ public class j {
                 default:
                     return true;
             }
-            double a2 = this.qgq.a();
+            double a2 = this.qgQ.a();
             if (a2 > d) {
                 if (a2 > d * 1.25d) {
                     return true;
@@ -103,12 +103,12 @@ public class j {
         return false;
     }
 
-    public synchronized k eIp() {
+    public synchronized k eIx() {
         k L;
-        if (this.qgq == null) {
+        if (this.qgQ == null) {
             L = k.UNKNOWN;
         } else {
-            L = L(this.qgq.a());
+            L = L(this.qgQ.a());
         }
         return L;
     }

@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
-    private static b qbk;
-    private static c qbl;
+    private static b qbK;
+    private static c qbL;
 
-    public static com.ss.android.socialbase.downloader.downloader.i aaI(String str) {
-        if (qbk == null) {
-            qbk = new b(j.i());
+    public static com.ss.android.socialbase.downloader.downloader.i aaU(String str) {
+        if (qbK == null) {
+            qbK = new b(j.i());
         }
-        return new a(qbk, str);
+        return new a(qbK, str);
     }
 
-    public static com.ss.android.socialbase.downloader.downloader.h eEz() {
-        if (qbl == null) {
-            qbl = new c(j.i());
+    public static com.ss.android.socialbase.downloader.downloader.h eEH() {
+        if (qbL == null) {
+            qbL = new c(j.i());
         }
-        return qbl;
+        return qbL;
     }
 
     public static com.ss.android.socialbase.downloader.downloader.i B(String str, JSONObject jSONObject) {
-        return (jSONObject == null || !jSONObject.has("download_chunk_config") || com.ss.android.socialbase.downloader.k.a.g("download_chunk_config")) ? aaI(str) : ff(jSONObject);
+        return (jSONObject == null || !jSONObject.has("download_chunk_config") || com.ss.android.socialbase.downloader.k.a.g("download_chunk_config")) ? aaU(str) : ff(jSONObject);
     }
 
     public static com.ss.android.socialbase.downloader.downloader.h fe(JSONObject jSONObject) {
@@ -241,19 +241,19 @@ public class d {
 
         /* renamed from: a  reason: collision with root package name */
         private final String f12949a;
-        private b qbm;
+        private b qbM;
 
         public a(b bVar, String str) {
-            this.qbm = bVar;
+            this.qbM = bVar;
             this.f12949a = str;
         }
 
         @Override // com.ss.android.socialbase.downloader.downloader.i
         public int a(long j) {
-            if (!com.ss.android.downloadlib.f.i.c(this.f12949a) || this.qbm == null) {
+            if (!com.ss.android.downloadlib.f.i.c(this.f12949a) || this.qbM == null) {
                 return 1;
             }
-            return this.qbm.a(j);
+            return this.qbM.a(j);
         }
     }
 }

@@ -32,30 +32,30 @@ import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes8.dex */
 public class HotTopicListView extends RelativeLayout {
-    private static int lxS = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds250);
+    private static int lyg = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds250);
     private AppBarLayout ZM;
     private ValueAnimator fjh;
-    private PbListView gAi;
-    private g gJn;
+    private PbListView gAw;
+    private g gJB;
     private ViewGroup gaa;
-    private boolean jLb;
-    private PullRefreshFrameLayout.d jLj;
-    private PullRefreshFrameLayout.c jLk;
-    private Runnable jLl;
-    private BdTypeRecyclerView jNf;
-    private View jix;
-    private int jiy;
-    private int jiz;
-    private AppBarLayout.OnOffsetChangedListener jjz;
-    private View jpR;
-    private b lFw;
-    private ImageView lFx;
-    private ImageView lFy;
-    private com.baidu.tieba.newlist.a.a lFz;
-    private View lxU;
-    private boolean lxV;
-    private ViewGroup lxW;
-    private PullRefreshFrameLayout lxX;
+    private boolean jLp;
+    private PullRefreshFrameLayout.d jLx;
+    private PullRefreshFrameLayout.c jLy;
+    private Runnable jLz;
+    private BdTypeRecyclerView jNt;
+    private View jiL;
+    private int jiM;
+    private int jiN;
+    private AppBarLayout.OnOffsetChangedListener jjN;
+    private View jqf;
+    private b lFK;
+    private ImageView lFL;
+    private ImageView lFM;
+    private com.baidu.tieba.newlist.a.a lFN;
+    private View lyi;
+    private boolean lyj;
+    private ViewGroup lyk;
+    private PullRefreshFrameLayout lyl;
     private NavigationBar mNavigationBar;
     private TbPageContext<?> mPageContext;
     private h mRefreshView;
@@ -64,24 +64,24 @@ public class HotTopicListView extends RelativeLayout {
     public HotTopicListView(TbPageContext<?> tbPageContext, b bVar, Bundle bundle) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.jLb = false;
-        this.lxV = false;
-        this.jjz = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.newlist.HotTopicListView.1
+        this.jLp = false;
+        this.lyj = false;
+        this.jjN = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.newlist.HotTopicListView.1
             @Override // com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener, com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
             public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
-                if (HotTopicListView.this.lxX != null) {
-                    HotTopicListView.this.lxX.setInterceptScrollDown(i == 0);
+                if (HotTopicListView.this.lyl != null) {
+                    HotTopicListView.this.lyl.setInterceptScrollDown(i == 0);
                 }
-                if (HotTopicListView.lxS + i < 0) {
-                    HotTopicListView.this.lxU.setVisibility(0);
+                if (HotTopicListView.lyg + i < 0) {
+                    HotTopicListView.this.lyi.setVisibility(0);
                     HotTopicListView.this.mNavigationBar.setCenterTextTitle(HotTopicListView.this.mNavigationBar.getContext().getString(R.string.hot_topic_rank_list_head));
                     return;
                 }
-                HotTopicListView.this.lxU.setVisibility(8);
+                HotTopicListView.this.lyi.setVisibility(8);
                 HotTopicListView.this.mNavigationBar.setCenterTextTitle(null);
             }
         };
-        this.jLj = new PullRefreshFrameLayout.d() { // from class: com.baidu.tieba.newlist.HotTopicListView.2
+        this.jLx = new PullRefreshFrameLayout.d() { // from class: com.baidu.tieba.newlist.HotTopicListView.2
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.d
             public void q(double d) {
                 HotTopicListView.this.v(d);
@@ -91,7 +91,7 @@ public class HotTopicListView extends RelativeLayout {
             public void b(final int i, double d) {
                 HotTopicListView.this.fjh = ValueAnimator.ofFloat(0.0f, 1.0f);
                 HotTopicListView.this.fjh.setDuration(150L);
-                final int height = HotTopicListView.this.jix.getHeight();
+                final int height = HotTopicListView.this.jiL.getHeight();
                 HotTopicListView.this.fjh.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newlist.HotTopicListView.2.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -103,16 +103,16 @@ public class HotTopicListView extends RelativeLayout {
 
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.d
             public void bun() {
-                final int i = HotTopicListView.this.jiz - HotTopicListView.this.jiy;
+                final int i = HotTopicListView.this.jiN - HotTopicListView.this.jiM;
                 if (i > 0) {
                     HotTopicListView.this.fjh = ValueAnimator.ofFloat(0.0f, 1.0f);
                     HotTopicListView.this.fjh.setDuration(300L);
-                    final int i2 = HotTopicListView.this.jiz;
+                    final int i2 = HotTopicListView.this.jiN;
                     HotTopicListView.this.fjh.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newlist.HotTopicListView.2.2
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
                             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                            if (HotTopicListView.this.jix != null && i2 > 0) {
+                            if (HotTopicListView.this.jiL != null && i2 > 0) {
                                 HotTopicListView.this.setHeight((int) (i2 - (floatValue * i)));
                             }
                         }
@@ -121,69 +121,69 @@ public class HotTopicListView extends RelativeLayout {
                 }
             }
         };
-        this.jLl = new Runnable() { // from class: com.baidu.tieba.newlist.HotTopicListView.3
+        this.jLz = new Runnable() { // from class: com.baidu.tieba.newlist.HotTopicListView.3
             @Override // java.lang.Runnable
             public void run() {
-                if (HotTopicListView.this.jLb) {
-                    HotTopicListView.this.cLB();
+                if (HotTopicListView.this.jLp) {
+                    HotTopicListView.this.cLI();
                 }
             }
         };
-        this.jLk = new PullRefreshFrameLayout.c() { // from class: com.baidu.tieba.newlist.HotTopicListView.4
+        this.jLy = new PullRefreshFrameLayout.c() { // from class: com.baidu.tieba.newlist.HotTopicListView.4
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.c
             public void bum() {
-                HotTopicListView.this.cLA();
+                HotTopicListView.this.cLH();
             }
         };
         this.mPageContext = tbPageContext;
-        this.lFw = bVar;
+        this.lFK = bVar;
         init(bundle);
         onChangeSkinType();
     }
 
     private void init(Bundle bundle) {
         LayoutInflater.from(getContext()).inflate(R.layout.activity_hot_topic_list_layout, (ViewGroup) this, true);
-        this.lxU = findViewById(R.id.topBgView);
+        this.lyi = findViewById(R.id.topBgView);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.viewNavigationBar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.jpR = findViewById(R.id.header_round_corner_layout);
-        this.jix = findViewById(R.id.headerContainerLayout);
-        this.jiy = l.getDimens(getContext(), R.dimen.tbds520);
-        this.jiz = this.jiy;
-        this.lFx = (ImageView) findViewById(R.id.bgContainer);
-        this.lFy = (ImageView) findViewById(R.id.bgImage);
-        this.lxX = (PullRefreshFrameLayout) findViewById(R.id.contentLayout);
-        this.lxX.setOnTouchCallback(this.jLj);
-        this.lxX.setOnPullRefreshListener(this.jLk);
-        this.lxX.setFromFrs();
-        this.lxX.buj();
+        this.jqf = findViewById(R.id.header_round_corner_layout);
+        this.jiL = findViewById(R.id.headerContainerLayout);
+        this.jiM = l.getDimens(getContext(), R.dimen.tbds520);
+        this.jiN = this.jiM;
+        this.lFL = (ImageView) findViewById(R.id.bgContainer);
+        this.lFM = (ImageView) findViewById(R.id.bgImage);
+        this.lyl = (PullRefreshFrameLayout) findViewById(R.id.contentLayout);
+        this.lyl.setOnTouchCallback(this.jLx);
+        this.lyl.setOnPullRefreshListener(this.jLy);
+        this.lyl.setFromFrs();
+        this.lyl.buj();
         this.ZM = (AppBarLayout) findViewById(R.id.appBarLayout);
-        this.ZM.addOnOffsetChangedListener(this.jjz);
-        this.jNf = (BdTypeRecyclerView) findViewById(R.id.recyclerView);
-        this.jNf.setLayoutManager(new LinearLayoutManager(getContext()));
-        this.jNf.setFadingEdgeLength(0);
-        this.jNf.setOverScrollMode(2);
-        this.jNf.setPadding(0, l.getDimens(getContext(), R.dimen.tbds16), 0, l.getDimens(getContext(), R.dimen.tbds16));
-        this.lFz = new com.baidu.tieba.newlist.a.a(this.mPageContext, this.jNf);
+        this.ZM.addOnOffsetChangedListener(this.jjN);
+        this.jNt = (BdTypeRecyclerView) findViewById(R.id.recyclerView);
+        this.jNt.setLayoutManager(new LinearLayoutManager(getContext()));
+        this.jNt.setFadingEdgeLength(0);
+        this.jNt.setOverScrollMode(2);
+        this.jNt.setPadding(0, l.getDimens(getContext(), R.dimen.tbds16), 0, l.getDimens(getContext(), R.dimen.tbds16));
+        this.lFN = new com.baidu.tieba.newlist.a.a(this.mPageContext, this.jNt);
         this.gaa = (ViewGroup) findViewById(R.id.contentContainer);
         View findViewById = findViewById(R.id.statusBarViewHolder);
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
         layoutParams.height = UtilHelper.getStatusBarHeight();
         findViewById.setLayoutParams(layoutParams);
-        this.lxW = (ViewGroup) findViewById(R.id.contentRootLayout);
-        this.gAi = new PbListView(this.mPageContext.getPageActivity());
-        this.gAi.createView();
-        this.gAi.setContainerBackgroundColorResId(R.color.CAM_X0205);
+        this.lyk = (ViewGroup) findViewById(R.id.contentRootLayout);
+        this.gAw = new PbListView(this.mPageContext.getPageActivity());
+        this.gAw.createView();
+        this.gAw.setContainerBackgroundColorResId(R.color.CAM_X0205);
     }
 
     public void v(double d) {
-        if (this.jix != null) {
-            int i = (int) (this.jiy + (PullRefreshFrameLayout.fiM * d));
-            ViewGroup.LayoutParams layoutParams = this.jix.getLayoutParams();
+        if (this.jiL != null) {
+            int i = (int) (this.jiM + (PullRefreshFrameLayout.fiM * d));
+            ViewGroup.LayoutParams layoutParams = this.jiL.getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = i;
-                this.jiz = layoutParams.height;
-                this.jix.setLayoutParams(layoutParams);
+                this.jiN = layoutParams.height;
+                this.jiL.setLayoutParams(layoutParams);
             }
         }
     }
@@ -191,43 +191,43 @@ public class HotTopicListView extends RelativeLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void setHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.jix != null && (layoutParams = this.jix.getLayoutParams()) != null) {
+        if (this.jiL != null && (layoutParams = this.jiL.getLayoutParams()) != null) {
             layoutParams.height = i;
-            this.jiz = i;
-            this.jix.setLayoutParams(layoutParams);
+            this.jiN = i;
+            this.jiL.setLayoutParams(layoutParams);
         }
     }
 
-    public void cLB() {
-        this.jLb = false;
-        if (this.lxX != null) {
-            this.lxX.bui();
+    public void cLI() {
+        this.jLp = false;
+        if (this.lyl != null) {
+            this.lyl.bui();
         }
     }
 
-    public void bRB() {
-        if (this.jLb) {
-            cLB();
-            e.mA().removeCallbacks(this.jLl);
+    public void bRI() {
+        if (this.jLp) {
+            cLI();
+            e.mA().removeCallbacks(this.jLz);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLA() {
-        e.mA().postDelayed(this.jLl, 5000L);
-        this.jLb = true;
-        this.lFw.loadData();
+    public void cLH() {
+        e.mA().postDelayed(this.jLz, 5000L);
+        this.jLp = true;
+        this.lFK.loadData();
     }
 
     public void setData(@NonNull List<n> list) {
-        this.lFz.setData(list);
-        this.jNf.post(new Runnable() { // from class: com.baidu.tieba.newlist.HotTopicListView.5
+        this.lFN.setData(list);
+        this.jNt.post(new Runnable() { // from class: com.baidu.tieba.newlist.HotTopicListView.5
             @Override // java.lang.Runnable
             public void run() {
-                if (HotTopicListView.this.gaa.getHeight() > HotTopicListView.this.jNf.getHeight()) {
-                    ((AppBarLayout.LayoutParams) HotTopicListView.this.jix.getLayoutParams()).setScrollFlags(0);
+                if (HotTopicListView.this.gaa.getHeight() > HotTopicListView.this.jNt.getHeight()) {
+                    ((AppBarLayout.LayoutParams) HotTopicListView.this.jiL.getLayoutParams()).setScrollFlags(0);
                 } else {
-                    ((AppBarLayout.LayoutParams) HotTopicListView.this.jix.getLayoutParams()).setScrollFlags(13);
+                    ((AppBarLayout.LayoutParams) HotTopicListView.this.jiL.getLayoutParams()).setScrollFlags(13);
                 }
             }
         });
@@ -235,12 +235,12 @@ public class HotTopicListView extends RelativeLayout {
     }
 
     private void bEL() {
-        if (!this.lxV) {
-            this.lxV = true;
+        if (!this.lyj) {
+            this.lyj = true;
             SvgManager.bsR().a((ImageView) this.mNavigationBar.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             ap.setViewTextColor(this.mNavigationBar.getCenterText(), R.color.CAM_X0101);
-            if (this.lFw instanceof Activity) {
-                UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) this.lFw);
+            if (this.lFK instanceof Activity) {
+                UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) this.lFK);
             }
         }
     }
@@ -248,29 +248,29 @@ public class HotTopicListView extends RelativeLayout {
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
-            ap.setBackgroundColor(this.lxU, R.color.pic_huati_toplist_base_color);
-            ap.setImageResource(this.lFx, R.drawable.pic_huati_toplist_base);
-            ap.setImageResource(this.lFy, R.drawable.pic_huati_toplist_upper);
-            ap.setBackgroundResource(this.jpR, R.drawable.bg_header_round_corner);
-            if (this.gAi != null) {
-                this.gAi.changeSkin(skinType);
-                this.gAi.setContainerBackgroundColorResId(R.color.CAM_X0205);
+            ap.setBackgroundColor(this.lyi, R.color.pic_huati_toplist_base_color);
+            ap.setImageResource(this.lFL, R.drawable.pic_huati_toplist_base);
+            ap.setImageResource(this.lFM, R.drawable.pic_huati_toplist_upper);
+            ap.setBackgroundResource(this.jqf, R.drawable.bg_header_round_corner);
+            if (this.gAw != null) {
+                this.gAw.changeSkin(skinType);
+                this.gAw.setContainerBackgroundColorResId(R.color.CAM_X0205);
             }
-            this.lFz.notifyDataSetChanged();
+            this.lFN.notifyDataSetChanged();
             this.mSkinType = skinType;
         }
     }
 
     public void showLoadingView() {
-        if (this.gJn == null) {
-            this.gJn = new g(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
+        if (this.gJB == null) {
+            this.gJB = new g(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.ds386));
         }
-        this.gJn.attachView(this.lxW, false);
+        this.gJB.attachView(this.lyk, false);
     }
 
     public void hideLoadingView() {
-        if (this.gJn != null) {
-            this.gJn.dettachView(this.lxW);
+        if (this.gJB != null) {
+            this.gJB.dettachView(this.lyk);
         }
     }
 
@@ -280,32 +280,32 @@ public class HotTopicListView extends RelativeLayout {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.newlist.HotTopicListView.6
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (j.isNetworkAvailableForImmediately() && HotTopicListView.this.lFw != null) {
-                            HotTopicListView.this.lFw.loadData();
+                        if (j.isNetworkAvailableForImmediately() && HotTopicListView.this.lFK != null) {
+                            HotTopicListView.this.lFK.loadData();
                         }
                     }
                 });
             }
-            this.jix.setVisibility(8);
+            this.jiL.setVisibility(8);
             this.mRefreshView.setLayoutMargin(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds360));
-            this.mRefreshView.attachView(this.lxW, z);
+            this.mRefreshView.attachView(this.lyk, z);
             this.mRefreshView.showRefreshButton();
         }
     }
 
     public void WZ() {
         if (this.mRefreshView != null) {
-            this.jix.setVisibility(0);
-            this.mRefreshView.dettachView(this.lxW);
+            this.jiL.setVisibility(0);
+            this.mRefreshView.dettachView(this.lyk);
             this.mRefreshView = null;
         }
     }
 
     public void WY() {
-        this.jNf.setNextPage(this.gAi);
-        this.gAi.endLoadData();
-        this.gAi.showEmptyView(0);
-        this.gAi.setText(getResources().getString(R.string.really_great));
+        this.jNt.setNextPage(this.gAw);
+        this.gAw.endLoadData();
+        this.gAw.showEmptyView(0);
+        this.gAw.setText(getResources().getString(R.string.really_great));
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -317,8 +317,8 @@ public class HotTopicListView extends RelativeLayout {
     public void destroy() {
         hideLoadingView();
         WZ();
-        if (this.jLb) {
-            cLB();
+        if (this.jLp) {
+            cLI();
         }
         if (this.fjh != null) {
             this.fjh.cancel();
@@ -326,6 +326,6 @@ public class HotTopicListView extends RelativeLayout {
             this.fjh.removeAllUpdateListeners();
             this.fjh = null;
         }
-        e.mA().removeCallbacks(this.jLl);
+        e.mA().removeCallbacks(this.jLz);
     }
 }

@@ -35,11 +35,11 @@ public class fo {
                 return gr.a(this.f14026a, fsVar);
             }
             if (name.equals("presence")) {
-                return gr.m349a(this.f14026a);
+                return gr.m348a(this.f14026a);
             }
             if (!this.f14026a.getName().equals("stream")) {
                 if (this.f14026a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
-                    throw new gd(gr.m350a(this.f14026a));
+                    throw new gd(gr.m349a(this.f14026a));
                 }
                 if (this.f14026a.getName().equals("warning")) {
                     this.f14026a.next();

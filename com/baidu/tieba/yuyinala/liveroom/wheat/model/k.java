@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaManagerMikeHttpRespons
 /* loaded from: classes11.dex */
 public class k extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oJP;
+    private a oKp;
     private HttpMessageListener messageListener = new HttpMessageListener(1031012) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.k.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaManagerMikeHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == k.this.aCW && k.this.oJP != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaManagerMikeHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == k.this.aCW && k.this.oKp != null) {
                 AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage = (AlaManagerMikeHttpResponseMessage) httpResponsedMessage;
                 if (alaManagerMikeHttpResponseMessage.getError() != 0 || !alaManagerMikeHttpResponseMessage.isSuccess()) {
-                    k.this.oJP.b(alaManagerMikeHttpResponseMessage);
+                    k.this.oKp.b(alaManagerMikeHttpResponseMessage);
                 } else {
-                    k.this.oJP.a(alaManagerMikeHttpResponseMessage);
+                    k.this.oKp.a(alaManagerMikeHttpResponseMessage);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class k extends BdBaseModel {
     public k(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.oJP = aVar;
+        this.oKp = aVar;
         zH();
         registerListener(this.messageListener);
     }

@@ -6,6 +6,6 @@ public class a {
     }
 
     public static b aQl() {
-        return com.baidu.tieba.aiapps.apps.h.d.bNy();
+        return com.baidu.tieba.aiapps.apps.h.d.bNF();
     }
 }

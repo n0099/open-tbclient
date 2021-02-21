@@ -11,14 +11,14 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class i {
     private VideoInfo eLW;
-    public long nvZ;
-    public String nwa;
-    public boolean nwb;
-    private int nwc;
-    private ArrayList<h> nwd;
-    private ArrayList<k> nwe;
-    private j nwf;
-    private int nwg;
+    public String nwA;
+    public boolean nwB;
+    private int nwC;
+    private ArrayList<h> nwD;
+    private ArrayList<k> nwE;
+    private j nwF;
+    private int nwG;
+    public long nwz;
     public String position;
     private String tagName;
 
@@ -26,28 +26,28 @@ public class i {
         if (tPointPost != null) {
             try {
                 this.position = tPointPost.position;
-                this.nvZ = tPointPost.template_id.longValue();
-                this.nwb = tPointPost.is_tuiguang.intValue() != 0;
-                this.nwc = tPointPost.template_type.intValue();
+                this.nwz = tPointPost.template_id.longValue();
+                this.nwB = tPointPost.is_tuiguang.intValue() != 0;
+                this.nwC = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.nwd = new ArrayList<>();
+                    this.nwD = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.nwd.add(new h(list.get(i)));
+                        this.nwD.add(new h(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.nwe = new ArrayList<>();
+                    this.nwE = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.nwe.add(new k(list2.get(i2)));
+                        this.nwE.add(new k(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.nwf = new j(tPointPost.detail_info);
+                    this.nwF = new j(tPointPost.detail_info);
                 }
-                this.nwa = tPointPost.monitor_id;
-                this.nwg = tPointPost.hidden_day.intValue();
+                this.nwA = tPointPost.monitor_id;
+                this.nwG = tPointPost.hidden_day.intValue();
                 this.eLW = tPointPost.t_video;
                 this.tagName = tPointPost.tag_name;
             } catch (Exception e) {
@@ -56,7 +56,7 @@ public class i {
         }
     }
 
-    public k dNb() {
-        return (k) y.getItem(this.nwe, 0);
+    public k dNj() {
+        return (k) y.getItem(this.nwE, 0);
     }
 }

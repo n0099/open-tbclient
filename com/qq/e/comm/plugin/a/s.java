@@ -14,12 +14,12 @@ public interface s extends IInterface {
 
         /* renamed from: com.qq.e.comm.plugin.a.s$a$a  reason: collision with other inner class name */
         /* loaded from: classes15.dex */
-        private static class C1188a implements s {
+        private static class C1190a implements s {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f11649a;
 
-            C1188a(IBinder iBinder) {
+            C1190a(IBinder iBinder) {
                 this.f11649a = iBinder;
             }
 
@@ -174,7 +174,7 @@ public interface s extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.qq.e.comm.plugin.apkmanager.IDownloadService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof s)) ? new C1188a(iBinder) : (s) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof s)) ? new C1190a(iBinder) : (s) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

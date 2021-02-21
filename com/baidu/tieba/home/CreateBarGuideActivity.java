@@ -16,20 +16,20 @@ import tbclient.UserBfbInfo;
 /* loaded from: classes8.dex */
 public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity> {
     private String forumName;
-    private a jYu;
-    private BfbInfoModel jYv;
-    private BfbInfoModel.a jYw = new BfbInfoModel.a() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.1
+    private a jYI;
+    private BfbInfoModel jYJ;
+    private BfbInfoModel.a jYK = new BfbInfoModel.a() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.1
         @Override // com.baidu.tieba.home.BfbInfoModel.a
         public void a(int i, String str, UserBfbInfo userBfbInfo) {
-            CreateBarGuideActivity.this.hideLoadingView(CreateBarGuideActivity.this.jYu.getRootView());
-            CreateBarGuideActivity.this.jYu.cOA();
+            CreateBarGuideActivity.this.hideLoadingView(CreateBarGuideActivity.this.jYI.getRootView());
+            CreateBarGuideActivity.this.jYI.cOH();
             if (i == 0) {
-                CreateBarGuideActivity.this.jYu.a(CreateBarGuideActivity.this.forumName, userBfbInfo);
+                CreateBarGuideActivity.this.jYI.a(CreateBarGuideActivity.this.forumName, userBfbInfo);
                 return;
             }
             CreateBarGuideActivity.this.showToast(str);
             if (i == 260211) {
-                CreateBarGuideActivity.this.LM(null);
+                CreateBarGuideActivity.this.LN(null);
             }
         }
     };
@@ -42,17 +42,17 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         if (!TextUtils.isEmpty(this.forumName) && this.forumName.length() > 30) {
             this.forumName = this.forumName.substring(0, 30);
         }
-        this.jYv = new BfbInfoModel(this);
-        this.jYv.a(this.jYw);
-        this.jYu = new a(this);
-        this.jYu.cOz();
-        showLoadingView(this.jYu.getRootView());
-        this.jYv.LoadData();
+        this.jYJ = new BfbInfoModel(this);
+        this.jYJ.a(this.jYK);
+        this.jYI = new a(this);
+        this.jYI.cOG();
+        showLoadingView(this.jYI.getRootView());
+        this.jYJ.LoadData();
         TiebaStatic.log("c11222");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LM(String str) {
+    public void LN(String str) {
         if (StringUtils.isNull(str)) {
             str = getResources().getString(R.string.tips_version_low);
         }
@@ -79,15 +79,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jYu = null;
-        this.jYv.cOv();
+        this.jYI = null;
+        this.jYJ.cOC();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        if (this.jYu != null) {
-            this.jYu.bzn();
+        if (this.jYI != null) {
+            this.jYI.bzn();
         }
     }
 }

@@ -16,14 +16,14 @@ public class h {
     private static long d = 0;
 
     public static void a(boolean z, boolean z2) {
-        k.a erv = k.erv();
-        erv.a("phonescripstarttime");
-        erv.a("phonescripcache");
-        erv.a("pre_sim_key");
+        k.a erD = k.erD();
+        erD.a("phonescripstarttime");
+        erD.a("phonescripcache");
+        erD.a("pre_sim_key");
         if (z2) {
-            erv.a();
+            erD.a();
         } else {
-            erv.b();
+            erD.b();
         }
         if (z) {
             f7727b = null;
@@ -57,11 +57,11 @@ public class h {
     public static void b(Context context, String str, long j, String str2) {
         String a2 = b.a(context, str);
         if (!TextUtils.isEmpty(a2)) {
-            k.a erv = k.erv();
-            erv.a("phonescripcache", a2);
-            erv.a("phonescripstarttime", j);
-            erv.a("pre_sim_key", str2);
-            erv.b();
+            k.a erD = k.erD();
+            erD.a("phonescripcache", a2);
+            erD.a("phonescripstarttime", j);
+            erD.a("pre_sim_key", str2);
+            erD.b();
         }
     }
 

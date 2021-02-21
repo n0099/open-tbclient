@@ -177,8 +177,8 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.d, view == this.m);
-        com.kwad.sdk.core.download.b.a.a(getContext(), this.f9726b, new a.InterfaceC1092a() { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(getContext(), this.f9726b, new a.InterfaceC1094a() { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 if (DrawVideoTailFrame.this.q != null) {
                     DrawVideoTailFrame.this.q.onAdClicked();

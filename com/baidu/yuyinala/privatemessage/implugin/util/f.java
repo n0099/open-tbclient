@@ -64,7 +64,7 @@ public class f {
         }
         if (c(Long.valueOf(currentTimeMillis), j)) {
             Calendar.getInstance().setTimeInMillis(j);
-            return NZ(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
+            return Oa(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
         } else if (d(Long.valueOf(currentTimeMillis), j) || e(Long.valueOf(currentTimeMillis), j)) {
             new SimpleDateFormat("MM-dd ", Locale.CHINA).setTimeZone(timeZone);
             return simpleDateFormat2.format(new Date(j)) + str + simpleDateFormat.format(new Date(j));
@@ -74,7 +74,7 @@ public class f {
         }
     }
 
-    private static String NZ(int i) {
+    private static String Oa(int i) {
         switch (i) {
             case 1:
                 return "星期日";
@@ -203,7 +203,7 @@ public class f {
         return 55;
     }
 
-    public static long emt() {
+    public static long emB() {
         long j = 0;
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
@@ -261,7 +261,7 @@ public class f {
                                 context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                                 return;
                             }
-                            com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().h(context, str, false);
+                            com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().h(context, str, false);
                         } catch (Exception e) {
                             c.e("Utils", "ex " + e.getMessage());
                         }
@@ -282,16 +282,16 @@ public class f {
             jSONObject.put("oauth", "");
             jSONObject.put("needUserSetting", false);
             jSONObject.put("thirdLogin", false);
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().a(jSONObject.toString(), dVar);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().a(jSONObject.toString(), dVar);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public static void elc() {
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a eli = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eld().eli();
-        if (eli != null) {
-            eli.elc();
+    public static void elk() {
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a elq = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.ell().elq();
+        if (elq != null) {
+            elq.elk();
         }
     }
 

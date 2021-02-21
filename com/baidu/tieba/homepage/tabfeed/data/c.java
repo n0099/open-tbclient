@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.data.m;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class c {
-    public ArrayList<n> knK;
-    public m knL;
-    public ak knM;
-    public int klL = 0;
-    public int klK = 0;
-    public boolean gcx = true;
+    public ArrayList<n> knY;
+    public m knZ;
+    public ak koa;
+    public int klZ = 0;
+    public int klY = 0;
+    public boolean gcC = true;
     public boolean hasMore = true;
 }

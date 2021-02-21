@@ -374,7 +374,7 @@ public class OpenNative {
                 }
             }
             if (map.containsKey("from")) {
-                d.Dq((String) map.get("from"));
+                d.Do((String) map.get("from"));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoMiddlePageActivityConfig));
         }
@@ -588,7 +588,7 @@ public class OpenNative {
             pbActivityConfig.setUnKnowPbType((String) map.get(PbActivityConfig.KEY_UNKNOW_PB_TYPE));
         }
         if (map.containsKey("enter_type")) {
-            d.Dq((String) map.get("enter_type"));
+            d.Do((String) map.get("enter_type"));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
     }
@@ -637,7 +637,7 @@ public class OpenNative {
             }
         }
         if (map.containsKey(FrsActivityConfig.FRS_CALL_FROM)) {
-            d.Dq((String) map.get(FrsActivityConfig.FRS_CALL_FROM));
+            d.Do((String) map.get(FrsActivityConfig.FRS_CALL_FROM));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalCfg));
     }
@@ -782,7 +782,7 @@ public class OpenNative {
             eP.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
             eP.getIntent().putExtra("from", "index");
             if (map.containsKey("enter_type")) {
-                d.Dq((String) map.get("enter_type"));
+                d.Do((String) map.get("enter_type"));
                 g.publishEvent(new PrePageKeyEvent(d.bDM()));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eP));
@@ -833,7 +833,7 @@ public class OpenNative {
                 eP.getIntent().putExtra("from", "index");
             }
             if (map.containsKey("enter_type")) {
-                d.Dq((String) map.get("enter_type"));
+                d.Do((String) map.get("enter_type"));
                 g.publishEvent(new PrePageKeyEvent(d.bDM()));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eP));

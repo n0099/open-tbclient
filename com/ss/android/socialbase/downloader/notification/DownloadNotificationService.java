@@ -43,17 +43,17 @@ public class DownloadNotificationService extends Service {
         super.onCreate();
         d();
         com.ss.android.socialbase.downloader.downloader.b.a(this);
-        com.ss.android.socialbase.downloader.k.a eIx = com.ss.android.socialbase.downloader.k.a.eIx();
-        int a2 = eIx.a("download_service_foreground", 0);
+        com.ss.android.socialbase.downloader.k.a eIF = com.ss.android.socialbase.downloader.k.a.eIF();
+        int a2 = eIF.a("download_service_foreground", 0);
         if ((a2 == 1 || a2 == 3) && f13245b == -1) {
             f13245b = 0;
         }
         if ((a2 == 2 || a2 == 3) && c == -1) {
             c = 0;
         }
-        e = eIx.b("non_going_notification_foreground", false);
-        h = eIx.b("notify_too_fast", false);
-        i = eIx.a("notification_time_window", 900L);
+        e = eIF.b("non_going_notification_foreground", false);
+        h = eIF.b("notify_too_fast", false);
+        i = eIF.a("notification_time_window", 900L);
         if (i < 0 || i > 1200) {
             i = 900L;
         }
@@ -98,39 +98,39 @@ public class DownloadNotificationService extends Service {
                         final NotificationManager notificationManager = (NotificationManager) DownloadNotificationService.this.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                         final int intExtra = intent.getIntExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", 0);
                         if (action.equals("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY")) {
-                            a Sb = b.eIB().Sb(intExtra);
-                            if (Sb != null) {
-                                final Notification eIA = Sb.eIA();
+                            a Sc = b.eIJ().Sc(intExtra);
+                            if (Sc != null) {
+                                final Notification eII = Sc.eII();
                                 int intExtra2 = intent.getIntExtra("DOWNLOAD_NOTIFICATION_EXTRA_STATUS", 0);
-                                if (intExtra != 0 && eIA != null && notificationManager != null) {
+                                if (intExtra != 0 && eII != null && notificationManager != null) {
                                     if (intExtra2 == 4) {
-                                        if (f.iB(com.ss.android.socialbase.downloader.downloader.b.eGu()).g(intExtra)) {
-                                            c h2 = f.iB(com.ss.android.socialbase.downloader.downloader.b.eGu()).h(intExtra);
+                                        if (f.iB(com.ss.android.socialbase.downloader.downloader.b.eGC()).g(intExtra)) {
+                                            c h2 = f.iB(com.ss.android.socialbase.downloader.downloader.b.eGC()).h(intExtra);
                                             if (DownloadNotificationService.h) {
                                                 if (h2 != null && h2.a() && System.currentTimeMillis() - DownloadNotificationService.g > DownloadNotificationService.i) {
-                                                    DownloadNotificationService.this.b(notificationManager, intExtra, eIA);
+                                                    DownloadNotificationService.this.b(notificationManager, intExtra, eII);
                                                     h2.b();
                                                 }
                                             } else if (h2 != null && h2.a()) {
-                                                DownloadNotificationService.this.b(notificationManager, intExtra, eIA);
+                                                DownloadNotificationService.this.b(notificationManager, intExtra, eII);
                                                 h2.b();
                                             }
                                         }
                                     } else if (intExtra2 == -2 || intExtra2 == -3) {
                                         if (DownloadNotificationService.h) {
-                                            DownloadNotificationService.this.a(notificationManager, intExtra, eIA);
+                                            DownloadNotificationService.this.a(notificationManager, intExtra, eII);
                                         } else if (DownloadNotificationService.this.k != null) {
                                             DownloadNotificationService.this.k.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1.1
                                                 @Override // java.lang.Runnable
                                                 public void run() {
-                                                    DownloadNotificationService.this.b(notificationManager, intExtra, eIA);
+                                                    DownloadNotificationService.this.b(notificationManager, intExtra, eII);
                                                 }
                                             }, intExtra2 == -2 ? 50L : 200L);
                                         }
                                     } else if (DownloadNotificationService.h) {
-                                        DownloadNotificationService.this.a(notificationManager, intExtra, eIA);
+                                        DownloadNotificationService.this.a(notificationManager, intExtra, eII);
                                     } else {
-                                        DownloadNotificationService.this.b(notificationManager, intExtra, eIA);
+                                        DownloadNotificationService.this.b(notificationManager, intExtra, eII);
                                     }
                                 }
                             }
@@ -213,20 +213,20 @@ public class DownloadNotificationService extends Service {
         boolean z = true;
         if (a(i2, notification)) {
             try {
-                boolean z2 = com.ss.android.socialbase.downloader.downloader.c.eGy().a(i2) == 1 && !d.c();
+                boolean z2 = com.ss.android.socialbase.downloader.downloader.c.eGG().a(i2) == 1 && !d.c();
                 if ((z2 || f13245b != 0) && (!z2 || c != 0)) {
                     z = false;
                 }
                 if (z) {
-                    n Rn = com.ss.android.socialbase.downloader.downloader.c.eGy().Rn(i2);
-                    if (Rn.g() && !Rn.b()) {
+                    n Ro = com.ss.android.socialbase.downloader.downloader.c.eGG().Ro(i2);
+                    if (Ro.g() && !Ro.b()) {
                         com.ss.android.socialbase.downloader.f.a.c(f13244a, "doNotify, startForeground, ======== id = " + i2 + ", isIndependentProcess = " + z2);
                         if (z2) {
                             c = i2;
                         } else {
                             f13245b = i2;
                         }
-                        Rn.a(i2, notification);
+                        Ro.a(i2, notification);
                     } else {
                         com.ss.android.socialbase.downloader.f.a.c(f13244a, "doNotify: canStartForeground = true, but proxy can not startForeground, isIndependentProcess = " + z2);
                     }
@@ -261,13 +261,13 @@ public class DownloadNotificationService extends Service {
                 z = true;
             }
             try {
-                n Rn = com.ss.android.socialbase.downloader.downloader.c.eGy().Rn(i2);
-                if (!Rn.b()) {
+                n Ro = com.ss.android.socialbase.downloader.downloader.c.eGG().Ro(i2);
+                if (!Ro.b()) {
                     d = false;
                     com.ss.android.socialbase.downloader.f.a.d(f13244a, "try to stopForeground when is not Foreground, id = " + i2 + ", isIndependentProcess = " + z);
                 }
                 com.ss.android.socialbase.downloader.f.a.c(f13244a, "doCancel, ========== stopForeground id = " + i2 + ", isIndependentProcess = " + z);
-                Rn.a(false, true);
+                Ro.a(false, true);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -277,16 +277,16 @@ public class DownloadNotificationService extends Service {
             }
             if (d) {
                 try {
-                    SparseArray<a> eIC = b.eIB().eIC();
-                    if (eIC != null) {
-                        int size = eIC.size() - 1;
+                    SparseArray<a> eIK = b.eIJ().eIK();
+                    if (eIK != null) {
+                        int size = eIK.size() - 1;
                         while (true) {
                             if (size < 0) {
                                 break;
                             }
-                            a valueAt = eIC.valueAt(size);
+                            a valueAt = eIK.valueAt(size);
                             if (valueAt != null && (a2 = valueAt.a()) != i2 && a2 != f13245b && a2 != c && valueAt.i()) {
-                                if ((com.ss.android.socialbase.downloader.downloader.c.eGy().a(valueAt.a()) == 1 && !d.c()) == z) {
+                                if ((com.ss.android.socialbase.downloader.downloader.c.eGG().a(valueAt.a()) == 1 && !d.c()) == z) {
                                     aVar = valueAt;
                                     break;
                                 }

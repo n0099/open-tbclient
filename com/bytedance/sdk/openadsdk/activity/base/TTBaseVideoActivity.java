@@ -1187,8 +1187,8 @@ public abstract class TTBaseVideoActivity extends Activity implements b, f, Home
             }
             if (this.E != null) {
                 this.aR.a(this.E);
-                this.E.a(1, new a.InterfaceC1017a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.2
-                    @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1017a
+                this.E.a(1, new a.InterfaceC1019a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity.2
+                    @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a.InterfaceC1019a
                     public boolean a(int i, l lVar, String str3, String str4, Object obj) {
                         if (i == 1 && lVar != null && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
                             if (str3.equals("rewarded_video") && str4.equals("click_start")) {

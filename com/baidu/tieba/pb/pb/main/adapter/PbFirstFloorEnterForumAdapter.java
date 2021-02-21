@@ -69,43 +69,43 @@ public class PbFirstFloorEnterForumAdapter extends com.baidu.adp.widget.ListView
     public class PbFirstFloorEnterForumViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
         View bQW;
         View bTo;
-        ImageView jPr;
-        CardForumHeadLayout mbD;
-        private h mbE;
+        ImageView jPF;
+        CardForumHeadLayout mbS;
+        private h mbT;
 
         public PbFirstFloorEnterForumViewHolder(View view) {
             super(view);
-            this.mbD = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.mbD != null) {
-                this.mbD.setOnClickListener(this.mbD);
-                this.mbD.setAfterClickListener(this);
+            this.mbS = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.mbS != null) {
+                this.mbS.setOnClickListener(this.mbS);
+                this.mbS.setAfterClickListener(this);
             }
             this.bTo = ((ViewGroup) view).getChildAt(1);
-            this.jPr = (ImageView) ((ViewGroup) view).getChildAt(2);
+            this.jPF = (ImageView) ((ViewGroup) view).getChildAt(2);
             this.bQW = ((ViewGroup) view).getChildAt(3);
         }
 
         public void a(h hVar) {
             if (hVar != null) {
-                this.mbE = hVar;
-                this.bQW.setVisibility(hVar.lKW ? 0 : 8);
+                this.mbT = hVar;
+                this.bQW.setVisibility(hVar.lLl ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, hVar.lKW ? l.getDimens(PbFirstFloorEnterForumAdapter.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, hVar.lLl ? l.getDimens(PbFirstFloorEnterForumAdapter.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.mbD.setData(hVar.forumName, hVar.lKV, hVar.postNum, hVar.memberNum);
+                this.mbS.setData(hVar.forumName, hVar.lLk, hVar.postNum, hVar.memberNum);
             }
         }
 
         public void bup() {
-            WebPManager.a(this.jPr, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
+            WebPManager.a(this.jPF, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
             ap.setBackgroundColor(this.bTo, R.color.CAM_X0203);
             ap.setBackgroundColor(this.bQW, R.color.CAM_X0203);
-            this.mbD.onChangeSkinType();
+            this.mbS.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new ar("c13698").dR("tid", this.mbE.tid).dR("fid", this.mbE.fid).v("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new ar("c13698").dR("tid", this.mbT.tid).dR("fid", this.mbT.fid).v("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

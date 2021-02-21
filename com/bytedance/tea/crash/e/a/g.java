@@ -18,9 +18,9 @@ public class g extends c {
         a2.a("magic_tag", "ss_app_log");
         c(a2);
         com.bytedance.tea.crash.c.b ia = com.bytedance.tea.crash.c.b.ia(this.f7639b);
-        ia.a(h.erd().a());
-        ia.a(h.erf().a());
-        ia.b(this.pvN.c());
+        ia.a(h.erl().a());
+        ia.a(h.ern().a());
+        ia.b(this.pwn.c());
         a2.a(ia);
         k.a(a2, ia, this.f7638a);
         return a2;

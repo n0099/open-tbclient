@@ -21,11 +21,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes2.dex */
 public class c {
     private NewWriteModel fDH;
-    private final BaseFragmentActivity iKt;
-    private WriteData jtI;
-    private a jtJ;
-    private final ForumWriteData jtt;
-    private final SerializableItemInfo jtv;
+    private final BaseFragmentActivity iKH;
+    private final ForumWriteData jtH;
+    private final SerializableItemInfo jtJ;
+    private WriteData jtW;
+    private a jtX;
     private InputMethodManager mInputManager;
     private com.baidu.tbadk.core.view.a fMe = null;
     private final NewWriteModel.d fDW = new NewWriteModel.d() { // from class: com.baidu.tieba.frs.examination.c.1
@@ -34,16 +34,16 @@ public class c {
             c.this.closeLoadingDialog();
             if (postWriteCallBackData != null) {
                 if (!z) {
-                    c.this.iKt.showToast(postWriteCallBackData.getErrorString());
+                    c.this.iKH.showToast(postWriteCallBackData.getErrorString());
                     return;
                 }
-                TiebaStatic.log(new ar("c13723").dR("tid", postWriteCallBackData.getThreadId()).dR("fid", c.this.jtt.forumId).dR("fname", c.this.jtt.forumName).dR("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new ar("c13723").dR("tid", postWriteCallBackData.getThreadId()).dR("fid", c.this.jtH.forumId).dR("fname", c.this.jtH.forumName).dR("uid", TbadkCoreApplication.getCurrentAccount()));
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                 intent.putExtras(bundle);
-                c.this.iKt.setResult(-1, intent);
-                c.this.iKt.finish();
+                c.this.iKH.setResult(-1, intent);
+                c.this.iKH.finish();
             }
         }
     };
@@ -55,46 +55,46 @@ public class c {
 
     public c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
         this.mInputManager = null;
-        this.iKt = baseFragmentActivity;
-        this.jtt = forumWriteData;
-        this.jtv = serializableItemInfo;
+        this.iKH = baseFragmentActivity;
+        this.jtH = forumWriteData;
+        this.jtJ = serializableItemInfo;
         this.mInputManager = (InputMethodManager) baseFragmentActivity.getSystemService("input_method");
         initUI();
         initData();
     }
 
     private void initUI() {
-        this.fMe = new com.baidu.tbadk.core.view.a(this.iKt);
+        this.fMe = new com.baidu.tbadk.core.view.a(this.iKH);
     }
 
     private void initData() {
         this.fDH = new NewWriteModel();
-        this.jtI = new WriteData();
+        this.jtW = new WriteData();
         this.fDH.b(this.fDW);
     }
 
     public void a(String str, String str2, ForumWriteData forumWriteData) {
         if (!j.isNetWorkAvailable()) {
-            l.showToast(this.iKt, R.string.neterror);
+            l.showToast(this.iKH, R.string.neterror);
         }
-        if (this.jtv != null) {
-            this.jtI.setItem_id(String.valueOf(this.jtv.id));
-        }
-        this.jtI.setForumName(forumWriteData.forumName);
-        this.jtI.setContent(str);
-        this.jtI.setComment_head(str2);
-        this.jtI.setForumId(forumWriteData.forumId);
-        this.jtI.setTitle("");
-        this.jtI.setIsNoTitle(true);
         if (this.jtJ != null) {
-            this.jtJ.a(this.mInputManager);
+            this.jtW.setItem_id(String.valueOf(this.jtJ.id));
         }
-        cGR();
+        this.jtW.setForumName(forumWriteData.forumName);
+        this.jtW.setContent(str);
+        this.jtW.setComment_head(str2);
+        this.jtW.setForumId(forumWriteData.forumId);
+        this.jtW.setTitle("");
+        this.jtW.setIsNoTitle(true);
+        if (this.jtX != null) {
+            this.jtX.a(this.mInputManager);
+        }
+        cGY();
     }
 
-    private void cGR() {
-        this.fDH.f(this.jtI);
-        this.fDH.dOV();
+    private void cGY() {
+        this.fDH.f(this.jtW);
+        this.fDH.dPd();
         showLoadingDialog();
     }
 
@@ -109,6 +109,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.jtJ = aVar;
+        this.jtX = aVar;
     }
 }

@@ -8,55 +8,55 @@ public final class j {
     int distance;
     int j;
     byte[] output;
-    int qvA;
-    byte[] qvC;
-    int qvF;
-    boolean qvG;
-    boolean qvH;
-    boolean qvI;
-    int qvT;
-    int qvU;
-    byte[] qvV;
-    byte[] qvW;
-    int qvX;
-    int qvY;
-    int qvZ;
+    int qwA;
+    int qwB;
+    int qwC;
+    byte[] qwD;
+    int qwE;
+    int qwF;
+    int qwG;
+    int qwH;
+    int qwI;
+    int qwJ;
+    int qwK;
+    int qwP;
+    int qwQ;
+    int qwR;
+    int qwS;
+    int qwT;
     int qwa;
-    int qwb;
-    int qwc;
-    byte[] qwd;
-    int qwe;
+    byte[] qwc;
     int qwf;
-    int qwg;
-    int qwh;
-    int qwi;
-    int qwj;
-    int qwk;
-    int qwp;
-    int qwq;
-    int qwr;
-    int qws;
+    boolean qwg;
+    boolean qwh;
+    boolean qwi;
     int qwt;
-    int qvz = 0;
-    final a qvB = new a();
-    final int[] qvD = new int[3240];
-    final int[] qvE = new int[3240];
-    final g qvJ = new g();
-    final g qvK = new g();
-    final g qvL = new g();
-    final int[] qvM = new int[3];
-    final int[] qvN = new int[3];
-    final int[] qvO = new int[6];
-    final int[] qvP = {16, 15, 11, 4};
+    int qwu;
+    byte[] qwv;
+    byte[] qww;
+    int qwx;
+    int qwy;
+    int qwz;
+    int qvZ = 0;
+    final a qwb = new a();
+    final int[] qwd = new int[3240];
+    final int[] qwe = new int[3240];
+    final g qwj = new g();
+    final g qwk = new g();
+    final g qwl = new g();
+    final int[] qwm = new int[3];
+    final int[] qwn = new int[3];
+    final int[] qwo = new int[6];
+    final int[] qwp = {16, 15, 11, 4};
     int pos = 0;
-    int hkw = 0;
-    int qvQ = 0;
-    boolean qvR = false;
-    int qvS = 0;
-    int qwl = 0;
-    long qwm = 0;
-    byte[] qwn = new byte[0];
-    int qwo = 0;
+    int hkK = 0;
+    int qwq = 0;
+    boolean qwr = false;
+    int qws = 0;
+    int qwL = 0;
+    long qwM = 0;
+    byte[] qwN = new byte[0];
+    int qwO = 0;
 
     private static int i(a aVar) {
         if (a.a(aVar, 1) == 0) {
@@ -75,27 +75,27 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar, InputStream inputStream) {
-        if (jVar.qvz != 0) {
+        if (jVar.qvZ != 0) {
             throw new IllegalStateException("State MUST be uninitialized");
         }
-        a.a(jVar.qvB, inputStream);
-        int i = i(jVar.qvB);
+        a.a(jVar.qwb, inputStream);
+        int i = i(jVar.qwb);
         if (i == 9) {
             throw new BrotliRuntimeException("Invalid 'windowBits' code");
         }
-        jVar.qwk = 1 << i;
-        jVar.qwj = jVar.qwk - 16;
-        jVar.qvz = 1;
+        jVar.qwK = 1 << i;
+        jVar.qwJ = jVar.qwK - 16;
+        jVar.qvZ = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void j(j jVar) throws IOException {
-        if (jVar.qvz == 0) {
+        if (jVar.qvZ == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (jVar.qvz != 11) {
-            jVar.qvz = 11;
-            a.e(jVar.qvB);
+        if (jVar.qvZ != 11) {
+            jVar.qvZ = 11;
+            a.e(jVar.qwb);
         }
     }
 }

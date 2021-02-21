@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l {
-    private static void Lh(String str) {
+    private static void Li(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -91,16 +91,16 @@ public class l {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    Lh(decode);
+                    Li(decode);
                 }
                 gVar.forumName = matcher.group(2);
             } else {
-                Lh(decode);
+                Li(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf >= 0 && (length = indexOf + "kw=".length()) <= decode.length()) {
                     gVar.forumName = decode.substring(length);
                     try {
-                        gVar.jJk = uri.getQueryParameter("from");
+                        gVar.jJy = uri.getQueryParameter("from");
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
@@ -114,7 +114,7 @@ public class l {
         return gVar;
     }
 
-    public static Intent aS(Context context, String str) {
+    public static Intent aQ(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -125,7 +125,7 @@ public class l {
         return intent;
     }
 
-    public static boolean aT(Context context, String str) {
+    public static boolean aR(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -223,7 +223,7 @@ public class l {
                 str = cbVar.eTn.id;
                 str2 = valueOf;
             }
-            if (cbVar.bom() > 0 && com.baidu.tieba.tbadkCore.util.e.dON()) {
+            if (cbVar.bom() > 0 && com.baidu.tieba.tbadkCore.util.e.dOV()) {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(cbVar.getTid(), String.valueOf(cbVar.bom()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(cbVar, frsFragment.getForumName(), "frs_page", RequestResponseCode.REQUEST_FRS_TO_PB, true, false, z);

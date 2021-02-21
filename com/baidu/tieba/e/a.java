@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.cb;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class a extends BaseCardInfo {
-    public static final BdUniqueId iDS = BdUniqueId.gen();
+    public static final BdUniqueId iEg = BdUniqueId.gen();
     private cb akU;
 
     public void setData(cb cbVar) {
@@ -18,6 +18,6 @@ public class a extends BaseCardInfo {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return iDS;
+        return iEg;
     }
 }

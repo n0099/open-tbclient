@@ -25,14 +25,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d extends BaseAdapter {
-    private LinkedList<v> iHb = new LinkedList<>();
+    private LinkedList<v> iHp = new LinkedList<>();
     private TbPageContext mPageContext;
-    private LinkedList<com.baidu.tbadk.core.view.spanGroup.a> oiV;
-    private a oiW;
+    private LinkedList<com.baidu.tbadk.core.view.spanGroup.a> ojv;
+    private a ojw;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void Lx(int i);
+        void Ly(int i);
 
         void gj(List<v> list);
     }
@@ -43,28 +43,28 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iHb == null) {
+        if (this.iHp == null) {
             return 0;
         }
-        return this.iHb.size();
+        return this.iHp.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.iHb == null || this.iHb.size() <= i) {
+        if (this.iHp == null || this.iHp.size() <= i) {
             return null;
         }
-        return this.iHb.get(i);
+        return this.iHp.get(i);
     }
 
-    public LinkedList<v> dXL() {
-        return this.iHb;
+    public LinkedList<v> dXT() {
+        return this.iHp;
     }
 
-    public com.baidu.tbadk.core.view.spanGroup.a Lw(int i) {
+    public com.baidu.tbadk.core.view.spanGroup.a Lx(int i) {
         long itemId = getItemId(i);
-        if (itemId != 0 && this.oiV != null) {
-            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.oiV.iterator();
+        if (itemId != 0 && this.ojv != null) {
+            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.ojv.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.view.spanGroup.a next = it.next();
                 if (next.getId() == itemId) {
@@ -78,8 +78,8 @@ public class d extends BaseAdapter {
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         int i2 = 0;
-        if (this.iHb != null && this.iHb.size() > i && this.iHb.get(i) != null) {
-            i2 = this.iHb.get(i).mId;
+        if (this.iHp != null && this.iHp.size() > i && this.iHp.get(i) != null) {
+            i2 = this.iHp.get(i).mId;
         }
         return i2;
     }
@@ -106,11 +106,11 @@ public class d extends BaseAdapter {
             bVar2.fjr.setBorderWidth(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             bVar2.fjr.setBorderColor(ap.getColor(R.color.CAM_X0401));
             bVar2.mTitle = (TextView) view.findViewById(R.id.commodity_link_content);
-            bVar2.oiZ = (ImageView) view.findViewById(R.id.commodity_link_close_button);
-            bVar2.oiY = view.findViewById(R.id.extra_info_container);
+            bVar2.ojz = (ImageView) view.findViewById(R.id.commodity_link_close_button);
+            bVar2.ojy = view.findViewById(R.id.extra_info_container);
             bVar2.fjt = (TextView) view.findViewById(R.id.commodity_price);
-            bVar2.oja = (TextView) view.findViewById(R.id.commodity_extra_infos);
-            bVar2.ojb = view.findViewById(R.id.commodity_tail_text_mask);
+            bVar2.ojA = (TextView) view.findViewById(R.id.commodity_extra_infos);
+            bVar2.ojB = view.findViewById(R.id.commodity_tail_text_mask);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
@@ -118,10 +118,10 @@ public class d extends BaseAdapter {
         }
         bVar.fjr.startLoad(vVar.mIcon, 10, false);
         if (TextUtils.isEmpty(vVar.mPrice)) {
-            bVar.oiY.setVisibility(8);
+            bVar.ojy.setVisibility(8);
             bVar.mTitle.setMaxLines(2);
         } else {
-            bVar.oiY.setVisibility(0);
+            bVar.ojy.setVisibility(0);
             bVar.mTitle.setMaxLines(1);
         }
         if (TextUtils.isEmpty(vVar.mPrice)) {
@@ -158,16 +158,16 @@ public class d extends BaseAdapter {
             bVar.mTitle.setMaxLines(1);
         }
         bVar.mTitle.setText(spannableStringBuilder);
-        bVar.oiZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
+        bVar.ojz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                com.baidu.tbadk.core.view.spanGroup.a Lw = d.this.Lw(i);
-                if (Lw != null) {
-                    if (d.this.oiW != null) {
-                        d.this.oiW.Lx(Lw.getId());
+                com.baidu.tbadk.core.view.spanGroup.a Lx = d.this.Lx(i);
+                if (Lx != null) {
+                    if (d.this.ojw != null) {
+                        d.this.ojw.Ly(Lx.getId());
                     }
-                    if (d.this.oiW != null) {
-                        d.this.oiW.gj(d.this.iHb);
+                    if (d.this.ojw != null) {
+                        d.this.ojw.gj(d.this.iHp);
                     }
                 }
             }
@@ -175,24 +175,24 @@ public class d extends BaseAdapter {
         l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
         ap.d(bVar.mRootView, 0, R.color.CAM_X0205, R.color.CAM_X0205);
         com.baidu.tbadk.core.elementsMaven.c.br(bVar.bUP).og(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
-        bVar.oiZ.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
+        bVar.ojz.setImageDrawable(WebPManager.a(R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
         ap.setViewTextColor(bVar.mTitle, R.color.CAM_X0105);
         ap.setViewTextColor(bVar.fjt, R.color.CAM_X0305);
-        ap.setViewTextColor(bVar.oja, R.color.CAM_X0109);
-        ap.a(bVar.ojb, R.color.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
+        ap.setViewTextColor(bVar.ojA, R.color.CAM_X0109);
+        ap.a(bVar.ojB, R.color.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
         return view;
     }
 
     public void h(LinkedList<com.baidu.tbadk.core.view.spanGroup.a> linkedList) {
-        this.oiV = linkedList;
+        this.ojv = linkedList;
     }
 
-    public LinkedList<com.baidu.tbadk.core.view.spanGroup.a> dXM() {
-        return this.oiV;
+    public LinkedList<com.baidu.tbadk.core.view.spanGroup.a> dXU() {
+        return this.ojv;
     }
 
     public void refreshData() {
-        dXO();
+        dXW();
         notifyDataSetChanged();
     }
 
@@ -200,11 +200,11 @@ public class d extends BaseAdapter {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean dXN() {
-        if (y.isEmpty(this.iHb)) {
+    public boolean dXV() {
+        if (y.isEmpty(this.iHp)) {
             return true;
         }
-        Iterator<v> it = this.iHb.iterator();
+        Iterator<v> it = this.iHp.iterator();
         while (it.hasNext()) {
             v next = it.next();
             if (next.mType == 2 || !next.eMN) {
@@ -216,10 +216,10 @@ public class d extends BaseAdapter {
         return true;
     }
 
-    private void dXO() {
-        this.iHb.clear();
-        if (!y.isEmpty(this.oiV)) {
-            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.oiV.iterator();
+    private void dXW() {
+        this.iHp.clear();
+        if (!y.isEmpty(this.ojv)) {
+            Iterator<com.baidu.tbadk.core.view.spanGroup.a> it = this.ojv.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.view.spanGroup.a next = it.next();
                 if (next.isValid() && (next instanceof TbLinkSpanGroup)) {
@@ -227,16 +227,16 @@ public class d extends BaseAdapter {
                     if (tbLinkSpanGroup.bvp() != null) {
                         v bvp = tbLinkSpanGroup.bvp();
                         bvp.eMU = tbLinkSpanGroup.getStart();
-                        this.iHb.add(bvp);
+                        this.iHp.add(bvp);
                     }
                 }
             }
-            Collections.sort(this.iHb);
+            Collections.sort(this.iHp);
         }
     }
 
     public void a(a aVar) {
-        this.oiW = aVar;
+        this.ojw = aVar;
     }
 
     /* loaded from: classes8.dex */
@@ -246,10 +246,10 @@ public class d extends BaseAdapter {
         TextView fjt;
         View mRootView;
         TextView mTitle;
-        View oiY;
-        ImageView oiZ;
-        TextView oja;
-        View ojb;
+        TextView ojA;
+        View ojB;
+        View ojy;
+        ImageView ojz;
 
         private b() {
         }

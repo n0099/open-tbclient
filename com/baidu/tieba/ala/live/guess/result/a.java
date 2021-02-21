@@ -14,63 +14,63 @@ import java.text.DecimalFormat;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private ab hfI;
-    private DecimalFormat hgV;
-    private String hgW;
-    private List<o.c> hgX;
-    private List<o.b> hgY;
-    private String hgZ;
-    private String hha;
-    private String hhb;
-    private boolean hhc;
-    private RelativeSizeSpan hhd;
-    private ForegroundColorSpan hhe;
+    private ab hfW;
+    private DecimalFormat hhj;
+    private String hhk;
+    private List<o.c> hhl;
+    private List<o.b> hhm;
+    private String hhn;
+    private String hho;
+    private String hhp;
+    private boolean hhq;
+    private RelativeSizeSpan hhr;
+    private ForegroundColorSpan hhs;
     private Context mContext;
-    private b hgM = null;
-    private float hgN = 0.0f;
-    private float hgO = 0.0f;
-    private int hgP = 0;
-    private float hgQ = 0.0f;
-    private int hgR = 0;
-    private double hgS = 0.0d;
-    private int hgT = 0;
-    private boolean hgU = false;
+    private b hha = null;
+    private float hhb = 0.0f;
+    private float hhc = 0.0f;
+    private int hhd = 0;
+    private float hhe = 0.0f;
+    private int hhf = 0;
+    private double hhg = 0.0d;
+    private int hhh = 0;
+    private boolean hhi = false;
     private boolean isUseDoubleTicket = false;
     private int mAnswerType = 2;
 
     public void a(Context context, e eVar) {
         this.mContext = context;
-        this.hgM = eVar;
+        this.hha = eVar;
     }
 
     public void a(o oVar, ab abVar) {
         b(oVar, abVar);
-        bXE();
-        bXF();
+        bXL();
+        bXM();
         if (oVar.By()) {
-            bXH();
+            bXO();
         } else {
-            bXG();
+            bXN();
         }
     }
 
     private void b(o oVar, ab abVar) {
-        this.hfI = abVar;
+        this.hfW = abVar;
         o.a BA = oVar.BA();
         if (BA != null) {
-            this.hgQ = BA.BI();
-            if (Math.abs(this.hgQ) <= 1.0E-6d) {
-                this.hgQ = 0.0f;
+            this.hhe = BA.BI();
+            if (Math.abs(this.hhe) <= 1.0E-6d) {
+                this.hhe = 0.0f;
             }
-            this.hgN = (float) BA.BF();
-            this.hgO = (float) BA.BG();
-            this.hgW = BA.BJ();
-            this.hgR = BA.getAnswer();
-            this.hgS = BA.BH();
-            this.hgP = BA.BK();
-            this.hgT = BA.BN();
-            this.hhb = BA.BL();
-            this.hhc = oVar.By();
+            this.hhb = (float) BA.BF();
+            this.hhc = (float) BA.BG();
+            this.hhk = BA.BJ();
+            this.hhf = BA.getAnswer();
+            this.hhg = BA.BH();
+            this.hhd = BA.BK();
+            this.hhh = BA.BN();
+            this.hhp = BA.BL();
+            this.hhq = oVar.By();
             if (BA.BM() == 0) {
                 this.mAnswerType = 0;
             } else if (BA.BM() == 1) {
@@ -79,123 +79,123 @@ public class a {
                 this.mAnswerType = 2;
             }
             if (oVar.By()) {
-                this.hgY = oVar.BD();
+                this.hhm = oVar.BD();
                 return;
             }
             this.isUseDoubleTicket = BA.BO();
-            this.hgX = oVar.BE();
-            this.hgZ = oVar.BB();
-            this.hha = oVar.BC();
+            this.hhl = oVar.BE();
+            this.hhn = oVar.BB();
+            this.hho = oVar.BC();
         }
     }
 
-    private void bXE() {
-        this.hgM.f(bXI());
+    private void bXL() {
+        this.hha.f(bXP());
         StringBuilder sb = new StringBuilder();
-        sb.append(this.hgP).append("人瓜分").append((int) this.hgQ).append("元");
-        this.hgM.a(sb);
-        this.hgM.Hd(this.hgW);
+        sb.append(this.hhd).append("人瓜分").append((int) this.hhe).append("元");
+        this.hha.a(sb);
+        this.hha.He(this.hhk);
         if (this.mAnswerType == 1) {
-            this.hgM.uI(a.e.ala_guess_result_success);
-            if (this.hhc) {
-                this.hgM.g(nv(false));
-                this.hgM.h(nv(true));
+            this.hha.uI(a.e.ala_guess_result_success);
+            if (this.hhq) {
+                this.hha.g(nv(false));
+                this.hha.h(nv(true));
             } else if (this.isUseDoubleTicket) {
-                this.hgM.g(nv(false));
-                this.hgM.h(nv(true));
+                this.hha.g(nv(false));
+                this.hha.h(nv(true));
             }
-            c.nx(this.hhc);
+            c.nx(this.hhq);
         } else if (this.mAnswerType == 0) {
-            this.hgM.uI(a.e.ala_guess_result_failure);
-            c.ny(this.hhc);
+            this.hha.uI(a.e.ala_guess_result_failure);
+            c.ny(this.hhq);
         } else if (this.mAnswerType == 2) {
-            this.hgM.uI(a.e.ala_guess_result_miss);
-            c.nz(this.hhc);
+            this.hha.uI(a.e.ala_guess_result_miss);
+            c.nz(this.hhq);
         }
     }
 
-    private void bXF() {
-        if (!TextUtils.isEmpty(this.hhb) && this.hhb.contains(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
-            String[] split = this.hhb.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-            this.hgM.He(split[0]);
-            this.hgM.Hf(split[1]);
+    private void bXM() {
+        if (!TextUtils.isEmpty(this.hhp) && this.hhp.contains(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
+            String[] split = this.hhp.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            this.hha.Hf(split[0]);
+            this.hha.Hg(split[1]);
         }
-        if (this.hgR == 0) {
-            this.hgU = false;
+        if (this.hhf == 0) {
+            this.hhi = false;
         } else {
-            this.hgU = true;
+            this.hhi = true;
         }
-        this.hgM.nw(this.hgU);
-        int i = (int) (this.hgS * 100.0d);
+        this.hha.nw(this.hhi);
+        int i = (int) (this.hhg * 100.0d);
         int i2 = 100 - i;
-        if (this.hgU) {
-            this.hgM.bI(i, i2);
+        if (this.hhi) {
+            this.hha.bJ(i, i2);
         } else {
-            this.hgM.bI(i2, i);
+            this.hha.bJ(i2, i);
         }
     }
 
-    private void bXG() {
+    private void bXN() {
         if (this.mAnswerType == 1 && this.isUseDoubleTicket) {
-            this.hgM.uJ(2);
+            this.hha.uJ(2);
         } else {
-            this.hgM.uJ(1);
+            this.hha.uJ(1);
         }
         long j = 0;
-        if (this.hfI != null && this.hfI.mLiveInfo != null) {
-            j = this.hfI.mLiveInfo.room_id;
+        if (this.hfW != null && this.hfW.mLiveInfo != null) {
+            j = this.hfW.mLiveInfo.room_id;
         }
-        String str = this.hgZ + "?room_id=" + j;
-        if (this.hgX != null && this.hgX.size() > 0 && this.hgX.get(0) != null) {
-            this.hgM.a(this.hgX.get(0), false, str);
+        String str = this.hhn + "?room_id=" + j;
+        if (this.hhl != null && this.hhl.size() > 0 && this.hhl.get(0) != null) {
+            this.hha.a(this.hhl.get(0), false, str);
             return;
         }
-        this.hgM.u(false, str);
+        this.hha.u(false, str);
     }
 
-    private void bXH() {
-        if (this.mAnswerType == 1 && this.hgT > 1) {
-            this.hgM.uJ(4);
-            this.hgM.uK(this.hgT);
+    private void bXO() {
+        if (this.mAnswerType == 1 && this.hhh > 1) {
+            this.hha.uJ(4);
+            this.hha.uK(this.hhh);
         } else {
-            this.hgM.uJ(5);
+            this.hha.uJ(5);
         }
-        this.hgM.k(this.hgR, this.hgY);
+        this.hha.k(this.hhf, this.hhm);
     }
 
     private SpannableStringBuilder nv(boolean z) {
         String ax;
-        if (this.hgV == null) {
-            this.hgV = new DecimalFormat("0.00");
+        if (this.hhj == null) {
+            this.hhj = new DecimalFormat("0.00");
         }
         if (z) {
-            ax = ax(this.hgO);
+            ax = ax(this.hhc);
         } else {
-            ax = ax(this.hgN);
+            ax = ax(this.hhb);
         }
         String str = ax + "元";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        this.hhe = new ForegroundColorSpan(this.mContext.getResources().getColor(z ? a.c.ala_guess_result_text_color : a.c.ala_guess_bg_double_average_money_color));
+        this.hhs = new ForegroundColorSpan(this.mContext.getResources().getColor(z ? a.c.ala_guess_result_text_color : a.c.ala_guess_bg_double_average_money_color));
         int length = str.length() - 1;
-        spannableStringBuilder.setSpan(this.hhe, 0, length, 34);
-        this.hhd = new RelativeSizeSpan(1.8f);
-        spannableStringBuilder.setSpan(this.hhd, 0, length, 34);
+        spannableStringBuilder.setSpan(this.hhs, 0, length, 34);
+        this.hhr = new RelativeSizeSpan(1.8f);
+        spannableStringBuilder.setSpan(this.hhr, 0, length, 34);
         return spannableStringBuilder;
     }
 
-    private SpannableStringBuilder bXI() {
-        if (this.hgV == null) {
-            this.hgV = new DecimalFormat("0.00");
+    private SpannableStringBuilder bXP() {
+        if (this.hhj == null) {
+            this.hhj = new DecimalFormat("0.00");
         }
-        String ax = ax(this.hgN);
+        String ax = ax(this.hhb);
         int length = "人均".length();
         String str = "人均" + ax + "元";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        this.hhe = new ForegroundColorSpan(this.mContext.getResources().getColor(a.c.ala_guess_bg_double_average_money_color));
+        this.hhs = new ForegroundColorSpan(this.mContext.getResources().getColor(a.c.ala_guess_bg_double_average_money_color));
         int length2 = (str.length() - length) + 1;
-        spannableStringBuilder.setSpan(this.hhe, length, length2, 34);
-        this.hhd = new RelativeSizeSpan(1.8f);
-        spannableStringBuilder.setSpan(this.hhd, length, length2, 34);
+        spannableStringBuilder.setSpan(this.hhs, length, length2, 34);
+        this.hhr = new RelativeSizeSpan(1.8f);
+        spannableStringBuilder.setSpan(this.hhr, length, length2, 34);
         return spannableStringBuilder;
     }
 
@@ -204,8 +204,8 @@ public class a {
         if (Math.abs(f) <= 1.0E-6d) {
             return "0";
         }
-        if (!com.baidu.tieba.ala.live.guess.c.b.Hg(str) && com.baidu.tieba.ala.live.guess.c.b.isDecimal(str)) {
-            return this.hgV.format(f);
+        if (!com.baidu.tieba.ala.live.guess.c.b.Hh(str) && com.baidu.tieba.ala.live.guess.c.b.isDecimal(str)) {
+            return this.hhj.format(f);
         }
         return ((int) f) + "";
     }

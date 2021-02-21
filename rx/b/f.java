@@ -3,8 +3,8 @@ package rx.b;
 import rx.j;
 /* loaded from: classes5.dex */
 public final class f {
-    public static <T> j<T> eNF() {
-        return b(a.eNE());
+    public static <T> j<T> eNN() {
+        return b(a.eNM());
     }
 
     public static <T> j<T> b(final rx.e<? super T> eVar) {

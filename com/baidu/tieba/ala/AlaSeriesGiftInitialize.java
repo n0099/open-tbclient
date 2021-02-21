@@ -8,10 +8,10 @@ import com.baidu.live.adp.framework.task.CustomMessageTask;
 /* loaded from: classes11.dex */
 public class AlaSeriesGiftInitialize {
     static {
-        bOw();
+        bOD();
     }
 
-    private static void bOw() {
+    private static void bOD() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913239, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaSeriesGiftInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {

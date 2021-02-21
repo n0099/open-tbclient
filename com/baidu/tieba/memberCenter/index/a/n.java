@@ -7,31 +7,31 @@ import tbclient.GetVipInfo.VipSpecialItem;
 import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes9.dex */
 public class n implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lnp = BdUniqueId.gen();
+    public static final BdUniqueId lnD = BdUniqueId.gen();
     public String cardId;
-    public boolean lmk = false;
-    public boolean lml = true;
-    private d lmq;
-    private List<o> lmx;
+    private d lmE;
+    private List<o> lmL;
+    public boolean lmy = false;
+    public boolean lmz = true;
 
     public n(VipSpecialList vipSpecialList) {
         this.cardId = "";
         if (vipSpecialList != null && vipSpecialList.item != null && vipSpecialList.item.size() > 0) {
             this.cardId = vipSpecialList.card_id;
-            this.lmq = new d();
-            this.lmq.Es(1);
-            this.lmq.setCategoryName(vipSpecialList.class_name);
-            this.lmq.NZ(vipSpecialList.class_url_name);
-            this.lmq.Oa(vipSpecialList.class_url);
-            this.lmx = new ArrayList();
+            this.lmE = new d();
+            this.lmE.Es(1);
+            this.lmE.setCategoryName(vipSpecialList.class_name);
+            this.lmE.Oa(vipSpecialList.class_url_name);
+            this.lmE.Ob(vipSpecialList.class_url);
+            this.lmL = new ArrayList();
             for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
-                this.lmx.add(new o(vipSpecialItem));
+                this.lmL.add(new o(vipSpecialItem));
             }
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lnp;
+        return lnD;
     }
 }

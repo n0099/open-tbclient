@@ -31,8 +31,8 @@ public class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1166a extends com.meizu.cloud.pushsdk.handler.a {
-        public C1166a() {
+    public class C1168a extends com.meizu.cloud.pushsdk.handler.a {
+        public C1168a() {
         }
 
         @Override // com.meizu.cloud.pushsdk.handler.a
@@ -202,29 +202,29 @@ public class a {
         }
         this.f11109b = context.getApplicationContext();
         this.d = new HashMap();
-        C1166a c1166a = new C1166a();
+        C1168a c1168a = new C1168a();
         if (list != null) {
             a(list);
             return;
         }
-        a(new com.meizu.cloud.pushsdk.handler.a.c(context, c1166a));
-        a(new b(context, c1166a));
-        a(new e(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.b(context, c1166a));
-        a(new d(context, c1166a));
-        a(new f(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.c(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.a(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.c(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.f(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.d(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.e(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.e.a(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.d.b(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.d(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.a.a(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.a(context, c1166a));
-        a(new com.meizu.cloud.pushsdk.handler.a.c.e(context, c1166a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c(context, c1168a));
+        a(new b(context, c1168a));
+        a(new e(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.b(context, c1168a));
+        a(new d(context, c1168a));
+        a(new f(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.c(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.a(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.c(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.f(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.d(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.e(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.e.a(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.d.b(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.d(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.a.a(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.a(context, c1168a));
+        a(new com.meizu.cloud.pushsdk.handler.a.c.e(context, c1168a));
     }
 
     public static a a(Context context) {

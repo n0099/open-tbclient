@@ -23,36 +23,36 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c extends BaseAdapter {
-    private MemberPrivilegeActivity lrq;
-    private boolean lrr = false;
-    private ArrayList<Object> lrs = new ArrayList<>();
+    private MemberPrivilegeActivity lrE;
+    private boolean lrF = false;
+    private ArrayList<Object> lrG = new ArrayList<>();
     private int mMemberType;
 
     public c(MemberPrivilegeActivity memberPrivilegeActivity) {
-        this.lrq = memberPrivilegeActivity;
+        this.lrE = memberPrivilegeActivity;
     }
 
     public void a(com.baidu.tieba.memberCenter.memberprivilege.a aVar) {
-        this.lrs.clear();
-        if (aVar != null && aVar.lra != null && aVar.lrb != null) {
-            List<a.c> list = aVar.lrb;
+        this.lrG.clear();
+        if (aVar != null && aVar.lro != null && aVar.lrp != null) {
+            List<a.c> list = aVar.lrp;
             ArrayList arrayList = new ArrayList();
-            arrayList.add(aVar.lra);
+            arrayList.add(aVar.lro);
             for (a.c cVar : list) {
-                if (cVar != null && !TextUtils.isEmpty(cVar.mClassName) && cVar.lrg != null && cVar.lrg.size() != 0 && aO(cVar.lrg)) {
+                if (cVar != null && !TextUtils.isEmpty(cVar.mClassName) && cVar.lru != null && cVar.lru.size() != 0 && aO(cVar.lru)) {
                     arrayList.add(cVar.mClassName);
-                    Iterator<a.C0795a> it = cVar.lrg.iterator();
+                    Iterator<a.C0796a> it = cVar.lru.iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next());
                     }
                 }
             }
-            this.lrs.addAll(arrayList);
+            this.lrG.addAll(arrayList);
             notifyDataSetChanged();
         }
     }
 
-    public boolean aO(ArrayList<a.C0795a> arrayList) {
+    public boolean aO(ArrayList<a.C0796a> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             return false;
         }
@@ -60,12 +60,12 @@ public class c extends BaseAdapter {
         return arrayList.size() > 0;
     }
 
-    public void aP(ArrayList<a.C0795a> arrayList) {
+    public void aP(ArrayList<a.C0796a> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             ArrayList arrayList2 = new ArrayList();
-            Iterator<a.C0795a> it = arrayList.iterator();
+            Iterator<a.C0796a> it = arrayList.iterator();
             while (it.hasNext()) {
-                a.C0795a next = it.next();
+                a.C0796a next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.mLink) && TextUtils.getTrimmedLength(next.mLink) > 0) {
                     arrayList2.add(next);
                 }
@@ -77,33 +77,33 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lrs == null) {
+        if (this.lrG == null) {
             return 0;
         }
-        return this.lrs.size();
+        return this.lrG.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.lrs == null || i < 0 || i >= this.lrs.size()) {
+        if (this.lrG == null || i < 0 || i >= this.lrG.size()) {
             return null;
         }
-        return this.lrs.get(i);
+        return this.lrG.get(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.lrs == null || i < 0 || i > getCount() || i >= this.lrs.size()) {
+        if (this.lrG == null || i < 0 || i > getCount() || i >= this.lrG.size()) {
             return 3;
         }
-        Object obj = this.lrs.get(i);
+        Object obj = this.lrG.get(i);
         if (obj instanceof a.e) {
             return 0;
         }
         if (obj instanceof String) {
             return 1;
         }
-        return obj instanceof a.C0795a ? 2 : 3;
+        return obj instanceof a.C0796a ? 2 : 3;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -129,19 +129,19 @@ public class c extends BaseAdapter {
     }
 
     private View e(int i, View view, ViewGroup viewGroup) {
-        C0796c c0796c;
+        C0797c c0797c;
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0796c)) {
-            view = LayoutInflater.from(this.lrq.getPageContext().getContext()).inflate(R.layout.memberprivilege_titleview, (ViewGroup) null);
-            c0796c = new C0796c();
-            c0796c.lrI = (TextView) view.findViewById(R.id.title_view);
-            view.setTag(c0796c);
+        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0797c)) {
+            view = LayoutInflater.from(this.lrE.getPageContext().getContext()).inflate(R.layout.memberprivilege_titleview, (ViewGroup) null);
+            c0797c = new C0797c();
+            c0797c.lrW = (TextView) view.findViewById(R.id.title_view);
+            view.setTag(c0797c);
         } else {
-            c0796c = (C0796c) view.getTag();
+            c0797c = (C0797c) view.getTag();
         }
-        c0796c.lrI.setText((String) getItem(i));
-        this.lrq.getLayoutMode().setNightMode(z);
-        this.lrq.getLayoutMode().onModeChanged(view);
+        c0797c.lrW.setText((String) getItem(i));
+        this.lrE.getLayoutMode().setNightMode(z);
+        this.lrE.getLayoutMode().onModeChanged(view);
         return view;
     }
 
@@ -153,75 +153,75 @@ public class c extends BaseAdapter {
         String string;
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.lrq.getPageContext().getContext()).inflate(R.layout.memberprivilege_headview, (ViewGroup) null);
+            view = LayoutInflater.from(this.lrE.getPageContext().getContext()).inflate(R.layout.memberprivilege_headview, (ViewGroup) null);
             aVar = new a();
-            aVar.lrt = (HeadImageView) view.findViewById(R.id.head_portrait);
-            aVar.lru = (RelativeLayout) view.findViewById(R.id.nonmember_stamp);
-            aVar.lrx = (TextView) view.findViewById(R.id.nonmembername);
-            aVar.lrv = (RelativeLayout) view.findViewById(R.id.member_stamp);
-            aVar.lrw = (TextView) view.findViewById(R.id.membername);
-            aVar.lry = (TbImageView) view.findViewById(R.id.membericon);
-            aVar.lrC = (ImageView) view.findViewById(R.id.vip_bean_icon);
-            aVar.lrD = (ImageView) view.findViewById(R.id.nonmember_bean_icon);
-            aVar.lrE = (TextView) view.findViewById(R.id.vip_tbean_num);
-            aVar.lrF = (TextView) view.findViewById(R.id.nonmember_tbean_num);
-            aVar.lrz = (TextView) view.findViewById(R.id.endtime);
-            aVar.lrA = (TextView) view.findViewById(R.id.left_button);
-            aVar.lrB = (TextView) view.findViewById(R.id.right_button);
+            aVar.lrH = (HeadImageView) view.findViewById(R.id.head_portrait);
+            aVar.lrI = (RelativeLayout) view.findViewById(R.id.nonmember_stamp);
+            aVar.lrL = (TextView) view.findViewById(R.id.nonmembername);
+            aVar.lrJ = (RelativeLayout) view.findViewById(R.id.member_stamp);
+            aVar.lrK = (TextView) view.findViewById(R.id.membername);
+            aVar.lrM = (TbImageView) view.findViewById(R.id.membericon);
+            aVar.lrQ = (ImageView) view.findViewById(R.id.vip_bean_icon);
+            aVar.lrR = (ImageView) view.findViewById(R.id.nonmember_bean_icon);
+            aVar.lrS = (TextView) view.findViewById(R.id.vip_tbean_num);
+            aVar.lrT = (TextView) view.findViewById(R.id.nonmember_tbean_num);
+            aVar.lrN = (TextView) view.findViewById(R.id.endtime);
+            aVar.lrO = (TextView) view.findViewById(R.id.left_button);
+            aVar.lrP = (TextView) view.findViewById(R.id.right_button);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         if (!TbadkApplication.getInst().appResponseToCmd(1001533)) {
-            aVar.lrB.setVisibility(8);
+            aVar.lrP.setVisibility(8);
         } else {
-            aVar.lrB.setVisibility(0);
+            aVar.lrP.setVisibility(0);
         }
-        if (getItem(i) == null || (eVar = (a.e) getItem(i)) == null || (bVar = eVar.lrl) == null || (dVar = eVar.lrm) == null) {
+        if (getItem(i) == null || (eVar = (a.e) getItem(i)) == null || (bVar = eVar.lrz) == null || (dVar = eVar.lrA) == null) {
             return null;
         }
-        long j = dVar.lrj + dVar.lrk;
-        this.mMemberType = (int) bVar.lqb;
-        long j2 = bVar.lrd;
-        String J = J(j2, bVar.lre);
-        aVar.lrt.startLoad(eVar.mPortrait, 25, false);
-        ap.setBackgroundResource(aVar.lrt, R.drawable.memberinfo_bg_shape);
+        long j = dVar.lrx + dVar.lry;
+        this.mMemberType = (int) bVar.lqp;
+        long j2 = bVar.lrr;
+        String J = J(j2, bVar.lrs);
+        aVar.lrH.startLoad(eVar.mPortrait, 25, false);
+        ap.setBackgroundResource(aVar.lrH, R.drawable.memberinfo_bg_shape);
         if (!dVar.isValid()) {
             j = 0;
         }
         if (bVar.isValid() && dVar.isValid()) {
-            aVar.lru.setVisibility(8);
-            aVar.lrv.setVisibility(0);
-            aVar.lry.startLoad(eVar.lrl.lrf, 21, false);
-            if (this.lrr) {
-                aVar.lrz.setText(Oe(J));
+            aVar.lrI.setVisibility(8);
+            aVar.lrJ.setVisibility(0);
+            aVar.lrM.startLoad(eVar.lrz.lrt, 21, false);
+            if (this.lrF) {
+                aVar.lrN.setText(Of(J));
             } else {
                 if (1 == this.mMemberType) {
-                    string = this.lrq.getPageContext().getString(R.string.member);
+                    string = this.lrE.getPageContext().getString(R.string.member);
                 } else {
-                    string = this.lrq.getPageContext().getString(R.string.vip_member);
+                    string = this.lrE.getPageContext().getString(R.string.vip_member);
                 }
-                aVar.lrz.setText(this.lrq.getResources().getString(R.string.endtiem_memeber_tip, string, au.getDateStringDay(new Date(j2 * 1000))));
-                ap.setViewTextColor(aVar.lrz, R.color.CAM_X0101, 1);
+                aVar.lrN.setText(this.lrE.getResources().getString(R.string.endtiem_memeber_tip, string, au.getDateStringDay(new Date(j2 * 1000))));
+                ap.setViewTextColor(aVar.lrN, R.color.CAM_X0101, 1);
             }
-            aVar.lrw.setText(eVar.mName);
-            aVar.lrA.setText(this.mMemberType == 1 ? R.string.continue_member : R.string.continue_vip_member);
-            aVar.lrA.setOnClickListener(this.lrq);
-            aVar.lrE.setText(String.valueOf(j));
-            ap.setImageResource(aVar.lrC, R.drawable.icon_vip_dou);
+            aVar.lrK.setText(eVar.mName);
+            aVar.lrO.setText(this.mMemberType == 1 ? R.string.continue_member : R.string.continue_vip_member);
+            aVar.lrO.setOnClickListener(this.lrE);
+            aVar.lrS.setText(String.valueOf(j));
+            ap.setImageResource(aVar.lrQ, R.drawable.icon_vip_dou);
         } else {
-            aVar.lru.setVisibility(0);
-            aVar.lrv.setVisibility(8);
-            aVar.lrx.setText(eVar.mName);
-            aVar.lrA.setText(R.string.dredge_member);
-            aVar.lrA.setOnClickListener(this.lrq);
-            aVar.lrF.setText(String.valueOf(j));
-            ap.setImageResource(aVar.lrD, R.drawable.icon_vip_dou);
+            aVar.lrI.setVisibility(0);
+            aVar.lrJ.setVisibility(8);
+            aVar.lrL.setText(eVar.mName);
+            aVar.lrO.setText(R.string.dredge_member);
+            aVar.lrO.setOnClickListener(this.lrE);
+            aVar.lrT.setText(String.valueOf(j));
+            ap.setImageResource(aVar.lrR, R.drawable.icon_vip_dou);
         }
-        ap.setBackgroundResource(aVar.lrz, R.drawable.bg_dredge_tips);
-        aVar.lrB.setOnClickListener(this.lrq);
-        this.lrq.getLayoutMode().setNightMode(z);
-        this.lrq.getLayoutMode().onModeChanged(view);
+        ap.setBackgroundResource(aVar.lrN, R.drawable.bg_dredge_tips);
+        aVar.lrP.setOnClickListener(this.lrE);
+        this.lrE.getLayoutMode().setNightMode(z);
+        this.lrE.getLayoutMode().onModeChanged(view);
         return view;
     }
 
@@ -230,9 +230,9 @@ public class c extends BaseAdapter {
         if (0 >= j3 || j3 > 345600) {
             return "";
         }
-        this.lrr = true;
+        this.lrF = true;
         if (0 < j3 && j3 <= 86400) {
-            return this.lrq.getPageContext().getString(R.string.today);
+            return this.lrE.getPageContext().getString(R.string.today);
         }
         if (86400 < j3 && j3 <= 172800) {
             return "1";
@@ -243,8 +243,8 @@ public class c extends BaseAdapter {
         return "3";
     }
 
-    private SpannableString Oe(String str) {
-        SpannableString spannableString = new SpannableString(this.lrq.getResources().getString(R.string.endtime_days_tip, str));
+    private SpannableString Of(String str) {
+        SpannableString spannableString = new SpannableString(this.lrE.getResources().getString(R.string.endtime_days_tip, str));
         spannableString.setSpan(new ForegroundColorSpan(ap.getColor(R.color.CAM_X0105)), 0, 4, 33);
         spannableString.setSpan(new ForegroundColorSpan(ap.getColor(R.color.CAM_X0308)), 4, 5, 33);
         spannableString.setSpan(new ForegroundColorSpan(ap.getColor(R.color.CAM_X0105)), 5, 16, 33);
@@ -255,25 +255,25 @@ public class c extends BaseAdapter {
         b bVar;
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
-            view = LayoutInflater.from(this.lrq.getPageContext().getContext()).inflate(R.layout.memberprivilege_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.lrE.getPageContext().getContext()).inflate(R.layout.memberprivilege_item, (ViewGroup) null);
             bVar = new b();
-            bVar.lrG = (HeadImageView) view.findViewById(R.id.item_portrait);
+            bVar.lrU = (HeadImageView) view.findViewById(R.id.item_portrait);
             bVar.mTitle = (TextView) view.findViewById(R.id.title);
             bVar.aju = (TextView) view.findViewById(R.id.description);
-            bVar.lrH = (ImageView) view.findViewById(R.id.divide_line_top);
+            bVar.lrV = (ImageView) view.findViewById(R.id.divide_line_top);
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
         if (getItemViewType(i - 1) == 1) {
-            bVar.lrH.setVisibility(8);
+            bVar.lrV.setVisibility(8);
         }
-        a.C0795a c0795a = (a.C0795a) getItem(i);
-        bVar.lrG.startLoad(c0795a.lrc, 10, false);
-        bVar.mTitle.setText(c0795a.mTitle);
-        bVar.aju.setText(c0795a.mDesc);
-        this.lrq.getLayoutMode().setNightMode(z);
-        this.lrq.getLayoutMode().onModeChanged(view);
+        a.C0796a c0796a = (a.C0796a) getItem(i);
+        bVar.lrU.startLoad(c0796a.lrq, 10, false);
+        bVar.mTitle.setText(c0796a.mTitle);
+        bVar.aju.setText(c0796a.mDesc);
+        this.lrE.getLayoutMode().setNightMode(z);
+        this.lrE.getLayoutMode().onModeChanged(view);
         return view;
     }
 
@@ -281,8 +281,8 @@ public class c extends BaseAdapter {
     /* loaded from: classes9.dex */
     public static class b {
         public TextView aju;
-        public HeadImageView lrG;
-        public ImageView lrH;
+        public HeadImageView lrU;
+        public ImageView lrV;
         public TextView mTitle;
 
         private b() {
@@ -292,19 +292,19 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes9.dex */
     public static class a {
-        public TextView lrA;
-        public TextView lrB;
-        public ImageView lrC;
-        public ImageView lrD;
-        public TextView lrE;
-        public TextView lrF;
-        public HeadImageView lrt;
-        public RelativeLayout lru;
-        public RelativeLayout lrv;
-        public TextView lrw;
-        public TextView lrx;
-        public TbImageView lry;
-        public TextView lrz;
+        public HeadImageView lrH;
+        public RelativeLayout lrI;
+        public RelativeLayout lrJ;
+        public TextView lrK;
+        public TextView lrL;
+        public TbImageView lrM;
+        public TextView lrN;
+        public TextView lrO;
+        public TextView lrP;
+        public ImageView lrQ;
+        public ImageView lrR;
+        public TextView lrS;
+        public TextView lrT;
 
         private a() {
         }
@@ -313,10 +313,10 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.memberCenter.memberprivilege.c$c  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C0796c {
-        public TextView lrI;
+    public static class C0797c {
+        public TextView lrW;
 
-        private C0796c() {
+        private C0797c() {
         }
     }
 

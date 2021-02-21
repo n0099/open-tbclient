@@ -8,7 +8,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.lib.b.f;
 import com.kwad.sdk.lib.widget.recycler.a.b;
 import com.kwad.sdk.lib.widget.recycler.b.a;
-import com.kwad.sdk.lib.widget.recycler.b.a.C1141a;
+import com.kwad.sdk.lib.widget.recycler.b.a.C1143a;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public abstract class c<Model, CallerContext extends a.C1141a<Model>> extends a<Model, com.kwad.sdk.lib.widget.recycler.b.a<Model, CallerContext>> {
+public abstract class c<Model, CallerContext extends a.C1143a<Model>> extends a<Model, com.kwad.sdk.lib.widget.recycler.b.a<Model, CallerContext>> {
     private static final ExecutorService c = new ThreadPoolExecutor(1, 1, 1, TimeUnit.MINUTES, new LinkedBlockingQueue());
     private KsFragment d;
     private RecyclerView e;

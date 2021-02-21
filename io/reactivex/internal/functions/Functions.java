@@ -7,18 +7,18 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
 public final class Functions {
-    static final io.reactivex.b.h<Object, Object> qnA = new g();
-    public static final Runnable qnB = new d();
-    public static final io.reactivex.b.a qnC = new a();
-    static final io.reactivex.b.g<Object> qnD = new b();
-    public static final io.reactivex.b.g<Throwable> qnE = new e();
-    public static final io.reactivex.b.g<Throwable> qnF = new k();
-    public static final io.reactivex.b.i qnG = new c();
-    static final io.reactivex.b.j<Object> qnH = new l();
-    static final io.reactivex.b.j<Object> qnI = new f();
-    static final Callable<Object> qnJ = new j();
-    static final Comparator<Object> qnK = new i();
-    public static final io.reactivex.b.g<org.a.d> qnL = new h();
+    static final io.reactivex.b.h<Object, Object> qoa = new g();
+    public static final Runnable qob = new d();
+    public static final io.reactivex.b.a qoc = new a();
+    static final io.reactivex.b.g<Object> qod = new b();
+    public static final io.reactivex.b.g<Throwable> qoe = new e();
+    public static final io.reactivex.b.g<Throwable> qof = new k();
+    public static final io.reactivex.b.i qog = new c();
+    static final io.reactivex.b.j<Object> qoh = new l();
+    static final io.reactivex.b.j<Object> qoi = new f();
+    static final Callable<Object> qoj = new j();
+    static final Comparator<Object> qok = new i();
+    public static final io.reactivex.b.g<org.a.d> qol = new h();
 
     /* loaded from: classes5.dex */
     enum HashSetCallable implements Callable<Set<Object>> {

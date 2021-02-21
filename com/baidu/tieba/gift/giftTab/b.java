@@ -63,14 +63,14 @@ public class b extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.gift_list_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.jUK = (TbImageView) view.findViewById(R.id.image);
-            aVar2.jUK.setDefaultBgResource(R.drawable.transparent_bg);
-            aVar2.jUV = (TbImageView) view.findViewById(R.id.mark_icon_iamge);
-            aVar2.jUV.setDefaultBgResource(R.drawable.transparent_bg);
-            aVar2.jUV.setDefaultResource(R.drawable.transparent_bg);
-            aVar2.jUL = view.findViewById(R.id.mask);
+            aVar2.jUY = (TbImageView) view.findViewById(R.id.image);
+            aVar2.jUY.setDefaultBgResource(R.drawable.transparent_bg);
+            aVar2.jVj = (TbImageView) view.findViewById(R.id.mark_icon_iamge);
+            aVar2.jVj.setDefaultBgResource(R.drawable.transparent_bg);
+            aVar2.jVj.setDefaultResource(R.drawable.transparent_bg);
+            aVar2.jUZ = view.findViewById(R.id.mask);
             aVar2.enq = (TextView) view.findViewById(R.id.name);
-            aVar2.jUM = (TextView) view.findViewById(R.id.price);
+            aVar2.jVa = (TextView) view.findViewById(R.id.price);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -78,23 +78,23 @@ public class b extends BaseAdapter {
         }
         ap.setViewTextColor(aVar.enq, R.color.CAM_X0105, 1);
         if (i == this.mSelectedPosition) {
-            ap.setBackgroundResource(aVar.jUL, R.drawable.chx_box_gift_s);
+            ap.setBackgroundResource(aVar.jUZ, R.drawable.chx_box_gift_s);
         } else {
-            aVar.jUL.setBackgroundResource(R.color.common_color_10022);
+            aVar.jUZ.setBackgroundResource(R.color.common_color_10022);
         }
         ai item = getItem(i);
         if (item != null) {
             aVar.enq.setText(item.name);
-            aVar.jUK.startLoad(item.thumbnailUrl, 10, false);
-            aVar.jUV.startLoad(item.eNR, 10, false);
+            aVar.jUY.startLoad(item.thumbnailUrl, 10, false);
+            aVar.jVj.startLoad(item.eNR, 10, false);
             if (item.aHS == 5) {
-                aVar.jUM.setVisibility(8);
+                aVar.jVa.setVisibility(8);
             } else if (item.aHS == 3) {
-                aVar.jUM.setVisibility(0);
-                aVar.jUM.setText(g.m(item.eNS, false));
+                aVar.jVa.setVisibility(0);
+                aVar.jVa.setText(g.m(item.eNS, false));
             } else {
-                aVar.jUM.setVisibility(0);
-                aVar.jUM.setText(g.m(item.price, false));
+                aVar.jVa.setVisibility(0);
+                aVar.jVa.setText(g.m(item.price, false));
             }
         }
         return view;
@@ -103,10 +103,10 @@ public class b extends BaseAdapter {
     /* loaded from: classes9.dex */
     private static class a {
         public TextView enq;
-        public TbImageView jUK;
-        public View jUL;
-        public TextView jUM;
-        public TbImageView jUV;
+        public TbImageView jUY;
+        public View jUZ;
+        public TextView jVa;
+        public TbImageView jVj;
 
         private a() {
         }

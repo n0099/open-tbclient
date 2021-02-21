@@ -10,7 +10,7 @@ public class c extends com.baidu.adp.widget.ListView.a<g, ConcernTabRecommendTit
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), g.gCp);
+        super(tbPageContext.getPageActivity(), g.gCD);
         this.mPageContext = tbPageContext;
     }
 

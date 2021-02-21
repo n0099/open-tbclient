@@ -23,7 +23,7 @@ public class CheckResponse extends JsonHttpResponsedMessage {
                 this.mCheckResponseData.eKQ = jSONObject.optString("tbopen_app_icon");
                 JSONObject optJSONObject = jSONObject.optJSONObject("config");
                 if (optJSONObject != null) {
-                    this.mCheckResponseData.ogc = optJSONObject.optString("default_pic");
+                    this.mCheckResponseData.ogC = optJSONObject.optString("default_pic");
                 }
             }
         }

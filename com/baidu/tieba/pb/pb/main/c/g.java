@@ -18,10 +18,10 @@ import com.baidu.tieba.card.ab;
 public class g extends a {
     private ItemCardView agZ;
     private LinearLayout mRootView;
-    private af meA;
-    private ar meE;
-    private com.baidu.tbadk.core.data.a met;
-    private cb mew;
+    private com.baidu.tbadk.core.data.a meI;
+    private cb meL;
+    private af meP;
+    private ar meT;
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -38,23 +38,23 @@ public class g extends a {
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.meA == null) {
-            this.meA = new af(this.eUY);
-            this.meA.c(true);
+        if (this.meP == null) {
+            this.meP = new af(this.eUY);
+            this.meP.c(true);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.topMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
         layoutParams.leftMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        this.mRootView.addView(this.meA.getView(), layoutParams);
-        if (this.meE == null) {
-            this.meE = new ar(this.eUY.getPageActivity());
-            this.meE.setFrom("pb");
+        this.mRootView.addView(this.meP.getView(), layoutParams);
+        if (this.meT == null) {
+            this.meT = new ar(this.eUY.getPageActivity());
+            this.meT.setFrom("pb");
         }
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
         layoutParams2.bottomMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.tbds_30);
-        this.mRootView.addView(this.meE.getView(), layoutParams2);
+        this.mRootView.addView(this.meT.getView(), layoutParams2);
         if (this.agZ == null) {
             this.agZ = new ItemCardView(this.eUY.getPageActivity());
         }
@@ -70,12 +70,12 @@ public class g extends a {
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.mes = originalThreadInfo;
-        this.mew = originalThreadInfo == null ? null : originalThreadInfo.bmq();
-        this.met = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.g.1
+        this.meH = originalThreadInfo;
+        this.meL = originalThreadInfo == null ? null : originalThreadInfo.bmq();
+        this.meI = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.g.1
             @Override // com.baidu.tbadk.core.data.a
             public cb bln() {
-                return g.this.mew;
+                return g.this.meL;
             }
 
             @Override // com.baidu.tbadk.core.data.a
@@ -88,40 +88,40 @@ public class g extends a {
                 return null;
             }
         };
-        if (this.meE != null) {
-            this.meE.C(this.met);
+        if (this.meT != null) {
+            this.meT.C(this.meI);
         }
         if (this.agZ != null && originalThreadInfo != null) {
             this.agZ.setData(originalThreadInfo.item, 17);
         }
-        if (this.meA != null) {
-            this.meA.C(this.met);
+        if (this.meP != null) {
+            this.meP.C(this.meI);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(ab abVar) {
         super.a(abVar);
-        if (this.meE != null) {
-            this.meE.setOnCardSubClickListener(this.mer);
+        if (this.meT != null) {
+            this.meT.setOnCardSubClickListener(this.meG);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void a(a.InterfaceC0088a interfaceC0088a) {
         super.a(interfaceC0088a);
-        if (this.meE != null) {
-            this.meE.a(interfaceC0088a);
+        if (this.meT != null) {
+            this.meT.a(interfaceC0088a);
         }
-        if (this.meA != null) {
-            this.meA.a(interfaceC0088a);
+        if (this.meP != null) {
+            this.meP.a(interfaceC0088a);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.g.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (g.this.agh != null) {
-                        g.this.agh.a(g.this.met);
+                        g.this.agh.a(g.this.meI);
                     }
                 }
             });
@@ -133,14 +133,14 @@ public class g extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
-            if (this.meA != null) {
-                this.meA.onChangeSkinType(tbPageContext, i);
+            if (this.meP != null) {
+                this.meP.onChangeSkinType(tbPageContext, i);
             }
             if (this.agZ != null) {
                 this.agZ.onChangeSkinType();
             }
-            if (this.meE != null) {
-                this.meE.onChangeSkinType(tbPageContext, i);
+            if (this.meT != null) {
+                this.meT.onChangeSkinType(tbPageContext, i);
             }
         }
     }

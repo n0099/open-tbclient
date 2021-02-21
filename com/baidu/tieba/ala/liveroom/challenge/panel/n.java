@@ -5,19 +5,19 @@ public interface n {
 
     void aI(long j);
 
-    void bQ(int i, int i2);
+    void bR(int i, int i2);
 
-    void cdA();
+    void cdD();
 
-    void cdB();
+    void cdE();
 
-    void cdw();
+    void cdF();
 
-    void cdx();
+    void cdG();
 
-    void cdy();
+    void cdH();
 
-    void cdz();
+    void cdI();
 
     void cw(int i);
 

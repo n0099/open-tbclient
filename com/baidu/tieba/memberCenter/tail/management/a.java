@@ -15,33 +15,33 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a extends BaseAdapter {
     private TbPageContext<?> eUY;
-    private InterfaceC0797a lsE;
-    private d lsy;
-    private View.OnClickListener lsF = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.management.a.1
+    private d lsM;
+    private InterfaceC0798a lsS;
+    private View.OnClickListener lsT = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.management.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.dgc();
+            a.this.dgj();
         }
     };
     private View.OnClickListener fml = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.management.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TailData dfT;
-            if (view != null && view.getTag() != null && (dfT = ((c) view.getTag()).dfT()) != null && !a.this.lsy.dgg()) {
-                a.this.m(dfT.getId(), dfT.getContent(), dfT.getFontColor());
+            TailData dga;
+            if (view != null && view.getTag() != null && (dga = ((c) view.getTag()).dga()) != null && !a.this.lsM.dgn()) {
+                a.this.m(dga.getId(), dga.getContent(), dga.getFontColor());
             }
         }
     };
-    private View.OnClickListener lsG = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.management.a.3
+    private View.OnClickListener lsU = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.management.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             c cVar;
-            if (view != null && (cVar = (c) view.getTag()) != null && cVar.dfT() != null) {
-                a.this.lsy.EH(cVar.dfT().getId());
+            if (view != null && (cVar = (c) view.getTag()) != null && cVar.dga() != null) {
+                a.this.lsM.EH(cVar.dga().getId());
             }
         }
     };
-    private com.baidu.tieba.memberCenter.tail.a.a<Void> lsH = new com.baidu.tieba.memberCenter.tail.a.a<Void>() { // from class: com.baidu.tieba.memberCenter.tail.management.a.4
+    private com.baidu.tieba.memberCenter.tail.a.a<Void> lsV = new com.baidu.tieba.memberCenter.tail.a.a<Void>() { // from class: com.baidu.tieba.memberCenter.tail.management.a.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.memberCenter.tail.a.a
         /* renamed from: a */
@@ -49,11 +49,11 @@ public class a extends BaseAdapter {
             if (z) {
                 a.this.eUY.showToast(str);
             } else {
-                a.this.setData(a.this.lsy.getTails());
+                a.this.setData(a.this.lsM.getTails());
             }
         }
     };
-    private com.baidu.tieba.memberCenter.tail.a.a<Integer> lsI = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.management.a.5
+    private com.baidu.tieba.memberCenter.tail.a.a<Integer> lsW = new com.baidu.tieba.memberCenter.tail.a.a<Integer>() { // from class: com.baidu.tieba.memberCenter.tail.management.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.memberCenter.tail.a.a
         /* renamed from: a */
@@ -67,20 +67,20 @@ public class a extends BaseAdapter {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TAIL_REFRESH, new com.baidu.tieba.memberCenter.tail.data.e(3, tailData)));
         }
     };
-    private List<Object> lsD = new ArrayList();
+    private List<Object> lsR = new ArrayList();
 
     /* renamed from: com.baidu.tieba.memberCenter.tail.management.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0797a {
-        void dgb();
+    public interface InterfaceC0798a {
+        void dgi();
     }
 
-    public a(TbPageContext<?> tbPageContext, d dVar, InterfaceC0797a interfaceC0797a) {
+    public a(TbPageContext<?> tbPageContext, d dVar, InterfaceC0798a interfaceC0798a) {
         this.eUY = tbPageContext;
-        this.lsy = dVar;
-        this.lsy.c(this.lsH);
-        this.lsy.d(this.lsI);
-        this.lsE = interfaceC0797a;
+        this.lsM = dVar;
+        this.lsM.c(this.lsV);
+        this.lsM.d(this.lsW);
+        this.lsS = interfaceC0798a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -89,40 +89,40 @@ public class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgc() {
-        this.eUY.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TailEditActivityConfig(this.eUY.getPageActivity(), this.lsy.getTails().isEmpty())));
+    public void dgj() {
+        this.eUY.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TailEditActivityConfig(this.eUY.getPageActivity(), this.lsM.getTails().isEmpty())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setData(List<TailData> list) {
-        this.lsy.eT(list);
+        this.lsM.eT(list);
         refresh();
     }
 
     public void refresh() {
-        dgd();
+        dgk();
         notifyDataSetChanged();
     }
 
-    private void dgd() {
-        if (this.lsE != null) {
-            this.lsE.dgb();
+    private void dgk() {
+        if (this.lsS != null) {
+            this.lsS.dgi();
         }
-        this.lsD.clear();
-        this.lsD.addAll(this.lsy.getTails());
-        if (!this.lsy.dgg()) {
-            this.lsD.add(new com.baidu.tieba.memberCenter.tail.data.a(this.lsy.dgf()));
+        this.lsR.clear();
+        this.lsR.addAll(this.lsM.getTails());
+        if (!this.lsM.dgn()) {
+            this.lsR.add(new com.baidu.tieba.memberCenter.tail.data.a(this.lsM.dgm()));
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.lsD.size();
+        return this.lsR.size();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        Object obj = this.lsD.get(i);
+        Object obj = this.lsR.get(i);
         if (obj instanceof TailData) {
             return 0;
         }
@@ -148,12 +148,12 @@ public class a extends BaseAdapter {
         if (view == null) {
             bVar = new b();
             view = bVar.gB(this.eUY.getPageActivity());
-            bVar.I(this.lsF);
+            bVar.I(this.lsT);
             bVar.D(this.eUY);
         } else {
             bVar = (b) view.getTag();
         }
-        bVar.EG(this.lsy.dgf());
+        bVar.EG(this.lsM.dgm());
         return view;
     }
 
@@ -167,13 +167,13 @@ public class a extends BaseAdapter {
             cVar = new c();
             view = cVar.gB(this.eUY.getPageActivity());
             cVar.J(this.fml);
-            cVar.K(this.lsG);
+            cVar.K(this.lsU);
             cVar.D(this.eUY);
         } else {
             cVar = (c) view.getTag();
         }
         cVar.b(tailData);
-        cVar.o(Boolean.valueOf(this.lsy.dgg()));
+        cVar.o(Boolean.valueOf(this.lsM.dgn()));
         return view;
     }
 
@@ -184,7 +184,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.lsD.get(i);
+        return this.lsR.get(i);
     }
 
     @Override // android.widget.Adapter

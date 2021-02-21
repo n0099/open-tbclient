@@ -15,29 +15,29 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.tieba.lego.card.model.ButtonCard;
-import com.baidu.tieba.recapp.r;
+import com.baidu.tieba.recapp.s;
 /* loaded from: classes9.dex */
 public class ButtonCardView extends BaseCardView<ButtonCard> {
-    private RelativeLayout lcn;
-    private TbImageView lco;
-    private Button lcp;
-    private int lcq;
-    private int lcr;
-    private final int lcs;
+    private RelativeLayout lcC;
+    private TbImageView lcD;
+    private Button lcE;
+    private int lcF;
+    private int lcG;
+    private final int lcH;
 
     public ButtonCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.lcq = -1;
-        this.lcr = -1;
-        this.lcs = com.baidu.adp.lib.util.l.getEquipmentWidth(getContext());
+        this.lcF = -1;
+        this.lcG = -1;
+        this.lcH = com.baidu.adp.lib.util.l.getEquipmentWidth(getContext());
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbO() {
-        this.lcn = (RelativeLayout) LayoutInflater.from(this.eUY.getPageActivity().getApplicationContext()).inflate(R.layout.card_button, (ViewGroup) null);
-        this.lcp = (Button) this.lcn.findViewById(R.id.bt_phone);
-        this.lco = (TbImageView) this.lcn.findViewById(R.id.tb_phone_background);
-        return this.lcn;
+    protected View dbV() {
+        this.lcC = (RelativeLayout) LayoutInflater.from(this.eUY.getPageActivity().getApplicationContext()).inflate(R.layout.card_button, (ViewGroup) null);
+        this.lcE = (Button) this.lcC.findViewById(R.id.bt_phone);
+        this.lcD = (TbImageView) this.lcC.findViewById(R.id.tb_phone_background);
+        return this.lcC;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,40 +52,40 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public void d(final ButtonCard buttonCard) {
         if (buttonCard != null) {
             reset();
-            float cardWidth = (float) ((this.lcs * 1.0d) / buttonCard.getCardWidth());
-            ViewGroup.LayoutParams layoutParams = this.lcn.getLayoutParams();
-            layoutParams.width = this.lcs;
+            float cardWidth = (float) ((this.lcH * 1.0d) / buttonCard.getCardWidth());
+            ViewGroup.LayoutParams layoutParams = this.lcC.getLayoutParams();
+            layoutParams.width = this.lcH;
             layoutParams.height = (int) (buttonCard.getCardHeight() * cardWidth);
-            this.lcn.setLayoutParams(layoutParams);
+            this.lcC.setLayoutParams(layoutParams);
             int bgColor = buttonCard.getBgColor();
-            this.lco.setDefaultBgResource(R.color.transparent);
+            this.lcD.setDefaultBgResource(R.color.transparent);
             if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
-                this.lco.startLoad(buttonCard.getPicUrl(), 17, false);
+                this.lcD.startLoad(buttonCard.getPicUrl(), 17, false);
             } else if (!com.baidu.tieba.lego.card.c.b.DT(bgColor)) {
-                this.lco.setBackgroundColor(bgColor);
+                this.lcD.setBackgroundColor(bgColor);
             } else {
-                this.lco.setDefaultBgResource(R.color.transparent);
+                this.lcD.setDefaultBgResource(R.color.transparent);
             }
             int dimension = layoutParams.height - ((int) (cardWidth * TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.button_card_padding40)));
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.lcp.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.lcE.getLayoutParams();
             layoutParams2.height = dimension;
             layoutParams2.addRule(13);
-            this.lcp.setText(buttonCard.getText());
-            this.lcp.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
+            this.lcE.setText(buttonCard.getText());
+            this.lcE.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
             int textColor = buttonCard.getTextColor();
             if (!com.baidu.tieba.lego.card.c.b.DT(textColor)) {
-                this.lcp.setTextColor(textColor);
+                this.lcE.setTextColor(textColor);
             }
-            this.lcp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.ButtonCardView.1
+            this.lcE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.ButtonCardView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     ButtonCardView.this.setDialog(buttonCard);
-                    r.dDm().dDi().ei(buttonCard.getsExtras(), ButtonCardView.this.mFrom);
+                    s.dDt().dDp().ei(buttonCard.getsExtras(), ButtonCardView.this.mFrom);
                 }
             });
-            this.lcq = buttonCard.getStyle();
+            this.lcF = buttonCard.getStyle();
             int buttonColor = buttonCard.getButtonColor();
-            switch (this.lcq) {
+            switch (this.lcF) {
                 case 1:
                     GradientDrawable gradientDrawable = new GradientDrawable();
                     gradientDrawable.setShape(0);
@@ -93,23 +93,23 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
                         gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds3), buttonColor);
                     }
                     gradientDrawable.setColor(0);
-                    this.lcp.setBackgroundDrawable(gradientDrawable);
+                    this.lcE.setBackgroundDrawable(gradientDrawable);
                     break;
                 case 2:
                     if (!com.baidu.tieba.lego.card.c.b.DT(buttonColor)) {
-                        this.lcp.setBackgroundColor(buttonColor);
+                        this.lcE.setBackgroundColor(buttonColor);
                         break;
                     } else {
-                        this.lcp.setBackgroundColor(0);
+                        this.lcE.setBackgroundColor(0);
                         break;
                     }
                 default:
-                    this.lcp.setBackgroundColor(0);
+                    this.lcE.setBackgroundColor(0);
                     break;
             }
-            if (!LegoListFragment.laS.contains(buttonCard.toString())) {
-                LegoListFragment.laS.add(buttonCard.toString());
-                r.dDm().dDi().eh(buttonCard.getShowExtra(), this.mFrom);
+            if (!LegoListFragment.lbg.contains(buttonCard.toString())) {
+                LegoListFragment.lbg.add(buttonCard.toString());
+                s.dDt().dDp().eh(buttonCard.getShowExtra(), this.mFrom);
             }
         }
     }
@@ -122,14 +122,14 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 bf.bsV().b(ButtonCardView.this.eUY, new String[]{buttonCard.getBtnScheme()});
-                r.dDm().dDi().at(ButtonCardView.this.mFrom, "yes", buttonCard.getsExtras());
+                s.dDt().dDp().at(ButtonCardView.this.mFrom, "yes", buttonCard.getsExtras());
                 aVar2.dismiss();
             }
         });
         aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.lego.card.view.ButtonCardView.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                r.dDm().dDi().at(ButtonCardView.this.mFrom, "no", buttonCard.getsExtras());
+                s.dDt().dDp().at(ButtonCardView.this.mFrom, "no", buttonCard.getsExtras());
                 aVar2.dismiss();
             }
         });
@@ -137,15 +137,15 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     }
 
     public void setBackgroundAlpha(float f) {
-        if (this.lco != null) {
-            this.lco.setAlpha(f);
+        if (this.lcD != null) {
+            this.lcD.setAlpha(f);
         }
     }
 
     public void reset() {
-        if (this.lco != null) {
-            this.lco.setVisibility(0);
-            this.lco.setAlpha(1);
+        if (this.lcD != null) {
+            this.lcD.setVisibility(0);
+            this.lcD.setAlpha(1);
         }
     }
 }

@@ -14,53 +14,53 @@ import com.baidu.tieba.ala.alaar.sticker.view.c;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.live.view.tabhost.a {
-    private BdGridView gtK;
-    private d gtL;
-    private int gtM;
-    private c.b gtN;
-    private c.a gtO;
-    private CommonEmptyView gtP;
+    private BdGridView gtY;
+    private d gtZ;
+    private int gua;
+    private c.b gub;
+    private c.a guc;
+    private CommonEmptyView gud;
     private Context mContext;
     private View mRootView;
 
     public a(Context context, int i, c.b bVar, c.a aVar) {
         this.mContext = context;
-        this.gtM = i;
-        this.gtN = bVar;
-        this.gtO = aVar;
+        this.gua = i;
+        this.gub = bVar;
+        this.guc = aVar;
         initView();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_live_sticker_panel_item_view, (ViewGroup) null);
-        this.gtK = (BdGridView) this.mRootView.findViewById(a.f.ala_live_sticker_gridview);
-        if (this.gtM == 2) {
-            this.gtK.setNumColumns(2);
-        } else if (this.gtM == 1) {
-            this.gtK.setNumColumns(3);
-        } else if (this.gtM == 3) {
-            this.gtK.setNumColumns(5);
+        this.gtY = (BdGridView) this.mRootView.findViewById(a.f.ala_live_sticker_gridview);
+        if (this.gua == 2) {
+            this.gtY.setNumColumns(2);
+        } else if (this.gua == 1) {
+            this.gtY.setNumColumns(3);
+        } else if (this.gua == 3) {
+            this.gtY.setNumColumns(5);
         }
-        this.gtL = new d(this.mContext, this.gtM, this.gtN);
-        this.gtK.setAdapter((ListAdapter) this.gtL);
-        this.gtK.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.a.1
+        this.gtZ = new d(this.mContext, this.gua, this.gub);
+        this.gtY.setAdapter((ListAdapter) this.gtZ);
+        this.gtY.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             }
         });
-        this.gtP = (CommonEmptyView) this.mRootView.findViewById(a.f.errorView);
-        this.gtP.setTitle(a.h.sdk_net_fail_tip_rank);
-        this.gtP.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
-        this.gtP.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.a.2
+        this.gud = (CommonEmptyView) this.mRootView.findViewById(a.f.errorView);
+        this.gud.setTitle(a.h.sdk_net_fail_tip_rank);
+        this.gud.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+        this.gud.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.gtO != null) {
-                    if (a.this.gtM == 2) {
-                        a.this.gtO.bQo();
-                    } else if (a.this.gtM == 1) {
-                        a.this.gtO.bQp();
-                    } else if (a.this.gtM == 3) {
-                        a.this.gtO.bQq();
+                if (a.this.guc != null) {
+                    if (a.this.gua == 2) {
+                        a.this.guc.bQv();
+                    } else if (a.this.gua == 1) {
+                        a.this.guc.bQw();
+                    } else if (a.this.gua == 3) {
+                        a.this.guc.bQx();
                     }
                 }
             }
@@ -68,15 +68,15 @@ public class a implements com.baidu.live.view.tabhost.a {
     }
 
     public void setDatas(List<FuFaceItem> list) {
-        if (this.gtL != null) {
-            this.gtL.setDatas(list);
+        if (this.gtZ != null) {
+            this.gtZ.setDatas(list);
         }
         if (list == null) {
-            this.gtP.setVisibility(0);
-            this.gtK.setEmptyView(this.gtP);
+            this.gud.setVisibility(0);
+            this.gtY.setEmptyView(this.gud);
             return;
         }
-        this.gtP.setVisibility(8);
+        this.gud.setVisibility(8);
     }
 
     @Override // com.baidu.live.view.tabhost.a
@@ -87,13 +87,13 @@ public class a implements com.baidu.live.view.tabhost.a {
     @Override // com.baidu.live.view.tabhost.a
     public String getTitle() {
         String string = this.mContext.getString(a.h.live_sticker_pic);
-        if (this.gtM == 1) {
+        if (this.gua == 1) {
             return this.mContext.getString(a.h.live_sticker_pic);
         }
-        if (this.gtM == 2) {
+        if (this.gua == 2) {
             return this.mContext.getString(a.h.live_sticker_text);
         }
-        if (this.gtM == 3) {
+        if (this.gua == 3) {
             return this.mContext.getString(a.h.live_sticker_ar);
         }
         return string;

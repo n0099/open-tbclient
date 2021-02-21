@@ -3,36 +3,36 @@ package com.bytedance.sdk.a.a;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public abstract class g implements r {
-    private final r pnz;
+    private final r pnZ;
 
     public g(r rVar) {
         if (rVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.pnz = rVar;
+        this.pnZ = rVar;
     }
 
     @Override // com.bytedance.sdk.a.a.r
     public void a(c cVar, long j) throws IOException {
-        this.pnz.a(cVar, j);
+        this.pnZ.a(cVar, j);
     }
 
     @Override // com.bytedance.sdk.a.a.r, java.io.Flushable
     public void flush() throws IOException {
-        this.pnz.flush();
+        this.pnZ.flush();
     }
 
     @Override // com.bytedance.sdk.a.a.r
-    public t eoq() {
-        return this.pnz.eoq();
+    public t eoy() {
+        return this.pnZ.eoy();
     }
 
     @Override // com.bytedance.sdk.a.a.r, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.pnz.close();
+        this.pnZ.close();
     }
 
     public String toString() {
-        return getClass().getSimpleName() + "(" + this.pnz.toString() + ")";
+        return getClass().getSimpleName() + "(" + this.pnZ.toString() + ")";
     }
 }

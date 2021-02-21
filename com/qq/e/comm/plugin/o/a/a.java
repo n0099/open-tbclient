@@ -28,13 +28,13 @@ public class a extends c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qq.e.comm.plugin.o.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public class C1204a extends j {
+    public class C1206a extends j {
 
         /* renamed from: b  reason: collision with root package name */
         private final String f12332b;
         private final String c;
 
-        public C1204a(Context context, String str, String str2, ADListener aDListener, String str3, String str4) {
+        public C1206a(Context context, String str, String str2, ADListener aDListener, String str3, String str4) {
             super(context, str, str2, aDListener);
             this.f12332b = str3;
             this.c = str4;
@@ -56,7 +56,7 @@ public class a extends c {
 
         /* renamed from: b  reason: collision with root package name */
         private final String f12334b;
-        private C1204a c;
+        private C1206a c;
         private final e d;
 
         public b(e eVar, String str) {
@@ -64,12 +64,12 @@ public class a extends c {
             this.f12334b = str;
         }
 
-        public C1204a a() {
+        public C1206a a() {
             return this.c;
         }
 
-        public void a(C1204a c1204a) {
-            this.c = c1204a;
+        public void a(C1206a c1206a) {
+            this.c = c1206a;
         }
 
         public String b() {
@@ -151,8 +151,8 @@ public class a extends c {
     @Override // com.qq.e.comm.plugin.ab.f.a.c
     public f<String> a(e eVar, View view, String str, String str2, String str3, String str4) {
         JSONObject jSONObject;
-        C1204a c1204a;
-        C1204a c1204a2;
+        C1206a c1206a;
+        C1206a c1206a2;
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
             eVar.a(str4, 1, "Params Empty !", 1);
             GDTLogger.e(str2 + ": Params Empty !");
@@ -184,7 +184,7 @@ public class a extends c {
                 return new f<>(null);
             }
             b bVar = new b(eVar, str4);
-            bVar.a(new C1204a(GDTADManager.getInstance().getAppContext(), GDTADManager.getInstance().getAppStatus().getAPPID(), optString2, new RewardVideoAD.ADListenerAdapter(bVar), optString3, optString4));
+            bVar.a(new C1206a(GDTADManager.getInstance().getAppContext(), GDTADManager.getInstance().getAppStatus().getAPPID(), optString2, new RewardVideoAD.ADListenerAdapter(bVar), optString3, optString4));
             if (this.f12330a.size() < GDTADManager.getInstance().getSM().getInteger("maxRewardVideoAdsPerWebview", 100)) {
                 this.f12330a.put(optString, bVar);
                 eVar.a(str4, 0, a("onRegisterSuccess", 0, null, 0L), 1);
@@ -202,16 +202,16 @@ public class a extends c {
             }
             b bVar2 = this.f12330a.get(optString);
             if (bVar2 != null) {
-                C1204a a3 = bVar2.a();
+                C1206a a3 = bVar2.a();
                 str4 = bVar2.b();
-                c1204a2 = a3;
+                c1206a2 = a3;
             } else {
-                c1204a2 = null;
+                c1206a2 = null;
             }
-            if (c1204a2 == null) {
+            if (c1206a2 == null) {
                 eVar.a(str4, 0, a("onError", 4017, "广告实例尚未准备好", 0L), 1);
             } else {
-                c1204a2.loadAD();
+                c1206a2.loadAD();
             }
             return new f<>(null);
         } else if (!"showRewardVideoAD".equals(str2)) {
@@ -226,16 +226,16 @@ public class a extends c {
             }
             b bVar3 = this.f12330a.get(optString);
             if (bVar3 != null) {
-                C1204a a4 = bVar3.a();
+                C1206a a4 = bVar3.a();
                 str4 = bVar3.b();
-                c1204a = a4;
+                c1206a = a4;
             } else {
-                c1204a = null;
+                c1206a = null;
             }
-            if (c1204a == null) {
+            if (c1206a == null) {
                 eVar.a(str4, 0, a("onError", 4017, "广告实例尚未准备好", 0L), 1);
             } else {
-                c1204a.showAD();
+                c1206a.showAD();
             }
             return new f<>(null);
         }

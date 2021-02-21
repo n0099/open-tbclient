@@ -11,28 +11,28 @@ import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.LPBigImgCard;
-import com.baidu.tieba.recapp.r;
+import com.baidu.tieba.recapp.s;
 /* loaded from: classes9.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
-    private RelativeLayout ikl;
-    private final int lcs;
-    private TbImageView ldT;
-    private TbImageView ldU;
-    private TextView ldV;
+    private RelativeLayout ikz;
+    private final int lcH;
+    private TbImageView leh;
+    private TbImageView lei;
+    private TextView lej;
     private int picHeight;
 
     public LPBigImgCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.lcs = com.baidu.adp.lib.util.l.getEquipmentWidth(getContext());
+        this.lcH = com.baidu.adp.lib.util.l.getEquipmentWidth(getContext());
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbO() {
-        this.ikl = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_bigimg, (ViewGroup) null);
-        this.ldT = (TbImageView) z(this.ikl, R.id.tb_img_background);
-        this.ldU = (TbImageView) z(this.ikl, R.id.tb_img_button);
-        this.ldV = (TextView) z(this.ikl, R.id.tv_button);
-        return this.ikl;
+    protected View dbV() {
+        this.ikz = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_bigimg, (ViewGroup) null);
+        this.leh = (TbImageView) z(this.ikz, R.id.tb_img_background);
+        this.lei = (TbImageView) z(this.ikz, R.id.tb_img_button);
+        this.lej = (TextView) z(this.ikz, R.id.tv_button);
+        return this.ikz;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,61 +48,61 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         int i;
         int i2;
         if (lPBigImgCard.getPicWidth() > 0 && lPBigImgCard.getPicHeight() > 0) {
-            this.picHeight = (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * this.lcs);
-            A(this.ldT, this.picHeight);
+            this.picHeight = (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * this.lcH);
+            A(this.leh, this.picHeight);
             if (!TextUtils.isEmpty(lPBigImgCard.getPicUrl())) {
-                this.ldT.a(lPBigImgCard.getPicUrl(), 17, this.lcs, this.picHeight, false);
+                this.leh.a(lPBigImgCard.getPicUrl(), 17, this.lcH, this.picHeight, false);
             } else {
-                e(this.ldT, lPBigImgCard.getBgColor(), lPBigImgCard.getBgColorNight(), R.color.CAM_X0201);
+                e(this.leh, lPBigImgCard.getBgColor(), lPBigImgCard.getBgColorNight(), R.color.CAM_X0201);
             }
             int i3 = this.picHeight;
             if (!TextUtils.isEmpty(lPBigImgCard.getBtnImgUrl()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
                 int btnHeight = lPBigImgCard.getBtnHeight();
-                q(this.ldU, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-                this.ldU.startLoad(lPBigImgCard.getBtnImgUrl(), 17, false);
+                q(this.lei, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
+                this.lei.startLoad(lPBigImgCard.getBtnImgUrl(), 17, false);
                 int btnPosRatio = (int) ((i3 * lPBigImgCard.getBtnPosRatio()) - (btnHeight * 0.5d));
                 if (btnPosRatio < 0) {
                     i2 = 0;
                 } else {
                     i2 = btnPosRatio > i3 - btnHeight ? i3 - btnHeight : btnPosRatio;
                 }
-                ((RelativeLayout.LayoutParams) this.ldU.getLayoutParams()).topMargin = i2;
-                this.ldU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.LPBigImgCardView.1
+                ((RelativeLayout.LayoutParams) this.lei.getLayoutParams()).topMargin = i2;
+                this.lei.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.LPBigImgCardView.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         bf.bsV().b(LPBigImgCardView.this.eUY, new String[]{lPBigImgCard.getBtnLink()});
-                        r.dDm().dDi().ei(lPBigImgCard.getsExtras(), LPBigImgCardView.this.mFrom);
+                        s.dDt().dDp().ei(lPBigImgCard.getsExtras(), LPBigImgCardView.this.mFrom);
                     }
                 });
-                this.ldU.setVisibility(0);
-                this.ldV.setVisibility(8);
+                this.lei.setVisibility(0);
+                this.lej.setVisibility(8);
             } else if (!TextUtils.isEmpty(lPBigImgCard.getBtnText()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
                 int btnHeight2 = lPBigImgCard.getBtnHeight();
-                this.ldV.setText(lPBigImgCard.getBtnText());
-                q(this.ldV, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-                a(this.ldV, lPBigImgCard.getBtnColor(), lPBigImgCard.getBtnColorNight(), R.color.black_alpha100);
+                this.lej.setText(lPBigImgCard.getBtnText());
+                q(this.lej, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
+                a(this.lej, lPBigImgCard.getBtnColor(), lPBigImgCard.getBtnColorNight(), R.color.black_alpha100);
                 int btnPosRatio2 = (int) ((i3 * lPBigImgCard.getBtnPosRatio()) - (btnHeight2 * 0.5d));
                 if (btnPosRatio2 < 0) {
                     i = 0;
                 } else {
                     i = btnPosRatio2 > i3 - btnHeight2 ? i3 - btnHeight2 : btnPosRatio2;
                 }
-                ((RelativeLayout.LayoutParams) this.ldV.getLayoutParams()).topMargin = i;
-                this.ldV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.LPBigImgCardView.2
+                ((RelativeLayout.LayoutParams) this.lej.getLayoutParams()).topMargin = i;
+                this.lej.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.LPBigImgCardView.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         bf.bsV().b(LPBigImgCardView.this.eUY, new String[]{lPBigImgCard.getBtnLink()});
-                        r.dDm().dDi().ei(lPBigImgCard.getsExtras(), LPBigImgCardView.this.mFrom);
+                        s.dDt().dDp().ei(lPBigImgCard.getsExtras(), LPBigImgCardView.this.mFrom);
                     }
                 });
-                this.ldV.setVisibility(0);
-                this.ldU.setVisibility(8);
+                this.lej.setVisibility(0);
+                this.lei.setVisibility(8);
             } else {
-                this.ldV.setVisibility(8);
-                this.ldU.setVisibility(8);
+                this.lej.setVisibility(8);
+                this.lei.setVisibility(8);
             }
             if (!lPBigImgCard.mHasShown) {
-                r.dDm().dDi().eh(lPBigImgCard.getShowExtra(), this.mFrom);
+                s.dDt().dDp().eh(lPBigImgCard.getShowExtra(), this.mFrom);
                 lPBigImgCard.mHasShown = true;
             }
         }
@@ -117,7 +117,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
 
     private void A(View view, int i) {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-        layoutParams.width = this.lcs;
+        layoutParams.width = this.lcH;
         layoutParams.height = i;
         view.setLayoutParams(layoutParams);
     }

@@ -15,7 +15,7 @@ import com.baidu.live.tbadk.core.util.ViewCommonUtil;
 /* loaded from: classes11.dex */
 public class AlaRedPktSendActivity extends BaseFragmentActivity {
     private int availableHeight;
-    private com.baidu.tieba.ala.d.e gqb;
+    private com.baidu.tieba.ala.d.e gqp;
     private int mLastScreenHeight;
     private int mLastScreenWidth;
     private boolean mIsKeyboardOpen = false;
@@ -56,8 +56,8 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
         }
         super.onCreate(bundle);
         if (!isFinishing()) {
-            this.gqb = new com.baidu.tieba.ala.d.e(getPageContext().getPageActivity());
-            setContentView(this.gqb.getView());
+            this.gqp = new com.baidu.tieba.ala.d.e(getPageContext().getPageActivity());
+            setContentView(this.gqp.getView());
             Window window = getWindow();
             if (window != null) {
                 window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.globalListener);
@@ -68,15 +68,15 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.gqb != null) {
-            this.gqb.FN();
+        if (this.gqp != null) {
+            this.gqp.FN();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.gqb != null) {
-            this.gqb.onKeyboardVisibilityChanged(z);
+        if (this.gqp != null) {
+            this.gqp.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -98,8 +98,8 @@ public class AlaRedPktSendActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gqb != null) {
-            this.gqb.destroy();
+        if (this.gqp != null) {
+            this.gqp.destroy();
         }
     }
 

@@ -32,60 +32,60 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes9.dex */
 public class MyEmotionManagerModel extends NativeManageEmotionModel implements com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a {
-    private TbPageContext<BaseFragmentActivity> kcX;
-    private a.InterfaceC0814a lDj;
-    private List<String> lDk;
-    private List<EmotionPackageData> lDl;
-    private CustomMessageListener lDm;
-    private final HttpMessageListener lDn;
+    private TbPageContext<BaseFragmentActivity> kdl;
+    private CustomMessageListener lDA;
+    private final HttpMessageListener lDB;
+    private a.InterfaceC0815a lDx;
+    private List<String> lDy;
+    private List<EmotionPackageData> lDz;
 
     public MyEmotionManagerModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.lDm = new CustomMessageListener(CmdConfigCustom.CMD_SWAP_MY_EMOTION_PACKAGE) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.1
+        this.lDA = new CustomMessageListener(CmdConfigCustom.CMD_SWAP_MY_EMOTION_PACKAGE) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Pair)) {
                     Pair pair = (Pair) customResponsedMessage.getData();
-                    MyEmotionManagerModel.this.cY(((Integer) pair.first).intValue(), ((Integer) pair.second).intValue());
+                    MyEmotionManagerModel.this.cZ(((Integer) pair.first).intValue(), ((Integer) pair.second).intValue());
                 }
             }
         };
-        this.lDn = new HttpMessageListener(1003385) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.2
+        this.lDB = new HttpMessageListener(1003385) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003385 && (httpResponsedMessage instanceof EmotionManageResponseMessage)) {
                     EmotionManageResponseMessage emotionManageResponseMessage = (EmotionManageResponseMessage) httpResponsedMessage;
-                    if (MyEmotionManagerModel.this.lDj != null) {
+                    if (MyEmotionManagerModel.this.lDx != null) {
                         if (emotionManageResponseMessage.data != null) {
-                            MyEmotionManagerModel.this.lDl.clear();
+                            MyEmotionManagerModel.this.lDz.clear();
                             if (emotionManageResponseMessage.data.data != null) {
-                                MyEmotionManagerModel.this.lDl.addAll(emotionManageResponseMessage.data.data);
+                                MyEmotionManagerModel.this.lDz.addAll(emotionManageResponseMessage.data.data);
                             }
                             Pair fb = MyEmotionManagerModel.this.fb(emotionManageResponseMessage.data.data);
-                            MyEmotionManagerModel.this.lDj.onSuccess(new Pair(fb.first, fb.second));
+                            MyEmotionManagerModel.this.lDx.onSuccess(new Pair(fb.first, fb.second));
                             return;
                         }
-                        MyEmotionManagerModel.this.lDj.onFail();
+                        MyEmotionManagerModel.this.lDx.onFail();
                     }
                 }
             }
         };
-        this.kcX = tbPageContext;
-        this.lDk = new ArrayList();
-        this.lDl = new ArrayList();
+        this.kdl = tbPageContext;
+        this.lDy = new ArrayList();
+        this.lDz = new ArrayList();
         registerTask();
-        this.lDn.setTag(getUniqueId());
-        this.lDn.setSelfListener(true);
-        registerListener(this.lDn);
-        registerListener(this.lDm);
+        this.lDB.setTag(getUniqueId());
+        this.lDB.setSelfListener(true);
+        registerListener(this.lDB);
+        registerListener(this.lDA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void cY(int i, int i2) {
+    public synchronized void cZ(int i, int i2) {
         try {
-            this.lDk.add(i2, this.lDk.remove(i));
+            this.lDy.add(i2, this.lDy.remove(i));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -101,8 +101,8 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         int size = list.size();
         String id = TbadkCoreApplication.getCurrentAccountObj().getID();
         String str = id == null ? "" : id;
-        List<String> djb = djb();
-        for (String str2 : djb) {
+        List<String> dji = dji();
+        for (String str2 : dji) {
             EmotionPackageData m = m(str2, list);
             if (m != null) {
                 m.ishasdownload = true;
@@ -114,7 +114,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         boolean z = false;
         for (int i = 0; i < size; i++) {
             EmotionPackageData emotionPackageData = list.get(i);
-            if (emotionPackageData.status == 1 && !djb.contains(String.valueOf(emotionPackageData.id))) {
+            if (emotionPackageData.status == 1 && !dji.contains(String.valueOf(emotionPackageData.id))) {
                 if (!z) {
                     emotionPackageData.isUndownloadheader = true;
                     z = true;
@@ -177,17 +177,17 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        com.baidu.tieba.newfaceshop.a.dij().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.3
+        com.baidu.tieba.newfaceshop.a.diq().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.3
             @Override // java.lang.Runnable
             public void run() {
-                MyEmotionManagerModel.this.dja();
-                List<MyEmotionGroupData> dim = c.dil().dim();
+                MyEmotionManagerModel.this.djh();
+                List<MyEmotionGroupData> dit = c.dis().dit();
                 JSONArray jSONArray = new JSONArray();
-                if (dim != null && !dim.isEmpty()) {
-                    for (MyEmotionGroupData myEmotionGroupData : dim) {
+                if (dit != null && !dit.isEmpty()) {
+                    for (MyEmotionGroupData myEmotionGroupData : dit) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            MyEmotionManagerModel.this.OU(myEmotionGroupData.getGroupId());
+                            MyEmotionManagerModel.this.OV(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
@@ -197,72 +197,72 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         return false;
     }
 
-    public void diZ() {
-        com.baidu.tieba.newfaceshop.a.dij().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.4
+    public void djg() {
+        com.baidu.tieba.newfaceshop.a.diq().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.4
             @Override // java.lang.Runnable
             public void run() {
-                MyEmotionManagerModel.this.dja();
-                List<MyEmotionGroupData> dim = c.dil().dim();
+                MyEmotionManagerModel.this.djh();
+                List<MyEmotionGroupData> dit = c.dis().dit();
                 JSONArray jSONArray = new JSONArray();
-                if (dim != null && !dim.isEmpty()) {
-                    for (MyEmotionGroupData myEmotionGroupData : dim) {
+                if (dit != null && !dit.isEmpty()) {
+                    for (MyEmotionGroupData myEmotionGroupData : dit) {
                         if (myEmotionGroupData != null) {
                             jSONArray.put(myEmotionGroupData.getGroupId());
-                            MyEmotionManagerModel.this.OU(myEmotionGroupData.getGroupId());
+                            MyEmotionManagerModel.this.OV(myEmotionGroupData.getGroupId());
                         }
                     }
                 }
-                if (MyEmotionManagerModel.this.lDj != null) {
-                    Pair fb = MyEmotionManagerModel.this.fb(MyEmotionManagerModel.this.lDl);
-                    MyEmotionManagerModel.this.lDj.onSuccess(new Pair(fb.first, fb.second));
+                if (MyEmotionManagerModel.this.lDx != null) {
+                    Pair fb = MyEmotionManagerModel.this.fb(MyEmotionManagerModel.this.lDz);
+                    MyEmotionManagerModel.this.lDx.onSuccess(new Pair(fb.first, fb.second));
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dja() {
-        this.lDk.clear();
+    public synchronized void djh() {
+        this.lDy.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void OU(String str) {
-        this.lDk.add(str);
+    public synchronized void OV(String str) {
+        this.lDy.add(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized List<String> djb() {
-        return new ArrayList(this.lDk);
+    public synchronized List<String> dji() {
+        return new ArrayList(this.lDy);
     }
 
-    public void djc() {
-        if (this.lDn != null) {
-            MessageManager.getInstance().unRegisterListener(this.lDn);
+    public void djj() {
+        if (this.lDB != null) {
+            MessageManager.getInstance().unRegisterListener(this.lDB);
         }
-        if (this.lDm != null) {
-            MessageManager.getInstance().unRegisterListener(this.lDm);
+        if (this.lDA != null) {
+            MessageManager.getInstance().unRegisterListener(this.lDA);
         }
     }
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
-        private WeakReference<MyEmotionManagerModel> lDp;
-        private JSONArray lDq;
+        private WeakReference<MyEmotionManagerModel> lDD;
+        private JSONArray lDE;
 
         public a(MyEmotionManagerModel myEmotionManagerModel, JSONArray jSONArray) {
-            this.lDp = new WeakReference<>(myEmotionManagerModel);
-            this.lDq = jSONArray;
-            if (this.lDq == null) {
-                this.lDq = new JSONArray();
+            this.lDD = new WeakReference<>(myEmotionManagerModel);
+            this.lDE = jSONArray;
+            if (this.lDE == null) {
+                this.lDE = new JSONArray();
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            MyEmotionManagerModel myEmotionManagerModel = this.lDp.get();
+            MyEmotionManagerModel myEmotionManagerModel = this.lDD.get();
             if (myEmotionManagerModel != null) {
                 HttpMessage httpMessage = new HttpMessage(1003385);
-                httpMessage.addParam("ids", this.lDq);
+                httpMessage.addParam("ids", this.lDE);
                 myEmotionManagerModel.sendMessage(httpMessage);
             }
         }
@@ -272,14 +272,14 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         LoadData();
     }
 
-    public void diT() {
+    public void dja() {
         e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.5
             @Override // java.lang.Runnable
             public void run() {
-                if (MyEmotionManagerModel.this.lDj != null) {
-                    MyEmotionManagerModel.this.lDj.diT();
-                    if (!com.baidu.tieba.newfaceshop.nativemotionmanager.a.diR().bKX()) {
-                        MyEmotionManagerModel.this.djd();
+                if (MyEmotionManagerModel.this.lDx != null) {
+                    MyEmotionManagerModel.this.lDx.dja();
+                    if (!com.baidu.tieba.newfaceshop.nativemotionmanager.a.diY().bLc()) {
+                        MyEmotionManagerModel.this.djk();
                     }
                 }
             }
@@ -287,14 +287,14 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void djd() {
-        if (d.dip().dis()) {
-            l.showToast(this.kcX.getPageActivity(), R.string.face_group_is_syncing);
+    public void djk() {
+        if (d.diw().diz()) {
+            l.showToast(this.kdl.getPageActivity(), R.string.face_group_is_syncing);
         } else {
-            com.baidu.tieba.newfaceshop.a.dij().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.6
+            com.baidu.tieba.newfaceshop.a.diq().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.MyEmotionManagerModel.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.dil().w(MyEmotionManagerModel.this.djb(), true);
+                    c.dis().w(MyEmotionManagerModel.this.dji(), true);
                 }
             });
         }
@@ -305,7 +305,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel implements c
         return false;
     }
 
-    public void a(a.InterfaceC0814a interfaceC0814a) {
-        this.lDj = interfaceC0814a;
+    public void a(a.InterfaceC0815a interfaceC0815a) {
+        this.lDx = interfaceC0815a;
     }
 }

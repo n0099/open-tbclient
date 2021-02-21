@@ -12,17 +12,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaApplyWheatHttpResponse
 /* loaded from: classes11.dex */
 public class d extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oJB;
+    private a oKb;
     private HttpMessageListener messageListener = new HttpMessageListener(1031007) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaApplyWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.aCW && d.this.oJB != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaApplyWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == d.this.aCW && d.this.oKb != null) {
                 AlaApplyWheatHttpResponseMessage alaApplyWheatHttpResponseMessage = (AlaApplyWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaApplyWheatHttpResponseMessage.getError() != 0 || !alaApplyWheatHttpResponseMessage.isSuccess()) {
-                    d.this.oJB.c(alaApplyWheatHttpResponseMessage);
+                    d.this.oKb.c(alaApplyWheatHttpResponseMessage);
                 } else {
-                    d.this.oJB.b(alaApplyWheatHttpResponseMessage);
+                    d.this.oKb.b(alaApplyWheatHttpResponseMessage);
                 }
             }
         }
@@ -39,7 +39,7 @@ public class d extends BdBaseModel {
     public d(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.oJB = aVar;
+        this.oKb = aVar;
         zH();
         registerListener(this.messageListener);
     }

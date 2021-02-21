@@ -22,10 +22,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class SpecialRecommendTabModel extends BdBaseModel {
-    private a gHe;
+    private a gHs;
     private TbPageContext mTbPageContext;
     private int pn = 1;
-    private HttpMessageListener gHa = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.1
+    private HttpMessageListener gHo = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB) { // from class: com.baidu.tieba.ala.alasquare.special_forum.model.SpecialRecommendTabModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -34,28 +34,28 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                 if (alaSpecialRecommendResponse.isSuccess()) {
                     if (SpecialRecommendTabModel.this.pn == 0) {
                         SpecialRecommendTabModel.this.mDatas.clear();
-                        SpecialRecommendTabModel.this.gHf.clear();
+                        SpecialRecommendTabModel.this.gHt.clear();
                     }
                     boolean z = alaSpecialRecommendResponse.hasMore;
                     if (y.getCount(alaSpecialRecommendResponse.livesList) > 0) {
                         SpecialRecommendTabModel.this.cj(alaSpecialRecommendResponse.livesList);
                     }
-                    SpecialRecommendTabModel.this.ck(SpecialRecommendTabModel.this.gHf);
+                    SpecialRecommendTabModel.this.ck(SpecialRecommendTabModel.this.gHt);
                     if (SpecialRecommendTabModel.this.pn == 0 && alaSpecialRecommendResponse.mSpecialActivityListData != null) {
                         SpecialRecommendTabModel.this.a(alaSpecialRecommendResponse.mSpecialActivityListData);
                     }
                     SpecialRecommendTabModel.d(SpecialRecommendTabModel.this);
-                    if (SpecialRecommendTabModel.this.gHe != null) {
-                        SpecialRecommendTabModel.this.gHe.m(SpecialRecommendTabModel.this.mDatas, z);
+                    if (SpecialRecommendTabModel.this.gHs != null) {
+                        SpecialRecommendTabModel.this.gHs.m(SpecialRecommendTabModel.this.mDatas, z);
                     }
-                } else if (SpecialRecommendTabModel.this.gHe != null) {
-                    SpecialRecommendTabModel.this.gHe.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (SpecialRecommendTabModel.this.gHs != null) {
+                    SpecialRecommendTabModel.this.gHs.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
     private List<n> mDatas = new LinkedList();
-    private List<cb> gHf = new ArrayList();
+    private List<cb> gHt = new ArrayList();
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -72,7 +72,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
 
     public SpecialRecommendTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        MessageManager.getInstance().registerListener(this.gHa);
+        MessageManager.getInstance().registerListener(this.gHo);
     }
 
     public void Ut() {
@@ -80,7 +80,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         loadData(0);
     }
 
-    public void bRE() {
+    public void bRL() {
         loadData(this.pn);
     }
 
@@ -93,7 +93,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
-        if (cVar != null && !y.isEmpty(cVar.gGH)) {
+        if (cVar != null && !y.isEmpty(cVar.gGV)) {
             if (y.getCount(this.mDatas) > 2) {
                 this.mDatas.add(2, cVar);
             } else {
@@ -109,7 +109,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
             if (cbVar != null && cbVar.getThreadType() == 49) {
                 String tid = cbVar.getTid();
                 if (!TextUtils.isEmpty(tid)) {
-                    Iterator<cb> it = this.gHf.iterator();
+                    Iterator<cb> it = this.gHt.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;
@@ -120,7 +120,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                         }
                     }
                     if (!z) {
-                        this.gHf.add(cbVar);
+                        this.gHt.add(cbVar);
                     }
                 }
             }
@@ -134,12 +134,12 @@ public class SpecialRecommendTabModel extends BdBaseModel {
             for (int i = 0; i < size; i += 2) {
                 b bVar = new b();
                 e eVar = new e();
-                eVar.gyA = list.get(i);
-                bVar.gAY = eVar;
+                eVar.gyO = list.get(i);
+                bVar.gBm = eVar;
                 if (i + 1 < size) {
                     e eVar2 = new e();
-                    eVar2.gyA = list.get(i + 1);
-                    bVar.gAZ = eVar2;
+                    eVar2.gyO = list.get(i + 1);
+                    bVar.gBn = eVar2;
                 }
                 this.mDatas.add(bVar);
             }
@@ -147,11 +147,11 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gHa);
+        MessageManager.getInstance().unRegisterListener(this.gHo);
     }
 
     public void a(a aVar) {
-        this.gHe = aVar;
+        this.gHs = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -164,7 +164,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         return false;
     }
 
-    public List<cb> bSp() {
-        return this.gHf;
+    public List<cb> bSw() {
+        return this.gHt;
     }
 }

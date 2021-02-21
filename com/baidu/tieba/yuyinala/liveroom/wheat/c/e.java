@@ -17,29 +17,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
-    public static e oFU;
-    private FrameLayout iSB;
+    public static e oGu;
+    private FrameLayout iSP;
     private View mView;
-    private long nVT;
-    private long oFV = -1;
+    private long nWt;
+    private long oGv = -1;
 
     private e() {
     }
 
-    public static e edi() {
-        if (oFU == null) {
+    public static e edq() {
+        if (oGu == null) {
             synchronized (e.class) {
-                if (oFU == null) {
-                    oFU = new e();
+                if (oGu == null) {
+                    oGu = new e();
                 }
             }
         }
-        return oFU;
+        return oGu;
     }
 
     public void a(final View view, TextView textView, String str, final BdPageContext bdPageContext) {
         JSONObject optJSONObject;
-        if (q.edE().Yk() || q.edE().iJ(q.edE().Yp())) {
+        if (q.edM().Yk() || q.edM().iJ(q.edM().Yp())) {
             if (!TextUtils.isEmpty(str)) {
                 if (TextUtils.equals("hide_dot", str)) {
                     hide();
@@ -67,7 +67,7 @@ public class e {
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     e.this.a(optString + " " + optString3, 0L, 5000, bdPageContext, view);
-                                    e.this.oFV = 0L;
+                                    e.this.oGv = 0L;
                                 }
                             }, C(0, 5000L));
                             return;
@@ -97,7 +97,7 @@ public class e {
                 @Override // java.lang.Runnable
                 public void run() {
                     e.this.a(String.format("查看%d个新麦位框", Integer.valueOf(i)), 0L, i2 * 1000, bdPageContext, view);
-                    e.this.oFV = 1L;
+                    e.this.oGv = 1L;
                 }
             }, C(1, i2 * 1000));
         }
@@ -105,16 +105,16 @@ public class e {
 
     private long C(int i, long j) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.oFV == -1 || this.oFV == i || currentTimeMillis - this.nVT >= j) {
+        if (this.oGv == -1 || this.oGv == i || currentTimeMillis - this.nWt >= j) {
             return 0L;
         }
-        return (j - (currentTimeMillis - this.nVT)) + 1000;
+        return (j - (currentTimeMillis - this.nWt)) + 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, long j, int i, final BdPageContext bdPageContext, final View view) {
         if (bdPageContext != null && bdPageContext.getPageActivity() != null && view != null) {
-            this.nVT = System.currentTimeMillis();
+            this.nWt = System.currentTimeMillis();
             hide();
             this.mView = bdPageContext.getPageActivity().getLayoutInflater().inflate(a.g.toast_gift_guide, (ViewGroup) null);
             TextView textView = (TextView) this.mView.findViewById(a.f.textView);
@@ -127,13 +127,13 @@ public class e {
                 textView.setBackgroundResource(a.e.bg_guide_gift_toast_qm);
                 imageView.setImageResource(a.e.bg_guide_gift_toast_arrow_qm);
             }
-            this.iSB = (FrameLayout) bdPageContext.getPageActivity().getWindow().getDecorView();
-            if (this.iSB != null) {
-                this.iSB.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.e.3
+            this.iSP = (FrameLayout) bdPageContext.getPageActivity().getWindow().getDecorView();
+            if (this.iSP != null) {
+                this.iSP.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.e.3
                     @Override // java.lang.Runnable
                     public void run() {
                         Activity pageActivity;
-                        if (e.this.iSB != null && (pageActivity = bdPageContext.getPageActivity()) != null && !pageActivity.isFinishing()) {
+                        if (e.this.iSP != null && (pageActivity = bdPageContext.getPageActivity()) != null && !pageActivity.isFinishing()) {
                             View view2 = view;
                             int[] iArr = new int[2];
                             view2.getLocationOnScreen(iArr);
@@ -148,15 +148,15 @@ public class e {
                             if (viewGroup != null) {
                                 viewGroup.removeView(e.this.mView);
                             }
-                            e.this.iSB.addView(e.this.mView, layoutParams);
+                            e.this.iSP.addView(e.this.mView, layoutParams);
                         }
                     }
                 }, j);
-                this.iSB.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.e.4
+                this.iSP.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.e.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.this.iSB != null) {
-                            e.this.iSB.removeView(e.this.mView);
+                        if (e.this.iSP != null) {
+                            e.this.iSP.removeView(e.this.mView);
                         }
                     }
                 }, i + j);
@@ -172,8 +172,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
-        if (this.iSB != null && this.mView != null) {
-            this.iSB.removeView(this.mView);
+        if (this.iSP != null && this.mView != null) {
+            this.iSP.removeView(this.mView);
         }
     }
 }

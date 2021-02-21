@@ -100,7 +100,7 @@ public class c {
 
     public static long a(String str) {
         try {
-            return eqM().parse(str).getTime();
+            return eqU().parse(str).getTime();
         } catch (Throwable th) {
             r.a(th, "Unable to parse dateStr: %s, falling back to 0", str);
             return 0L;
@@ -108,10 +108,10 @@ public class c {
     }
 
     public static String a(long j) {
-        return eqM().format(new Date(j));
+        return eqU().format(new Date(j));
     }
 
-    private static SimpleDateFormat eqM() {
+    private static SimpleDateFormat eqU() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         return simpleDateFormat;

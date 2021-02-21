@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 class d {
-    private static final Class<?> pxC = d.class;
+    private static final Class<?> pyc = d.class;
 
     d() {
     }
 
-    public static int Qq(int i) {
+    public static int Qr(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -31,20 +31,20 @@ class d {
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.pNH - 8;
+        int i2 = aVar.pOh - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.pNF, 274), aVar.pNF);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.pOf, 274), aVar.pOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        boolean pNF;
-        int pNG;
-        int pNH;
+        boolean pOf;
+        int pOg;
+        int pOh;
 
         private a() {
         }
@@ -54,17 +54,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.pNG = c.a(inputStream, 4, false);
+        aVar.pOg = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.pNG != 1229531648 && aVar.pNG != 1296891946) {
-            com.facebook.common.c.a.i(pxC, "Invalid TIFF header");
+        if (aVar.pOg != 1229531648 && aVar.pOg != 1296891946) {
+            com.facebook.common.c.a.i(pyc, "Invalid TIFF header");
             return 0;
         }
-        aVar.pNF = aVar.pNG == 1229531648;
-        aVar.pNH = c.a(inputStream, 4, aVar.pNF);
+        aVar.pOf = aVar.pOg == 1229531648;
+        aVar.pOh = c.a(inputStream, 4, aVar.pOf);
         int i3 = i2 - 4;
-        if (aVar.pNH < 8 || aVar.pNH - 8 > i3) {
-            com.facebook.common.c.a.i(pxC, "Invalid offset");
+        if (aVar.pOh < 8 || aVar.pOh - 8 > i3) {
+            com.facebook.common.c.a.i(pyc, "Invalid offset");
             return 0;
         }
         return i3;

@@ -31,19 +31,19 @@ public class c implements View.OnClickListener {
     private ab aDd;
     private TextView bTm;
     private TextView bTn;
-    private EditText hPe;
+    private EditText hPs;
     private Context mContext;
     private Dialog mDialog;
     private LinearLayout mPanelLayout;
     private View mRootView;
-    private TextView oyi;
-    private e oyk;
-    private a oyl;
-    int oyj = 10;
-    Runnable ovT = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.rename.c.4
+    private TextView oyI;
+    private e oyK;
+    private a oyL;
+    int oyJ = 10;
+    Runnable owt = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.rename.c.4
         @Override // java.lang.Runnable
         public void run() {
-            BdUtilHelper.showSoftKeyPad(c.this.mContext, c.this.hPe);
+            BdUtilHelper.showSoftKeyPad(c.this.mContext, c.this.hPs);
         }
     };
 
@@ -54,7 +54,7 @@ public class c implements View.OnClickListener {
 
     public c(Context context, a aVar) {
         this.mContext = context;
-        this.oyl = aVar;
+        this.oyL = aVar;
         initDialog();
     }
 
@@ -63,10 +63,10 @@ public class c implements View.OnClickListener {
         try {
             if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
                 this.mDialog.show();
-                this.hPe.setText(abVar.aIU.room_name.trim());
-                this.hPe.setSelection(abVar.aIU.room_name.trim().length());
-                this.hPe.requestFocus();
-                this.hPe.post(this.ovT);
+                this.hPs.setText(abVar.aIU.room_name.trim());
+                this.hPs.setSelection(abVar.aIU.room_name.trim().length());
+                this.hPs.requestFocus();
+                this.hPs.post(this.owt);
             }
         } catch (Exception e) {
         }
@@ -74,7 +74,7 @@ public class c implements View.OnClickListener {
 
     public void dismiss() {
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
-            ckT();
+            cla();
             this.mDialog.dismiss();
             this.mDialog = null;
         }
@@ -83,18 +83,18 @@ public class c implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.mRootView || view == this.bTn) {
-            ckT();
+            cla();
             dismiss();
         }
-        if (view == this.bTm && this.oyk != null && this.aDd != null && this.aDd.aIU != null) {
-            this.oyk.e(this.aDd.aIU.aTK, 1, String.valueOf(this.aDd.aIU.live_id), this.hPe.getText().toString());
-            this.oyk.a(new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.rename.c.1
+        if (view == this.bTm && this.oyK != null && this.aDd != null && this.aDd.aIU != null) {
+            this.oyK.e(this.aDd.aIU.aTK, 1, String.valueOf(this.aDd.aIU.live_id), this.hPs.getText().toString());
+            this.oyK.a(new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.rename.c.1
                 @Override // com.baidu.tieba.yuyinala.liveroom.rename.e.a
                 public void a(AlaGetRoomNameRenameHttpResponseMessage alaGetRoomNameRenameHttpResponseMessage) {
-                    if (c.this.oyl != null) {
-                        c.this.oyl.call(c.this.hPe.getText().toString());
+                    if (c.this.oyL != null) {
+                        c.this.oyL.call(c.this.hPs.getText().toString());
                     }
-                    MessageManager.getInstance().dispatchResponsedMessage(new YuyinRenameRoomMessage(new RenameRoom(c.this.hPe.getText().toString())));
+                    MessageManager.getInstance().dispatchResponsedMessage(new YuyinRenameRoomMessage(new RenameRoom(c.this.hPs.getText().toString())));
                     c.this.dismiss();
                     BdUtilHelper.showToast(c.this.mContext, "房间名称修改成功", 3000);
                 }
@@ -113,7 +113,7 @@ public class c implements View.OnClickListener {
 
     private void initDialog() {
         this.mDialog = new Dialog(this.mContext);
-        this.oyk = new e(this.mContext);
+        this.oyK = new e(this.mContext);
         Hf();
         initView();
     }
@@ -138,24 +138,24 @@ public class c implements View.OnClickListener {
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.yuyin_room_rename_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
-        this.hPe = (EditText) this.mRootView.findViewById(a.f.edit_rename);
+        this.hPs = (EditText) this.mRootView.findViewById(a.f.edit_rename);
         this.mPanelLayout = (LinearLayout) this.mRootView.findViewById(a.f.layout_panel);
         ((RelativeLayout.LayoutParams) this.mPanelLayout.getLayoutParams()).setMargins(0, BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels / 3, 0, 0);
         this.bTm = (TextView) this.mRootView.findViewById(a.f.tv_confirm);
         this.bTn = (TextView) this.mRootView.findViewById(a.f.tv_cancel);
-        this.oyi = (TextView) this.mRootView.findViewById(a.f.tv_count);
+        this.oyI = (TextView) this.mRootView.findViewById(a.f.tv_count);
         this.mRootView.setOnClickListener(this);
         this.bTm.setOnClickListener(this);
         this.bTn.setOnClickListener(this);
-        this.hPe.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.yuyinala.liveroom.rename.c.2
+        this.hPs.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.yuyinala.liveroom.rename.c.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (c.this.oyi != null) {
-                    c.this.oyi.setText(c.this.mContext.getString(a.h.yuyin_ala_rename_room_title_limit, Integer.valueOf(b.x(charSequence))));
+                if (c.this.oyI != null) {
+                    c.this.oyI.setText(c.this.mContext.getString(a.h.yuyin_ala_rename_room_title_limit, Integer.valueOf(b.x(charSequence))));
                     if (b.x(charSequence) == 0) {
                         c.this.bTm.setTextColor(c.this.mContext.getResources().getColor(a.c.sdk_color_B8B8B8));
                         c.this.bTm.setEnabled(false);
@@ -170,10 +170,10 @@ public class c implements View.OnClickListener {
             public void afterTextChanged(Editable editable) {
             }
         });
-        this.hPe.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.yuyinala.liveroom.rename.c.3
+        this.hPs.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.yuyinala.liveroom.rename.c.3
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                if (charSequence.equals(" ") || b.x(spanned) + b.x(charSequence) > c.this.oyj) {
+                if (charSequence.equals(" ") || b.x(spanned) + b.x(charSequence) > c.this.oyJ) {
                     return "";
                 }
                 return charSequence;
@@ -181,7 +181,7 @@ public class c implements View.OnClickListener {
         }});
     }
 
-    protected void ckT() {
+    protected void cla() {
         BdUtilHelper.hideSoftKeyPad(this.mContext, this.mRootView);
     }
 }

@@ -7,20 +7,21 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.lego.card.view.j;
-import com.baidu.tieba.recapp.h;
+import com.baidu.tieba.recapp.i;
 import com.baidu.tieba.recapp.report.d;
 import com.baidu.tieba.recapp.report.e;
-import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.report.h;
+import com.baidu.tieba.recapp.t;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class c implements h {
-    private AdvertAppInfo kTH;
+public class c implements i {
+    private AdvertAppInfo kTV;
     private String mForumId;
     private String mPostId;
-    private j mWu;
+    private j mWV;
 
     public c(@NonNull TbPageContext<?> tbPageContext, @NonNull final AdvertAppInfo.ILegoAdvert iLegoAdvert, int i, boolean z, String str, String str2) {
-        this.kTH = iLegoAdvert.getAdvertAppInfo();
+        this.kTV = iLegoAdvert.getAdvertAppInfo();
         this.mForumId = str;
         this.mPostId = str2;
         b bVar = new b(tbPageContext);
@@ -31,7 +32,7 @@ public class c implements h {
             @Override // com.baidu.tieba.lego.card.a
             public void d(int i2, HashMap<String, Object> hashMap) {
                 String str3;
-                if (i2 != 0 && c.this.kTH != null) {
+                if (i2 != 0 && c.this.kTV != null) {
                     if (hashMap == null) {
                         str3 = "image";
                     } else {
@@ -40,10 +41,10 @@ public class c implements h {
                             str3 = "image";
                         }
                     }
-                    if (s.HL(i2)) {
-                        d.a(c.this.kTH, 0, str3, i2);
+                    if (t.HL(i2)) {
+                        d.a(c.this.kTV, 0, str3, i2);
                     } else {
-                        d.a(c.this.kTH, 0, (String) null, (String) null, str3);
+                        d.a(c.this.kTV, 0, (String) null, (String) null, str3);
                     }
                     com.baidu.tieba.lego.card.a.c.a(com.baidu.tieba.lego.card.a.c.c(iLegoAdvert.getAdvertAppInfo()));
                 }
@@ -53,36 +54,37 @@ public class c implements h {
             public void b(String str3, String str4, HashMap<String, Object> hashMap) {
             }
         });
-        this.mWu = bVar;
+        this.mWV = bVar;
     }
 
-    @Override // com.baidu.tieba.recapp.h
+    @Override // com.baidu.tieba.recapp.i
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.mWu.setDragToExitListener(dVar);
+        this.mWV.setDragToExitListener(dVar);
     }
 
-    @Override // com.baidu.tieba.recapp.h
-    public View dcx() {
-        return this.mWu.dcx();
+    @Override // com.baidu.tieba.recapp.i
+    public View dcE() {
+        return this.mWV.dcE();
     }
 
-    @Override // com.baidu.tieba.recapp.h
+    @Override // com.baidu.tieba.recapp.i
     public void onAdShow() {
-        com.baidu.tieba.lego.card.a.c.b(com.baidu.tieba.lego.card.a.c.c(this.kTH));
-        anl();
+        if (this.kTV.eLL) {
+            com.baidu.tieba.ad.a.a.bLI().onAdShow(com.baidu.tieba.ad.a.a.a(this.kTV.eLJ));
+            e.dEu().a(h.b(this.kTV, 103, 0));
+            return;
+        }
+        com.baidu.tieba.lego.card.a.c.b(com.baidu.tieba.lego.card.a.c.c(this.kTV));
+        RL("show");
+        e.dEu().a(h.b(this.kTV, 3, 0));
     }
 
-    @Override // com.baidu.tieba.recapp.h
+    @Override // com.baidu.tieba.recapp.i
     public void onDestroy() {
-        this.mWu.onDestroy();
+        this.mWV.onDestroy();
     }
 
-    public void anl() {
-        Rz("show");
-        e.dEm().a(com.baidu.tieba.recapp.report.h.b(this.kTH, 3, 0));
-    }
-
-    public void Rz(String str) {
-        com.baidu.tbadk.distribute.a.bAU().a(this.kTH, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
+    public void RL(String str) {
+        com.baidu.tbadk.distribute.a.bAU().a(this.kTV, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PIC_PAGE", str, 1);
     }
 }

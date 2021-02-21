@@ -72,7 +72,7 @@ public class b extends BaseAdapter {
                     ImageRequestBuilder ag = ImageRequestBuilder.ag(Uri.fromFile(new File(aVar3.dlr.get(0).getPath())));
                     ag.c(new d(this.dkx, this.dkx));
                     ag.By(true);
-                    aVar.dky.setController(c.eto().Bm(false).bo(ag.eAi()).c(aVar.dky.getController()).euf());
+                    aVar.dky.setController(c.etw().Bm(false).bo(ag.eAq()).c(aVar.dky.getController()).eun());
                 }
             }
         }

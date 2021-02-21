@@ -4,10 +4,10 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.lib.b.c;
-import com.kwad.sdk.lib.widget.recycler.b.a.C1141a;
+import com.kwad.sdk.lib.widget.recycler.b.a.C1143a;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes3.dex */
-public class a<MODEL, CallerContext extends C1141a<MODEL>> extends RecyclerView.ViewHolder {
+public class a<MODEL, CallerContext extends C1143a<MODEL>> extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
     public final Presenter f10452a;
@@ -17,7 +17,7 @@ public class a<MODEL, CallerContext extends C1141a<MODEL>> extends RecyclerView.
 
     /* renamed from: com.kwad.sdk.lib.widget.recycler.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1141a<MODEL> {
+    public static class C1143a<MODEL> {
         public KsFragment d;
         public RecyclerView e;
         public c<?, MODEL> f;

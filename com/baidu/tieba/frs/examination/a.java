@@ -19,50 +19,50 @@ import com.google.gson.Gson;
 /* loaded from: classes2.dex */
 public abstract class a implements View.OnClickListener {
     protected Gson gson = new Gson();
-    protected final BaseFragmentActivity iKt;
-    protected View jiI;
-    protected final ForumWriteData jtt;
-    protected TextView jtu;
-    protected SerializableItemInfo jtv;
-    protected final c jtw;
-    private i jtx;
-    private SaveDraftDialogView jty;
+    protected final BaseFragmentActivity iKH;
+    protected View jiW;
+    protected final ForumWriteData jtH;
+    protected TextView jtI;
+    protected SerializableItemInfo jtJ;
+    protected final c jtK;
+    private i jtL;
+    private SaveDraftDialogView jtM;
     protected TextView mCenterText;
     protected NavigationBar mNavigationBar;
     protected View mRoot;
 
     public abstract void bCn();
 
-    protected abstract void cGL();
+    protected abstract void cGS();
 
-    public abstract void cGN();
+    public abstract void cGU();
 
     protected abstract void initUI();
 
     public a(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
-        this.iKt = baseFragmentActivity;
-        this.jtt = forumWriteData;
-        this.jtv = serializableItemInfo;
-        this.jtw = new c(this.iKt, this.iKt.getUniqueId(), this.jtt, this.jtv);
+        this.iKH = baseFragmentActivity;
+        this.jtH = forumWriteData;
+        this.jtJ = serializableItemInfo;
+        this.jtK = new c(this.iKH, this.iKH.getUniqueId(), this.jtH, this.jtJ);
         initUI();
         bEL();
-        cGL();
+        cGS();
     }
 
     protected void bEL() {
         if (this.mNavigationBar != null) {
-            this.jtu = new TextView(this.iKt);
-            this.jtu.setAlpha(0.5f);
-            this.jtu.setText(this.iKt.getString(R.string.send_post));
-            this.jtu.setTextSize(0, l.getDimens(this.iKt, R.dimen.tbds44));
+            this.jtI = new TextView(this.iKH);
+            this.jtI.setAlpha(0.5f);
+            this.jtI.setText(this.iKH.getString(R.string.send_post));
+            this.jtI.setTextSize(0, l.getDimens(this.iKH, R.dimen.tbds44));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            layoutParams.rightMargin = l.getDimens(this.iKt, R.dimen.tbds44);
-            this.jtu.setLayoutParams(layoutParams);
-            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.jtu, this);
-            this.mCenterText = this.mNavigationBar.setCenterTextTitle(this.iKt.getString(R.string.publish_comment));
-            this.mCenterText.setTextSize(0, l.getDimens(this.iKt, R.dimen.tbds44));
-            this.jiI = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            layoutParams.rightMargin = l.getDimens(this.iKH, R.dimen.tbds44);
+            this.jtI.setLayoutParams(layoutParams);
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.jtI, this);
+            this.mCenterText = this.mNavigationBar.setCenterTextTitle(this.iKH.getString(R.string.publish_comment));
+            this.mCenterText.setTextSize(0, l.getDimens(this.iKH, R.dimen.tbds44));
+            this.jiW = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
 
@@ -74,42 +74,42 @@ public abstract class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cGM() {
-        if (this.jty == null) {
-            this.jty = new SaveDraftDialogView(this.iKt);
-            this.jty.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.examination.a.1
+    public void cGT() {
+        if (this.jtM == null) {
+            this.jtM = new SaveDraftDialogView(this.iKH);
+            this.jtM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.examination.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (view != null) {
                         int id = view.getId();
                         if (id == R.id.save_draft_dialog_not_save) {
-                            a.this.cGO();
-                            a.this.iKt.finish();
+                            a.this.cGV();
+                            a.this.iKH.finish();
                         } else if (id == R.id.save_draft_dialog_save) {
                             a.this.bCn();
-                            a.this.iKt.finish();
+                            a.this.iKH.finish();
                         }
-                        a.this.jtx.dismiss();
+                        a.this.jtL.dismiss();
                     }
                 }
             });
         }
-        if (this.jtx == null) {
-            this.jtx = new i(this.iKt.getPageContext());
-            this.jtx.setContentView(this.jty);
+        if (this.jtL == null) {
+            this.jtL = new i(this.iKH.getPageContext());
+            this.jtL.setContentView(this.jtM);
         }
-        this.jty.setText(this.iKt.getString(R.string.write_save_draft_dialog_normal_title), null, this.iKt.getString(R.string.save));
-        this.jtx.QE();
+        this.jtM.setText(this.iKH.getString(R.string.write_save_draft_dialog_normal_title), null, this.iKH.getString(R.string.save));
+        this.jtL.QE();
     }
 
-    protected void cGO() {
-        if (this.jtt != null) {
-            y.g(String.valueOf(this.jtt.forumId), null);
+    protected void cGV() {
+        if (this.jtH != null) {
+            y.g(String.valueOf(this.jtH.forumId), null);
         }
     }
 
     public void onDestroy() {
-        g.dismissDialog(this.jtx, this.iKt);
+        g.dismissDialog(this.jtL, this.iKH);
     }
 
     public void onChangeSkinType() {
@@ -117,8 +117,8 @@ public abstract class a implements View.OnClickListener {
         if (this.mCenterText != null) {
             ap.setViewTextColor(this.mCenterText, R.color.CAM_X0105);
         }
-        if (this.jtu != null) {
-            ap.setViewTextColor(this.jtu, R.color.CAM_X0304);
+        if (this.jtI != null) {
+            ap.setViewTextColor(this.jtI, R.color.CAM_X0304);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onBackBtnOnChangeSkin();

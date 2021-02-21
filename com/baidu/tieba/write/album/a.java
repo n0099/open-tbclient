@@ -10,49 +10,49 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
     private String bLx;
     private String bLy;
     private Fragment[] bgH;
-    private TbPageContext iVb;
-    private e odM;
-    private String[] odN;
-    private ImageListFragment odO;
-    private AlbumImageBrowseFragment odP;
+    private TbPageContext iVp;
+    private e oem;
+    private String[] oen;
+    private ImageListFragment oeo;
+    private AlbumImageBrowseFragment oep;
 
     public a(TbPageContext tbPageContext, e eVar) {
         super(tbPageContext);
         this.bLx = "tag_image";
         this.bLy = "tag_b_image";
-        this.iVb = tbPageContext;
-        this.odM = eVar;
+        this.iVp = tbPageContext;
+        this.oem = eVar;
     }
 
     public void Uu() {
         this.bgH = new Fragment[2];
-        this.odN = new String[2];
-        this.odO = new ImageListFragment();
-        this.odO.a(this.odM);
-        this.bgH[0] = this.odO;
-        this.odN[0] = this.bLx;
-        this.odP = new AlbumImageBrowseFragment();
-        this.odP.a(this.odM);
-        this.bgH[1] = this.odP;
-        this.odN[1] = this.bLy;
+        this.oen = new String[2];
+        this.oeo = new ImageListFragment();
+        this.oeo.a(this.oem);
+        this.bgH[0] = this.oeo;
+        this.oen[0] = this.bLx;
+        this.oep = new AlbumImageBrowseFragment();
+        this.oep.a(this.oem);
+        this.bgH[1] = this.oep;
+        this.oen[1] = this.bLy;
     }
 
-    public Fragment Li(int i) {
+    public Fragment Lj(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
         return this.bgH[i];
     }
 
-    public String Lj(int i) {
+    public String Lk(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.odN[i];
+        return this.oen[i];
     }
 
     public void b(NavigationBar navigationBar) {
-        this.odO.b(navigationBar);
+        this.oeo.b(navigationBar);
     }
 
     public void onChangeSkinType(int i) {
@@ -70,99 +70,99 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView dWK() {
-        if (this.odO == null) {
+    public TbCameraView dWS() {
+        if (this.oeo == null) {
             return null;
         }
-        return this.odO.dWK();
+        return this.oeo.dWS();
     }
 
     public void stopCamera() {
-        TbCameraView dWK = dWK();
-        if (dWK != null) {
-            dWK.stopCamera();
-            dWK.setVisibility(4);
+        TbCameraView dWS = dWS();
+        if (dWS != null) {
+            dWS.stopCamera();
+            dWS.setVisibility(4);
         }
     }
 
     public void openCamera() {
-        TbCameraView dWK = dWK();
-        if (dWK != null) {
-            dWK.setVisibility(0);
-            dWK.zC(false);
+        TbCameraView dWS = dWS();
+        if (dWS != null) {
+            dWS.setVisibility(0);
+            dWS.zC(false);
         }
-        if (this.odO != null && this.odO.dWV() != null) {
-            this.odO.dWV().UR();
+        if (this.oeo != null && this.oeo.dXd() != null) {
+            this.oeo.dXd().UR();
         }
     }
 
-    public void dWL() {
-        if (this.odO != null) {
-            this.odO.UP();
+    public void dWT() {
+        if (this.oeo != null) {
+            this.oeo.UP();
         }
     }
 
     public View Uv() {
-        if (this.odO == null) {
+        if (this.oeo == null) {
             return null;
         }
-        return this.odO.UM();
+        return this.oeo.UM();
     }
 
     public View Uw() {
-        if (this.odO == null) {
+        if (this.oeo == null) {
             return null;
         }
-        return this.odO.UQ();
+        return this.oeo.UQ();
     }
 
     public View Ux() {
-        if (this.odP == null) {
+        if (this.oep == null) {
             return null;
         }
-        return this.odP.UM();
+        return this.oep.UM();
     }
 
     public View Uy() {
-        if (this.odP == null) {
+        if (this.oep == null) {
             return null;
         }
-        return this.odP.UN();
+        return this.oep.UN();
     }
 
     public View Uz() {
-        if (this.odP == null) {
+        if (this.oep == null) {
             return null;
         }
-        return this.odP.Uz();
+        return this.oep.Uz();
     }
 
     public View UA() {
-        if (this.odO == null) {
+        if (this.oeo == null) {
             return null;
         }
-        return this.odO.Uz();
+        return this.oeo.Uz();
     }
 
     public void onDestroy() {
     }
 
-    public ImageListFragment dWM() {
-        return this.odO;
+    public ImageListFragment dWU() {
+        return this.oeo;
     }
 
     public void dn(boolean z) {
-        if (this.odP != null) {
-            this.odP.dn(z);
+        if (this.oep != null) {
+            this.oep.dn(z);
         }
-        if (this.odO != null) {
-            this.odO.dn(z);
+        if (this.oeo != null) {
+            this.oeo.dn(z);
         }
     }
 
     public void a(j jVar) {
-        if (this.odO != null) {
-            this.odO.a(jVar);
+        if (this.oeo != null) {
+            this.oeo.a(jVar);
         }
     }
 }

@@ -16,56 +16,56 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
-    private ArrayList<n> gpY = new ArrayList<>();
-    private BdTypeListView gzb;
-    public j mMp;
-    private c mMq;
-    public i mzk;
+    private ArrayList<n> gqm = new ArrayList<>();
+    private BdTypeListView gzp;
+    public j mME;
+    private c mMF;
+    public i mzz;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.gzb = bdTypeListView;
+        this.gzp = bdTypeListView;
         y(tbPageContext);
     }
 
     private void y(TbPageContext<?> tbPageContext) {
-        this.mzk = new i(tbPageContext);
-        this.mMp = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mBI);
-        this.mMq = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.mMp.a(this.mMq);
-        this.bns.add(this.mzk);
-        this.bns.add(this.mMp);
-        this.gzb.addAdapters(this.bns);
+        this.mzz = new i(tbPageContext);
+        this.mME = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.mBX);
+        this.mMF = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.mME.a(this.mMF);
+        this.bns.add(this.mzz);
+        this.bns.add(this.mME);
+        this.gzp.addAdapters(this.bns);
     }
 
     public void V(ArrayList<n> arrayList) {
-        if (arrayList != null && this.gzb != null) {
-            this.gpY.clear();
-            this.gpY.addAll(arrayList);
-            this.gzb.setData(this.gpY);
+        if (arrayList != null && this.gzp != null) {
+            this.gqm.clear();
+            this.gqm.addAll(arrayList);
+            this.gzp.setData(this.gqm);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.gzb.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.gzb.getAdapter().notifyDataSetChanged();
+        if (this.gzp.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.gzp.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.gzb != null) {
-            this.gzb.startPullRefresh();
+        if (this.gzp != null) {
+            this.gzp.startPullRefresh();
         }
     }
 
-    public boolean QK(String str) {
+    public boolean QL(String str) {
         boolean z;
         if (au.isEmpty(str)) {
             return false;
         }
-        if (this.gzb == null || this.gpY == null) {
+        if (this.gzp == null || this.gqm == null) {
             return false;
         }
-        Iterator<n> it = this.gpY.iterator();
+        Iterator<n> it = this.gqm.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -79,8 +79,8 @@ public class a {
             }
         }
         if (z) {
-            this.gpY = PersonPostModel.mergeDynamicThreadByTime(this.gpY);
-            this.gzb.setData(this.gpY);
+            this.gqm = PersonPostModel.mergeDynamicThreadByTime(this.gqm);
+            this.gzp.setData(this.gqm);
             notifyDataSetChanged();
             return z;
         }

@@ -13,24 +13,24 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
     private f eVB;
-    private BdTypeListView gzb;
-    private EmotionCategoryAdapter iYc;
-    private EmotionHorizontalAdapter iYd;
+    private BdTypeListView gzp;
+    private EmotionCategoryAdapter iYq;
+    private EmotionHorizontalAdapter iYr;
     private final List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
     private List<n> mListData = new ArrayList();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.eVB = tbPageContext;
-        this.gzb = bdTypeListView;
+        this.gzp = bdTypeListView;
         Kw();
     }
 
     private void Kw() {
-        this.iYc = new EmotionCategoryAdapter((TbPageContext) this.eVB, com.baidu.tieba.faceshop.emotioncenter.data.a.iYf);
-        this.iYd = new EmotionHorizontalAdapter((TbPageContext) this.eVB, b.iYg);
-        this.bns.add(this.iYc);
-        this.bns.add(this.iYd);
-        this.gzb.addAdapters(this.bns);
+        this.iYq = new EmotionCategoryAdapter((TbPageContext) this.eVB, com.baidu.tieba.faceshop.emotioncenter.data.a.iYt);
+        this.iYr = new EmotionHorizontalAdapter((TbPageContext) this.eVB, b.iYu);
+        this.bns.add(this.iYq);
+        this.bns.add(this.iYr);
+        this.gzp.addAdapters(this.bns);
     }
 
     public void setDatas(List<n> list) {
@@ -38,8 +38,8 @@ public class a {
             if (!y.isEmpty(this.mListData)) {
                 this.mListData.clear();
             }
-            if (this.gzb != null) {
-                this.gzb.setData(list);
+            if (this.gzp != null) {
+                this.gzp.setData(list);
                 this.mListData.addAll(list);
             }
             notifyDataSetChanged();
@@ -48,9 +48,9 @@ public class a {
 
     public void cE(List<n> list) {
         if (!y.isEmpty(list)) {
-            if (this.gzb != null) {
+            if (this.gzp != null) {
                 this.mListData.addAll(list);
-                this.gzb.setData(this.mListData);
+                this.gzp.setData(this.mListData);
             }
             notifyDataSetChanged();
         }
@@ -61,7 +61,7 @@ public class a {
         EmotionPackageData emotionPackageData2;
         if (emotionPackageData != null && !y.isEmpty(this.mListData)) {
             for (n nVar : this.mListData) {
-                if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.iYh) != null && emotionPackageData2.id == emotionPackageData.id) {
+                if ((nVar instanceof b) && (bVar = (b) nVar) != null && (emotionPackageData2 = bVar.iYv) != null && emotionPackageData2.id == emotionPackageData.id) {
                     emotionPackageData2.download = emotionPackageData.download;
                     emotionPackageData2.share = emotionPackageData.share;
                     notifyDataSetChanged();
@@ -72,8 +72,8 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.gzb != null && this.gzb.getAdapter() != null && (this.gzb.getAdapter() instanceof BaseAdapter)) {
-            this.gzb.getAdapter().notifyDataSetChanged();
+        if (this.gzp != null && this.gzp.getAdapter() != null && (this.gzp.getAdapter() instanceof BaseAdapter)) {
+            this.gzp.getAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -10,14 +10,14 @@ import javax.annotation.Nullable;
 class LegacyLinker extends Linker {
     static final /* synthetic */ boolean $assertionsDisabled;
     private boolean mInitialized = false;
-    private boolean oOM = true;
-    private boolean oON = false;
-    private boolean oOO = false;
-    private Bundle oOP = null;
-    private long oOQ = -1;
-    private long oOR = -1;
-    private boolean oOS = false;
-    private HashMap<String, Linker.LibInfo> oOT = null;
+    private boolean oPm = true;
+    private boolean oPn = false;
+    private boolean oPo = false;
+    private Bundle oPp = null;
+    private long oPq = -1;
+    private long oPr = -1;
+    private boolean oPs = false;
+    private HashMap<String, Linker.LibInfo> oPt = null;
 
     private static native boolean nativeCreateSharedRelro(String str, long j, Linker.LibInfo libInfo);
 

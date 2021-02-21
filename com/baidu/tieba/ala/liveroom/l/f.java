@@ -15,7 +15,7 @@ public class f extends a {
     private HeadImageView aDr;
     private TextView aYt;
     private View cBE;
-    private TextView hEG;
+    private TextView hEU;
 
     public f(@NonNull Context context) {
         super(context);
@@ -39,7 +39,7 @@ public class f extends a {
         });
         this.aYt = (TextView) findViewById(a.f.tv_guide_folllow_tip);
         this.aDr = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.hEG = (TextView) findViewById(a.f.ala_live_name);
+        this.hEU = (TextView) findViewById(a.f.ala_live_name);
         this.aDr.setDefaultResource(a.e.sdk_icon_default_avatar100);
         this.aDr.setDefaultErrorResource(a.e.sdk_icon_default_avatar100);
         this.aDr.setIsRound(true);
@@ -50,25 +50,25 @@ public class f extends a {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.l.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.hEp != null) {
-                    f.this.hEp.onConfirm();
+                if (f.this.hED != null) {
+                    f.this.hED.onConfirm();
                 }
             }
         });
-        this.hEq = textView.getText().toString();
-        cfU();
+        this.hEE = textView.getText().toString();
+        cgb();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.l.a
     public void ex(String str, String str2) {
-        cfT();
+        cga();
         this.aDr.startLoad(str, 25, false, false);
-        this.hEG.setText(str2);
+        this.hEU.setText(str2);
         LN();
         show();
     }
 
-    private void cfU() {
+    private void cgb() {
         if (com.baidu.live.ae.a.Qj().buX != null && com.baidu.live.ae.a.Qj().buX.aMM == null) {
         }
     }
@@ -77,7 +77,7 @@ public class f extends a {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.l.f.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                f.this.cfT();
+                f.this.cga();
             }
         });
     }
@@ -90,7 +90,7 @@ public class f extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfT() {
+    public void cga() {
         if (this.aDr != null) {
             this.aDr.stopLoad();
         }

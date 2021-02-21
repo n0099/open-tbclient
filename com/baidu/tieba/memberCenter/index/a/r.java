@@ -8,7 +8,7 @@ public class r {
     private long id;
     private String imgUrl;
     private String linkUrl;
-    private int lnu;
+    private int lnI;
     private int status;
     private String title;
     private int type;
@@ -31,7 +31,7 @@ public class r {
             this.title = pointTaskInfo.task_name;
             this.desc = pointTaskInfo.task_intro;
             this.status = pointTaskInfo.is_finish.intValue();
-            this.lnu = pointTaskInfo.points_add.intValue();
+            this.lnI = pointTaskInfo.points_add.intValue();
             this.type = pointTaskInfo.type.intValue();
         }
     }
@@ -64,8 +64,8 @@ public class r {
         return this.status == 1;
     }
 
-    public int dfg() {
-        return this.lnu;
+    public int dfn() {
+        return this.lnI;
     }
 
     public int getType() {

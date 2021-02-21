@@ -5,21 +5,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    public boolean pij;
-    public TextMsg pik;
+    public boolean piK;
+    public TextMsg piL;
 
     public b(TextMsg textMsg) {
-        this.pik = textMsg;
+        this.piL = textMsg;
         try {
-            if (new JSONObject(this.pik.getMsgContent()).has("notifiyType")) {
-                this.pij = true;
+            if (new JSONObject(this.piL.getMsgContent()).has("notifiyType")) {
+                this.piK = true;
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public boolean emE() {
-        return this.pij;
+    public boolean emM() {
+        return this.piK;
     }
 }

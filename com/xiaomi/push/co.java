@@ -91,7 +91,7 @@ public class co implements ct {
             return;
         }
         this.f13920b++;
-        cr.m229a("send: " + this.f13920b);
+        cr.m228a("send: " + this.f13920b);
         cp cpVar = new cp(this, this.f254b, this.f255c, cmVar);
         this.f253a.put(cmVar.f13917b, cmVar);
         cpVar.execute(new String[0]);
@@ -101,7 +101,7 @@ public class co implements ct {
         try {
             String a2 = a(arrayList, str);
             String a3 = cr.a(a2);
-            if (m228a(new cm(i, a2, a3))) {
+            if (m227a(new cm(i, a2, a3))) {
                 a(new cm(i, a2, a3));
             }
         } catch (JSONException e) {
@@ -109,7 +109,7 @@ public class co implements ct {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m228a(cm cmVar) {
+    private boolean m227a(cm cmVar) {
         if (cq.a(this.f250a)) {
             return true;
         }
@@ -119,7 +119,7 @@ public class co implements ct {
 
     private void b(cm cmVar) {
         this.d++;
-        cr.m229a("cacheCount: " + this.d);
+        cr.m228a("cacheCount: " + this.d);
         this.f251a.a(cmVar);
         this.f251a.a();
     }
@@ -138,11 +138,11 @@ public class co implements ct {
         if (this.f253a.containsKey(cmVar.f13917b)) {
             if (num.intValue() != 0) {
                 this.c++;
-                cr.m229a("faild: " + this.c + " " + cmVar.f13917b + "  " + this.f253a.size());
+                cr.m228a("faild: " + this.c + " " + cmVar.f13917b + "  " + this.f253a.size());
                 b(cmVar);
             } else {
                 this.f249a++;
-                cr.m229a("success: " + this.f249a);
+                cr.m228a("success: " + this.f249a);
             }
             this.f253a.remove(cmVar.f13917b);
         }

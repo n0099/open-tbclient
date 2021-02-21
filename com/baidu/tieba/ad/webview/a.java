@@ -389,7 +389,7 @@ public final class a {
         return dPc.get(str);
     }
 
-    public static String EP(String str) {
+    public static String EQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -405,7 +405,7 @@ public final class a {
         if (0 != 0 || str2 == null) {
             str4 = null;
         } else {
-            str4 = EQ(str2);
+            str4 = ER(str2);
             if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
                 str4 = str4.substring(lastIndexOf2);
             }
@@ -452,10 +452,10 @@ public final class a {
         } else {
             if (str3 != null) {
                 String substring = str4.substring(str4.lastIndexOf(".") + 1);
-                String EP = EP(str3);
+                String EQ = EQ(str3);
                 String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
-                String lowerCase2 = !TextUtils.isEmpty(EP) ? EP.toLowerCase() : "";
+                String lowerCase2 = !TextUtils.isEmpty(EQ) ? EQ.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
                 String tT = tT(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
@@ -503,7 +503,7 @@ public final class a {
         return null;
     }
 
-    static String EQ(String str) {
+    static String ER(String str) {
         try {
             Matcher matcher = dPe.matcher(str);
             if (matcher.find()) {

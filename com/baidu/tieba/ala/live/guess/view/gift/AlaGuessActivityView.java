@@ -11,8 +11,8 @@ import com.baidu.tieba.ala.live.guess.widget.TimeCountTextView;
 /* loaded from: classes11.dex */
 public class AlaGuessActivityView extends LinearLayout {
     public TextView bCG;
-    public ImageView hiG;
-    public TimeCountTextView hiH;
+    public ImageView hiU;
+    public TimeCountTextView hiV;
 
     public AlaGuessActivityView(Context context) {
         super(context);
@@ -23,7 +23,7 @@ public class AlaGuessActivityView extends LinearLayout {
         setId(a.f.ala_liveguess_activity_layout);
         LayoutInflater.from(getContext()).inflate(a.g.ala_guess_activity_view, (ViewGroup) this, true);
         this.bCG = (TextView) findViewById(a.f.tv_countdown_format);
-        this.hiG = (ImageView) findViewById(a.f.img_activity);
-        this.hiH = (TimeCountTextView) findViewById(a.f.time_countdown);
+        this.hiU = (ImageView) findViewById(a.f.img_activity);
+        this.hiV = (TimeCountTextView) findViewById(a.f.time_countdown);
     }
 }

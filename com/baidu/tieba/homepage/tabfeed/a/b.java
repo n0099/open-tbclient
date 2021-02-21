@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bt, ThreadCardViewHolder<
     private com.baidu.tbadk.h.f ajq;
     private s amk;
     public BdUniqueId fGZ;
-    private NEGFeedBackView.a hnt;
+    private NEGFeedBackView.a hnH;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -52,7 +52,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bt, ThreadCardViewHolder<
                 }
             }
         };
-        this.hnt = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
+        this.hnH = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.b.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(av avVar) {
             }
@@ -157,7 +157,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bt, ThreadCardViewHolder<
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 }

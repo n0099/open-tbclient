@@ -7,18 +7,18 @@ import tbclient.SimpleUser;
 /* loaded from: classes2.dex */
 public class AccountSafeModel extends BdBaseModel {
     private boolean fLt;
-    private String ggA;
-    private com.baidu.tieba.setting.im.more.a ggx;
-    private String ggy;
-    private String ggz;
+    private com.baidu.tieba.setting.im.more.a ggC;
+    private String ggD;
+    private String ggE;
+    private String ggF;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a bLc() {
-        return this.ggx;
+    public com.baidu.tieba.setting.im.more.a bLh() {
+        return this.ggC;
     }
 
     public String BS() {
-        return this.ggy;
+        return this.ggD;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
@@ -39,40 +39,40 @@ public class AccountSafeModel extends BdBaseModel {
         return false;
     }
 
-    private PrivateInfoNetMessage bLd() {
+    private PrivateInfoNetMessage bLi() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean bLe() {
+    public boolean bLj() {
         if (this.fLt) {
             return false;
         }
         this.fLt = true;
         this.mFinished = false;
-        sendMessage(bLd());
+        sendMessage(bLi());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.ggx = aVar;
-        bLf();
+        this.ggC = aVar;
+        bLk();
     }
 
-    private void bLf() {
-        SimpleUser bLg = bLg();
-        if (bLg != null) {
-            this.ggz = bLg.secureemail;
-            this.ggA = bLg.securemobil;
-            this.ggy = bLg.ahead_url;
+    private void bLk() {
+        SimpleUser bLl = bLl();
+        if (bLl != null) {
+            this.ggE = bLl.secureemail;
+            this.ggF = bLl.securemobil;
+            this.ggD = bLl.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser bLg() {
-        if (this.ggx == null || this.ggx.bLg() == null) {
+    private SimpleUser bLl() {
+        if (this.ggC == null || this.ggC.bLl() == null) {
             return null;
         }
-        return this.ggx.bLg();
+        return this.ggC.bLl();
     }
 
     public boolean isLoading() {

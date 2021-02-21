@@ -1148,7 +1148,7 @@ public class cb extends a implements com.baidu.adp.widget.ListView.n, com.baidu.
     }
 
     public void a(WriteData writeData) {
-        String dPa;
+        String dPi;
         if (writeData != null) {
             try {
                 this.id = "0";
@@ -1164,12 +1164,12 @@ public class cb extends a implements com.baidu.adp.widget.ListView.n, com.baidu.
                 this.forum_name = writeData.getForumName();
                 VideoInfo.Builder builder = new VideoInfo.Builder();
                 builder.is_vertical = Integer.valueOf(writeData.getVideoInfo().getVideoHeight() > writeData.getVideoInfo().getVideoWidth() ? 1 : 0);
-                if (com.baidu.tbadk.core.util.au.isEmpty(com.baidu.tieba.tbadkCore.writeModel.a.dOU().dPa())) {
-                    dPa = writeData.getVideoInfo().getThumbPath();
+                if (com.baidu.tbadk.core.util.au.isEmpty(com.baidu.tieba.tbadkCore.writeModel.a.dPc().dPi())) {
+                    dPi = writeData.getVideoInfo().getThumbPath();
                 } else {
-                    dPa = com.baidu.tieba.tbadkCore.writeModel.a.dOU().dPa();
+                    dPi = com.baidu.tieba.tbadkCore.writeModel.a.dPc().dPi();
                 }
-                builder.thumbnail_url = dPa;
+                builder.thumbnail_url = dPi;
                 builder.video_url = writeData.getVideoInfo().getVideoUrl();
                 this.eRR = builder.build(true);
                 this.threadType = 40;
@@ -2030,7 +2030,7 @@ public class cb extends a implements com.baidu.adp.widget.ListView.n, com.baidu.
                 PbContent pbContent = this.eRj.get(i);
                 if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bmv() && pbContent.text != null && pbContent.text.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = com.baidu.tbadk.plugins.b.DD(pbContent.text);
+                    activityItemData.link_url = com.baidu.tbadk.plugins.b.DB(pbContent.text);
                     activityItemData.activity_name = pbContent.text.substring(1, pbContent.text.length() - 2);
                     return activityItemData;
                 }
@@ -2131,7 +2131,7 @@ public class cb extends a implements com.baidu.adp.widget.ListView.n, com.baidu.
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
         if (this.eUi != null) {
-            return this.eUi.dNi() ? (this.eUi.dNh() == null && this.eUi.dNj()) ? AdvertAppInfo.eLl : AdvertAppInfo.eLm : this.eUi.dNh() != null ? AdvertAppInfo.eLk : AdvertAppInfo.eLl;
+            return this.eUi.dNq() ? (this.eUi.dNp() == null && this.eUi.dNr()) ? AdvertAppInfo.eLl : AdvertAppInfo.eLm : this.eUi.dNp() != null ? AdvertAppInfo.eLk : AdvertAppInfo.eLl;
         } else if (bpH()) {
             if (boh() != null) {
                 return eQK;

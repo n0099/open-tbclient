@@ -12,10 +12,10 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     /* renamed from: b  reason: collision with root package name */
     private boolean f6005b = false;
-    private Request<?> puL;
-    private p<T> puO;
+    private Request<?> pvl;
+    private p<T> pvo;
 
-    public static <E> i<E> eqH() {
+    public static <E> i<E> eqP() {
         return new i<>();
     }
 
@@ -26,8 +26,8 @@ public class i<T> implements p.a<T>, Future<p<T>> {
     public synchronized boolean cancel(boolean z) {
         boolean z2 = false;
         synchronized (this) {
-            if (this.puL != null && !isDone()) {
-                this.puL.cancel();
+            if (this.pvl != null && !isDone()) {
+                this.pvl.cancel();
                 z2 = true;
             }
         }
@@ -36,7 +36,7 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Future
-    /* renamed from: eqG */
+    /* renamed from: eqO */
     public p<T> get() throws InterruptedException {
         try {
             return i(null);
@@ -55,7 +55,7 @@ public class i<T> implements p.a<T>, Future<p<T>> {
     private synchronized p<T> i(Long l) throws InterruptedException, TimeoutException {
         p<T> pVar;
         if (this.f6005b) {
-            pVar = this.puO;
+            pVar = this.pvo;
         } else {
             if (l == null) {
                 while (!isDone()) {
@@ -72,17 +72,17 @@ public class i<T> implements p.a<T>, Future<p<T>> {
             if (!this.f6005b) {
                 throw new TimeoutException();
             }
-            pVar = this.puO;
+            pVar = this.pvo;
         }
         return pVar;
     }
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        if (this.puL == null) {
+        if (this.pvl == null) {
             return false;
         }
-        return this.puL.isCanceled();
+        return this.pvl.isCanceled();
     }
 
     @Override // java.util.concurrent.Future
@@ -97,14 +97,14 @@ public class i<T> implements p.a<T>, Future<p<T>> {
     @Override // com.bytedance.sdk.adnet.core.p.a
     public synchronized void a(p<T> pVar) {
         this.f6005b = true;
-        this.puO = pVar;
+        this.pvo = pVar;
         notifyAll();
     }
 
     @Override // com.bytedance.sdk.adnet.core.p.a
     public synchronized void b(p<T> pVar) {
         this.f6005b = true;
-        this.puO = pVar;
+        this.pvo = pVar;
         notifyAll();
     }
 }

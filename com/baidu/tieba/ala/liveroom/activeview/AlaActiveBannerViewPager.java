@@ -8,16 +8,16 @@ import com.baidu.live.tbadk.widget.SlideRatioViewPager;
 /* loaded from: classes11.dex */
 public class AlaActiveBannerViewPager extends SlideRatioViewPager implements d {
     private final View.OnTouchListener bST;
-    private boolean gLN;
+    private boolean gMb;
     private final SlideRatioViewPager.OnPageChangeListener mOnPageChangeListener;
 
     public AlaActiveBannerViewPager(Context context) {
         super(context);
-        this.gLN = false;
+        this.gMb = false;
         this.bST = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                AlaActiveBannerViewPager.this.gLN = motionEvent.getAction() == 0 || motionEvent.getAction() == 2;
+                AlaActiveBannerViewPager.this.gMb = motionEvent.getAction() == 0 || motionEvent.getAction() == 2;
                 return false;
             }
         };
@@ -32,7 +32,7 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager implements d {
 
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                AlaActiveBannerViewPager.this.gLN = i == 1;
+                AlaActiveBannerViewPager.this.gMb = i == 1;
             }
         };
         init();
@@ -40,11 +40,11 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager implements d {
 
     public AlaActiveBannerViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gLN = false;
+        this.gMb = false;
         this.bST = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.AlaActiveBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                AlaActiveBannerViewPager.this.gLN = motionEvent.getAction() == 0 || motionEvent.getAction() == 2;
+                AlaActiveBannerViewPager.this.gMb = motionEvent.getAction() == 0 || motionEvent.getAction() == 2;
                 return false;
             }
         };
@@ -59,7 +59,7 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager implements d {
 
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
-                AlaActiveBannerViewPager.this.gLN = i == 1;
+                AlaActiveBannerViewPager.this.gMb = i == 1;
             }
         };
         init();
@@ -67,7 +67,7 @@ public class AlaActiveBannerViewPager extends SlideRatioViewPager implements d {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.d
     public void XU() {
-        if (!this.gLN) {
+        if (!this.gMb) {
             setCurrentItem(getCurrentItem() + 1, false);
         }
     }

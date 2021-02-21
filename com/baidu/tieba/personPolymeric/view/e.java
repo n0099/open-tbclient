@@ -18,11 +18,11 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class e extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.g> {
     private View erI;
-    private com.baidu.tieba.personPolymeric.a.o mEG;
+    private com.baidu.tieba.personPolymeric.a.o mEV;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
-    private HTypeListView msi;
+    private HTypeListView msx;
 
     public e(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -30,8 +30,8 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.erI = this.mRootView.findViewById(R.id.divider_view);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.gift_title);
-        this.msi = (HTypeListView) this.mRootView.findViewById(R.id.gift_horizontal_list);
-        this.mEG = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.msi);
+        this.msx = (HTypeListView) this.mRootView.findViewById(R.id.gift_horizontal_list);
+        this.mEV = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.msx);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -59,13 +59,13 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
                 e.this.b(gVar);
             }
         };
-        this.mEG.ab(onClickListener);
+        this.mEV.ab(onClickListener);
         this.mRootView.setOnClickListener(onClickListener);
-        this.mEG.ac(onClickListener);
-        this.msi.setData(fE(gVar.mBF));
+        this.mEV.ac(onClickListener);
+        this.msx.setData(fE(gVar.mBU));
         if (gVar.mIsHost) {
             this.mTitle.setText(R.string.gift_received_by_me);
-        } else if (gVar.mBD) {
+        } else if (gVar.mBS) {
             this.mTitle.setText(R.string.gift_received_by_him);
         } else {
             this.mTitle.setText(R.string.gift_received_by_her);
@@ -78,7 +78,7 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
             this.mPageContext.showToast(R.string.gift_load_fail);
         } else if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Op, gVar.mBE, gVar.mSex)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Op, gVar.mBT, gVar.mSex)));
         }
     }
 

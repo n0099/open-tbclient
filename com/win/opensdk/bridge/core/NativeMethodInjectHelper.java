@@ -9,18 +9,18 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NativeMethodInjectHelper {
-    private static volatile NativeMethodInjectHelper qks;
-    private ArrayMap<String, ArrayMap<String, Method>> qkt = new ArrayMap<>();
-    private List<Class<?>> qjR = new ArrayList();
+    private static volatile NativeMethodInjectHelper qkS;
+    private ArrayMap<String, ArrayMap<String, Method>> qkT = new ArrayMap<>();
+    private List<Class<?>> qkr = new ArrayList();
 
-    public static NativeMethodInjectHelper eJh() {
-        NativeMethodInjectHelper nativeMethodInjectHelper = qks;
+    public static NativeMethodInjectHelper eJp() {
+        NativeMethodInjectHelper nativeMethodInjectHelper = qkS;
         if (nativeMethodInjectHelper == null) {
             synchronized (NativeMethodInjectHelper.class) {
-                nativeMethodInjectHelper = qks;
+                nativeMethodInjectHelper = qkS;
                 if (nativeMethodInjectHelper == null) {
                     nativeMethodInjectHelper = new NativeMethodInjectHelper();
-                    qks = nativeMethodInjectHelper;
+                    qkS = nativeMethodInjectHelper;
                 }
             }
         }
@@ -34,18 +34,18 @@ public class NativeMethodInjectHelper {
         if (cls == null) {
             throw new NullPointerException("NativeMethodInjectHelper:The clazz can not be null!");
         }
-        this.qjR.add(cls);
+        this.qkr.add(cls);
         return this;
     }
 
-    public void eJi() {
+    public void eJq() {
         Method[] declaredMethods;
         Class<?>[] parameterTypes;
-        int size = this.qjR.size();
+        int size = this.qkr.size();
         if (size != 0) {
-            this.qkt.clear();
+            this.qkT.clear();
             for (int i = 0; i < size; i++) {
-                Class<?> cls = this.qjR.get(i);
+                Class<?> cls = this.qkr.get(i);
                 if (cls != null) {
                     ArrayMap<String, Method> arrayMap = new ArrayMap<>();
                     for (Method method : cls.getDeclaredMethods()) {
@@ -54,19 +54,19 @@ public class NativeMethodInjectHelper {
                             arrayMap.put(method.getName(), method);
                         }
                     }
-                    this.qkt.put(cls.getSimpleName(), arrayMap);
+                    this.qkT.put(cls.getSimpleName(), arrayMap);
                 }
             }
-            this.qjR.clear();
+            this.qkr.clear();
         }
     }
 
-    public Method hD(String str, String str2) {
+    public Method hF(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        if (this.qkt.containsKey(str)) {
-            ArrayMap<String, Method> arrayMap = this.qkt.get(str);
+        if (this.qkT.containsKey(str)) {
+            ArrayMap<String, Method> arrayMap = this.qkT.get(str);
             if (arrayMap == null) {
                 return null;
             }

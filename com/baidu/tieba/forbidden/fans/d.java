@@ -12,35 +12,35 @@ import java.util.ArrayList;
 public class d {
     private e eHO;
     private TbPageContext eUY;
-    private al jbk;
-    private c jbl;
-    private com.baidu.tieba.view.a jbm;
-    private a jbn;
+    private com.baidu.tieba.view.a jbA;
+    private a jbB;
+    private al jby;
+    private c jbz;
 
     /* loaded from: classes8.dex */
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void cAx();
+        void cAE();
     }
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.eUY = tbPageContext;
-        this.jbl = new c(tbPageContext, bdUniqueId);
-        this.jbl.a(new c.a() { // from class: com.baidu.tieba.forbidden.fans.d.1
+        this.jbz = new c(tbPageContext, bdUniqueId);
+        this.jbz.a(new c.a() { // from class: com.baidu.tieba.forbidden.fans.d.1
             @Override // com.baidu.tieba.forbidden.fans.c.a
             public void k(int i, String str, boolean z) {
-                if (d.this.jbn != null) {
-                    d.this.jbn.a(i, str, z, 0, 0L);
+                if (d.this.jbB != null) {
+                    d.this.jbB.a(i, str, z, 0, 0L);
                 }
             }
         });
-        this.jbk = new al(tbPageContext, bdUniqueId);
-        this.jbk.a(new al.a() { // from class: com.baidu.tieba.forbidden.fans.d.2
+        this.jby = new al(tbPageContext, bdUniqueId);
+        this.jby.a(new al.a() { // from class: com.baidu.tieba.forbidden.fans.d.2
             @Override // com.baidu.tbadk.core.util.al.a
             public void a(int i, String str, long j, boolean z) {
-                if (d.this.jbn != null) {
-                    d.this.jbn.a(i, str, z, 1, j);
+                if (d.this.jbB != null) {
+                    d.this.jbB.a(i, str, z, 1, j);
                 }
             }
         });
@@ -51,27 +51,27 @@ public class d {
     }
 
     public void gn(long j) {
-        this.jbk.dR(j);
+        this.jby.dR(j);
     }
 
     private void bkE() {
         if (this.eHO == null) {
-            this.jbm = new com.baidu.tieba.view.a(this.eUY.getContext());
-            this.jbm.setTitleText(this.eUY.getString(R.string.confirm_remove_all_forbidden_fans));
+            this.jbA = new com.baidu.tieba.view.a(this.eUY.getContext());
+            this.jbA.setTitleText(this.eUY.getString(R.string.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.C0895a c0895a = new a.C0895a(this.eUY.getString(R.string.confirm), this.jbm);
-            c0895a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.d.3
+            a.C0897a c0897a = new a.C0897a(this.eUY.getString(R.string.confirm), this.jbA);
+            c0897a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.d.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     d.this.eHO.dismiss();
-                    if (d.this.jbn != null) {
-                        d.this.jbn.cAx();
+                    if (d.this.jbB != null) {
+                        d.this.jbB.cAE();
                     }
-                    d.this.jbl.cAB();
+                    d.this.jbz.cAI();
                 }
             });
-            arrayList.add(c0895a);
-            this.jbm.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.d.4
+            arrayList.add(c0897a);
+            this.jbA.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.d.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
                     if (d.this.eHO != null) {
@@ -79,20 +79,20 @@ public class d {
                     }
                 }
             });
-            this.jbm.bw(arrayList);
-            this.eHO = new e(this.eUY.getPageActivity(), this.jbm.bqR());
+            this.jbA.bw(arrayList);
+            this.eHO = new e(this.eUY.getPageActivity(), this.jbA.bqR());
             this.eHO.ac(0.7f);
         }
         this.eHO.show();
     }
 
     public void onChangeSkinType() {
-        if (this.jbm != null) {
-            this.jbm.onChangeSkinType();
+        if (this.jbA != null) {
+            this.jbA.onChangeSkinType();
         }
     }
 
     public void a(a aVar) {
-        this.jbn = aVar;
+        this.jbB = aVar;
     }
 }

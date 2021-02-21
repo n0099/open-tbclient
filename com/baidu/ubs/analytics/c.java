@@ -7,11 +7,11 @@ import com.kwad.sdk.collector.AppStatusRules;
 public final class c {
     private long e;
     private Context mContext;
-    private boolean oTA;
-    private int oTB;
-    private boolean oTx;
-    private long oTy;
-    private long oTz;
+    private boolean oTX;
+    private long oTY;
+    private long oTZ;
+    private boolean oUa;
+    private int oUb;
 
     /* synthetic */ c(a aVar, byte b2) {
         this(aVar);
@@ -19,12 +19,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.oTx = aVar.oTx;
-        this.e = aVar.oTC;
-        this.oTy = aVar.oTy;
-        this.oTA = aVar.oTA;
-        this.oTz = aVar.oTz;
-        this.oTB = aVar.oTB;
+        this.oTX = aVar.oTX;
+        this.e = aVar.oUc;
+        this.oTY = aVar.oTY;
+        this.oUa = aVar.oUa;
+        this.oTZ = aVar.oTZ;
+        this.oUb = aVar.oUb;
     }
 
     public final Context b() {
@@ -32,7 +32,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.oTx;
+        return this.oTX;
     }
 
     public final long d() {
@@ -40,30 +40,30 @@ public final class c {
     }
 
     public final long e() {
-        return this.oTy;
+        return this.oTY;
     }
 
     public final long f() {
-        return this.oTz;
+        return this.oTZ;
     }
 
     public final boolean g() {
-        return this.oTA;
+        return this.oUa;
     }
 
     public final int h() {
-        return this.oTB;
+        return this.oUb;
     }
 
     /* loaded from: classes15.dex */
     public static class a {
         private Context mContext;
-        private boolean oTx = true;
-        private long oTC = 30000;
-        private long oTy = AppStatusRules.DEFAULT_GRANULARITY;
-        private long oTz = 10000;
-        private boolean oTA = false;
-        private int oTB = 1000;
+        private boolean oTX = true;
+        private long oUc = 30000;
+        private long oTY = AppStatusRules.DEFAULT_GRANULARITY;
+        private long oTZ = 10000;
+        private boolean oUa = false;
+        private int oUb = 1000;
 
         public a ho(Context context) {
             this.mContext = context;
@@ -71,37 +71,37 @@ public final class c {
         }
 
         public a AB(boolean z) {
-            this.oTx = z;
+            this.oTX = z;
             return this;
         }
 
         public a hU(long j) {
-            this.oTC = 1000 * j;
-            return this;
-        }
-
-        public a No(int i) {
-            this.oTy = i * 60 * 1000;
-            return this;
-        }
-
-        public a hV(long j) {
-            this.oTz = 1000 * j;
-            return this;
-        }
-
-        public a AC(boolean z) {
-            this.oTA = z;
+            this.oUc = 1000 * j;
             return this;
         }
 
         public a Np(int i) {
-            int i2 = i <= 0 ? 0 : i;
-            this.oTB = i2 < 1000 ? i2 : 1000;
+            this.oTY = i * 60 * 1000;
             return this;
         }
 
-        public c ehX() {
+        public a hV(long j) {
+            this.oTZ = 1000 * j;
+            return this;
+        }
+
+        public a AC(boolean z) {
+            this.oUa = z;
+            return this;
+        }
+
+        public a Nq(int i) {
+            int i2 = i <= 0 ? 0 : i;
+            this.oUb = i2 < 1000 ? i2 : 1000;
+            return this;
+        }
+
+        public c eif() {
             if (this.mContext == null) {
                 j.I("Context must be not empty!");
                 return null;

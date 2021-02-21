@@ -9,11 +9,11 @@ public class a<R> implements b<R> {
     static final a<?> f10354a = new a<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final c<?> f10355b = new C1135a();
+    private static final c<?> f10355b = new C1137a();
 
     /* renamed from: com.kwad.sdk.glide.request.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1135a<R> implements c<R> {
+    public static class C1137a<R> implements c<R> {
         @Override // com.kwad.sdk.glide.request.b.c
         public b<R> a(DataSource dataSource, boolean z) {
             return a.f10354a;

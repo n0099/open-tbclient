@@ -21,7 +21,7 @@ public class i implements com.kwad.sdk.glide.b.a {
 
     /* renamed from: b  reason: collision with root package name */
     private WebpImage f10382b;
-    private final a.InterfaceC1120a c;
+    private final a.InterfaceC1122a c;
     private int d;
     private final int[] e;
     private final com.kwad.sdk.glide.webp.c[] f;
@@ -33,14 +33,14 @@ public class i implements com.kwad.sdk.glide.b.a {
     private Bitmap.Config l;
     private final LruCache<Integer, Bitmap> m;
 
-    public i(a.InterfaceC1120a interfaceC1120a, WebpImage webpImage, ByteBuffer byteBuffer, int i) {
-        this(interfaceC1120a, webpImage, byteBuffer, i, WebpFrameCacheStrategy.f10366a);
+    public i(a.InterfaceC1122a interfaceC1122a, WebpImage webpImage, ByteBuffer byteBuffer, int i) {
+        this(interfaceC1122a, webpImage, byteBuffer, i, WebpFrameCacheStrategy.f10366a);
     }
 
-    public i(a.InterfaceC1120a interfaceC1120a, WebpImage webpImage, ByteBuffer byteBuffer, int i, WebpFrameCacheStrategy webpFrameCacheStrategy) {
+    public i(a.InterfaceC1122a interfaceC1122a, WebpImage webpImage, ByteBuffer byteBuffer, int i, WebpFrameCacheStrategy webpFrameCacheStrategy) {
         this.d = -1;
         this.l = Bitmap.Config.ARGB_8888;
-        this.c = interfaceC1120a;
+        this.c = interfaceC1122a;
         this.f10382b = webpImage;
         this.e = webpImage.getFrameDurations();
         this.f = new com.kwad.sdk.glide.webp.c[webpImage.getFrameCount()];

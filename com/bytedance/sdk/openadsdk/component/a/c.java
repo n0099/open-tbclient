@@ -14,7 +14,7 @@ import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd, c.b, c.InterfaceC1011c, a.InterfaceC1026a {
+public class c extends com.bytedance.sdk.openadsdk.core.e.a implements TTFeedAd, c.b, c.InterfaceC1013c, a.InterfaceC1028a {
 
     /* renamed from: a  reason: collision with root package name */
     com.bytedance.sdk.openadsdk.multipro.b.a f6257a;

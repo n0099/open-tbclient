@@ -92,16 +92,16 @@ public class u extends c implements p<cb>, q {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (u.this.ahg != null && u.this.ahi != null && u.this.ahh != null && !u.this.ahi.bpF() && u.this.ahk) {
-                    if (u.this.ahi.bpD() || !com.baidu.tieba.frs.b.cBr().cBl()) {
-                        if (u.this.ahi.bpE() || !com.baidu.tieba.frs.a.cBk().cBl()) {
-                            com.baidu.tieba.frs.b.cBr().an(u.this.ahi);
+                    if (u.this.ahi.bpD() || !com.baidu.tieba.frs.b.cBy().cBs()) {
+                        if (u.this.ahi.bpE() || !com.baidu.tieba.frs.a.cBr().cBs()) {
+                            com.baidu.tieba.frs.b.cBy().an(u.this.ahi);
                             u.this.ahi.jA(false);
-                            com.baidu.tieba.frs.a.cBk().an(u.this.ahi);
+                            com.baidu.tieba.frs.a.cBr().an(u.this.ahi);
                             u.this.ahi.jB(false);
-                        } else if (com.baidu.tieba.frs.a.cBk().am(u.this.ahi)) {
+                        } else if (com.baidu.tieba.frs.a.cBr().am(u.this.ahi)) {
                             u.this.ahi.jB(true);
                         }
-                    } else if (com.baidu.tieba.frs.b.cBr().am(u.this.ahi)) {
+                    } else if (com.baidu.tieba.frs.b.cBy().am(u.this.ahi)) {
                         u.this.ahi.jA(true);
                     }
                     u.this.sZ();
@@ -146,7 +146,7 @@ public class u extends c implements p<cb>, q {
     public void C(cb cbVar) {
         this.ahi = cbVar;
         this.ahk = this.ahi.getType() != cb.eRd && (cbVar == null || cbVar.bnQ() == null || !cbVar.bnQ().isForumBusinessAccount() || cbVar.isSelf());
-        if (com.baidu.tieba.frs.b.cBr().cBl() || com.baidu.tieba.frs.a.cBk().cBl()) {
+        if (com.baidu.tieba.frs.b.cBy().cBs() || com.baidu.tieba.frs.a.cBr().cBs()) {
             this.mRootView.setVisibility(0);
             this.ago.b(new a.C0089a(4, false));
             sZ();

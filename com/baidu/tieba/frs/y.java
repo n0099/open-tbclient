@@ -27,10 +27,10 @@ public class y {
     private Bitmap eIR;
     private String forumName;
     private int from;
-    private b jkp;
-    private View jkq;
-    private String jkr;
-    private a jks;
+    private b jkD;
+    private View jkE;
+    private String jkF;
+    private a jkG;
     private PermissionJudgePolicy mPermissionJudgement;
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.y.1
         @Override // android.view.View.OnClickListener
@@ -54,9 +54,9 @@ public class y {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cEo();
+        void cEv();
 
-        void cEp();
+        void cEw();
     }
 
     /* loaded from: classes2.dex */
@@ -88,13 +88,13 @@ public class y {
             this.eIN = (TextView) view.findViewById(R.id.frs_private_share_weibo);
             a(this.eIN, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_weibo40_svg));
             this.eIN.setOnClickListener(this.onClickListener);
-            this.jkq = view2;
-            this.jks = aVar;
+            this.jkE = view2;
+            this.jkG = aVar;
         }
     }
 
     public void setData(String str, String str2) {
-        this.jkr = str;
+        this.jkF = str;
         this.forumName = str2;
     }
 
@@ -126,8 +126,8 @@ public class y {
     /* JADX INFO: Access modifiers changed from: private */
     public void t(Bitmap bitmap) {
         if (!bkN()) {
-            if (this.jkp != null) {
-                this.jkp.yR(1);
+            if (this.jkD != null) {
+                this.jkD.yR(1);
             }
             com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c13724");
             arVar.ap("obj_type", 1);
@@ -136,7 +136,7 @@ public class y {
             if (this.eIQ == null) {
                 this.eIQ = new com.baidu.tieba.pb.pb.main.at(this.context);
             }
-            this.eIQ.p(this.jkr, BitmapHelper.Bitmap2Bytes(bitmap, 100));
+            this.eIQ.p(this.jkF, BitmapHelper.Bitmap2Bytes(bitmap, 100));
         }
     }
 
@@ -164,8 +164,8 @@ public class y {
             } else if (i == 6) {
                 i2 = 6;
             }
-            if (this.jkp != null) {
-                this.jkp.yR(i2);
+            if (this.jkD != null) {
+                this.jkD.yR(i2);
             }
             com.baidu.tbadk.core.util.ar arVar = new com.baidu.tbadk.core.util.ar("c13724");
             if (i == 3) {
@@ -218,20 +218,20 @@ public class y {
 
     public Bitmap bkM() {
         if (this.eIR == null) {
-            if (this.jks != null) {
-                this.jks.cEp();
+            if (this.jkG != null) {
+                this.jkG.cEw();
             }
-            this.jkq.buildDrawingCache();
-            this.eIR = this.jkq.getDrawingCache();
-            if (this.jks != null) {
-                this.jks.cEo();
+            this.jkE.buildDrawingCache();
+            this.eIR = this.jkE.getDrawingCache();
+            if (this.jkG != null) {
+                this.jkG.cEv();
             }
         }
         return this.eIR;
     }
 
     public void a(b bVar) {
-        this.jkp = bVar;
+        this.jkD = bVar;
     }
 
     public void setFrom(int i) {

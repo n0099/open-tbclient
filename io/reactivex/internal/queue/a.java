@@ -6,26 +6,26 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes5.dex */
 public final class a<T> implements e<T> {
-    static final int qql = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object qqr = new Object();
+    static final int qqL = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object qqR = new Object();
     long producerLookAhead;
-    int qqm;
-    final int qqn;
-    AtomicReferenceArray<Object> qqo;
-    final int qqp;
-    AtomicReferenceArray<Object> qqq;
+    int qqM;
+    final int qqN;
+    AtomicReferenceArray<Object> qqO;
+    final int qqP;
+    AtomicReferenceArray<Object> qqQ;
     final AtomicLong producerIndex = new AtomicLong();
     final AtomicLong consumerIndex = new AtomicLong();
 
     public a(int i) {
-        int So = h.So(Math.max(8, i));
-        int i2 = So - 1;
-        AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(So + 1);
-        this.qqo = atomicReferenceArray;
-        this.qqn = i2;
-        Sl(So);
-        this.qqq = atomicReferenceArray;
-        this.qqp = i2;
+        int Sp = h.Sp(Math.max(8, i));
+        int i2 = Sp - 1;
+        AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(Sp + 1);
+        this.qqO = atomicReferenceArray;
+        this.qqN = i2;
+        Sm(Sp);
+        this.qqQ = atomicReferenceArray;
+        this.qqP = i2;
         this.producerLookAhead = i2 - 1;
         soProducerIndex(0L);
     }
@@ -35,21 +35,21 @@ public final class a<T> implements e<T> {
         if (t == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<Object> atomicReferenceArray = this.qqo;
-        long eKw = eKw();
-        int i = this.qqn;
-        int O = O(eKw, i);
-        if (eKw < this.producerLookAhead) {
-            return a(atomicReferenceArray, t, eKw, O);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.qqO;
+        long eKE = eKE();
+        int i = this.qqN;
+        int O = O(eKE, i);
+        if (eKE < this.producerLookAhead) {
+            return a(atomicReferenceArray, t, eKE, O);
         }
-        int i2 = this.qqm;
-        if (b(atomicReferenceArray, O(i2 + eKw, i)) == null) {
-            this.producerLookAhead = (i2 + eKw) - 1;
-            return a(atomicReferenceArray, t, eKw, O);
-        } else if (b(atomicReferenceArray, O(1 + eKw, i)) == null) {
-            return a(atomicReferenceArray, t, eKw, O);
+        int i2 = this.qqM;
+        if (b(atomicReferenceArray, O(i2 + eKE, i)) == null) {
+            this.producerLookAhead = (i2 + eKE) - 1;
+            return a(atomicReferenceArray, t, eKE, O);
+        } else if (b(atomicReferenceArray, O(1 + eKE, i)) == null) {
+            return a(atomicReferenceArray, t, eKE, O);
         } else {
-            a(atomicReferenceArray, eKw, O, t, i);
+            a(atomicReferenceArray, eKE, O, t, i);
             return true;
         }
     }
@@ -62,46 +62,46 @@ public final class a<T> implements e<T> {
 
     private void a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.qqo = atomicReferenceArray2;
+        this.qqO = atomicReferenceArray2;
         this.producerLookAhead = (j + j2) - 1;
         a(atomicReferenceArray2, i, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, i, qqr);
+        a(atomicReferenceArray, i, qqR);
         soProducerIndex(j + 1);
     }
 
     private void a(AtomicReferenceArray<Object> atomicReferenceArray, AtomicReferenceArray<Object> atomicReferenceArray2) {
-        a(atomicReferenceArray, Sm(atomicReferenceArray.length() - 1), atomicReferenceArray2);
+        a(atomicReferenceArray, Sn(atomicReferenceArray.length() - 1), atomicReferenceArray2);
     }
 
     private AtomicReferenceArray<Object> a(AtomicReferenceArray<Object> atomicReferenceArray, int i) {
-        int Sm = Sm(i);
-        AtomicReferenceArray<Object> atomicReferenceArray2 = (AtomicReferenceArray) b(atomicReferenceArray, Sm);
-        a(atomicReferenceArray, Sm, (Object) null);
+        int Sn = Sn(i);
+        AtomicReferenceArray<Object> atomicReferenceArray2 = (AtomicReferenceArray) b(atomicReferenceArray, Sn);
+        a(atomicReferenceArray, Sn, (Object) null);
         return atomicReferenceArray2;
     }
 
     @Override // io.reactivex.internal.a.e, io.reactivex.internal.a.f
     public T poll() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.qqq;
-        long eKx = eKx();
-        int i = this.qqp;
-        int O = O(eKx, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.qqQ;
+        long eKF = eKF();
+        int i = this.qqP;
+        int O = O(eKF, i);
         T t = (T) b(atomicReferenceArray, O);
-        boolean z = t == qqr;
+        boolean z = t == qqR;
         if (t != null && !z) {
             a(atomicReferenceArray, O, (Object) null);
-            soConsumerIndex(1 + eKx);
+            soConsumerIndex(1 + eKF);
             return t;
         } else if (z) {
-            return a(a(atomicReferenceArray, i + 1), eKx, i);
+            return a(a(atomicReferenceArray, i + 1), eKF, i);
         } else {
             return null;
         }
     }
 
     private T a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.qqq = atomicReferenceArray;
+        this.qqQ = atomicReferenceArray;
         int O = O(j, i);
         T t = (T) b(atomicReferenceArray, O);
         if (t != null) {
@@ -112,18 +112,18 @@ public final class a<T> implements e<T> {
     }
 
     public T peek() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.qqq;
-        long eKx = eKx();
-        int i = this.qqp;
-        T t = (T) b(atomicReferenceArray, O(eKx, i));
-        if (t == qqr) {
-            return b(a(atomicReferenceArray, i + 1), eKx, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.qqQ;
+        long eKF = eKF();
+        int i = this.qqP;
+        T t = (T) b(atomicReferenceArray, O(eKF, i));
+        if (t == qqR) {
+            return b(a(atomicReferenceArray, i + 1), eKF, i);
         }
         return t;
     }
 
     private T b(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.qqq = atomicReferenceArray;
+        this.qqQ = atomicReferenceArray;
         return (T) b(atomicReferenceArray, O(j, i));
     }
 
@@ -137,39 +137,39 @@ public final class a<T> implements e<T> {
     }
 
     public int size() {
-        long eKv = eKv();
+        long eKD = eKD();
         while (true) {
-            long eKu = eKu();
-            long eKv2 = eKv();
-            if (eKv == eKv2) {
-                return (int) (eKu - eKv2);
+            long eKC = eKC();
+            long eKD2 = eKD();
+            if (eKD == eKD2) {
+                return (int) (eKC - eKD2);
             }
-            eKv = eKv2;
+            eKD = eKD2;
         }
     }
 
     @Override // io.reactivex.internal.a.f
     public boolean isEmpty() {
-        return eKu() == eKv();
+        return eKC() == eKD();
     }
 
-    private void Sl(int i) {
-        this.qqm = Math.min(i / 4, qql);
+    private void Sm(int i) {
+        this.qqM = Math.min(i / 4, qqL);
     }
 
-    private long eKu() {
+    private long eKC() {
         return this.producerIndex.get();
     }
 
-    private long eKv() {
+    private long eKD() {
         return this.consumerIndex.get();
     }
 
-    private long eKw() {
+    private long eKE() {
         return this.producerIndex.get();
     }
 
-    private long eKx() {
+    private long eKF() {
         return this.consumerIndex.get();
     }
 
@@ -182,10 +182,10 @@ public final class a<T> implements e<T> {
     }
 
     private static int O(long j, int i) {
-        return Sm(((int) j) & i);
+        return Sn(((int) j) & i);
     }
 
-    private static int Sm(int i) {
+    private static int Sn(int i) {
         return i;
     }
 
@@ -198,24 +198,24 @@ public final class a<T> implements e<T> {
     }
 
     public boolean offer(T t, T t2) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.qqo;
-        long eKu = eKu();
-        int i = this.qqn;
-        if (b(atomicReferenceArray, O(eKu + 2, i)) == null) {
-            int O = O(eKu, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.qqO;
+        long eKC = eKC();
+        int i = this.qqN;
+        if (b(atomicReferenceArray, O(eKC + 2, i)) == null) {
+            int O = O(eKC, i);
             a(atomicReferenceArray, O + 1, t2);
             a(atomicReferenceArray, O, t);
-            soProducerIndex(eKu + 2);
+            soProducerIndex(eKC + 2);
             return true;
         }
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.qqo = atomicReferenceArray2;
-        int O2 = O(eKu, i);
+        this.qqO = atomicReferenceArray2;
+        int O2 = O(eKC, i);
         a(atomicReferenceArray2, O2 + 1, t2);
         a(atomicReferenceArray2, O2, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, O2, qqr);
-        soProducerIndex(eKu + 2);
+        a(atomicReferenceArray, O2, qqR);
+        soProducerIndex(eKC + 2);
         return true;
     }
 }

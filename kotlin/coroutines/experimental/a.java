@@ -6,14 +6,14 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes6.dex */
 public final class a implements d {
-    private final d qtb;
-    private final d.b qtc;
+    private final d qtB;
+    private final d.b qtC;
 
     public a(d dVar, d.b bVar) {
         p.o(dVar, "left");
         p.o(bVar, "element");
-        this.qtb = dVar;
-        this.qtc = bVar;
+        this.qtB = dVar;
+        this.qtC = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
@@ -21,9 +21,9 @@ public final class a implements d {
         p.o(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.qtc.a(cVar);
+            E e = (E) aVar.qtC.a(cVar);
             if (e == null) {
-                d dVar = aVar.qtb;
+                d dVar = aVar.qtB;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -38,33 +38,33 @@ public final class a implements d {
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
         p.o(cVar, "operation");
-        return cVar.invoke((Object) this.qtb.a(r, cVar), this.qtc);
+        return cVar.invoke((Object) this.qtB.a(r, cVar), this.qtC);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
         p.o(cVar, "key");
-        if (this.qtc.a(cVar) != null) {
-            return this.qtb;
+        if (this.qtC.a(cVar) != null) {
+            return this.qtB;
         }
-        d b2 = this.qtb.b(cVar);
-        return b2 == this.qtb ? this : b2 == e.qtf ? this.qtc : new a(b2, this.qtc);
+        d b2 = this.qtB.b(cVar);
+        return b2 == this.qtB ? this : b2 == e.qtF ? this.qtC : new a(b2, this.qtC);
     }
 
     private final int size() {
-        if (this.qtb instanceof a) {
-            return ((a) this.qtb).size() + 1;
+        if (this.qtB instanceof a) {
+            return ((a) this.qtB).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return p.l(a((d.c<d.b>) bVar.eLh()), bVar);
+        return p.l(a((d.c<d.b>) bVar.eLp()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.qtc)) {
-            d dVar = aVar.qtb;
+        while (a(aVar.qtC)) {
+            d dVar = aVar.qtB;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -81,7 +81,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.qtb.hashCode() + this.qtc.hashCode();
+        return this.qtB.hashCode() + this.qtC.hashCode();
     }
 
     public String toString() {

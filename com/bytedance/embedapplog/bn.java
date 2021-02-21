@@ -15,8 +15,8 @@ import java.security.MessageDigest;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class bn implements bi {
-    private aw<Boolean> pmH;
-    private final bi pmU;
+    private aw<Boolean> pnh;
+    private final bi pnu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn() {
@@ -25,7 +25,7 @@ public final class bn implements bi {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(bi biVar) {
-        this.pmH = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bn.1
+        this.pnh = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bn.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.bytedance.embedapplog.aw
@@ -49,7 +49,7 @@ public final class bn implements bi {
                 }
             }
         };
-        this.pmU = biVar;
+        this.pnu = biVar;
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -57,17 +57,17 @@ public final class bn implements bi {
         if (context == null) {
             return false;
         }
-        Boolean b2 = this.pmH.b(context);
-        if (this.pmU != null && !b2.booleanValue()) {
-            return this.pmU.a(context);
+        Boolean b2 = this.pnh.b(context);
+        if (this.pnu != null && !b2.booleanValue()) {
+            return this.pnu.a(context);
         }
         return b2.booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
     public bi.a hS(final Context context) {
-        if (this.pmU != null && !this.pmH.b(new Object[0]).booleanValue()) {
-            return this.pmU.hS(context);
+        if (this.pnu != null && !this.pnh.b(new Object[0]).booleanValue()) {
+            return this.pnu.hS(context);
         }
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));

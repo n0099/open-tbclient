@@ -9,10 +9,10 @@ import com.baidu.tbadk.mainTab.c;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
-    private AlaGameFrsLiveTabVideoFragment gWW = new AlaGameFrsLiveTabVideoFragment();
+    private AlaGameFrsLiveTabVideoFragment gXk = new AlaGameFrsLiveTabVideoFragment();
 
     public a() {
-        getFragmentTabStructure().frag = this.gWW;
+        getFragmentTabStructure().frag = this.gXk;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -37,20 +37,20 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     public void setForumId(String str) {
-        if (this.gWW != null) {
-            this.gWW.setForumId(str);
+        if (this.gXk != null) {
+            this.gXk.setForumId(str);
         }
     }
 
     public void setForumName(String str) {
-        if (this.gWW != null) {
-            this.gWW.setForumName(str);
+        if (this.gXk != null) {
+            this.gXk.setForumName(str);
         }
     }
 
     public void nl(boolean z) {
-        if (this.gWW != null) {
-            this.gWW.nl(z);
+        if (this.gXk != null) {
+            this.gXk.nl(z);
         }
     }
 }

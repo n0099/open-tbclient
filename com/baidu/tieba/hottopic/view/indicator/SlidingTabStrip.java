@@ -12,10 +12,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class SlidingTabStrip extends LinearLayout {
     private final Paint Zs;
-    private final int kyP;
-    private final Paint kyQ;
-    private int kyR;
-    private int kyS;
+    private final int kzd;
+    private final Paint kze;
+    private int kzf;
+    private int kzg;
     private int mSelectedPosition;
 
     public SlidingTabStrip(Context context) {
@@ -25,11 +25,11 @@ public class SlidingTabStrip extends LinearLayout {
     public SlidingTabStrip(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setWillNotDraw(false);
-        this.kyP = getResources().getDimensionPixelSize(R.dimen.ds5);
+        this.kzd = getResources().getDimensionPixelSize(R.dimen.ds5);
         this.Zs = new Paint();
         this.Zs.setColor(ap.getSkinColor(null, R.color.CAM_X0105));
-        this.kyQ = new Paint();
-        this.kyQ.setColor(ap.getColor(R.color.CAM_X0204));
+        this.kze = new Paint();
+        this.kze.setColor(ap.getColor(R.color.CAM_X0204));
     }
 
     public void i(int i, float f) {
@@ -42,15 +42,15 @@ public class SlidingTabStrip extends LinearLayout {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds64);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds14);
         if (i == 0) {
-            this.kyR = childAt.getLeft();
+            this.kzf = childAt.getLeft();
         } else {
-            this.kyR = childAt.getLeft() + dimensionPixelSize2;
+            this.kzf = childAt.getLeft() + dimensionPixelSize2;
         }
-        this.kyS = this.kyR + dimensionPixelSize;
+        this.kzg = this.kzf + dimensionPixelSize;
         if (f >= 0.0f && i < getChildCount() - 1) {
             View childAt2 = getChildAt(i + 1);
-            this.kyR = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.kyR));
-            this.kyS = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.kyS));
+            this.kzf = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.kzf));
+            this.kzg = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.kzg));
         }
     }
 
@@ -61,15 +61,15 @@ public class SlidingTabStrip extends LinearLayout {
         int left = childAt.getLeft();
         float left2 = (childAt2.getLeft() - left) * f;
         if (this.mSelectedPosition == 0) {
-            this.kyR = (int) (left + left2);
+            this.kzf = (int) (left + left2);
         } else {
-            this.kyR = (int) (dimensionPixelSize + left + left2);
+            this.kzf = (int) (dimensionPixelSize + left + left2);
         }
-        this.kyS = getResources().getDimensionPixelSize(R.dimen.ds64) + this.kyR;
+        this.kzg = getResources().getDimensionPixelSize(R.dimen.ds64) + this.kzf;
         invalidate();
     }
 
-    public void cN(int i, int i2) {
+    public void cO(int i, int i2) {
         if (i != i2) {
             this.mSelectedPosition = i;
             int childCount = getChildCount();
@@ -101,15 +101,15 @@ public class SlidingTabStrip extends LinearLayout {
     }
 
     private void c(Canvas canvas, int i) {
-        if (this.kyS <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
-            this.kyS = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
+        if (this.kzg <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
+            this.kzg = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
         }
-        canvas.drawRoundRect(new RectF(this.kyR, i - this.kyP, this.kyS, i), 10.0f, 10.0f, this.Zs);
+        canvas.drawRoundRect(new RectF(this.kzf, i - this.kzd, this.kzg, i), 10.0f, 10.0f, this.Zs);
     }
 
     public void onChangeSkinType(int i) {
         this.Zs.setColor(ap.getSkinColor(null, R.color.CAM_X0105));
-        this.kyQ.setColor(ap.getColor(R.color.CAM_X0204));
+        this.kze.setColor(ap.getColor(R.color.CAM_X0204));
         invalidate();
         int childCount = getChildCount();
         if (childCount > 0) {

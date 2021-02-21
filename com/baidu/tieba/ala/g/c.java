@@ -15,17 +15,17 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.live.utils.q;
 /* loaded from: classes11.dex */
 public class c extends BdBaseModel {
-    private a hTF;
-    private HttpMessageListener hTG = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.g.c.1
+    private a hTT;
+    private HttpMessageListener hTU = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.g.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId() && c.this.hTF != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaSdkGetGiftListHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == c.this.getUniqueId() && c.this.hTT != null) {
                 AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage = (AlaSdkGetGiftListHttpResponseMessage) httpResponsedMessage;
                 if (alaSdkGetGiftListHttpResponseMessage.getError() != 0 || !alaSdkGetGiftListHttpResponseMessage.isSuccess()) {
-                    c.this.hTF.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
+                    c.this.hTT.onFail(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString());
                 } else {
-                    c.this.hTF.c(alaSdkGetGiftListHttpResponseMessage);
+                    c.this.hTT.c(alaSdkGetGiftListHttpResponseMessage);
                 }
             }
         }
@@ -49,9 +49,9 @@ public class c extends BdBaseModel {
 
     public c(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.hTF = aVar;
+        this.hTT = aVar;
         DF();
-        registerListener(this.hTG);
+        registerListener(this.hTU);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0041  */
@@ -102,7 +102,7 @@ public class c extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.hTG);
+        MessageManager.getInstance().unRegisterListener(this.hTU);
         MessageManager.getInstance().unRegisterTask(1021120);
     }
 }

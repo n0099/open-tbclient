@@ -8,24 +8,24 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.h;
 /* loaded from: classes10.dex */
 public class AlaGameFrsLiveGameCardView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext gWB;
-    private a gWC;
+    private TbPageContext gWP;
+    private a gWQ;
 
     public AlaGameFrsLiveGameCardView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gWB = tbPageContext;
+        this.gWP = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.gWC = new a(this.gWB);
-        ((ViewGroup) getView()).addView(this.gWC.getView());
+        this.gWQ = new a(this.gWP);
+        ((ViewGroup) getView()).addView(this.gWQ.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.gWC != null) {
-            this.gWC.onChangeSkinType(tbPageContext, i);
+        if (this.gWQ != null) {
+            this.gWQ.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -37,8 +37,8 @@ public class AlaGameFrsLiveGameCardView extends com.baidu.tieba.card.b<com.baidu
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.eJQ != null && this.gWC != null) {
-            this.gWC.a(cVar.eJQ);
+        if (cVar != null && cVar.eJQ != null && this.gWQ != null) {
+            this.gWQ.a(cVar.eJQ);
         }
     }
 
@@ -47,18 +47,18 @@ public class AlaGameFrsLiveGameCardView extends com.baidu.tieba.card.b<com.baidu
     }
 
     public void c(h hVar) {
-        if (this.gWC != null) {
-            this.gWC.d(hVar);
+        if (this.gWQ != null) {
+            this.gWQ.d(hVar);
         }
     }
 
     /* loaded from: classes10.dex */
     public static class AlaGameFrsGameViewHolder extends TypeAdapter.ViewHolder {
-        public AlaGameFrsLiveGameCardView gWD;
+        public AlaGameFrsLiveGameCardView gWR;
 
         public AlaGameFrsGameViewHolder(AlaGameFrsLiveGameCardView alaGameFrsLiveGameCardView) {
             super(alaGameFrsLiveGameCardView.getView());
-            this.gWD = alaGameFrsLiveGameCardView;
+            this.gWR = alaGameFrsLiveGameCardView;
         }
     }
 }

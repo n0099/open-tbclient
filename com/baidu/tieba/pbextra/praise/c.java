@@ -10,11 +10,11 @@ import java.util.List;
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     private volatile boolean isScrolling;
     private List<a> mZanItemDataList = null;
-    private PraiseListActivity mrw;
+    private PraiseListActivity mrL;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.mrw = null;
-        this.mrw = praiseListActivity;
+        this.mrL = null;
+        this.mrL = praiseListActivity;
     }
 
     public void fr(List<a> list) {
@@ -64,10 +64,10 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View g(int i, View view, ViewGroup viewGroup) {
-        b d = b.d(this.mrw.getPageContext().getPageActivity(), view);
+        b d = b.d(this.mrL.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        d.f(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.dwd(), this.isScrolling);
-        this.mrw.changSkinType(d.getView());
+        d.f(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.dwk(), this.isScrolling);
+        this.mrL.changSkinType(d.getView());
         return d.getView();
     }
 }

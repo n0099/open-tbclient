@@ -20,7 +20,7 @@ import com.baidu.tieba.homepage.topic.topicdetail.a.f;
 import com.baidu.tieba.homepage.topic.topicdetail.adapter.TopicTimelineAdapter;
 /* loaded from: classes2.dex */
 public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
-    private TopicTimelineAdapter kpL;
+    private TopicTimelineAdapter kpZ;
     private RecyclerView mRecyclerView;
     private int mSkinType;
     private TextView mTitleView;
@@ -48,8 +48,8 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.topic_timeline_view_layout, (ViewGroup) this, true);
         this.mTitleView = (TextView) findViewById(R.id.topic_timeline_title);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.topic_timeline_list);
-        this.kpL = new TopicTimelineAdapter(context);
-        this.mRecyclerView.setAdapter(this.kpL);
+        this.kpZ = new TopicTimelineAdapter(context);
+        this.mRecyclerView.setAdapter(this.kpZ);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         this.mRecyclerView.addItemDecoration(new a(l.getDimens(context, R.dimen.tbds44), l.getDimens(context, R.dimen.tbds20), l.getDimens(context, R.dimen.tbds44)));
@@ -57,14 +57,14 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
     }
 
     public void setData(f fVar) {
-        if (fVar == null || y.isEmpty(fVar.koK)) {
+        if (fVar == null || y.isEmpty(fVar.koY)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         this.mTitleView.setText(fVar.title);
-        this.kpL.setData(fVar.koK);
-        this.kpL.notifyDataSetChanged();
+        this.kpZ.setData(fVar.koY);
+        this.kpZ.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -72,7 +72,7 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-            this.kpL.notifyDataSetChanged();
+            this.kpZ.notifyDataSetChanged();
         }
     }
 

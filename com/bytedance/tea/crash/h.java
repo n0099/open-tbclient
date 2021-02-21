@@ -17,43 +17,43 @@ public final class h {
     private static volatile int j;
     private static volatile String k;
     @SuppressLint({"StaticFieldLeak"})
-    private static com.bytedance.tea.crash.e.a pwa;
+    private static com.bytedance.tea.crash.e.a pwA;
     private static String c = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
     private static boolean d = false;
-    private static com.bytedance.tea.crash.e.b pwb = new com.bytedance.tea.crash.e.b();
-    private static b pwc = new b();
-    private static j pwd = null;
+    private static com.bytedance.tea.crash.e.b pwB = new com.bytedance.tea.crash.e.b();
+    private static b pwC = new b();
+    private static j pwD = null;
 
-    public static com.bytedance.tea.crash.e.a erd() {
-        return pwa;
+    public static com.bytedance.tea.crash.e.a erl() {
+        return pwA;
     }
 
-    public static b ere() {
-        return pwc;
+    public static b erm() {
+        return pwC;
     }
 
-    public static j erf() {
-        if (pwd == null) {
+    public static j ern() {
+        if (pwD == null) {
             synchronized (h.class) {
-                pwd = new j(f7672a);
+                pwD = new j(f7672a);
             }
         }
-        return pwd;
+        return pwD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, d dVar) {
         f7673b = System.currentTimeMillis();
         f7672a = context;
-        pwa = new com.bytedance.tea.crash.e.a(f7672a, dVar);
+        pwA = new com.bytedance.tea.crash.e.a(f7672a, dVar);
     }
 
     public static Context d() {
         return f7672a;
     }
 
-    public static com.bytedance.tea.crash.e.b erg() {
-        return pwb;
+    public static com.bytedance.tea.crash.e.b ero() {
+        return pwB;
     }
 
     public static long f() {
@@ -68,7 +68,7 @@ public final class h {
         return d;
     }
 
-    public static ConcurrentHashMap<Integer, String> erh() {
+    public static ConcurrentHashMap<Integer, String> erp() {
         return h;
     }
 

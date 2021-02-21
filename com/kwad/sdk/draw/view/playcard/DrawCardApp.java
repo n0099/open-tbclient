@@ -179,8 +179,8 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != this.g) {
-            com.kwad.sdk.core.download.b.a.a(getContext(), this.f9718a, new a.InterfaceC1092a() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.2
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+            com.kwad.sdk.core.download.b.a.a(getContext(), this.f9718a, new a.InterfaceC1094a() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.2
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                 public void a() {
                     if (DrawCardApp.this.e != null) {
                         DrawCardApp.this.e.b();

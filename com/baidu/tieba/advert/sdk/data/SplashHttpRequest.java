@@ -27,7 +27,7 @@ public class SplashHttpRequest extends HttpMessage {
             addParam("cuid", TbadkCoreApplication.getInst().getCuid());
             addParam("mod", d.getPhoneModel());
             addParam("ot", 2);
-            addParam("ov", d.bMx());
+            addParam("ov", d.bME());
             addParam(CommandMessage.SDK_VERSION, "1.1.4");
             addParam("nt", d.fI(context).intValue());
             addParam(Config.EXCEPTION_CRASH_TYPE, 2);

@@ -54,7 +54,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.c.a.dEe().RD(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.c.a.dEm().RP(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -88,7 +88,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                         }
                     }
                 }
-                b.dEl().q("FRS", arrayList);
+                b.dEt().q("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

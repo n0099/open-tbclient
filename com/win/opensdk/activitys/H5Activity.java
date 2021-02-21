@@ -38,13 +38,13 @@ public class H5Activity extends Activity implements ar.a {
 
     /* renamed from: case  reason: not valid java name */
     private String f8case;
-    private Context qiN;
-    private ViewGroup qjf;
-    private CloseParentView qjg;
-    private bn qjh;
-    private Info qji;
-    private long qjj = 0;
-    private bj qjk;
+    private ViewGroup qjF;
+    private CloseParentView qjG;
+    private bn qjH;
+    private Info qjI;
+    private long qjJ = 0;
+    private bj qjK;
+    private Context qjn;
 
     public static void a(Context context, Info info, String str) {
         if (context != null && info != null) {
@@ -65,11 +65,11 @@ public class H5Activity extends Activity implements ar.a {
         char c;
         super.onCreate(bundle);
         setContentView(d.c.layout_activity_h5);
-        this.qiN = getApplicationContext();
-        this.qjf = (ViewGroup) findViewById(d.b.parent);
-        this.qjg = (CloseParentView) findViewById(d.b.close_parent);
-        this.qjj = 0L;
-        this.qjk = new bj(this);
+        this.qjn = getApplicationContext();
+        this.qjF = (ViewGroup) findViewById(d.b.parent);
+        this.qjG = (CloseParentView) findViewById(d.b.close_parent);
+        this.qjJ = 0L;
+        this.qjK = new bj(this);
         ar.a("hcl", this);
         ar.a("onT", this);
         ar.a("onRewardedShowFail", this);
@@ -80,24 +80,24 @@ public class H5Activity extends Activity implements ar.a {
         String stringExtra = intent.getStringExtra("id");
         this.f8case = intent.getStringExtra("pid");
         String stringExtra2 = intent.getStringExtra("traceid");
-        this.qji = br.eJp().abN(bp.aX(stringExtra2, stringExtra, this.f8case));
-        this.qjh = bp.eJo().abM(bp.aX(stringExtra2, stringExtra, this.f8case));
-        if (!((this.qjh == null || this.qji == null) ? false : true)) {
+        this.qjI = br.eJx().abZ(bp.aX(stringExtra2, stringExtra, this.f8case));
+        this.qjH = bp.eJw().abY(bp.aX(stringExtra2, stringExtra, this.f8case));
+        if (!((this.qjH == null || this.qjI == null) ? false : true)) {
             finish();
         }
         try {
-            if (this.qji != null && this.qji.getXn() > 0) {
+            if (this.qjI != null && this.qjI.getXn() > 0) {
                 if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) {
                     getWindow().getDecorView().setSystemUiVisibility(8);
                 } else if (Build.VERSION.SDK_INT >= 19) {
                     getWindow().getDecorView().setSystemUiVisibility(4102);
                 }
             }
-            Info info = this.qji;
+            Info info = this.qjI;
             int i2 = Build.VERSION.SDK_INT;
             if (i2 <= 25 || i2 >= 28) {
                 String str = this.f8case;
-                if (ax.abE(str)) {
+                if (ax.abQ(str)) {
                     String substring = str.substring(0, 3);
                     switch (substring.hashCode()) {
                         case 53431:
@@ -165,46 +165,46 @@ public class H5Activity extends Activity implements ar.a {
                 }
                 setRequestedOrientation(i);
             }
-            View eIS = this.qjh.eIS();
-            eIS.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.qjf.addView(eIS, 0);
-            if (this.qjh instanceof bw) {
-                this.qjh.a(this.qji.getLoad(), this.qji);
+            View eJa = this.qjH.eJa();
+            eJa.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            this.qjF.addView(eJa, 0);
+            if (this.qjH instanceof bw) {
+                this.qjH.a(this.qjI.getLoad(), this.qjI);
             }
-            this.qjh.a(new bo() { // from class: com.win.opensdk.activitys.H5Activity.1
+            this.qjH.a(new bo() { // from class: com.win.opensdk.activitys.H5Activity.1
                 @Override // com.win.opensdk.bo
-                public final boolean hA(String str2, String str3) {
-                    if (aw.a(H5Activity.this.qji, H5Activity.this.qjj)) {
-                        H5Activity.this.qjj = System.currentTimeMillis();
-                        aw.a(H5Activity.this.qiN, str2, H5Activity.this.qji, H5Activity.this.qjk);
-                        w.iN(H5Activity.this.qiN).a(new x(H5Activity.this.qji), str2).hB("desc", str3).eIP();
-                        ar.f(H5Activity.this.qji.getId() + H5Activity.this.f8case, "is_click", null);
-                        z.a(H5Activity.this.qji);
+                public final boolean hC(String str2, String str3) {
+                    if (aw.a(H5Activity.this.qjI, H5Activity.this.qjJ)) {
+                        H5Activity.this.qjJ = System.currentTimeMillis();
+                        aw.a(H5Activity.this.qjn, str2, H5Activity.this.qjI, H5Activity.this.qjK);
+                        w.iN(H5Activity.this.qjn).a(new x(H5Activity.this.qjI), str2).hD("desc", str3).eIX();
+                        ar.f(H5Activity.this.qjI.getId() + H5Activity.this.f8case, "is_click", null);
+                        z.a(H5Activity.this.qjI);
                         return true;
                     }
                     return true;
                 }
 
                 @Override // com.win.opensdk.bo
-                public final void abF(String str2) {
+                public final void abR(String str2) {
                     H5Activity.this.f13719a = str2;
                 }
             });
-            this.qjg.setCollectVisible(false);
-            this.qjg.setLocation(VideoLiveConfig.EncodeType.PHONE_CODEC_HW_H265);
-            this.qjg.setCountDown(this.qji.getCdt());
-            this.qjg.setOnCloseListener(new CloseParentView.b() { // from class: com.win.opensdk.activitys.H5Activity.2
+            this.qjG.setCollectVisible(false);
+            this.qjG.setLocation(VideoLiveConfig.EncodeType.PHONE_CODEC_HW_H265);
+            this.qjG.setCountDown(this.qjI.getCdt());
+            this.qjG.setOnCloseListener(new CloseParentView.b() { // from class: com.win.opensdk.activitys.H5Activity.2
                 @Override // com.win.opensdk.views.CloseParentView.b
-                public final void eIP() {
+                public final void eIX() {
                     H5Activity.this.finish();
                 }
             });
-            w.iN(this.qiN).a(new x(this.qji)).eIP();
-            ar.f(this.qji.getId() + this.f8case, "is_display", null);
-            if (this.qji != null) {
-                az.l(this.qiN, this.qji.getId() + ":" + System.currentTimeMillis(), false);
+            w.iN(this.qjn).a(new x(this.qjI)).eIX();
+            ar.f(this.qjI.getId() + this.f8case, "is_display", null);
+            if (this.qjI != null) {
+                az.l(this.qjn, this.qjI.getId() + ":" + System.currentTimeMillis(), false);
             }
-            z.b(this.qji);
+            z.b(this.qjI);
         } catch (Exception e) {
             finish();
         }
@@ -212,7 +212,7 @@ public class H5Activity extends Activity implements ar.a {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.qji.getCb() == 0) {
+        if (this.qjI.getCb() == 0) {
             super.onBackPressed();
         }
     }
@@ -221,15 +221,15 @@ public class H5Activity extends Activity implements ar.a {
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        w.iN(this.qiN).c(new x(this.qji)).eIP();
-        if (this.qjh != null) {
-            this.qjh.eIP();
+        w.iN(this.qjn).c(new x(this.qjI)).eIX();
+        if (this.qjH != null) {
+            this.qjH.eIX();
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent.getKeyCode() != 4 || this.qji == null || this.qji.getCb() > 0) {
+        if (keyEvent.getKeyCode() != 4 || this.qjI == null || this.qjI.getCb() > 0) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
@@ -239,70 +239,70 @@ public class H5Activity extends Activity implements ar.a {
     public final void f(String str, String str2, Object obj) {
         if (str.equals("hcl")) {
             finish();
-            ar.f(this.qji.getId() + this.f8case, "is_dismiss", null);
-            ar.abF(this.qji.getId() + this.f8case);
-            ar.abF("hcl");
-            ar.abF("onT");
-            ar.abF("onRewardedShowFail");
-            ar.abF("onPlayProgress");
-            ar.abF("onRewardedAdFinish");
-            ar.abF("onRewardedAdStart");
+            ar.f(this.qjI.getId() + this.f8case, "is_dismiss", null);
+            ar.abR(this.qjI.getId() + this.f8case);
+            ar.abR("hcl");
+            ar.abR("onT");
+            ar.abR("onRewardedShowFail");
+            ar.abR("onPlayProgress");
+            ar.abR("onRewardedAdFinish");
+            ar.abR("onRewardedAdStart");
         } else if (str.equals("onRewardedShowFail")) {
             try {
-                w.iN(this.qiN).i(new x(this.qji), (String) obj).eIP();
-                ar.f(this.qji.getId() + this.f8case, "VIDEO_SHOW_FAIL", (String) obj);
+                w.iN(this.qjn).i(new x(this.qjI), (String) obj).eIX();
+                ar.f(this.qjI.getId() + this.f8case, "VIDEO_SHOW_FAIL", (String) obj);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else if (str.equals("onRewardedAdFinish")) {
             int intValue = ((Integer) obj).intValue();
-            if (intValue >= 0 && intValue >= this.qji.getVvt() * 0.9d) {
-                w.iN(this.qiN).a(new x(this.qji), this.qji.getVvamount()).eIP();
-                ar.f(this.qji.getId() + this.f8case, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.qji.getVvamount()));
+            if (intValue >= 0 && intValue >= this.qjI.getVvt() * 0.9d) {
+                w.iN(this.qjn).a(new x(this.qjI), this.qjI.getVvamount()).eIX();
+                ar.f(this.qjI.getId() + this.f8case, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.qjI.getVvamount()));
             } else {
-                ar.f(this.qji.getId() + this.f8case, "VIDEO_USER_EARNED_REWARD", null);
+                ar.f(this.qjI.getId() + this.f8case, "VIDEO_USER_EARNED_REWARD", null);
             }
-            Info info = this.qji;
+            Info info = this.qjI;
             try {
                 z.a(info, 401);
                 if (info != null && !TextUtils.isEmpty(info.getVv_finish_urls())) {
-                    z.abF(info.getVv_finish_urls());
+                    z.abR(info.getVv_finish_urls());
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         } else if (str.equals("onPlayProgress")) {
             try {
-                w.iN(this.qiN).c(new x(this.qji), ((Integer) obj).intValue()).eIP();
+                w.iN(this.qjn).c(new x(this.qjI), ((Integer) obj).intValue()).eIX();
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
         } else if (str.equals("onRewardedAdStart")) {
-            Info info2 = this.qji;
+            Info info2 = this.qjI;
             if (info2 != null) {
                 try {
                     if (!TextUtils.isEmpty(info2.getVv_start_urls())) {
                         z.a(info2, 400);
-                        z.abF(info2.getVv_start_urls());
+                        z.abR(info2.getVv_start_urls());
                     }
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
-        } else if (str.equals("onT") && aw.a(this.qji, this.qjj)) {
-            this.qjj = System.currentTimeMillis();
+        } else if (str.equals("onT") && aw.a(this.qjI, this.qjJ)) {
+            this.qjJ = System.currentTimeMillis();
             if (TextUtils.isEmpty(this.f13719a)) {
                 this.f13719a = "";
             }
             try {
                 String str3 = (String) obj;
                 String str4 = this.f13719a;
-                if (!bu.eJq().qiQ) {
-                    aw.a(this.qiN, str3, this.qji, this.qjk);
-                    w.iN(this.qiN).a(new x(this.qji), str3).hB("desc", str4).eIP();
-                    z.a(this.qji);
+                if (!bu.eJy().qjq) {
+                    aw.a(this.qjn, str3, this.qjI, this.qjK);
+                    w.iN(this.qjn).a(new x(this.qjI), str3).hD("desc", str4).eIX();
+                    z.a(this.qjI);
                 }
-                ar.f(this.qji.getId() + this.f8case, "is_click", null);
+                ar.f(this.qjI.getId() + this.f8case, "is_click", null);
             } catch (Exception e5) {
                 e5.printStackTrace();
             }

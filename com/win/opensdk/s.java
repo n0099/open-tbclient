@@ -31,13 +31,13 @@ public class s {
 
     /* renamed from: java  reason: collision with other field name */
     private int f70java;
-    private boolean qiQ;
-    private URL qjC;
-    public byte[] qjD;
-    private Map<String, List<String>> qjE;
-    private Map<String, List<String>> qjF;
-    private long qjj;
+    private long qjJ;
+    private boolean qjQ;
     private boolean qjq;
+    private URL qkc;
+    public byte[] qkd;
+    private Map<String, List<String>> qke;
+    private Map<String, List<String>> qkf;
 
     public s(String str, String str2, Map<String, List<String>> map) {
         this(str, str2, map, (byte) 0);
@@ -46,20 +46,20 @@ public class s {
     private s(String str, String str2, Map<String, List<String>> map, byte b2) {
         this.f69case = "GET";
         this.f70java = -1;
-        this.qjj = -1L;
-        this.qiQ = false;
-        this.qjq = true;
-        this.qjC = new URL(str);
+        this.qjJ = -1L;
+        this.qjq = false;
+        this.qjQ = true;
+        this.qkc = new URL(str);
         this.f69case = str2;
-        this.qjE = map;
+        this.qke = map;
         this.f68case = 20000;
         this.f13758a = 20000;
     }
 
-    public final t eIT() {
+    public final t eJb() {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         e(byteArrayOutputStream);
-        return new t(this.f70java, byteArrayOutputStream.toByteArray(), this.qjF);
+        return new t(this.f70java, byteArrayOutputStream.toByteArray(), this.qkf);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -68,18 +68,18 @@ public class s {
         HttpsURLConnection httpsURLConnection;
         InputStream errorStream;
         PrintWriter printWriter;
-        String url = this.qjC.toString();
+        String url = this.qkc.toString();
         if (!TextUtils.isEmpty(url) ? url.startsWith(HttpHost.DEFAULT_SCHEME_NAME) : false) {
-            httpsURLConnection = (HttpURLConnection) this.qjC.openConnection();
+            httpsURLConnection = (HttpURLConnection) this.qkc.openConnection();
         } else {
-            httpsURLConnection = (HttpsURLConnection) this.qjC.openConnection();
+            httpsURLConnection = (HttpsURLConnection) this.qkc.openConnection();
         }
         httpsURLConnection.setRequestMethod(this.f69case);
-        httpsURLConnection.setInstanceFollowRedirects(this.qjq);
+        httpsURLConnection.setInstanceFollowRedirects(this.qjQ);
         httpsURLConnection.setReadTimeout(this.f13758a);
         httpsURLConnection.setConnectTimeout(this.f68case);
         httpsURLConnection.setDoInput(true);
-        Map<String, List<String>> map = this.qjE;
+        Map<String, List<String>> map = this.qke;
         if (map != null && map.size() > 0) {
             for (Map.Entry<String, List<String>> entry : map.entrySet()) {
                 String key = entry.getKey();
@@ -94,11 +94,11 @@ public class s {
             httpsURLConnection.setDoOutput(true);
             try {
                 OutputStream outputStream2 = httpsURLConnection.getOutputStream();
-                byte[] bArr = this.qjD;
+                byte[] bArr = this.qkd;
                 if (bArr == null) {
                     printWriter = new PrintWriter((Writer) new OutputStreamWriter(outputStream2, "UTF-8"), true);
                     try {
-                        printWriter.print(this.qjC != null ? this.qjC.getQuery() : null);
+                        printWriter.print(this.qkc != null ? this.qkc.getQuery() : null);
                         printWriter.flush();
                     } catch (Throwable th) {
                         th = th;
@@ -121,9 +121,9 @@ public class s {
             }
         }
         this.f70java = httpsURLConnection.getResponseCode();
-        this.qjj = httpsURLConnection.getContentLength();
+        this.qjJ = httpsURLConnection.getContentLength();
         if (httpsURLConnection.getHeaderFields() != null) {
-            this.qjF = httpsURLConnection.getHeaderFields();
+            this.qkf = httpsURLConnection.getHeaderFields();
         }
         try {
             String contentEncoding = httpsURLConnection.getContentEncoding();
@@ -141,7 +141,7 @@ public class s {
         BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
         byte[] bArr2 = new byte[4096];
         int i = 0;
-        while (!this.qiQ && i != -1) {
+        while (!this.qjq && i != -1) {
             i = bufferedInputStream.read(bArr2);
             if (i > 0) {
                 outputStream.write(bArr2, 0, i);

@@ -14,12 +14,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
     public boolean isStarting;
-    private float jPc;
-    private float jPd;
-    private float jPe;
-    private float jPf;
-    public boolean jPg;
-    private View.OnClickListener jPh;
+    private float jPq;
+    private float jPr;
+    private float jPs;
+    private float jPt;
+    public boolean jPu;
+    private View.OnClickListener jPv;
     private Paint paint;
     private float progress;
     private float step;
@@ -28,14 +28,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context) {
         super(context);
-        this.jPc = 0.0f;
-        this.jPd = 0.0f;
+        this.jPq = 0.0f;
+        this.jPr = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.jPe = 0.0f;
-        this.jPf = 0.0f;
+        this.jPs = 0.0f;
+        this.jPt = 0.0f;
         this.isStarting = false;
-        this.jPg = false;
+        this.jPu = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -43,14 +43,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public AutoScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jPc = 0.0f;
-        this.jPd = 0.0f;
+        this.jPq = 0.0f;
+        this.jPr = 0.0f;
         this.step = 0.0f;
         this.y = 0.0f;
-        this.jPe = 0.0f;
-        this.jPf = 0.0f;
+        this.jPs = 0.0f;
+        this.jPt = 0.0f;
         this.isStarting = false;
-        this.jPg = false;
+        this.jPu = false;
         this.paint = null;
         this.text = "";
         initView();
@@ -64,14 +64,14 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         this.paint = getPaint();
         this.paint.setColor(-1);
         this.text = getText().toString();
-        this.jPc = this.paint.measureText(this.text);
-        this.jPd = getWidth();
-        if (this.jPd == 0.0f && windowManager != null) {
-            this.jPd = windowManager.getDefaultDisplay().getWidth();
+        this.jPq = this.paint.measureText(this.text);
+        this.jPr = getWidth();
+        if (this.jPr == 0.0f && windowManager != null) {
+            this.jPr = windowManager.getDefaultDisplay().getWidth();
         }
-        this.step = this.jPc;
-        this.jPe = this.jPc;
-        this.jPf = this.jPc * 2.0f;
+        this.step = this.jPq;
+        this.jPs = this.jPq;
+        this.jPt = this.jPq * 2.0f;
         this.y = getTextSize();
     }
 
@@ -142,7 +142,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    public void cFj() {
+    public void cFq() {
         this.isStarting = true;
         invalidate();
     }
@@ -157,27 +157,27 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         if (!this.isStarting) {
             if (this.progress > 0.5f) {
                 setWidth((int) (3000.0f * (this.progress - 0.5f)));
-                canvas.drawText(this.text, this.jPe - this.step, getTextSize() + 2.7f, this.paint);
+                canvas.drawText(this.text, this.jPs - this.step, getTextSize() + 2.7f, this.paint);
                 return;
             }
             return;
         }
-        canvas.drawText(this.text, this.jPe - this.step, getTextSize() + 2.7f, this.paint);
+        canvas.drawText(this.text, this.jPs - this.step, getTextSize() + 2.7f, this.paint);
         this.step = TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3) + this.step;
-        if (this.step > this.jPf) {
-            this.step = this.jPc;
+        if (this.step > this.jPt) {
+            this.step = this.jPq;
         }
         invalidate();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jPh != null) {
-            this.jPh.onClick(view);
+        if (this.jPv != null) {
+            this.jPv.onClick(view);
         }
     }
 
     public void setClickliner(View.OnClickListener onClickListener) {
-        this.jPh = onClickListener;
+        this.jPv = onClickListener;
     }
 }

@@ -1,49 +1,49 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class n {
-    private Object nwp;
-    private boolean nwq = false;
-    private boolean nwr = false;
-    private boolean nws = false;
-    public final long nwt = System.currentTimeMillis();
+    private Object nwP;
+    private boolean nwQ = false;
+    private boolean nwR = false;
+    private boolean nwS = false;
+    public final long nwT = System.currentTimeMillis();
 
     public n(Object obj) {
-        this.nwp = obj;
+        this.nwP = obj;
     }
 
-    public Object dNh() {
-        return this.nwp;
+    public Object dNp() {
+        return this.nwP;
     }
 
     public void aR(Object obj) {
-        this.nwp = obj;
+        this.nwP = obj;
     }
 
-    public boolean dNi() {
-        return this.nwq;
+    public boolean dNq() {
+        return this.nwQ;
     }
 
-    public boolean dNj() {
-        return this.nwr;
+    public boolean dNr() {
+        return this.nwR;
     }
 
     public void yp(boolean z) {
-        this.nwr = z;
+        this.nwR = z;
     }
 
     public void yq(boolean z) {
-        this.nwq = z;
+        this.nwQ = z;
     }
 
-    public boolean dNk() {
-        return this.nws;
+    public boolean dNs() {
+        return this.nwS;
     }
 
     public void yr(boolean z) {
-        this.nws = z;
+        this.nwS = z;
     }
 
     public boolean isValid() {
-        return System.currentTimeMillis() - this.nwt < 1020000;
+        return System.currentTimeMillis() - this.nwT < 1020000;
     }
 }

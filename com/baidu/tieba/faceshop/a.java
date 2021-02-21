@@ -12,18 +12,18 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private static a iSS = new a();
+    private static a iTg = new a();
 
-    public static a cyo() {
-        return iSS;
+    public static a cyv() {
+        return iTg;
     }
 
     public int b(String str, InputStream inputStream) throws Exception {
-        i cyE = i.cyE();
+        i cyL = i.cyL();
         List<String> c = b.c(str, inputStream);
         int i = 0;
         for (int i2 = 0; i2 < c.size(); i2++) {
-            if (cyE.t(c.get(i2), str, i2 + 1)) {
+            if (cyL.t(c.get(i2), str, i2 + 1)) {
                 i++;
             }
         }
@@ -35,21 +35,21 @@ public class a {
             return 0;
         }
         String str = ".emotions/" + aVar.id;
-        i cyE = i.cyE();
+        i cyL = i.cyL();
         List<com.baidu.tieba.newfaceshop.b.b> list = aVar.pics;
         int i = 0;
         for (int i2 = 0; i2 < list.size(); i2++) {
             com.baidu.tieba.newfaceshop.b.b bVar = list.get(i2);
-            if (checkFile(str + "/" + bVar.name) && checkFile(str + "/" + bVar.lAy)) {
+            if (checkFile(str + "/" + bVar.name) && checkFile(str + "/" + bVar.lAM)) {
                 StringBuilder sb = new StringBuilder("meme,");
                 sb.append(aVar.id + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + bVar.id).append(",");
                 sb.append(bVar.width).append(",");
                 sb.append(bVar.height).append(",");
                 String str2 = "#(" + sb.toString() + com.baidu.adp.lib.util.s.toMd5(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + ")";
                 boolean z = com.baidu.tbadk.core.util.o.isGif(str, bVar.name);
-                b.aF(aVar.id, bVar.lAy, b.j(str2, true, false));
+                b.aF(aVar.id, bVar.lAM, b.j(str2, true, false));
                 b.aF(aVar.id, bVar.name, b.j(str2, false, z));
-                if (cyE.t(str2, aVar.id, i2 + 1)) {
+                if (cyL.t(str2, aVar.id, i2 + 1)) {
                     i++;
                 }
             }
@@ -75,7 +75,7 @@ public class a {
         }
     }
 
-    public boolean Jv(String str) {
+    public boolean Jw(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -127,7 +127,7 @@ public class a {
         return myEmotionGroupData;
     }
 
-    public List<MyEmotionGroupData> Jw(String str) {
+    public List<MyEmotionGroupData> Jx(String str) {
         LinkedList linkedList = new LinkedList();
         if (!TextUtils.isEmpty(str)) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();

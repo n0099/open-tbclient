@@ -39,9 +39,9 @@ public class i implements h.a, k, n.a {
         final DecodeJob.d f10222a;
 
         /* renamed from: b  reason: collision with root package name */
-        final Pools.Pool<DecodeJob<?>> f10223b = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC1123a<DecodeJob<?>>() { // from class: com.kwad.sdk.glide.load.engine.i.a.1
+        final Pools.Pool<DecodeJob<?>> f10223b = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC1125a<DecodeJob<?>>() { // from class: com.kwad.sdk.glide.load.engine.i.a.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1123a
+            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1125a
             /* renamed from: a */
             public DecodeJob<?> b() {
                 return new DecodeJob<>(a.this.f10222a, a.this.f10223b);
@@ -73,9 +73,9 @@ public class i implements h.a, k, n.a {
         final com.kwad.sdk.glide.load.engine.b.a c;
         final com.kwad.sdk.glide.load.engine.b.a d;
         final k e;
-        final Pools.Pool<j<?>> f = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC1123a<j<?>>() { // from class: com.kwad.sdk.glide.load.engine.i.b.1
+        final Pools.Pool<j<?>> f = com.kwad.sdk.glide.g.a.a.a(150, new a.InterfaceC1125a<j<?>>() { // from class: com.kwad.sdk.glide.load.engine.i.b.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1123a
+            @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1125a
             /* renamed from: a */
             public j<?> b() {
                 return new j<>(b.this.f10225a, b.this.f10226b, b.this.c, b.this.d, b.this.e, b.this.f);
@@ -99,13 +99,13 @@ public class i implements h.a, k, n.a {
     private static class c implements DecodeJob.d {
 
         /* renamed from: a  reason: collision with root package name */
-        private final a.InterfaceC1130a f10228a;
+        private final a.InterfaceC1132a f10228a;
 
         /* renamed from: b  reason: collision with root package name */
         private volatile com.kwad.sdk.glide.load.engine.a.a f10229b;
 
-        c(a.InterfaceC1130a interfaceC1130a) {
-            this.f10228a = interfaceC1130a;
+        c(a.InterfaceC1132a interfaceC1132a) {
+            this.f10228a = interfaceC1132a;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.DecodeJob.d
@@ -144,9 +144,9 @@ public class i implements h.a, k, n.a {
     }
 
     @VisibleForTesting
-    i(com.kwad.sdk.glide.load.engine.a.h hVar, a.InterfaceC1130a interfaceC1130a, com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, p pVar, m mVar, com.kwad.sdk.glide.load.engine.a aVar5, b bVar, a aVar6, v vVar, boolean z) {
+    i(com.kwad.sdk.glide.load.engine.a.h hVar, a.InterfaceC1132a interfaceC1132a, com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, p pVar, m mVar, com.kwad.sdk.glide.load.engine.a aVar5, b bVar, a aVar6, v vVar, boolean z) {
         this.d = hVar;
-        this.g = new c(interfaceC1130a);
+        this.g = new c(interfaceC1132a);
         aVar5 = aVar5 == null ? new com.kwad.sdk.glide.load.engine.a(z) : aVar5;
         this.i = aVar5;
         aVar5.a(this);
@@ -158,8 +158,8 @@ public class i implements h.a, k, n.a {
         hVar.a(this);
     }
 
-    public i(com.kwad.sdk.glide.load.engine.a.h hVar, a.InterfaceC1130a interfaceC1130a, com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, boolean z) {
-        this(hVar, interfaceC1130a, aVar, aVar2, aVar3, aVar4, null, null, null, null, null, null, z);
+    public i(com.kwad.sdk.glide.load.engine.a.h hVar, a.InterfaceC1132a interfaceC1132a, com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, boolean z) {
+        this(hVar, interfaceC1132a, aVar, aVar2, aVar3, aVar4, null, null, null, null, null, null, z);
     }
 
     private n<?> a(com.kwad.sdk.glide.load.c cVar) {

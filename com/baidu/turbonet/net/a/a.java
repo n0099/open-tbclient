@@ -9,9 +9,9 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public final class a extends f {
     private ByteBuffer mBuffer;
-    private final d oRA;
-    private final int oRz;
-    private final UploadDataProvider oRn = new C0949a();
+    private final int oRZ;
+    private final d oSa;
+    private final UploadDataProvider oRN = new C0951a();
     private boolean mConnected = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,9 +25,9 @@ public final class a extends f {
         if (j < 0) {
             throw new IllegalArgumentException("Content length < 0.");
         }
-        this.oRA = dVar;
-        this.oRz = (int) j;
-        this.mBuffer = ByteBuffer.allocate(this.oRz);
+        this.oSa = dVar;
+        this.oRZ = (int) j;
+        this.mBuffer = ByteBuffer.allocate(this.oRZ);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,33 +35,33 @@ public final class a extends f {
         if (dVar == null) {
             throw new NullPointerException();
         }
-        this.oRA = dVar;
-        this.oRz = -1;
+        this.oSa = dVar;
+        this.oRZ = -1;
         this.mBuffer = ByteBuffer.allocate(16384);
     }
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
         checkNotClosed();
-        Nc(1);
+        Nd(1);
         this.mBuffer.put((byte) i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
         checkNotClosed();
-        Nc(i2);
+        Nd(i2);
         this.mBuffer.put(bArr, i, i2);
     }
 
-    private void Nc(int i) throws IOException {
-        if (this.oRz != -1 && this.mBuffer.position() + i > this.oRz) {
-            throw new ProtocolException("exceeded content-length limit of " + this.oRz + " bytes");
+    private void Nd(int i) throws IOException {
+        if (this.oRZ != -1 && this.mBuffer.position() + i > this.oRZ) {
+            throw new ProtocolException("exceeded content-length limit of " + this.oRZ + " bytes");
         }
         if (this.mConnected) {
             throw new IllegalStateException("Cannot write after being connected.");
         }
-        if (this.oRz == -1 && this.mBuffer.limit() - this.mBuffer.position() <= i) {
+        if (this.oRZ == -1 && this.mBuffer.limit() - this.mBuffer.position() <= i) {
             ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.mBuffer.capacity() * 2, this.mBuffer.capacity() + i));
             this.mBuffer.flip();
             allocate.put(this.mBuffer);
@@ -71,9 +71,9 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void egZ() throws IOException {
+    public void ehh() throws IOException {
         this.mConnected = true;
-        if (this.mBuffer.position() < this.oRz) {
+        if (this.mBuffer.position() < this.oRZ) {
             throw new ProtocolException("Content received is less than Content-Length");
         }
         this.mBuffer.flip();
@@ -81,27 +81,27 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void eha() throws IOException {
+    public void ehi() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider ehb() {
-        return this.oRn;
+    public UploadDataProvider ehj() {
+        return this.oRN;
     }
 
     /* renamed from: com.baidu.turbonet.net.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0949a extends UploadDataProvider {
-        private C0949a() {
+    private class C0951a extends UploadDataProvider {
+        private C0951a() {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider
         public long getLength() {
-            if (a.this.oRz == -1) {
+            if (a.this.oRZ == -1) {
                 return a.this.mConnected ? a.this.mBuffer.limit() : a.this.mBuffer.position();
             }
-            return a.this.oRz;
+            return a.this.oRZ;
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider

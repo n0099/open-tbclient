@@ -9,17 +9,17 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class AdSplashStyle {
     public int duration;
-    public a gkA;
-    public a gkB;
-    public a gkC;
-    public a gkD;
-    public a gkE;
-    public a gkF;
-    public a gkG;
-    public int gkw;
-    public a gkx;
-    public a gky;
-    public a gkz;
+    public int gkK;
+    public a gkL;
+    public a gkM;
+    public a gkN;
+    public a gkO;
+    public a gkP;
+    public a gkQ;
+    public a gkR;
+    public a gkS;
+    public a gkT;
+    public a gkU;
     public String labelName = TbadkCoreApplication.getInst().getString(R.string.advert_label);
 
     /* loaded from: classes8.dex */
@@ -36,21 +36,21 @@ public class AdSplashStyle {
         public int Yh;
         public int Yi;
         public int fvN;
-        public String gkH;
-        public int[] gkI;
-        public int gkJ;
+        public String gkV;
+        public int[] gkW;
+        public int gkX;
         public int gravity;
 
         public a(int i, String str) {
             this.gravity = i;
-            this.gkH = str;
-            bMu();
+            this.gkV = str;
+            bMB();
         }
 
         public void aQ(int i, String str) {
             this.gravity = i;
-            this.gkH = str;
-            bMu();
+            this.gkV = str;
+            bMB();
         }
 
         public a(JSONObject jSONObject) {
@@ -61,51 +61,51 @@ public class AdSplashStyle {
             if (jSONObject != null) {
                 try {
                     this.gravity = jSONObject.optInt("l_gravity", -1);
-                    this.gkH = jSONObject.optString("margin", "");
-                    bMu();
+                    this.gkV = jSONObject.optString("margin", "");
+                    bMB();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
 
-        public void bMu() {
+        public void bMB() {
             String[] split;
-            if (this.gkH != null && (split = this.gkH.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) != null && split.length == 4) {
-                this.gkJ = com.baidu.adp.lib.f.b.toInt(split[0], 0);
+            if (this.gkV != null && (split = this.gkV.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) != null && split.length == 4) {
+                this.gkX = com.baidu.adp.lib.f.b.toInt(split[0], 0);
                 this.Yh = com.baidu.adp.lib.f.b.toInt(split[1], 0);
                 this.fvN = com.baidu.adp.lib.f.b.toInt(split[2], 0);
                 this.Yi = com.baidu.adp.lib.f.b.toInt(split[3], 0);
-                this.gkI = new int[4];
-                this.gkI[0] = this.gkJ;
-                this.gkI[1] = this.Yh;
-                this.gkI[2] = this.fvN;
-                this.gkI[3] = this.Yi;
+                this.gkW = new int[4];
+                this.gkW[0] = this.gkX;
+                this.gkW[1] = this.Yh;
+                this.gkW[2] = this.fvN;
+                this.gkW[3] = this.Yi;
             }
         }
     }
 
-    public boolean bMt() {
-        return this.gkw == 1;
+    public boolean bMA() {
+        return this.gkK == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 dA(jSONObject);
-                this.gkw = jSONObject.optInt("logo_type", 0);
+                this.gkK = jSONObject.optInt("logo_type", 0);
                 this.duration = jSONObject.optInt("duration", 0);
                 JSONObject optJSONObject = jSONObject.optJSONObject("style");
-                this.gkx = z(optJSONObject, "logo");
-                this.gky = z(optJSONObject, FreeSpaceBox.TYPE);
-                this.gkz = z(optJSONObject, "label");
-                this.gkA = z(optJSONObject, "voice");
-                this.gkB = z(optJSONObject, "wifi_tip");
-                this.gkC = z(optJSONObject, "logo_f");
-                this.gkD = z(optJSONObject, "skip_f");
-                this.gkE = z(optJSONObject, "label_f");
-                this.gkF = z(optJSONObject, "voice_f");
-                this.gkG = z(optJSONObject, "wifi_tip_f");
+                this.gkL = z(optJSONObject, "logo");
+                this.gkM = z(optJSONObject, FreeSpaceBox.TYPE);
+                this.gkN = z(optJSONObject, "label");
+                this.gkO = z(optJSONObject, "voice");
+                this.gkP = z(optJSONObject, "wifi_tip");
+                this.gkQ = z(optJSONObject, "logo_f");
+                this.gkR = z(optJSONObject, "skip_f");
+                this.gkS = z(optJSONObject, "label_f");
+                this.gkT = z(optJSONObject, "voice_f");
+                this.gkU = z(optJSONObject, "wifi_tip_f");
             } catch (Exception e) {
                 e.printStackTrace();
             }

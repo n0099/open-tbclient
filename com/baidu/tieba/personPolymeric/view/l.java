@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class l extends com.baidu.tbadk.l.c {
-    private static final int mFd = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
-    private static final int mFe = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
+    private static final int mFs = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
+    private static final int mFt = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
 
     public l(Context context, View.OnClickListener onClickListener) {
         super(context, onClickListener);
@@ -18,9 +18,9 @@ public class l extends com.baidu.tbadk.l.c {
     private void initView() {
         if (this.fGL != null && (this.fGL.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fGL.getLayoutParams();
-            layoutParams.width = mFd;
-            layoutParams.height = mFd;
-            layoutParams.topMargin = mFe;
+            layoutParams.width = mFs;
+            layoutParams.height = mFs;
+            layoutParams.topMargin = mFt;
             this.fGL.setLayoutParams(layoutParams);
         }
     }

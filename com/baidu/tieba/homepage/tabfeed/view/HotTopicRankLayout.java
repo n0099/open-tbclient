@@ -22,9 +22,9 @@ import com.baidu.tieba.homepage.tabfeed.data.b;
 public class HotTopicRankLayout extends LinearLayout implements View.OnClickListener, p<b>, q {
     private View alP;
     private ImageView alQ;
-    private f<c> kgb;
-    private HotTopicTabRankListLayout knZ;
-    private View koa;
+    private f<c> kgp;
+    private HotTopicTabRankListLayout kon;
+    private View koo;
     private View mBottomLine;
     private int mSkinType;
     private TextView mTitle;
@@ -33,7 +33,7 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
     public HotTopicRankLayout(Context context) {
         super(context, null);
         this.mSkinType = 3;
-        this.kgb = new f<c>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout.1
+        this.kgp = new f<c>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.h.f
             public void a(View view, c cVar, int i, long j) {
@@ -61,16 +61,16 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
         this.alP = findViewById(R.id.layout_into);
         this.mTopLine = findViewById(R.id.divider_line_top);
         this.mBottomLine = findViewById(R.id.divider_line_bottom);
-        this.koa = findViewById(R.id.title_layout);
-        this.koa.setPadding(0, l.getDimens(getContext(), R.dimen.tbds44), 0, l.getDimens(getContext(), R.dimen.tbds22));
-        ViewGroup.LayoutParams layoutParams = this.koa.getLayoutParams();
+        this.koo = findViewById(R.id.title_layout);
+        this.koo.setPadding(0, l.getDimens(getContext(), R.dimen.tbds44), 0, l.getDimens(getContext(), R.dimen.tbds22));
+        ViewGroup.LayoutParams layoutParams = this.koo.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
-        this.koa.setLayoutParams(layoutParams);
+        this.koo.setLayoutParams(layoutParams);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.card_container);
-        this.knZ = new HotTopicTabRankListLayout(getContext());
-        this.knZ.setOnItemCoverListener(this.kgb);
-        linearLayout.addView(this.knZ);
+        this.kon = new HotTopicTabRankListLayout(getContext());
+        this.kon.setOnItemCoverListener(this.kgp);
+        linearLayout.addView(this.kon);
         linearLayout.setPadding(0, 0, 0, l.getDimens(getContext(), R.dimen.tbds48));
         this.alQ.setClickable(false);
         this.alP.setOnClickListener(this);
@@ -82,11 +82,11 @@ public class HotTopicRankLayout extends LinearLayout implements View.OnClickList
     /* renamed from: a */
     public void C(b bVar) {
         this.mTitle.setText(bVar.title != null ? bVar.title : "");
-        this.knZ.a(bVar);
+        this.kon.a(bVar);
         this.mTopLine.setVisibility(0);
         this.mBottomLine.setVisibility(8);
         com.baidu.tbadk.a.b.b.bl(this.mTopLine);
-        com.baidu.tieba.homepage.tabfeed.b.Mg("c13753");
+        com.baidu.tieba.homepage.tabfeed.b.Mh("c13753");
     }
 
     @Override // com.baidu.card.q

@@ -3,11 +3,11 @@ package com.baidu.tbadk.imageManager;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface a {
-    int CM(String str);
+    int CK(String str);
 
-    int CN(String str);
+    int CL(String str);
 
-    String CO(String str);
+    String CM(String str);
 
     C0576a aC(Context context, String str);
 

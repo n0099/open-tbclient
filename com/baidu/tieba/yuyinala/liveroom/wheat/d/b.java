@@ -7,10 +7,10 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatCommonLayout;
 /* loaded from: classes11.dex */
 public class b extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public View eeB() {
-        this.oJs = new WheatCommonLayout(this.mActivity);
-        this.oJs.setTbPageContext(this.oGe);
-        return this.oJs;
+    public View eeJ() {
+        this.oJS = new WheatCommonLayout(this.mActivity);
+        this.oJS.setTbPageContext(this.oGE);
+        return this.oJS;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
@@ -20,8 +20,8 @@ public class b extends a {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void Mk() {
-        if (this.oJs != null) {
-            this.oJs.a(this.oJi, this.oJj, this.bxN);
+        if (this.oJS != null) {
+            this.oJS.a(this.oJI, this.oJJ, this.bxN);
         }
     }
 

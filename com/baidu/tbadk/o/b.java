@@ -18,7 +18,7 @@ public class b {
         this.exception = str;
     }
 
-    public void Dy(String str) {
+    public void Dw(String str) {
         this.fLf = str;
     }
 

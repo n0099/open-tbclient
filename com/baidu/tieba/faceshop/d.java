@@ -16,17 +16,17 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class d extends BaseAdapter {
     private int ajU;
-    private boolean iSV;
-    private b iSW;
-    private a iSX;
+    private boolean iTj;
+    private b iTk;
+    private a iTl;
     private List<CollectEmotionData> mDataList = new ArrayList();
-    private List<CollectEmotionData> iSU = new ArrayList();
+    private List<CollectEmotionData> iTi = new ArrayList();
     private int dkj = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) / 4;
     private com.baidu.tbadk.img.b fyF = new com.baidu.tbadk.img.b();
 
     /* loaded from: classes9.dex */
     public interface a {
-        void cyq();
+        void cyx();
     }
 
     /* loaded from: classes9.dex */
@@ -35,7 +35,7 @@ public class d extends BaseAdapter {
     }
 
     public d(a aVar) {
-        this.iSX = aVar;
+        this.iTl = aVar;
     }
 
     public void cW(List<CollectEmotionData> list) {
@@ -47,34 +47,34 @@ public class d extends BaseAdapter {
     }
 
     public void a(b bVar) {
-        this.iSW = bVar;
+        this.iTk = bVar;
     }
 
     public void clearSelect() {
-        if (this.iSV) {
-            for (CollectEmotionData collectEmotionData : this.iSU) {
+        if (this.iTj) {
+            for (CollectEmotionData collectEmotionData : this.iTi) {
                 collectEmotionData.isSelect = false;
                 collectEmotionData.selectIndex = -1;
             }
-            this.iSU.clear();
+            this.iTi.clear();
             ArrayList arrayList = new ArrayList(this.mDataList);
             this.mDataList.clear();
             this.mDataList.addAll(arrayList);
             notifyDataSetChanged();
-            if (this.iSW != null) {
-                this.iSW.cX(this.iSU);
+            if (this.iTk != null) {
+                this.iTk.cX(this.iTi);
             }
         }
     }
 
     public void qf(boolean z) {
-        if (this.iSV != z) {
-            for (CollectEmotionData collectEmotionData : this.iSU) {
+        if (this.iTj != z) {
+            for (CollectEmotionData collectEmotionData : this.iTi) {
                 collectEmotionData.isSelect = false;
                 collectEmotionData.selectIndex = -1;
             }
-            this.iSU.clear();
-            this.iSV = z;
+            this.iTi.clear();
+            this.iTj = z;
             ArrayList arrayList = new ArrayList(this.mDataList);
             this.mDataList.clear();
             this.mDataList.addAll(arrayList);
@@ -125,9 +125,9 @@ public class d extends BaseAdapter {
                     ViewGroup.LayoutParams layoutParams = cVar3.rootView.getLayoutParams();
                     layoutParams.height = this.dkj;
                     cVar3.rootView.setLayoutParams(layoutParams);
-                    cVar3.iSZ = (TbImageView) view.findViewById(R.id.collect_pic);
-                    ((RelativeLayout.LayoutParams) cVar3.iSZ.getLayoutParams()).setMargins(0, 0, 0, 0);
-                    cVar3.iSZ.setScaleType(ImageView.ScaleType.CENTER);
+                    cVar3.iTn = (TbImageView) view.findViewById(R.id.collect_pic);
+                    ((RelativeLayout.LayoutParams) cVar3.iTn.getLayoutParams()).setMargins(0, 0, 0, 0);
+                    cVar3.iTn.setScaleType(ImageView.ScaleType.CENTER);
                     view.findViewById(R.id.collect_select_icon).setVisibility(8);
                     view.setTag(cVar3);
                     ap.setBackgroundColor(view, R.color.white_alpha0, this.ajU);
@@ -135,18 +135,18 @@ public class d extends BaseAdapter {
                 } else {
                     cVar = (c) view.getTag();
                 }
-                if (this.iSV) {
+                if (this.iTj) {
                     cVar.rootView.setEnabled(false);
-                    ap.setImageResource(cVar.iSZ, R.drawable.icon_emotion_unplusadd_n);
+                    ap.setImageResource(cVar.iTn, R.drawable.icon_emotion_unplusadd_n);
                 } else {
                     cVar.rootView.setEnabled(true);
-                    ap.setImageResource(cVar.iSZ, R.drawable.icon_emotion_plusadd_n);
+                    ap.setImageResource(cVar.iTn, R.drawable.icon_emotion_plusadd_n);
                 }
                 cVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.d.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (d.this.iSX != null) {
-                            d.this.iSX.cyq();
+                        if (d.this.iTl != null) {
+                            d.this.iTl.cyx();
                         }
                     }
                 });
@@ -159,7 +159,7 @@ public class d extends BaseAdapter {
                     ViewGroup.LayoutParams layoutParams2 = cVar4.rootView.getLayoutParams();
                     layoutParams2.height = this.dkj;
                     cVar4.rootView.setLayoutParams(layoutParams2);
-                    cVar4.iSZ = (TbImageView) view.findViewById(R.id.collect_pic);
+                    cVar4.iTn = (TbImageView) view.findViewById(R.id.collect_pic);
                     cVar4.bMa = (ImageView) view.findViewById(R.id.collect_select_icon);
                     view.setTag(cVar4);
                     ap.setBackgroundColor(view, R.color.CAM_X0201, this.ajU);
@@ -167,18 +167,18 @@ public class d extends BaseAdapter {
                 } else {
                     cVar2 = (c) view.getTag();
                 }
-                cVar2.iSZ.setTag(null);
-                cVar2.iSZ.setDefaultResource(R.drawable.img_default_100);
-                cVar2.iSZ.startLoad(null, 12, false);
-                cVar2.iSZ.invalidate();
-                ap.setBackgroundResource(cVar2.iSZ, R.drawable.btn_choose_face_selector, this.ajU);
+                cVar2.iTn.setTag(null);
+                cVar2.iTn.setDefaultResource(R.drawable.img_default_100);
+                cVar2.iTn.startLoad(null, 12, false);
+                cVar2.iTn.invalidate();
+                ap.setBackgroundResource(cVar2.iTn, R.drawable.btn_choose_face_selector, this.ajU);
                 ImageFileInfo imageFileInfo = getItem(i).imageFileInfo;
                 if (imageFileInfo != null) {
                     imageFileInfo.clearPageActions();
                     imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.bd(this.dkj, this.dkj));
-                    cVar2.iSZ.setTag(imageFileInfo.toCachedKey(false));
+                    cVar2.iTn.setTag(imageFileInfo.toCachedKey(false));
                     if (this.fyF.a(imageFileInfo, false) != null) {
-                        cVar2.iSZ.invalidate();
+                        cVar2.iTn.invalidate();
                     } else {
                         this.fyF.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.faceshop.d.1
                             @Override // com.baidu.tbadk.imageManager.b
@@ -191,12 +191,12 @@ public class d extends BaseAdapter {
                         }, false, false);
                     }
                 }
-                if (this.iSV) {
+                if (this.iTj) {
                     cVar2.bMa.setVisibility(0);
                 } else {
                     cVar2.bMa.setVisibility(8);
                 }
-                if (this.iSU.contains(getItem(i))) {
+                if (this.iTi.contains(getItem(i))) {
                     ap.setBackgroundResource(cVar2.bMa, R.drawable.ic_post_image_selected_s);
                 } else {
                     ap.setBackgroundResource(cVar2.bMa, R.drawable.ic_post_image_selected_n);
@@ -206,16 +206,16 @@ public class d extends BaseAdapter {
                     public void onClick(View view2) {
                         CollectEmotionData item;
                         ImageView imageView;
-                        if (d.this.iSV && (item = d.this.getItem(i)) != null) {
-                            if (!d.this.iSU.contains(item)) {
-                                item.selectIndex = d.this.iSU.size() + 1;
+                        if (d.this.iTj && (item = d.this.getItem(i)) != null) {
+                            if (!d.this.iTi.contains(item)) {
+                                item.selectIndex = d.this.iTi.size() + 1;
                                 item.isSelect = true;
-                                d.this.iSU.add(item);
+                                d.this.iTi.add(item);
                             } else {
                                 item.selectIndex = -1;
                                 item.isSelect = false;
-                                d.this.iSU.remove(item);
-                                for (int i2 = 0; i2 < d.this.iSU.size(); i2++) {
+                                d.this.iTi.remove(item);
+                                for (int i2 = 0; i2 < d.this.iTi.size(); i2++) {
                                     d.this.getItem(i).selectIndex = i2 + 1;
                                 }
                             }
@@ -231,21 +231,21 @@ public class d extends BaseAdapter {
                                     ap.setBackgroundResource(imageView, R.drawable.ic_post_image_selected_n);
                                 }
                             }
-                            if (d.this.iSW != null) {
-                                d.this.iSW.cX(d.this.iSU);
+                            if (d.this.iTk != null) {
+                                d.this.iTk.cX(d.this.iTi);
                             }
                         }
                     }
                 };
-                cVar2.iSZ.setOnClickListener(onClickListener);
+                cVar2.iTn.setOnClickListener(onClickListener);
                 cVar2.bMa.setOnClickListener(onClickListener);
                 break;
         }
         return view;
     }
 
-    public List<CollectEmotionData> cyp() {
-        return this.iSU;
+    public List<CollectEmotionData> cyw() {
+        return this.iTi;
     }
 
     public void setSkinType(int i) {
@@ -255,7 +255,7 @@ public class d extends BaseAdapter {
     /* loaded from: classes9.dex */
     private class c {
         ImageView bMa;
-        TbImageView iSZ;
+        TbImageView iTn;
         View rootView;
 
         private c() {

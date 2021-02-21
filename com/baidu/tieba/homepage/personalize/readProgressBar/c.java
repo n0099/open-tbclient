@@ -12,17 +12,17 @@ import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class c {
-    public static long kmc;
-    private String kmb;
+    public static long kmq;
+    private String kmp;
 
     public void eg(List<n> list) {
         com.baidu.tieba.card.data.b bVar;
         if (TbadkCoreApplication.isLogin()) {
-            if (this.kmb == null) {
-                this.kmb = com.baidu.tbadk.core.sharedPref.b.brQ().getString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), "");
+            if (this.kmp == null) {
+                this.kmp = com.baidu.tbadk.core.sharedPref.b.brQ().getString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            if (!StringUtils.isNull(this.kmb)) {
-                String[] split = this.kmb.split(",");
+            if (!StringUtils.isNull(this.kmp)) {
+                String[] split = this.kmp.split(",");
                 if (split.length == 2) {
                     String str = split[0];
                     long j = com.baidu.adp.lib.f.b.toLong(split[1], 0L);
@@ -31,7 +31,7 @@ public class c {
                             if ((list.get(i) instanceof com.baidu.tieba.card.data.b) && (bVar = (com.baidu.tieba.card.data.b) list.get(i)) != null && !StringUtils.isNull(bVar.tid) && bVar.tid.equals(str)) {
                                 b bVar2 = new b();
                                 bVar2.mTimeStamp = j;
-                                bVar2.kma = false;
+                                bVar2.kmo = false;
                                 list.add(i, bVar2);
                                 return;
                             }
@@ -45,23 +45,23 @@ public class c {
     public void g(boolean z, List<ThreadInfo> list) {
         ThreadInfo threadInfo;
         if (TbadkCoreApplication.isLogin() && !y.isEmpty(list) && z && (threadInfo = (ThreadInfo) y.getItem(list, 0)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
-            this.kmb = null;
-            kmc = threadInfo.tid.longValue();
+            this.kmp = null;
+            kmq = threadInfo.tid.longValue();
             com.baidu.tbadk.core.sharedPref.b.brQ().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
         }
     }
 
     public void b(ThreadInfo threadInfo) {
-        if (i.klx && threadInfo != null && threadInfo != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
-            this.kmb = null;
-            kmc = threadInfo.tid.longValue();
+        if (i.klL && threadInfo != null && threadInfo != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
+            this.kmp = null;
+            kmq = threadInfo.tid.longValue();
             com.baidu.tbadk.core.sharedPref.b.brQ().putString(SharedPrefConfig.READ_PROGRESS_PREFIX + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
         }
     }
 
     public static void a(long j, int i, List<ThreadInfo> list, List<n> list2) {
         final ThreadInfo threadInfo;
-        if (j == kmc && !y.isEmpty(list) && !y.isEmpty(list2)) {
+        if (j == kmq && !y.isEmpty(list) && !y.isEmpty(list2)) {
             if (i == 0) {
                 int i2 = 0;
                 while (true) {
@@ -78,7 +78,7 @@ public class c {
                     }
                 }
             } else if (y.getCount(list) > i + 1 && (threadInfo = list.get(i + 1)) != null && threadInfo.tid.longValue() != 0) {
-                kmc = threadInfo.tid.longValue();
+                kmq = threadInfo.tid.longValue();
                 af.a(new ae<Object>() { // from class: com.baidu.tieba.homepage.personalize.readProgressBar.c.1
                     @Override // com.baidu.tbadk.util.ae
                     public Object doInBackground() {

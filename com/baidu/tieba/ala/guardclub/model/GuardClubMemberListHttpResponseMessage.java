@@ -12,9 +12,9 @@ public class GuardClubMemberListHttpResponseMessage extends JsonHttpResponsedMes
     public boolean bjd;
     public boolean bje;
     public com.baidu.live.guardclub.f bjg;
-    public int har;
+    public int haF;
+    public List<com.baidu.live.guardclub.f> haM;
     public boolean hasMore;
-    public List<com.baidu.live.guardclub.f> hay;
     public int memberCount;
 
     public GuardClubMemberListHttpResponseMessage() {
@@ -30,7 +30,7 @@ public class GuardClubMemberListHttpResponseMessage extends JsonHttpResponsedMes
             this.memberCount = optJSONObject.optInt("total_count");
             this.bje = optJSONObject.optInt("is_anchor") == 1;
             this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.har = optJSONObject.optInt(Config.PACKAGE_NAME);
+            this.haF = optJSONObject.optInt(Config.PACKAGE_NAME);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("login_member_info");
             if (optJSONObject2 != null) {
                 this.bjg = new com.baidu.live.guardclub.f();
@@ -38,12 +38,12 @@ public class GuardClubMemberListHttpResponseMessage extends JsonHttpResponsedMes
             }
             JSONArray optJSONArray = optJSONObject.optJSONArray("member_rank_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.hay = new ArrayList();
+                this.haM = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     com.baidu.live.guardclub.f fVar = new com.baidu.live.guardclub.f();
                     fVar.parseJson(optJSONObject3);
-                    this.hay.add(fVar);
+                    this.haM.add(fVar);
                 }
             }
         }

@@ -6,56 +6,56 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0826a lLL;
+    private InterfaceC0827a lMa;
     private int count = 0;
-    private long lLJ = 0;
-    private long lLK = 0;
-    private long lLM = 500;
+    private long lLY = 0;
+    private long lLZ = 0;
+    private long lMb = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.lLJ = 0L;
-                a.this.lLK = 0L;
+                a.this.lLY = 0L;
+                a.this.lLZ = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.lLL != null) {
-                    a.this.lLL.dmd();
+                if (a.this.lMa != null) {
+                    a.this.lMa.dmk();
                 }
                 a.this.count = 0;
-                a.this.lLJ = 0L;
-                a.this.lLK = 0L;
+                a.this.lLY = 0L;
+                a.this.lLZ = 0L;
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0826a {
-        void dmc();
+    public interface InterfaceC0827a {
+        void dmj();
 
-        void dmd();
+        void dmk();
     }
 
-    public a(InterfaceC0826a interfaceC0826a) {
-        this.lLL = interfaceC0826a;
+    public a(InterfaceC0827a interfaceC0827a) {
+        this.lMa = interfaceC0827a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.lLL == null) {
+            if (this.lMa == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.lLJ = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.lLM);
+                this.lLY = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.lMb);
                 return true;
             } else if (this.count == 2) {
-                this.lLK = System.currentTimeMillis();
-                if (this.lLK - this.lLJ < this.lLM) {
-                    this.lLL.dmc();
+                this.lLZ = System.currentTimeMillis();
+                if (this.lLZ - this.lLY < this.lMb) {
+                    this.lMa.dmj();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

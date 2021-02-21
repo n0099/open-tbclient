@@ -21,7 +21,7 @@ public class d implements com.kwai.filedownloader.b.a {
     private SQLiteDatabase f10875a;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC1154a {
+    public class a implements a.InterfaceC1156a {
 
         /* renamed from: b  reason: collision with root package name */
         private final SparseArray<com.kwai.filedownloader.d.c> f10877b;
@@ -39,7 +39,7 @@ public class d implements com.kwai.filedownloader.b.a {
             this.e = sparseArray2;
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1154a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1156a
         public void a() {
             if (this.c != null) {
                 this.c.b();
@@ -122,16 +122,16 @@ public class d implements com.kwai.filedownloader.b.a {
             }
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1154a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1156a
         public void a(int i, com.kwai.filedownloader.d.c cVar) {
             this.f10877b.put(i, cVar);
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1154a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1156a
         public void a(com.kwai.filedownloader.d.c cVar) {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1154a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1156a
         public void b(com.kwai.filedownloader.d.c cVar) {
             if (this.d != null) {
                 synchronized (this.d) {
@@ -267,7 +267,7 @@ public class d implements com.kwai.filedownloader.b.a {
         }
     }
 
-    public a.InterfaceC1154a a(SparseArray<com.kwai.filedownloader.d.c> sparseArray, SparseArray<List<com.kwai.filedownloader.d.a>> sparseArray2) {
+    public a.InterfaceC1156a a(SparseArray<com.kwai.filedownloader.d.c> sparseArray, SparseArray<List<com.kwai.filedownloader.d.a>> sparseArray2) {
         return new a(sparseArray, sparseArray2);
     }
 
@@ -403,7 +403,7 @@ public class d implements com.kwai.filedownloader.b.a {
     }
 
     @Override // com.kwai.filedownloader.b.a
-    public a.InterfaceC1154a b() {
+    public a.InterfaceC1156a b() {
         return new a(this);
     }
 

@@ -5,20 +5,20 @@ import com.baidu.h.a.a.c;
 /* loaded from: classes10.dex */
 public class a implements com.baidu.tieba.sdk.b.a {
     private com.baidu.h.a.a.a cfm;
-    private c lgY = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
+    private c lhm = new c() { // from class: com.baidu.tieba.livesdk.a.a.1
         @Override // com.baidu.h.a.a.c
         public void onLoginStatusChanged(boolean z, boolean z2) {
-            com.baidu.tieba.sdk.a.dFp().dFq();
+            com.baidu.tieba.sdk.a.dFx().dFy();
         }
     };
 
     public a(Application application) {
         this.cfm = com.baidu.h.b.a.bA(application).ZV();
-        this.cfm.a(this.lgY);
+        this.cfm.a(this.lhm);
     }
 
     @Override // com.baidu.tieba.sdk.b.a
-    public com.baidu.tieba.sdk.c.a ddq() {
+    public com.baidu.tieba.sdk.c.a ddx() {
         com.baidu.h.a.a.b ZN;
         if (this.cfm.isLogin() && (ZN = this.cfm.ZN()) != null) {
             return a(ZN);
@@ -27,7 +27,7 @@ public class a implements com.baidu.tieba.sdk.b.a {
     }
 
     @Override // com.baidu.tieba.sdk.b.a
-    public void ddr() {
+    public void ddy() {
         this.cfm.login();
     }
 

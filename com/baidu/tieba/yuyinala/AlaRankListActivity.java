@@ -39,16 +39,16 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     private AlaLiveRoomPanelTabHost aEr;
     private int aKa;
     private String bdj;
-    private long gpB;
-    private boolean gpE;
-    private ImageView gpF;
+    private long gpP;
+    private boolean gpS;
+    private ImageView gpT;
     private String mPortrait;
     private String mRoomId;
     private View mRootView;
     private int mScreenWidth;
     private String mUserName;
-    private AlaRankListFragmentAdapter ooA;
-    private String ooz;
+    private String ooZ;
+    private AlaRankListFragmentAdapter opa;
     private String otherParams;
     private Handler mHandler = new Handler();
     private boolean aWt = false;
@@ -93,12 +93,12 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
         if (!isFinishing()) {
             this.aKa = getIntent().getIntExtra(UbcStatConstant.KEY_LIVE_TYPE, 1);
             this.mUserName = getIntent().getStringExtra(TbEnum.SystemMessage.KEY_USER_NAME);
-            this.gpE = getIntent().getBooleanExtra("rank_list_from", false);
+            this.gpS = getIntent().getBooleanExtra("rank_list_from", false);
             this.mPortrait = getIntent().getStringExtra("portrait");
             this.bdj = getIntent().getStringExtra("feed_id");
-            this.gpB = getIntent().getLongExtra("live_id", -1L);
+            this.gpP = getIntent().getLongExtra("live_id", -1L);
             this.otherParams = getIntent().getStringExtra(IntentConfig.OTHER_PARAMS);
-            this.ooz = getIntent().getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
+            this.ooZ = getIntent().getStringExtra(YuyinAlaCharmRankActivityConfig.C_ROOM_ID);
             this.mRoomId = getIntent().getStringExtra("room_id");
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
@@ -187,16 +187,16 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     private void initView() {
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.yuyin_ala_rank_list_layout, (ViewGroup) null);
         setContentView(this.mRootView);
-        this.gpF = (ImageView) this.mRootView.findViewById(a.f.rule_icon);
-        this.gpF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.AlaRankListActivity.3
+        this.gpT = (ImageView) this.mRootView.findViewById(a.f.rule_icon);
+        this.gpT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.AlaRankListActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                final e efK = new e.a(AlaRankListActivity.this.gpF).br(9.0f).bs(4.0f).bp(200.0f).bq(190.0f).y("按今日的魅力收益进行排名").MG(16).bt(10.0f).bu(14.0f).bv(8.0f).Ar(true).As(true).efK();
-                efK.show();
-                AlaRankListActivity.this.gpF.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.AlaRankListActivity.3.1
+                final e efS = new e.a(AlaRankListActivity.this.gpT).br(9.0f).bs(4.0f).bp(200.0f).bq(190.0f).y("按今日的魅力收益进行排名").MH(16).bt(10.0f).bu(14.0f).bv(8.0f).Ar(true).As(true).efS();
+                efS.show();
+                AlaRankListActivity.this.gpT.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.AlaRankListActivity.3.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        efK.dismiss();
+                        efS.dismiss();
                     }
                 }, IMConnection.RETRY_DELAY_TIMES);
             }
@@ -266,11 +266,11 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     }
 
     private void initTabSpec() {
-        this.ooA = new AlaRankListFragmentAdapter(this, this.ooz);
+        this.opa = new AlaRankListFragmentAdapter(this, this.ooZ);
         this.aEr = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_charm_tab_host);
         this.aEr.setTabWidgetBg(a.e.yuyin_ala_rank_list_title_corner_bg);
         this.aEr.setViewPagerBg(a.e.yuyin_ala_rank_white_bg);
-        this.aEr.setData(this.ooA.getDataList());
+        this.aEr.setData(this.opa.getDataList());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -282,7 +282,7 @@ public class AlaRankListActivity extends BaseActivity<AlaRankListActivity> imple
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Iterator<d> it = this.ooA.getDataList().iterator();
+        Iterator<d> it = this.opa.getDataList().iterator();
         while (it.hasNext()) {
             it.next().onDestroy();
         }

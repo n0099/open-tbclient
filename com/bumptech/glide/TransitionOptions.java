@@ -35,7 +35,7 @@ public abstract class TransitionOptions<CHILD extends TransitionOptions<CHILD, T
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public final CHILD m53clone() {
+    public final CHILD m52clone() {
         try {
             return (CHILD) super.clone();
         } catch (CloneNotSupportedException e) {

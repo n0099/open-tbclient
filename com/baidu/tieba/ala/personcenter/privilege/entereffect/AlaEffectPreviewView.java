@@ -30,10 +30,10 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffec
 public class AlaEffectPreviewView extends LinearLayout {
     private int bdG;
     private TextView cTD;
-    private LinearLayout gnT;
-    private b.a ibR;
-    private ObjectAnimator ibS;
-    private ImageView ibT;
+    private LinearLayout goh;
+    private b.a icf;
+    private ObjectAnimator icg;
+    private ImageView ich;
     private ImageView mIconView;
     private View mRootView;
     private int mScreenWidth;
@@ -57,12 +57,12 @@ public class AlaEffectPreviewView extends LinearLayout {
         this.mRootView = inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
         this.mIconView = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
         this.cTD = (TextView) findViewById(R.id.ala_im_user_enter_content);
-        this.gnT = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
-        this.ibT = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
+        this.goh = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
+        this.ich = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
     }
 
     public void setAnimCompleteCallback(b.a aVar) {
-        this.ibR = aVar;
+        this.icf = aVar;
     }
 
     public void setData(AlaEnterEffectData alaEnterEffectData) {
@@ -161,36 +161,36 @@ public class AlaEffectPreviewView extends LinearLayout {
                 gradientDrawable.setColor(-1291889568);
             }
             gradientDrawable.setCornerRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds10));
-            this.gnT.setBackgroundDrawable(gradientDrawable);
+            this.goh.setBackgroundDrawable(gradientDrawable);
             if (3 == alaEnterEffectData.categoryType) {
-                this.ibT.setVisibility(0);
+                this.ich.setVisibility(0);
             }
         }
     }
 
-    public void cnk() {
+    public void cnr() {
         if (getMeasuredWidth() <= 0) {
             measure(0, 0);
         }
         this.mScreenWidth = l.getEquipmentWidth(getContext());
         this.bdG = (this.mScreenWidth - getMeasuredWidth()) / 2;
-        this.ibS = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
-        this.ibS.setDuration(3500L);
-        this.ibS.setInterpolator(new TimeInterpolator() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.2
+        this.icg = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
+        this.icg.setDuration(3500L);
+        this.icg.setInterpolator(new TimeInterpolator() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.2
             @Override // android.animation.TimeInterpolator
             public float getInterpolation(float f) {
                 return f;
             }
         });
-        this.ibS.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.3
+        this.icg.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (AlaEffectPreviewView.this.ibR != null) {
-                    AlaEffectPreviewView.this.ibR.cnm();
+                if (AlaEffectPreviewView.this.icf != null) {
+                    AlaEffectPreviewView.this.icf.cnt();
                 }
             }
 
@@ -202,13 +202,13 @@ public class AlaEffectPreviewView extends LinearLayout {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.ibS.setEvaluator(new a());
-        this.ibS.start();
+        this.icg.setEvaluator(new a());
+        this.icg.start();
     }
 
     public void onDestory() {
-        if (this.ibS != null) {
-            this.ibS.cancel();
+        if (this.icg != null) {
+            this.icg.cancel();
         }
     }
 

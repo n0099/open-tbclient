@@ -9,8 +9,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
 /* loaded from: classes9.dex */
 public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements com.baidu.tieba.play.d, com.baidu.tieba.play.e {
-    private o ldP;
-    private a ldQ;
+    private o led;
+    private a lee;
     private ViewGroup mRootView;
 
     public ImmersiveVideoCardViewEx(TbPageContext tbPageContext) {
@@ -18,11 +18,11 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbO() {
+    protected View dbV() {
         this.mRootView = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_item_video_thread, (ViewGroup) null);
-        this.ldP = new o(this.eUY, this.mRootView.findViewById(R.id.layout_video_container));
-        this.ldQ = new a(this.eUY, this.mRootView);
-        this.ldP.d(this.ldQ);
+        this.led = new o(this.eUY, this.mRootView.findViewById(R.id.layout_video_container));
+        this.lee = new a(this.eUY, this.mRootView);
+        this.led.d(this.lee);
         return this.mRootView;
     }
 
@@ -37,52 +37,52 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     /* renamed from: a */
     public void d(ImmersiveVideoCardEx immersiveVideoCardEx) {
         if (immersiveVideoCardEx.getVideoInfo() != null) {
-            this.ldP.fK(immersiveVideoCardEx.getShowExtra(), LogConfig.KEY_FEED);
-            this.ldP.a(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
-            boolean z = immersiveVideoCardEx.getVideoInfo().lbS;
-            this.ldP.tL(z);
-            this.ldP.tJ(z);
-            this.ldQ.tJ(z);
+            this.led.fK(immersiveVideoCardEx.getShowExtra(), LogConfig.KEY_FEED);
+            this.led.a(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
+            boolean z = immersiveVideoCardEx.getVideoInfo().lcg;
+            this.led.tL(z);
+            this.led.tJ(z);
+            this.lee.tJ(z);
             setTag(this);
-            dbZ();
+            dcg();
         }
     }
 
     @Override // com.baidu.tieba.play.d
-    public void dbX() {
-        if (this.ldQ != null) {
-            this.ldQ.dbX();
+    public void dce() {
+        if (this.lee != null) {
+            this.lee.dce();
         }
     }
 
     @Override // com.baidu.tieba.play.d
-    public void cpP() {
-        if (this.ldQ != null) {
-            this.ldQ.cpP();
+    public void cpW() {
+        if (this.lee != null) {
+            this.lee.cpW();
         }
     }
 
     @Override // com.baidu.tieba.play.d
-    public void dbY() {
-        if (this.ldQ != null) {
-            this.ldQ.dbY();
+    public void dcf() {
+        if (this.lee != null) {
+            this.lee.dcf();
         }
     }
 
-    public void dbZ() {
-        if (this.ldQ != null) {
-            this.ldQ.dbZ();
+    public void dcg() {
+        if (this.lee != null) {
+            this.lee.dcg();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlayStarted() {
-        return this.ldP != null && this.ldP.isPlayStarted();
+        return this.led != null && this.led.isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.e
     public boolean isPlaying() {
-        return this.ldP != null && this.ldP.isPlaying();
+        return this.led != null && this.led.isPlaying();
     }
 
     @Override // com.baidu.tieba.play.e
@@ -92,38 +92,38 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
 
     @Override // com.baidu.tieba.play.e
     public void startPlay() {
-        if (this.ldP != null) {
-            this.ldP.startPlay();
+        if (this.led != null) {
+            this.led.startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public void stopPlay() {
-        if (this.ldP != null) {
-            this.ldP.stopPlay();
+        if (this.led != null) {
+            this.led.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.e
     public View getVideoContainer() {
-        if (this.ldP != null) {
-            return this.ldP.getView();
+        if (this.led != null) {
+            return this.led.getView();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.ldP != null) {
-            return this.ldP.getPlayUrl();
+        if (this.led != null) {
+            return this.led.getPlayUrl();
         }
         return null;
     }
 
     @Override // com.baidu.tieba.play.e
     public int getCurrentPosition() {
-        if (this.ldP != null) {
-            return this.ldP.getCurrentPosition();
+        if (this.led != null) {
+            return this.led.getCurrentPosition();
         }
         return 0;
     }

@@ -47,12 +47,12 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void efT() {
+    public void egb() {
         this.mIterationDepth++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void efU() {
+    public void egc() {
         this.mIterationDepth--;
         if (!$assertionsDisabled && this.mIterationDepth < 0) {
             throw new AssertionError();
@@ -69,7 +69,7 @@ public class b<E> implements Iterable<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public E MJ(int i) {
+    public E MK(int i) {
         return this.mObservers.get(i);
     }
 
@@ -82,35 +82,35 @@ public class b<E> implements Iterable<E> {
         private a() {
             this.mIndex = 0;
             this.mIsExhausted = false;
-            b.this.efT();
+            b.this.egb();
             this.mListEndMarker = b.this.capacity();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
             int i = this.mIndex;
-            while (i < this.mListEndMarker && b.this.MJ(i) == null) {
+            while (i < this.mListEndMarker && b.this.MK(i) == null) {
                 i++;
             }
             if (i < this.mListEndMarker) {
                 return true;
             }
-            efV();
+            egd();
             return false;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            while (this.mIndex < this.mListEndMarker && b.this.MJ(this.mIndex) == null) {
+            while (this.mIndex < this.mListEndMarker && b.this.MK(this.mIndex) == null) {
                 this.mIndex++;
             }
             if (this.mIndex < this.mListEndMarker) {
                 b bVar = b.this;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
-                return (E) bVar.MJ(i);
+                return (E) bVar.MK(i);
             }
-            efV();
+            egd();
             throw new NoSuchElementException();
         }
 
@@ -119,10 +119,10 @@ public class b<E> implements Iterable<E> {
             throw new UnsupportedOperationException();
         }
 
-        private void efV() {
+        private void egd() {
             if (!this.mIsExhausted) {
                 this.mIsExhausted = true;
-                b.this.efU();
+                b.this.egc();
             }
         }
     }

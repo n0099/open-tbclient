@@ -207,7 +207,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         }
         kVar.xd(kVar.position + 1);
         threadCardViewHolder.tj().setPosition(i);
-        com.baidu.tieba.card.t.csu().e(kVar.IS("c12351"));
+        com.baidu.tieba.card.t.csB().e(kVar.IT("c12351"));
         threadCardViewHolder.tj().setPage(this.aif);
         threadCardViewHolder.a(true, Align.ALIGN_RIGHT_TOP);
         threadCardViewHolder.tm();
@@ -218,7 +218,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 

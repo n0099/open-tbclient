@@ -28,14 +28,14 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
     private ViewGroup mParentView;
     private View mRootView;
     private WindowManager mWM;
-    private ViewGroup pdL;
-    private boolean pdM;
-    private boolean pdN;
-    private ImageView pdP;
-    private ImageView pdQ;
-    private a pdR;
-    private int pdO = 0;
-    private List<com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.a.a> pdS = new ArrayList();
+    private ViewGroup pel;
+    private boolean pem;
+    private boolean pen;
+    private ImageView pep;
+    private ImageView peq;
+    private a per;
+    private int peo = 0;
+    private List<com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.a.a> pes = new ArrayList();
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -43,21 +43,21 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b
-    public void ekY() {
-        if (eln()) {
-            elm();
+    public void elg() {
+        if (elv()) {
+            elu();
         }
     }
 
     @SuppressLint({"RtlHardcoded"})
-    private void NJ(int i) {
+    private void NK(int i) {
         this.mInflater = (LayoutInflater) this.mContext.getSystemService("layout_inflater");
         this.mWM = (WindowManager) this.mContext.getSystemService("window");
         this.mRootView = (ViewGroup) this.mInflater.inflate(i, (ViewGroup) null);
         this.mParentView = new FrameLayout(this.mContext);
-        this.pdL = (ViewGroup) this.mRootView.findViewById(a.f.tracks);
-        this.pdP = (ImageView) this.mRootView.findViewById(a.f.arrow_down);
-        this.pdQ = (ImageView) this.mRootView.findViewById(a.f.arrow_up);
+        this.pel = (ViewGroup) this.mRootView.findViewById(a.f.tracks);
+        this.pep = (ImageView) this.mRootView.findViewById(a.f.arrow_down);
+        this.peq = (ImageView) this.mRootView.findViewById(a.f.arrow_up);
         this.mParams = new WindowManager.LayoutParams();
         this.mParams.height = -2;
         this.mParams.width = -2;
@@ -75,14 +75,14 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
             Log.i("MenuDialog", "context is null");
             return;
         }
-        this.pdS.clear();
-        this.pdO = 0;
-        this.pdS = list;
+        this.pes.clear();
+        this.peo = 0;
+        this.pes = list;
         if (list != null && !list.isEmpty()) {
             if (i == 1) {
-                NJ(a.g.popup_horizontal);
+                NK(a.g.popup_horizontal);
             } else if (i == 0) {
-                NJ(a.g.popup_vertical);
+                NK(a.g.popup_vertical);
             }
             while (true) {
                 int i3 = i2;
@@ -103,23 +103,23 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
                     } else {
                         textView.setVisibility(8);
                     }
-                    final int elJ = aVar.elJ();
-                    final int i4 = this.pdO;
+                    final int elR = aVar.elR();
+                    final int i4 = this.peo;
                     inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (b.this.pdR != null) {
-                                b.this.pdR.a(b.this, i4, elJ);
+                            if (b.this.per != null) {
+                                b.this.per.a(b.this, i4, elR);
                             }
-                            if (!b.this.NK(i4).isSticky()) {
-                                b.this.elm();
+                            if (!b.this.NL(i4).isSticky()) {
+                                b.this.elu();
                             }
                         }
                     });
                     inflate.setFocusable(true);
                     inflate.setClickable(true);
-                    this.pdL.addView(inflate, this.pdO);
-                    this.pdO++;
+                    this.pel.addView(inflate, this.peo);
+                    this.peo++;
                     i2 = i3 + 1;
                 } else {
                     this.mRootView.measure(-2, -2);
@@ -130,8 +130,8 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ell() {
-        if (this.pdM) {
+    public void elt() {
+        if (this.pem) {
             try {
                 if (this.mWM != null && this.mParentView != null) {
                     this.mWM.removeView(this.mParentView);
@@ -140,25 +140,25 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
                 Log.e("MenuDialog", e.getMessage());
             }
         }
-        this.pdM = false;
-        this.pdN = false;
+        this.pem = false;
+        this.pen = false;
     }
 
-    public boolean elm() {
-        if (this.pdN) {
-            return this.pdM;
+    public boolean elu() {
+        if (this.pen) {
+            return this.pem;
         }
-        this.pdN = true;
-        boolean z = this.pdM;
+        this.pen = true;
+        boolean z = this.pem;
         Handler handler = new Handler();
         this.mRootView.startAnimation(AnimationUtils.loadAnimation(this.mContext, a.C0195a.dimiss_from_top));
         handler.postDelayed(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b.2
             @Override // java.lang.Runnable
             public void run() {
-                b.this.ell();
+                b.this.elt();
             }
         }, 100L);
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eld().b(null);
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.ell().b(null);
         return z;
     }
 
@@ -170,7 +170,7 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
             return;
         }
         z(list, i);
-        this.pdM = true;
+        this.pem = true;
         Rect rect = new Rect();
         view.getGlobalVisibleRect(rect);
         int measuredHeight = this.mRootView.getMeasuredHeight();
@@ -185,15 +185,15 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
         int statusBarHeight = (rect.top - measuredHeight) - f.getStatusBarHeight(this.mContext);
         if (statusBarHeight < f.getStatusBarHeight(this.mContext)) {
             int statusBarHeight2 = f.getStatusBarHeight(this.mContext);
-            dO(a.f.arrow_down, centerX2);
+            dP(a.f.arrow_down, centerX2);
             i2 = statusBarHeight2;
         } else {
-            int measuredHeight2 = statusBarHeight + this.pdQ.getMeasuredHeight();
-            dO(a.f.arrow_down, centerX2);
+            int measuredHeight2 = statusBarHeight + this.peq.getMeasuredHeight();
+            dP(a.f.arrow_down, centerX2);
             i2 = measuredHeight2;
         }
         if (i == 0) {
-            this.pdP.setVisibility(8);
+            this.pep.setVisibility(8);
         }
         WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.mRootView.getLayoutParams();
         layoutParams.x = dip2px;
@@ -202,15 +202,15 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
         this.mParentView.addView(this.mRootView);
         this.mParentView.setOnTouchListener(this);
         this.mRootView.startAnimation(AnimationUtils.loadAnimation(this.mContext, a.C0195a.grow_from_bottom));
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.eld().b(this);
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.ell().b(this);
     }
 
-    private void dO(int i, int i2) {
+    private void dP(int i, int i2) {
         int i3;
-        ImageView imageView = this.pdP;
-        ImageView imageView2 = this.pdQ;
+        ImageView imageView = this.pep;
+        ImageView imageView2 = this.peq;
         if (i == a.f.arrow_down) {
-            int measuredWidth = this.pdP.getMeasuredWidth();
+            int measuredWidth = this.pep.getMeasuredWidth();
             imageView.setVisibility(0);
             imageView2.setVisibility(8);
             i3 = measuredWidth;
@@ -227,21 +227,21 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
     @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 4) {
-            elm();
+            elu();
             return false;
         }
         return false;
     }
 
-    public com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.a.a NK(int i) {
-        return this.pdS.get(i);
+    public com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.a.a NL(int i) {
+        return this.pes.get(i);
     }
 
     public void a(a aVar) {
-        this.pdR = aVar;
+        this.per = aVar;
     }
 
-    public boolean eln() {
-        return this.pdM;
+    public boolean elv() {
+        return this.pem;
     }
 }

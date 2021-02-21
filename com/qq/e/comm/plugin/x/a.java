@@ -132,7 +132,7 @@ public class a {
 
     /* renamed from: com.qq.e.comm.plugin.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    private static class C1213a {
+    private static class C1215a {
         public static JSONObject a(PM pm) throws JSONException {
             JSONObject jSONObject = new JSONObject();
             jSONObject.putOpt("sdkv", SDKStatus.getSDKVersion());

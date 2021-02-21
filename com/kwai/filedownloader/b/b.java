@@ -15,36 +15,36 @@ public class b implements com.kwai.filedownloader.b.a {
     final SparseArray<List<com.kwai.filedownloader.d.a>> f10869b = new SparseArray<>();
 
     /* loaded from: classes3.dex */
-    class a implements a.InterfaceC1154a {
+    class a implements a.InterfaceC1156a {
         a() {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1154a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1156a
         public void a() {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1154a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1156a
         public void a(int i, com.kwai.filedownloader.d.c cVar) {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1154a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1156a
         public void a(com.kwai.filedownloader.d.c cVar) {
         }
 
-        @Override // com.kwai.filedownloader.b.a.InterfaceC1154a
+        @Override // com.kwai.filedownloader.b.a.InterfaceC1156a
         public void b(com.kwai.filedownloader.d.c cVar) {
         }
 
         @Override // java.lang.Iterable
         public Iterator<com.kwai.filedownloader.d.c> iterator() {
-            return new C1155b();
+            return new C1157b();
         }
     }
 
     /* renamed from: com.kwai.filedownloader.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    class C1155b implements Iterator<com.kwai.filedownloader.d.c> {
-        C1155b() {
+    class C1157b implements Iterator<com.kwai.filedownloader.d.c> {
+        C1157b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,7 +148,7 @@ public class b implements com.kwai.filedownloader.b.a {
     }
 
     @Override // com.kwai.filedownloader.b.a
-    public a.InterfaceC1154a b() {
+    public a.InterfaceC1156a b() {
         return new a();
     }
 

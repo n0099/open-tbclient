@@ -22,14 +22,14 @@ public class AlaHostWishInitialize {
         TbadkCoreApplication.getInst().RegisterIntent(n.class, AlaLiveAddWishActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(p.class, AlaLiveWishListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.d.f.class, AlaDeleteWishActivity.class);
-        bNZ();
-        bOa();
-        bOb();
-        bOc();
-        bOd();
+        bOg();
+        bOh();
+        bOi();
+        bOj();
+        bOk();
     }
 
-    public static void bNZ() {
+    public static void bOg() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913149, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaHostWishInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.l.a> run(CustomMessage<Context> customMessage) {
@@ -40,7 +40,7 @@ public class AlaHostWishInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bOa() {
+    private static void bOh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021165, TbConfig.SERVER_HOST + "liveserver/wishlist/getwishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -50,7 +50,7 @@ public class AlaHostWishInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bOb() {
+    private static void bOi() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021168, TbConfig.SERVER_HOST + "liveserver/wishlist/updatewishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -60,7 +60,7 @@ public class AlaHostWishInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bOc() {
+    private static void bOj() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021169, TbConfig.SERVER_HOST + "liveserver/wishlist/updatewishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -70,7 +70,7 @@ public class AlaHostWishInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bOd() {
+    private static void bOk() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021170, TbConfig.SERVER_HOST + "liveserver/wishlist/updatewishlist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

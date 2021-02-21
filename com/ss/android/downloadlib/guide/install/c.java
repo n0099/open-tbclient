@@ -80,7 +80,7 @@ public class c {
             i2 += ((Integer) jg.second).intValue();
             calendar.setTimeInMillis(calendar.getTimeInMillis() - 86400000);
         }
-        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.QX(i);
+        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.QY(i);
     }
 
     private static Pair<Integer, Integer> jg(long j) {

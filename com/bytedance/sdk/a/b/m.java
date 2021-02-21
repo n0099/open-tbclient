@@ -21,8 +21,8 @@ public final class m {
     private final int e;
     private final long f;
     private final Runnable g;
-    private final Deque<com.bytedance.sdk.a.b.a.b.c> ptp;
-    final com.bytedance.sdk.a.b.a.b.d ptq;
+    private final Deque<com.bytedance.sdk.a.b.a.b.c> ptQ;
+    final com.bytedance.sdk.a.b.a.b.d ptR;
 
     static {
         c = !m.class.desiredAssertionStatus();
@@ -55,8 +55,8 @@ public final class m {
                 }
             }
         };
-        this.ptp = new ArrayDeque();
-        this.ptq = new com.bytedance.sdk.a.b.a.b.d();
+        this.ptQ = new ArrayDeque();
+        this.ptR = new com.bytedance.sdk.a.b.a.b.d();
         this.e = i;
         this.f = timeUnit.toNanos(j);
         if (j <= 0) {
@@ -67,7 +67,7 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.bytedance.sdk.a.b.a.b.c a(a aVar, com.bytedance.sdk.a.b.a.b.g gVar, d dVar) {
         if (c || Thread.holdsLock(this)) {
-            for (com.bytedance.sdk.a.b.a.b.c cVar : this.ptp) {
+            for (com.bytedance.sdk.a.b.a.b.c cVar : this.ptQ) {
                 if (cVar.a(aVar, dVar)) {
                     gVar.a(cVar, true);
                     return cVar;
@@ -81,8 +81,8 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Socket a(a aVar, com.bytedance.sdk.a.b.a.b.g gVar) {
         if (c || Thread.holdsLock(this)) {
-            for (com.bytedance.sdk.a.b.a.b.c cVar : this.ptp) {
-                if (cVar.a(aVar, null) && cVar.d() && cVar != gVar.epf()) {
+            for (com.bytedance.sdk.a.b.a.b.c cVar : this.ptQ) {
+                if (cVar.a(aVar, null) && cVar.d() && cVar != gVar.epn()) {
                     return gVar.b(cVar);
                 }
             }
@@ -100,14 +100,14 @@ public final class m {
             this.f5966b = true;
             d.execute(this.g);
         }
-        this.ptp.add(cVar);
+        this.ptQ.add(cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean d(com.bytedance.sdk.a.b.a.b.c cVar) {
         if (c || Thread.holdsLock(this)) {
             if (cVar.f5864a || this.e == 0) {
-                this.ptp.remove(cVar);
+                this.ptQ.remove(cVar);
                 return true;
             }
             notifyAll();
@@ -122,7 +122,7 @@ public final class m {
         synchronized (this) {
             int i = 0;
             int i2 = 0;
-            for (com.bytedance.sdk.a.b.a.b.c cVar2 : this.ptp) {
+            for (com.bytedance.sdk.a.b.a.b.c cVar2 : this.ptQ) {
                 if (a(cVar2, j) > 0) {
                     i2++;
                 } else {
@@ -137,8 +137,8 @@ public final class m {
                 }
             }
             if (j2 >= this.f || i > this.e) {
-                this.ptp.remove(cVar);
-                com.bytedance.sdk.a.b.a.c.a(cVar.eoX());
+                this.ptQ.remove(cVar);
+                com.bytedance.sdk.a.b.a.c.a(cVar.epf());
                 return 0L;
             } else if (i > 0) {
                 return this.f - j2;
@@ -159,7 +159,7 @@ public final class m {
             if (reference.get() != null) {
                 i++;
             } else {
-                com.bytedance.sdk.a.b.a.g.e.epz().a("A connection to " + cVar.eoW().epL().eoJ() + " was leaked. Did you forget to close a response body?", ((g.a) reference).f5871a);
+                com.bytedance.sdk.a.b.a.g.e.epH().a("A connection to " + cVar.epe().epT().eoR() + " was leaked. Did you forget to close a response body?", ((g.a) reference).f5871a);
                 list.remove(i);
                 cVar.f5864a = true;
                 if (list.isEmpty()) {

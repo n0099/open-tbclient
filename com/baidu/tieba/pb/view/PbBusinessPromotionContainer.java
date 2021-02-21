@@ -20,20 +20,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class PbBusinessPromotionContainer extends RelativeLayout {
-    private static final int mnQ = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
-    private static final int mnR = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
+    private static final int mof = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
+    private static final int mog = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
     private cb akU;
     private TextView fkQ;
     private View.OnClickListener fnu;
-    private RelativeLayout gDq;
+    private RelativeLayout gDE;
     private boolean isShowing;
-    private TextView jnk;
+    private TextView jny;
     private boolean mHasInit;
     private CustomMessageListener mLikeForumListener;
     private final View.OnClickListener mOnClickListener;
     private CustomMessageListener mUnlikeForumListener;
-    private TbImageView mnS;
-    private boolean mnT;
+    private TbImageView moh;
+    private boolean moi;
 
     public PbBusinessPromotionContainer(Context context) {
         this(context, null);
@@ -46,7 +46,7 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     public PbBusinessPromotionContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHasInit = false;
-        this.mnT = false;
+        this.moi = false;
         this.isShowing = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.PbBusinessPromotionContainer.1
             @Override // android.view.View.OnClickListener
@@ -64,8 +64,8 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (PbBusinessPromotionContainer.this.akU != null && PbBusinessPromotionContainer.this.akU.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
-                        PbBusinessPromotionContainer.this.mnT = false;
-                        PbBusinessPromotionContainer.this.dvv();
+                        PbBusinessPromotionContainer.this.moi = false;
+                        PbBusinessPromotionContainer.this.dvC();
                     }
                 }
             }
@@ -77,22 +77,22 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (PbBusinessPromotionContainer.this.akU != null && PbBusinessPromotionContainer.this.akU.getFid() == longValue && PbBusinessPromotionContainer.this.isShowing) {
-                        PbBusinessPromotionContainer.this.mnT = true;
-                        PbBusinessPromotionContainer.this.dvv();
+                        PbBusinessPromotionContainer.this.moi = true;
+                        PbBusinessPromotionContainer.this.dvC();
                     }
                 }
             }
         };
         LayoutInflater.from(context).inflate(R.layout.layout_pb_business_promotion, this);
-        this.gDq = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
-        this.mnS = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
+        this.gDE = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
+        this.moh = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
         this.fkQ = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
-        this.jnk = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
-        this.mnS.setRadius(l.getDimens(context, R.dimen.tbds24));
-        this.mnS.setConrers(5);
-        this.mnS.setDefaultResource(17170445);
-        this.mnS.setDefaultBgResource(17170445);
-        this.gDq.setOnClickListener(this.mOnClickListener);
+        this.jny = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
+        this.moh.setRadius(l.getDimens(context, R.dimen.tbds24));
+        this.moh.setConrers(5);
+        this.moh.setDefaultResource(17170445);
+        this.moh.setDefaultBgResource(17170445);
+        this.gDE.setOnClickListener(this.mOnClickListener);
         MessageManager.getInstance().registerListener(this.mLikeForumListener);
         MessageManager.getInstance().registerListener(this.mUnlikeForumListener);
     }
@@ -107,40 +107,40 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         wz(z);
         this.isShowing = true;
         setVisibility(0);
-        this.mnS.startLoad(bxVar.getAvatar(), 10, false);
+        this.moh.startLoad(bxVar.getAvatar(), 10, false);
         this.fkQ.setText(bxVar.getForumName());
         if (!this.mHasInit) {
             this.mHasInit = true;
-            this.mnT = bxVar.getIsLike();
-            dvv();
+            this.moi = bxVar.getIsLike();
+            dvC();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvv() {
-        if (this.mnT) {
-            this.jnk.setText(getResources().getString(R.string.followed));
-            ap.setViewTextColor(this.jnk, R.color.CAM_X0109);
-            ap.setBackgroundResource(this.jnk, 17170445);
-            this.jnk.setOnClickListener(null);
+    public void dvC() {
+        if (this.moi) {
+            this.jny.setText(getResources().getString(R.string.followed));
+            ap.setViewTextColor(this.jny, R.color.CAM_X0109);
+            ap.setBackgroundResource(this.jny, 17170445);
+            this.jny.setOnClickListener(null);
             return;
         }
-        this.jnk.setText(getResources().getString(R.string.attention));
-        ap.setViewTextColor(this.jnk, R.color.CAM_X0101);
-        ap.setBackgroundResource(this.jnk, R.drawable.pb_business_promotion_attention_bg);
-        this.jnk.setOnClickListener(this.mOnClickListener);
+        this.jny.setText(getResources().getString(R.string.attention));
+        ap.setViewTextColor(this.jny, R.color.CAM_X0101);
+        ap.setBackgroundResource(this.jny, R.drawable.pb_business_promotion_attention_bg);
+        this.jny.setOnClickListener(this.mOnClickListener);
     }
 
     public void onChangeSkinType() {
         ap.setViewTextColor(this.fkQ, R.color.CAM_X0105);
-        ap.setBackgroundResource(this.gDq, R.drawable.pb_business_promotion_bg);
-        if (this.mnT) {
-            ap.setViewTextColor(this.jnk, R.color.CAM_X0109);
-            ap.setBackgroundResource(this.jnk, 17170445);
+        ap.setBackgroundResource(this.gDE, R.drawable.pb_business_promotion_bg);
+        if (this.moi) {
+            ap.setViewTextColor(this.jny, R.color.CAM_X0109);
+            ap.setBackgroundResource(this.jny, 17170445);
             return;
         }
-        ap.setViewTextColor(this.jnk, R.color.CAM_X0101);
-        ap.setBackgroundResource(this.jnk, R.drawable.pb_business_promotion_attention_bg);
+        ap.setViewTextColor(this.jny, R.color.CAM_X0101);
+        ap.setBackgroundResource(this.jny, R.drawable.pb_business_promotion_attention_bg);
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
@@ -151,13 +151,13 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         if (z) {
             setPadding(0, 0, 0, 0);
         } else {
-            setPadding(0, mnQ, 0, mnR);
+            setPadding(0, mof, 0, mog);
         }
     }
 
     public void destroy() {
         this.mHasInit = false;
-        this.mnT = false;
+        this.moi = false;
         this.isShowing = false;
         if (this.mLikeForumListener != null) {
             MessageManager.getInstance().unRegisterListener(this.mLikeForumListener);

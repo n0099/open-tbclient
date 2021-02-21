@@ -31,7 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class b extends aa {
-    public static String gmo = "com.baidu.tieba://";
+    public static String gmC = "com.baidu.tieba://";
     private String mCallback;
 
     public b(j jVar) {
@@ -105,7 +105,7 @@ public class b extends aa {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            Fo(optString);
+                            Fp(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -113,7 +113,7 @@ public class b extends aa {
                 }
             } else {
                 str6 = h(str, str2, str3, str4, str5);
-                z = aQ(context, str6);
+                z = aO(context, str6);
             }
             if (DEBUG) {
                 Log.i("PageTransitionAction", "result = " + z + "\n拼接后的uri is: " + str6);
@@ -122,7 +122,7 @@ public class b extends aa {
         return z;
     }
 
-    private void Fo(String str) {
+    private void Fp(String str) {
         com.baidu.swan.apps.process.messaging.client.a aIB;
         com.baidu.swan.apps.runtime.e aIK = com.baidu.swan.apps.runtime.e.aIK();
         if (aIK != null && (aIB = aIK.aIB()) != null) {
@@ -154,7 +154,7 @@ public class b extends aa {
             if (TextUtils.isEmpty(str2)) {
                 str2 = str6 + str4;
             }
-            String str7 = gmo;
+            String str7 = gmC;
             if (TextUtils.isEmpty(str2)) {
                 if (!TextUtils.isEmpty(str)) {
                     str7 = str7 + str;
@@ -178,7 +178,7 @@ public class b extends aa {
         }
     }
 
-    private static boolean aQ(final Context context, String str) {
+    private static boolean aO(final Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return false;
         }

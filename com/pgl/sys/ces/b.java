@@ -51,7 +51,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
             synchronized (b.class) {
                 if (e == null) {
                     if (context == null) {
-                        context = com.pgl.sys.ces.a.a.eDC().getApplicationContext();
+                        context = com.pgl.sys.ces.a.a.eDK().getApplicationContext();
                     }
                     if (context == null) {
                         return null;
@@ -116,7 +116,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
 
     public static int f() {
         try {
-            return com.pgl.sys.ces.a.a.eDB() != null ? 1 : 0;
+            return com.pgl.sys.ces.a.a.eDJ() != null ? 1 : 0;
         } catch (Throwable th) {
             return -1;
         }

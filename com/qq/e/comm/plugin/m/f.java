@@ -49,7 +49,7 @@ public class f implements d.a, c.a, k {
     private int f12213b = 1;
     private int c = 1;
     private int d = 1;
-    private b.EnumC1203b e = b.EnumC1203b.INIT;
+    private b.EnumC1205b e = b.EnumC1205b.INIT;
     private AtomicBoolean m = new AtomicBoolean(false);
     private int w = 0;
     private int z = 0;
@@ -70,13 +70,13 @@ public class f implements d.a, c.a, k {
             C();
         }
         this.n = GDTADManager.getInstance().getSM().getInteger("express2CheckWindowFocus", 1) == 1;
-        this.h.a(new a.InterfaceC1200a() { // from class: com.qq.e.comm.plugin.m.f.1
-            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1200a
+        this.h.a(new a.InterfaceC1202a() { // from class: com.qq.e.comm.plugin.m.f.1
+            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1202a
             public void a() {
                 f.this.c(true);
             }
 
-            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1200a
+            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1202a
             public void a(int i) {
                 if (i == 0) {
                     f.this.c(false);
@@ -85,17 +85,17 @@ public class f implements d.a, c.a, k {
                 }
             }
 
-            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1200a
+            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1202a
             public void b() {
                 f.this.y();
             }
 
-            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1200a
+            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1202a
             public void c() {
                 f.this.y();
             }
 
-            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1200a
+            @Override // com.qq.e.comm.plugin.m.a.InterfaceC1202a
             public void d() {
                 f.this.c(true);
             }
@@ -187,8 +187,8 @@ public class f implements d.a, c.a, k {
             } else {
                 this.o.e();
             }
-            if (z && this.e == b.EnumC1203b.END) {
-                this.e = b.EnumC1203b.INIT;
+            if (z && this.e == b.EnumC1205b.END) {
+                this.e = b.EnumC1205b.INIT;
             }
         }
     }
@@ -196,7 +196,7 @@ public class f implements d.a, c.a, k {
     private void d(boolean z) {
         this.m.set(false);
         if (this.j != null) {
-            this.e = z ? b.EnumC1203b.MANUAL_PAUSE : b.EnumC1203b.AUTO_PAUSE;
+            this.e = z ? b.EnumC1205b.MANUAL_PAUSE : b.EnumC1205b.AUTO_PAUSE;
             this.j.a();
         }
     }
@@ -272,7 +272,7 @@ public class f implements d.a, c.a, k {
             }
             this.f.a(208, new int[0]);
         } else if (this.j != null) {
-            this.e = b.EnumC1203b.PLAYING;
+            this.e = b.EnumC1205b.PLAYING;
             this.j.b();
             ai.a(this.t, "playVideo: mControllerViewListener = " + this.q);
             if (this.q != null) {
@@ -290,7 +290,7 @@ public class f implements d.a, c.a, k {
     public void a(int i, Exception exc) {
         this.w = 5;
         this.c = 2;
-        this.e = b.EnumC1203b.ERROR;
+        this.e = b.EnumC1205b.ERROR;
         if (this.f != null) {
             this.f.a(207, new int[0]);
         }
@@ -448,8 +448,8 @@ public class f implements d.a, c.a, k {
     }
 
     @Override // com.qq.e.comm.plugin.m.k
-    public void a(b.EnumC1203b enumC1203b) {
-        this.e = enumC1203b;
+    public void a(b.EnumC1205b enumC1205b) {
+        this.e = enumC1205b;
     }
 
     @Override // com.qq.e.comm.plugin.m.k
@@ -490,7 +490,7 @@ public class f implements d.a, c.a, k {
         if (this.q != null) {
             this.q.c();
         }
-        this.e = z ? b.EnumC1203b.MANUAL_PAUSE : b.EnumC1203b.PLAYING;
+        this.e = z ? b.EnumC1205b.MANUAL_PAUSE : b.EnumC1205b.PLAYING;
     }
 
     @Override // com.qq.e.comm.plugin.aa.b.d.a
@@ -516,7 +516,7 @@ public class f implements d.a, c.a, k {
     @Override // com.qq.e.comm.plugin.aa.b.d.a
     public void f_() {
         this.w = 4;
-        this.e = b.EnumC1203b.END;
+        this.e = b.EnumC1205b.END;
         if (this.f != null) {
             this.f.a(206, new int[0]);
         }
@@ -538,7 +538,7 @@ public class f implements d.a, c.a, k {
     @Override // com.qq.e.comm.plugin.aa.b.d.a
     public void g_() {
         this.w = 4;
-        this.e = b.EnumC1203b.END;
+        this.e = b.EnumC1205b.END;
         if (this.f != null) {
             this.f.a(205, new int[0]);
         }
@@ -610,7 +610,7 @@ public class f implements d.a, c.a, k {
     }
 
     @Override // com.qq.e.comm.plugin.m.k
-    public b.EnumC1203b r() {
+    public b.EnumC1205b r() {
         return this.e;
     }
 
@@ -665,9 +665,9 @@ public class f implements d.a, c.a, k {
     }
 
     public void x() {
-        if (this.e == b.EnumC1203b.PLAYING) {
+        if (this.e == b.EnumC1205b.PLAYING) {
             this.j.a();
-            this.e = b.EnumC1203b.DEV_PAUSE;
+            this.e = b.EnumC1205b.DEV_PAUSE;
         }
         if (this.i != null) {
             this.i.removeAllViews();

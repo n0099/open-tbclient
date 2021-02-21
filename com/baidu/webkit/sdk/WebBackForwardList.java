@@ -5,7 +5,7 @@ import java.io.Serializable;
 public abstract class WebBackForwardList implements Serializable, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public abstract WebBackForwardList m49clone();
+    public abstract WebBackForwardList m48clone();
 
     public abstract int getCurrentIndex();
 

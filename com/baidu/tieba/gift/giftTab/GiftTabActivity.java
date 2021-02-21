@@ -39,13 +39,13 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public int accountType;
     private String addFreeUrl;
     private int freeChance;
-    private GiftTabView jUX;
-    private f jUY;
-    private SendGiftModel jUZ;
-    private String jVa;
-    private String jVb;
-    private ai jVc;
-    private com.baidu.tieba.gift.send.a jVd;
+    private GiftTabView jVl;
+    private f jVm;
+    private SendGiftModel jVn;
+    private String jVo;
+    private String jVp;
+    private ai jVq;
+    private com.baidu.tieba.gift.send.a jVr;
     private String mClickZone;
     private String mFrom;
     private String mReferPage;
@@ -53,97 +53,97 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     private long postId;
     private int sendCount;
     private long threadId;
-    private boolean jUB = false;
-    private boolean jVe = false;
-    private View.OnClickListener jVf = new View.OnClickListener() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.1
+    private boolean jUP = false;
+    private boolean jVs = false;
+    private View.OnClickListener jVt = new View.OnClickListener() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.1
         /* JADX DEBUG: Multi-variable search result rejected for r1v24, resolved type: com.baidu.tieba.gift.giftTab.GiftTabActivity */
         /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: com.baidu.tieba.gift.giftTab.GiftTabActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null) {
-                l.hideSoftKeyPad(GiftTabActivity.this.getActivity(), GiftTabActivity.this.jUX.jUi);
-                if (view == GiftTabActivity.this.jUX.jUk) {
-                    if (GiftTabActivity.this.jUZ != null && GiftTabActivity.this.jUX.Gy() > 0 && GiftTabActivity.this.jUX.cNU() != null) {
+                l.hideSoftKeyPad(GiftTabActivity.this.getActivity(), GiftTabActivity.this.jVl.jUw);
+                if (view == GiftTabActivity.this.jVl.jUy) {
+                    if (GiftTabActivity.this.jVn != null && GiftTabActivity.this.jVl.Gy() > 0 && GiftTabActivity.this.jVl.cOb() != null) {
                         if (!l.isNetOk()) {
                             GiftTabActivity.this.showToast(R.string.neterror);
                         } else if (TbadkCoreApplication.isLogin()) {
-                            if (GiftTabActivity.this.a(GiftTabActivity.this.jUX.cNU(), GiftTabActivity.this.jUX.Gy())) {
-                                GiftTabActivity.this.jUX.cNS();
-                                GiftTabActivity.this.jVc = GiftTabActivity.this.jUX.cNU();
-                                GiftTabActivity.this.sendCount = GiftTabActivity.this.jUX.Gy();
-                                GiftTabActivity.this.jVc.sendCount = GiftTabActivity.this.sendCount;
-                                GiftTabActivity.this.jVc.threadId = GiftTabActivity.this.threadId;
-                                GiftTabActivity.this.jVc.postId = GiftTabActivity.this.postId;
-                                GiftTabActivity.this.jVc.toUserId = GiftTabActivity.this.mToUserId;
-                                GiftTabActivity.this.jVc.toUserName = GiftTabActivity.this.jVa;
-                                GiftTabActivity.this.jVc.accountType = GiftTabActivity.this.accountType;
-                                GiftTabActivity.this.jUZ.a(GiftTabActivity.this.jUX.cNU(), GiftTabActivity.this.jUX.Gy(), GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId, GiftTabActivity.this.jVa, GiftTabActivity.this.threadId, GiftTabActivity.this.postId);
+                            if (GiftTabActivity.this.a(GiftTabActivity.this.jVl.cOb(), GiftTabActivity.this.jVl.Gy())) {
+                                GiftTabActivity.this.jVl.cNZ();
+                                GiftTabActivity.this.jVq = GiftTabActivity.this.jVl.cOb();
+                                GiftTabActivity.this.sendCount = GiftTabActivity.this.jVl.Gy();
+                                GiftTabActivity.this.jVq.sendCount = GiftTabActivity.this.sendCount;
+                                GiftTabActivity.this.jVq.threadId = GiftTabActivity.this.threadId;
+                                GiftTabActivity.this.jVq.postId = GiftTabActivity.this.postId;
+                                GiftTabActivity.this.jVq.toUserId = GiftTabActivity.this.mToUserId;
+                                GiftTabActivity.this.jVq.toUserName = GiftTabActivity.this.jVo;
+                                GiftTabActivity.this.jVq.accountType = GiftTabActivity.this.accountType;
+                                GiftTabActivity.this.jVn.a(GiftTabActivity.this.jVl.cOb(), GiftTabActivity.this.jVl.Gy(), GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId, GiftTabActivity.this.jVo, GiftTabActivity.this.threadId, GiftTabActivity.this.postId);
                             }
                         } else {
                             TbadkCoreApplication.getInst().login(GiftTabActivity.this.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(GiftTabActivity.this.getPageContext().getPageActivity())));
                         }
                     }
-                } else if (view == GiftTabActivity.this.jUX.jVC && !StringUtils.isNull(GiftTabActivity.this.addFreeUrl)) {
-                    GiftTabActivity.this.jVe = true;
+                } else if (view == GiftTabActivity.this.jVl.jVQ && !StringUtils.isNull(GiftTabActivity.this.addFreeUrl)) {
+                    GiftTabActivity.this.jVs = true;
                     bf.bsV().b(GiftTabActivity.this.getPageContext(), new String[]{GiftTabActivity.this.addFreeUrl});
                 }
             }
         }
     };
-    private GiftTabView.f jVg = new GiftTabView.f() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.7
+    private GiftTabView.f jVu = new GiftTabView.f() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.7
         @Override // com.baidu.tieba.gift.giftTab.GiftTabView.f
         public void Bl(int i) {
-            GiftTabActivity.this.jUY.Bn(i);
-            GiftTabActivity.this.jUX.cNS();
+            GiftTabActivity.this.jVm.Bn(i);
+            GiftTabActivity.this.jVl.cNZ();
         }
     };
-    private GiftTabView.e jVh = new GiftTabView.e() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.8
+    private GiftTabView.e jVv = new GiftTabView.e() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.8
         @Override // com.baidu.tieba.gift.giftTab.GiftTabView.e
         public void GC() {
-            GiftTabActivity.this.jUY.I(GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId);
-            GiftTabActivity.this.jUX.cNS();
+            GiftTabActivity.this.jVm.I(GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId);
+            GiftTabActivity.this.jVl.cNZ();
         }
     };
-    private f.a jVi = new f.a() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.9
+    private f.a jVw = new f.a() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.9
         @Override // com.baidu.tieba.gift.giftTab.f.a
         public void Bm(int i) {
             GiftTabActivity.this.freeChance = i;
-            GiftTabActivity.this.jUX.Bo(i);
-            GiftTabActivity.this.jVe = false;
+            GiftTabActivity.this.jVl.Bo(i);
+            GiftTabActivity.this.jVs = false;
         }
     };
-    private f.b jVj = new f.b() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.10
+    private f.b jVx = new f.b() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.10
         @Override // com.baidu.tieba.gift.giftTab.f.b
         public void a(int i, String str, boolean z, String str2, int i2, aj ajVar, ArrayList<c> arrayList, ArrayList<a> arrayList2, ArrayList<e> arrayList3) {
             if (i != 0 && !StringUtils.isNull(str)) {
                 GiftTabActivity.this.showToast(str);
             }
             GiftTabActivity.this.addFreeUrl = str2;
-            if (GiftTabActivity.this.jUX != null) {
-                GiftTabActivity.this.jUX.currencyType = i2;
-                GiftTabActivity.this.jUX.urlTitleData = ajVar;
-                GiftTabActivity.this.jUX.a(z, arrayList, arrayList2, arrayList3);
-                GiftTabActivity.this.jUX.Lw(str2);
+            if (GiftTabActivity.this.jVl != null) {
+                GiftTabActivity.this.jVl.currencyType = i2;
+                GiftTabActivity.this.jVl.urlTitleData = ajVar;
+                GiftTabActivity.this.jVl.a(z, arrayList, arrayList2, arrayList3);
+                GiftTabActivity.this.jVl.Lx(str2);
             }
         }
     };
-    private SendGiftModel.a jVk = new SendGiftModel.a() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.11
+    private SendGiftModel.a jVy = new SendGiftModel.a() { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.11
         @Override // com.baidu.tieba.gift.send.SendGiftModel.a
-        public void cNM() {
-            GiftTabActivity.this.jUX.cNT();
+        public void cNT() {
+            GiftTabActivity.this.jVl.cOa();
             GiftTabActivity.this.showToast(R.string.gift_send_data_illegal);
         }
 
         @Override // com.baidu.tieba.gift.send.SendGiftModel.a
         public void d(int i, String str, int i2) {
-            GiftTabActivity.this.jUX.cNT();
+            GiftTabActivity.this.jVl.cOa();
             if (i != 0) {
                 new com.baidu.tbadk.core.view.c().showFailToast(GiftTabActivity.this.getResources().getString(R.string.send_gift_fail));
                 return;
             }
             new com.baidu.tbadk.core.view.c().showSuccessToast(GiftTabActivity.this.getResources().getString(R.string.send_gift_succeed));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_GIFT_SUCCESS, GiftTabActivity.this.jVc));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_GIFT_SUCCESS, GiftTabActivity.this.jVq));
             Intent intent = new Intent();
             intent.putExtra("success", true);
             GiftTabActivity.this.setResult(-1, intent);
@@ -152,7 +152,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
         @Override // com.baidu.tieba.gift.send.SendGiftModel.a
         public void a(int i, String str, com.baidu.tieba.gift.send.a aVar) {
-            GiftTabActivity.this.jUX.cNT();
+            GiftTabActivity.this.jVl.cOa();
             if (i != 0) {
                 if (StringUtils.isNull(str)) {
                     GiftTabActivity.this.showToast(R.string.neterror);
@@ -160,21 +160,21 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     GiftTabActivity.this.showToast(str);
                 }
             } else if (aVar != null) {
-                GiftTabActivity.this.jVd = aVar;
-                PaymentConfirmRequestData cOg = aVar.cOg();
-                cOg.setTerminal(PaymentConfirmRequestData.TERMINAL_ANDROID);
-                GiftTabActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PaymentConfirmActivityConfig(GiftTabActivity.this.getPageContext().getPageActivity(), cOg, GiftTabActivity.this.mReferPage, GiftTabActivity.this.mClickZone)));
+                GiftTabActivity.this.jVr = aVar;
+                PaymentConfirmRequestData cOn = aVar.cOn();
+                cOn.setTerminal(PaymentConfirmRequestData.TERMINAL_ANDROID);
+                GiftTabActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PaymentConfirmActivityConfig(GiftTabActivity.this.getPageContext().getPageActivity(), cOn, GiftTabActivity.this.mReferPage, GiftTabActivity.this.mClickZone)));
             }
         }
     };
-    private CustomMessageListener jVl = new CustomMessageListener(CmdConfigCustom.CMD_PAYMENT_CONFIRM_SUCCESS) { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.12
+    private CustomMessageListener jVz = new CustomMessageListener(CmdConfigCustom.CMD_PAYMENT_CONFIRM_SUCCESS) { // from class: com.baidu.tieba.gift.giftTab.GiftTabActivity.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (GiftTabActivity.this.jVd != null && str.equalsIgnoreCase(GiftTabActivity.this.jVd.getOrderId())) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_GIFT_SUCCESS, GiftTabActivity.this.jVc));
+                if (GiftTabActivity.this.jVr != null && str.equalsIgnoreCase(GiftTabActivity.this.jVr.getOrderId())) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SEND_GIFT_SUCCESS, GiftTabActivity.this.jVq));
                 }
                 new com.baidu.tbadk.core.view.c().showSuccessToast(GiftTabActivity.this.getResources().getString(R.string.send_gift_succeed));
                 Intent intent = new Intent();
@@ -194,8 +194,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         setActivityBgTransparent();
         if (getIntent() != null) {
             this.mToUserId = getIntent().getLongExtra("gift_receiver_id", 0L);
-            this.jVa = getIntent().getStringExtra(GiftTabActivityConfig.GIFT_RECEIVER_NAME);
-            this.jVb = getIntent().getStringExtra(GiftTabActivityConfig.GIFT_RECEIVER_NAME_SHOW);
+            this.jVo = getIntent().getStringExtra(GiftTabActivityConfig.GIFT_RECEIVER_NAME);
+            this.jVp = getIntent().getStringExtra(GiftTabActivityConfig.GIFT_RECEIVER_NAME_SHOW);
             this.mFrom = getIntent().getStringExtra("from");
             this.postId = getIntent().getLongExtra(GiftTabActivityConfig.GIFT_POST_ID, 0L);
             this.threadId = getIntent().getLongExtra(GiftTabActivityConfig.GIFT_THREAD_ID, 0L);
@@ -203,35 +203,35 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             this.mReferPage = getIntent().getStringExtra("refer_page");
             this.mClickZone = getIntent().getStringExtra("click_zone");
         }
-        this.jUX = new GiftTabView(this, this.jVf);
-        TextView textView = this.jUX.jVD;
+        this.jVl = new GiftTabView(this, this.jVt);
+        TextView textView = this.jVl.jVR;
         String string = getResources().getString(R.string.gift_to);
         Object[] objArr = new Object[1];
-        objArr[0] = TextUtils.isEmpty(this.jVb) ? this.jVa : this.jVb;
+        objArr[0] = TextUtils.isEmpty(this.jVp) ? this.jVo : this.jVp;
         textView.setText(String.format(string, objArr));
-        this.jUX.a(this.jVg);
-        this.jUX.a(this.jVh);
-        this.jUY = new f(getPageContext());
-        this.jUY.a(this.jVj);
-        this.jUY.a(this.jVi);
-        this.jUZ = new SendGiftModel(getPageContext());
-        this.jUZ.a(this.jVk);
-        registerListener(this.jVl);
+        this.jVl.a(this.jVu);
+        this.jVl.a(this.jVv);
+        this.jVm = new f(getPageContext());
+        this.jVm.a(this.jVx);
+        this.jVm.a(this.jVw);
+        this.jVn = new SendGiftModel(getPageContext());
+        this.jVn.a(this.jVy);
+        registerListener(this.jVz);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.jVe && this.jUY != null) {
-            this.jUY.Lv(this.mFrom);
+        if (this.jVs && this.jVm != null) {
+            this.jVm.Lw(this.mFrom);
         }
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && !this.jUB) {
+        if (z && !this.jUP) {
             aCu();
         }
     }
@@ -240,8 +240,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         this.mToUserId = getIntent().getLongExtra("gift_receiver_id", 0L);
-        this.jVa = getIntent().getStringExtra(GiftTabActivityConfig.GIFT_RECEIVER_NAME);
-        this.jVb = getIntent().getStringExtra(GiftTabActivityConfig.GIFT_RECEIVER_NAME_SHOW);
+        this.jVo = getIntent().getStringExtra(GiftTabActivityConfig.GIFT_RECEIVER_NAME);
+        this.jVp = getIntent().getStringExtra(GiftTabActivityConfig.GIFT_RECEIVER_NAME_SHOW);
         this.mFrom = getIntent().getStringExtra("from");
         this.postId = getIntent().getLongExtra(GiftTabActivityConfig.GIFT_POST_ID, 0L);
         this.threadId = getIntent().getLongExtra(GiftTabActivityConfig.GIFT_THREAD_ID, 0L);
@@ -265,10 +265,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     private void aCu() {
-        this.jUX.jUg.setBackgroundColor(ap.getColor(R.color.common_color_10175));
+        this.jVl.jUu.setBackgroundColor(ap.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
         alphaAnimation.setDuration(300L);
-        this.jUX.jUg.startAnimation(alphaAnimation);
+        this.jVl.jUu.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -283,22 +283,22 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                GiftTabActivity.this.jUX.jUh.setVisibility(0);
-                GiftTabActivity.this.jUY.I(GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId);
-                GiftTabActivity.this.jUY.Lv(GiftTabActivity.this.mFrom);
-                GiftTabActivity.this.jUX.cNS();
+                GiftTabActivity.this.jVl.jUv.setVisibility(0);
+                GiftTabActivity.this.jVm.I(GiftTabActivity.this.mFrom, GiftTabActivity.this.mToUserId);
+                GiftTabActivity.this.jVm.Lw(GiftTabActivity.this.mFrom);
+                GiftTabActivity.this.jVl.cNZ();
             }
         });
-        this.jUX.jUh.startAnimation(loadAnimation);
-        this.jUB = true;
+        this.jVl.jUv.startAnimation(loadAnimation);
+        this.jUP = true;
     }
 
     private void UX() {
-        this.jUX.jUg.setBackgroundColor(ap.getColor(R.color.common_color_10175));
+        this.jVl.jUu.setBackgroundColor(ap.getColor(R.color.common_color_10175));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
         alphaAnimation.setDuration(300L);
         alphaAnimation.setFillAfter(true);
-        this.jUX.jUg.startAnimation(alphaAnimation);
+        this.jVl.jUu.startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -317,7 +317,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 GiftTabActivity.this.finish();
             }
         });
-        this.jUX.jUh.startAnimation(loadAnimation);
+        this.jVl.jUv.startAnimation(loadAnimation);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -328,8 +328,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.jUX.jUp.getVisibility() == 0) {
-            this.jUX.jUp.setVisibility(8);
+        if (i == 4 && this.jVl.jUD.getVisibility() == 0) {
+            this.jVl.jUD.setVisibility(8);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -339,14 +339,14 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jUX.cNO();
+        this.jVl.cNV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jUX.onChangeSkinType(i);
+        this.jVl.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -432,7 +432,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar4) {
                             aVar3.dismiss();
                             if (!StringUtils.isNull(GiftTabActivity.this.addFreeUrl)) {
-                                GiftTabActivity.this.jVe = true;
+                                GiftTabActivity.this.jVs = true;
                                 bf.bsV().b(GiftTabActivity.this.getPageContext(), new String[]{GiftTabActivity.this.addFreeUrl});
                             }
                         }

@@ -14,8 +14,8 @@ public class g {
     private final String[] c;
     private final String[] d;
     private SQLiteStatement e;
-    private SQLiteStatement qeB;
-    private SQLiteStatement qeC;
+    private SQLiteStatement qfb;
+    private SQLiteStatement qfc;
 
     public g(SQLiteDatabase sQLiteDatabase, String str, String[] strArr, String[] strArr2) {
         this.f13105a = sQLiteDatabase;
@@ -24,7 +24,7 @@ public class g {
         this.d = strArr2;
     }
 
-    public SQLiteStatement eFT() {
+    public SQLiteStatement eGb() {
         if (this.e == null) {
             SQLiteStatement compileStatement = this.f13105a.compileStatement(h.d("INSERT INTO ", this.f13106b, this.c));
             synchronized (this) {
@@ -39,33 +39,33 @@ public class g {
         return this.e;
     }
 
-    public SQLiteStatement eFU() {
-        if (this.qeC == null) {
+    public SQLiteStatement eGc() {
+        if (this.qfc == null) {
             SQLiteStatement compileStatement = this.f13105a.compileStatement(h.a(this.f13106b, this.d));
             synchronized (this) {
-                if (this.qeC == null) {
-                    this.qeC = compileStatement;
+                if (this.qfc == null) {
+                    this.qfc = compileStatement;
                 }
             }
-            if (this.qeC != compileStatement) {
+            if (this.qfc != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.qeC;
+        return this.qfc;
     }
 
-    public SQLiteStatement eFV() {
-        if (this.qeB == null) {
+    public SQLiteStatement eGd() {
+        if (this.qfb == null) {
             SQLiteStatement compileStatement = this.f13105a.compileStatement(h.a(this.f13106b, this.c, this.d));
             synchronized (this) {
-                if (this.qeB == null) {
-                    this.qeB = compileStatement;
+                if (this.qfb == null) {
+                    this.qfb = compileStatement;
                 }
             }
-            if (this.qeB != compileStatement) {
+            if (this.qfb != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.qeB;
+        return this.qfb;
     }
 }

@@ -8,9 +8,9 @@ import com.kwad.sdk.glide.g.a.a;
 public final class r<Z> implements a.c, s<Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pools.Pool<r<?>> f10248a = com.kwad.sdk.glide.g.a.a.a(20, new a.InterfaceC1123a<r<?>>() { // from class: com.kwad.sdk.glide.load.engine.r.1
+    private static final Pools.Pool<r<?>> f10248a = com.kwad.sdk.glide.g.a.a.a(20, new a.InterfaceC1125a<r<?>>() { // from class: com.kwad.sdk.glide.load.engine.r.1
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1123a
+        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1125a
         /* renamed from: a */
         public r<?> b() {
             return new r<>();

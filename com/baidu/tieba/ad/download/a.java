@@ -7,42 +7,10 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.text.TextUtils;
-import androidx.core.content.FileProvider;
-import java.io.File;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean i(Context context, File file) {
-        return b(context, file, false);
-    }
-
-    public static boolean b(Context context, File file, boolean z) {
-        Uri fromFile;
-        if (file != null && file.exists() && file.isFile()) {
-            Intent intent = new Intent("android.intent.action.VIEW");
-            try {
-                intent.addFlags(268435456);
-                if (z) {
-                    intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                }
-                if (Build.VERSION.SDK_INT >= 24) {
-                    fromFile = FileProvider.getUriForFile(context, "com.baidu.tieba.fileprovider", file);
-                    intent.addFlags(1);
-                } else {
-                    fromFile = Uri.fromFile(file);
-                }
-                intent.setDataAndType(fromFile, "application/vnd.android.package-archive");
-                context.startActivity(intent);
-                return true;
-            } catch (Exception e) {
-                return false;
-            }
-        }
-        return false;
-    }
-
     public static boolean au(Context context, String str) {
         ResolveInfo next;
         if (TextUtils.isEmpty(str) || context == null) {

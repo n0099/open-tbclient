@@ -9,21 +9,21 @@ import com.baidu.live.tbadk.widget.SlideRatioViewPager;
 /* loaded from: classes11.dex */
 public class AlaAnchorBannerViewPager extends SlideRatioViewPager {
     private View.OnTouchListener bST;
-    private boolean gLN;
+    private boolean gMb;
     private Handler mHandler;
     private SlideRatioViewPager.OnPageChangeListener mOnPageChangeListener;
     private Runnable mRunnable;
 
     public AlaAnchorBannerViewPager(Context context) {
         super(context);
-        this.gLN = false;
+        this.gMb = false;
         this.bST = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaAnchorBannerViewPager.this.gLN = true;
+                    AlaAnchorBannerViewPager.this.gMb = true;
                 } else {
-                    AlaAnchorBannerViewPager.this.gLN = false;
+                    AlaAnchorBannerViewPager.this.gMb = false;
                 }
                 return false;
             }
@@ -40,16 +40,16 @@ public class AlaAnchorBannerViewPager extends SlideRatioViewPager {
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 1) {
-                    AlaAnchorBannerViewPager.this.gLN = true;
+                    AlaAnchorBannerViewPager.this.gMb = true;
                 } else {
-                    AlaAnchorBannerViewPager.this.gLN = false;
+                    AlaAnchorBannerViewPager.this.gMb = false;
                 }
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.3
             @Override // java.lang.Runnable
             public void run() {
-                if (!AlaAnchorBannerViewPager.this.gLN && AlaAnchorBannerViewPager.this.getAdapter().getCount() > 3) {
+                if (!AlaAnchorBannerViewPager.this.gMb && AlaAnchorBannerViewPager.this.getAdapter().getCount() > 3) {
                     AlaAnchorBannerViewPager.this.setCurrentItem(AlaAnchorBannerViewPager.this.getCurrentItem() + 1, false);
                 }
                 AlaAnchorBannerViewPager.this.mHandler.postDelayed(AlaAnchorBannerViewPager.this.mRunnable, 10000L);
@@ -60,14 +60,14 @@ public class AlaAnchorBannerViewPager extends SlideRatioViewPager {
 
     public AlaAnchorBannerViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gLN = false;
+        this.gMb = false;
         this.bST = new View.OnTouchListener() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                    AlaAnchorBannerViewPager.this.gLN = true;
+                    AlaAnchorBannerViewPager.this.gMb = true;
                 } else {
-                    AlaAnchorBannerViewPager.this.gLN = false;
+                    AlaAnchorBannerViewPager.this.gMb = false;
                 }
                 return false;
             }
@@ -84,16 +84,16 @@ public class AlaAnchorBannerViewPager extends SlideRatioViewPager {
             @Override // com.baidu.live.tbadk.widget.SlideRatioViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
                 if (i == 1) {
-                    AlaAnchorBannerViewPager.this.gLN = true;
+                    AlaAnchorBannerViewPager.this.gMb = true;
                 } else {
-                    AlaAnchorBannerViewPager.this.gLN = false;
+                    AlaAnchorBannerViewPager.this.gMb = false;
                 }
             }
         };
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.viewpager.AlaAnchorBannerViewPager.3
             @Override // java.lang.Runnable
             public void run() {
-                if (!AlaAnchorBannerViewPager.this.gLN && AlaAnchorBannerViewPager.this.getAdapter().getCount() > 3) {
+                if (!AlaAnchorBannerViewPager.this.gMb && AlaAnchorBannerViewPager.this.getAdapter().getCount() > 3) {
                     AlaAnchorBannerViewPager.this.setCurrentItem(AlaAnchorBannerViewPager.this.getCurrentItem() + 1, false);
                 }
                 AlaAnchorBannerViewPager.this.mHandler.postDelayed(AlaAnchorBannerViewPager.this.mRunnable, 10000L);

@@ -40,42 +40,42 @@ import org.json.JSONObject;
 public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmentWeightLayout {
     public static String URL = "https://afd.baidu.com/afd/updateTiebaAdExt";
     public static int fWF;
-    private final int mYA;
-    private final int mYB;
-    private int mYC;
-    private int mYD;
-    private a mYE;
-    private final int mYx;
-    private final int mYy;
-    private final int mYz;
+    private final int mYX;
+    private final int mYY;
+    private final int mYZ;
+    private final int mZa;
+    private final int mZb;
+    private int mZc;
+    private int mZd;
+    private a mZe;
     private int style;
     private int type;
 
     public AdThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
-        this.mYx = 446;
-        this.mYy = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
-        this.mYz = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
-        this.mYA = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
-        this.mYB = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
+        this.mYX = 446;
+        this.mYY = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
+        this.mYZ = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
+        this.mZa = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
+        this.mZb = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.style = 1;
         this.type = 0;
-        this.mYC = R.drawable.selector_comment_and_prise_item_text_color;
-        this.mYD = this.mYC;
+        this.mZc = R.drawable.selector_comment_and_prise_item_text_color;
+        this.mZd = this.mZc;
         initSetting();
     }
 
     public AdThreadCommentAndPraiseInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mYx = 446;
-        this.mYy = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
-        this.mYz = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
-        this.mYA = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
-        this.mYB = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
+        this.mYX = 446;
+        this.mYY = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
+        this.mYZ = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
+        this.mZa = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
+        this.mZb = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
         this.style = 1;
         this.type = 0;
-        this.mYC = R.drawable.selector_comment_and_prise_item_text_color;
-        this.mYD = this.mYC;
+        this.mZc = R.drawable.selector_comment_and_prise_item_text_color;
+        this.mZd = this.mZc;
         initSetting();
     }
 
@@ -84,7 +84,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         setManageVisible(false);
         setSelectVisible(false);
         setShowFlag(11);
-        dEA();
+        dEI();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -124,7 +124,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         this.fjZ.setClickable(false);
     }
 
-    private void dEA() {
+    private void dEI() {
         if (this.fjW != null) {
             View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.1
                 @Override // android.view.View.OnClickListener
@@ -206,28 +206,28 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     /* JADX INFO: Access modifiers changed from: private */
     public void Ie(int i) {
         if (i == 1) {
-            a(this.mYE.getThreadData(), "nozan", 0);
-            a(this.mYE.getThreadData(), "1", "2");
+            a(this.mZe.getThreadData(), "nozan", 0);
+            a(this.mZe.getThreadData(), "1", "2");
             return;
         }
-        a(this.mYE.getThreadData(), FeedData.TYPE_ZAN, 0);
-        a(this.mYE.getThreadData(), "1", "1");
+        a(this.mZe.getThreadData(), FeedData.TYPE_ZAN, 0);
+        a(this.mZe.getThreadData(), "1", "1");
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void bz(View view) {
-        if (this.ahi != null && this.mContext != null && this.mYE != null) {
-            a(this.mYE.getThreadData(), TbConfig.TMP_SHARE_DIR_NAME, 0);
-            a(this.mYE.getThreadData(), "2", "1");
+        if (this.ahi != null && this.mContext != null && this.mZe != null) {
+            a(this.mZe.getThreadData(), TbConfig.TMP_SHARE_DIR_NAME, 0);
+            a(this.mZe.getThreadData(), "2", "1");
             if (ShareSwitch.isOn() || bh.checkUpIsLogin(this.mContext)) {
                 final ShareItem shareItem = new ShareItem();
-                shareItem.title = this.mYE.getTitle();
-                shareItem.content = this.mYE.getAbstract();
-                shareItem.fuV = this.mYE.getTitle();
-                shareItem.linkUrl = this.mYE.getShareLink();
+                shareItem.title = this.mZe.getTitle();
+                shareItem.content = this.mZe.getAbstract();
+                shareItem.fuV = this.mZe.getTitle();
+                shareItem.linkUrl = this.mZe.getShareLink();
                 shareItem.fuY = 3;
                 shareItem.fuK = true;
-                String imageUrl = this.mYE.getImageUrl();
+                String imageUrl = this.mZe.getImageUrl();
                 Uri parse = imageUrl == null ? null : Uri.parse(imageUrl);
                 if (parse != null) {
                     shareItem.imageUri = parse;
@@ -242,7 +242,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         l.showToast(AdThreadCommentAndPraiseInfoLayout.this.mContext, view2.getResources().getString(R.string.copy_pb_url_success));
                     }
                 });
-                shareDialogConfig.setHideMode(RT(shareItem.linkUrl));
+                shareDialogConfig.setHideMode(Sf(shareItem.linkUrl));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
             }
         }
@@ -253,14 +253,14 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     }
 
     public void setShareData(a aVar) {
-        this.mYE = aVar;
-        setData(this.mYE.getThreadData());
+        this.mZe = aVar;
+        setData(this.mZe.getThreadData());
     }
 
     private void a(AdvertAppInfo advertAppInfo, String str, int i) {
         c b2 = h.b(advertAppInfo, 8, i);
-        b2.RR(str);
-        e.dEm().a(b2);
+        b2.Sd(str);
+        e.dEu().a(b2);
     }
 
     private void a(AdvertAppInfo advertAppInfo, final String str, final String str2) {
@@ -282,11 +282,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     }
                     return null;
                 }
-            }.execute(URL, gm(str3, "cpid"), gm(str3, "idea_id"));
+            }.execute(URL, go(str3, "cpid"), go(str3, "idea_id"));
         }
     }
 
-    private String gm(String str, String str2) {
+    private String go(String str, String str2) {
         try {
             return new JSONObject(new String(com.baidu.adp.lib.util.c.decode(str))).getString(str2);
         } catch (Exception e) {
@@ -300,7 +300,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         return this.fjZ;
     }
 
-    private int RT(String str) {
+    private int Sf(String str) {
         int i = 0;
         if (TextUtils.isEmpty(str)) {
             return 0;
@@ -329,8 +329,8 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         super.onChangeSkinType();
         this.fjY.setClickable(false);
         this.fjY.setEnabled(false);
-        ap.setViewTextColor(this.fjX, this.mYC);
-        ap.setViewTextColor(this.fka, this.mYD);
+        ap.setViewTextColor(this.fjX, this.mZc);
+        ap.setViewTextColor(this.fka, this.mZd);
     }
 
     public void setDisPraiseViewVisibility(boolean z) {
@@ -338,9 +338,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     public void setReplayContainerBgGray(boolean z) {
         if (z) {
-            this.mYC = R.color.CAM_X0110;
+            this.mZc = R.color.CAM_X0110;
         } else {
-            this.mYC = R.drawable.selector_comment_and_prise_item_text_color;
+            this.mZc = R.drawable.selector_comment_and_prise_item_text_color;
         }
     }
 
@@ -349,9 +349,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     public void setShareContainerBgGray(boolean z) {
         if (z) {
-            this.mYD = R.color.CAM_X0110;
+            this.mZd = R.color.CAM_X0110;
         } else {
-            this.mYD = R.drawable.selector_comment_and_prise_item_text_color;
+            this.mZd = R.drawable.selector_comment_and_prise_item_text_color;
         }
     }
 

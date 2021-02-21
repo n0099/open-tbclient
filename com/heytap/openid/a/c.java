@@ -18,13 +18,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes15.dex */
 public class c {
-    public com.heytap.openid.a pXo = null;
+    public com.heytap.openid.a pXO = null;
 
     /* renamed from: b  reason: collision with root package name */
     public String f7905b = null;
     public String c = null;
     public final Object d = new Object();
-    public ServiceConnection plS = new a();
+    public ServiceConnection pms = new a();
 
     /* loaded from: classes15.dex */
     public class a implements ServiceConnection {
@@ -33,7 +33,7 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            c.this.pXo = a.AbstractBinderC1060a.a(iBinder);
+            c.this.pXO = a.AbstractBinderC1062a.a(iBinder);
             synchronized (c.this.d) {
                 c.this.d.notify();
             }
@@ -41,14 +41,14 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            c.this.pXo = null;
+            c.this.pXO = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes15.dex */
     public static class b {
-        public static final c pXp = new c(null);
+        public static final c pXP = new c(null);
     }
 
     public /* synthetic */ c(a aVar) {
@@ -57,11 +57,11 @@ public class c {
     public synchronized String a(Context context, String str) {
         String str2;
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            if (this.pXo == null) {
+            if (this.pXO == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                if (context.bindService(intent, this.plS, 1)) {
+                if (context.bindService(intent, this.pms, 1)) {
                     synchronized (this.d) {
                         try {
                             this.d.wait(IMConnection.RETRY_DELAY_TIMES);
@@ -70,7 +70,7 @@ public class c {
                         }
                     }
                 }
-                if (this.pXo == null) {
+                if (this.pXO == null) {
                     str2 = "";
                 } else {
                     try {
@@ -142,7 +142,7 @@ public class c {
             }
             this.c = str2;
         }
-        String a2 = ((a.AbstractBinderC1060a.C1061a) this.pXo).a(this.f7905b, this.c, str);
+        String a2 = ((a.AbstractBinderC1062a.C1063a) this.pXO).a(this.f7905b, this.c, str);
         return TextUtils.isEmpty(a2) ? "" : a2;
     }
 }

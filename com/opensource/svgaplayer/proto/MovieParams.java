@@ -12,13 +12,13 @@ import okio.ByteString;
 /* loaded from: classes6.dex */
 public final class MovieParams extends Message<MovieParams, Builder> {
     private static final long serialVersionUID = 0;
-    @WireField(eDO = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
+    @WireField(eDW = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
     public final Integer fps;
-    @WireField(eDO = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
+    @WireField(eDW = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
     public final Integer frames;
-    @WireField(eDO = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(eDW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float viewBoxHeight;
-    @WireField(eDO = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(eDW = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float viewBoxWidth;
     public static final ProtoAdapter<MovieParams> ADAPTER = new ProtoAdapter_MovieParams();
     public static final Float DEFAULT_VIEWBOXWIDTH = Float.valueOf(0.0f);
@@ -161,11 +161,11 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieParams decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eDG = cVar.eDG();
+            long eDO = cVar.eDO();
             while (true) {
-                int eDH = cVar.eDH();
-                if (eDH != -1) {
-                    switch (eDH) {
+                int eDP = cVar.eDP();
+                if (eDP != -1) {
+                    switch (eDP) {
                         case 1:
                             builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -179,12 +179,12 @@ public final class MovieParams extends Message<MovieParams, Builder> {
                             builder.frames(ProtoAdapter.INT32.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eDI = cVar.eDI();
-                            builder.addUnknownField(eDH, eDI, eDI.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eDQ = cVar.eDQ();
+                            builder.addUnknownField(eDP, eDQ, eDQ.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.iV(eDG);
+                    cVar.iV(eDO);
                     return builder.build();
                 }
             }

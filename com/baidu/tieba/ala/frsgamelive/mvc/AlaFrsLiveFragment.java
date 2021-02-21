@@ -44,14 +44,14 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     private String forumGameLabel;
     private String forumId;
     private String forumName;
-    private boolean gVk;
-    private AlaFrsLiveModel gVl;
-    private c gVm;
-    private AlaSquareRefreshManager gyT;
-    private int gOS = 1;
-    private boolean gVn = false;
-    private boolean gVo = false;
-    private CustomMessageListener gGr = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.1
+    private c gVA;
+    private boolean gVy;
+    private AlaFrsLiveModel gVz;
+    private AlaSquareRefreshManager gzh;
+    private int gPg = 1;
+    private boolean gVB = false;
+    private boolean gVC = false;
+    private CustomMessageListener gGF = new CustomMessageListener(0) { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -59,44 +59,44 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2) {
                     if ("FrsGameLive".equals(split[0]) && 9 == com.baidu.adp.lib.f.b.toInt(split[1], 0)) {
-                        AlaFrsLiveFragment.this.bSq();
+                        AlaFrsLiveFragment.this.bSx();
                     } else if ("FrsGameLiveLive".equals(split[0]) && 2 == com.baidu.adp.lib.f.b.toInt(split[1], 0)) {
-                        AlaFrsLiveFragment.this.bSq();
+                        AlaFrsLiveFragment.this.bSx();
                     }
                 }
             }
         }
     };
-    private AlaFrsLiveModel.a gVp = new AlaFrsLiveModel.a() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.2
+    private AlaFrsLiveModel.a gVD = new AlaFrsLiveModel.a() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.2
         @Override // com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel.a
         public void mK(boolean z) {
-            if (AlaFrsLiveFragment.this.getPageContext() != null && AlaFrsLiveFragment.this.gVm != null) {
-                AlaFrsLiveFragment.this.hideLoadingView(AlaFrsLiveFragment.this.gVm.getRootView());
-                AlaFrsLiveFragment.this.gVm.completePullRefresh();
-                AlaFrsLiveFragment.this.gVm.d(AlaFrsLiveFragment.this.gVl.getData(), z, AlaFrsLiveFragment.this.gVl.bVj());
-                AlaFrsLiveFragment.this.gVm.tT(AlaFrsLiveFragment.this.gVl.getLiveCount());
-                if (y.getCount(AlaFrsLiveFragment.this.gVl.getData()) == 0) {
-                    if (AlaFrsLiveFragment.this.gOS == 1) {
+            if (AlaFrsLiveFragment.this.getPageContext() != null && AlaFrsLiveFragment.this.gVA != null) {
+                AlaFrsLiveFragment.this.hideLoadingView(AlaFrsLiveFragment.this.gVA.getRootView());
+                AlaFrsLiveFragment.this.gVA.completePullRefresh();
+                AlaFrsLiveFragment.this.gVA.d(AlaFrsLiveFragment.this.gVz.getData(), z, AlaFrsLiveFragment.this.gVz.bVq());
+                AlaFrsLiveFragment.this.gVA.tT(AlaFrsLiveFragment.this.gVz.getLiveCount());
+                if (y.getCount(AlaFrsLiveFragment.this.gVz.getData()) == 0) {
+                    if (AlaFrsLiveFragment.this.gPg == 1) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRA_SWITCH_TO_VIDEO));
                     }
-                    AlaFrsLiveFragment.this.gVn = false;
-                    AlaFrsLiveFragment.this.showNetRefreshView(AlaFrsLiveFragment.this.gVm.getRootView(), AlaFrsLiveFragment.this.getPageContext().getString(R.string.frs_game_live_no_data), null, AlaFrsLiveFragment.this.getPageContext().getString(R.string.frs_game_live_more_data), false, AlaFrsLiveFragment.this.getNetRefreshListener());
+                    AlaFrsLiveFragment.this.gVB = false;
+                    AlaFrsLiveFragment.this.showNetRefreshView(AlaFrsLiveFragment.this.gVA.getRootView(), AlaFrsLiveFragment.this.getPageContext().getString(R.string.frs_game_live_no_data), null, AlaFrsLiveFragment.this.getPageContext().getString(R.string.frs_game_live_more_data), false, AlaFrsLiveFragment.this.getNetRefreshListener());
                     return;
                 }
-                AlaFrsLiveFragment.this.hideNetRefreshView(AlaFrsLiveFragment.this.gVm.getRootView());
+                AlaFrsLiveFragment.this.hideNetRefreshView(AlaFrsLiveFragment.this.gVA.getRootView());
             }
         }
 
         @Override // com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel.a
         public void aJ(int i, String str) {
-            if (AlaFrsLiveFragment.this.gVm != null) {
-                AlaFrsLiveFragment.this.hideLoadingView(AlaFrsLiveFragment.this.gVm.getRootView());
-                AlaFrsLiveFragment.this.gVm.completePullRefresh();
+            if (AlaFrsLiveFragment.this.gVA != null) {
+                AlaFrsLiveFragment.this.hideLoadingView(AlaFrsLiveFragment.this.gVA.getRootView());
+                AlaFrsLiveFragment.this.gVA.completePullRefresh();
             }
-            if (y.getCount(AlaFrsLiveFragment.this.gVl.getData()) <= 0 || AlaFrsLiveFragment.this.gVm == null) {
-                AlaFrsLiveFragment.this.gVn = true;
-                if (AlaFrsLiveFragment.this.gVm != null) {
-                    AlaFrsLiveFragment.this.showNetRefreshView(AlaFrsLiveFragment.this.gVm.getRootView(), str, false);
+            if (y.getCount(AlaFrsLiveFragment.this.gVz.getData()) <= 0 || AlaFrsLiveFragment.this.gVA == null) {
+                AlaFrsLiveFragment.this.gVB = true;
+                if (AlaFrsLiveFragment.this.gVA != null) {
+                    AlaFrsLiveFragment.this.showNetRefreshView(AlaFrsLiveFragment.this.gVA.getRootView(), str, false);
                     return;
                 }
                 return;
@@ -104,48 +104,48 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             AlaFrsLiveFragment.this.showToast(str);
         }
     };
-    private h gVq = new h() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.3
+    private h gVE = new h() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.3
         @Override // com.baidu.tieba.ala.h
         public void S(cb cbVar) {
             AlaFrsLiveFragment.this.a(AlaFrsLiveFragment.this.getPageContext(), cbVar);
         }
     };
-    private f.c gIU = new f.c() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.4
+    private f.c gJi = new f.c() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.4
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
-            if (AlaFrsLiveFragment.this.gVl != null) {
-                AlaFrsLiveFragment.this.gVl.refreshData();
+            if (AlaFrsLiveFragment.this.gVz != null) {
+                AlaFrsLiveFragment.this.gVz.refreshData();
             }
         }
     };
-    private BdMultiColumnListView.OnScrollToBottomListener gVr = new BdMultiColumnListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.5
+    private BdMultiColumnListView.OnScrollToBottomListener gVF = new BdMultiColumnListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.5
         @Override // com.baidu.ala.widget.multicolumn.BdMultiColumnListView.OnScrollToBottomListener
         public void onScrollToBottom() {
             boolean z = false;
-            if (AlaFrsLiveFragment.this.gVl != null) {
-                z = AlaFrsLiveFragment.this.gVl.bSw();
+            if (AlaFrsLiveFragment.this.gVz != null) {
+                z = AlaFrsLiveFragment.this.gVz.bSD();
             }
-            if (AlaFrsLiveFragment.this.gVm != null) {
+            if (AlaFrsLiveFragment.this.gVA != null) {
                 if (z) {
-                    AlaFrsLiveFragment.this.gVm.bRr();
+                    AlaFrsLiveFragment.this.gVA.bRy();
                 } else {
-                    AlaFrsLiveFragment.this.gVm.bRq();
+                    AlaFrsLiveFragment.this.gVA.bRx();
                 }
             }
         }
     };
-    private d gVs = new d() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.6
+    private d gVG = new d() { // from class: com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment.6
         @Override // com.baidu.tieba.ala.frsgamelive.mvc.d
         public void us(int i) {
-            if (AlaFrsLiveFragment.this.gVl != null && AlaFrsLiveFragment.this.gVl.getSortType() != i) {
+            if (AlaFrsLiveFragment.this.gVz != null && AlaFrsLiveFragment.this.gVz.getSortType() != i) {
                 ar arVar = new ar("c12572");
                 arVar.dR("fid", AlaFrsLiveFragment.this.forumId);
                 arVar.ap("obj_type", i);
                 TiebaStatic.log(arVar);
-                AlaFrsLiveFragment.this.gVl.setSortType(i);
-                AlaFrsLiveFragment.this.gVl.clearData();
-                if (AlaFrsLiveFragment.this.gVm != null) {
-                    AlaFrsLiveFragment.this.gVm.bVm().startPullRefresh();
+                AlaFrsLiveFragment.this.gVz.setSortType(i);
+                AlaFrsLiveFragment.this.gVz.clearData();
+                if (AlaFrsLiveFragment.this.gVA != null) {
+                    AlaFrsLiveFragment.this.gVA.bVt().startPullRefresh();
                 }
             }
         }
@@ -155,29 +155,29 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.ajU = i;
-        if (this.gVm != null) {
-            this.gVm.onChangeSkinType(i);
+        if (this.gVA != null) {
+            this.gVA.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.ala.refresh.AlaAutoRefreshFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.gGr, getBaseFragmentActivity().getUniqueId());
+        registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.gGF, getBaseFragmentActivity().getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.gVm = new c(getPageContext(), this.gVk, getPageContext().getOrignalPage().getUniqueId(), this.forumId, this.gVo);
-        this.gVm.initView();
-        this.gVm.ut(1);
-        this.gVm.b(this.gVq);
-        this.gVm.setListPullRefreshListener(this.gIU);
-        this.gVm.setOnSrollToBottomListener(this.gVr);
-        this.gVm.a(this.gVs);
-        this.gVm.onChangeSkinType(this.ajU);
-        bVc();
-        return this.gVm.getRootView();
+        this.gVA = new c(getPageContext(), this.gVy, getPageContext().getOrignalPage().getUniqueId(), this.forumId, this.gVC);
+        this.gVA.initView();
+        this.gVA.ut(1);
+        this.gVA.b(this.gVE);
+        this.gVA.setListPullRefreshListener(this.gJi);
+        this.gVA.setOnSrollToBottomListener(this.gVF);
+        this.gVA.a(this.gVG);
+        this.gVA.onChangeSkinType(this.ajU);
+        bVj();
+        return this.gVA.getRootView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -188,8 +188,8 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.gyT != null) {
-            this.gyT.onPause();
+        if (this.gzh != null) {
+            this.gzh.onPause();
         }
     }
 
@@ -212,20 +212,20 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (this.gVl == null) {
-                this.gVl = new AlaFrsLiveModel(getPageContext());
-                this.gVl.a(this.gVp);
-                this.gVl.setForumId(this.forumId);
-                this.gVl.setForumGameLabel(this.forumGameLabel);
-                this.gVl.setFromType(this.gOS);
-                this.gVl.refreshData();
-                if (this.gVm != null) {
-                    showLoadingView(this.gVm.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds270));
+            if (this.gVz == null) {
+                this.gVz = new AlaFrsLiveModel(getPageContext());
+                this.gVz.a(this.gVD);
+                this.gVz.setForumId(this.forumId);
+                this.gVz.setForumGameLabel(this.forumGameLabel);
+                this.gVz.setFromType(this.gPg);
+                this.gVz.refreshData();
+                if (this.gVA != null) {
+                    showLoadingView(this.gVA.getRootView(), false, getResources().getDimensionPixelSize(R.dimen.ds270));
                 }
-                this.gyT = new AlaSquareRefreshManager();
-                this.gyT.init(this, new long[]{30000});
-            } else if (this.gyT != null) {
-                this.gyT.onPageForeground(0);
+                this.gzh = new AlaSquareRefreshManager();
+                this.gzh.init(this, new long[]{30000});
+            } else if (this.gzh != null) {
+                this.gzh.onPageForeground(0);
             }
         }
     }
@@ -233,8 +233,8 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.gyT != null) {
-            this.gyT.onDestory();
+        if (this.gzh != null) {
+            this.gzh.onDestory();
         }
     }
 
@@ -242,10 +242,10 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        if (!this.gVn) {
+        if (!this.gVB) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new IntentConfig(getPageContext().getPageActivity())));
-        } else if (this.gVl != null) {
-            this.gVl.refreshData();
+        } else if (this.gVz != null) {
+            this.gVz.refreshData();
         }
     }
 
@@ -267,7 +267,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             alaLiveInfoCoreData.fillWithInfoData(cbVar.boj());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (n nVar : this.gVl.getData()) {
+            for (n nVar : this.gVz.getData()) {
                 if (nVar != null && (nVar instanceof com.baidu.tieba.ala.frsgamelive.b.c) && (cbVar2 = ((com.baidu.tieba.ala.frsgamelive.b.c) nVar).eJQ) != null) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(W(cbVar2));
                 }
@@ -284,9 +284,9 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bSq() {
-        if (this.gVm != null) {
-            this.gVm.bSq();
+    public void bSx() {
+        if (this.gVA != null) {
+            this.gVA.bSx();
         }
     }
 
@@ -298,24 +298,24 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         this.forumName = str;
     }
 
-    private void bVc() {
-        if (this.gVm != null && this.gVm.bVd() != null) {
+    private void bVj() {
+        if (this.gVA != null && this.gVA.bVk() != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(R.string.forum));
-            this.gVm.bVd().setCenterTextTitle(sb.toString());
+            this.gVA.bVk().setCenterTextTitle(sb.toString());
         }
     }
 
     public void nj(boolean z) {
-        this.gVk = z;
+        this.gVy = z;
     }
 
     public void setFromType(int i) {
-        this.gOS = i;
+        this.gPg = i;
     }
 
     public void nk(boolean z) {
-        this.gVo = z;
+        this.gVC = z;
     }
 
     public void setForumGameLabel(String str) {
@@ -325,11 +325,11 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     @Override // com.baidu.ala.refresh.AlaAutoRefreshFragment
     protected List<Long> getCurrentLiveIds() {
         cb cbVar;
-        if (this.gVl == null || y.isEmpty(this.gVl.getData())) {
+        if (this.gVz == null || y.isEmpty(this.gVz.getData())) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
-        for (n nVar : this.gVl.getData()) {
+        for (n nVar : this.gVz.getData()) {
             if ((nVar instanceof cb) && (cbVar = (cb) nVar) != null && cbVar.boj() != null) {
                 linkedList.add(Long.valueOf(cbVar.boj().live_id));
             }
@@ -341,9 +341,9 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     protected void processCloseLives(List<Long> list) {
         cb cbVar;
         Long l;
-        if (!y.isEmpty(list) && this.gVl != null && !y.isEmpty(this.gVl.getData())) {
+        if (!y.isEmpty(list) && this.gVz != null && !y.isEmpty(this.gVz.getData())) {
             LinkedList linkedList = new LinkedList();
-            for (n nVar : this.gVl.getData()) {
+            for (n nVar : this.gVz.getData()) {
                 if ((nVar instanceof cb) && (cbVar = (cb) nVar) != null && cbVar.boj() != null) {
                     Iterator<Long> it = list.iterator();
                     while (true) {
@@ -363,9 +363,9 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                 }
             }
             if (!linkedList.isEmpty()) {
-                this.gVl.getData().removeAll(linkedList);
-                if (this.gVp != null) {
-                    this.gVp.mK(this.gVl.hasMore());
+                this.gVz.getData().removeAll(linkedList);
+                if (this.gVD != null) {
+                    this.gVD.mK(this.gVz.hasMore());
                 }
             }
         }
@@ -373,8 +373,8 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
 
     @Override // com.baidu.ala.refresh.ISquareRefreshHandler
     public void markDataLoaded(int i) {
-        if (this.gyT != null) {
-            this.gyT.reset(i);
+        if (this.gzh != null) {
+            this.gzh.reset(i);
         }
     }
 
@@ -393,7 +393,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     @Override // com.baidu.tieba.frs.ap
-    public NavigationBar bVd() {
-        return this.gVm.bVd();
+    public NavigationBar bVk() {
+        return this.gVA.bVk();
     }
 }

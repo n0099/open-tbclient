@@ -13,10 +13,10 @@ import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 /* loaded from: classes9.dex */
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
-    private f<T> lHm;
+    private f<T> lHA;
 
     public PaymentConfirmModel(f<T> fVar) {
-        this.lHm = fVar;
+        this.lHA = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -44,11 +44,11 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
             httpMessage.addParam("goods_duration", String.valueOf(paymentConfirmRequestData.getGoods_duration()));
             httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
             httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
-            this.lHm.sendMessage(httpMessage);
+            this.lHA.sendMessage(httpMessage);
         }
     }
 
-    public void dkt() {
+    public void dkA() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001536, TbConfig.SERVER_ADDRESS + Config.PAYMENT_CONFIRM_INFO);
         tbHttpMessageTask.setResponsedClass(ResponsePaymentConfirmInfoMessage.class);
@@ -67,11 +67,11 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
             httpMessage.addParam("password", payRequestData.getPassword());
             httpMessage.addParam("bindid", payRequestData.getBindId());
             httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-            this.lHm.sendMessage(httpMessage);
+            this.lHA.sendMessage(httpMessage);
         }
     }
 
-    public void dkB() {
+    public void dkI() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001537, TbConfig.SERVER_ADDRESS + Config.PAYMENT_PAY);
         tbHttpMessageTask.setResponsedClass(ResponsePaymentPayMessage.class);

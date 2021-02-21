@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 @Deprecated
 /* loaded from: classes11.dex */
 public class OSUtils {
-    private static final ROM pgW = ems();
+    private static final ROM phw = emA();
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [332=17, 334=16, 335=16, 336=16] */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -21,7 +21,7 @@ public class OSUtils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static ROM ems() {
+    private static ROM emA() {
         FileInputStream fileInputStream;
         Properties properties;
         ?? containsKey;

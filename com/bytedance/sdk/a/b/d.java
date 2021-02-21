@@ -7,8 +7,8 @@ public final class d {
 
     /* renamed from: b  reason: collision with root package name */
     final Proxy f5958b;
-    final a poG;
-    final InetSocketAddress pqY;
+    final a ppg;
+    final InetSocketAddress pry;
 
     public d(a aVar, Proxy proxy, InetSocketAddress inetSocketAddress) {
         if (aVar == null) {
@@ -20,36 +20,36 @@ public final class d {
         if (inetSocketAddress == null) {
             throw new NullPointerException("inetSocketAddress == null");
         }
-        this.poG = aVar;
+        this.ppg = aVar;
         this.f5958b = proxy;
-        this.pqY = inetSocketAddress;
+        this.pry = inetSocketAddress;
     }
 
-    public a epL() {
-        return this.poG;
+    public a epT() {
+        return this.ppg;
     }
 
-    public Proxy epM() {
+    public Proxy epU() {
         return this.f5958b;
     }
 
-    public InetSocketAddress epN() {
-        return this.pqY;
+    public InetSocketAddress epV() {
+        return this.pry;
     }
 
     public boolean d() {
-        return this.poG.pnX != null && this.f5958b.type() == Proxy.Type.HTTP;
+        return this.ppg.poA != null && this.f5958b.type() == Proxy.Type.HTTP;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof d) && ((d) obj).poG.equals(this.poG) && ((d) obj).f5958b.equals(this.f5958b) && ((d) obj).pqY.equals(this.pqY);
+        return (obj instanceof d) && ((d) obj).ppg.equals(this.ppg) && ((d) obj).f5958b.equals(this.f5958b) && ((d) obj).pry.equals(this.pry);
     }
 
     public int hashCode() {
-        return ((((this.poG.hashCode() + 527) * 31) + this.f5958b.hashCode()) * 31) + this.pqY.hashCode();
+        return ((((this.ppg.hashCode() + 527) * 31) + this.f5958b.hashCode()) * 31) + this.pry.hashCode();
     }
 
     public String toString() {
-        return "Route{" + this.pqY + "}";
+        return "Route{" + this.pry + "}";
     }
 }

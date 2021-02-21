@@ -20,7 +20,7 @@ public class a {
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static class C1267a {
+    public static class C1269a {
 
         /* renamed from: a  reason: collision with root package name */
         protected WeakReference<WebView> f13371a;
@@ -29,7 +29,7 @@ public class a {
         protected long f13372b;
         protected String c;
 
-        public C1267a(WebView webView, long j, String str) {
+        public C1269a(WebView webView, long j, String str) {
             this.f13371a = new WeakReference<>(webView);
             this.f13372b = j;
             this.c = str;
@@ -67,7 +67,7 @@ public class a {
 
     /* loaded from: classes15.dex */
     public static class b {
-        public void call(String str, List<String> list, C1267a c1267a) {
+        public void call(String str, List<String> list, C1269a c1269a) {
             Object invoke;
             Method[] declaredMethods = getClass().getDeclaredMethods();
             Method method = null;
@@ -86,8 +86,8 @@ public class a {
                     i++;
                 } catch (Exception e) {
                     f.b("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + ((Object) null), e);
-                    if (c1267a != null) {
-                        c1267a.a();
+                    if (c1269a != null) {
+                        c1269a.a();
                         return;
                     }
                     return;
@@ -120,14 +120,14 @@ public class a {
                 Class<?> returnType = method.getReturnType();
                 f.b("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                 if ("void".equals(returnType.getName()) || returnType == Void.class) {
-                    if (c1267a != null) {
-                        c1267a.a((Object) null);
+                    if (c1269a != null) {
+                        c1269a.a((Object) null);
                     }
-                } else if (c1267a != null && customCallback()) {
-                    c1267a.a(invoke != null ? invoke.toString() : null);
+                } else if (c1269a != null && customCallback()) {
+                    c1269a.a(invoke != null ? invoke.toString() : null);
                 }
-            } else if (c1267a != null) {
-                c1267a.a();
+            } else if (c1269a != null) {
+                c1269a.a();
             }
         }
 
@@ -140,7 +140,7 @@ public class a {
         this.f13368a.put(str, bVar);
     }
 
-    public void a(String str, String str2, List<String> list, C1267a c1267a) {
+    public void a(String str, String str2, List<String> list, C1269a c1269a) {
         f.a("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -153,12 +153,12 @@ public class a {
         b bVar = this.f13368a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.JsBridge", "call----");
-            bVar.call(str2, list, c1267a);
+            bVar.call(str2, list, c1269a);
             return;
         }
         f.b("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-        if (c1267a != null) {
-            c1267a.a();
+        if (c1269a != null) {
+            c1269a.a();
         }
     }
 
@@ -168,9 +168,9 @@ public class a {
             ArrayList arrayList = new ArrayList(Arrays.asList((str + "/#").split("/")));
             if (arrayList.size() >= 6) {
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C1267a c1267a = new C1267a(webView, 4L, str);
+                C1269a c1269a = new C1269a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c1267a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c1269a);
                 return true;
             }
             return false;

@@ -126,7 +126,7 @@ public class a extends aa {
                     }
                     return null;
                 }
-            }).d(Schedulers.io()).c(rx.a.b.a.eMM()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.b.a.a.3
+            }).d(Schedulers.io()).c(rx.a.b.a.eMU()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.b.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: D */

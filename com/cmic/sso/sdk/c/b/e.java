@@ -13,7 +13,7 @@ public class e extends g {
     private String c;
     private String d;
     private boolean e = false;
-    private a pwN;
+    private a pxn;
 
     public void a(boolean z) {
         this.e = z;
@@ -32,16 +32,16 @@ public class e extends g {
     }
 
     public void a(a aVar) {
-        this.pwN = aVar;
+        this.pxn = aVar;
     }
 
-    public a ern() {
-        return this.pwN;
+    public a erw() {
+        return this.pxn;
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
     public String a() {
-        return this.pwN.a();
+        return this.pxn.a();
     }
 
     @Override // com.cmic.sso.sdk.c.b.g
@@ -50,7 +50,7 @@ public class e extends g {
         if (this.e) {
             try {
                 jSONObject.put("encrypted", this.c);
-                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.f7709b, this.pwN.toString()));
+                jSONObject.put("reqdata", com.cmic.sso.sdk.e.a.a(this.f7709b, this.pxn.toString()));
                 jSONObject.put("securityreinforce", this.d);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -118,11 +118,11 @@ public class e extends g {
         }
 
         public void e(String str) {
-            this.f7710a = YX(str);
+            this.f7710a = Zj(str);
         }
 
         public void f(String str) {
-            this.f7711b = YX(str);
+            this.f7711b = Zj(str);
         }
 
         public String a() {
@@ -130,82 +130,82 @@ public class e extends g {
         }
 
         public void g(String str) {
-            this.c = YX(str);
+            this.c = Zj(str);
         }
 
         public void h(String str) {
-            this.d = YX(str);
+            this.d = Zj(str);
         }
 
         public void i(String str) {
-            this.e = YX(str);
+            this.e = Zj(str);
         }
 
         public void j(String str) {
-            this.f = YX(str);
+            this.f = Zj(str);
         }
 
         public void k(String str) {
-            this.g = YX(str);
+            this.g = Zj(str);
         }
 
         public void l(String str) {
-            this.h = YX(str);
+            this.h = Zj(str);
         }
 
         public void m(String str) {
-            this.i = YX(str);
+            this.i = Zj(str);
         }
 
         public void n(String str) {
-            String YX = YX(str);
+            String Zj = Zj(str);
             try {
-                this.j = URLEncoder.encode(YX, "utf-8");
+                this.j = URLEncoder.encode(Zj, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.j = YX;
+                this.j = Zj;
             }
         }
 
         public void o(String str) {
-            String YX = YX(str);
+            String Zj = Zj(str);
             try {
-                this.k = URLEncoder.encode(YX, "utf-8");
+                this.k = URLEncoder.encode(Zj, "utf-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
-                this.k = YX;
+                this.k = Zj;
             }
         }
 
         public void p(String str) {
-            this.l = YX(str);
+            this.l = Zj(str);
         }
 
         public void q(String str) {
-            this.m = YX(str);
+            this.m = Zj(str);
         }
 
         public void r(String str) {
-            this.o = YX(str);
+            this.o = Zj(str);
         }
 
         public void s(String str) {
-            this.p = YX(str);
+            this.p = Zj(str);
         }
 
         public void t(String str) {
-            this.A = YX(str);
+            this.A = Zj(str);
         }
 
         public void u(String str) {
-            this.B = YX(str);
+            this.B = Zj(str);
         }
 
         public void v(String str) {
-            this.E = YX(str);
+            this.E = Zj(str);
         }
 
-        public String YW(String str) {
+        public String Zi(String str) {
             return com.cmic.sso.sdk.e.d.a(this.f7711b + this.c + this.d + this.e + this.f + this.g + this.h + this.i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
         }
 
@@ -213,7 +213,7 @@ public class e extends g {
             return this.f7710a + ETAG.ITEM_SEPARATOR + this.f7711b + ETAG.ITEM_SEPARATOR + this.c + ETAG.ITEM_SEPARATOR + this.d + ETAG.ITEM_SEPARATOR + this.e + ETAG.ITEM_SEPARATOR + this.f + ETAG.ITEM_SEPARATOR + this.g + ETAG.ITEM_SEPARATOR + this.h + ETAG.ITEM_SEPARATOR + this.i + ETAG.ITEM_SEPARATOR + this.j + ETAG.ITEM_SEPARATOR + this.k + ETAG.ITEM_SEPARATOR + this.l + ETAG.ITEM_SEPARATOR + this.m + ETAG.ITEM_SEPARATOR + "6.0" + ETAG.ITEM_SEPARATOR + this.n + ETAG.ITEM_SEPARATOR + this.o + ETAG.ITEM_SEPARATOR + this.p + ETAG.ITEM_SEPARATOR + this.r + ETAG.ITEM_SEPARATOR + this.s + ETAG.ITEM_SEPARATOR + this.t + ETAG.ITEM_SEPARATOR + this.u + ETAG.ITEM_SEPARATOR + this.v + ETAG.ITEM_SEPARATOR + this.w + ETAG.ITEM_SEPARATOR + this.x + ETAG.ITEM_SEPARATOR + this.y + ETAG.ITEM_SEPARATOR + this.z + ETAG.ITEM_SEPARATOR + this.A + ETAG.ITEM_SEPARATOR + this.B + ETAG.ITEM_SEPARATOR + this.E + "&&" + this.C + ETAG.ITEM_SEPARATOR + this.D;
         }
 
-        private String YX(String str) {
+        private String Zj(String str) {
             return str == null ? "" : str;
         }
     }

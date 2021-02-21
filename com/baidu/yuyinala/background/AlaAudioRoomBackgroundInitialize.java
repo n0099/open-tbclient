@@ -16,14 +16,14 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class AlaAudioRoomBackgroundInitialize {
     static {
-        eiO();
-        eiP();
-        eiQ();
-        eiR();
-        eiS();
+        eiW();
+        eiX();
+        eiY();
+        eiZ();
+        eja();
     }
 
-    private static void eiO() {
+    private static void eiW() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031015, com.baidu.live.a.avJ + "ala/audio/room/getBackgroundList");
         tbHttpMessageTask.setResponsedClass(AlaAudioBackgroundListResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -35,7 +35,7 @@ public class AlaAudioRoomBackgroundInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void eiP() {
+    private static void eiX() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031016, com.baidu.live.a.avJ + "ala/audio/room/setBackground");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -47,7 +47,7 @@ public class AlaAudioRoomBackgroundInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void eiQ() {
+    private static void eiY() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501007) { // from class: com.baidu.yuyinala.background.AlaAudioRoomBackgroundInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -57,26 +57,26 @@ public class AlaAudioRoomBackgroundInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("ala_live_show_data");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof ab)) {
-                        a.eiF().b((TbPageContext) obj, (ab) obj2);
+                        a.eiN().b((TbPageContext) obj, (ab) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void eiR() {
+    private static void eiZ() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.background.AlaAudioRoomBackgroundInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.eiF().FA();
+                    a.eiN().FA();
                 }
             }
         });
     }
 
-    private static void eiS() {
+    private static void eja() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501079) { // from class: com.baidu.yuyinala.background.AlaAudioRoomBackgroundInitialize.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -84,8 +84,8 @@ public class AlaAudioRoomBackgroundInitialize {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String[])) {
                     String str = ((String[]) customResponsedMessage.getData())[0];
                     final String str2 = ((String[]) customResponsedMessage.getData())[1];
-                    com.baidu.yuyinala.background.c.b.b(str, str2, new a.InterfaceC0956a() { // from class: com.baidu.yuyinala.background.AlaAudioRoomBackgroundInitialize.3.1
-                        @Override // com.baidu.yuyinala.background.c.a.InterfaceC0956a
+                    com.baidu.yuyinala.background.c.b.b(str, str2, new a.InterfaceC0958a() { // from class: com.baidu.yuyinala.background.AlaAudioRoomBackgroundInitialize.3.1
+                        @Override // com.baidu.yuyinala.background.c.a.InterfaceC0958a
                         public void Ao(boolean z) {
                             if (z) {
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501078, com.baidu.live.storage.b.hH(str2)));

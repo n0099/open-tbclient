@@ -9,10 +9,10 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class SingleGraphicTextMsgExt {
     public String groupId;
-    public SignleGraphicTextMsg pif;
-    public String pig;
-    public double pih;
-    public String pii;
+    public SignleGraphicTextMsg piG;
+    public String piH;
+    public double piI;
+    public String piJ;
     public String vid;
 
     /* loaded from: classes11.dex */
@@ -23,21 +23,21 @@ public class SingleGraphicTextMsgExt {
     }
 
     public SingleGraphicTextMsgExt(SignleGraphicTextMsg signleGraphicTextMsg) {
-        this.pif = signleGraphicTextMsg;
+        this.piG = signleGraphicTextMsg;
         try {
             JSONObject jSONObject = new JSONObject(signleGraphicTextMsg.getMsgContent());
-            this.pig = jSONObject.optString("quanminUrl");
+            this.piH = jSONObject.optString("quanminUrl");
             this.groupId = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-            this.pih = jSONObject.optDouble("coverHW");
-            this.pii = jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, "0:00");
+            this.piI = jSONObject.optDouble("coverHW");
+            this.piJ = jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, "0:00");
             this.vid = jSONObject.optString("vid");
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public SingleGraphicTextType emD() {
-        if (!TextUtils.isEmpty(this.pig)) {
+    public SingleGraphicTextType emL() {
+        if (!TextUtils.isEmpty(this.piH)) {
             return SingleGraphicTextType.VIDEOSHARE;
         }
         if (!TextUtils.isEmpty(this.groupId)) {

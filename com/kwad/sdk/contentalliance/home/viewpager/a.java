@@ -313,17 +313,17 @@ public abstract class a extends com.kwad.sdk.contentalliance.b.a {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getItemPosition(@NonNull Object obj) {
-        if (obj instanceof b.C1074b) {
-            b.C1074b c1074b = (b.C1074b) obj;
-            if (this.f8757b > -1 && this.f8757b == c1074b.f8273b) {
+        if (obj instanceof b.C1076b) {
+            b.C1076b c1076b = (b.C1076b) obj;
+            if (this.f8757b > -1 && this.f8757b == c1076b.f8273b) {
                 this.f8757b = -1;
-                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition11 position:" + c1074b.f8273b + "--POSITION_UNCHANGED");
+                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition11 position:" + c1076b.f8273b + "--POSITION_UNCHANGED");
                 return -1;
-            } else if (!(c1074b.f8272a instanceof com.kwad.sdk.contentalliance.detail.a) && d(c1074b.f8273b) != -1) {
-                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition22 position:" + c1074b.f8273b + "--POSITION_NONE");
+            } else if (!(c1076b.f8272a instanceof com.kwad.sdk.contentalliance.detail.a) && d(c1076b.f8273b) != -1) {
+                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition22 position:" + c1076b.f8273b + "--POSITION_NONE");
                 return -2;
             } else {
-                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition33 position:" + c1074b.f8273b + "--mItemPosition=" + (this.c == -1 ? "POSITION_UNCHANGED" : "POSITION_NONE"));
+                com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition33 position:" + c1076b.f8273b + "--mItemPosition=" + (this.c == -1 ? "POSITION_UNCHANGED" : "POSITION_NONE"));
             }
         } else {
             com.kwad.sdk.core.d.a.a("SlidePlayPagerAdapter", "getItemPosition 1111111 object:" + obj);

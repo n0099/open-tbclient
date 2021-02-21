@@ -22,21 +22,21 @@ import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class c {
-    private static c iEM = null;
+    private static c iFa = null;
     private Wire wire = new Wire(new Class[0]);
-    private Map<String, a> iEN = null;
-    private Runnable iEO = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
+    private Map<String, a> iFb = null;
+    private Runnable iFc = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
         @Override // java.lang.Runnable
         public void run() {
             final Map map;
             synchronized (c.class) {
-                map = c.this.iEN;
+                map = c.this.iFb;
             }
             if (map != null) {
                 af.a(new ae<Void>() { // from class: com.baidu.tieba.dnsproxy.a.c.1.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.ae
-                    /* renamed from: bLP */
+                    /* renamed from: bLW */
                     public Void doInBackground() {
                         WriteHistroyDataReqIdl.Builder builder = new WriteHistroyDataReqIdl.Builder();
                         builder.connect_point_list = new ArrayList();
@@ -48,7 +48,7 @@ public class c {
                         }
                         c.this.ab(builder.build(true).toByteArray());
                         synchronized (c.class) {
-                            c.this.iEN = null;
+                            c.this.iFb = null;
                         }
                         return null;
                     }
@@ -57,15 +57,15 @@ public class c {
         }
     };
 
-    public static final c cuj() {
-        if (iEM == null) {
+    public static final c cuq() {
+        if (iFa == null) {
             synchronized (c.class) {
-                if (iEM == null) {
-                    iEM = new c();
+                if (iFa == null) {
+                    iFa = new c();
                 }
             }
         }
-        return iEM;
+        return iFa;
     }
 
     private c() {
@@ -75,12 +75,12 @@ public class c {
         af.a(new ae<WriteHistroyDataReqIdl>() { // from class: com.baidu.tieba.dnsproxy.a.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ae
-            /* renamed from: cum */
+            /* renamed from: cut */
             public WriteHistroyDataReqIdl doInBackground() {
-                byte[] cuk = c.this.cuk();
-                if (cuk != null) {
+                byte[] cur = c.this.cur();
+                if (cur != null) {
                     try {
-                        return (WriteHistroyDataReqIdl) c.this.wire.parseFrom(cuk, WriteHistroyDataReqIdl.class);
+                        return (WriteHistroyDataReqIdl) c.this.wire.parseFrom(cur, WriteHistroyDataReqIdl.class);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -101,7 +101,7 @@ public class c {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [144=6, 145=5] */
     /* JADX INFO: Access modifiers changed from: private */
-    public byte[] cuk() {
+    public byte[] cur() {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         OutputStream outputStream;
@@ -129,21 +129,21 @@ public class c {
                 } catch (FileNotFoundException e) {
                     e = e;
                     BdLog.detailException(e);
-                    com.baidu.tieba.dnsproxy.d.ctZ().error("read_dnsproxydata", e.getMessage());
+                    com.baidu.tieba.dnsproxy.d.cug().error("read_dnsproxydata", e.getMessage());
                     com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                     com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
                     return bArr;
                 } catch (IOException e2) {
                     e = e2;
                     BdLog.detailException(e);
-                    com.baidu.tieba.dnsproxy.d.ctZ().error("read_dnsproxydata", e.getMessage());
+                    com.baidu.tieba.dnsproxy.d.cug().error("read_dnsproxydata", e.getMessage());
                     com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                     com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
                     return bArr;
                 } catch (Throwable th2) {
                     th = th2;
                     BdLog.detailException(th);
-                    com.baidu.tieba.dnsproxy.d.ctZ().error("read_dnsproxydata", th.getMessage());
+                    com.baidu.tieba.dnsproxy.d.cug().error("read_dnsproxydata", th.getMessage());
                     com.baidu.adp.lib.f.a.close((InputStream) fileInputStream);
                     com.baidu.adp.lib.f.a.close((OutputStream) byteArrayOutputStream);
                     return bArr;
@@ -177,18 +177,18 @@ public class c {
         return bArr;
     }
 
-    public void cul() {
+    public void cus() {
         e.mA().removeMessages(0, this);
-        e.mA().post(this.iEO);
+        e.mA().post(this.iFc);
     }
 
     public void G(Map<String, a> map) {
         if (TbadkCoreApplication.getInst().isMainProcess(false) && map != null) {
             synchronized (c.class) {
-                this.iEN = map;
+                this.iFb = map;
             }
             if (!e.mA().hasMessages(0, this)) {
-                Message obtain = Message.obtain(e.mA(), this.iEO);
+                Message obtain = Message.obtain(e.mA(), this.iFc);
                 obtain.what = 0;
                 obtain.obj = this;
                 e.mA().sendMessageDelayed(obtain, 30000L);
@@ -209,16 +209,16 @@ public class c {
                     com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
                 } catch (FileNotFoundException e) {
                     BdLog.detailException(e);
-                    com.baidu.tieba.dnsproxy.d.ctZ().error("save_dnsproxydata", e.getMessage());
+                    com.baidu.tieba.dnsproxy.d.cug().error("save_dnsproxydata", e.getMessage());
                     com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
                 }
             } catch (IOException e2) {
                 BdLog.detailException(e2);
-                com.baidu.tieba.dnsproxy.d.ctZ().error("save_dnsproxydata", e2.getMessage());
+                com.baidu.tieba.dnsproxy.d.cug().error("save_dnsproxydata", e2.getMessage());
                 com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
             } catch (Throwable th) {
                 BdLog.detailException(th);
-                com.baidu.tieba.dnsproxy.d.ctZ().error("save_dnsproxydata", th.getMessage());
+                com.baidu.tieba.dnsproxy.d.cug().error("save_dnsproxydata", th.getMessage());
                 com.baidu.adp.lib.f.a.close((OutputStream) fileOutputStream);
             }
         } catch (Throwable th2) {

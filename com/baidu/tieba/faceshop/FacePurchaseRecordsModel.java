@@ -10,8 +10,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes9.dex */
 public class FacePurchaseRecordsModel extends BdBaseModel {
-    private float iUY;
-    private a iVH;
+    private a iVV;
+    private float iVm;
     private int mScreenHeight;
     private int mScreenWidth;
     private String mStType;
@@ -23,7 +23,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
         Application app = TbadkApplication.getInst().getApp();
         this.mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(app);
         this.mScreenHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(app);
-        this.iUY = app.getResources().getDisplayMetrics().density;
+        this.iVm = app.getResources().getDisplayMetrics().density;
     }
 
     public void setStType(String str) {
@@ -31,10 +31,10 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
     }
 
     public void loadData() {
-        if (this.iVH == null) {
-            this.iVH = new a();
-            this.iVH.setPriority(3);
-            this.iVH.execute(new Object[0]);
+        if (this.iVV == null) {
+            this.iVV = new a();
+            this.iVV.setPriority(3);
+            this.iVV.execute(new Object[0]);
         }
     }
 
@@ -55,7 +55,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
                 this.cml.addPostData("st_type", FacePurchaseRecordsModel.this.mStType);
                 this.cml.addPostData("scr_w", String.valueOf(FacePurchaseRecordsModel.this.mScreenWidth));
                 this.cml.addPostData("scr_h", String.valueOf(FacePurchaseRecordsModel.this.mScreenHeight));
-                this.cml.addPostData("scr_dip", String.valueOf(FacePurchaseRecordsModel.this.iUY));
+                this.cml.addPostData("scr_dip", String.valueOf(FacePurchaseRecordsModel.this.iVm));
                 return (FacePurchaseRecordsData) OrmObject.objectWithJsonStr(this.cml.postNetData(), FacePurchaseRecordsData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -68,7 +68,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(FacePurchaseRecordsData facePurchaseRecordsData) {
-            FacePurchaseRecordsModel.this.iVH = null;
+            FacePurchaseRecordsModel.this.iVV = null;
             FacePurchaseRecordsModel.this.mLoadDataCallBack.callback(facePurchaseRecordsData);
             super.onPostExecute(facePurchaseRecordsData);
         }
@@ -79,7 +79,7 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
             if (this.cml != null) {
                 this.cml.cancelNetConnect();
             }
-            FacePurchaseRecordsModel.this.iVH = null;
+            FacePurchaseRecordsModel.this.iVV = null;
         }
     }
 
@@ -90,8 +90,8 @@ public class FacePurchaseRecordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iVH != null) {
-            this.iVH.cancel();
+        if (this.iVV != null) {
+            this.iVV.cancel();
             return true;
         }
         return true;

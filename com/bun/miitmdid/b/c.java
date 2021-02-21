@@ -15,10 +15,10 @@ public class c {
 
     private Map<String, String> a() {
         if (this.f5739a.isEmpty()) {
-            this.f5739a.put("av", sysParamters.enk().b());
-            this.f5739a.put("sv", sysParamters.enk().c());
-            this.f5739a.put(IXAdRequestInfo.TEST_MODE, sysParamters.enk().d());
-            this.f5739a.put("mf", sysParamters.enk().e());
+            this.f5739a.put("av", sysParamters.ens().b());
+            this.f5739a.put("sv", sysParamters.ens().c());
+            this.f5739a.put(IXAdRequestInfo.TEST_MODE, sysParamters.ens().d());
+            this.f5739a.put("mf", sysParamters.ens().e());
             this.f5739a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
         this.f5739a.put(IXAdRequestInfo.MAX_TITLE_LENGTH, String.valueOf(System.currentTimeMillis()));
@@ -30,14 +30,14 @@ public class c {
             String a2 = d.a(String.format("UDID=%s&OAID=%s&VAID=%s&AAID=%s", str, str2, str3, str4));
             b hM = b.hM(com.bun.miitmdid.utils.b.a());
             hM.J(a());
-            hM.hh("support", String.valueOf(z ? 1 : 0));
+            hM.hj("support", String.valueOf(z ? 1 : 0));
             hM.aX(a2);
-            hM.Yt("http://sdk.api.bjshcw.com/stat");
+            hM.YF("http://sdk.api.bjshcw.com/stat");
             hM.a(new b.a() { // from class: com.bun.miitmdid.b.c.1
                 @Override // com.bun.miitmdid.b.b.a
                 public void a(Exception exc, int i, String str5) {
                 }
-            }).enf();
+            }).enn();
             return true;
         } catch (Exception e) {
             e.printStackTrace();

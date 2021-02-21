@@ -25,7 +25,7 @@ public class k extends BdBaseModel {
     public interface a {
         void bv(int i, String str);
 
-        void cmd();
+        void cmk();
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class k extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        cmb();
+        cmi();
         b(aVar);
     }
 
@@ -60,7 +60,7 @@ public class k extends BdBaseModel {
                         aVar.bv(cancelPkResponseMessage.getError(), cancelPkResponseMessage.getErrorString());
                         return;
                     }
-                    aVar.cmd();
+                    aVar.cmk();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue("lodId", Long.valueOf(cancelPkResponseMessage.getLogId()));
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(cancelPkResponseMessage.getError()));
@@ -79,7 +79,7 @@ public class k extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void cmb() {
+    private void cmi() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021212, TbConfig.SERVER_ADDRESS + "ala/pksolo/cancelPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -89,7 +89,7 @@ public class k extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cmc() {
+    public void cmj() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021212);
     }

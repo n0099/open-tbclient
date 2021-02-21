@@ -10,13 +10,13 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes6.dex */
 public class f<T> implements j<b<T>> {
-    private final boolean pAb;
-    private final List<j<b<T>>> pzW;
+    private final boolean pAB;
+    private final List<j<b<T>>> pAw;
 
     private f(List<j<b<T>>> list, boolean z) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.pzW = list;
-        this.pAb = z;
+        this.pAw = list;
+        this.pAB = z;
     }
 
     public static <T> f<T> D(List<j<b<T>>> list, boolean z) {
@@ -25,13 +25,13 @@ public class f<T> implements j<b<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: etd */
+    /* renamed from: etl */
     public b<T> get() {
         return new a();
     }
 
     public int hashCode() {
-        return this.pzW.hashCode();
+        return this.pAw.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -41,11 +41,11 @@ public class f<T> implements j<b<T>> {
         if (!(obj instanceof f)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.pzW, ((f) obj).pzW);
+        return com.facebook.common.internal.f.equal(this.pAw, ((f) obj).pAw);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.bb(this).H("list", this.pzW).toString();
+        return com.facebook.common.internal.f.bb(this).H("list", this.pAw).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,34 +54,34 @@ public class f<T> implements j<b<T>> {
     public class a extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
-        private ArrayList<b<T>> pAc;
+        private ArrayList<b<T>> pAC;
         @GuardedBy("IncreasingQualityDataSource.this")
-        private int pAd;
-        private int pAe;
-        private AtomicInteger pAf;
+        private int pAD;
+        private int pAE;
+        private AtomicInteger pAF;
         @Nullable
-        private Throwable pAg;
+        private Throwable pAG;
 
         public a() {
-            if (!f.this.pAb) {
-                eth();
+            if (!f.this.pAB) {
+                etp();
             }
         }
 
-        private void eth() {
-            if (this.pAf == null) {
+        private void etp() {
+            if (this.pAF == null) {
                 synchronized (this) {
-                    if (this.pAf == null) {
-                        this.pAf = new AtomicInteger(0);
-                        int size = f.this.pzW.size();
-                        this.pAe = size;
-                        this.pAd = size;
-                        this.pAc = new ArrayList<>(size);
+                    if (this.pAF == null) {
+                        this.pAF = new AtomicInteger(0);
+                        int size = f.this.pAw.size();
+                        this.pAE = size;
+                        this.pAD = size;
+                        this.pAC = new ArrayList<>(size);
                         for (int i = 0; i < size; i++) {
-                            b<T> bVar = (b) ((j) f.this.pzW.get(i)).get();
-                            this.pAc.add(bVar);
-                            bVar.a(new C1043a(i), com.facebook.common.b.a.esr());
-                            if (bVar.esX()) {
+                            b<T> bVar = (b) ((j) f.this.pAw.get(i)).get();
+                            this.pAC.add(bVar);
+                            bVar.a(new C1045a(i), com.facebook.common.b.a.esz());
+                            if (bVar.etf()) {
                                 break;
                             }
                         }
@@ -91,46 +91,46 @@ public class f<T> implements j<b<T>> {
         }
 
         @Nullable
-        private synchronized b<T> OX(int i) {
-            return (this.pAc == null || i >= this.pAc.size()) ? null : this.pAc.get(i);
+        private synchronized b<T> OY(int i) {
+            return (this.pAC == null || i >= this.pAC.size()) ? null : this.pAC.get(i);
         }
 
         @Nullable
-        private synchronized b<T> OY(int i) {
+        private synchronized b<T> OZ(int i) {
             b<T> bVar = null;
             synchronized (this) {
-                if (this.pAc != null && i < this.pAc.size()) {
-                    bVar = this.pAc.set(i, null);
+                if (this.pAC != null && i < this.pAC.size()) {
+                    bVar = this.pAC.set(i, null);
                 }
             }
             return bVar;
         }
 
         @Nullable
-        private synchronized b<T> etg() {
-            return OX(this.pAd);
+        private synchronized b<T> eto() {
+            return OY(this.pAD);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> etg;
-            if (f.this.pAb) {
-                eth();
+            b<T> eto;
+            if (f.this.pAB) {
+                etp();
             }
-            etg = etg();
-            return etg != null ? etg.getResult() : null;
+            eto = eto();
+            return eto != null ? eto.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean esX() {
+        public synchronized boolean etf() {
             boolean z;
-            if (f.this.pAb) {
-                eth();
+            if (f.this.pAB) {
+                etp();
             }
-            b<T> etg = etg();
-            if (etg != null) {
-                z = etg.esX();
+            b<T> eto = eto();
+            if (eto != null) {
+                z = eto.etf();
             }
             return z;
         }
@@ -138,13 +138,13 @@ public class f<T> implements j<b<T>> {
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         public boolean apL() {
             int i = 0;
-            if (f.this.pAb) {
-                eth();
+            if (f.this.pAB) {
+                etp();
             }
             synchronized (this) {
                 if (super.apL()) {
-                    ArrayList<b<T>> arrayList = this.pAc;
-                    this.pAc = null;
+                    ArrayList<b<T>> arrayList = this.pAC;
+                    this.pAC = null;
                     if (arrayList != null) {
                         while (true) {
                             int i2 = i;
@@ -164,38 +164,38 @@ public class f<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i, b<T> bVar) {
             a(i, bVar, bVar.isFinished());
-            if (bVar == etg()) {
+            if (bVar == eto()) {
                 c((a) null, i == 0 && bVar.isFinished());
             }
-            eti();
+            etq();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(int i, b<T> bVar) {
             l(c(i, bVar));
             if (i == 0) {
-                this.pAg = bVar.esZ();
+                this.pAG = bVar.eth();
             }
-            eti();
+            etq();
         }
 
-        private void eti() {
-            if (this.pAf.incrementAndGet() == this.pAe && this.pAg != null) {
-                t(this.pAg);
+        private void etq() {
+            if (this.pAF.incrementAndGet() == this.pAE && this.pAG != null) {
+                t(this.pAG);
             }
         }
 
         private void a(int i, b<T> bVar, boolean z) {
             synchronized (this) {
-                int i2 = this.pAd;
-                if (bVar == OX(i) && i != this.pAd) {
-                    if (etg() == null || (z && i < this.pAd)) {
-                        this.pAd = i;
+                int i2 = this.pAD;
+                if (bVar == OY(i) && i != this.pAD) {
+                    if (eto() == null || (z && i < this.pAD)) {
+                        this.pAD = i;
                     } else {
                         i = i2;
                     }
-                    for (int i3 = this.pAd; i3 > i; i3--) {
-                        l(OY(i3));
+                    for (int i3 = this.pAD; i3 > i; i3--) {
+                        l(OZ(i3));
                     }
                 }
             }
@@ -203,10 +203,10 @@ public class f<T> implements j<b<T>> {
 
         @Nullable
         private synchronized b<T> c(int i, b<T> bVar) {
-            if (bVar == etg()) {
+            if (bVar == eto()) {
                 bVar = null;
-            } else if (bVar == OX(i)) {
-                bVar = OY(i);
+            } else if (bVar == OY(i)) {
+                bVar = OZ(i);
             }
             return bVar;
         }
@@ -220,16 +220,16 @@ public class f<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.datasource.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1043a implements d<T> {
+        public class C1045a implements d<T> {
             private int mIndex;
 
-            public C1043a(int i) {
+            public C1045a(int i) {
                 this.mIndex = i;
             }
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.esX()) {
+                if (bVar.etf()) {
                     a.this.a(this.mIndex, bVar);
                 } else if (bVar.isFinished()) {
                     a.this.b(this.mIndex, bVar);

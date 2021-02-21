@@ -58,7 +58,7 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean CP(String str) {
+    public boolean CN(String str) {
         return false;
     }
 
@@ -68,12 +68,12 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CQ(String str) {
+    public com.baidu.adp.widget.ImageView.a CO(String str) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CR(String str) {
+    public com.baidu.adp.widget.ImageView.a CP(String str) {
         return null;
     }
 

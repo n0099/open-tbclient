@@ -32,12 +32,12 @@ public class e {
         if (cVar != null) {
             this.f12907a = cVar.g();
             this.f12908b = cVar.q();
-            this.d = cVar.eHa();
-            this.c = cVar.eij();
+            this.d = cVar.eHi();
+            this.c = cVar.eir();
             this.e = cVar.n();
-            com.ss.android.socialbase.downloader.e.a eHN = cVar.eHN();
-            if (eHN != null) {
-                this.f = eHN.a();
+            com.ss.android.socialbase.downloader.e.a eHV = cVar.eHV();
+            if (eHV != null) {
+                this.f = eHV.a();
             } else {
                 this.f = 0;
             }

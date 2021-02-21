@@ -10,40 +10,40 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Wc(String str) {
-        if (q.edE().Yk()) {
-            ecZ();
-        } else if (q.edE().edI()) {
-            ecZ();
-        } else if (q.edE().iH(str)) {
-            f.edj().f(this.mPageContext);
+    public void Wo(String str) {
+        if (q.edM().Yk()) {
+            edh();
+        } else if (q.edM().edQ()) {
+            edh();
+        } else if (q.edM().iH(str)) {
+            f.edr().f(this.mPageContext);
         } else {
-            ecY();
+            edg();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Wd(String str) {
-        if (ecT()) {
-            eda();
-        } else if (ecU()) {
-            if (q.edE().Yk()) {
-                if (q.edE().iH(str)) {
-                    if (q.edE().iJ(str)) {
-                        ecZ();
+    public void Wp(String str) {
+        if (edb()) {
+            edi();
+        } else if (edc()) {
+            if (q.edM().Yk()) {
+                if (q.edM().iH(str)) {
+                    if (q.edM().iJ(str)) {
+                        edh();
                         return;
                     } else {
-                        edb();
+                        edj();
                         return;
                     }
                 }
-                ecZ();
-            } else if (q.edE().iJ(str)) {
-                ecZ();
-            } else if (q.edE().Wr(str)) {
-                edb();
+                edh();
+            } else if (q.edM().iJ(str)) {
+                edh();
+            } else if (q.edM().WD(str)) {
+                edj();
             } else {
-                ecY();
+                edg();
             }
         }
     }

@@ -44,21 +44,21 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
             if (hotTopicIntervalItemHolder.ajU != this.mSkinType) {
                 hotTopicIntervalItemHolder.ajU = this.mSkinType;
                 ap.setBackgroundColor(hotTopicIntervalItemHolder.getView(), R.color.CAM_X0201);
-                ap.setBackgroundColor(hotTopicIntervalItemHolder.kvK, R.color.CAM_X0204);
-                ap.setViewTextColor(hotTopicIntervalItemHolder.kvL, R.color.CAM_X0108, 1);
+                ap.setBackgroundColor(hotTopicIntervalItemHolder.kvY, R.color.CAM_X0204);
+                ap.setViewTextColor(hotTopicIntervalItemHolder.kvZ, R.color.CAM_X0108, 1);
             }
         }
     }
 
     private void a(HotTopicIntervalItemHolder hotTopicIntervalItemHolder, com.baidu.tieba.hottopic.data.g gVar) {
-        if (hotTopicIntervalItemHolder == null || gVar == null || StringUtils.isNull(gVar.kuf)) {
+        if (hotTopicIntervalItemHolder == null || gVar == null || StringUtils.isNull(gVar.kut)) {
             if (hotTopicIntervalItemHolder != null) {
-                hotTopicIntervalItemHolder.kvL.setVisibility(8);
+                hotTopicIntervalItemHolder.kvZ.setVisibility(8);
                 return;
             }
             return;
         }
-        hotTopicIntervalItemHolder.kvL.setVisibility(0);
-        hotTopicIntervalItemHolder.kvL.setText(gVar.kuf);
+        hotTopicIntervalItemHolder.kvZ.setVisibility(0);
+        hotTopicIntervalItemHolder.kvZ.setText(gVar.kut);
     }
 }

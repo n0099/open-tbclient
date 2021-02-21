@@ -10,12 +10,12 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes6.dex */
 public final class c {
-    public final ab pof;
-    public final com.bytedance.sdk.a.b.b pog;
+    public final ab poI;
+    public final com.bytedance.sdk.a.b.b poJ;
 
     c(ab abVar, com.bytedance.sdk.a.b.b bVar) {
-        this.pof = abVar;
-        this.pog = bVar;
+        this.poI = abVar;
+        this.poJ = bVar;
     }
 
     public static boolean a(com.bytedance.sdk.a.b.b bVar, ab abVar) {
@@ -36,12 +36,12 @@ public final class c {
                 return false;
             case 302:
             case 307:
-                if (bVar.a(Headers.EXPIRES) == null && bVar.epI().c() == -1 && !bVar.epI().e() && !bVar.epI().d()) {
+                if (bVar.a(Headers.EXPIRES) == null && bVar.epQ().c() == -1 && !bVar.epQ().e() && !bVar.epQ().d()) {
                     return false;
                 }
                 break;
         }
-        return (bVar.epI().b() || abVar.eqx().b()) ? false : true;
+        return (bVar.epQ().b() || abVar.eqF().b()) ? false : true;
     }
 
     /* loaded from: classes6.dex */
@@ -56,31 +56,31 @@ public final class c {
         private long j;
         private String k;
         private int l;
-        final ab poh;
-        final com.bytedance.sdk.a.b.b poj;
-        private Date pok;
-        private Date pol;
+        final ab poK;
+        final com.bytedance.sdk.a.b.b poL;
+        private Date poM;
+        private Date poN;
 
         public a(long j, ab abVar, com.bytedance.sdk.a.b.b bVar) {
             this.l = -1;
             this.f5857a = j;
-            this.poh = abVar;
-            this.poj = bVar;
+            this.poK = abVar;
+            this.poL = bVar;
             if (bVar != null) {
                 this.i = bVar.k();
                 this.j = bVar.l();
-                v epE = bVar.epE();
-                int a2 = epE.a();
+                v epM = bVar.epM();
+                int a2 = epM.a();
                 for (int i = 0; i < a2; i++) {
-                    String a3 = epE.a(i);
-                    String b2 = epE.b(i);
+                    String a3 = epM.a(i);
+                    String b2 = epM.b(i);
                     if ("Date".equalsIgnoreCase(a3)) {
                         this.d = com.bytedance.sdk.a.b.a.c.d.a(b2);
                         this.e = b2;
                     } else if (Headers.EXPIRES.equalsIgnoreCase(a3)) {
-                        this.pol = com.bytedance.sdk.a.b.a.c.d.a(b2);
+                        this.poN = com.bytedance.sdk.a.b.a.c.d.a(b2);
                     } else if (Headers.LAST_MODIFIED.equalsIgnoreCase(a3)) {
-                        this.pok = com.bytedance.sdk.a.b.a.c.d.a(b2);
+                        this.poM = com.bytedance.sdk.a.b.a.c.d.a(b2);
                         this.g = b2;
                     } else if (Headers.ETAG.equalsIgnoreCase(a3)) {
                         this.k = b2;
@@ -91,86 +91,86 @@ public final class c {
             }
         }
 
-        public c eoT() {
-            c eoU = eoU();
-            if (eoU.pof != null && this.poh.eqx().i()) {
+        public c epb() {
+            c epc = epc();
+            if (epc.poI != null && this.poK.eqF().i()) {
                 return new c(null, null);
             }
-            return eoU;
+            return epc;
         }
 
-        private c eoU() {
+        private c epc() {
             String str;
             String str2;
             long j = 0;
-            if (this.poj == null) {
-                return new c(this.poh, null);
+            if (this.poL == null) {
+                return new c(this.poK, null);
             }
-            if (this.poh.g() && this.poj.epD() == null) {
-                return new c(this.poh, null);
+            if (this.poK.g() && this.poL.epL() == null) {
+                return new c(this.poK, null);
             }
-            if (!c.a(this.poj, this.poh)) {
-                return new c(this.poh, null);
+            if (!c.a(this.poL, this.poK)) {
+                return new c(this.poK, null);
             }
-            g eqx = this.poh.eqx();
-            if (eqx.a() || a(this.poh)) {
-                return new c(this.poh, null);
+            g eqF = this.poK.eqF();
+            if (eqF.a() || a(this.poK)) {
+                return new c(this.poK, null);
             }
-            g epI = this.poj.epI();
-            if (epI.j()) {
-                return new c(null, this.poj);
+            g epQ = this.poL.epQ();
+            if (epQ.j()) {
+                return new c(null, this.poL);
             }
             long d = d();
             long c = c();
-            if (eqx.c() != -1) {
-                c = Math.min(c, TimeUnit.SECONDS.toMillis(eqx.c()));
+            if (eqF.c() != -1) {
+                c = Math.min(c, TimeUnit.SECONDS.toMillis(eqF.c()));
             }
-            long millis = eqx.h() != -1 ? TimeUnit.SECONDS.toMillis(eqx.h()) : 0L;
-            if (!epI.f() && eqx.g() != -1) {
-                j = TimeUnit.SECONDS.toMillis(eqx.g());
+            long millis = eqF.h() != -1 ? TimeUnit.SECONDS.toMillis(eqF.h()) : 0L;
+            if (!epQ.f() && eqF.g() != -1) {
+                j = TimeUnit.SECONDS.toMillis(eqF.g());
             }
-            if (!epI.a() && d + millis < j + c) {
-                b.a epG = this.poj.epG();
+            if (!epQ.a() && d + millis < j + c) {
+                b.a epO = this.poL.epO();
                 if (millis + d >= c) {
-                    epG.hi("Warning", "110 HttpURLConnection \"Response is stale\"");
+                    epO.hk("Warning", "110 HttpURLConnection \"Response is stale\"");
                 }
                 if (d > 86400000 && e()) {
-                    epG.hi("Warning", "113 HttpURLConnection \"Heuristic expiration\"");
+                    epO.hk("Warning", "113 HttpURLConnection \"Heuristic expiration\"");
                 }
-                return new c(null, epG.epJ());
+                return new c(null, epO.epR());
             }
             if (this.k != null) {
                 str = "If-None-Match";
                 str2 = this.k;
-            } else if (this.pok != null) {
+            } else if (this.poM != null) {
                 str = "If-Modified-Since";
                 str2 = this.g;
             } else if (this.d != null) {
                 str = "If-Modified-Since";
                 str2 = this.e;
             } else {
-                return new c(this.poh, null);
+                return new c(this.poK, null);
             }
-            v.a epU = this.poh.epp().epU();
-            com.bytedance.sdk.a.b.a.a.poa.a(epU, str, str2);
-            return new c(this.poh.eqw().e(epU.epV()).eqB(), this.poj);
+            v.a eqc = this.poK.epx().eqc();
+            com.bytedance.sdk.a.b.a.a.poD.a(eqc, str, str2);
+            return new c(this.poK.eqE().e(eqc.eqd()).eqJ(), this.poL);
         }
 
         private long c() {
-            g epI;
-            if (this.poj.epI().c() != -1) {
-                return TimeUnit.SECONDS.toMillis(epI.c());
+            g epQ;
+            if (this.poL.epQ().c() != -1) {
+                return TimeUnit.SECONDS.toMillis(epQ.c());
             }
-            if (this.pol != null) {
-                long time = this.pol.getTime() - (this.d != null ? this.d.getTime() : this.j);
+            if (this.poN != null) {
+                long time = this.poN.getTime() - (this.d != null ? this.d.getTime() : this.j);
                 if (time <= 0) {
                     time = 0;
                 }
                 return time;
-            } else if (this.pok == null || this.poj.epm().eoJ().k() != null) {
+            } else if (this.poM == null || this.poL.epu().eoR().k() != null) {
                 return 0L;
             } else {
-                long time2 = (this.d != null ? this.d.getTime() : this.i) - this.pok.getTime();
+                long time2 = (this.d != null ? this.d.getTime() : this.i) - this.poM.getTime();
                 if (time2 > 0) {
                     return time2 / 10;
                 }
@@ -187,7 +187,7 @@ public final class c {
         }
 
         private boolean e() {
-            return this.poj.epI().c() == -1 && this.pol == null;
+            return this.poL.epQ().c() == -1 && this.poN == null;
         }
 
         private static boolean a(ab abVar) {

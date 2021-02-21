@@ -7,8 +7,8 @@ public class e {
     private String OU;
     private String mAction;
     private JSONObject mParams;
-    private String nzb;
-    private String nzc;
+    private String nzB;
+    private String nzC;
 
     public String getAction() {
         return this.mAction;
@@ -26,7 +26,7 @@ public class e {
         this.OU = str;
     }
 
-    public JSONObject dOh() {
+    public JSONObject dOp() {
         return this.mParams;
     }
 
@@ -34,19 +34,19 @@ public class e {
         this.mParams = jSONObject;
     }
 
-    public String dOi() {
-        return this.nzb;
+    public String dOq() {
+        return this.nzB;
     }
 
-    public void Tk(String str) {
-        this.nzb = str;
+    public void Tw(String str) {
+        this.nzB = str;
     }
 
-    public void Tl(String str) {
-        this.nzc = str;
+    public void Tx(String str) {
+        this.nzC = str;
     }
 
-    public String dOj() {
+    public String dOr() {
         return au.isEmpty(this.OU) ? this.mAction : this.OU + "/" + this.mAction;
     }
 }

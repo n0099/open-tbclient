@@ -47,12 +47,12 @@ public class aw {
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m578a() {
+    public Uri m577a() {
         return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m579a() {
+    public boolean m578a() {
         return com.xiaomi.push.ab.f170a.contains("xmsf") || com.xiaomi.push.ab.f170a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f170a.contains("miui");
     }
 }

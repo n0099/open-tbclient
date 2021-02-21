@@ -11,8 +11,8 @@ import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
 import com.baidu.tieba.personPolymeric.c.q;
 /* loaded from: classes8.dex */
 public class c {
-    private a ltX;
-    private boolean ltY;
+    private a lul;
+    private boolean lum;
     private q recommendGodData;
     private BdUniqueId uniqueId;
     private int pageNum = 0;
@@ -28,18 +28,18 @@ public class c {
                         c.this.recommendGodData = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
                     }
                     if (c.this.recommendGodData != null) {
-                        c.this.pageNum = c.this.recommendGodData.har;
+                        c.this.pageNum = c.this.recommendGodData.haF;
                     }
                     int error = responsedMessage.getError();
                     if (error == 0 && c.this.recommendGodData != null) {
-                        if (y.isEmpty(c.this.recommendGodData.mBO)) {
-                            error = c.this.ltY ? 3 : 2;
+                        if (y.isEmpty(c.this.recommendGodData.mCd)) {
+                            error = c.this.lum ? 3 : 2;
                         }
                     } else {
                         error = 1;
                     }
-                    if (c.this.ltX != null) {
-                        c.this.ltX.a(c.this.recommendGodData, error);
+                    if (c.this.lul != null) {
+                        c.this.lul.a(c.this.recommendGodData, error);
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class c {
         RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
         recommendGodReqMsg.portrait = str;
         if (this.pageNum == 0) {
-            this.ltY = false;
+            this.lum = false;
         } else {
-            this.ltY = true;
+            this.lum = true;
         }
         recommendGodReqMsg.pageNum = this.pageNum + 1;
         recommendGodReqMsg.setTag(this.uniqueId);
@@ -81,6 +81,6 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.ltX = aVar;
+        this.lul = aVar;
     }
 }

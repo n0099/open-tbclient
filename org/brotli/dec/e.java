@@ -1,8 +1,8 @@
 package org.brotli.dec;
 /* loaded from: classes6.dex */
 final class e {
-    static final int[] qvl = {0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
-    static final int[] qvm = {0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
+    static final int[] qvL = {0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
+    static final int[] qvM = {0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
 
     /* loaded from: classes6.dex */
     private static class b {
@@ -27,7 +27,7 @@ final class e {
 
     /* loaded from: classes6.dex */
     private static class a {
-        static final byte[] qvn = new byte[122784];
+        static final byte[] qvN = new byte[122784];
 
         static {
             String[] strArr = {b.getData(), c.getData(), d.getData()};
@@ -35,14 +35,14 @@ final class e {
             for (String str : strArr) {
                 i += str.length();
             }
-            if (i != qvn.length) {
+            if (i != qvN.length) {
                 throw new RuntimeException("Corrupted brotli dictionary");
             }
             int i2 = 0;
             for (String str2 : strArr) {
                 int i3 = 0;
                 while (i3 < str2.length()) {
-                    qvn[i2] = (byte) str2.charAt(i3);
+                    qvN[i2] = (byte) str2.charAt(i3);
                     i3++;
                     i2++;
                 }
@@ -52,6 +52,6 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static byte[] getData() {
-        return a.qvn;
+        return a.qvN;
     }
 }

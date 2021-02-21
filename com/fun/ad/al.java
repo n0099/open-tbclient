@@ -17,8 +17,8 @@ import com.kwad.sdk.api.KsVideoPlayConfig;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class al extends ac {
-    public KsFullScreenVideoAd pPj;
-    public AdRipper.RippedKSAd pPk;
+    public KsFullScreenVideoAd pPJ;
+    public AdRipper.RippedKSAd pPK;
 
     /* loaded from: classes6.dex */
     public class b implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListener {
@@ -29,7 +29,7 @@ public class al extends ac {
         public void onAdClicked() {
             m.a("KSFullscreenVideoAd 全屏视频广告点击");
             al alVar = al.this;
-            w wVar = alVar.pPi;
+            w wVar = alVar.pPI;
             if (wVar != null) {
                 ((ag) wVar).a(alVar.f7745a.f7762a);
             }
@@ -39,7 +39,7 @@ public class al extends ac {
         public void onPageDismiss() {
             m.a("KSFullscreenVideoAd 全屏视频广告关闭");
             al alVar = al.this;
-            w wVar = alVar.pPi;
+            w wVar = alVar.pPI;
             if (wVar != null) {
                 ((ag) wVar).d(alVar.f7745a.f7762a);
             }
@@ -48,7 +48,7 @@ public class al extends ac {
         @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
         public void onSkippedVideo() {
             m.a("KSFullscreenVideoAd 全屏视频广告播放跳过");
-            w wVar = al.this.pPi;
+            w wVar = al.this.pPI;
             if (wVar != null) {
                 if (((ag) wVar) == null) {
                     throw null;
@@ -60,7 +60,7 @@ public class al extends ac {
         @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
         public void onVideoPlayEnd() {
             m.a("KSFullscreenVideoAd 全屏视频广告播放完成");
-            w wVar = al.this.pPi;
+            w wVar = al.this.pPI;
             if (wVar != null) {
                 ag agVar = (ag) wVar;
                 m.a("KSAdLoaderFactory onVideoPlayEnd");
@@ -71,7 +71,7 @@ public class al extends ac {
         public void onVideoPlayError(int i, int i2) {
             m.a("KSFullscreenVideoAd 全屏视频广告播放出错");
             al alVar = al.this;
-            w wVar = alVar.pPi;
+            w wVar = alVar.pPI;
             if (wVar != null) {
                 ((ag) wVar).e(alVar.f7745a.f7762a);
             }
@@ -81,14 +81,14 @@ public class al extends ac {
         public void onVideoPlayStart() {
             m.a("KSFullscreenVideoAd 全屏视频广告播放开始");
             al alVar = al.this;
-            w wVar = alVar.pPi;
+            w wVar = alVar.pPI;
             if (wVar != null) {
                 String str = alVar.f7745a.f7762a;
                 ag agVar = (ag) wVar;
                 m.a("KSAdLoaderFactory onVideoPlayStart");
             }
             al alVar2 = al.this;
-            w wVar2 = alVar2.pPi;
+            w wVar2 = alVar2.pPI;
             if (wVar2 != null) {
                 ((ag) wVar2).c(alVar2.f7745a.f7762a);
             }
@@ -102,24 +102,24 @@ public class al extends ac {
     @Override // com.fun.ad.ac
     public void a() {
         super.a();
-        this.pPj = null;
-        this.pPk = null;
+        this.pPJ = null;
+        this.pPK = null;
     }
 
     @Override // com.fun.ad.ac
-    public FunRippedAd eAp() {
-        KsFullScreenVideoAd ksFullScreenVideoAd = this.pPj;
+    public FunRippedAd eAx() {
+        KsFullScreenVideoAd ksFullScreenVideoAd = this.pPJ;
         if (ksFullScreenVideoAd == null) {
             return null;
         }
-        if (this.pPk == null) {
-            this.pPk = AdRipper.getRippedKSAd((Object) ksFullScreenVideoAd, false);
+        if (this.pPK == null) {
+            this.pPK = AdRipper.getRippedKSAd((Object) ksFullScreenVideoAd, false);
         }
         FunRippedAd funRippedAd = new FunRippedAd();
-        AdRipper.RippedKSAd rippedKSAd = this.pPk;
+        AdRipper.RippedKSAd rippedKSAd = this.pPK;
         funRippedAd.description = rippedKSAd.adDescription;
         funRippedAd.isDeepLinkAd = !TextUtils.isEmpty(rippedKSAd.deeplinkUrl);
-        AdRipper.RippedKSAd rippedKSAd2 = this.pPk;
+        AdRipper.RippedKSAd rippedKSAd2 = this.pPK;
         funRippedAd.uniqueId = rippedKSAd2.adDescription;
         funRippedAd.appName = rippedKSAd2.appName;
         funRippedAd.appPackageName = rippedKSAd2.appPackageName;
@@ -134,7 +134,7 @@ public class al extends ac {
         if (!this.f7746b) {
             this.f7746b = true;
             KsAdSDK.getLoadManager().loadFullScreenVideoAd(new KsScene.Builder(Long.parseLong(this.f7745a.f7762a)).adNum(1).build(), new a());
-            z zVar2 = this.pPh;
+            z zVar2 = this.pPH;
             if (zVar2 != null) {
                 ((ad) zVar2).a(this.f7745a.f7762a);
             }
@@ -151,7 +151,7 @@ public class al extends ac {
             m.a("KSFullscreenAd onError code: " + i + ", message: " + str);
             al alVar = al.this;
             alVar.f7746b = false;
-            z zVar = alVar.pPh;
+            z zVar = alVar.pPH;
             if (zVar != null) {
                 ((ad) zVar).a(alVar.f7745a.f7762a, i, str);
             }
@@ -162,13 +162,13 @@ public class al extends ac {
             m.a("KSFullscreenAd onNativeAdLoad");
             al.this.f7746b = false;
             if (list != null && !list.isEmpty()) {
-                al.this.pPj = list.get(0);
+                al.this.pPJ = list.get(0);
                 al alVar = al.this;
-                z zVar = alVar.pPh;
+                z zVar = alVar.pPH;
                 if (zVar != null) {
                     ((ad) zVar).b(alVar.f7745a.f7762a);
                 }
-                AdRipper.ripKS(al.this.pPj);
+                AdRipper.ripKS(al.this.pPJ);
                 return;
             }
             m.a("KSFullscreenAd onNativeAdLoad error: adList is null or empty");
@@ -178,11 +178,11 @@ public class al extends ac {
     @Override // com.fun.ad.ac
     public void a(Activity activity, FunAdView funAdView, w wVar) {
         super.a(activity, funAdView, wVar);
-        KsFullScreenVideoAd ksFullScreenVideoAd = this.pPj;
+        KsFullScreenVideoAd ksFullScreenVideoAd = this.pPJ;
         if (ksFullScreenVideoAd != null) {
             if (ksFullScreenVideoAd.isAdEnable()) {
-                this.pPj.setFullScreenVideoAdInteractionListener(new b());
-                this.pPj.showFullScreenVideoAd(activity, this.f7745a.g == 1 ? new KsVideoPlayConfig.Builder().showLandscape(true).build() : null);
+                this.pPJ.setFullScreenVideoAdInteractionListener(new b());
+                this.pPJ.showFullScreenVideoAd(activity, this.f7745a.g == 1 ? new KsVideoPlayConfig.Builder().showLandscape(true).build() : null);
                 return;
             }
             m.a("暂无可用全屏视频广告，请等待缓存加载或者重新刷新");

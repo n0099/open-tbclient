@@ -13,9 +13,9 @@ public class j {
     private final com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, String> f10174a = new com.kwad.sdk.glide.g.g<>(1000);
 
     /* renamed from: b  reason: collision with root package name */
-    private final Pools.Pool<a> f10175b = com.kwad.sdk.glide.g.a.a.a(10, new a.InterfaceC1123a<a>() { // from class: com.kwad.sdk.glide.load.engine.a.j.1
+    private final Pools.Pool<a> f10175b = com.kwad.sdk.glide.g.a.a.a(10, new a.InterfaceC1125a<a>() { // from class: com.kwad.sdk.glide.load.engine.a.j.1
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1123a
+        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1125a
         /* renamed from: a */
         public a b() {
             try {

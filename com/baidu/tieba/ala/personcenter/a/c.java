@@ -13,7 +13,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.f.hZG);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.f.hZU);
         this.mPageContext = tbPageContext;
     }
 
@@ -29,25 +29,25 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.personcenter.c.f fVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.b> cardViewHolder) {
-        if (cardViewHolder.ctb() == null) {
+        if (cardViewHolder.cti() == null) {
             return null;
         }
-        cardViewHolder.ctb().a(fVar);
-        cardViewHolder.ctb().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.ctb().c(new ab<com.baidu.tieba.ala.personcenter.c.f>() { // from class: com.baidu.tieba.ala.personcenter.a.c.1
+        cardViewHolder.cti().a(fVar);
+        cardViewHolder.cti().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.cti().c(new ab<com.baidu.tieba.ala.personcenter.c.f>() { // from class: com.baidu.tieba.ala.personcenter.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view2, com.baidu.tieba.ala.personcenter.c.f fVar2) {
                 c.this.a(fVar2);
             }
         });
-        return cardViewHolder.ctb().getView();
+        return cardViewHolder.cti().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.personcenter.c.f fVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData;
-        if (fVar != null && (personCenterData = fVar.getPersonCenterData()) != null && personCenterData.cmP() != null) {
+        if (fVar != null && (personCenterData = fVar.getPersonCenterData()) != null && personCenterData.cmW() != null) {
             if (!personCenterData.isHost()) {
                 TiebaStatic.log("c11864");
             } else {

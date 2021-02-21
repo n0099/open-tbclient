@@ -17,8 +17,8 @@ public class YoungsterPasswordActivity extends BaseActivity {
     private NavigationBar mNavigationBar;
     private int mPageType;
     private String mPassword;
-    private YoungsterPasswordView niJ;
-    private Runnable niK = new Runnable() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterPasswordActivity.1
+    private YoungsterPasswordView njj;
+    private Runnable njk = new Runnable() { // from class: com.baidu.tieba.setting.more.youngster.YoungsterPasswordActivity.1
         @Override // java.lang.Runnable
         public void run() {
             YoungsterPasswordActivity.this.finish();
@@ -33,16 +33,16 @@ public class YoungsterPasswordActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mBack.setOnClickListener(this);
-        this.niJ = new YoungsterPasswordView(getPageContext());
-        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.niJ);
+        this.njj = new YoungsterPasswordView(getPageContext());
+        ((FrameLayout) findViewById(R.id.youngster_content)).addView(this.njj);
         Intent intent = getIntent();
         if (intent != null) {
             this.mPageType = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, 0);
             sK(this.mPageType);
             this.mPassword = intent.getStringExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_INPUT);
-            this.niJ.setPrePassword(this.mPassword);
+            this.njj.setPrePassword(this.mPassword);
             this.mFrom = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, 0);
-            this.niJ.setFrom(this.mFrom);
+            this.njj.setFrom(this.mFrom);
         }
     }
 
@@ -60,7 +60,7 @@ public class YoungsterPasswordActivity extends BaseActivity {
                 this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.youngster_setting));
                 break;
         }
-        this.niJ.sK(i);
+        this.njj.sK(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -68,15 +68,15 @@ public class YoungsterPasswordActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.niJ.onChangeSkinType();
+        this.njj.onChangeSkinType();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         if (view == this.mBack) {
-            this.niJ.bIW();
-            e.mA().postDelayed(this.niK, 200L);
+            this.njj.bIW();
+            e.mA().postDelayed(this.njk, 200L);
         }
     }
 
@@ -84,8 +84,8 @@ public class YoungsterPasswordActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.niJ != null) {
-            this.niJ.bIV();
+        if (this.njj != null) {
+            this.njj.bIV();
         }
     }
 
@@ -93,6 +93,6 @@ public class YoungsterPasswordActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        e.mA().removeCallbacks(this.niK);
+        e.mA().removeCallbacks(this.njk);
     }
 }

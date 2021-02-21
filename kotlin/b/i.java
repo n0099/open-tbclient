@@ -6,52 +6,52 @@ import kotlin.jvm.internal.o;
 @kotlin.e
 /* loaded from: classes6.dex */
 public class i implements Iterable<Long> {
-    public static final a qtN = new a(null);
-    private final long qtK;
-    private final long qtL;
-    private final long qtM;
+    public static final a qun = new a(null);
+    private final long quk;
+    private final long qul;
+    private final long qum;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.qtK = j;
-        this.qtL = kotlin.internal.d.j(j, j2, j3);
-        this.qtM = j3;
+        this.quk = j;
+        this.qul = kotlin.internal.d.j(j, j2, j3);
+        this.qum = j3;
     }
 
-    public final long eLz() {
-        return this.qtK;
+    public final long eLH() {
+        return this.quk;
     }
 
-    public final long eLA() {
-        return this.qtL;
+    public final long eLI() {
+        return this.qul;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: eLB */
+    /* renamed from: eLJ */
     public z iterator() {
-        return new j(this.qtK, this.qtL, this.qtM);
+        return new j(this.quk, this.qul, this.qum);
     }
 
     public boolean isEmpty() {
-        return this.qtM > 0 ? this.qtK > this.qtL : this.qtK < this.qtL;
+        return this.qum > 0 ? this.quk > this.qul : this.quk < this.qul;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.qtK == ((i) obj).qtK && this.qtL == ((i) obj).qtL && this.qtM == ((i) obj).qtM));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.quk == ((i) obj).quk && this.qul == ((i) obj).qul && this.qum == ((i) obj).qum));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.qtK ^ (this.qtK >>> 32))) + (this.qtL ^ (this.qtL >>> 32)))) + (this.qtM ^ (this.qtM >>> 32)));
+        return (int) ((31 * ((31 * (this.quk ^ (this.quk >>> 32))) + (this.qul ^ (this.qul >>> 32)))) + (this.qum ^ (this.qum >>> 32)));
     }
 
     public String toString() {
-        return this.qtM > 0 ? "" + this.qtK + IStringUtil.TOP_PATH + this.qtL + " step " + this.qtM : "" + this.qtK + " downTo " + this.qtL + " step " + (-this.qtM);
+        return this.qum > 0 ? "" + this.quk + IStringUtil.TOP_PATH + this.qul + " step " + this.qum : "" + this.quk + " downTo " + this.qul + " step " + (-this.qum);
     }
 
     @kotlin.e

@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class a {
     public static void a(final Context context, Map<String, ComponentModel.b> map, File file, final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (map != null && !map.isEmpty()) {
-            final List<C1028a> list = null;
+            final List<C1030a> list = null;
             try {
                 list = a(map, file);
             } catch (Exception e) {
@@ -43,26 +43,26 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, List<C1028a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+    public static void b(Context context, List<C1030a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (list != null && !list.isEmpty()) {
-            for (C1028a c1028a : list) {
-                File file = c1028a.e;
+            for (C1030a c1030a : list) {
+                File file = c1030a.e;
                 long uptimeMillis = SystemClock.uptimeMillis();
                 boolean a2 = d.a(file);
                 long uptimeMillis2 = SystemClock.uptimeMillis();
                 if (a2) {
                     if (aVar != null) {
-                        aVar.b(c1028a.f7443b);
+                        aVar.b(c1030a.f7443b);
                     }
-                    b.a(context).a(c1028a.f7442a, c1028a.f7443b, c1028a.c, 200, c1028a.d, 0, null, uptimeMillis2 - uptimeMillis, 1);
+                    b.a(context).a(c1030a.f7442a, c1030a.f7443b, c1030a.c, 200, c1030a.d, 0, null, uptimeMillis2 - uptimeMillis, 1);
                 } else {
-                    b.a(context).a(c1028a.f7442a, c1028a.f7443b, c1028a.c, 201, c1028a.d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
+                    b.a(context).a(c1030a.f7442a, c1030a.f7443b, c1030a.c, 201, c1030a.d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
                 }
             }
         }
     }
 
-    private static List<C1028a> a(Map<String, ComponentModel.b> map, File file) {
+    private static List<C1030a> a(Map<String, ComponentModel.b> map, File file) {
         ComponentModel.b value;
         List<Long> b2;
         List<Long> b3;
@@ -87,7 +87,7 @@ public class a {
                                         if (list2.contains(l)) {
                                             File file4 = new File(file3, l + "--pending-delete");
                                             new File(file3, l + "").renameTo(file4);
-                                            arrayList.add(new C1028a(key, str, i, l.longValue(), file4));
+                                            arrayList.add(new C1030a(key, str, i, l.longValue(), file4));
                                         }
                                     }
                                     break;
@@ -99,7 +99,7 @@ public class a {
                                         if (list2.get(0).longValue() > l2.longValue()) {
                                             File file5 = new File(file3, l2 + "--pending-delete");
                                             new File(file3, l2 + "").renameTo(file5);
-                                            arrayList.add(new C1028a(key, str, i, l2.longValue(), file5));
+                                            arrayList.add(new C1030a(key, str, i, l2.longValue(), file5));
                                         }
                                     }
                                     break;
@@ -109,7 +109,7 @@ public class a {
                                 File file6 = new File(file2, str);
                                 File file7 = new File(file2, str + "--pending-delete");
                                 file6.renameTo(file7);
-                                arrayList.add(new C1028a(key, str, i, 0L, file7));
+                                arrayList.add(new C1030a(key, str, i, 0L, file7));
                                 break;
                         }
                     }
@@ -158,7 +158,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1028a {
+    public static class C1030a {
 
         /* renamed from: a  reason: collision with root package name */
         String f7442a;
@@ -169,7 +169,7 @@ public class a {
         long d;
         File e;
 
-        C1028a(String str, String str2, int i, long j, File file) {
+        C1030a(String str, String str2, int i, long j, File file) {
             this.f7442a = str;
             this.f7443b = str2;
             this.c = i;

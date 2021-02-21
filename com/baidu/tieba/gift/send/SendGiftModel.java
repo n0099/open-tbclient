@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.data.ai;
 import com.baidu.tieba.gift.giftTab.GiftTabActivity;
 /* loaded from: classes9.dex */
 public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
-    private a jXl;
-    private com.baidu.adp.framework.listener.a jXm;
-    private com.baidu.adp.framework.listener.a jXn;
+    private com.baidu.adp.framework.listener.a jXA;
+    private com.baidu.adp.framework.listener.a jXB;
+    private a jXz;
 
     /* loaded from: classes9.dex */
     public interface a {
         void a(int i, String str, com.baidu.tieba.gift.send.a aVar);
 
-        void cNM();
+        void cNT();
 
         void d(int i, String str, int i2);
     }
 
     public SendGiftModel(f<GiftTabActivity> fVar) {
         super(fVar);
-        this.jXm = new com.baidu.adp.framework.listener.a(1003052, CmdConfigSocket.CMD_SEND_FREE_GIFT) { // from class: com.baidu.tieba.gift.send.SendGiftModel.1
+        this.jXA = new com.baidu.adp.framework.listener.a(1003052, CmdConfigSocket.CMD_SEND_FREE_GIFT) { // from class: com.baidu.tieba.gift.send.SendGiftModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -35,14 +35,14 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                         } else if (responsedMessage instanceof SendFreeGiftSocketResponse) {
                             i = ((SendFreeGiftSocketResponse) responsedMessage).getFreeChance();
                         }
-                        if (SendGiftModel.this.jXl != null) {
-                            SendGiftModel.this.jXl.d(responsedMessage.getError(), responsedMessage.getErrorString(), i);
+                        if (SendGiftModel.this.jXz != null) {
+                            SendGiftModel.this.jXz.d(responsedMessage.getError(), responsedMessage.getErrorString(), i);
                         }
                     }
                 }
             }
         };
-        this.jXn = new com.baidu.adp.framework.listener.a(1003053, CmdConfigSocket.CMD_GIFT_PALCE_ORDER) { // from class: com.baidu.tieba.gift.send.SendGiftModel.2
+        this.jXB = new com.baidu.adp.framework.listener.a(1003053, CmdConfigSocket.CMD_GIFT_PALCE_ORDER) { // from class: com.baidu.tieba.gift.send.SendGiftModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -53,8 +53,8 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                         } else if (responsedMessage instanceof PlaceOrderSocketResponse) {
                             aVar = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
                         }
-                        if (SendGiftModel.this.jXl != null) {
-                            SendGiftModel.this.jXl.a(responsedMessage.getError(), responsedMessage.getErrorString(), aVar);
+                        if (SendGiftModel.this.jXz != null) {
+                            SendGiftModel.this.jXz.a(responsedMessage.getError(), responsedMessage.getErrorString(), aVar);
                         }
                     }
                 }
@@ -64,14 +64,14 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SEND_FREE_GIFT, 1003052, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GIFT_PALCE_ORDER, PlaceOrderSocketResponse.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GIFT_PALCE_ORDER, 1003053, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
-        registerListener(this.jXm);
-        registerListener(this.jXn);
+        registerListener(this.jXA);
+        registerListener(this.jXB);
     }
 
     public void a(ai aiVar, int i, String str, long j, String str2, long j2, long j3) {
         if (i <= 0 || aiVar == null || j <= 0) {
-            if (this.jXl != null) {
-                this.jXl.cNM();
+            if (this.jXz != null) {
+                this.jXz.cNT();
             }
         } else if (aiVar.aHS == 5) {
             SendFreeGiftRequest sendFreeGiftRequest = new SendFreeGiftRequest();
@@ -109,6 +109,6 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
     }
 
     public void a(a aVar) {
-        this.jXl = aVar;
+        this.jXz = aVar;
     }
 }

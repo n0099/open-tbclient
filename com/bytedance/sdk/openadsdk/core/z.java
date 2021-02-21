@@ -161,7 +161,7 @@ public class z {
         }
         if (lVar.X() == 5) {
             if (tTNativeAd != null) {
-                aVar = tTNativeAd instanceof a.InterfaceC1026a ? ((a.InterfaceC1026a) tTNativeAd).a() : null;
+                aVar = tTNativeAd instanceof a.InterfaceC1028a ? ((a.InterfaceC1028a) tTNativeAd).a() : null;
                 if (aVar != null) {
                     intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, aVar.a().toString());
                 }

@@ -7,7 +7,7 @@ public class Orange {
 
     /* renamed from: a  reason: collision with root package name */
     private static boolean f14382a = true;
-    private static volatile Orange qlX;
+    private static volatile Orange qmx;
 
     private Orange() {
         e();
@@ -25,15 +25,15 @@ public class Orange {
         }
     }
 
-    public static Orange eJA() {
-        if (qlX == null) {
+    public static Orange eJI() {
+        if (qmx == null) {
             synchronized (Orange.class) {
-                if (qlX == null) {
-                    qlX = new Orange();
+                if (qmx == null) {
+                    qmx = new Orange();
                 }
             }
         }
-        return qlX;
+        return qmx;
     }
 
     private boolean f() {

@@ -260,8 +260,8 @@ public class g extends com.bytedance.sdk.openadsdk.j.a {
         if (file.length() >= aVar.c || !((bVar3 = this.p) == null || bVar3.b() || bVar3.d())) {
             bVar2 = null;
         } else {
-            com.bytedance.sdk.openadsdk.j.b a3 = new b.a().a(this.f7219a).a(this.f7220b).a(this.g).b(this.h).a(new l(aVar2.f7311a)).a(this.f).a(this.i).a(new b.InterfaceC1022b() { // from class: com.bytedance.sdk.openadsdk.j.g.1
-                @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC1022b
+            com.bytedance.sdk.openadsdk.j.b a3 = new b.a().a(this.f7219a).a(this.f7220b).a(this.g).b(this.h).a(new l(aVar2.f7311a)).a(this.f).a(this.i).a(new b.InterfaceC1024b() { // from class: com.bytedance.sdk.openadsdk.j.g.1
+                @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC1024b
                 public void a(com.bytedance.sdk.openadsdk.j.b bVar4) {
                     g.this.c.addAndGet(bVar4.c.get());
                     g.this.d.addAndGet(bVar4.d.get());

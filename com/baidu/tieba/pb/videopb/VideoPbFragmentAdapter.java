@@ -14,19 +14,19 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     private ArrayList<BaseFragment> mFragments;
-    private List<String> mkL;
+    private List<String> mla;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.mkL == null) {
-            this.mkL = new ArrayList();
+        if (this.mla == null) {
+            this.mla = new ArrayList();
         }
-        this.mkL.clear();
+        this.mla.clear();
         if (com.baidu.tbadk.a.d.bja()) {
-            this.mkL.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+            this.mla.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         } else {
-            this.mkL.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-            this.mkL.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+            this.mla.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+            this.mla.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         }
         if (this.mFragments == null) {
             this.mFragments = new ArrayList<>();
@@ -62,13 +62,13 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.mkL == null || i < 0 || i >= this.mkL.size()) {
+        if (this.mla == null || i < 0 || i >= this.mla.size()) {
             return null;
         }
-        return this.mkL.get(i);
+        return this.mla.get(i);
     }
 
-    public ArrayList<BaseFragment> duq() {
+    public ArrayList<BaseFragment> dux() {
         return this.mFragments;
     }
 

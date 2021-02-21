@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.o;
+import com.baidu.tieba.recapp.p;
 /* loaded from: classes8.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.d, CardAdvertAppEmptyHolder> implements o {
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.d, CardAdvertAppEmptyHolder> implements p {
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
@@ -29,14 +29,14 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.d dVar, CardAdvertAppEmptyHolder cardAdvertAppEmptyHolder) {
-        AdvertAppInfo csS = dVar.csS();
-        if (csS != null) {
-            com.baidu.tbadk.core.data.d.c(csS.advertAppContext, dVar.position, csS.eLD.eLR == -1001);
+        AdvertAppInfo csZ = dVar.csZ();
+        if (csZ != null) {
+            com.baidu.tbadk.core.data.d.c(csZ.advertAppContext, dVar.position, csZ.eLC.eLR == -1001);
         }
         return cardAdvertAppEmptyHolder.getView();
     }
 
-    @Override // com.baidu.tieba.recapp.o
+    @Override // com.baidu.tieba.recapp.p
     public void setIsFromCDN(boolean z) {
     }
 }

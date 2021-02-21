@@ -176,11 +176,11 @@ public class i {
             try {
                 PackageInfo packageInfo = com.ss.android.downloadlib.a.j.a().getPackageManager().getPackageInfo(str, 0);
                 if (packageInfo != null) {
-                    bVar.QT(packageInfo.versionCode);
-                    bVar.QS(com.ss.android.downloadlib.a.b.b.f12934b);
-                    o eEJ = com.ss.android.downloadlib.a.j.eEJ();
-                    if (eEJ != null && eEJ.a() && !b(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
-                        bVar.QS(com.ss.android.downloadlib.a.b.b.c);
+                    bVar.QU(packageInfo.versionCode);
+                    bVar.QT(com.ss.android.downloadlib.a.b.b.f12934b);
+                    o eER = com.ss.android.downloadlib.a.j.eER();
+                    if (eER != null && eER.a() && !b(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
+                        bVar.QT(com.ss.android.downloadlib.a.b.b.c);
                     }
                 }
             } catch (Exception e) {
@@ -276,7 +276,7 @@ public class i {
         }
     }
 
-    public static Intent bC(Context context, String str) {
+    public static Intent bB(Context context, String str) {
         Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
         if (launchIntentForPackage == null) {
             return null;
@@ -299,7 +299,7 @@ public class i {
         }
     }
 
-    public static Signature[] bD(Context context, String str) {
+    public static Signature[] bC(Context context, String str) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
             if (packageInfo != null) {
@@ -311,7 +311,7 @@ public class i {
         return null;
     }
 
-    public static Signature[] bE(Context context, String str) {
+    public static Signature[] bD(Context context, String str) {
         try {
             PackageInfo packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 64);
             if (packageArchiveInfo != null) {
@@ -481,7 +481,7 @@ public class i {
     }
 
     public static void a(@NonNull Throwable th) {
-        com.ss.android.downloadlib.a.j.eEI().a(null, new com.ss.android.socialbase.downloader.e.a(1, b(th)), 1);
+        com.ss.android.downloadlib.a.j.eEQ().a(null, new com.ss.android.socialbase.downloader.e.a(1, b(th)), 1);
     }
 
     public static String b(Throwable th) {

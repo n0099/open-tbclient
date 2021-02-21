@@ -13,21 +13,21 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class a extends BaseAdapter {
-    private LayoutInflater kzs;
+    private LayoutInflater kzG;
     private Context mContext;
     private List<com.baidu.yuyinala.privatemessage.session.b.a> mDatas = new ArrayList();
-    private Set<com.baidu.yuyinala.privatemessage.session.b.a> pjk = new HashSet();
+    private Set<com.baidu.yuyinala.privatemessage.session.b.a> pjK = new HashSet();
 
     public a(Context context, List<com.baidu.yuyinala.privatemessage.session.b.a> list) {
         this.mContext = context;
         this.mDatas.clear();
         this.mDatas.addAll(list);
         if (this.mContext != null) {
-            this.kzs = LayoutInflater.from(context);
+            this.kzG = LayoutInflater.from(context);
         }
     }
 
-    public void Og(int i) {
+    public void Oh(int i) {
         if (this.mDatas != null && this.mDatas.size() > i && i >= 0) {
             this.mDatas.remove(i);
             notifyDataSetChanged();
@@ -71,7 +71,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Oh */
+    /* renamed from: Oi */
     public com.baidu.yuyinala.privatemessage.session.b.a getItem(int i) {
         return this.mDatas.get(i);
     }
@@ -84,8 +84,8 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.yuyinala.privatemessage.session.viewholder.a aVar;
-        if (view == null && this.kzs != null) {
-            view = this.kzs.inflate(a.g.yuyin_item_user_message, viewGroup, false);
+        if (view == null && this.kzG != null) {
+            view = this.kzG.inflate(a.g.yuyin_item_user_message, viewGroup, false);
             com.baidu.yuyinala.privatemessage.session.viewholder.a aVar2 = new com.baidu.yuyinala.privatemessage.session.viewholder.a(view);
             view.setTag(aVar2);
             aVar = aVar2;

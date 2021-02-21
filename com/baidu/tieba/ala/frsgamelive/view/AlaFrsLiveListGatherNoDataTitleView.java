@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class AlaFrsLiveListGatherNoDataTitleView extends com.baidu.tieba.card.b<com.baidu.tieba.ala.frsgamelive.b.a> {
-    private TextView gWf;
-    private TextView gWg;
+    private TextView gWt;
+    private TextView gWu;
     private int mSkinType;
     private TbPageContext mTbPageContext;
 
@@ -19,16 +19,16 @@ public class AlaFrsLiveListGatherNoDataTitleView extends com.baidu.tieba.card.b<
         this.mSkinType = 3;
         this.mTbPageContext = tbPageContext;
         View view = getView();
-        this.gWf = (TextView) view.findViewById(R.id.frs_game_live_recommand1);
-        this.gWg = (TextView) view.findViewById(R.id.frs_game_live_recommand2);
+        this.gWt = (TextView) view.findViewById(R.id.frs_game_live_recommand1);
+        this.gWu = (TextView) view.findViewById(R.id.frs_game_live_recommand2);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.gWf, R.color.CAM_X0109);
-            ap.setViewTextColor(this.gWg, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gWt, R.color.CAM_X0109);
+            ap.setViewTextColor(this.gWu, R.color.CAM_X0109);
             this.mSkinType = i;
         }
     }
@@ -50,11 +50,11 @@ public class AlaFrsLiveListGatherNoDataTitleView extends com.baidu.tieba.card.b<
 
     /* loaded from: classes10.dex */
     public static class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
-        public AlaFrsLiveListGatherNoDataTitleView gWh;
+        public AlaFrsLiveListGatherNoDataTitleView gWv;
 
         public AlaFrsLiveListNoDataViewHolder(AlaFrsLiveListGatherNoDataTitleView alaFrsLiveListGatherNoDataTitleView) {
             super(alaFrsLiveListGatherNoDataTitleView.getView());
-            this.gWh = alaFrsLiveListGatherNoDataTitleView;
+            this.gWv = alaFrsLiveListGatherNoDataTitleView;
         }
     }
 }

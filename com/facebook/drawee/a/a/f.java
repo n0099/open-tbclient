@@ -8,12 +8,12 @@ import javax.annotation.Nullable;
 /* loaded from: classes15.dex */
 public class f implements j<e> {
     private final Context mContext;
-    private final Set<com.facebook.drawee.controller.c> pAB;
-    private final g pAl;
-    private final com.facebook.imagepipeline.c.g pAy;
+    private final g pAL;
+    private final com.facebook.imagepipeline.c.g pAY;
+    private final Set<com.facebook.drawee.controller.c> pBb;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.c.j.exl(), bVar);
+        this(context, com.facebook.imagepipeline.c.j.ext(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.c.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.c.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.pAy = jVar.etq();
-        if (bVar != null && bVar.etm() != null) {
-            this.pAl = bVar.etm();
+        this.pAY = jVar.ety();
+        if (bVar != null && bVar.etu() != null) {
+            this.pAL = bVar.etu();
         } else {
-            this.pAl = new g();
+            this.pAL = new g();
         }
-        this.pAl.a(context.getResources(), com.facebook.drawee.components.a.etI(), jVar.ik(context), i.esw(), this.pAy.ewz(), bVar != null ? bVar.etl() : null, bVar != null ? bVar.etn() : null);
-        this.pAB = set;
+        this.pAL.a(context.getResources(), com.facebook.drawee.components.a.etQ(), jVar.ik(context), i.esE(), this.pAY.ewH(), bVar != null ? bVar.ett() : null, bVar != null ? bVar.etv() : null);
+        this.pBb = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: etB */
+    /* renamed from: etJ */
     public e get() {
-        return new e(this.mContext, this.pAl, this.pAy, this.pAB);
+        return new e(this.mContext, this.pAL, this.pAY, this.pBb);
     }
 }

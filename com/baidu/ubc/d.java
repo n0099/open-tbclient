@@ -18,15 +18,15 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class d {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private static volatile d oSs;
+    private static volatile d oSS;
     private ExecutorService eyM;
     private int eyO;
     private boolean eyP = false;
     private Context mContext;
-    public ScheduledExecutorService oSt;
-    private com.baidu.ubc.g oSu;
-    private com.baidu.ubc.c oSv;
-    private v oSw;
+    public ScheduledExecutorService oST;
+    private com.baidu.ubc.g oSU;
+    private com.baidu.ubc.c oSV;
+    private v oSW;
 
     static /* synthetic */ int e(d dVar) {
         int i = dVar.eyO;
@@ -38,15 +38,15 @@ public class d {
         init(UBC.getContext());
     }
 
-    public static d eht() {
-        if (oSs == null) {
+    public static d ehB() {
+        if (oSS == null) {
             synchronized (d.class) {
-                if (oSs == null) {
-                    oSs = new d();
+                if (oSS == null) {
+                    oSS = new d();
                 }
             }
         }
-        return oSs;
+        return oSS;
     }
 
     private void init(Context context) {
@@ -57,38 +57,38 @@ public class d {
                 this.mContext = context.getApplicationContext();
             }
             this.eyO = QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
-            this.oSt = Executors.newSingleThreadScheduledExecutor();
-            this.oSt.execute(new g());
+            this.oST = Executors.newSingleThreadScheduledExecutor();
+            this.oST.execute(new g());
             this.eyM = Executors.newSingleThreadExecutor();
-            this.oSw = (v) com.baidu.pyramid.runtime.service.c.a(v.SERVICE_REFERENCE);
+            this.oSW = (v) com.baidu.pyramid.runtime.service.c.a(v.SERVICE_REFERENCE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void o(String str, String str2, int i) {
-        this.oSt.execute(new b(str, str2, i));
+        this.oST.execute(new b(str, str2, i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, JSONObject jSONObject, int i) {
-        this.oSt.execute(new b(str, jSONObject, i));
+        this.oST.execute(new b(str, jSONObject, i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void n(String str, String str2, String str3, int i) {
         b bVar = new b(str, str2, i);
         if (!TextUtils.isEmpty(str3)) {
-            bVar.Xb(str3);
+            bVar.Xn(str3);
         }
-        this.oSt.execute(bVar);
+        this.oST.execute(bVar);
     }
 
     public void a(String str, String str2, int i, String str3, int i2) {
-        this.oSt.execute(new b(str, str2, i, str3, i2));
+        this.oST.execute(new b(str, str2, i, str3, i2));
     }
 
     public void a(String str, String str2, int i, String str3, long j, int i2) {
-        this.oSt.execute(new b(str, str2, i, str3, j, i2));
+        this.oST.execute(new b(str, str2, i, str3, j, i2));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -96,11 +96,11 @@ public class d {
         Flow cg;
         cg = cg(str, i);
         if (cg != null && cg.getValid()) {
-            RunnableC0950d runnableC0950d = new RunnableC0950d(cg, str2);
-            if (this.oSu != null && this.oSu.yB(str)) {
-                runnableC0950d.iJ(true);
+            RunnableC0952d runnableC0952d = new RunnableC0952d(cg, str2);
+            if (this.oSU != null && this.oSU.yB(str)) {
+                runnableC0952d.iJ(true);
             }
-            this.oSt.execute(runnableC0950d);
+            this.oST.execute(runnableC0952d);
         }
         return cg;
     }
@@ -110,55 +110,55 @@ public class d {
         Flow cg;
         cg = cg(str, i);
         if (cg != null && cg.getValid()) {
-            RunnableC0950d runnableC0950d = new RunnableC0950d(cg, jSONObject);
-            if (this.oSu != null && this.oSu.yB(str)) {
-                runnableC0950d.iJ(true);
+            RunnableC0952d runnableC0952d = new RunnableC0952d(cg, jSONObject);
+            if (this.oSU != null && this.oSU.yB(str)) {
+                runnableC0952d.iJ(true);
             }
-            this.oSt.execute(runnableC0950d);
+            this.oST.execute(runnableC0952d);
         }
         return cg;
     }
 
     Flow cg(String str, int i) {
         Flow flow = new Flow(str, this.eyO, i);
-        if (this.oSu != null && !this.oSu.al(str, i)) {
+        if (this.oSU != null && !this.oSU.al(str, i)) {
             flow.setValid(false);
         } else if ((i & 16) != 0 && !UBC.getUBCContext().qe(str)) {
             flow.setValid(false);
-        } else if (this.oSu != null && this.oSu.Xc(str)) {
+        } else if (this.oSU != null && this.oSU.Xo(str)) {
             flow.setValid(false);
-        } else if (this.oSu != null && this.oSu.yA(str)) {
+        } else if (this.oSU != null && this.oSU.yA(str)) {
             flow.setValid(false);
-        } else if (this.oSu != null && !this.oSu.Xe(str)) {
+        } else if (this.oSU != null && !this.oSU.Xq(str)) {
             flow.setValid(false);
         }
         return flow;
     }
 
     public void i(String str, int i, String str2) {
-        this.oSt.execute(new f(str, i, str2));
+        this.oST.execute(new f(str, i, str2));
     }
 
     public void a(String str, int i, JSONArray jSONArray) {
-        this.oSt.execute(new e(str, i, jSONArray));
+        this.oST.execute(new e(str, i, jSONArray));
     }
 
     public void O(String str, int i) {
-        this.oSt.execute(new c(str, i));
+        this.oST.execute(new c(str, i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getUploadType(String str) {
-        return this.oSv != null ? this.oSv.getUploadType(str) : "";
+        return this.oSV != null ? this.oSV.getUploadType(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ehu() {
-        this.oSt.execute(new Runnable() { // from class: com.baidu.ubc.d.1
+    public void ehC() {
+        this.oST.execute(new Runnable() { // from class: com.baidu.ubc.d.1
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.oSv != null) {
-                    d.this.oSv.uploadLocalDatas();
+                if (d.this.oSV != null) {
+                    d.this.oSV.uploadLocalDatas();
                 }
             }
         });
@@ -166,7 +166,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(w wVar, boolean z, s sVar) {
-        this.oSt.execute(new a(wVar, z, sVar));
+        this.oST.execute(new a(wVar, z, sVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -190,22 +190,22 @@ public class d {
             Log.d("UBCDEBUG", jSONObject.toString());
         }
         boolean z2 = true;
-        r ehv = ehv();
-        if (ehv != null && !ehv.dKj()) {
+        r ehD = ehD();
+        if (ehD != null && !ehD.dKr()) {
             z2 = false;
         }
         if (z2) {
             this.eyM.execute(new Runnable() { // from class: com.baidu.ubc.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.oSv == null) {
+                    if (d.this.oSV == null) {
                         if (d.DEBUG) {
                             Log.d("UBCBehaviorProcessor", "uploadData#ubc init not finish");
                             return;
                         }
                         return;
                     }
-                    d.this.oSv.a(jSONObject, str, z, nVar, tVar);
+                    d.this.oSV.a(jSONObject, str, z, nVar, tVar);
                 }
             });
         }
@@ -213,34 +213,34 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void beB() {
-        this.oSt.execute(new Runnable() { // from class: com.baidu.ubc.d.3
+        this.oST.execute(new Runnable() { // from class: com.baidu.ubc.d.3
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.oSv == null) {
+                if (d.this.oSV == null) {
                     if (d.DEBUG) {
                         Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
                         return;
                     }
                     return;
                 }
-                d.this.oSv.beB();
+                d.this.oSV.beB();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void au(final String str, final boolean z) {
-        this.oSt.execute(new Runnable() { // from class: com.baidu.ubc.d.4
+        this.oST.execute(new Runnable() { // from class: com.baidu.ubc.d.4
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.oSv == null) {
+                if (d.this.oSV == null) {
                     if (d.DEBUG) {
                         Log.d("UBCBehaviorProcessor", "uploadFailedData#ubc init not finish");
                     }
                 } else if (z) {
-                    d.this.oSv.yt(str);
+                    d.this.oSV.yt(str);
                 } else {
-                    d.this.oSv.yu(str);
+                    d.this.oSV.yu(str);
                 }
             }
         });
@@ -248,11 +248,11 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void e(Runnable runnable, long j) {
-        this.oSt.schedule(runnable, j, TimeUnit.MILLISECONDS);
+        this.oST.schedule(runnable, j, TimeUnit.MILLISECONDS);
     }
 
-    private static final r ehv() {
-        return com.baidu.tieba.q.t.dKk();
+    private static final r ehD() {
+        return com.baidu.tieba.q.t.dKs();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -264,9 +264,9 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            d.this.oSu = com.baidu.ubc.g.ehx();
-            d.this.oSv = new com.baidu.ubc.c(d.this.mContext);
-            d.this.oSv.beC();
+            d.this.oSU = com.baidu.ubc.g.ehF();
+            d.this.oSV = new com.baidu.ubc.c(d.this.mContext);
+            d.this.oSV.beC();
         }
     }
 
@@ -274,91 +274,91 @@ public class d {
     /* loaded from: classes5.dex */
     public class b implements Runnable {
         private String mLogId;
-        private n oSF;
+        private n oTf;
 
         b(String str, String str2, int i) {
-            this.oSF = new n(str, str2, i);
+            this.oTf = new n(str, str2, i);
             this.mLogId = str;
         }
 
         b(String str, JSONObject jSONObject, int i) {
-            this.oSF = new n(str, jSONObject, i);
+            this.oTf = new n(str, jSONObject, i);
             this.mLogId = str;
         }
 
         b(String str, String str2, int i, String str3, int i2) {
-            this.oSF = new n(str, str2, i, str3, i2);
+            this.oTf = new n(str, str2, i, str3, i2);
             this.mLogId = str;
         }
 
         b(String str, String str2, int i, String str3, long j, int i2) {
-            this.oSF = new n(str, str2, i, str3, j, i2);
+            this.oTf = new n(str, str2, i, str3, j, i2);
             this.mLogId = str;
         }
 
         public void iJ(boolean z) {
-            if (this.oSF != null) {
-                this.oSF.iJ(z);
+            if (this.oTf != null) {
+                this.oTf.iJ(z);
             }
         }
 
-        public void Xb(String str) {
-            if (this.oSF != null) {
-                this.oSF.setFileName(str);
+        public void Xn(String str) {
+            if (this.oTf != null) {
+                this.oTf.setFileName(str);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.oSv == null) {
+            if (d.this.oSV == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            if (d.this.oSw != null && d.this.oSu != null && d.this.oSu.Xj(this.mLogId) == 1) {
-                ehw();
+            if (d.this.oSW != null && d.this.oSU != null && d.this.oSU.Xv(this.mLogId) == 1) {
+                ehE();
             }
-            if (this.oSF.beT() == -1) {
-                if (ch(this.oSF.getId(), this.oSF.getOption())) {
-                    if (d.this.oSu != null && d.this.oSu.yB(this.oSF.getId())) {
+            if (this.oTf.beT() == -1) {
+                if (ch(this.oTf.getId(), this.oTf.getOption())) {
+                    if (d.this.oSU != null && d.this.oSU.yB(this.oTf.getId())) {
                         iJ(true);
                     }
                 } else {
                     return;
                 }
             }
-            this.oSF.beX();
-            String id = this.oSF.getId();
+            this.oTf.beX();
+            String id = this.oTf.getId();
             if (!TextUtils.isEmpty(id)) {
-                if (d.this.oSu != null) {
-                    String yy = d.this.oSu.yy(id);
+                if (d.this.oSU != null) {
+                    String yy = d.this.oSU.yy(id);
                     if (!TextUtils.isEmpty(yy)) {
-                        this.oSF.setCategory(yy);
+                        this.oTf.setCategory(yy);
                     }
                 }
-                if (d.this.oSw != null && d.this.oSu != null && d.this.oSu.Xj(this.mLogId) == 2) {
-                    ehw();
+                if (d.this.oSW != null && d.this.oSU != null && d.this.oSU.Xv(this.mLogId) == 2) {
+                    ehE();
                 }
-                if (this.oSF.beT() == -1 && TextUtils.equals(id, "1876")) {
-                    d.this.oSv.d(this.oSF);
-                } else if ((this.oSF.getOption() & 8) != 0) {
-                    d.this.oSv.c(this.oSF);
-                } else if (this.oSF == null || d.this.oSu == null || !d.this.oSu.Xf(id)) {
-                    d.this.oSv.b(this.oSF);
+                if (this.oTf.beT() == -1 && TextUtils.equals(id, "1876")) {
+                    d.this.oSV.d(this.oTf);
+                } else if ((this.oTf.getOption() & 8) != 0) {
+                    d.this.oSV.c(this.oTf);
+                } else if (this.oTf == null || d.this.oSU == null || !d.this.oSU.Xr(id)) {
+                    d.this.oSV.b(this.oTf);
                 } else {
-                    d.this.oSv.f(this.oSF);
+                    d.this.oSV.f(this.oTf);
                 }
             }
         }
 
         private boolean ch(String str, int i) {
             if ((i & 16) == 0 || UBC.getUBCContext().qe(str)) {
-                if (d.this.oSu == null || d.this.oSu.al(str, i)) {
-                    if (d.this.oSu == null || !d.this.oSu.yA(str)) {
-                        if (d.this.oSu == null || !d.this.oSu.Xc(str)) {
-                            return d.this.oSu == null || !d.this.oSu.Xi(str);
+                if (d.this.oSU == null || d.this.oSU.al(str, i)) {
+                    if (d.this.oSU == null || !d.this.oSU.yA(str)) {
+                        if (d.this.oSU == null || !d.this.oSU.Xo(str)) {
+                            return d.this.oSU == null || !d.this.oSU.Xu(str);
                         }
                         return false;
                     }
@@ -369,22 +369,22 @@ public class d {
             return false;
         }
 
-        private void ehw() {
+        private void ehE() {
             JSONObject beV;
-            if (this.oSF != null) {
-                String id = this.oSF.getId();
+            if (this.oTf != null) {
+                String id = this.oTf.getId();
                 if (!TextUtils.isEmpty(id)) {
-                    String content = this.oSF.getContent();
-                    if (TextUtils.isEmpty(content) && (beV = this.oSF.beV()) != null) {
+                    String content = this.oTf.getContent();
+                    if (TextUtils.isEmpty(content) && (beV = this.oTf.beV()) != null) {
                         try {
                             content = beV.toString();
                         } catch (ConcurrentModificationException e) {
-                            d.this.oSw.hb(id, e.toString());
+                            d.this.oSW.hd(id, e.toString());
                             return;
                         }
                     }
                     if (!TextUtils.isEmpty(content)) {
-                        d.this.oSw.ha(id, content);
+                        d.this.oSW.hc(id, content);
                     }
                 }
             }
@@ -394,43 +394,43 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ubc.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class RunnableC0950d implements Runnable {
-        private p oSG;
+    public class RunnableC0952d implements Runnable {
+        private p oTg;
 
-        RunnableC0950d(Flow flow, String str) {
-            this.oSG = new p(flow.getId(), flow.getHandle(), str, flow.getOption());
-            this.oSG.dC(flow.getStartTime());
-            this.oSG.yH("1");
+        RunnableC0952d(Flow flow, String str) {
+            this.oTg = new p(flow.getId(), flow.getHandle(), str, flow.getOption());
+            this.oTg.dC(flow.getStartTime());
+            this.oTg.yH("1");
             d.e(d.this);
         }
 
-        RunnableC0950d(Flow flow, JSONObject jSONObject) {
-            this.oSG = new p(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
-            this.oSG.dC(flow.getStartTime());
-            this.oSG.yH("1");
+        RunnableC0952d(Flow flow, JSONObject jSONObject) {
+            this.oTg = new p(flow.getId(), flow.getHandle(), jSONObject, flow.getOption());
+            this.oTg.dC(flow.getStartTime());
+            this.oTg.yH("1");
             d.e(d.this);
         }
 
         public void iJ(boolean z) {
-            if (this.oSG != null) {
-                this.oSG.iJ(z);
+            if (this.oTg != null) {
+                this.oTg.iJ(z);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.oSv == null) {
+            if (d.this.oSV == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "FlowCreateRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            this.oSG.beX();
-            if (!TextUtils.isEmpty(d.this.oSu.yy(this.oSG.getId()))) {
-                this.oSG.setCategory(d.this.oSu.yy(this.oSG.getId()));
+            this.oTg.beX();
+            if (!TextUtils.isEmpty(d.this.oSU.yy(this.oTg.getId()))) {
+                this.oTg.setCategory(d.this.oSU.yy(this.oTg.getId()));
             }
-            d.this.oSv.a(this.oSG);
+            d.this.oSV.a(this.oTg);
             QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, d.this.eyO);
         }
     }
@@ -450,14 +450,14 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.oSv == null) {
+            if (d.this.oSV == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.oSv.i(this.eyE, this.eyF, this.mValue);
+            d.this.oSV.i(this.eyE, this.eyF, this.mValue);
         }
     }
 
@@ -477,14 +477,14 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.oSv == null) {
+            if (d.this.oSV == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.oSv.a(this.eyE, this.eyF, this.mEndTime, this.eyK);
+            d.this.oSV.a(this.eyE, this.eyF, this.mEndTime, this.eyK);
         }
     }
 
@@ -501,40 +501,40 @@ public class d {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.oSv == null) {
+            if (d.this.oSV == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.oSv.O(this.eyE, this.eyF);
+            d.this.oSV.O(this.eyE, this.eyF);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public class a implements Runnable {
-        private w oSC;
-        private boolean oSD;
-        private s oSE;
+        private w oTc;
+        private boolean oTd;
+        private s oTe;
 
         a(w wVar, boolean z, s sVar) {
-            this.oSC = wVar;
-            this.oSD = z;
-            this.oSE = sVar;
+            this.oTc = wVar;
+            this.oTd = z;
+            this.oTe = sVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.oSv == null) {
+            if (d.this.oSV == null) {
                 if (d.DEBUG) {
                     Log.d("UBCBehaviorProcessor", "EventRunnable#ubc init not finish");
                     return;
                 }
                 return;
             }
-            d.this.oSv.a(this.oSC, this.oSD, this.oSE);
+            d.this.oSV.a(this.oTc, this.oTd, this.oTe);
         }
     }
 }

@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class c extends d implements a.InterfaceC1136a {
+public class c extends d implements a.InterfaceC1138a {
     private SceneImpl i;
     private ProfileHomeParam j;
     private com.kwad.sdk.contentalliance.profile.home.b.b k;
@@ -80,7 +80,7 @@ public class c extends d implements a.InterfaceC1136a {
         return new ArrayList();
     }
 
-    @Override // com.kwad.sdk.lib.a.a.InterfaceC1136a
+    @Override // com.kwad.sdk.lib.a.a.InterfaceC1138a
     @NonNull
     public Presenter e() {
         Presenter presenter = new Presenter();

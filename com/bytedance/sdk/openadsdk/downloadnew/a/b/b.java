@@ -21,7 +21,7 @@ public class b {
             jSONObject2.put("open_ad_sdk_download_extra", a.a().a(str2).b(jSONObject).a(lVar).b());
         } catch (Exception e) {
         }
-        c.a BT = new c.a().iY(Long.valueOf(lVar.T()).longValue()).aaA(lVar.I() == null ? null : lVar.I().a()).BU(i.c().k()).BW(!i.c().k()).aay(lVar.W()).fb(jSONObject2).aaB(str).BT(true);
+        c.a BT = new c.a().iY(Long.valueOf(lVar.T()).longValue()).aaM(lVar.I() == null ? null : lVar.I().a()).BU(i.c().k()).BW(!i.c().k()).aaK(lVar.W()).fb(jSONObject2).aaN(str).BT(true);
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             BT.BV(true);
             return BT;
@@ -38,10 +38,10 @@ public class b {
             jSONObject2.put("open_ad_sdk_download_extra", a.a().a(str).b(jSONObject).a(lVar).b());
         } catch (Exception e) {
         }
-        c.a BT = new c.a().iY(Long.valueOf(lVar.T()).longValue()).aaA(lVar.I() == null ? null : lVar.I().a()).BU(i.c().k()).BW(!i.c().k()).aay(lVar.W()).fb(jSONObject2).BT(true);
+        c.a BT = new c.a().iY(Long.valueOf(lVar.T()).longValue()).aaM(lVar.I() == null ? null : lVar.I().a()).BU(i.c().k()).BW(!i.c().k()).aaK(lVar.W()).fb(jSONObject2).BT(true);
         com.bytedance.sdk.openadsdk.core.d.b U = lVar.U();
         if (U != null) {
-            BT.aaB(U.b()).aaC(U.c()).aaz(U.d());
+            BT.aaN(U.b()).aaO(U.c()).aaL(U.d());
         }
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             BT.BV(true);
@@ -64,16 +64,16 @@ public class b {
         return BT;
     }
 
-    public static a.C1218a a(l lVar) {
+    public static a.C1220a a(l lVar) {
         int w = lVar == null ? 0 : lVar.w();
         int x = lVar == null ? 0 : lVar.x();
         if (lVar != null && !TextUtils.isEmpty(lVar.ag())) {
             x = 2;
         }
-        return new a.C1218a().QN(w).QO(x).BM(true).BN(false).bG(lVar);
+        return new a.C1220a().QO(w).QP(x).BM(true).BN(false).bG(lVar);
     }
 
     public static b.a a(l lVar, String str) {
-        return new b.a().aan(str).aao(str).aap("click_start").aar("click_continue").aaq("click_pause").aau("download_failed").aas("click_install").BQ(true).BS(false);
+        return new b.a().aaz(str).aaA(str).aaB("click_start").aaD("click_continue").aaC("click_pause").aaG("download_failed").aaE("click_install").BQ(true).BS(false);
     }
 }

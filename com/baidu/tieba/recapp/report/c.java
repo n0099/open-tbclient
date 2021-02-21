@@ -8,27 +8,27 @@ import org.json.JSONObject;
 public class c {
     private DownloadStaticsData downloadStaticsData;
     private String extInfo;
-    private JSONObject mWW;
-    private String mWY;
-    private int mWZ;
-    private String mXa;
-    private int mXb;
-    private String mXc;
-    private String mXd;
-    private String mXe;
-    private String mXf;
-    private String mXg;
-    private String mXh;
-    private String mXi;
-    private String mXj;
-    private String mXk;
-    private String mXl;
-    private String mXm;
+    private String mXA;
+    private int mXB;
+    private String mXC;
+    private String mXD;
+    private String mXE;
+    private String mXF;
+    private String mXG;
+    private String mXH;
+    private String mXI;
+    private String mXJ;
+    private String mXK;
+    private String mXL;
+    private String mXM;
+    private JSONObject mXw;
+    private String mXy;
+    private int mXz;
     private String placeId;
     private int abr = -1;
     private int abu = -1;
     private int pageNumber = -1;
-    private long mWX = System.currentTimeMillis() / 1000;
+    private long mXx = System.currentTimeMillis() / 1000;
 
     public void setExtInfo(String str) {
         this.extInfo = str;
@@ -46,60 +46,60 @@ public class c {
         this.pageNumber = i;
     }
 
-    public void RI(String str) {
+    public void RU(String str) {
         this.placeId = str;
     }
 
-    public void RJ(String str) {
-        this.mWY = str;
+    public void RV(String str) {
+        this.mXy = str;
     }
 
-    public void RK(String str) {
+    public void RW(String str) {
     }
 
     public void HY(int i) {
-        this.mXc = String.valueOf(i);
+        this.mXC = String.valueOf(i);
     }
 
     public void HZ(int i) {
-        this.mXd = String.valueOf(i);
+        this.mXD = String.valueOf(i);
     }
 
     public void Ia(int i) {
-        this.mXe = String.valueOf(i);
+        this.mXE = String.valueOf(i);
     }
 
     public void Ib(int i) {
-        this.mXf = String.valueOf(i);
+        this.mXF = String.valueOf(i);
     }
 
     public void Ic(int i) {
-        this.mXg = String.valueOf(i);
+        this.mXG = String.valueOf(i);
     }
 
-    public void RL(String str) {
-        this.mXg = str;
+    public void RX(String str) {
+        this.mXG = str;
     }
 
-    public void RM(String str) {
-        this.mXh = str;
+    public void RY(String str) {
+        this.mXH = str;
     }
 
     public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
         this.downloadStaticsData = downloadStaticsData;
         if (downloadStaticsData != null) {
             this.abu = com.baidu.adp.lib.f.b.toInt(downloadStaticsData.getAdPosition(), 0);
-            this.mWY = downloadStaticsData.getPrice();
+            this.mXy = downloadStaticsData.getPrice();
             this.extInfo = downloadStaticsData.getExtensionInfo();
         }
     }
 
-    public void gk(String str, String str2) {
-        if (this.mWW == null) {
-            this.mWW = new JSONObject();
+    public void gm(String str, String str2) {
+        if (this.mXw == null) {
+            this.mXw = new JSONObject();
         }
         try {
-            this.mWW.put(str, str2);
+            this.mXw.put(str, str2);
         } catch (Exception e) {
         }
     }
@@ -114,26 +114,26 @@ public class c {
                 jSONObject.put("da_type", this.abr);
             }
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.mWX);
+            jSONObject.put("origin_time", this.mXx);
             if (this.pageNumber != -1) {
                 jSONObject.put("da_page_num", this.pageNumber);
             }
-            jSONObject.put("da_price", this.mWY);
+            jSONObject.put("da_price", this.mXy);
             jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put("ext1", this.mWZ);
-            jSONObject.put("ext3", this.mXb);
-            jSONObject.put("ext2", this.mXa);
-            jSONObject.put("da_ext1", this.mXc);
-            jSONObject.put("da_ext2", this.mXd);
-            jSONObject.put("da_ext3", this.mXe);
-            jSONObject.put("da_ext4", this.mXf);
-            jSONObject.put("da_ext5", this.mXg);
-            jSONObject.put("da_menu1", this.mXi);
-            jSONObject.put("da_menu2", this.mXj);
-            jSONObject.put("da_menu3", this.mXk);
-            jSONObject.put("da_page", this.mXl);
+            jSONObject.put("ext1", this.mXz);
+            jSONObject.put("ext3", this.mXB);
+            jSONObject.put("ext2", this.mXA);
+            jSONObject.put("da_ext1", this.mXC);
+            jSONObject.put("da_ext2", this.mXD);
+            jSONObject.put("da_ext3", this.mXE);
+            jSONObject.put("da_ext4", this.mXF);
+            jSONObject.put("da_ext5", this.mXG);
+            jSONObject.put("da_menu1", this.mXI);
+            jSONObject.put("da_menu2", this.mXJ);
+            jSONObject.put("da_menu3", this.mXK);
+            jSONObject.put("da_page", this.mXL);
             jSONObject.put("place_id", this.placeId);
-            jSONObject.put("lego_extra", this.mXh);
+            jSONObject.put("lego_extra", this.mXH);
             if (this.downloadStaticsData != null) {
                 jSONObject.put("da_range", this.downloadStaticsData.getDa_range());
                 jSONObject.put("da_range_nt", this.downloadStaticsData.getDa_range_nt());
@@ -141,35 +141,35 @@ public class c {
                 jSONObject.put("da_menu3", this.downloadStaticsData.getFid());
                 jSONObject.put(ConstantData.Logo.LOGO_AD_APK_PACKAGE_NAME, this.downloadStaticsData.getApk_name());
             }
-            jSONObject.put("da_area", this.mXm);
+            jSONObject.put("da_area", this.mXM);
         } catch (JSONException e) {
         }
-        if (this.mWW != null) {
+        if (this.mXw != null) {
             try {
-                jSONObject.put("ext", this.mWW);
+                jSONObject.put("ext", this.mXw);
             } catch (Exception e2) {
             }
         }
         return jSONObject;
     }
 
-    public void RN(String str) {
-        this.mXi = str;
+    public void RZ(String str) {
+        this.mXI = str;
     }
 
-    public void RO(String str) {
-        this.mXj = str;
+    public void Sa(String str) {
+        this.mXJ = str;
     }
 
-    public void RP(String str) {
-        this.mXk = str;
+    public void Sb(String str) {
+        this.mXK = str;
     }
 
-    public void RQ(String str) {
-        this.mXl = str;
+    public void Sc(String str) {
+        this.mXL = str;
     }
 
-    public void RR(String str) {
-        this.mXm = str;
+    public void Sd(String str) {
+        this.mXM = str;
     }
 }

@@ -9,20 +9,20 @@ import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class c {
-    private OvalActionButton jCn;
+    private OvalActionButton jCB;
     private TbPageContext<?> mPageContext;
     private String mPostContent;
     private String mTopicId;
 
     public c(OvalActionButton ovalActionButton, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.jCn = ovalActionButton;
-        this.jCn.setIsCircle(true);
-        this.jCn.setHasShadow(false);
-        this.jCn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
+        this.jCB = ovalActionButton;
+        this.jCB.setIsCircle(true);
+        this.jCB.setHasShadow(false);
+        this.jCB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cSj();
+                c.this.cSq();
             }
         });
     }
@@ -31,12 +31,12 @@ public class c {
         this.mTopicId = str;
     }
 
-    public void CY(String str) {
+    public void CW(String str) {
         this.mPostContent = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cSj() {
+    public void cSq() {
         if (!WriteActivityConfig.isAsyncWriting() && this.mTopicId != null) {
             String str = null;
             if (!StringUtils.isNull(this.mPostContent)) {

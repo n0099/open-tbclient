@@ -21,7 +21,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.open.utils.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public static class C1271a {
+    public static class C1273a {
 
         /* renamed from: a  reason: collision with root package name */
         Properties f13426a;
@@ -29,7 +29,7 @@ public final class a {
         /* renamed from: b  reason: collision with root package name */
         byte[] f13427b;
 
-        private C1271a() {
+        private C1273a() {
             this.f13426a = new Properties();
         }
 
@@ -74,9 +74,9 @@ public final class a {
             try {
                 byte[] a2 = a(randomAccessFile);
                 if (a2 != null) {
-                    C1271a c1271a = new C1271a();
-                    c1271a.a(a2);
-                    str2 = c1271a.f13426a.getProperty(str);
+                    C1273a c1273a = new C1273a();
+                    c1273a.a(a2);
+                    str2 = c1273a.f13426a.getProperty(str);
                     if (randomAccessFile != null) {
                         randomAccessFile.close();
                     }

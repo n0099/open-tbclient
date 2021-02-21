@@ -88,12 +88,12 @@ public class a {
 
     /* renamed from: com.ss.android.socialbase.downloader.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static final class C1253a {
-        private static final a qgi = new a();
+    private static final class C1255a {
+        private static final a qgI = new a();
     }
 
-    public static a eIm() {
-        return C1253a.qgi;
+    public static a eIu() {
+        return C1255a.qgI;
     }
 
     private a() {

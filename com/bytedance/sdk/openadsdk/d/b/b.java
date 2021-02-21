@@ -21,7 +21,7 @@ public final class b {
     static final Type[] f6925a = new Type[0];
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
-        return new C1015b(type, type2, typeArr);
+        return new C1017b(type, type2, typeArr);
     }
 
     public static GenericArrayType a(Type type) {
@@ -42,7 +42,7 @@ public final class b {
             return cls.isArray() ? new a(d(cls.getComponentType())) : cls;
         } else if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
-            return new C1015b(parameterizedType.getOwnerType(), parameterizedType.getRawType(), parameterizedType.getActualTypeArguments());
+            return new C1017b(parameterizedType.getOwnerType(), parameterizedType.getRawType(), parameterizedType.getActualTypeArguments());
         } else if (type instanceof GenericArrayType) {
             return new a(((GenericArrayType) type).getGenericComponentType());
         } else {
@@ -323,7 +323,7 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.d.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1015b implements Serializable, ParameterizedType {
+    public static final class C1017b implements Serializable, ParameterizedType {
 
         /* renamed from: a  reason: collision with root package name */
         private final Type f6928a;
@@ -332,7 +332,7 @@ public final class b {
         private final Type f6929b;
         private final Type[] c;
 
-        public C1015b(Type type, Type type2, Type... typeArr) {
+        public C1017b(Type type, Type type2, Type... typeArr) {
             if (type2 instanceof Class) {
                 Class cls = (Class) type2;
                 com.bytedance.sdk.openadsdk.d.b.a.a(type != null || (Modifier.isStatic(cls.getModifiers()) || cls.getEnclosingClass() == null));

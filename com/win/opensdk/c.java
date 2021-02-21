@@ -1,11 +1,11 @@
 package com.win.opensdk;
 /* loaded from: classes3.dex */
 public interface c extends PBListener {
-    void ZD(String str);
+    void ZP(String str);
 
-    void eAq();
+    void eAy();
 
-    void eAr();
+    void eAz();
 
     void r(boolean z, long j);
 }

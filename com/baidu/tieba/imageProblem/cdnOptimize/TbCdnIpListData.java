@@ -9,13 +9,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> kWw;
+    public ArrayList<ArrayList<String>> kWK;
     public int bjQ = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String kWv = null;
-    boolean kWx = false;
-    public String kWy = null;
+    public String kWJ = null;
+    boolean kWL = false;
+    public String kWM = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -27,15 +27,15 @@ public class TbCdnIpListData {
                     this.errorString = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.kWx = true;
+                    this.kWL = true;
                 } else {
-                    this.kWx = false;
+                    this.kWL = false;
                 }
-                this.kWy = jSONObject.optString("cdn_domain");
+                this.kWM = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.kWv = optJSONObject2.optString("img_md5");
+                    this.kWJ = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -58,7 +58,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.kWw = arrayList;
+                        this.kWK = arrayList;
                     }
                 }
             } catch (Exception e) {

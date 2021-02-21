@@ -13,47 +13,47 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class k implements com.baidu.live.t.e {
-    private static final String ifC = com.baidu.live.storage.b.QQ();
-    private static final String ifD = com.baidu.live.storage.b.QV();
-    private static final String ifE = com.baidu.live.storage.b.Rd();
-    private boolean ifF;
-    private HttpMessageListener ifG;
-    private String ifI;
-    private l igQ;
+    private static final String ifQ = com.baidu.live.storage.b.QQ();
+    private static final String ifR = com.baidu.live.storage.b.QV();
+    private static final String ifS = com.baidu.live.storage.b.Rd();
+    private boolean ifT;
+    private HttpMessageListener ifU;
+    private String ifW;
+    private l ihe;
 
-    public static k coQ() {
-        return a.igS;
+    public static k coX() {
+        return a.ihg;
     }
 
-    public String cox() {
-        return this.ifI;
+    public String coE() {
+        return this.ifW;
     }
 
     @Override // com.baidu.live.t.e
     public void Pj() {
         final ar arVar = com.baidu.live.ae.a.Qj().buX;
         if (arVar == null || arVar.aNn == null || TextUtils.isEmpty(arVar.aNn.downloadUrl)) {
-            bWF();
-        } else if (!this.ifF) {
-            this.ifI = "";
-            this.ifF = true;
+            bWM();
+        } else if (!this.ifT) {
+            this.ifW = "";
+            this.ifT = true;
             new BdAsyncTask<cc, Void, cc>() { // from class: com.baidu.tieba.ala.h.k.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: a */
                 public cc doInBackground(cc... ccVarArr) {
-                    cc Iw;
+                    cc Ix;
                     if (ccVarArr == null || ccVarArr.length == 0) {
                         return null;
                     }
                     cc ccVar = ccVarArr[0];
                     String string = com.baidu.live.d.xc().getString("live_pk_rank_start_anim", "");
-                    if (TextUtils.isEmpty(string) || (Iw = j.Iw(string)) == null || !ccVar.downloadUrl.equals(Iw.downloadUrl) || !ccVar.aQJ.equals(Iw.aQJ) || TextUtils.isEmpty(Iw.videoMd5) || !Iw.videoMd5.equals(k.this.coy())) {
-                        k.this.coz();
+                    if (TextUtils.isEmpty(string) || (Ix = j.Ix(string)) == null || !ccVar.downloadUrl.equals(Ix.downloadUrl) || !ccVar.aQJ.equals(Ix.aQJ) || TextUtils.isEmpty(Ix.videoMd5) || !Ix.videoMd5.equals(k.this.coF())) {
+                        k.this.coG();
                         return null;
                     }
-                    return Iw;
+                    return Ix;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class k implements com.baidu.live.t.e {
                         k.this.b(arVar.aNn);
                         return;
                     }
-                    k.this.ifI = ccVar.videoPath;
+                    k.this.ifW = ccVar.videoPath;
                 }
             }.execute(arVar.aNn);
         }
@@ -74,12 +74,12 @@ public class k implements com.baidu.live.t.e {
 
     @Override // com.baidu.live.t.e
     public void release() {
-        this.ifF = false;
-        this.ifI = "";
-        MessageManager.getInstance().unRegisterListener(this.ifG);
-        this.ifG = null;
-        if (this.igQ != null) {
-            this.igQ.release();
+        this.ifT = false;
+        this.ifW = "";
+        MessageManager.getInstance().unRegisterListener(this.ifU);
+        this.ifU = null;
+        if (this.ihe != null) {
+            this.ihe.release();
         }
         com.baidu.live.h.b.cE(21);
     }
@@ -88,14 +88,14 @@ public class k implements com.baidu.live.t.e {
     public void cL(List<cc> list) {
         if (list != null && !list.isEmpty()) {
             cc ccVar = list.get(0);
-            this.ifI = ccVar.videoPath;
+            this.ifW = ccVar.videoPath;
             com.baidu.live.d.xc().putString("live_pk_rank_start_anim", j.a(ccVar));
         }
     }
 
-    private void bWF() {
-        if (this.ifG == null) {
-            this.ifG = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.h.k.2
+    private void bWM() {
+        if (this.ifU == null) {
+            this.ifU = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.h.k.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -104,13 +104,13 @@ public class k implements com.baidu.live.t.e {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.ifG);
+            MessageManager.getInstance().registerListener(this.ifU);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String coy() {
-        File[] listFiles = new File(ifE).listFiles();
+    public String coF() {
+        File[] listFiles = new File(ifS).listFiles();
         if (listFiles == null || listFiles.length == 0) {
             return null;
         }
@@ -125,16 +125,16 @@ public class k implements com.baidu.live.t.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(cc ccVar) {
         if (ccVar != null && !TextUtils.isEmpty(ccVar.downloadUrl)) {
-            this.igQ = new l();
-            this.igQ.y(ccVar.downloadUrl, ccVar.aQJ, ifD, ifE);
+            this.ihe = new l();
+            this.ihe.y(ccVar.downloadUrl, ccVar.aQJ, ifR, ifS);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void coz() {
-        this.ifI = "";
+    public void coG() {
+        this.ifW = "";
         com.baidu.live.d.xc().putString("live_pk_rank_start_anim", "");
-        com.baidu.live.h.a.cleanDir(new File(ifC));
+        com.baidu.live.h.a.cleanDir(new File(ifQ));
     }
 
     private k() {
@@ -143,6 +143,6 @@ public class k implements com.baidu.live.t.e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static k igS = new k();
+        private static k ihg = new k();
     }
 }

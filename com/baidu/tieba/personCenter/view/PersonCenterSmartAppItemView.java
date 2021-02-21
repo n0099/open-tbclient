@@ -30,10 +30,10 @@ import com.baidu.tieba.personCenter.c.l;
 import com.baidu.tieba.personCenter.c.m;
 /* loaded from: classes2.dex */
 public class PersonCenterSmartAppItemView extends LinearLayout implements View.OnClickListener {
-    private HeadImageView gDn;
+    private HeadImageView gDB;
     private TextView mName;
-    private ImageView muU;
-    private com.baidu.tieba.personCenter.c.c muV;
+    private ImageView mvj;
+    private com.baidu.tieba.personCenter.c.c mvk;
 
     public PersonCenterSmartAppItemView(Context context) {
         this(context, null);
@@ -46,22 +46,22 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public PersonCenterSmartAppItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(R.layout.person_center_smart_app_item_layout, (ViewGroup) this, true);
-        this.gDn = (HeadImageView) findViewById(R.id.iv_person_center_smart_app_page_item_avatar);
-        this.gDn.setIsRound(true);
-        this.gDn.setDefaultResource(R.color.CAM_X0204);
-        this.gDn.setPlaceHolder(1);
+        this.gDB = (HeadImageView) findViewById(R.id.iv_person_center_smart_app_page_item_avatar);
+        this.gDB.setIsRound(true);
+        this.gDB.setDefaultResource(R.color.CAM_X0204);
+        this.gDB.setPlaceHolder(1);
         this.mName = (TextView) findViewById(R.id.tv_person_center_smart_app_page_item_name);
-        this.muU = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
+        this.mvj = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
         onChangeSkinType();
     }
 
     public void b(com.baidu.tieba.personCenter.c.c cVar) {
         if (cVar != null) {
-            this.muV = cVar;
-            this.muU.setVisibility(8);
+            this.mvk = cVar;
+            this.mvj.setVisibility(8);
             if (cVar instanceof m) {
                 m mVar = (m) cVar;
-                this.gDn.startLoad(mVar.getAvatar(), 10, false, false);
+                this.gDB.startLoad(mVar.getAvatar(), 10, false, false);
                 String name = mVar.getName();
                 if (!au.isEmpty(name)) {
                     this.mName.setText(UtilHelper.getFixedText(name, 5));
@@ -69,14 +69,14 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
                     this.mName.setText(R.string.intelligent_smart_app);
                 }
                 if (cVar.getType() == 1) {
-                    ap.setImageResource(this.muU, R.drawable.icon_personal_recommend);
-                    this.muU.setVisibility(0);
+                    ap.setImageResource(this.mvj, R.drawable.icon_personal_recommend);
+                    this.mvj.setVisibility(0);
                 } else {
-                    this.muU.setVisibility(8);
+                    this.mvj.setVisibility(8);
                 }
                 setOnClickListener(this);
             } else if (cVar instanceof l) {
-                ap.setImageResource(this.gDn, R.drawable.icon_personal_more);
+                ap.setImageResource(this.gDB, R.drawable.icon_personal_more);
                 this.mName.setText(R.string.more);
                 setOnClickListener(this);
             }
@@ -89,9 +89,9 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.muV instanceof m) {
-            m mVar = (m) this.muV;
-            if (!com.baidu.tieba.aiapps.a.b(mVar.getAppKey(), mVar.getLink(), "1191000600000000", mVar.dwI())) {
+        if (this.mvk instanceof m) {
+            m mVar = (m) this.mvk;
+            if (!com.baidu.tieba.aiapps.a.b(mVar.getAppKey(), mVar.getLink(), "1191000600000000", mVar.dwP())) {
                 if (!au.isEmpty(mVar.getH5Url())) {
                     bf.bsV().b(W(getContext()), new String[]{mVar.getH5Url()});
                 } else {
@@ -101,11 +101,11 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
             ar arVar = new ar("c13274");
             arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());
             arVar.dR("obj_source", "personal_center");
-            arVar.v("obj_id", mVar.dwH().longValue());
+            arVar.v("obj_id", mVar.dwO().longValue());
             arVar.dR("obj_name", mVar.getName());
-            arVar.ap("obj_param1", mVar.dwI().intValue());
+            arVar.ap("obj_param1", mVar.dwP().intValue());
             TiebaStatic.log(arVar);
-        } else if (this.muV instanceof l) {
+        } else if (this.mvk instanceof l) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SmartAppBrowseHistoryActivityConfig(getContext())));
             ar arVar2 = new ar("c13437");
             arVar2.v("uid", TbadkCoreApplication.getCurrentAccountId());

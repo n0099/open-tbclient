@@ -10,8 +10,8 @@ public abstract class a {
     protected a.InterfaceC0088a agh;
     protected TbPageContext eUY;
     protected int mSkinType = 3;
-    protected ab mer;
-    protected OriginalThreadInfo mes;
+    protected ab meG;
+    protected OriginalThreadInfo meH;
 
     public abstract void g(OriginalThreadInfo originalThreadInfo);
 
@@ -24,7 +24,7 @@ public abstract class a {
     }
 
     public void a(ab abVar) {
-        this.mer = abVar;
+        this.meG = abVar;
     }
 
     public void a(a.InterfaceC0088a interfaceC0088a) {

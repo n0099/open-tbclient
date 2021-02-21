@@ -51,7 +51,7 @@ public class cj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m227a() {
+    public String m226a() {
         return this.f243a;
     }
 

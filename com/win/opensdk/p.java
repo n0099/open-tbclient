@@ -18,6 +18,6 @@ public final class p {
 
     /* renamed from: java  reason: collision with other field name */
     int[] f67java;
-    String[] qjx;
-    int[] qjy;
+    String[] qjX;
+    int[] qjY;
 }

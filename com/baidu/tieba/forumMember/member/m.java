@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
-    private static final int jdg = R.id.private_apply_tip;
+    private static final int jdu = R.id.private_apply_tip;
     private com.baidu.tbadk.coreExtra.view.b fpW;
     private View.OnClickListener mClickListener;
 
@@ -26,7 +26,7 @@ public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    Object tag = view.getTag(m.jdg);
+                    Object tag = view.getTag(m.jdu);
                     if (tag != null && !tag.toString().equals("")) {
                         bf.bsV().b((TbPageContext) com.baidu.adp.base.j.K(m.this.mContext), new String[]{tag.toString()});
                         return;
@@ -58,50 +58,50 @@ public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
             } else {
                 if (privateMgrApplyViewHolder.mSkinType != this.mSkinType) {
                     ap.setBackgroundColor(privateMgrApplyViewHolder.mLineView, R.color.CAM_X0204);
-                    ap.setViewTextColor(privateMgrApplyViewHolder.jde, R.color.CAM_X0109, 1);
-                    ap.setViewTextColor(privateMgrApplyViewHolder.jdd, R.color.CAM_X0105, 1);
-                    ap.setBackgroundResource(privateMgrApplyViewHolder.jdf, R.drawable.frs_member_manito_bg);
+                    ap.setViewTextColor(privateMgrApplyViewHolder.jds, R.color.CAM_X0109, 1);
+                    ap.setViewTextColor(privateMgrApplyViewHolder.jdr, R.color.CAM_X0105, 1);
+                    ap.setBackgroundResource(privateMgrApplyViewHolder.jdt, R.drawable.frs_member_manito_bg);
                 }
-                int cAQ = nVar.cAQ();
+                int cAX = nVar.cAX();
                 String string = this.mContext.getResources().getString(R.string.tbtitle_quota_is_full);
-                if (cAQ == -1) {
-                    int cAO = nVar.cAO();
-                    String numberUniformFormat = au.numberUniformFormat(cAO);
-                    if (cAO > 0) {
+                if (cAX == -1) {
+                    int cAV = nVar.cAV();
+                    String numberUniformFormat = au.numberUniformFormat(cAV);
+                    if (cAV > 0) {
                         string = String.format(this.mContext.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
-                        privateMgrApplyViewHolder.jdf.setOnClickListener(this.mClickListener);
-                        privateMgrApplyViewHolder.jde.setText(string);
-                        privateMgrApplyViewHolder.jdf.setTag(jdg, nVar.cAP());
-                        privateMgrApplyViewHolder.jdf.setEnabled(z);
-                        privateMgrApplyViewHolder.jdf.setClickable(z);
-                        privateMgrApplyViewHolder.jde.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                        privateMgrApplyViewHolder.jdt.setOnClickListener(this.mClickListener);
+                        privateMgrApplyViewHolder.jds.setText(string);
+                        privateMgrApplyViewHolder.jdt.setTag(jdu, nVar.cAW());
+                        privateMgrApplyViewHolder.jdt.setEnabled(z);
+                        privateMgrApplyViewHolder.jdt.setClickable(z);
+                        privateMgrApplyViewHolder.jds.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                         privateMgrApplyViewHolder.mSkinType = this.mSkinType;
                     }
                     z = false;
-                    privateMgrApplyViewHolder.jdf.setOnClickListener(this.mClickListener);
-                    privateMgrApplyViewHolder.jde.setText(string);
-                    privateMgrApplyViewHolder.jdf.setTag(jdg, nVar.cAP());
-                    privateMgrApplyViewHolder.jdf.setEnabled(z);
-                    privateMgrApplyViewHolder.jdf.setClickable(z);
-                    privateMgrApplyViewHolder.jde.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    privateMgrApplyViewHolder.jdt.setOnClickListener(this.mClickListener);
+                    privateMgrApplyViewHolder.jds.setText(string);
+                    privateMgrApplyViewHolder.jdt.setTag(jdu, nVar.cAW());
+                    privateMgrApplyViewHolder.jdt.setEnabled(z);
+                    privateMgrApplyViewHolder.jdt.setClickable(z);
+                    privateMgrApplyViewHolder.jds.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     privateMgrApplyViewHolder.mSkinType = this.mSkinType;
                 } else {
-                    if (cAQ == 0) {
+                    if (cAX == 0) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_is_assist);
-                    } else if (cAQ == 1) {
+                    } else if (cAX == 1) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
-                        if (cAQ == 2) {
+                        if (cAX == 2) {
                             string = this.mContext.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z = false;
                     }
-                    privateMgrApplyViewHolder.jdf.setOnClickListener(this.mClickListener);
-                    privateMgrApplyViewHolder.jde.setText(string);
-                    privateMgrApplyViewHolder.jdf.setTag(jdg, nVar.cAP());
-                    privateMgrApplyViewHolder.jdf.setEnabled(z);
-                    privateMgrApplyViewHolder.jdf.setClickable(z);
-                    privateMgrApplyViewHolder.jde.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    privateMgrApplyViewHolder.jdt.setOnClickListener(this.mClickListener);
+                    privateMgrApplyViewHolder.jds.setText(string);
+                    privateMgrApplyViewHolder.jdt.setTag(jdu, nVar.cAW());
+                    privateMgrApplyViewHolder.jdt.setEnabled(z);
+                    privateMgrApplyViewHolder.jdt.setClickable(z);
+                    privateMgrApplyViewHolder.jds.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     privateMgrApplyViewHolder.mSkinType = this.mSkinType;
                 }
             }

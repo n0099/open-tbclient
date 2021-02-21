@@ -18,7 +18,7 @@ public class c {
     public interface a {
         void Eo(int i);
 
-        void deS();
+        void deZ();
     }
 
     public static void a(TbPageContext<?> tbPageContext, final BubbleListData.BubbleData bubbleData, final a aVar) {
@@ -52,7 +52,7 @@ public class c {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.deS();
+                        a.this.deZ();
                     }
                 }
             });
@@ -80,7 +80,7 @@ public class c {
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar3) {
                     aVar3.dismiss();
                     if (a.this != null) {
-                        a.this.deS();
+                        a.this.deZ();
                     }
                 }
             });

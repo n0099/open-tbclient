@@ -19,7 +19,7 @@ import org.json.JSONArray;
 /* loaded from: classes9.dex */
 public class UserCollectModel extends FaceBaseModel {
     public static final String ALL_DELETE = "all_delete";
-    private final HttpMessageListener gIN = new HttpMessageListener(1003339) { // from class: com.baidu.tieba.faceshop.UserCollectModel.2
+    private final HttpMessageListener gJb = new HttpMessageListener(1003339) { // from class: com.baidu.tieba.faceshop.UserCollectModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -42,9 +42,9 @@ public class UserCollectModel extends FaceBaseModel {
     public UserCollectModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.gIN.setTag(getUniqueId());
-        this.gIN.setSelfListener(true);
-        registerListener(this.gIN);
+        this.gJb.setTag(getUniqueId());
+        this.gJb.setSelfListener(true);
+        registerListener(this.gJb);
     }
 
     private void registerTask() {
@@ -60,7 +60,7 @@ public class UserCollectModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.gIN);
+        MessageManager.getInstance().unRegisterListener(this.gJb);
         MessageManager.getInstance().unRegisterTask(1003339);
         return true;
     }
@@ -69,12 +69,12 @@ public class UserCollectModel extends FaceBaseModel {
         new Thread(new Runnable() { // from class: com.baidu.tieba.faceshop.UserCollectModel.1
             @Override // java.lang.Runnable
             public void run() {
-                List<CollectEmotionData> JF = i.cyE().JF(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<CollectEmotionData> JG = i.cyL().JG(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
-                if (JF != null) {
+                if (JG != null) {
                     JSONArray jSONArray = new JSONArray();
                     try {
-                        for (CollectEmotionData collectEmotionData : JF) {
+                        for (CollectEmotionData collectEmotionData : JG) {
                             if (!com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                                 jSONArray.put(collectEmotionData.toJSON());
                                 hashSet.add(collectEmotionData.sharpText);

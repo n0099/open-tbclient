@@ -14,7 +14,7 @@ public class au implements ar {
 
     private au(Context context) {
         this.f193a = at.a(context);
-        com.xiaomi.channel.commonutils.logger.b.m80a("create id manager is: " + this.f193a);
+        com.xiaomi.channel.commonutils.logger.b.m79a("create id manager is: " + this.f193a);
     }
 
     public static au a(Context context) {
@@ -45,9 +45,9 @@ public class au implements ar {
         if (!TextUtils.isEmpty(a2)) {
             map.put("udid", a2);
         }
-        String mo161b = mo161b();
-        if (!TextUtils.isEmpty(mo161b)) {
-            map.put("oaid", mo161b);
+        String mo160b = mo160b();
+        if (!TextUtils.isEmpty(mo160b)) {
+            map.put("oaid", mo160b);
         }
         String c = c();
         if (!TextUtils.isEmpty(c)) {
@@ -62,13 +62,13 @@ public class au implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return this.f193a.m163a();
+        return this.f193a.m162a();
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo161b() {
-        return a(this.f193a.mo161b());
+    public String mo160b() {
+        return a(this.f193a.mo160b());
     }
 
     @Override // com.xiaomi.push.ar

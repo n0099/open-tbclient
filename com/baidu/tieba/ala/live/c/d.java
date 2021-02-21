@@ -18,8 +18,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.c.a
-    protected com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0644a interfaceC0644a) {
-        return new com.baidu.tieba.ala.live.b.c(getPageContext(), interfaceC0644a);
+    protected com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0645a interfaceC0645a) {
+        return new com.baidu.tieba.ala.live.b.c(getPageContext(), interfaceC0645a);
     }
 
     @Override // com.baidu.tieba.ala.live.c.a

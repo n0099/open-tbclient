@@ -55,9 +55,9 @@ public class i extends h {
         kotlin.jvm.internal.p.o(bArr, "$receiver");
         kotlin.jvm.internal.p.o(hVar, "indices");
         if (hVar.isEmpty()) {
-            return n.eKW();
+            return n.eLe();
         }
-        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eLv().intValue(), hVar.eLw().intValue() + 1);
+        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eLD().intValue(), hVar.eLE().intValue() + 1);
         kotlin.jvm.internal.p.n(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return f.av(copyOfRange);
     }
@@ -83,18 +83,18 @@ public class i extends h {
 
     public static final <T> HashSet<T> S(T[] tArr) {
         kotlin.jvm.internal.p.o(tArr, "$receiver");
-        return (HashSet) f.a(tArr, new HashSet(aa.Ss(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(aa.St(tArr.length)));
     }
 
     public static final <T> Set<T> T(T[] tArr) {
         kotlin.jvm.internal.p.o(tArr, "$receiver");
         switch (tArr.length) {
             case 0:
-                return ag.eLe();
+                return ag.eLm();
             case 1:
                 return ag.bT(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(aa.Ss(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(aa.St(tArr.length)));
         }
     }
 
@@ -154,7 +154,7 @@ public class i extends h {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: Sr */
+        /* renamed from: Ss */
         public Byte get(int i) {
             return Byte.valueOf(this.receiver$0[i]);
         }

@@ -15,8 +15,8 @@ public class a implements TextWatcher, View.OnClickListener {
     private EditText bNB;
     private TextView bNC;
     private long buN;
-    private InterfaceC0695a gQB;
-    private long goL;
+    private InterfaceC0696a gQP;
+    private long goZ;
     private boolean mIsHost;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -25,14 +25,14 @@ public class a implements TextWatcher, View.OnClickListener {
 
     /* renamed from: com.baidu.tieba.ala.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0695a {
+    public interface InterfaceC0696a {
         void afterTextChanged(Editable editable);
     }
 
-    public a(TbPageContext tbPageContext, View.OnClickListener onClickListener, InterfaceC0695a interfaceC0695a) {
+    public a(TbPageContext tbPageContext, View.OnClickListener onClickListener, InterfaceC0696a interfaceC0696a) {
         this.mPageContext = tbPageContext;
         this.mOnClickListener = onClickListener;
-        this.gQB = interfaceC0695a;
+        this.gQP = interfaceC0696a;
         initView();
     }
 
@@ -49,7 +49,7 @@ public class a implements TextWatcher, View.OnClickListener {
 
     public void b(long j, long j2, long j3, boolean z) {
         this.buN = j;
-        this.goL = j2;
+        this.goZ = j2;
         this.mUserId = j3;
         this.mIsHost = z;
     }
@@ -93,8 +93,8 @@ public class a implements TextWatcher, View.OnClickListener {
                 }
             }
         }
-        if (this.gQB != null) {
-            this.gQB.afterTextChanged(editable);
+        if (this.gQP != null) {
+            this.gQP.afterTextChanged(editable);
         }
     }
 

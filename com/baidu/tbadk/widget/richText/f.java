@@ -58,7 +58,7 @@ public class f extends ClickableSpan {
         this.urlType = i;
     }
 
-    public void Ee(String str) {
+    public void Ec(String str) {
         this.fXs = str;
     }
 

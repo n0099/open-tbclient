@@ -7,39 +7,39 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes6.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> pzk = new IdentityHashMap();
+    private static final Map<Object, Integer> pzK = new IdentityHashMap();
     @GuardedBy("this")
     private int mRefCount = 1;
     @GuardedBy("this")
     private T mValue;
-    private final c<T> pyZ;
+    private final c<T> pzz;
 
     public SharedReference(T t, c<T> cVar) {
         this.mValue = (T) g.checkNotNull(t);
-        this.pyZ = (c) g.checkNotNull(cVar);
+        this.pzz = (c) g.checkNotNull(cVar);
         bd(t);
     }
 
     private static void bd(Object obj) {
-        synchronized (pzk) {
-            Integer num = pzk.get(obj);
+        synchronized (pzK) {
+            Integer num = pzK.get(obj);
             if (num == null) {
-                pzk.put(obj, 1);
+                pzK.put(obj, 1);
             } else {
-                pzk.put(obj, Integer.valueOf(num.intValue() + 1));
+                pzK.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
     private static void be(Object obj) {
-        synchronized (pzk) {
-            Integer num = pzk.get(obj);
+        synchronized (pzK) {
+            Integer num = pzK.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.h("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                pzk.remove(obj);
+                pzK.remove(obj);
             } else {
-                pzk.put(obj, Integer.valueOf(num.intValue() - 1));
+                pzK.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
@@ -56,31 +56,31 @@ public class SharedReference<T> {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void esM() {
-        esP();
+    public synchronized void esU() {
+        esX();
         this.mRefCount++;
     }
 
-    public void esN() {
+    public void esV() {
         T t;
-        if (esO() == 0) {
+        if (esW() == 0) {
             synchronized (this) {
                 t = this.mValue;
                 this.mValue = null;
             }
-            this.pyZ.release(t);
+            this.pzz.release(t);
             be(t);
         }
     }
 
-    private synchronized int esO() {
-        esP();
+    private synchronized int esW() {
+        esX();
         g.checkArgument(this.mRefCount > 0);
         this.mRefCount--;
         return this.mRefCount;
     }
 
-    private void esP() {
+    private void esX() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

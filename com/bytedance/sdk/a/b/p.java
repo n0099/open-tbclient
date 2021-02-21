@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface p {
-    public static final p ppg = new p() { // from class: com.bytedance.sdk.a.b.p.1
+    public static final p ppI = new p() { // from class: com.bytedance.sdk.a.b.p.1
         @Override // com.bytedance.sdk.a.b.p
         public void a(s sVar, List<o> list) {
         }

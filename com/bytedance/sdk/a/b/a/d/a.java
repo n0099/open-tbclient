@@ -27,21 +27,21 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     final z f5888a;
     int e = 0;
     private long f = PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
-    final com.bytedance.sdk.a.a.d pod;
-    final g ppj;
-    final com.bytedance.sdk.a.a.e ppp;
+    final com.bytedance.sdk.a.a.d poG;
+    final g ppK;
+    final com.bytedance.sdk.a.a.e ppQ;
 
     public a(z zVar, g gVar, com.bytedance.sdk.a.a.e eVar, com.bytedance.sdk.a.a.d dVar) {
         this.f5888a = zVar;
-        this.ppj = gVar;
-        this.ppp = eVar;
-        this.pod = dVar;
+        this.ppK = gVar;
+        this.ppQ = eVar;
+        this.poG = dVar;
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public r a(ab abVar, long j) {
         if (HTTP.CHUNK_CODING.equalsIgnoreCase(abVar.a("Transfer-Encoding"))) {
-            return epq();
+            return epy();
         }
         if (j != -1) {
             return iq(j);
@@ -51,46 +51,46 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void d(ab abVar) throws IOException {
-        a(abVar.epp(), i.a(abVar, this.ppj.epf().eoW().epM().type()));
+        a(abVar.epx(), i.a(abVar, this.ppK.epn().epe().epU().type()));
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public com.bytedance.sdk.a.b.c c(com.bytedance.sdk.a.b.b bVar) throws IOException {
-        this.ppj.poN.f(this.ppj.poM);
+        this.ppK.ppo.f(this.ppK.ppn);
         String a2 = bVar.a("Content-Type");
         if (!com.bytedance.sdk.a.b.a.c.e.e(bVar)) {
             return new h(a2, 0L, l.c(ir(0L)));
         }
         if (HTTP.CHUNK_CODING.equalsIgnoreCase(bVar.a("Transfer-Encoding"))) {
-            return new h(a2, -1L, l.c(d(bVar.epm().eoJ())));
+            return new h(a2, -1L, l.c(d(bVar.epu().eoR())));
         }
         long d2 = com.bytedance.sdk.a.b.a.c.e.d(bVar);
         if (d2 != -1) {
             return new h(a2, d2, l.c(ir(d2)));
         }
-        return new h(a2, -1L, l.c(epr()));
+        return new h(a2, -1L, l.c(epz()));
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void a() throws IOException {
-        this.pod.flush();
+        this.poG.flush();
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void b() throws IOException {
-        this.pod.flush();
+        this.poG.flush();
     }
 
     public void a(v vVar, String str) throws IOException {
         if (this.e != 0) {
             throw new IllegalStateException("state: " + this.e);
         }
-        this.pod.YA(str).YA("\r\n");
+        this.poG.YM(str).YM("\r\n");
         int a2 = vVar.a();
         for (int i = 0; i < a2; i++) {
-            this.pod.YA(vVar.a(i)).YA(": ").YA(vVar.b(i)).YA("\r\n");
+            this.poG.YM(vVar.a(i)).YM(": ").YM(vVar.b(i)).YM("\r\n");
         }
-        this.pod.YA("\r\n");
+        this.poG.YM("\r\n");
         this.e = 1;
     }
 
@@ -100,39 +100,39 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             throw new IllegalStateException("state: " + this.e);
         }
         try {
-            k YB = k.YB(f());
-            b.a c2 = new b.a().a(YB.f5886a).OF(YB.f5887b).YC(YB.c).c(epp());
-            if (z && YB.f5887b == 100) {
+            k YN = k.YN(f());
+            b.a c2 = new b.a().a(YN.f5886a).OG(YN.f5887b).YO(YN.c).c(epx());
+            if (z && YN.f5887b == 100) {
                 return null;
             }
             this.e = 4;
             return c2;
         } catch (EOFException e2) {
-            IOException iOException = new IOException("unexpected end of stream on " + this.ppj);
+            IOException iOException = new IOException("unexpected end of stream on " + this.ppK);
             iOException.initCause(e2);
             throw iOException;
         }
     }
 
     private String f() throws IOException {
-        String e2 = this.ppp.e(this.f);
+        String e2 = this.ppQ.e(this.f);
         this.f -= e2.length();
         return e2;
     }
 
-    public v epp() throws IOException {
+    public v epx() throws IOException {
         v.a aVar = new v.a();
         while (true) {
             String f2 = f();
             if (f2.length() != 0) {
-                com.bytedance.sdk.a.b.a.a.poa.a(aVar, f2);
+                com.bytedance.sdk.a.b.a.a.poD.a(aVar, f2);
             } else {
-                return aVar.epV();
+                return aVar.eqd();
             }
         }
     }
 
-    public r epq() {
+    public r epy() {
         if (this.e != 1) {
             throw new IllegalStateException("state: " + this.e);
         }
@@ -164,23 +164,23 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         return new c(sVar);
     }
 
-    public s epr() throws IOException {
+    public s epz() throws IOException {
         if (this.e != 4) {
             throw new IllegalStateException("state: " + this.e);
         }
-        if (this.ppj == null) {
+        if (this.ppK == null) {
             throw new IllegalStateException("streamAllocation == null");
         }
         this.e = 5;
-        this.ppj.d();
+        this.ppK.d();
         return new f();
     }
 
     void a(com.bytedance.sdk.a.a.i iVar) {
-        t eoq = iVar.eoq();
-        iVar.a(t.pnQ);
-        eoq.eoF();
-        eoq.eoE();
+        t eoy = iVar.eoy();
+        iVar.a(t.pot);
+        eoy.eoN();
+        eoy.eoM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -188,16 +188,16 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     public final class d implements r {
         private boolean c;
         private long d;
-        private final com.bytedance.sdk.a.a.i ppu;
+        private final com.bytedance.sdk.a.a.i ppU;
 
         d(long j) {
-            this.ppu = new com.bytedance.sdk.a.a.i(a.this.pod.eoq());
+            this.ppU = new com.bytedance.sdk.a.a.i(a.this.poG.eoy());
             this.d = j;
         }
 
         @Override // com.bytedance.sdk.a.a.r
-        public t eoq() {
-            return this.ppu;
+        public t eoy() {
+            return this.ppU;
         }
 
         @Override // com.bytedance.sdk.a.a.r
@@ -209,14 +209,14 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             if (j > this.d) {
                 throw new ProtocolException("expected " + this.d + " bytes but received " + j);
             }
-            a.this.pod.a(cVar, j);
+            a.this.poG.a(cVar, j);
             this.d -= j;
         }
 
         @Override // com.bytedance.sdk.a.a.r, java.io.Flushable
         public void flush() throws IOException {
             if (!this.c) {
-                a.this.pod.flush();
+                a.this.poG.flush();
             }
         }
 
@@ -227,7 +227,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
                 if (this.d > 0) {
                     throw new ProtocolException("unexpected end of stream");
                 }
-                a.this.a(this.ppu);
+                a.this.a(this.ppU);
                 a.this.e = 3;
             }
         }
@@ -237,15 +237,15 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     /* loaded from: classes6.dex */
     public final class b implements r {
         private boolean c;
-        private final com.bytedance.sdk.a.a.i ppu;
+        private final com.bytedance.sdk.a.a.i ppU;
 
         b() {
-            this.ppu = new com.bytedance.sdk.a.a.i(a.this.pod.eoq());
+            this.ppU = new com.bytedance.sdk.a.a.i(a.this.poG.eoy());
         }
 
         @Override // com.bytedance.sdk.a.a.r
-        public t eoq() {
-            return this.ppu;
+        public t eoy() {
+            return this.ppU;
         }
 
         @Override // com.bytedance.sdk.a.a.r
@@ -254,17 +254,17 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
                 throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             if (j != 0) {
-                a.this.pod.in(j);
-                a.this.pod.YA("\r\n");
-                a.this.pod.a(cVar, j);
-                a.this.pod.YA("\r\n");
+                a.this.poG.in(j);
+                a.this.poG.YM("\r\n");
+                a.this.poG.a(cVar, j);
+                a.this.poG.YM("\r\n");
             }
         }
 
         @Override // com.bytedance.sdk.a.a.r, java.io.Flushable
         public synchronized void flush() throws IOException {
             if (!this.c) {
-                a.this.pod.flush();
+                a.this.poG.flush();
             }
         }
 
@@ -272,8 +272,8 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         public synchronized void close() throws IOException {
             if (!this.c) {
                 this.c = true;
-                a.this.pod.YA("0\r\n\r\n");
-                a.this.a(this.ppu);
+                a.this.poG.YM("0\r\n\r\n");
+                a.this.a(this.ppU);
                 a.this.e = 3;
             }
         }
@@ -282,27 +282,27 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.a.b.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public abstract class AbstractC0993a implements s {
+    public abstract class AbstractC0995a implements s {
 
         /* renamed from: b  reason: collision with root package name */
         protected boolean f5889b;
         protected long c;
-        protected final com.bytedance.sdk.a.a.i ppr;
+        protected final com.bytedance.sdk.a.a.i ppS;
 
-        private AbstractC0993a() {
-            this.ppr = new com.bytedance.sdk.a.a.i(a.this.ppp.eoq());
+        private AbstractC0995a() {
+            this.ppS = new com.bytedance.sdk.a.a.i(a.this.ppQ.eoy());
             this.c = 0L;
         }
 
         @Override // com.bytedance.sdk.a.a.s
-        public t eoq() {
-            return this.ppr;
+        public t eoy() {
+            return this.ppS;
         }
 
         @Override // com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             try {
-                long b2 = a.this.ppp.b(cVar, j);
+                long b2 = a.this.ppQ.b(cVar, j);
                 if (b2 > 0) {
                     this.c += b2;
                 }
@@ -318,10 +318,10 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
                 if (a.this.e != 5) {
                     throw new IllegalStateException("state: " + a.this.e);
                 }
-                a.this.a(this.ppr);
+                a.this.a(this.ppS);
                 a.this.e = 6;
-                if (a.this.ppj != null) {
-                    a.this.ppj.a(!z, a.this, this.c, iOException);
+                if (a.this.ppK != null) {
+                    a.this.ppK.a(!z, a.this, this.c, iOException);
                 }
             }
         }
@@ -329,7 +329,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
-    public class e extends AbstractC0993a {
+    public class e extends AbstractC0995a {
         private long f;
 
         e(long j) throws IOException {
@@ -340,7 +340,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             }
         }
 
-        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0993a, com.bytedance.sdk.a.a.s
+        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0995a, com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             if (j < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
@@ -377,19 +377,19 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
-    public class c extends AbstractC0993a {
+    public class c extends AbstractC0995a {
         private long g;
         private boolean h;
-        private final com.bytedance.sdk.a.b.s ppw;
+        private final com.bytedance.sdk.a.b.s ppW;
 
         c(com.bytedance.sdk.a.b.s sVar) {
             super();
             this.g = -1L;
             this.h = true;
-            this.ppw = sVar;
+            this.ppW = sVar;
         }
 
-        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0993a, com.bytedance.sdk.a.a.s
+        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0995a, com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             if (j < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
@@ -418,16 +418,16 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
         private void b() throws IOException {
             if (this.g != -1) {
-                a.this.ppp.p();
+                a.this.ppQ.p();
             }
             try {
-                this.g = a.this.ppp.m();
-                String trim = a.this.ppp.p().trim();
+                this.g = a.this.ppQ.m();
+                String trim = a.this.ppQ.p().trim();
                 if (this.g < 0 || (!trim.isEmpty() && !trim.startsWith(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR))) {
                     throw new ProtocolException("expected chunk size and optional extensions but was \"" + this.g + trim + "\"");
                 } else if (this.g == 0) {
                     this.h = false;
-                    com.bytedance.sdk.a.b.a.c.e.a(a.this.f5888a.eqe(), this.ppw, a.this.epp());
+                    com.bytedance.sdk.a.b.a.c.e.a(a.this.f5888a.eqm(), this.ppW, a.this.epx());
                     a(true, null);
                 }
             } catch (NumberFormatException e) {
@@ -448,14 +448,14 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
-    public class f extends AbstractC0993a {
+    public class f extends AbstractC0995a {
         private boolean f;
 
         f() {
             super();
         }
 
-        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0993a, com.bytedance.sdk.a.a.s
+        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0995a, com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             if (j < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);

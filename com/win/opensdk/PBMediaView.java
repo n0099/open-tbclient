@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import com.win.opensdk.d;
 /* loaded from: classes3.dex */
 public class PBMediaView extends FrameLayout {
-    private Context qiN;
-    private bw qiU;
+    private Context qjn;
+    private bw qju;
 
     public PBMediaView(Context context) {
         this(context, null);
@@ -20,9 +20,9 @@ public class PBMediaView extends FrameLayout {
 
     public PBMediaView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.qiN = context;
-        this.qiU = new bw(context);
-        addView(this.qiU.qkq, new FrameLayout.LayoutParams(-1, -1));
+        this.qjn = context;
+        this.qju = new bw(context);
+        addView(this.qju.qkQ, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
             int k = bi.k(context, 15.0f);
@@ -35,6 +35,6 @@ public class PBMediaView extends FrameLayout {
     }
 
     public bw getHtmlWebView() {
-        return this.qiU;
+        return this.qju;
     }
 }

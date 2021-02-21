@@ -1,16 +1,16 @@
 package rx.schedulers;
 /* loaded from: classes5.dex */
 public final class a<T> {
-    private final long qEt;
+    private final long qET;
     private final T value;
 
     public a(long j, T t) {
         this.value = t;
-        this.qEt = j;
+        this.qET = j;
     }
 
-    public long eOa() {
-        return this.qEt;
+    public long eOi() {
+        return this.qET;
     }
 
     public T getValue() {
@@ -23,7 +23,7 @@ public final class a<T> {
         }
         if (obj != null && (obj instanceof a)) {
             a aVar = (a) obj;
-            if (this.qEt == aVar.qEt) {
+            if (this.qET == aVar.qET) {
                 if (this.value == aVar.value) {
                     return true;
                 }
@@ -37,10 +37,10 @@ public final class a<T> {
     }
 
     public int hashCode() {
-        return (this.value == null ? 0 : this.value.hashCode()) + ((((int) (this.qEt ^ (this.qEt >>> 32))) + 31) * 31);
+        return (this.value == null ? 0 : this.value.hashCode()) + ((((int) (this.qET ^ (this.qET >>> 32))) + 31) * 31);
     }
 
     public String toString() {
-        return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.qEt), this.value.toString());
+        return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.qET), this.value.toString());
     }
 }

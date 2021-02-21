@@ -71,9 +71,9 @@ public class c extends TypeAdapter.ViewHolder {
         this.bkp = (TbImageView) getView().findViewById(a.f.headBorder_imageView);
         this.bko = (SimpleDraweeView) getView().findViewById(a.f.head_imageView);
         com.facebook.drawee.generic.a hierarchy = this.bko.getHierarchy();
-        hierarchy.a(a.e.sdk_icon_default_avatar100, p.b.pDw);
-        hierarchy.b(a.e.sdk_icon_default_avatar100, p.b.pDw);
-        hierarchy.b(p.b.pDw);
+        hierarchy.a(a.e.sdk_icon_default_avatar100, p.b.pDW);
+        hierarchy.b(a.e.sdk_icon_default_avatar100, p.b.pDW);
+        hierarchy.b(p.b.pDW);
         RoundingParams roundingParams = new RoundingParams();
         roundingParams.Br(true);
         hierarchy.a(roundingParams);

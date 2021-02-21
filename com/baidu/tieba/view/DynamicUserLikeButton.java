@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
     private boolean akA;
-    private a nWU;
-    private boolean nWV;
+    private a nXu;
+    private boolean nXv;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -37,7 +37,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void aM(boolean z) {
-        if (this.nWV) {
+        if (this.nXv) {
             if (z) {
                 com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
                 bVar.buX();
@@ -93,8 +93,8 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void bG(View view) {
-        if (this.nWU != null) {
-            this.nWU.cO(view);
+        if (this.nXu != null) {
+            this.nXu.cO(view);
         }
     }
 
@@ -108,7 +108,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void setOnClickEvent(a aVar) {
-        this.nWU = aVar;
+        this.nXu = aVar;
     }
 
     public void setUseNewStyle(boolean z) {
@@ -116,6 +116,6 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void setGodRecommendStyle(boolean z) {
-        this.nWV = z;
+        this.nXv = z;
     }
 }

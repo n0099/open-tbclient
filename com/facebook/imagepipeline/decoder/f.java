@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class f implements d {
-    private final b pKa;
+    private final b pKA;
 
     /* loaded from: classes5.dex */
     public interface b {
-        List<Integer> eyd();
+        List<Integer> eyl();
 
-        int eye();
+        int eym();
     }
 
     /* loaded from: classes5.dex */
@@ -21,12 +21,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> eyd() {
+        public List<Integer> eyl() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int eye() {
+        public int eym() {
             return 0;
         }
     }
@@ -36,23 +36,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.pKa = (b) g.checkNotNull(bVar);
+        this.pKA = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public int PH(int i) {
-        List<Integer> eyd = this.pKa.eyd();
-        if (eyd == null || eyd.isEmpty()) {
+    public int PI(int i) {
+        List<Integer> eyl = this.pKA.eyl();
+        if (eyl == null || eyl.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < eyd.size()) {
-                if (eyd.get(i3).intValue() <= i) {
+            if (i3 < eyl.size()) {
+                if (eyl.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return eyd.get(i3).intValue();
+                    return eyl.get(i3).intValue();
                 }
             } else {
                 return Integer.MAX_VALUE;
@@ -61,7 +61,7 @@ public class f implements d {
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public h PI(int i) {
-        return com.facebook.imagepipeline.f.g.k(i, i >= this.pKa.eye(), false);
+    public h PJ(int i) {
+        return com.facebook.imagepipeline.f.g.k(i, i >= this.pKA.eym(), false);
     }
 }

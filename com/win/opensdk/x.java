@@ -4,10 +4,10 @@ import com.win.opensdk.core.Info;
 /* loaded from: classes3.dex */
 public final class x {
     public String java;
-    Info qji;
+    Info qjI;
 
     public x(Info info) {
-        this.qji = info;
+        this.qjI = info;
         if (info != null) {
             this.java = info.getPid();
         }

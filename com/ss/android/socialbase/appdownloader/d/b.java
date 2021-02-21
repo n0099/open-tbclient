@@ -31,7 +31,7 @@ public class b implements m {
     @Override // com.ss.android.socialbase.downloader.downloader.m
     public void a(final List<com.ss.android.socialbase.downloader.g.c> list, final int i) {
         if (d.d()) {
-            com.ss.android.socialbase.downloader.downloader.b.eGc().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.d.b.1
+            com.ss.android.socialbase.downloader.downloader.b.eGk().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.d.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -49,15 +49,15 @@ public class b implements m {
     /* JADX INFO: Access modifiers changed from: private */
     public void B(List<com.ss.android.socialbase.downloader.g.c> list, int i) {
         if (list != null && !list.isEmpty()) {
-            g eFp = com.ss.android.socialbase.appdownloader.d.eFn().eFp();
-            if (eFp != null) {
-                eFp.a(list);
+            g eFx = com.ss.android.socialbase.appdownloader.d.eFv().eFx();
+            if (eFx != null) {
+                eFx.a(list);
             }
-            Context eGu = com.ss.android.socialbase.downloader.downloader.b.eGu();
-            if (eGu != null) {
-                boolean a2 = d.a(eGu);
+            Context eGC = com.ss.android.socialbase.downloader.downloader.b.eGC();
+            if (eGC != null) {
+                boolean a2 = d.a(eGC);
                 for (com.ss.android.socialbase.downloader.g.c cVar : list) {
-                    a(eGu, cVar, a2, i);
+                    a(eGC, cVar, a2, i);
                 }
                 if (this.f13025a != null && !this.f13025a.isEmpty() && this.f13026b == null) {
                     this.f13026b = new BroadcastReceiver() { // from class: com.ss.android.socialbase.appdownloader.d.b.2
@@ -66,7 +66,7 @@ public class b implements m {
                             final Context applicationContext = context.getApplicationContext();
                             if (d.a(applicationContext)) {
                                 com.ss.android.socialbase.downloader.f.a.b("LaunchResume", "onReceive : wifi connected !!!");
-                                com.ss.android.socialbase.downloader.downloader.b.eGc().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.d.b.2.1
+                                com.ss.android.socialbase.downloader.downloader.b.eGk().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.d.b.2.1
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         try {
@@ -98,7 +98,7 @@ public class b implements m {
                     try {
                         IntentFilter intentFilter = new IntentFilter();
                         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                        eGu.registerReceiver(this.f13026b, intentFilter);
+                        eGC.registerReceiver(this.f13026b, intentFilter);
                     } catch (Throwable th) {
                         th.printStackTrace();
                         this.f13026b = null;
@@ -116,36 +116,36 @@ public class b implements m {
     */
     public void a(Context context, com.ss.android.socialbase.downloader.g.c cVar, boolean z, int i) {
         boolean z2;
-        g eFp;
-        if (cVar != null && cVar.eim()) {
+        g eFx;
+        if (cVar != null && cVar.eiu()) {
             int w = cVar.w();
-            if (w == -5 && ("application/ttpatch".equalsIgnoreCase(cVar.eHf()) || !cVar.aX())) {
-                com.ss.android.socialbase.downloader.k.a RV = com.ss.android.socialbase.downloader.k.a.RV(cVar.g());
-                int a2 = RV.a("failed_resume_max_count", 0);
-                double e = RV.e("failed_resume_max_hours", 72.0d);
-                double e2 = RV.e("failed_resume_min_hours", 12.0d);
+            if (w == -5 && ("application/ttpatch".equalsIgnoreCase(cVar.eHn()) || !cVar.aX())) {
+                com.ss.android.socialbase.downloader.k.a RW = com.ss.android.socialbase.downloader.k.a.RW(cVar.g());
+                int a2 = RW.a("failed_resume_max_count", 0);
+                double e = RW.e("failed_resume_max_hours", 72.0d);
+                double e2 = RW.e("failed_resume_min_hours", 12.0d);
                 long currentTimeMillis = System.currentTimeMillis();
-                boolean z3 = (cVar.U() && z) ? true : cVar.eHP() < a2 && ((double) (currentTimeMillis - cVar.eHT())) < e * 3600000.0d && ((double) (currentTimeMillis - cVar.eHQ())) > 3600000.0d * e2;
+                boolean z3 = (cVar.U() && z) ? true : cVar.eHX() < a2 && ((double) (currentTimeMillis - cVar.eIb())) < e * 3600000.0d && ((double) (currentTimeMillis - cVar.eHY())) > 3600000.0d * e2;
                 if (z3) {
-                    boolean z4 = RV.a("failed_resume_need_wifi", 1) == 1;
-                    boolean z5 = RV.a("failed_resume_need_wait_wifi", 0) == 1;
+                    boolean z4 = RW.a("failed_resume_need_wifi", 1) == 1;
+                    boolean z5 = RW.a("failed_resume_need_wait_wifi", 0) == 1;
                     if (z || !z4 || !z5) {
                         a(cVar, z3, z4);
                         cVar.h(currentTimeMillis);
-                        cVar.j(cVar.eHP() + 1);
-                        cVar.eHO();
+                        cVar.j(cVar.eHX() + 1);
+                        cVar.eHW();
                         z2 = true;
                         if (cVar.U() && z) {
                             cVar.d(true);
-                            r eFq = com.ss.android.socialbase.appdownloader.d.eFn().eFq();
-                            if (eFq != null) {
-                                eFq.a(cVar, 5, i);
+                            r eFy = com.ss.android.socialbase.appdownloader.d.eFv().eFy();
+                            if (eFy != null) {
+                                eFy.a(cVar, 5, i);
                             }
                         }
                         com.ss.android.socialbase.downloader.f.a.c("LaunchResume", "launchResume, name = " + cVar.i() + ", canShowNotification = " + z3 + ", downloadResumed = " + z2);
-                        eFp = com.ss.android.socialbase.appdownloader.d.eFn().eFp();
-                        if (eFp == null) {
-                            eFp.a(cVar, z2);
+                        eFx = com.ss.android.socialbase.appdownloader.d.eFv().eFx();
+                        if (eFx == null) {
+                            eFx.a(cVar, z2);
                             return;
                         }
                         return;
@@ -158,50 +158,50 @@ public class b implements m {
                         this.f13025a.add(Integer.valueOf(g));
                     }
                     cVar.c(true);
-                    com.ss.android.socialbase.downloader.impls.r.eIt().a(cVar);
+                    com.ss.android.socialbase.downloader.impls.r.eIB().a(cVar);
                 }
                 z2 = false;
                 com.ss.android.socialbase.downloader.f.a.c("LaunchResume", "launchResume, name = " + cVar.i() + ", canShowNotification = " + z3 + ", downloadResumed = " + z2);
-                eFp = com.ss.android.socialbase.appdownloader.d.eFn().eFp();
-                if (eFp == null) {
+                eFx = com.ss.android.socialbase.appdownloader.d.eFv().eFx();
+                if (eFx == null) {
                 }
             } else if (w == -3 && a(cVar)) {
-                com.ss.android.socialbase.downloader.k.a RV2 = com.ss.android.socialbase.downloader.k.a.RV(cVar.g());
+                com.ss.android.socialbase.downloader.k.a RW2 = com.ss.android.socialbase.downloader.k.a.RW(cVar.g());
                 if (!c.b(context, cVar)) {
-                    int a3 = RV2.a("uninstall_resume_max_count", 0);
-                    double e3 = RV2.e("uninstall_resume_max_hours", 72.0d);
-                    double e4 = RV2.e("uninstall_resume_min_hours", 12.0d);
+                    int a3 = RW2.a("uninstall_resume_max_count", 0);
+                    double e3 = RW2.e("uninstall_resume_max_hours", 72.0d);
+                    double e4 = RW2.e("uninstall_resume_min_hours", 12.0d);
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    boolean z6 = cVar.eHR() < a3 && ((double) (currentTimeMillis2 - cVar.eHT())) < e3 * 3600000.0d && ((double) (currentTimeMillis2 - cVar.eHS())) > 3600000.0d * e4;
+                    boolean z6 = cVar.eHZ() < a3 && ((double) (currentTimeMillis2 - cVar.eIb())) < e3 * 3600000.0d && ((double) (currentTimeMillis2 - cVar.eIa())) > 3600000.0d * e4;
                     com.ss.android.socialbase.downloader.f.a.c("LaunchResume", "uninstallResume, name = " + cVar.i() + ", canShowNotification = " + z6);
                     if (z6) {
-                        com.ss.android.socialbase.downloader.notification.a Sb = com.ss.android.socialbase.downloader.notification.b.eIB().Sb(cVar.g());
-                        if (Sb == null) {
-                            Sb = new com.ss.android.socialbase.appdownloader.e.a(context, cVar.g(), cVar.i(), cVar.k(), cVar.h(), cVar.C());
-                            com.ss.android.socialbase.downloader.notification.b.eIB().a(Sb);
+                        com.ss.android.socialbase.downloader.notification.a Sc = com.ss.android.socialbase.downloader.notification.b.eIJ().Sc(cVar.g());
+                        if (Sc == null) {
+                            Sc = new com.ss.android.socialbase.appdownloader.e.a(context, cVar.g(), cVar.i(), cVar.k(), cVar.h(), cVar.C());
+                            com.ss.android.socialbase.downloader.notification.b.eIJ().a(Sc);
                         } else {
-                            Sb.a(cVar);
+                            Sc.a(cVar);
                         }
-                        Sb.b(cVar.eij());
-                        Sb.a(cVar.eij());
-                        Sb.a(cVar.q(), null, false, false);
+                        Sc.b(cVar.eir());
+                        Sc.a(cVar.eir());
+                        Sc.a(cVar.q(), null, false, false);
                         cVar.ja(currentTimeMillis2);
-                        cVar.k(cVar.eHR() + 1);
-                        cVar.eHO();
+                        cVar.k(cVar.eHZ() + 1);
+                        cVar.eHW();
                     }
                 }
             } else if (w == -2 && cVar.U()) {
                 if (z) {
                     a(cVar, true, true);
-                    cVar.eHO();
+                    cVar.eHW();
                     cVar.d(true);
-                    g eFp2 = com.ss.android.socialbase.appdownloader.d.eFn().eFp();
-                    if (eFp2 != null) {
-                        eFp2.a(cVar, true);
+                    g eFx2 = com.ss.android.socialbase.appdownloader.d.eFv().eFx();
+                    if (eFx2 != null) {
+                        eFx2.a(cVar, true);
                     }
-                    r eFq2 = com.ss.android.socialbase.appdownloader.d.eFn().eFq();
-                    if (eFq2 != null) {
-                        eFq2.a(cVar, 5, i);
+                    r eFy2 = com.ss.android.socialbase.appdownloader.d.eFv().eFy();
+                    if (eFy2 != null) {
+                        eFy2.a(cVar, 5, i);
                         return;
                     }
                     return;
@@ -213,17 +213,17 @@ public class b implements m {
                 if (!this.f13025a.contains(Integer.valueOf(g2))) {
                     this.f13025a.add(Integer.valueOf(g2));
                 }
-                com.ss.android.socialbase.downloader.impls.r.eIt().a(cVar);
+                com.ss.android.socialbase.downloader.impls.r.eIB().a(cVar);
             }
         }
     }
 
     private boolean a(com.ss.android.socialbase.downloader.g.c cVar) {
-        return com.ss.android.socialbase.downloader.k.a.RV(cVar.g()).b("uninstall_can_not_resume_for_force_task", false) ? d.a(cVar, false, cVar.F()) : cVar.aX();
+        return com.ss.android.socialbase.downloader.k.a.RW(cVar.g()).b("uninstall_can_not_resume_for_force_task", false) ? d.a(cVar, false, cVar.F()) : cVar.aX();
     }
 
     private void a(com.ss.android.socialbase.downloader.g.c cVar, boolean z, boolean z2) {
-        com.ss.android.socialbase.appdownloader.d.eFn().a(new com.ss.android.socialbase.appdownloader.f(com.ss.android.socialbase.downloader.downloader.b.eGu(), cVar.j()).aaR(cVar.i()).aaS(cVar.h()).aaT(cVar.k()).BZ(cVar.eim()).Cb(cVar.x() || z2).aaU(cVar.C()).aaV(cVar.eHf()).gV(cVar.eGT()).Cd(true).Rg(cVar.J()).Rh(cVar.K()).gW(cVar.eHz()).Ri(cVar.eHD()).Rj(cVar.eHC()).Ce(z).Cc(cVar.eHg()).aaW(cVar.D()).aaX(cVar.F()).jh(cVar.eEi()).Ch(cVar.o()).Ci(cVar.ad()).Ck(cVar.ae()).a(cVar.eGR()).Cm(cVar.aj()).Cl(cVar.af()).Cf(cVar.eHh()).aaY(cVar.eHi()).fj(a(cVar.R())).aaZ(cVar.eHk()).Rk(cVar.eHY()));
+        com.ss.android.socialbase.appdownloader.d.eFv().a(new com.ss.android.socialbase.appdownloader.f(com.ss.android.socialbase.downloader.downloader.b.eGC(), cVar.j()).abd(cVar.i()).abe(cVar.h()).abf(cVar.k()).BZ(cVar.eiu()).Cb(cVar.x() || z2).abg(cVar.C()).abh(cVar.eHn()).gV(cVar.eHb()).Cd(true).Rh(cVar.J()).Ri(cVar.K()).gW(cVar.eHH()).Rj(cVar.eHL()).Rk(cVar.eHK()).Ce(z).Cc(cVar.eHo()).abi(cVar.D()).abj(cVar.F()).jh(cVar.eEq()).Ch(cVar.o()).Ci(cVar.ad()).Ck(cVar.ae()).a(cVar.eGZ()).Cm(cVar.aj()).Cl(cVar.af()).Cf(cVar.eHp()).abk(cVar.eHq()).fj(a(cVar.R())).abl(cVar.eHs()).Rl(cVar.eIg()));
     }
 
     private JSONObject a(String str) {

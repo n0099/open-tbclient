@@ -7,11 +7,11 @@ import android.os.Looper;
 import android.preference.PreferenceManager;
 /* loaded from: classes11.dex */
 public class b {
-    public static String B(Context context, String str, String str2) {
+    public static String A(Context context, String str, String str2) {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(str, str2);
     }
 
-    public static void C(Context context, String str, String str2) {
+    public static void B(Context context, String str, String str2) {
         commitEditor(PreferenceManager.getDefaultSharedPreferences(context).edit().putString(str, str2));
     }
 

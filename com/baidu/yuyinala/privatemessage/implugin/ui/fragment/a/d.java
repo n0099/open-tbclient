@@ -4,67 +4,67 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes11.dex */
 public class d {
-    private static d pdq;
-    private b pdr;
-    private b pds;
-    private a pdt;
-    private String pdu = "";
-    private ConcurrentHashMap<String, c> pdv = new ConcurrentHashMap<>(4);
+    private static d pdQ;
+    private b pdR;
+    private b pdS;
+    private a pdT;
+    private String pdU = "";
+    private ConcurrentHashMap<String, c> pdV = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    public static d eld() {
-        if (pdq == null) {
+    public static d ell() {
+        if (pdQ == null) {
             synchronized (d.class) {
-                if (pdq == null) {
-                    pdq = new d();
+                if (pdQ == null) {
+                    pdQ = new d();
                 }
             }
         }
-        return pdq;
+        return pdQ;
     }
 
-    public c Yn(String str) {
-        return this.pdv.get(str);
+    public c Yz(String str) {
+        return this.pdV.get(str);
     }
 
-    public String ele() {
-        return this.pdu;
+    public String elm() {
+        return this.pdU;
     }
 
     public void a(String str, c cVar) {
-        this.pdu = str;
+        this.pdU = str;
         if (cVar != null) {
-            this.pdv.put(str, cVar);
+            this.pdV.put(str, cVar);
         }
     }
 
-    public void Yo(String str) {
-        if (this.pdv.containsKey(str)) {
-            this.pdv.remove(str);
+    public void YA(String str) {
+        if (this.pdV.containsKey(str)) {
+            this.pdV.remove(str);
         }
     }
 
-    public b elf() {
-        return this.pdr;
+    public b eln() {
+        return this.pdR;
     }
 
     public void a(b bVar) {
-        this.pdr = bVar;
+        this.pdR = bVar;
     }
 
-    public b elg() {
-        return this.pds;
+    public b elo() {
+        return this.pdS;
     }
 
     public void b(b bVar) {
-        this.pds = bVar;
+        this.pdS = bVar;
     }
 
-    public static void elh() {
-        pdq = null;
+    public static void elp() {
+        pdQ = null;
     }
 
-    public a eli() {
-        return this.pdt;
+    public a elq() {
+        return this.pdT;
     }
 }

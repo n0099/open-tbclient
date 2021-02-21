@@ -20,7 +20,7 @@ public class h extends SSLSocketFactory {
 
     /* renamed from: b  reason: collision with root package name */
     private static final String[] f6059b;
-    private SSLSocketFactory pvs;
+    private SSLSocketFactory pvS;
 
     static {
         if (Build.VERSION.SDK_INT >= 26) {
@@ -56,7 +56,7 @@ public class h extends SSLSocketFactory {
         try {
             SSLContext sSLContext = SSLContext.getInstance("TLS");
             sSLContext.init(null, new TrustManager[]{f6058a}, new SecureRandom());
-            this.pvs = sSLContext.getSocketFactory();
+            this.pvS = sSLContext.getSocketFactory();
         } catch (Exception e) {
             Log.e("TLSSocketFactory", "TLSSocketFactory error: ", e);
         }
@@ -64,76 +64,76 @@ public class h extends SSLSocketFactory {
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getDefaultCipherSuites() {
-        if (this.pvs != null) {
-            return this.pvs.getDefaultCipherSuites();
+        if (this.pvS != null) {
+            return this.pvS.getDefaultCipherSuites();
         }
         return null;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public String[] getSupportedCipherSuites() {
-        if (this.pvs != null) {
-            return this.pvs.getSupportedCipherSuites();
+        if (this.pvS != null) {
+            return this.pvS.getSupportedCipherSuites();
         }
         return null;
     }
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        if (this.pvs == null) {
+        if (this.pvS == null) {
             return null;
         }
-        Socket createSocket = this.pvs.createSocket(socket, str, i, z);
+        Socket createSocket = this.pvS.createSocket(socket, str, i, z);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i) throws IOException {
-        if (this.pvs == null) {
+        if (this.pvS == null) {
             return null;
         }
-        Socket createSocket = this.pvs.createSocket(str, i);
+        Socket createSocket = this.pvS.createSocket(str, i);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException {
-        if (this.pvs == null) {
+        if (this.pvS == null) {
             return null;
         }
-        Socket createSocket = this.pvs.createSocket(str, i, inetAddress, i2);
+        Socket createSocket = this.pvS.createSocket(str, i, inetAddress, i2);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
-        if (this.pvs == null) {
+        if (this.pvS == null) {
             return null;
         }
-        Socket createSocket = this.pvs.createSocket(inetAddress, i);
+        Socket createSocket = this.pvS.createSocket(inetAddress, i);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
-        if (this.pvs == null) {
+        if (this.pvS == null) {
             return null;
         }
-        Socket createSocket = this.pvs.createSocket(inetAddress, i, inetAddress2, i2);
+        Socket createSocket = this.pvS.createSocket(inetAddress, i, inetAddress2, i2);
         a(createSocket);
         return createSocket;
     }
 
     @Override // javax.net.SocketFactory
     public Socket createSocket() throws IOException {
-        if (this.pvs == null) {
+        if (this.pvS == null) {
             return null;
         }
-        Socket createSocket = this.pvs.createSocket();
+        Socket createSocket = this.pvS.createSocket();
         a(createSocket);
         return createSocket;
     }

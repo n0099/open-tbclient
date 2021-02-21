@@ -24,8 +24,8 @@ public class a extends d implements View.OnClickListener {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.DetailVideoView.a
         public void b() {
-            com.kwad.sdk.core.download.b.a.a(a.this.f10540b.getContext(), a.this.e, new a.InterfaceC1092a() { // from class: com.kwad.sdk.reward.b.b.a.1.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+            com.kwad.sdk.core.download.b.a.a(a.this.f10540b.getContext(), a.this.e, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.b.b.a.1.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                 public void a() {
                     a.this.e();
                 }

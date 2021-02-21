@@ -27,25 +27,25 @@ public class ag extends l<com.baidu.tieba.pb.data.m, PbNoDataItemViewHolder> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.m mVar, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) mVar, (com.baidu.tieba.pb.data.m) pbNoDataItemViewHolder);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        pbNoDataItemViewHolder.mTextView.setText(mVar.lLj);
-        if (mVar.lLi != 0) {
-            com.baidu.tbadk.core.util.ap.setImageResource(pbNoDataItemViewHolder.mImageView, mVar.lLi);
+        pbNoDataItemViewHolder.mTextView.setText(mVar.lLy);
+        if (mVar.lLx != 0) {
+            com.baidu.tbadk.core.util.ap.setImageResource(pbNoDataItemViewHolder.mImageView, mVar.lLx);
         } else {
             com.baidu.tbadk.core.util.ap.setImageResource(pbNoDataItemViewHolder.mImageView, R.drawable.new_pic_emotion_06);
         }
         com.baidu.tbadk.core.util.ap.setViewTextColor(pbNoDataItemViewHolder.mTextView, R.color.CAM_X0109);
-        if (mVar.gAx != 0 && view.getLayoutParams() != null) {
-            view.getLayoutParams().height = mVar.gAx;
+        if (mVar.gAL != 0 && view.getLayoutParams() != null) {
+            view.getLayoutParams().height = mVar.gAL;
         }
-        if (mVar.lLk != 0) {
+        if (mVar.lLz != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.mImageView.getLayoutParams();
-            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, mVar.lLk, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, mVar.lLz, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
         }
-        if (mVar.lLl != 0) {
+        if (mVar.lLA != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.mTextView.getLayoutParams();
-            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, mVar.lLl);
+            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, mVar.lLA);
         }
-        pbNoDataItemViewHolder.mImageView.setVisibility(mVar.lLm);
+        pbNoDataItemViewHolder.mImageView.setVisibility(mVar.lLB);
         return view;
     }
 }

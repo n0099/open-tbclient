@@ -18,7 +18,7 @@ public class a {
         this.cTD = (TextView) this.aiT.findViewById(a.f.text_user_name);
     }
 
-    public void bK(int i, int i2) {
+    public void bL(int i, int i2) {
         this.cTD.setText(this.mPageContext.getResources().getString(a.h.sdk_prc_person_adminlist_header, String.valueOf(i), String.valueOf(i2)));
     }
 

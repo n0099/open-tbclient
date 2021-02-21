@@ -21,14 +21,14 @@ import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes2.dex */
 public class HotTopicHeaderView extends LinearLayout {
     protected f ajq;
-    private EMTextView jQI;
-    private RelativeLayout kfQ;
-    private HotTopicTabRankListLayout kfR;
-    private EMTextView kfS;
-    private EMTextView kfT;
-    private com.baidu.tieba.homepage.hotTopic.tab.view.a kfU;
-    private p kfV;
-    private LinearLayout kfW;
+    private EMTextView jQW;
+    private RelativeLayout kge;
+    private HotTopicTabRankListLayout kgf;
+    private EMTextView kgg;
+    private EMTextView kgh;
+    private com.baidu.tieba.homepage.hotTopic.tab.view.a kgi;
+    private p kgj;
+    private LinearLayout kgk;
     private int mSkinType;
 
     public void setOnItemCoverListener(f fVar) {
@@ -55,64 +55,64 @@ public class HotTopicHeaderView extends LinearLayout {
 
     private void initView() {
         setOrientation(1);
-        this.kfQ = new RelativeLayout(getContext());
+        this.kge = new RelativeLayout(getContext());
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
         int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
         int dimenPixelSize5 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
         int dimenPixelSize6 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
-        this.kfS = new EMTextView(getContext());
-        this.kfS.setId(R.id.title_id);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.kfS).nY(R.color.CAM_X0105).nZ(R.dimen.T_X07).oa(R.string.F_X02);
-        this.kfS.setText(getString(R.string.hot_topic_tab_rank_list_title));
-        this.kfS.setMaxLines(1);
-        this.kfS.setEllipsize(TextUtils.TruncateAt.END);
-        this.kfS.setPadding(dimenPixelSize4, dimenPixelSize5, dimenPixelSize4, dimenPixelSize6);
-        this.kfQ.addView(this.kfS, new RelativeLayout.LayoutParams(-1, -2));
-        this.kfR = new HotTopicTabRankListLayout(getContext());
+        this.kgg = new EMTextView(getContext());
+        this.kgg.setId(R.id.title_id);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.kgg).nY(R.color.CAM_X0105).nZ(R.dimen.T_X07).oa(R.string.F_X02);
+        this.kgg.setText(getString(R.string.hot_topic_tab_rank_list_title));
+        this.kgg.setMaxLines(1);
+        this.kgg.setEllipsize(TextUtils.TruncateAt.END);
+        this.kgg.setPadding(dimenPixelSize4, dimenPixelSize5, dimenPixelSize4, dimenPixelSize6);
+        this.kge.addView(this.kgg, new RelativeLayout.LayoutParams(-1, -2));
+        this.kgf = new HotTopicTabRankListLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(3, R.id.title_id);
-        this.kfQ.addView(this.kfR, layoutParams);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.kfQ).og(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+        this.kge.addView(this.kgf, layoutParams);
+        com.baidu.tbadk.core.elementsMaven.c.br(this.kge).og(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams2.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        this.kfQ.setPadding(0, 0, 0, dimenPixelSize6);
-        addView(this.kfQ, layoutParams2);
-        this.kfV = new p(getContext());
-        this.kfV.setFrom("from_hottop");
-        this.kfV.IO("2");
+        this.kge.setPadding(0, 0, 0, dimenPixelSize6);
+        addView(this.kge, layoutParams2);
+        this.kgj = new p(getContext());
+        this.kgj.setFrom("from_hottop");
+        this.kgj.IP("2");
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams3.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds5);
-        addView(this.kfV.getView(), layoutParams3);
-        this.kfW = new LinearLayout(getContext());
-        this.kfW.setOrientation(0);
+        addView(this.kgj.getView(), layoutParams3);
+        this.kgk = new LinearLayout(getContext());
+        this.kgk.setOrientation(0);
         EMTextView eMTextView = new EMTextView(getContext());
         com.baidu.tbadk.core.elementsMaven.c.br(eMTextView).nZ(R.dimen.T_X07).nY(R.color.CAM_X0105).oa(R.string.F_X02);
         eMTextView.setText(getString(R.string.hot_topic_hot_tie_title));
         eMTextView.setMaxLines(1);
         eMTextView.setEllipsize(TextUtils.TruncateAt.END);
         eMTextView.setPadding(dimenPixelSize3 - dimenPixelSize2, 0, dimenPixelSize, 0);
-        this.kfW.addView(eMTextView);
-        this.jQI = eMTextView;
+        this.kgk.addView(eMTextView);
+        this.jQW = eMTextView;
         EMTextView eMTextView2 = new EMTextView(getContext());
         com.baidu.tbadk.core.elementsMaven.c.br(eMTextView2).nZ(R.dimen.T_X09).nY(R.color.CAM_X0109).oa(R.string.F_X01);
         eMTextView2.setText(getString(R.string.hot_topic_hot_tie_sub_title));
         eMTextView2.setMaxLines(1);
         eMTextView2.setEllipsize(TextUtils.TruncateAt.END);
         eMTextView2.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X006) - dimenPixelSize5, 0, 0);
-        this.kfW.addView(eMTextView2);
-        this.kfT = eMTextView2;
-        this.kfW.setPadding(0, dimenPixelSize5, 0, dimenPixelSize6);
+        this.kgk.addView(eMTextView2);
+        this.kgh = eMTextView2;
+        this.kgk.setPadding(0, dimenPixelSize5, 0, dimenPixelSize6);
         LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams4.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        addView(this.kfW, layoutParams4);
-        this.kfU = new com.baidu.tieba.homepage.hotTopic.tab.view.a(getContext());
-        addView(this.kfU.cQK());
-        LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.kfU.cQK().getLayoutParams();
+        addView(this.kgk, layoutParams4);
+        this.kgi = new com.baidu.tieba.homepage.hotTopic.tab.view.a(getContext());
+        addView(this.kgi.cQR());
+        LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) this.kgi.cQR().getLayoutParams();
         layoutParams5.weight = -1.0f;
         layoutParams5.height = UtilHelper.getDimenPixelSize(R.dimen.tbds106);
-        this.kfU.cQK().requestLayout();
+        this.kgi.cQR().requestLayout();
     }
 
     private String getString(int i) {
@@ -121,42 +121,42 @@ public class HotTopicHeaderView extends LinearLayout {
 
     public void setData(HotThreadListResIdl hotThreadListResIdl) {
         if (hotThreadListResIdl != null && hotThreadListResIdl.data != null && !y.isEmpty(hotThreadListResIdl.data.topic_list)) {
-            this.kfS.setVisibility(0);
-            this.kfR.setVisibility(0);
-            this.kfR.setOnItemCoverListener(this.ajq);
-            this.kfR.a(new d(hotThreadListResIdl.data.topic_list));
+            this.kgg.setVisibility(0);
+            this.kgf.setVisibility(0);
+            this.kgf.setOnItemCoverListener(this.ajq);
+            this.kgf.a(new d(hotThreadListResIdl.data.topic_list));
         } else {
-            this.kfS.setVisibility(8);
-            this.kfR.setVisibility(8);
+            this.kgg.setVisibility(8);
+            this.kgf.setVisibility(8);
         }
-        if (this.kfV != null) {
-            this.kfV.getView().setVisibility(0);
+        if (this.kgj != null) {
+            this.kgj.getView().setVisibility(0);
         }
-        this.jQI.setVisibility(0);
-        this.kfT.setVisibility(0);
-        this.kfU.a(c.dY((hotThreadListResIdl == null || hotThreadListResIdl.data == null) ? null : hotThreadListResIdl.data.hot_thread_tab_info).cDe());
+        this.jQW.setVisibility(0);
+        this.kgh.setVisibility(0);
+        this.kgi.a(c.dY((hotThreadListResIdl == null || hotThreadListResIdl.data == null) ? null : hotThreadListResIdl.data.hot_thread_tab_info).cDl());
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) {
-        this.kfU.setOnTabSelectedListener(onTabSelectedListener);
+        this.kgi.setOnTabSelectedListener(onTabSelectedListener);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            ap.setViewTextColor(this.kfS, R.color.CAM_X0105);
-            ap.setViewTextColor(this.jQI, R.color.CAM_X0105);
-            ap.setViewTextColor(this.kfT, R.color.CAM_X0109);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.kfQ).og(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            if (this.kfR != null) {
-                this.kfR.onChangeSkinType(i);
+            ap.setViewTextColor(this.kgg, R.color.CAM_X0105);
+            ap.setViewTextColor(this.jQW, R.color.CAM_X0105);
+            ap.setViewTextColor(this.kgh, R.color.CAM_X0109);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.kge).og(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            if (this.kgf != null) {
+                this.kgf.onChangeSkinType(i);
             }
-            if (this.kfU != null) {
-                this.kfU.onChangeSkinType(i);
+            if (this.kgi != null) {
+                this.kgi.onChangeSkinType(i);
             }
-            if (this.kfV != null) {
-                this.kfV.onChangeSkinType(i);
+            if (this.kgj != null) {
+                this.kgj.onChangeSkinType(i);
             }
         }
     }

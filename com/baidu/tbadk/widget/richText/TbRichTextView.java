@@ -1769,7 +1769,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
         }
         if (this.fXU) {
             if (tbRichTextData.bHO()) {
-                textView.setMovementMethod(com.baidu.tieba.view.c.dVQ());
+                textView.setMovementMethod(com.baidu.tieba.view.c.dVY());
             } else {
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
             }
@@ -2194,10 +2194,10 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
     public void a(String str, f fVar) {
         this.fYb = fVar;
-        Eh(str);
+        Ef(str);
     }
 
-    public void Eh(String str) {
+    public void Ef(String str) {
         BdUniqueId bdUniqueId;
         boolean z;
         if (TextUtils.isEmpty(str)) {
@@ -2257,7 +2257,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
     @Override // com.baidu.adp.newwidget.ImageView.i
     public void refresh() {
-        Eh(this.mUrl);
+        Ef(this.mUrl);
     }
 
     public void setTextViewOnClickListener(View.OnClickListener onClickListener) {

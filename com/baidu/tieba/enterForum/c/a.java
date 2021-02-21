@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class a implements View.OnClickListener {
-    private FrameLayout iRl;
-    private ImageView iRm;
-    private TextView iRn;
-    private View.OnClickListener iRo;
+    private ImageView iRA;
+    private TextView iRB;
+    private View.OnClickListener iRC;
+    private FrameLayout iRz;
     private TbPageContext<?> mPageContext;
     private View mView;
     private int tbds52;
@@ -25,16 +25,16 @@ public class a implements View.OnClickListener {
     public a(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mView = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.enter_forum_list_bar_creator_item, (ViewGroup) null);
-        this.iRl = (FrameLayout) this.mView.findViewById(R.id.create_bar_container);
-        this.iRm = (ImageView) this.mView.findViewById(R.id.iv_create_icon);
-        this.iRn = (TextView) this.mView.findViewById(R.id.create_text);
+        this.iRz = (FrameLayout) this.mView.findViewById(R.id.create_bar_container);
+        this.iRA = (ImageView) this.mView.findViewById(R.id.iv_create_icon);
+        this.iRB = (TextView) this.mView.findViewById(R.id.create_text);
         this.tbds52 = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds52);
-        this.iRl.setOnClickListener(this);
-        this.iRm.setOnClickListener(this);
-        this.iRn.setOnClickListener(this);
-        if (this.iRl.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) this.iRl.getLayoutParams()).bottomMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds47) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            this.iRl.requestLayout();
+        this.iRz.setOnClickListener(this);
+        this.iRA.setOnClickListener(this);
+        this.iRB.setOnClickListener(this);
+        if (this.iRz.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.iRz.getLayoutParams()).bottomMargin = l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds47) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.iRz.requestLayout();
         }
     }
 
@@ -43,19 +43,19 @@ public class a implements View.OnClickListener {
     }
 
     public void aqj() {
-        com.baidu.tbadk.core.util.f.a.btv().oP(R.color.CAM_X0205).oU(R.color.cp_cont_b_alpha42).oW(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).af(this.tbds52).bv(this.iRl);
-        ap.setViewTextColor(this.iRn, R.color.CAM_X0105);
-        SvgManager.bsR().a(this.iRm, R.drawable.ic_icon_pure_createba16, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        com.baidu.tbadk.core.util.f.a.btv().oP(R.color.CAM_X0205).oU(R.color.cp_cont_b_alpha42).oW(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).af(this.tbds52).bv(this.iRz);
+        ap.setViewTextColor(this.iRB, R.color.CAM_X0105);
+        SvgManager.bsR().a(this.iRA, R.drawable.ic_icon_pure_createba16, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void y(View.OnClickListener onClickListener) {
-        this.iRo = onClickListener;
+        this.iRC = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view == this.iRl || view == this.iRm || view == this.iRn) && this.iRo != null) {
-            this.iRo.onClick(view);
+        if ((view == this.iRz || view == this.iRA || view == this.iRB) && this.iRC != null) {
+            this.iRC.onClick(view);
         }
     }
 }

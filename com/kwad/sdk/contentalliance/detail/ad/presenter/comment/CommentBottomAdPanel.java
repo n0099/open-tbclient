@@ -208,8 +208,8 @@ public class CommentBottomAdPanel extends AdBaseLinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final int i) {
         b.a(this.k, true);
-        com.kwad.sdk.core.download.b.a.a(getContext(), this.i, new a.InterfaceC1092a() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.8
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(getContext(), this.i, new a.InterfaceC1094a() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentBottomAdPanel.8
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 com.kwad.sdk.core.d.a.a("commentBottomAdPanel", "notifyAdContentClick onAdContentClick itemClickType:" + i);
                 com.kwad.sdk.core.report.b.a(CommentBottomAdPanel.this.i, i, CommentBottomAdPanel.this.getTouchCoords());

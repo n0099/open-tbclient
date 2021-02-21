@@ -14,11 +14,11 @@ import com.baidu.tieba.faceshop.emotioncenter.a.b;
 import com.baidu.tieba.faceshop.emotioncenter.message.EmotionCenterResponseMessage;
 /* loaded from: classes9.dex */
 public class EmotionChangeModel extends BdBaseModel {
-    private final HttpMessageListener iYw;
+    private final HttpMessageListener iYK;
 
     public EmotionChangeModel(TbPageContext<BaseFragmentActivity> tbPageContext) {
         super(tbPageContext);
-        this.iYw = new HttpMessageListener(1003355) { // from class: com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel.1
+        this.iYK = new HttpMessageListener(1003355) { // from class: com.baidu.tieba.faceshop.emotioncenter.model.EmotionChangeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -38,9 +38,9 @@ public class EmotionChangeModel extends BdBaseModel {
             }
         };
         registerTask();
-        this.iYw.setTag(getUniqueId());
-        this.iYw.setSelfListener(true);
-        registerListener(this.iYw);
+        this.iYK.setTag(getUniqueId());
+        this.iYK.setSelfListener(true);
+        registerListener(this.iYK);
     }
 
     private void registerTask() {

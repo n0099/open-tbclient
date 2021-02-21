@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class b {
     private static int sCoreNum = 0;
-    private static long pRl = 0;
+    private static long pRL = 0;
 
     /* loaded from: classes6.dex */
     class a implements FileFilter {
@@ -40,7 +40,7 @@ public class b {
 
     public static long getFreeMemory() {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) com.github.a.a.c.eAz().provideContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+        ((ActivityManager) com.github.a.a.c.eAH().provideContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
         return memoryInfo.availMem / 1024;
     }
 
@@ -52,7 +52,7 @@ public class b {
     public static long getTotalMemory() {
         FileReader fileReader;
         String readLine;
-        if (pRl == 0) {
+        if (pRL == 0) {
             FileReader fileReader2 = null;
             try {
                 try {
@@ -78,8 +78,8 @@ public class b {
                                 Log.e("PerformanceUtils", "close localFileReader exception = ", e3);
                             }
                         }
-                        pRl = r0;
-                        return pRl;
+                        pRL = r0;
+                        return pRL;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -101,8 +101,8 @@ public class b {
                 }
                 throw th;
             }
-            pRl = r0;
+            pRL = r0;
         }
-        return pRl;
+        return pRL;
     }
 }

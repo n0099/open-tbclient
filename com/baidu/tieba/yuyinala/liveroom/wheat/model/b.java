@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AddTimeHttpResponseMessag
 /* loaded from: classes11.dex */
 public class b extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oJx;
+    private a oJX;
     private HttpMessageListener messageListener = new HttpMessageListener(1031086) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddTimeHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.aCW && b.this.oJx != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddTimeHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == b.this.aCW && b.this.oJX != null) {
                 AddTimeHttpResponseMessage addTimeHttpResponseMessage = (AddTimeHttpResponseMessage) httpResponsedMessage;
                 if (addTimeHttpResponseMessage.getError() != 0 || !addTimeHttpResponseMessage.isSuccess()) {
-                    b.this.oJx.onFail(addTimeHttpResponseMessage.getError(), addTimeHttpResponseMessage.getErrorString());
+                    b.this.oJX.onFail(addTimeHttpResponseMessage.getError(), addTimeHttpResponseMessage.getErrorString());
                 } else {
-                    b.this.oJx.a(addTimeHttpResponseMessage);
+                    b.this.oJX.a(addTimeHttpResponseMessage);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class b extends BdBaseModel {
     public b(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.oJx = aVar;
+        this.oJX = aVar;
         zH();
         registerListener(this.messageListener);
     }

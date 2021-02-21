@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaWheatSwitchHttpRespons
 /* loaded from: classes11.dex */
 public class m extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oJT;
+    private a oKt;
     private HttpMessageListener messageListener = new HttpMessageListener(1031026) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.m.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaWheatSwitchHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == m.this.aCW && m.this.oJT != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaWheatSwitchHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == m.this.aCW && m.this.oKt != null) {
                 AlaWheatSwitchHttpResponseMessage alaWheatSwitchHttpResponseMessage = (AlaWheatSwitchHttpResponseMessage) httpResponsedMessage;
                 if (alaWheatSwitchHttpResponseMessage.getError() != 0 || !alaWheatSwitchHttpResponseMessage.isSuccess()) {
-                    m.this.oJT.b(alaWheatSwitchHttpResponseMessage);
+                    m.this.oKt.b(alaWheatSwitchHttpResponseMessage);
                 } else {
-                    m.this.oJT.a(alaWheatSwitchHttpResponseMessage);
+                    m.this.oKt.a(alaWheatSwitchHttpResponseMessage);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class m extends BdBaseModel {
     public m(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.oJT = aVar;
+        this.oKt = aVar;
         zH();
         registerListener(this.messageListener);
     }
@@ -51,7 +51,7 @@ public class m extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void gY(String str, String str2) {
+    public void ha(String str, String str2) {
         sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.l(str, str2));
     }
 

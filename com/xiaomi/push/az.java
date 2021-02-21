@@ -97,7 +97,7 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static NetworkInfo m165a(Context context) {
+    public static NetworkInfo m164a(Context context) {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
@@ -116,22 +116,22 @@ public class az {
         try {
             try {
                 try {
-                    HttpURLConnection m167a = m167a(context, m168a(str));
-                    m167a.setConnectTimeout(10000);
-                    m167a.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+                    HttpURLConnection m166a = m166a(context, m167a(str));
+                    m166a.setConnectTimeout(10000);
+                    m166a.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                     if (str2 == null) {
                         str2 = "GET";
                     }
-                    m167a.setRequestMethod(str2);
+                    m166a.setRequestMethod(str2);
                     if (map != null) {
                         for (String str4 : map.keySet()) {
-                            m167a.setRequestProperty(str4, map.get(str4));
+                            m166a.setRequestProperty(str4, map.get(str4));
                         }
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        m167a.setDoOutput(true);
+                        m166a.setDoOutput(true);
                         byte[] bytes = str3.getBytes();
-                        outputStream = m167a.getOutputStream();
+                        outputStream = m166a.getOutputStream();
                         try {
                             outputStream.write(bytes, 0, bytes.length);
                             outputStream.flush();
@@ -147,24 +147,24 @@ public class az {
                             throw th;
                         }
                     }
-                    axVar.f13870a = m167a.getResponseCode();
+                    axVar.f13870a = m166a.getResponseCode();
                     Log.d("com.xiaomi.common.Network", "Http POST Response Code: " + axVar.f13870a);
                     int i = 0;
                     while (true) {
-                        String headerFieldKey = m167a.getHeaderFieldKey(i);
-                        String headerField = m167a.getHeaderField(i);
+                        String headerFieldKey = m166a.getHeaderFieldKey(i);
+                        String headerField = m166a.getHeaderField(i);
                         if (headerFieldKey == null && headerField == null) {
                             try {
                                 break;
                             } catch (IOException e2) {
-                                bufferedReader = new BufferedReader(new InputStreamReader(new a(m167a.getErrorStream())));
+                                bufferedReader = new BufferedReader(new InputStreamReader(new a(m166a.getErrorStream())));
                             }
                         } else {
                             axVar.f195a.put(headerFieldKey, headerField);
                             i = i + 1 + 1;
                         }
                     }
-                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m167a.getInputStream())));
+                    bufferedReader = new BufferedReader(new InputStreamReader(new a(m166a.getInputStream())));
                 } catch (Throwable th2) {
                     th = th2;
                 }
@@ -213,29 +213,29 @@ public class az {
         URL url2 = !z ? new URL(a(url.toString())) : url;
         try {
             HttpURLConnection.setFollowRedirects(true);
-            HttpURLConnection m167a = m167a(context, url2);
-            m167a.setConnectTimeout(10000);
-            m167a.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+            HttpURLConnection m166a = m166a(context, url2);
+            m166a.setConnectTimeout(10000);
+            m166a.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
             if (!TextUtils.isEmpty(str)) {
-                m167a.setRequestProperty("User-Agent", str);
+                m166a.setRequestProperty("User-Agent", str);
             }
             if (str2 != null) {
-                m167a.setRequestProperty(SM.COOKIE, str2);
+                m166a.setRequestProperty(SM.COOKIE, str2);
             }
             if (map != null) {
                 for (String str3 : map.keySet()) {
-                    m167a.setRequestProperty(str3, map.get(str3));
+                    m166a.setRequestProperty(str3, map.get(str3));
                 }
             }
             if (bVar != null && (url.getProtocol().equals(HttpHost.DEFAULT_SCHEME_NAME) || url.getProtocol().equals("https"))) {
-                bVar.f13874a = m167a.getResponseCode();
+                bVar.f13874a = m166a.getResponseCode();
                 if (bVar.f196a == null) {
                     bVar.f196a = new HashMap();
                 }
                 int i = 0;
                 while (true) {
-                    String headerFieldKey = m167a.getHeaderFieldKey(i);
-                    String headerField = m167a.getHeaderField(i);
+                    String headerFieldKey = m166a.getHeaderFieldKey(i);
+                    String headerField = m166a.getHeaderField(i);
                     if (headerFieldKey == null && headerField == null) {
                         break;
                     }
@@ -245,7 +245,7 @@ public class az {
                     i++;
                 }
             }
-            return new a(m167a.getInputStream());
+            return new a(m166a.getInputStream());
         } catch (IOException e) {
             throw new IOException("IOException:" + e.getClass().getSimpleName());
         } catch (Throwable th) {
@@ -254,7 +254,7 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m166a(Context context) {
+    public static String m165a(Context context) {
         if (d(context)) {
             return "wifi";
         }
@@ -412,20 +412,20 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static HttpURLConnection m167a(Context context, URL url) {
-        if (HttpHost.DEFAULT_SCHEME_NAME.equals(url.getProtocol()) && m169a(context)) {
+    public static HttpURLConnection m166a(Context context, URL url) {
+        if (HttpHost.DEFAULT_SCHEME_NAME.equals(url.getProtocol()) && m168a(context)) {
             return (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80)));
         }
         return (HttpURLConnection) url.openConnection();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static URL m168a(String str) {
+    private static URL m167a(String str) {
         return new URL(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m169a(Context context) {
+    public static boolean m168a(Context context) {
         if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService("phone")).getSimCountryIso())) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -491,18 +491,18 @@ public class az {
     }
 
     public static boolean f(Context context) {
-        NetworkInfo m165a = m165a(context);
-        return m165a != null && m165a.getType() == 0 && 13 == m165a.getSubtype();
+        NetworkInfo m164a = m164a(context);
+        return m164a != null && m164a.getType() == 0 && 13 == m164a.getSubtype();
     }
 
     public static boolean g(Context context) {
-        NetworkInfo m165a = m165a(context);
-        if (m165a != null && m165a.getType() == 0) {
-            String subtypeName = m165a.getSubtypeName();
+        NetworkInfo m164a = m164a(context);
+        if (m164a != null && m164a.getType() == 0) {
+            String subtypeName = m164a.getSubtypeName();
             if ("TD-SCDMA".equalsIgnoreCase(subtypeName) || "CDMA2000".equalsIgnoreCase(subtypeName) || "WCDMA".equalsIgnoreCase(subtypeName)) {
                 return true;
             }
-            switch (m165a.getSubtype()) {
+            switch (m164a.getSubtype()) {
                 case 3:
                 case 5:
                 case 6:
@@ -525,9 +525,9 @@ public class az {
     }
 
     public static boolean h(Context context) {
-        NetworkInfo m165a = m165a(context);
-        if (m165a != null && m165a.getType() == 0) {
-            switch (m165a.getSubtype()) {
+        NetworkInfo m164a = m164a(context);
+        if (m164a != null && m164a.getType() == 0) {
+            switch (m164a.getSubtype()) {
                 case 1:
                 case 2:
                 case 4:

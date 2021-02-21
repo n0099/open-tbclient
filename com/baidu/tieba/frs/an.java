@@ -5,7 +5,7 @@ public interface an {
 
     void a(ar arVar);
 
-    void bYN();
+    void bYU();
 
     void init();
 }

@@ -47,7 +47,7 @@ public class cv {
         }
         this.f260a = System.currentTimeMillis();
         this.f262a.add(new de(str, -1));
-        this.f261a = cz.m241a();
+        this.f261a = cz.m240a();
         this.f263b = str;
     }
 
@@ -93,7 +93,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m232a() {
+    public synchronized ArrayList<String> m231a() {
         return a(false);
     }
 
@@ -107,7 +107,7 @@ public class cv {
             Iterator<String> it = a(true).iterator();
             while (it.hasNext()) {
                 cx a2 = cx.a(it.next(), url.getPort());
-                arrayList.add(new URL(url.getProtocol(), a2.m240a(), a2.a(), url.getFile()).toString());
+                arrayList.add(new URL(url.getProtocol(), a2.m239a(), a2.a(), url.getFile()).toString());
             }
             return arrayList;
         }
@@ -138,7 +138,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m233a() {
+    public synchronized JSONObject m232a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put("net", this.f261a);
@@ -179,7 +179,7 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m234a(String str) {
+    public synchronized void m233a(String str) {
         a(new de(str));
     }
 
@@ -246,8 +246,8 @@ public class cv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m235a() {
-        return TextUtils.equals(this.f261a, cz.m241a());
+    public boolean m234a() {
+        return TextUtils.equals(this.f261a, cz.m240a());
     }
 
     public boolean a(cv cvVar) {

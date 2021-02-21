@@ -5,12 +5,12 @@ import tbclient.TopicList.MediaTopic;
 import tbclient.VideoInfo;
 /* loaded from: classes8.dex */
 public class o implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId kvi = BdUniqueId.gen();
+    public static final BdUniqueId kvw = BdUniqueId.gen();
     public int cEb;
     public String ePt;
-    public int kuA;
-    public int kuB;
-    public int kuz;
+    public int kuN;
+    public int kuO;
+    public int kuP;
     public String picUrl;
     public String thumbnailUrl;
     public long topicId;
@@ -22,7 +22,7 @@ public class o implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return kvi;
+        return kvw;
     }
 
     public void a(MediaTopic mediaTopic) {
@@ -43,9 +43,9 @@ public class o implements com.baidu.adp.widget.ListView.n {
         this.videoWidth = videoInfo.video_width.intValue();
         this.videoHeight = videoInfo.video_height.intValue();
         this.thumbnailUrl = videoInfo.thumbnail_url;
-        this.kuz = videoInfo.thumbnail_width.intValue();
-        this.kuA = videoInfo.thumbnail_height.intValue();
-        this.kuB = videoInfo.video_length.intValue();
+        this.kuN = videoInfo.thumbnail_width.intValue();
+        this.kuO = videoInfo.thumbnail_height.intValue();
+        this.kuP = videoInfo.video_length.intValue();
         this.cEb = videoInfo.play_count.intValue();
     }
 }

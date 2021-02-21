@@ -16,7 +16,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.lib.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1138a {
+    public interface InterfaceC1140a {
         CharSequence a();
 
         TextPaint b();

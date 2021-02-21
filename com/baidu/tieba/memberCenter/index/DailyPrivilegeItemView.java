@@ -10,10 +10,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class DailyPrivilegeItemView extends RelativeLayout {
-    private TbImageView llM;
-    private TbImageView llN;
-    private PrivilegeTextView llO;
-    private TextView llP;
+    private TbImageView lma;
+    private TbImageView lmb;
+    private PrivilegeTextView lmc;
+    private TextView lmd;
     private Context mContext;
     private View mRootView;
 
@@ -37,11 +37,11 @@ public class DailyPrivilegeItemView extends RelativeLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.index_daily_item, this);
-        this.llM = (TbImageView) this.mRootView.findViewById(R.id.privilege_icon);
-        this.llN = (TbImageView) this.mRootView.findViewById(R.id.privilege_tag_icon);
-        this.llN.setDefaultResource(R.drawable.transparent_bg);
-        this.llN.setDefaultBgResource(R.drawable.transparent_bg);
-        this.llO = (PrivilegeTextView) this.mRootView.findViewById(R.id.privilege_title);
-        this.llP = (TextView) this.mRootView.findViewById(R.id.privilege_desc);
+        this.lma = (TbImageView) this.mRootView.findViewById(R.id.privilege_icon);
+        this.lmb = (TbImageView) this.mRootView.findViewById(R.id.privilege_tag_icon);
+        this.lmb.setDefaultResource(R.drawable.transparent_bg);
+        this.lmb.setDefaultBgResource(R.drawable.transparent_bg);
+        this.lmc = (PrivilegeTextView) this.mRootView.findViewById(R.id.privilege_title);
+        this.lmd = (TextView) this.mRootView.findViewById(R.id.privilege_desc);
     }
 }

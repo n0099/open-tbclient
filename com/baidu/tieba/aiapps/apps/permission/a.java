@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private static List<String> gmm = null;
+    private static List<String> gmA = null;
 
     @TargetApi(23)
     public static void fN(Context context) {
         if (!fO(context)) {
             fP(context);
-            ((Activity) context).requestPermissions((String[]) gmm.toArray(new String[gmm.size()]), 102);
+            ((Activity) context).requestPermissions((String[]) gmA.toArray(new String[gmA.size()]), 102);
         } else if (context instanceof PermissionActivity) {
             ((Activity) context).finish();
         }
@@ -26,14 +26,14 @@ public class a {
 
     @TargetApi(23)
     private static void fP(Context context) {
-        if (gmm == null) {
-            gmm = new ArrayList();
+        if (gmA == null) {
+            gmA = new ArrayList();
         } else {
-            gmm.clear();
+            gmA.clear();
         }
         if (context.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") != 0) {
-            gmm.add("android.permission.WRITE_EXTERNAL_STORAGE");
-            gmm.add("android.permission.READ_EXTERNAL_STORAGE");
+            gmA.add("android.permission.WRITE_EXTERNAL_STORAGE");
+            gmA.add("android.permission.READ_EXTERNAL_STORAGE");
         }
     }
 

@@ -123,7 +123,7 @@ public class i extends a<com.baidu.tieba.card.data.k, ThreadCardViewHolder<com.b
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 }

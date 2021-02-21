@@ -20,15 +20,15 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.adp.base.d<AvatarPendantActivity> {
     private BdListView WO;
-    private NoNetworkView gAh;
+    private NoNetworkView gAv;
     private NavigationBar mNavigationBar;
     private View mRoot;
-    private d nFX;
-    private MemberRecommendView nFY;
-    private TextView nFZ;
-    private TextView nGa;
-    private AvatarPendantActivity nGb;
-    private TextView nGc;
+    private TextView nGA;
+    private AvatarPendantActivity nGB;
+    private TextView nGC;
+    private d nGx;
+    private MemberRecommendView nGy;
+    private TextView nGz;
     private int topMargin;
 
     /* loaded from: classes9.dex */
@@ -39,43 +39,43 @@ public class c extends com.baidu.adp.base.d<AvatarPendantActivity> {
     public c(AvatarPendantActivity avatarPendantActivity) {
         super(avatarPendantActivity.getPageContext());
         this.topMargin = 0;
-        this.nGb = avatarPendantActivity;
+        this.nGB = avatarPendantActivity;
         avatarPendantActivity.setContentView(R.layout.avatar_pendant_activity_layout);
         this.mRoot = avatarPendantActivity.findViewById(R.id.root_view);
         this.topMargin = l.getDimens(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.ds320);
         this.WO = (BdListView) avatarPendantActivity.findViewById(R.id.avatar_pedant_listview);
-        this.gAh = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
+        this.gAv = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
         this.mNavigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.avatar_pendant);
-        this.nFY = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.avatar_pendant_theme_recommend);
-        this.nFY.setFromType(8);
-        this.nFY.getButton().setOnClickListener(avatarPendantActivity);
-        this.nFZ = new TextView(avatarPendantActivity.getActivity());
-        this.nFZ.setHeight(l.getDimens(avatarPendantActivity.getActivity(), R.dimen.ds104));
-        this.nGc = new TextView(avatarPendantActivity.getActivity());
+        this.nGy = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.avatar_pendant_theme_recommend);
+        this.nGy.setFromType(8);
+        this.nGy.getButton().setOnClickListener(avatarPendantActivity);
+        this.nGz = new TextView(avatarPendantActivity.getActivity());
+        this.nGz.setHeight(l.getDimens(avatarPendantActivity.getActivity(), R.dimen.ds104));
+        this.nGC = new TextView(avatarPendantActivity.getActivity());
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(avatarPendantActivity.getActivity(), R.dimen.ds98));
-        this.nGa = new TextView(avatarPendantActivity.getActivity());
-        this.nGa.setHeight(l.getDimens(avatarPendantActivity.getActivity(), R.dimen.ds50));
-        this.nGc.setLayoutParams(layoutParams);
-        this.WO.addHeaderView(this.nGc, 0);
-        this.WO.addFooterView(this.nGa);
-        this.nFX = new d(avatarPendantActivity);
-        this.WO.setAdapter((ListAdapter) this.nFX);
+        this.nGA = new TextView(avatarPendantActivity.getActivity());
+        this.nGA.setHeight(l.getDimens(avatarPendantActivity.getActivity(), R.dimen.ds50));
+        this.nGC.setLayoutParams(layoutParams);
+        this.WO.addHeaderView(this.nGC, 0);
+        this.WO.addFooterView(this.nGA);
+        this.nGx = new d(avatarPendantActivity);
+        this.WO.setAdapter((ListAdapter) this.nGx);
     }
 
     private boolean b(e eVar) {
-        if (eVar == null || StringUtils.isNull(eVar.dRo())) {
-            this.nFY.setVisibility(8);
+        if (eVar == null || StringUtils.isNull(eVar.dRw())) {
+            this.nGy.setVisibility(8);
             return false;
         }
-        this.nFY.setVisibility(0);
-        this.nFY.a(eVar);
+        this.nGy.setVisibility(0);
+        this.nGy.a(eVar);
         return true;
     }
 
-    public MemberRecommendView dRa() {
-        return this.nFY;
+    public MemberRecommendView dRi() {
+        return this.nGy;
     }
 
     public void fT(List<com.baidu.tieba.themeCenter.avatarPendant.a> list) {
@@ -84,30 +84,30 @@ public class c extends com.baidu.adp.base.d<AvatarPendantActivity> {
             return;
         }
         this.WO.setVisibility(0);
-        this.nFX.setData(list);
-        this.nFX.notifyDataSetChanged();
+        this.nGx.setData(list);
+        this.nGx.notifyDataSetChanged();
     }
 
-    public void cAH() {
+    public void cAO() {
         this.WO.setVisibility(8);
-        String string = this.nGb.getPageContext().getResources().getString(R.string.no_data_text);
-        this.nGb.setNetRefreshViewTopMargin(this.topMargin);
-        this.nGb.showNetRefreshView(this.mRoot, string, false);
+        String string = this.nGB.getPageContext().getResources().getString(R.string.no_data_text);
+        this.nGB.setNetRefreshViewTopMargin(this.topMargin);
+        this.nGB.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void cAI() {
-        this.nGb.hideNetRefreshView(this.mRoot);
+    public void cAP() {
+        this.nGB.hideNetRefreshView(this.mRoot);
         this.WO.setVisibility(0);
     }
 
     public void bzn() {
         this.WO.setBackgroundColor(ap.getColor(R.color.CAM_X0201));
-        this.nFX.notifyDataSetChanged();
-        this.mNavigationBar.onChangeSkinType(this.nGb.getPageContext(), TbadkApplication.getInst().getSkinType());
-        this.gAh.onChangeSkinType(this.nGb.getPageContext(), TbadkApplication.getInst().getSkinType());
-        this.nFY.bup();
-        ap.setBackgroundColor(this.nFZ, R.color.CAM_X0204);
-        ap.setBackgroundColor(this.nGa, R.color.CAM_X0201);
+        this.nGx.notifyDataSetChanged();
+        this.mNavigationBar.onChangeSkinType(this.nGB.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.gAv.onChangeSkinType(this.nGB.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.nGy.bup();
+        ap.setBackgroundColor(this.nGz, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.nGA, R.color.CAM_X0201);
     }
 
     public View getRootView() {
@@ -115,29 +115,29 @@ public class c extends com.baidu.adp.base.d<AvatarPendantActivity> {
     }
 
     public void a(e eVar, List<com.baidu.tieba.themeCenter.avatarPendant.a> list) {
-        if ((eVar == null || StringUtils.isNull(eVar.dRo())) && (list == null || list.size() <= 0)) {
-            cAH();
+        if ((eVar == null || StringUtils.isNull(eVar.dRw())) && (list == null || list.size() <= 0)) {
+            cAO();
             return;
         }
-        cAI();
+        cAP();
         if (b(eVar)) {
-            this.WO.removeHeaderView(this.nFZ);
-            this.WO.addHeaderView(this.nFZ);
+            this.WO.removeHeaderView(this.nGz);
+            this.WO.addHeaderView(this.nGz);
         } else {
-            this.WO.removeHeaderView(this.nFZ);
+            this.WO.removeHeaderView(this.nGz);
         }
         fT(list);
     }
 
     public void setAvatarPendantItemClickListener(a aVar) {
-        this.nFX.setAvatarPendantItemClickListener(aVar);
+        this.nGx.setAvatarPendantItemClickListener(aVar);
     }
 
-    public TextView dRb() {
-        return this.nGc;
+    public TextView dRj() {
+        return this.nGC;
     }
 
     public void a(NoNetworkView.a aVar) {
-        this.gAh.a(aVar);
+        this.gAv.a(aVar);
     }
 }

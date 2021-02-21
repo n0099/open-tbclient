@@ -7,18 +7,18 @@ import android.view.ScaleGestureDetector;
 @TargetApi(8)
 /* loaded from: classes11.dex */
 public class c extends b {
-    protected final ScaleGestureDetector pfS;
+    protected final ScaleGestureDetector pgs;
 
     public c(Context context) {
         super(context);
-        this.pfS = new ScaleGestureDetector(context, new ScaleGestureDetector.OnScaleGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.c.1
+        this.pgs = new ScaleGestureDetector(context, new ScaleGestureDetector.OnScaleGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.c.1
             @Override // android.view.ScaleGestureDetector.OnScaleGestureListener
             public boolean onScale(ScaleGestureDetector scaleGestureDetector) {
                 float scaleFactor = scaleGestureDetector.getScaleFactor();
                 if (Float.isNaN(scaleFactor) || Float.isInfinite(scaleFactor)) {
                     return false;
                 }
-                c.this.pfO.onScale(scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
+                c.this.pgo.onScale(scaleFactor, scaleGestureDetector.getFocusX(), scaleGestureDetector.getFocusY());
                 return true;
             }
 
@@ -34,13 +34,13 @@ public class c extends b {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
-    public boolean elH() {
-        return this.pfS.isInProgress();
+    public boolean elP() {
+        return this.pgs.isInProgress();
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.b, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.a, com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.pfS.onTouchEvent(motionEvent);
+        this.pgs.onTouchEvent(motionEvent);
         return super.onTouchEvent(motionEvent);
     }
 }

@@ -15,7 +15,7 @@ public class e implements Parcelable, Comparable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: RN */
+        /* renamed from: RO */
         public e[] newArray(int i) {
             return new e[i];
         }

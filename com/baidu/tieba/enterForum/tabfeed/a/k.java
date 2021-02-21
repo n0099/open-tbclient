@@ -30,7 +30,7 @@ public class k extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
     private ab<cb> agg;
     private s amk;
     public BdUniqueId fGZ;
-    private NEGFeedBackView.a gdO;
+    private NEGFeedBackView.a gdT;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -41,11 +41,11 @@ public class k extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, cb cbVar) {
-                t.csu().mG(true);
+                t.csB().mG(true);
                 com.baidu.tieba.enterForum.a.a(view, cbVar, k.this.mTabName);
             }
         };
-        this.gdO = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.k.4
+        this.gdT = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.k.4
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(av avVar) {
                 TiebaStatic.log(com.baidu.tbadk.core.util.m.a(avVar, k.this.mTabName));
@@ -124,7 +124,7 @@ public class k extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
         }
         caVar.eJQ.eOs = getPositionByType(i) + 1;
         threadCardViewHolder.tj().setPosition(i);
-        threadCardViewHolder.a(true, Align.ALIGN_RIGHT_TOP, this.gdO);
+        threadCardViewHolder.a(true, Align.ALIGN_RIGHT_TOP, this.gdT);
         threadCardViewHolder.b((ThreadCardViewHolder<cb>) caVar.eJQ);
         threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         threadCardViewHolder.tj().a(this.agg);

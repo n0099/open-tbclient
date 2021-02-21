@@ -110,8 +110,8 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != this.e) {
-            com.kwad.sdk.core.download.b.a.a(getContext(), this.f9723b, new a.InterfaceC1092a() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+            com.kwad.sdk.core.download.b.a.a(getContext(), this.f9723b, new a.InterfaceC1094a() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                 public void a() {
                     if (DrawCardH5.this.c != null) {
                         DrawCardH5.this.c.b();

@@ -37,8 +37,8 @@ public class bx extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         ft ftVar;
-        l.m604a((Context) this.f14291a);
-        ap.a().m574a("5");
+        l.m603a((Context) this.f14291a);
+        ap.a().m573a("5");
         com.xiaomi.push.ab.a(this.f14292b);
         ftVar = this.f14291a.f881a;
         ftVar.c(ft.a());

@@ -25,7 +25,7 @@ public class z {
     public z(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
     }
 
-    private void Lh(String str) {
+    private void Li(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -65,22 +65,22 @@ public class z {
             if (!StringUtils.isNull(uri2) && uri2.startsWith("tbpb://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
-                    Lh(decode);
-                    HashMap<String, Object> PD = PD(decode);
-                    String str = (String) PD.get("tid");
-                    if ("mpush".equals((String) PD.get("fr")) && !StringUtils.isNull(str)) {
+                    Li(decode);
+                    HashMap<String, Object> PE = PE(decode);
+                    String str = (String) PE.get("tid");
+                    if ("mpush".equals((String) PE.get("fr")) && !StringUtils.isNull(str)) {
                         TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c11895").dR("tid", str));
                     }
                     HttpMessage httpMessage = new HttpMessage(1003393);
                     httpMessage.addParam("call_url", uri2);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    aVar.onCallBack(PD);
+                    aVar.onCallBack(PE);
                 }
             }
         }
     }
 
-    public HashMap<String, Object> PD(String str) {
+    public HashMap<String, Object> PE(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

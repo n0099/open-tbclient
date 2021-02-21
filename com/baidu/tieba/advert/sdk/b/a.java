@@ -14,20 +14,20 @@ import java.io.IOException;
 public class a extends BdAsyncTask<Void, Void, Boolean> {
     private final String TAG = a.class.getSimpleName();
     private AdInfo adInfo;
-    public static final String gkK = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+    public static final String gkY = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
     public static final String FILE_SEP = File.separator;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean doInBackground(Void... voidArr) {
-        String str = gkK + FILE_SEP + "advideo.temp";
+        String str = gkY + FILE_SEP + "advideo.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
         }
         try {
-            new File(gkK).mkdirs();
+            new File(gkY).mkdirs();
             if (!file.createNewFile()) {
                 a(false, null);
                 return false;
@@ -63,7 +63,7 @@ public class a extends BdAsyncTask<Void, Void, Boolean> {
 
     private void a(boolean z, File file) {
         if (z && file != null) {
-            File file2 = new File(gkK + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
+            File file2 = new File(gkY + FILE_SEP + (s.toMd5(this.adInfo.adVideoUrl) + ".mp4"));
             if (file2.exists()) {
                 file2.delete();
             }

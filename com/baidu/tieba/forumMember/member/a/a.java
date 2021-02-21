@@ -19,36 +19,36 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
-    private BdTypeListView gzb;
-    private k jdk;
-    private m jdl;
+    private BdTypeListView gzp;
+    private k jdy;
+    private m jdz;
 
-    public List<com.baidu.adp.widget.ListView.a> bRD() {
+    public List<com.baidu.adp.widget.ListView.a> bRK() {
         return this.bns;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.gzb = bdTypeListView;
-        this.bns.add(new g(baseActivity.getPageContext(), h.jcv));
-        this.bns.add(new i(baseActivity.getPageContext(), j.jcG));
-        this.bns.add(new f(baseActivity.getPageContext(), n.jfQ));
-        this.bns.add(new com.baidu.tieba.forumMember.manito.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.manito.b.jbY));
-        this.bns.add(new c(baseActivity.getPageContext(), d.jcb));
+        this.gzp = bdTypeListView;
+        this.bns.add(new g(baseActivity.getPageContext(), h.jcJ));
+        this.bns.add(new i(baseActivity.getPageContext(), j.jcU));
+        this.bns.add(new f(baseActivity.getPageContext(), n.jge));
+        this.bns.add(new com.baidu.tieba.forumMember.manito.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.manito.b.jcm));
+        this.bns.add(new c(baseActivity.getPageContext(), d.jcp));
         this.bns.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.jdk = new k(baseActivity.getPageContext(), l.jcX);
-        this.bns.add(this.jdk);
-        this.jdl = new m(baseActivity.getPageContext(), com.baidu.tieba.forumMember.member.n.jdi);
-        this.bns.add(this.jdl);
+        this.jdy = new k(baseActivity.getPageContext(), l.jdl);
+        this.bns.add(this.jdy);
+        this.jdz = new m(baseActivity.getPageContext(), com.baidu.tieba.forumMember.member.n.jdw);
+        this.bns.add(this.jdz);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gzb != null && (this.gzb.getAdapter() instanceof e)) {
-            this.gzb.getAdapter().notifyDataSetChanged();
+        if (this.gzp != null && (this.gzp.getAdapter() instanceof e)) {
+            this.gzp.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.jdk.onDestroy();
-        this.jdl.onDestroy();
+        this.jdy.onDestroy();
+        this.jdz.onDestroy();
     }
 }

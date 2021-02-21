@@ -17,13 +17,13 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.live.v.a {
     ab bxN;
-    boolean ifb = false;
-    CustomMessageListener ifc = new CustomMessageListener(2913263) { // from class: com.baidu.tieba.ala.poke.a.1
+    boolean ifp = false;
+    CustomMessageListener ifq = new CustomMessageListener(2913263) { // from class: com.baidu.tieba.ala.poke.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null) {
-                a.this.ifb = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                a.this.ifp = ((Boolean) customResponsedMessage.getData()).booleanValue();
             }
         }
     };
@@ -38,8 +38,8 @@ public class a implements com.baidu.live.v.a {
     public void b(ab abVar, String str) {
         this.bxN = abVar;
         this.mOtherParams = str;
-        MessageManager.getInstance().registerListener(this.ifc);
-        col();
+        MessageManager.getInstance().registerListener(this.ifq);
+        cos();
     }
 
     @Override // com.baidu.live.v.a
@@ -49,7 +49,7 @@ public class a implements com.baidu.live.v.a {
 
     @Override // com.baidu.live.v.a
     public void hs(String str) {
-        if (!this.ifb) {
+        if (!this.ifp) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new r(this.mContext, this.bxN, this.mOtherParams, str)));
             return;
         }
@@ -58,19 +58,19 @@ public class a implements com.baidu.live.v.a {
 
     @Override // com.baidu.live.v.a
     public void xh() {
-        this.ifb = false;
-        MessageManager.getInstance().unRegisterListener(this.ifc);
+        this.ifp = false;
+        MessageManager.getInstance().unRegisterListener(this.ifq);
         MessageManager.getInstance().unRegisterTask(1021227);
     }
 
     @Override // com.baidu.live.v.a
     public void onDestroy() {
-        this.ifb = false;
-        MessageManager.getInstance().unRegisterListener(this.ifc);
+        this.ifp = false;
+        MessageManager.getInstance().unRegisterListener(this.ifq);
         MessageManager.getInstance().unRegisterTask(1021227);
     }
 
-    private void col() {
+    private void cos() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021227, TbConfig.SERVER_ADDRESS + "ala/live/poke");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

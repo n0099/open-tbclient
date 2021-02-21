@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class AdStarRatingBar extends FrameLayout {
     private TextView mRatingText;
-    private AppCompatRatingBar mYw;
+    private AppCompatRatingBar mYW;
 
     public AdStarRatingBar(@NonNull Context context) {
         this(context, null);
@@ -32,19 +32,19 @@ public class AdStarRatingBar extends FrameLayout {
 
     protected void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.ad_star_rating_bar, this);
-        this.mYw = (AppCompatRatingBar) findViewById(R.id.ad_rating_bar);
+        this.mYW = (AppCompatRatingBar) findViewById(R.id.ad_rating_bar);
         this.mRatingText = (TextView) findViewById(R.id.ad_rating_text);
         int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.icon_rating_bar_star_selected).getIntrinsicHeight();
-        ViewGroup.LayoutParams layoutParams = this.mYw.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.mYW.getLayoutParams();
         layoutParams.width = -2;
         layoutParams.height = intrinsicHeight;
-        this.mYw.setLayoutParams(layoutParams);
+        this.mYW.setLayoutParams(layoutParams);
     }
 
     public void setRating(float f) {
         if (f >= 0.0f) {
             this.mRatingText.setText(String.valueOf(f));
-            this.mYw.setRating(f);
+            this.mYW.setRating(f);
         }
     }
 

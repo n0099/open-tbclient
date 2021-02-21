@@ -18,13 +18,13 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a implements TabLayout.OnTabSelectedListener {
-    private int jDB;
-    private TabLayout kgH;
-    private TabLayout.OnTabSelectedListener kga;
+    private int jDP;
+    private TabLayout kgV;
+    private TabLayout.OnTabSelectedListener kgo;
     private Context mContext;
 
-    public TabLayout cQK() {
-        return this.kgH;
+    public TabLayout cQR() {
+        return this.kgV;
     }
 
     public Context getContext() {
@@ -33,24 +33,24 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     public a(Context context) {
         this.mContext = context;
-        cQL();
+        cQS();
     }
 
-    private void cQL() {
-        this.kgH = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
-        this.kgH.setOnTabSelectedListener(this);
+    private void cQS() {
+        this.kgV = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
+        this.kgV.setOnTabSelectedListener(this);
     }
 
     public void setOnTabSelectedListener(TabLayout.OnTabSelectedListener onTabSelectedListener) {
-        this.kga = onTabSelectedListener;
+        this.kgo = onTabSelectedListener;
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.kgH.getTabCount()) {
-                TabLayout.Tab tabAt = this.kgH.getTabAt(i3);
+            if (i3 < this.kgV.getTabCount()) {
+                TabLayout.Tab tabAt = this.kgV.getTabAt(i3);
                 if (tabAt != null) {
                     if (tabAt.isSelected()) {
                         setTabColorSelected(tabAt);
@@ -87,7 +87,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     }
 
     public void a(FrsTabInfoData frsTabInfoData) {
-        a(this.jDB, frsTabInfoData.tabList, this.kgH);
+        a(this.jDP, frsTabInfoData.tabList, this.kgV);
     }
 
     private void a(int i, List<FrsTabItemData> list, TabLayout tabLayout) {
@@ -146,27 +146,27 @@ public class a implements TabLayout.OnTabSelectedListener {
     @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
     public void onTabSelected(TabLayout.Tab tab) {
         if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
-            this.jDB = ((FrsTabItemData) tab.getTag()).tabId;
+            this.jDP = ((FrsTabItemData) tab.getTag()).tabId;
         }
         setTabColorSelected(tab);
-        if (this.kga != null) {
-            this.kga.onTabSelected(tab);
+        if (this.kgo != null) {
+            this.kgo.onTabSelected(tab);
         }
     }
 
     @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
     public void onTabUnselected(TabLayout.Tab tab) {
         setTabColorUnSelected(tab);
-        if (this.kga != null) {
-            this.kga.onTabUnselected(tab);
+        if (this.kgo != null) {
+            this.kgo.onTabUnselected(tab);
         }
     }
 
     @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
     public void onTabReselected(TabLayout.Tab tab) {
         setTabColorSelected(tab);
-        if (this.kga != null) {
-            this.kga.onTabReselected(tab);
+        if (this.kgo != null) {
+            this.kgo.onTabReselected(tab);
         }
     }
 }

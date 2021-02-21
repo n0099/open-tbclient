@@ -29,28 +29,28 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     private Scroller mScroller;
     private int mTouchSlop;
     private VelocityTracker mVelocityTracker;
-    private boolean nyA;
-    private a nyB;
-    private int nyC;
-    private int nyD;
-    private boolean nyE;
-    private View nyF;
-    private final int nyG;
-    private final int nyH;
-    private boolean nyI;
-    private ArrayList<View> nyJ;
-    private boolean nyK;
-    private boolean nyL;
-    private boolean nyM;
-    private boolean nyN;
-    private boolean nyO;
-    private final float nyt;
-    private View nyu;
-    private int nyv;
-    private com.baidu.tieba.tbadkCore.imgView.a nyw;
-    private int nyx;
-    private Scroller nyy;
-    private boolean nyz;
+    private final float nyT;
+    private View nyU;
+    private int nyV;
+    private com.baidu.tieba.tbadkCore.imgView.a nyW;
+    private int nyX;
+    private Scroller nyY;
+    private boolean nyZ;
+    private boolean nza;
+    private a nzb;
+    private int nzc;
+    private int nzd;
+    private boolean nze;
+    private View nzf;
+    private final int nzg;
+    private final int nzh;
+    private boolean nzi;
+    private ArrayList<View> nzj;
+    private boolean nzk;
+    private boolean nzl;
+    private boolean nzm;
+    private boolean nzn;
+    private boolean nzo;
     private Rect tempRect;
 
     /* loaded from: classes.dex */
@@ -60,23 +60,23 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     public DragHorizonScrollView(Context context) {
         super(context);
-        this.nyt = 2.0f;
+        this.nyT = 2.0f;
         this.tempRect = new Rect();
-        this.nyD = 10;
-        this.nyG = 300;
-        this.nyH = 500;
-        this.nyJ = new ArrayList<>();
-        this.nyN = false;
-        this.nyO = true;
+        this.nzd = 10;
+        this.nzg = 300;
+        this.nzh = 500;
+        this.nzj = new ArrayList<>();
+        this.nzn = false;
+        this.nzo = true;
         this.flingRunnable = new Runnable() { // from class: com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView.1
             @Override // java.lang.Runnable
             public void run() {
                 int max;
                 if (DragHorizonScrollView.this.mItemCount == 0) {
-                    DragHorizonScrollView.this.nyy.forceFinished(true);
+                    DragHorizonScrollView.this.nyY.forceFinished(true);
                     return;
                 }
-                Scroller scroller = DragHorizonScrollView.this.nyy;
+                Scroller scroller = DragHorizonScrollView.this.nyY;
                 boolean computeScrollOffset = scroller.computeScrollOffset();
                 int currX = scroller.getCurrX();
                 int i = DragHorizonScrollView.this.mLastFlingX - currX;
@@ -91,7 +91,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     DragHorizonScrollView.this.post(this);
                     return;
                 }
-                DragHorizonScrollView.this.nyy.forceFinished(true);
+                DragHorizonScrollView.this.nyY.forceFinished(true);
             }
         };
         init(context);
@@ -99,23 +99,23 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     public DragHorizonScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nyt = 2.0f;
+        this.nyT = 2.0f;
         this.tempRect = new Rect();
-        this.nyD = 10;
-        this.nyG = 300;
-        this.nyH = 500;
-        this.nyJ = new ArrayList<>();
-        this.nyN = false;
-        this.nyO = true;
+        this.nzd = 10;
+        this.nzg = 300;
+        this.nzh = 500;
+        this.nzj = new ArrayList<>();
+        this.nzn = false;
+        this.nzo = true;
         this.flingRunnable = new Runnable() { // from class: com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView.1
             @Override // java.lang.Runnable
             public void run() {
                 int max;
                 if (DragHorizonScrollView.this.mItemCount == 0) {
-                    DragHorizonScrollView.this.nyy.forceFinished(true);
+                    DragHorizonScrollView.this.nyY.forceFinished(true);
                     return;
                 }
-                Scroller scroller = DragHorizonScrollView.this.nyy;
+                Scroller scroller = DragHorizonScrollView.this.nyY;
                 boolean computeScrollOffset = scroller.computeScrollOffset();
                 int currX = scroller.getCurrX();
                 int i2 = DragHorizonScrollView.this.mLastFlingX - currX;
@@ -130,7 +130,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     DragHorizonScrollView.this.post(this);
                     return;
                 }
-                DragHorizonScrollView.this.nyy.forceFinished(true);
+                DragHorizonScrollView.this.nyY.forceFinished(true);
             }
         };
         init(context);
@@ -138,23 +138,23 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     public DragHorizonScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nyt = 2.0f;
+        this.nyT = 2.0f;
         this.tempRect = new Rect();
-        this.nyD = 10;
-        this.nyG = 300;
-        this.nyH = 500;
-        this.nyJ = new ArrayList<>();
-        this.nyN = false;
-        this.nyO = true;
+        this.nzd = 10;
+        this.nzg = 300;
+        this.nzh = 500;
+        this.nzj = new ArrayList<>();
+        this.nzn = false;
+        this.nzo = true;
         this.flingRunnable = new Runnable() { // from class: com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView.1
             @Override // java.lang.Runnable
             public void run() {
                 int max;
                 if (DragHorizonScrollView.this.mItemCount == 0) {
-                    DragHorizonScrollView.this.nyy.forceFinished(true);
+                    DragHorizonScrollView.this.nyY.forceFinished(true);
                     return;
                 }
-                Scroller scroller = DragHorizonScrollView.this.nyy;
+                Scroller scroller = DragHorizonScrollView.this.nyY;
                 boolean computeScrollOffset = scroller.computeScrollOffset();
                 int currX = scroller.getCurrX();
                 int i2 = DragHorizonScrollView.this.mLastFlingX - currX;
@@ -169,22 +169,22 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     DragHorizonScrollView.this.post(this);
                     return;
                 }
-                DragHorizonScrollView.this.nyy.forceFinished(true);
+                DragHorizonScrollView.this.nyY.forceFinished(true);
             }
         };
         init(context);
     }
 
     private void init(Context context) {
-        this.nyu = null;
-        this.nyv = -1;
+        this.nyU = null;
+        this.nyV = -1;
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
         this.mTouchSlop = viewConfiguration.getScaledTouchSlop();
         this.mMinimumVelocity = viewConfiguration.getScaledMinimumFlingVelocity();
         this.mMaximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
         this.mScroller = new Scroller(context, new LinearInterpolator());
-        this.nyy = new Scroller(context);
-        this.nyC = getResources().getDimensionPixelSize(R.dimen.ds66);
+        this.nyY = new Scroller(context);
+        this.nzc = getResources().getDimensionPixelSize(R.dimen.ds66);
         this.mPadding = getResources().getDimensionPixelSize(R.dimen.ds32);
     }
 
@@ -198,7 +198,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
         this.mItemCount = this.mAdapter == null ? 0 : this.mAdapter.getCount();
-        this.mItemCount = Math.min(this.nyD, this.mItemCount);
+        this.mItemCount = Math.min(this.nzd, this.mItemCount);
         if (this.mItemCount <= 0 || !(mode == 0 || mode2 == 0)) {
             i3 = 0;
             i4 = 0;
@@ -216,7 +216,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             int[] K = K(0, -1, i, i2);
             if (mode == Integer.MIN_VALUE) {
                 i5 = resolveSize(K[0], i);
-                this.nyL = true;
+                this.nzl = true;
             } else {
                 i5 = size;
             }
@@ -227,7 +227,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             i5 = size;
         }
         setMeasuredDimension(i5, paddingTop);
-        this.nyx = i;
+        this.nyX = i;
         this.mHeightMeasureSpec = i2;
     }
 
@@ -236,29 +236,29 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         int childCount = getChildCount();
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
-            if (childAt != this.nyF) {
-                this.nyJ.add(childAt);
+            if (childAt != this.nzf) {
+                this.nzj.add(childAt);
             }
         }
         removeAllViewsInLayout();
-        int paddingLeft = getPaddingLeft() + this.nyC;
-        if (this.nyN) {
+        int paddingLeft = getPaddingLeft() + this.nzc;
+        if (this.nzn) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds32);
             if (this.mItemCount > 0) {
                 View JJ = JJ(0);
-                measureScrapChild(JJ, this.nyx, this.mHeightMeasureSpec);
+                measureScrapChild(JJ, this.nyX, this.mHeightMeasureSpec);
                 paddingLeft = ((getMeasuredWidth() - JJ.getMeasuredWidth()) + dimensionPixelSize) / 2;
-            } else if (this.nyF != null) {
-                int measuredWidth = ((getMeasuredWidth() - (this.nyC * 2)) + this.mPadding) / 3;
-                ViewGroup.LayoutParams layoutParams = this.nyF.getLayoutParams();
+            } else if (this.nzf != null) {
+                int measuredWidth = ((getMeasuredWidth() - (this.nzc * 2)) + this.mPadding) / 3;
+                ViewGroup.LayoutParams layoutParams = this.nzf.getLayoutParams();
                 if (layoutParams == null) {
                     layoutParams = new ViewGroup.LayoutParams(measuredWidth, -1);
                 }
                 layoutParams.width = measuredWidth;
                 layoutParams.height = -1;
-                this.nyF.setLayoutParams(layoutParams);
-                measureScrapChild(this.nyF, this.nyx, this.mHeightMeasureSpec);
-                paddingLeft = ((getMeasuredWidth() - this.nyF.getMeasuredWidth()) + dimensionPixelSize) / 2;
+                this.nzf.setLayoutParams(layoutParams);
+                measureScrapChild(this.nzf, this.nyX, this.mHeightMeasureSpec);
+                paddingLeft = ((getMeasuredWidth() - this.nzf.getMeasuredWidth()) + dimensionPixelSize) / 2;
             }
         }
         int i6 = paddingLeft;
@@ -271,7 +271,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     JJ2.setLayoutParams(layoutParams2);
                 }
                 addViewInLayout(JJ2, -1, layoutParams2, true);
-                measureScrapChild(JJ2, this.nyx, this.mHeightMeasureSpec);
+                measureScrapChild(JJ2, this.nyX, this.mHeightMeasureSpec);
                 int paddingTop = getPaddingTop();
                 int measuredWidth2 = JJ2.getMeasuredWidth() + i6;
                 JJ2.layout(i6, paddingTop, measuredWidth2, JJ2.getMeasuredHeight() + paddingTop);
@@ -279,35 +279,35 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                 i6 = measuredWidth2;
             }
         }
-        if (this.nyF != null) {
-            if (this.nyO) {
-                int measuredWidth3 = ((getMeasuredWidth() - (this.nyC * 2)) + this.mPadding) / 3;
-                ViewGroup.LayoutParams layoutParams3 = this.nyF.getLayoutParams();
+        if (this.nzf != null) {
+            if (this.nzo) {
+                int measuredWidth3 = ((getMeasuredWidth() - (this.nzc * 2)) + this.mPadding) / 3;
+                ViewGroup.LayoutParams layoutParams3 = this.nzf.getLayoutParams();
                 if (layoutParams3 == null) {
                     layoutParams3 = new ViewGroup.LayoutParams(measuredWidth3, -1);
                 }
                 layoutParams3.width = measuredWidth3;
                 layoutParams3.height = -1;
-                this.nyF.setLayoutParams(layoutParams3);
+                this.nzf.setLayoutParams(layoutParams3);
             }
-            measureScrapChild(this.nyF, this.nyx, this.mHeightMeasureSpec);
+            measureScrapChild(this.nzf, this.nyX, this.mHeightMeasureSpec);
             int paddingTop2 = getPaddingTop();
-            int measuredWidth4 = this.nyF.getMeasuredWidth() + i6;
-            this.nyF.layout(i6, paddingTop2, measuredWidth4, this.nyF.getMeasuredHeight() + paddingTop2);
-            if (this.mItemCount == this.nyD) {
-                i6 = measuredWidth4 - this.nyF.getMeasuredWidth();
-                this.nyI = false;
+            int measuredWidth4 = this.nzf.getMeasuredWidth() + i6;
+            this.nzf.layout(i6, paddingTop2, measuredWidth4, this.nzf.getMeasuredHeight() + paddingTop2);
+            if (this.mItemCount == this.nzd) {
+                i6 = measuredWidth4 - this.nzf.getMeasuredWidth();
+                this.nzi = false;
             } else {
-                addViewInLayout(this.nyF, -1, this.nyF.getLayoutParams(), true);
-                this.nyI = true;
+                addViewInLayout(this.nzf, -1, this.nzf.getLayoutParams(), true);
+                this.nzi = true;
                 i6 = measuredWidth4;
             }
         }
-        this.mContentWidth = (this.nyC + i6) - this.mPadding;
-        if (this.nyE || z) {
+        this.mContentWidth = (this.nzc + i6) - this.mPadding;
+        if (this.nze || z) {
             scrollTo(0, 0);
-            scrollBy(dNS(), 0);
-            this.nyE = false;
+            scrollBy(dOa(), 0);
+            this.nze = false;
         }
     }
 
@@ -332,9 +332,9 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             switch (action) {
                 case 0:
                     this.mLastMotionX = x;
-                    if (!this.nyy.isFinished()) {
+                    if (!this.nyY.isFinished()) {
                         removeCallbacks(this.flingRunnable);
-                        this.nyy.forceFinished(true);
+                        this.nyY.forceFinished(true);
                         z = false;
                         break;
                     }
@@ -379,9 +379,9 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             float x = motionEvent.getX();
             switch (action) {
                 case 0:
-                    if (!this.nyy.isFinished()) {
+                    if (!this.nyY.isFinished()) {
                         removeCallbacks(this.flingRunnable);
-                        this.nyy.forceFinished(true);
+                        this.nyY.forceFinished(true);
                     }
                     this.mLastMotionX = x;
                     break;
@@ -394,7 +394,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                         int i = -xVelocity;
                         int i2 = i < 0 ? Integer.MAX_VALUE : 0;
                         this.mLastFlingX = i2;
-                        this.nyy.fling(i2, 0, i, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
+                        this.nyY.fling(i2, 0, i, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
                         post(this.flingRunnable);
                     }
                     if (this.mVelocityTracker != null) {
@@ -415,9 +415,9 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public void setAdapter(BaseAdapter baseAdapter, boolean z) {
         this.mAdapter = baseAdapter;
         this.mScroller.forceFinished(true);
-        this.nyy.forceFinished(true);
-        if (!this.nyE && z) {
-            this.nyE = z;
+        this.nyY.forceFinished(true);
+        if (!this.nze && z) {
+            this.nze = z;
         }
         requestLayout();
     }
@@ -428,12 +428,12 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     private View JJ(int i) {
         View view = null;
-        if (this.nyJ.size() > 0) {
-            view = this.nyJ.remove(0);
+        if (this.nzj.size() > 0) {
+            view = this.nzj.remove(0);
         }
         View view2 = this.mAdapter.getView(i, view, this);
         if (view2 != view) {
-            this.nyJ.add(view);
+            this.nzj.add(view);
         }
         if (view2 != null) {
             view2.setOnLongClickListener(this);
@@ -477,7 +477,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int dNS() {
+    public int dOa() {
         if (canScroll()) {
             return this.mContentWidth - ((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight());
         }
@@ -498,8 +498,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         int scrollX = getScrollX();
         int i2 = scrollX + i;
         if (z) {
-            if (i2 > dNS()) {
-                i = dNS() - scrollX;
+            if (i2 > dOa()) {
+                i = dOa() - scrollX;
             }
         } else if (i2 < 0) {
             i = -scrollX;
@@ -509,17 +509,17 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (!this.nyM) {
-            this.nyM = true;
+        if (!this.nzm) {
+            this.nzm = true;
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
                 if (getChildAt(i) != null) {
                     getChildAt(i).clearAnimation();
                 }
             }
-            this.nyw.b(view, null);
-            this.nyu = view;
-            this.nyv = indexOfChild(view);
+            this.nyW.b(view, null);
+            this.nyU = view;
+            this.nyV = indexOfChild(view);
         }
         return true;
     }
@@ -529,19 +529,19 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         if (this.mScroller.computeScrollOffset()) {
             scrollTo(this.mScroller.getCurrX(), 0);
             postInvalidateDelayed(16L);
-            if ((this.nyz || this.nyA) && this.nyw != null) {
-                this.nyw.dNR();
+            if ((this.nyZ || this.nza) && this.nyW != null) {
+                this.nyW.dNZ();
                 return;
             }
             return;
         }
-        this.nyz = false;
-        this.nyA = false;
+        this.nyZ = false;
+        this.nza = false;
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.c
     public void setDragController(com.baidu.tieba.tbadkCore.imgView.a aVar) {
-        this.nyw = aVar;
+        this.nyW = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
@@ -549,26 +549,26 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         View childAt;
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            if (i != this.nyv && (childAt = getChildAt(i)) != this.nyF) {
+            if (i != this.nyV && (childAt = getChildAt(i)) != this.nzf) {
                 childAt.getHitRect(this.tempRect);
                 if (this.tempRect.contains((rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2)) {
-                    int i2 = this.nyv;
+                    int i2 = this.nyV;
+                    dv(i2, i);
                     du(i2, i);
-                    dt(i2, i);
-                    this.nyv = i;
+                    this.nyV = i;
                     return;
                 }
             }
         }
     }
 
-    private void dt(int i, int i2) {
-        if (this.nyB != null) {
-            this.nyB.bc(i, i2);
+    private void du(int i, int i2) {
+        if (this.nzb != null) {
+            this.nzb.bc(i, i2);
         }
     }
 
-    private void du(int i, int i2) {
+    private void dv(int i, int i2) {
         if (i != i2) {
             View childAt = getChildAt(i);
             View childAt2 = getChildAt(i2);
@@ -612,9 +612,9 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
-    public void dNT() {
-        if (!this.nyz) {
-            this.nyz = true;
+    public void dOb() {
+        if (!this.nyZ) {
+            this.nyZ = true;
             int scrollX = getScrollX();
             this.mScroller.startScroll(scrollX, 0, 0 - scrollX, 0, (int) (scrollX * 2.0f));
             invalidate();
@@ -622,68 +622,68 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
-    public void dNU() {
-        if (!this.nyA) {
-            this.nyA = true;
-            int dNS = dNS();
+    public void dOc() {
+        if (!this.nza) {
+            this.nza = true;
+            int dOa = dOa();
             int scrollX = getScrollX();
-            int scrollX2 = dNS - getScrollX();
+            int scrollX2 = dOa - getScrollX();
             this.mScroller.startScroll(scrollX, 0, scrollX2, 0, (int) (scrollX2 * 2.0f));
             invalidate();
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
-    public void dNV() {
+    public void dOd() {
         if (!this.mScroller.isFinished()) {
             this.mScroller.forceFinished(true);
         }
-        this.nyz = false;
-        this.nyA = false;
+        this.nyZ = false;
+        this.nza = false;
     }
 
     @Override // com.baidu.tieba.tbadkCore.imgView.d
-    public void dNW() {
+    public void dOe() {
         reset();
     }
 
     public void setOnSwapDataListener(a aVar) {
-        this.nyB = aVar;
+        this.nzb = aVar;
     }
 
     public void setMaxItemNum(int i) {
-        this.nyD = i;
+        this.nzd = i;
     }
 
     public int getMaxItemNum() {
-        return this.nyD;
+        return this.nzd;
     }
 
     public void setAddView(View view) {
-        this.nyF = view;
+        this.nzf = view;
     }
 
     public int ej(View view) {
-        this.nyK = true;
+        this.nzk = true;
         view.clearAnimation();
         int indexOfChild = indexOfChild(view);
         if (indexOfChild == -1) {
             return indexOfChild;
         }
         int measuredWidth = view.getMeasuredWidth();
-        if (this.nyI) {
+        if (this.nzi) {
             this.mContentWidth -= measuredWidth;
         } else {
-            if (this.nyF != null) {
-                addViewInLayout(this.nyF, -1, this.nyF.getLayoutParams(), true);
-                this.mContentWidth += this.nyF.getMeasuredWidth();
+            if (this.nzf != null) {
+                addViewInLayout(this.nzf, -1, this.nzf.getLayoutParams(), true);
+                this.mContentWidth += this.nzf.getMeasuredWidth();
             }
             this.mContentWidth -= measuredWidth;
-            this.nyI = true;
+            this.nzi = true;
         }
         this.mItemCount--;
         removeViewInLayout(view);
-        this.nyJ.add(view);
+        this.nzj.add(view);
         int childCount = getChildCount();
         if (childCount > 1) {
             for (int i = indexOfChild; i < childCount; i++) {
@@ -701,14 +701,14 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         if (!canScroll()) {
             this.mScroller.startScroll(scrollX, 0, 0 - scrollX, 0, 500);
             postInvalidate();
-        } else if (scrollX > dNS()) {
-            this.mScroller.startScroll(scrollX, 0, dNS() - scrollX, 0, 500);
+        } else if (scrollX > dOa()) {
+            this.mScroller.startScroll(scrollX, 0, dOa() - scrollX, 0, 500);
             postInvalidate();
         }
         postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView.2
             @Override // java.lang.Runnable
             public void run() {
-                DragHorizonScrollView.this.nyK = false;
+                DragHorizonScrollView.this.nzk = false;
                 int childCount2 = DragHorizonScrollView.this.getChildCount();
                 for (int i2 = 0; i2 < childCount2; i2++) {
                     if (DragHorizonScrollView.this.getChildAt(i2) != null) {
@@ -716,13 +716,13 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
                     }
                 }
                 if (DragHorizonScrollView.this.canScroll()) {
-                    if (DragHorizonScrollView.this.getScrollX() > DragHorizonScrollView.this.dNS()) {
-                        DragHorizonScrollView.this.scrollTo(DragHorizonScrollView.this.dNS(), 0);
+                    if (DragHorizonScrollView.this.getScrollX() > DragHorizonScrollView.this.dOa()) {
+                        DragHorizonScrollView.this.scrollTo(DragHorizonScrollView.this.dOa(), 0);
                     }
                 } else {
                     DragHorizonScrollView.this.scrollTo(0, 0);
                 }
-                if (DragHorizonScrollView.this.nyL) {
+                if (DragHorizonScrollView.this.nzl) {
                     DragHorizonScrollView.this.requestLayout();
                 }
             }
@@ -730,8 +730,8 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         return indexOfChild;
     }
 
-    public boolean dNX() {
-        return this.nyK;
+    public boolean dOf() {
+        return this.nzk;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -743,29 +743,29 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     private void reset() {
         removeCallbacks(this.flingRunnable);
         this.mScroller.forceFinished(true);
-        this.nyy.forceFinished(true);
-        if (this.nyu != null) {
-            this.nyu.setVisibility(0);
-            this.nyu = null;
+        this.nyY.forceFinished(true);
+        if (this.nyU != null) {
+            this.nyU.setVisibility(0);
+            this.nyU = null;
         }
-        this.nyv = -1;
-        this.nyz = false;
-        this.nyA = false;
+        this.nyV = -1;
+        this.nyZ = false;
+        this.nza = false;
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             if (getChildAt(i) != null) {
                 getChildAt(i).clearAnimation();
             }
         }
-        this.nyM = false;
+        this.nzm = false;
     }
 
     public void setCenterStart(boolean z) {
-        this.nyN = z;
+        this.nzn = z;
     }
 
     public void setStartEndSpace(int i) {
-        this.nyC = i;
+        this.nzc = i;
     }
 
     public void setPadding(int i) {
@@ -773,6 +773,6 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     }
 
     public void setNeedRecomputeAddView(boolean z) {
-        this.nyO = z;
+        this.nzo = z;
     }
 }

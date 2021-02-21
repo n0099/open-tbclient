@@ -3,13 +3,13 @@ package com.facebook.imagepipeline.b;
 public class k implements com.facebook.common.internal.j<q> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: evO */
+    /* renamed from: evW */
     public q get() {
-        int evP = evP();
-        return new q(evP, Integer.MAX_VALUE, evP, Integer.MAX_VALUE, evP / 8);
+        int evX = evX();
+        return new q(evX, Integer.MAX_VALUE, evX, Integer.MAX_VALUE, evX / 8);
     }
 
-    private int evP() {
+    private int evX() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         if (min < 16777216) {
             return 1048576;

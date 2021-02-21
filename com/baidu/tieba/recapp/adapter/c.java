@@ -6,15 +6,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.cb;
 import com.baidu.tieba.frs.k;
-import com.baidu.tieba.recapp.o;
 import com.baidu.tieba.recapp.p;
+import com.baidu.tieba.recapp.q;
 /* loaded from: classes8.dex */
-public class c extends k<cb, FrsAppEmptyHolder> implements o {
-    private p gch;
+public class c extends k<cb, FrsAppEmptyHolder> implements p {
+    private q gcm;
 
-    public c(p pVar, BdUniqueId bdUniqueId) {
-        super(pVar.getTbPageContext(), bdUniqueId);
-        this.gch = pVar;
+    public c(q qVar, BdUniqueId bdUniqueId) {
+        super(qVar.getTbPageContext(), bdUniqueId);
+        this.gcm = qVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,15 +33,15 @@ public class c extends k<cb, FrsAppEmptyHolder> implements o {
     public View a(int i, View view, ViewGroup viewGroup, cb cbVar, FrsAppEmptyHolder frsAppEmptyHolder) {
         if (cbVar instanceof AdvertAppInfo) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) cbVar;
-            if (cCh()) {
-                cbVar.position = i - this.jfG.getTopThreadSize();
+            if (cCo()) {
+                cbVar.position = i - this.jfU.getTopThreadSize();
             }
-            com.baidu.tbadk.core.data.d.a(advertAppInfo.advertAppContext, cbVar.position, advertAppInfo.eLD.eLR == -1001);
+            com.baidu.tbadk.core.data.d.a(advertAppInfo.advertAppContext, cbVar.position, advertAppInfo.eLC.eLR == -1001);
         }
         return frsAppEmptyHolder.getView();
     }
 
-    @Override // com.baidu.tieba.recapp.o
+    @Override // com.baidu.tieba.recapp.p
     public void setIsFromCDN(boolean z) {
     }
 }

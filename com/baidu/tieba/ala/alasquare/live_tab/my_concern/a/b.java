@@ -10,7 +10,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.gCp);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.gCD);
         this.mPageContext = tbPageContext;
     }
 
@@ -26,10 +26,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.special_forum.data.e eVar, LiveTabConcernEmptyViewHolder liveTabConcernEmptyViewHolder) {
-        if (liveTabConcernEmptyViewHolder == null || liveTabConcernEmptyViewHolder.gCM == null) {
+        if (liveTabConcernEmptyViewHolder == null || liveTabConcernEmptyViewHolder.gDa == null) {
             return null;
         }
-        liveTabConcernEmptyViewHolder.gCM.a(eVar);
+        liveTabConcernEmptyViewHolder.gDa.a(eVar);
         return liveTabConcernEmptyViewHolder.getView();
     }
 }

@@ -7,12 +7,12 @@ import java.util.Iterator;
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<C1109a> f9645a = new ArrayList<>();
+    private ArrayList<C1111a> f9645a = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.kwad.sdk.crash.report.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1109a {
+    public static class C1111a {
 
         /* renamed from: a  reason: collision with root package name */
         private ExceptionMessage f9646a;
@@ -20,7 +20,7 @@ public abstract class a implements c {
         /* renamed from: b  reason: collision with root package name */
         private int f9647b;
 
-        C1109a(ExceptionMessage exceptionMessage, int i) {
+        C1111a(ExceptionMessage exceptionMessage, int i) {
             this.f9646a = exceptionMessage;
             this.f9647b = i;
         }
@@ -31,9 +31,9 @@ public abstract class a implements c {
             return;
         }
         try {
-            Iterator<C1109a> it = this.f9645a.iterator();
+            Iterator<C1111a> it = this.f9645a.iterator();
             while (it.hasNext()) {
-                C1109a next = it.next();
+                C1111a next = it.next();
                 b(next.f9646a, next.f9647b);
                 it.remove();
             }
@@ -55,7 +55,7 @@ public abstract class a implements c {
             b(exceptionMessage, i);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
-            this.f9645a.add(new C1109a(exceptionMessage, i));
+            this.f9645a.add(new C1111a(exceptionMessage, i));
         }
     }
 

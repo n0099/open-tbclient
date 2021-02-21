@@ -9,7 +9,7 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     private String groupId;
     private String groupName;
     private int height;
-    private ArrayList<String> iST = new ArrayList<>();
+    private ArrayList<String> iTh = new ArrayList<>();
     private int width;
 
     public c(EmotionGroupData emotionGroupData) {
@@ -31,23 +31,23 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
         if (eQ2 != null) {
             d(new com.baidu.adp.widget.ImageView.a(eQ2, false));
         }
-        this.iST.clear();
-        for (EmotionData emotionData : i.cyE().JE(this.groupId)) {
-            this.iST.add(emotionData.getSharpText());
+        this.iTh.clear();
+        for (EmotionData emotionData : i.cyL().JF(this.groupId)) {
+            this.iTh.add(emotionData.getSharpText());
         }
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public String qX(int i) {
-        if (i >= this.iST.size()) {
+        if (i >= this.iTh.size()) {
             return null;
         }
-        return this.iST.get(i);
+        return this.iTh.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean CP(String str) {
-        return this.iST.contains(str);
+    public boolean CN(String str) {
+        return this.iTh.contains(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
@@ -56,9 +56,9 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CQ(String str) {
+    public com.baidu.adp.widget.ImageView.a CO(String str) {
         String aM;
-        if (Jg(str)) {
+        if (Jh(str)) {
             aM = b.j(str, true, false);
         } else {
             aM = b.aM(str, false);
@@ -70,7 +70,7 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
         return new com.baidu.adp.widget.ImageView.a(eQ, false, str);
     }
 
-    public boolean Jg(String str) {
+    public boolean Jh(String str) {
         if (str.startsWith("#(meme,")) {
             String replace = str.replace("#(meme,", "");
             String substring = replace.substring(0, replace.indexOf(","));
@@ -80,13 +80,13 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CR(String str) {
+    public com.baidu.adp.widget.ImageView.a CP(String str) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        return this.iST.size();
+        return this.iTh.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c

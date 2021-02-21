@@ -15,13 +15,13 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a extends BaseAdapter {
     private List<GiftCommonList.GiftItem> aZE;
-    private RelativeLayout.LayoutParams jUJ;
+    private RelativeLayout.LayoutParams jUX;
     private Context mContext;
     private int mSelectedPosition = -1;
 
     public a(Context context) {
         this.mContext = context;
-        this.jUJ = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(R.dimen.ds450) - 8) / 2);
+        this.jUX = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(R.dimen.ds450) - 8) / 2);
     }
 
     public void setGiftItems(List<GiftCommonList.GiftItem> list) {
@@ -62,46 +62,46 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0740a c0740a;
+        C0741a c0741a;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.gift_list_item, (ViewGroup) null);
-            C0740a c0740a2 = new C0740a();
-            c0740a2.jUK = (TbImageView) view.findViewById(R.id.image);
-            c0740a2.jUL = view.findViewById(R.id.mask);
-            c0740a2.enq = (TextView) view.findViewById(R.id.name);
-            c0740a2.jUM = (TextView) view.findViewById(R.id.price);
-            view.setTag(c0740a2);
-            c0740a = c0740a2;
+            C0741a c0741a2 = new C0741a();
+            c0741a2.jUY = (TbImageView) view.findViewById(R.id.image);
+            c0741a2.jUZ = view.findViewById(R.id.mask);
+            c0741a2.enq = (TextView) view.findViewById(R.id.name);
+            c0741a2.jVa = (TextView) view.findViewById(R.id.price);
+            view.setTag(c0741a2);
+            c0741a = c0741a2;
         } else {
-            c0740a = (C0740a) view.getTag();
+            c0741a = (C0741a) view.getTag();
         }
-        c0740a.jUL.setLayoutParams(this.jUJ);
+        c0741a.jUZ.setLayoutParams(this.jUX);
         ap.setBackgroundResource(view, R.color.CAM_X0201);
-        ap.setViewTextColor(c0740a.enq, R.color.CAM_X0105, 1);
-        ap.setViewTextColor(c0740a.jUM, R.color.CAM_X0301, 1);
+        ap.setViewTextColor(c0741a.enq, R.color.CAM_X0105, 1);
+        ap.setViewTextColor(c0741a.jVa, R.color.CAM_X0301, 1);
         if (i == this.mSelectedPosition) {
-            ap.setBackgroundResource(c0740a.jUL, R.drawable.chx_box_gift_s);
+            ap.setBackgroundResource(c0741a.jUZ, R.drawable.chx_box_gift_s);
         } else {
-            c0740a.jUL.setBackgroundResource(R.color.common_color_10022);
+            c0741a.jUZ.setBackgroundResource(R.color.common_color_10022);
         }
         GiftCommonList.GiftItem item = getItem(i);
         if (item != null) {
-            c0740a.enq.setText(item.getName());
-            c0740a.jUM.setText(String.format(this.mContext.getString(R.string.tdou_price_format), Integer.valueOf(item.getPrice())));
-            c0740a.jUK.startLoad(item.getThumbnailUrl(), 10, false);
+            c0741a.enq.setText(item.getName());
+            c0741a.jVa.setText(String.format(this.mContext.getString(R.string.tdou_price_format), Integer.valueOf(item.getPrice())));
+            c0741a.jUY.startLoad(item.getThumbnailUrl(), 10, false);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.gift.buyGift.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    private class C0740a {
+    private class C0741a {
         public TextView enq;
-        public TbImageView jUK;
-        public View jUL;
-        public TextView jUM;
+        public TbImageView jUY;
+        public View jUZ;
+        public TextView jVa;
 
-        private C0740a() {
+        private C0741a() {
         }
     }
 }

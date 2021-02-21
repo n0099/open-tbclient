@@ -5,17 +5,17 @@ public interface c {
 
     void AF(boolean z);
 
-    void Nt(int i);
+    void Nu(int i);
 
-    void XN(String str);
+    void XZ(String str);
 
-    void XO(String str);
+    void Ya(String str);
 
-    void XP(String str);
+    void Yb(String str);
 
-    c eiC();
+    c eiK();
 
-    boolean eiD();
+    boolean eiL();
 
     String getAAID();
 

@@ -127,13 +127,13 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                                     wVar.setLike(1);
                                     HorizonalScrollListView.this.a(entelechyUserLikeButton, wVar.isLike() == 1);
                                 } else if (AntiHelper.bX(likeModel.getErrorCode(), likeModel.getErrorString())) {
-                                    AntiHelper.br(HorizonalScrollListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
+                                    AntiHelper.bq(HorizonalScrollListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
                                 } else {
                                     HorizonalScrollListView.this.mTbPageContext.showToast(likeModel.getErrorString());
                                 }
                             }
                         });
-                        likeModel.gw(str, valueOf);
+                        likeModel.gy(str, valueOf);
                     }
                 }
             }
@@ -198,13 +198,13 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                                     wVar.setLike(1);
                                     HorizonalScrollListView.this.a(entelechyUserLikeButton, wVar.isLike() == 1);
                                 } else if (AntiHelper.bX(likeModel.getErrorCode(), likeModel.getErrorString())) {
-                                    AntiHelper.br(HorizonalScrollListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
+                                    AntiHelper.bq(HorizonalScrollListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
                                 } else {
                                     HorizonalScrollListView.this.mTbPageContext.showToast(likeModel.getErrorString());
                                 }
                             }
                         });
-                        likeModel.gw(str, valueOf);
+                        likeModel.gy(str, valueOf);
                     }
                 }
             }
@@ -269,13 +269,13 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
                                     wVar.setLike(1);
                                     HorizonalScrollListView.this.a(entelechyUserLikeButton, wVar.isLike() == 1);
                                 } else if (AntiHelper.bX(likeModel.getErrorCode(), likeModel.getErrorString())) {
-                                    AntiHelper.br(HorizonalScrollListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
+                                    AntiHelper.bq(HorizonalScrollListView.this.mTbPageContext.getPageActivity(), likeModel.getErrorString());
                                 } else {
                                     HorizonalScrollListView.this.mTbPageContext.showToast(likeModel.getErrorString());
                                 }
                             }
                         });
-                        likeModel.gw(str, valueOf);
+                        likeModel.gy(str, valueOf);
                     }
                 }
             }

@@ -68,10 +68,10 @@ public class d {
             JSONObject optJSONObject5 = jSONObject.optJSONObject("iadex_sniff_list_url");
             if (optJSONObject5 != null) {
                 this.fqw = optJSONObject5.optString("os_type2_iadex_url");
-                com.baidu.tbadk.util.d.DK(this.fqw);
+                com.baidu.tbadk.util.d.DI(this.fqw);
                 return;
             }
-            com.baidu.tbadk.util.d.DK(null);
+            com.baidu.tbadk.util.d.DI(null);
         }
     }
 

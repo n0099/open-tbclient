@@ -10,38 +10,38 @@ import java.util.Collection;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class e implements c {
-    private static final Class<?> pxC = e.class;
+    private static final Class<?> pyc = e.class;
     private final int mVersion;
-    private final CacheErrorLogger pxH;
-    private final String pxO;
-    private final j<File> pxP;
-    volatile a pyp = new a(null, null);
+    volatile a pyP = new a(null, null);
+    private final CacheErrorLogger pyh;
+    private final String pyo;
+    private final j<File> pyp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static class a {
         @Nullable
-        public final c pyq;
+        public final c pyQ;
         @Nullable
-        public final File pyr;
+        public final File pyR;
 
         a(@Nullable File file, @Nullable c cVar) {
-            this.pyq = cVar;
-            this.pyr = file;
+            this.pyQ = cVar;
+            this.pyR = file;
         }
     }
 
     public e(int i, j<File> jVar, String str, CacheErrorLogger cacheErrorLogger) {
         this.mVersion = i;
-        this.pxH = cacheErrorLogger;
-        this.pxP = jVar;
-        this.pxO = str;
+        this.pyh = cacheErrorLogger;
+        this.pyp = jVar;
+        this.pyo = str;
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean isExternal() {
         try {
-            return esl().isExternal();
+            return est().isExternal();
         } catch (IOException e) {
             return false;
         }
@@ -49,74 +49,74 @@ public class e implements c {
 
     @Override // com.facebook.cache.disk.c
     public com.facebook.a.a F(String str, Object obj) throws IOException {
-        return esl().F(str, obj);
+        return est().F(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean G(String str, Object obj) throws IOException {
-        return esl().G(str, obj);
+        return est().G(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public void erQ() {
+    public void erY() {
         try {
-            esl().erQ();
+            est().erY();
         } catch (IOException e) {
-            com.facebook.common.c.a.b(pxC, "purgeUnexpectedResources", e);
+            com.facebook.common.c.a.b(pyc, "purgeUnexpectedResources", e);
         }
     }
 
     @Override // com.facebook.cache.disk.c
     public c.b E(String str, Object obj) throws IOException {
-        return esl().E(str, obj);
+        return est().E(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public Collection<c.a> erR() throws IOException {
-        return esl().erR();
+    public Collection<c.a> erZ() throws IOException {
+        return est().erZ();
     }
 
     @Override // com.facebook.cache.disk.c
     public long a(c.a aVar) throws IOException {
-        return esl().a(aVar);
+        return est().a(aVar);
     }
 
     @Override // com.facebook.cache.disk.c
-    public long Zd(String str) throws IOException {
-        return esl().Zd(str);
+    public long Zp(String str) throws IOException {
+        return est().Zp(str);
     }
 
-    synchronized c esl() throws IOException {
-        if (esm()) {
-            esn();
-            eso();
+    synchronized c est() throws IOException {
+        if (esu()) {
+            esv();
+            esw();
         }
-        return (c) com.facebook.common.internal.g.checkNotNull(this.pyp.pyq);
+        return (c) com.facebook.common.internal.g.checkNotNull(this.pyP.pyQ);
     }
 
-    private boolean esm() {
-        a aVar = this.pyp;
-        return aVar.pyq == null || aVar.pyr == null || !aVar.pyr.exists();
+    private boolean esu() {
+        a aVar = this.pyP;
+        return aVar.pyQ == null || aVar.pyR == null || !aVar.pyR.exists();
     }
 
-    void esn() {
-        if (this.pyp.pyq != null && this.pyp.pyr != null) {
-            com.facebook.common.file.a.av(this.pyp.pyr);
+    void esv() {
+        if (this.pyP.pyQ != null && this.pyP.pyR != null) {
+            com.facebook.common.file.a.aw(this.pyP.pyR);
         }
     }
 
-    private void eso() throws IOException {
-        File file = new File(this.pxP.get(), this.pxO);
-        au(file);
-        this.pyp = new a(file, new DefaultDiskStorage(file, this.mVersion, this.pxH));
+    private void esw() throws IOException {
+        File file = new File(this.pyp.get(), this.pyo);
+        av(file);
+        this.pyP = new a(file, new DefaultDiskStorage(file, this.mVersion, this.pyh));
     }
 
-    void au(File file) throws IOException {
+    void av(File file) throws IOException {
         try {
-            FileUtils.aw(file);
-            com.facebook.common.c.a.d(pxC, "Created cache directory %s", file.getAbsolutePath());
+            FileUtils.ax(file);
+            com.facebook.common.c.a.d(pyc, "Created cache directory %s", file.getAbsolutePath());
         } catch (FileUtils.CreateDirectoryException e) {
-            this.pxH.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, pxC, "createRootDirectoryIfNecessary", e);
+            this.pyh.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, pyc, "createRootDirectoryIfNecessary", e);
             throw e;
         }
     }

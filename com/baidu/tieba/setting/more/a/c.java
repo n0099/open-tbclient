@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes8.dex */
 public class c {
-    public static String dIL() {
+    public static String dIT() {
         try {
             return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
         } catch (Exception e) {
@@ -16,11 +16,11 @@ public class c {
         }
     }
 
-    public static String dIM() {
-        return dIN() + "tieba/Logs/";
+    public static String dIU() {
+        return dIV() + "tieba/Logs/";
     }
 
-    private static String dIN() {
+    private static String dIV() {
         String path = Environment.getExternalStorageDirectory().getPath();
         int length = path.length() - 1;
         if (length > 0 && !path.substring(length).equals(File.separator)) {
@@ -29,16 +29,16 @@ public class c {
         return path;
     }
 
-    public static boolean Sl(String str) {
-        String Sm = Sm(str);
-        if (TextUtils.isEmpty(Sm)) {
+    public static boolean Sx(String str) {
+        String Sy = Sy(str);
+        if (TextUtils.isEmpty(Sy)) {
             return false;
         }
-        File file = new File(Sm);
+        File file = new File(Sy);
         return (file.exists() && file.isDirectory()) || file.mkdirs();
     }
 
-    private static String Sm(String str) {
+    private static String Sy(String str) {
         if (!TextUtils.isEmpty(str)) {
             int lastIndexOf = str.lastIndexOf(File.separator);
             return lastIndexOf == -1 ? "" : str.substring(0, lastIndexOf);

@@ -6,10 +6,10 @@ import tbclient.Myrecord;
 public class d {
     private int agree_num;
     private String apply_declaration;
-    private int iqp;
-    private int iqq;
-    private boolean iqr = false;
-    private int iqs;
+    private int iqD;
+    private int iqE;
+    private boolean iqF = false;
+    private int iqG;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -19,16 +19,16 @@ public class d {
     private long uid;
     private int vote_num;
 
-    public int cqZ() {
+    public int crg() {
         return this.agree_num;
     }
 
-    public int cra() {
-        return this.iqp;
+    public int crh() {
+        return this.iqD;
     }
 
-    public int crb() {
-        return this.iqq;
+    public int cri() {
+        return this.iqE;
     }
 
     public int getPost_num() {
@@ -47,11 +47,11 @@ public class d {
         return this.uid;
     }
 
-    public int crc() {
+    public int crj() {
         return this.vote_num;
     }
 
-    public String crd() {
+    public String crk() {
         return this.apply_declaration;
     }
 
@@ -67,16 +67,16 @@ public class d {
         return this.tid;
     }
 
-    public boolean cre() {
-        return this.iqr;
+    public boolean crl() {
+        return this.iqF;
     }
 
-    public int crf() {
-        return this.iqs;
+    public int crm() {
+        return this.iqG;
     }
 
     public void wL(int i) {
-        this.iqs = i;
+        this.iqG = i;
     }
 
     public static d a(ElectionList electionList) {
@@ -88,7 +88,7 @@ public class d {
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
         dVar.wN(electionList.forum_level.intValue());
-        dVar.IH(electionList.apply_declaration);
+        dVar.II(electionList.apply_declaration);
         dVar.setRank(electionList.rank.intValue());
         dVar.wM(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
@@ -110,7 +110,7 @@ public class d {
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
         dVar.wN(myrecord.forum_level.intValue());
-        dVar.IH(myrecord.apply_declaration);
+        dVar.II(myrecord.apply_declaration);
         dVar.setRank(myrecord.rank.intValue());
         dVar.wM(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
@@ -126,15 +126,15 @@ public class d {
     }
 
     public void wM(int i) {
-        this.iqp = i;
+        this.iqD = i;
     }
 
-    public void IH(String str) {
+    public void II(String str) {
         this.apply_declaration = str;
     }
 
     public void wN(int i) {
-        this.iqq = i;
+        this.iqE = i;
     }
 
     public void setNickname(String str) {
@@ -166,7 +166,7 @@ public class d {
     }
 
     public void pp(boolean z) {
-        this.iqr = z;
+        this.iqF = z;
     }
 
     public void setTid(long j) {

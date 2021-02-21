@@ -46,7 +46,7 @@ public class IndependentProcessDownloadService extends DownloadService {
     public void onCreate() {
         super.onCreate();
         b.a(this);
-        this.f13127a = b.eGm();
+        this.f13127a = b.eGu();
         this.f13127a.a(new WeakReference(this));
         b();
     }

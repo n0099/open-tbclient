@@ -15,47 +15,47 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class c {
     private List<n> dataList;
-    private List<n> gDH;
+    private List<n> gDV;
     private com.baidu.tieba.ala.alasquare.live_tab.b.a hotLiveInfo;
     private com.baidu.tieba.ala.alasquare.live_tab.b.d officialRecommendLiveInfo;
     private g stageLiveInfo;
     private j tabAllLiveInfo;
     private boolean hasMore = false;
-    private List<SdkLiveInfoData> gDE = new ArrayList();
-    private List<n> gDF = new ArrayList();
+    private List<SdkLiveInfoData> gDS = new ArrayList();
+    private List<n> gDT = new ArrayList();
 
     public c(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         this.stageLiveInfo = alaTabLiveResponsedMessage.stageLiveInfo;
         this.hotLiveInfo = alaTabLiveResponsedMessage.hotLiveInfo;
         this.officialRecommendLiveInfo = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
         this.tabAllLiveInfo = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        bRM();
+        bRT();
     }
 
-    private void bRM() {
-        this.gDH = new ArrayList();
+    private void bRT() {
+        this.gDV = new ArrayList();
         if (this.stageLiveInfo != null && this.stageLiveInfo.isValid()) {
             f fVar = new f();
-            fVar.gAP = this.stageLiveInfo;
-            this.gDH.add(fVar);
+            fVar.gBd = this.stageLiveInfo;
+            this.gDV.add(fVar);
         }
         if (this.hotLiveInfo != null) {
-            ArrayList<n> bRN = bRN();
-            if (!y.isEmpty(bRN)) {
-                this.gDH.addAll(bRN);
+            ArrayList<n> bRU = bRU();
+            if (!y.isEmpty(bRU)) {
+                this.gDV.addAll(bRU);
             }
         }
-        if (this.officialRecommendLiveInfo != null && !y.isEmpty(this.officialRecommendLiveInfo.gAI)) {
+        if (this.officialRecommendLiveInfo != null && !y.isEmpty(this.officialRecommendLiveInfo.gAW)) {
             com.baidu.tieba.ala.alasquare.live_tab.b.c cVar = new com.baidu.tieba.ala.alasquare.live_tab.b.c();
-            cVar.gAK = this.officialRecommendLiveInfo;
-            this.gDH.add(cVar);
+            cVar.gAY = this.officialRecommendLiveInfo;
+            this.gDV.add(cVar);
         }
-        this.dataList = new ArrayList(this.gDH);
+        this.dataList = new ArrayList(this.gDV);
         a(this.tabAllLiveInfo);
     }
 
-    private ArrayList<n> bRN() {
-        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.gAI;
+    private ArrayList<n> bRU() {
+        ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.gAW;
         if (arrayList == null || arrayList.size() < 2) {
             return null;
         }
@@ -84,7 +84,7 @@ public class c {
         if (jVar == null) {
             return false;
         }
-        ArrayList<SdkLiveInfoData> arrayList = jVar.gAI;
+        ArrayList<SdkLiveInfoData> arrayList = jVar.gAW;
         if (y.isEmpty(arrayList)) {
             return false;
         }
@@ -99,9 +99,9 @@ public class c {
         if (y.isEmpty(arrayList2)) {
             return false;
         }
-        this.gDE.addAll(arrayList2);
-        this.gDF = cg(this.gDE);
-        return !y.isEmpty(this.gDF);
+        this.gDS.addAll(arrayList2);
+        this.gDT = cg(this.gDS);
+        return !y.isEmpty(this.gDT);
     }
 
     private ArrayList<n> cg(List<SdkLiveInfoData> list) {
@@ -110,17 +110,17 @@ public class c {
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.gyx = list.get(i);
+            aVar.gyL = list.get(i);
             aVar.isLeft = true;
-            eVar.gAM = aVar;
+            eVar.gBa = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.gyx = list.get(i + 1);
-                eVar.gAN = aVar2;
+                aVar2.gyL = list.get(i + 1);
+                eVar.gBb = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.gyy = true;
+                aVar.gyM = true;
             }
             arrayList.add(eVar);
         }
@@ -136,8 +136,8 @@ public class c {
         if (!y.isEmpty(this.dataList)) {
             arrayList.addAll(this.dataList);
         }
-        if (!y.isEmpty(this.gDF)) {
-            arrayList.addAll(this.gDF);
+        if (!y.isEmpty(this.gDT)) {
+            arrayList.addAll(this.gDT);
         }
         return arrayList;
     }
@@ -147,17 +147,17 @@ public class c {
         this.hotLiveInfo = null;
         this.officialRecommendLiveInfo = null;
         this.hasMore = false;
-        if (this.gDH != null) {
-            this.gDH.clear();
+        if (this.gDV != null) {
+            this.gDV.clear();
         }
         if (this.dataList != null) {
             this.dataList.clear();
         }
-        if (this.gDE != null) {
-            this.gDE.clear();
+        if (this.gDS != null) {
+            this.gDS.clear();
         }
-        if (this.gDF != null) {
-            this.gDF.clear();
+        if (this.gDT != null) {
+            this.gDT.clear();
         }
     }
 }

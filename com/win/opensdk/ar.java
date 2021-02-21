@@ -7,8 +7,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
 public final class ar {
-    private static ExecutorService qkh = Executors.newFixedThreadPool(1);
-    private static HashMap<String, HashSet<a>> qka = new HashMap<>();
+    private static ExecutorService qkH = Executors.newFixedThreadPool(1);
+    private static HashMap<String, HashSet<a>> qkA = new HashMap<>();
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -17,23 +17,23 @@ public final class ar {
 
     public static synchronized void a(String str, a aVar) {
         synchronized (ar.class) {
-            HashSet<a> hashSet = qka.get(str);
+            HashSet<a> hashSet = qkA.get(str);
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                qka.put(str, hashSet);
+                qkA.put(str, hashSet);
             }
             hashSet.add(aVar);
         }
     }
 
-    public static synchronized void abF(String str) {
+    public static synchronized void abR(String str) {
         synchronized (ar.class) {
-            qka.remove(str);
+            qkA.remove(str);
         }
     }
 
     public static void f(String str, String str2, Object obj) {
-        HashSet<a> hashSet = qka.get(str);
+        HashSet<a> hashSet = qkA.get(str);
         if (hashSet != null && hashSet.size() > 0) {
             Iterator<a> it = hashSet.iterator();
             while (it.hasNext()) {

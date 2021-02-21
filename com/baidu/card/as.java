@@ -85,11 +85,11 @@ public abstract class as extends a<com.baidu.tbadk.core.data.a> implements com.b
                     }
                 } else if (c0089a.getActionType() == 3) {
                     if (as.this.ajd != null) {
-                        as.this.ajd.dvp();
+                        as.this.ajd.dvw();
                     }
                 } else if (c0089a.getActionType() == 6) {
                     if (as.this.ajd != null) {
-                        return as.this.ajd.dAA();
+                        return as.this.ajd.dAH();
                     }
                 } else if (c0089a.getActionType() == 7) {
                     if (as.this.agA != null) {
@@ -122,7 +122,7 @@ public abstract class as extends a<com.baidu.tbadk.core.data.a> implements com.b
             this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
             this.agA = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
             this.ajd = sU();
-            this.ajd.dzP().setBackgroundResource(R.color.transparent);
+            this.ajd.dzW().setBackgroundResource(R.color.transparent);
             this.ajd.setUniqueId(this.agC);
             this.ajd.setFrom(this.mFrom);
             this.ajd.setStageType(this.aje);

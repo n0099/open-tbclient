@@ -17,11 +17,11 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes5.dex */
 public final class FlowableReplay<T> extends io.reactivex.a.a<T> implements io.reactivex.disposables.b {
-    static final Callable qoF = new a();
+    static final Callable qpf = new a();
     final AtomicReference<ReplaySubscriber<T>> current;
-    final g<T> qnW;
-    final Callable<? extends b<T>> qoE;
-    final org.a.b<T> qos;
+    final org.a.b<T> qoS;
+    final g<T> qow;
+    final Callable<? extends b<T>> qpe;
 
     /* loaded from: classes5.dex */
     interface b<T> {
@@ -36,7 +36,7 @@ public final class FlowableReplay<T> extends io.reactivex.a.a<T> implements io.r
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qos.subscribe(cVar);
+        this.qoS.subscribe(cVar);
     }
 
     @Override // io.reactivex.disposables.b
@@ -59,7 +59,7 @@ public final class FlowableReplay<T> extends io.reactivex.a.a<T> implements io.r
                 break;
             }
             try {
-                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.qoE.call());
+                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.qpe.call());
                 if (this.current.compareAndSet(replaySubscriber, replaySubscriber2)) {
                     replaySubscriber = replaySubscriber2;
                     break;
@@ -73,7 +73,7 @@ public final class FlowableReplay<T> extends io.reactivex.a.a<T> implements io.r
         try {
             gVar.accept(replaySubscriber);
             if (z) {
-                this.qnW.a((j) replaySubscriber);
+                this.qow.a((j) replaySubscriber);
             }
         } catch (Throwable th) {
             if (z) {
@@ -632,7 +632,7 @@ public final class FlowableReplay<T> extends io.reactivex.a.a<T> implements io.r
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
         Object leaveTransform(Object obj) {
-            return ((io.reactivex.e.b) obj).eKM();
+            return ((io.reactivex.e.b) obj).eKU();
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
@@ -691,7 +691,7 @@ public final class FlowableReplay<T> extends io.reactivex.a.a<T> implements io.r
             Node node2 = node;
             for (Node node3 = node.get(); node3 != null; node3 = node3.get()) {
                 io.reactivex.e.b bVar = (io.reactivex.e.b) node3.value;
-                if (NotificationLite.isComplete(bVar.eKM()) || NotificationLite.isError(bVar.eKM()) || bVar.aEf() > a2) {
+                if (NotificationLite.isComplete(bVar.eKU()) || NotificationLite.isError(bVar.eKU()) || bVar.aEf() > a2) {
                     break;
                 }
                 node2 = node3;

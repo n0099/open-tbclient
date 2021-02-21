@@ -2,11 +2,11 @@ package com.facebook.imagepipeline.animated.base;
 /* loaded from: classes3.dex */
 public class AnimatedDrawableFrameInfo {
     public final int height;
-    public final int iwU;
-    public final int pGe;
-    public final int pGf;
-    public final BlendOperation pGg;
-    public final DisposalMethod pGh;
+    public final int ixi;
+    public final int pGE;
+    public final int pGF;
+    public final BlendOperation pGG;
+    public final DisposalMethod pGH;
     public final int width;
 
     /* loaded from: classes3.dex */
@@ -23,12 +23,12 @@ public class AnimatedDrawableFrameInfo {
     }
 
     public AnimatedDrawableFrameInfo(int i, int i2, int i3, int i4, int i5, BlendOperation blendOperation, DisposalMethod disposalMethod) {
-        this.pGe = i;
-        this.pGf = i2;
-        this.iwU = i3;
+        this.pGE = i;
+        this.pGF = i2;
+        this.ixi = i3;
         this.width = i4;
         this.height = i5;
-        this.pGg = blendOperation;
-        this.pGh = disposalMethod;
+        this.pGG = blendOperation;
+        this.pGH = disposalMethod;
     }
 }

@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes5.dex */
 public interface al {
-    void ezo();
+    void ezw();
 
-    void ezp();
+    void ezx();
 
-    void ezq();
+    void ezy();
 
-    void ezr();
+    void ezz();
 }

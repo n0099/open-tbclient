@@ -6,20 +6,20 @@ import android.view.MotionEvent;
 class b {
     private Camera mCamera;
     private int mode = 0;
-    private float nPH;
-    private int nPI;
-    private i nPJ;
+    private float nQh;
+    private int nQi;
+    private i nQj;
 
     public b(Camera camera) {
         this.mCamera = camera;
     }
 
     public void setRecordController(i iVar) {
-        this.nPJ = iVar;
+        this.nQj = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.nPJ == null || !this.nPJ.isRecording()) {
+        if (this.nQj == null || !this.nQj.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.nPH) / 10.0f);
+                        int i = (int) ((spacing - this.nQh) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.nPI;
+                            int i2 = i + this.nQi;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.nPH = spacing;
+                            this.nQh = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.nPH = spacing(motionEvent);
+                    this.nQh = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.nPI = i;
+                this.nQi = i;
             }
         }
     }

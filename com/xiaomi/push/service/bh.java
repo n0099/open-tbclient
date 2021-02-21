@@ -22,7 +22,7 @@ class bh implements Runnable {
                 aVar.run();
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m80a("Sync job exception :" + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m79a("Sync job exception :" + e.getMessage());
         }
         this.f14275a.f971a = false;
     }

@@ -5,20 +5,20 @@ import android.util.AttributeSet;
 import com.baidu.tieba.view.AlaPlayAnimationView;
 /* loaded from: classes10.dex */
 public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
-    private boolean gzP;
+    private boolean gAd;
 
     public NoActiveStopAlaPlayAnimationView(Context context) {
         super(context);
-        this.gzP = false;
+        this.gAd = false;
     }
 
     public NoActiveStopAlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gzP = false;
+        this.gAd = false;
     }
 
     public void setFromSpecialForum(boolean z) {
-        this.gzP = z;
+        this.gAd = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,7 +31,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (!this.gzP) {
+        if (!this.gAd) {
             startPlayAnimation();
         }
     }

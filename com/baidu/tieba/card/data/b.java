@@ -15,64 +15,64 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
-    public static BdUniqueId[][] iAc;
+    public static final BdUniqueId iAe = BdUniqueId.gen();
+    public static final BdUniqueId iAf = BdUniqueId.gen();
+    public static final BdUniqueId iAg = BdUniqueId.gen();
+    public static final BdUniqueId iAh = BdUniqueId.gen();
+    public static final BdUniqueId iAi = BdUniqueId.gen();
+    public static final BdUniqueId iAj = BdUniqueId.gen();
+    public static final BdUniqueId iAk = BdUniqueId.gen();
+    public static final BdUniqueId iAl = BdUniqueId.gen();
+    public static final BdUniqueId iAm = BdUniqueId.gen();
+    public static final BdUniqueId iAn = BdUniqueId.gen();
+    public static final ArrayList<BdUniqueId> iAo = new ArrayList<>();
+    public static final ArrayList<BdUniqueId> iAp = new ArrayList<>();
+    public static BdUniqueId[][] iAq;
     public cb eJQ;
-    private String iAd;
-    private int iAe;
-    private String iAf;
-    private String iAg;
-    public int iAi;
+    private String iAr;
+    private int iAs;
+    private String iAt;
+    private String iAu;
+    public int iAw;
     private String mExtra;
     private String mSource;
     public String tid;
-    public static final BdUniqueId izQ = BdUniqueId.gen();
-    public static final BdUniqueId izR = BdUniqueId.gen();
-    public static final BdUniqueId izS = BdUniqueId.gen();
-    public static final BdUniqueId izT = BdUniqueId.gen();
-    public static final BdUniqueId izU = BdUniqueId.gen();
-    public static final BdUniqueId izV = BdUniqueId.gen();
-    public static final BdUniqueId izW = BdUniqueId.gen();
-    public static final BdUniqueId izX = BdUniqueId.gen();
-    public static final BdUniqueId izY = BdUniqueId.gen();
-    public static final BdUniqueId izZ = BdUniqueId.gen();
-    public static final ArrayList<BdUniqueId> iAa = new ArrayList<>();
-    public static final ArrayList<BdUniqueId> iAb = new ArrayList<>();
     public int objType = 1;
-    private Integer iAh = 0;
+    private Integer iAv = 0;
     public int eQj = 0;
     public int eQk = 0;
     public boolean ePR = false;
     public boolean eQi = false;
     public boolean ePW = false;
-    public boolean iAj = false;
+    public boolean iAx = false;
     public boolean ePV = false;
     public boolean ePS = false;
-    public boolean iAk = false;
+    public boolean iAy = false;
     public boolean eQe = false;
     public boolean eQg = false;
     public boolean eQh = false;
-    public boolean iAl = false;
+    public boolean iAz = false;
     public boolean ePY = false;
     public boolean ePX = false;
-    public boolean iAm = false;
+    public boolean iAA = false;
 
     static {
-        iAa.add(izQ);
-        iAa.add(izR);
-        iAb.add(izV);
-        iAb.add(izS);
-        iAb.add(izU);
-        iAb.add(izT);
-        iAc = (BdUniqueId[][]) Array.newInstance(BdUniqueId.class, iAa.size(), iAb.size());
-        for (int i = 0; i < iAa.size(); i++) {
-            for (int i2 = 0; i2 < iAb.size(); i2++) {
-                iAc[i][i2] = BdUniqueId.gen();
+        iAo.add(iAe);
+        iAo.add(iAf);
+        iAp.add(iAj);
+        iAp.add(iAg);
+        iAp.add(iAi);
+        iAp.add(iAh);
+        iAq = (BdUniqueId[][]) Array.newInstance(BdUniqueId.class, iAo.size(), iAp.size());
+        for (int i = 0; i < iAo.size(); i++) {
+            for (int i2 = 0; i2 < iAp.size(); i2++) {
+                iAq[i][i2] = BdUniqueId.gen();
             }
         }
     }
 
     public void setWeight(String str) {
-        this.iAd = str;
+        this.iAr = str;
     }
 
     public void setSource(String str) {
@@ -80,40 +80,40 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
     }
 
     public void xd(int i) {
-        this.iAe = i;
+        this.iAs = i;
     }
 
-    public void IP(String str) {
-        this.iAf = str;
+    public void IQ(String str) {
+        this.iAt = str;
     }
 
-    public int csH() {
-        return this.iAe;
+    public int csO() {
+        return this.iAs;
     }
 
     @Override // com.baidu.tbadk.core.data.a
     public String blq() {
-        return this.mSource + "#" + this.iAe + "#" + this.iAf;
+        return this.mSource + "#" + this.iAs + "#" + this.iAt;
     }
 
     public String getWeight() {
-        return this.iAd;
+        return this.iAr;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String csI() {
-        return this.iAf;
+    public String csP() {
+        return this.iAt;
     }
 
-    public String csJ() {
-        return this.iAg;
+    public String csQ() {
+        return this.iAu;
     }
 
-    public void IQ(String str) {
-        this.iAg = str;
+    public void IR(String str) {
+        this.iAu = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
@@ -133,15 +133,15 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
         return this.mExtra;
     }
 
-    public Integer csK() {
-        return this.iAh;
+    public Integer csR() {
+        return this.iAv;
     }
 
     public void p(Integer num) {
-        this.iAh = num;
+        this.iAv = num;
     }
 
-    public ar IR(String str) {
+    public ar IS(String str) {
         return az(str, false);
     }
 
@@ -150,19 +150,19 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
         if (bln == null || str.length() == 0) {
             return null;
         }
-        ar dR = new ar(str).dR("fid", String.valueOf(bln.getFid())).dR("tid", String.valueOf(bln.getTid())).dR(IntentConfig.NID, bln.bmo()).dR("obj_id", getExtra()).dR("obj_param1", getWeight()).ap(TiebaInitialize.Params.OBJ_PARAM2, 1).dR("obj_source", getSource()).ap("obj_locate", csH()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.csk()).dR("ab_tag", csI());
+        ar dR = new ar(str).dR("fid", String.valueOf(bln.getFid())).dR("tid", String.valueOf(bln.getTid())).dR(IntentConfig.NID, bln.bmo()).dR("obj_id", getExtra()).dR("obj_param1", getWeight()).ap(TiebaInitialize.Params.OBJ_PARAM2, 1).dR("obj_source", getSource()).ap("obj_locate", csO()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.csr()).dR("ab_tag", csP());
         if (!z) {
-            dR.ap("obj_type", csL());
+            dR.ap("obj_type", csS());
         } else {
             if (bln.eTa > 0) {
                 dR.ap("midpageflag", 1);
             } else {
                 dR.ap("midpageflag", 0);
             }
-            dR.ap("is_vertical", csK().intValue());
+            dR.ap("is_vertical", csR().intValue());
         }
-        if (bln.bpv() != null && bln.bpv().dNz() != null && bln.bpv().dNz().bHz() != null && bln.bpv().dNz().bHz().size() > 0) {
-            dR.ap(TiebaInitialize.Params.OBJ_TO, bln.bpv().nxe ? 2 : 1);
+        if (bln.bpv() != null && bln.bpv().dNH() != null && bln.bpv().dNH().bHz() != null && bln.bpv().dNH().bHz().size() > 0) {
+            dR.ap(TiebaInitialize.Params.OBJ_TO, bln.bpv().nxE ? 2 : 1);
         }
         return dR;
     }
@@ -172,9 +172,9 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
         if (bln == null) {
             return null;
         }
-        ar dR = new ar(str).dR("fid", String.valueOf(bln.getFid())).dR("tid", String.valueOf(bln.getTid())).ap(TiebaInitialize.Params.OBJ_PARAM2, 1).dR("obj_param1", getWeight()).dR("obj_source", getSource()).ap("obj_locate", csH()).dR("obj_name", csI()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.csk());
+        ar dR = new ar(str).dR("fid", String.valueOf(bln.getFid())).dR("tid", String.valueOf(bln.getTid())).ap(TiebaInitialize.Params.OBJ_PARAM2, 1).dR("obj_param1", getWeight()).dR("obj_source", getSource()).ap("obj_locate", csO()).dR("obj_name", csP()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.m.csr());
         if (i == 0) {
-            dR.ap("obj_type", csL());
+            dR.ap("obj_type", csS());
         } else {
             dR.ap("obj_type", i);
         }
@@ -182,7 +182,7 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
         return dR;
     }
 
-    private int csL() {
+    private int csS() {
         int i;
         int i2 = 0;
         cb bln = bln();
@@ -219,11 +219,11 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
     }
 
     public void xe(int i) {
-        this.iAi = i;
+        this.iAw = i;
     }
 
-    public boolean csM() {
-        return this.iAi == 1;
+    public boolean csT() {
+        return this.iAw == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.a
@@ -236,30 +236,30 @@ public abstract class b extends com.baidu.tbadk.core.data.a implements ah {
         avVar.setFid(bln().getFid());
         avVar.setNid(bln().bmo());
         avVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        avVar.weight = this.iAd;
+        avVar.weight = this.iAr;
         avVar.source = this.mSource;
         avVar.extra = this.mExtra;
         avVar.threadType = bln().threadType;
         return avVar;
     }
 
-    public ar csN() {
+    public ar csU() {
         return null;
     }
 
-    public ar csO() {
+    public ar csV() {
         return null;
     }
 
-    public ar csP() {
+    public ar csW() {
         return null;
     }
 
-    public ar csQ() {
+    public ar csX() {
         return null;
     }
 
-    public ar IS(String str) {
+    public ar IT(String str) {
         return null;
     }
 

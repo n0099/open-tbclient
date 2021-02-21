@@ -21,28 +21,28 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class i implements com.baidu.live.t.d {
     private MediaMetadataRetriever bem;
-    private long goL;
-    private CustomMessageListener ify;
-    private PkRankStartAnimView igN;
-    private Set<Long> igO;
+    private long goZ;
+    private CustomMessageListener ifM;
+    private PkRankStartAnimView ihb;
+    private Set<Long> ihc;
     private ViewGroup mParentView;
 
     @Override // com.baidu.live.t.d
     public void setParentView(ViewGroup viewGroup) {
         this.mParentView = viewGroup;
-        cou();
+        coB();
     }
 
     @Override // com.baidu.live.t.d
     public void bh(long j) {
         reset();
-        this.goL = j;
-        cos();
+        this.goZ = j;
+        coz();
     }
 
     @Override // com.baidu.live.t.d
     public void Fy() {
-        cot();
+        coA();
         reset();
     }
 
@@ -53,12 +53,12 @@ public class i implements com.baidu.live.t.d {
             this.bem.release();
             this.bem = null;
         }
-        if (this.igN != null) {
-            this.igN.setCallback(null);
-            this.igN.release();
+        if (this.ihb != null) {
+            this.ihb.setCallback(null);
+            this.ihb.release();
         }
-        if (this.igN != null && (this.igN.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.igN.getParent()).removeView(this.igN);
+        if (this.ihb != null && (this.ihb.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.ihb.getParent()).removeView(this.ihb);
         }
         this.mParentView = null;
     }
@@ -74,9 +74,9 @@ public class i implements com.baidu.live.t.d {
         return this.mParentView;
     }
 
-    private void cos() {
-        if (this.ify == null) {
-            this.ify = new CustomMessageListener(2913231) { // from class: com.baidu.tieba.ala.h.i.1
+    private void coz() {
+        if (this.ifM == null) {
+            this.ifM = new CustomMessageListener(2913231) { // from class: com.baidu.tieba.ala.h.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -86,12 +86,12 @@ public class i implements com.baidu.live.t.d {
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.ify);
+        MessageManager.getInstance().registerListener(this.ifM);
     }
 
-    private void cot() {
-        if (this.ify != null) {
-            MessageManager.getInstance().unRegisterListener(this.ify);
+    private void coA() {
+        if (this.ifM != null) {
+            MessageManager.getInstance().unRegisterListener(this.ifM);
         }
     }
 
@@ -106,16 +106,16 @@ public class i implements com.baidu.live.t.d {
         int i2;
         int i3;
         if (c(pkInfoData)) {
-            if (this.igO == null) {
-                this.igO = new HashSet();
+            if (this.ihc == null) {
+                this.ihc = new HashSet();
             }
-            this.igO.add(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
+            this.ihc.add(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
             q a2 = a(pkInfoData.myPkData);
             q a3 = a(pkInfoData.otherPkData);
-            cou();
-            this.igN.setVisibility(0);
-            String cox = k.coQ().cox();
-            if (TextUtils.isEmpty(cox)) {
+            coB();
+            this.ihb.setVisibility(0);
+            String coE = k.coX().coE();
+            if (TextUtils.isEmpty(coE)) {
                 i = 0;
                 i2 = 0;
             } else {
@@ -123,7 +123,7 @@ public class i implements com.baidu.live.t.d {
                     this.bem = new MediaMetadataRetriever();
                 }
                 try {
-                    this.bem.setDataSource(cox);
+                    this.bem.setDataSource(coE);
                     i3 = Integer.valueOf(this.bem.extractMetadata(18)).intValue();
                     try {
                         i = Integer.valueOf(this.bem.extractMetadata(19)).intValue();
@@ -133,14 +133,14 @@ public class i implements com.baidu.live.t.d {
                         th.printStackTrace();
                         i = 0;
                         i2 = i3;
-                        cox = null;
+                        coE = null;
                         if (i2 > 0) {
                         }
-                        cox = null;
+                        coE = null;
                         int realScreenWidth = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-                        this.igN.bW(realScreenWidth, TextUtils.isEmpty(cox) ? (realScreenWidth * i) / (i2 / 2) : realScreenWidth);
-                        this.igN.setData(a2, a3);
-                        this.igN.Iu(cox);
+                        this.ihb.bX(realScreenWidth, TextUtils.isEmpty(coE) ? (realScreenWidth * i) / (i2 / 2) : realScreenWidth);
+                        this.ihb.setData(a2, a3);
+                        this.ihb.Iv(coE);
                     }
                 } catch (Throwable th2) {
                     th = th2;
@@ -148,49 +148,49 @@ public class i implements com.baidu.live.t.d {
                 }
             }
             if (i2 > 0 || i <= 0) {
-                cox = null;
+                coE = null;
             }
             int realScreenWidth2 = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-            this.igN.bW(realScreenWidth2, TextUtils.isEmpty(cox) ? (realScreenWidth2 * i) / (i2 / 2) : realScreenWidth2);
-            this.igN.setData(a2, a3);
-            this.igN.Iu(cox);
+            this.ihb.bX(realScreenWidth2, TextUtils.isEmpty(coE) ? (realScreenWidth2 * i) / (i2 / 2) : realScreenWidth2);
+            this.ihb.setData(a2, a3);
+            this.ihb.Iv(coE);
         }
     }
 
-    private void cou() {
-        if (this.igN == null) {
-            this.igN = new PkRankStartAnimView(getContext());
+    private void coB() {
+        if (this.ihb == null) {
+            this.ihb = new PkRankStartAnimView(getContext());
         }
-        if (bkq().indexOfChild(this.igN) < 0) {
-            bkq().addView(this.igN, new ViewGroup.LayoutParams(-1, -1));
+        if (bkq().indexOfChild(this.ihb) < 0) {
+            bkq().addView(this.ihb, new ViewGroup.LayoutParams(-1, -1));
         }
-        this.igN.setVisibility(8);
-        this.igN.setCallback(new PkRankStartAnimView.a() { // from class: com.baidu.tieba.ala.h.i.2
+        this.ihb.setVisibility(8);
+        this.ihb.setCallback(new PkRankStartAnimView.a() { // from class: com.baidu.tieba.ala.h.i.2
             @Override // com.baidu.tieba.ala.view.PkRankStartAnimView.a
-            public void cov() {
-                if (i.this.igN != null) {
-                    i.this.igN.setVisibility(8);
+            public void coC() {
+                if (i.this.ihb != null) {
+                    i.this.ihb.setVisibility(8);
                 }
             }
         });
     }
 
     private void reset() {
-        this.goL = 0L;
-        if (this.igO != null) {
-            this.igO.clear();
+        this.goZ = 0L;
+        if (this.ihc != null) {
+            this.ihc.clear();
         }
-        if (this.igN != null) {
-            this.igN.stopAnim();
-            this.igN.setVisibility(8);
+        if (this.ihb != null) {
+            this.ihb.stopAnim();
+            this.ihb.setVisibility(8);
         }
     }
 
     private boolean c(PkInfoData pkInfoData) {
-        if (getContext() == null || pkInfoData == null || pkInfoData.pkStatusInfoData == null || pkInfoData.pkStatusInfoData.pkID <= 0 || pkInfoData.myPkData == null || pkInfoData.otherPkData == null || this.goL <= 0 || this.goL != pkInfoData.myPkData.userID) {
+        if (getContext() == null || pkInfoData == null || pkInfoData.pkStatusInfoData == null || pkInfoData.pkStatusInfoData.pkID <= 0 || pkInfoData.myPkData == null || pkInfoData.otherPkData == null || this.goZ <= 0 || this.goZ != pkInfoData.myPkData.userID) {
             return false;
         }
-        return this.igO == null || !this.igO.contains(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
+        return this.ihc == null || !this.ihc.contains(Long.valueOf(pkInfoData.pkStatusInfoData.pkID));
     }
 
     private q a(PkUserInfoData pkUserInfoData) {
@@ -200,13 +200,13 @@ public class i implements com.baidu.live.t.d {
         q qVar = new q();
         qVar.aVj = pkUserInfoData.bdPortrait;
         qVar.nickname = pkUserInfoData.userNickName;
-        qVar.gTd = pkUserInfoData.divisionIcon;
+        qVar.gTr = pkUserInfoData.divisionIcon;
         String str = pkUserInfoData.winningStreak > 1 ? pkUserInfoData.winningStreak + "连胜" : null;
         if (!TextUtils.isEmpty(str)) {
             SpannableString spannableString = new SpannableString(str);
             spannableString.setSpan(new AbsoluteSizeSpan(getContext().getResources().getDimensionPixelSize(a.d.sdk_fontsize26)), 0, String.valueOf(pkUserInfoData.winningStreak).length(), 33);
             spannableString.setSpan(new StyleSpan(3), 0, String.valueOf(pkUserInfoData.winningStreak).length(), 33);
-            qVar.gTc = spannableString;
+            qVar.gTq = spannableString;
         }
         return qVar;
     }

@@ -18,37 +18,37 @@ import java.util.List;
 public class c {
     private CommonEmptyView bMk;
     private BdTypeListView bnu;
-    private PbListView gNy;
-    private TbListViewPullView gOs;
-    private LoadingView gOx;
-    private com.baidu.tieba.ala.live.personcenter.forbidden.a.a hlx;
-    private com.baidu.tieba.ala.live.personcenter.forbidden.d.a hly;
+    private PbListView gNM;
+    private TbListViewPullView gOG;
+    private LoadingView gOL;
+    private com.baidu.tieba.ala.live.personcenter.forbidden.a.a hlL;
+    private com.baidu.tieba.ala.live.personcenter.forbidden.d.a hlM;
     private TbPageContext mPageContext;
     private View mRootView;
 
     public c(TbPageContext tbPageContext, View view) {
         this.bnu = null;
-        this.hlx = null;
-        this.hly = null;
+        this.hlL = null;
+        this.hlM = null;
         this.mPageContext = tbPageContext;
         this.mRootView = view;
-        this.hlx = new com.baidu.tieba.ala.live.personcenter.forbidden.a.a(this.mPageContext.getPageActivity(), this.mPageContext.getUniqueId());
+        this.hlL = new com.baidu.tieba.ala.live.personcenter.forbidden.a.a(this.mPageContext.getPageActivity(), this.mPageContext.getUniqueId());
         this.bnu = (BdTypeListView) view.findViewById(a.f.ala_person_forbiddenlist_listview);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.hlx);
+        arrayList.add(this.hlL);
         this.bnu.addAdapters(arrayList);
-        this.hly = new com.baidu.tieba.ala.live.personcenter.forbidden.d.a(tbPageContext);
-        this.bnu.addHeaderView(this.hly.aZl());
-        this.gOx = new LoadingView(tbPageContext.getPageActivity());
-        this.gOs = new TbListViewPullView(this.mPageContext);
-        this.gOs.setTag(this.mPageContext.getUniqueId());
-        this.bnu.setPullRefresh(this.gOs);
-        this.gNy = new PbListView(this.mPageContext.getPageActivity());
-        this.gNy.createView();
+        this.hlM = new com.baidu.tieba.ala.live.personcenter.forbidden.d.a(tbPageContext);
+        this.bnu.addHeaderView(this.hlM.aZl());
+        this.gOL = new LoadingView(tbPageContext.getPageActivity());
+        this.gOG = new TbListViewPullView(this.mPageContext);
+        this.gOG.setTag(this.mPageContext.getUniqueId());
+        this.bnu.setPullRefresh(this.gOG);
+        this.gNM = new PbListView(this.mPageContext.getPageActivity());
+        this.gNM.createView();
     }
 
     public void f(List<IAdapterData> list, int i) {
-        com.baidu.tieba.ala.live.personcenter.forbidden.d.a aVar = this.hly;
+        com.baidu.tieba.ala.live.personcenter.forbidden.d.a aVar = this.hlM;
         if (i <= list.size()) {
             i = list.size();
         }
@@ -59,8 +59,8 @@ public class c {
     public void onChangeSkinType(int i) {
         this.mPageContext.getLayoutMode().onModeChanged(this.bnu);
         this.bnu.setDivider(null);
-        if (this.hly != null) {
-            this.hly.onChangeSkinType(i);
+        if (this.hlM != null) {
+            this.hlM.onChangeSkinType(i);
         }
     }
 
@@ -70,43 +70,43 @@ public class c {
         }
     }
 
-    public void bVi() {
-        if (this.gNy != null) {
-            if (this.gNy.getView().getParent() == null) {
-                this.bnu.setNextPage(this.gNy);
+    public void bVp() {
+        if (this.gNM != null) {
+            if (this.gNM.getView().getParent() == null) {
+                this.bnu.setNextPage(this.gNM);
             }
-            this.gNy.setText(this.mPageContext.getResources().getString(a.h.sdk_load_more));
-            this.gNy.endLoadData();
+            this.gNM.setText(this.mPageContext.getResources().getString(a.h.sdk_load_more));
+            this.gNM.endLoadData();
         }
     }
 
-    public void bRq() {
-        if (this.gNy != null) {
-            if (this.gNy.getView().getParent() == null) {
-                this.bnu.setNextPage(this.gNy);
+    public void bRx() {
+        if (this.gNM != null) {
+            if (this.gNM.getView().getParent() == null) {
+                this.bnu.setNextPage(this.gNM);
             }
-            this.gNy.setText(this.mPageContext.getResources().getString(a.h.sdk_list_no_more));
-            this.gNy.endLoadData();
+            this.gNM.setText(this.mPageContext.getResources().getString(a.h.sdk_list_no_more));
+            this.gNM.endLoadData();
         }
     }
 
-    public void bRr() {
-        if (this.gNy != null) {
-            if (this.gNy.getView().getParent() == null) {
-                this.bnu.setNextPage(this.gNy);
+    public void bRy() {
+        if (this.gNM != null) {
+            if (this.gNM.getView().getParent() == null) {
+                this.bnu.setNextPage(this.gNM);
             }
-            this.gNy.showLoadingViewWithoutEmptyView();
-            this.gNy.startLoadData();
+            this.gNM.showLoadingViewWithoutEmptyView();
+            this.gNM.startLoadData();
         }
     }
 
-    public void bVE() {
+    public void bVL() {
         this.bnu.setNextPage(null);
     }
 
     public void setOnSrollToBottomListener(final BdListView.OnScrollToBottomListener onScrollToBottomListener) {
         this.bnu.setOnSrollToBottomListener(onScrollToBottomListener);
-        this.gNy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.c.1
+        this.gNM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (onScrollToBottomListener != null) {
@@ -117,7 +117,7 @@ public class c {
     }
 
     public void setListPullRefreshListener(TbListCommonPullView.ListPullRefreshListener listPullRefreshListener) {
-        this.gOs.setListPullRefreshListener(listPullRefreshListener);
+        this.gOG.setListPullRefreshListener(listPullRefreshListener);
     }
 
     public void a(int i, View.OnClickListener onClickListener) {
@@ -140,13 +140,13 @@ public class c {
         }
     }
 
-    public void bYh() {
+    public void bYo() {
         if (this.bnu != null) {
             this.bnu.setVisibility(0);
         }
     }
 
-    public void bYi() {
+    public void bYp() {
         if (this.bnu != null) {
             this.bnu.setVisibility(4);
         }

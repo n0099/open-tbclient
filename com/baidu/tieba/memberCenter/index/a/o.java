@@ -6,9 +6,9 @@ public class o {
     private String desc;
     private String imgUrl;
     private String linkUrl;
-    private String lmC;
-    private int lmD;
-    private int lnq;
+    private String lmQ;
+    private int lmR;
+    private int lnE;
     private int taskId;
     private String title;
     private int updateType;
@@ -18,10 +18,10 @@ public class o {
         this.desc = vipSpecialItem.desc;
         this.imgUrl = vipSpecialItem.img_url;
         this.linkUrl = vipSpecialItem.link;
-        this.lmC = vipSpecialItem.update_time;
-        this.lmD = vipSpecialItem.id.intValue();
+        this.lmQ = vipSpecialItem.update_time;
+        this.lmR = vipSpecialItem.id.intValue();
         this.updateType = vipSpecialItem.type.intValue();
         this.taskId = vipSpecialItem.task_id.intValue();
-        this.lnq = vipSpecialItem.is_finish.intValue();
+        this.lnE = vipSpecialItem.is_finish.intValue();
     }
 }

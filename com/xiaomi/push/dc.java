@@ -19,7 +19,7 @@ public abstract class dc {
     public abstract String a(Context context, String str, List<ay> list);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m251a(Context context, String str, List<ay> list) {
+    public boolean m250a(Context context, String str, List<ay> list) {
         return true;
     }
 }

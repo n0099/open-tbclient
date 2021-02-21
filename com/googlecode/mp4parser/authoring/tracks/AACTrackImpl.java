@@ -165,10 +165,10 @@ public class AACTrackImpl extends AbstractTrack {
         this.bufferSizeDB = 1536;
         this.sampleDescriptionBox = new SampleDescriptionBox();
         AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
-        if (this.firstHeader.pWT == 7) {
+        if (this.firstHeader.pXt == 7) {
             audioSampleEntry.setChannelCount(8);
         } else {
-            audioSampleEntry.setChannelCount(this.firstHeader.pWT);
+            audioSampleEntry.setChannelCount(this.firstHeader.pXt);
         }
         audioSampleEntry.setSampleRate(this.firstHeader.sampleRate);
         audioSampleEntry.setDataReferenceIndex(1);
@@ -187,8 +187,8 @@ public class AACTrackImpl extends AbstractTrack {
         decoderConfigDescriptor.setAvgBitRate(this.avgBitRate);
         AudioSpecificConfig audioSpecificConfig = new AudioSpecificConfig();
         audioSpecificConfig.setAudioObjectType(2);
-        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.pWQ);
-        audioSpecificConfig.setChannelConfiguration(this.firstHeader.pWT);
+        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.pXq);
+        audioSpecificConfig.setChannelConfiguration(this.firstHeader.pXt);
         decoderConfigDescriptor.setAudioSpecificInfo(audioSpecificConfig);
         eSDescriptor.setDecoderConfigDescriptor(decoderConfigDescriptor);
         ByteBuffer serialize = eSDescriptor.serialize();
@@ -262,14 +262,14 @@ public class AACTrackImpl extends AbstractTrack {
         int home;
         int layer;
         int original;
-        int pWQ;
-        int pWR;
-        int pWS;
-        int pWT;
-        int pWU;
-        int pWV;
-        int pWW;
-        int pWX;
+        int pXq;
+        int pXr;
+        int pXs;
+        int pXt;
+        int pXu;
+        int pXv;
+        int pXw;
+        int pXx;
         int profile;
         int sampleRate;
 
@@ -277,7 +277,7 @@ public class AACTrackImpl extends AbstractTrack {
         }
 
         int getSize() {
-            return (this.pWS == 0 ? 2 : 0) + 7;
+            return (this.pXs == 0 ? 2 : 0) + 7;
         }
     }
 
@@ -293,25 +293,25 @@ public class AACTrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(12) != 4095) {
             throw new IOException("Expected Start Word 0xfff");
         }
-        aVar.pWR = bitReaderBuffer.readBits(1);
+        aVar.pXr = bitReaderBuffer.readBits(1);
         aVar.layer = bitReaderBuffer.readBits(2);
-        aVar.pWS = bitReaderBuffer.readBits(1);
+        aVar.pXs = bitReaderBuffer.readBits(1);
         aVar.profile = bitReaderBuffer.readBits(2) + 1;
-        aVar.pWQ = bitReaderBuffer.readBits(4);
-        aVar.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(aVar.pWQ)).intValue();
+        aVar.pXq = bitReaderBuffer.readBits(4);
+        aVar.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(aVar.pXq)).intValue();
         bitReaderBuffer.readBits(1);
-        aVar.pWT = bitReaderBuffer.readBits(3);
+        aVar.pXt = bitReaderBuffer.readBits(3);
         aVar.original = bitReaderBuffer.readBits(1);
         aVar.home = bitReaderBuffer.readBits(1);
-        aVar.pWU = bitReaderBuffer.readBits(1);
-        aVar.pWV = bitReaderBuffer.readBits(1);
+        aVar.pXu = bitReaderBuffer.readBits(1);
+        aVar.pXv = bitReaderBuffer.readBits(1);
         aVar.frameLength = bitReaderBuffer.readBits(13);
-        aVar.pWW = bitReaderBuffer.readBits(11);
-        aVar.pWX = bitReaderBuffer.readBits(2) + 1;
-        if (aVar.pWX != 1) {
+        aVar.pXw = bitReaderBuffer.readBits(11);
+        aVar.pXx = bitReaderBuffer.readBits(2) + 1;
+        if (aVar.pXx != 1) {
             throw new IOException("This muxer can only work with 1 AAC frame per ADTS frame");
         }
-        if (aVar.pWS == 0) {
+        if (aVar.pXs == 0) {
             dataSource.read(ByteBuffer.allocate(2));
         }
         return aVar;
@@ -336,6 +336,6 @@ public class AACTrackImpl extends AbstractTrack {
     }
 
     public String toString() {
-        return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.pWT + '}';
+        return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.pXt + '}';
     }
 }

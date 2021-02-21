@@ -17,7 +17,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
         return this.f13191a;
     }
 
-    public SparseArray<List<com.ss.android.socialbase.downloader.g.b>> eIs() {
+    public SparseArray<List<com.ss.android.socialbase.downloader.g.b>> eIA() {
         return this.f13192b;
     }
 
@@ -75,7 +75,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < this.f13191a.size(); i++) {
                 com.ss.android.socialbase.downloader.g.c cVar = this.f13191a.get(this.f13191a.keyAt(i));
-                if (cVar != null && !TextUtils.isEmpty(cVar.eHf()) && cVar.eHf().equals(str) && com.ss.android.socialbase.downloader.b.f.g(cVar.q())) {
+                if (cVar != null && !TextUtils.isEmpty(cVar.eHn()) && cVar.eHn().equals(str) && com.ss.android.socialbase.downloader.b.f.g(cVar.q())) {
                     arrayList.add(cVar);
                 }
             }
@@ -95,7 +95,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < this.f13191a.size(); i++) {
                 com.ss.android.socialbase.downloader.g.c cVar = this.f13191a.get(this.f13191a.keyAt(i));
-                if (cVar != null && !TextUtils.isEmpty(cVar.eHf()) && cVar.eHf().equals(str) && cVar.q() == -3) {
+                if (cVar != null && !TextUtils.isEmpty(cVar.eHn()) && cVar.eHn().equals(str) && cVar.q() == -3) {
                     arrayList.add(cVar);
                 }
             }
@@ -115,7 +115,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < this.f13191a.size(); i++) {
                 com.ss.android.socialbase.downloader.g.c cVar = this.f13191a.get(this.f13191a.keyAt(i));
-                if (cVar != null && !TextUtils.isEmpty(cVar.eHf()) && cVar.eHf().equals(str) && com.ss.android.socialbase.downloader.b.f.f(cVar.q())) {
+                if (cVar != null && !TextUtils.isEmpty(cVar.eHn()) && cVar.eHn().equals(str) && com.ss.android.socialbase.downloader.b.f.f(cVar.q())) {
                     arrayList.add(cVar);
                 }
             }

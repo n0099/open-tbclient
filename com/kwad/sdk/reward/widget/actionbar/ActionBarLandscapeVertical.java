@@ -177,8 +177,8 @@ public class ActionBarLandscapeVertical extends FrameLayout implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.q, view == this.k);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.n, new a.InterfaceC1092a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.n, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 if (ActionBarLandscapeVertical.this.p != null) {
                     ActionBarLandscapeVertical.this.p.a();

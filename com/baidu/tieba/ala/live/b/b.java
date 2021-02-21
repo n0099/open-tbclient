@@ -26,8 +26,8 @@ public class b extends a {
         registerTask();
     }
 
-    public b(TbPageContext tbPageContext, a.InterfaceC0644a interfaceC0644a) {
-        super(tbPageContext, PayChannelType.NUOMI, interfaceC0644a);
+    public b(TbPageContext tbPageContext, a.InterfaceC0645a interfaceC0645a) {
+        super(tbPageContext, PayChannelType.NUOMI, interfaceC0645a);
         this.mHttpMessageListener = new HttpMessageListener(0) { // from class: com.baidu.tieba.ala.live.b.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -57,10 +57,10 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void bXZ() {
+    public void bYg() {
         HttpMessage httpMessage = new HttpMessage(1003412);
         httpMessage.setTag(getUniqueId());
-        httpMessage.addParam("pay_id", bYa());
+        httpMessage.addParam("pay_id", bYh());
         if (TbadkCoreApplication.getInst().getIsYuyinRoom()) {
             httpMessage.addParam("is_jiaoyou", 1);
         }
@@ -68,7 +68,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void Hh(String str) {
+    public void Hi(String str) {
     }
 
     private static void registerTask() {
@@ -96,7 +96,7 @@ public class b extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(GetNuomiOrderHttpResponsedMessage getNuomiOrderHttpResponsedMessage) {
         String errorString;
-        HashMap<String, String> bXX = getNuomiOrderHttpResponsedMessage.bXX();
+        HashMap<String, String> bYe = getNuomiOrderHttpResponsedMessage.bYe();
         if (getNuomiOrderHttpResponsedMessage.hasError() || getNuomiOrderHttpResponsedMessage.getError() != 0) {
             if (StringUtils.isNull(getNuomiOrderHttpResponsedMessage.getErrorString())) {
                 errorString = this.mPageContext.getResources().getString(a.h.sdk_neterror);
@@ -104,10 +104,10 @@ public class b extends a {
                 errorString = getNuomiOrderHttpResponsedMessage.getErrorString();
             }
             a(getNuomiOrderHttpResponsedMessage.getError(), errorString, null, null, null, false);
-        } else if (bXX == null) {
+        } else if (bYe == null) {
             a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), null, null, null, false);
         } else {
-            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bXX, null, true);
+            a(getNuomiOrderHttpResponsedMessage.getError(), getNuomiOrderHttpResponsedMessage.getErrorString(), getNuomiOrderHttpResponsedMessage.getOrderId(), bYe, null, true);
         }
     }
 

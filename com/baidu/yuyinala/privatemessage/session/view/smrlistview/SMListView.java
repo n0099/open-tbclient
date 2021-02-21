@@ -13,18 +13,18 @@ public class SMListView extends ListView {
     private float cEl;
     private int mDirection;
     private float mDownX;
-    private Interpolator plh;
-    private Interpolator pli;
-    private int plk;
-    private int pll;
-    private int plm;
-    private int pln;
-    private boolean plo;
-    private SMLayout plp;
-    private c plq;
-    private d plr;
-    private a pls;
-    private b plt;
+    private Interpolator plH;
+    private Interpolator plI;
+    private int plK;
+    private int plL;
+    private int plM;
+    private int plN;
+    private boolean plO;
+    private SMLayout plP;
+    private c plQ;
+    private d plR;
+    private a plS;
+    private b plT;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -33,49 +33,49 @@ public class SMListView extends ListView {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void Om(int i);
-
         void On(int i);
+
+        void Oo(int i);
     }
 
     /* loaded from: classes11.dex */
     public interface c {
-        void Oo(int i);
-
         void Op(int i);
+
+        void Oq(int i);
     }
 
     public SMListView(Context context) {
         super(context);
         this.mDirection = 1;
-        this.plk = 5;
-        this.pll = 3;
-        this.plo = true;
+        this.plK = 5;
+        this.plL = 3;
+        this.plO = true;
         init();
     }
 
     public SMListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDirection = 1;
-        this.plk = 5;
-        this.pll = 3;
-        this.plo = true;
+        this.plK = 5;
+        this.plL = 3;
+        this.plO = true;
         init();
     }
 
     public SMListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mDirection = 1;
-        this.plk = 5;
-        this.pll = 3;
-        this.plo = true;
+        this.plK = 5;
+        this.plL = 3;
+        this.plO = true;
         init();
     }
 
     private void init() {
-        this.pll = vy(this.pll);
-        this.plk = vy(this.plk);
-        this.plm = 0;
+        this.plL = vy(this.plL);
+        this.plK = vy(this.plK);
+        this.plM = 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -84,38 +84,38 @@ public class SMListView extends ListView {
         super.setAdapter((ListAdapter) new com.baidu.yuyinala.privatemessage.session.view.smrlistview.b(getContext(), listAdapter) { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMListView.1
             @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.b
             public void b(com.baidu.yuyinala.privatemessage.session.view.smrlistview.c cVar) {
-                if (SMListView.this.plr != null) {
-                    SMListView.this.plr.a(cVar);
+                if (SMListView.this.plR != null) {
+                    SMListView.this.plR.a(cVar);
                 }
             }
 
             @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.b, com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMView.a
             public void a(SMView sMView, com.baidu.yuyinala.privatemessage.session.view.smrlistview.c cVar, int i) {
                 boolean z = false;
-                if (SMListView.this.pls != null) {
-                    z = SMListView.this.pls.a(sMView.getPosition(), cVar, i);
+                if (SMListView.this.plS != null) {
+                    z = SMListView.this.plS.a(sMView.getPosition(), cVar, i);
                 }
-                if (SMListView.this.plp != null && !z) {
-                    SMListView.this.plp.emZ();
+                if (SMListView.this.plP != null && !z) {
+                    SMListView.this.plP.eni();
                 }
             }
         });
     }
 
     public void setCloseInterpolator(Interpolator interpolator) {
-        this.plh = interpolator;
+        this.plH = interpolator;
     }
 
     public void setOpenInterpolator(Interpolator interpolator) {
-        this.pli = interpolator;
+        this.plI = interpolator;
     }
 
     public Interpolator getOpenInterpolator() {
-        return this.pli;
+        return this.plI;
     }
 
     public Interpolator getCloseInterpolator() {
-        return this.plh;
+        return this.plH;
     }
 
     @Override // android.widget.AbsListView, android.view.ViewGroup
@@ -125,65 +125,65 @@ public class SMListView extends ListView {
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getAction() != 0 && this.plp == null) {
+        if (motionEvent.getAction() != 0 && this.plP == null) {
             return super.onTouchEvent(motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
-                int i = this.pln;
-                this.plo = enc();
+                int i = this.plN;
+                this.plO = enl();
                 this.mDownX = motionEvent.getX();
                 this.cEl = motionEvent.getY();
-                this.plm = 0;
-                this.pln = pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY());
-                if (this.pln == i && this.plp != null && this.plp.isOpen()) {
-                    this.plm = 1;
-                    this.plp.at(motionEvent);
+                this.plM = 0;
+                this.plN = pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY());
+                if (this.plN == i && this.plP != null && this.plP.isOpen()) {
+                    this.plM = 1;
+                    this.plP.at(motionEvent);
                     return true;
                 }
-                View childAt = getChildAt(this.pln - getFirstVisiblePosition());
-                if (this.plp != null && this.plp.isOpen()) {
-                    this.plp.emZ();
-                    this.plp = null;
+                View childAt = getChildAt(this.plN - getFirstVisiblePosition());
+                if (this.plP != null && this.plP.isOpen()) {
+                    this.plP.eni();
+                    this.plP = null;
                     MotionEvent obtain = MotionEvent.obtain(motionEvent);
                     obtain.setAction(3);
                     onTouchEvent(obtain);
-                    if (this.plt != null) {
-                        this.plt.On(i);
+                    if (this.plT != null) {
+                        this.plT.Oo(i);
                     }
                     return true;
                 }
                 if (childAt instanceof SMLayout) {
-                    this.plp = (SMLayout) childAt;
-                    this.plp.setSwipeDirection(this.mDirection);
+                    this.plP = (SMLayout) childAt;
+                    this.plP.setSwipeDirection(this.mDirection);
                 }
-                if (this.plp != null) {
-                    this.plp.at(motionEvent);
+                if (this.plP != null) {
+                    this.plP.at(motionEvent);
                     break;
                 }
                 break;
             case 1:
-                if (this.plm == 1) {
-                    if (this.plp != null) {
-                        boolean isOpen = this.plp.isOpen();
-                        if (this.plo) {
-                            this.plp.at(motionEvent);
+                if (this.plM == 1) {
+                    if (this.plP != null) {
+                        boolean isOpen = this.plP.isOpen();
+                        if (this.plO) {
+                            this.plP.at(motionEvent);
                         }
-                        boolean isOpen2 = this.plp.isOpen();
-                        if (isOpen != isOpen2 && this.plt != null) {
+                        boolean isOpen2 = this.plP.isOpen();
+                        if (isOpen != isOpen2 && this.plT != null) {
                             if (isOpen2) {
-                                this.plt.Om(this.pln);
+                                this.plT.On(this.plN);
                             } else {
-                                this.plt.On(this.pln);
+                                this.plT.Oo(this.plN);
                             }
                         }
                         if (!isOpen2) {
-                            this.pln = -1;
-                            this.plp = null;
+                            this.plN = -1;
+                            this.plP = null;
                         }
                     }
-                    if (this.plq != null) {
-                        this.plq.Op(this.pln);
+                    if (this.plQ != null) {
+                        this.plQ.Oq(this.plN);
                     }
                     motionEvent.setAction(3);
                     super.onTouchEvent(motionEvent);
@@ -193,22 +193,22 @@ public class SMListView extends ListView {
             case 2:
                 float abs = Math.abs(motionEvent.getY() - this.cEl);
                 float abs2 = Math.abs(motionEvent.getX() - this.mDownX);
-                if (this.plm == 1) {
-                    if (this.plp != null && this.plo) {
-                        this.plp.at(motionEvent);
+                if (this.plM == 1) {
+                    if (this.plP != null && this.plO) {
+                        this.plP.at(motionEvent);
                     }
                     getSelector().setState(new int[]{0});
                     motionEvent.setAction(3);
                     super.onTouchEvent(motionEvent);
                     return true;
-                } else if (this.plm == 0) {
-                    if (Math.abs(abs) > this.plk) {
-                        this.plm = 2;
+                } else if (this.plM == 0) {
+                    if (Math.abs(abs) > this.plK) {
+                        this.plM = 2;
                         break;
-                    } else if (abs2 > this.pll) {
-                        this.plm = 1;
-                        if (this.plq != null) {
-                            this.plq.Oo(this.pln);
+                    } else if (abs2 > this.plL) {
+                        this.plM = 1;
+                        if (this.plQ != null) {
+                            this.plQ.Op(this.plN);
                             break;
                         }
                     }
@@ -218,12 +218,12 @@ public class SMListView extends ListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public boolean enc() {
-        return this.plo;
+    public boolean enl() {
+        return this.plO;
     }
 
     public void setSwipeEnable(boolean z) {
-        this.plo = z;
+        this.plO = z;
     }
 
     private int vy(int i) {
@@ -231,19 +231,19 @@ public class SMListView extends ListView {
     }
 
     public void setMenuCreator(d dVar) {
-        this.plr = dVar;
+        this.plR = dVar;
     }
 
     public void setOnMenuItemClickListener(a aVar) {
-        this.pls = aVar;
+        this.plS = aVar;
     }
 
     public void setOnSwipeListener(c cVar) {
-        this.plq = cVar;
+        this.plQ = cVar;
     }
 
     public void setOnMenuStateChangeListener(b bVar) {
-        this.plt = bVar;
+        this.plT = bVar;
     }
 
     public void setSwipeDirection(int i) {

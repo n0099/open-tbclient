@@ -17,9 +17,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h implements com.baidu.live.ad.a {
-    protected AlaSeriesGiftPendant gRP;
-    private PendantParentView gog;
-    private PendantChildView goh;
+    protected AlaSeriesGiftPendant gSd;
+    private PendantParentView gou;
+    private PendantChildView gov;
     private boolean isHost = false;
     private Context mContext;
 
@@ -31,13 +31,13 @@ public class h implements com.baidu.live.ad.a {
     public void a(ViewGroup viewGroup, String str) {
         if (viewGroup != null) {
             if (viewGroup instanceof PendantParentView) {
-                this.gog = (PendantParentView) viewGroup;
-                bNS();
+                this.gou = (PendantParentView) viewGroup;
+                bNZ();
             }
             if (str != null && !TextUtils.isEmpty(str)) {
-                if (this.gRP == null || (this.goh != null && this.goh.indexOfChild(this.gRP) < 0)) {
-                    this.gRP = new AlaSeriesGiftPendant(this.goh.getContext(), this.isHost, str);
-                    this.goh.addView(this.gRP);
+                if (this.gSd == null || (this.gov != null && this.gov.indexOfChild(this.gSd) < 0)) {
+                    this.gSd = new AlaSeriesGiftPendant(this.gov.getContext(), this.isHost, str);
+                    this.gov.addView(this.gSd);
                 }
             }
         }
@@ -52,11 +52,11 @@ public class h implements com.baidu.live.ad.a {
         if (dJ(jSONObject) == -1) {
             return false;
         }
-        if (this.gRP != null && (this.gRP.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gRP.getParent()).removeView(this.gRP);
+        if (this.gSd != null && (this.gSd.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gSd.getParent()).removeView(this.gSd);
         }
-        this.gRP = new AlaSeriesGiftPendant(this.goh.getContext(), this.isHost, jSONObject.toString());
-        this.goh.addView(this.gRP);
+        this.gSd = new AlaSeriesGiftPendant(this.gov.getContext(), this.isHost, jSONObject.toString());
+        this.gov.addView(this.gSd);
         JSONObject jSONObject2 = new JSONObject();
         try {
             JSONObject jSONObject3 = new JSONObject();
@@ -72,15 +72,15 @@ public class h implements com.baidu.live.ad.a {
 
     @Override // com.baidu.live.ad.a
     public void setCanVisible(boolean z) {
-        if (this.gRP != null) {
-            this.gRP.setCanVisible(z);
+        if (this.gSd != null) {
+            this.gSd.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.ad.a
     public void cT(boolean z) {
-        if (this.gRP != null && z && !AlaSeriesGiftPendant.ijF) {
-            this.gRP.setCanVisible(true);
+        if (this.gSd != null && z && !AlaSeriesGiftPendant.ijT) {
+            this.gSd.setCanVisible(true);
         }
     }
 
@@ -99,9 +99,9 @@ public class h implements com.baidu.live.ad.a {
         this.isHost = z;
     }
 
-    private void bNS() {
-        if (this.goh == null) {
-            this.goh = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.h.1
+    private void bNZ() {
+        if (this.gov == null) {
+            this.gov = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.h.1
                 @Override // com.baidu.live.pendantview.PendantChildView
                 public PendantParentView.Position getVerticalPosition() {
                     return PendantParentView.Position.RIGHT;
@@ -132,10 +132,10 @@ public class h implements com.baidu.live.ad.a {
                     return 9;
                 }
             };
-            this.goh.setBackgroundColor(0);
+            this.gov.setBackgroundColor(0);
         }
-        if (this.gog != null && this.gog.indexOfChild(this.goh) < 0) {
-            this.gog.a(this.goh, new LinearLayout.LayoutParams(-2, -2));
+        if (this.gou != null && this.gou.indexOfChild(this.gov) < 0) {
+            this.gou.a(this.gov, new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
@@ -145,12 +145,12 @@ public class h implements com.baidu.live.ad.a {
     }
 
     private void mv(boolean z) {
-        if (this.gRP != null && (this.gRP.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gRP.getParent()).removeView(this.gRP);
+        if (this.gSd != null && (this.gSd.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gSd.getParent()).removeView(this.gSd);
         }
-        if (z && this.goh != null && (this.goh.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.goh.getParent()).removeView(this.goh);
+        if (z && this.gov != null && (this.gov.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gov.getParent()).removeView(this.gov);
         }
-        AlaSeriesGiftPendant.ijF = true;
+        AlaSeriesGiftPendant.ijT = true;
     }
 }

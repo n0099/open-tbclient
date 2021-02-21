@@ -27,16 +27,16 @@ import tbclient.Lego.DataRes;
 /* loaded from: classes9.dex */
 public class LegoHotPageView extends FrameLayout implements AbsListView.OnScrollListener {
     private CustomMessageListener faJ;
-    private PbListView gAi;
-    private com.baidu.tbadk.l.g gJn;
-    private BdListView iCf;
+    private PbListView gAw;
+    private com.baidu.tbadk.l.g gJB;
+    private BdListView iCt;
     private String itemId;
-    private com.baidu.tieba.lego.c.e kZs;
-    com.baidu.tieba.lego.b.a kZt;
-    private c kZu;
-    private h kZv;
-    private long kZw;
-    private h.a kZx;
+    private com.baidu.tieba.lego.c.e kZG;
+    com.baidu.tieba.lego.b.a kZH;
+    private c kZI;
+    private h kZJ;
+    private long kZK;
+    private h.a kZL;
     private boolean mHasMore;
     private CustomMessageListener mLikeForumListener;
     private com.baidu.tbadk.core.view.g mPullView;
@@ -53,9 +53,9 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     /* JADX INFO: Access modifiers changed from: private */
     public void aM(Object obj) {
         boolean z;
-        if (this.kZt != null && this.kZv != null && this.kZv.getDataList() != null) {
+        if (this.kZH != null && this.kZJ != null && this.kZJ.getDataList() != null) {
             boolean z2 = false;
-            Iterator<ICardInfo> it = this.kZv.getDataList().iterator();
+            Iterator<ICardInfo> it = this.kZJ.getDataList().iterator();
             while (true) {
                 z = z2;
                 if (!it.hasNext()) {
@@ -64,7 +64,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
                 z2 = it.next().responseAttention(obj) ? true : z;
             }
             if (z) {
-                this.kZt.notifyDataSetChanged();
+                this.kZH.notifyDataSetChanged();
             }
         }
     }
@@ -105,23 +105,23 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
                 }
             }
         };
-        this.kZx = new h.a() { // from class: com.baidu.tieba.lego.LegoHotPageView.4
+        this.kZL = new h.a() { // from class: com.baidu.tieba.lego.LegoHotPageView.4
             @Override // com.baidu.tieba.lego.h.a
             public void r(long j, String str) {
-                boolean cqM = LegoHotPageView.this.cqM();
+                boolean cqT = LegoHotPageView.this.cqT();
                 LegoHotPageView.this.WZ();
-                if (cqM) {
+                if (cqT) {
                     LegoHotPageView.this.C(true, LegoHotPageView.this.getResources().getDimensionPixelSize(R.dimen.ds360));
                 }
-                if (LegoHotPageView.this.kZu != null) {
-                    LegoHotPageView.this.kZu.o(j, str);
+                if (LegoHotPageView.this.kZI != null) {
+                    LegoHotPageView.this.kZI.o(j, str);
                 }
             }
 
             @Override // com.baidu.tieba.lego.h.a
             public void bI(int i, String str) {
-                if (LegoHotPageView.this.kZu != null && LegoHotPageView.this.kZs != null) {
-                    LegoHotPageView.this.kZu.a(LegoHotPageView.this.kZs.lfE, LegoHotPageView.this.kZs.itemId, i, str);
+                if (LegoHotPageView.this.kZI != null && LegoHotPageView.this.kZG != null) {
+                    LegoHotPageView.this.kZI.a(LegoHotPageView.this.kZG.lfS, LegoHotPageView.this.kZG.itemId, i, str);
                 }
             }
 
@@ -129,7 +129,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             public void onError(int i, String str) {
                 LegoHotPageView.this.hideLoadingView();
                 if (i != 1) {
-                    LegoHotPageView.this.iCf.setVisibility(8);
+                    LegoHotPageView.this.iCt.setVisibility(8);
                     LegoHotPageView.this.showNetRefreshView(LegoHotPageView.this, str, true);
                 } else if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     LegoHotPageView.this.pageContext.showToast(str);
@@ -140,20 +140,20 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             public void onSuccess() {
                 LegoHotPageView.this.hideLoadingView();
                 LegoHotPageView.this.WZ();
-                LegoHotPageView.this.iCf.setVisibility(0);
+                LegoHotPageView.this.iCt.setVisibility(0);
             }
 
             @Override // com.baidu.tieba.lego.h.a
             public void c(String str, String str2, String str3, List<com.baidu.tieba.lego.c.e> list) {
-                if (LegoHotPageView.this.kZu != null) {
-                    LegoHotPageView.this.kZu.b(str, str2, str3, list);
+                if (LegoHotPageView.this.kZI != null) {
+                    LegoHotPageView.this.kZI.b(str, str2, str3, list);
                 }
             }
 
             @Override // com.baidu.tieba.lego.h.a
             public void eF(List<com.baidu.tieba.lego.c.d> list) {
-                if (LegoHotPageView.this.kZu != null) {
-                    LegoHotPageView.this.kZu.eF(list);
+                if (LegoHotPageView.this.kZI != null) {
+                    LegoHotPageView.this.kZI.eF(list);
                 }
             }
         };
@@ -196,23 +196,23 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
                 }
             }
         };
-        this.kZx = new h.a() { // from class: com.baidu.tieba.lego.LegoHotPageView.4
+        this.kZL = new h.a() { // from class: com.baidu.tieba.lego.LegoHotPageView.4
             @Override // com.baidu.tieba.lego.h.a
             public void r(long j, String str) {
-                boolean cqM = LegoHotPageView.this.cqM();
+                boolean cqT = LegoHotPageView.this.cqT();
                 LegoHotPageView.this.WZ();
-                if (cqM) {
+                if (cqT) {
                     LegoHotPageView.this.C(true, LegoHotPageView.this.getResources().getDimensionPixelSize(R.dimen.ds360));
                 }
-                if (LegoHotPageView.this.kZu != null) {
-                    LegoHotPageView.this.kZu.o(j, str);
+                if (LegoHotPageView.this.kZI != null) {
+                    LegoHotPageView.this.kZI.o(j, str);
                 }
             }
 
             @Override // com.baidu.tieba.lego.h.a
             public void bI(int i, String str) {
-                if (LegoHotPageView.this.kZu != null && LegoHotPageView.this.kZs != null) {
-                    LegoHotPageView.this.kZu.a(LegoHotPageView.this.kZs.lfE, LegoHotPageView.this.kZs.itemId, i, str);
+                if (LegoHotPageView.this.kZI != null && LegoHotPageView.this.kZG != null) {
+                    LegoHotPageView.this.kZI.a(LegoHotPageView.this.kZG.lfS, LegoHotPageView.this.kZG.itemId, i, str);
                 }
             }
 
@@ -220,7 +220,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             public void onError(int i, String str) {
                 LegoHotPageView.this.hideLoadingView();
                 if (i != 1) {
-                    LegoHotPageView.this.iCf.setVisibility(8);
+                    LegoHotPageView.this.iCt.setVisibility(8);
                     LegoHotPageView.this.showNetRefreshView(LegoHotPageView.this, str, true);
                 } else if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     LegoHotPageView.this.pageContext.showToast(str);
@@ -231,20 +231,20 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             public void onSuccess() {
                 LegoHotPageView.this.hideLoadingView();
                 LegoHotPageView.this.WZ();
-                LegoHotPageView.this.iCf.setVisibility(0);
+                LegoHotPageView.this.iCt.setVisibility(0);
             }
 
             @Override // com.baidu.tieba.lego.h.a
             public void c(String str, String str2, String str3, List<com.baidu.tieba.lego.c.e> list) {
-                if (LegoHotPageView.this.kZu != null) {
-                    LegoHotPageView.this.kZu.b(str, str2, str3, list);
+                if (LegoHotPageView.this.kZI != null) {
+                    LegoHotPageView.this.kZI.b(str, str2, str3, list);
                 }
             }
 
             @Override // com.baidu.tieba.lego.h.a
             public void eF(List<com.baidu.tieba.lego.c.d> list) {
-                if (LegoHotPageView.this.kZu != null) {
-                    LegoHotPageView.this.kZu.eF(list);
+                if (LegoHotPageView.this.kZI != null) {
+                    LegoHotPageView.this.kZI.eF(list);
                 }
             }
         };
@@ -287,23 +287,23 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
                 }
             }
         };
-        this.kZx = new h.a() { // from class: com.baidu.tieba.lego.LegoHotPageView.4
+        this.kZL = new h.a() { // from class: com.baidu.tieba.lego.LegoHotPageView.4
             @Override // com.baidu.tieba.lego.h.a
             public void r(long j, String str) {
-                boolean cqM = LegoHotPageView.this.cqM();
+                boolean cqT = LegoHotPageView.this.cqT();
                 LegoHotPageView.this.WZ();
-                if (cqM) {
+                if (cqT) {
                     LegoHotPageView.this.C(true, LegoHotPageView.this.getResources().getDimensionPixelSize(R.dimen.ds360));
                 }
-                if (LegoHotPageView.this.kZu != null) {
-                    LegoHotPageView.this.kZu.o(j, str);
+                if (LegoHotPageView.this.kZI != null) {
+                    LegoHotPageView.this.kZI.o(j, str);
                 }
             }
 
             @Override // com.baidu.tieba.lego.h.a
             public void bI(int i2, String str) {
-                if (LegoHotPageView.this.kZu != null && LegoHotPageView.this.kZs != null) {
-                    LegoHotPageView.this.kZu.a(LegoHotPageView.this.kZs.lfE, LegoHotPageView.this.kZs.itemId, i2, str);
+                if (LegoHotPageView.this.kZI != null && LegoHotPageView.this.kZG != null) {
+                    LegoHotPageView.this.kZI.a(LegoHotPageView.this.kZG.lfS, LegoHotPageView.this.kZG.itemId, i2, str);
                 }
             }
 
@@ -311,7 +311,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             public void onError(int i2, String str) {
                 LegoHotPageView.this.hideLoadingView();
                 if (i2 != 1) {
-                    LegoHotPageView.this.iCf.setVisibility(8);
+                    LegoHotPageView.this.iCt.setVisibility(8);
                     LegoHotPageView.this.showNetRefreshView(LegoHotPageView.this, str, true);
                 } else if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     LegoHotPageView.this.pageContext.showToast(str);
@@ -322,20 +322,20 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             public void onSuccess() {
                 LegoHotPageView.this.hideLoadingView();
                 LegoHotPageView.this.WZ();
-                LegoHotPageView.this.iCf.setVisibility(0);
+                LegoHotPageView.this.iCt.setVisibility(0);
             }
 
             @Override // com.baidu.tieba.lego.h.a
             public void c(String str, String str2, String str3, List<com.baidu.tieba.lego.c.e> list) {
-                if (LegoHotPageView.this.kZu != null) {
-                    LegoHotPageView.this.kZu.b(str, str2, str3, list);
+                if (LegoHotPageView.this.kZI != null) {
+                    LegoHotPageView.this.kZI.b(str, str2, str3, list);
                 }
             }
 
             @Override // com.baidu.tieba.lego.h.a
             public void eF(List<com.baidu.tieba.lego.c.d> list) {
-                if (LegoHotPageView.this.kZu != null) {
-                    LegoHotPageView.this.kZu.eF(list);
+                if (LegoHotPageView.this.kZI != null) {
+                    LegoHotPageView.this.kZI.eF(list);
                 }
             }
         };
@@ -350,40 +350,40 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         if (K instanceof TbPageContext) {
             this.pageContext = (TbPageContext) K;
         }
-        this.iCf = new BdListView(context);
-        this.iCf.setDividerHeight(0);
-        this.iCf.setSelector(17170445);
-        this.kZt = new com.baidu.tieba.lego.b.a(this.pageContext);
-        this.iCf.setAdapter((ListAdapter) this.kZt);
-        this.gAi = new PbListView(context);
-        this.gAi.createView();
-        this.gAi.setContainerBackgroundColorResId(R.color.CAM_X0204);
-        this.gAi.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.gAi.changeSkin(TbadkCoreApplication.getInst().getSkinType());
+        this.iCt = new BdListView(context);
+        this.iCt.setDividerHeight(0);
+        this.iCt.setSelector(17170445);
+        this.kZH = new com.baidu.tieba.lego.b.a(this.pageContext);
+        this.iCt.setAdapter((ListAdapter) this.kZH);
+        this.gAw = new PbListView(context);
+        this.gAw.createView();
+        this.gAw.setContainerBackgroundColorResId(R.color.CAM_X0204);
+        this.gAw.setTextColor(ap.getColor(R.color.CAM_X0109));
+        this.gAw.changeSkin(TbadkCoreApplication.getInst().getSkinType());
         this.mPullView = new com.baidu.tbadk.core.view.g(this.pageContext);
-        this.iCf.setPullRefresh(this.mPullView);
+        this.iCt.setPullRefresh(this.mPullView);
         this.mPullView.setEnable(true);
         this.mPullView.setListPullRefreshListener(new f.c() { // from class: com.baidu.tieba.lego.LegoHotPageView.5
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
-                LegoHotPageView.this.kZv.s(LegoHotPageView.this.kZw, LegoHotPageView.this.itemId);
+                LegoHotPageView.this.kZJ.s(LegoHotPageView.this.kZK, LegoHotPageView.this.itemId);
             }
         });
-        this.iCf.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.lego.LegoHotPageView.6
+        this.iCt.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.lego.LegoHotPageView.6
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
                 if (LegoHotPageView.this.mHasMore) {
-                    if (LegoHotPageView.this.gAi != null) {
-                        LegoHotPageView.this.gAi.startLoadData();
+                    if (LegoHotPageView.this.gAw != null) {
+                        LegoHotPageView.this.gAw.startLoadData();
                     }
-                    LegoHotPageView.this.kZv.bRc();
+                    LegoHotPageView.this.kZJ.bRj();
                 }
             }
         });
-        this.iCf.setOnScrollListener(this);
-        this.kZv = new h(this.iCf, this.kZt);
-        this.kZv.a(this.kZx);
-        addView(this.iCf);
+        this.iCt.setOnScrollListener(this);
+        this.kZJ = new h(this.iCt, this.kZH);
+        this.kZJ.a(this.kZL);
+        addView(this.iCt);
     }
 
     public void setViewBackGround() {
@@ -395,17 +395,17 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     }
 
     public void qJ(boolean z) {
-        if (this.iCf != null) {
+        if (this.iCt != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.iCf.getChildCount()) {
-                    View childAt = this.iCf.getChildAt(i2);
+                if (i2 < this.iCt.getChildCount()) {
+                    View childAt = this.iCt.getChildAt(i2);
                     if (childAt instanceof com.baidu.tieba.lego.card.view.e) {
                         if (z) {
                             ((com.baidu.tieba.lego.card.view.e) childAt).aSW();
                         } else {
-                            ((com.baidu.tieba.lego.card.view.e) childAt).cSx();
+                            ((com.baidu.tieba.lego.card.view.e) childAt).cSE();
                         }
                     }
                     i = i2 + 1;
@@ -417,38 +417,38 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     }
 
     public void setCallback(c cVar) {
-        this.kZu = cVar;
+        this.kZI = cVar;
     }
 
     public void setTagInfo(com.baidu.tieba.lego.c.e eVar) {
-        this.kZs = eVar;
+        this.kZG = eVar;
     }
 
     public void a(DataRes dataRes, boolean z) {
-        if (this.gAi != null) {
-            this.gAi.endLoadData();
+        if (this.gAw != null) {
+            this.gAw.endLoadData();
         }
-        this.kZv.a(z, dataRes, 0, null);
-        setHasMore(this.kZv.isHasMore());
+        this.kZJ.a(z, dataRes, 0, null);
+        setHasMore(this.kZJ.isHasMore());
     }
 
     private void setHasMore(boolean z) {
         this.mHasMore = z;
-        if (this.iCf != null) {
-            if (this.gAi.getView().getParent() == null) {
-                this.iCf.setNextPage(this.gAi);
+        if (this.iCt != null) {
+            if (this.gAw.getView().getParent() == null) {
+                this.iCt.setNextPage(this.gAw);
             }
             if (this.mHasMore) {
-                this.gAi.setText(getContext().getString(R.string.pb_load_more));
+                this.gAw.setText(getContext().getString(R.string.pb_load_more));
             } else {
-                this.gAi.setText("");
+                this.gAw.setText("");
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gJn != null) {
-            this.gJn.onChangeSkinType();
+        if (this.gJB != null) {
+            this.gJB.onChangeSkinType();
         }
         if (this.refreshView != null) {
             this.refreshView.onChangeSkinType();
@@ -456,27 +456,27 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        if (this.iCf != null) {
-            ap.setBackgroundColor(this.iCf, R.color.CAM_X0204, i);
+        if (this.iCt != null) {
+            ap.setBackgroundColor(this.iCt, R.color.CAM_X0204, i);
         }
-        if (this.gAi != null) {
-            this.gAi.setTextColor(ap.getColor(R.color.CAM_X0109));
-            this.gAi.changeSkin(i);
+        if (this.gAw != null) {
+            this.gAw.setTextColor(ap.getColor(R.color.CAM_X0109));
+            this.gAw.changeSkin(i);
         }
     }
 
     public long getTagCode() {
-        if (this.kZs == null) {
+        if (this.kZG == null) {
             return 0L;
         }
-        return this.kZs.lfE;
+        return this.kZG.lfS;
     }
 
     public void bd(String str, int i) {
-        if (this.gAi != null) {
-            this.gAi.endLoadData();
+        if (this.gAw != null) {
+            this.gAw.endLoadData();
         }
-        this.kZv.a(true, null, i, str);
+        this.kZJ.a(true, null, i, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -485,11 +485,11 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             this.refreshView = new com.baidu.tbadk.l.h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.lego.LegoHotPageView.7
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (LegoHotPageView.this.kZv != null) {
-                        if (LegoHotPageView.this.kZs != null) {
-                            LegoHotPageView.this.kZv.s(LegoHotPageView.this.kZs.lfE, LegoHotPageView.this.kZs.itemId);
+                    if (LegoHotPageView.this.kZJ != null) {
+                        if (LegoHotPageView.this.kZG != null) {
+                            LegoHotPageView.this.kZJ.s(LegoHotPageView.this.kZG.lfS, LegoHotPageView.this.kZG.itemId);
                         } else {
-                            LegoHotPageView.this.kZv.s(LegoHotPageView.this.kZw, LegoHotPageView.this.itemId);
+                            LegoHotPageView.this.kZJ.s(LegoHotPageView.this.kZK, LegoHotPageView.this.itemId);
                         }
                     }
                 }
@@ -511,38 +511,38 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoadingView() {
-        if (this.gJn != null) {
-            this.gJn.dettachView(this);
-            this.gJn = null;
+        if (this.gJB != null) {
+            this.gJB.dettachView(this);
+            this.gJB = null;
         }
-        if (this.kZu != null) {
-            this.kZu.cPo();
+        if (this.kZI != null) {
+            this.kZI.cPv();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cqM() {
+    public boolean cqT() {
         return this.refreshView != null && this.refreshView.isViewAttached();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C(boolean z, int i) {
-        if (this.gJn == null) {
+        if (this.gJB == null) {
             if (i < 0) {
-                this.gJn = new com.baidu.tbadk.l.g(getContext());
+                this.gJB = new com.baidu.tbadk.l.g(getContext());
             } else {
-                this.gJn = new com.baidu.tbadk.l.g(getContext(), i);
+                this.gJB = new com.baidu.tbadk.l.g(getContext(), i);
             }
-            this.gJn.onChangeSkinType();
+            this.gJB.onChangeSkinType();
         }
-        this.gJn.attachView(this, z);
+        this.gJB.attachView(this, z);
     }
 
     public void q(long j, String str) {
-        this.kZw = j;
+        this.kZK = j;
         this.itemId = str;
-        if (this.kZv != null) {
-            this.kZv.s(j, str);
+        if (this.kZJ != null) {
+            this.kZJ.s(j, str);
         }
     }
 
@@ -550,19 +550,19 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEGO_SWITCH_TAB, -1));
-            dbe();
+            dbl();
         }
     }
 
-    private void dbe() {
-        if (this.iCf != null) {
+    private void dbl() {
+        if (this.iCt != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.iCf.getChildCount()) {
-                    View childAt = this.iCf.getChildAt(i2);
+                if (i2 < this.iCt.getChildCount()) {
+                    View childAt = this.iCt.getChildAt(i2);
                     if (childAt instanceof com.baidu.tieba.lego.card.view.e) {
-                        ((com.baidu.tieba.lego.card.view.e) childAt).dbT();
+                        ((com.baidu.tieba.lego.card.view.e) childAt).dca();
                     }
                     i = i2 + 1;
                 } else {

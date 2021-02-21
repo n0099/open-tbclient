@@ -95,7 +95,7 @@ public class f implements b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public Object eDT() {
+    public Object eEb() {
         return this.l;
     }
 
@@ -115,7 +115,7 @@ public class f implements b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public JSONObject eDU() {
+    public JSONObject eEc() {
         return null;
     }
 
@@ -143,7 +143,7 @@ public class f implements b {
         private String p;
         private String q;
 
-        public f eEa() {
+        public f eEi() {
             return new f(this);
         }
     }

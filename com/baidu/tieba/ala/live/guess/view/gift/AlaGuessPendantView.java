@@ -10,49 +10,49 @@ import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.tieba.ala.live.guess.widget.TimeCountTextView;
 /* loaded from: classes11.dex */
 public class AlaGuessPendantView extends PendantChildView {
-    private boolean gQs;
-    private AlaGuessActivityView hiI;
+    private boolean gQG;
+    private AlaGuessActivityView hiW;
 
     public AlaGuessPendantView(Context context) {
         super(context);
-        this.gQs = false;
+        this.gQG = false;
     }
 
     private void setIsHorizontal(boolean z) {
-        this.gQs = z;
+        this.gQG = z;
     }
 
     public void e(ViewGroup.LayoutParams layoutParams) {
-        if (this.hiI == null) {
-            this.hiI = new AlaGuessActivityView(getContext());
+        if (this.hiW == null) {
+            this.hiW = new AlaGuessActivityView(getContext());
         }
         setBackgroundColor(0);
         setMode(PendantParentView.Model.VERTICAL);
-        addView(this.hiI, layoutParams);
+        addView(this.hiW, layoutParams);
     }
 
     public ImageView getImgActivity() {
-        return this.hiI.hiG;
+        return this.hiW.hiU;
     }
 
     public TimeCountTextView getTimerView() {
-        return this.hiI.hiH;
+        return this.hiW.hiV;
     }
 
     public TextView getTvCountDown() {
-        return this.hiI.bCG;
+        return this.hiW.bCG;
     }
 
     public void removeView() {
-        if (this.hiI != null && this.hiI.getParent() != null) {
-            removeView(this.hiI);
-            this.hiI = null;
+        if (this.hiW != null && this.hiW.getParent() != null) {
+            removeView(this.hiW);
+            this.hiW = null;
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
-        if (this.hiI != null) {
-            this.hiI.setOnClickListener(onClickListener);
+        if (this.hiW != null) {
+            this.hiW.setOnClickListener(onClickListener);
         }
     }
 

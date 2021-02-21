@@ -7,11 +7,11 @@ import java.util.concurrent.ScheduledFuture;
 public class ae implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MiTinyDataClient.a.C1281a f13801a;
+    final /* synthetic */ MiTinyDataClient.a.C1283a f13801a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(MiTinyDataClient.a.C1281a c1281a) {
-        this.f13801a = c1281a;
+    public ae(MiTinyDataClient.a.C1283a c1283a) {
+        this.f13801a = c1283a;
     }
 
     @Override // java.lang.Runnable

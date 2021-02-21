@@ -17,13 +17,13 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolder> {
     private String eqb;
-    private a lkv;
+    private a lkJ;
     private Context mContext;
     private List<String> mDataList;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void NX(String str);
+        void NY(String str);
     }
 
     public SearchMajorResultItemAdapter(Context context) {
@@ -45,15 +45,15 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         if (this.mDataList != null) {
             final String str = this.mDataList.get(i);
             if (!StringUtils.isNull(str)) {
-                viewHolder.lky.setText(str);
-                ap.setViewTextColor(viewHolder.lky, R.color.CAM_X0105);
+                viewHolder.lkM.setText(str);
+                ap.setViewTextColor(viewHolder.lkM, R.color.CAM_X0105);
                 ap.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
-                e(viewHolder.lky, str);
+                e(viewHolder.lkM, str);
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (SearchMajorResultItemAdapter.this.lkv != null) {
-                            SearchMajorResultItemAdapter.this.lkv.NX(str);
+                        if (SearchMajorResultItemAdapter.this.lkJ != null) {
+                            SearchMajorResultItemAdapter.this.lkJ.NY(str);
                         }
                     }
                 });
@@ -70,7 +70,7 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
     }
 
     public void b(a aVar) {
-        this.lkv = aVar;
+        this.lkJ = aVar;
     }
 
     public void setData(List<String> list) {
@@ -78,24 +78,24 @@ public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolde
         notifyDataSetChanged();
     }
 
-    public void deO() {
+    public void deV() {
         if (this.mDataList != null) {
             this.mDataList.clear();
             notifyDataSetChanged();
         }
     }
 
-    public void NP(String str) {
+    public void NQ(String str) {
         this.eqb = str;
     }
 
     /* loaded from: classes8.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView lky;
+        TextView lkM;
 
         public ViewHolder(View view) {
             super(view);
-            this.lky = (TextView) view.findViewById(R.id.tv_major_name);
+            this.lkM = (TextView) view.findViewById(R.id.tv_major_name);
         }
     }
 

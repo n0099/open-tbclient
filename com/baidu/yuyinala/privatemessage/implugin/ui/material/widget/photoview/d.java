@@ -27,26 +27,26 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     private float mMaxScale;
     private float mMinScale;
     private ImageView.ScaleType mScaleType;
-    private e pfA;
-    private int pfB;
-    private int pfC;
-    private int pfD;
-    private int pfE;
-    private b pfF;
-    private int pfG;
-    private boolean pfH;
-    private int pfo;
-    private float pfp;
-    private boolean pfq;
-    private boolean pfr;
-    private WeakReference<ImageView> pfs;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d pft;
-    private final Matrix pfu;
-    private final Matrix pfv;
-    private final RectF pfw;
-    private c pfx;
-    private InterfaceC0972d pfy;
-    private f pfz;
+    private int pfO;
+    private float pfP;
+    private boolean pfQ;
+    private boolean pfR;
+    private WeakReference<ImageView> pfS;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d pfT;
+    private final Matrix pfU;
+    private final Matrix pfV;
+    private final RectF pfW;
+    private c pfX;
+    private InterfaceC0974d pfY;
+    private f pfZ;
+    private e pga;
+    private int pgb;
+    private int pgc;
+    private int pgd;
+    private int pge;
+    private b pgf;
+    private int pgg;
+    private boolean pgh;
 
     /* loaded from: classes11.dex */
     public interface c {
@@ -55,7 +55,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.d$d  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0972d {
+    public interface InterfaceC0974d {
         void d(View view, float f, float f2);
     }
 
@@ -135,20 +135,20 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public d(ImageView imageView, boolean z) {
-        this.pfo = 200;
+        this.pfO = 200;
         this.mMinScale = 1.0f;
-        this.pfp = 1.75f;
+        this.pfP = 1.75f;
         this.mMaxScale = 3.0f;
-        this.pfq = true;
-        this.pfr = false;
-        this.pfu = new Matrix();
+        this.pfQ = true;
+        this.pfR = false;
+        this.pfU = new Matrix();
         this.mDrawMatrix = new Matrix();
-        this.pfv = new Matrix();
-        this.pfw = new RectF();
+        this.pfV = new Matrix();
+        this.pfW = new RectF();
         this.mMatrixValues = new float[9];
-        this.pfG = 2;
+        this.pgg = 2;
         this.mScaleType = ImageView.ScaleType.FIT_CENTER;
-        this.pfs = new WeakReference<>(imageView);
+        this.pfS = new WeakReference<>(imageView);
         imageView.setDrawingCacheEnabled(true);
         imageView.setOnTouchListener(this);
         ViewTreeObserver viewTreeObserver = imageView.getViewTreeObserver();
@@ -157,12 +157,12 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         }
         g(imageView);
         if (!imageView.isInEditMode()) {
-            this.pft = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.f.a(imageView.getContext(), this);
+            this.pfT = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.f.a(imageView.getContext(), this);
             this.mGestureDetector = new GestureDetector(imageView.getContext(), new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.d.1
                 @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
                 public void onLongPress(MotionEvent motionEvent) {
                     if (d.this.mLongClickListener != null) {
-                        d.this.mLongClickListener.onLongClick(d.this.elA());
+                        d.this.mLongClickListener.onLongClick(d.this.elI());
                     }
                 }
             });
@@ -180,64 +180,64 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public void setOnScaleChangeListener(e eVar) {
-        this.pfA = eVar;
+        this.pga = eVar;
     }
 
     public void cleanup() {
-        if (this.pfs != null) {
-            ImageView imageView = this.pfs.get();
+        if (this.pfS != null) {
+            ImageView imageView = this.pfS.get();
             if (imageView != null) {
                 ViewTreeObserver viewTreeObserver = imageView.getViewTreeObserver();
                 if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
                     viewTreeObserver.removeGlobalOnLayoutListener(this);
                 }
                 imageView.setOnTouchListener(null);
-                elB();
+                elJ();
             }
             if (this.mGestureDetector != null) {
                 this.mGestureDetector.setOnDoubleTapListener(null);
             }
-            this.pfx = null;
-            this.pfy = null;
-            this.pfz = null;
-            this.pfs = null;
+            this.pfX = null;
+            this.pfY = null;
+            this.pfZ = null;
+            this.pfS = null;
         }
     }
 
     public RectF getDisplayRect() {
-        elE();
+        elM();
         return d(getDrawMatrix());
     }
 
     private RectF d(Matrix matrix) {
         Drawable drawable;
-        ImageView elA = elA();
-        if (elA == null || (drawable = elA.getDrawable()) == null) {
+        ImageView elI = elI();
+        if (elI == null || (drawable = elI.getDrawable()) == null) {
             return null;
         }
-        this.pfw.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        matrix.mapRect(this.pfw);
-        return this.pfw;
+        this.pfW.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        matrix.mapRect(this.pfW);
+        return this.pfW;
     }
 
     public void setRotationTo(float f2) {
-        this.pfv.setRotate(f2 % 360.0f);
-        elC();
+        this.pfV.setRotate(f2 % 360.0f);
+        elK();
     }
 
     public void setRotationBy(float f2) {
-        this.pfv.postRotate(f2 % 360.0f);
-        elC();
+        this.pfV.postRotate(f2 % 360.0f);
+        elK();
     }
 
-    public ImageView elA() {
+    public ImageView elI() {
         ImageView imageView = null;
-        if (this.pfs != null) {
-            imageView = this.pfs.get();
+        if (this.pfS != null) {
+            imageView = this.pfS.get();
         }
         if (imageView == null) {
             cleanup();
-            com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elI().i("PhotoViewAttacher", "ImageView no longer exists. You should not use this PhotoViewAttacher any more.");
+            com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().i("PhotoViewAttacher", "ImageView no longer exists. You should not use this PhotoViewAttacher any more.");
         }
         return imageView;
     }
@@ -247,7 +247,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public float getMediumScale() {
-        return this.pfp;
+        return this.pfP;
     }
 
     public float getMaximumScale() {
@@ -255,7 +255,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public float getScale() {
-        return (float) Math.sqrt(((float) Math.pow(a(this.pfv, 0), 2.0d)) + ((float) Math.pow(a(this.pfv, 3), 2.0d)));
+        return (float) Math.sqrt(((float) Math.pow(a(this.pfV, 0), 2.0d)) + ((float) Math.pow(a(this.pfV, 3), 2.0d)));
     }
 
     public ImageView.ScaleType getScaleType() {
@@ -264,16 +264,16 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.e
     public void onDrag(float f2, float f3) {
-        if (!this.pft.elH()) {
+        if (!this.pfT.elP()) {
             if (DEBUG) {
-                com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elI().d("PhotoViewAttacher", String.format("onDrag: dx: %.2f. dy: %.2f", Float.valueOf(f2), Float.valueOf(f3)));
+                com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().d("PhotoViewAttacher", String.format("onDrag: dx: %.2f. dy: %.2f", Float.valueOf(f2), Float.valueOf(f3)));
             }
-            ImageView elA = elA();
-            this.pfv.postTranslate(f2, f3);
-            elC();
-            ViewParent parent = elA.getParent();
-            if (this.pfq && !this.pft.elH() && !this.pfr) {
-                if ((this.pfG == 2 || ((this.pfG == 0 && f2 >= 1.0f) || (this.pfG == 1 && f2 <= -1.0f))) && parent != null) {
+            ImageView elI = elI();
+            this.pfV.postTranslate(f2, f3);
+            elK();
+            ViewParent parent = elI.getParent();
+            if (this.pfQ && !this.pfT.elP() && !this.pfR) {
+                if ((this.pgg == 2 || ((this.pgg == 0 && f2 >= 1.0f) || (this.pgg == 1 && f2 <= -1.0f))) && parent != null) {
                     parent.requestDisallowInterceptTouchEvent(false);
                 }
             } else if (parent != null) {
@@ -285,48 +285,48 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.e
     public void i(float f2, float f3, float f4, float f5) {
         if (DEBUG) {
-            com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elI().d("PhotoViewAttacher", "onFling. sX: " + f2 + " sY: " + f3 + " Vx: " + f4 + " Vy: " + f5);
+            com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().d("PhotoViewAttacher", "onFling. sX: " + f2 + " sY: " + f3 + " Vx: " + f4 + " Vy: " + f5);
         }
-        ImageView elA = elA();
-        this.pfF = new b(elA.getContext());
-        this.pfF.M(h(elA), i(elA), (int) f4, (int) f5);
-        elA.post(this.pfF);
+        ImageView elI = elI();
+        this.pgf = new b(elI.getContext());
+        this.pgf.M(h(elI), i(elI), (int) f4, (int) f5);
+        elI.post(this.pgf);
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
-        ImageView elA = elA();
-        if (elA != null) {
-            if (this.pfH) {
-                int top = elA.getTop();
-                int right = elA.getRight();
-                int bottom = elA.getBottom();
-                int left = elA.getLeft();
-                if (top != this.pfB || bottom != this.pfD || left != this.pfE || right != this.pfC) {
-                    q(elA.getDrawable());
-                    this.pfB = top;
-                    this.pfC = right;
-                    this.pfD = bottom;
-                    this.pfE = left;
+        ImageView elI = elI();
+        if (elI != null) {
+            if (this.pgh) {
+                int top = elI.getTop();
+                int right = elI.getRight();
+                int bottom = elI.getBottom();
+                int left = elI.getLeft();
+                if (top != this.pgb || bottom != this.pgd || left != this.pge || right != this.pgc) {
+                    q(elI.getDrawable());
+                    this.pgb = top;
+                    this.pgc = right;
+                    this.pgd = bottom;
+                    this.pge = left;
                     return;
                 }
                 return;
             }
-            q(elA.getDrawable());
+            q(elI.getDrawable());
         }
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.e
     public void onScale(float f2, float f3, float f4) {
         if (DEBUG) {
-            com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elI().d("PhotoViewAttacher", String.format("onScale: scale: %.2f. fX: %.2f. fY: %.2f", Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)));
+            com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().d("PhotoViewAttacher", String.format("onScale: scale: %.2f. fX: %.2f. fY: %.2f", Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)));
         }
         if (getScale() < this.mMaxScale || f2 < 1.0f) {
-            if (this.pfA != null) {
-                this.pfA.j(f2, f3, f4);
+            if (this.pga != null) {
+                this.pga.j(f2, f3, f4);
             }
-            this.pfv.postScale(f2, f2, f3, f4);
-            elC();
+            this.pfV.postScale(f2, f2, f3, f4);
+            elK();
         }
     }
 
@@ -336,16 +336,16 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         RectF displayRect;
         boolean z;
         boolean z2 = false;
-        if (this.pfH && f((ImageView) view)) {
+        if (this.pgh && f((ImageView) view)) {
             ViewParent parent = view.getParent();
             switch (motionEvent.getAction()) {
                 case 0:
                     if (parent != null) {
                         parent.requestDisallowInterceptTouchEvent(true);
                     } else {
-                        com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elI().i("PhotoViewAttacher", "onTouch getParent() returned null");
+                        com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().i("PhotoViewAttacher", "onTouch getParent() returned null");
                     }
-                    elB();
+                    elJ();
                     z = false;
                     break;
                 case 1:
@@ -361,16 +361,16 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
                     z = false;
                     break;
             }
-            if (this.pft != null) {
-                boolean elH = this.pft.elH();
-                boolean isDragging = this.pft.isDragging();
-                z = this.pft.onTouchEvent(motionEvent);
-                boolean z3 = (elH || this.pft.elH()) ? false : true;
-                boolean z4 = (isDragging || this.pft.isDragging()) ? false : true;
+            if (this.pfT != null) {
+                boolean elP = this.pfT.elP();
+                boolean isDragging = this.pfT.isDragging();
+                z = this.pfT.onTouchEvent(motionEvent);
+                boolean z3 = (elP || this.pfT.elP()) ? false : true;
+                boolean z4 = (isDragging || this.pfT.isDragging()) ? false : true;
                 if (z3 && z4) {
                     z2 = true;
                 }
-                this.pfr = z2;
+                this.pfR = z2;
             }
             if (this.mGestureDetector == null || !this.mGestureDetector.onTouchEvent(motionEvent)) {
                 return z;
@@ -381,28 +381,28 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public void setAllowParentInterceptOnEdge(boolean z) {
-        this.pfq = z;
+        this.pfQ = z;
     }
 
     public void setMinimumScale(float f2) {
-        i(f2, this.pfp, this.mMaxScale);
+        i(f2, this.pfP, this.mMaxScale);
         this.mMinScale = f2;
     }
 
     public void setMediumScale(float f2) {
         i(this.mMinScale, f2, this.mMaxScale);
-        this.pfp = f2;
+        this.pfP = f2;
     }
 
     public void setMaximumScale(float f2) {
-        i(this.mMinScale, this.pfp, f2);
+        i(this.mMinScale, this.pfP, f2);
         this.mMaxScale = f2;
     }
 
     public void setScaleLevels(float f2, float f3, float f4) {
         i(f2, f3, f4);
         this.mMinScale = f2;
-        this.pfp = f3;
+        this.pfP = f3;
         this.mMaxScale = f4;
     }
 
@@ -411,23 +411,23 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public void setOnMatrixChangeListener(c cVar) {
-        this.pfx = cVar;
+        this.pfX = cVar;
     }
 
-    public void setOnPhotoTapListener(InterfaceC0972d interfaceC0972d) {
-        this.pfy = interfaceC0972d;
+    public void setOnPhotoTapListener(InterfaceC0974d interfaceC0974d) {
+        this.pfY = interfaceC0974d;
     }
 
-    public InterfaceC0972d getOnPhotoTapListener() {
-        return this.pfy;
+    public InterfaceC0974d getOnPhotoTapListener() {
+        return this.pfY;
     }
 
     public void setOnViewTapListener(f fVar) {
-        this.pfz = fVar;
+        this.pfZ = fVar;
     }
 
     public f getOnViewTapListener() {
-        return this.pfz;
+        return this.pfZ;
     }
 
     public void setScale(float f2) {
@@ -435,22 +435,22 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public void setScale(float f2, boolean z) {
-        ImageView elA = elA();
-        if (elA != null) {
-            setScale(f2, elA.getRight() / 2, elA.getBottom() / 2, z);
+        ImageView elI = elI();
+        if (elI != null) {
+            setScale(f2, elI.getRight() / 2, elI.getBottom() / 2, z);
         }
     }
 
     public void setScale(float f2, float f3, float f4, boolean z) {
-        ImageView elA = elA();
-        if (elA != null) {
+        ImageView elI = elI();
+        if (elI != null) {
             if (f2 < this.mMinScale || f2 > this.mMaxScale) {
-                com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elI().i("PhotoViewAttacher", "Scale must be within the range of minScale and maxScale");
+                com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().i("PhotoViewAttacher", "Scale must be within the range of minScale and maxScale");
             } else if (z) {
-                elA.post(new a(getScale(), f2, f3, f4));
+                elI.post(new a(getScale(), f2, f3, f4));
             } else {
-                this.pfv.setScale(f2, f2, f3, f4);
-                elC();
+                this.pfV.setScale(f2, f2, f3, f4);
+                elK();
             }
         }
     }
@@ -463,19 +463,19 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public void setZoomable(boolean z) {
-        this.pfH = z;
+        this.pgh = z;
         update();
     }
 
     public void update() {
-        ImageView elA = elA();
-        if (elA != null) {
-            if (this.pfH) {
-                g(elA);
-                q(elA.getDrawable());
+        ImageView elI = elI();
+        if (elI != null) {
+            if (this.pgh) {
+                g(elI);
+                q(elI.getDrawable());
                 return;
             }
-            elF();
+            elN();
         }
     }
 
@@ -484,40 +484,40 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     }
 
     public Matrix getDrawMatrix() {
-        this.mDrawMatrix.set(this.pfu);
-        this.mDrawMatrix.postConcat(this.pfv);
+        this.mDrawMatrix.set(this.pfU);
+        this.mDrawMatrix.postConcat(this.pfV);
         return this.mDrawMatrix;
     }
 
-    private void elB() {
-        if (this.pfF != null) {
-            this.pfF.elB();
-            this.pfF = null;
+    private void elJ() {
+        if (this.pgf != null) {
+            this.pgf.elJ();
+            this.pgf = null;
         }
     }
 
-    private void elC() {
-        if (elE()) {
+    private void elK() {
+        if (elM()) {
             e(getDrawMatrix());
         }
     }
 
-    private void elD() {
-        ImageView elA = elA();
-        if (elA != null && !(elA instanceof com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c) && !ImageView.ScaleType.MATRIX.equals(elA.getScaleType())) {
+    private void elL() {
+        ImageView elI = elI();
+        if (elI != null && !(elI instanceof com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c) && !ImageView.ScaleType.MATRIX.equals(elI.getScaleType())) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.e("PhotoViewAttacher", "The ImageView's ScaleType has been changed since attaching a PhotoViewAttacher");
         }
     }
 
-    private boolean elE() {
+    private boolean elM() {
         RectF d;
         float f2;
         float f3 = 0.0f;
-        ImageView elA = elA();
-        if (elA != null && (d = d(getDrawMatrix())) != null) {
+        ImageView elI = elI();
+        if (elI != null && (d = d(getDrawMatrix())) != null) {
             float height = d.height();
             float width = d.width();
-            int i = i(elA);
+            int i = i(elI);
             if (height <= i) {
                 switch (AnonymousClass2.$SwitchMap$android$widget$ImageView$ScaleType[this.mScaleType.ordinal()]) {
                     case 2:
@@ -535,7 +535,7 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
             } else {
                 f2 = d.bottom < ((float) i) ? i - d.bottom : 0.0f;
             }
-            int h = h(elA);
+            int h = h(elI);
             if (width <= h) {
                 switch (AnonymousClass2.$SwitchMap$android$widget$ImageView$ScaleType[this.mScaleType.ordinal()]) {
                     case 2:
@@ -548,35 +548,35 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
                         f3 = ((h - width) / 2.0f) - d.left;
                         break;
                 }
-                this.pfG = 2;
+                this.pgg = 2;
             } else if (d.left > 0.0f) {
-                this.pfG = 0;
+                this.pgg = 0;
                 f3 = -d.left;
             } else if (d.right < h) {
                 f3 = h - d.right;
-                this.pfG = 1;
+                this.pgg = 1;
             } else {
-                this.pfG = -1;
+                this.pgg = -1;
             }
-            this.pfv.postTranslate(f3, f2);
+            this.pfV.postTranslate(f3, f2);
             return true;
         }
         return false;
     }
 
     public Bitmap getVisibleRectangleBitmap() {
-        ImageView elA = elA();
-        if (elA == null) {
+        ImageView elI = elI();
+        if (elI == null) {
             return null;
         }
-        return elA.getDrawingCache();
+        return elI.getDrawingCache();
     }
 
     public void setZoomTransitionDuration(int i) {
         if (i < 0) {
             i = 200;
         }
-        this.pfo = i;
+        this.pfO = i;
     }
 
     private float a(Matrix matrix, int i) {
@@ -587,64 +587,64 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
         return this.mMatrixValues[i];
     }
 
-    private void elF() {
-        this.pfv.reset();
+    private void elN() {
+        this.pfV.reset();
         e(getDrawMatrix());
-        elE();
+        elM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(Matrix matrix) {
         RectF d;
-        ImageView elA = elA();
-        if (elA != null) {
-            elD();
-            elA.setImageMatrix(matrix);
-            if (this.pfx != null && (d = d(matrix)) != null) {
-                this.pfx.a(d);
+        ImageView elI = elI();
+        if (elI != null) {
+            elL();
+            elI.setImageMatrix(matrix);
+            if (this.pfX != null && (d = d(matrix)) != null) {
+                this.pfX.a(d);
             }
         }
     }
 
     private void q(Drawable drawable) {
-        ImageView elA = elA();
-        if (elA != null && drawable != null) {
-            float h = h(elA);
-            float i = i(elA);
+        ImageView elI = elI();
+        if (elI != null && drawable != null) {
+            float h = h(elI);
+            float i = i(elI);
             int intrinsicWidth = drawable.getIntrinsicWidth();
             int intrinsicHeight = drawable.getIntrinsicHeight();
-            this.pfu.reset();
+            this.pfU.reset();
             float f2 = h / intrinsicWidth;
             float f3 = i / intrinsicHeight;
             if (this.mScaleType == ImageView.ScaleType.CENTER) {
-                this.pfu.postTranslate((h - intrinsicWidth) / 2.0f, (i - intrinsicHeight) / 2.0f);
+                this.pfU.postTranslate((h - intrinsicWidth) / 2.0f, (i - intrinsicHeight) / 2.0f);
             } else if (this.mScaleType == ImageView.ScaleType.CENTER_CROP) {
                 float max = Math.max(f2, f3);
-                this.pfu.postScale(max, max);
-                this.pfu.postTranslate((h - (intrinsicWidth * max)) / 2.0f, (i - (intrinsicHeight * max)) / 2.0f);
+                this.pfU.postScale(max, max);
+                this.pfU.postTranslate((h - (intrinsicWidth * max)) / 2.0f, (i - (intrinsicHeight * max)) / 2.0f);
             } else if (this.mScaleType == ImageView.ScaleType.CENTER_INSIDE) {
                 float min = Math.min(1.0f, Math.min(f2, f3));
-                this.pfu.postScale(min, min);
-                this.pfu.postTranslate((h - (intrinsicWidth * min)) / 2.0f, (i - (intrinsicHeight * min)) / 2.0f);
+                this.pfU.postScale(min, min);
+                this.pfU.postTranslate((h - (intrinsicWidth * min)) / 2.0f, (i - (intrinsicHeight * min)) / 2.0f);
             } else {
                 RectF rectF = new RectF(0.0f, 0.0f, intrinsicWidth, intrinsicHeight);
                 RectF rectF2 = new RectF(0.0f, 0.0f, h, i);
                 switch (AnonymousClass2.$SwitchMap$android$widget$ImageView$ScaleType[this.mScaleType.ordinal()]) {
                     case 2:
-                        this.pfu.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.START);
+                        this.pfU.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.START);
                         break;
                     case 3:
-                        this.pfu.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.END);
+                        this.pfU.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.END);
                         break;
                     case 4:
-                        this.pfu.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.CENTER);
+                        this.pfU.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.CENTER);
                         break;
                     case 5:
-                        this.pfu.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.FILL);
+                        this.pfU.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.FILL);
                         break;
                 }
             }
-            elF();
+            elN();
         }
     }
 
@@ -666,35 +666,35 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     /* loaded from: classes11.dex */
     public class a implements Runnable {
         private final long mStartTime = System.currentTimeMillis();
-        private final float pfJ;
-        private final float pfK;
-        private final float pfL;
-        private final float pfM;
+        private final float pgj;
+        private final float pgk;
+        private final float pgl;
+        private final float pgm;
 
         public a(float f, float f2, float f3, float f4) {
-            this.pfJ = f3;
-            this.pfK = f4;
-            this.pfL = f;
-            this.pfM = f2;
+            this.pgj = f3;
+            this.pgk = f4;
+            this.pgl = f;
+            this.pgm = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ImageView elA = d.this.elA();
-            if (elA != null) {
-                float elG = elG();
-                float f = this.pfL + ((this.pfM - this.pfL) * elG);
+            ImageView elI = d.this.elI();
+            if (elI != null) {
+                float elO = elO();
+                float f = this.pgl + ((this.pgm - this.pgl) * elO);
                 if (d.this.getScale() > 0.0f) {
-                    d.this.onScale(f / d.this.getScale(), this.pfJ, this.pfK);
-                    if (elG < 1.0f) {
-                        com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.postOnAnimation(elA, this);
+                    d.this.onScale(f / d.this.getScale(), this.pgj, this.pgk);
+                    if (elO < 1.0f) {
+                        com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.postOnAnimation(elI, this);
                     }
                 }
             }
         }
 
-        private float elG() {
-            return d.sInterpolator.getInterpolation(Math.min(1.0f, (((float) (System.currentTimeMillis() - this.mStartTime)) * 1.0f) / d.this.pfo));
+        private float elO() {
+            return d.sInterpolator.getInterpolation(Math.min(1.0f, (((float) (System.currentTimeMillis() - this.mStartTime)) * 1.0f) / d.this.pfO));
         }
     }
 
@@ -703,17 +703,17 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
     public class b implements Runnable {
         private int bMK;
         private int mCurrentX;
-        private final com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d pfN;
+        private final com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d pgn;
 
         public b(Context context) {
-            this.pfN = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d.hE(context);
+            this.pgn = com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.c.d.hE(context);
         }
 
-        public void elB() {
+        public void elJ() {
             if (d.DEBUG) {
-                com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elI().d("PhotoViewAttacher", "Cancel Fling");
+                com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().d("PhotoViewAttacher", "Cancel Fling");
             }
-            this.pfN.AU(true);
+            this.pgn.AU(true);
         }
 
         public void M(int i, int i2, int i3, int i4) {
@@ -742,28 +742,28 @@ public class d implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutL
                 this.mCurrentX = round;
                 this.bMK = round2;
                 if (d.DEBUG) {
-                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elI().d("PhotoViewAttacher", "fling. StartX:" + round + " StartY:" + round2 + " MaxX:" + i5 + " MaxY:" + i7);
+                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().d("PhotoViewAttacher", "fling. StartX:" + round + " StartY:" + round2 + " MaxX:" + i5 + " MaxY:" + i7);
                 }
                 if (round != i5 || round2 != i7) {
-                    this.pfN.fling(round, round2, i3, i4, i6, i5, i8, i7, 0, 0);
+                    this.pgn.fling(round, round2, i3, i4, i6, i5, i8, i7, 0, 0);
                 }
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            ImageView elA;
-            if (!this.pfN.isFinished() && (elA = d.this.elA()) != null && this.pfN.computeScrollOffset()) {
-                int currX = this.pfN.getCurrX();
-                int currY = this.pfN.getCurrY();
+            ImageView elI;
+            if (!this.pgn.isFinished() && (elI = d.this.elI()) != null && this.pgn.computeScrollOffset()) {
+                int currX = this.pgn.getCurrX();
+                int currY = this.pgn.getCurrY();
                 if (d.DEBUG) {
-                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elI().d("PhotoViewAttacher", "fling run(). CurrentX:" + this.mCurrentX + " CurrentY:" + this.bMK + " NewX:" + currX + " NewY:" + currY);
+                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.elQ().d("PhotoViewAttacher", "fling run(). CurrentX:" + this.mCurrentX + " CurrentY:" + this.bMK + " NewX:" + currX + " NewY:" + currY);
                 }
-                d.this.pfv.postTranslate(this.mCurrentX - currX, this.bMK - currY);
+                d.this.pfV.postTranslate(this.mCurrentX - currX, this.bMK - currY);
                 d.this.e(d.this.getDrawMatrix());
                 this.mCurrentX = currX;
                 this.bMK = currY;
-                com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.postOnAnimation(elA, this);
+                com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.postOnAnimation(elI, this);
             }
         }
     }

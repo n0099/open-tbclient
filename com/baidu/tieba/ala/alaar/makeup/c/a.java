@@ -11,8 +11,8 @@ public class a extends c<Integer> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.alaar.makeup.c.b
-    /* renamed from: bPx */
-    public Integer bPy() {
+    /* renamed from: bPE */
+    public Integer bPF() {
         return Integer.valueOf(super.aG(getKey(), getDefaultValue().intValue()));
     }
 }

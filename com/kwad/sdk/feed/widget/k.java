@@ -128,14 +128,14 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
                 }
             }
         });
-        aVar.setVideoPlayCallback(new a.InterfaceC1105a() { // from class: com.kwad.sdk.feed.widget.k.3
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1105a
+        aVar.setVideoPlayCallback(new a.InterfaceC1107a() { // from class: com.kwad.sdk.feed.widget.k.3
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1107a
             public void a() {
                 com.kwad.sdk.core.report.b.h(k.this.f9862a);
                 k.this.i.setText(ai.a(bVar.getDuration()));
             }
 
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1105a
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1107a
             public void a(long j) {
                 k.this.a(j);
                 float duration = (((float) j) * 100.0f) / ((float) bVar.getDuration());
@@ -146,7 +146,7 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
                 k.this.i.setText(ai.a(bVar.getDuration()));
             }
 
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1105a
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1107a
             public void b() {
                 com.kwad.sdk.core.report.b.i(k.this.f9862a);
                 k.this.p.setVisibility(8);

@@ -9,75 +9,75 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b implements n, am, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> gci = new SparseArray<>();
-    private Object gcj;
-    private int gck;
+    private static SparseArray<BdUniqueId> gcn = new SparseArray<>();
+    private Object gco;
+    private int gcp;
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return gci.get(this.gck);
+        return gcn.get(this.gcp);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object bJq() {
-        return this.gcj;
+    public Object bJv() {
+        return this.gco;
     }
 
     public void aC(Object obj) {
-        this.gcj = obj;
+        this.gco = obj;
     }
 
-    public int bJr() {
-        return this.gck;
+    public int bJw() {
+        return this.gcp;
     }
 
     public void sL(int i) {
-        this.gck = i;
+        this.gcp = i;
     }
 
     public static void bM(List<Integer> list) {
-        if (gci.size() <= 0 && list != null) {
+        if (gcn.size() <= 0 && list != null) {
             for (Integer num : list) {
-                gci.put(num.intValue(), BdUniqueId.gen());
+                gcn.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> bJs() {
+    public static List<BdUniqueId> bJx() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < gci.size(); i++) {
-            arrayList.add(gci.valueAt(i));
+        for (int i = 0; i < gcn.size(); i++) {
+            arrayList.add(gcn.valueAt(i));
         }
         return arrayList;
     }
 
     public static int n(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (gci.size() == 0 || (indexOfValue = gci.indexOfValue(bdUniqueId)) == -1 || gci.size() <= indexOfValue) {
+        if (gcn.size() == 0 || (indexOfValue = gcn.indexOfValue(bdUniqueId)) == -1 || gcn.size() <= indexOfValue) {
             return -1;
         }
-        return gci.keyAt(indexOfValue);
+        return gcn.keyAt(indexOfValue);
     }
 
     @Override // com.baidu.tbadk.core.data.am
     public AdvertAppInfo blH() {
-        if (bJq() instanceof am) {
-            return (AdvertAppInfo) bJq();
+        if (bJv() instanceof am) {
+            return (AdvertAppInfo) bJv();
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.am
     public void setPosition(int i) {
-        if (bJq() instanceof am) {
-            ((am) bJq()).setPosition(i);
+        if (bJv() instanceof am) {
+            ((am) bJv()).setPosition(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.data.am
     public int blI() {
-        if (bJq() instanceof AdvertAppInfo) {
-            return ((am) bJq()).blI();
+        if (bJv() instanceof AdvertAppInfo) {
+            return ((am) bJv()).blI();
         }
         return -1;
     }

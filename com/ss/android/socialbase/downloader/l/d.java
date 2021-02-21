@@ -26,40 +26,40 @@ public class d {
             }
             this.f13218a.put(cVar.e(), cVar);
         }
-        com.ss.android.socialbase.downloader.g.d eIy = cVar.eIy();
+        com.ss.android.socialbase.downloader.g.d eIG = cVar.eIG();
         try {
-            ExecutorService eGf = com.ss.android.socialbase.downloader.downloader.b.eGf();
-            if (eIy != null && eIy.a() != null) {
-                if ("mime_type_plugin".equals(eIy.a().eHf()) && com.ss.android.socialbase.downloader.k.a.eIx().a("divide_plugin", 1) == 1) {
-                    eIy.a().o(3);
+            ExecutorService eGn = com.ss.android.socialbase.downloader.downloader.b.eGn();
+            if (eIG != null && eIG.a() != null) {
+                if ("mime_type_plugin".equals(eIG.a().eHn()) && com.ss.android.socialbase.downloader.k.a.eIF().a("divide_plugin", 1) == 1) {
+                    eIG.a().o(3);
                 }
-                switch (eIy.a().eHY()) {
+                switch (eIG.a().eIg()) {
                     case 3:
-                        eGf = com.ss.android.socialbase.downloader.downloader.b.eGd();
+                        eGn = com.ss.android.socialbase.downloader.downloader.b.eGl();
                         break;
                     case 4:
-                        eGf = com.ss.android.socialbase.downloader.downloader.b.eGe();
+                        eGn = com.ss.android.socialbase.downloader.downloader.b.eGm();
                         break;
                 }
             }
-            if (eGf != null) {
-                if (com.ss.android.socialbase.downloader.k.a.RV(cVar.e()).b("pause_with_interrupt", false)) {
-                    cVar.a(eGf.submit(cVar));
+            if (eGn != null) {
+                if (com.ss.android.socialbase.downloader.k.a.RW(cVar.e()).b("pause_with_interrupt", false)) {
+                    cVar.a(eGn.submit(cVar));
                     return;
                 } else {
-                    eGf.execute(cVar);
+                    eGn.execute(cVar);
                     return;
                 }
             }
-            com.ss.android.socialbase.downloader.h.a.a(eIy.eIc(), eIy.a(), new com.ss.android.socialbase.downloader.e.a(1003, "execute failed cpu thread executor service is null"), eIy.a() != null ? eIy.a().q() : 0);
+            com.ss.android.socialbase.downloader.h.a.a(eIG.eIk(), eIG.a(), new com.ss.android.socialbase.downloader.e.a(1003, "execute failed cpu thread executor service is null"), eIG.a() != null ? eIG.a().q() : 0);
         } catch (Exception e) {
-            if (eIy != null) {
-                com.ss.android.socialbase.downloader.h.a.a(eIy.eIc(), eIy.a(), new com.ss.android.socialbase.downloader.e.a(1003, com.ss.android.socialbase.downloader.m.d.c(e, "DownloadThreadPoolExecute")), eIy.a() != null ? eIy.a().q() : 0);
+            if (eIG != null) {
+                com.ss.android.socialbase.downloader.h.a.a(eIG.eIk(), eIG.a(), new com.ss.android.socialbase.downloader.e.a(1003, com.ss.android.socialbase.downloader.m.d.c(e, "DownloadThreadPoolExecute")), eIG.a() != null ? eIG.a().q() : 0);
             }
             e.printStackTrace();
         } catch (OutOfMemoryError e2) {
-            if (eIy != null) {
-                com.ss.android.socialbase.downloader.h.a.a(eIy.eIc(), eIy.a(), new com.ss.android.socialbase.downloader.e.a(1003, "execute OOM"), eIy.a() != null ? eIy.a().q() : 0);
+            if (eIG != null) {
+                com.ss.android.socialbase.downloader.h.a.a(eIG.eIk(), eIG.a(), new com.ss.android.socialbase.downloader.e.a(1003, "execute OOM"), eIG.a() != null ? eIG.a().q() : 0);
             }
             e2.printStackTrace();
         }
@@ -110,7 +110,7 @@ public class d {
         }
     }
 
-    public c RY(int i) {
+    public c RZ(int i) {
         synchronized (d.class) {
             b();
             c cVar = this.f13218a.get(i);
@@ -137,25 +137,25 @@ public class d {
     }
 
     private void c(c cVar) {
-        Future eIz;
+        Future eIH;
         if (cVar != null) {
             try {
-                ExecutorService eGf = com.ss.android.socialbase.downloader.downloader.b.eGf();
-                com.ss.android.socialbase.downloader.g.d eIy = cVar.eIy();
-                if (eIy != null && eIy.a() != null) {
-                    switch (eIy.a().eHY()) {
+                ExecutorService eGn = com.ss.android.socialbase.downloader.downloader.b.eGn();
+                com.ss.android.socialbase.downloader.g.d eIG = cVar.eIG();
+                if (eIG != null && eIG.a() != null) {
+                    switch (eIG.a().eIg()) {
                         case 3:
-                            eGf = com.ss.android.socialbase.downloader.downloader.b.eGd();
+                            eGn = com.ss.android.socialbase.downloader.downloader.b.eGl();
                             break;
                         case 4:
-                            eGf = com.ss.android.socialbase.downloader.downloader.b.eGe();
+                            eGn = com.ss.android.socialbase.downloader.downloader.b.eGm();
                             break;
                     }
                 }
-                if (eGf != null && (eGf instanceof ThreadPoolExecutor)) {
-                    ((ThreadPoolExecutor) eGf).remove(cVar);
-                    if (com.ss.android.socialbase.downloader.k.a.RV(cVar.e()).b("pause_with_interrupt", false) && (eIz = cVar.eIz()) != null) {
-                        eIz.cancel(true);
+                if (eGn != null && (eGn instanceof ThreadPoolExecutor)) {
+                    ((ThreadPoolExecutor) eGn).remove(cVar);
+                    if (com.ss.android.socialbase.downloader.k.a.RW(cVar.e()).b("pause_with_interrupt", false) && (eIH = cVar.eIH()) != null) {
+                        eIH.cancel(true);
                     }
                 }
             } catch (Exception e) {

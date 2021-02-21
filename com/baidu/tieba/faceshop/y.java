@@ -26,8 +26,8 @@ import java.util.List;
 public class y extends PopupWindow {
     private ViewGroup bMN;
     private int bMP;
-    private ae iWN;
-    private a iWO;
+    private ae iXb;
+    private a iXc;
     private Context mContext;
     private ListView mListView;
 
@@ -37,7 +37,7 @@ public class y extends PopupWindow {
     }
 
     public void a(a aVar) {
-        this.iWO = aVar;
+        this.iXc = aVar;
     }
 
     public y(Context context) {
@@ -61,17 +61,17 @@ public class y extends PopupWindow {
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        this.iWN = new ae(this.mContext);
-        this.iWN.setData(list, str);
-        bdListView.setAdapter((ListAdapter) this.iWN);
+        this.iXb = new ae(this.mContext);
+        this.iXb.setData(list, str);
+        bdListView.setAdapter((ListAdapter) this.iXb);
         bdListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.faceshop.y.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tbadk.album.a item = y.this.iWN.getItem(i);
+                com.baidu.tbadk.album.a item = y.this.iXb.getItem(i);
                 if (item instanceof com.baidu.tbadk.album.a) {
                     com.baidu.tbadk.album.a aVar = item;
-                    if (y.this.iWO != null) {
-                        y.this.iWO.a(i, aVar);
+                    if (y.this.iXc != null) {
+                        y.this.iXc.a(i, aVar);
                     }
                 }
                 y.this.UU();
@@ -108,8 +108,8 @@ public class y extends PopupWindow {
                 layoutParams.height = i;
             }
             this.mListView.setLayoutParams(layoutParams);
-            this.iWN.setData(list, str);
-            this.iWN.notifyDataSetChanged();
+            this.iXb.setData(list, str);
+            this.iXb.notifyDataSetChanged();
         }
     }
 

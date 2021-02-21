@@ -3,13 +3,13 @@ package com.baidu.tieba.yuyinala.liveroom.turntable.lucky;
 import android.widget.FrameLayout;
 /* loaded from: classes11.dex */
 public class a {
-    private FrameLayout hOP;
-    private boolean hOT;
+    private FrameLayout hPd;
+    private boolean hPh;
 
     public void oM(boolean z) {
-        this.hOT = z;
-        if (this.hOP != null && this.hOP.getParent() != null) {
-            this.hOP.setVisibility(z ? 0 : 8);
+        this.hPh = z;
+        if (this.hPd != null && this.hPd.getParent() != null) {
+            this.hPd.setVisibility(z ? 0 : 8);
         }
     }
 }

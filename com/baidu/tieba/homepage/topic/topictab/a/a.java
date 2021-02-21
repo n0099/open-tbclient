@@ -7,16 +7,16 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     private List<com.baidu.adp.widget.ListView.a> bns;
-    private s iLK;
+    private s iLY;
 
     public void notifyDataSetChanged() {
-        if (this.iLK != null) {
-            this.iLK.getListAdapter().notifyDataSetChanged();
+        if (this.iLY != null) {
+            this.iLY.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<n> list) {
-        this.iLK.setData(list);
+        this.iLY.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

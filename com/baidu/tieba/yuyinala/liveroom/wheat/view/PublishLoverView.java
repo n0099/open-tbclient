@@ -18,9 +18,9 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class PublishLoverView extends FrameLayout {
     private AnimatorSet bTp;
-    private a oLd;
-    private TextView otY;
-    private TextView ouk;
+    private a oLD;
+    private TextView ouL;
+    private TextView ouz;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -40,64 +40,64 @@ public class PublishLoverView extends FrameLayout {
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.yuyinala_liveroom_publish_lover, this);
         setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
-        this.otY = (TextView) findViewById(a.f.tv_sex);
-        this.ouk = (TextView) findViewById(a.f.tv_publish);
+        this.ouz = (TextView) findViewById(a.f.tv_sex);
+        this.ouL = (TextView) findViewById(a.f.tv_publish);
         setOnPublishClickListener();
     }
 
     public void Ap(boolean z) {
-        this.otY.setVisibility(0);
-        this.ouk.setVisibility(8);
-        this.otY.setText("已选");
+        this.ouz.setVisibility(0);
+        this.ouL.setVisibility(8);
+        this.ouz.setText("已选");
         if (z) {
-            this.otY.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_man);
+            this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_man);
         } else {
-            this.otY.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_woman);
+            this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_woman);
         }
     }
 
     public void d(boolean z, String str, boolean z2) {
         try {
-            this.otY.setVisibility(0);
+            this.ouz.setVisibility(0);
             if (z2) {
-                this.ouk.setVisibility(0);
+                this.ouL.setVisibility(0);
             } else {
-                this.ouk.setVisibility(8);
+                this.ouL.setVisibility(8);
             }
             SpannableString spannableString = new SpannableString(str);
             spannableString.setSpan(new AbsoluteSizeSpan(8, true), 0, 1, 17);
             spannableString.setSpan(new AbsoluteSizeSpan(11, true), 1, 2, 17);
-            this.otY.setText(spannableString);
+            this.ouz.setText(spannableString);
             if (z) {
-                this.otY.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_man);
+                this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_man);
             } else {
-                this.otY.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_woman);
+                this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_woman);
             }
         } catch (Exception e) {
         }
     }
 
-    public void eeZ() {
-        this.otY.setVisibility(0);
-        this.ouk.setVisibility(8);
-        this.otY.setText("放弃");
-        this.otY.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
+    public void efh() {
+        this.ouz.setVisibility(0);
+        this.ouL.setVisibility(8);
+        this.ouz.setText("放弃");
+        this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
     }
 
-    public void efa() {
-        this.otY.setVisibility(0);
-        this.ouk.setVisibility(8);
-        this.otY.setText("未公布");
-        this.otY.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
+    public void efi() {
+        this.ouz.setVisibility(0);
+        this.ouL.setVisibility(8);
+        this.ouz.setText("未公布");
+        this.ouz.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
     }
 
     public void setOnPublishClickListener() {
-        if (this.ouk != null) {
+        if (this.ouL != null) {
             setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.PublishLoverView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (PublishLoverView.this.ouk != null && PublishLoverView.this.ouk.getVisibility() == 0 && PublishLoverView.this.oLd != null) {
-                        PublishLoverView.this.oLd.onClick();
+                    if (PublishLoverView.this.ouL != null && PublishLoverView.this.ouL.getVisibility() == 0 && PublishLoverView.this.oLD != null) {
+                        PublishLoverView.this.oLD.onClick();
                     }
                 }
             });
@@ -105,12 +105,12 @@ public class PublishLoverView extends FrameLayout {
     }
 
     public void setOnPublishClickListener(a aVar) {
-        this.oLd = aVar;
+        this.oLD = aVar;
     }
 
-    public void efb() {
-        if (this.ouk != null) {
-            this.ouk.setVisibility(8);
+    public void efj() {
+        if (this.ouL != null) {
+            this.ouL.setVisibility(8);
         }
     }
 

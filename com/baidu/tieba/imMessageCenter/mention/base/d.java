@@ -13,12 +13,12 @@ import java.util.List;
 public class d {
     private BdTypeRecyclerView XW;
     private List<com.baidu.adp.widget.ListView.a> bns = new LinkedList();
-    private ArrayList<n> iFV;
-    private b kTl;
-    private b kTm;
-    private b kTn;
-    private b kTo;
-    private b kTp;
+    private ArrayList<n> iGj;
+    private b kTA;
+    private b kTB;
+    private b kTC;
+    private b kTD;
+    private b kTz;
 
     public d(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
@@ -28,16 +28,16 @@ public class d {
     }
 
     private void y(TbPageContext tbPageContext) {
-        this.kTl = new b(tbPageContext, a.kSV);
-        this.kTm = new b(tbPageContext, a.kSW);
-        this.kTn = new b(tbPageContext, a.kSZ);
-        this.kTo = new b(tbPageContext, a.kSY);
-        this.kTp = new b(tbPageContext, a.kSX);
-        this.bns.add(this.kTl);
-        this.bns.add(this.kTm);
-        this.bns.add(this.kTn);
-        this.bns.add(this.kTo);
-        this.bns.add(this.kTp);
+        this.kTz = new b(tbPageContext, a.kTj);
+        this.kTA = new b(tbPageContext, a.kTk);
+        this.kTB = new b(tbPageContext, a.kTn);
+        this.kTC = new b(tbPageContext, a.kTm);
+        this.kTD = new b(tbPageContext, a.kTl);
+        this.bns.add(this.kTz);
+        this.bns.add(this.kTA);
+        this.bns.add(this.kTB);
+        this.bns.add(this.kTC);
+        this.bns.add(this.kTD);
         this.XW.addAdapters(this.bns);
     }
 
@@ -48,7 +48,7 @@ public class d {
 
     public void setData(ArrayList<n> arrayList) {
         this.XW.setData(arrayList);
-        this.iFV = arrayList;
+        this.iGj = arrayList;
     }
 
     public void notifyDataSetChanged() {
@@ -78,8 +78,8 @@ public class d {
     }
 
     public void setOnCardSubClickListener(ab abVar) {
-        this.kTp.setOnCardSubClickListener(abVar);
-        this.kTo.setOnCardSubClickListener(abVar);
-        this.kTn.setOnCardSubClickListener(abVar);
+        this.kTD.setOnCardSubClickListener(abVar);
+        this.kTC.setOnCardSubClickListener(abVar);
+        this.kTB.setOnCardSubClickListener(abVar);
     }
 }

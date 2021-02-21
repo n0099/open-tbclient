@@ -26,7 +26,7 @@ public class a {
     }
 
     private static String g(String str, Object... objArr) {
-        return "[" + efS() + "] " + formatLog(str, objArr);
+        return "[" + ega() + "] " + formatLog(str, objArr);
     }
 
     private static void debug(String str, String str2, Object... objArr) {
@@ -74,7 +74,7 @@ public class a {
         return null;
     }
 
-    private static String efS() {
+    private static String ega() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         String name = a.class.getName();
         int i = 0;

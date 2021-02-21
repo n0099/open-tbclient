@@ -17,7 +17,7 @@ public class SMRListView extends SMListView implements a {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.a
-    public boolean emX() {
+    public boolean eng() {
         if (getCount() == 0) {
             return true;
         }
@@ -25,7 +25,7 @@ public class SMRListView extends SMListView implements a {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.session.view.smrlistview.a
-    public boolean emY() {
+    public boolean enh() {
         return getLastVisiblePosition() == getCount() + (-1) && getChildAt(getLastVisiblePosition() - getFirstVisiblePosition()) != null && getChildAt(getLastVisiblePosition() - getFirstVisiblePosition()).getBottom() == getMeasuredHeight();
     }
 }

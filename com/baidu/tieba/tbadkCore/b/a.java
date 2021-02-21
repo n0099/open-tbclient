@@ -29,15 +29,15 @@ import com.baidu.tieba.R;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static c nvH;
+    private static c nwh;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0870a {
+    public interface InterfaceC0872a {
         void onRefresh();
     }
 
-    public static void a(final TbPageContext tbPageContext, View view, final boolean z, InterfaceC0870a interfaceC0870a) {
+    public static void a(final TbPageContext tbPageContext, View view, final boolean z, InterfaceC0872a interfaceC0872a) {
         final SpannableString spannableString;
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(MemberPayActivityConfig.class)) {
             long defaultBubbleEndTime = TbadkCoreApplication.getInst().getDefaultBubbleEndTime();
@@ -47,8 +47,8 @@ public class a {
                     MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RESET_BUBBLE, TbPageContext.class, tbPageContext);
                     TbadkCoreApplication.getInst().setDefaultBubble(null);
                     TbadkCoreApplication.getInst().setDefaultBubbleEndTime(0);
-                    if (interfaceC0870a != null) {
-                        interfaceC0870a.onRefresh();
+                    if (interfaceC0872a != null) {
+                        interfaceC0872a.onRefresh();
                     }
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
                     aVar.jG(false);
@@ -126,8 +126,8 @@ public class a {
                             textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.b.a.3.1
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (a.nvH != null) {
-                                        a.nvH.dismiss();
+                                    if (a.nwh != null) {
+                                        a.nwh.dismiss();
                                     }
                                     MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) TbPageContext.this.getPageActivity(), true, (int) RequestResponseCode.REQUEST_PAY_BUBBLE_CODE, "expiring");
                                     memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
@@ -159,7 +159,7 @@ public class a {
                     });
                     dVar.ab(true);
                     dVar.ad(false);
-                    nvH = dVar.lF();
+                    nwh = dVar.lF();
                     new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.4
                         @Override // java.lang.Runnable
                         public void run() {
@@ -174,15 +174,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void l(Activity activity, boolean z) {
-        if (nvH != null) {
-            nvH.show(activity);
+        if (nwh != null) {
+            nwh.show(activity);
         }
         if (!z) {
             new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.nvH != null) {
-                        a.nvH.dismiss();
+                    if (a.nwh != null) {
+                        a.nwh.dismiss();
                     }
                 }
             }, 5000L);

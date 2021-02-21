@@ -20,92 +20,92 @@ public class e {
     private ViewGroup mRootView;
     private SwipeBackLayout mSwipeBackLayout;
     private View mVideoView;
-    private FragmentActivity mlb;
-    private ViewGroup mlc;
-    private ViewGroup.LayoutParams mld;
-    private ViewGroup.LayoutParams mle;
-    private View mlf;
-    private Rect mlg;
-    private Rect mlh;
-    private ValueAnimator mlj;
-    private ValueAnimator mlk;
-    private Animator.AnimatorListener mll;
-    private View[] mlm;
-    private boolean mli = true;
+    private Animator.AnimatorListener mlA;
+    private View[] mlB;
+    private FragmentActivity mlq;
+    private ViewGroup mlr;
+    private ViewGroup.LayoutParams mls;
+    private ViewGroup.LayoutParams mlt;
+    private View mlu;
+    private Rect mlv;
+    private Rect mlw;
+    private ValueAnimator mly;
+    private ValueAnimator mlz;
+    private boolean mlx = true;
     private boolean aDS = false;
 
     public e(FragmentActivity fragmentActivity, View view) {
-        this.mlb = fragmentActivity;
+        this.mlq = fragmentActivity;
         this.mVideoView = view;
-        this.mlc = (ViewGroup) fragmentActivity.getWindow().getDecorView();
-        this.mlf = this.mlc.findViewById(R.id.appbar_layout);
-        this.mRootView = (ViewGroup) this.mlc.findViewById(R.id.video_pb_root);
+        this.mlr = (ViewGroup) fragmentActivity.getWindow().getDecorView();
+        this.mlu = this.mlr.findViewById(R.id.appbar_layout);
+        this.mRootView = (ViewGroup) this.mlr.findViewById(R.id.video_pb_root);
     }
 
     private void init() {
-        this.mlm = new View[3];
-        this.mlm[0] = this.mlc.findViewById(R.id.pb_video_view_pager);
-        this.mlm[1] = this.mlc.findViewById(R.id.pb_video_tab_strip);
-        this.mlm[2] = this.mlc.findViewById(R.id.video_pb_comment_container);
-        this.mlc.findViewById(16908290).setBackgroundResource(R.color.transparent);
-        this.mlc.findViewById(R.id.container).setBackgroundResource(R.color.transparent);
-        this.mlc.findViewById(R.id.video_pb_root).setBackgroundResource(R.color.transparent);
-        this.mlc.findViewById(R.id.pb_video_nested_scroll_layout).setBackgroundResource(R.color.transparent);
-        this.mlc.findViewById(R.id.appbar_layout).setBackgroundResource(R.color.transparent);
-        this.mlc.findViewById(R.id.scroll_container).setBackgroundResource(R.color.transparent);
-        if (this.mlc.getChildAt(0) instanceof SwipeBackLayout) {
-            this.mSwipeBackLayout = (SwipeBackLayout) this.mlc.getChildAt(0);
+        this.mlB = new View[3];
+        this.mlB[0] = this.mlr.findViewById(R.id.pb_video_view_pager);
+        this.mlB[1] = this.mlr.findViewById(R.id.pb_video_tab_strip);
+        this.mlB[2] = this.mlr.findViewById(R.id.video_pb_comment_container);
+        this.mlr.findViewById(16908290).setBackgroundResource(R.color.transparent);
+        this.mlr.findViewById(R.id.container).setBackgroundResource(R.color.transparent);
+        this.mlr.findViewById(R.id.video_pb_root).setBackgroundResource(R.color.transparent);
+        this.mlr.findViewById(R.id.pb_video_nested_scroll_layout).setBackgroundResource(R.color.transparent);
+        this.mlr.findViewById(R.id.appbar_layout).setBackgroundResource(R.color.transparent);
+        this.mlr.findViewById(R.id.scroll_container).setBackgroundResource(R.color.transparent);
+        if (this.mlr.getChildAt(0) instanceof SwipeBackLayout) {
+            this.mSwipeBackLayout = (SwipeBackLayout) this.mlr.getChildAt(0);
             this.mSwipeBackLayout.setBgTransparent();
         }
-        this.mMaskView = new View(this.mlb);
+        this.mMaskView = new View(this.mlq);
         ap.setBackgroundColor(this.mMaskView, R.color.CAM_X0201);
-        this.mlc.addView(this.mMaskView, 0, new ViewGroup.LayoutParams(-1, -1));
-        this.mlj = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.mlj.setInterpolator(new DecelerateInterpolator());
-        this.mlj.setDuration(300L);
-        this.mlj.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.e.1
+        this.mlr.addView(this.mMaskView, 0, new ViewGroup.LayoutParams(-1, -1));
+        this.mly = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.mly.setInterpolator(new DecelerateInterpolator());
+        this.mly.setDuration(300L);
+        this.mly.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.e.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 e.this.aW(valueAnimator.getAnimatedFraction());
             }
         });
-        this.mlj.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.e.2
+        this.mly.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.e.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                if (e.this.mll != null) {
-                    e.this.mll.onAnimationStart(animator);
+                if (e.this.mlA != null) {
+                    e.this.mlA.onAnimationStart(animator);
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                e.this.duE();
+                e.this.duL();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                e.this.duE();
+                e.this.duL();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.mlk = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.mlk.setDuration(100L);
-        this.mlk.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.e.3
+        this.mlz = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.mlz.setDuration(100L);
+        this.mlz.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.e.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 e.this.aV(valueAnimator.getAnimatedFraction());
             }
         });
-        this.mlk.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.e.4
+        this.mlz.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.e.4
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 View[] viewArr;
-                e.this.mlc.removeView(e.this.mMaskView);
+                e.this.mlr.removeView(e.this.mMaskView);
                 ap.setBackgroundColor(e.this.mRootView, R.color.CAM_X0201);
-                for (View view : e.this.mlm) {
+                for (View view : e.this.mlB) {
                     view.setVisibility(0);
                     view.setAlpha(0.0f);
                 }
@@ -113,17 +113,17 @@ public class e {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                e.this.duD();
-                if (e.this.mll != null) {
-                    e.this.mll.onAnimationEnd(animator);
+                e.this.duK();
+                if (e.this.mlA != null) {
+                    e.this.mlA.onAnimationEnd(animator);
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                e.this.duD();
-                if (e.this.mll != null) {
-                    e.this.mll.onAnimationCancel(animator);
+                e.this.duK();
+                if (e.this.mlA != null) {
+                    e.this.mlA.onAnimationCancel(animator);
                 }
             }
 
@@ -134,70 +134,70 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void duD() {
+    public void duK() {
         this.aDS = false;
-        for (View view : this.mlm) {
+        for (View view : this.mlB) {
             view.setAlpha(1.0f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void duE() {
+    public void duL() {
         if (this.mMaskView != null) {
             this.mMaskView.setAlpha(1.0f);
         }
         this.mVideoView.setTranslationX(0.0f);
         this.mVideoView.setTranslationY(0.0f);
-        this.mlf.setLayoutParams(this.mld);
-        if (this.mlf.getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
-            CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) this.mlf.getLayoutParams()).getBehavior();
+        this.mlu.setLayoutParams(this.mls);
+        if (this.mlu.getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
+            CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) this.mlu.getLayoutParams()).getBehavior();
             if ((behavior instanceof VideoZoomBehavior) && (this.mVideoView instanceof VideoContainerLayout)) {
                 ((VideoZoomBehavior) behavior).setTopAndBottomOffset(((VideoContainerLayout) this.mVideoView).getOriginHeight() - ((VideoContainerLayout) this.mVideoView).getMaxHeight());
             }
         }
-        this.mVideoView.setLayoutParams(this.mle);
-        this.mlk.start();
+        this.mVideoView.setLayoutParams(this.mlt);
+        this.mlz.start();
     }
 
     public void b(Rect rect, Rect rect2) {
-        this.mlg = rect;
-        this.mlh = rect2;
-        if (duF()) {
+        this.mlv = rect;
+        this.mlw = rect2;
+        if (duM()) {
             init();
         }
     }
 
     public void start() {
-        this.mli = false;
+        this.mlx = false;
         this.aDS = true;
-        for (View view : this.mlm) {
+        for (View view : this.mlB) {
             view.setVisibility(8);
         }
-        this.mld = this.mlf.getLayoutParams();
-        this.mlf.setLayoutParams(new CoordinatorLayout.LayoutParams(l.getEquipmentWidth(TbadkCoreApplication.getInst()), l.getEquipmentHeight(TbadkCoreApplication.getInst())));
-        this.mle = this.mVideoView.getLayoutParams();
-        this.mVideoView.setLayoutParams(new RelativeLayout.LayoutParams(this.mle.width, this.mle.height));
+        this.mls = this.mlu.getLayoutParams();
+        this.mlu.setLayoutParams(new CoordinatorLayout.LayoutParams(l.getEquipmentWidth(TbadkCoreApplication.getInst()), l.getEquipmentHeight(TbadkCoreApplication.getInst())));
+        this.mlt = this.mVideoView.getLayoutParams();
+        this.mVideoView.setLayoutParams(new RelativeLayout.LayoutParams(this.mlt.width, this.mlt.height));
         if (this.mMaskView != null) {
             this.mMaskView.setAlpha(0.0f);
         }
-        this.mlj.start();
+        this.mly.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aV(float f) {
-        for (View view : this.mlm) {
+        for (View view : this.mlB) {
             view.setAlpha(f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aW(float f) {
-        float width = this.mlg.width() + ((this.mlh.width() - this.mlg.width()) * f);
-        float height = this.mlg.height() + ((this.mlh.height() - this.mlg.height()) * f);
-        float f2 = this.mlg.left + ((this.mlh.left - this.mlg.left) * f);
-        float f3 = this.mlg.top + ((this.mlh.top - this.mlg.top) * f);
-        int i = (int) (f2 - this.mlh.left);
-        int i2 = (int) (f3 - this.mlh.top);
+        float width = this.mlv.width() + ((this.mlw.width() - this.mlv.width()) * f);
+        float height = this.mlv.height() + ((this.mlw.height() - this.mlv.height()) * f);
+        float f2 = this.mlv.left + ((this.mlw.left - this.mlv.left) * f);
+        float f3 = this.mlv.top + ((this.mlw.top - this.mlv.top) * f);
+        int i = (int) (f2 - this.mlw.left);
+        int i2 = (int) (f3 - this.mlw.top);
         if (this.mMaskView != null) {
             this.mMaskView.setAlpha(f);
         }
@@ -211,12 +211,12 @@ public class e {
         }
     }
 
-    public boolean duF() {
-        return (!this.mli || this.mlg == null || this.mlg.isEmpty() || this.mlh == null || this.mlh.isEmpty()) ? false : true;
+    public boolean duM() {
+        return (!this.mlx || this.mlv == null || this.mlv.isEmpty() || this.mlw == null || this.mlw.isEmpty()) ? false : true;
     }
 
     public void c(Animator.AnimatorListener animatorListener) {
-        this.mll = animatorListener;
+        this.mlA = animatorListener;
     }
 
     public boolean isPlaying() {

@@ -25,15 +25,15 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends BaseAdapter {
     private ArrayList<j.b> eVV = new ArrayList<>();
-    private int gNr;
+    private int gNF;
     private String mLiveId;
     private TbPageContext mPageContext;
-    private String ooz;
+    private String ooZ;
 
     public e(TbPageContext tbPageContext, int i, String str, String str2) {
         this.mPageContext = tbPageContext;
-        this.gNr = i;
-        this.ooz = str;
+        this.gNF = i;
+        this.ooZ = str;
         this.mLiveId = str2;
     }
 
@@ -55,7 +55,7 @@ public class e extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: LL */
+    /* renamed from: LM */
     public j.b getItem(int i) {
         if (this.eVV == null) {
             return null;
@@ -75,33 +75,33 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_rank__list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.oqF = (CharmRankItemView) view.findViewById(a.f.item);
+            aVar2.orf = (CharmRankItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (item = getItem(i)) != null) {
-            if (aVar.oqF.getData() == null || !TextUtils.equals(aVar.oqF.getData().user_uk, item.user_uk)) {
-                aVar.oqF.opu.setData(item);
+            if (aVar.orf.getData() == null || !TextUtils.equals(aVar.orf.getData().user_uk, item.user_uk)) {
+                aVar.orf.opU.setData(item);
             }
-            aVar.oqF.setData(i + 1, item);
-            aVar.oqF.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
+            aVar.orf.setData(i + 1, item);
+            aVar.orf.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
                 @Override // com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.a
-                public void eah() {
+                public void eap() {
                     if (!TbadkCoreApplication.isLogin()) {
                         ViewHelper.skipToLoginActivity(e.this.mPageContext.getContext());
                         return;
                     }
                     com.baidu.live.personmanager.a aVar3 = new com.baidu.live.personmanager.a(e.this.mPageContext.getContext());
                     if (!item.Bo()) {
-                        aVar3.u(item.user_uk, e.this.ooz, e.this.mLiveId);
+                        aVar3.u(item.user_uk, e.this.ooZ, e.this.mLiveId);
                         aVar3.a(new a.InterfaceC0193a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1.1
                             @Override // com.baidu.live.personmanager.a.InterfaceC0193a
                             public void Pf() {
-                                e.this.LM(i + 1);
+                                e.this.LN(i + 1);
                                 item.follow_status = 1;
-                                aVar.oqF.aE(true, true);
+                                aVar.orf.aE(true, true);
                                 BdUtilHelper.showToast(e.this.mPageContext.getContext(), "关注成功", 3000);
                             }
 
@@ -118,15 +118,15 @@ public class e extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void LM(int i) {
+    public void LN(int i) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ooz);
-            if (this.gNr == 0) {
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ooZ);
+            if (this.gNF == 0) {
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "contribtab");
                 jSONObject.put("contrib_num", i);
-            } else if (this.gNr == 1) {
+            } else if (this.gNF == 1) {
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "charmtab");
                 jSONObject.put("charm_num", i);
             }
@@ -138,7 +138,7 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes11.dex */
     private class a {
-        private CharmRankItemView oqF;
+        private CharmRankItemView orf;
 
         private a() {
         }

@@ -25,10 +25,10 @@ public class PushDialogStatic {
 
     static {
         TbadkApplication.getInst().RegisterIntent(PushDialogActivityConfig.class, PushDialogActivity.class);
-        cut();
+        cuA();
     }
 
-    private static void cut() {
+    private static void cuA() {
         com.baidu.tieba.tbadkCore.a.a.a(309614, PushDialogSocketResMsg.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003412, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
         tbHttpMessageTask.setResponsedClass(PushDialogHttpResMsg.class);
@@ -40,7 +40,7 @@ public class PushDialogStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921359, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-                PushDialogLoopManager.dBU();
+                PushDialogLoopManager.dCb();
                 return null;
             }
         });
@@ -56,7 +56,7 @@ public class PushDialogStatic {
                     if (!(i2 >= 2) && TbSingleton.getInstance().canShowPermDialog()) {
                         final TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) customMessage.getData();
                         if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                            if (b.dCb()) {
+                            if (b.dCi()) {
                                 bVar = new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.1
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -72,7 +72,7 @@ public class PushDialogStatic {
                                     }
                                 };
                                 i = R.string.push_dialog_guide_content_miui;
-                            } else if (b.dCc()) {
+                            } else if (b.dCj()) {
                                 bVar = new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.2
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

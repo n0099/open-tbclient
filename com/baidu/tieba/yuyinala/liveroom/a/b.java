@@ -24,7 +24,7 @@ public class b extends e implements f {
     private View bVD;
     private RoundRectRelativeLayout bWv;
     private int bWw;
-    private boolean hCH;
+    private boolean hCV;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -163,7 +163,7 @@ public class b extends e implements f {
         if (getContentView() == null) {
             return false;
         }
-        if (this.hCH) {
+        if (this.hCV) {
             return true;
         }
         TranslateAnimation translateAnimation = null;
@@ -186,7 +186,7 @@ public class b extends e implements f {
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     b.this.Yc();
-                    b.this.hCH = false;
+                    b.this.hCV = false;
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -194,7 +194,7 @@ public class b extends e implements f {
                 }
             });
             getContentView().startAnimation(translateAnimation);
-            this.hCH = true;
+            this.hCV = true;
             return true;
         }
         return false;

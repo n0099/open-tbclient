@@ -4,34 +4,34 @@ import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class f {
     final int capacityHint;
-    Object[] qrB;
-    Object[] qrC;
-    int qrD;
+    Object[] qsb;
+    Object[] qsc;
+    int qsd;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.qrB = new Object[this.capacityHint + 1];
-            this.qrC = this.qrB;
-            this.qrB[0] = obj;
-            this.qrD = 1;
+            this.qsb = new Object[this.capacityHint + 1];
+            this.qsc = this.qsb;
+            this.qsb[0] = obj;
+            this.qsd = 1;
             this.size = 1;
-        } else if (this.qrD == this.capacityHint) {
+        } else if (this.qsd == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.qrC[this.capacityHint] = objArr;
-            this.qrC = objArr;
-            this.qrD = 1;
+            this.qsc[this.capacityHint] = objArr;
+            this.qsc = objArr;
+            this.qsd = 1;
             this.size++;
         } else {
-            this.qrC[this.qrD] = obj;
-            this.qrD++;
+            this.qsc[this.qsd] = obj;
+            this.qsd++;
             this.size++;
         }
     }
 
-    public Object[] eKE() {
-        return this.qrB;
+    public Object[] eKM() {
+        return this.qsb;
     }
 
     public int size() {
@@ -44,14 +44,14 @@ public class f {
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
         int i4 = 0;
-        Object[] eKE = eKE();
+        Object[] eKM = eKM();
         while (i4 < i2) {
-            arrayList.add(eKE[i3]);
+            arrayList.add(eKM[i3]);
             i4++;
             int i5 = i3 + 1;
             if (i5 == i) {
                 i3 = 0;
-                eKE = eKE[i];
+                eKM = eKM[i];
             } else {
                 i3 = i5;
             }

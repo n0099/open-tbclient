@@ -12,18 +12,18 @@ public class a extends BdBaseModel {
     private BdUniqueId aCW = BdUniqueId.gen();
     private final HttpMessageListener bBe;
     private Context bNw;
-    private InterfaceC0923a otP;
+    private InterfaceC0925a oup;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.chooselover.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0923a {
+    public interface InterfaceC0925a {
         void a(ChooseLoverHttpResponseMessage chooseLoverHttpResponseMessage);
 
         void onFail(int i, String str);
     }
 
-    public void a(InterfaceC0923a interfaceC0923a) {
-        this.otP = interfaceC0923a;
+    public void a(InterfaceC0925a interfaceC0925a) {
+        this.oup = interfaceC0925a;
     }
 
     public a(Context context) {
@@ -38,12 +38,12 @@ public class a extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChooseLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId() && a.this.otP != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChooseLoverHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId() && a.this.oup != null) {
                     ChooseLoverHttpResponseMessage chooseLoverHttpResponseMessage = (ChooseLoverHttpResponseMessage) httpResponsedMessage;
                     if (chooseLoverHttpResponseMessage.getError() != 0 || !chooseLoverHttpResponseMessage.isSuccess()) {
-                        a.this.otP.onFail(chooseLoverHttpResponseMessage.getError(), chooseLoverHttpResponseMessage.getErrorString());
+                        a.this.oup.onFail(chooseLoverHttpResponseMessage.getError(), chooseLoverHttpResponseMessage.getErrorString());
                     } else {
-                        a.this.otP.a(chooseLoverHttpResponseMessage);
+                        a.this.oup.a(chooseLoverHttpResponseMessage);
                     }
                 }
             }

@@ -31,12 +31,12 @@ public class a extends c {
     private boolean h;
     private boolean i;
     private AdTemplate j;
-    private InterfaceC1071a k;
+    private InterfaceC1073a k;
     private Handler l;
 
     /* renamed from: com.kwad.sdk.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1071a {
+    public interface InterfaceC1073a {
         void a();
     }
 
@@ -124,8 +124,8 @@ public class a extends c {
         });
     }
 
-    public void a(InterfaceC1071a interfaceC1071a) {
-        this.k = interfaceC1071a;
+    public void a(InterfaceC1073a interfaceC1073a) {
+        this.k = interfaceC1073a;
     }
 
     @Override // com.kwad.sdk.c.c

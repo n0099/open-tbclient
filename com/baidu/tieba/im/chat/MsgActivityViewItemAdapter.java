@@ -17,13 +17,13 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgActivityView cUF = msgViewHolder.cUF();
-        cUF.setPosition(i);
-        cUF.setData(chatMessage);
-        cUF.a(this.kAf);
-        cUF.setOnItemViewLongClickListener(this.kAg);
-        cUF.gM(this.mCurrentTime);
-        cUF.gL(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView cUM = msgViewHolder.cUM();
+        cUM.setPosition(i);
+        cUM.setData(chatMessage);
+        cUM.a(this.kAt);
+        cUM.setOnItemViewLongClickListener(this.kAu);
+        cUM.gM(this.mCurrentTime);
+        cUM.gL(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

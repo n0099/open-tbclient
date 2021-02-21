@@ -580,12 +580,12 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
         this.mPermissionJudgement.clearRequestPermissionList();
         if (!(this.mContext instanceof Activity)) {
-            cVar.dOb();
+            cVar.dOj();
             return cVar;
         }
         this.mPermissionJudgement.appendRequestPermission((Activity) this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE");
         if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
-            cVar.Ti("权限申请");
+            cVar.Tu("权限申请");
             return cVar;
         }
         new p((Activity) this.mContext, str, new p.a() { // from class: com.baidu.tbadk.browser.CommonTbJsBridge.2
@@ -621,7 +621,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     public com.baidu.tieba.tbadkCore.e.a.c saveImageSuccess(HashMap<String, Integer> hashMap) {
         com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
         if (hashMap != null && hashMap.get("result").intValue() == -1) {
-            cVar.Ti("图片保存错误");
+            cVar.Tu("图片保存错误");
         }
         return cVar;
     }
@@ -921,7 +921,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                 shareItem.fuR = true;
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                f.ctz().b(shareDialogConfig);
+                f.ctG().b(shareDialogConfig);
                 cVar.setData("");
                 return cVar;
             }

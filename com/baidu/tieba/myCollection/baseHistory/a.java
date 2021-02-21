@@ -22,7 +22,7 @@ public class a implements f {
     private String liveId = "";
     private String userName = "";
     private String description = "";
-    private boolean lxA = true;
+    private boolean lxO = true;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof a)) {
@@ -178,7 +178,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String dhM() {
+    public String dhT() {
         return this.threadName;
     }
 
@@ -206,11 +206,11 @@ public class a implements f {
         return this.postID;
     }
 
-    public void ON(String str) {
+    public void OO(String str) {
         this.postID = str;
     }
 
-    public boolean dhN() {
+    public boolean dhU() {
         return this.isHostOnly;
     }
 
@@ -218,7 +218,7 @@ public class a implements f {
         this.isHostOnly = z;
     }
 
-    public boolean dhO() {
+    public boolean dhV() {
         return this.isSquence;
     }
 
@@ -251,11 +251,11 @@ public class a implements f {
     }
 
     public boolean isLive() {
-        return this.lxA;
+        return this.lxO;
     }
 
     public void un(boolean z) {
-        this.lxA = z;
+        this.lxO = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -269,7 +269,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean Do(String str) {
+    public boolean Dm(String str) {
         if (str != null) {
             try {
                 return eF(new JSONObject(str));

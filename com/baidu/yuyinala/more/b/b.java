@@ -8,14 +8,14 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     private String mTitle;
-    private List<a> oXd;
+    private List<a> oXD;
 
     public String getTitle() {
         return this.mTitle;
     }
 
-    public List<a> ejy() {
-        return this.oXd;
+    public List<a> ejG() {
+        return this.oXD;
     }
 
     public void parse(JSONObject jSONObject) throws JSONException {
@@ -23,12 +23,12 @@ public class b {
             this.mTitle = jSONObject.optString("title");
             JSONArray optJSONArray = jSONObject.optJSONArray("btn_list");
             if (optJSONArray != null && optJSONArray.length() != 0) {
-                this.oXd = new ArrayList();
+                this.oXD = new ArrayList();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     a aVar = new a();
                     aVar.parse(optJSONArray.optJSONObject(i));
-                    this.oXd.add(aVar);
+                    this.oXD.add(aVar);
                 }
             }
         }

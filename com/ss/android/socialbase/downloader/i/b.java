@@ -13,27 +13,27 @@ public class b {
     /* renamed from: a  reason: collision with root package name */
     private static final String f13173a = b.class.getSimpleName();
     private static long f = -1;
-    private static volatile b qgo = null;
+    private static volatile b qgO = null;
     private long e;
-    private final a qgn;
-    private final j qgm = j.eIo();
+    private final a qgN;
+    private final j qgM = j.eIw();
     private final AtomicInteger c = new AtomicInteger();
 
-    public static b eIn() {
-        if (qgo == null) {
+    public static b eIv() {
+        if (qgO == null) {
             synchronized (b.class) {
-                if (qgo == null) {
-                    qgo = new b();
+                if (qgO == null) {
+                    qgO = new b();
                 }
             }
         }
-        return qgo;
+        return qgO;
     }
 
     private b() {
         HandlerThread handlerThread = new HandlerThread("ParseThread");
         handlerThread.start();
-        this.qgn = new a(handlerThread.getLooper());
+        this.qgN = new a(handlerThread.getLooper());
     }
 
     public void b() {
@@ -42,7 +42,7 @@ public class b {
                 if (com.ss.android.socialbase.downloader.f.a.a()) {
                     com.ss.android.socialbase.downloader.f.a.b(f13173a, "startSampling");
                 }
-                this.qgn.a();
+                this.qgN.a();
                 this.e = SystemClock.uptimeMillis();
             }
         } catch (Throwable th) {
@@ -55,7 +55,7 @@ public class b {
                 if (com.ss.android.socialbase.downloader.f.a.a()) {
                     com.ss.android.socialbase.downloader.f.a.b(f13173a, "stopSampling");
                 }
-                this.qgn.b();
+                this.qgN.b();
                 f();
             }
         } catch (Throwable th) {
@@ -69,7 +69,7 @@ public class b {
     protected void e() {
         long mobileRxBytes;
         try {
-            if (com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eGu())) {
+            if (com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eGC())) {
                 mobileRxBytes = d();
             } else {
                 mobileRxBytes = TrafficStats.getMobileRxBytes();
@@ -78,7 +78,7 @@ public class b {
             if (f >= 0) {
                 synchronized (this) {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.qgm.a(j, uptimeMillis - this.e);
+                    this.qgM.a(j, uptimeMillis - this.e);
                     this.e = uptimeMillis;
                 }
             }

@@ -19,7 +19,7 @@ public interface c {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1009c {
+    public interface InterfaceC1011c {
         boolean a(c cVar, int i, int i2);
     }
 
@@ -58,7 +58,7 @@ public interface c {
 
     void a(b bVar);
 
-    void a(InterfaceC1009c interfaceC1009c);
+    void a(InterfaceC1011c interfaceC1011c);
 
     void a(d dVar);
 

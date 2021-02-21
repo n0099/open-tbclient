@@ -25,9 +25,9 @@ public final class FlowableIntervalRange extends g<Long> {
         cVar.onSubscribe(intervalRangeSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c eKi = vVar.eKi();
-            intervalRangeSubscriber.setResource(eKi);
-            eKi.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
+            v.c eKq = vVar.eKq();
+            intervalRangeSubscriber.setResource(eKq);
+            eKq.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalRangeSubscriber.setResource(vVar.a(intervalRangeSubscriber, this.initialDelay, this.period, this.unit));

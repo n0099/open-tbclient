@@ -13,7 +13,7 @@ public abstract class a implements c {
     private c.a c;
     private c.f d;
     private c.h e;
-    private c.InterfaceC1104c f;
+    private c.InterfaceC1106c f;
     private c.d g;
     private c.g h;
 
@@ -60,8 +60,8 @@ public abstract class a implements c {
     }
 
     @Override // com.kwad.sdk.core.video.a.c
-    public void a(c.InterfaceC1104c interfaceC1104c) {
-        this.f = interfaceC1104c;
+    public void a(c.InterfaceC1106c interfaceC1106c) {
+        this.f = interfaceC1106c;
     }
 
     @Override // com.kwad.sdk.core.video.a.c

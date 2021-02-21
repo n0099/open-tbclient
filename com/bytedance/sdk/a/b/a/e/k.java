@@ -12,11 +12,11 @@ class k {
 
     /* renamed from: b  reason: collision with root package name */
     private static final byte[] f5922b = {13, 23, 28, 28, 28, 28, 28, 28, 28, 24, 30, 28, 28, 30, 28, 28, 28, 28, 28, 28, 28, 28, 30, 28, 28, 28, 28, 28, 28, 28, 28, 28, 6, 10, 10, 12, 13, 6, 8, Constants.GZIP_CAST_TYPE, 10, 10, 8, Constants.GZIP_CAST_TYPE, 8, 6, 6, 6, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 8, 15, 6, 12, 10, 13, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 7, 8, 13, 19, 13, 14, 6, 15, 5, 6, 5, 6, 5, 6, 6, 6, 5, 7, 7, 6, 6, 6, 5, 6, 7, 6, 5, 5, 6, 7, 7, 7, 7, 7, 15, Constants.GZIP_CAST_TYPE, 14, 13, 28, 20, 22, 20, 20, 22, 22, 22, 23, 22, 23, 23, 23, 23, 23, 24, 23, 24, 24, 22, 23, 24, 23, 23, 23, 23, 21, 22, 23, 22, 23, 23, 24, 22, 21, 20, 22, 22, 23, 23, 21, 23, 22, 22, 24, 21, 22, 23, 23, 21, 21, 22, 21, 23, 22, 23, 23, 20, 22, 22, 22, 23, 22, 22, 23, 26, 26, 20, 19, 22, 23, 22, 25, 26, 26, 26, 27, 27, 26, 24, 25, 19, 21, 26, 27, 27, 26, 27, 24, 21, 21, 26, 26, 28, 27, 27, 27, 20, 24, 20, 21, 22, 21, 21, 23, 22, 22, 25, 25, 24, 24, 26, 23, 26, 27, 26, 26, 27, 27, 27, 27, 27, 28, 27, 27, 27, 27, 27, 26};
-    private static final k pqB = new k();
-    private final a pqC = new a();
+    private static final k prb = new k();
+    private final a prc = new a();
 
-    public static k epv() {
-        return pqB;
+    public static k epD() {
+        return prb;
     }
 
     private k() {
@@ -41,13 +41,13 @@ class k {
             int i3 = b4 + b2;
             while (i3 >= 8) {
                 i3 = (i3 == 1 ? 1 : 0) - 8;
-                dVar.OA((int) (j >> i3));
+                dVar.OB((int) (j >> i3));
             }
             i++;
             b3 = i3;
         }
         if (b2 > 0) {
-            dVar.OA((int) ((j << (8 - b2)) | (255 >>> b2)));
+            dVar.OB((int) ((j << (8 - b2)) | (255 >>> b2)));
         }
     }
 
@@ -63,7 +63,7 @@ class k {
     /* JADX INFO: Access modifiers changed from: package-private */
     public byte[] a(byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        a aVar = this.pqC;
+        a aVar = this.prc;
         int i = 0;
         int i2 = 0;
         int i3 = 0;
@@ -71,11 +71,11 @@ class k {
             i3 = (i3 << 8) | (bArr[i] & 255);
             int i4 = i2 + 8;
             while (i4 >= 8) {
-                a aVar2 = aVar.pqD[(i3 >>> (i4 - 8)) & 255];
-                if (aVar2.pqD == null) {
+                a aVar2 = aVar.prd[(i3 >>> (i4 - 8)) & 255];
+                if (aVar2.prd == null) {
                     byteArrayOutputStream.write(aVar2.f5923b);
                     i4 -= aVar2.c;
-                    aVar2 = this.pqC;
+                    aVar2 = this.prc;
                 } else {
                     i4 -= 8;
                 }
@@ -85,13 +85,13 @@ class k {
             i2 = i4;
         }
         while (i2 > 0) {
-            a aVar3 = aVar.pqD[(i3 << (8 - i2)) & 255];
-            if (aVar3.pqD != null || aVar3.c > i2) {
+            a aVar3 = aVar.prd[(i3 << (8 - i2)) & 255];
+            if (aVar3.prd != null || aVar3.c > i2) {
                 break;
             }
             byteArrayOutputStream.write(aVar3.f5923b);
             i2 -= aVar3.c;
-            aVar = this.pqC;
+            aVar = this.prc;
         }
         return byteArrayOutputStream.toByteArray();
     }
@@ -104,25 +104,25 @@ class k {
 
     private void a(int i, int i2, byte b2) {
         a aVar = new a(i, b2);
-        a aVar2 = this.pqC;
+        a aVar2 = this.prc;
         while (true) {
             a aVar3 = aVar2;
             if (b2 > 8) {
                 b2 = (byte) (b2 - 8);
                 int i3 = (i2 >>> b2) & 255;
-                if (aVar3.pqD == null) {
+                if (aVar3.prd == null) {
                     throw new IllegalStateException("invalid dictionary: prefix not unique");
                 }
-                if (aVar3.pqD[i3] == null) {
-                    aVar3.pqD[i3] = new a();
+                if (aVar3.prd[i3] == null) {
+                    aVar3.prd[i3] = new a();
                 }
-                aVar2 = aVar3.pqD[i3];
+                aVar2 = aVar3.prd[i3];
             } else {
                 int i4 = 8 - b2;
                 int i5 = (i2 << i4) & 255;
                 int i6 = 1 << i4;
                 for (int i7 = i5; i7 < i5 + i6; i7++) {
-                    aVar3.pqD[i7] = aVar;
+                    aVar3.prd[i7] = aVar;
                 }
                 return;
             }
@@ -136,16 +136,16 @@ class k {
         /* renamed from: b  reason: collision with root package name */
         final int f5923b;
         final int c;
-        final a[] pqD;
+        final a[] prd;
 
         a() {
-            this.pqD = new a[256];
+            this.prd = new a[256];
             this.f5923b = 0;
             this.c = 0;
         }
 
         a(int i, int i2) {
-            this.pqD = null;
+            this.prd = null;
             this.f5923b = i;
             int i3 = i2 & 7;
             this.c = i3 == 0 ? 8 : i3;

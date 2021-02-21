@@ -9,10 +9,10 @@ import org.json.JSONException;
 public final class ai {
     public static void a(String str, r<am> rVar) {
         try {
-            rVar.eIP();
-            t eIT = new s(str, "GET", eJc()).eIT();
+            rVar.eIX();
+            t eJb = new s(str, "GET", eJk()).eJb();
             am amVar = new am();
-            int a2 = a(eIT, amVar);
+            int a2 = a(eJb, amVar);
             if (a2 == 200) {
                 rVar.bH(amVar);
             } else {
@@ -25,7 +25,7 @@ public final class ai {
         }
     }
 
-    public static HashMap<String, List<String>> eJc() {
+    public static HashMap<String, List<String>> eJk() {
         HashMap<String, List<String>> hashMap = new HashMap<>();
         hashMap.put(Headers.ACCEPT_ENCODING, Collections.singletonList("application/gzip"));
         hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
@@ -34,10 +34,10 @@ public final class ai {
     }
 
     public static int a(t tVar, am amVar) {
-        byte[] bArr = tVar.qjD;
+        byte[] bArr = tVar.qkd;
         int i = tVar.java;
         if (i == 200) {
-            amVar.abF(new String(bArr, "UTF-8"));
+            amVar.abR(new String(bArr, "UTF-8"));
             return amVar.java;
         }
         return i;

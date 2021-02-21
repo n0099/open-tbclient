@@ -32,21 +32,21 @@ public final class v {
                     aVar.f13760b = String.valueOf(System.currentTimeMillis() - SystemClock.elapsedRealtime());
                     aVar.c = bd.a();
                     Context context2 = context;
-                    long currentTimeMillis = System.currentTimeMillis() - az.m62b(context2);
+                    long currentTimeMillis = System.currentTimeMillis() - az.m61b(context2);
                     if (currentTimeMillis < 0) {
                         az.iL(context2);
                     }
                     if (currentTimeMillis >= 86400000) {
-                        List<String> eJl = bd.eJl();
-                        HashSet hashSet = new HashSet(eJl);
+                        List<String> eJt = bd.eJt();
+                        HashSet hashSet = new HashSet(eJt);
                         az.iL(context2);
                         int hashCode = hashSet.toString().hashCode();
                         if (hashCode != az.e(context2)) {
                             az.af(context2, hashCode);
-                            str = eJl.toString();
+                            str = eJt.toString();
                             if (!TextUtils.isEmpty(str)) {
                                 try {
-                                    aVar.d = bc.abJ(str);
+                                    aVar.d = bc.abV(str);
                                 } catch (Exception e2) {
                                     aVar.d = str;
                                 }
@@ -54,7 +54,7 @@ public final class v {
                             az.iX(context);
                             w.a iN = w.iN(context);
                             iN.java = aVar.toString();
-                            iN.eIP();
+                            iN.eIX();
                         }
                     }
                     str = null;
@@ -63,18 +63,18 @@ public final class v {
                     az.iX(context);
                     w.a iN2 = w.iN(context);
                     iN2.java = aVar.toString();
-                    iN2.eIP();
+                    iN2.eIX();
                 }
             });
         }
     }
 
     private static boolean iM(Context context) {
-        long currentTimeMillis = System.currentTimeMillis() - az.m64c(context);
+        long currentTimeMillis = System.currentTimeMillis() - az.m63c(context);
         if (currentTimeMillis < 0) {
             az.iX(context);
         }
-        return currentTimeMillis > az.m66d(context) * BdKVCache.MILLS_1Hour;
+        return currentTimeMillis > az.m65d(context) * BdKVCache.MILLS_1Hour;
     }
 
     /* loaded from: classes3.dex */

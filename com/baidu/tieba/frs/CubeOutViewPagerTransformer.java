@@ -26,7 +26,7 @@ public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
     }
 
     @Override // com.baidu.tieba.frs.BaseViewPagerTransformer
-    public boolean cBz() {
+    public boolean cBG() {
         return true;
     }
 

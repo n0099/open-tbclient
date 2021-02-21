@@ -8,12 +8,12 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItem
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.i;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.adp.widget.ListView.a<k, LiveTabConcernItemViewLineHolder> {
-    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.d gCi;
-    private i gCj;
+    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.d gCw;
+    private i gCx;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), k.gAX);
+        super(tbPageContext.getPageActivity(), k.gBl);
         this.mPageContext = tbPageContext;
     }
 
@@ -22,28 +22,28 @@ public class c extends com.baidu.adp.widget.ListView.a<k, LiveTabConcernItemView
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public LiveTabConcernItemViewLineHolder e(ViewGroup viewGroup) {
-        this.gCi = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.d(this.mPageContext, viewGroup);
-        if (this.gCj != null) {
-            this.gCi.a(this.gCj);
+        this.gCw = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.d(this.mPageContext, viewGroup);
+        if (this.gCx != null) {
+            this.gCw.a(this.gCx);
         }
-        return new LiveTabConcernItemViewLineHolder(this.gCi);
+        return new LiveTabConcernItemViewLineHolder(this.gCw);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
-        if (liveTabConcernItemViewLineHolder == null || liveTabConcernItemViewLineHolder.gCi == null) {
+        if (liveTabConcernItemViewLineHolder == null || liveTabConcernItemViewLineHolder.gCw == null) {
             return null;
         }
-        liveTabConcernItemViewLineHolder.gCi.a(kVar);
+        liveTabConcernItemViewLineHolder.gCw.a(kVar);
         return liveTabConcernItemViewLineHolder.getView();
     }
 
     public void a(i iVar) {
-        this.gCj = iVar;
-        if (this.gCi != null) {
-            this.gCi.a(this.gCj);
+        this.gCx = iVar;
+        if (this.gCw != null) {
+            this.gCw.a(this.gCx);
         }
     }
 }

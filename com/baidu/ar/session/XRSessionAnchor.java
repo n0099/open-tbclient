@@ -57,7 +57,7 @@ public class XRSessionAnchor {
 
     public static boolean supportArCore(Context context) {
         try {
-            ArCoreApk.Availability iq = ArCoreApk.eAK().iq(context);
+            ArCoreApk.Availability iq = ArCoreApk.eAS().iq(context);
             return iq != null && (iq.isSupported() || iq.isTransient());
         } catch (Exception e) {
             return true;

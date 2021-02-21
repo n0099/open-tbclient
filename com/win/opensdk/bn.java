@@ -8,7 +8,7 @@ public interface bn {
 
     void a(String str, Info info);
 
-    void eIP();
+    void eIX();
 
-    View eIS();
+    View eJa();
 }

@@ -4,18 +4,18 @@ import com.facebook.cache.common.CacheErrorLogger;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class e implements CacheErrorLogger {
-    private static e pxA = null;
+    private static e pya = null;
 
     private e() {
     }
 
-    public static synchronized e erN() {
+    public static synchronized e erV() {
         e eVar;
         synchronized (e.class) {
-            if (pxA == null) {
-                pxA = new e();
+            if (pya == null) {
+                pya = new e();
             }
-            eVar = pxA;
+            eVar = pya;
         }
         return eVar;
     }

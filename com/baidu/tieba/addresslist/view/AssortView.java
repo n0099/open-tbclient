@@ -12,15 +12,15 @@ import com.baidu.tbadk.coreExtra.relationship.c;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class AssortView extends View {
-    private a gjY;
+    private a gkm;
     private Paint mPaint;
     private int mPosition;
 
     /* loaded from: classes8.dex */
     public interface a {
-        void ER(String str);
+        void ES(String str);
 
-        void bLJ();
+        void bLQ();
     }
 
     public AssortView(Context context) {
@@ -46,7 +46,7 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.gjY = aVar;
+        this.gkm = aVar;
     }
 
     @Override // android.view.View
@@ -80,22 +80,22 @@ public class AssortView extends View {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mPosition = y;
-                    if (this.gjY != null) {
-                        this.gjY.ER(c.fuz[this.mPosition]);
+                    if (this.gkm != null) {
+                        this.gkm.ES(c.fuz[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.gjY != null) {
-                        this.gjY.bLJ();
+                    if (this.gkm != null) {
+                        this.gkm.bLQ();
                     }
                     this.mPosition = -1;
                     return true;
                 case 2:
                     if (this.mPosition != y) {
                         this.mPosition = y;
-                        if (this.gjY != null) {
-                            this.gjY.ER(c.fuz[this.mPosition]);
+                        if (this.gkm != null) {
+                            this.gkm.ES(c.fuz[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -106,8 +106,8 @@ public class AssortView extends View {
             }
         }
         this.mPosition = -1;
-        if (this.gjY != null) {
-            this.gjY.bLJ();
+        if (this.gkm != null) {
+            this.gkm.bLQ();
             return true;
         }
         return true;

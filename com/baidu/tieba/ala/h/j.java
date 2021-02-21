@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class j {
-    public static cc Iw(String str) {
+    public static cc Ix(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

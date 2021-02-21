@@ -15,21 +15,21 @@ import tbclient.Lego.DataRes;
 /* loaded from: classes9.dex */
 public class c implements a {
     private boolean hasMore;
-    private String lbd;
-    private String lbe;
-    List<d> lbf;
-    private final e lfy;
+    private String lbr;
+    private String lbs;
+    List<d> lbt;
+    private final e lfM;
     private String rank;
     private int scrollIndex;
     private String title;
-    private List<ICardInfo> lfz = new ArrayList();
+    private List<ICardInfo> lfN = new ArrayList();
     private int pn = 1;
-    private boolean lfA = false;
-    private boolean lfB = false;
-    private boolean lfC = false;
+    private boolean lfO = false;
+    private boolean lfP = false;
+    private boolean lfQ = false;
 
     public c(e eVar) {
-        this.lfy = eVar;
+        this.lfM = eVar;
     }
 
     @Override // com.baidu.tieba.lego.c.a
@@ -38,28 +38,28 @@ public class c implements a {
     }
 
     @Override // com.baidu.tieba.lego.c.a
-    public List<ICardInfo> dcG() {
-        return this.lfz;
+    public List<ICardInfo> dcN() {
+        return this.lfN;
     }
 
     public void Eg(int i) {
         this.scrollIndex = i;
     }
 
-    public int dcH() {
+    public int dcO() {
         return this.scrollIndex;
     }
 
-    public boolean dcI() {
-        return this.lfA;
+    public boolean dcP() {
+        return this.lfO;
     }
 
-    public boolean dcJ() {
-        return this.lfB;
+    public boolean dcQ() {
+        return this.lfP;
     }
 
-    public e dcK() {
-        return this.lfy;
+    public e dcR() {
+        return this.lfM;
     }
 
     @Override // com.baidu.tieba.lego.c.a
@@ -67,36 +67,36 @@ public class c implements a {
         return this.hasMore;
     }
 
-    public String dcL() {
+    public String dcS() {
         return this.rank;
     }
 
-    public void NL(String str) {
+    public void NM(String str) {
         this.rank = str;
     }
 
-    public String dcM() {
-        return this.lbd;
+    public String dcT() {
+        return this.lbr;
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public String dcN() {
-        return this.lbe;
+    public String dcU() {
+        return this.lbs;
     }
 
-    public List<d> dcO() {
-        return this.lbf;
+    public List<d> dcV() {
+        return this.lbt;
     }
 
     @Override // com.baidu.tieba.lego.c.a
     public void a(boolean z, Message message, boolean z2, int i) {
         if (z) {
-            this.lfB = true;
+            this.lfP = true;
         } else {
-            this.lfA = true;
+            this.lfO = true;
         }
         DataRes dataRes = (DataRes) message;
         if (dataRes != null) {
@@ -107,15 +107,15 @@ public class c implements a {
                     JSONObject optJSONObject = jSONObject.optJSONObject("title");
                     if (optJSONObject != null) {
                         this.title = optJSONObject.optString("name");
-                        this.lbd = optJSONObject.optString("url");
-                        this.lbe = optJSONObject.optString("urlNight");
+                        this.lbr = optJSONObject.optString("url");
+                        this.lbs = optJSONObject.optString("urlNight");
                     }
                     JSONArray optJSONArray = jSONObject.optJSONArray("buttons");
                     if (optJSONArray != null) {
-                        if (this.lbf == null) {
-                            this.lbf = new ArrayList();
+                        if (this.lbt == null) {
+                            this.lbt = new ArrayList();
                         } else {
-                            this.lbf.clear();
+                            this.lbt.clear();
                         }
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
@@ -123,7 +123,7 @@ public class c implements a {
                                 d dVar = new d();
                                 dVar.parseFromJson(optJSONObject2);
                                 if (dVar.isValid()) {
-                                    this.lbf.add(dVar);
+                                    this.lbt.add(dVar);
                                 }
                             }
                         }
@@ -135,26 +135,26 @@ public class c implements a {
             ArrayList arrayList = new ArrayList();
             if (dataRes.cards != null) {
                 for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
-                    ICardInfo NC = com.baidu.tieba.lego.card.b.NC(dataRes.cards.get(i3));
-                    if (NC != null && NC.isValid()) {
-                        arrayList.add(NC);
+                    ICardInfo ND = com.baidu.tieba.lego.card.b.ND(dataRes.cards.get(i3));
+                    if (ND != null && ND.isValid()) {
+                        arrayList.add(ND);
                     }
-                    if (i3 == dataRes.cards.size() - 1 && NC != null) {
-                        NL(NC.getFlipId());
+                    if (i3 == dataRes.cards.size() - 1 && ND != null) {
+                        NM(ND.getFlipId());
                     }
                 }
             }
             if (z2) {
-                this.lfz.addAll(arrayList);
+                this.lfN.addAll(arrayList);
                 this.pn = i;
                 return;
             }
             this.pn = 1;
-            this.lfz = arrayList;
+            this.lfN = arrayList;
         }
     }
 
-    public void NM(String str) {
+    public void NN(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("page_info");
@@ -164,15 +164,15 @@ public class c implements a {
                 JSONObject optJSONObject = jSONObject2.optJSONObject("title");
                 if (optJSONObject != null) {
                     this.title = optJSONObject.optString("name");
-                    this.lbd = optJSONObject.optString("url");
-                    this.lbe = optJSONObject.optString("urlNight");
+                    this.lbr = optJSONObject.optString("url");
+                    this.lbs = optJSONObject.optString("urlNight");
                 }
                 JSONArray optJSONArray = jSONObject2.optJSONArray("buttons");
                 if (optJSONArray != null) {
-                    if (this.lbf == null) {
-                        this.lbf = new ArrayList();
+                    if (this.lbt == null) {
+                        this.lbt = new ArrayList();
                     } else {
-                        this.lbf.clear();
+                        this.lbt.clear();
                     }
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
@@ -180,7 +180,7 @@ public class c implements a {
                             d dVar = new d();
                             dVar.parseFromJson(optJSONObject2);
                             if (dVar.isValid()) {
-                                this.lbf.add(dVar);
+                                this.lbt.add(dVar);
                             }
                         }
                     }
@@ -190,20 +190,20 @@ public class c implements a {
             ArrayList arrayList = new ArrayList();
             if (optJSONArray2 != null) {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    ICardInfo NC = com.baidu.tieba.lego.card.b.NC(optJSONArray2.getString(i2));
-                    if (NC != null && NC.isValid()) {
-                        arrayList.add(NC);
+                    ICardInfo ND = com.baidu.tieba.lego.card.b.ND(optJSONArray2.getString(i2));
+                    if (ND != null && ND.isValid()) {
+                        arrayList.add(ND);
                     }
-                    if (i2 == optJSONArray2.length() - 1 && NC != null) {
-                        NL(NC.getFlipId());
+                    if (i2 == optJSONArray2.length() - 1 && ND != null) {
+                        NM(ND.getFlipId());
                     }
                 }
             }
-            this.lfz = arrayList;
+            this.lfN = arrayList;
             if (hasData()) {
-                this.lfC = true;
+                this.lfQ = true;
             } else {
-                this.lfC = false;
+                this.lfQ = false;
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -212,10 +212,10 @@ public class c implements a {
 
     @Override // com.baidu.tieba.lego.c.a
     public boolean hasData() {
-        return this.lfz != null && this.lfz.size() > 0;
+        return this.lfN != null && this.lfN.size() > 0;
     }
 
-    public boolean dcP() {
-        return this.lfC;
+    public boolean dcW() {
+        return this.lfQ;
     }
 }

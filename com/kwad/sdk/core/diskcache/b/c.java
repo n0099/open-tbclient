@@ -38,7 +38,7 @@ public class c {
             public void run() {
                 OutputStream outputStream = null;
                 try {
-                    a.C1090a a2 = com.kwad.sdk.core.diskcache.a.a.this.a(str2);
+                    a.C1092a a2 = com.kwad.sdk.core.diskcache.a.a.this.a(str2);
                     if (a2 != null) {
                         outputStream = a2.a(0);
                         if (c.b(str, outputStream, new a())) {
@@ -113,7 +113,7 @@ public class c {
         boolean z = false;
         OutputStream outputStream = null;
         try {
-            a.C1090a a2 = aVar.a(str2);
+            a.C1092a a2 = aVar.a(str2);
             if (a2 != null) {
                 outputStream = a2.a(0);
                 if (b(str, outputStream, aVar2)) {

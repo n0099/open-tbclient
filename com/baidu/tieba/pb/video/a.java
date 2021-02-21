@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.l;
 /* loaded from: classes2.dex */
 public class a extends l<b, GodReplyMoreViewHolder> {
-    public View.OnClickListener gjP;
+    public View.OnClickListener gkd;
 
     public a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
@@ -30,14 +30,14 @@ public class a extends l<b, GodReplyMoreViewHolder> {
     @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, GodReplyMoreViewHolder godReplyMoreViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (b) godReplyMoreViewHolder);
-        if (godReplyMoreViewHolder != null && godReplyMoreViewHolder.ixf != null) {
-            if (this.gjP != null) {
-                godReplyMoreViewHolder.ixf.setOnClickListener(this.gjP);
+        if (godReplyMoreViewHolder != null && godReplyMoreViewHolder.ixt != null) {
+            if (this.gkd != null) {
+                godReplyMoreViewHolder.ixt.setOnClickListener(this.gkd);
             }
             if (godReplyMoreViewHolder.ajU != TbadkCoreApplication.getInst().getSkinType()) {
                 godReplyMoreViewHolder.ajU = TbadkCoreApplication.getInst().getSkinType();
-                ap.setViewTextColor(godReplyMoreViewHolder.ixf, R.color.CAM_X0106);
-                ap.setBackgroundResource(godReplyMoreViewHolder.ixf, R.drawable.more_all);
+                ap.setViewTextColor(godReplyMoreViewHolder.ixt, R.color.CAM_X0106);
+                ap.setBackgroundResource(godReplyMoreViewHolder.ixt, R.drawable.more_all);
                 ap.setBackgroundResource(godReplyMoreViewHolder.dividerLine, R.color.CAM_X0204);
             }
         }
@@ -45,6 +45,6 @@ public class a extends l<b, GodReplyMoreViewHolder> {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.gjP = onClickListener;
+        this.gkd = onClickListener;
     }
 }

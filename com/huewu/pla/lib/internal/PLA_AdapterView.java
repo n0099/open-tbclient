@@ -335,7 +335,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
-            com.huewu.pla.lib.a.ZQ("data changed by onChanged()");
+            com.huewu.pla.lib.a.aac("data changed by onChanged()");
             PLA_AdapterView.this.mDataChanged = true;
             PLA_AdapterView.this.mOldItemCount = PLA_AdapterView.this.mItemCount;
             PLA_AdapterView.this.mItemCount = PLA_AdapterView.this.getAdapter().getCount();
@@ -350,7 +350,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
         @Override // android.database.DataSetObserver
         public void onInvalidated() {
-            com.huewu.pla.lib.a.ZQ("data changed by onInvalidated()");
+            com.huewu.pla.lib.a.aac("data changed by onInvalidated()");
             PLA_AdapterView.this.mDataChanged = true;
             if (PLA_AdapterView.this.getAdapter().hasStableIds()) {
                 this.bIc = PLA_AdapterView.this.onSaveInstanceState();

@@ -13,15 +13,15 @@ public class AlaDragContainerView extends FrameLayout {
     private float bqc;
     private int dVi;
     private int height;
-    private int hmB;
-    private int hmC;
-    private boolean hmD;
-    private final int hmE;
-    private int ihZ;
-    private int iia;
-    private int iib;
-    private int iic;
-    private boolean iid;
+    private int hmP;
+    private int hmQ;
+    private boolean hmR;
+    private final int hmS;
+    private int iin;
+    private int iio;
+    private int iip;
+    private int iiq;
+    private boolean iir;
     private boolean isHost;
     private Context mContext;
     private int screenWidth;
@@ -29,33 +29,33 @@ public class AlaDragContainerView extends FrameLayout {
 
     public AlaDragContainerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hmD = false;
-        this.ihZ = 0;
-        this.iia = 0;
+        this.hmR = false;
+        this.iin = 0;
+        this.iio = 0;
         this.isHost = false;
         this.mContext = context;
-        this.hmE = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-        this.iib = ScreenHelper.getRealScreenWidth(this.mContext);
-        this.iic = ScreenHelper.getRealScreenHeight(this.mContext);
+        this.hmS = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.iip = ScreenHelper.getRealScreenWidth(this.mContext);
+        this.iiq = ScreenHelper.getRealScreenHeight(this.mContext);
     }
 
     public void setMargins(boolean z, boolean z2, int i, int i2, int i3, int i4) {
         this.isHost = z;
-        this.iid = z2;
+        this.iir = z2;
         if (z2) {
-            this.iib = i4;
-            this.iia = -(ScreenHelper.getRealScreenWidth(this.mContext) - i4);
-            this.iic = i3;
-            this.ihZ = -(ScreenHelper.getRealScreenHeight(this.mContext) - i3);
+            this.iip = i4;
+            this.iio = -(ScreenHelper.getRealScreenWidth(this.mContext) - i4);
+            this.iiq = i3;
+            this.iin = -(ScreenHelper.getRealScreenHeight(this.mContext) - i3);
         } else {
-            this.iia = -i2;
-            this.iib = ScreenHelper.getRealScreenWidth(this.mContext) + i4;
-            this.ihZ = -i;
-            this.iic = ScreenHelper.getRealScreenHeight(this.mContext) + i3;
+            this.iio = -i2;
+            this.iip = ScreenHelper.getRealScreenWidth(this.mContext) + i4;
+            this.iin = -i;
+            this.iiq = ScreenHelper.getRealScreenHeight(this.mContext) + i3;
         }
         if (!z) {
-            this.ihZ -= 100;
-            this.iic -= 100;
+            this.iin -= 100;
+            this.iiq -= 100;
         }
     }
 
@@ -73,8 +73,8 @@ public class AlaDragContainerView extends FrameLayout {
         super.onMeasure(i, i2);
         this.width = getMeasuredWidth();
         this.height = getMeasuredHeight();
-        this.hmB = this.width / 2;
-        this.hmC = this.height / 2;
+        this.hmP = this.width / 2;
+        this.hmQ = this.height / 2;
         this.screenWidth = ScreenHelper.getScreenWidth(this.mContext);
         this.dVi = ScreenHelper.getScreenHeight(this.mContext);
     }
@@ -92,38 +92,38 @@ public class AlaDragContainerView extends FrameLayout {
         if (isEnabled()) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.hmD = false;
+                    this.hmR = false;
                     this.bqb = motionEvent.getX();
                     this.bqc = motionEvent.getY();
                     x = motionEvent.getX() - this.bqb;
                     y = motionEvent.getY() - this.bqc;
-                    if (Math.abs(x) <= this.hmE || Math.abs(y) > this.hmE) {
-                        this.hmD = true;
+                    if (Math.abs(x) <= this.hmS || Math.abs(y) > this.hmS) {
+                        this.hmR = true;
                         int translationX = (int) (x + getTranslationX());
                         int translationY = (int) (y + getTranslationY());
                         int i = this.width + translationX;
                         int i2 = this.height + translationY;
-                        if (!this.iid) {
-                            if (translationX < this.iia + this.width) {
-                                translationX = this.iia + this.width;
-                            } else if (translationX > this.iib) {
-                                translationX = this.iib;
+                        if (!this.iir) {
+                            if (translationX < this.iio + this.width) {
+                                translationX = this.iio + this.width;
+                            } else if (translationX > this.iip) {
+                                translationX = this.iip;
                             }
-                            if (translationY < this.ihZ + this.height) {
-                                translationY = this.ihZ + this.height;
-                            } else if (translationY > this.iic) {
-                                translationY = this.iic;
+                            if (translationY < this.iin + this.height) {
+                                translationY = this.iin + this.height;
+                            } else if (translationY > this.iiq) {
+                                translationY = this.iiq;
                             }
                         } else {
-                            if (translationX < this.iia) {
-                                translationX = this.iia;
-                            } else if (translationX > this.iib - this.width) {
-                                translationX = this.iib - this.width;
+                            if (translationX < this.iio) {
+                                translationX = this.iio;
+                            } else if (translationX > this.iip - this.width) {
+                                translationX = this.iip - this.width;
                             }
-                            if (translationY < this.ihZ) {
-                                translationY = this.ihZ;
-                            } else if (translationY > this.iic - this.height) {
-                                translationY = this.iic - this.height;
+                            if (translationY < this.iin) {
+                                translationY = this.iin;
+                            } else if (translationY > this.iiq - this.height) {
+                                translationY = this.iiq - this.height;
                             }
                         }
                         setTranslationX(translationX);
@@ -134,25 +134,25 @@ public class AlaDragContainerView extends FrameLayout {
                 case 2:
                     x = motionEvent.getX() - this.bqb;
                     y = motionEvent.getY() - this.bqc;
-                    if (Math.abs(x) <= this.hmE) {
+                    if (Math.abs(x) <= this.hmS) {
                         break;
                     }
-                    this.hmD = true;
+                    this.hmR = true;
                     int translationX2 = (int) (x + getTranslationX());
                     int translationY2 = (int) (y + getTranslationY());
                     int i3 = this.width + translationX2;
                     int i22 = this.height + translationY2;
-                    if (!this.iid) {
+                    if (!this.iir) {
                     }
                     setTranslationX(translationX2);
                     setTranslationY(translationY2);
                     break;
             }
         }
-        return Boolean.valueOf(this.hmD);
+        return Boolean.valueOf(this.hmR);
     }
 
     public boolean getIsDragged() {
-        return this.hmD;
+        return this.hmR;
     }
 }

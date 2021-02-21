@@ -16,13 +16,13 @@ import com.baidu.tieba.view.RoundRelativeLayout;
 /* loaded from: classes2.dex */
 public class b {
     private boolean ajp;
-    private RoundRelativeLayout iRp;
-    private ImageView iRq;
-    private ImageView iRr;
-    private ImageView iRs;
-    private TextView iRt;
-    private TextView iRu;
-    private int iRv;
+    private RoundRelativeLayout iRD;
+    private ImageView iRE;
+    private ImageView iRF;
+    private ImageView iRG;
+    private TextView iRH;
+    private TextView iRI;
+    private int iRJ;
     private TbPageContext<?> mPageContext;
     private View mView;
     private int tbds90;
@@ -30,14 +30,14 @@ public class b {
     public b(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
         this.mView = this.mPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.forum_square_item_view, (ViewGroup) null);
-        this.iRp = (RoundRelativeLayout) this.mView.findViewById(R.id.square_background);
-        this.iRq = (ImageView) this.mView.findViewById(R.id.square_left_img);
-        this.iRr = (ImageView) this.mView.findViewById(R.id.square_right_img);
-        this.iRt = (TextView) this.mView.findViewById(R.id.square_title);
-        this.iRu = (TextView) this.mView.findViewById(R.id.square_desc);
-        this.iRs = (ImageView) this.mView.findViewById(R.id.iv_right_arrow);
-        this.iRt.setText(R.string.forum_square_title);
-        this.iRu.setText(R.string.forum_square_desc);
+        this.iRD = (RoundRelativeLayout) this.mView.findViewById(R.id.square_background);
+        this.iRE = (ImageView) this.mView.findViewById(R.id.square_left_img);
+        this.iRF = (ImageView) this.mView.findViewById(R.id.square_right_img);
+        this.iRH = (TextView) this.mView.findViewById(R.id.square_title);
+        this.iRI = (TextView) this.mView.findViewById(R.id.square_desc);
+        this.iRG = (ImageView) this.mView.findViewById(R.id.iv_right_arrow);
+        this.iRH.setText(R.string.forum_square_title);
+        this.iRI.setText(R.string.forum_square_desc);
         this.mView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.c.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -51,8 +51,8 @@ public class b {
             }
         });
         this.tbds90 = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds90);
-        this.iRv = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds58);
-        this.iRp.setRoundLayoutRadius(new float[]{this.tbds90, this.tbds90, this.tbds90, this.tbds90, this.tbds90, this.tbds90, this.tbds90, this.tbds90});
+        this.iRJ = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds58);
+        this.iRD.setRoundLayoutRadius(new float[]{this.tbds90, this.tbds90, this.tbds90, this.tbds90, this.tbds90, this.tbds90, this.tbds90, this.tbds90});
     }
 
     public View getView() {
@@ -61,26 +61,26 @@ public class b {
 
     public void a(com.baidu.tieba.enterForum.data.a aVar) {
         if (aVar.isTop()) {
-            if (this.iRp.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iRp.getLayoutParams();
-                if (marginLayoutParams.bottomMargin != this.iRv) {
-                    marginLayoutParams.bottomMargin = this.iRv;
-                    this.iRp.requestLayout();
+            if (this.iRD.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.iRD.getLayoutParams();
+                if (marginLayoutParams.bottomMargin != this.iRJ) {
+                    marginLayoutParams.bottomMargin = this.iRJ;
+                    this.iRD.requestLayout();
                 }
             }
-        } else if (this.iRp.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.iRp.getLayoutParams();
+        } else if (this.iRD.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.iRD.getLayoutParams();
             if (marginLayoutParams2.bottomMargin != 0) {
                 marginLayoutParams2.bottomMargin = 0;
-                this.iRp.requestLayout();
+                this.iRD.requestLayout();
             }
         }
-        ap.setBackgroundColor(this.iRp, R.color.CAM_X0206);
-        SvgManager.bsR().a(this.iRq, R.drawable.ic_pic_mask_square, SvgManager.SvgResourceStateType.NORMAL);
-        ap.setImageResource(this.iRr, R.drawable.pic_mask_square_circle);
-        SvgManager.bsR().a(this.iRs, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
-        ap.setViewTextColor(this.iRt, R.color.CAM_X0105);
-        ap.setViewTextColor(this.iRu, R.color.CAM_X0108);
+        ap.setBackgroundColor(this.iRD, R.color.CAM_X0206);
+        SvgManager.bsR().a(this.iRE, R.drawable.ic_pic_mask_square, SvgManager.SvgResourceStateType.NORMAL);
+        ap.setImageResource(this.iRF, R.drawable.pic_mask_square_circle);
+        SvgManager.bsR().a(this.iRG, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
+        ap.setViewTextColor(this.iRH, R.color.CAM_X0105);
+        ap.setViewTextColor(this.iRI, R.color.CAM_X0108);
     }
 
     public void setHasLikeForum(boolean z) {

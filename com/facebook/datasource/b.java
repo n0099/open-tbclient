@@ -8,10 +8,10 @@ public interface b<T> {
 
     boolean apL();
 
-    boolean esX();
+    boolean etf();
 
     @Nullable
-    Throwable esZ();
+    Throwable eth();
 
     float getProgress();
 

@@ -53,7 +53,7 @@ public class a extends aa {
             }
             String optString2 = optParamsAsJo.optString("path");
             if (!StringUtils.isNull(optString2) && optString2.contains("/pages/frshistory/frshistory?")) {
-                com.baidu.tieba.aiapps.apps.h.e.aR(context, unitedSchemeEntity.getParam("params"));
+                com.baidu.tieba.aiapps.apps.h.e.aP(context, unitedSchemeEntity.getParam("params"));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }

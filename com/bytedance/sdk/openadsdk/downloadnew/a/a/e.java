@@ -61,22 +61,22 @@ public class e implements k {
         AlertDialog.Builder onCancelListener = new AlertDialog.Builder(activity, Build.VERSION.SDK_INT >= 21 ? ac.g(activity, "Theme.Dialog.TTDownload") : ac.g(activity, "Theme.Dialog.TTDownloadOld")).setTitle(cVar.f12900b).setMessage(cVar.c).setPositiveButton(cVar.d, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (cVar.qay != null) {
-                    cVar.qay.a(dialogInterface);
+                if (cVar.qaY != null) {
+                    cVar.qaY.a(dialogInterface);
                 }
             }
         }).setNegativeButton(cVar.e, new DialogInterface.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (cVar.qay != null) {
-                    cVar.qay.b(dialogInterface);
+                if (cVar.qaY != null) {
+                    cVar.qaY.b(dialogInterface);
                 }
             }
         }).setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.1
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (cVar.qay != null) {
-                    cVar.qay.c(dialogInterface);
+                if (cVar.qaY != null) {
+                    cVar.qaY.c(dialogInterface);
                 }
             }
         });
@@ -92,22 +92,22 @@ public class e implements k {
         return new com.bytedance.sdk.openadsdk.core.widget.e(activity).a(cVar.f12900b).b(cVar.c).c(cVar.d).d(cVar.e).a(cVar.g).a(new e.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.5
             @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
             public void a(Dialog dialog) {
-                if (cVar.qay != null) {
-                    cVar.qay.a(dialog);
+                if (cVar.qaY != null) {
+                    cVar.qaY.a(dialog);
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.widget.e.a
             public void b(Dialog dialog) {
-                if (cVar.qay != null) {
-                    cVar.qay.b(dialog);
+                if (cVar.qaY != null) {
+                    cVar.qaY.b(dialog);
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.4
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (cVar.qay != null) {
-                    cVar.qay.c(dialogInterface);
+                if (cVar.qaY != null) {
+                    cVar.qaY.c(dialogInterface);
                 }
             }
         });
@@ -117,22 +117,22 @@ public class e implements k {
         g.a aVar = new g.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.e.6
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void a() {
-                if (cVar.qay != null) {
-                    cVar.qay.a(new a());
+                if (cVar.qaY != null) {
+                    cVar.qaY.a(new a());
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void b() {
-                if (cVar.qay != null) {
-                    cVar.qay.b(new a());
+                if (cVar.qaY != null) {
+                    cVar.qaY.b(new a());
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void c() {
-                if (cVar.qay != null) {
-                    cVar.qay.c(new a());
+                if (cVar.qaY != null) {
+                    cVar.qaY.c(new a());
                 }
             }
         };

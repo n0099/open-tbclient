@@ -10,7 +10,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
-    private a iCF;
+    private a iCT;
     private ArrayList<com.baidu.tieba.consumptionRecords.a> orderList;
     private b recommendData;
     private int currentPage = 0;
@@ -24,8 +24,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetUserOrderHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() != 0) {
                     ConsumptionRecordsModel.a(ConsumptionRecordsModel.this);
-                    if (ConsumptionRecordsModel.this.iCF != null) {
-                        ConsumptionRecordsModel.this.iCF.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
+                    if (ConsumptionRecordsModel.this.iCT != null) {
+                        ConsumptionRecordsModel.this.iCT.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
                         return;
                     }
                     return;
@@ -34,8 +34,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                     GetUserOrderHttpResponseMessage getUserOrderHttpResponseMessage = (GetUserOrderHttpResponseMessage) httpResponsedMessage;
                     ConsumptionRecordsModel.this.a(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
                 }
-                if (ConsumptionRecordsModel.this.iCF != null) {
-                    ConsumptionRecordsModel.this.iCF.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
+                if (ConsumptionRecordsModel.this.iCT != null) {
+                    ConsumptionRecordsModel.this.iCT.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.orderList, ConsumptionRecordsModel.this.recommendData, ConsumptionRecordsModel.this.hasMore);
                 }
             }
         }
@@ -45,7 +45,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public interface a {
         void a(int i, String str, ArrayList<com.baidu.tieba.consumptionRecords.a> arrayList, b bVar, boolean z);
 
-        void cto();
+        void ctv();
     }
 
     static /* synthetic */ int a(ConsumptionRecordsModel consumptionRecordsModel) {
@@ -102,7 +102,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         MessageManager.getInstance().unRegisterListener(this.mHttpMessageListener);
     }
 
-    public void ctm() {
+    public void ctt() {
         NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
         this.currentPage = 1;
         newGetUserOrderRequestMessage.setPn(this.currentPage);
@@ -112,10 +112,10 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         sendMessage(newGetUserOrderRequestMessage);
     }
 
-    public void ctn() {
+    public void ctu() {
         if (!this.hasMore) {
-            if (this.iCF != null) {
-                this.iCF.cto();
+            if (this.iCT != null) {
+                this.iCT.ctv();
                 return;
             }
             return;
@@ -138,6 +138,6 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     public void a(a aVar) {
-        this.iCF = aVar;
+        this.iCT = aVar;
     }
 }

@@ -37,7 +37,7 @@ public class h extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: LI */
+    /* renamed from: LJ */
     public com.baidu.tieba.yuyinala.charm.audiencelist.a getItem(int i) {
         if (this.eVV == null) {
             return null;
@@ -57,17 +57,17 @@ public class h extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_list_item, viewGroup, false);
             aVar = new a();
-            aVar.opv = (OnlineAudienceItemView) view.findViewById(a.f.item);
+            aVar.opV = (OnlineAudienceItemView) view.findViewById(a.f.item);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).aId) != null) {
-            if (aVar.opv.getTag() == null || !TextUtils.equals(((AlaLiveUserInfoData) aVar.opv.getTag()).userUk, alaLiveUserInfoData.userUk)) {
-                aVar.opv.opu.setData4Yuyin(alaLiveUserInfoData);
-                aVar.opv.setTag(alaLiveUserInfoData);
+            if (aVar.opV.getTag() == null || !TextUtils.equals(((AlaLiveUserInfoData) aVar.opV.getTag()).userUk, alaLiveUserInfoData.userUk)) {
+                aVar.opV.opU.setData4Yuyin(alaLiveUserInfoData);
+                aVar.opV.setTag(alaLiveUserInfoData);
             }
-            aVar.opv.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.contributionStr, alaLiveUserInfoData.nobleRoleId);
+            aVar.opV.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.contributionStr, alaLiveUserInfoData.nobleRoleId);
         }
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -75,7 +75,7 @@ public class h extends BaseAdapter {
 
     /* loaded from: classes11.dex */
     private class a {
-        private OnlineAudienceItemView opv;
+        private OnlineAudienceItemView opV;
 
         private a() {
         }

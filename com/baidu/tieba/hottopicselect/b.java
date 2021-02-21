@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private String jdX;
+    private String jel;
     private LayoutInflater mInflater;
     private final List<d> mList = new ArrayList();
 
@@ -23,7 +23,7 @@ public class b extends BaseAdapter {
     }
 
     public void j(String str, List<d> list) {
-        this.jdX = str;
+        this.jel = str;
         this.mList.clear();
         if (list != null) {
             this.mList.addAll(list);
@@ -66,15 +66,15 @@ public class b extends BaseAdapter {
                 view = this.mInflater.inflate(R.layout.hot_suggest_item, (ViewGroup) null);
                 a aVar2 = new a();
                 aVar2.enq = (TextView) view.findViewById(R.id.name);
-                aVar2.kyU = view.findViewById(R.id.divider_line_top);
-                aVar2.kyV = view.findViewById(R.id.divider_line_bottom);
+                aVar2.kzi = view.findViewById(R.id.divider_line_top);
+                aVar2.kzj = view.findViewById(R.id.divider_line_bottom);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.kyU.setVisibility(i == 0 ? 0 : 8);
-            aVar.enq.setText(au.highLightText(com.baidu.tbadk.plugins.b.DB(au.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.jdX, R.color.CAM_X0302));
+            aVar.kzi.setVisibility(i == 0 ? 0 : 8);
+            aVar.enq.setText(au.highLightText(com.baidu.tbadk.plugins.b.Dz(au.cutStringWithEllipsisNew(item.getTopicName(), 18)), this.jel, R.color.CAM_X0302));
             a(aVar, view, TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
@@ -85,8 +85,8 @@ public class b extends BaseAdapter {
     public class a {
         int ajU;
         TextView enq;
-        View kyU;
-        View kyV;
+        View kzi;
+        View kzj;
 
         private a() {
             this.ajU = 3;
@@ -96,8 +96,8 @@ public class b extends BaseAdapter {
     private void a(a aVar, View view, int i) {
         if (aVar != null && aVar.ajU != i) {
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-            ap.setBackgroundColor(aVar.kyV, R.color.CAM_X0204);
-            ap.setBackgroundColor(aVar.kyU, R.color.CAM_X0204);
+            ap.setBackgroundColor(aVar.kzj, R.color.CAM_X0204);
+            ap.setBackgroundColor(aVar.kzi, R.color.CAM_X0204);
             ap.setViewTextColor(aVar.enq, R.color.CAM_X0105, 1);
             aVar.ajU = i;
         }

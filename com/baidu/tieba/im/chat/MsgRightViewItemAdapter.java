@@ -8,15 +8,15 @@ import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> {
-    private boolean kAx;
+    private boolean kAL;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.kAx = false;
+        this.kAL = false;
     }
 
     public void sE(boolean z) {
-        this.kAx = z;
+        this.kAL = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,17 +33,17 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgrightView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgrightView cUF = msgViewHolder.cUF();
-        cUF.CH(this.kAo);
-        cUF.sE(this.kAx);
+        MsgrightView cUM = msgViewHolder.cUM();
+        cUM.CH(this.kAC);
+        cUM.sE(this.kAL);
         chatMessage.getCacheData().setIs_left(0);
-        cUF.a(this.kAf);
-        cUF.setOnItemViewLongClickListener(this.kAg);
-        cUF.setPosition(i);
-        cUF.gM(this.mCurrentTime);
-        cUF.gL(chatMessage.getCacheData().getLastMsgTime());
-        cUF.a(viewGroup, chatMessage);
-        cUF.b(viewGroup, chatMessage);
+        cUM.a(this.kAt);
+        cUM.setOnItemViewLongClickListener(this.kAu);
+        cUM.setPosition(i);
+        cUM.gM(this.mCurrentTime);
+        cUM.gL(chatMessage.getCacheData().getLastMsgTime());
+        cUM.a(viewGroup, chatMessage);
+        cUM.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

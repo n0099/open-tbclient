@@ -24,8 +24,8 @@ import com.baidu.live.utils.r;
 public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTouchListener {
     private boolean bNs;
     private long buN;
-    private long goL;
-    private com.baidu.tieba.ala.d.c goO;
+    private long goZ;
+    private com.baidu.tieba.ala.d.c gpc;
     private boolean mIsHost;
     private View mRootView;
     private int mScreenWidth;
@@ -76,21 +76,21 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
         super.onCreate(bundle);
         if (bundle != null) {
             this.buN = bundle.getLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID);
-            this.goL = bundle.getLong("ala_live_cur_anchor_id");
+            this.goZ = bundle.getLong("ala_live_cur_anchor_id");
             this.mUserId = bundle.getLong("ala_live_cur_user_id");
             this.mIsHost = bundle.getBoolean("ala_live_cur_is_host", false);
             this.bNs = bundle.getBoolean("ala_live_cur_is_landscape");
         } else {
             this.buN = getIntent().getLongExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, 0L);
-            this.goL = getIntent().getLongExtra("ala_live_cur_anchor_id", 0L);
+            this.goZ = getIntent().getLongExtra("ala_live_cur_anchor_id", 0L);
             this.mUserId = getIntent().getLongExtra("ala_live_cur_user_id", 0L);
             this.mIsHost = getIntent().getBooleanExtra("ala_live_cur_is_host", false);
             this.bNs = getIntent().getBooleanExtra("ala_live_cur_is_landscape", false);
         }
         registerListener(this.bMW);
         registerListener(this.aWJ);
-        this.goO = new com.baidu.tieba.ala.d.c(getPageContext(), this.buN, this.goL, this.mUserId, this.mIsHost, this.bNs);
-        this.mRootView = this.goO.getView();
+        this.gpc = new com.baidu.tieba.ala.d.c(getPageContext(), this.buN, this.goZ, this.mUserId, this.mIsHost, this.bNs);
+        this.mRootView = this.gpc.getView();
         if (this.mRootView == null) {
             super.finish();
             return;
@@ -173,7 +173,7 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         if (!this.baI) {
-            this.goO.onDestroy();
+            this.gpc.onDestroy();
         }
         Gc();
     }
@@ -189,7 +189,7 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
                 com.baidu.live.utils.i.af(this.mRootView);
                 r.e(getActivity(), true);
             }
-            this.goO.onConfigurationChanged(configuration);
+            this.gpc.onConfigurationChanged(configuration);
             UY();
             UZ();
         }
@@ -208,7 +208,7 @@ public class AlaFeedBackReasonActivity extends BaseActivity implements View.OnTo
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putLong(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID, this.buN);
-        bundle.putLong("ala_live_cur_anchor_id", this.goL);
+        bundle.putLong("ala_live_cur_anchor_id", this.goZ);
         bundle.putLong("ala_live_cur_user_id", this.mUserId);
         bundle.putBoolean("ala_live_cur_is_host", this.mIsHost);
         bundle.putBoolean("ala_live_cur_is_landscape", this.bNs);

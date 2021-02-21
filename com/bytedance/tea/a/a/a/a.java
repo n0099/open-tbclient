@@ -20,11 +20,11 @@ public class a {
 
     /* renamed from: b  reason: collision with root package name */
     private static boolean f7611b = false;
-    private static InterfaceC1031a pvt;
+    private static InterfaceC1033a pvT;
 
     /* renamed from: com.bytedance.tea.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1031a {
+    public interface InterfaceC1033a {
         boolean a();
 
         boolean b();
@@ -33,7 +33,7 @@ public class a {
     }
 
     public static String a(String str, List<Pair<String, String>> list) {
-        if (!TextUtils.isEmpty(str) && pvt != null && !f7611b) {
+        if (!TextUtils.isEmpty(str) && pvT != null && !f7611b) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             try {
                 Uri parse = Uri.parse(str);
@@ -51,12 +51,12 @@ public class a {
                     if (a3 != null) {
                         String encodeToString = Base64.encodeToString(a3, 2);
                         LinkedList linkedList2 = new LinkedList();
-                        if (pvt.a()) {
+                        if (pvT.a()) {
                             LinkedList linkedList3 = new LinkedList();
                             linkedList3.add(encodeToString);
                             linkedList2.add(new Pair("ss_queries", linkedList3));
                         }
-                        if (pvt.b() && list != null) {
+                        if (pvT.b() && list != null) {
                             list.add(new Pair<>("X-SS-QUERIES", a(encodeToString, "UTF-8")));
                         }
                         if (!linkedHashMap.isEmpty()) {
@@ -84,7 +84,7 @@ public class a {
             return false;
         }
         list.add(new Pair<>(str, map.get(str)));
-        if (!pvt.c()) {
+        if (!pvT.c()) {
             map.remove(str);
         }
         return true;

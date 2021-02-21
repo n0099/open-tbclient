@@ -23,7 +23,7 @@ public class AlaPersonCenterActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(AlaPersonCenterActivityConfig.class, AlaPersonCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaPrivilegeListActivityConfig.class, AlaPersonCenterPrivilegeActivity.class);
         brg();
-        cmK();
+        cmR();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_GAME_FRS_ADD_TAB) { // from class: com.baidu.tieba.ala.personcenter.AlaPersonCenterActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -36,7 +36,7 @@ public class AlaPersonCenterActivityStatic {
                         aVar.setForumId(aiVar.getForumId());
                         aVar.setForumName(aiVar.getForumName());
                         aVar.setForumGameLabel(aiVar.getForumGameLabel());
-                        aVar.Im(aiVar.cEG());
+                        aVar.In(aiVar.cEN());
                         aVar.a(aiVar);
                     }
                 }
@@ -52,7 +52,7 @@ public class AlaPersonCenterActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cmK() {
+    private static void cmR() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_ENTER_EFFECT);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

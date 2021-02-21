@@ -40,7 +40,7 @@ public class hj {
     public static void a(Context context, hl hlVar, List<hq> list) {
         HashMap<String, ArrayList<hq>> a2 = a(context, list);
         if (a2 == null || a2.size() == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m80a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m79a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
         } else {
             a(context, hlVar, a2);
         }

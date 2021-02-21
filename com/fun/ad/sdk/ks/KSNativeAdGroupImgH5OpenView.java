@@ -52,15 +52,15 @@ public class KSNativeAdGroupImgH5OpenView extends o1 {
         if (imageList != null && imageList.size() >= 3) {
             KsImage ksImage = imageList.get(0);
             if (ksImage != null && ksImage.isValid()) {
-                ap.a.pPq.a(getContext(), ksImage.getImageUrl(), this.c);
+                ap.a.pPQ.a(getContext(), ksImage.getImageUrl(), this.c);
             }
             KsImage ksImage2 = imageList.get(1);
             if (ksImage2 != null && ksImage2.isValid()) {
-                ap.a.pPq.a(getContext(), ksImage2.getImageUrl(), this.d);
+                ap.a.pPQ.a(getContext(), ksImage2.getImageUrl(), this.d);
             }
             KsImage ksImage3 = imageList.get(2);
             if (ksImage3 != null && ksImage3.isValid()) {
-                ap.a.pPq.a(getContext(), ksImage3.getImageUrl(), this.e);
+                ap.a.pPQ.a(getContext(), ksImage3.getImageUrl(), this.e);
             }
         }
         this.f7829a.setText(ksNativeAd.getAdDescription());

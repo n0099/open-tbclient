@@ -9,12 +9,12 @@ public class b {
     public String extra;
     public long forumId;
     public String forumName;
-    public int iLW;
-    public String iLX;
-    public boolean iLY;
-    public String iLZ;
-    public String iMa;
-    public int iMb;
+    public int iMk;
+    public String iMl;
+    public boolean iMm;
+    public String iMn;
+    public String iMo;
+    public int iMp;
     public int memberCount;
     public String slogan;
     public String source;
@@ -28,14 +28,14 @@ public class b {
         this.memberCount = recommendForumInfo.member_count.intValue();
         this.threadCount = recommendForumInfo.thread_count.intValue();
         this.slogan = recommendForumInfo.slogan;
-        this.iLW = recommendForumInfo.forum_type.intValue();
+        this.iMk = recommendForumInfo.forum_type.intValue();
         this.authen = recommendForumInfo.authen;
-        this.iLX = recommendForumInfo.recom_reason;
-        this.iLY = recommendForumInfo.is_brand_forum.intValue() == 1;
-        this.iLZ = recommendForumInfo.hot_text;
-        this.iMa = recommendForumInfo.abtest_tag;
+        this.iMl = recommendForumInfo.recom_reason;
+        this.iMm = recommendForumInfo.is_brand_forum.intValue() == 1;
+        this.iMn = recommendForumInfo.hot_text;
+        this.iMo = recommendForumInfo.abtest_tag;
         this.source = recommendForumInfo.source;
         this.extra = recommendForumInfo.extra;
-        this.iMb = 1;
+        this.iMp = 1;
     }
 }

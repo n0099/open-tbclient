@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaAcceptConnectionWheatH
 /* loaded from: classes11.dex */
 public class a extends BdBaseModel {
     private TbPageContext mPageContext;
-    private InterfaceC0945a oJv;
+    private InterfaceC0947a oJV;
     private HttpMessageListener messageListener = new HttpMessageListener(1031009) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.aCW && a.this.oJv != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.aCW && a.this.oJV != null) {
                 AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage = (AlaAcceptConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaAcceptConnectionWheatHttpResponseMessage.getError() != 0 || !alaAcceptConnectionWheatHttpResponseMessage.isSuccess()) {
-                    a.this.oJv.b(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oJV.b(alaAcceptConnectionWheatHttpResponseMessage);
                 } else {
-                    a.this.oJv.a(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oJV.a(alaAcceptConnectionWheatHttpResponseMessage);
                 }
             }
         }
@@ -30,16 +30,16 @@ public class a extends BdBaseModel {
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0945a {
+    public interface InterfaceC0947a {
         void a(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage);
 
         void b(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0945a interfaceC0945a) {
+    public a(TbPageContext tbPageContext, InterfaceC0947a interfaceC0947a) {
         setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.oJv = interfaceC0945a;
+        this.oJV = interfaceC0947a;
         zH();
         registerListener(this.messageListener);
     }

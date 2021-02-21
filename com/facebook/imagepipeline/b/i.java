@@ -13,12 +13,12 @@ public class i implements com.facebook.common.internal.j<q> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: evO */
+    /* renamed from: evW */
     public q get() {
-        return new q(evP(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        return new q(evX(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
     }
 
-    private int evP() {
+    private int evX() {
         int min = Math.min(this.dOz.getMemoryClass() * 1048576, Integer.MAX_VALUE);
         if (min < 33554432) {
             return 4194304;

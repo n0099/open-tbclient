@@ -202,14 +202,14 @@ public class e {
     public String a(Bitmap bitmap, long j, int i) {
         if (this.fGx) {
             if (this.fGy != null && !TextUtils.isEmpty(this.fGy.getFilePath())) {
-                return o.a(fGv, s.toMd5(this.fGy.toCachedKey(false)) + Dl(this.fGy.getFilePath()), bitmap, (float) j, i);
+                return o.a(fGv, s.toMd5(this.fGy.toCachedKey(false)) + Dj(this.fGy.getFilePath()), bitmap, (float) j, i);
             }
             return "";
         }
         return o.compressBitmapToFile("img_upload_temp_file.temp", bitmap, (float) j, i);
     }
 
-    private String Dl(String str) {
+    private String Dj(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

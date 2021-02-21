@@ -26,15 +26,15 @@ import com.baidu.live.tieba.model.a;
 public class c {
     private ab aDd;
     private BlueCircleProgressDialog bMn;
-    private com.baidu.live.tieba.model.a hNL;
-    private a.InterfaceC0214a hNM = new a.InterfaceC0214a() { // from class: com.baidu.tieba.ala.liveroom.share.c.2
+    private com.baidu.live.tieba.model.a hNZ;
+    private a.InterfaceC0214a hOa = new a.InterfaceC0214a() { // from class: com.baidu.tieba.ala.liveroom.share.c.2
     };
     private Handler mHandler = new Handler();
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        cko();
+        ckv();
     }
 
     public void d(ab abVar, boolean z) {
@@ -54,7 +54,7 @@ public class c {
         }
     }
 
-    private void cko() {
+    private void ckv() {
         this.mPageContext.registerListener(new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS) { // from class: com.baidu.tieba.ala.liveroom.share.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -73,41 +73,41 @@ public class c {
                             }
                         });
                     }
-                    c.this.ckp();
+                    c.this.ckw();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ckp() {
+    public void ckw() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", "liveroom", LogConfig.VALUE_LIVE_SHARE_TO));
     }
 
-    private void ckq() {
+    private void ckx() {
         if (this.bMn != null) {
             this.bMn.setDialogVisiable(false);
         }
     }
 
     public void Ar() {
-        ckq();
+        ckx();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hNL != null) {
-            this.hNL.TY();
+        if (this.hNZ != null) {
+            this.hNZ.TY();
         }
     }
 
     public void onDestroy() {
-        ckq();
+        ckx();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.hNL != null) {
-            this.hNL.TY();
-            this.hNL.onDestroy();
+        if (this.hNZ != null) {
+            this.hNZ.TY();
+            this.hNZ.onDestroy();
         }
     }
 }

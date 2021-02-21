@@ -11,8 +11,8 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes9.dex */
 public class EmotionPackageDetailModel extends BdBaseModel {
-    private a iUv;
-    private b iUw;
+    private a iUJ;
+    private b iUK;
     private final HttpMessageListener ftJ = new HttpMessageListener(1003346) { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -25,25 +25,25 @@ public class EmotionPackageDetailModel extends BdBaseModel {
             }
         }
     };
-    private final HttpMessageListener iUx = new HttpMessageListener(1003347) { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailModel.2
+    private final HttpMessageListener iUL = new HttpMessageListener(1003347) { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003347 && EmotionPackageDetailModel.this.iUv != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003347 && EmotionPackageDetailModel.this.iUJ != null) {
                 if (httpResponsedMessage.getError() == 0) {
-                    EmotionPackageDetailModel.this.iUv.onResult(true);
+                    EmotionPackageDetailModel.this.iUJ.onResult(true);
                 } else {
-                    EmotionPackageDetailModel.this.iUv.onResult(false);
+                    EmotionPackageDetailModel.this.iUJ.onResult(false);
                 }
             }
         }
     };
-    private final HttpMessageListener iUy = new HttpMessageListener(1003358) { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailModel.3
+    private final HttpMessageListener iUM = new HttpMessageListener(1003358) { // from class: com.baidu.tieba.faceshop.EmotionPackageDetailModel.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003358 && EmotionPackageDetailModel.this.iUw != null) {
-                EmotionPackageDetailModel.this.iUw.c(httpResponsedMessage);
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003358 && EmotionPackageDetailModel.this.iUK != null) {
+                EmotionPackageDetailModel.this.iUK.c(httpResponsedMessage);
             }
         }
     };
@@ -73,8 +73,8 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         this.ftJ.setTag(getUniqueId());
         this.ftJ.setSelfListener(true);
         registerListener(this.ftJ);
-        registerListener(this.iUx);
-        registerListener(this.iUy);
+        registerListener(this.iUL);
+        registerListener(this.iUM);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -95,7 +95,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(1003347);
             httpMessage.addParam("package_id", i);
             sendMessage(httpMessage);
-            this.iUv = aVar;
+            this.iUJ = aVar;
         }
     }
 
@@ -104,7 +104,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(1003358);
             httpMessage.addParam("pkg_id", i);
             sendMessage(httpMessage);
-            this.iUw = bVar;
+            this.iUK = bVar;
         }
     }
 
@@ -112,10 +112,10 @@ public class EmotionPackageDetailModel extends BdBaseModel {
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(this.ftJ);
         MessageManager.getInstance().unRegisterTask(1003346);
-        MessageManager.getInstance().unRegisterListener(this.iUx);
+        MessageManager.getInstance().unRegisterListener(this.iUL);
         MessageManager.getInstance().unRegisterTask(1003347);
         MessageManager.getInstance().unRegisterTask(1003358);
-        MessageManager.getInstance().unRegisterListener(this.iUy);
+        MessageManager.getInstance().unRegisterListener(this.iUM);
         return true;
     }
 }

@@ -217,18 +217,18 @@ public class FragmentedMp4Builder implements Mp4Builder {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public class a implements Box {
-        private final /* synthetic */ int nOi;
-        long pWM = -1;
-        private final /* synthetic */ long pWN;
-        private final /* synthetic */ long pWO;
-        private final /* synthetic */ Track pWP;
+        private final /* synthetic */ int nOI;
+        long pXm = -1;
+        private final /* synthetic */ long pXn;
+        private final /* synthetic */ long pXo;
+        private final /* synthetic */ Track pXp;
         Container parent;
 
         a(long j, long j2, Track track, int i) {
-            this.pWN = j;
-            this.pWO = j2;
-            this.pWP = track;
-            this.nOi = i;
+            this.pXn = j;
+            this.pXo = j2;
+            this.pXp = track;
+            this.nOI = i;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -248,14 +248,14 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            if (this.pWM != -1) {
-                return this.pWM;
+            if (this.pXm != -1) {
+                return this.pXm;
             }
             long j = 8;
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.pWN, this.pWO, this.pWP, this.nOi)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.pXn, this.pXo, this.pXp, this.nOI)) {
                 j = sample.getSize() + j;
             }
-            this.pWM = j;
+            this.pXm = j;
             return j;
         }
 
@@ -271,7 +271,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             allocate.put(IsoFile.fourCCtoBytes(getType()));
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.pWN, this.pWO, this.pWP, this.nOi)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.pXn, this.pXo, this.pXp, this.nOI)) {
                 sample.writeTo(writableByteChannel);
             }
         }

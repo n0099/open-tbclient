@@ -30,7 +30,7 @@ public class e {
         }
     }
 
-    public static int dW(int i, int i2) {
+    public static int dX(int i, int i2) {
         if (i2 != 255) {
             if (i2 == 0) {
                 return i & ViewCompat.MEASURED_SIZE_MASK;
@@ -40,7 +40,7 @@ public class e {
         return i;
     }
 
-    public static int Pg(int i) {
+    public static int Ph(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

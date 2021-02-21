@@ -16,9 +16,9 @@ public abstract class a {
     private final long mFileLength;
     private final String mFileMd5;
     protected final String mFileName;
-    private final int nAf;
-    private final int nAg;
-    private e nAh;
+    private final int nAF;
+    private final int nAG;
+    private e nAH;
 
     public abstract void cancel();
 
@@ -28,20 +28,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.nAg = i2;
+        this.nAG = i2;
         this.mFileLength = j;
         this.mFileMd5 = str2;
-        this.nAf = i;
+        this.nAF = i;
     }
 
     public void a(e eVar) {
-        this.nAh = eVar;
+        this.nAH = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void JV(int i) {
-        if (this.nAh != null) {
-            this.nAh.ba(i / 100.0f);
+        if (this.nAH != null) {
+            this.nAH.ba(i / 100.0f);
         }
     }
 
@@ -58,7 +58,7 @@ public abstract class a {
         } else {
             aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             aaVar.addPostData("chunk_no", String.valueOf(i));
-            aaVar.addPostData("chunk_sum", String.valueOf(this.nAg));
+            aaVar.addPostData("chunk_sum", String.valueOf(this.nAG));
             aaVar.addPostData("chunk_size", String.valueOf(b2.length));
             aaVar.addPostData("video_size", String.valueOf(this.mFileLength));
             aaVar.addPostData("video_md5", this.mFileMd5);
@@ -75,7 +75,7 @@ public abstract class a {
             }
             d dVar2 = new d();
             if (aaVar.bsr().btb().isRequestSuccess()) {
-                dVar2.videoUrl = TE(postMultiNetData);
+                dVar2.videoUrl = TQ(postMultiNetData);
                 return dVar2;
             }
             if (aaVar.bsr().btb().isNetSuccess()) {
@@ -93,15 +93,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.nAg) {
-            i2 = (int) (this.mFileLength - ((i - 1) * this.nAf));
+        if (i == this.nAG) {
+            i2 = (int) (this.mFileLength - ((i - 1) * this.nAF));
         } else {
-            i2 = this.nAf;
+            i2 = this.nAF;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.nAf);
+                randomAccessFile.seek((i - 1) * this.nAF);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {
@@ -113,7 +113,7 @@ public abstract class a {
         return null;
     }
 
-    private String TE(String str) {
+    private String TQ(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

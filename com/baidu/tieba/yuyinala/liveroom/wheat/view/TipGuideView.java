@@ -12,8 +12,8 @@ import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class TipGuideView extends LinearLayout implements View.OnClickListener {
-    private TextView oLG;
-    private View oLH;
+    private TextView oMg;
+    private View oMh;
 
     public TipGuideView(Context context) {
         this(context, null);
@@ -32,8 +32,8 @@ public class TipGuideView extends LinearLayout implements View.OnClickListener {
     private void initView() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.layout_tip_guide_view, (ViewGroup) this, false);
         inflate.findViewById(a.f.rl_root).setOnClickListener(this);
-        this.oLH = inflate.findViewById(a.f.iv_top_arrows);
-        this.oLG = (TextView) inflate.findViewById(a.f.tv_guide_text);
+        this.oMh = inflate.findViewById(a.f.iv_top_arrows);
+        this.oMg = (TextView) inflate.findViewById(a.f.tv_guide_text);
         addView(inflate);
     }
 
@@ -45,8 +45,8 @@ public class TipGuideView extends LinearLayout implements View.OnClickListener {
     }
 
     public void setText(String str) {
-        if (this.oLG != null && !TextUtils.isEmpty(str)) {
-            this.oLG.setText(str);
+        if (this.oMg != null && !TextUtils.isEmpty(str)) {
+            this.oMg.setText(str);
         }
     }
 }

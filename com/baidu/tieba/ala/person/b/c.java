@@ -11,33 +11,33 @@ import java.util.List;
 public class c {
     private List<com.baidu.live.liveroom.d.d> aEo = new LinkedList();
     private AlaLiveRoomPanelTabHost aEr;
-    private BdUniqueId gOC;
+    private BdUniqueId gOQ;
     private TbPageContext mPageContext;
     private String mUserId;
 
     public c(TbPageContext tbPageContext, String str, BdUniqueId bdUniqueId) {
-        this.gOC = null;
+        this.gOQ = null;
         this.mPageContext = tbPageContext;
         this.mUserId = str;
-        this.gOC = bdUniqueId;
+        this.gOQ = bdUniqueId;
         initView();
     }
 
     private void initView() {
         this.aEr = new AlaLiveRoomPanelTabHost(this.mPageContext.getPageActivity());
-        bTO();
+        bTV();
     }
 
-    private void bTO() {
-        this.aEo.add(new d(this.mPageContext, 0, this.mUserId, this.gOC));
-        this.aEo.add(new d(this.mPageContext, 1, this.mUserId, this.gOC));
+    private void bTV() {
+        this.aEo.add(new d(this.mPageContext, 0, this.mUserId, this.gOQ));
+        this.aEo.add(new d(this.mPageContext, 1, this.mUserId, this.gOQ));
         this.aEr.setData(this.aEo);
     }
 
-    public void a(a.InterfaceC0682a interfaceC0682a) {
+    public void a(a.InterfaceC0683a interfaceC0683a) {
         for (com.baidu.live.liveroom.d.d dVar : this.aEo) {
             if (dVar != null && (dVar instanceof d)) {
-                ((d) dVar).a(interfaceC0682a);
+                ((d) dVar).a(interfaceC0683a);
             }
         }
     }

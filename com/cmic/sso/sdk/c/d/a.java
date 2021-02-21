@@ -21,7 +21,7 @@ public class a {
         return this.f7718b;
     }
 
-    public static a OM(int i) {
+    public static a ON(int i) {
         switch (i) {
             case 102102:
                 return new a(102102, "网络异常");

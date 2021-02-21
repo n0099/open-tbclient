@@ -44,7 +44,7 @@ public final class az {
             cb bln = aVar.bln();
             String bnC = com.baidu.tieba.card.m.bnC();
             if (i == 3) {
-                bnC = com.baidu.tieba.card.m.csl();
+                bnC = com.baidu.tieba.card.m.css();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(bln.getFid())));
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bln, null, bnC, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
@@ -75,7 +75,7 @@ public final class az {
             if (bln.boY() && createFromThreadCfg.getIntent() != null) {
                 createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
             }
-            com.baidu.tieba.card.m.IM(bln.getTid());
+            com.baidu.tieba.card.m.IN(bln.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -89,7 +89,7 @@ public final class az {
             }
             String bnC = com.baidu.tieba.card.m.bnC();
             if (i == 3) {
-                bnC = com.baidu.tieba.card.m.csl();
+                bnC = com.baidu.tieba.card.m.css();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(bln.getFid())));
             }
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(bln, null, bnC, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
@@ -124,7 +124,7 @@ public final class az {
             createFromThreadCfg.setThreadData(bln);
             createFromThreadCfg.setVideoOriginArea(rect);
             createFromThreadCfg.setIsPrivacy(bln.isPrivacy);
-            com.baidu.tieba.card.m.IM(bln.getTid());
+            com.baidu.tieba.card.m.IN(bln.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }

@@ -10,18 +10,18 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class e extends BaseAdapter {
     private TbPageContext<?> eUY;
-    private List<List<DressItemData>> nGq;
-    d nGr;
+    private List<List<DressItemData>> nGQ;
+    d nGR;
 
     public e(TbPageContext<?> tbPageContext, d dVar) {
         this.eUY = tbPageContext;
-        this.nGr = dVar;
+        this.nGR = dVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.nGq != null) {
-            return this.nGq.size();
+        if (this.nGQ != null) {
+            return this.nGQ.size();
         }
         return 0;
     }
@@ -30,10 +30,10 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: xW */
     public List<DressItemData> getItem(int i) {
-        if (this.nGq == null || this.nGq.size() <= 0 || i < 0 || i >= this.nGq.size()) {
+        if (this.nGQ == null || this.nGQ.size() <= 0 || i < 0 || i >= this.nGQ.size()) {
             return null;
         }
-        return this.nGq.get(i);
+        return this.nGQ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,9 +51,9 @@ public class e extends BaseAdapter {
             view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
             aVar = new a();
             aVar.mEmptyView = view.findViewById(R.id.top_white_line);
-            aVar.nGt = (BackgroundItemView) view.findViewById(R.id.bg_view1);
-            aVar.nGu = (BackgroundItemView) view.findViewById(R.id.bg_view2);
-            aVar.nGv = (BackgroundItemView) view.findViewById(R.id.bg_view3);
+            aVar.nGT = (BackgroundItemView) view.findViewById(R.id.bg_view1);
+            aVar.nGU = (BackgroundItemView) view.findViewById(R.id.bg_view2);
+            aVar.nGV = (BackgroundItemView) view.findViewById(R.id.bg_view3);
             view.setTag(aVar);
         }
         if (item != null) {
@@ -62,20 +62,20 @@ public class e extends BaseAdapter {
             } else {
                 aVar.mEmptyView.setVisibility(8);
             }
-            aVar.nGt.d(item.get(0));
-            aVar.nGt.setController(this.nGr);
+            aVar.nGT.d(item.get(0));
+            aVar.nGT.setController(this.nGR);
             if (item.size() > 2) {
-                aVar.nGu.d(item.get(1));
-                aVar.nGv.d(item.get(2));
-                aVar.nGu.setController(this.nGr);
-                aVar.nGv.setController(this.nGr);
+                aVar.nGU.d(item.get(1));
+                aVar.nGV.d(item.get(2));
+                aVar.nGU.setController(this.nGR);
+                aVar.nGV.setController(this.nGR);
             } else if (item.size() > 1) {
-                aVar.nGu.d(item.get(1));
-                aVar.nGu.setController(this.nGr);
-                aVar.nGv.hide();
+                aVar.nGU.d(item.get(1));
+                aVar.nGU.setController(this.nGR);
+                aVar.nGV.hide();
             } else {
-                aVar.nGu.hide();
-                aVar.nGv.hide();
+                aVar.nGU.hide();
+                aVar.nGV.hide();
             }
         }
         this.eUY.getLayoutMode().onModeChanged(view);
@@ -85,15 +85,15 @@ public class e extends BaseAdapter {
     /* loaded from: classes9.dex */
     public class a {
         public View mEmptyView;
-        public BackgroundItemView nGt;
-        public BackgroundItemView nGu;
-        public BackgroundItemView nGv;
+        public BackgroundItemView nGT;
+        public BackgroundItemView nGU;
+        public BackgroundItemView nGV;
 
         public a() {
         }
     }
 
     public void setData(List<List<DressItemData>> list) {
-        this.nGq = list;
+        this.nGQ = list;
     }
 }

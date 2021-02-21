@@ -15,8 +15,8 @@ import tbclient.Hottopic.HotThread;
 import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
 public class d extends cb {
-    public List<com.baidu.tieba.card.data.b> gcs;
-    public String kuf;
+    public List<com.baidu.tieba.card.data.b> gcy;
+    public String kut;
     public long lastId;
     public List<com.baidu.adp.widget.ListView.n> list = new ArrayList();
     public az pageData;
@@ -34,9 +34,9 @@ public class d extends cb {
 
     public void a(HotThread hotThread) {
         if (hotThread != null) {
-            this.kuf = hotThread.hot_title;
+            this.kut = hotThread.hot_title;
             if (hotThread.thread_list != null) {
-                this.gcs = new ArrayList();
+                this.gcy = new ArrayList();
                 for (ThreadInfo threadInfo : hotThread.thread_list) {
                     if (threadInfo != null) {
                         cb cbVar = new cb();
@@ -55,12 +55,12 @@ public class d extends cb {
                             kVar = kVar3;
                         }
                         if (kVar != null && kVar.isValid()) {
-                            kVar.IQ("c10816");
-                            this.gcs.add(kVar);
+                            kVar.IR("c10816");
+                            this.gcy.add(kVar);
                         }
                     }
                 }
-                ej(this.gcs);
+                ej(this.gcy);
                 ek(hotThread.thread_list);
             }
             if (hotThread.page != null) {
@@ -82,7 +82,7 @@ public class d extends cb {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.thread_list != null) {
-                this.gcs = new ArrayList();
+                this.gcy = new ArrayList();
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
                         cb cbVar = new cb();
@@ -97,12 +97,12 @@ public class d extends cb {
                             lVar = kVar;
                         }
                         if (lVar != null && lVar.isValid()) {
-                            lVar.IQ("c10816");
-                            this.gcs.add(lVar);
+                            lVar.IR("c10816");
+                            this.gcy.add(lVar);
                         }
                     }
                 }
-                ej(this.gcs);
+                ej(this.gcy);
                 ek(dataRes.thread_list);
             }
             if (dataRes.page != null) {

@@ -26,27 +26,27 @@ import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdSocketResponseMessage;
 /* loaded from: classes8.dex */
 public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
-    private static int nfw = 0;
-    private static int nfx = 1;
-    private static int nfy = -1;
-    private b nfu;
-    private int nfv = nfy;
+    private static int nfW = 0;
+    private static int nfX = 1;
+    private static int nfY = -1;
+    private b nfU;
+    private int nfV = nfY;
     private com.baidu.tbadk.core.view.a mWaitingDialog = new com.baidu.tbadk.core.view.a(getPageContext());
-    private com.baidu.adp.framework.listener.a nfz = new com.baidu.adp.framework.listener.a(1003090, CmdConfigSocket.CMD_MEMBER_CLOSE_AD) { // from class: com.baidu.tieba.setting.more.AdSettingActivity.3
+    private com.baidu.adp.framework.listener.a nfZ = new com.baidu.adp.framework.listener.a(1003090, CmdConfigSocket.CMD_MEMBER_CLOSE_AD) { // from class: com.baidu.tieba.setting.more.AdSettingActivity.3
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.getError() != 0) {
                 if (responsedMessage.getError() == 1990043) {
-                    AdSettingActivity.this.dGA();
+                    AdSettingActivity.this.dGI();
                 } else if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    AdSettingActivity.this.dGz();
+                    AdSettingActivity.this.dGH();
                     return;
                 } else {
                     AdSettingActivity.this.showToast(responsedMessage.getErrorString());
                 }
                 AdSettingActivity.this.xO(false);
             } else if (!(responsedMessage instanceof MemberCloseAdHttpResponseMessage) && !(responsedMessage instanceof MemberCloseAdSocketResponseMessage)) {
-                AdSettingActivity.this.dGz();
+                AdSettingActivity.this.dGH();
             } else {
                 CloseAdData closeAdData = null;
                 if (responsedMessage instanceof MemberCloseAdHttpResponseMessage) {
@@ -55,7 +55,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
                     closeAdData = ((MemberCloseAdSocketResponseMessage) responsedMessage).getData();
                 }
                 if (closeAdData == null) {
-                    AdSettingActivity.this.dGz();
+                    AdSettingActivity.this.dGH();
                     return;
                 }
                 AdSettingActivity.this.IH(closeAdData.bAx());
@@ -67,23 +67,23 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.nfu = new b(this);
+        this.nfU = new b(this);
         registerTask();
-        registerListener(this.nfz);
+        registerListener(this.nfZ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.nfu.onChangeSkinType(i);
+        this.nfU.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.nfu.dGC()) {
-            dEx();
+        if (view == this.nfU.dGK()) {
+            dEF();
         }
     }
 
@@ -92,26 +92,26 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_MEMBER_CLOSE_AD, 1003090, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void dEx() {
+    private void dEF() {
         bf.bsV().a(getPageContext(), new String[]{com.baidu.tbadk.core.sharedPref.b.brQ().getString("sync_ad_privacy_url", "")}, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dGz() {
+    public void dGH() {
         xO(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void xO(boolean z) {
-        if (this.nfv == nfw) {
-            this.nfu.dGE();
-        } else if (this.nfv == nfx) {
-            this.nfu.dGD();
+        if (this.nfV == nfW) {
+            this.nfU.dGM();
+        } else if (this.nfV == nfX) {
+            this.nfU.dGL();
         }
         if (z) {
             showToast(R.string.setdefualt_error);
         }
-        this.nfv = nfy;
+        this.nfV = nfY;
         this.mWaitingDialog.setDialogVisiable(false);
     }
 
@@ -119,22 +119,22 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
     public void IH(int i) {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (i == 0) {
-            this.nfu.dGD();
+            this.nfU.dGL();
             currentAccountObj.setMemberCloseAdVipClose(0);
         } else {
-            this.nfu.dGE();
+            this.nfU.dGM();
             currentAccountObj.setMemberCloseAdVipClose(1);
         }
-        this.nfv = nfy;
+        this.nfV = nfY;
         this.mWaitingDialog.setDialogVisiable(false);
     }
 
     public void II(int i) {
-        if (this.nfv == nfy) {
+        if (this.nfV == nfY) {
             if (i == 0) {
-                this.nfv = nfw;
+                this.nfV = nfW;
             } else {
-                this.nfv = nfx;
+                this.nfV = nfX;
             }
             MemberCloseAdRequestMessage memberCloseAdRequestMessage = new MemberCloseAdRequestMessage(1003090, CmdConfigSocket.CMD_MEMBER_CLOSE_AD);
             memberCloseAdRequestMessage.setVipClose(i);
@@ -146,7 +146,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"ResourceAsColor"})
-    public void dGA() {
+    public void dGI() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.nx(R.string.mebmer_close_ad_dialog_message);
         aVar.ny(R.color.CAM_X0305);
@@ -170,7 +170,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.a {
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && this.nfu != null) {
+        if (view != null && this.nfU != null) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 TiebaStatic.log("c11143");
                 II(1);

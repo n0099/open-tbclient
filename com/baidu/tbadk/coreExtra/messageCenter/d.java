@@ -33,7 +33,7 @@ public class d {
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.dOB();
+        com.baidu.tieba.tbadkCore.util.a.dOJ();
     }
 
     public void byf() {

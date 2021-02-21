@@ -56,13 +56,13 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     private BdListView WO;
     private View dBb;
     private View eHy;
-    private OriginalThreadInfo.ShareInfo jdY;
-    private String jdZ;
-    private String jea;
-    private String jeb;
-    private String jec;
-    private String jed;
-    private LinearLayout kmz;
+    private OriginalThreadInfo.ShareInfo jem;
+    private String jen;
+    private String jeo;
+    private String jep;
+    private String jeq;
+    private String jer;
+    private LinearLayout kmN;
     private BaijiahaoData mBaijiahaoData;
     private com.baidu.tieba.write.share.c mCheckResponseData;
     private FrameLayout mContentView;
@@ -70,25 +70,25 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     private int mPrivateThread;
     private View mRootView;
     private TextView mTitleView;
-    private com.baidu.tieba.write.share.a ofY;
-    private b ogt;
-    private ImageView ogu;
-    private TextView ogv;
-    private com.baidu.tieba.write.share.b ogw;
-    private f ogx;
+    private b ogT;
+    private ImageView ogU;
+    private TextView ogV;
+    private com.baidu.tieba.write.share.b ogW;
+    private f ogX;
+    private com.baidu.tieba.write.share.a ogy;
     private List<TransmitForumData> mDataList = new ArrayList();
     private int mFrom = 0;
     private long buN = -1;
-    private CustomMessageListener lhC = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.write.transmit.SelectForumActivity.1
+    private CustomMessageListener lhQ = new CustomMessageListener(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED) { // from class: com.baidu.tieba.write.transmit.SelectForumActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ArrayList)) {
                 SelectForumActivity.this.mDataList.clear();
                 SelectForumActivity.this.mDataList.addAll((ArrayList) customResponsedMessage.getData());
-                if (SelectForumActivity.this.ogt != null) {
+                if (SelectForumActivity.this.ogT != null) {
                     SelectForumActivity.this.hideLoadingView(SelectForumActivity.this.mContentView);
-                    SelectForumActivity.this.ogt.eK(SelectForumActivity.this.mDataList);
+                    SelectForumActivity.this.ogT.eK(SelectForumActivity.this.mDataList);
                 }
             }
         }
@@ -98,25 +98,25 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         public void onClick(View view) {
             if (view != null) {
                 if (view.getId() != SelectForumActivity.this.eHy.getId()) {
-                    if ((view.getId() == SelectForumActivity.this.ogu.getId() || view.getId() == SelectForumActivity.this.ogv.getId()) && bh.checkUpIsLogin(SelectForumActivity.this)) {
+                    if ((view.getId() == SelectForumActivity.this.ogU.getId() || view.getId() == SelectForumActivity.this.ogV.getId()) && bh.checkUpIsLogin(SelectForumActivity.this)) {
                         if (SelectForumActivity.this.mCheckResponseData != null) {
                             TiebaStatic.log(new ar("c13276").dR("uid", TbadkCoreApplication.getCurrentAccount()).ap("obj_source", 2));
                         } else {
                             TiebaStatic.log(new ar("c13276").dR("uid", TbadkCoreApplication.getCurrentAccount()).ap("obj_source", 1));
                         }
-                        SelectForumActivity.this.Lq(1);
+                        SelectForumActivity.this.Lr(1);
                         ForumSearchActivityConfig forumSearchActivityConfig = new ForumSearchActivityConfig(SelectForumActivity.this.getPageContext().getPageActivity());
                         forumSearchActivityConfig.setFrom(SelectForumActivity.this.mFrom);
                         forumSearchActivityConfig.setLiveId(SelectForumActivity.this.buN);
                         forumSearchActivityConfig.setBaijiahaoData(SelectForumActivity.this.mBaijiahaoData);
-                        forumSearchActivityConfig.setOriginalThread(SelectForumActivity.this.jdY);
-                        forumSearchActivityConfig.setTransmitOriginThreadComment(SelectForumActivity.this.jdZ);
-                        forumSearchActivityConfig.setTransmitThreadAuthorNameShow(SelectForumActivity.this.jea);
+                        forumSearchActivityConfig.setOriginalThread(SelectForumActivity.this.jem);
+                        forumSearchActivityConfig.setTransmitOriginThreadComment(SelectForumActivity.this.jen);
+                        forumSearchActivityConfig.setTransmitThreadAuthorNameShow(SelectForumActivity.this.jeo);
                         forumSearchActivityConfig.setRequestCode(RequestResponseCode.REQUEST_FORUM_SEARCH);
                         forumSearchActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-                        forumSearchActivityConfig.setMoreForumImg(SelectForumActivity.this.jec);
-                        forumSearchActivityConfig.setMoreForumUrl(SelectForumActivity.this.jeb);
-                        forumSearchActivityConfig.setMoreForumTitle(SelectForumActivity.this.jed);
+                        forumSearchActivityConfig.setMoreForumImg(SelectForumActivity.this.jeq);
+                        forumSearchActivityConfig.setMoreForumUrl(SelectForumActivity.this.jep);
+                        forumSearchActivityConfig.setMoreForumTitle(SelectForumActivity.this.jer);
                         SelectForumActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, forumSearchActivityConfig));
                         return;
                     }
@@ -136,12 +136,12 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 arrayList.add(transmitForumData);
                 if (SelectForumActivity.this.mCheckResponseData != null) {
                     SelectForumActivity.this.mCheckResponseData.forumId = String.valueOf(transmitForumData.forumId);
-                    SelectForumActivity.this.mCheckResponseData.ogb = transmitForumData.forumName;
-                    SelectForumActivity.this.Ve(AddFriendActivityConfig.TYPE_FOCUS);
+                    SelectForumActivity.this.mCheckResponseData.ogB = transmitForumData.forumName;
+                    SelectForumActivity.this.Vq(AddFriendActivityConfig.TYPE_FOCUS);
                 } else if (SelectForumActivity.this.mFrom != 1 || SelectForumActivity.this.buN <= 0) {
                     if (SelectForumActivity.this.mFrom == 2) {
                         SelectForumActivity.this.a(transmitForumData, SelectForumActivity.this.mPrivateThread);
-                        SelectForumActivity.this.Lq(2);
+                        SelectForumActivity.this.Lr(2);
                         SelectForumActivity.this.finish();
                     } else if (SelectForumActivity.this.mFrom == 4) {
                         if (!WriteActivityConfig.isAsyncWriting()) {
@@ -168,7 +168,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         setContentView(R.layout.select_forum_activity);
         initData();
         initView();
-        registerListener(this.lhC);
+        registerListener(this.lhQ);
         if (this.mCheckResponseData != null) {
             showLoadingView(this.mContentView);
         }
@@ -179,9 +179,9 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.ogw != null && TbadkCoreApplication.isLogin() && y.isEmpty(this.mDataList)) {
+        if (this.ogW != null && TbadkCoreApplication.isLogin() && y.isEmpty(this.mDataList)) {
             if (this.mCheckResponseData != null) {
-                this.ogw.gM(this.mCheckResponseData.appKey, this.mCheckResponseData.oga);
+                this.ogW.gO(this.mCheckResponseData.appKey, this.mCheckResponseData.ogA);
                 return;
             }
             return;
@@ -207,14 +207,14 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 this.mFrom = 3;
                 this.mCheckResponseData = new com.baidu.tieba.write.share.c();
                 this.mCheckResponseData.appKey = intent.getStringExtra("appkey");
-                this.mCheckResponseData.oga = intent.getStringExtra(SelectForumActivityConfig.KEY_APPLETSKEY);
+                this.mCheckResponseData.ogA = intent.getStringExtra(SelectForumActivityConfig.KEY_APPLETSKEY);
                 this.mCheckResponseData.imageUrl = intent.getStringExtra("image");
                 this.mCheckResponseData.title = intent.getStringExtra("title");
                 this.mCheckResponseData.content = intent.getStringExtra("desc");
                 this.mCheckResponseData.linkUrl = intent.getStringExtra("link");
-                this.mCheckResponseData.ogd = intent.getStringExtra(SelectForumActivityConfig.KEY_SHARE_APPLETS_LINK);
-                this.ogw = new com.baidu.tieba.write.share.b(getUniqueId());
-                this.ofY = new com.baidu.tieba.write.share.a() { // from class: com.baidu.tieba.write.transmit.SelectForumActivity.2
+                this.mCheckResponseData.ogD = intent.getStringExtra(SelectForumActivityConfig.KEY_SHARE_APPLETS_LINK);
+                this.ogW = new com.baidu.tieba.write.share.b(getUniqueId());
+                this.ogy = new com.baidu.tieba.write.share.a() { // from class: com.baidu.tieba.write.transmit.SelectForumActivity.2
                     @Override // com.baidu.tieba.write.share.a
                     public void a(com.baidu.tieba.write.share.c cVar, int i, String str2) {
                         if (cVar == null) {
@@ -230,12 +230,12 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                             SelectForumActivity.this.mCheckResponseData.appName = cVar.appName;
                             SelectForumActivity.this.mCheckResponseData.eKQ = cVar.eKQ;
                         }
-                        com.baidu.tieba.c.f.ctz().ctC();
+                        com.baidu.tieba.c.f.ctG().ctJ();
                     }
                 };
-                this.ogw.a(this.ofY);
-                this.ogx = new f(getUniqueId());
-                this.ogx.a(new e() { // from class: com.baidu.tieba.write.transmit.SelectForumActivity.3
+                this.ogW.a(this.ogy);
+                this.ogX = new f(getUniqueId());
+                this.ogX.a(new e() { // from class: com.baidu.tieba.write.transmit.SelectForumActivity.3
                     @Override // com.baidu.tieba.write.share.e
                     public void a(d dVar) {
                         if (dVar == null) {
@@ -243,14 +243,14 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                             Intent intent2 = new Intent();
                             intent2.putExtra("err_code", -2113);
                             SelectForumActivity.this.setResult(1008, intent2);
-                        } else if (dVar.oge != null && dVar.oge.getError_code() != 0) {
-                            SelectForumActivity.this.showToast(dVar.oge.getError_msg());
+                        } else if (dVar.ogE != null && dVar.ogE.getError_code() != 0) {
+                            SelectForumActivity.this.showToast(dVar.ogE.getError_msg());
                             Intent intent3 = new Intent();
-                            intent3.putExtra("err_code", dVar.oge.getError_code());
+                            intent3.putExtra("err_code", dVar.ogE.getError_code());
                             SelectForumActivity.this.setResult(1008, intent3);
                         } else {
                             TiebaStatic.log(new ar("c13278").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("fid", dVar.fid).dR("tid", dVar.tid));
-                            SelectForumActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(SelectForumActivity.this).createNormalCfg(SelectForumActivity.this.mCheckResponseData.ogb, "")));
+                            SelectForumActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(SelectForumActivity.this).createNormalCfg(SelectForumActivity.this.mCheckResponseData.ogB, "")));
                         }
                         SelectForumActivity.this.finish();
                     }
@@ -265,12 +265,12 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             this.buN = intent.getLongExtra("extra_key_live_id", -1L);
             this.mPrivateThread = intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_PRIVATE_THREAD, 0);
             this.mBaijiahaoData = (BaijiahaoData) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_BAIJIAHAO_DATA);
-            this.jdY = (OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD);
-            this.jdZ = intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT);
-            this.jea = intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW);
-            this.jec = intent.getStringExtra("more_forum_img");
-            this.jeb = intent.getStringExtra("more_forum_url");
-            this.jed = intent.getStringExtra("more_forum_title");
+            this.jem = (OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD);
+            this.jen = intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT);
+            this.jeo = intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW);
+            this.jeq = intent.getStringExtra("more_forum_img");
+            this.jep = intent.getStringExtra("more_forum_url");
+            this.jer = intent.getStringExtra("more_forum_title");
         }
     }
 
@@ -286,21 +286,21 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         }
         this.mTitleView = this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.select_share_forum_bar));
         this.eHy.setOnClickListener(this.mOnClickListener);
-        this.kmz = (LinearLayout) findViewById(R.id.layout_search);
-        this.ogu = (ImageView) findViewById(R.id.icon_search);
-        this.ogu.setOnClickListener(this.mOnClickListener);
-        this.ogv = (TextView) findViewById(R.id.textview_search);
-        this.ogv.setOnClickListener(this.mOnClickListener);
+        this.kmN = (LinearLayout) findViewById(R.id.layout_search);
+        this.ogU = (ImageView) findViewById(R.id.icon_search);
+        this.ogU.setOnClickListener(this.mOnClickListener);
+        this.ogV = (TextView) findViewById(R.id.textview_search);
+        this.ogV.setOnClickListener(this.mOnClickListener);
         this.dBb = findViewById(R.id.view_divider);
         this.WO = (BdListView) findViewById(R.id.trasmit_grid_view);
         this.WO.setOnItemClickListener(this.mOnItemClickListener);
-        this.ogt = new b(getActivity());
-        this.WO.setAdapter((ListAdapter) this.ogt);
-        this.ogt.eK(this.mDataList);
+        this.ogT = new b(getActivity());
+        this.WO.setAdapter((ListAdapter) this.ogT);
+        this.ogT.eK(this.mDataList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ve(String str) {
+    public void Vq(String str) {
         if (this.mCheckResponseData != null) {
             TiebaStatic.log(new ar("c13277").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("obj_source", str));
             ShareSdkView shareSdkView = new ShareSdkView(this);
@@ -311,8 +311,8 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                     if (SelectForumActivity.this.mCheckResponseData != null) {
                         SelectForumActivity.this.mCheckResponseData.comment = str2;
                     }
-                    if (SelectForumActivity.this.ogx != null) {
-                        SelectForumActivity.this.ogx.a(SelectForumActivity.this.mCheckResponseData);
+                    if (SelectForumActivity.this.ogX != null) {
+                        SelectForumActivity.this.ogX.a(SelectForumActivity.this.mCheckResponseData);
                     }
                 }
             });
@@ -340,12 +340,12 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             str = null;
             str2 = null;
         }
-        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(getPageContext().getPageActivity(), 9, str2, str, null, null, RequestResponseCode.REQUEST_TRANSMIT_POST_EDIT, null, null, null, this.jdY);
+        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(getPageContext().getPageActivity(), 9, str2, str, null, null, RequestResponseCode.REQUEST_TRANSMIT_POST_EDIT, null, null, null, this.jem);
         transmitPostEditActivityConfig.setCallFrom("2");
         transmitPostEditActivityConfig.setPrivateThread(i);
         transmitPostEditActivityConfig.setBaijiahaoData(this.mBaijiahaoData);
-        transmitPostEditActivityConfig.setTransmitOriginThreadComment(this.jdZ);
-        transmitPostEditActivityConfig.setTransmitThreadAuthorNameShow(this.jea);
+        transmitPostEditActivityConfig.setTransmitOriginThreadComment(this.jen);
+        transmitPostEditActivityConfig.setTransmitThreadAuthorNameShow(this.jeo);
         transmitPostEditActivityConfig.setFrsTabInfo(a(transmitForumData));
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, transmitPostEditActivityConfig));
     }
@@ -389,17 +389,17 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         ap.setViewTextColor(this.eHy, R.color.CAM_X0106);
         ap.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.kmz, R.color.CAM_X0205);
-        ap.setViewTextColor(this.ogv, R.color.CAM_X0109);
-        ap.setImageResource(this.ogu, R.drawable.icon_post_search_n);
+        ap.setBackgroundColor(this.kmN, R.color.CAM_X0205);
+        ap.setViewTextColor(this.ogV, R.color.CAM_X0109);
+        ap.setImageResource(this.ogU, R.drawable.icon_post_search_n);
         ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         ap.setBackgroundColor(this.dBb, R.color.CAM_X0204);
-        this.ogt.onChangeSkinType(i);
+        this.ogT.onChangeSkinType(i);
         this.WO.setSelector(ap.getDrawable(R.drawable.selector_select_forum_item));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lq(int i) {
+    public void Lr(int i) {
         TiebaStatic.log(new ar("c12610").ap("obj_locate", i));
     }
 
@@ -412,8 +412,8 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         } else if (i2 == -1 && i == 25019) {
             if (this.mCheckResponseData != null && intent != null) {
                 this.mCheckResponseData.forumId = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
-                this.mCheckResponseData.ogb = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_NAME);
-                Ve("search");
+                this.mCheckResponseData.ogB = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_NAME);
+                Vq("search");
                 return;
             }
             finish();

@@ -30,31 +30,31 @@ public class e {
     private TbPageContext mPageContext;
     private View mTargetView;
     private Handler mHandler = null;
-    private com.baidu.adp.lib.guide.c iDj = null;
+    private com.baidu.adp.lib.guide.c iDx = null;
     private int bGB = R.drawable.pic_sign_tip;
     private int bGC = 0;
-    private boolean iDk = false;
+    private boolean iDy = false;
     private int bGD = 1;
     private int bGE = 1000;
     private int bGF = 3000;
-    private boolean iDl = true;
+    private boolean iDz = true;
     private int mXOffset = 5;
     private int mYOffset = 0;
     private int bGK = 48;
     private int bGL = 4;
     private boolean mUseDirectOffset = false;
-    private int iDm = 1;
+    private int iDA = 1;
     private int mHeight = 0;
     private int mWidth = 0;
-    private boolean iDn = false;
+    private boolean iDB = false;
     private int dBe = 0;
     private int mTextViewGravity = 0;
-    private int iDo = 0;
-    private boolean iDp = false;
+    private int iDC = 0;
+    private boolean iDD = false;
     private Runnable bGO = new Runnable() { // from class: com.baidu.tieba.c.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.iDj == null && !StringUtils.isNull(e.this.mMessage)) {
+            if (e.this.iDx == null && !StringUtils.isNull(e.this.mMessage)) {
                 if (!e.this.bGN || e.this.TA()) {
                     com.baidu.adp.lib.guide.d dVar = new com.baidu.adp.lib.guide.d();
                     dVar.y(e.this.mTargetView).an(0).ac(true).ad(true);
@@ -85,20 +85,20 @@ public class e {
                                 textView.setWidth(e.this.mWidth);
                             }
                             textView.setPadding(e.this.bGG, e.this.bGH, e.this.bGI, e.this.bGJ);
-                            textView.setLines(e.this.iDm);
-                            if (e.this.iDn) {
+                            textView.setLines(e.this.iDA);
+                            if (e.this.iDB) {
                                 textView.setEllipsize(TextUtils.TruncateAt.END);
                             }
-                            if (e.this.iDo != 0) {
-                                if (e.this.iDp) {
+                            if (e.this.iDC != 0) {
+                                if (e.this.iDD) {
                                     if (e.this.dBe != 0) {
                                         i = e.this.dBe;
                                     } else {
                                         i = R.color.CAM_X0101;
                                     }
-                                    drawable = WebPManager.a(e.this.iDo, ap.getColor(i), WebPManager.ResourceStateType.NORMAL);
+                                    drawable = WebPManager.a(e.this.iDC, ap.getColor(i), WebPManager.ResourceStateType.NORMAL);
                                 } else {
-                                    drawable = ap.getDrawable(e.this.iDo);
+                                    drawable = ap.getDrawable(e.this.iDC);
                                 }
                                 int dimens = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
                                 drawable.setBounds(0, 0, dimens, dimens);
@@ -132,10 +132,10 @@ public class e {
                             return e.this.mYOffset;
                         }
                     });
-                    e.this.iDj = dVar.lF();
-                    e.this.iDj.setShouldCheckLocInWindow(false);
-                    e.this.iDj.setUseDirectOffset(e.this.mUseDirectOffset);
-                    e.this.iDj.d(e.this.mPageContext.getPageActivity(), e.this.iDl);
+                    e.this.iDx = dVar.lF();
+                    e.this.iDx.setShouldCheckLocInWindow(false);
+                    e.this.iDx.setUseDirectOffset(e.this.mUseDirectOffset);
+                    e.this.iDx.d(e.this.mPageContext.getPageActivity(), e.this.iDz);
                     e.this.bGz = true;
                     e.this.Ty();
                     e.this.isShowing = true;
@@ -173,7 +173,7 @@ public class e {
     }
 
     public void pI(boolean z) {
-        this.iDl = z;
+        this.iDz = z;
     }
 
     public void xi(int i) {
@@ -186,7 +186,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ty() {
-        if (!this.iDk) {
+        if (!this.iDy) {
             com.baidu.tbadk.core.sharedPref.b.brQ().putInt(this.bGA, this.bGC + 1);
         }
     }
@@ -201,9 +201,9 @@ public class e {
         }
         this.mMessage = str;
         this.bGA = str2;
-        this.iDk = z2;
+        this.iDy = z2;
         this.bGC = com.baidu.tbadk.core.sharedPref.b.brQ().getInt(str2, 0);
-        if (this.bGC < this.bGD || this.iDk) {
+        if (this.bGC < this.bGD || this.iDy) {
             if (z) {
                 Ty();
                 this.bGz = true;
@@ -221,7 +221,7 @@ public class e {
         return b(str, str2, z, false);
     }
 
-    public void IX(String str) {
+    public void IY(String str) {
         if (!StringUtils.isNull(str)) {
             this.mMessage = str;
             if (this.mHandler == null) {
@@ -232,9 +232,9 @@ public class e {
     }
 
     public void Tz() {
-        if (this.iDj != null) {
-            this.iDj.dismiss();
-            this.iDj = null;
+        if (this.iDx != null) {
+            this.iDx.dismiss();
+            this.iDx = null;
         }
         if (this.mHandler != null) {
             this.mHandler.removeCallbacks(this.bGO);
@@ -299,7 +299,7 @@ public class e {
     }
 
     public void setLines(int i) {
-        this.iDm = i;
+        this.iDA = i;
     }
 
     public void setHeight(@DimenRes int i) {
@@ -311,7 +311,7 @@ public class e {
     }
 
     public void pK(boolean z) {
-        this.iDn = z;
+        this.iDB = z;
     }
 
     public void setTextColor(@ColorRes int i) {
@@ -323,11 +323,11 @@ public class e {
     }
 
     public void xm(int i) {
-        this.iDo = i;
+        this.iDC = i;
     }
 
     public void pL(boolean z) {
-        this.iDp = z;
+        this.iDD = z;
     }
 
     public boolean isShowing() {

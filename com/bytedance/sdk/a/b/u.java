@@ -12,11 +12,11 @@ public final class u {
     private final ad f5979a;
     private final List<Certificate> c;
     private final List<Certificate> d;
-    private final k prg;
+    private final k prG;
 
     private u(ad adVar, k kVar, List<Certificate> list, List<Certificate> list2) {
         this.f5979a = adVar;
-        this.prg = kVar;
+        this.prG = kVar;
         this.c = list;
         this.d = list2;
     }
@@ -29,7 +29,7 @@ public final class u {
         if (cipherSuite == null) {
             throw new IllegalStateException("cipherSuite == null");
         }
-        k YD = k.YD(cipherSuite);
+        k YP = k.YP(cipherSuite);
         String protocol = sSLSession.getProtocol();
         if (protocol == null) {
             throw new IllegalStateException("tlsVersion == null");
@@ -51,11 +51,11 @@ public final class u {
         } else {
             emptyList2 = Collections.emptyList();
         }
-        return new u(a2, YD, emptyList, emptyList2);
+        return new u(a2, YP, emptyList, emptyList2);
     }
 
-    public k epT() {
-        return this.prg;
+    public k eqb() {
+        return this.prG;
     }
 
     public List<Certificate> b() {
@@ -65,12 +65,12 @@ public final class u {
     public boolean equals(Object obj) {
         if (obj instanceof u) {
             u uVar = (u) obj;
-            return this.f5979a.equals(uVar.f5979a) && this.prg.equals(uVar.prg) && this.c.equals(uVar.c) && this.d.equals(uVar.d);
+            return this.f5979a.equals(uVar.f5979a) && this.prG.equals(uVar.prG) && this.c.equals(uVar.c) && this.d.equals(uVar.d);
         }
         return false;
     }
 
     public int hashCode() {
-        return ((((((this.f5979a.hashCode() + 527) * 31) + this.prg.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode();
+        return ((((((this.f5979a.hashCode() + 527) * 31) + this.prG.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode();
     }
 }

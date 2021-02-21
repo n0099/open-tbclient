@@ -8,7 +8,7 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.newdetail.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0801a {
+    public interface InterfaceC0802a {
         void ER(int i);
 
         void a(int i, long j, long j2, int i2);
@@ -36,21 +36,21 @@ public interface a {
 
         void a(d dVar, boolean z, int i);
 
-        void bRB();
+        void bRI();
 
         void destroy();
 
-        void dhT();
+        void dia();
 
-        void dhU();
+        void dib();
 
-        void dhV();
+        void dic();
 
-        e dhW();
+        e did();
 
-        int dhX();
+        int die();
 
-        void dhY();
+        void dif();
 
         void e(long j, long j2, int i);
 

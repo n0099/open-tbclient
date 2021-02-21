@@ -9,12 +9,12 @@ public class a extends b {
 
     /* renamed from: com.qq.e.comm.plugin.h.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    private class AsyncTaskC1197a extends AsyncTask<Void, Integer, String> {
+    private class AsyncTaskC1199a extends AsyncTask<Void, Integer, String> {
 
         /* renamed from: b  reason: collision with root package name */
         private Context f12078b;
 
-        public AsyncTaskC1197a(Context context) {
+        public AsyncTaskC1199a(Context context) {
             this.f12078b = context;
         }
 
@@ -53,7 +53,7 @@ public class a extends b {
 
     @Override // com.qq.e.comm.plugin.h.a.b
     protected String c(Context context) {
-        new AsyncTaskC1197a(context).execute(new Void[0]);
+        new AsyncTaskC1199a(context).execute(new Void[0]);
         return null;
     }
 }

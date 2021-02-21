@@ -18,7 +18,7 @@ public final class f {
         return this.imageKey;
     }
 
-    public final List<g> eDq() {
+    public final List<g> eDy() {
         return this.frames;
     }
 
@@ -33,7 +33,7 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.iX().isEmpty()) && ((SVGAVideoShapeEntity) n.first(gVar.iX())).eDg() && arrayList.size() > 0) {
+                    if ((!gVar.iX().isEmpty()) && ((SVGAVideoShapeEntity) n.first(gVar.iX())).eDo() && arrayList.size() > 0) {
                         gVar.gQ(((g) n.last(arrayList)).iX());
                     }
                     arrayList.add(gVar);
@@ -44,7 +44,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList eKW;
+        ArrayList eLe;
         p.o(spriteEntity, "obj");
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -56,16 +56,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 p.n(frameEntity, "it");
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.iX().isEmpty()) && ((SVGAVideoShapeEntity) n.first(gVar3.iX())).eDg() && gVar2 != null) {
+                if ((!gVar3.iX().isEmpty()) && ((SVGAVideoShapeEntity) n.first(gVar3.iX())).eDo() && gVar2 != null) {
                     gVar3.gQ(gVar2.iX());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            eKW = arrayList;
+            eLe = arrayList;
         } else {
-            eKW = n.eKW();
+            eLe = n.eLe();
         }
-        this.frames = eKW;
+        this.frames = eLe;
     }
 }

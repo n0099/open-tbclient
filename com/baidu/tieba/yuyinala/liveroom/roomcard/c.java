@@ -7,17 +7,17 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes11.dex */
 public class c {
-    public static c oyq;
-    private a oyr;
-    private CustomMessageListener oys = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
+    public static c oyQ;
+    private a oyR;
+    private CustomMessageListener oyS = new CustomMessageListener(2501061) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501061) {
-                if (c.this.oyr != null) {
-                    c.this.oyr.zW(true);
+                if (c.this.oyR != null) {
+                    c.this.oyR.zW(true);
                 }
-                MessageManager.getInstance().unRegisterListener(c.this.oys);
+                MessageManager.getInstance().unRegisterListener(c.this.oyS);
             }
         }
     };
@@ -27,11 +27,11 @@ public class c {
         void zW(boolean z);
     }
 
-    public static c ebI() {
-        if (oyq == null) {
-            oyq = new c();
+    public static c ebQ() {
+        if (oyQ == null) {
+            oyQ = new c();
         }
-        return oyq;
+        return oyQ;
     }
 
     public void a(Context context, Activity activity, a aVar) {
@@ -42,7 +42,7 @@ public class c {
             }
             return;
         }
-        this.oyr = aVar;
-        MessageManager.getInstance().registerListener(this.oys);
+        this.oyR = aVar;
+        MessageManager.getInstance().registerListener(this.oyS);
     }
 }

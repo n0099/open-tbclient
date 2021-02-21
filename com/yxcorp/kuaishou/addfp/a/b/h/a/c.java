@@ -11,13 +11,13 @@ public final class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
     private /* synthetic */ Context f14374a;
-    private /* synthetic */ b qlU;
+    private /* synthetic */ b qmu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, Looper looper, Context context) {
         super(looper);
-        this.qlU = bVar;
+        this.qmu = bVar;
         this.f14374a = context;
     }
 

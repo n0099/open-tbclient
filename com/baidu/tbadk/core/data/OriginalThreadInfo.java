@@ -333,7 +333,7 @@ public class OriginalThreadInfo {
                 PbContent pbContent = this.content.get(i);
                 if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && bmv() && pbContent.text != null && pbContent.text.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = com.baidu.tbadk.plugins.b.DD(pbContent.text);
+                    activityItemData.link_url = com.baidu.tbadk.plugins.b.DB(pbContent.text);
                     activityItemData.activity_name = pbContent.text.substring(1, pbContent.text.length() - 2);
                     return activityItemData;
                 }

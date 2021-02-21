@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.au;
 /* loaded from: classes8.dex */
 public class b {
-    public static String Nr(String str) {
+    public static String Ns(String str) {
         int indexOf;
         String urlDecode = au.getUrlDecode(str);
         if (urlDecode != null) {
@@ -17,7 +17,7 @@ public class b {
         return urlDecode;
     }
 
-    public static boolean Ns(String str) {
+    public static boolean Nt(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

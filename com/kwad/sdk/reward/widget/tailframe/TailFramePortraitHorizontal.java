@@ -160,8 +160,8 @@ public class TailFramePortraitHorizontal extends LinearLayout implements View.On
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.kwad.sdk.core.download.b.b.a(this.h, view == this.i);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1092a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFramePortraitHorizontal.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFramePortraitHorizontal.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 if (TailFramePortraitHorizontal.this.d != null) {
                     TailFramePortraitHorizontal.this.d.a();

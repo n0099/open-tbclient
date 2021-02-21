@@ -25,44 +25,44 @@ import org.json.JSONObject;
 public class g implements com.baidu.live.t.a {
     ab aJZ;
     private boolean aQK;
-    private View gRH;
-    private AlaDragContainerView gRI;
-    protected PkRankView gRJ;
-    com.baidu.tieba.ala.h.e gRK;
-    com.baidu.tieba.ala.h.a gRL;
+    private View gRV;
+    private AlaDragContainerView gRW;
+    protected PkRankView gRX;
+    com.baidu.tieba.ala.h.e gRY;
+    com.baidu.tieba.ala.h.a gRZ;
     private Context mContext;
     private ViewGroup mRootView;
     private boolean isHost = false;
-    private CustomMessageListener gRM = new CustomMessageListener(2913301) { // from class: com.baidu.tieba.ala.d.g.1
+    private CustomMessageListener gSa = new CustomMessageListener(2913301) { // from class: com.baidu.tieba.ala.d.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (g.this.aQK && !g.this.gRI.getIsDragged() && g.this.gRJ != null && !g.this.gRJ.getIsAtBottom()) {
-                g.this.gRJ.setIsAtBottom(true);
-                g.this.gRI.removeAllViews();
+            if (g.this.aQK && !g.this.gRW.getIsDragged() && g.this.gRX != null && !g.this.gRX.getIsAtBottom()) {
+                g.this.gRX.setIsAtBottom(true);
+                g.this.gRW.removeAllViews();
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 8388693;
-                g.this.gRI.setLayoutParams(layoutParams);
+                g.this.gRW.setLayoutParams(layoutParams);
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams2.setMargins(BdUtilHelper.px2dip(g.this.mContext, 0.0f), BdUtilHelper.px2dip(g.this.mContext, 0.0f), BdUtilHelper.px2dip(g.this.mContext, 10.0f), BdUtilHelper.px2dip(g.this.mContext, 600.0f));
-                g.this.gRI.setMargins(g.this.isHost, true, 0, 0, BdUtilHelper.px2dip(g.this.mContext, 500.0f), BdUtilHelper.px2dip(g.this.mContext, 10.0f));
-                g.this.gRI.addView(g.this.gRJ, layoutParams2);
+                g.this.gRW.setMargins(g.this.isHost, true, 0, 0, BdUtilHelper.px2dip(g.this.mContext, 500.0f), BdUtilHelper.px2dip(g.this.mContext, 10.0f));
+                g.this.gRW.addView(g.this.gRX, layoutParams2);
             }
         }
     };
-    private CustomMessageListener gRN = new CustomMessageListener(2913302) { // from class: com.baidu.tieba.ala.d.g.2
+    private CustomMessageListener gSb = new CustomMessageListener(2913302) { // from class: com.baidu.tieba.ala.d.g.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (g.this.aQK && !g.this.gRI.getIsDragged() && g.this.gRJ != null && g.this.gRJ.getIsAtBottom()) {
-                g.this.gRJ.setIsAtBottom(false);
-                g.this.gRJ.setClickable(true);
-                g.this.gRI.removeAllViews();
-                g.this.gRI.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+            if (g.this.aQK && !g.this.gRW.getIsDragged() && g.this.gRX != null && g.this.gRX.getIsAtBottom()) {
+                g.this.gRX.setIsAtBottom(false);
+                g.this.gRX.setClickable(true);
+                g.this.gRW.removeAllViews();
+                g.this.gRW.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.setMargins(BdUtilHelper.px2dip(g.this.mContext, 100.0f), BdUtilHelper.px2dip(g.this.mContext, 850.0f), BdUtilHelper.px2dip(g.this.mContext, 0.0f), BdUtilHelper.px2dip(g.this.mContext, 0.0f));
-                g.this.gRI.setMargins(g.this.isHost, false, BdUtilHelper.px2dip(g.this.mContext, 850.0f), BdUtilHelper.px2dip(g.this.mContext, 100.0f), 0, 0);
-                g.this.gRI.addView(g.this.gRJ, layoutParams);
+                g.this.gRW.setMargins(g.this.isHost, false, BdUtilHelper.px2dip(g.this.mContext, 850.0f), BdUtilHelper.px2dip(g.this.mContext, 100.0f), 0, 0);
+                g.this.gRW.addView(g.this.gRX, layoutParams);
             }
         }
     };
@@ -75,24 +75,24 @@ public class g implements com.baidu.live.t.a {
         } else {
             this.aQK = false;
         }
-        bUa();
+        bUh();
     }
 
-    private void bUa() {
-        if (this.gRH == null) {
-            this.gRH = LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_rank_drag_view, (ViewGroup) null);
-            this.gRI = (AlaDragContainerView) this.gRH.findViewById(a.f.ala_pk_rank_dragview);
+    private void bUh() {
+        if (this.gRV == null) {
+            this.gRV = LayoutInflater.from(this.mContext).inflate(a.g.ala_pk_rank_drag_view, (ViewGroup) null);
+            this.gRW = (AlaDragContainerView) this.gRV.findViewById(a.f.ala_pk_rank_dragview);
         }
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.gRN);
-        MessageManager.getInstance().registerListener(this.gRM);
+        MessageManager.getInstance().registerListener(this.gSb);
+        MessageManager.getInstance().registerListener(this.gSa);
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.gRN);
-        MessageManager.getInstance().unRegisterListener(this.gRM);
+        MessageManager.getInstance().unRegisterListener(this.gSb);
+        MessageManager.getInstance().unRegisterListener(this.gSa);
     }
 
     @Override // com.baidu.live.t.a
@@ -100,36 +100,36 @@ public class g implements com.baidu.live.t.a {
         this.aJZ = abVar;
         if (viewGroup != null && abVar != null) {
             this.mRootView = viewGroup;
-            if (this.gRJ == null || (viewGroup != null && viewGroup.indexOfChild(this.gRJ) < 0)) {
-                this.gRJ = new PkRankView(this.mContext, this.isHost, abVar);
-                this.gRJ.setClickable(true);
-                this.gRJ.setPkRankViewVisibleListener(new PkRankView.a() { // from class: com.baidu.tieba.ala.d.g.3
+            if (this.gRX == null || (viewGroup != null && viewGroup.indexOfChild(this.gRX) < 0)) {
+                this.gRX = new PkRankView(this.mContext, this.isHost, abVar);
+                this.gRX.setClickable(true);
+                this.gRX.setPkRankViewVisibleListener(new PkRankView.a() { // from class: com.baidu.tieba.ala.d.g.3
                     @Override // com.baidu.tieba.ala.view.PkRankView.a
                     public void mZ(boolean z) {
                         if (g.this.mRootView != null) {
                             if (z) {
-                                if (g.this.mRootView.indexOfChild(g.this.gRH) < 0) {
-                                    g.this.mRootView.addView(g.this.gRH, new FrameLayout.LayoutParams(-1, -1));
+                                if (g.this.mRootView.indexOfChild(g.this.gRV) < 0) {
+                                    g.this.mRootView.addView(g.this.gRV, new FrameLayout.LayoutParams(-1, -1));
                                     return;
                                 }
                                 return;
                             }
-                            g.this.mRootView.removeView(g.this.gRH);
+                            g.this.mRootView.removeView(g.this.gRV);
                         }
                     }
                 });
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.setMargins(BdUtilHelper.px2dip(this.mContext, 100.0f), BdUtilHelper.px2dip(this.mContext, 850.0f), BdUtilHelper.px2dip(this.mContext, 0.0f), BdUtilHelper.px2dip(this.mContext, 0.0f));
-                this.gRI.setMargins(this.isHost, false, BdUtilHelper.px2dip(this.mContext, 850.0f), BdUtilHelper.px2dip(this.mContext, 100.0f), 0, 0);
-                this.gRI.addView(this.gRJ, layoutParams);
+                this.gRW.setMargins(this.isHost, false, BdUtilHelper.px2dip(this.mContext, 850.0f), BdUtilHelper.px2dip(this.mContext, 100.0f), 0, 0);
+                this.gRW.addView(this.gRX, layoutParams);
             }
             if (this.aQK) {
                 if (abVar.aIG) {
-                    this.gRJ.setInSeason(true);
+                    this.gRX.setInSeason(true);
                 } else {
-                    this.gRJ.setInSeason(false);
+                    this.gRX.setInSeason(false);
                 }
-                this.gRJ.cqr();
+                this.gRX.cqy();
                 if (this.isHost) {
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -139,12 +139,12 @@ public class g implements com.baidu.live.t.a {
                     }
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PK_RANK, "pk_competition_start_pk", "author_liveroom", "update_live").setContentExt(jSONObject));
                 }
-                this.gRK = new com.baidu.tieba.ala.h.e();
-                this.gRK.PU();
-                this.gRK.setParentView(this.gRJ.ing.ikV);
-                this.gRL = new com.baidu.tieba.ala.h.a();
-                this.gRL.PU();
-                this.gRL.setParentView(this.gRJ.ing.ikV);
+                this.gRY = new com.baidu.tieba.ala.h.e();
+                this.gRY.PU();
+                this.gRY.setParentView(this.gRX.inv.ilj);
+                this.gRZ = new com.baidu.tieba.ala.h.a();
+                this.gRZ.PU();
+                this.gRZ.setParentView(this.gRX.inv.ilj);
                 registerListener();
             }
         }
@@ -154,9 +154,9 @@ public class g implements com.baidu.live.t.a {
     public void a(ab abVar) {
         if (this.aQK) {
             if (abVar.aIG) {
-                this.gRJ.setInSeason(true);
+                this.gRX.setInSeason(true);
             } else {
-                this.gRJ.setInSeason(false);
+                this.gRX.setInSeason(false);
             }
             if (this.isHost && abVar != null && abVar.mLiveInfo != null && this.aJZ != null && this.aJZ.mLiveInfo != null && abVar.mLiveInfo.pkId != this.aJZ.mLiveInfo.pkId) {
                 JSONObject jSONObject = new JSONObject();
@@ -169,7 +169,7 @@ public class g implements com.baidu.live.t.a {
             }
             this.aJZ = abVar;
             if (abVar != null && abVar.mLiveInfo != null && !this.isHost) {
-                this.gRJ.cqr();
+                this.gRX.cqy();
             }
         }
     }
@@ -193,7 +193,7 @@ public class g implements com.baidu.live.t.a {
             jSONObject = null;
         }
         if (this.aQK && (dI = dI(jSONObject)) != -1) {
-            this.gRJ.f(jSONObject, dI);
+            this.gRX.f(jSONObject, dI);
             return true;
         }
         return false;
@@ -363,8 +363,8 @@ public class g implements com.baidu.live.t.a {
 
     @Override // com.baidu.live.t.a
     public void setCanVisible(boolean z) {
-        if (this.gRJ != null) {
-            this.gRJ.setCanVisible(z);
+        if (this.gRX != null) {
+            this.gRX.setCanVisible(z);
         }
     }
 
@@ -380,34 +380,34 @@ public class g implements com.baidu.live.t.a {
 
     private void mv(boolean z) {
         if (z && this.mRootView != null) {
-            this.mRootView.removeView(this.gRH);
+            this.mRootView.removeView(this.gRV);
         }
         unRegisterListener();
     }
 
     @Override // com.baidu.live.t.a
     public boolean Aq() {
-        return this.gRJ.ink >= 10 && this.gRJ.ink <= 30;
+        return this.gRX.inz >= 10 && this.gRX.inz <= 30;
     }
 
     @Override // com.baidu.live.t.a
     public boolean Pi() {
-        return this.gRJ.ink == 2;
+        return this.gRX.inz == 2;
     }
 
     @Override // com.baidu.live.t.a
     public void onDestroy() {
         mv(true);
-        if (this.gRK != null) {
-            this.gRK.release();
-            this.gRK = null;
+        if (this.gRY != null) {
+            this.gRY.release();
+            this.gRY = null;
         }
-        if (this.gRL != null) {
-            this.gRL.release();
-            this.gRL = null;
+        if (this.gRZ != null) {
+            this.gRZ.release();
+            this.gRZ = null;
         }
-        if (this.gRJ != null) {
-            this.gRJ.onDestroy();
+        if (this.gRX != null) {
+            this.gRX.onDestroy();
         }
     }
 }

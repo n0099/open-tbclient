@@ -357,7 +357,7 @@ public class WheelView extends View {
                     } else {
                         Y = Y(objArr[i4]);
                     }
-                    Ej(Y);
+                    Eh(Y);
                     rp(Y);
                     rq(Y);
                     float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.dAj) / 2.0d));
@@ -409,7 +409,7 @@ public class WheelView extends View {
         }
     }
 
-    private void Ej(String str) {
+    private void Eh(String str) {
         Rect rect = new Rect();
         this.dAd.getTextBounds(str, 0, str.length(), rect);
         int i = this.textSize;

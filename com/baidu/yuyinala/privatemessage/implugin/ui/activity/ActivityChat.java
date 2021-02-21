@@ -63,7 +63,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyinala.privatemessage.implugin.ui.activity.a, com.baidu.yuyinala.privatemessage.implugin.ui.activity.c, ThemeManager.a {
-    public static boolean paS;
+    public static boolean pbs;
     protected String aTp;
     protected boolean isFollowed;
     private LinearLayout mContainer;
@@ -73,101 +73,101 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     private String mNickName;
     private PaInfo mPaInfo;
     public long mPaid;
-    private View paA;
-    private FrameLayout paB;
-    private FrameLayout paC;
-    private LinearLayout paD;
-    private RelativeLayout paE;
-    private FrameLayout paF;
-    private FrameLayout paG;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a paH;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b paI;
-    private LinearLayout paJ;
-    private TextView paK;
-    private ImageView paL;
-    private ImageView paM;
-    private ImageView paN;
-    private ChatUser paO;
-    protected QMGroupInfo paP;
-    protected long paQ;
-    public boolean paR;
-    private Animation paU;
-    private Animation paV;
-    private String paY;
-    private UserStatus paZ;
-    private RelativeLayout pau;
-    private View pav;
-    private TextView paw;
-    private TextView pax;
-    private TextView paz;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c pba;
-    protected ImBaseEntity pbb;
-    private com.baidu.yuyinala.privatemessage.implugin.ui.a.a pbc;
-    private long pbf;
-    private int klq = 0;
-    public boolean paT = false;
+    private RelativeLayout paV;
+    private View paW;
+    private TextView paX;
+    private TextView paY;
+    private TextView paZ;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c pbA;
+    protected ImBaseEntity pbB;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.a.a pbC;
+    private long pbF;
+    private View pba;
+    private FrameLayout pbb;
+    private FrameLayout pbc;
+    private LinearLayout pbd;
+    private RelativeLayout pbe;
+    private FrameLayout pbf;
+    private FrameLayout pbg;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a pbh;
+    private com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b pbi;
+    private LinearLayout pbj;
+    private TextView pbk;
+    private ImageView pbl;
+    private ImageView pbm;
+    private ImageView pbn;
+    private ChatUser pbo;
+    protected QMGroupInfo pbp;
+    protected long pbq;
+    public boolean pbr;
+    private Animation pbu;
+    private Animation pbv;
+    private String pby;
+    private UserStatus pbz;
+    private int klE = 0;
+    public boolean pbt = false;
     private int mChatStatus = 1;
     private String mListenerKey = "";
-    private int paW = -1;
-    private long paX = -1;
-    private c pbd = new c() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.1
+    private int pbw = -1;
+    private long pbx = -1;
+    private c pbD = new c() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.1
         @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.c
-        public void ekp() {
-            ActivityChat.this.pbe.sendEmptyMessage(1002);
+        public void ekx() {
+            ActivityChat.this.pbE.sendEmptyMessage(1002);
         }
     };
-    private f pbe = new f();
-    private boolean pbg = false;
-    private View.OnClickListener pbh = new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.10
+    private f pbE = new f();
+    private boolean pbG = false;
+    private View.OnClickListener pbH = new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.10
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int loginState = com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().getLoginState(ActivityChat.this);
-            ActivityChat.this.pbf = System.currentTimeMillis();
-            ActivityChat.this.pbg = false;
+            int loginState = com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().getLoginState(ActivityChat.this);
+            ActivityChat.this.pbF = System.currentTimeMillis();
+            ActivityChat.this.pbG = false;
             if (loginState == 3) {
-                ActivityChat.this.pbe.removeCallbacks(ActivityChat.this.gdc);
-                ActivityChat.this.pbe.postDelayed(ActivityChat.this.gdc, ActivityChat.this.ejV());
-                ActivityChat.this.paG.setVisibility(8);
+                ActivityChat.this.pbE.removeCallbacks(ActivityChat.this.gdh);
+                ActivityChat.this.pbE.postDelayed(ActivityChat.this.gdh, ActivityChat.this.ekd());
+                ActivityChat.this.pbg.setVisibility(8);
                 ActivityChat.this.init(ActivityChat.this.getIntent());
                 return;
             }
-            ActivityChat.this.pbe.postDelayed(ActivityChat.this.gdc, 7000L);
-            ActivityChat.this.ejW();
+            ActivityChat.this.pbE.postDelayed(ActivityChat.this.gdh, 7000L);
+            ActivityChat.this.eke();
         }
     };
-    private Runnable gdc = new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.12
+    private Runnable gdh = new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.12
         @Override // java.lang.Runnable
         public void run() {
             com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "mTimeOutRunnable run ");
-            if (com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().getLoginState(ActivityChat.this) != 3) {
-                ActivityChat.this.pbg = true;
-                ActivityChat.this.ejX();
+            if (com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().getLoginState(ActivityChat.this) != 3) {
+                ActivityChat.this.pbG = true;
+                ActivityChat.this.ekf();
                 return;
             }
-            ActivityChat.this.ejY();
+            ActivityChat.this.ekg();
         }
     };
-    private h pbi = new h();
-    private View.OnClickListener pbj = new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.6
+    private h pbI = new h();
+    private View.OnClickListener pbJ = new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ActivityChat.this.ekk();
-            if (ActivityChat.this.mChatStatus == 0 && ActivityChat.this.paI != null) {
-                ActivityChat.this.paI.ekV();
+            ActivityChat.this.eks();
+            if (ActivityChat.this.mChatStatus == 0 && ActivityChat.this.pbi != null) {
+                ActivityChat.this.pbi.eld();
             }
         }
     };
-    private l pbk = new l();
-    private k pbl = new k();
-    private j pbm = new j();
-    private a pbn = new a();
-    private b pbo = new b();
-    d pbp = new d();
-    e pbq = new e();
+    private l pbK = new l();
+    private k pbL = new k();
+    private j pbM = new j();
+    private a pbN = new a();
+    private b pbO = new b();
+    d pbP = new d();
+    e pbQ = new e();
 
     /* loaded from: classes11.dex */
     public interface c {
-        void ekp();
+        void ekx();
     }
 
     public String getLiveId() {
@@ -182,32 +182,32 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.activity.c
-    public void Yh(String str) {
+    public void Yt(String str) {
         if ("greet_link".equals(str)) {
-            String eku = com.baidu.yuyinala.privatemessage.implugin.ui.common.b.eku();
+            String ekC = com.baidu.yuyinala.privatemessage.implugin.ui.common.b.ekC();
             String str2 = "";
             if (!TextUtils.isEmpty(ChatInfo.nickname)) {
                 str2 = ChatInfo.nickname;
             } else if (!TextUtils.isEmpty(ChatInfo.displayname)) {
                 str2 = ChatInfo.displayname;
             }
-            com.baidu.yuyinala.privatemessage.model.message.a.emC().D(this, eku.replace("XXX", str2), this.mListenerKey);
+            com.baidu.yuyinala.privatemessage.model.message.a.emK().C(this, ekC.replace("XXX", str2), this.mListenerKey);
         } else if ("welcom_link".equals(str)) {
-            com.baidu.yuyinala.privatemessage.model.message.a.emC().D(this, com.baidu.yuyinala.privatemessage.implugin.ui.common.b.ekv(), this.mListenerKey);
+            com.baidu.yuyinala.privatemessage.model.message.a.emK().C(this, com.baidu.yuyinala.privatemessage.implugin.ui.common.b.ekD(), this.mListenerKey);
         }
     }
 
-    public f ejT() {
-        return this.pbe;
+    public f ekb() {
+        return this.pbE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class f extends Handler {
-        private final SoftReference<ActivityChat> pbv;
+        private final SoftReference<ActivityChat> pbV;
 
         private f(ActivityChat activityChat) {
-            this.pbv = new SoftReference<>(activityChat);
+            this.pbV = new SoftReference<>(activityChat);
         }
 
         @Override // android.os.Handler
@@ -216,7 +216,7 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
             int i = 0;
             boolean z = false;
             super.handleMessage(message);
-            if (this.pbv.get() != null) {
+            if (this.pbV.get() != null) {
                 try {
                 } catch (Exception e) {
                     com.baidu.yuyinala.privatemessage.implugin.util.c.e("ActivityChat", "activity had destroyed");
@@ -224,33 +224,33 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                 }
                 switch (message.what) {
                     case 1:
-                        this.pbv.get();
+                        this.pbV.get();
                         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "current is no support");
-                        this.pbv.get().paD.setVisibility(4);
+                        this.pbV.get().pbd.setVisibility(4);
                         ChatInfo.mStatus = 10;
-                        if (this.pbv.get().paI != null) {
-                            this.pbv.get().paI.ekP();
+                        if (this.pbV.get().pbi != null) {
+                            this.pbV.get().pbi.ekX();
                         }
-                        if (this.pbv.get().paH != null) {
-                            this.pbv.get().paH.ekP();
+                        if (this.pbV.get().pbh != null) {
+                            this.pbV.get().pbh.ekX();
                             return;
                         }
                         return;
                     case 2:
                         if (message.arg1 == 1) {
                             com.baidu.yuyinala.privatemessage.implugin.f.j.AK(true);
-                            postDelayed(new i(this.pbv), 1000L);
-                            com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elr().bw(this.pbv.get().getApplicationContext(), this.pbv.get().getString(a.h.bd_im_zhida_success_tip));
-                            if (this.pbv.get().pba != null) {
-                                this.pbv.get().pba.dismiss();
+                            postDelayed(new i(this.pbV), 1000L);
+                            com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elz().bv(this.pbV.get().getApplicationContext(), this.pbV.get().getString(a.h.bd_im_zhida_success_tip));
+                            if (this.pbV.get().pbA != null) {
+                                this.pbV.get().pbA.dismiss();
                             }
-                            String ejQ = com.baidu.yuyinala.privatemessage.implugin.f.j.ejQ();
-                            if (!TextUtils.isEmpty(ejQ)) {
+                            String ejY = com.baidu.yuyinala.privatemessage.implugin.f.j.ejY();
+                            if (!TextUtils.isEmpty(ejY)) {
                                 JSONObject jSONObject = new JSONObject();
                                 try {
-                                    jSONObject.put("sign", "media_" + ejQ);
+                                    jSONObject.put("sign", "media_" + ejY);
                                     jSONObject.put("relation", 1);
-                                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().A(this.pbv.get().getApplicationContext(), "com.baidu.channel.subscribe", URLEncoder.encode(jSONObject.toString(), "UTF-8"));
+                                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().z(this.pbV.get().getApplicationContext(), "com.baidu.channel.subscribe", URLEncoder.encode(jSONObject.toString(), "UTF-8"));
                                     return;
                                 } catch (UnsupportedEncodingException e2) {
                                     e2.printStackTrace();
@@ -260,7 +260,7 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                                     return;
                                 }
                             }
-                            this.pbv.get();
+                            this.pbV.get();
                             com.baidu.yuyinala.privatemessage.implugin.util.c.e(MAFragmentActivity.TAG, "sendAPSBroadcast thirdId is empty!");
                             return;
                         }
@@ -272,22 +272,22 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                             e4.printStackTrace();
                         }
                         if (i == 800200 && !TextUtils.isEmpty(str)) {
-                            com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elr().bv(this.pbv.get().getApplicationContext(), str);
+                            com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elz().bu(this.pbV.get().getApplicationContext(), str);
                             return;
                         } else {
-                            com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elr().bv(this.pbv.get().getApplicationContext(), this.pbv.get().getString(a.h.bd_im_subscribe_fail_tip));
+                            com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elz().bu(this.pbV.get().getApplicationContext(), this.pbV.get().getString(a.h.bd_im_subscribe_fail_tip));
                             return;
                         }
                         com.baidu.yuyinala.privatemessage.implugin.util.c.e("ActivityChat", "activity had destroyed");
                         return;
                     case 3:
-                        com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elr().showToast(this.pbv.get().getApplicationContext(), this.pbv.get().getString(a.h.bd_im_zhida_fail_net_tip));
+                        com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elz().showToast(this.pbV.get().getApplicationContext(), this.pbV.get().getString(a.h.bd_im_zhida_fail_net_tip));
                         return;
                     case 5:
-                        this.pbv.get();
+                        this.pbV.get();
                         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "AAA 1 ");
-                        this.pbv.get().finish();
-                        this.pbv.get();
+                        this.pbV.get().finish();
+                        this.pbV.get();
                         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "AAA 2 ");
                         return;
                     case 6:
@@ -297,82 +297,82 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                             str2 = data.getString("subscribe_data");
                             z = data.getBoolean("update_subscribe", false);
                         }
-                        com.baidu.yuyinala.privatemessage.implugin.f.j.Ye(str2);
+                        com.baidu.yuyinala.privatemessage.implugin.f.j.Yq(str2);
                         ChatInfo.mPainfo.setMsgNotify(com.baidu.yuyinala.privatemessage.implugin.f.j.isNeedNotify());
-                        if (com.baidu.yuyinala.privatemessage.implugin.f.j.ejR() || !z) {
-                            if (this.pbv.get().pba != null && this.pbv.get().pba.elp()) {
-                                this.pbv.get().pba.dismiss();
+                        if (com.baidu.yuyinala.privatemessage.implugin.f.j.ejZ() || !z) {
+                            if (this.pbV.get().pbA != null && this.pbV.get().pbA.elx()) {
+                                this.pbV.get().pbA.dismiss();
                             }
                         } else {
-                            this.pbv.get().ND(1);
+                            this.pbV.get().NE(1);
                         }
                         if (com.baidu.yuyinala.privatemessage.implugin.f.j.getData() != null) {
-                            com.baidu.yuyinala.privatemessage.implugin.util.c.b.C(this.pbv.get().getApplicationContext(), String.valueOf(this.pbv.get().mPaid), com.baidu.yuyinala.privatemessage.implugin.f.j.getData().toString());
+                            com.baidu.yuyinala.privatemessage.implugin.util.c.b.B(this.pbV.get().getApplicationContext(), String.valueOf(this.pbV.get().mPaid), com.baidu.yuyinala.privatemessage.implugin.f.j.getData().toString());
                             return;
                         }
                         return;
                     case 7:
-                        this.pbv.get().ND(0);
+                        this.pbV.get().NE(0);
                         return;
                     case 8:
                         if (message.arg1 == 0) {
-                            com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elr().bv(this.pbv.get(), "关注成功");
-                            this.pbv.get().pba.dismiss();
-                            this.pbv.get().ekm();
-                            this.pbv.get().isFollowed = true;
+                            com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elz().bu(this.pbV.get(), "关注成功");
+                            this.pbV.get().pbA.dismiss();
+                            this.pbV.get().eku();
+                            this.pbV.get().isFollowed = true;
                             return;
                         }
-                        com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elr().bv(this.pbv.get(), "关注失败");
+                        com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elz().bu(this.pbV.get(), "关注失败");
                         return;
                     case 1001:
-                        if (this.pbv.get().paJ != null && this.pbv.get().paJ.getVisibility() == 0) {
-                            this.pbv.get().paJ.setAnimation(AnimationUtils.loadAnimation(this.pbv.get(), a.C0195a.bd_im_slip_out_from_right));
-                            this.pbv.get().paJ.setVisibility(4);
+                        if (this.pbV.get().pbj != null && this.pbV.get().pbj.getVisibility() == 0) {
+                            this.pbV.get().pbj.setAnimation(AnimationUtils.loadAnimation(this.pbV.get(), a.C0195a.bd_im_slip_out_from_right));
+                            this.pbV.get().pbj.setVisibility(4);
                             return;
                         }
                         return;
                     case 1002:
-                        this.pbv.get().ekb();
+                        this.pbV.get().ekj();
                         return;
                     case 1003:
-                        if (this.pbv.get().paL != null && this.pbv.get().paL.getVisibility() == 0) {
-                            this.pbv.get().paL.setAnimation(AnimationUtils.loadAnimation(this.pbv.get(), a.C0195a.bd_im_disappear_out));
-                            this.pbv.get().paL.setVisibility(4);
+                        if (this.pbV.get().pbl != null && this.pbV.get().pbl.getVisibility() == 0) {
+                            this.pbV.get().pbl.setAnimation(AnimationUtils.loadAnimation(this.pbV.get(), a.C0195a.bd_im_disappear_out));
+                            this.pbV.get().pbl.setVisibility(4);
                             return;
                         }
                         return;
                     case 1006:
-                        this.pbv.get().paD.setVisibility(4);
+                        this.pbV.get().pbd.setVisibility(4);
                         ChatInfo.mStatus = 11;
-                        if (this.pbv.get().paI != null) {
-                            this.pbv.get().paI.ekP();
+                        if (this.pbV.get().pbi != null) {
+                            this.pbV.get().pbi.ekX();
                         }
-                        this.pbv.get().paF.setVisibility(0);
+                        this.pbV.get().pbf.setVisibility(0);
                         return;
                     case 1007:
                     case 1008:
                         return;
                     case 1009:
-                        if (this.pbv.get().paH != null) {
-                            this.pbv.get().paH.AN(false);
+                        if (this.pbV.get().pbh != null) {
+                            this.pbV.get().pbh.AN(false);
                         }
-                        this.pbv.get().paG.setVisibility(8);
-                        this.pbv.get().init(this.pbv.get().getIntent());
+                        this.pbV.get().pbg.setVisibility(8);
+                        this.pbV.get().init(this.pbV.get().getIntent());
                         return;
                     case 1010:
-                        if (this.pbv.get().paH != null) {
-                            this.pbv.get().paH.AN(true);
+                        if (this.pbV.get().pbh != null) {
+                            this.pbV.get().pbh.AN(true);
                         }
-                        if (this.pbv.get().paI != null) {
-                            this.pbv.get().paI.ekP();
+                        if (this.pbV.get().pbi != null) {
+                            this.pbV.get().pbi.ekX();
                             return;
                         }
                         return;
                     case 1011:
-                        this.pbv.get().paD.setVisibility(4);
+                        this.pbV.get().pbd.setVisibility(4);
                         ChatInfo.mStatus = 12;
-                        if (this.pbv.get().paI != null) {
-                            this.pbv.get().paI.ekP();
+                        if (this.pbV.get().pbi != null) {
+                            this.pbV.get().pbi.ekX();
                             return;
                         }
                         return;
@@ -385,16 +385,16 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     /* loaded from: classes11.dex */
     private static class i implements Runnable {
-        private final SoftReference<ActivityChat> pbv;
+        private final SoftReference<ActivityChat> pbV;
 
         private i(SoftReference<ActivityChat> softReference) {
-            this.pbv = softReference;
+            this.pbV = softReference;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pbv.get() != null) {
-                this.pbv.get().v(this.pbv.get().mPaid, false);
+            if (this.pbV.get() != null) {
+                this.pbV.get().v(this.pbV.get().mPaid, false);
             }
         }
     }
@@ -403,7 +403,7 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         BIMManager.mediaSetRole(getActivity(), true);
-        ekh();
+        ekp();
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
@@ -413,11 +413,11 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
         }
         setContentView(a.g.bd_im_chat_activity_layout);
         this.mContainer = (LinearLayout) findViewById(a.f.bd_im_chat_root);
-        this.pbc = new com.baidu.yuyinala.privatemessage.implugin.ui.a.a();
-        ekj();
+        this.pbC = new com.baidu.yuyinala.privatemessage.implugin.ui.a.a();
+        ekr();
         init(getIntent());
-        if (com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().isCuidLogin(this) || com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().ejN()) {
-            this.paT = true;
+        if (com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().isCuidLogin(this) || com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().ejV()) {
+            this.pbt = true;
         }
     }
 
@@ -426,33 +426,33 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
         super.finish();
     }
 
-    private void ejU() {
-        this.pbf = System.currentTimeMillis();
-        int loginState = com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().getLoginState(this);
+    private void ekc() {
+        this.pbF = System.currentTimeMillis();
+        int loginState = com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().getLoginState(this);
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "loginOver loginState: " + loginState);
-        if (this.paH != null) {
-            this.paH.ekQ();
+        if (this.pbh != null) {
+            this.pbh.ekY();
         }
         switch (loginState) {
             case 2:
-                this.pbe.postDelayed(this.gdc, 7000L);
-                ejW();
+                this.pbE.postDelayed(this.gdh, 7000L);
+                eke();
                 return;
             case 3:
-                this.pbe.postDelayed(this.gdc, ejV());
-                this.paG.setVisibility(8);
-                this.pbe.sendEmptyMessage(1009);
+                this.pbE.postDelayed(this.gdh, ekd());
+                this.pbg.setVisibility(8);
+                this.pbE.sendEmptyMessage(1009);
                 return;
             default:
-                this.pbe.postDelayed(this.gdc, 7000L);
-                ejZ();
+                this.pbE.postDelayed(this.gdh, 7000L);
+                ekh();
                 return;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long ejV() {
-        long currentTimeMillis = 10000 - (System.currentTimeMillis() - this.pbf);
+    public long ekd() {
+        long currentTimeMillis = 10000 - (System.currentTimeMillis() - this.pbF);
         if (currentTimeMillis > 7000) {
             return 7000L;
         }
@@ -460,11 +460,11 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ejW() {
-        com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "retryLogin timeout " + this.pbg);
-        if (!this.pbg) {
-            this.pbe.sendEmptyMessage(1010);
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().a(this, new b.c() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.13
+    public void eke() {
+        com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "retryLogin timeout " + this.pbG);
+        if (!this.pbG) {
+            this.pbE.sendEmptyMessage(1010);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().a(this, new b.c() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.13
                 @Override // com.baidu.android.imsdk.account.ILoginListener
                 public void onLoginResult(int i2, String str) {
                 }
@@ -477,38 +477,38 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ejX() {
-        if (this.paH != null) {
-            this.paH.AN(false);
+    public void ekf() {
+        if (this.pbh != null) {
+            this.pbh.AN(false);
         }
-        if (this.paI != null) {
-            this.paI.ekP();
+        if (this.pbi != null) {
+            this.pbi.ekX();
         }
-        this.paG.setVisibility(0);
+        this.pbg.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ejY() {
-        if (this.paH != null) {
-            this.paH.AN(false);
+    public void ekg() {
+        if (this.pbh != null) {
+            this.pbh.AN(false);
         }
     }
 
-    private void ejZ() {
-        this.pbe.sendEmptyMessage(1010);
+    private void ekh() {
+        this.pbE.sendEmptyMessage(1010);
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "listenLoginStatus ");
-        com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().a(this, new b.e() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.14
+        com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().a(this, new b.e() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.14
             @Override // com.baidu.android.imsdk.account.ILoginStateChangedListener
             public void onLoginStateChanged(int i2) {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "listenLoginStatus onLoginStateChanged state: " + i2);
                 switch (i2) {
                     case 2:
-                        ActivityChat.this.ejW();
+                        ActivityChat.this.eke();
                         return;
                     case 3:
-                        ActivityChat.this.pbe.removeCallbacks(ActivityChat.this.gdc);
-                        ActivityChat.this.pbe.postDelayed(ActivityChat.this.gdc, ActivityChat.this.ejV());
-                        ActivityChat.this.pbe.sendEmptyMessage(1009);
+                        ActivityChat.this.pbE.removeCallbacks(ActivityChat.this.gdh);
+                        ActivityChat.this.pbE.postDelayed(ActivityChat.this.gdh, ActivityChat.this.ekd());
+                        ActivityChat.this.pbE.sendEmptyMessage(1009);
                         return;
                     default:
                         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "waitting");
@@ -519,52 +519,52 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eka() {
-        if (this.klq > 8) {
-            if (this.paJ == null) {
-                this.paJ = (LinearLayout) findViewById(a.f.bd_im_chat_unread_msgs_layout);
-                this.paK = (TextView) findViewById(a.f.bd_im_chat_unread_msgs_txt);
-                this.paK.setText(this.klq + getString(a.h.bd_im_alert_unread_msgs));
+    public void eki() {
+        if (this.klE > 8) {
+            if (this.pbj == null) {
+                this.pbj = (LinearLayout) findViewById(a.f.bd_im_chat_unread_msgs_layout);
+                this.pbk = (TextView) findViewById(a.f.bd_im_chat_unread_msgs_txt);
+                this.pbk.setText(this.klE + getString(a.h.bd_im_alert_unread_msgs));
             }
-            this.paM = (ImageView) findViewById(a.f.bd_im_chat_unread_msgs_up);
+            this.pbm = (ImageView) findViewById(a.f.bd_im_chat_unread_msgs_up);
             try {
-                this.paJ.setBackgroundResource(ThemeManager.U(this, a.e.bd_im_chat_unread_msgs_background));
+                this.pbj.setBackgroundResource(ThemeManager.U(this, a.e.bd_im_chat_unread_msgs_background));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            this.paJ.setAnimation(AnimationUtils.loadAnimation(this, a.C0195a.bd_im_slip_in_from_right));
-            this.paJ.setVisibility(0);
-            this.paJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.15
+            this.pbj.setAnimation(AnimationUtils.loadAnimation(this, a.C0195a.bd_im_slip_in_from_right));
+            this.pbj.setVisibility(0);
+            this.pbj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.15
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    ActivityChat.this.paH.NE(ActivityChat.this.klq);
-                    ActivityChat.this.paJ.setAnimation(AnimationUtils.loadAnimation(ActivityChat.this, a.C0195a.bd_im_slip_out_from_right));
-                    ActivityChat.this.paJ.setVisibility(4);
+                    ActivityChat.this.pbh.NF(ActivityChat.this.klE);
+                    ActivityChat.this.pbj.setAnimation(AnimationUtils.loadAnimation(ActivityChat.this, a.C0195a.bd_im_slip_out_from_right));
+                    ActivityChat.this.pbj.setVisibility(4);
                 }
             });
-            this.pbe.sendEmptyMessageDelayed(1001, 5000L);
+            this.pbE.sendEmptyMessageDelayed(1001, 5000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ekb() {
-        if (this.paL == null) {
-            this.paL = (ImageView) findViewById(a.f.bd_im_chat_new_msgs_tip);
-            this.paL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.16
+    public void ekj() {
+        if (this.pbl == null) {
+            this.pbl = (ImageView) findViewById(a.f.bd_im_chat_new_msgs_tip);
+            this.pbl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.16
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    ActivityChat.this.paH.ekF();
-                    ActivityChat.this.paL.startAnimation(AnimationUtils.loadAnimation(ActivityChat.this, a.C0195a.bd_im_disappear_out));
-                    ActivityChat.this.paL.setVisibility(4);
+                    ActivityChat.this.pbh.ekN();
+                    ActivityChat.this.pbl.startAnimation(AnimationUtils.loadAnimation(ActivityChat.this, a.C0195a.bd_im_disappear_out));
+                    ActivityChat.this.pbl.setVisibility(4);
                 }
             });
         }
-        if (this.paL.getVisibility() != 0) {
-            this.paL.startAnimation(AnimationUtils.loadAnimation(this, a.C0195a.bd_im_disappear_in));
-            this.paL.setVisibility(0);
+        if (this.pbl.getVisibility() != 0) {
+            this.pbl.startAnimation(AnimationUtils.loadAnimation(this, a.C0195a.bd_im_disappear_in));
+            this.pbl.setVisibility(0);
         }
-        this.pbe.removeMessages(1003);
-        this.pbe.sendEmptyMessageDelayed(1003, 10000L);
+        this.pbE.removeMessages(1003);
+        this.pbE.sendEmptyMessageDelayed(1003, 10000L);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -577,34 +577,34 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        switch (ChatInfo.oZq) {
+        switch (ChatInfo.oZQ) {
             case GROUP:
-                com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().setAllMsgRead(getApplicationContext(), 1, ChatInfo.mContacter, false);
+                com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().setAllMsgRead(getApplicationContext(), 1, ChatInfo.mContacter, false);
                 break;
             default:
                 BIMManager.setAllMsgRead(getApplicationContext(), 0, ChatInfo.mContacter, false);
                 break;
         }
         try {
-            com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.elh();
-            com.baidu.yuyinala.privatemessage.implugin.imagechooser.a.ejK();
+            com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.elp();
+            com.baidu.yuyinala.privatemessage.implugin.imagechooser.a.ejS();
         } catch (Throwable th) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.e(MAFragmentActivity.TAG, th.getMessage());
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().c(this, th);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().c(this, th);
         }
-        com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elr().dismiss();
-        com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "mChatCategory " + ChatInfo.oZq + " mOnlineStatus " + this.paZ);
-        if (ChatInfo.oZq == ChatInfo.ChatCategory.C2C && this.paZ != null) {
-            ekc();
+        com.baidu.yuyinala.privatemessage.implugin.ui.material.a.e.elz().dismiss();
+        com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "mChatCategory " + ChatInfo.oZQ + " mOnlineStatus " + this.pbz);
+        if (ChatInfo.oZQ == ChatInfo.ChatCategory.C2C && this.pbz != null) {
+            ekk();
         }
-        if (this.paH != null) {
-            this.paH.a((com.baidu.yuyinala.privatemessage.implugin.ui.activity.a) null);
+        if (this.pbh != null) {
+            this.pbh.a((com.baidu.yuyinala.privatemessage.implugin.ui.activity.a) null);
         }
-        if (this.paI != null) {
-            this.paI.onDestroy();
+        if (this.pbi != null) {
+            this.pbi.onDestroy();
         }
-        if (this.paH != null) {
-            this.paH.onDestroy();
+        if (this.pbh != null) {
+            this.pbh.onDestroy();
         }
         super.onDestroy();
     }
@@ -613,9 +613,9 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     protected void onChangeSkinType(int i2) {
     }
 
-    private void ekc() {
+    private void ekk() {
         Intent intent = new Intent(IMConstants.NOTICE_USER_STATE);
-        intent.putExtra(IMConstants.NOTICE_USER_STATE_OBJECT, this.paZ);
+        intent.putExtra(IMConstants.NOTICE_USER_STATE_OBJECT, this.pbz);
         sendBroadcast(intent);
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "noticeSessionState com.baidu.android.imsdk.notice.userstate");
     }
@@ -624,19 +624,19 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     public void onResume() {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "onResume--->");
         super.onResume();
-        com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().AJ(true);
-        int loginState = com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().getLoginState(this);
-        com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "<---onResume mIsCuidOrIncompleteLogin: " + this.paT + " loginState: " + loginState);
-        if (this.paT && (!com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().isCuidLogin(this) || !com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().ejN() || (loginState != 0 && loginState != 3))) {
-            ejU();
-        } else if (this.pba != null && this.pba.elp() && ChatInfo.ChatCategory.DUZHAN == ChatInfo.oZq) {
+        com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().AJ(true);
+        int loginState = com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().getLoginState(this);
+        com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "<---onResume mIsCuidOrIncompleteLogin: " + this.pbt + " loginState: " + loginState);
+        if (this.pbt && (!com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().isCuidLogin(this) || !com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().ejV() || (loginState != 0 && loginState != 3))) {
+            ekc();
+        } else if (this.pbA != null && this.pbA.elx() && ChatInfo.ChatCategory.DUZHAN == ChatInfo.oZQ) {
             v(this.mPaid, true);
         }
-        if (this.paI != null) {
-            this.paI.onResume();
+        if (this.pbi != null) {
+            this.pbi.onResume();
         }
-        if (this.paH != null) {
-            this.paH.onResume();
+        if (this.pbh != null) {
+            this.pbh.onResume();
         }
     }
 
@@ -645,11 +645,11 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     public void onStop() {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "onStop--->");
         super.onStop();
-        if (this.paI != null) {
-            this.paI.onStop();
+        if (this.pbi != null) {
+            this.pbi.onStop();
         }
-        if (this.paH != null) {
-            this.paH.onStop();
+        if (this.pbh != null) {
+            this.pbh.onStop();
         }
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "<---onStop");
     }
@@ -659,11 +659,11 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     public void onStart() {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "onStart--->");
         super.onStart();
-        if (this.paI != null) {
-            this.paI.onStart();
+        if (this.pbi != null) {
+            this.pbi.onStart();
         }
-        if (this.paH != null) {
-            this.paH.onStart();
+        if (this.pbh != null) {
+            this.pbh.onStart();
         }
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "<---onStart");
     }
@@ -672,12 +672,12 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     public void onPause() {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "onPause--->");
         super.onPause();
-        com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().AJ(false);
-        if (this.paI != null) {
-            this.paI.onPause();
+        com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().AJ(false);
+        if (this.pbi != null) {
+            this.pbi.onPause();
         }
-        if (this.paH != null) {
-            this.paH.onPause();
+        if (this.pbh != null) {
+            this.pbh.onPause();
         }
         com.baidu.yuyinala.privatemessage.implugin.util.c.d(MAFragmentActivity.TAG, "<----onPause");
     }
@@ -710,29 +710,29 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            this.aTp = ExtraParamsManager.getEncryptionUserId(extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phg));
-            this.paR = extras.getBoolean("isMediaRole");
+            this.aTp = ExtraParamsManager.getEncryptionUserId(extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phG));
+            this.pbr = extras.getBoolean("isMediaRole");
             this.mGroupId = extras.getString("groupid");
-            com.baidu.yuyinala.privatemessage.implugin.util.c.d("miliao", "mIsmediaRole：" + this.paR);
+            com.baidu.yuyinala.privatemessage.implugin.util.c.d("miliao", "mIsmediaRole：" + this.pbr);
             this.mLiveId = extras.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
-            paS = this.paR;
-            jSONObject.put(com.baidu.yuyinala.privatemessage.implugin.util.d.phg, extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phg));
+            pbs = this.pbr;
+            jSONObject.put(com.baidu.yuyinala.privatemessage.implugin.util.d.phG, extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phG));
             jSONObject.put("paid", extras.getString("paid"));
-            jSONObject.put(com.baidu.yuyinala.privatemessage.implugin.util.d.phi, extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phi));
-            jSONObject.put(com.baidu.yuyinala.privatemessage.implugin.util.d.phk, extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phk));
-            jSONObject.put(com.baidu.yuyinala.privatemessage.implugin.util.d.phj, extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phj));
+            jSONObject.put(com.baidu.yuyinala.privatemessage.implugin.util.d.phI, extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phI));
+            jSONObject.put(com.baidu.yuyinala.privatemessage.implugin.util.d.phK, extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phK));
+            jSONObject.put(com.baidu.yuyinala.privatemessage.implugin.util.d.phJ, extras.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phJ));
             String jSONObject2 = jSONObject.toString();
             try {
                 if (!TextUtils.isEmpty(extras.getString("action"))) {
                     Serializable serializable = extras.getSerializable("params");
                     if (serializable instanceof ImBaseEntity) {
-                        this.pbb = (ImBaseEntity) serializable;
-                        if (this.paP == null) {
-                            GroupInfo groupInfo = new GroupInfo(String.valueOf(this.pbb.id));
-                            groupInfo.setGroupName(this.pbb.name);
-                            groupInfo.setDescription(this.pbb.description);
-                            groupInfo.setHeadUrl(this.pbb.headUrl);
-                            this.paP = new QMGroupInfo(groupInfo);
+                        this.pbB = (ImBaseEntity) serializable;
+                        if (this.pbp == null) {
+                            GroupInfo groupInfo = new GroupInfo(String.valueOf(this.pbB.id));
+                            groupInfo.setGroupName(this.pbB.name);
+                            groupInfo.setDescription(this.pbB.description);
+                            groupInfo.setHeadUrl(this.pbB.headUrl);
+                            this.pbp = new QMGroupInfo(groupInfo);
                         }
                     }
                 }
@@ -749,29 +749,29 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     public void init(Intent intent) {
         long parseLong;
         initViews();
-        ekf();
+        ekn();
         String aw = aw(intent);
-        if (this.paD != null) {
-            if (this.paR) {
-                this.paD.setVisibility(8);
+        if (this.pbd != null) {
+            if (this.pbr) {
+                this.pbd.setVisibility(8);
             } else {
-                this.paD.setVisibility(0);
+                this.pbd.setVisibility(0);
             }
         }
         com.baidu.yuyinala.privatemessage.implugin.util.c.i("ActivityChat", "invoke : " + aw);
         ChatInfo.mContacter = -1L;
-        ChatInfo.oZs = -1L;
+        ChatInfo.oZS = -1L;
         ChatInfo.mAppid = -1L;
         ChatInfo.mUid = -1L;
-        ChatInfo.oZt = "";
-        ChatInfo.oZu = "";
-        ChatInfo.oZv = -1;
-        ChatInfo.oZz = 0;
-        ChatInfo.oZC = true;
-        ChatInfo.oZB = false;
+        ChatInfo.oZT = "";
+        ChatInfo.oZU = "";
+        ChatInfo.oZV = -1;
+        ChatInfo.oZZ = 0;
+        ChatInfo.pac = true;
+        ChatInfo.pab = false;
         try {
             JSONObject jSONObject = new JSONObject(aw);
-            int i2 = jSONObject.has(com.baidu.yuyinala.privatemessage.implugin.util.d.phj) ? jSONObject.getInt(com.baidu.yuyinala.privatemessage.implugin.util.d.phj) : -1;
+            int i2 = jSONObject.has(com.baidu.yuyinala.privatemessage.implugin.util.d.phJ) ? jSONObject.getInt(com.baidu.yuyinala.privatemessage.implugin.util.d.phJ) : -1;
             if (i2 == -1) {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e(MAFragmentActivity.TAG, "invoke error -1");
                 return;
@@ -779,40 +779,40 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
             if (i2 == 80) {
                 parseLong = Long.parseLong(jSONObject.optString("paid", "-1"));
             } else {
-                parseLong = Long.parseLong(jSONObject.optString(com.baidu.yuyinala.privatemessage.implugin.util.d.phg, "-1"));
+                parseLong = Long.parseLong(jSONObject.optString(com.baidu.yuyinala.privatemessage.implugin.util.d.phG, "-1"));
             }
             com.baidu.yuyinala.privatemessage.implugin.util.c.i("ActivityChat", "invoke : " + aw);
-            if (this.paW != -1 && (this.paW != i2 || this.paX != parseLong)) {
-                if (this.paH != null) {
-                    this.paH.ekQ();
+            if (this.pbw != -1 && (this.pbw != i2 || this.pbx != parseLong)) {
+                if (this.pbh != null) {
+                    this.pbh.ekY();
                 }
-                if (this.pax != null) {
-                    this.pax.setText("");
+                if (this.paY != null) {
+                    this.paY.setText("");
                 }
             }
-            this.paW = i2;
+            this.pbw = i2;
             switch (i2) {
                 case 0:
-                    ChatInfo.oZq = ChatInfo.ChatCategory.C2C;
+                    ChatInfo.oZQ = ChatInfo.ChatCategory.C2C;
                     try {
-                        this.paQ = Long.parseLong(jSONObject.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phg));
-                        ChatInfo.mUid = this.paQ;
-                        eke();
-                        this.mNickName = jSONObject.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phi);
-                        this.mIcon = jSONObject.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phk);
-                        if (jSONObject.has(com.baidu.yuyinala.privatemessage.implugin.util.d.phm)) {
-                            ChatInfo.oZC = jSONObject.getBoolean(com.baidu.yuyinala.privatemessage.implugin.util.d.phm);
+                        this.pbq = Long.parseLong(jSONObject.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phG));
+                        ChatInfo.mUid = this.pbq;
+                        ekm();
+                        this.mNickName = jSONObject.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phI);
+                        this.mIcon = jSONObject.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phK);
+                        if (jSONObject.has(com.baidu.yuyinala.privatemessage.implugin.util.d.phM)) {
+                            ChatInfo.pac = jSONObject.getBoolean(com.baidu.yuyinala.privatemessage.implugin.util.d.phM);
                         }
                     } catch (Exception e2) {
                         com.baidu.yuyinala.privatemessage.implugin.util.c.e(MAFragmentActivity.TAG, "init uid and name error");
                     }
-                    this.paz.setVisibility(8);
-                    this.mListenerKey = String.valueOf(this.paQ);
-                    Yi(this.mNickName);
-                    hY(this.paQ);
+                    this.paZ.setVisibility(8);
+                    this.mListenerKey = String.valueOf(this.pbq);
+                    Yu(this.mNickName);
+                    hY(this.pbq);
                     return;
                 case 80:
-                    ChatInfo.oZq = ChatInfo.ChatCategory.DUZHAN;
+                    ChatInfo.oZQ = ChatInfo.ChatCategory.DUZHAN;
                     eQ(jSONObject);
                     return;
                 case 10000:
@@ -827,7 +827,7 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
         } catch (Exception e3) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.i("ActivityChat", "Exception : " + e3.getMessage());
             Log.e(MAFragmentActivity.TAG, e3.getMessage() + "");
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().c(this, e3);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().c(this, e3);
         }
     }
 
@@ -835,13 +835,13 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
         try {
             this.mPaid = Long.parseLong(jSONObject.getString("paid"));
             ChatInfo.mPaid = this.mPaid;
-            if (this.paR) {
-                long parseLong = Long.parseLong(jSONObject.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phg));
+            if (this.pbr) {
+                long parseLong = Long.parseLong(jSONObject.getString(com.baidu.yuyinala.privatemessage.implugin.util.d.phG));
                 if (parseLong > 0) {
                     ChatInfo.mUid = parseLong;
                 }
             }
-            ekg();
+            eko();
         } catch (Exception e2) {
             LogUtils.e(MAFragmentActivity.TAG, "init appid error");
         }
@@ -850,7 +850,7 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     }
 
     private void hX(long j2) {
-        this.paz.setVisibility(8);
+        this.paZ.setVisibility(8);
         if (j2 <= 0) {
             this.mPaInfo = null;
             showToast(a.h.bd_im_read_error);
@@ -863,51 +863,51 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                 public void onGetPaInfoResult(int i2, String str, PaInfo paInfo) {
                     LogUtils.d("FXF", "get painfo " + paInfo.toString() + " thread " + Thread.currentThread().getId());
                     ActivityChat.this.mPaInfo = paInfo;
-                    ActivityChat.this.pbe.post(ActivityChat.this.pbi);
+                    ActivityChat.this.pbE.post(ActivityChat.this.pbI);
                 }
             });
         } else {
-            this.pbe.post(this.pbi);
+            this.pbE.post(this.pbI);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class h implements Runnable {
-        private final SoftReference<ActivityChat> pbw;
+        private final SoftReference<ActivityChat> pbW;
 
         private h(ActivityChat activityChat) {
-            this.pbw = new SoftReference<>(activityChat);
+            this.pbW = new SoftReference<>(activityChat);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pbw.get() != null) {
+            if (this.pbW.get() != null) {
                 try {
-                    ChatInfo.oZs = AccountManager.getUK(this.pbw.get().getApplicationContext());
-                    this.pbw.get();
-                    LogUtils.d(MAFragmentActivity.TAG, "parunnable ---> " + ChatInfo.oZs);
-                    if (ChatInfo.oZs != -1) {
-                        this.pbw.get().mChatStatus = 0;
-                        this.pbw.get().ekd();
-                        this.pbw.get();
+                    ChatInfo.oZS = AccountManager.getUK(this.pbW.get().getApplicationContext());
+                    this.pbW.get();
+                    LogUtils.d(MAFragmentActivity.TAG, "parunnable ---> " + ChatInfo.oZS);
+                    if (ChatInfo.oZS != -1) {
+                        this.pbW.get().mChatStatus = 0;
+                        this.pbW.get().ekl();
+                        this.pbW.get();
                         LogUtils.d(MAFragmentActivity.TAG, "parunnable -->1");
-                        ChatInfo.mContacter = this.pbw.get().mPaInfo.getPaId();
-                        ChatInfo.mPainfo = this.pbw.get().mPaInfo;
-                        if (ChatInfo.oZq == ChatInfo.ChatCategory.DUZHAN) {
-                            this.pbw.get().klq = ChatMsgManager.getUnReadMsgCountByPaid(this.pbw.get(), this.pbw.get().mPaid);
-                            if (this.pbw.get().klq > 200) {
-                                this.pbw.get().klq = 200;
+                        ChatInfo.mContacter = this.pbW.get().mPaInfo.getPaId();
+                        ChatInfo.mPainfo = this.pbW.get().mPaInfo;
+                        if (ChatInfo.oZQ == ChatInfo.ChatCategory.DUZHAN) {
+                            this.pbW.get().klE = ChatMsgManager.getUnReadMsgCountByPaid(this.pbW.get(), this.pbW.get().mPaid);
+                            if (this.pbW.get().klE > 200) {
+                                this.pbW.get().klE = 200;
                             }
                         }
-                        this.pbw.get().Uu();
-                        this.pbw.get().v(this.pbw.get().mPaid, true);
+                        this.pbW.get().Uu();
+                        this.pbW.get().v(this.pbW.get().mPaid, true);
                     } else {
-                        this.pbw.get().showToast(a.h.bd_im_zhida_login_error);
+                        this.pbW.get().showToast(a.h.bd_im_zhida_login_error);
                     }
-                    this.pbw.get().paY = TextUtils.isEmpty(this.pbw.get().paY) ? this.pbw.get().mPaInfo.getNickName() : this.pbw.get().paY;
-                    this.pbw.get().pax.setText(String.valueOf(this.pbw.get().paY));
-                    this.pbw.get().eka();
+                    this.pbW.get().pby = TextUtils.isEmpty(this.pbW.get().pby) ? this.pbW.get().mPaInfo.getNickName() : this.pbW.get().pby;
+                    this.pbW.get().paY.setText(String.valueOf(this.pbW.get().pby));
+                    this.pbW.get().eki();
                 } catch (Exception e) {
                     LogUtils.e("ActivityChat", "activity had destroyed");
                 }
@@ -916,12 +916,12 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ekd() {
-        com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().a(getActivity(), new IGetUsersProfileBatchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.18
+    public void ekl() {
+        com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().a(getActivity(), new IGetUsersProfileBatchListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.18
             @Override // com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener
             public void onGetUsersProfileBatchResult(int i2, String str, ArrayList<Long> arrayList, ArrayList<ChatUser> arrayList2) {
                 if (i2 == 0 && arrayList2 != null && arrayList2.size() == 1) {
-                    ChatInfo.oZt = ActivityChat.this.Yk(arrayList2.get(0).getIconUrl());
+                    ChatInfo.oZT = ActivityChat.this.Yw(arrayList2.get(0).getIconUrl());
                     ChatInfo.displayname = arrayList2.get(0).getUserName();
                 }
             }
@@ -929,11 +929,11 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eke() {
+    public void ekm() {
         MessageManager.getInstance().sendMessage(new com.baidu.yuyinala.privatemessage.model.http.b(ExtraParamsManager.getEncryptionUserId(ChatInfo.mUid + "")));
     }
 
-    private static void ekf() {
+    private static void ekn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031061, com.baidu.live.a.avJ + "ala/audio/user/preFollow");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -941,11 +941,11 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void ekg() {
+    private void eko() {
         MessageManager.getInstance().sendMessage(new com.baidu.yuyinala.privatemessage.model.http.a(ExtraParamsManager.getEncryptionUserId(this.mPaid + "")));
     }
 
-    private void ekh() {
+    private void ekp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031067, com.baidu.live.a.avJ + "ala/audio/user/getPaBindInfo");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -959,15 +959,15 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof YuyinAlaAudioUserGetPaBindInfoResponseMessage)) {
                     if (httpResponsedMessage.getError() == 0 || httpResponsedMessage.isSuccess()) {
                         ChatInfo.mUid = Long.parseLong(ExtraParamsManager.getDecryptUserId(((YuyinAlaAudioUserGetPaBindInfoResponseMessage) httpResponsedMessage).uk));
-                        ActivityChat.this.eke();
+                        ActivityChat.this.ekm();
                     }
                 }
             }
         });
     }
 
-    public boolean eki() {
-        return this.paW == 2 || this.paW == 11;
+    public boolean ekq() {
+        return this.pbw == 2 || this.pbw == 11;
     }
 
     private void initViews() {
@@ -979,48 +979,48 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                 return true;
             }
         });
-        this.pau = (RelativeLayout) findViewById(a.f.bd_im_chat_title_root);
-        this.pav = findViewById(a.f.bd_im_chat_cell_space_line);
-        this.paw = (TextView) findViewById(a.f.bd_im_chat_open_main);
-        this.paD = (LinearLayout) findViewById(a.f.bd_im_chat_open_main_click_parent);
-        this.paD.setOnClickListener(this.pbj);
-        this.paE = (RelativeLayout) findViewById(a.f.bd_im_chat_back_layout);
-        this.paE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.4
+        this.paV = (RelativeLayout) findViewById(a.f.bd_im_chat_title_root);
+        this.paW = findViewById(a.f.bd_im_chat_cell_space_line);
+        this.paX = (TextView) findViewById(a.f.bd_im_chat_open_main);
+        this.pbd = (LinearLayout) findViewById(a.f.bd_im_chat_open_main_click_parent);
+        this.pbd.setOnClickListener(this.pbJ);
+        this.pbe = (RelativeLayout) findViewById(a.f.bd_im_chat_back_layout);
+        this.pbe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ActivityChat.this.onBackClick();
             }
         });
-        this.pax = (TextView) findViewById(a.f.bd_im_chat_title);
-        this.paz = (TextView) findViewById(a.f.bd_im_chat_subtitle);
-        this.paA = findViewById(a.f.bd_im_chat_main_input);
-        this.paB = (FrameLayout) findViewById(a.f.bd_im_chat_main_content);
-        this.paC = (FrameLayout) findViewById(a.f.bd_im_chat_main_input);
-        this.paF = (FrameLayout) findViewById(a.f.bd_im_chat_main_error_content);
-        this.paN = (ImageView) findViewById(a.f.bd_im_chat_main_error_image);
-        this.paF.setVisibility(8);
-        this.paG = (FrameLayout) findViewById(a.f.bd_im_chat_main_retry_content);
-        this.paG.setVisibility(8);
-        findViewById(a.f.bd_im_chat_main_retry_button).setOnClickListener(this.pbh);
-        this.pax.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.5
+        this.paY = (TextView) findViewById(a.f.bd_im_chat_title);
+        this.paZ = (TextView) findViewById(a.f.bd_im_chat_subtitle);
+        this.pba = findViewById(a.f.bd_im_chat_main_input);
+        this.pbb = (FrameLayout) findViewById(a.f.bd_im_chat_main_content);
+        this.pbc = (FrameLayout) findViewById(a.f.bd_im_chat_main_input);
+        this.pbf = (FrameLayout) findViewById(a.f.bd_im_chat_main_error_content);
+        this.pbn = (ImageView) findViewById(a.f.bd_im_chat_main_error_image);
+        this.pbf.setVisibility(8);
+        this.pbg = (FrameLayout) findViewById(a.f.bd_im_chat_main_retry_content);
+        this.pbg.setVisibility(8);
+        findViewById(a.f.bd_im_chat_main_retry_button).setOnClickListener(this.pbH);
+        this.paY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ActivityChat.this.ekn();
+                ActivityChat.this.ekv();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Uu() {
-        if (this.paH == null) {
-            FrameLayout frameLayout = this.paB;
-            this.paB.addView(FrameLayout.inflate(this, a.g.bd_im_chat_fragment_chat, null));
-            this.paH = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a(this, this.paB, this.mListenerKey, this.pbd, this.klq);
+        if (this.pbh == null) {
+            FrameLayout frameLayout = this.pbb;
+            this.pbb.addView(FrameLayout.inflate(this, a.g.bd_im_chat_fragment_chat, null));
+            this.pbh = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a(this, this.pbb, this.mListenerKey, this.pbD, this.klE);
         }
-        if (this.paI == null) {
-            FrameLayout frameLayout2 = this.paC;
-            this.paC.addView(FrameLayout.inflate(this, a.g.bd_im_chat_fragment_input, null));
-            this.paI = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.a(this, this.paC, this.mListenerKey, this.pbd);
+        if (this.pbi == null) {
+            FrameLayout frameLayout2 = this.pbc;
+            this.pbc.addView(FrameLayout.inflate(this, a.g.bd_im_chat_fragment_input, null));
+            this.pbi = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.a(this, this.pbc, this.mListenerKey, this.pbD);
         }
         com.baidu.yuyinala.privatemessage.implugin.util.c.i("ActivityChat", "initFragment : ");
         if (!isFinishing()) {
@@ -1028,13 +1028,13 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                 com.baidu.yuyinala.privatemessage.implugin.util.c.i("ActivityChat", "mTransaction.commitAllowingStateLoss() : ");
             } catch (Exception e2) {
                 com.baidu.yuyinala.privatemessage.implugin.util.c.e(MAFragmentActivity.TAG, "e :" + e2);
-                com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().c(this, e2);
+                com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().c(this, e2);
             }
         }
-        if (this.paH != null) {
-            this.paH.a(this);
+        if (this.pbh != null) {
+            this.pbh.a(this);
         }
-        hZ(this.paQ);
+        hZ(this.pbq);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -1043,47 +1043,47 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
         super.onSaveInstanceState(bundle);
     }
 
-    private void ekj() {
-        this.paU = AnimationUtils.loadAnimation(this, a.C0195a.bd_im_fragment_in_from_bottom);
-        this.paV = AnimationUtils.loadAnimation(this, a.C0195a.bd_im_fragment_out_to_bottom);
+    private void ekr() {
+        this.pbu = AnimationUtils.loadAnimation(this, a.C0195a.bd_im_fragment_in_from_bottom);
+        this.pbv = AnimationUtils.loadAnimation(this, a.C0195a.bd_im_fragment_out_to_bottom);
     }
 
     private void hY(long j2) {
         if (j2 == 0) {
-            this.paO = null;
+            this.pbo = null;
             showToast(a.h.bd_im_read_error);
             return;
         }
         ArrayList<Long> arrayList = new ArrayList<>();
         arrayList.add(Long.valueOf(j2));
         final SoftReference softReference = new SoftReference(this);
-        com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().a(getApplicationContext(), arrayList, false, new b.g() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.7
+        com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().a(getApplicationContext(), arrayList, false, new b.g() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.7
             @Override // com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener
             public void onGetUsersProfileBatchResult(int i2, String str, ArrayList<Long> arrayList2, ArrayList<ChatUser> arrayList3) {
                 if (softReference.get() != null) {
                     if (i2 != 0) {
-                        ((ActivityChat) softReference.get()).pbe.post(ActivityChat.this.pbn);
+                        ((ActivityChat) softReference.get()).pbE.post(ActivityChat.this.pbN);
                         return;
                     }
                     if (arrayList3 != null && arrayList3.size() > 0) {
-                        ((ActivityChat) softReference.get()).paO = arrayList3.get(0);
+                        ((ActivityChat) softReference.get()).pbo = arrayList3.get(0);
                     }
-                    if (((ActivityChat) softReference.get()).paO == null) {
-                        ((ActivityChat) softReference.get()).pbe.post(ActivityChat.this.pbm);
+                    if (((ActivityChat) softReference.get()).pbo == null) {
+                        ((ActivityChat) softReference.get()).pbE.post(ActivityChat.this.pbM);
                         return;
                     }
                     ArrayList<Long> arrayList4 = new ArrayList<>();
-                    arrayList4.add(Long.valueOf(ActivityChat.this.paO.getUk()));
-                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().a(ActivityChat.this.getApplicationContext(), arrayList4, new b.InterfaceC0966b() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.7.1
+                    arrayList4.add(Long.valueOf(ActivityChat.this.pbo.getUk()));
+                    com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().a(ActivityChat.this.getApplicationContext(), arrayList4, new b.InterfaceC0968b() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.activity.ActivityChat.7.1
                         @Override // com.baidu.android.imsdk.chatuser.IGetUserStatusListener
                         public void onGetUsersStatusResult(int i3, String str2, ArrayList<UserStatus> arrayList5) {
                             if (i3 == 0 && arrayList5.size() == 1) {
-                                ((ActivityChat) softReference.get()).paZ = arrayList5.get(0);
-                                ((ActivityChat) softReference.get()).pbe.post(ActivityChat.this.pbk);
+                                ((ActivityChat) softReference.get()).pbz = arrayList5.get(0);
+                                ((ActivityChat) softReference.get()).pbE.post(ActivityChat.this.pbK);
                             }
                         }
                     });
-                    ((ActivityChat) softReference.get()).pbe.post(ActivityChat.this.pbl);
+                    ((ActivityChat) softReference.get()).pbE.post(ActivityChat.this.pbL);
                 }
             }
         });
@@ -1096,7 +1096,7 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                     if (jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1) == 0) {
                         JSONArray jSONArray = jSONObject.optJSONObject("data").getJSONArray("items");
                         if (jSONArray == null || jSONArray.length() < 1) {
-                            ActivityChat.this.pbe.sendEmptyMessageDelayed(7, 1000L);
+                            ActivityChat.this.pbE.sendEmptyMessageDelayed(7, 1000L);
                         } else if (jSONArray.length() > 1) {
                             LogUtils.d(MAFragmentActivity.TAG, "getUserSubscribe->items->" + jSONArray.toString());
                         }
@@ -1107,7 +1107,7 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
             }
         });
         try {
-            com.baidu.yuyinala.privatemessage.implugin.e.a.hB(getApplicationContext()).hf("542", "chat_flow_time");
+            com.baidu.yuyinala.privatemessage.implugin.e.a.hB(getApplicationContext()).hh("542", "chat_flow_time");
         } catch (Throwable th) {
             com.baidu.yuyinala.privatemessage.implugin.util.c.e(MAFragmentActivity.TAG, th.getMessage());
         }
@@ -1116,28 +1116,28 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
     protected void hZ(long j2) {
     }
 
-    protected void ekk() {
+    protected void eks() {
     }
 
-    public ImBaseEntity ekl() {
-        return this.pbb;
+    public ImBaseEntity ekt() {
+        return this.pbB;
     }
 
-    protected void ekm() {
+    protected void eku() {
     }
 
-    protected void Yi(String str) {
+    protected void Yu(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.pax.setText(str);
+            this.paY.setText(str);
         } else if (this.mNickName != null) {
-            this.pax.setText(String.valueOf(this.mNickName));
-        } else if (this.paO != null) {
-            this.pax.setText(String.valueOf(this.paO.getUserName()));
+            this.paY.setText(String.valueOf(this.mNickName));
+        } else if (this.pbo != null) {
+            this.paY.setText(String.valueOf(this.pbo.getUserName()));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ekn() {
+    public void ekv() {
         String liveId = getLiveId();
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(getActivity(), ChatInfo.mUid + "", null, null, null, 0, 0, null, null, 0L, 0L, 0L, 0, getGroupId(), liveId, false, null, null, null, null, null)));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501070, ""));
@@ -1145,10 +1145,10 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     /* loaded from: classes11.dex */
     private static class l implements Runnable {
-        private final SoftReference<ActivityChat> pbv;
+        private final SoftReference<ActivityChat> pbV;
 
         private l(ActivityChat activityChat) {
-            this.pbv = new SoftReference<>(activityChat);
+            this.pbV = new SoftReference<>(activityChat);
         }
 
         @Override // java.lang.Runnable
@@ -1158,33 +1158,33 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     /* loaded from: classes11.dex */
     private static class k implements Runnable {
-        private final SoftReference<ActivityChat> pbv;
+        private final SoftReference<ActivityChat> pbV;
 
         private k(ActivityChat activityChat) {
-            this.pbv = new SoftReference<>(activityChat);
+            this.pbV = new SoftReference<>(activityChat);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pbv.get() != null) {
+            if (this.pbV.get() != null) {
                 try {
-                    ChatInfo.oZs = AccountManager.getUK(this.pbv.get().getApplicationContext());
-                    if (ChatInfo.oZs != -1) {
-                        this.pbv.get().mChatStatus = 0;
-                        this.pbv.get().eko();
-                        this.pbv.get().Uu();
-                        this.pbv.get().ia(this.pbv.get().paQ);
+                    ChatInfo.oZS = AccountManager.getUK(this.pbV.get().getApplicationContext());
+                    if (ChatInfo.oZS != -1) {
+                        this.pbV.get().mChatStatus = 0;
+                        this.pbV.get().ekw();
+                        this.pbV.get().Uu();
+                        this.pbV.get().ia(this.pbV.get().pbq);
                     } else {
-                        this.pbv.get().showToast(a.h.bd_im_zhida_login_error);
+                        this.pbV.get().showToast(a.h.bd_im_zhida_login_error);
                     }
-                    if (this.pbv.get().mNickName == null) {
-                        if (this.pbv.get().paO != null) {
-                            this.pbv.get().pax.setText(String.valueOf(this.pbv.get().paO.getUserName()));
+                    if (this.pbV.get().mNickName == null) {
+                        if (this.pbV.get().pbo != null) {
+                            this.pbV.get().paY.setText(String.valueOf(this.pbV.get().pbo.getUserName()));
                             return;
                         }
                         return;
                     }
-                    this.pbv.get().pax.setText(String.valueOf(this.pbv.get().mNickName));
+                    this.pbV.get().paY.setText(String.valueOf(this.pbV.get().mNickName));
                 } catch (Exception e) {
                     LogUtils.e("ActivityChat", "activity had destroyed");
                 }
@@ -1194,16 +1194,16 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ia(long j2) {
-        if (Yj(String.valueOf(j2))) {
+        if (Yv(String.valueOf(j2))) {
         }
     }
 
-    private boolean Yj(String str) {
-        String B = com.baidu.yuyinala.privatemessage.implugin.util.c.b.B(getApplicationContext(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.phG, null);
+    private boolean Yv(String str) {
+        String A = com.baidu.yuyinala.privatemessage.implugin.util.c.b.A(getApplicationContext(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.pii, null);
         boolean z = false;
-        if (!TextUtils.isEmpty(B)) {
+        if (!TextUtils.isEmpty(A)) {
             try {
-                JSONObject jSONObject = new JSONObject(B);
+                JSONObject jSONObject = new JSONObject(A);
                 if (jSONObject.has(str)) {
                     z = jSONObject.getBoolean(str);
                 }
@@ -1211,47 +1211,47 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                 e2.printStackTrace();
             }
         }
-        LogUtils.i(MAFragmentActivity.TAG, "is support IM:" + z + " data:" + B);
+        LogUtils.i(MAFragmentActivity.TAG, "is support IM:" + z + " data:" + A);
         return z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eko() {
-        ekd();
-        ChatInfo.mContacter = this.paO.getUk();
-        ChatInfo.mUid = this.paO.getBuid();
+    public void ekw() {
+        ekl();
+        ChatInfo.mContacter = this.pbo.getUk();
+        ChatInfo.mUid = this.pbo.getBuid();
         ChatInfo.mStatus = 3;
-        ChatInfo.oZr = this.paO.getUserName();
+        ChatInfo.oZR = this.pbo.getUserName();
         if (!TextUtils.isEmpty(this.mIcon)) {
-            ChatInfo.oZu = this.mIcon;
+            ChatInfo.oZU = this.mIcon;
         } else {
-            ChatInfo.oZu = Yk(this.paO.getIconUrl());
+            ChatInfo.oZU = Yw(this.pbo.getIconUrl());
         }
         BIMManager.setAllMsgRead(getApplicationContext(), 0, ChatInfo.mContacter, false);
-        LogUtils.i(MAFragmentActivity.TAG, "uk:" + ChatInfo.oZs);
-        LogUtils.i(MAFragmentActivity.TAG, "header:" + ChatInfo.oZt);
-        LogUtils.i(MAFragmentActivity.TAG, "" + this.paO.toString());
+        LogUtils.i(MAFragmentActivity.TAG, "uk:" + ChatInfo.oZS);
+        LogUtils.i(MAFragmentActivity.TAG, "header:" + ChatInfo.oZT);
+        LogUtils.i(MAFragmentActivity.TAG, "" + this.pbo.toString());
     }
 
     /* loaded from: classes11.dex */
     private static class j implements Runnable {
-        private final SoftReference<ActivityChat> pbv;
+        private final SoftReference<ActivityChat> pbV;
 
         private j(ActivityChat activityChat) {
-            this.pbv = new SoftReference<>(activityChat);
+            this.pbV = new SoftReference<>(activityChat);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pbv.get() != null) {
+            if (this.pbV.get() != null) {
                 try {
-                    ChatInfo.oZs = com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().hx(this.pbv.get().getApplicationContext()).longValue();
-                    this.pbv.get().mChatStatus = 0;
-                    this.pbv.get().Uu();
-                    if (this.pbv.get().mNickName != null) {
-                        this.pbv.get().pax.setText(String.valueOf(this.pbv.get().mNickName));
+                    ChatInfo.oZS = com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().hx(this.pbV.get().getApplicationContext()).longValue();
+                    this.pbV.get().mChatStatus = 0;
+                    this.pbV.get().Uu();
+                    if (this.pbV.get().mNickName != null) {
+                        this.pbV.get().paY.setText(String.valueOf(this.pbV.get().mNickName));
                     }
-                    this.pbv.get().pbe.sendEmptyMessage(1);
+                    this.pbV.get().pbE.sendEmptyMessage(1);
                 } catch (NullPointerException e) {
                 }
             }
@@ -1260,23 +1260,23 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     /* loaded from: classes11.dex */
     private static class a implements Runnable {
-        private final SoftReference<ActivityChat> pbv;
+        private final SoftReference<ActivityChat> pbV;
 
         private a(ActivityChat activityChat) {
-            this.pbv = new SoftReference<>(activityChat);
+            this.pbV = new SoftReference<>(activityChat);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pbv.get() != null) {
+            if (this.pbV.get() != null) {
                 try {
-                    ChatInfo.oZs = com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().hx(this.pbv.get().getApplicationContext()).longValue();
-                    this.pbv.get().mChatStatus = 1;
-                    this.pbv.get().Uu();
-                    if (this.pbv.get().mNickName != null) {
-                        this.pbv.get().pax.setText(String.valueOf(this.pbv.get().mNickName));
+                    ChatInfo.oZS = com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().hx(this.pbV.get().getApplicationContext()).longValue();
+                    this.pbV.get().mChatStatus = 1;
+                    this.pbV.get().Uu();
+                    if (this.pbV.get().mNickName != null) {
+                        this.pbV.get().paY.setText(String.valueOf(this.pbV.get().mNickName));
                     }
-                    this.pbv.get().pbe.sendEmptyMessage(1006);
+                    this.pbV.get().pbE.sendEmptyMessage(1006);
                 } catch (NullPointerException e) {
                 }
             }
@@ -1285,43 +1285,43 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     /* loaded from: classes11.dex */
     private static class b implements Runnable {
-        private final SoftReference<ActivityChat> pbv;
+        private final SoftReference<ActivityChat> pbV;
 
         private b(ActivityChat activityChat) {
-            this.pbv = new SoftReference<>(activityChat);
+            this.pbV = new SoftReference<>(activityChat);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pbv.get() != null) {
+            if (this.pbV.get() != null) {
                 try {
-                    ChatInfo.oZs = com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().hx(this.pbv.get().getApplicationContext()).longValue();
+                    ChatInfo.oZS = com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().hx(this.pbV.get().getApplicationContext()).longValue();
                     String str = null;
-                    if (this.pbv.get().paP != null) {
-                        str = this.pbv.get().paP.mInfo.getGroupName();
+                    if (this.pbV.get().pbp != null) {
+                        str = this.pbV.get().pbp.mInfo.getGroupName();
                     }
-                    if (ChatInfo.oZv == 2) {
+                    if (ChatInfo.oZV == 2) {
                         if (str == null || "".equals(str.trim())) {
-                            if (this.pbv.get().mNickName != null) {
-                                this.pbv.get().pax.setText(String.valueOf(this.pbv.get().mNickName));
+                            if (this.pbV.get().mNickName != null) {
+                                this.pbV.get().paY.setText(String.valueOf(this.pbV.get().mNickName));
                                 return;
-                            } else if (this.pbv.get().paP != null) {
-                                this.pbv.get().pax.setText(String.valueOf(str));
+                            } else if (this.pbV.get().pbp != null) {
+                                this.pbV.get().paY.setText(String.valueOf(str));
                                 return;
                             } else {
                                 return;
                             }
                         }
-                        this.pbv.get().pax.setText(String.valueOf(str));
+                        this.pbV.get().paY.setText(String.valueOf(str));
                     } else if (!TextUtils.isEmpty(str)) {
-                        this.pbv.get().pax.setText(String.valueOf(str));
-                        this.pbv.get().paz.setText(this.pbv.get().paP.mInfo.getNum() + "人");
-                    } else if (!TextUtils.isEmpty(this.pbv.get().mNickName)) {
-                        this.pbv.get().pax.setText(String.valueOf(this.pbv.get().mNickName));
-                        this.pbv.get().paz.setText(this.pbv.get().paP.mInfo.getNum() + "人");
-                    } else if (this.pbv.get().paP != null) {
-                        this.pbv.get().pax.setText("未知群");
-                        this.pbv.get().paz.setText(this.pbv.get().paP.mInfo.getNum() + "人");
+                        this.pbV.get().paY.setText(String.valueOf(str));
+                        this.pbV.get().paZ.setText(this.pbV.get().pbp.mInfo.getNum() + "人");
+                    } else if (!TextUtils.isEmpty(this.pbV.get().mNickName)) {
+                        this.pbV.get().paY.setText(String.valueOf(this.pbV.get().mNickName));
+                        this.pbV.get().paZ.setText(this.pbV.get().pbp.mInfo.getNum() + "人");
+                    } else if (this.pbV.get().pbp != null) {
+                        this.pbV.get().paY.setText("未知群");
+                        this.pbV.get().paZ.setText(this.pbV.get().pbp.mInfo.getNum() + "人");
                     }
                 } catch (Exception e) {
                     com.baidu.yuyinala.privatemessage.implugin.util.c.e("ActivityChat", "activity had destroyed");
@@ -1332,18 +1332,18 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     /* loaded from: classes11.dex */
     private static class d implements Runnable {
-        private final SoftReference<ActivityChat> pbv;
+        private final SoftReference<ActivityChat> pbV;
 
         private d(ActivityChat activityChat) {
-            this.pbv = new SoftReference<>(activityChat);
+            this.pbV = new SoftReference<>(activityChat);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pbv.get() != null) {
+            if (this.pbV.get() != null) {
                 try {
-                    this.pbv.get().paA.setVisibility(0);
-                    this.pbv.get().paA.startAnimation(this.pbv.get().paU);
+                    this.pbV.get().pba.setVisibility(0);
+                    this.pbV.get().pba.startAnimation(this.pbV.get().pbu);
                 } catch (NullPointerException e) {
                 }
             }
@@ -1352,17 +1352,17 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     /* loaded from: classes11.dex */
     private static class e implements Runnable {
-        private final SoftReference<ActivityChat> pbv;
+        private final SoftReference<ActivityChat> pbV;
 
         private e(ActivityChat activityChat) {
-            this.pbv = new SoftReference<>(activityChat);
+            this.pbV = new SoftReference<>(activityChat);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pbv.get() != null) {
+            if (this.pbV.get() != null) {
                 try {
-                    this.pbv.get().paA.setVisibility(8);
+                    this.pbV.get().pba.setVisibility(8);
                 } catch (Exception e) {
                     com.baidu.yuyinala.privatemessage.implugin.util.c.e("ActivityChat", "activity had destroyed");
                 }
@@ -1386,42 +1386,42 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                 bundle.putString("subscribe_data", str);
                 bundle.putBoolean("update_subscribe", z);
                 message.setData(bundle);
-                ActivityChat.this.pbe.sendMessage(message);
+                ActivityChat.this.pbE.sendMessage(message);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ND(int i2) {
+    public void NE(int i2) {
         String str;
         Date date;
         long j2 = -1;
         if (i2 == 1) {
             str = com.baidu.yuyinala.privatemessage.implugin.f.j.getType();
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(com.baidu.yuyinala.privatemessage.implugin.f.j.ejQ())) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(com.baidu.yuyinala.privatemessage.implugin.f.j.ejY())) {
                 try {
-                    j2 = Long.parseLong(com.baidu.yuyinala.privatemessage.implugin.f.j.ejQ());
+                    j2 = Long.parseLong(com.baidu.yuyinala.privatemessage.implugin.f.j.ejY());
                 } catch (NumberFormatException e2) {
                     e2.printStackTrace();
                 }
-                date = new Date(com.baidu.yuyinala.privatemessage.implugin.util.c.b.f(this, com.baidu.yuyinala.privatemessage.implugin.util.c.a.phL + ChatInfo.mPaid + ChatInfo.oZs, 0L));
+                date = new Date(com.baidu.yuyinala.privatemessage.implugin.util.c.b.f(this, com.baidu.yuyinala.privatemessage.implugin.util.c.a.pio + ChatInfo.mPaid + ChatInfo.oZS, 0L));
             } else {
                 return;
             }
         } else if (i2 == 0) {
             str = "ugc";
-            j2 = this.paQ;
-            date = new Date(com.baidu.yuyinala.privatemessage.implugin.util.c.b.f(this, com.baidu.yuyinala.privatemessage.implugin.util.c.a.phM + this.paQ, 0L));
+            j2 = this.pbq;
+            date = new Date(com.baidu.yuyinala.privatemessage.implugin.util.c.b.f(this, com.baidu.yuyinala.privatemessage.implugin.util.c.a.pip + this.pbq, 0L));
         } else {
             str = null;
             date = null;
         }
         if (!com.baidu.yuyinala.privatemessage.implugin.util.f.c(date, new Date())) {
-            if ((this.pba == null || !this.pba.elp() || this.pba.elq() != i2) && this.paH != null) {
-                this.pba = this.paH.ao(i2, eki());
-                if (this.pba != null) {
+            if ((this.pbA == null || !this.pbA.elx() || this.pbA.ely() != i2) && this.pbh != null) {
+                this.pbA = this.pbh.ao(i2, ekq());
+                if (this.pbA != null) {
                     try {
-                        this.pba.c(str, j2, new g(this, i2));
+                        this.pbA.c(str, j2, new g(this, i2));
                     } catch (NumberFormatException e3) {
                         com.baidu.yuyinala.privatemessage.implugin.util.c.e(MAFragmentActivity.TAG, e3.getMessage());
                     }
@@ -1451,7 +1451,7 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                     message.what = 2;
                     message.arg1 = z ? 1 : 0;
                     message.obj = str;
-                    activityChat.ejT().sendMessage(message);
+                    activityChat.ekb().sendMessage(message);
                 } else if (this.flag == 0) {
                     Message message2 = new Message();
                     if (z) {
@@ -1460,7 +1460,7 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
                         message2.arg1 = -1;
                     }
                     message2.what = 8;
-                    activityChat.ejT().sendMessage(message2);
+                    activityChat.ekb().sendMessage(message2);
                 }
             }
         }
@@ -1468,21 +1468,21 @@ public class ActivityChat extends BaseFragmentActivity implements com.baidu.yuyi
 
     public void onBackClick() {
         if (this.mChatStatus == 0) {
-            if (this.paI != null) {
-                this.paI.ekV();
+            if (this.pbi != null) {
+                this.pbi.eld();
             }
-            if (this.pba != null) {
-                this.pba.elo();
+            if (this.pbA != null) {
+                this.pbA.elw();
             }
         }
         finish();
-        if (!ChatInfo.oZC) {
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ejM().hA(this);
+        if (!ChatInfo.pac) {
+            com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().hA(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String Yk(String str) {
+    public String Yw(String str) {
         return str;
     }
 }

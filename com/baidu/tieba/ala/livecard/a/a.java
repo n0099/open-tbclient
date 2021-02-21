@@ -34,54 +34,54 @@ import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.card.b<g> implements z {
     public View dividerLine;
-    public ForbidParentSwipeBackRelativeLayout hnA;
-    public ParentDisallowInterceptHListView hnB;
-    public com.baidu.tieba.ala.livecard.adapters.b hnC;
-    private boolean hnD;
-    private g hnE;
-    AdapterView.c hnF;
-    public ThreadSkinView hnv;
-    public TextView hnw;
-    public TextView hnx;
-    public RelativeLayout hny;
-    public LinearLayout hnz;
+    public ThreadSkinView hnJ;
+    public TextView hnK;
+    public TextView hnL;
+    public RelativeLayout hnM;
+    public LinearLayout hnN;
+    public ForbidParentSwipeBackRelativeLayout hnO;
+    public ParentDisallowInterceptHListView hnP;
+    public com.baidu.tieba.ala.livecard.adapters.b hnQ;
+    private boolean hnR;
+    private g hnS;
+    AdapterView.c hnT;
     private String mForumName;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.hnD = true;
-        this.hnF = new AdapterView.c() { // from class: com.baidu.tieba.ala.livecard.a.a.2
+        this.hnR = true;
+        this.hnT = new AdapterView.c() { // from class: com.baidu.tieba.ala.livecard.a.a.2
             @Override // com.baidu.tieba.horizonalList.widget.AdapterView.c
             public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                cb item = a.this.hnC.getItem(i);
+                cb item = a.this.hnQ.getItem(i);
                 a.this.Y(item);
                 a.this.a(a.this.mTbPageContext, item);
             }
         };
-        this.hnA = (ForbidParentSwipeBackRelativeLayout) getView().findViewById(R.id.layout_root);
-        this.hnv = (ThreadSkinView) getView().findViewById(R.id.frs_thread_skin);
-        this.hnw = (TextView) getView().findViewById(R.id.frs_insert_live_label);
-        this.hnx = (TextView) getView().findViewById(R.id.frs_insert_live_more);
-        this.hny = (RelativeLayout) getView().findViewById(R.id.frs_insert_live_top);
-        this.hnB = (ParentDisallowInterceptHListView) getView().findViewById(R.id.frs_insert_live_listview);
-        this.hnz = (LinearLayout) getView().findViewById(R.id.frs_card_content_layout);
+        this.hnO = (ForbidParentSwipeBackRelativeLayout) getView().findViewById(R.id.layout_root);
+        this.hnJ = (ThreadSkinView) getView().findViewById(R.id.frs_thread_skin);
+        this.hnK = (TextView) getView().findViewById(R.id.frs_insert_live_label);
+        this.hnL = (TextView) getView().findViewById(R.id.frs_insert_live_more);
+        this.hnM = (RelativeLayout) getView().findViewById(R.id.frs_insert_live_top);
+        this.hnP = (ParentDisallowInterceptHListView) getView().findViewById(R.id.frs_insert_live_listview);
+        this.hnN = (LinearLayout) getView().findViewById(R.id.frs_card_content_layout);
         this.dividerLine = getView().findViewById(R.id.divider_line);
-        this.hnB.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds12));
-        this.hnB.setBackgroundResource(R.drawable.transparent_bg);
-        this.hnB.setOnItemClickListener(this.hnF);
-        this.hnB.setSelector(tbPageContext.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
-        this.hnC = new com.baidu.tieba.ala.livecard.adapters.b(tbPageContext);
-        this.hnB.setAdapter((ListAdapter) this.hnC);
-        this.hnx.setOnClickListener(this);
+        this.hnP.setDividerWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds12));
+        this.hnP.setBackgroundResource(R.drawable.transparent_bg);
+        this.hnP.setOnItemClickListener(this.hnT);
+        this.hnP.setSelector(tbPageContext.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
+        this.hnQ = new com.baidu.tieba.ala.livecard.adapters.b(tbPageContext);
+        this.hnP.setAdapter((ListAdapter) this.hnQ);
+        this.hnL.setOnClickListener(this);
         if (this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
-            this.hnD = ((BaseActivity) this.mTbPageContext.getOrignalPage()).isSwipeBackEnabled();
+            this.hnR = ((BaseActivity) this.mTbPageContext.getOrignalPage()).isSwipeBackEnabled();
         } else if (this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
-            this.hnD = ((BaseFragmentActivity) this.mTbPageContext.getOrignalPage()).isSwipeBackEnabled();
+            this.hnR = ((BaseFragmentActivity) this.mTbPageContext.getOrignalPage()).isSwipeBackEnabled();
         }
-        this.hnA.setSwipeControlInterface(new SwipeBackLayout.c() { // from class: com.baidu.tieba.ala.livecard.a.a.1
+        this.hnO.setSwipeControlInterface(new SwipeBackLayout.c() { // from class: com.baidu.tieba.ala.livecard.a.a.1
             @Override // com.baidu.adp.widget.SwipeBackLayout.c
             public void disableSwipeBack() {
-                if (a.this.hnE != null && !y.isEmpty(a.this.hnE.nuh) && a.this.hnE.nuh.size() > 1) {
+                if (a.this.hnS != null && !y.isEmpty(a.this.hnS.nuI) && a.this.hnS.nuI.size() > 1) {
                     if (a.this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
                         ((BaseActivity) a.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(false);
                     } else if (a.this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
@@ -93,9 +93,9 @@ public class a extends com.baidu.tieba.card.b<g> implements z {
             @Override // com.baidu.adp.widget.SwipeBackLayout.c
             public void enableSwipeBack() {
                 if (a.this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) a.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(a.this.hnD);
+                    ((BaseActivity) a.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(a.this.hnR);
                 } else if (a.this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) a.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(a.this.hnD);
+                    ((BaseFragmentActivity) a.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(a.this.hnR);
                 }
             }
         });
@@ -104,9 +104,9 @@ public class a extends com.baidu.tieba.card.b<g> implements z {
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundResource(this.hnA, R.drawable.addresslist_item_bg);
-            ap.setViewTextColor(this.hnw, R.color.CAM_X0106);
-            ap.setViewTextColor(this.hnx, R.color.CAM_X0109);
+            ap.setBackgroundResource(this.hnO, R.drawable.addresslist_item_bg);
+            ap.setViewTextColor(this.hnK, R.color.CAM_X0106);
+            ap.setViewTextColor(this.hnL, R.color.CAM_X0109);
             ap.setBackgroundColor(this.dividerLine, R.color.CAM_X0204);
             this.mSkinType = i;
         }
@@ -121,17 +121,17 @@ public class a extends com.baidu.tieba.card.b<g> implements z {
     @Override // com.baidu.tieba.card.b
     public void a(g gVar) {
         if (gVar != null) {
-            this.hnE = gVar;
-            bYP();
-            this.hnC.setData(gVar.nuh);
+            this.hnS = gVar;
+            bYW();
+            this.hnQ.setData(gVar.nuI);
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bYP() {
-        if (!y.isEmpty(this.hnE.nuh)) {
+    private void bYW() {
+        if (!y.isEmpty(this.hnS.nuI)) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
-            customMessage.setData(this.hnE.nuh.get(0));
+            customMessage.setData(this.hnS.nuI.get(0));
             MessageManager.getInstance().sendMessage(customMessage);
         }
     }
@@ -157,7 +157,7 @@ public class a extends com.baidu.tieba.card.b<g> implements z {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hnx) {
+        if (view == this.hnL) {
             TiebaStatic.log(new ar("c12637"));
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, 10001);
             customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, this.mTbPageContext.getUniqueId()));
@@ -181,8 +181,8 @@ public class a extends com.baidu.tieba.card.b<g> implements z {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            if (this.hnE != null && !y.isEmpty(this.hnE.nuh)) {
-                for (cb cbVar2 : this.hnE.nuh) {
+            if (this.hnS != null && !y.isEmpty(this.hnS.nuI)) {
+                for (cb cbVar2 : this.hnS.nuI) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(W(cbVar2));
                 }
             }

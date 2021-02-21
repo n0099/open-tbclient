@@ -31,7 +31,7 @@ public class a extends k<b, ManitoHeaderItemViewHolder> {
             ap.setBackgroundColor(manitoHeaderItemViewHolder.getView(), R.color.CAM_X0201);
             ap.setViewTextColor(manitoHeaderItemViewHolder.title, R.color.CAM_X0105, 1);
         }
-        manitoHeaderItemViewHolder.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.cAJ())));
+        manitoHeaderItemViewHolder.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.cAQ())));
         manitoHeaderItemViewHolder.mSkinType = this.mSkinType;
         return view;
     }

@@ -70,14 +70,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private int ffp;
     private int ffq;
     private boolean isLoading;
-    private final b kdG;
-    private boolean kdH;
-    private int kdI;
-    private int kdJ;
-    private int kdK;
-    private int kdL;
-    private int kdM;
-    private a kdN;
+    private final b kdU;
+    private boolean kdV;
+    private int kdW;
+    private int kdX;
+    private int kdY;
+    private int kdZ;
+    private int kea;
+    private a keb;
     private Locale locale;
     private int mCurrentTabIndex;
     private int mIndicatorHeight;
@@ -100,18 +100,18 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public PagerSlidingTabStrip(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kdG = new b();
+        this.kdU = new b();
         this.mSkinType = 3;
         this.mCurrentTabIndex = 0;
         this.fYr = 0.0f;
         this.fYs = 0;
         this.fYt = 0;
         this.ffo = false;
-        this.kdJ = R.color.CAM_X0105;
-        this.kdK = R.color.CAM_X0105;
-        this.kdL = R.color.CAM_X0302;
-        this.ffp = ap.getColor(this.kdJ);
-        this.ffq = ap.getColor(this.kdK);
+        this.kdX = R.color.CAM_X0105;
+        this.kdY = R.color.CAM_X0105;
+        this.kdZ = R.color.CAM_X0302;
+        this.ffp = ap.getColor(this.kdX);
+        this.ffq = ap.getColor(this.kdY);
         this.fYB = 52;
         this.mIndicatorHeight = 4;
         this.dividerPadding = 12;
@@ -140,7 +140,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         this.fYJ = l.getDimens(getContext(), R.dimen.tbds46);
         this.fYK = (this.fYI * 1.0f) / this.fYH;
         this.fYL = (this.fYJ * 1.0f) / this.fYH;
-        this.kdM = -l.getDimens(getContext(), R.dimen.tbds11);
+        this.kea = -l.getDimens(getContext(), R.dimen.tbds11);
         this.mIndicatorHeight = i3;
         this.ffo = z;
         this.ffn = new Paint();
@@ -175,17 +175,17 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         invalidate();
     }
 
-    public boolean cPG() {
+    public boolean cPN() {
         return this.fYW;
     }
 
     public void setShowHotTopicRedTip(boolean z) {
-        this.kdH = z;
+        this.kdV = z;
         invalidate();
     }
 
-    public boolean cPH() {
-        return this.kdH;
+    public boolean cPO() {
+        return this.kdV;
     }
 
     public void setTabItemClicked(boolean z) {
@@ -195,7 +195,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public void setViewPager(ViewPager viewPager) {
         this.ffk = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.kdG);
+            viewPager.setOnPageChangeListener(this.kdU);
             notifyDataSetChanged();
         }
     }
@@ -257,7 +257,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             imageView.setImageDrawable(WebPManager.a(R.drawable.icon_pure_home_unfold16, ap.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
             linearLayout.addView(textView);
             linearLayout.addView(imageView);
-            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.kdM;
+            ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.kea;
             linearLayout.setGravity(16);
             d(i, linearLayout);
             return;
@@ -284,8 +284,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (!PagerSlidingTabStrip.this.isLoading) {
-                    if (PagerSlidingTabStrip.this.kdN != null) {
-                        PagerSlidingTabStrip.this.kdN.t(view2, i);
+                    if (PagerSlidingTabStrip.this.keb != null) {
+                        PagerSlidingTabStrip.this.keb.t(view2, i);
                     }
                     if (PagerSlidingTabStrip.this.ffk.getCurrentItem() != i || i != 0 || !TbadkCoreApplication.isLogin() || !d.bjg()) {
                         if (PagerSlidingTabStrip.this.ffk.getCurrentItem() == i) {
@@ -366,8 +366,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 this.rectF.set(left, (height - this.mIndicatorHeight) - this.fYC, right2, height - this.fYC);
             }
             canvas.drawRoundRect(this.rectF, this.mIndicatorHeight * 0.5f, this.mIndicatorHeight * 0.5f, this.ffn);
-            if (this.kdH) {
-                View childAt3 = this.ffj.getChildAt(this.kdI);
+            if (this.kdV) {
+                View childAt3 = this.ffj.getChildAt(this.kdW);
                 this.fYv.set((childAt3.getRight() - this.fYQ) - this.fYO, childAt3.getTop() + this.fYP, right + this.fYO, top + this.fYO);
                 canvas.drawOval(this.fYv, this.fYu);
             }
@@ -414,9 +414,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            this.ffp = ap.getColor(this.kdJ);
-            this.ffq = ap.getColor(this.kdK);
-            this.ffn.setColor(ap.getColor(this.kdL));
+            this.ffp = ap.getColor(this.kdX);
+            this.ffq = ap.getColor(this.kdY);
+            this.ffn.setColor(ap.getColor(this.kdZ));
             this.fYu.setColor(ap.getColor(R.color.CAM_X0301));
             updateTabStyles();
             invalidate();
@@ -548,7 +548,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 if (PagerSlidingTabStrip.this.ffi != null) {
                     PagerSlidingTabStrip.this.ffi.onPageScrollStateChanged(i);
                 }
-                HomePageStatic.jYQ = false;
+                HomePageStatic.jZe = false;
             }
         }
 
@@ -632,10 +632,10 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     public void setHotTopicIndex(int i) {
-        this.kdI = i;
+        this.kdW = i;
     }
 
     public void setOnTabItemClickListener(a aVar) {
-        this.kdN = aVar;
+        this.keb = aVar;
     }
 }

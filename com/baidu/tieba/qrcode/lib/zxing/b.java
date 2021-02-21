@@ -13,12 +13,12 @@ import java.util.EnumMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class b {
-    public static final Map<EncodeHintType, Object> mPB = new EnumMap(EncodeHintType.class);
+    public static final Map<EncodeHintType, Object> mPQ = new EnumMap(EncodeHintType.class);
 
     static {
-        mPB.put(EncodeHintType.CHARACTER_SET, "utf-8");
-        mPB.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-        mPB.put(EncodeHintType.MARGIN, 0);
+        mPQ.put(EncodeHintType.CHARACTER_SET, "utf-8");
+        mPQ.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        mPQ.put(EncodeHintType.MARGIN, 0);
     }
 
     public static Bitmap bN(String str, int i) {
@@ -27,7 +27,7 @@ public class b {
 
     public static Bitmap a(String str, int i, int i2, int i3, Bitmap bitmap) {
         try {
-            BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, mPB);
+            BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, mPQ);
             int[] iArr = new int[i * i];
             for (int i4 = 0; i4 < i; i4++) {
                 for (int i5 = 0; i5 < i; i5++) {

@@ -7,8 +7,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes10.dex */
 public class a {
-    private InterfaceC0685a iah;
-    private HttpMessageListener iai = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
+    private InterfaceC0686a iav;
+    private HttpMessageListener iaw = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP) { // from class: com.baidu.tieba.ala.personcenter.privilege.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
                 AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
                 boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
                 String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
-                if (a.this.iah != null) {
-                    a.this.iah.y(z, errorString);
+                if (a.this.iav != null) {
+                    a.this.iav.y(z, errorString);
                 }
             }
         }
@@ -26,14 +26,14 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0685a {
+    public interface InterfaceC0686a {
         void y(boolean z, String str);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0685a interfaceC0685a) {
+    public a(TbPageContext tbPageContext, InterfaceC0686a interfaceC0686a) {
         this.mPageContext = tbPageContext;
-        this.iah = interfaceC0685a;
-        this.mPageContext.registerListener(this.iai);
+        this.iav = interfaceC0686a;
+        this.mPageContext.registerListener(this.iaw);
     }
 
     public void aS(String str, int i) {

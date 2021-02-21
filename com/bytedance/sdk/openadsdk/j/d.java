@@ -37,8 +37,8 @@ public class d {
     /* renamed from: b  reason: collision with root package name */
     private final SparseArray<Map<String, com.bytedance.sdk.openadsdk.j.b>> f7248b = new SparseArray<>(2);
     private final HashSet<a> i = new HashSet<>();
-    private final b.InterfaceC1022b j = new b.InterfaceC1022b() { // from class: com.bytedance.sdk.openadsdk.j.d.1
-        @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC1022b
+    private final b.InterfaceC1024b j = new b.InterfaceC1024b() { // from class: com.bytedance.sdk.openadsdk.j.d.1
+        @Override // com.bytedance.sdk.openadsdk.j.b.InterfaceC1024b
         public void a(com.bytedance.sdk.openadsdk.j.b bVar) {
             int f = bVar.f();
             synchronized (d.this.f7248b) {

@@ -23,7 +23,7 @@ class az implements al {
 
     @Override // com.baidu.tieba.frs.al
     public com.baidu.adp.widget.ListView.a<? extends cb, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        if (bdUniqueId == com.baidu.tieba.tbadkCore.x.nvo) {
+        if (bdUniqueId == com.baidu.tieba.tbadkCore.x.nvO) {
             return new com.baidu.tieba.frs.entelechy.adapter.e(tbPageContext, bdUniqueId, z);
         }
         if (bdUniqueId == cb.eSp) {

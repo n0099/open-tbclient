@@ -1,15 +1,15 @@
 package com.google.b.a.a.a;
 /* loaded from: classes3.dex */
 public class e {
-    private g pWn = new g();
-    private g pWo = new g();
-    private g pVr = new g();
-    private g pVn = new g();
-    private g pVo = new g();
-    private c pVw = new c();
-    private c pVx = new c();
-    private g pWp = new g();
-    private g pWq = new g();
+    private g pWN = new g();
+    private g pWO = new g();
+    private g pVR = new g();
+    private g pVN = new g();
+    private g pVO = new g();
+    private c pVW = new c();
+    private c pVX = new c();
+    private g pWP = new g();
+    private g pWQ = new g();
 
     private static void a(g gVar, double d, double d2, c cVar) {
         double d3 = gVar.f7883a * gVar.f7883a;
@@ -33,9 +33,9 @@ public class e {
     }
 
     private void a(g gVar, c cVar) {
-        this.pWq.a(gVar);
-        this.pWq.a(3.141592653589793d / this.pWq.c());
-        a(this.pWq, 0.0d, 0.20264236728467558d, cVar);
+        this.pWQ.a(gVar);
+        this.pWQ.a(3.141592653589793d / this.pWQ.c());
+        a(this.pWQ, 0.0d, 0.20264236728467558d, cVar);
     }
 
     public void a(c cVar, g gVar) {
@@ -53,7 +53,7 @@ public class e {
             double a3 = cVar.a(0, 0) - a2;
             double a4 = cVar.a(1, 1) - a2;
             double a5 = cVar.a(2, 2) - a2;
-            g gVar2 = this.pWp;
+            g gVar2 = this.pWP;
             if (a3 * a3 > a4 * a4 && a3 * a3 > a5 * a5) {
                 gVar2.a(a3, (cVar.a(1, 0) + cVar.a(0, 1)) / 2.0d, (cVar.a(0, 2) + cVar.a(2, 0)) / 2.0d);
             } else if (a4 * a4 > a5 * a5) {
@@ -71,31 +71,31 @@ public class e {
     }
 
     public void a(g gVar, g gVar2, c cVar) {
-        g.c(gVar, gVar2, this.pWo);
-        if (this.pWo.c() == 0.0d) {
+        g.c(gVar, gVar2, this.pWO);
+        if (this.pWO.c() == 0.0d) {
             if (g.a(gVar, gVar2) >= 0.0d) {
                 cVar.b();
                 return;
             }
-            g.b(gVar, this.pVo);
-            a(this.pVo, cVar);
+            g.b(gVar, this.pVO);
+            a(this.pVO, cVar);
             return;
         }
-        this.pVr.a(gVar);
-        this.pVn.a(gVar2);
-        this.pWo.b();
-        this.pVr.b();
-        this.pVn.b();
-        c cVar2 = this.pVw;
-        cVar2.a(0, this.pVr);
-        cVar2.a(1, this.pWo);
-        g.c(this.pWo, this.pVr, this.pWn);
-        cVar2.a(2, this.pWn);
-        c cVar3 = this.pVx;
-        cVar3.a(0, this.pVn);
-        cVar3.a(1, this.pWo);
-        g.c(this.pWo, this.pVn, this.pWn);
-        cVar3.a(2, this.pWn);
+        this.pVR.a(gVar);
+        this.pVN.a(gVar2);
+        this.pWO.b();
+        this.pVR.b();
+        this.pVN.b();
+        c cVar2 = this.pVW;
+        cVar2.a(0, this.pVR);
+        cVar2.a(1, this.pWO);
+        g.c(this.pWO, this.pVR, this.pWN);
+        cVar2.a(2, this.pWN);
+        c cVar3 = this.pVX;
+        cVar3.a(0, this.pVN);
+        cVar3.a(1, this.pWO);
+        g.c(this.pWO, this.pVN, this.pWN);
+        cVar3.a(2, this.pWN);
         cVar2.c();
         c.b(cVar3, cVar2, cVar);
     }

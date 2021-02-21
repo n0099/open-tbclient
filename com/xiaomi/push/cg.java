@@ -23,7 +23,7 @@ public class cg {
         hqVar.b(str);
         hqVar.a(true);
         hqVar.b(System.currentTimeMillis());
-        hqVar.g(bp.a(context).m201a());
+        hqVar.g(bp.a(context).m200a());
         hqVar.e("com.xiaomi.xmsf");
         hqVar.f("");
         hqVar.c("push_stat");

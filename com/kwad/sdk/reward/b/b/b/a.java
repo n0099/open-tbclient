@@ -105,8 +105,8 @@ public class a extends com.kwad.sdk.reward.d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.c) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.d, new a.InterfaceC1092a() { // from class: com.kwad.sdk.reward.b.b.b.a.4
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.d, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.b.b.b.a.4
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                 public void a() {
                     a.this.g();
                 }

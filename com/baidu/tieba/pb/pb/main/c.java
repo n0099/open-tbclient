@@ -9,7 +9,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tbadk.widget.richText.a {
-    private static double lNe = 0.5d;
+    private static double lNt = 0.5d;
 
     public c(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
@@ -33,10 +33,10 @@ public class c extends com.baidu.tbadk.widget.richText.a {
                 float f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    com.baidu.adp.widget.ImageView.a Dk = com.baidu.tbadk.imageManager.c.bCP().Dk(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), c.this.mIsFromCDN ? 17 : 18));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = com.baidu.tbadk.imageManager.c.bCP().Di(com.baidu.adp.lib.e.d.mw().genCacheKey(tbImageView.getUrl(), c.this.mIsFromCDN ? 17 : 18));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i = Di.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -70,7 +70,7 @@ public class c extends com.baidu.tbadk.widget.richText.a {
         if (!this.fWo || fVZ <= 1.0f) {
             i3 = i;
         } else {
-            if (i * fVZ <= i3 * lNe) {
+            if (i * fVZ <= i3 * lNt) {
                 i3 = (int) (i * fVZ);
             }
             i2 = (i3 * i2) / i;

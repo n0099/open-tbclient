@@ -9,7 +9,7 @@ public abstract class a implements b {
     private b.f f14756a;
 
     /* renamed from: b  reason: collision with root package name */
-    private b.InterfaceC1327b f14757b;
+    private b.InterfaceC1329b f14757b;
     private b.a c;
     private b.g d;
     private b.i e;
@@ -51,8 +51,8 @@ public abstract class a implements b {
         this.c = aVar;
     }
 
-    public final void a(b.InterfaceC1327b interfaceC1327b) {
-        this.f14757b = interfaceC1327b;
+    public final void a(b.InterfaceC1329b interfaceC1329b) {
+        this.f14757b = interfaceC1329b;
     }
 
     public final void a(b.c cVar) {

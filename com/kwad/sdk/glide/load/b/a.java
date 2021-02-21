@@ -14,16 +14,16 @@ public class a<Data> implements n<Uri, Data> {
 
     /* renamed from: b  reason: collision with root package name */
     private final AssetManager f10060b;
-    private final InterfaceC1124a<Data> c;
+    private final InterfaceC1126a<Data> c;
 
     /* renamed from: com.kwad.sdk.glide.load.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1124a<Data> {
+    public interface InterfaceC1126a<Data> {
         com.kwad.sdk.glide.load.a.d<Data> a(AssetManager assetManager, String str);
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements InterfaceC1124a<ParcelFileDescriptor>, o<Uri, ParcelFileDescriptor> {
+    public static class b implements InterfaceC1126a<ParcelFileDescriptor>, o<Uri, ParcelFileDescriptor> {
 
         /* renamed from: a  reason: collision with root package name */
         private final AssetManager f10066a;
@@ -32,7 +32,7 @@ public class a<Data> implements n<Uri, Data> {
             this.f10066a = assetManager;
         }
 
-        @Override // com.kwad.sdk.glide.load.b.a.InterfaceC1124a
+        @Override // com.kwad.sdk.glide.load.b.a.InterfaceC1126a
         public com.kwad.sdk.glide.load.a.d<ParcelFileDescriptor> a(AssetManager assetManager, String str) {
             return new com.kwad.sdk.glide.load.a.h(assetManager, str);
         }
@@ -45,7 +45,7 @@ public class a<Data> implements n<Uri, Data> {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements InterfaceC1124a<InputStream>, o<Uri, InputStream> {
+    public static class c implements InterfaceC1126a<InputStream>, o<Uri, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
         private final AssetManager f10068a;
@@ -54,7 +54,7 @@ public class a<Data> implements n<Uri, Data> {
             this.f10068a = assetManager;
         }
 
-        @Override // com.kwad.sdk.glide.load.b.a.InterfaceC1124a
+        @Override // com.kwad.sdk.glide.load.b.a.InterfaceC1126a
         public com.kwad.sdk.glide.load.a.d<InputStream> a(AssetManager assetManager, String str) {
             return new com.kwad.sdk.glide.load.a.m(assetManager, str);
         }
@@ -66,9 +66,9 @@ public class a<Data> implements n<Uri, Data> {
         }
     }
 
-    public a(AssetManager assetManager, InterfaceC1124a<Data> interfaceC1124a) {
+    public a(AssetManager assetManager, InterfaceC1126a<Data> interfaceC1126a) {
         this.f10060b = assetManager;
-        this.c = interfaceC1124a;
+        this.c = interfaceC1126a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -11,7 +11,7 @@ public class a {
     private long gbd;
     private boolean gbe;
     private boolean gbf;
-    private InterfaceC0668a hFJ;
+    private InterfaceC0669a hFX;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -21,7 +21,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.liveroom.livepager.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0668a {
+    public interface InterfaceC0669a {
         void bIS();
 
         void bIT();
@@ -65,18 +65,18 @@ public class a {
                     this.gbe = false;
                 }
                 if (this.gbf) {
-                    if (this.hFJ != null) {
-                        this.hFJ.z(motionEvent.getRawX(), motionEvent.getRawY());
+                    if (this.hFX != null) {
+                        this.hFX.z(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cEl - motionEvent.getY()) && this.hFJ != null) {
-                    this.hFJ.bIT();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cEl - motionEvent.getY()) && this.hFX != null) {
+                    this.hFX.bIT();
                 }
                 if (!this.gbf && this.gbe && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cEl - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.livepager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.gbf && a.this.gbe && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cEl - motionEvent.getY()) < 30.0f && a.this.hFJ != null) {
-                                a.this.hFJ.bIS();
+                            if (!a.this.gbf && a.this.gbe && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cEl - motionEvent.getY()) < 30.0f && a.this.hFX != null) {
+                                a.this.hFX.bIS();
                             }
                         }
                     }, 300L);
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0668a interfaceC0668a) {
-        this.hFJ = interfaceC0668a;
+    public void setEventListener(InterfaceC0669a interfaceC0669a) {
+        this.hFX = interfaceC0669a;
     }
 
     private void releaseVelocityTracker() {

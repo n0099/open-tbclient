@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes11.dex */
 public class a {
-    private static String mzF = "";
-    private static String pab = "";
-    private static String pac = "";
+    private static String mzU = "";
+    private static String paD = "";
+    private static String paE = "";
     private static String mDisplayName = "";
 
     public static String getBDUSS() {
         return SapiAccountManager.getInstance().getSession("bduss");
     }
 
-    public static String ejL() {
+    public static String ejT() {
         return SapiAccountManager.getInstance().getSession("uid");
     }
 

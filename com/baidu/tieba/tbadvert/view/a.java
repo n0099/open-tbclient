@@ -16,19 +16,19 @@ import com.baidu.tieba.tbadvert.view.CountDownTextView;
 public class a {
     private FrameLayout aiT;
     private Context mContext;
-    private ImageView nBx;
-    private InterfaceC0876a nBy;
+    private ImageView nBX;
+    private InterfaceC0878a nBY;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0876a {
-        void dPu();
+    public interface InterfaceC0878a {
+        void dPC();
 
-        void dPv();
+        void dPD();
     }
 
-    public a(Context context, InterfaceC0876a interfaceC0876a) {
-        this.nBy = interfaceC0876a;
+    public a(Context context, InterfaceC0878a interfaceC0878a) {
+        this.nBY = interfaceC0878a;
         this.mContext = context;
         this.aiT = new FrameLayout(context);
     }
@@ -41,28 +41,28 @@ public class a {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             i((com.baidu.adp.widget.ImageView.a) obj);
         }
-        dPB();
+        dPJ();
         JW(i);
     }
 
     private void i(com.baidu.adp.widget.ImageView.a aVar) {
-        this.nBx = new ImageView(this.mContext);
-        this.nBx.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.nBX = new ImageView(this.mContext);
+        this.nBX.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.nBx.setImageBitmap(aVar.getRawBitmap());
+            this.nBX.setImageBitmap(aVar.getRawBitmap());
         }
-        this.nBx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.nBX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.nBy != null) {
-                    a.this.nBy.dPu();
+                if (a.this.nBY != null) {
+                    a.this.nBY.dPC();
                 }
             }
         });
-        this.aiT.addView(this.nBx);
+        this.aiT.addView(this.nBX);
     }
 
-    private void dPB() {
+    private void dPJ() {
         TextView textView = new TextView(this.mContext);
         textView.setText(R.string.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.ds28);
@@ -104,16 +104,16 @@ public class a {
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.nBy != null) {
-                    a.this.nBy.dPv();
+                if (a.this.nBY != null) {
+                    a.this.nBY.dPD();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void cf(View view) {
-                if (a.this.nBy != null) {
-                    a.this.nBy.dPv();
+                if (a.this.nBY != null) {
+                    a.this.nBY.dPD();
                 }
             }
         });

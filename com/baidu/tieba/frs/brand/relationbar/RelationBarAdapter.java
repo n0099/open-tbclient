@@ -8,7 +8,7 @@ import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes2.dex */
 public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> {
-    private List<OriForumInfo> joI;
+    private List<OriForumInfo> joW;
     private Context mContext;
 
     public RelationBarAdapter(Context context) {
@@ -24,7 +24,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
 
     public void setData(List<OriForumInfo> list) {
         if (!y.isEmpty(list)) {
-            this.joI = list;
+            this.joW = list;
         }
     }
 
@@ -32,9 +32,9 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i) {
-        OriForumInfo oriForumInfo = (OriForumInfo) y.getItem(this.joI, i);
+        OriForumInfo oriForumInfo = (OriForumInfo) y.getItem(this.joW, i);
         if (oriForumInfo != null) {
-            RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.cFz();
+            RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.cFG();
             relationBarCellView.setData(oriForumInfo);
             relationBarCellView.onChangeSkinType();
         }
@@ -42,6 +42,6 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return y.getCount(this.joI);
+        return y.getCount(this.joW);
     }
 }

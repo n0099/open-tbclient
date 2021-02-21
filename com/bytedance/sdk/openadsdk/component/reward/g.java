@@ -111,8 +111,8 @@ public class g {
                     rewardVideoAdListener.onRewardVideoCached();
                 }
             }
-            com.bytedance.sdk.openadsdk.core.g.a.a().a(c, new a.InterfaceC1007a() { // from class: com.bytedance.sdk.openadsdk.component.reward.g.1
-                @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1007a
+            com.bytedance.sdk.openadsdk.core.g.a.a().a(c, new a.InterfaceC1009a() { // from class: com.bytedance.sdk.openadsdk.component.reward.g.1
+                @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1009a
                 public void a(boolean z2) {
                     if (rewardVideoAdListener != null && c.t()) {
                         rewardVideoAdListener.onRewardVideoCached();
@@ -161,8 +161,8 @@ public class g {
                     if (!z && rewardVideoAdListener != null) {
                         rewardVideoAdListener.onRewardVideoAdLoad(jVar);
                     }
-                    com.bytedance.sdk.openadsdk.core.g.a.a().a(lVar, new a.InterfaceC1007a() { // from class: com.bytedance.sdk.openadsdk.component.reward.g.2.1
-                        @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1007a
+                    com.bytedance.sdk.openadsdk.core.g.a.a().a(lVar, new a.InterfaceC1009a() { // from class: com.bytedance.sdk.openadsdk.component.reward.g.2.1
+                        @Override // com.bytedance.sdk.openadsdk.core.g.a.InterfaceC1009a
                         public void a(boolean z2) {
                             if (!z && rewardVideoAdListener != null && lVar != null && lVar.t()) {
                                 rewardVideoAdListener.onRewardVideoCached();

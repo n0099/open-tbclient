@@ -18,33 +18,33 @@ public class bl {
 
     /* renamed from: java  reason: collision with other field name */
     public static final String f27java = bl.class.getSimpleName();
-    private static boolean qiQ = true;
+    private static boolean qjq = true;
 
     public static void iL(Context context) {
         if (!bk.java()) {
-            qiQ = false;
+            qjq = false;
             return;
         }
         try {
             int InitSdk = MdidSdkHelper.InitSdk(context, true, new IIdentifierListener() { // from class: com.win.opensdk.bl.1
             });
             if (InitSdk == 1008612) {
-                Se(InitSdk);
+                Sf(InitSdk);
             } else if (InitSdk == 1008613) {
-                Se(InitSdk);
+                Sf(InitSdk);
             } else if (InitSdk == 1008611) {
-                Se(InitSdk);
+                Sf(InitSdk);
             } else if (InitSdk == 1008614) {
-                Se(InitSdk);
+                Sf(InitSdk);
             } else if (InitSdk == 1008615) {
-                Se(InitSdk);
+                Sf(InitSdk);
             }
         } catch (Exception e) {
         }
     }
 
-    private static void Se(int i) {
-        qiQ = false;
+    private static void Sf(int i) {
+        qjq = false;
         java = i;
     }
 
@@ -52,7 +52,7 @@ public class bl {
         return f26case;
     }
 
-    public static String eIW() {
+    public static String eJe() {
         return f13729a;
     }
 

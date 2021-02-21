@@ -159,8 +159,8 @@ public class ActionBarAppLandscape extends LinearLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.k, view == this.g);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1092a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppLandscape.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 if (ActionBarAppLandscape.this.j != null) {
                     ActionBarAppLandscape.this.j.a();

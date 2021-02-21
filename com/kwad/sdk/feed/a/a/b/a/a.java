@@ -154,8 +154,8 @@ public class a extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
         } else if (view == this.f) {
             i = 83;
         }
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.g, new a.InterfaceC1092a() { // from class: com.kwad.sdk.feed.a.a.b.a.a.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.g, new a.InterfaceC1094a() { // from class: com.kwad.sdk.feed.a.a.b.a.a.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
             public void a() {
                 a.this.a(i);
             }

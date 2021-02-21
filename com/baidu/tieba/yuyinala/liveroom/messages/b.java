@@ -9,7 +9,7 @@ public class b extends HttpMessage {
         this.buN = j;
     }
 
-    public long ebz() {
+    public long ebH() {
         return this.buN;
     }
 

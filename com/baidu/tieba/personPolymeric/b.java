@@ -1,26 +1,26 @@
 package com.baidu.tieba.personPolymeric;
 /* loaded from: classes8.dex */
 public class b {
-    private static b myZ = new b();
+    private static b mzo = new b();
     private long creatTime = 0;
-    private long mza = 0;
-    private long mzb = 0;
+    private long mzp = 0;
+    private long mzq = 0;
     private long fJu = 0;
     private long beginTime = 0;
-    private long mzc = 0;
-    private long mzd = 0;
+    private long mzr = 0;
+    private long mzs = 0;
 
     private b() {
     }
 
     public void reset() {
         this.creatTime = 0L;
-        this.mza = 0L;
-        this.mzb = 0L;
+        this.mzp = 0L;
+        this.mzq = 0L;
         this.fJu = 0L;
         this.beginTime = 0L;
-        this.mzc = 0L;
-        this.mzd = 0L;
+        this.mzr = 0L;
+        this.mzs = 0L;
     }
 
     public String toString() {
@@ -30,18 +30,18 @@ public class b {
         stringBuffer.append(" creatTime:");
         stringBuffer.append(this.creatTime);
         stringBuffer.append(" refreshStartTime:");
-        stringBuffer.append(this.mzd);
+        stringBuffer.append(this.mzs);
         stringBuffer.append(" refrehTime:");
-        stringBuffer.append(this.mzc);
+        stringBuffer.append(this.mzr);
         stringBuffer.append(" drawTime:");
         stringBuffer.append(this.fJu);
         stringBuffer.append(" profileTime:");
-        stringBuffer.append(this.mzb);
+        stringBuffer.append(this.mzq);
         return stringBuffer.toString();
     }
 
-    public static b dyd() {
-        return myZ;
+    public static b dyk() {
+        return mzo;
     }
 
     public long getCreateTime() {
@@ -60,7 +60,7 @@ public class b {
         this.beginTime = j;
     }
 
-    public long dwu() {
+    public long dwB() {
         return this.fJu;
     }
 
@@ -69,38 +69,38 @@ public class b {
     }
 
     public long getRefreshTime() {
-        return this.mzc;
+        return this.mzr;
     }
 
     public void setRefreshTime(long j) {
-        this.mzc = j;
+        this.mzr = j;
     }
 
-    public long dwv() {
-        return this.mzd;
+    public long dwC() {
+        return this.mzs;
     }
 
     public void hu(long j) {
-        if (this.mzd == 0) {
-            this.mzd = j;
+        if (this.mzs == 0) {
+            this.mzs = j;
         }
     }
 
-    public long dye() {
-        return this.mza;
+    public long dyl() {
+        return this.mzp;
     }
 
     public void hw(long j) {
-        if (this.mza == 0) {
-            this.mza = j;
+        if (this.mzp == 0) {
+            this.mzp = j;
         }
     }
 
-    public long dyf() {
-        return this.mzb;
+    public long dym() {
+        return this.mzq;
     }
 
     public void hx(long j) {
-        this.mzb = j;
+        this.mzq = j;
     }
 }

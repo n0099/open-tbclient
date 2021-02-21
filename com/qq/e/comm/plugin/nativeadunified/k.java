@@ -40,10 +40,10 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
         private ADListener f12320a;
 
         /* renamed from: b  reason: collision with root package name */
-        private a.InterfaceC1205a f12321b;
+        private a.InterfaceC1207a f12321b;
 
-        public a(a.InterfaceC1205a interfaceC1205a) {
-            this.f12321b = interfaceC1205a;
+        public a(a.InterfaceC1207a interfaceC1207a) {
+            this.f12321b = interfaceC1207a;
         }
 
         public void a(ADListener aDListener) {
@@ -66,14 +66,14 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
     public static class b implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private a.InterfaceC1205a f12322a;
+        private a.InterfaceC1207a f12322a;
 
         /* renamed from: b  reason: collision with root package name */
         private Queue<ADEvent> f12323b = new LinkedList();
         private boolean c;
 
-        public b(a.InterfaceC1205a interfaceC1205a, boolean z) {
-            this.f12322a = interfaceC1205a;
+        public b(a.InterfaceC1207a interfaceC1207a, boolean z) {
+            this.f12322a = interfaceC1207a;
             this.c = z;
         }
 
@@ -124,26 +124,26 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
         }
         ArrayList arrayList = new ArrayList();
         for (NativeUnifiedADData nativeUnifiedADData : list) {
-            arrayList.add(com.qq.e.comm.plugin.nativeadunified.a.a(nativeUnifiedADData, new a(new a.InterfaceC1205a() { // from class: com.qq.e.comm.plugin.nativeadunified.k.2
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            arrayList.add(com.qq.e.comm.plugin.nativeadunified.a.a(nativeUnifiedADData, new a(new a.InterfaceC1207a() { // from class: com.qq.e.comm.plugin.nativeadunified.k.2
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
                 public void a() {
                 }
 
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
                 public boolean a(ADEvent aDEvent) {
                     return false;
                 }
 
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
                 public void b() {
                     k.this.a((k) baseNativeUnifiedAd, 70342);
                 }
 
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
                 public void b(ADEvent aDEvent) {
                 }
 
-                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+                @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
                 public void c() {
                     k.this.b(baseNativeUnifiedAd, 70332);
                 }
@@ -158,12 +158,12 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public int b(final BaseNativeUnifiedAd baseNativeUnifiedAd) {
         final long currentTimeMillis = System.currentTimeMillis();
-        b bVar = new b(new a.InterfaceC1205a() { // from class: com.qq.e.comm.plugin.nativeadunified.k.1
+        b bVar = new b(new a.InterfaceC1207a() { // from class: com.qq.e.comm.plugin.nativeadunified.k.1
             private void a(boolean z) {
                 k.this.a((k) baseNativeUnifiedAd, System.currentTimeMillis() - currentTimeMillis, z, z ? 70312 : 70322);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void a() {
                 a(false);
                 if (!k.this.i() || k.this.b()) {
@@ -172,7 +172,7 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
                 k.this.a();
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public boolean a(ADEvent aDEvent) {
                 boolean z;
                 List a2 = k.this.a(aDEvent);
@@ -200,12 +200,12 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
                 return false;
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void b() {
                 k.this.a((k) baseNativeUnifiedAd, 70342);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void b(ADEvent aDEvent) {
                 if (k.this.d == null) {
                     return;
@@ -213,7 +213,7 @@ public class k extends com.qq.e.comm.plugin.r.a.a<BaseNativeUnifiedAd> implement
                 k.this.d.onADEvent(aDEvent);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1205a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1207a
             public void c() {
                 k.this.b(baseNativeUnifiedAd, 70332);
             }

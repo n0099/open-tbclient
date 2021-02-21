@@ -13,29 +13,29 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class j implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     private int mCmd = 2001154;
-    private com.baidu.tieba.im.db.l kMs = com.baidu.tieba.im.db.l.cVJ();
+    private com.baidu.tieba.im.db.l kMG = com.baidu.tieba.im.db.l.cVQ();
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
-        if (this.kMs == null) {
+        if (this.kMG == null) {
             return Dn(this.mCmd);
         }
-        List<com.baidu.tieba.im.db.pojo.a> cVL = com.baidu.tieba.im.db.l.cVL();
-        if (cVL == null || cVL.size() <= 0) {
+        List<com.baidu.tieba.im.db.pojo.a> cVS = com.baidu.tieba.im.db.l.cVS();
+        if (cVS == null || cVS.size() <= 0) {
             return Dn(this.mCmd);
         }
-        HashMap hashMap = new HashMap(cVL.size());
-        for (com.baidu.tieba.im.db.pojo.a aVar : cVL) {
+        HashMap hashMap = new HashMap(cVS.size());
+        for (com.baidu.tieba.im.db.pojo.a aVar : cVS) {
             hashMap.put(aVar.getGid(), aVar);
         }
-        LinkedList<ChatMessage> c = this.kMs.c(hashMap, 80);
+        LinkedList<ChatMessage> c = this.kMG.c(hashMap, 80);
         if (c == null) {
             return Dn(this.mCmd);
         }
         OfficialFeedHeadResponsedMessage.a aVar2 = new OfficialFeedHeadResponsedMessage.a();
         OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.mCmd);
-        aVar2.kJh = c;
-        aVar2.msgList = cVL;
+        aVar2.kJv = c;
+        aVar2.msgList = cVS;
         try {
             officialFeedHeadResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar2);
             return officialFeedHeadResponsedMessage;

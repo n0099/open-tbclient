@@ -96,11 +96,11 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
         a aVar = new a(this, movie, hashMap, j, null);
         basicContainer.addBox(aVar);
-        long eCe = aVar.eCe();
+        long eCm = aVar.eCm();
         for (StaticChunkOffsetBox staticChunkOffsetBox : this.chunkOffsetBoxes) {
             long[] chunkOffsets = staticChunkOffsetBox.getChunkOffsets();
             for (int i2 = 0; i2 < chunkOffsets.length; i2++) {
-                chunkOffsets[i2] = chunkOffsets[i2] + eCe;
+                chunkOffsets[i2] = chunkOffsets[i2] + eCm;
             }
         }
         return basicContainer;
@@ -337,8 +337,8 @@ public class DefaultMp4Builder implements Mp4Builder {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a implements Box {
-        List<List<Sample>> pWG;
-        long pWH;
+        List<List<Sample>> pXg;
+        long pXh;
         Container parent;
         List<Track> tracks;
 
@@ -362,8 +362,8 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
 
         private a(Movie movie, Map<Track, int[]> map, long j) {
-            this.pWG = new ArrayList();
-            this.pWH = j;
+            this.pXg = new ArrayList();
+            this.pXh = j;
             this.tracks = movie.getTracks();
             for (int i = 0; i < map.values().iterator().next().length; i++) {
                 for (Track track : this.tracks) {
@@ -372,7 +372,7 @@ public class DefaultMp4Builder implements Mp4Builder {
                     for (int i2 = 0; i2 < i; i2++) {
                         j2 += iArr[i2];
                     }
-                    this.pWG.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
+                    this.pXg.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
                 }
             }
         }
@@ -381,7 +381,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             this(movie, map, j);
         }
 
-        public long eCe() {
+        public long eCm() {
             Box next;
             long j = 16;
             for (Container container = this; container instanceof Box; container = container.getParent()) {
@@ -400,7 +400,7 @@ public class DefaultMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return 16 + this.pWH;
+            return 16 + this.pXh;
         }
 
         private boolean iU(long j) {
@@ -424,7 +424,7 @@ public class DefaultMp4Builder implements Mp4Builder {
             }
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (List<Sample> list : this.pWG) {
+            for (List<Sample> list : this.pXg) {
                 for (Sample sample : list) {
                     sample.writeTo(writableByteChannel);
                 }

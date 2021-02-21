@@ -13,8 +13,8 @@ public class d {
         if (dataRes != null) {
             for (ForumList forumList : dataRes.forum_list) {
                 b bVar = new b();
-                bVar.ndO = forumList.avatar;
-                bVar.ndP = forumList.forum_name;
+                bVar.neo = forumList.avatar;
+                bVar.nep = forumList.forum_name;
                 bVar.forumId = String.valueOf(forumList.forum_id);
                 this.dataList.add(bVar);
             }

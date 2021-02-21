@@ -9,12 +9,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class MemberPayFragment extends BaseFragment {
     private boolean isPayDialog;
-    private String loU;
-    private String loV;
-    private int loW;
-    private b loX;
-    private f loY = null;
-    private Boolean loZ = false;
+    private String lpi;
+    private String lpj;
+    private int lpk;
+    private b lpl;
+    private f lpm = null;
+    private Boolean lpn = false;
     private View mRootView;
     private int type;
 
@@ -23,17 +23,17 @@ public class MemberPayFragment extends BaseFragment {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         this.type = arguments.getInt("member_type");
-        this.loU = arguments.getString("member_refer_page");
-        this.loV = arguments.getString("member_click_zone");
+        this.lpi = arguments.getString("member_refer_page");
+        this.lpj = arguments.getString("member_click_zone");
         this.isPayDialog = arguments.getBoolean("member_is_pay_dialog");
-        this.loW = arguments.getInt("member_from_type");
+        this.lpk = arguments.getInt("member_from_type");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRootView = layoutInflater.inflate(R.layout.member_pay_fragment_view, viewGroup, false);
-        this.loX = new b(getPageContext(), this.mRootView, this.type, this.loU, this.loV, this.isPayDialog, this.loW);
-        this.loX.setDataAndRefreshUI(this.loY);
+        this.lpl = new b(getPageContext(), this.mRootView, this.type, this.lpi, this.lpj, this.isPayDialog, this.lpk);
+        this.lpl.setDataAndRefreshUI(this.lpm);
         return this.mRootView;
     }
 
@@ -43,16 +43,16 @@ public class MemberPayFragment extends BaseFragment {
     }
 
     public void setDataAndRefreshUI(f fVar) {
-        this.loY = fVar;
-        if (this.loX != null) {
-            this.loX.setDataAndRefreshUI(fVar);
+        this.lpm = fVar;
+        if (this.lpl != null) {
+            this.lpl.setDataAndRefreshUI(fVar);
         }
     }
 
     public void n(Boolean bool) {
-        this.loZ = bool;
-        if (this.loX != null) {
-            this.loX.tU(bool.booleanValue());
+        this.lpn = bool;
+        if (this.lpl != null) {
+            this.lpl.tU(bool.booleanValue());
         }
     }
 
@@ -63,8 +63,8 @@ public class MemberPayFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.loX != null) {
-            this.loX.onChangeSkinType(i);
+        if (this.lpl != null) {
+            this.lpl.onChangeSkinType(i);
         }
     }
 }

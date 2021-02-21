@@ -48,7 +48,7 @@ public class f0 extends LinearLayout {
         this.f7779a.setText(tTNativeAd.getDescription());
         TTImage icon = tTNativeAd.getIcon();
         if (icon != null && icon.isValid()) {
-            ap.a.pPq.a(getContext(), icon.getImageUrl(), this.f7780b);
+            ap.a.pPQ.a(getContext(), icon.getImageUrl(), this.f7780b);
         }
         this.c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
         this.d.setImageResource(R.drawable.csj_ad_logo);

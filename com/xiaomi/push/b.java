@@ -105,8 +105,8 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m170a() {
-        if (m181b()) {
+    public int m169a() {
+        if (m180b()) {
             this.d = 0;
             return 0;
         }
@@ -132,15 +132,15 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m171a() {
-        return m182c();
+    public long m170a() {
+        return m181c();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public a m172a() {
+    public a m171a() {
         int d = d();
         if (d > this.f13875a - this.c || d <= 0) {
-            return a.a(m178a(d));
+            return a.a(m177a(d));
         }
         a a2 = a.a(this.f198a, this.c, d);
         this.c = d + this.c;
@@ -148,10 +148,10 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m173a() {
+    public String m172a() {
         int d = d();
         if (d > this.f13875a - this.c || d <= 0) {
-            return new String(m178a(d), "UTF-8");
+            return new String(m177a(d), "UTF-8");
         }
         String str = new String(this.f198a, this.c, d, "UTF-8");
         this.c = d + this.c;
@@ -159,18 +159,18 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m174a() {
-        int m170a;
+    public void m173a() {
+        int m169a;
         do {
-            m170a = m170a();
-            if (m170a == 0) {
+            m169a = m169a();
+            if (m169a == 0) {
                 return;
             }
-        } while (m177a(m170a));
+        } while (m176a(m169a));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m175a(int i) {
+    public void m174a(int i) {
         if (this.d != i) {
             throw d.e();
         }
@@ -184,31 +184,31 @@ public final class b {
         int a2 = a(d);
         this.g++;
         eVar.a(this);
-        m175a(0);
+        m174a(0);
         this.g--;
         b(a2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m176a() {
+    public boolean m175a() {
         return d() != 0;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m177a(int i) {
+    public boolean m176a(int i) {
         switch (f.a(i)) {
             case 0:
-                m179b();
+                m178b();
                 return true;
             case 1:
-                m183d();
+                m182d();
                 return true;
             case 2:
                 c(d());
                 return true;
             case 3:
-                m174a();
-                m175a(f.a(f.b(i), 4));
+                m173a();
+                m174a(f.a(f.b(i), 4));
                 return true;
             case 4:
                 return false;
@@ -221,7 +221,7 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m178a(int i) {
+    public byte[] m177a(int i) {
         if (i < 0) {
             throw d.b();
         }
@@ -284,13 +284,13 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public int m179b() {
+    public int m178b() {
         return d();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public long m180b() {
-        return m182c();
+    public long m179b() {
+        return m181c();
     }
 
     public void b(int i) {
@@ -299,7 +299,7 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m181b() {
+    public boolean m180b() {
         return this.c == this.f13875a && !a(false);
     }
 
@@ -308,7 +308,7 @@ public final class b {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public long m182c() {
+    public long m181c() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
             byte a2 = a();
@@ -381,7 +381,7 @@ public final class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public long m183d() {
+    public long m182d() {
         byte a2 = a();
         byte a3 = a();
         return ((a3 & 255) << 8) | (a2 & 255) | ((a() & 255) << 16) | ((a() & 255) << 24) | ((a() & 255) << 32) | ((a() & 255) << 40) | ((a() & 255) << 48) | ((a() & 255) << 56);

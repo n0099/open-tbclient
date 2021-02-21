@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.f.a {
-    private a iFg;
+    private a iFu;
     private ScaleGestureDetector mScaleGestureDetector;
 
     /* loaded from: classes.dex */
@@ -14,19 +14,19 @@ public class b extends com.baidu.tieba.f.a {
     }
 
     public b(Context context) {
-        this.mScaleGestureDetector = new ScaleGestureDetector(context, new C0711b());
+        this.mScaleGestureDetector = new ScaleGestureDetector(context, new C0712b());
     }
 
     public void a(a aVar) {
-        this.iFg = aVar;
+        this.iFu = aVar;
     }
 
     /* renamed from: com.baidu.tieba.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private final class C0711b extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+    private final class C0712b extends ScaleGestureDetector.SimpleOnScaleGestureListener {
         private boolean bGZ;
 
-        private C0711b() {
+        private C0712b() {
             this.bGZ = false;
         }
 
@@ -38,14 +38,14 @@ public class b extends com.baidu.tieba.f.a {
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
         public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            if (scaleGestureDetector != null && b.this.iFg != null) {
+            if (scaleGestureDetector != null && b.this.iFu != null) {
                 float scaleFactor = scaleGestureDetector.getScaleFactor();
                 if (!this.bGZ && scaleFactor > 1.0f) {
                     this.bGZ = true;
-                    b.this.iFg.dd(true);
+                    b.this.iFu.dd(true);
                 } else if (!this.bGZ && scaleFactor > 0.0f && scaleFactor < 1.0f) {
                     this.bGZ = true;
-                    b.this.iFg.dd(false);
+                    b.this.iFu.dd(false);
                 }
             }
             return true;

@@ -57,17 +57,17 @@ public class o {
         }
     }
 
-    public void a(a.InterfaceC1065a interfaceC1065a) {
-        this.f7964b.a(interfaceC1065a);
-        this.c.a(interfaceC1065a);
-        this.d.a(interfaceC1065a);
-        this.e.a(interfaceC1065a);
-        this.f.a(interfaceC1065a);
+    public void a(a.InterfaceC1067a interfaceC1067a) {
+        this.f7964b.a(interfaceC1067a);
+        this.c.a(interfaceC1067a);
+        this.d.a(interfaceC1067a);
+        this.e.a(interfaceC1067a);
+        this.f.a(interfaceC1067a);
         if (this.g != null) {
-            this.g.a(interfaceC1065a);
+            this.g.a(interfaceC1067a);
         }
         if (this.h != null) {
-            this.h.a(interfaceC1065a);
+            this.h.a(interfaceC1067a);
         }
     }
 

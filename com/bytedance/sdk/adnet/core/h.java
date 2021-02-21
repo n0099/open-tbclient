@@ -55,7 +55,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
     /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: com.bytedance.sdk.adnet.e.b$a */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bytedance.sdk.adnet.e.b
-    public synchronized b.a YQ(String str) {
+    public synchronized b.a Zc(String str) {
         b bVar;
         b.a aVar;
         Throwable th = null;
@@ -176,7 +176,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
             java.io.File r2 = r6.c(r7)     // Catch: java.lang.Throwable -> L6f
             r1 = 0
             java.io.BufferedOutputStream r0 = new java.io.BufferedOutputStream     // Catch: java.lang.Throwable -> L9c
-            java.io.OutputStream r3 = r6.aj(r2)     // Catch: java.lang.Throwable -> L9c
+            java.io.OutputStream r3 = r6.ak(r2)     // Catch: java.lang.Throwable -> L9c
             r0.<init>(r3)     // Catch: java.lang.Throwable -> L9c
             com.bytedance.sdk.adnet.core.h$a r1 = new com.bytedance.sdk.adnet.core.h$a     // Catch: java.lang.Throwable -> L52
             r1.<init>(r7, r8)     // Catch: java.lang.Throwable -> L52
@@ -338,7 +338,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
     }
 
     @VisibleForTesting
-    OutputStream aj(File file) throws Throwable {
+    OutputStream ak(File file) throws Throwable {
         return new FileOutputStream(file);
     }
 

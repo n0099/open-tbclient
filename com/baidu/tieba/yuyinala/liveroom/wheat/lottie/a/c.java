@@ -11,16 +11,16 @@ import java.io.File;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class c {
-    public static String oIT = "audio_anim_md5_";
+    public static String oJt = "audio_anim_md5_";
 
     public static void b(final String str, final String str2, final b.a aVar) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !Wx(str)) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !WJ(str)) {
             new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.a.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 public Boolean doInBackground(Void... voidArr) {
-                    return Boolean.valueOf(c.Wy(str2));
+                    return Boolean.valueOf(c.WK(str2));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -41,20 +41,20 @@ public class c {
         }
     }
 
-    private static boolean Wx(String str) {
+    private static boolean WJ(String str) {
         return FileSerialDownLoader.getInstance().isDownloading(str, 23);
     }
 
-    public static boolean Wy(String str) {
+    public static boolean WK(String str) {
         if (StringUtils.isNull(str, true)) {
             return false;
         }
-        String str2 = oIT + str;
+        String str2 = oJt + str;
         String in = in(com.baidu.live.storage.b.hG(str));
         return com.baidu.live.h.a.existFile(in) && com.baidu.live.h.a.isDirectory(in) && !com.baidu.live.h.b.b(in, com.baidu.live.h.b.fC(str2));
     }
 
-    public static void gX(String str, String str2) {
+    public static void gZ(String str, String str2) {
         File[] listFiles;
         String fileMd5;
         if (!TextUtils.isEmpty(str)) {
@@ -66,7 +66,7 @@ public class c {
                         jSONArray.put(fileMd5);
                     }
                 }
-                d.xc().putString(oIT + str, jSONArray.toString());
+                d.xc().putString(oJt + str, jSONArray.toString());
             }
         }
     }

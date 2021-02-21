@@ -4,22 +4,22 @@ import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    public String gLe;
-    public String gLf;
-    public int gLi;
-    public String gLj;
-    public int gLk;
-    public int gLl;
+    public String gLs;
+    public String gLt;
+    public int gLw;
+    public String gLx;
+    public int gLy;
+    public int gLz;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gLi = 0;
-                this.gLe = jSONObject.optString("task_url");
-                this.gLf = jSONObject.optString("rule_h5");
-                this.gLj = jSONObject.optString("pre_page_url");
-                this.gLk = jSONObject.optInt("total_task_num");
-                this.gLl = jSONObject.optInt("finish_task_num");
+                this.gLw = 0;
+                this.gLs = jSONObject.optString("task_url");
+                this.gLt = jSONObject.optString("rule_h5");
+                this.gLx = jSONObject.optString("pre_page_url");
+                this.gLy = jSONObject.optInt("total_task_num");
+                this.gLz = jSONObject.optInt("finish_task_num");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

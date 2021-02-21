@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes5.dex */
 public class b {
-    private static final b pHJ = ewd().ewl();
+    private static final b pIj = ewl().ewt();
     public final Bitmap.Config bitmapConfig;
-    public final int pHK;
-    public final boolean pHL;
-    public final boolean pHM;
-    public final boolean pHN;
-    public final boolean pHO;
+    public final int pIk;
+    public final boolean pIl;
+    public final boolean pIm;
+    public final boolean pIn;
+    public final boolean pIo;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b pHP;
+    public final com.facebook.imagepipeline.decoder.b pIp;
 
     public b(c cVar) {
-        this.pHK = cVar.ewe();
-        this.pHL = cVar.ewf();
-        this.pHM = cVar.ewg();
-        this.pHN = cVar.ewh();
-        this.pHO = cVar.ewj();
-        this.bitmapConfig = cVar.ewk();
-        this.pHP = cVar.ewi();
+        this.pIk = cVar.ewm();
+        this.pIl = cVar.ewn();
+        this.pIm = cVar.ewo();
+        this.pIn = cVar.ewp();
+        this.pIo = cVar.ewr();
+        this.bitmapConfig = cVar.ews();
+        this.pIp = cVar.ewq();
     }
 
-    public static b ewc() {
-        return pHJ;
+    public static b ewk() {
+        return pIj;
     }
 
-    public static c ewd() {
+    public static c ewl() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.pHL == bVar.pHL && this.pHM == bVar.pHM && this.pHN == bVar.pHN && this.pHO == bVar.pHO && this.bitmapConfig == bVar.bitmapConfig && this.pHP == bVar.pHP;
+        return this.pIl == bVar.pIl && this.pIm == bVar.pIm && this.pIn == bVar.pIn && this.pIo == bVar.pIo && this.bitmapConfig == bVar.bitmapConfig && this.pIp == bVar.pIp;
     }
 
     public int hashCode() {
-        return (((((((this.pHN ? 1 : 0) + (((this.pHM ? 1 : 0) + (((this.pHL ? 1 : 0) + (this.pHK * 31)) * 31)) * 31)) * 31) + (this.pHO ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31) + (this.pHP != null ? this.pHP.hashCode() : 0);
+        return (((((((this.pIn ? 1 : 0) + (((this.pIm ? 1 : 0) + (((this.pIl ? 1 : 0) + (this.pIk * 31)) * 31)) * 31)) * 31) + (this.pIo ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31) + (this.pIp != null ? this.pIp.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.pHK), Boolean.valueOf(this.pHL), Boolean.valueOf(this.pHM), Boolean.valueOf(this.pHN), Boolean.valueOf(this.pHO), this.bitmapConfig.name(), this.pHP);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.pIk), Boolean.valueOf(this.pIl), Boolean.valueOf(this.pIm), Boolean.valueOf(this.pIn), Boolean.valueOf(this.pIo), this.bitmapConfig.name(), this.pIp);
     }
 }

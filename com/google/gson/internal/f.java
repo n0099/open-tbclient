@@ -5,15 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 /* loaded from: classes5.dex */
 public class f {
-    public static DateFormat Qu(int i) {
-        return new SimpleDateFormat(Qv(i), Locale.US);
+    public static DateFormat Qv(int i) {
+        return new SimpleDateFormat(Qw(i), Locale.US);
     }
 
-    public static DateFormat ef(int i, int i2) {
-        return new SimpleDateFormat(Qw(i) + " " + Qx(i2), Locale.US);
+    public static DateFormat eg(int i, int i2) {
+        return new SimpleDateFormat(Qx(i) + " " + Qy(i2), Locale.US);
     }
 
-    private static String Qv(int i) {
+    private static String Qw(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, y";
@@ -28,7 +28,7 @@ public class f {
         }
     }
 
-    private static String Qw(int i) {
+    private static String Qx(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, yyyy";
@@ -43,7 +43,7 @@ public class f {
         }
     }
 
-    private static String Qx(int i) {
+    private static String Qy(int i) {
         switch (i) {
             case 0:
             case 1:

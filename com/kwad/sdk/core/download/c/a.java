@@ -32,16 +32,16 @@ import java.io.File;
 public class a implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Handler f9119a = new HandlerC1093a();
+    private static final Handler f9119a = new HandlerC1095a();
 
     /* renamed from: com.kwad.sdk.core.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class HandlerC1093a extends Handler {
+    private static class HandlerC1095a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
         private final SparseArray<Long> f9120a;
 
-        HandlerC1093a() {
+        HandlerC1095a() {
             super(Looper.getMainLooper());
             this.f9120a = new SparseArray<>();
         }

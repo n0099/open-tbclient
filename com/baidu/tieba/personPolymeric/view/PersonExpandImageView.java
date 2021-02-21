@@ -13,8 +13,8 @@ import android.widget.ImageView;
 /* loaded from: classes8.dex */
 public class PersonExpandImageView extends ImageView {
     private final Rect mDstRect;
-    private final DisplayMetrics mFp;
-    private int mFq;
+    private final DisplayMetrics mFE;
+    private int mFF;
     private final Paint mPaint;
     private final Rect mSrcRect;
 
@@ -22,14 +22,14 @@ public class PersonExpandImageView extends ImageView {
         super(context, attributeSet);
         this.mSrcRect = new Rect();
         this.mDstRect = new Rect();
-        this.mFq = 0;
+        this.mFF = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
         this.mPaint = new Paint();
-        this.mFp = getResources().getDisplayMetrics();
+        this.mFE = getResources().getDisplayMetrics();
     }
 
     public void setInitHeight(int i) {
-        this.mFq = i;
+        this.mFF = i;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -40,12 +40,12 @@ public class PersonExpandImageView extends ImageView {
         float f2;
         float f3;
         float f4 = 0.0f;
-        if (this.mFq != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
+        if (this.mFF != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             if (width != 0 && height != 0) {
-                if ((width * 1.0f) / height < (getWidth() * 1.0f) / this.mFq) {
-                    float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.mFq) - getWidth()) * 0.2f) + getWidth();
+                if ((width * 1.0f) / height < (getWidth() * 1.0f) / this.mFF) {
+                    float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.mFF) - getWidth()) * 0.2f) + getWidth();
                     float f5 = ((height * 1.0f) / width) * width2;
                     if (width2 != 0.0f && f5 != 0.0f) {
                         float width3 = (getWidth() * width) / width2;

@@ -16,42 +16,42 @@ public class a {
     /* renamed from: com.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     static class C0011a {
-        private static Object pYe;
-        private static Method pYf;
-        private static Method pYg;
-        private static Method pYh;
-        private static Method pYi;
+        private static Object pYE;
+        private static Method pYF;
+        private static Method pYG;
+        private static Method pYH;
+        private static Method pYI;
         private static Class<?> sClass;
 
         static {
-            pYf = null;
-            pYg = null;
-            pYh = null;
-            pYi = null;
+            pYF = null;
+            pYG = null;
+            pYH = null;
+            pYI = null;
             try {
                 sClass = Class.forName("com.android.id.impl.IdProviderImpl");
-                pYe = sClass.newInstance();
-                pYf = sClass.getMethod("getUDID", Context.class);
-                pYg = sClass.getMethod("getOAID", Context.class);
-                pYh = sClass.getMethod("getVAID", Context.class);
-                pYi = sClass.getMethod("getAAID", Context.class);
+                pYE = sClass.newInstance();
+                pYF = sClass.getMethod("getUDID", Context.class);
+                pYG = sClass.getMethod("getOAID", Context.class);
+                pYH = sClass.getMethod("getVAID", Context.class);
+                pYI = sClass.getMethod("getAAID", Context.class);
             } catch (Throwable th) {
                 Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
 
         public static boolean isSupported() {
-            return (sClass == null || pYe == null) ? false : true;
+            return (sClass == null || pYE == null) ? false : true;
         }
 
         public static String ce(Context context) {
-            return b(context, pYg);
+            return b(context, pYG);
         }
 
         private static String b(Context context, Method method) {
-            if (pYe != null && method != null) {
+            if (pYE != null && method != null) {
                 try {
-                    Object invoke = method.invoke(pYe, context);
+                    Object invoke = method.invoke(pYE, context);
                     if (invoke != null) {
                         return (String) invoke;
                     }

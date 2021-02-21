@@ -39,15 +39,15 @@ public class a implements View.OnClickListener, f, a.c {
     private String eTL;
     private TbPageContext eUY;
     private View fLW;
-    private RelativeLayout khA;
-    private LowFlowsActivity khr;
-    private d kht;
-    private ImageView khu;
-    private ImageView khv;
-    private CollapsingToolbarLayout khw;
-    private View khx;
-    private View khy;
-    private TextView khz;
+    private LowFlowsActivity khF;
+    private d khH;
+    private ImageView khI;
+    private ImageView khJ;
+    private CollapsingToolbarLayout khK;
+    private View khL;
+    private View khM;
+    private TextView khN;
+    private RelativeLayout khO;
     private ImageView mBackImageView;
     private String mLFUser;
     private NavigationBar mNavigationBar;
@@ -55,7 +55,7 @@ public class a implements View.OnClickListener, f, a.c {
     private TextView mTitle;
     private String mTaskId = "";
     private int mSkinType = 3;
-    private AppBarLayout.OnOffsetChangedListener jjz = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.lowFlows.e.a.1
+    private AppBarLayout.OnOffsetChangedListener jjN = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.lowFlows.e.a.1
         @Override // com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener, com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
             int totalScrollRange = appBarLayout.getTotalScrollRange() - a.this.getNavigationBarHeight();
@@ -85,16 +85,16 @@ public class a implements View.OnClickListener, f, a.c {
             }
         }
     };
-    private a.b khs = new com.baidu.tieba.homepage.lowFlows.c.a(this);
+    private a.b khG = new com.baidu.tieba.homepage.lowFlows.c.a(this);
 
     public a(TbPageContext tbPageContext) {
         this.eUY = tbPageContext;
-        this.khr = (LowFlowsActivity) tbPageContext.getPageActivity();
-        cwt();
+        this.khF = (LowFlowsActivity) tbPageContext.getPageActivity();
+        cwA();
         init();
     }
 
-    private void cwt() {
+    private void cwA() {
         Intent intent;
         if (this.eUY != null && this.eUY.getPageActivity() != null && (intent = this.eUY.getPageActivity().getIntent()) != null) {
             this.eTL = intent.getStringExtra(LowFlowsActivityConfig.TAB_CODE);
@@ -106,100 +106,100 @@ public class a implements View.OnClickListener, f, a.c {
     private void init() {
         if (this.eUY != null && this.eUY.getPageActivity() != null) {
             this.eUY.getPageActivity().setContentView(getRootView());
-            this.khu = (ImageView) getRootView().findViewById(R.id.header_img);
-            this.khv = (ImageView) getRootView().findViewById(R.id.header_shadow);
+            this.khI = (ImageView) getRootView().findViewById(R.id.header_img);
+            this.khJ = (ImageView) getRootView().findViewById(R.id.header_shadow);
             this.mNavigationBar = (NavigationBar) getRootView().findViewById(R.id.lf_navigation_bar);
             this.XW = (BdTypeRecyclerView) getRootView().findViewById(R.id.more_treasure_trove_content);
             this.XW.setLayoutManager(new LinearLayoutManager(this.eUY.getPageActivity()));
             this.XW.setFadingEdgeLength(0);
-            Mc(this.eTL);
+            Md(this.eTL);
             this.ZM = (AppBarLayout) getRootView().findViewById(R.id.lf_app_bar_layout);
-            this.ZM.addOnOffsetChangedListener(this.jjz);
-            this.khw = (CollapsingToolbarLayout) getRootView().findViewById(R.id.lf_collapse_layout);
-            this.khx = getRootView().findViewById(R.id.net_loading_view);
-            this.khy = getRootView().findViewById(R.id.net_refresh_view);
-            cQO();
-            this.kht = new d(this.eUY, this.XW);
-            this.kht.setPageUniqueId(getBdUniqueId());
-            this.kht.setOnItemCoverListener(this);
+            this.ZM.addOnOffsetChangedListener(this.jjN);
+            this.khK = (CollapsingToolbarLayout) getRootView().findViewById(R.id.lf_collapse_layout);
+            this.khL = getRootView().findViewById(R.id.net_loading_view);
+            this.khM = getRootView().findViewById(R.id.net_refresh_view);
+            cQV();
+            this.khH = new d(this.eUY, this.XW);
+            this.khH.setPageUniqueId(getBdUniqueId());
+            this.khH.setOnItemCoverListener(this);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tieba.homepage.lowFlows.a.c
     public void loadData() {
-        if (this.khy != null && this.khy.getParent() != null && this.khr != null) {
-            this.khr.hideNetRefreshView(this.khy);
-            this.khy.setVisibility(8);
+        if (this.khM != null && this.khM.getParent() != null && this.khF != null) {
+            this.khF.hideNetRefreshView(this.khM);
+            this.khM.setVisibility(8);
         }
         if (this.XW != null && this.XW.getParent() != null) {
             this.XW.setVisibility(8);
         }
-        if (this.khx != null && this.khr != null) {
-            this.khx.setVisibility(0);
-            this.khr.showLoadingView(this.khx);
+        if (this.khL != null && this.khF != null) {
+            this.khL.setVisibility(0);
+            this.khF.showLoadingView(this.khL);
         }
-        if (this.khv != null && this.khv.getVisibility() == 0) {
-            this.khv.setVisibility(8);
+        if (this.khJ != null && this.khJ.getVisibility() == 0) {
+            this.khJ.setVisibility(8);
         }
-        if (this.khs != null) {
-            this.khs.b(getBdUniqueId(), this.eTL, this.mLFUser, this.mTaskId);
+        if (this.khG != null) {
+            this.khG.b(getBdUniqueId(), this.eTL, this.mLFUser, this.mTaskId);
         }
     }
 
-    public void Mb(String str) {
+    public void Mc(String str) {
         this.fLW = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
         this.mBackImageView = (ImageView) this.fLW.findViewById(R.id.widget_navi_back_button);
         this.mTitle = this.mNavigationBar.getCenterText();
         this.mNavigationBar.setCenterTextTitle(str);
     }
 
-    public void Mc(String str) {
-        Drawable[] LZ = b.LZ(str);
-        if (LZ != null) {
-            this.khu.setImageDrawable(LZ[0]);
-            this.khv.setImageDrawable(LZ[1]);
+    public void Md(String str) {
+        Drawable[] Ma = b.Ma(str);
+        if (Ma != null) {
+            this.khI.setImageDrawable(Ma[0]);
+            this.khJ.setImageDrawable(Ma[1]);
         }
-        Mb(b.Ma(str));
+        Mc(b.Mb(str));
     }
 
     @Override // com.baidu.tieba.homepage.lowFlows.a.c
     public void setData(List<n> list) {
-        if (this.khx != null && this.khr != null && this.khx.getParent() != null) {
-            this.khr.hideLoadingView(this.khx);
-            this.khx.setVisibility(8);
+        if (this.khL != null && this.khF != null && this.khL.getParent() != null) {
+            this.khF.hideLoadingView(this.khL);
+            this.khL.setVisibility(8);
         }
         if (this.XW != null) {
             this.XW.setVisibility(0);
         }
-        if (this.khv != null && this.khv.getVisibility() == 8) {
-            this.khv.setVisibility(0);
+        if (this.khJ != null && this.khJ.getVisibility() == 8) {
+            this.khJ.setVisibility(0);
         }
         for (n nVar : list) {
             if (nVar instanceof ca) {
                 ((ca) nVar).bln().eTL = this.eTL;
             }
         }
-        if (this.kht != null) {
-            this.kht.setData(list);
+        if (this.khH != null) {
+            this.khH.setData(list);
         }
-        this.XW.setFooterView(this.khA);
+        this.XW.setFooterView(this.khO);
     }
 
-    private void cQO() {
+    private void cQV() {
         if (this.eUY != null) {
             int dimens = l.getDimens(this.eUY.getPageActivity(), R.dimen.M_H_X008);
-            this.khA = new RelativeLayout(this.eUY.getPageActivity());
+            this.khO = new RelativeLayout(this.eUY.getPageActivity());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            this.khA.setPadding(0, dimens, 0, dimens);
-            this.khA.setLayoutParams(layoutParams);
-            this.khz = new TextView(this.eUY.getPageActivity());
+            this.khO.setPadding(0, dimens, 0, dimens);
+            this.khO.setLayoutParams(layoutParams);
+            this.khN = new TextView(this.eUY.getPageActivity());
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(13);
-            this.khz.setLayoutParams(layoutParams2);
-            this.khz.setText(R.string.lf_footer_no_more);
-            this.khz.setBackgroundColor(0);
-            this.khA.addView(this.khz);
+            this.khN.setLayoutParams(layoutParams2);
+            this.khN.setText(R.string.lf_footer_no_more);
+            this.khN.setBackgroundColor(0);
+            this.khO.addView(this.khN);
         }
     }
 
@@ -223,15 +223,15 @@ public class a implements View.OnClickListener, f, a.c {
             c.br(this.mTitle).oa(R.string.F_X02).nZ(R.dimen.T_X05).nY(R.color.CAM_X0105);
             this.mNavigationBar.getBarBgView().setBackgroundColor(ap.getColor(R.color.CAM_X0201));
             this.mRootView.setBackgroundColor(ap.getColor(R.color.CAM_X0209));
-            Drawable[] LZ = b.LZ(this.eTL);
-            if (LZ != null) {
-                this.khu.setImageDrawable(LZ[0]);
-                this.khv.setImageDrawable(LZ[1]);
+            Drawable[] Ma = b.Ma(this.eTL);
+            if (Ma != null) {
+                this.khI.setImageDrawable(Ma[0]);
+                this.khJ.setImageDrawable(Ma[1]);
             }
-            this.khA.setBackgroundColor(ap.getColor(R.color.CAM_X0209));
-            c.br(this.khz).nZ(R.dimen.T_X08).nY(R.color.CAM_X0109);
-            if (this.kht != null) {
-                this.kht.notifyDataSetChanged();
+            this.khO.setBackgroundColor(ap.getColor(R.color.CAM_X0209));
+            c.br(this.khN).nZ(R.dimen.T_X08).nY(R.color.CAM_X0109);
+            if (this.khH != null) {
+                this.khH.notifyDataSetChanged();
             }
         }
         this.mSkinType = i;
@@ -239,13 +239,13 @@ public class a implements View.OnClickListener, f, a.c {
 
     @Override // com.baidu.tieba.homepage.lowFlows.a.c
     public void BU(int i) {
-        if (this.khx != null && this.khx.getParent() != null && this.khr != null) {
-            this.khr.hideLoadingView(this.khx);
-            this.khx.setVisibility(8);
+        if (this.khL != null && this.khL.getParent() != null && this.khF != null) {
+            this.khF.hideLoadingView(this.khL);
+            this.khL.setVisibility(8);
         }
-        if (this.khr != null && this.khy != null) {
-            this.khy.setVisibility(0);
-            this.khr.showNetRefreshView(this.khy, "");
+        if (this.khF != null && this.khM != null) {
+            this.khM.setVisibility(0);
+            this.khF.showNetRefreshView(this.khM, "");
         }
     }
 

@@ -20,16 +20,16 @@ public interface e extends s, ReadableByteChannel {
 
     boolean e() throws IOException;
 
+    InputStream eoB();
+
+    byte eoC() throws IOException;
+
+    short eoD() throws IOException;
+
+    short eoE() throws IOException;
+
     @Deprecated
-    c eor();
-
-    InputStream eot();
-
-    byte eou() throws IOException;
-
-    short eov() throws IOException;
-
-    short eow() throws IOException;
+    c eoz();
 
     void h(long j) throws IOException;
 

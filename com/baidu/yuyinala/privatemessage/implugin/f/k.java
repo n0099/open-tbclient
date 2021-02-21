@@ -8,36 +8,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class k {
-    private static k pas;
+    private static k paT;
     private Context mContext;
     private static final String TAG = k.class.getSimpleName();
-    private static Map<Long, h> pat = new HashMap();
+    private static Map<Long, h> paU = new HashMap();
 
     private k(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
     public static k hC(Context context) {
-        if (pas == null) {
+        if (paT == null) {
             synchronized (k.class) {
-                if (pas == null) {
-                    pas = new k(context);
+                if (paT == null) {
+                    paT = new k(context);
                 }
             }
         }
-        return pas;
+        return paT;
     }
 
-    public Map<Long, h> ejS() {
-        return pat;
+    public Map<Long, h> eka() {
+        return paU;
     }
 
     public h hW(long j) {
-        return pat.get(Long.valueOf(j));
+        return paU.get(Long.valueOf(j));
     }
 
     public void a(long j, h hVar) {
-        pat.put(Long.valueOf(j), hVar);
+        paU.put(Long.valueOf(j), hVar);
     }
 
     public void a(String str, long j, IIsSubscribedListener iIsSubscribedListener) {

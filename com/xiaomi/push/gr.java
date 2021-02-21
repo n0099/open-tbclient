@@ -21,11 +21,11 @@ public class gr {
     private static XmlPullParser f14067a = null;
 
     public static gg a(String str, String str2, XmlPullParser xmlPullParser) {
-        Object m347a = gq.a().m347a("all", "xm:chat");
-        if (m347a == null || !(m347a instanceof com.xiaomi.push.service.e)) {
+        Object m346a = gq.a().m346a("all", "xm:chat");
+        if (m346a == null || !(m346a instanceof com.xiaomi.push.service.e)) {
             return null;
         }
-        return ((com.xiaomi.push.service.e) m347a).b(xmlPullParser);
+        return ((com.xiaomi.push.service.e) m346a).b(xmlPullParser);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -52,7 +52,7 @@ public class gr {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
                 if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    gnVar = m351a(xmlPullParser);
+                    gnVar = m350a(xmlPullParser);
                     gtVar = gtVar2;
                 } else {
                     ?? ghVar = new gh();
@@ -124,7 +124,7 @@ public class gr {
                         giVar.k(attributeValue2);
                         giVar.f(attributeValue5);
                         gg ggVar = new gg("s", null, null, null);
-                        ggVar.m339a(text);
+                        ggVar.m338a(text);
                         giVar.a(ggVar);
                         return giVar;
                     }
@@ -204,21 +204,21 @@ public class gr {
                 if (name.equals("subject")) {
                     if (b(xmlPullParser) == null) {
                     }
-                    giVar2.g(m352a(xmlPullParser));
+                    giVar2.g(m351a(xmlPullParser));
                 } else if (name.equals("body")) {
                     String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
-                    String m352a = m352a(xmlPullParser);
+                    String m351a = m351a(xmlPullParser);
                     if (TextUtils.isEmpty(attributeValue11)) {
-                        giVar2.h(m352a);
+                        giVar2.h(m351a);
                     } else {
-                        giVar2.a(m352a, attributeValue11);
+                        giVar2.a(m351a, attributeValue11);
                     }
                 } else if (name.equals("thread")) {
                     if (str2 == null) {
                         str2 = xmlPullParser.nextText();
                     }
                 } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    giVar2.a(m351a(xmlPullParser));
+                    giVar2.a(m350a(xmlPullParser));
                 } else {
                     giVar2.a(a(name, namespace, xmlPullParser));
                 }
@@ -233,7 +233,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gl m349a(XmlPullParser xmlPullParser) {
+    public static gl m348a(XmlPullParser xmlPullParser) {
         gl.b bVar = gl.b.available;
         String attributeValue = xmlPullParser.getAttributeValue("", "type");
         if (attributeValue != null && !attributeValue.equals("")) {
@@ -275,7 +275,7 @@ public class gr {
                         System.err.println("Found invalid presence mode " + nextText);
                     }
                 } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
-                    glVar.a(m351a(xmlPullParser));
+                    glVar.a(m350a(xmlPullParser));
                 } else {
                     glVar.a(a(name, namespace, xmlPullParser));
                 }
@@ -287,7 +287,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gm m350a(XmlPullParser xmlPullParser) {
+    public static gm m349a(XmlPullParser xmlPullParser) {
         gm gmVar = null;
         boolean z = false;
         while (!z) {
@@ -302,7 +302,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gn m351a(XmlPullParser xmlPullParser) {
+    public static gn m350a(XmlPullParser xmlPullParser) {
         ArrayList arrayList = new ArrayList();
         int i = 0;
         String str = null;
@@ -347,7 +347,7 @@ public class gr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static String m352a(XmlPullParser xmlPullParser) {
+    private static String m351a(XmlPullParser xmlPullParser) {
         String str = "";
         int depth = xmlPullParser.getDepth();
         while (true) {

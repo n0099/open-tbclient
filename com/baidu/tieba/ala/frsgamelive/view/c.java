@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class c extends com.baidu.adp.widget.ListView.b {
-    private ImageView gWI;
-    private TextView gWJ;
+    private ImageView gWW;
+    private TextView gWX;
     private View mBottomLine;
     private View.OnClickListener mClickListener;
     private Context mContext;
@@ -26,8 +26,8 @@ public class c extends com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public View createView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
-        this.gWJ = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
-        this.gWI = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
+        this.gWX = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
+        this.gWW = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
         this.mTopLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_top_line);
         this.mBottomLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_bottom_line);
         uu(TbadkCoreApplication.getInst().getSkinType());
@@ -38,11 +38,11 @@ public class c extends com.baidu.adp.widget.ListView.b {
         if (this.mRootView != null) {
             ap.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
         }
-        if (this.gWJ != null) {
-            ap.setViewTextColor(this.gWJ, R.color.CAM_X0304);
+        if (this.gWX != null) {
+            ap.setViewTextColor(this.gWX, R.color.CAM_X0304);
         }
-        if (this.gWI != null) {
-            ap.setImageResource(this.gWI, R.drawable.icon_inf_arrowblue_n);
+        if (this.gWW != null) {
+            ap.setImageResource(this.gWW, R.drawable.icon_inf_arrowblue_n);
         }
         if (this.mTopLine != null) {
             ap.setBackgroundResource(this.mTopLine, R.color.CAM_X0204);

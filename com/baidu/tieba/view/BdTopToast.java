@@ -24,8 +24,8 @@ public class BdTopToast extends LinearLayout {
     private Runnable mHideRunnable;
     private ImageView mIconView;
     private View mStatusBarView;
-    private BottomShadowLinearLayout nWs;
-    private boolean nWt;
+    private BottomShadowLinearLayout nWS;
+    private boolean nWT;
 
     public BdTopToast(Context context, int i) {
         this(context);
@@ -53,7 +53,7 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.nWs = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.nWS = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
         this.cTD = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
@@ -88,11 +88,11 @@ public class BdTopToast extends LinearLayout {
     }
 
     public BdTopToast zn(boolean z) {
-        this.nWt = z;
+        this.nWT = z;
         return this;
     }
 
-    public BdTopToast UN(String str) {
+    public BdTopToast UZ(String str) {
         this.cTD.setText(str);
         return this;
     }
@@ -128,13 +128,13 @@ public class BdTopToast extends LinearLayout {
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this.mStatusBarView, R.color.CAM_X0207);
-        if (this.nWt) {
+        if (this.nWT) {
             SvgManager.bsR().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
             ap.setViewTextColor(this.cTD, R.color.CAM_X0302);
         } else {
             SvgManager.bsR().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, (SvgManager.SvgResourceStateType) null);
             ap.setViewTextColor(this.cTD, R.color.CAM_X0301);
         }
-        this.nWs.onChangeSkinType();
+        this.nWS.onChangeSkinType();
     }
 }

@@ -7,71 +7,71 @@ import android.widget.TextView;
 /* loaded from: classes8.dex */
 public class BestStringsFitTextView extends TextView {
     private float bAs;
-    private String ntd;
-    private String nte;
-    private boolean ntf;
+    private String ntD;
+    private String ntE;
+    private boolean ntF;
     private String[] textArray;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.ntd = " ";
+        this.ntD = " ";
         this.bAs = 0.0f;
-        this.nte = "";
-        this.ntf = false;
+        this.ntE = "";
+        this.ntF = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ntd = " ";
+        this.ntD = " ";
         this.bAs = 0.0f;
-        this.nte = "";
-        this.ntf = false;
+        this.ntE = "";
+        this.ntF = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ntd = " ";
+        this.ntD = " ";
         this.bAs = 0.0f;
-        this.nte = "";
-        this.ntf = false;
+        this.ntE = "";
+        this.ntF = false;
     }
 
-    protected void dMo() {
+    protected void dMw() {
         this.bAs = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.textArray.length; i++) {
             if (i > 0) {
-                sb.append(this.ntd);
+                sb.append(this.ntD);
             }
             sb.append(this.textArray[i]);
             String sb2 = sb.toString();
             if (this.bAs < getPaint().measureText(sb2)) {
                 break;
             }
-            this.ntf = true;
-            this.nte = sb2;
+            this.ntF = true;
+            this.ntE = sb2;
         }
-        setText(this.nte);
+        setText(this.ntE);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.textArray != null && !this.ntf) {
-            dMo();
+        if (this.textArray != null && !this.ntF) {
+            dMw();
         }
     }
 
     public void setTextArray(String[] strArr) {
         this.textArray = strArr;
-        dMo();
+        dMw();
     }
 
     public String getSeperator() {
-        return this.ntd;
+        return this.ntD;
     }
 
     public void setSeperator(String str) {
-        this.ntd = str;
+        this.ntD = str;
     }
 }

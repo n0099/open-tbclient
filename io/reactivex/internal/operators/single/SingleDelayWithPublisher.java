@@ -10,12 +10,12 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes5.dex */
 public final class SingleDelayWithPublisher<T, U> extends w<T> {
-    final org.a.b<U> qoq;
+    final org.a.b<U> qoQ;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.qoq.subscribe(new OtherSubscriber(yVar, this.source));
+        this.qoQ.subscribe(new OtherSubscriber(yVar, this.source));
     }
 
     /* loaded from: classes5.dex */

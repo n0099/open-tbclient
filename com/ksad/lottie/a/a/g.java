@@ -18,7 +18,7 @@ import com.ksad.lottie.model.content.GradientType;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class g implements d, j, a.InterfaceC1065a {
+public class g implements d, j, a.InterfaceC1067a {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
@@ -107,7 +107,7 @@ public class g implements d, j, a.InterfaceC1065a {
         return round3 != 0 ? i * 31 * round3 : i;
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1065a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
     public void a() {
         this.p.invalidateSelf();
     }

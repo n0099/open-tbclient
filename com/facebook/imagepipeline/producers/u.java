@@ -15,7 +15,7 @@ import okhttp3.internal.http.StatusLine;
 /* loaded from: classes5.dex */
 public class u extends c<t> {
     private final ExecutorService mExecutorService;
-    private int pIQ;
+    private int pJq;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -23,7 +23,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.pIQ = i;
+        this.pJq = i;
     }
 
     u(ExecutorService executorService) {
@@ -43,11 +43,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.ezv().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.ezD().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void ezo() {
+            public void ezw() {
                 if (submit.cancel(false)) {
-                    aVar.esv();
+                    aVar.esD();
                 }
             }
         });
@@ -126,9 +126,9 @@ public class u extends c<t> {
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
         HttpURLConnection ab = ab(uri);
-        ab.setConnectTimeout(this.pIQ);
+        ab.setConnectTimeout(this.pJq);
         int responseCode = ab.getResponseCode();
-        if (!Ql(responseCode)) {
+        if (!Qm(responseCode)) {
             if (isHttpRedirect(responseCode)) {
                 String headerField = ab.getHeaderField(Headers.LOCATION);
                 ab.disconnect();
@@ -149,7 +149,7 @@ public class u extends c<t> {
         return (HttpURLConnection) com.facebook.common.util.d.J(uri).openConnection();
     }
 
-    private static boolean Ql(int i) {
+    private static boolean Qm(int i) {
         return i >= 200 && i < 300;
     }
 

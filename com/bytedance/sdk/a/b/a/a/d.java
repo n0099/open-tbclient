@@ -22,10 +22,10 @@ public final class d implements Closeable, Flushable {
     private long l;
     private long m;
     private final Runnable o;
-    com.bytedance.sdk.a.a.d pod;
-    final com.bytedance.sdk.a.b.a.f.a pom;
-    final LinkedHashMap<String, b> pon;
-    private final Executor poo;
+    com.bytedance.sdk.a.a.d poG;
+    final com.bytedance.sdk.a.b.a.f.a poO;
+    final LinkedHashMap<String, b> poP;
+    private final Executor poQ;
 
     static {
         j = !d.class.desiredAssertionStatus();
@@ -34,80 +34,80 @@ public final class d implements Closeable, Flushable {
 
     synchronized void a(a aVar, boolean z) throws IOException {
         synchronized (this) {
-            b bVar = aVar.poq;
-            if (bVar.pow != aVar) {
+            b bVar = aVar.poR;
+            if (bVar.poW != aVar) {
                 throw new IllegalStateException();
             }
             if (z && !bVar.e) {
                 for (int i = 0; i < this.c; i++) {
-                    if (!aVar.por[i]) {
+                    if (!aVar.poS[i]) {
                         aVar.b();
                         throw new IllegalStateException("Newly created entry didn't create value for index " + i);
-                    } else if (!this.pom.b(bVar.pov[i])) {
+                    } else if (!this.poO.b(bVar.poV[i])) {
                         aVar.b();
                         break;
                     }
                 }
             }
             for (int i2 = 0; i2 < this.c; i2++) {
-                File file = bVar.pov[i2];
+                File file = bVar.poV[i2];
                 if (z) {
-                    if (this.pom.b(file)) {
-                        File file2 = bVar.pou[i2];
-                        this.pom.a(file, file2);
-                        long j2 = bVar.pnm[i2];
-                        long ai = this.pom.ai(file2);
-                        bVar.pnm[i2] = ai;
-                        this.l = (this.l - j2) + ai;
+                    if (this.poO.b(file)) {
+                        File file2 = bVar.poU[i2];
+                        this.poO.a(file, file2);
+                        long j2 = bVar.pnM[i2];
+                        long aj = this.poO.aj(file2);
+                        bVar.pnM[i2] = aj;
+                        this.l = (this.l - j2) + aj;
                     }
                 } else {
-                    this.pom.a(file);
+                    this.poO.a(file);
                 }
             }
             this.f++;
-            bVar.pow = null;
+            bVar.poW = null;
             if (bVar.e | z) {
                 bVar.e = true;
-                this.pod.YA("CLEAN").OA(32);
-                this.pod.YA(bVar.f5859a);
-                bVar.a(this.pod);
-                this.pod.OA(10);
+                this.poG.YM("CLEAN").OB(32);
+                this.poG.YM(bVar.f5859a);
+                bVar.a(this.poG);
+                this.poG.OB(10);
                 if (z) {
                     long j3 = this.m;
                     this.m = 1 + j3;
                     bVar.g = j3;
                 }
             } else {
-                this.pon.remove(bVar.f5859a);
-                this.pod.YA("REMOVE").OA(32);
-                this.pod.YA(bVar.f5859a);
-                this.pod.OA(10);
+                this.poP.remove(bVar.f5859a);
+                this.poG.YM("REMOVE").OB(32);
+                this.poG.YM(bVar.f5859a);
+                this.poG.OB(10);
             }
-            this.pod.flush();
+            this.poG.flush();
             if (this.l > this.k || a()) {
-                this.poo.execute(this.o);
+                this.poQ.execute(this.o);
             }
         }
     }
 
     boolean a() {
-        return this.f >= 2000 && this.f >= this.pon.size();
+        return this.f >= 2000 && this.f >= this.poP.size();
     }
 
     boolean a(b bVar) throws IOException {
-        if (bVar.pow != null) {
-            bVar.pow.a();
+        if (bVar.poW != null) {
+            bVar.poW.a();
         }
         for (int i = 0; i < this.c; i++) {
-            this.pom.a(bVar.pou[i]);
-            this.l -= bVar.pnm[i];
-            bVar.pnm[i] = 0;
+            this.poO.a(bVar.poU[i]);
+            this.l -= bVar.pnM[i];
+            bVar.pnM[i] = 0;
         }
         this.f++;
-        this.pod.YA("REMOVE").OA(32).YA(bVar.f5859a).OA(10);
-        this.pon.remove(bVar.f5859a);
+        this.poG.YM("REMOVE").OB(32).YM(bVar.f5859a).OB(10);
+        this.poP.remove(bVar.f5859a);
         if (a()) {
-            this.poo.execute(this.o);
+            this.poQ.execute(this.o);
             return true;
         }
         return true;
@@ -128,7 +128,7 @@ public final class d implements Closeable, Flushable {
         if (this.g) {
             d();
             c();
-            this.pod.flush();
+            this.poG.flush();
         }
     }
 
@@ -138,21 +138,21 @@ public final class d implements Closeable, Flushable {
         if (!this.g || this.h) {
             this.h = true;
         } else {
-            for (b bVar : (b[]) this.pon.values().toArray(new b[this.pon.size()])) {
-                if (bVar.pow != null) {
-                    bVar.pow.b();
+            for (b bVar : (b[]) this.poP.values().toArray(new b[this.poP.size()])) {
+                if (bVar.poW != null) {
+                    bVar.poW.b();
                 }
             }
             c();
-            this.pod.close();
-            this.pod = null;
+            this.poG.close();
+            this.poG = null;
             this.h = true;
         }
     }
 
     void c() throws IOException {
         while (this.l > this.k) {
-            a(this.pon.values().iterator().next());
+            a(this.poP.values().iterator().next());
         }
         this.i = false;
     }
@@ -160,29 +160,29 @@ public final class d implements Closeable, Flushable {
     /* loaded from: classes6.dex */
     public final class a {
         private boolean d;
-        final b poq;
-        final boolean[] por;
-        final /* synthetic */ d pot;
+        final b poR;
+        final boolean[] poS;
+        final /* synthetic */ d poT;
 
         void a() {
-            if (this.poq.pow == this) {
-                for (int i = 0; i < this.pot.c; i++) {
+            if (this.poR.poW == this) {
+                for (int i = 0; i < this.poT.c; i++) {
                     try {
-                        this.pot.pom.a(this.poq.pov[i]);
+                        this.poT.poO.a(this.poR.poV[i]);
                     } catch (IOException e) {
                     }
                 }
-                this.poq.pow = null;
+                this.poR.poW = null;
             }
         }
 
         public void b() throws IOException {
-            synchronized (this.pot) {
+            synchronized (this.poT) {
                 if (this.d) {
                     throw new IllegalStateException();
                 }
-                if (this.poq.pow == this) {
-                    this.pot.a(this, false);
+                if (this.poR.poW == this) {
+                    this.poT.a(this, false);
                 }
                 this.d = true;
             }
@@ -197,14 +197,14 @@ public final class d implements Closeable, Flushable {
         final String f5859a;
         boolean e;
         long g;
-        final long[] pnm;
-        final File[] pou;
-        final File[] pov;
-        a pow;
+        final long[] pnM;
+        final File[] poU;
+        final File[] poV;
+        a poW;
 
         void a(com.bytedance.sdk.a.a.d dVar) throws IOException {
-            for (long j : this.pnm) {
-                dVar.OA(32).io(j);
+            for (long j : this.pnM) {
+                dVar.OB(32).io(j);
             }
         }
     }

@@ -5,19 +5,19 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes11.dex */
 public class e {
-    private com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a hym;
+    private com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a hyA;
 
     /* loaded from: classes11.dex */
     private static class a {
-        public static final e hyo = new e();
+        public static final e hyC = new e();
     }
 
-    public static e cdL() {
-        return a.hyo;
+    public static e cdS() {
+        return a.hyC;
     }
 
     public void a(com.baidu.live.challenge.c cVar) {
-        if (this.hym == null || !this.hym.isShowing()) {
+        if (this.hyA == null || !this.hyA.isShowing()) {
             final TbPageContext tbPageContext = cVar.pageContext;
             c cVar2 = new c(tbPageContext);
             cVar2.setLoadDataCallBack(new BdLoadDataCallBack() { // from class: com.baidu.tieba.ala.liveroom.challenge.rewarddialog.e.1
@@ -26,10 +26,10 @@ public class e {
                     if (obj != null && (obj instanceof AlaChallengeRewardData)) {
                         AlaChallengeRewardData alaChallengeRewardData = (AlaChallengeRewardData) obj;
                         if (alaChallengeRewardData.errno == 0) {
-                            if (e.this.hym == null || !e.this.hym.isShowing()) {
-                                e.this.hym = (com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a) b.a(tbPageContext, alaChallengeRewardData);
-                                if (e.this.hym != null) {
-                                    e.this.hym.show();
+                            if (e.this.hyA == null || !e.this.hyA.isShowing()) {
+                                e.this.hyA = (com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a) b.a(tbPageContext, alaChallengeRewardData);
+                                if (e.this.hyA != null) {
+                                    e.this.hyA.show();
                                     return;
                                 }
                                 return;

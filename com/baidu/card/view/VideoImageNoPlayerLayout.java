@@ -67,10 +67,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<com.ba
                 float f7;
                 float f8;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Dk = c.bCP().Dk(d.mw().genCacheKey(tbImageView.getUrl(), 10));
-                    if (Dk != null) {
-                        int width = Dk.getWidth();
-                        i = Dk.getHeight();
+                    com.baidu.adp.widget.ImageView.a Di = c.bCP().Di(d.mw().genCacheKey(tbImageView.getUrl(), 10));
+                    if (Di != null) {
+                        int width = Di.getWidth();
+                        i = Di.getHeight();
                         i2 = width;
                     } else {
                         i = 0;

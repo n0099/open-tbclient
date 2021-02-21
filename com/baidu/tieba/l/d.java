@@ -49,7 +49,7 @@ public class d {
         }
     }
 
-    public static void Ov(String str) {
+    public static void Ow(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -97,7 +97,7 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray Ow(String str) {
+    public static JSONArray Ox(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -132,9 +132,9 @@ public class d {
         }
     }
 
-    public static void Ox(String str) {
+    public static void Oy(String str) {
         if (!StringUtils.isNull(str)) {
-            o.deleteFileOrDir(new File(f.a.luu + f.a.luk + str));
+            o.deleteFileOrDir(new File(f.a.luI + f.a.luy + str));
         }
     }
 }

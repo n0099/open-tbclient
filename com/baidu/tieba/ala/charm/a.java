@@ -13,14 +13,14 @@ import com.baidu.tieba.ala.charm.model.a;
 public class a implements com.baidu.live.liveroom.d.d {
     private String aDB;
     private boolean bnF;
-    private String gNk;
-    private String gNl;
-    private String gNm;
-    private String gNn;
-    private com.baidu.tieba.ala.charm.view.b gNo;
-    private com.baidu.tieba.ala.charm.model.a gNp;
-    private ALaCharmCardActivity gNq;
-    private int gNr;
+    private String gNA;
+    private String gNB;
+    private com.baidu.tieba.ala.charm.view.b gNC;
+    private com.baidu.tieba.ala.charm.model.a gND;
+    private ALaCharmCardActivity gNE;
+    private int gNF;
+    private String gNy;
+    private String gNz;
     private String mGroupId;
     private boolean mHasMore;
     private String mLiveId;
@@ -28,7 +28,7 @@ public class a implements com.baidu.live.liveroom.d.d {
     private String mUserId;
     private String mUserName;
     private int pn = 0;
-    CustomMessageListener gNs = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.charm.a.1
+    CustomMessageListener gNG = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.charm.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,124 +37,124 @@ public class a implements com.baidu.live.liveroom.d.d {
                 if (str == null) {
                     str = "";
                 }
-                if (a.this.gNo != null) {
-                    a.this.gNo.setOtherParams(str);
+                if (a.this.gNC != null) {
+                    a.this.gNC.setOtherParams(str);
                 }
             }
         }
     };
-    a.InterfaceC0623a gNt = new a.InterfaceC0623a() { // from class: com.baidu.tieba.ala.charm.a.2
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0623a
+    a.InterfaceC0624a gNH = new a.InterfaceC0624a() { // from class: com.baidu.tieba.ala.charm.a.2
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0624a
         public void a(ALaCharmDataList aLaCharmDataList) {
             if (aLaCharmDataList == null) {
-                a.this.gNo.dQ(true);
+                a.this.gNC.dQ(true);
                 return;
             }
-            a.this.gNo.WZ();
-            a.this.gNo.a(aLaCharmDataList.data, a.this.pn == 0, aLaCharmDataList.userTotalPrice);
+            a.this.gNC.WZ();
+            a.this.gNC.a(aLaCharmDataList.data, a.this.pn == 0, aLaCharmDataList.userTotalPrice);
             a.this.pn = aLaCharmDataList.pn + 1;
             a.this.mHasMore = aLaCharmDataList.hasMore;
             if (a.this.mHasMore) {
-                a.this.gNo.WX();
+                a.this.gNC.WX();
             } else {
-                a.this.gNo.Gz(a.this.gNq.getPageContext().getResources().getString(a.h.charm_no_more));
+                a.this.gNC.GA(a.this.gNE.getPageContext().getResources().getString(a.h.charm_no_more));
             }
             if (aLaCharmDataList.data == null || aLaCharmDataList.data.size() <= 0) {
-                a.this.gNo.dQ(true);
+                a.this.gNC.dQ(true);
             }
         }
 
-        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0623a
+        @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0624a
         public void A(int i, String str) {
-            a.this.gNo.dQ(false);
-            a.this.gNo.n(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.2.1
+            a.this.gNC.dQ(false);
+            a.this.gNC.n(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.a.2.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        if (a.this.gNp != null) {
-                            a.this.gNp.O(a.this.gNr, a.this.pn, 100);
+                        if (a.this.gND != null) {
+                            a.this.gND.O(a.this.gNF, a.this.pn, 100);
                             return;
                         }
                         return;
                     }
-                    a.this.gNq.getPageContext().showToast(a.this.gNq.getResources().getString(a.h.sdk_no_network_guide));
+                    a.this.gNE.getPageContext().showToast(a.this.gNE.getResources().getString(a.h.sdk_no_network_guide));
                 }
             });
         }
     };
-    private BdListView.OnScrollToBottomListener gNu = new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.charm.a.3
+    private BdListView.OnScrollToBottomListener gNI = new BdListView.OnScrollToBottomListener() { // from class: com.baidu.tieba.ala.charm.a.3
         @Override // com.baidu.live.adp.widget.listview.BdListView.OnScrollToBottomListener
         public void onScrollToBottom() {
-            if (a.this.mHasMore && a.this.gNp != null) {
-                a.this.gNp.O(a.this.gNr, a.this.pn, 100);
+            if (a.this.mHasMore && a.this.gND != null) {
+                a.this.gND.O(a.this.gNF, a.this.pn, 100);
             }
         }
     };
 
     public a(ALaCharmCardActivity aLaCharmCardActivity, int i) {
-        this.gNr = 1;
-        this.gNq = aLaCharmCardActivity;
-        this.gNr = i;
+        this.gNF = 1;
+        this.gNE = aLaCharmCardActivity;
+        this.gNF = i;
     }
 
     public void createView() {
-        this.gNo = new com.baidu.tieba.ala.charm.view.b(this.gNq, this.mGroupId, this.mLiveId, this.bnF, this.aDB, this.gNr, this.mUserId, this.mUserName, this.gNl, this.gNm, this.gNn);
-        this.gNo.a(this.gNu);
-        this.gNo.setOtherParams(this.mOtherParams);
+        this.gNC = new com.baidu.tieba.ala.charm.view.b(this.gNE, this.mGroupId, this.mLiveId, this.bnF, this.aDB, this.gNF, this.mUserId, this.mUserName, this.gNz, this.gNA, this.gNB);
+        this.gNC.a(this.gNI);
+        this.gNC.setOtherParams(this.mOtherParams);
         loadData();
-        MessageManager.getInstance().registerListener(this.gNs);
+        MessageManager.getInstance().registerListener(this.gNG);
     }
 
     private void loadData() {
-        if (this.gNp == null) {
-            this.gNp = new com.baidu.tieba.ala.charm.model.a(this.gNq.getPageContext(), this.mUserId, this.gNt);
+        if (this.gND == null) {
+            this.gND = new com.baidu.tieba.ala.charm.model.a(this.gNE.getPageContext(), this.mUserId, this.gNH);
         }
-        this.gNp.bD(this.gNr, 100);
+        this.gND.bE(this.gNF, 100);
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.gNo == null) {
+        if (this.gNC == null) {
             return null;
         }
-        return this.gNo.getRootView();
+        return this.gNC.getRootView();
     }
 
-    public com.baidu.tieba.ala.charm.view.b bTx() {
-        return this.gNo;
+    public com.baidu.tieba.ala.charm.view.b bTE() {
+        return this.gNC;
     }
 
     public void aA(String str, boolean z) {
-        if (this.gNo != null) {
-            this.gNo.aA(str, z);
+        if (this.gNC != null) {
+            this.gNC.aA(str, z);
         }
     }
 
     public void EK() {
-        if (this.gNo != null) {
-            this.gNo.EK();
+        if (this.gNC != null) {
+            this.gNC.EK();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        if (this.gNr == 2) {
-            return this.gNq.getResources().getString(a.h.ala_charm_week_title);
+        if (this.gNF == 2) {
+            return this.gNE.getResources().getString(a.h.ala_charm_week_title);
         }
-        if (this.gNr == 1) {
-            return this.gNq.getResources().getString(a.h.ala_charm_all_title);
+        if (this.gNF == 1) {
+            return this.gNE.getResources().getString(a.h.ala_charm_all_title);
         }
-        if (this.gNr == 3) {
-            return this.gNq.getResources().getString(a.h.ala_charm_day_title);
+        if (this.gNF == 3) {
+            return this.gNE.getResources().getString(a.h.ala_charm_day_title);
         }
-        if (this.gNr != 4) {
+        if (this.gNF != 4) {
             return null;
         }
-        return this.gNq.getResources().getString(a.h.audience_list_title);
+        return this.gNE.getResources().getString(a.h.audience_list_title);
     }
 
-    public int bTy() {
-        return this.gNr;
+    public int bTF() {
+        return this.gNF;
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -177,28 +177,28 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.gNp != null) {
-            this.gNp.onDestroy();
+        if (this.gND != null) {
+            this.gND.onDestroy();
         }
-        MessageManager.getInstance().unRegisterListener(this.gNs);
+        MessageManager.getInstance().unRegisterListener(this.gNG);
     }
 
-    public a Ge(String str) {
+    public a Gf(String str) {
         this.mUserId = str;
         return this;
     }
 
-    public a Gf(String str) {
+    public a Gg(String str) {
         this.mUserName = str;
         return this;
     }
 
-    public a Gg(String str) {
+    public a Gh(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public a Gh(String str) {
+    public a Gi(String str) {
         this.mLiveId = str;
         return this;
     }
@@ -208,32 +208,32 @@ public class a implements com.baidu.live.liveroom.d.d {
         return this;
     }
 
-    public a Gi(String str) {
+    public a Gj(String str) {
         this.aDB = str;
         return this;
     }
 
-    public a Gj(String str) {
-        this.gNk = str;
-        return this;
-    }
-
     public a Gk(String str) {
-        this.gNl = str;
+        this.gNy = str;
         return this;
     }
 
     public a Gl(String str) {
-        this.gNm = str;
+        this.gNz = str;
         return this;
     }
 
     public a Gm(String str) {
-        this.gNn = str;
+        this.gNA = str;
         return this;
     }
 
     public a Gn(String str) {
+        this.gNB = str;
+        return this;
+    }
+
+    public a Go(String str) {
         this.mOtherParams = str;
         return this;
     }

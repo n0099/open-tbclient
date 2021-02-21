@@ -10,9 +10,9 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
-    public EMTextView juR;
-    public TbRichTextView juS;
-    public boolean juT;
+    public EMTextView jvf;
+    public TbRichTextView jvg;
+    public boolean jvh;
     private Context mContext;
     private View mRootView;
 
@@ -24,27 +24,27 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     }
 
     private void am(View view) {
-        this.juR = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
-        this.juS = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
-        this.juS.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-        com.baidu.tbadk.widget.richText.a layoutStrategy = this.juS.getLayoutStrategy();
+        this.jvf = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
+        this.jvg = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
+        this.jvg.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
+        com.baidu.tbadk.widget.richText.a layoutStrategy = this.jvg.getLayoutStrategy();
         layoutStrategy.setLineSpacing(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
-        this.juS.setLayoutStrategy(layoutStrategy);
+        this.jvg.setLayoutStrategy(layoutStrategy);
         onChangeSkinType();
     }
 
     public void rh(boolean z) {
-        this.juT = z;
+        this.jvh = z;
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        if (this.juT) {
-            com.baidu.tbadk.core.elementsMaven.c.br(this.juR).oa(R.string.F_X02).nY(R.color.CAM_X0301);
-            this.juS.setTextColor(ap.getColor(R.color.CAM_X0301));
+        if (this.jvh) {
+            com.baidu.tbadk.core.elementsMaven.c.br(this.jvf).oa(R.string.F_X02).nY(R.color.CAM_X0301);
+            this.jvg.setTextColor(ap.getColor(R.color.CAM_X0301));
             return;
         }
-        com.baidu.tbadk.core.elementsMaven.c.br(this.juR).oa(R.string.F_X02).nY(R.color.CAM_X0105);
-        this.juS.setTextColor(ap.getColor(R.color.CAM_X0105));
+        com.baidu.tbadk.core.elementsMaven.c.br(this.jvf).oa(R.string.F_X02).nY(R.color.CAM_X0105);
+        this.jvg.setTextColor(ap.getColor(R.color.CAM_X0105));
     }
 }

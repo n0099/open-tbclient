@@ -19,31 +19,31 @@ public class as {
     /* loaded from: classes3.dex */
     public static class a {
         String java;
-        private boolean qiQ;
+        private boolean qjq;
 
         public a(String str, boolean z) {
             this.java = str;
-            this.qiQ = z;
+            this.qjq = z;
         }
     }
 
     /* loaded from: classes3.dex */
     public static class b implements ServiceConnection {
-        private Context qiN;
-        boolean qiQ = false;
-        final BlockingQueue<IBinder> qki = new LinkedBlockingQueue();
+        private Context qjn;
+        boolean qjq = false;
+        final BlockingQueue<IBinder> qkI = new LinkedBlockingQueue();
 
         public b(Context context) {
-            this.qiN = context;
+            this.qjn = context;
         }
 
         @Override // android.content.ServiceConnection
         public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.qki.put(iBinder);
-                String java = java.AbstractBinderC1277java.java(iBinder).java();
+                this.qkI.put(iBinder);
+                String java = java.AbstractBinderC1279java.java(iBinder).java();
                 if (!TextUtils.isEmpty(java)) {
-                    az.bI(this.qiN, java);
+                    az.bH(this.qjn, java);
                 }
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -72,15 +72,15 @@ public class as {
             context.unbindService(bVar);
         }
         if (context.bindService(intent, bVar, 1)) {
-            if (bVar.qiQ) {
+            if (bVar.qjq) {
                 throw new IllegalStateException("Binder already consumed");
             }
-            IBinder take = bVar.qki.take();
+            IBinder take = bVar.qkI.take();
             if (take != null) {
-                bVar.qiQ = true;
+                bVar.qjq = true;
             }
-            java java2 = java.AbstractBinderC1277java.java(take);
-            return new a(java2.java(), java2.m78java());
+            java java2 = java.AbstractBinderC1279java.java(take);
+            return new a(java2.java(), java2.m77java());
         }
         return null;
     }

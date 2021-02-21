@@ -27,15 +27,15 @@ public class a implements com.baidu.live.a.a {
     private ab aDd;
     public String aHq;
     private TbPageContext bDU;
-    private AlaAirDropView gQq;
-    public boolean gQr;
-    public boolean gQs;
-    CountDownTimer gQu;
-    private a.InterfaceC0154a gQv;
-    private PendantParentView gog;
-    private PendantChildView goh;
+    private AlaAirDropView gQE;
+    public boolean gQF;
+    public boolean gQG;
+    CountDownTimer gQI;
+    private a.InterfaceC0154a gQJ;
+    private PendantParentView gou;
+    private PendantChildView gov;
     private boolean isHost;
-    private boolean gQt = false;
+    private boolean gQH = false;
     private com.baidu.live.view.web.h bWa = new com.baidu.live.view.web.h() { // from class: com.baidu.tieba.ala.d.a.2
         @Override // com.baidu.live.view.web.h
         public boolean iz(String str) {
@@ -49,16 +49,16 @@ public class a implements com.baidu.live.a.a {
             return true;
         }
     };
-    public CustomMessageListener gQw = new CustomMessageListener(2913274) { // from class: com.baidu.tieba.ala.d.a.5
+    public CustomMessageListener gQK = new CustomMessageListener(2913274) { // from class: com.baidu.tieba.ala.d.a.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null) {
-                a.this.gQt = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                a.this.gQH = ((Boolean) customResponsedMessage.getData()).booleanValue();
             } else {
-                a.this.gQt = false;
+                a.this.gQH = false;
             }
-            if (a.this.gQt && a.this.gQq != null && a.this.gQq.isShowing() && a.this.aDd.url.contains("needReloadDangle=1")) {
+            if (a.this.gQH && a.this.gQE != null && a.this.gQE.isShowing() && a.this.aDd.url.contains("needReloadDangle=1")) {
                 a.this.y(a.this.aDd);
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -80,16 +80,16 @@ public class a implements com.baidu.live.a.a {
     @Override // com.baidu.live.a.a
     public void a(ViewGroup viewGroup, ab abVar) {
         if (viewGroup != null && (viewGroup instanceof PendantParentView)) {
-            this.gog = (PendantParentView) viewGroup;
-            bNS();
+            this.gou = (PendantParentView) viewGroup;
+            bNZ();
         }
     }
 
     @Override // com.baidu.live.a.a
     public void a(ab abVar) {
         if (abVar == null || abVar.mLiveInfo == null) {
-            if (this.goh != null) {
-                this.goh.setVisibility(8);
+            if (this.gov != null) {
+                this.gov.setVisibility(8);
                 return;
             }
             return;
@@ -108,26 +108,26 @@ public class a implements com.baidu.live.a.a {
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AIR_DROP, UbcStatConstant.ContentType.UBC_TYPE_AIR_DROP, this.isHost ? "author_liveroom" : "liveroom", UbcStatConstant.Value.VALUE_AIRDROP_REFUSE).setContentExt(null, null, jSONObject));
         }
         this.aDd = abVar;
-        if (this.aDd.aIH && this.gQq == null) {
-            this.gQq = new AlaAirDropView(this.goh.getContext());
-            MessageManager.getInstance().registerListener(this.gQw);
+        if (this.aDd.aIH && this.gQE == null) {
+            this.gQE = new AlaAirDropView(this.gov.getContext());
+            MessageManager.getInstance().registerListener(this.gQK);
             fj(this.aDd.countDown * 1000);
             y(this.aDd);
-            if (this.goh != null && this.goh.indexOfChild(this.gQq) < 0) {
-                if (this.gQr || this.gQs) {
-                    this.goh.addView(this.gQq.getView(), new ViewGroup.LayoutParams(this.bDU.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds160), this.bDU.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds160)));
+            if (this.gov != null && this.gov.indexOfChild(this.gQE) < 0) {
+                if (this.gQF || this.gQG) {
+                    this.gov.addView(this.gQE.getView(), new ViewGroup.LayoutParams(this.bDU.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds160), this.bDU.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds160)));
                 } else {
-                    this.goh.addView(this.gQq.getView(), new ViewGroup.LayoutParams((int) (this.bDU.getResources().getDisplayMetrics().heightPixels * 0.3f * 0.455f), (int) (this.bDU.getResources().getDisplayMetrics().heightPixels * 0.3f)));
+                    this.gov.addView(this.gQE.getView(), new ViewGroup.LayoutParams((int) (this.bDU.getResources().getDisplayMetrics().heightPixels * 0.3f * 0.455f), (int) (this.bDU.getResources().getDisplayMetrics().heightPixels * 0.3f)));
                 }
-                this.goh.bringChildToFront(this.gQq);
+                this.gov.bringChildToFront(this.gQE);
             }
         }
     }
 
     public void y(ab abVar) {
-        if (abVar != null && abVar.aIH && this.gQq != null) {
+        if (abVar != null && abVar.aIH && this.gQE != null) {
             if (abVar.url == null || abVar.url.length() == 0) {
-                this.gQq.getView().setVisibility(8);
+                this.gQE.getView().setVisibility(8);
             } else if (this.aDd != null && this.aDd.aIz != null && this.aDd.aId != null && this.aDd.mLiveInfo != null && this.bDU != null) {
                 this.aHq = com.baidu.live.utils.b.a(1, abVar.url, this.aDd.isHost, ExtraParamsManager.getEncryptionUserId(String.valueOf(this.aDd.aIz.userId)), ExtraParamsManager.getEncryptionUserId(String.valueOf(this.aDd.aId.userId)), String.valueOf(this.aDd.mLiveInfo.room_id), String.valueOf(this.aDd.mLiveInfo.live_id), "");
                 com.baidu.live.view.web.g gVar = new com.baidu.live.view.web.g();
@@ -135,12 +135,12 @@ public class a implements com.baidu.live.a.a {
                     @Override // com.baidu.live.view.web.f
                     public void fp(int i) {
                     }
-                }).a(this.gQq.getWebView().getSchemeCallback()).b(this.bWa);
+                }).a(this.gQE.getWebView().getSchemeCallback()).b(this.bWa);
                 com.baidu.live.view.web.a[] XY = gVar.XY();
                 for (com.baidu.live.view.web.a aVar : XY) {
-                    this.gQq.getWebView().addJavascriptInterface(aVar, aVar.getName());
+                    this.gQE.getWebView().addJavascriptInterface(aVar, aVar.getName());
                 }
-                this.gQq.getWebView().loadUrl(this.aHq);
+                this.gQE.getWebView().loadUrl(this.aHq);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     JSONObject jSONObject2 = new JSONObject();
@@ -179,13 +179,13 @@ public class a implements com.baidu.live.a.a {
 
     @Override // com.baidu.live.a.a
     public void aW(boolean z) {
-        this.gQr = z;
+        this.gQF = z;
     }
 
     @Override // com.baidu.live.a.a
     public void aX(boolean z) {
         ViewGroup.LayoutParams layoutParams;
-        if (this.gQq != null && this.gQq.getView() != null && (layoutParams = this.gQq.getView().getLayoutParams()) != null) {
+        if (this.gQE != null && this.gQE.getView() != null && (layoutParams = this.gQE.getView().getLayoutParams()) != null) {
             if (z) {
                 layoutParams.width = this.bDU.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds160);
                 layoutParams.height = this.bDU.getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds160);
@@ -193,13 +193,13 @@ public class a implements com.baidu.live.a.a {
                 layoutParams.height = (int) (this.bDU.getResources().getDisplayMetrics().heightPixels * 0.3f);
                 layoutParams.width = (int) (this.bDU.getResources().getDisplayMetrics().heightPixels * 0.3f * 0.455f);
             }
-            this.gQq.getView().setLayoutParams(layoutParams);
+            this.gQE.getView().setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.live.a.a
     public void setIsHorizontal(boolean z) {
-        this.gQs = z;
+        this.gQG = z;
     }
 
     @Override // com.baidu.live.a.a
@@ -209,11 +209,11 @@ public class a implements com.baidu.live.a.a {
 
     @Override // com.baidu.live.a.a
     public void setCanVisible(boolean z) {
-        if (this.goh != null) {
+        if (this.gov != null) {
             if (z) {
-                this.goh.setVisibility(0);
+                this.gov.setVisibility(0);
             } else {
-                this.goh.setVisibility(8);
+                this.gov.setVisibility(8);
             }
         }
     }
@@ -225,20 +225,20 @@ public class a implements com.baidu.live.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void mv(boolean z) {
-        if (this.gQu != null) {
-            this.gQu.cancel();
+        if (this.gQI != null) {
+            this.gQI.cancel();
         }
-        if (this.gQq != null && (this.gQq.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gQq.getParent()).removeView(this.gQq);
+        if (this.gQE != null && (this.gQE.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gQE.getParent()).removeView(this.gQE);
         }
         if (z) {
-            if (this.goh != null && (this.goh.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) this.goh.getParent()).removeView(this.goh);
+            if (this.gov != null && (this.gov.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) this.gov.getParent()).removeView(this.gov);
             }
-            this.gQq = null;
-            this.goh = null;
+            this.gQE = null;
+            this.gov = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.gQw);
+        MessageManager.getInstance().unRegisterListener(this.gQK);
     }
 
     @Override // com.baidu.live.a.a
@@ -248,12 +248,12 @@ public class a implements com.baidu.live.a.a {
 
     @Override // com.baidu.live.a.a
     public void a(a.InterfaceC0154a interfaceC0154a) {
-        this.gQv = interfaceC0154a;
+        this.gQJ = interfaceC0154a;
     }
 
-    private void bNS() {
-        if (this.goh == null) {
-            this.goh = new PendantChildView(this.bDU.getPageActivity()) { // from class: com.baidu.tieba.ala.d.a.3
+    private void bNZ() {
+        if (this.gov == null) {
+            this.gov = new PendantChildView(this.bDU.getPageActivity()) { // from class: com.baidu.tieba.ala.d.a.3
                 @Override // com.baidu.live.pendantview.PendantChildView
                 public PendantParentView.Position getVerticalPosition() {
                     return PendantParentView.Position.RIGHT;
@@ -284,17 +284,17 @@ public class a implements com.baidu.live.a.a {
                     return (this.bwT == PendantParentView.Model.VERTICAL || this.bwT == PendantParentView.Model.VERTICAL_BB_CHATING) ? 96 : 23;
                 }
             };
-            if (this.gog != null) {
-                this.gog.a(this.goh, new LinearLayout.LayoutParams(-2, -2));
+            if (this.gou != null) {
+                this.gou.a(this.gov, new LinearLayout.LayoutParams(-2, -2));
             }
         }
     }
 
     public void fj(long j) {
-        if (this.gQu != null) {
-            this.gQu.cancel();
+        if (this.gQI != null) {
+            this.gQI.cancel();
         }
-        this.gQu = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.d.a.4
+        this.gQI = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.d.a.4
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
             }
@@ -302,10 +302,10 @@ public class a implements com.baidu.live.a.a {
             @Override // android.os.CountDownTimer
             public void onFinish() {
                 a.this.mv(false);
-                a.this.gQq = null;
+                a.this.gQE = null;
                 cancel();
-                if (a.this.gQv != null) {
-                    a.this.gQv.xj();
+                if (a.this.gQJ != null) {
+                    a.this.gQJ.xj();
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -319,9 +319,9 @@ public class a implements com.baidu.live.a.a {
                 UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AIR_DROP, UbcStatConstant.ContentType.UBC_TYPE_AIR_DROP, a.this.isHost ? "author_liveroom" : "liveroom", UbcStatConstant.Value.VALUE_AIRDROP_DISMISS).setContentExt(null, null, jSONObject));
             }
         };
-        this.gQu.start();
-        if (this.gQv != null) {
-            this.gQv.xi();
+        this.gQI.start();
+        if (this.gQJ != null) {
+            this.gQJ.xi();
         }
     }
 }

@@ -13,8 +13,8 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
     private static File cacheFile = i.getPrivateCaptureRootChildDir("duFaceFile");
-    private static List<String> gth = Collections.synchronizedList(new ArrayList());
-    public static String gti = "";
+    private static List<String> gtv = Collections.synchronizedList(new ArrayList());
+    public static String gtw = "";
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -27,34 +27,34 @@ public class d {
         void onStarted();
     }
 
-    public static String FA(String str) {
-        File FD;
-        if (TextUtils.isEmpty(str) || (FD = FD(Md5.toMd5(str))) == null || !FD.exists()) {
+    public static String FB(String str) {
+        File FE;
+        if (TextUtils.isEmpty(str) || (FE = FE(Md5.toMd5(str))) == null || !FE.exists()) {
             return null;
         }
         Log.d("ArUpdate", "hasDownload url: " + str);
-        Log.d("ArUpdate", "hasDownload file.getAbsolutePath(): " + FD.getAbsolutePath());
-        return FD.getAbsolutePath();
+        Log.d("ArUpdate", "hasDownload file.getAbsolutePath(): " + FE.getAbsolutePath());
+        return FE.getAbsolutePath();
     }
 
-    public static boolean FB(String str) {
-        return !TextUtils.isEmpty(FA(str));
+    public static boolean FC(String str) {
+        return !TextUtils.isEmpty(FB(str));
     }
 
     public static void a(final String str, final a aVar) {
         if (!TextUtils.isEmpty(str)) {
-            String FA = FA(str);
-            if (!TextUtils.isEmpty(FA)) {
+            String FB = FB(str);
+            if (!TextUtils.isEmpty(FB)) {
                 if (aVar != null) {
                     Log.d("ArUpdate", "onCompleted 0");
-                    aVar.onCompleted(FE(FA));
+                    aVar.onCompleted(FF(FB));
                     return;
                 }
                 return;
             }
             final String md5 = Md5.toMd5(str);
-            gth.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bPJ().a(str, cacheFile, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.d.1
+            gtv.add(str);
+            com.baidu.tieba.ala.alaar.sticker.download.b.bPQ().a(str, cacheFile, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.d.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();
@@ -84,16 +84,16 @@ public class d {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onCompleted(String str2) {
                     super.onCompleted(str2);
-                    d.gth.remove(str);
+                    d.gtv.remove(str);
                     if (!TextUtils.isEmpty(str2) && a.this != null) {
                         File file = new File(str2);
-                        File FC = d.FC(md5);
-                        if (file.exists() && file.renameTo(FC) && FC != null) {
-                            if (d.h(FC, md5)) {
-                                String FA2 = d.FA(str);
-                                if (!TextUtils.isEmpty(FA2)) {
+                        File FD = d.FD(md5);
+                        if (file.exists() && file.renameTo(FD) && FD != null) {
+                            if (d.h(FD, md5)) {
+                                String FB2 = d.FB(str);
+                                if (!TextUtils.isEmpty(FB2)) {
                                     Log.d("ArUpdate", "onCompleted 1");
-                                    a.this.onCompleted(d.FE(FA2));
+                                    a.this.onCompleted(d.FF(FB2));
                                     return;
                                 }
                                 return;
@@ -117,7 +117,7 @@ public class d {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void a(DownloadException downloadException) {
                     int i;
-                    d.gth.remove(str);
+                    d.gtv.remove(str);
                     super.a(downloadException);
                     if (a.this != null) {
                         String str2 = null;
@@ -135,14 +135,14 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File FC(String str) {
+    public static File FD(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return new File(cacheFile, str + ".zip");
     }
 
-    private static File FD(String str) {
+    private static File FE(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -169,15 +169,15 @@ public class d {
             if (!z) {
                 com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(file2);
             }
-            file2.renameTo(FD(str));
-            Log.d("ArUpdate", "unzipingFile.renameTo: " + FD(str));
+            file2.renameTo(FE(str));
+            Log.d("ArUpdate", "unzipingFile.renameTo: " + FE(str));
             try {
                 Log.d("ArUpdate", "result: " + z);
             } catch (Exception e2) {
                 e = e2;
                 Log.e("ArUpdate", "onResLoaded: " + e.getMessage());
                 e.printStackTrace();
-                com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(FD(str));
+                com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(FE(str));
                 return z;
             }
         } catch (Exception e3) {
@@ -185,16 +185,16 @@ public class d {
             z = false;
             Log.e("ArUpdate", "onResLoaded: " + e.getMessage());
             e.printStackTrace();
-            com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(FD(str));
+            com.baidu.tieba.ala.alaar.sticker.b.c.deleteFile(FE(str));
             return z;
         }
         return z;
     }
 
-    public static String FE(String str) {
+    public static String FF(String str) {
         X(new File(str));
-        Log.d("ArUpdate", "getTxtPathFromFolder mFaceFile: " + gti);
-        return gti;
+        Log.d("ArUpdate", "getTxtPathFromFolder mFaceFile: " + gtw);
+        return gtw;
     }
 
     public static String X(File file) {
@@ -204,8 +204,8 @@ public class d {
             if (file2.isDirectory()) {
                 X(file2);
             }
-            if (file2.isFile() && FF(file2.getName())) {
-                gti = file2.getPath();
+            if (file2.isFile() && FG(file2.getName())) {
+                gtw = file2.getPath();
                 return file2.getPath();
             }
         }
@@ -213,7 +213,7 @@ public class d {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public static boolean FF(String str) {
+    public static boolean FG(String str) {
         boolean z;
         Log.d("ArUpdate", "checkIsTxtFile fName: " + str);
         String lowerCase = str.substring(str.lastIndexOf(".") + 1, str.length()).toLowerCase();

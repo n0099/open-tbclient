@@ -11,25 +11,25 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class b {
-    private ImageView lsK;
-    private TextView lsL;
+    private ImageView lsY;
+    private TextView lsZ;
     private Context mContext;
     private View mRootView;
 
     public void EG(int i) {
-        this.lsL.setText(String.format(this.mContext.getString(R.string.tail_management_available), Integer.valueOf(i)));
+        this.lsZ.setText(String.format(this.mContext.getString(R.string.tail_management_available), Integer.valueOf(i)));
     }
 
     public void I(View.OnClickListener onClickListener) {
-        this.lsK.setOnClickListener(onClickListener);
+        this.lsY.setOnClickListener(onClickListener);
     }
 
     public View gB(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.tail_management_add_item, (ViewGroup) null);
         this.mRootView.setTag(this);
-        this.lsL = (TextView) this.mRootView.findViewById(R.id.tail_management_new_text);
-        this.lsK = (ImageView) this.mRootView.findViewById(R.id.tail_management_new_button);
+        this.lsZ = (TextView) this.mRootView.findViewById(R.id.tail_management_new_text);
+        this.lsY = (ImageView) this.mRootView.findViewById(R.id.tail_management_new_button);
         return this.mRootView;
     }
 

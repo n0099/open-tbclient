@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class b extends FilterInputStream {
-    private final byte[] pzv;
-    private int pzw;
-    private int pzx;
+    private final byte[] pzV;
+    private int pzW;
+    private int pzX;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.pzv = bArr;
+        this.pzV = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : esT();
+        return read != -1 ? read : etb();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int esT = esT();
-                if (esT == -1) {
+                int etb = etb();
+                if (etb == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) esT;
+                bArr[i + i3] = (byte) etb;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.pzw = this.pzx;
+            this.pzW = this.pzX;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.pzx = this.pzw;
+            this.pzX = this.pzW;
         }
     }
 
-    private int esT() {
-        if (this.pzw >= this.pzv.length) {
+    private int etb() {
+        if (this.pzW >= this.pzV.length) {
             return -1;
         }
-        byte[] bArr = this.pzv;
-        int i = this.pzw;
-        this.pzw = i + 1;
+        byte[] bArr = this.pzV;
+        int i = this.pzW;
+        this.pzW = i + 1;
         return bArr[i] & 255;
     }
 }

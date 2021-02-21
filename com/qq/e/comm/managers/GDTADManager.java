@@ -31,7 +31,7 @@ public class GDTADManager {
     private volatile APPStatus f;
     private volatile DeviceStatus g;
     private volatile String h;
-    private PM.a.InterfaceC1185a i;
+    private PM.a.InterfaceC1187a i;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
@@ -155,7 +155,7 @@ public class GDTADManager {
         return this.f11546a.booleanValue();
     }
 
-    public void setPluginLoadListener(PM.a.InterfaceC1185a interfaceC1185a) {
-        this.i = interfaceC1185a;
+    public void setPluginLoadListener(PM.a.InterfaceC1187a interfaceC1187a) {
+        this.i = interfaceC1187a;
     }
 }

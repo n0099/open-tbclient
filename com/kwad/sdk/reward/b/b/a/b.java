@@ -35,8 +35,8 @@ public class b extends d {
     @Nullable
     private ValueAnimator l;
     private boolean j = false;
-    private a.InterfaceC1145a m = new a.InterfaceC1145a() { // from class: com.kwad.sdk.reward.b.b.a.b.1
-        @Override // com.kwad.sdk.reward.b.b.a.a.InterfaceC1145a
+    private a.InterfaceC1147a m = new a.InterfaceC1147a() { // from class: com.kwad.sdk.reward.b.b.a.b.1
+        @Override // com.kwad.sdk.reward.b.b.a.a.InterfaceC1147a
         public void a(boolean z) {
             b.this.k = true;
             b.this.a(z);
@@ -217,7 +217,7 @@ public class b extends d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.i.a((a.InterfaceC1145a) null);
+        this.i.a((a.InterfaceC1147a) null);
         this.f10652a.i.b(this.n);
         this.f10652a.n.remove(this.o);
         this.f10652a.o.remove(this.p);

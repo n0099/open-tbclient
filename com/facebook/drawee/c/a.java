@@ -5,22 +5,22 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes15.dex */
 public class a {
-    InterfaceC1045a pEf;
-    final float pEg;
-    boolean pEh;
-    boolean pEi;
-    long pEj;
-    float pEk;
-    float pEl;
+    InterfaceC1047a pEF;
+    final float pEG;
+    boolean pEH;
+    boolean pEI;
+    long pEJ;
+    float pEK;
+    float pEL;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC1045a {
-        boolean etT();
+    public interface InterfaceC1047a {
+        boolean eub();
     }
 
     public a(Context context) {
-        this.pEg = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.pEG = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -29,51 +29,51 @@ public class a {
     }
 
     public void init() {
-        this.pEf = null;
+        this.pEF = null;
         reset();
     }
 
     public void reset() {
-        this.pEh = false;
-        this.pEi = false;
+        this.pEH = false;
+        this.pEI = false;
     }
 
-    public void a(InterfaceC1045a interfaceC1045a) {
-        this.pEf = interfaceC1045a;
+    public void a(InterfaceC1047a interfaceC1047a) {
+        this.pEF = interfaceC1047a;
     }
 
-    public boolean euX() {
-        return this.pEh;
+    public boolean evf() {
+        return this.pEH;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.pEh = true;
-                this.pEi = true;
-                this.pEj = motionEvent.getEventTime();
-                this.pEk = motionEvent.getX();
-                this.pEl = motionEvent.getY();
+                this.pEH = true;
+                this.pEI = true;
+                this.pEJ = motionEvent.getEventTime();
+                this.pEK = motionEvent.getX();
+                this.pEL = motionEvent.getY();
                 break;
             case 1:
-                this.pEh = false;
-                if (Math.abs(motionEvent.getX() - this.pEk) > this.pEg || Math.abs(motionEvent.getY() - this.pEl) > this.pEg) {
-                    this.pEi = false;
+                this.pEH = false;
+                if (Math.abs(motionEvent.getX() - this.pEK) > this.pEG || Math.abs(motionEvent.getY() - this.pEL) > this.pEG) {
+                    this.pEI = false;
                 }
-                if (this.pEi && motionEvent.getEventTime() - this.pEj <= ViewConfiguration.getLongPressTimeout() && this.pEf != null) {
-                    this.pEf.etT();
+                if (this.pEI && motionEvent.getEventTime() - this.pEJ <= ViewConfiguration.getLongPressTimeout() && this.pEF != null) {
+                    this.pEF.eub();
                 }
-                this.pEi = false;
+                this.pEI = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.pEk) > this.pEg || Math.abs(motionEvent.getY() - this.pEl) > this.pEg) {
-                    this.pEi = false;
+                if (Math.abs(motionEvent.getX() - this.pEK) > this.pEG || Math.abs(motionEvent.getY() - this.pEL) > this.pEG) {
+                    this.pEI = false;
                     break;
                 }
                 break;
             case 3:
-                this.pEh = false;
-                this.pEi = false;
+                this.pEH = false;
+                this.pEI = false;
                 break;
         }
         return true;

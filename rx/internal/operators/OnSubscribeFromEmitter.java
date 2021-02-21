@@ -12,8 +12,8 @@ import rx.internal.util.a.ae;
 import rx.internal.util.a.y;
 /* loaded from: classes5.dex */
 public final class OnSubscribeFromEmitter<T> implements d.a<T> {
-    final rx.functions.b<Emitter<T>> qyR;
-    final Emitter.BackpressureMode qyS;
+    final rx.functions.b<Emitter<T>> qzr;
+    final Emitter.BackpressureMode qzs;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -22,7 +22,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
     public void call(rx.j<? super T> jVar) {
         BaseEmitter latestEmitter;
-        switch (this.qyS) {
+        switch (this.qzs) {
             case NONE:
                 latestEmitter = new NoneEmitter(jVar);
                 break;
@@ -41,7 +41,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
         }
         jVar.add(latestEmitter);
         jVar.setProducer(latestEmitter);
-        this.qyR.call(latestEmitter);
+        this.qzr.call(latestEmitter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -227,7 +227,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         public BufferEmitter(rx.j<? super T> jVar, int i) {
             super(jVar);
-            this.queue = ae.eNA() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+            this.queue = ae.eNI() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             this.wip = new AtomicInteger();
         }
 

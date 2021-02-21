@@ -7,10 +7,10 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.view.WheatDatingLayout;
 /* loaded from: classes11.dex */
 public class c extends a {
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
-    public View eeB() {
-        this.oJs = new WheatDatingLayout(this.mActivity);
-        this.oJs.setTbPageContext(this.oGe);
-        return this.oJs;
+    public View eeJ() {
+        this.oJS = new WheatDatingLayout(this.mActivity);
+        this.oJS.setTbPageContext(this.oGE);
+        return this.oJS;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
@@ -20,8 +20,8 @@ public class c extends a {
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.d.a
     public void Mk() {
-        if (this.oJs != null) {
-            this.oJs.a(this.oJi, this.oJj, this.oJk, this.bxN);
+        if (this.oJS != null) {
+            this.oJS.a(this.oJI, this.oJJ, this.oJK, this.bxN);
         }
     }
 

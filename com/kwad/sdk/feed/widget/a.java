@@ -106,8 +106,8 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             String a2 = com.kwad.sdk.core.response.b.a.a(this.f9863b);
             this.p.setAutoRelease(false);
             AdVideoPlayerViewCache.a().a(a2, this.o);
-            com.kwad.sdk.core.download.b.a.b(ao.a(this), this.f9862a, new a.InterfaceC1092a() { // from class: com.kwad.sdk.feed.widget.a.5
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1092a
+            com.kwad.sdk.core.download.b.a.b(ao.a(this), this.f9862a, new a.InterfaceC1094a() { // from class: com.kwad.sdk.feed.widget.a.5
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
                 public void a() {
                     a.this.k();
                 }
@@ -162,18 +162,18 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         this.o.a(new d.a().a(a3).a(this.f9862a.mVideoPlayerStatus).a(new com.kwad.sdk.contentalliance.detail.video.c(com.kwad.sdk.core.response.b.a.k(this.f9863b), System.currentTimeMillis())).a(), (Map<String, String>) null);
         this.o.setVideoSoundEnable(this.r);
         this.p = new j(this.d, this.f9862a, this.o);
-        this.p.setVideoPlayCallback(new a.InterfaceC1105a() { // from class: com.kwad.sdk.feed.widget.a.2
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1105a
+        this.p.setVideoPlayCallback(new a.InterfaceC1107a() { // from class: com.kwad.sdk.feed.widget.a.2
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1107a
             public void a() {
                 com.kwad.sdk.core.report.b.h(a.this.f9862a);
             }
 
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1105a
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1107a
             public void a(long j) {
                 a.this.a(j);
             }
 
-            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1105a
+            @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1107a
             public void b() {
                 com.kwad.sdk.core.report.b.i(a.this.f9862a);
             }
@@ -225,8 +225,9 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         this.i = (KsLogoView) findViewById(R.id.ksad_ad_dislike_logo);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.feed.widget.base.a
-    protected void d() {
+    public void d() {
         super.d();
         if (this.r) {
             com.kwad.sdk.utils.b.a().a(false);
@@ -237,8 +238,9 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.feed.widget.base.a
-    protected void e() {
+    public void e() {
         super.e();
     }
 
@@ -269,18 +271,18 @@ public abstract class a extends com.kwad.sdk.feed.widget.base.a implements View.
             this.g.setTag(this.o);
             String a2 = com.kwad.sdk.core.response.b.a.a(this.f9863b);
             this.o.setVideoSoundEnable(this.r);
-            this.p.setVideoPlayCallback(new a.InterfaceC1105a() { // from class: com.kwad.sdk.feed.widget.a.1
-                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1105a
+            this.p.setVideoPlayCallback(new a.InterfaceC1107a() { // from class: com.kwad.sdk.feed.widget.a.1
+                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1107a
                 public void a() {
                     com.kwad.sdk.core.report.b.h(a.this.f9862a);
                 }
 
-                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1105a
+                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1107a
                 public void a(long j) {
                     a.this.a(j);
                 }
 
-                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1105a
+                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1107a
                 public void b() {
                     com.kwad.sdk.core.report.b.i(a.this.f9862a);
                 }

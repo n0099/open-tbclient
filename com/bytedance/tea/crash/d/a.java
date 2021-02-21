@@ -14,13 +14,13 @@ import java.util.List;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public class a implements Thread.UncaughtExceptionHandler {
-    private static a pvI;
+    private static a pwi;
 
     /* renamed from: b  reason: collision with root package name */
     private Thread.UncaughtExceptionHandler f7633b;
     private HashSet<Thread.UncaughtExceptionHandler> c = new HashSet<>();
     private long e = -1;
-    private b pvJ;
+    private b pwj;
 
     private a() {
         c();
@@ -47,15 +47,15 @@ public class a implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public static a eqW() {
-        if (pvI == null) {
-            pvI = new a();
+    public static a ere() {
+        if (pwi == null) {
+            pwi = new a();
         }
-        return pvI;
+        return pwi;
     }
 
     public void a(b bVar) {
-        this.pvJ = bVar;
+        this.pwj = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,8 +81,8 @@ public class a implements Thread.UncaughtExceptionHandler {
                 if (c) {
                     com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.JAVA;
                     d(thread, th);
-                    if (c && this.pvJ != null && this.pvJ.a(th)) {
-                        this.pvJ.a(currentTimeMillis, thread, th);
+                    if (c && this.pwj != null && this.pwj.a(th)) {
+                        this.pwj.a(currentTimeMillis, thread, th);
                         Log.i("crash_dispatcher", "end dispose " + th);
                     }
                 }
@@ -97,10 +97,10 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     private boolean c(Thread thread, Throwable th) {
-        f eqU = h.ere().eqU();
-        if (eqU != null) {
+        f erc = h.erm().erc();
+        if (erc != null) {
             try {
-                return eqU.a(th, thread);
+                return erc.a(th, thread);
             } catch (Throwable th2) {
                 return true;
             }
@@ -109,7 +109,7 @@ public class a implements Thread.UncaughtExceptionHandler {
     }
 
     private void d(Thread thread, Throwable th) {
-        List<e> b2 = h.ere().b();
+        List<e> b2 = h.erm().b();
         com.bytedance.tea.crash.c cVar = com.bytedance.tea.crash.c.JAVA;
         for (e eVar : b2) {
             try {

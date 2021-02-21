@@ -10,30 +10,30 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.au;
 /* loaded from: classes9.dex */
 public class FaceBuyModel extends BdBaseModel {
-    private b iUE;
-    private a iUF;
-    private int iUG;
+    private b iUS;
+    private a iUT;
+    private int iUU;
 
     public FaceBuyModel(Context context) {
         super(null);
-        this.iUG = 3;
-        this.iUE = null;
-        this.iUF = null;
-    }
-
-    public void JH(String str) {
-        if (this.iUE == null) {
-            this.iUE = new b();
-            this.iUE.setPriority(3);
-            this.iUE.execute(str);
-        }
+        this.iUU = 3;
+        this.iUS = null;
+        this.iUT = null;
     }
 
     public void JI(String str) {
-        if (this.iUF == null) {
-            this.iUF = new a();
-            this.iUF.setPriority(3);
-            this.iUF.execute(str);
+        if (this.iUS == null) {
+            this.iUS = new b();
+            this.iUS.setPriority(3);
+            this.iUS.execute(str);
+        }
+    }
+
+    public void JJ(String str) {
+        if (this.iUT == null) {
+            this.iUT = new a();
+            this.iUT.setPriority(3);
+            this.iUT.execute(str);
         }
     }
 
@@ -66,7 +66,7 @@ public class FaceBuyModel extends BdBaseModel {
             if (this.cml != null) {
                 this.cml.cancelNetConnect();
             }
-            FaceBuyModel.this.iUE = null;
+            FaceBuyModel.this.iUS = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(null);
         }
 
@@ -76,7 +76,7 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: a */
         public void onPostExecute(FaceBuyData faceBuyData) {
             super.onPostExecute(faceBuyData);
-            FaceBuyModel.this.iUE = null;
+            FaceBuyModel.this.iUS = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyData);
         }
     }
@@ -101,7 +101,7 @@ public class FaceBuyModel extends BdBaseModel {
             if (!au.isEmpty(obj)) {
                 this.cml = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
                 this.cml.addPostData("order_id", obj);
-                while (!this.mCanceled && i < FaceBuyModel.this.iUG) {
+                while (!this.mCanceled && i < FaceBuyModel.this.iUU) {
                     faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.cml.postNetData(), FaceBuyQueryData.class);
                     if (faceBuyQueryData != null && faceBuyQueryData.buy_result != null) {
                         if (faceBuyQueryData.buy_result.status == 2) {
@@ -132,7 +132,7 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: a */
         public void onPostExecute(FaceBuyQueryData faceBuyQueryData) {
             super.onPostExecute(faceBuyQueryData);
-            FaceBuyModel.this.iUF = null;
+            FaceBuyModel.this.iUT = null;
             this.mCanceled = true;
             FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyQueryData);
         }
@@ -143,7 +143,7 @@ public class FaceBuyModel extends BdBaseModel {
             if (this.cml != null) {
                 this.cml.cancelNetConnect();
             }
-            FaceBuyModel.this.iUF = null;
+            FaceBuyModel.this.iUT = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(null);
         }
     }
@@ -155,8 +155,8 @@ public class FaceBuyModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iUE != null) {
-            this.iUE.cancel();
+        if (this.iUS != null) {
+            this.iUS.cancel();
             return true;
         }
         return true;

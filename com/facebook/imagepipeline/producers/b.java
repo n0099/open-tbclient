@@ -5,31 +5,31 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes5.dex */
 public abstract class b<T> implements k<T> {
-    private boolean pLp = false;
+    private boolean pLP = false;
 
     protected abstract void B(Throwable th);
 
-    protected abstract void exW();
+    protected abstract void eye();
 
     protected abstract void f(T t, int i);
 
-    public static boolean Qj(int i) {
+    public static boolean Qk(int i) {
         return (i & 1) == 1;
     }
 
-    public static boolean Qk(int i) {
-        return !Qj(i);
+    public static boolean Ql(int i) {
+        return !Qk(i);
     }
 
-    public static int eb(int i, int i2) {
+    public static int ec(int i, int i2) {
         return (i2 ^ (-1)) & i;
     }
 
-    public static boolean ec(int i, int i2) {
+    public static boolean ed(int i, int i2) {
         return (i & i2) == i2;
     }
 
-    public static boolean ed(int i, int i2) {
+    public static boolean ee(int i, int i2) {
         return (i & i2) != 0;
     }
 
@@ -39,8 +39,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void g(@Nullable T t, int i) {
-        if (!this.pLp) {
-            this.pLp = Qj(i);
+        if (!this.pLP) {
+            this.pLP = Qk(i);
             try {
                 f(t, i);
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void C(Throwable th) {
-        if (!this.pLp) {
-            this.pLp = true;
+        if (!this.pLP) {
+            this.pLP = true;
             try {
                 B(th);
             } catch (Exception e) {
@@ -62,11 +62,11 @@ public abstract class b<T> implements k<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void esv() {
-        if (!this.pLp) {
-            this.pLp = true;
+    public synchronized void esD() {
+        if (!this.pLP) {
+            this.pLP = true;
             try {
-                exW();
+                eye();
             } catch (Exception e) {
                 C(e);
             }
@@ -75,7 +75,7 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void ba(float f) {
-        if (!this.pLp) {
+        if (!this.pLP) {
             try {
                 bN(f);
             } catch (Exception e) {

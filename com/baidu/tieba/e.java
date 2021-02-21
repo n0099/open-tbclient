@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 public class e {
-    public a gcB;
-    private int gcC = 0;
+    public a gcG;
+    private int gcH = 0;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -10,23 +10,23 @@ public class e {
     }
 
     public void sO(int i) {
-        if (this.gcC != i) {
-            if (this.gcB != null) {
-                this.gcB.bu(this.gcC, i);
+        if (this.gcH != i) {
+            if (this.gcG != null) {
+                this.gcG.bu(this.gcH, i);
             }
-            this.gcC = i;
+            this.gcH = i;
         }
     }
 
     public void sP(int i) {
-        this.gcC = i;
+        this.gcH = i;
     }
 
-    public int bJK() {
-        return this.gcC;
+    public int bJP() {
+        return this.gcH;
     }
 
     public void a(a aVar) {
-        this.gcB = aVar;
+        this.gcG = aVar;
     }
 }

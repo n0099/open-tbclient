@@ -6,24 +6,24 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes3.dex */
 public class d {
-    private final b pGi;
-    private final int pGj;
+    private final b pGI;
+    private final int pGJ;
     @Nullable
-    private com.facebook.common.references.a<Bitmap> pGk;
+    private com.facebook.common.references.a<Bitmap> pGK;
     @Nullable
-    private List<com.facebook.common.references.a<Bitmap>> pGl;
+    private List<com.facebook.common.references.a<Bitmap>> pGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(e eVar) {
-        this.pGi = (b) g.checkNotNull(eVar.evx());
-        this.pGj = eVar.evz();
-        this.pGk = eVar.evy();
-        this.pGl = eVar.evA();
+        this.pGI = (b) g.checkNotNull(eVar.evF());
+        this.pGJ = eVar.evH();
+        this.pGK = eVar.evG();
+        this.pGL = eVar.evI();
     }
 
     private d(b bVar) {
-        this.pGi = (b) g.checkNotNull(bVar);
-        this.pGj = 0;
+        this.pGI = (b) g.checkNotNull(bVar);
+        this.pGJ = 0;
     }
 
     public static d a(b bVar) {
@@ -34,14 +34,14 @@ public class d {
         return new e(bVar);
     }
 
-    public b evx() {
-        return this.pGi;
+    public b evF() {
+        return this.pGI;
     }
 
     public synchronized void dispose() {
-        com.facebook.common.references.a.c(this.pGk);
-        this.pGk = null;
-        com.facebook.common.references.a.b(this.pGl);
-        this.pGl = null;
+        com.facebook.common.references.a.c(this.pGK);
+        this.pGK = null;
+        com.facebook.common.references.a.b(this.pGL);
+        this.pGL = null;
     }
 }

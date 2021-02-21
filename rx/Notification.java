@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes5.dex */
 public final class Notification<T> {
-    private static final Notification<Void> qxQ = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind qxO;
-    private final Throwable qxP;
+    private static final Notification<Void> qyq = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind qyo;
+    private final Throwable qyp;
     private final T value;
 
     /* loaded from: classes5.dex */
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> eMv() {
-        return (Notification<T>) qxQ;
+    public static <T> Notification<T> eMD() {
+        return (Notification<T>) qyq;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.qxP = th;
-        this.qxO = kind;
+        this.qyp = th;
+        this.qyo = kind;
     }
 
-    public Throwable eMw() {
-        return this.qxP;
+    public Throwable eME() {
+        return this.qyp;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return eMA() && this.value != null;
+        return eMI() && this.value != null;
     }
 
-    public boolean eMx() {
-        return eKf() && this.qxP != null;
+    public boolean eMF() {
+        return eKn() && this.qyp != null;
     }
 
-    public Kind eMy() {
-        return this.qxO;
+    public Kind eMG() {
+        return this.qyo;
     }
 
-    public boolean eKf() {
-        return eMy() == Kind.OnError;
+    public boolean eKn() {
+        return eMG() == Kind.OnError;
     }
 
-    public boolean eMz() {
-        return eMy() == Kind.OnCompleted;
+    public boolean eMH() {
+        return eMG() == Kind.OnCompleted;
     }
 
-    public boolean eMA() {
-        return eMy() == Kind.OnNext;
+    public boolean eMI() {
+        return eMG() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eMy());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eMG());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (eMx()) {
-            append.append(' ').append(eMw().getMessage());
+        if (eMF()) {
+            append.append(' ').append(eME().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = eMy().hashCode();
+        int hashCode = eMG().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (eMx()) {
-            return (hashCode * 31) + eMw().hashCode();
+        if (eMF()) {
+            return (hashCode * 31) + eME().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.eMy() != eMy() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qxP != notification.qxP && (this.qxP == null || !this.qxP.equals(notification.qxP))))) {
+            if (notification.eMG() != eMG() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qyp != notification.qyp && (this.qyp == null || !this.qyp.equals(notification.qyp))))) {
                 z = false;
             }
             return z;

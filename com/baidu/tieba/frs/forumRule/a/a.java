@@ -7,10 +7,10 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.frs.forumRule.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0725a {
+    public interface InterfaceC0726a {
         void A(boolean z, String str);
 
-        void Kt(String str);
+        void Ku(String str);
 
         void a(com.baidu.tieba.frs.forumRule.b.a aVar);
 

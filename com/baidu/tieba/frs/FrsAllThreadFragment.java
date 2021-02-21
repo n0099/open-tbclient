@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ao {
     private String forumId;
-    private View jfu;
-    private RecyclerView jfv;
+    private View jfI;
+    private RecyclerView jfJ;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
@@ -28,36 +28,36 @@ public class FrsAllThreadFragment extends BaseFragment implements ao {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        cBY();
-        return this.jfu;
+        cCf();
+        return this.jfI;
     }
 
     public void setView(View view) {
-        this.jfu = view;
-        this.jfv = (RecyclerView) this.jfu.findViewById(R.id.frs_lv_thread);
-        cBY();
+        this.jfI = view;
+        this.jfJ = (RecyclerView) this.jfI.findViewById(R.id.frs_lv_thread);
+        cCf();
     }
 
-    private void cBY() {
-        if (this.jfu != null && (this.jfu.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.jfu.getParent()).removeView(this.jfu);
-            this.jfu.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void cCf() {
+        if (this.jfI != null && (this.jfI.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.jfI.getParent()).removeView(this.jfI);
+            this.jfI.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void cBZ() {
-        if (this.jfv != null) {
-            this.jfv.scrollToPosition(0);
+    public void cCg() {
+        if (this.jfJ != null) {
+            this.jfJ.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void bSq() {
-        cBZ();
+    public void bSx() {
+        cCg();
         t tVar = new t();
         tVar.tabId = 1;
-        tVar.gcx = true;
+        tVar.gcC = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
     }
 

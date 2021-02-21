@@ -15,8 +15,8 @@ public class d {
     public String createTime;
     public String description;
     public int guardLevel;
-    public String hao;
-    public int hap;
+    public String haC;
+    public int haD;
     public String id;
     public String liveId;
     public int liveStatus;
@@ -37,8 +37,8 @@ public class d {
                 this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                 this.status = jSONObject.optString("status");
                 this.createTime = jSONObject.optString("create_time");
-                this.hao = jSONObject.optString("update_time");
-                this.hap = jSONObject.optInt("member_counts");
+                this.haC = jSONObject.optString("update_time");
+                this.haD = jSONObject.optInt("member_counts");
                 this.biR = jSONObject.optString("guard_club_portrait");
                 this.guardLevel = jSONObject.optInt("guard_level");
                 this.biQ = jSONObject.optLong("next_level_need_score");

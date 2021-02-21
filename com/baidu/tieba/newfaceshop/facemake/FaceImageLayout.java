@@ -6,11 +6,11 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes9.dex */
 public class FaceImageLayout extends FrameLayout {
-    private a lBG;
+    private a lBU;
 
     /* loaded from: classes9.dex */
     public interface a {
-        void diC();
+        void diJ();
     }
 
     public FaceImageLayout(Context context) {
@@ -27,13 +27,13 @@ public class FaceImageLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.lBG != null) {
-            this.lBG.diC();
+        if (this.lBU != null) {
+            this.lBU.diJ();
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setListener(a aVar) {
-        this.lBG = aVar;
+        this.lBU = aVar;
     }
 }

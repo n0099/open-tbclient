@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes15.dex */
 final class a {
-    private static final a oTP = new a();
+    private static final a oUp = new a();
     private boolean ac;
-    private final Set<InterfaceC0951a> oTQ = new LinkedHashSet();
+    private final Set<InterfaceC0953a> oUq = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    public interface InterfaceC0951a {
+    public interface InterfaceC0953a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a eib() {
-        return oTP;
+    public static a eij() {
+        return oUp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0951a> eic() {
-        return this.oTQ;
+    public final Set<InterfaceC0953a> eik() {
+        return this.oUq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0951a interfaceC0951a) {
-        synchronized (this.oTQ) {
-            this.oTQ.add(interfaceC0951a);
+    public final void a(InterfaceC0953a interfaceC0953a) {
+        synchronized (this.oUq) {
+            this.oUq.add(interfaceC0953a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.oTQ) {
-            this.oTQ.clear();
+        synchronized (this.oUq) {
+            this.oUq.clear();
         }
     }
 

@@ -12,20 +12,20 @@ import tbclient.HotThread.tinfo;
 public class d implements com.baidu.tbadk.mvc.b.a {
     private String forumId;
     private String forumName;
-    private ArrayList<String> iCA;
+    private ArrayList<String> iCO;
     private int index;
     private String threadId;
 
     public d(int i, tinfo tinfoVar) {
         if (tinfoVar != null) {
-            this.iCA = new ArrayList<>();
+            this.iCO = new ArrayList<>();
             this.index = i;
             this.forumId = String.valueOf(tinfoVar.forum_id);
             this.forumName = tinfoVar.forum_name;
             this.threadId = String.valueOf(tinfoVar.thread_id);
             for (Pic pic : tinfoVar.pics) {
                 if (pic != null && !StringUtils.isNull(pic.big_pic)) {
-                    this.iCA.add(pic.big_pic);
+                    this.iCO.add(pic.big_pic);
                 }
             }
         }
@@ -33,7 +33,7 @@ public class d implements com.baidu.tbadk.mvc.b.a {
 
     public CustomMessage<ImageViewerConfig> ge(Context context) {
         ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-        aVar.s(this.iCA).mQ(this.index).zJ(this.forumName).zK(this.forumId).zL(this.threadId).jg(true).jh(false).zM(this.iCA.get(this.iCA.size() - 1));
+        aVar.s(this.iCO).mQ(this.index).zJ(this.forumName).zK(this.forumId).zL(this.threadId).jg(true).jh(false).zM(this.iCO.get(this.iCO.size() - 1));
         return new CustomMessage<>((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eP(context));
     }
 }

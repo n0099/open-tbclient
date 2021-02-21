@@ -25,125 +25,125 @@ import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a implements View.OnClickListener, com.baidu.tieba.faceshop.emotioncenter.a.c {
-    private Animation iYH = null;
-    private View iYL;
-    private ImageView iYO;
-    private com.baidu.tieba.faceshop.emotioncenter.a.a iYU;
-    private ImageView iYW;
-    private TextView iYX;
-    private View lDt;
-    private View lDu;
-    private TextView lDv;
-    private int lDw;
+    private Animation iYV = null;
+    private View iYZ;
+    private ImageView iZc;
+    private com.baidu.tieba.faceshop.emotioncenter.a.a iZi;
+    private ImageView iZk;
+    private TextView iZl;
+    private View lDH;
+    private View lDI;
+    private TextView lDJ;
+    private int lDK;
     private TbPageContext mPageContext;
     private View mRootView;
 
     public a(TbPageContext tbPageContext, int i) {
         this.mPageContext = tbPageContext;
-        this.lDw = i;
+        this.lDK = i;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.emotion_native_manager_create_layout, (ViewGroup) null);
-        this.iYL = this.mRootView.findViewById(R.id.emotion_manager_add_layout);
-        this.lDt = this.mRootView.findViewById(R.id.emotion_manager_create);
-        this.lDt.setOnClickListener(this);
-        this.iYL.setVisibility(0);
-        this.lDu = this.mRootView.findViewById(R.id.emotion_manager_upload_status);
-        this.lDu.setClickable(false);
-        this.lDu.setOnClickListener(this);
-        this.lDu.setVisibility(8);
-        this.iYW = (ImageView) this.mRootView.findViewById(R.id.uploading_status_img);
-        this.iYO = (ImageView) this.mRootView.findViewById(R.id.icon_add);
-        this.lDv = (TextView) this.mRootView.findViewById(R.id.add_emotion_tv);
-        this.iYX = (TextView) this.mRootView.findViewById(R.id.add_emotion_manager_upload_status);
+        this.iYZ = this.mRootView.findViewById(R.id.emotion_manager_add_layout);
+        this.lDH = this.mRootView.findViewById(R.id.emotion_manager_create);
+        this.lDH.setOnClickListener(this);
+        this.iYZ.setVisibility(0);
+        this.lDI = this.mRootView.findViewById(R.id.emotion_manager_upload_status);
+        this.lDI.setClickable(false);
+        this.lDI.setOnClickListener(this);
+        this.lDI.setVisibility(8);
+        this.iZk = (ImageView) this.mRootView.findViewById(R.id.uploading_status_img);
+        this.iZc = (ImageView) this.mRootView.findViewById(R.id.icon_add);
+        this.lDJ = (TextView) this.mRootView.findViewById(R.id.add_emotion_tv);
+        this.iZl = (TextView) this.mRootView.findViewById(R.id.add_emotion_manager_upload_status);
     }
 
-    public void cAb() {
-        if (this.iYU != null) {
-            this.iYU.dismiss();
+    public void cAi() {
+        if (this.iZi != null) {
+            this.iZi.dismiss();
         }
         startAnimation();
-        this.lDu.setVisibility(0);
-        this.iYL.setVisibility(8);
-        ap.setBackgroundColor(this.lDu, R.color.CAM_X0201);
-        ap.setImageResource(this.iYW, R.drawable.emotion_uploading_bar_refresh);
-        ap.setViewTextColor(this.iYX, R.color.CAM_X0302);
-        this.iYX.setText(R.string.emotion_uploading);
-        this.lDu.setClickable(false);
+        this.lDI.setVisibility(0);
+        this.iYZ.setVisibility(8);
+        ap.setBackgroundColor(this.lDI, R.color.CAM_X0201);
+        ap.setImageResource(this.iZk, R.drawable.emotion_uploading_bar_refresh);
+        ap.setViewTextColor(this.iZl, R.color.CAM_X0302);
+        this.iZl.setText(R.string.emotion_uploading);
+        this.lDI.setClickable(false);
     }
 
-    public void cAc() {
-        FaceGroupDraft diE = com.baidu.tieba.newfaceshop.facemake.e.diD().diE();
-        if (diE != null && TextUtils.isEmpty(diE.getFailMsg())) {
-            l.showToast(this.mPageContext.getPageActivity(), diE.getFailMsg());
+    public void cAj() {
+        FaceGroupDraft diL = com.baidu.tieba.newfaceshop.facemake.e.diK().diL();
+        if (diL != null && TextUtils.isEmpty(diL.getFailMsg())) {
+            l.showToast(this.mPageContext.getPageActivity(), diL.getFailMsg());
         }
-        OV(null);
+        OW(null);
     }
 
-    public void OV(String str) {
-        if (this.iYU != null) {
-            this.iYU.dismiss();
+    public void OW(String str) {
+        if (this.iZi != null) {
+            this.iZi.dismiss();
         }
         endAnimation();
-        this.lDu.setVisibility(0);
-        this.iYL.setVisibility(8);
-        ap.setBackgroundColor(this.lDu, R.color.CAM_X0201);
-        ap.setImageResource(this.iYW, R.drawable.emotion_update_fail);
-        ap.setViewTextColor(this.iYX, R.color.common_color_10037);
+        this.lDI.setVisibility(0);
+        this.iYZ.setVisibility(8);
+        ap.setBackgroundColor(this.lDI, R.color.CAM_X0201);
+        ap.setImageResource(this.iZk, R.drawable.emotion_update_fail);
+        ap.setViewTextColor(this.iZl, R.color.common_color_10037);
         if (!TextUtils.isEmpty(str)) {
-            this.iYX.setText(str);
+            this.iZl.setText(str);
         } else {
-            this.iYX.setText(R.string.emotion_center_upload_failed);
+            this.iZl.setText(R.string.emotion_center_upload_failed);
         }
-        this.lDu.setClickable(true);
+        this.lDI.setClickable(true);
     }
 
-    public void cAa() {
-        if (this.iYU != null) {
-            this.iYU.dismiss();
+    public void cAh() {
+        if (this.iZi != null) {
+            this.iZi.dismiss();
         }
         endAnimation();
-        this.lDu.setVisibility(8);
-        this.iYL.setVisibility(0);
+        this.lDI.setVisibility(8);
+        this.iYZ.setVisibility(0);
     }
 
     public void endAnimation() {
-        if (this.iYW != null) {
-            this.iYW.clearAnimation();
+        if (this.iZk != null) {
+            this.iZk.clearAnimation();
         }
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.iYH == null) {
-            this.iYH = AnimationUtils.loadAnimation(this.mPageContext.getPageActivity(), R.anim.refresh_rotate);
-            this.iYH.setInterpolator(new LinearInterpolator());
-            this.iYH.setFillAfter(true);
+        if (this.iYV == null) {
+            this.iYV = AnimationUtils.loadAnimation(this.mPageContext.getPageActivity(), R.anim.refresh_rotate);
+            this.iYV.setInterpolator(new LinearInterpolator());
+            this.iYV.setFillAfter(true);
         }
-        return this.iYH;
+        return this.iYV;
     }
 
     public void startAnimation() {
-        if (this.iYW != null) {
-            this.iYW.startAnimation(getClickRotateAnimation());
+        if (this.iZk != null) {
+            this.iZk.startAnimation(getClickRotateAnimation());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.lDt != null && view.getId() == this.lDt.getId() && this.lDt.isShown()) {
-            if (this.lDw == 1) {
-                if (this.iYU == null) {
-                    this.iYU = new com.baidu.tieba.faceshop.emotioncenter.a.a(this.mPageContext.getPageActivity(), this.lDw);
-                    this.iYU.a(this);
+        if (this.lDH != null && view.getId() == this.lDH.getId() && this.lDH.isShown()) {
+            if (this.lDK == 1) {
+                if (this.iZi == null) {
+                    this.iZi = new com.baidu.tieba.faceshop.emotioncenter.a.a(this.mPageContext.getPageActivity(), this.lDK);
+                    this.iZi.a(this);
                 }
-                this.iYU.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+                this.iZi.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
                 Rect rect = new Rect();
                 this.mPageContext.getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-                this.iYU.showAtLocation(this.mRootView, 81, 0, this.mPageContext.getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
+                this.iZi.showAtLocation(this.mRootView, 81, 0, this.mPageContext.getPageActivity().getWindow().getDecorView().getHeight() - rect.bottom);
             } else {
-                czR();
+                czY();
             }
         }
-        if (this.lDu != null && view.getId() == this.lDu.getId() && this.lDu.isShown()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceGroupMakeActivityConfig(this.mPageContext.getPageActivity(), this.lDw == 1, RequestResponseCode.REQUEST_FACE_GROUP_MAKE)));
+        if (this.lDI != null && view.getId() == this.lDI.getId() && this.lDI.isShown()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FaceGroupMakeActivityConfig(this.mPageContext.getPageActivity(), this.lDK == 1, RequestResponseCode.REQUEST_FACE_GROUP_MAKE)));
         }
     }
 
@@ -152,39 +152,39 @@ public class a implements View.OnClickListener, com.baidu.tieba.faceshop.emotion
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iYL != null) {
-            ap.setBackgroundColor(this.iYL, R.color.cp_bg_line_d_alpha90, i);
+        if (this.iYZ != null) {
+            ap.setBackgroundColor(this.iYZ, R.color.cp_bg_line_d_alpha90, i);
         }
-        if (this.iYX != null) {
-            ap.setViewTextColor(this.iYX, R.color.CAM_X0302, i);
+        if (this.iZl != null) {
+            ap.setViewTextColor(this.iZl, R.color.CAM_X0302, i);
         }
-        if (this.iYO != null) {
-            ap.setImageResource(this.iYO, R.drawable.emotion_bar_add_icon);
+        if (this.iZc != null) {
+            ap.setImageResource(this.iZc, R.drawable.emotion_bar_add_icon);
         }
-        if (this.lDv != null) {
-            ap.setViewTextColor(this.lDv, R.color.CAM_X0302, i);
+        if (this.lDJ != null) {
+            ap.setViewTextColor(this.lDJ, R.color.CAM_X0302, i);
         }
-        if (this.lDu != null) {
-            ap.setBackgroundColor(this.lDu, R.color.cp_bg_line_d_alpha90, i);
+        if (this.lDI != null) {
+            ap.setBackgroundColor(this.lDI, R.color.cp_bg_line_d_alpha90, i);
         }
-        if (this.iYW != null) {
-            ap.setImageResource(this.iYW, R.drawable.emotion_uploading_bar_refresh);
+        if (this.iZk != null) {
+            ap.setImageResource(this.iZk, R.drawable.emotion_uploading_bar_refresh);
         }
     }
 
     public void onDestroy() {
-        if (this.iYU != null && this.iYU.isShowing()) {
-            this.iYU.dismiss();
+        if (this.iZi != null && this.iZi.isShowing()) {
+            this.iZi.dismiss();
         }
     }
 
     @Override // com.baidu.tieba.faceshop.emotioncenter.a.c
-    public void czQ() {
-        com.baidu.tieba.newfaceshop.a.dij().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.a.1
+    public void czX() {
+        com.baidu.tieba.newfaceshop.a.diq().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.a.1
             @Override // java.lang.Runnable
             public void run() {
-                List<MyEmotionGroupData> dim = com.baidu.tieba.newfaceshop.c.dil().dim();
-                final int size = dim == null ? 0 : dim.size();
+                List<MyEmotionGroupData> dit = com.baidu.tieba.newfaceshop.c.dis().dit();
+                final int size = dit == null ? 0 : dit.size();
                 com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -200,12 +200,12 @@ public class a implements View.OnClickListener, com.baidu.tieba.faceshop.emotion
     }
 
     @Override // com.baidu.tieba.faceshop.emotioncenter.a.c
-    public void czR() {
-        com.baidu.tieba.newfaceshop.a.dij().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.a.2
+    public void czY() {
+        com.baidu.tieba.newfaceshop.a.diq().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.a.2
             @Override // java.lang.Runnable
             public void run() {
-                List<MyEmotionGroupData> dim = com.baidu.tieba.newfaceshop.c.dil().dim();
-                final int size = dim == null ? 0 : dim.size();
+                List<MyEmotionGroupData> dit = com.baidu.tieba.newfaceshop.c.dis().dit();
+                final int size = dit == null ? 0 : dit.size();
                 com.baidu.adp.lib.f.e.mA().post(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.a.2.1
                     @Override // java.lang.Runnable
                     public void run() {

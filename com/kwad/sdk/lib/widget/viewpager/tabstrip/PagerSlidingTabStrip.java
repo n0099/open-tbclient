@@ -389,11 +389,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             float a2 = a(textView, textView.getText(), textView.getPaint());
             f = a(textView2, textView2.getText(), textView2.getPaint());
             f2 = a2;
-        } else if (view instanceof a.InterfaceC1138a) {
-            a.InterfaceC1138a interfaceC1138a = (a.InterfaceC1138a) view;
-            a.InterfaceC1138a interfaceC1138a2 = (a.InterfaceC1138a) childAt;
-            f2 = a((View) interfaceC1138a, interfaceC1138a.a(), interfaceC1138a.b());
-            f = a((View) interfaceC1138a2, interfaceC1138a2.a(), interfaceC1138a2.b());
+        } else if (view instanceof a.InterfaceC1140a) {
+            a.InterfaceC1140a interfaceC1140a = (a.InterfaceC1140a) view;
+            a.InterfaceC1140a interfaceC1140a2 = (a.InterfaceC1140a) childAt;
+            f2 = a((View) interfaceC1140a, interfaceC1140a.a(), interfaceC1140a.b());
+            f = a((View) interfaceC1140a2, interfaceC1140a2.a(), interfaceC1140a2.b());
         } else {
             f = 0.0f;
             f2 = 0.0f;

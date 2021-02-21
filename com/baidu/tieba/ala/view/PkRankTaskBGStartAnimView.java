@@ -12,13 +12,13 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class PkRankTaskBGStartAnimView extends FrameLayout {
     private com.baidu.live.alphavideo.c bei;
-    private FrameLayout ifP;
-    private Runnable ifR;
-    private a inc;
+    private FrameLayout igd;
+    private Runnable igf;
+    private a inq;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cov();
+        void coC();
     }
 
     public PkRankTaskBGStartAnimView(Context context) {
@@ -26,15 +26,15 @@ public class PkRankTaskBGStartAnimView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.inc = aVar;
+        this.inq = aVar;
     }
 
-    public void bW(int i, int i2) {
-        bX(i, i2);
-        coB();
+    public void bX(int i, int i2) {
+        bY(i, i2);
+        coI();
     }
 
-    public boolean IE(String str) {
+    public boolean IF(String str) {
         if (this.bei != null && !TextUtils.isEmpty(str)) {
             this.bei.getView().setVisibility(0);
             this.bei.setLooping(true);
@@ -44,21 +44,21 @@ public class PkRankTaskBGStartAnimView extends FrameLayout {
         if (this.bei != null) {
             this.bei.getView().setVisibility(8);
         }
-        this.ifR = new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankTaskBGStartAnimView.1
+        this.igf = new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankTaskBGStartAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (PkRankTaskBGStartAnimView.this.inc != null) {
-                    PkRankTaskBGStartAnimView.this.inc.cov();
+                if (PkRankTaskBGStartAnimView.this.inq != null) {
+                    PkRankTaskBGStartAnimView.this.inq.coC();
                 }
             }
         };
-        postDelayed(this.ifR, IMConnection.RETRY_DELAY_TIMES);
+        postDelayed(this.igf, IMConnection.RETRY_DELAY_TIMES);
         return false;
     }
 
     public void stopAnim() {
-        if (this.ifR != null) {
-            removeCallbacks(this.ifR);
+        if (this.igf != null) {
+            removeCallbacks(this.igf);
         }
         if (this.bei != null) {
             this.bei.stop();
@@ -74,16 +74,16 @@ public class PkRankTaskBGStartAnimView extends FrameLayout {
         removeAllViews();
     }
 
-    private void bX(int i, int i2) {
-        if (this.ifP == null) {
-            this.ifP = new FrameLayout(getContext());
+    private void bY(int i, int i2) {
+        if (this.igd == null) {
+            this.igd = new FrameLayout(getContext());
         }
-        if (indexOfChild(this.ifP) < 0) {
-            addView(this.ifP);
+        if (indexOfChild(this.igd) < 0) {
+            addView(this.igd);
         }
     }
 
-    private void coB() {
+    private void coI() {
         if (this.bei == null || this.bei.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
@@ -93,8 +93,8 @@ public class PkRankTaskBGStartAnimView extends FrameLayout {
             }
         }
         if (this.bei != null) {
-            if (this.ifP.indexOfChild(this.bei.getView()) < 0) {
-                this.ifP.addView(this.bei.getView(), new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds220), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds88)));
+            if (this.igd.indexOfChild(this.bei.getView()) < 0) {
+                this.igd.addView(this.bei.getView(), new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds220), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds88)));
             }
             this.bei.a(new c.a() { // from class: com.baidu.tieba.ala.view.PkRankTaskBGStartAnimView.2
                 @Override // com.baidu.live.alphavideo.c.a
@@ -103,8 +103,8 @@ public class PkRankTaskBGStartAnimView extends FrameLayout {
 
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onEnd() {
-                    if (PkRankTaskBGStartAnimView.this.inc != null) {
-                        PkRankTaskBGStartAnimView.this.inc.cov();
+                    if (PkRankTaskBGStartAnimView.this.inq != null) {
+                        PkRankTaskBGStartAnimView.this.inq.coC();
                     }
                 }
 

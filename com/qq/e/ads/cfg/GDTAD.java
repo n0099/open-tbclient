@@ -13,7 +13,7 @@ public class GDTAD {
 
     /* renamed from: a  reason: collision with root package name */
     private static boolean f11438a = false;
-    private static PM.a.InterfaceC1185a c = new PM.a.InterfaceC1185a() { // from class: com.qq.e.ads.cfg.GDTAD.1
+    private static PM.a.InterfaceC1187a c = new PM.a.InterfaceC1187a() { // from class: com.qq.e.ads.cfg.GDTAD.1
         public final void onLoadFail() {
             GDTLogger.w("Init fail", null);
         }

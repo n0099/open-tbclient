@@ -367,7 +367,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
             tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
             this.mWebView.setWebChromeClient(tbWebChromeClient);
-            com.baidu.tieba.t.c.dQM().trackWebView(this, this.mWebView, tbWebChromeClient);
+            com.baidu.tieba.t.c.dQU().trackWebView(this, this.mWebView, tbWebChromeClient);
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -721,7 +721,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                         z = true;
                         str = localUrlByUrl;
                         String substring = str.length() <= 100 ? str.substring(0, 100) : str;
-                        TiebaStatic.log(new ar("c13835").dR("obj_locate", !z ? "1" : "2").dR("obj_source", substring).ap("obj_type", this.mOfflineErrorType).ap("obj_name", com.baidu.tieba.quickWebView.b.mPT).dR("obj_param1", this.mModuleName).dR("obj_id", this.mVersion));
+                        TiebaStatic.log(new ar("c13835").dR("obj_locate", !z ? "1" : "2").dR("obj_source", substring).ap("obj_type", this.mOfflineErrorType).ap("obj_name", com.baidu.tieba.quickWebView.b.mQi).dR("obj_param1", this.mModuleName).dR("obj_id", this.mVersion));
                         this.mOfflineErrorType = 0;
                         this.mVersion = "0.0.0.0";
                         this.mModuleName = "";
@@ -733,7 +733,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 z = false;
                 if (str.length() <= 100) {
                 }
-                TiebaStatic.log(new ar("c13835").dR("obj_locate", !z ? "1" : "2").dR("obj_source", substring).ap("obj_type", this.mOfflineErrorType).ap("obj_name", com.baidu.tieba.quickWebView.b.mPT).dR("obj_param1", this.mModuleName).dR("obj_id", this.mVersion));
+                TiebaStatic.log(new ar("c13835").dR("obj_locate", !z ? "1" : "2").dR("obj_source", substring).ap("obj_type", this.mOfflineErrorType).ap("obj_name", com.baidu.tieba.quickWebView.b.mQi).dR("obj_param1", this.mModuleName).dR("obj_id", this.mVersion));
                 this.mOfflineErrorType = 0;
                 this.mVersion = "0.0.0.0";
                 this.mModuleName = "";
@@ -755,37 +755,37 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     private String getLocalUrlByUrl(String str) {
         String str2;
         URL url;
-        com.baidu.tieba.quickWebView.data.a Rg;
+        com.baidu.tieba.quickWebView.data.a Rh;
         boolean z;
         String[] split;
         HashMap hashMap = new HashMap();
         try {
             url = new URL(str);
-            Rg = com.baidu.tieba.quickWebView.c.dCM().Rg(url.getPath());
+            Rh = com.baidu.tieba.quickWebView.c.dCT().Rh(url.getPath());
         } catch (MalformedURLException e) {
             str2 = null;
         }
-        if (Rg == null) {
-            if (com.baidu.tieba.quickWebView.c.dCM().dCN() != null) {
+        if (Rh == null) {
+            if (com.baidu.tieba.quickWebView.c.dCT().dCU() != null) {
                 this.mOfflineErrorType = 3;
             }
             return null;
-        } else if (!Rg.mQg) {
+        } else if (!Rh.mQw) {
             this.mOfflineErrorType = 4;
-            com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "processing bundle", "url", str, BdStatsConstant.StatsKey.TYPE, Rg.ktS);
+            com.baidu.tbadk.core.d.a.a("OfflineCache", -1L, -1, "readCache", -1, "processing bundle", "url", str, BdStatsConstant.StatsKey.TYPE, Rh.kug);
             return null;
         } else {
-            String Re = com.baidu.tieba.quickWebView.b.dCI().Re(Rg.ktS);
-            if (TextUtils.isEmpty(Rg.ktS) || TextUtils.isEmpty(Rg.path) || TextUtils.isEmpty(Re)) {
+            String Rf = com.baidu.tieba.quickWebView.b.dCP().Rf(Rh.kug);
+            if (TextUtils.isEmpty(Rh.kug) || TextUtils.isEmpty(Rh.path) || TextUtils.isEmpty(Rf)) {
                 return null;
             }
-            this.mModuleName = Rg.ktS;
-            this.mVersion = Re;
-            String str3 = com.baidu.tieba.quickWebView.b.dCI().getCacheDir() + "/" + Rg.ktS + "/" + Re + "/";
-            String str4 = !Rg.path.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION) ? Rg.path + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION : Rg.path;
+            this.mModuleName = Rh.kug;
+            this.mVersion = Rf;
+            String str3 = com.baidu.tieba.quickWebView.b.dCP().getCacheDir() + "/" + Rh.kug + "/" + Rf + "/";
+            String str4 = !Rh.path.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION) ? Rh.path + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION : Rh.path;
             String str5 = str3 + str4;
             File file = new File(str5);
-            ArrayList<String> arrayList = Rg.mQj;
+            ArrayList<String> arrayList = Rh.mQz;
             if (!str5.contains("/android_asset/")) {
                 if (!file.exists()) {
                     this.mOfflineErrorType = 2;
@@ -816,7 +816,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             } catch (MalformedURLException e2) {
                 str2 = str7;
             }
-            if (Rg.mQi != null && Rg.mQi.size() != 0) {
+            if (Rh.mQy != null && Rh.mQy.size() != 0) {
                 if (!TextUtils.isEmpty(query) && (split = query.split(ETAG.ITEM_SEPARATOR)) != null) {
                     for (String str8 : split) {
                         String[] split2 = str8.split("=");
@@ -827,7 +827,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 }
                 hashMap.put("{client_version}", TbConfig.getVersion());
                 hashMap.put("{client_type}", "2");
-                Iterator<String> it = Rg.mQi.iterator();
+                Iterator<String> it = Rh.mQy.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     StringBuilder sb = new StringBuilder();
@@ -873,7 +873,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
                     quickWebViewBridgeData.type = "get";
                     quickWebViewBridgeData.url = next;
-                    quickWebViewBridgeData.module = Rg.ktS;
+                    quickWebViewBridgeData.module = Rh.kug;
                     quickWebViewBridgeData.begin = System.currentTimeMillis();
                     if (this.mProxy != null) {
                         this.mProxy.a(quickWebViewBridgeData, null);
@@ -889,7 +889,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.dNZ();
+            this.jsBridge.dOh();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);

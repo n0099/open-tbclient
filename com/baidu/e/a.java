@@ -53,9 +53,9 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             this.aoa = String.valueOf(map.get("persistentViewId"));
             if ("BarSquare".equals(String.valueOf(map.get("nativeViewType")))) {
                 this.aob = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
-                this.aob.dLp();
+                this.aob.dLx();
                 this.aob.startLoadData();
-                this.anZ = this.aob.nph.getRootLayout();
+                this.anZ = this.aob.npH.getRootLayout();
             }
         }
     }
@@ -75,7 +75,7 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
         } else if (methodCall.method.equals("selectForumCategory")) {
             String str = (String) methodCall.arguments;
             if (this.aob != null && !TextUtils.isEmpty(str)) {
-                this.aob.SG(str);
+                this.aob.SS(str);
             }
             result.success(null);
         } else {

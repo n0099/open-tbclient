@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 /* loaded from: classes11.dex */
 public class a {
-    private static volatile a hBZ = null;
+    private static volatile a hCn = null;
     private Long cll;
     private Long clm;
     private RandomAccessFile cln;
@@ -22,15 +22,15 @@ public class a {
     private a() {
     }
 
-    public static a ceE() {
-        if (hBZ == null) {
+    public static a ceL() {
+        if (hCn == null) {
             synchronized (a.class) {
-                if (hBZ == null) {
-                    hBZ = new a();
+                if (hCn == null) {
+                    hCn = new a();
                 }
             }
         }
-        return hBZ;
+        return hCn;
     }
 
     public double acu() {
@@ -107,7 +107,7 @@ public class a {
         return d;
     }
 
-    public double ceF() {
+    public double ceM() {
         try {
             Debug.MemoryInfo[] processMemoryInfo = this.dOz.getProcessMemoryInfo(new int[]{Process.myPid()});
             if (processMemoryInfo.length <= 0) {

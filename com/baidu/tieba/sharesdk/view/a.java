@@ -52,22 +52,22 @@ public class a implements View.OnClickListener {
     private AlertDialog mDialog;
     private boolean mIsLandscape;
     private DialogInterface.OnDismissListener mOnDismissListener;
-    private View.OnClickListener nkB;
-    private SparseArray<String> nkE;
-    private SparseArray<af> nkF;
-    private final TextView nkx;
-    private ShareGridLayout nkz;
-    private static final int hIE = (int) (0.2d * (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)));
-    private static final int hIF = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds234);
-    private static final int nku = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-    private static final int nkv = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36);
-    private static final int nkw = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    private final TextView nkX;
+    private ShareGridLayout nkZ;
+    private View.OnClickListener nlb;
+    private SparseArray<String> nle;
+    private SparseArray<af> nlf;
+    private static final int hIS = (int) (0.2d * (l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)));
+    private static final int hIT = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds234);
+    private static final int nkU = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    private static final int nkV = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds36);
+    private static final int nkW = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
     private static final int fvH = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-    private final SparseArray<ShareItem> nkC = new SparseArray<>(8);
-    private boolean nkD = false;
-    private final List<View> nkA = new ArrayList();
+    private final SparseArray<ShareItem> nlc = new SparseArray<>(8);
+    private boolean nld = false;
+    private final List<View> nla = new ArrayList();
     private final View mRootView = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.ala_share_dialog_content, (ViewGroup) null);
-    private final TextView nky = (TextView) this.mRootView.findViewById(R.id.share_dialog_title);
+    private final TextView nkY = (TextView) this.mRootView.findViewById(R.id.share_dialog_title);
 
     public a(Context context, boolean z, int i) {
         this.mIsLandscape = false;
@@ -77,19 +77,19 @@ public class a implements View.OnClickListener {
         this.mIsLandscape = z;
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
-            this.nky.setText(sharePanelText);
+            this.nkY.setText(sharePanelText);
         }
-        this.nkz = (ShareGridLayout) this.mRootView.findViewById(R.id.share_grid_layout);
-        ViewGroup.LayoutParams layoutParams = this.nkz.getLayoutParams();
+        this.nkZ = (ShareGridLayout) this.mRootView.findViewById(R.id.share_grid_layout);
+        ViewGroup.LayoutParams layoutParams = this.nkZ.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.leftMargin = ShareGridLayout.nIW;
-            marginLayoutParams.rightMargin = ShareGridLayout.nIW;
-            this.nkz.setLayoutParams(marginLayoutParams);
+            marginLayoutParams.leftMargin = ShareGridLayout.nJw;
+            marginLayoutParams.rightMargin = ShareGridLayout.nJw;
+            this.nkZ.setLayoutParams(marginLayoutParams);
         }
-        this.nkz.setItemParams(hIE, hIF);
-        this.nkx = (TextView) this.mRootView.findViewById(R.id.btnShareCancel);
-        this.nkx.setOnClickListener(this);
+        this.nkZ.setItemParams(hIS, hIT);
+        this.nkX = (TextView) this.mRootView.findViewById(R.id.btnShareCancel);
+        this.nkX.setOnClickListener(this);
         if (!IU(i)) {
             a(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg), R.string.share_weixin, 4);
         }
@@ -103,11 +103,11 @@ public class a implements View.OnClickListener {
             a(new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_weibo40_svg), R.string.share_sina_weibo, 7);
         }
         if (!g.bzj()) {
-            this.nkz.setVisibility(8);
+            this.nkZ.setVisibility(8);
         }
     }
 
-    private void bWS() {
+    private void bWZ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.sharesdk.view.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
@@ -132,9 +132,9 @@ public class a implements View.OnClickListener {
             if (aVar instanceof com.baidu.tbadk.core.util.e.c) {
                 com.baidu.tbadk.core.util.f.a.btv().oO(1).oP(R.color.CAM_X0213).bv(imageView);
             }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(nku, nku);
-            layoutParams.topMargin = nkv;
-            layoutParams.bottomMargin = nkw;
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(nkU, nkU);
+            layoutParams.topMargin = nkV;
+            layoutParams.bottomMargin = nkW;
             layoutParams.gravity = 1;
             linearLayout.addView(imageView, layoutParams);
             TextView textView = new TextView(this.mContext);
@@ -146,21 +146,20 @@ public class a implements View.OnClickListener {
             imageView.setImageDrawable(aVar.getDrawable());
             textView.setTextColor(this.mContext.getResources().getColorStateList(R.color.share_channel_item_txt_selector));
             linearLayout.setOnClickListener(this);
-            this.nkA.add(linearLayout);
+            this.nla.add(linearLayout);
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public LinearLayout m46do(int i, int i2) {
+    public LinearLayout dp(int i, int i2) {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         linearLayout.setOrientation(1);
         linearLayout.setTag(Integer.valueOf(i2));
         ImageView imageView = new ImageView(this.mContext);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         com.baidu.tbadk.core.util.f.a.btv().oO(1).oP(R.color.CAM_X0213).bv(imageView);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(nku, nku);
-        layoutParams.topMargin = nkv;
-        layoutParams.bottomMargin = nkw;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(nkU, nkU);
+        layoutParams.topMargin = nkV;
+        layoutParams.bottomMargin = nkW;
         layoutParams.gravity = 1;
         linearLayout.addView(imageView, layoutParams);
         TextView textView = new TextView(this.mContext);
@@ -174,49 +173,49 @@ public class a implements View.OnClickListener {
         return linearLayout;
     }
 
-    public int dJr() {
-        if (this.nkA == null) {
+    public int dJz() {
+        if (this.nla == null) {
             return 0;
         }
-        return this.nkA.size();
+        return this.nla.size();
     }
 
     public void a(View view, int i, View.OnClickListener onClickListener) {
-        if (i <= this.nkA.size() && i >= 0) {
-            this.nkA.add(i, view);
+        if (i <= this.nla.size() && i >= 0) {
+            this.nla.add(i, view);
             if (onClickListener != null) {
-                view.setOnClickListener(new View$OnClickListenerC0864a(onClickListener));
+                view.setOnClickListener(new View$OnClickListenerC0866a(onClickListener));
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.sharesdk.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    class View$OnClickListenerC0864a implements View.OnClickListener {
-        private View.OnClickListener nkH;
+    class View$OnClickListenerC0866a implements View.OnClickListener {
+        private View.OnClickListener nlh;
 
-        public View$OnClickListenerC0864a(View.OnClickListener onClickListener) {
-            this.nkH = onClickListener;
+        public View$OnClickListenerC0866a(View.OnClickListener onClickListener) {
+            this.nlh = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a.this.dismiss();
-            if (this.nkH != null) {
-                this.nkH.onClick(view);
+            if (this.nlh != null) {
+                this.nlh.onClick(view);
             }
         }
     }
 
     public void a(ShareItem shareItem, boolean z) {
-        Location ctF;
-        if (z && (ctF = ctF()) != null) {
-            shareItem.location = ctF;
+        Location ctM;
+        if (z && (ctM = ctM()) != null) {
+            shareItem.location = ctM;
         }
-        this.nkC.put(1, shareItem);
+        this.nlc.put(1, shareItem);
     }
 
-    private Location ctF() {
+    private Location ctM() {
         if (ae.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
@@ -236,16 +235,16 @@ public class a implements View.OnClickListener {
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.nkB = onClickListener;
+            this.nlb = onClickListener;
         }
     }
 
-    public void dJs() {
+    public void dJA() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.nkA.size()) {
-                this.nkz.addView(this.nkA.get(i2), new ViewGroup.LayoutParams(hIE, hIF));
+            if (i2 < this.nla.size()) {
+                this.nkZ.addView(this.nla.get(i2), new ViewGroup.LayoutParams(hIS, hIT));
                 i = i2 + 1;
             } else {
                 return;
@@ -259,7 +258,7 @@ public class a implements View.OnClickListener {
         } else if (!g.bzj()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.plugin_share_install_failure);
         } else {
-            dJs();
+            dJA();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
             this.mDialog.setCanceledOnTouchOutside(true);
             this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.view.a.2
@@ -285,8 +284,8 @@ public class a implements View.OnClickListener {
             window.setGravity(80);
             window.setLayout(-1, -2);
             window.setContentView(this.mRootView);
-            dJt();
-            bWS();
+            dJB();
+            bWZ();
             MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(true));
         }
     }
@@ -299,7 +298,7 @@ public class a implements View.OnClickListener {
 
     public void dismiss() {
         if (this.mDialog != null) {
-            this.nkD = false;
+            this.nld = false;
             if (this.mContext instanceof Activity) {
                 com.baidu.adp.lib.f.g.dismissDialog(this.mDialog, (Activity) this.mContext);
                 MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(false));
@@ -315,9 +314,9 @@ public class a implements View.OnClickListener {
             i = ((Integer) view.getTag()).intValue();
         }
         dismiss();
-        if (this.nkC.size() != 0) {
-            if (view.getId() == R.id.btnShareCancel || !this.nkD) {
-                this.nkD = true;
+        if (this.nlc.size() != 0) {
+            if (view.getId() == R.id.btnShareCancel || !this.nld) {
+                this.nld = true;
                 g gVar = new g(this.mContext, null);
                 ShareItem IS = IS(1);
                 if (id == R.id.btnShareCancel) {
@@ -425,8 +424,8 @@ public class a implements View.OnClickListener {
                     }
                 } else if (i == 10) {
                     a(IS, 10);
-                    if (this.nkB != null) {
-                        this.nkB.onClick(view);
+                    if (this.nlb != null) {
+                        this.nlb.onClick(view);
                     } else {
                         com.baidu.adp.lib.util.a.copyToClipboard(IS.linkUrl);
                         l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(R.string.copy_pb_url_success));
@@ -458,25 +457,25 @@ public class a implements View.OnClickListener {
     }
 
     private ShareItem IS(int i) {
-        ShareItem shareItem = this.nkC.get(i);
+        ShareItem shareItem = this.nlc.get(i);
         if (shareItem == null) {
-            return this.nkC.get(1);
+            return this.nlc.get(1);
         }
         return shareItem;
     }
 
     private void IT(int i) {
         if (i <= 8 && i > 0) {
-            this.nkD = true;
-            if (this.nkF != null) {
-                af afVar = this.nkF.get(i);
+            this.nld = true;
+            if (this.nlf != null) {
+                af afVar = this.nlf.get(i);
                 if (!StringUtils.isNull(afVar.bwB()) && afVar.bwC() != null && afVar.bwC().size() > 0) {
                     f(afVar.bwB(), afVar.bwC());
                     return;
                 }
             }
-            if (this.nkE != null) {
-                String str = this.nkE.get(i);
+            if (this.nle != null) {
+                String str = this.nle.get(i);
                 if (!au.isEmpty(str)) {
                     f(str, new Object[0]);
                 }
@@ -515,7 +514,7 @@ public class a implements View.OnClickListener {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void dJt() {
+    private void dJB() {
     }
 
     private String m(ShareItem shareItem) {

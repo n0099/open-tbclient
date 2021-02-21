@@ -51,14 +51,14 @@ public class n extends BaseAdapter {
         if (view == null) {
             a aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(R.layout.face_package_item_image, (ViewGroup) null);
-            aVar.iOE = (TbImageView) view.findViewById(R.id.image);
+            aVar.iOS = (TbImageView) view.findViewById(R.id.image);
             view.setTag(aVar);
             view.setLayoutParams(new AbsListView.LayoutParams(equipmentWidth, equipmentWidth));
         }
         a aVar2 = (a) view.getTag();
         String obj = getItem(i).toString();
-        ap.setBackgroundResource(aVar2.iOE, R.drawable.btn_choose_face_selector);
-        aVar2.iOE.a(obj, 10, equipmentWidth, equipmentWidth, false);
+        ap.setBackgroundResource(aVar2.iOS, R.drawable.btn_choose_face_selector);
+        aVar2.iOS.a(obj, 10, equipmentWidth, equipmentWidth, false);
         if (i == getCount() - 1) {
             viewGroup.invalidate();
         }
@@ -67,7 +67,7 @@ public class n extends BaseAdapter {
 
     /* loaded from: classes9.dex */
     private class a {
-        TbImageView iOE;
+        TbImageView iOS;
 
         private a() {
         }

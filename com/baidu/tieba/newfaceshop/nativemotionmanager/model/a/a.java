@@ -4,8 +4,8 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0814a<E> {
-        void diT();
+    public interface InterfaceC0815a<E> {
+        void dja();
 
         void onFail();
 

@@ -11,12 +11,12 @@ import com.baidu.yuyinala.privatemessage.model.message.SingleGraphicTextMsgExt;
 /* loaded from: classes11.dex */
 public abstract class e {
     private Context mContext;
-    public TextView oXT;
-    public ImageView oXW;
-    public ImageView oXY;
-    public ImageView oXZ;
-    public View oYa;
-    public ProgressBar oYb;
+    public View oYA;
+    public ProgressBar oYB;
+    public TextView oYt;
+    public ImageView oYw;
+    public ImageView oYy;
+    public ImageView oYz;
 
     public abstract View getContentView();
 
@@ -24,29 +24,29 @@ public abstract class e {
 
     public void d(ChatMsg chatMsg) {
         if (chatMsg.isMsgSendSuccess()) {
-            this.oYa.setVisibility(4);
+            this.oYA.setVisibility(4);
             return;
         }
-        this.oYa.setVisibility(0);
+        this.oYA.setVisibility(0);
         if (chatMsg.getStatus() == 2) {
-            this.oXZ.setVisibility(0);
-            this.oYb.setVisibility(8);
+            this.oYz.setVisibility(0);
+            this.oYB.setVisibility(8);
         } else if (chatMsg.getStatus() == 1) {
-            this.oXZ.setVisibility(8);
+            this.oYz.setVisibility(8);
             SingleGraphicTextMsgExt singleGraphicTextMsgExt = null;
             if (chatMsg instanceof SignleGraphicTextMsg) {
                 singleGraphicTextMsgExt = new SingleGraphicTextMsgExt((SignleGraphicTextMsg) chatMsg);
             }
-            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.emD() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
+            if (chatMsg.getMsgType() == 1 || (singleGraphicTextMsgExt != null && singleGraphicTextMsgExt.emL() == SingleGraphicTextMsgExt.SingleGraphicTextType.VIDEOSHARE)) {
                 if (chatMsg.isReSend()) {
-                    this.oYb.setVisibility(0);
+                    this.oYB.setVisibility(0);
                     return;
                 } else {
-                    this.oYb.setVisibility(8);
+                    this.oYB.setVisibility(8);
                     return;
                 }
             }
-            this.oYb.setVisibility(0);
+            this.oYB.setVisibility(0);
         }
     }
 

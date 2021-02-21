@@ -19,8 +19,8 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     private RelativeLayout mRlConfirmBtnRoot;
     private TextView mTvBigTbeanToast;
     private TextView mTvBuyTbeanConfirm;
-    private TextView nCF;
-    private String nCG;
+    private TextView nDf;
+    private String nDg;
 
     public UserDefineConfirmBottomView(Context context) {
         super(context);
@@ -44,7 +44,7 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         this.mRlConfirmBtnRoot = (RelativeLayout) findViewById(R.id.confirm_btn_root);
         this.mRlBigTBeanRoot = (LinearLayout) findViewById(R.id.big_tbean_root);
         this.mTvBigTbeanToast = (TextView) findViewById(R.id.big_tbean_toast_tv);
-        this.nCF = (TextView) findViewById(R.id.big_tbean_jump_tv);
+        this.nDf = (TextView) findViewById(R.id.big_tbean_jump_tv);
         this.mTvBuyTbeanConfirm = (TextView) findViewById(R.id.user_define_confirm_tv);
         this.mRlConfirmBtnRoot.setOnClickListener(null);
     }
@@ -59,23 +59,23 @@ public class UserDefineConfirmBottomView extends LinearLayout {
 
     public void setClickListener(View.OnClickListener onClickListener) {
         this.mOnClickListener = onClickListener;
-        this.nCF.setOnClickListener(this.mOnClickListener);
+        this.nDf.setOnClickListener(this.mOnClickListener);
         this.mTvBuyTbeanConfirm.setOnClickListener(this.mOnClickListener);
     }
 
     public void setBigTbeanToastText(int i) {
-        this.nCG = String.format(this.mContext.getString(R.string.big_tbean_toast), au.numberUniform(i));
-        this.mTvBigTbeanToast.setText(this.nCG);
+        this.nDg = String.format(this.mContext.getString(R.string.big_tbean_toast), au.numberUniform(i));
+        this.mTvBigTbeanToast.setText(this.nDg);
     }
 
     public void setPayEnabled(boolean z) {
         if (z) {
-            this.mTvBigTbeanToast.setText(this.nCG);
+            this.mTvBigTbeanToast.setText(this.nDg);
             this.mTvBigTbeanToast.setGravity(3);
             yG(true);
             this.mTvBuyTbeanConfirm.setEnabled(true);
             this.mRlBigTBeanRoot.setVisibility(0);
-            this.nCF.setVisibility(0);
+            this.nDf.setVisibility(0);
             return;
         }
         this.mTvBigTbeanToast.setText(R.string.user_define_max_money);
@@ -83,6 +83,6 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         this.mTvBuyTbeanConfirm.setEnabled(false);
         yG(false);
         this.mRlBigTBeanRoot.setVisibility(0);
-        this.nCF.setVisibility(8);
+        this.nDf.setVisibility(8);
     }
 }

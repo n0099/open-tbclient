@@ -23,8 +23,8 @@ public class b {
     private IndicatorView foO;
     private BdBaseViewPagerAdapter foR;
     private c foS;
-    private ListViewPager lgg;
-    private l lgn;
+    private l lgB;
+    private ListViewPager lgu;
     private Context mContext;
     private boolean foT = false;
     private boolean foU = true;
@@ -36,7 +36,7 @@ public class b {
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    if (b.this.dcU()) {
+                    if (b.this.ddb()) {
                         b.this.bvu();
                         return false;
                     }
@@ -57,12 +57,12 @@ public class b {
             if (i == 1) {
                 b.this.bvw();
             } else if (i == 0 && (count = b.this.foR.getCount()) >= 2) {
-                int currentItem = b.this.lgg.getCurrentItem();
+                int currentItem = b.this.lgu.getCurrentItem();
                 int i2 = count - 2;
                 if (currentItem < 1) {
-                    b.this.lgg.setCurrentItem(i2, false);
+                    b.this.lgu.setCurrentItem(i2, false);
                 } else if (currentItem > i2) {
-                    b.this.lgg.setCurrentItem(1, false);
+                    b.this.lgu.setCurrentItem(1, false);
                 }
                 b.this.bvv();
             }
@@ -80,9 +80,9 @@ public class b {
             if (b.this.foS != null && b.this.foS.qf(i) == i) {
                 if (b.this.foO != null) {
                     b.this.foO.setPosition(b.this.foS.qg(i));
-                    if (b.this.lgn != null) {
+                    if (b.this.lgB != null) {
                         b.this.foO.setVisibility(8);
-                        b.this.lgn.aS(b.this.foS.qg(i));
+                        b.this.lgB.aS(b.this.foS.qg(i));
                     }
                 }
                 if (b.this.cBy != null) {
@@ -93,13 +93,13 @@ public class b {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dcU() {
-        if (this.lgg == null) {
+    public boolean ddb() {
+        if (this.lgu == null) {
             return false;
         }
         int[] iArr = new int[2];
-        this.lgg.getLocationOnScreen(iArr);
-        int measuredHeight = iArr[1] + (this.lgg.getMeasuredHeight() / 2);
+        this.lgu.getLocationOnScreen(iArr);
+        int measuredHeight = iArr[1] + (this.lgu.getMeasuredHeight() / 2);
         return measuredHeight > 0 && measuredHeight < com.baidu.adp.lib.util.l.getEquipmentHeight(this.mContext);
     }
 
@@ -112,14 +112,14 @@ public class b {
     }
 
     private void a(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
-        this.lgg = listViewPager;
+        this.lgu = listViewPager;
         this.foO = indicatorView;
         this.foN = textView;
         this.mContext = context;
         this.foR = new BdBaseViewPagerAdapter(context);
-        if (this.lgg != null) {
-            this.lgg.setAdapter(this.foR);
-            this.lgg.setOnPageChangeListener(this.foY);
+        if (this.lgu != null) {
+            this.lgu.setAdapter(this.foR);
+            this.lgu.setOnPageChangeListener(this.foY);
         }
     }
 
@@ -129,7 +129,7 @@ public class b {
         } else {
             this.foO.setVisibility(0);
         }
-        this.lgn = lVar;
+        this.lgB = lVar;
     }
 
     public void setMaxScrollCountLimit(int i) {
@@ -154,7 +154,7 @@ public class b {
             this.foS.qj(1);
             this.foR.setDatas(this.foS.bvB());
             this.foR.notifyDataSetChanged();
-            this.lgg.setCurrentItem(this.foS.bvA(), false);
+            this.lgu.setCurrentItem(this.foS.bvA(), false);
             if (this.foS.bvz() > 0) {
                 if (this.foS.bvz() > this.foV) {
                     if (this.foN != null) {
@@ -183,12 +183,12 @@ public class b {
                         this.foO.setVisibility(0);
                         if (this.foO.getCount() != this.foS.bvz()) {
                             this.foO.setCount(this.foS.bvz());
-                            if (this.lgn != null) {
-                                this.lgn.Ed(this.foS.bvz());
+                            if (this.lgB != null) {
+                                this.lgB.Ed(this.foS.bvz());
                                 this.foO.setVisibility(8);
                             }
-                        } else if (this.lgn != null) {
-                            this.lgn.Ed(this.foS.bvz());
+                        } else if (this.lgB != null) {
+                            this.lgB.Ed(this.foS.bvz());
                             this.foO.setVisibility(8);
                         }
                     }
@@ -210,17 +210,17 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void bvu() {
         int count;
-        if (this.lgg != null && this.foR != null) {
+        if (this.lgu != null && this.foR != null) {
             i I = j.I(this.mContext);
             if ((I == null || !I.isScroll()) && (count = this.foR.getCount()) >= 2) {
-                int currentItem = this.lgg.getCurrentItem();
+                int currentItem = this.lgu.getCurrentItem();
                 int i = count - 2;
                 if (currentItem < 1) {
-                    this.lgg.setCurrentItem(i, false);
+                    this.lgu.setCurrentItem(i, false);
                 } else if (currentItem > i) {
-                    this.lgg.setCurrentItem(1, false);
+                    this.lgu.setCurrentItem(1, false);
                 } else {
-                    this.lgg.setCurrentItem(currentItem + 1);
+                    this.lgu.setCurrentItem(currentItem + 1);
                 }
             }
         }

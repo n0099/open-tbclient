@@ -22,7 +22,7 @@ public class DarkImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.emo() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.emw() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawColor(1342177280);
         }
     }

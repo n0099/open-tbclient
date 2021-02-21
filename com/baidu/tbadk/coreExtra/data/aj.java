@@ -178,7 +178,7 @@ public class aj {
                 this.mSampleId = jSONObject.optString("sample_id");
                 com.baidu.tbadk.core.sharedPref.b.brQ().putString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), this.mSampleId);
                 y.BW(jSONObject.optString("js_whitelist"));
-                com.baidu.tbadk.pageExtra.f.bDO().Ds(jSONObject.optString("stat_keys_list"));
+                com.baidu.tbadk.pageExtra.f.bDO().Dq(jSONObject.optString("stat_keys_list"));
                 long optLong = jSONObject.optLong("android_plugin_wait_time", 0L);
                 if (optLong > 0) {
                     com.baidu.tbadk.core.sharedPref.b.brQ().putLong("plugin_wait_time", optLong);

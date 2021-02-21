@@ -18,7 +18,7 @@ public class b {
     private final List<e> d = new CopyOnWriteArrayList();
     private final List<e> e = new CopyOnWriteArrayList();
     private final List<e> f = new CopyOnWriteArrayList();
-    private f pvF = null;
+    private f pwf = null;
 
     @Nullable
     public List<a> b(c cVar) {
@@ -46,11 +46,11 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(f fVar) {
-        this.pvF = fVar;
+        this.pwf = fVar;
     }
 
     @Nullable
-    public f eqU() {
-        return this.pvF;
+    public f erc() {
+        return this.pwf;
     }
 }

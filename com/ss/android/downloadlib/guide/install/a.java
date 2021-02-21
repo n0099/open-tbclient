@@ -47,9 +47,9 @@ public class a extends Dialog {
     private View m;
     private Handler n;
     private int o;
-    private ClipImageView qcM;
-    private Drawable qcN;
-    private m qcO;
+    private ClipImageView qdm;
+    private Drawable qdn;
+    private m qdo;
 
     static /* synthetic */ int g(a aVar) {
         int i = aVar.o;
@@ -63,9 +63,9 @@ public class a extends Dialog {
         this.f12995a = new WeakReference<>(activity);
         this.f12996b = i;
         this.c = str;
-        this.qcN = drawable;
+        this.qdn = drawable;
         this.j = str2;
-        this.qcO = mVar;
+        this.qdo = mVar;
         this.o = (int) (j / 1000);
     }
 
@@ -76,7 +76,7 @@ public class a extends Dialog {
         setContentView(a.c.ttdownloader_dialog_apk_install_guide);
         Window window = getWindow();
         if (window != null) {
-            window.setBackgroundDrawableResource(a.C1219a.ttdownloader_bg_transparent);
+            window.setBackgroundDrawableResource(a.C1221a.ttdownloader_bg_transparent);
             window.setLayout(-1, -1);
             window.setGravity(80);
         }
@@ -120,7 +120,7 @@ public class a extends Dialog {
     }
 
     private void b() {
-        this.qcM = (ClipImageView) findViewById(a.b.app_icon_iv);
+        this.qdm = (ClipImageView) findViewById(a.b.app_icon_iv);
         this.f = (TextView) findViewById(a.b.install_app_tv);
         this.g = (TextView) findViewById(a.b.app_name_tv);
         this.h = (ViewStub) findViewById(a.b.install_hijack_view);
@@ -131,13 +131,13 @@ public class a extends Dialog {
             }
         });
         this.g.setText(this.c);
-        this.qcM.setClip(true);
-        this.qcM.setRoundRadius(i.a(j.a(), 4.0f));
-        Bitmap a2 = com.ss.android.socialbase.appdownloader.e.c.eFv().a(this.f12996b);
+        this.qdm.setClip(true);
+        this.qdm.setRoundRadius(i.a(j.a(), 4.0f));
+        Bitmap a2 = com.ss.android.socialbase.appdownloader.e.c.eFD().a(this.f12996b);
         if (a2 != null) {
-            this.qcM.setImageBitmap(a2);
-        } else if (this.qcN != null) {
-            this.qcM.setImageDrawable(this.qcN);
+            this.qdm.setImageBitmap(a2);
+        } else if (this.qdn != null) {
+            this.qdm.setImageDrawable(this.qdn);
         }
         this.f.setText(String.format(Locale.getDefault(), "立即安装 %d 秒", Integer.valueOf(this.o)));
         this.k = findViewById(a.b.local_install_hijack_layout);
@@ -173,15 +173,15 @@ public class a extends Dialog {
         Activity activity = this.f12995a.get();
         if (activity != null && !activity.isFinishing()) {
             dismiss();
-        } else if (this.qcO != null) {
-            this.qcO.a();
-            this.qcO = null;
+        } else if (this.qdo != null) {
+            this.qdo.a();
+            this.qdo = null;
         }
     }
 
     @Override // android.app.Dialog
     public void onBackPressed() {
-        if (com.ss.android.socialbase.downloader.k.a.RV(this.f12996b).a("install_guide_back", 1) == 1) {
+        if (com.ss.android.socialbase.downloader.k.a.RW(this.f12996b).a("install_guide_back", 1) == 1) {
             super.onBackPressed();
             c();
         }
@@ -225,9 +225,9 @@ public class a extends Dialog {
         if (activity != null && !activity.isFinishing()) {
             activity.finish();
         }
-        if (this.qcO != null) {
-            this.qcO.a();
-            this.qcO = null;
+        if (this.qdo != null) {
+            this.qdo.a();
+            this.qdo = null;
         }
     }
 
@@ -236,7 +236,7 @@ public class a extends Dialog {
         this.n.postDelayed(new Runnable() { // from class: com.ss.android.downloadlib.guide.install.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.qcO != null) {
+                if (a.this.qdo != null) {
                     Activity activity = (Activity) a.this.f12995a.get();
                     if (activity == null || !activity.isFinishing()) {
                         a.g(a.this);

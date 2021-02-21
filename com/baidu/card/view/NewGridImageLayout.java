@@ -254,7 +254,7 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
             if (voiceModel != null) {
                 this.alb.Dp(voiceModel.voice_status.intValue());
             }
-            this.alb.ccu();
+            this.alb.ccB();
             this.ale = true;
         }
     }
@@ -331,7 +331,7 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
                     }
                     TbRichTextImageInfo tbRichTextImageInfo = new TbRichTextImageInfo();
                     tbRichTextImageInfo.setSrc(b2);
-                    tbRichTextImageInfo.Ed(originalUrl);
+                    tbRichTextImageInfo.Eb(originalUrl);
                     tbRichTextImageInfo.lM(mediaData2.isLongPic());
                     if (mediaData2.picWidth > 0 && mediaData2.picHeight > 0) {
                         tbRichTextImageInfo.setWidth(mediaData2.picWidth);

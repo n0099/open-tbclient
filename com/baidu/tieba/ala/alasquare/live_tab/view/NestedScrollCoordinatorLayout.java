@@ -13,8 +13,8 @@ import androidx.core.view.ViewCompat;
 /* loaded from: classes10.dex */
 public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements NestedScrollingChild {
     private static final String TAG = NestedScrollCoordinatorLayout.class.getSimpleName();
-    private NestedScrollingChildHelper gDT;
-    private a gDU;
+    private NestedScrollingChildHelper gEh;
+    private a gEi;
 
     public NestedScrollCoordinatorLayout(Context context) {
         super(context);
@@ -32,73 +32,73 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
     }
 
     private void i() {
-        this.gDT = new NestedScrollingChildHelper(this);
+        this.gEh = new NestedScrollingChildHelper(this);
         setNestedScrollingEnabled(true);
         View view = new View(getContext());
-        this.gDU = new a();
+        this.gEi = new a();
         ViewCompat.setElevation(view, ViewCompat.getElevation(this));
         view.setFitsSystemWindows(false);
         CoordinatorLayout.LayoutParams layoutParams = new CoordinatorLayout.LayoutParams(-1, -1);
-        layoutParams.setBehavior(this.gDU);
+        layoutParams.setBehavior(this.gEi);
         addView(view, layoutParams);
     }
 
     public void setPassMode(int i) {
-        if (this.gDU != null) {
-            this.gDU.setPassMode(i);
+        if (this.gEi != null) {
+            this.gEi.setPassMode(i);
         }
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
-        this.gDT.setNestedScrollingEnabled(z);
+        this.gEh.setNestedScrollingEnabled(z);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
-        return this.gDT.isNestedScrollingEnabled();
+        return this.gEh.isNestedScrollingEnabled();
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean startNestedScroll(int i) {
-        return this.gDT.startNestedScroll(i);
+        return this.gEh.startNestedScroll(i);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
-        this.gDT.stopNestedScroll();
+        this.gEh.stopNestedScroll();
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean hasNestedScrollingParent() {
-        return this.gDT.hasNestedScrollingParent();
+        return this.gEh.hasNestedScrollingParent();
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable @Size(2) int[] iArr) {
-        return this.gDT.dispatchNestedScroll(i, i2, i3, i4, iArr);
+        return this.gEh.dispatchNestedScroll(i, i2, i3, i4, iArr);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreScroll(int i, int i2, @Nullable @Size(2) int[] iArr, @Nullable @Size(2) int[] iArr2) {
-        return this.gDT.dispatchNestedPreScroll(i, i2, iArr, iArr2);
+        return this.gEh.dispatchNestedPreScroll(i, i2, iArr, iArr2);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedFling(float f, float f2, boolean z) {
-        return this.gDT.dispatchNestedFling(f, f2, z);
+        return this.gEh.dispatchNestedFling(f, f2, z);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f, float f2) {
-        return this.gDT.dispatchNestedPreFling(f, f2);
+        return this.gEh.dispatchNestedPreFling(f, f2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes10.dex */
     public static class a<DummyView extends View> extends CoordinatorLayout.Behavior<DummyView> {
         private int mode = 1;
-        private final int[] gDV = new int[2];
+        private final int[] gEj = new int[2];
 
         a() {
         }
@@ -123,9 +123,9 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
             if (this.mode == 1) {
                 nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i, i2, iArr, null);
             } else if (this.mode == 0) {
-                this.gDV[0] = iArr[0];
-                this.gDV[1] = iArr[1];
-                nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i, i2, this.gDV, null);
+                this.gEj[0] = iArr[0];
+                this.gEj[1] = iArr[1];
+                nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i, i2, this.gEj, null);
             }
         }
 

@@ -23,27 +23,27 @@ import com.baidu.tieba.recapp.view.WebViewContainer;
 import tbclient.VideoInfo;
 /* loaded from: classes8.dex */
 public class AdWebVideoActivity extends AdWebViewActivity {
-    public static a mRA;
-    private DistributeVideoView mRB;
-    private WebViewContainer mRC;
-    private float mRD;
-    private int mRE;
-    private int mRF;
-    private int mRG;
-    private int mRH;
-    private AdCard.f mRI;
-    private WebViewContainer.OnScrollChangedCallback mRJ = new WebViewContainer.OnScrollChangedCallback() { // from class: com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivity.1
+    public static a mRS;
+    private DistributeVideoView mRT;
+    private WebViewContainer mRU;
+    private float mRV;
+    private int mRW;
+    private int mRX;
+    private int mRY;
+    private int mRZ;
+    private AdCard.f mSa;
+    private WebViewContainer.OnScrollChangedCallback mSb = new WebViewContainer.OnScrollChangedCallback() { // from class: com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivity.1
         @Override // com.baidu.tieba.recapp.view.WebViewContainer.OnScrollChangedCallback
         public void onScroll(int i, int i2) {
-            AdWebVideoActivity.this.mRF -= i2;
-            if (AdWebVideoActivity.this.mRF <= 0) {
-                AdWebVideoActivity.this.mRB.stopPlay(AdWebVideoActivity.this.mRB.getPlayStatus() != 2);
-            } else if (AdWebVideoActivity.this.mRF < AdWebVideoActivity.this.mRG) {
-                AdWebVideoActivity.this.mRB.pausePlay(1);
-            } else if (AdWebVideoActivity.this.mRB.getPlayStatus() == 2) {
-                AdWebVideoActivity.this.mRB.autoContinue();
-            } else if (AdWebVideoActivity.this.mRB.getPlayStatus() == -1) {
-                AdWebVideoActivity.this.mRB.autoPlay(0);
+            AdWebVideoActivity.this.mRX -= i2;
+            if (AdWebVideoActivity.this.mRX <= 0) {
+                AdWebVideoActivity.this.mRT.stopPlay(AdWebVideoActivity.this.mRT.getPlayStatus() != 2);
+            } else if (AdWebVideoActivity.this.mRX < AdWebVideoActivity.this.mRY) {
+                AdWebVideoActivity.this.mRT.pausePlay(1);
+            } else if (AdWebVideoActivity.this.mRT.getPlayStatus() == 2) {
+                AdWebVideoActivity.this.mRT.autoContinue();
+            } else if (AdWebVideoActivity.this.mRT.getPlayStatus() == -1) {
+                AdWebVideoActivity.this.mRT.autoPlay(0);
             }
         }
     };
@@ -55,7 +55,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public static class a {
         public String mPage;
         public int mPageNum;
-        public AdvertAppInfo mRL;
+        public AdvertAppInfo mSd;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -64,20 +64,20 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         if (intent != null) {
             this.mVideoUrl = intent.getStringExtra("video_url");
             this.mThumbUrl = intent.getStringExtra(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL);
-            this.mRD = intent.getFloatExtra(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, 1.0f);
-            this.mRE = intent.getIntExtra(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
-            this.mRH = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
+            this.mRV = intent.getFloatExtra(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, 1.0f);
+            this.mRW = intent.getIntExtra(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
+            this.mRZ = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
             String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
             if (!TextUtils.isEmpty(stringExtra)) {
-                this.mRI = new AdCard.f();
-                this.mRI.Rt(stringExtra);
+                this.mSa = new AdCard.f();
+                this.mSa.RF(stringExtra);
             }
         } else if (bundle != null) {
             this.mVideoUrl = bundle.getString("video_url");
             this.mThumbUrl = bundle.getString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL);
-            this.mRD = bundle.getFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, 1.0f);
-            this.mRE = bundle.getInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
-            this.mRH = bundle.getInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
+            this.mRV = bundle.getFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, 1.0f);
+            this.mRW = bundle.getInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
+            this.mRZ = bundle.getInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
         } else {
             BdLog.e("NewWebVideoActivity: onCreate invalid parameters");
         }
@@ -87,8 +87,8 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        if (this.mRF > this.mRG && this.mRB != null) {
-            this.mRB.autoPlay(0);
+        if (this.mRX > this.mRY && this.mRT != null) {
+            this.mRT.autoPlay(0);
         }
         super.onResume();
     }
@@ -96,8 +96,8 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        if (this.mRF > 0 && this.mRB != null) {
-            this.mRB.stopPlay(this.mRB.getPlayStatus() != 2);
+        if (this.mRX > 0 && this.mRT != null) {
+            this.mRT.stopPlay(this.mRT.getPlayStatus() != 2);
         }
         super.onPause();
     }
@@ -105,8 +105,8 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.mRB != null) {
-            this.mRB.stopPlay(this.mRB.getPlayStatus() != 2);
+        if (this.mRT != null) {
+            this.mRT.stopPlay(this.mRT.getPlayStatus() != 2);
         }
         super.onDestroy();
     }
@@ -114,60 +114,60 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public View createWebView() {
         FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.new_ad_web_video_view, (ViewGroup) null, false);
-        this.mRC = (WebViewContainer) frameLayout.findViewById(R.id.web_scroll);
-        this.ggV = (TBAdWebView) frameLayout.findViewById(R.id.web_web);
-        bLo();
-        this.mRB = (DistributeVideoView) frameLayout.findViewById(R.id.web_video);
+        this.mRU = (WebViewContainer) frameLayout.findViewById(R.id.web_scroll);
+        this.ghb = (TBAdWebView) frameLayout.findViewById(R.id.web_web);
+        bLt();
+        this.mRT = (DistributeVideoView) frameLayout.findViewById(R.id.web_video);
         if (TextUtils.isEmpty(this.mVideoUrl) || TextUtils.isEmpty(this.mThumbUrl)) {
-            this.mRB.setVisibility(8);
+            this.mRT.setVisibility(8);
         } else {
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = this.mVideoUrl;
             builder.thumbnail_url = this.mThumbUrl;
-            builder.video_duration = Integer.valueOf(this.mRE);
-            if (this.mRH == 14) {
+            builder.video_duration = Integer.valueOf(this.mRW);
+            if (this.mRZ == 14) {
                 builder.video_height = Integer.valueOf(l.getEquipmentWidth(getActivity()));
                 builder.video_width = Integer.valueOf(com.baidu.tieba.recapp.lego.a.a.HR(builder.video_height.intValue()));
             } else {
                 builder.video_width = Integer.valueOf(l.getEquipmentWidth(getActivity()));
                 builder.video_height = builder.video_width;
-                if (this.mRD > 0.0f) {
-                    builder.video_height = Integer.valueOf((int) (builder.video_width.intValue() / this.mRD));
+                if (this.mRV > 0.0f) {
+                    builder.video_height = Integer.valueOf((int) (builder.video_width.intValue() / this.mRV));
                 }
             }
             VideoInfo build = builder.build(false);
-            this.mRF = build.video_height.intValue();
-            this.mRC.setTopMargin(this.mRF);
-            this.mRC.setTopLimit(this.mRF);
-            this.mRC.setOnScrollChangeListener(this.mRJ);
-            this.mRC.setStyle(TbadkCoreApplication.getInst().getAdVideoPageStyle());
+            this.mRX = build.video_height.intValue();
+            this.mRU.setTopMargin(this.mRX);
+            this.mRU.setTopLimit(this.mRX);
+            this.mRU.setOnScrollChangeListener(this.mSb);
+            this.mRU.setStyle(TbadkCoreApplication.getInst().getAdVideoPageStyle());
             this.mVideoHeight = build.video_height.intValue();
-            this.mRG = this.mVideoHeight / 2;
-            if (this.mRI != null) {
-                this.mRB.setVideoTailFrameData(this.mRI);
+            this.mRY = this.mVideoHeight / 2;
+            if (this.mSa != null) {
+                this.mRT.setVideoTailFrameData(this.mSa);
             }
-            this.mRB.setPageContext(getPageContext());
-            this.mRB.setData(build, 2, getPageContext());
-            this.mRB.setTailFrameIsMiddlePage(true);
-            this.mRB.initVideoViewLayout(this.mRH == 14);
-            if (mRA != null) {
-                this.mRB.updateTailFrameView(mRA.mRL);
-                this.mRB.setStatisticInfo(mRA.mRL, mRA.mPageNum, mRA.mPage);
+            this.mRT.setPageContext(getPageContext());
+            this.mRT.setData(build, 2, getPageContext());
+            this.mRT.setTailFrameIsMiddlePage(true);
+            this.mRT.initVideoViewLayout(this.mRZ == 14);
+            if (mRS != null) {
+                this.mRT.updateTailFrameView(mRS.mSd);
+                this.mRT.setStatisticInfo(mRS.mSd, mRS.mPageNum, mRS.mPage);
             } else {
-                this.mRB.updateTailFrameView(null);
+                this.mRT.updateTailFrameView(null);
             }
-            this.mRB.autoPlay(0);
+            this.mRT.autoPlay(0);
             HM(build.video_height.intValue());
         }
         return frameLayout;
     }
 
     private void HM(int i) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ggV.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ghb.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.topMargin = i;
-            layoutParams.height = (l.getEquipmentHeight(getActivity()) - l.getStatusBarHeight(getActivity())) - dDr();
-            this.ggV.setLayoutParams(layoutParams);
+            layoutParams.height = (l.getEquipmentHeight(getActivity()) - l.getStatusBarHeight(getActivity())) - dDy();
+            this.ghb.setLayoutParams(layoutParams);
         }
     }
 
@@ -178,15 +178,15 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         }
     }
 
-    private int dDr() {
+    private int dDy() {
         return l.getDimens(this, R.dimen.ds98);
     }
 
     public static void a(AdvertAppInfo advertAppInfo, int i, String str) {
-        mRA = new a();
-        mRA.mRL = advertAppInfo;
-        mRA.mPage = str;
-        mRA.mPageNum = i;
+        mRS = new a();
+        mRS.mSd = advertAppInfo;
+        mRS.mPage = str;
+        mRS.mPageNum = i;
     }
 
     public static void a(AdWebVideoActivityConfig adWebVideoActivityConfig) {

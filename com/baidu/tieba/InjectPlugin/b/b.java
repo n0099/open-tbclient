@@ -10,22 +10,22 @@ public class b extends g {
     private int currentPage;
     private String ePN;
     private String forumId;
-    private String gcA;
-    private List<n> gcs;
-    private List<n> gcu;
-    private List<Object> gcv;
-    private boolean gcw;
-    private boolean gcx;
-    private boolean gcy;
-    private String gcz;
+    private List<Object> gcA;
+    private boolean gcB;
+    private boolean gcC;
+    private boolean gcD;
+    private String gcE;
+    private String gcF;
+    private List<n> gcy;
+    private List<n> gcz;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.gcw = false;
-        this.gcx = false;
+        this.gcB = false;
+        this.gcC = false;
         this.currentPage = 0;
-        this.gcy = false;
+        this.gcD = false;
     }
 
     public Object tr() {
@@ -37,46 +37,46 @@ public class b extends g {
     }
 
     public List<n> getThreadList() {
-        return this.gcs;
+        return this.gcy;
     }
 
     public void bQ(List<n> list) {
-        this.gcs = list;
+        this.gcy = list;
     }
 
-    public List<Object> bJB() {
-        return this.gcv;
+    public List<Object> bJG() {
+        return this.gcA;
     }
 
     public void bR(List<Object> list) {
-        this.gcv = list;
+        this.gcA = list;
     }
 
-    public List<n> bJC() {
-        return this.gcu;
+    public List<n> bJH() {
+        return this.gcz;
     }
 
     public void bS(List<n> list) {
-        this.gcu = list;
+        this.gcz = list;
     }
 
-    public boolean bJD() {
-        return this.gcw;
+    public boolean bJI() {
+        return this.gcB;
     }
 
     public void lT(boolean z) {
-        this.gcw = z;
+        this.gcB = z;
     }
 
-    public boolean bJE() {
-        return this.gcx;
+    public boolean bJJ() {
+        return this.gcC;
     }
 
     public void lU(boolean z) {
-        this.gcx = z;
+        this.gcC = z;
     }
 
-    public int bJF() {
+    public int bJK() {
         return this.currentPage;
     }
 
@@ -92,12 +92,12 @@ public class b extends g {
         this.ajU = i;
     }
 
-    public boolean bJG() {
-        return this.gcy;
+    public boolean bJL() {
+        return this.gcD;
     }
 
     public void lV(boolean z) {
-        this.gcy = z;
+        this.gcD = z;
     }
 
     public int getPageNum() {
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String bJH() {
+    public String bJM() {
         return this.ePN;
     }
 
-    public void Ep(String str) {
+    public void En(String str) {
         this.ePN = str;
     }
 
-    public String bJI() {
-        return this.gcz;
+    public String bJN() {
+        return this.gcE;
     }
 
-    public void Eq(String str) {
-        this.gcz = str;
+    public void Eo(String str) {
+        this.gcE = str;
     }
 
-    public String bJJ() {
-        return this.gcA;
+    public String bJO() {
+        return this.gcF;
     }
 
-    public void Er(String str) {
-        this.gcA = str;
+    public void Ep(String str) {
+        this.gcF = str;
     }
 }

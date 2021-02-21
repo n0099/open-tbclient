@@ -98,7 +98,7 @@ public class b {
                 public Boolean doInBackground(Void... voidArr) {
                     boolean unZip = b.unZip(str, str2);
                     if (unZip) {
-                        c.gX(str3, str2);
+                        c.gZ(str3, str2);
                     }
                     return Boolean.valueOf(unZip);
                 }

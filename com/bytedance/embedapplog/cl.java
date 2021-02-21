@@ -20,7 +20,7 @@ public interface cl extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof cl)) {
                 return (cl) queryLocalInterface;
             }
-            return new C0989a(iBinder);
+            return new C0991a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -48,12 +48,12 @@ public interface cl extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.cl$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        static class C0989a implements cl {
+        static class C0991a implements cl {
 
             /* renamed from: a  reason: collision with root package name */
             private IBinder f5827a;
 
-            C0989a(IBinder iBinder) {
+            C0991a(IBinder iBinder) {
                 this.f5827a = iBinder;
             }
 

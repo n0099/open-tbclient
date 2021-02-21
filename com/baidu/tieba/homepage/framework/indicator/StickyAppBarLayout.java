@@ -14,8 +14,8 @@ import com.google.android.material.appbar.AppBarLayout;
 /* loaded from: classes2.dex */
 public class StickyAppBarLayout extends AppBarLayout {
     CustomMessageListener fjP;
-    private StickyAppBarLayoutBehavior ket;
-    private a keu;
+    private StickyAppBarLayoutBehavior keI;
+    private a keJ;
     private int mSkinType;
 
     /* loaded from: classes2.dex */
@@ -33,9 +33,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cPV();
+                        StickyAppBarLayout.this.cQc();
                     } else if (!StickyAppBarLayout.this.isSticky()) {
-                        StickyAppBarLayout.this.cPW();
+                        StickyAppBarLayout.this.cQd();
                     }
                 }
             }
@@ -52,9 +52,9 @@ public class StickyAppBarLayout extends AppBarLayout {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
                 if (bool != null) {
                     if (bool.booleanValue()) {
-                        StickyAppBarLayout.this.cPV();
+                        StickyAppBarLayout.this.cQc();
                     } else if (!StickyAppBarLayout.this.isSticky()) {
-                        StickyAppBarLayout.this.cPW();
+                        StickyAppBarLayout.this.cQd();
                     }
                 }
             }
@@ -64,55 +64,55 @@ public class StickyAppBarLayout extends AppBarLayout {
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        cPU();
+        cQb();
     }
 
-    private void cPU() {
+    private void cQb() {
         if (getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
             CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) getLayoutParams()).getBehavior();
             if (behavior instanceof StickyAppBarLayoutBehavior) {
-                this.ket = (StickyAppBarLayoutBehavior) behavior;
+                this.keI = (StickyAppBarLayoutBehavior) behavior;
             }
         }
     }
 
-    public boolean cPV() {
-        if (this.ket == null) {
-            cPU();
+    public boolean cQc() {
+        if (this.keI == null) {
+            cQb();
         }
-        if (this.ket != null) {
-            if (isSticky() && this.ket.cQa() != null && this.ket.cQa().getVisibility() == 0) {
-                cPX();
+        if (this.keI != null) {
+            if (isSticky() && this.keI.cQh() != null && this.keI.cQh().getVisibility() == 0) {
+                cQe();
             }
-            this.ket.cPY();
+            this.keI.cQf();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cPW() {
-        if (this.ket == null) {
-            cPU();
+    public boolean cQd() {
+        if (this.keI == null) {
+            cQb();
         }
-        if (this.ket != null) {
-            this.ket.cPZ();
+        if (this.keI != null) {
+            this.keI.cQg();
             return true;
         }
         return false;
     }
 
     public boolean isSticky() {
-        if (this.ket == null) {
-            cPU();
+        if (this.keI == null) {
+            cQb();
         }
-        if (this.ket != null) {
-            return this.ket.isSticky();
+        if (this.keI != null) {
+            return this.keI.isSticky();
         }
         return false;
     }
 
-    private void cPX() {
+    private void cQe() {
         ar arVar = new ar("c13422");
         arVar.ap("obj_type", 1);
         arVar.ap("obj_locate", 1);
@@ -122,11 +122,11 @@ public class StickyAppBarLayout extends AppBarLayout {
     }
 
     public void setOnHeaderStickyListener(a aVar) {
-        this.keu = aVar;
+        this.keJ = aVar;
     }
 
     public a getOnHeaderStickyListener() {
-        return this.keu;
+        return this.keJ;
     }
 
     @Override // android.view.ViewGroup, android.view.View

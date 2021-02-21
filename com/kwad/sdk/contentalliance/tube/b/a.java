@@ -12,7 +12,7 @@ public class a extends d {
 
     /* renamed from: com.kwad.sdk.contentalliance.tube.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1084a {
+    public static class C1086a {
 
         /* renamed from: a  reason: collision with root package name */
         public long f8920a;
@@ -22,7 +22,7 @@ public class a extends d {
         public int c;
         public f d;
 
-        public C1084a(f fVar, long j, long j2, int i) {
+        public C1086a(f fVar, long j, long j2, int i) {
             this.f8920a = j;
             this.f8921b = j2;
             this.c = i;
@@ -30,15 +30,15 @@ public class a extends d {
         }
     }
 
-    public a(@NonNull C1084a c1084a) {
+    public a(@NonNull C1086a c1086a) {
         JSONArray jSONArray = new JSONArray();
-        if (c1084a.d != null) {
-            o.a(jSONArray, c1084a.d.toJson());
+        if (c1086a.d != null) {
+            o.a(jSONArray, c1086a.d.toJson());
         }
         a("impInfo", jSONArray);
-        a(URLPackage.KEY_TUBE_ID, c1084a.f8920a);
-        a("photoId", c1084a.f8921b);
-        a("count", c1084a.c);
+        a(URLPackage.KEY_TUBE_ID, c1086a.f8920a);
+        a("photoId", c1086a.f8921b);
+        a("count", c1086a.c);
         a("contentInfo", new c());
     }
 

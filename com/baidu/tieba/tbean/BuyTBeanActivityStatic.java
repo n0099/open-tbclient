@@ -26,7 +26,7 @@ public class BuyTBeanActivityStatic {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_GET_YINJI, GetYinJiResponseMessage.class, false);
         registerGetYinJiHttpTask();
         registerBuyTbeanJump();
-        dPD();
+        dPL();
     }
 
     private static void registerGetYinJiHttpTask() {
@@ -39,7 +39,7 @@ public class BuyTBeanActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dPD() {
+    private static void dPL() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003410, TbConfig.SERVER_ADDRESS + "tbmall/getPayUrl");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);

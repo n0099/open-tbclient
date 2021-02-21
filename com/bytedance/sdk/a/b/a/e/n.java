@@ -18,7 +18,7 @@ public final class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n dU(int i, int i2) {
+    public n dV(int i, int i2) {
         if (i >= 0 && i < this.f5927b.length) {
             this.f5926a = (1 << i) | this.f5926a;
             this.f5927b[i] = i2;
@@ -68,7 +68,7 @@ public final class n {
     public void a(n nVar) {
         for (int i = 0; i < 10; i++) {
             if (nVar.a(i)) {
-                dU(i, nVar.b(i));
+                dV(i, nVar.b(i));
             }
         }
     }

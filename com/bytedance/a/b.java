@@ -11,15 +11,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class b {
     private String oaid;
     private String resultCode;
-    private final AtomicBoolean pmi = new AtomicBoolean();
-    private volatile boolean pmj = false;
+    private final AtomicBoolean pmI = new AtomicBoolean();
+    private volatile boolean pmJ = false;
     private final Object mLock = new Object();
-    private IIdentifierListener pmk = new IIdentifierListener() { // from class: com.bytedance.a.b.1
+    private IIdentifierListener pmK = new IIdentifierListener() { // from class: com.bytedance.a.b.1
     };
 
     public void hO(Context context) {
         synchronized (this.mLock) {
-            this.pmj = true;
+            this.pmJ = true;
             int hP = hP(context);
             if (hP == 1008612) {
                 bb.b(bh.f5801a, "OaidMiit#getDeviceIds 不支持的设备");
@@ -32,7 +32,7 @@ public final class b {
                 this.resultCode = "不支持的设备厂商";
             } else if (hP == 1008614) {
                 bb.b(bh.f5801a, "OaidMiit#getDeviceIds 获取接口是异步的，结果会在回调中返回，回调执行的回调可能在工作线程");
-                if (this.pmi.compareAndSet(false, true)) {
+                if (this.pmI.compareAndSet(false, true)) {
                     hO(context);
                 } else {
                     this.resultCode = "结果会在回调中返回";
@@ -51,12 +51,12 @@ public final class b {
     }
 
     private int hP(Context context) {
-        return MdidSdkHelper.InitSdk(context, true, this.pmk);
+        return MdidSdkHelper.InitSdk(context, true, this.pmK);
     }
 
     public bi.a hQ(Context context) {
         synchronized (this.mLock) {
-            if (this.pmj) {
+            if (this.pmJ) {
                 this.mLock.wait(10000L);
             }
         }

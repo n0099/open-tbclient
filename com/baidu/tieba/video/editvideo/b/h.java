@@ -18,12 +18,12 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     private SurfaceTexture mSurfaceTexture;
     private int mTextureId;
     private int mWidth;
-    private com.faceunity.gles.c nMB;
-    private com.faceunity.gles.c nMC;
+    private com.faceunity.gles.c nNb;
+    private com.faceunity.gles.c nNc;
     static int mFacebeautyItem = 0;
     static int mEffectItem = 0;
-    static int nMA = 0;
-    static int[] itemsArray = {mFacebeautyItem, mEffectItem, nMA};
+    static int nNa = 0;
+    static int[] itemsArray = {mFacebeautyItem, mEffectItem, nNa};
     private Object mFrameSyncObject = new Object();
     private final float[] mSTMatrix = new float[16];
 
@@ -37,10 +37,10 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     private void setup() {
-        this.nMB = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+        this.nNb = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         Log.d("OutputSurface", "onSurfaceCreated: ");
-        this.nMC = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-        this.mTextureId = this.nMC.createTextureObject();
+        this.nNc = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+        this.mTextureId = this.nNc.createTextureObject();
         this.mSurfaceTexture = new SurfaceTexture(this.mTextureId);
         this.mSurface = new Surface(this.mSurfaceTexture);
         mFacebeautyItem = com.faceunity.a.in(this.mContext);
@@ -52,9 +52,9 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
         this.mSurface.release();
         this.mSurface = null;
         this.mSurfaceTexture = null;
-        if (this.nMB != null) {
-            this.nMB.release(false);
-            this.nMB = null;
+        if (this.nNb != null) {
+            this.nNb.release(false);
+            this.nNb = null;
         }
         faceunity.fuDestroyItem(mEffectItem);
         int[] iArr = itemsArray;
@@ -73,7 +73,7 @@ public class h implements SurfaceTexture.OnFrameAvailableListener {
         faceunity.fuItemSetParam(mFacebeautyItem, "filter_name", this.mFilterValue);
         faceunity.fuItemSetParam(mFacebeautyItem, "eye_bright", 0.0d);
         faceunity.fuItemSetParam(mFacebeautyItem, "tooth_whiten", 0.0d);
-        this.nMB.drawFrame(faceunity.fuBeautifyImage(this.mTextureId, 1, this.mWidth, this.mHeight, 0, itemsArray), this.mSTMatrix);
+        this.nNb.drawFrame(faceunity.fuBeautifyImage(this.mTextureId, 1, this.mWidth, this.mHeight, 0, itemsArray), this.mSTMatrix);
     }
 
     public Surface getSurface() {

@@ -122,7 +122,7 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void bt(Context context, String str) {
+    public static void bs(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
             intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));

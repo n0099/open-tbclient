@@ -190,7 +190,7 @@ public class c extends com.baidu.adp.framework.b.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.toMd5(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && EncSigNewSwitch.isOn()) {
-            httpMessage.addParam("sig", StringU.Eu(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.Es(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }

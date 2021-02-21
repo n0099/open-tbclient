@@ -19,7 +19,7 @@ public class SettingTextImageView extends FrameLayout {
     private LinearLayout fxX;
     private ImageView fyc;
     private Context mContext;
-    private HeadImageView nig;
+    private HeadImageView niG;
     private TextView textView;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
@@ -41,18 +41,18 @@ public class SettingTextImageView extends FrameLayout {
         setBackgroundDrawable(ap.oC(R.color.CAM_X0205));
         ap.setViewTextColor(this.textView, R.color.CAM_X0105, 1);
         SvgManager.bsR().a(this.fyc, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        this.nig.invalidate();
+        this.niG.invalidate();
     }
 
-    public void dIx() {
-        if (this.nig != null) {
-            this.nig.setVisibility(8);
+    public void dIF() {
+        if (this.niG != null) {
+            this.niG.setVisibility(8);
         }
     }
 
-    public void dIy() {
-        if (this.nig != null) {
-            this.nig.setVisibility(0);
+    public void dIG() {
+        if (this.niG != null) {
+            this.niG.setVisibility(0);
         }
     }
 
@@ -62,9 +62,9 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.nig.startLoad(str, 26, false);
+            this.niG.startLoad(str, 26, false);
         } else {
-            this.nig.startLoad(str, 12, false);
+            this.niG.startLoad(str, 12, false);
         }
     }
 
@@ -75,7 +75,7 @@ public class SettingTextImageView extends FrameLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
         this.fxX = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.nig = (HeadImageView) findViewById(R.id.icon);
+        this.niG = (HeadImageView) findViewById(R.id.icon);
         this.fyc = (ImageView) findViewById(R.id.arrow);
     }
 

@@ -30,7 +30,7 @@ public final class bk implements Runnable {
         synchronized (bj.f14277a) {
             try {
                 File file = new File(this.f14278a.getFilesDir(), "tiny_data.lock");
-                com.xiaomi.push.y.m616a(file);
+                com.xiaomi.push.y.m615a(file);
                 randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();

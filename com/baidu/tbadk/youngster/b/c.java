@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class c {
-    public static void El(String str) {
+    public static void Ej(String str) {
         AccountData currentAccountInfo;
         if (!StringUtils.isNull(str) && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
             com.baidu.tbadk.core.sharedPref.b.brQ().putString("key_youngster_verify", a(new com.baidu.tbadk.youngster.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
@@ -27,15 +27,15 @@ public class c {
             bJe();
             return false;
         }
-        com.baidu.tbadk.youngster.a.a En = En(string);
-        if (En != null && !StringUtils.isNull(En.getUid()) && En.getUid().equals(currentAccountInfo.getID()) && !StringUtils.isNull(En.getPortrait()) && En.getPortrait().equals(currentAccountInfo.getPortrait())) {
+        com.baidu.tbadk.youngster.a.a El = El(string);
+        if (El != null && !StringUtils.isNull(El.getUid()) && El.getUid().equals(currentAccountInfo.getID()) && !StringUtils.isNull(El.getPortrait()) && El.getPortrait().equals(currentAccountInfo.getPortrait())) {
             return true;
         }
         bJe();
         return false;
     }
 
-    public static boolean Em(String str) {
+    public static boolean Ek(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
@@ -44,9 +44,9 @@ public class c {
             bJe();
             return false;
         }
-        com.baidu.tbadk.youngster.a.a En = En(string);
-        if (En != null) {
-            return str.equals(En.getPassword());
+        com.baidu.tbadk.youngster.a.a El = El(string);
+        if (El != null) {
+            return str.equals(El.getPassword());
         }
         return false;
     }
@@ -58,7 +58,7 @@ public class c {
         return aVar.getUid() + "," + aVar.getPortrait() + "," + aVar.getPassword();
     }
 
-    private static com.baidu.tbadk.youngster.a.a En(String str) {
+    private static com.baidu.tbadk.youngster.a.a El(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

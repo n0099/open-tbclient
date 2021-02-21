@@ -14,8 +14,8 @@ import com.baidu.yuyinala.background.c;
 import com.baidu.yuyinala.background.d.a;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioBackgroundDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0957a {
-    private com.baidu.yuyinala.background.d.a oVo;
+public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAudioBackgroundDialogData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c, c.a, a.InterfaceC0959a {
+    private com.baidu.yuyinala.background.d.a oVO;
 
     public b(TbPageContext tbPageContext, ab abVar) {
         super(tbPageContext, new c(tbPageContext), null);
@@ -24,54 +24,54 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
         eM(80);
         de(true);
         df(true);
-        this.oVo = new com.baidu.yuyinala.background.d.a(abVar, this);
+        this.oVO = new com.baidu.yuyinala.background.d.a(abVar, this);
         a((DialogInterface.OnDismissListener) this.bJy);
     }
 
     @Override // com.baidu.yuyinala.background.c.a
     public void loadData() {
-        this.oVo.eiW();
+        this.oVO.eje();
     }
 
     @Override // com.baidu.yuyinala.background.c.a
     public void a(com.baidu.yuyinala.background.b.a aVar, Bitmap bitmap) {
-        this.oVo.a(aVar, bitmap);
+        this.oVO.a(aVar, bitmap);
     }
 
     @Override // com.baidu.yuyinala.background.c.a
     public void a(com.baidu.yuyinala.background.b.a aVar, String str) {
-        this.oVo.a(aVar, str);
+        this.oVO.a(aVar, str);
     }
 
     @Override // com.baidu.yuyinala.background.c.a
-    public void eiG() {
-        this.oVo.eiG();
+    public void eiO() {
+        this.oVO.eiO();
     }
 
     @Override // com.baidu.yuyinala.background.c.a
-    public void eiH() {
-        this.oVo.eiH();
+    public void eiP() {
+        this.oVO.eiP();
     }
 
     @Override // com.baidu.yuyinala.background.c.a
     public String getCustomRoomId() {
-        return this.oVo.getCustomRoomId();
+        return this.oVO.getCustomRoomId();
     }
 
-    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0957a
+    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0959a
     public void a(AlaAudioBackgroundDialogData alaAudioBackgroundDialogData, com.baidu.yuyinala.background.b.a aVar) {
         ((c) this.bJy).a(alaAudioBackgroundDialogData, aVar, true);
     }
 
-    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0957a
-    public void eiI() {
+    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0959a
+    public void eiQ() {
         this.mPageContext.showToast(a.h.ala_audio_set_background_fail);
     }
 
-    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0957a
-    public void eiJ() {
+    @Override // com.baidu.yuyinala.background.d.a.InterfaceC0959a
+    public void eiR() {
         this.mPageContext.showToast(a.h.ala_audio_set_background_success);
-        eiK();
+        eiS();
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
@@ -95,7 +95,7 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<c, AlaAu
         loadData();
     }
 
-    private void eiK() {
+    private void eiS() {
         JSONObject jSONObject = new JSONObject();
         try {
             ab Yq = com.baidu.live.ao.a.Yj().Yq();

@@ -15,8 +15,8 @@ import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
 /* loaded from: classes8.dex */
 public class e {
-    private a jbG = null;
-    private com.baidu.adp.framework.listener.a jbH = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
+    private a jbU = null;
+    private com.baidu.adp.framework.listener.a jbV = new com.baidu.adp.framework.listener.a(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO) { // from class: com.baidu.tieba.forumMember.bawu.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -35,18 +35,18 @@ public class e {
                     l lVar = new l();
                     if (e.this.mManagerApplyInfo != null) {
                         lVar.yl(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                        lVar.JX(e.this.mManagerApplyInfo.manager_apply_url);
+                        lVar.JY(e.this.mManagerApplyInfo.manager_apply_url);
                         lVar.yn(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                        lVar.JY(e.this.mManagerApplyInfo.assist_apply_url);
+                        lVar.JZ(e.this.mManagerApplyInfo.assist_apply_url);
                     }
-                    if (e.this.jbG != null) {
-                        e.this.jbG.a(e.this.a(e.this.mBawuTeamInfo), lVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (e.this.jbU != null) {
+                        e.this.jbU.a(e.this.a(e.this.mBawuTeamInfo), lVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private CustomMessageListener jbI = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
+    private CustomMessageListener jbW = new CustomMessageListener(CmdConfigCustom.CMD_BAWU_TEAM_INFO_CACHE) { // from class: com.baidu.tieba.forumMember.bawu.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -58,12 +58,12 @@ public class e {
                 l lVar = new l();
                 if (e.this.mManagerApplyInfo != null) {
                     lVar.yl(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                    lVar.JX(e.this.mManagerApplyInfo.manager_apply_url);
+                    lVar.JY(e.this.mManagerApplyInfo.manager_apply_url);
                     lVar.yn(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                    lVar.JY(e.this.mManagerApplyInfo.assist_apply_url);
+                    lVar.JZ(e.this.mManagerApplyInfo.assist_apply_url);
                 }
-                if (e.this.jbG != null) {
-                    e.this.jbG.a(e.this.a(e.this.mBawuTeamInfo), lVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+                if (e.this.jbU != null) {
+                    e.this.jbU.a(e.this.a(e.this.mBawuTeamInfo), lVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
                 }
             }
         }
@@ -78,8 +78,8 @@ public class e {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.jbI);
-        MessageManager.getInstance().registerListener(this.jbH);
+        MessageManager.getInstance().registerListener(this.jbW);
+        MessageManager.getInstance().registerListener(this.jbV);
     }
 
     public void go(long j) {
@@ -95,12 +95,12 @@ public class e {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.jbH);
-        MessageManager.getInstance().unRegisterListener(this.jbI);
+        MessageManager.getInstance().unRegisterListener(this.jbV);
+        MessageManager.getInstance().unRegisterListener(this.jbW);
     }
 
     public void a(a aVar) {
-        this.jbG = aVar;
+        this.jbU = aVar;
     }
 
     public ArrayList<i> a(BawuTeam bawuTeam) {
@@ -119,7 +119,7 @@ public class e {
                 int i2 = 0;
                 while (i2 < size2) {
                     b bVar = new b();
-                    bVar.JT(bawuRoleDes.role_name);
+                    bVar.JU(bawuRoleDes.role_name);
                     ArrayList<BawuRoleInfoPub> arrayList2 = new ArrayList<>();
                     arrayList2.add(bawuRoleDes.role_info.get(i2));
                     if (i2 + 1 < size2) {

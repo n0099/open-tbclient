@@ -6,9 +6,9 @@ import kotlin.jvm.internal.p;
 @kotlin.e
 /* loaded from: classes6.dex */
 public final class a<T> implements c<T> {
-    private final c<T> qtS;
-    private final boolean qtT;
-    private final kotlin.jvm.a.b<T, Boolean> qtU;
+    private final c<T> qus;
+    private final boolean qut;
+    private final kotlin.jvm.a.b<T, Boolean> quu;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.sequences.c<? extends T> */
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.jvm.a.b<? super T, java.lang.Boolean> */
@@ -16,18 +16,18 @@ public final class a<T> implements c<T> {
     public a(c<? extends T> cVar, boolean z, kotlin.jvm.a.b<? super T, Boolean> bVar) {
         p.o(cVar, "sequence");
         p.o(bVar, "predicate");
-        this.qtS = cVar;
-        this.qtT = z;
-        this.qtU = bVar;
+        this.qus = cVar;
+        this.qut = z;
+        this.quu = bVar;
     }
 
     @kotlin.e
     /* renamed from: kotlin.sequences.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1307a implements Iterator<T> {
+    public static final class C1309a implements Iterator<T> {
         private final Iterator<T> iterator;
         private T nextItem;
-        private int qtV = -1;
+        private int quv = -1;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -35,47 +35,47 @@ public final class a<T> implements c<T> {
         }
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        C1307a() {
-            this.iterator = a.this.qtS.iterator();
+        C1309a() {
+            this.iterator = a.this.qus.iterator();
         }
 
-        private final void eLC() {
+        private final void eLK() {
             while (this.iterator.hasNext()) {
                 T next = this.iterator.next();
-                if (((Boolean) a.this.qtU.invoke(next)).booleanValue() == a.this.qtT) {
+                if (((Boolean) a.this.quu.invoke(next)).booleanValue() == a.this.qut) {
                     this.nextItem = next;
-                    this.qtV = 1;
+                    this.quv = 1;
                     return;
                 }
             }
-            this.qtV = 0;
+            this.quv = 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.qtV == -1) {
-                eLC();
+            if (this.quv == -1) {
+                eLK();
             }
-            if (this.qtV == 0) {
+            if (this.quv == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             this.nextItem = null;
-            this.qtV = -1;
+            this.quv = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.qtV == -1) {
-                eLC();
+            if (this.quv == -1) {
+                eLK();
             }
-            return this.qtV == 1;
+            return this.quv == 1;
         }
     }
 
     @Override // kotlin.sequences.c
     public Iterator<T> iterator() {
-        return new C1307a();
+        return new C1309a();
     }
 }

@@ -23,11 +23,11 @@ public final class i implements Runnable {
 
     /* renamed from: java  reason: collision with other field name */
     private String f57java;
-    boolean qiQ;
-    private long qjj;
-    private bt qkD;
+    private long qjJ;
+    boolean qjq;
+    private bt qld;
     private int java = 0;
-    private a qkE = new a();
+    private a qle = new a();
 
     /* renamed from: com.win.opensdk.i$case  reason: invalid class name */
     /* loaded from: classes3.dex */
@@ -43,16 +43,16 @@ public final class i implements Runnable {
     }
 
     public i(String str, String str2, bt btVar) {
-        this.qiQ = false;
+        this.qjq = false;
         this.f57java = str;
         this.f56case = str2;
-        this.qkD = btVar;
-        this.qiQ = true;
+        this.qld = btVar;
+        this.qjq = true;
     }
 
     /* loaded from: classes3.dex */
     public class a {
-        private Handler qjV;
+        private Handler qkv;
         private int java = 0;
 
         /* renamed from: case  reason: not valid java name */
@@ -60,7 +60,7 @@ public final class i implements Runnable {
 
         public a() {
             if (Looper.myLooper() != null) {
-                this.qjV = new Handler() { // from class: com.win.opensdk.i.a.1
+                this.qkv = new Handler() { // from class: com.win.opensdk.i.a.1
                     @Override // android.os.Handler
                     public final void handleMessage(Message message) {
                         a.this.X(message);
@@ -69,7 +69,7 @@ public final class i implements Runnable {
             }
         }
 
-        private void eIP() {
+        private void eIX() {
             Y(m(7, null));
         }
 
@@ -77,7 +77,7 @@ public final class i implements Runnable {
             switch (message.what) {
                 case 1:
                     Object obj = message.obj;
-                    i.this.qkD.a();
+                    i.this.qld.a();
                     return;
                 case 2:
                 case 4:
@@ -85,28 +85,28 @@ public final class i implements Runnable {
                 default:
                     return;
                 case 3:
-                    i.this.qkD.eIQ();
+                    i.this.qld.eIY();
                     return;
                 case 5:
-                    i.this.qkD.Se(((Integer) ((Object[]) message.obj)[0]).intValue());
+                    i.this.qld.Sf(((Integer) ((Object[]) message.obj)[0]).intValue());
                     return;
                 case 7:
-                    i.this.qkD.eIP();
+                    i.this.qld.eIX();
                     return;
             }
         }
 
         final void Y(Message message) {
-            if (this.qjV != null) {
-                this.qjV.sendMessage(message);
+            if (this.qkv != null) {
+                this.qkv.sendMessage(message);
             } else {
                 X(message);
             }
         }
 
         final Message m(int i, Object obj) {
-            if (this.qjV != null) {
-                return this.qjV.obtainMessage(i, obj);
+            if (this.qkv != null) {
+                return this.qkv.obtainMessage(i, obj);
             }
             Message obtain = Message.obtain();
             obtain.what = i;
@@ -127,24 +127,24 @@ public final class i implements Runnable {
                         if (read == -1) {
                             z = false;
                             break;
-                        } else if (i.this.qiQ) {
+                        } else if (i.this.qjq) {
                             fileOutputStream.write(bArr, 0, read);
                             this.java = read + this.java;
-                            if (i.this.java + this.java < i.this.qjj + i.this.java) {
-                                this.f58case = (int) (Float.parseFloat(new DecimalFormat("0.00").format((i.this.java + this.java) / ((float) (i.this.qjj + i.this.java)))) * 100.0f);
+                            if (i.this.java + this.java < i.this.qjJ + i.this.java) {
+                                this.f58case = (int) (Float.parseFloat(new DecimalFormat("0.00").format((i.this.java + this.java) / ((float) (i.this.qjJ + i.this.java)))) * 100.0f);
                                 if (i % 30 == 0 || this.f58case == 100) {
                                     Y(m(5, new Object[]{Integer.valueOf(this.f58case)}));
                                 }
                             }
                             i++;
                         } else {
-                            eIP();
+                            eIX();
                             break;
                         }
                     }
                     fileOutputStream.flush();
                     fileOutputStream.close();
-                    i.this.qiQ = false;
+                    i.this.qjq = false;
                     if (!z) {
                         Y(m(3, null));
                     }
@@ -152,19 +152,19 @@ public final class i implements Runnable {
                         try {
                             inputStream.close();
                         } catch (IOException e) {
-                            i.this.qiQ = false;
+                            i.this.qjq = false;
                             e.printStackTrace();
                         }
                     }
                 } catch (Exception e2) {
-                    eIP();
-                    i.this.qiQ = false;
+                    eIX();
+                    i.this.qjq = false;
                     e2.printStackTrace();
                     if (inputStream != null) {
                         try {
                             inputStream.close();
                         } catch (IOException e3) {
-                            i.this.qiQ = false;
+                            i.this.qjq = false;
                             e3.printStackTrace();
                         }
                     }
@@ -174,7 +174,7 @@ public final class i implements Runnable {
                     try {
                         inputStream.close();
                     } catch (IOException e4) {
-                        i.this.qiQ = false;
+                        i.this.qjq = false;
                         e4.printStackTrace();
                     }
                 }
@@ -201,12 +201,12 @@ public final class i implements Runnable {
                     httpURLConnection.setRequestProperty(Headers.RANGE, "bytes=" + this.java + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                     httpURLConnection.connect();
-                    this.qjj = httpURLConnection.getContentLength();
+                    this.qjJ = httpURLConnection.getContentLength();
                     if (!Thread.currentThread().isInterrupted()) {
-                        if (this.qkE != null && this.qjj > 10) {
-                            this.qkE.M(httpURLConnection.getInputStream());
-                        } else if (this.qkD != null) {
-                            this.qkD.a();
+                        if (this.qle != null && this.qjJ > 10) {
+                            this.qle.M(httpURLConnection.getInputStream());
+                        } else if (this.qld != null) {
+                            this.qld.a();
                         }
                     }
                 } catch (IOException e) {
@@ -216,8 +216,8 @@ public final class i implements Runnable {
                 }
             }
         } catch (Exception e2) {
-            if (this.qkE != null) {
-                a aVar = this.qkE;
+            if (this.qle != null) {
+                a aVar = this.qle;
                 aVar.Y(aVar.m(1, new Object[]{Ccase.Socket}));
             }
         }

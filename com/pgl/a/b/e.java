@@ -30,18 +30,18 @@ public class e {
                     System.loadLibrary(str);
                     f11390a.add(str);
                 } catch (UnsatisfiedLinkError e) {
-                    File by = by(context, str);
-                    if (by == null) {
+                    File bx = bx(context, str);
+                    if (bx == null) {
                         z = false;
                     } else {
-                        if (by.exists()) {
-                            by.delete();
+                        if (bx.exists()) {
+                            bx.delete();
                         }
-                        if (f(context, str, by) != null) {
+                        if (f(context, str, bx) != null) {
                             z = false;
                         } else {
                             try {
-                                System.load(by.getAbsolutePath());
+                                System.load(bx.getAbsolutePath());
                                 f11390a.add(str);
                             } catch (Throwable th) {
                                 z = false;
@@ -56,7 +56,7 @@ public class e {
         return z;
     }
 
-    private static File by(Context context, String str) {
+    private static File bx(Context context, String str) {
         String mapLibraryName = System.mapLibraryName(str);
         File a2 = a(context);
         if (a2 != null) {

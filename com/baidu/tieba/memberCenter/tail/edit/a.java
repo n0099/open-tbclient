@@ -20,110 +20,110 @@ import java.util.regex.Pattern;
 /* loaded from: classes9.dex */
 public class a {
     private TbPageContext<?> eUY;
-    private TailData lsf;
-    private TailData lsg;
-    private com.baidu.tieba.memberCenter.tail.a.a<Integer> lsh;
-    private com.baidu.tieba.memberCenter.tail.a.a<Integer> lsi;
-    private boolean lsd = false;
-    private boolean lse = false;
-    private com.baidu.adp.framework.listener.a lsj = new com.baidu.adp.framework.listener.a(1003019, CmdConfigSocket.CMD_TAIL_ADD) { // from class: com.baidu.tieba.memberCenter.tail.edit.a.1
+    private TailData lst;
+    private TailData lsu;
+    private com.baidu.tieba.memberCenter.tail.a.a<Integer> lsv;
+    private com.baidu.tieba.memberCenter.tail.a.a<Integer> lsw;
+    private boolean lsr = false;
+    private boolean lss = false;
+    private com.baidu.adp.framework.listener.a lsx = new com.baidu.adp.framework.listener.a(1003019, CmdConfigSocket.CMD_TAIL_ADD) { // from class: com.baidu.tieba.memberCenter.tail.edit.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             com.baidu.tieba.memberCenter.tail.data.b m37getResultData;
             Integer num;
-            a.this.lsd = false;
-            if (a.this.lsh != null) {
+            a.this.lsr = false;
+            if (a.this.lsv != null) {
                 if (responsedMessage instanceof AddTailHttpResponseMessage) {
                     m37getResultData = ((AddTailHttpResponseMessage) responsedMessage).m36getResultData();
                 } else {
                     m37getResultData = responsedMessage instanceof AddTailSocketResponseMessage ? ((AddTailSocketResponseMessage) responsedMessage).m37getResultData() : null;
                 }
                 if (m37getResultData != null) {
-                    num = Integer.valueOf(m37getResultData.dfM());
-                    if (a.this.lse) {
+                    num = Integer.valueOf(m37getResultData.dfT());
+                    if (a.this.lss) {
                         a.this.ED(num.intValue());
                     }
                 } else {
                     num = null;
                 }
-                a.this.lsh.b(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
+                a.this.lsv.b(responsedMessage.hasError(), responsedMessage.getErrorString(), num);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a lsk = new com.baidu.adp.framework.listener.a(1003023, CmdConfigSocket.CMD_TAIL_UPDATE) { // from class: com.baidu.tieba.memberCenter.tail.edit.a.2
+    private com.baidu.adp.framework.listener.a lsy = new com.baidu.adp.framework.listener.a(1003023, CmdConfigSocket.CMD_TAIL_UPDATE) { // from class: com.baidu.tieba.memberCenter.tail.edit.a.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             g m45getResultData;
-            a.this.lsd = false;
-            if (a.this.lsi != null) {
+            a.this.lsr = false;
+            if (a.this.lsw != null) {
                 if (responsedMessage instanceof UpdateTailHttpResponseMessage) {
                     m45getResultData = ((UpdateTailHttpResponseMessage) responsedMessage).m44getResultData();
                 } else {
                     m45getResultData = responsedMessage instanceof UpdateTailSocketResponseMessage ? ((UpdateTailSocketResponseMessage) responsedMessage).m45getResultData() : null;
                 }
-                a.this.lsi.b(responsedMessage.hasError(), responsedMessage.getErrorString(), m45getResultData != null ? Integer.valueOf(m45getResultData.dfM()) : null);
+                a.this.lsw.b(responsedMessage.hasError(), responsedMessage.getErrorString(), m45getResultData != null ? Integer.valueOf(m45getResultData.dfT()) : null);
             }
         }
     };
 
     public a(TbPageContext<?> tbPageContext) {
         this.eUY = tbPageContext;
-        this.eUY.registerListener(this.lsj);
-        this.eUY.registerListener(this.lsk);
-        this.lsg = new TailData();
+        this.eUY.registerListener(this.lsx);
+        this.eUY.registerListener(this.lsy);
+        this.lsu = new TailData();
     }
 
-    public void Oi(String str) {
-        if (!this.lsd) {
-            String Or = d.Or(str);
-            if (!StringUtils.isNull(Or)) {
-                this.eUY.showToast(Or);
+    public void Oj(String str) {
+        if (!this.lsr) {
+            String Os = d.Os(str);
+            if (!StringUtils.isNull(Os)) {
+                this.eUY.showToast(Os);
                 return;
             }
-            String Os = d.Os(str);
-            this.lsg.setContent(Os);
-            this.lsd = true;
-            if (this.lsf == null || this.lsf.getId() <= 0) {
-                this.eUY.sendMessage(new AddTailNetMessage(Os, this.lsg.getFontColor(), this.eUY.getString(R.string.tail_default_font)));
+            String Ot = d.Ot(str);
+            this.lsu.setContent(Ot);
+            this.lsr = true;
+            if (this.lst == null || this.lst.getId() <= 0) {
+                this.eUY.sendMessage(new AddTailNetMessage(Ot, this.lsu.getFontColor(), this.eUY.getString(R.string.tail_default_font)));
             } else {
-                this.eUY.sendMessage(new UpdateTailNetMessage(this.lsf.getId(), Os, this.lsg.getFontColor(), this.eUY.getString(R.string.tail_default_font)));
+                this.eUY.sendMessage(new UpdateTailNetMessage(this.lst.getId(), Ot, this.lsu.getFontColor(), this.eUY.getString(R.string.tail_default_font)));
             }
         }
     }
 
     public void b(int i, String str, String str2, boolean z) {
-        this.lsg = new TailData();
+        this.lsu = new TailData();
         if (i != 0) {
-            this.lsf = new TailData();
-            this.lsf.setId(i);
-            this.lsf.setContent(str);
-            this.lsf.setFontColor(str2);
-            this.lsg.setId(i);
-            this.lsg.setContent(str);
-            this.lsg.setFontColor(str2);
+            this.lst = new TailData();
+            this.lst.setId(i);
+            this.lst.setContent(str);
+            this.lst.setFontColor(str2);
+            this.lsu.setId(i);
+            this.lsu.setContent(str);
+            this.lsu.setFontColor(str2);
             return;
         }
-        this.lsg.setContent("");
-        this.lsg.setFontColor("7a7c80");
-        this.lse = z;
+        this.lsu.setContent("");
+        this.lsu.setFontColor("7a7c80");
+        this.lss = z;
     }
 
     protected void ED(int i) {
         MessageManager.getInstance().sendMessage(new SetTailNetMessage(i, 1));
     }
 
-    public boolean dfR() {
-        if (this.lsg == null || this.lsg.getFontColor() == null) {
+    public boolean dfY() {
+        if (this.lsu == null || this.lsu.getFontColor() == null) {
             return false;
         }
-        if (this.lsf == null) {
-            if (!StringUtils.isNull(this.lsg.getContent()) || !this.lsg.getFontColor().equals("7a7c80")) {
+        if (this.lst == null) {
+            if (!StringUtils.isNull(this.lsu.getContent()) || !this.lsu.getFontColor().equals("7a7c80")) {
                 return true;
             }
-        } else if (this.lsf.getContent() == null || this.lsf.getFontColor() == null) {
+        } else if (this.lst.getContent() == null || this.lst.getFontColor() == null) {
             return false;
         } else {
-            if (!this.lsf.getContent().equals(this.lsg.getContent()) || !this.lsf.getFontColor().equals(this.lsg.getFontColor())) {
+            if (!this.lst.getContent().equals(this.lsu.getContent()) || !this.lst.getFontColor().equals(this.lsu.getFontColor())) {
                 return true;
             }
         }
@@ -138,45 +138,45 @@ public class a {
         return i > 50;
     }
 
-    public void Oj(String str) {
-        this.lsg.setFontColor(str);
+    public void Ok(String str) {
+        this.lsu.setFontColor(str);
     }
 
-    public String dfS() {
-        return this.lsg.getFontColor();
+    public String dfZ() {
+        return this.lsu.getFontColor();
     }
 
-    public TailData dfT() {
-        return this.lsg;
+    public TailData dga() {
+        return this.lsu;
     }
 
     public void a(com.baidu.tieba.memberCenter.tail.a.a<Integer> aVar) {
-        this.lsh = aVar;
+        this.lsv = aVar;
     }
 
     public void b(com.baidu.tieba.memberCenter.tail.a.a<Integer> aVar) {
-        this.lsi = aVar;
+        this.lsw = aVar;
     }
 
-    public int Ok(String str) {
+    public int Ol(String str) {
         return Pattern.compile("#\\([^#\\)\\(]+\\)").matcher(str).replaceAll(" ").length();
     }
 
-    public String Ol(String str) {
-        while (Ok(str) > 50) {
-            str = Om(str);
+    public String Om(String str) {
+        while (Ol(str) > 50) {
+            str = On(str);
         }
         return str;
     }
 
-    public String Om(String str) {
+    public String On(String str) {
         if (str == null || str.length() <= 0) {
             return "";
         }
         return str.substring(0, str.length() - 1);
     }
 
-    public boolean dfU() {
-        return !StringUtils.isNull(this.lsg.getContent()) && dfR() && StringUtils.isNull(d.Or(this.lsg.getContent()));
+    public boolean dgb() {
+        return !StringUtils.isNull(this.lsu.getContent()) && dfY() && StringUtils.isNull(d.Os(this.lsu.getContent()));
     }
 }

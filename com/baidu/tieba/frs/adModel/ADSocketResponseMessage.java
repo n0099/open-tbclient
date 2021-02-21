@@ -37,7 +37,7 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
                     } else {
                         cVar.qT(false);
                     }
-                    if (cVar.cEZ() == 0 || cVar.cEZ() == 2) {
+                    if (cVar.cFg() == 0 || cVar.cFg() == 2) {
                         this.list.add(cVar);
                     }
                 }

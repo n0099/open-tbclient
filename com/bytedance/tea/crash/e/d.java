@@ -48,16 +48,16 @@ public final class d {
             for (int i = 0; i < k.length && i < 50; i++) {
                 File file = k[i];
                 try {
-                    if (com.bytedance.tea.crash.b.a.eqV().a(file.getAbsolutePath())) {
+                    if (com.bytedance.tea.crash.b.a.erd().a(file.getAbsolutePath())) {
                         com.bytedance.tea.crash.g.d.a(file);
                     } else {
-                        com.bytedance.tea.crash.c.c YT = com.bytedance.tea.crash.g.d.YT(file.getAbsolutePath());
-                        if (YT != null && YT.b() != null) {
-                            JSONObject b2 = YT.b();
+                        com.bytedance.tea.crash.c.c Zf = com.bytedance.tea.crash.g.d.Zf(file.getAbsolutePath());
+                        if (Zf != null && Zf.b() != null) {
+                            JSONObject b2 = Zf.b();
                             A(file.getName(), b2);
-                            YT.b().put("upload_scene", "launch_scan");
-                            if (com.bytedance.tea.crash.upload.b.L(YT.a(), b2.toString(), YT.c()).a() && !com.bytedance.tea.crash.g.d.a(file)) {
-                                com.bytedance.tea.crash.b.a.eqV().a(com.bytedance.tea.crash.b.a.a.YR(file.getAbsolutePath()));
+                            Zf.b().put("upload_scene", "launch_scan");
+                            if (com.bytedance.tea.crash.upload.b.L(Zf.a(), b2.toString(), Zf.c()).a() && !com.bytedance.tea.crash.g.d.a(file)) {
+                                com.bytedance.tea.crash.b.a.erd().a(com.bytedance.tea.crash.b.a.a.Zd(file.getAbsolutePath()));
                             }
                         }
                     }

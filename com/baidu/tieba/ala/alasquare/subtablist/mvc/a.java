@@ -26,61 +26,61 @@ import java.util.List;
 /* loaded from: classes10.dex */
 public class a {
     private String entryName;
-    private boolean gIP;
-    private c gIQ;
-    private AlaNewSquareSubListModel gIR;
+    private boolean gJd;
+    private c gJe;
+    private AlaNewSquareSubListModel gJf;
     private TbPageContext mTbPageContext;
-    private boolean gIS = false;
+    private boolean gJg = false;
     private BdListView.e WH = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             boolean z = false;
-            if (a.this.gIR != null) {
-                z = a.this.gIR.isHasMore();
+            if (a.this.gJf != null) {
+                z = a.this.gJf.isHasMore();
             }
-            if (a.this.gIQ != null) {
+            if (a.this.gJe != null) {
                 if (!z) {
-                    a.this.gIQ.bRq();
+                    a.this.gJe.bRx();
                     return;
                 }
-                a.this.gIR.bSw();
-                a.this.gIQ.bSx();
+                a.this.gJf.bSD();
+                a.this.gJe.bSE();
             }
         }
     };
-    private AlaNewSquareSubListModel.a gHy = new AlaNewSquareSubListModel.a() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.2
+    private AlaNewSquareSubListModel.a gHM = new AlaNewSquareSubListModel.a() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.2
         @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.a
         public void mK(boolean z) {
-            if (a.this.mTbPageContext != null && a.this.gIQ != null) {
-                a.this.gIQ.completePullRefresh();
-                a.this.gIQ.hideLoadingView();
-                a.this.gIQ.setData(a.this.gIR.getDatas());
-                a.this.gIQ.tT(a.this.gIR.getLiveCount());
-                a.this.gIQ.cl(a.this.gIR.getSortTypeList());
-                if (a.this.gIR != null && a.this.gIR.getPn() == 0 && a.this.gIQ.getListView() != null) {
-                    a.this.gIQ.getListView().smoothScrollToPosition(0);
+            if (a.this.mTbPageContext != null && a.this.gJe != null) {
+                a.this.gJe.completePullRefresh();
+                a.this.gJe.hideLoadingView();
+                a.this.gJe.setData(a.this.gJf.getDatas());
+                a.this.gJe.tT(a.this.gJf.getLiveCount());
+                a.this.gJe.cl(a.this.gJf.getSortTypeList());
+                if (a.this.gJf != null && a.this.gJf.getPn() == 0 && a.this.gJe.getListView() != null) {
+                    a.this.gJe.getListView().smoothScrollToPosition(0);
                 }
-                if (y.getCount(a.this.gIR.getDatas()) == 0) {
-                    a.this.gIQ.a(a.this.mTbPageContext.getString(R.string.no_data_text), a.this.mOnClickListener, true);
-                    a.this.gIQ.tS(8);
+                if (y.getCount(a.this.gJf.getDatas()) == 0) {
+                    a.this.gJe.a(a.this.mTbPageContext.getString(R.string.no_data_text), a.this.mOnClickListener, true);
+                    a.this.gJe.tS(8);
                     return;
                 }
-                a.this.gIQ.WZ();
-                a.this.gIQ.tS(0);
+                a.this.gJe.WZ();
+                a.this.gJe.tS(0);
             }
         }
 
         @Override // com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel.a
         public void aJ(int i, String str) {
-            if (a.this.mTbPageContext != null && a.this.gIQ != null) {
-                a.this.gIQ.completePullRefresh();
-                a.this.gIQ.hideLoadingView();
-                c cVar = a.this.gIQ;
+            if (a.this.mTbPageContext != null && a.this.gJe != null) {
+                a.this.gJe.completePullRefresh();
+                a.this.gJe.hideLoadingView();
+                c cVar = a.this.gJe;
                 if (TextUtils.isEmpty(str)) {
                     str = a.this.mTbPageContext.getString(R.string.no_data_text);
                 }
                 cVar.a(str, a.this.mOnClickListener, true);
-                a.this.gIQ.tS(8);
+                a.this.gJe.tS(8);
             }
         }
     };
@@ -90,7 +90,7 @@ public class a {
             a.this.refreshData();
         }
     };
-    private g gIT = new g() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.4
+    private g gJh = new g() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.4
         @Override // com.baidu.tieba.ala.alasquare.subtablist.view.g
         public void a(int i, String str, cb cbVar) {
             a.this.a(a.this.mTbPageContext, cbVar, str);
@@ -98,61 +98,61 @@ public class a {
 
         @Override // com.baidu.tieba.ala.alasquare.subtablist.view.g
         public void a(com.baidu.tieba.ala.alasquare.subtablist.b.c cVar) {
-            if (a.this.gIR != null && cVar != null && !StringUtils.isNull(cVar.type)) {
-                a.this.gIR.setSortType(cVar.type);
-                a.this.gIR.setLat(cVar.lat);
-                a.this.gIR.setLng(cVar.lng);
-                a.this.gIR.mN(cVar.gIG);
-                a.this.gIR.refreshData();
+            if (a.this.gJf != null && cVar != null && !StringUtils.isNull(cVar.type)) {
+                a.this.gJf.setSortType(cVar.type);
+                a.this.gJf.setLat(cVar.lat);
+                a.this.gJf.setLng(cVar.lng);
+                a.this.gJf.mN(cVar.gIU);
+                a.this.gJf.refreshData();
             }
         }
     };
-    private f.c gIU = new f.c() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.5
+    private f.c gJi = new f.c() { // from class: com.baidu.tieba.ala.alasquare.subtablist.mvc.a.5
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
-            if (a.this.gIR != null) {
-                a.this.gIR.refreshData();
+            if (a.this.gJf != null) {
+                a.this.gJf.refreshData();
             }
         }
     };
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mTbPageContext = tbPageContext;
-        this.gIP = z;
-        this.gIR = new AlaNewSquareSubListModel(this.mTbPageContext);
-        this.gIR.a(this.gHy);
-        this.gIQ = new c(this.mTbPageContext);
-        this.gIQ.a(this.gIT);
-        this.gIQ.setListPullRefreshListener(this.gIU);
-        this.gIQ.b(this.WH);
-        this.gIQ.showLoadingView();
+        this.gJd = z;
+        this.gJf = new AlaNewSquareSubListModel(this.mTbPageContext);
+        this.gJf.a(this.gHM);
+        this.gJe = new c(this.mTbPageContext);
+        this.gJe.a(this.gJh);
+        this.gJe.setListPullRefreshListener(this.gJi);
+        this.gJe.b(this.WH);
+        this.gJe.showLoadingView();
     }
 
     public void a(String str, String str2, String str3, List<String> list) {
         if (!StringUtils.isNull(str2)) {
             if (!StringUtils.isNull(str)) {
-                this.gIS = str.equals("16:9");
+                this.gJg = str.equals("16:9");
             }
-            this.gIQ.a(this.gIP, list, str2, str3, this.gIS, false);
-            this.gIR.setEntryName(str2);
-            this.gIR.setLabelName(str3);
-            this.gIR.setSortType(y.isEmpty(list) ? "" : list.get(0));
-            this.gIR.mM(this.gIS);
+            this.gJe.a(this.gJd, list, str2, str3, this.gJg, false);
+            this.gJf.setEntryName(str2);
+            this.gJf.setLabelName(str3);
+            this.gJf.setSortType(y.isEmpty(list) ? "" : list.get(0));
+            this.gJf.mM(this.gJg);
             this.entryName = str2;
         }
     }
 
     public void refreshData() {
-        this.gIR.refreshData();
+        this.gJf.refreshData();
     }
 
     public View getRootView() {
-        return this.gIQ.getRootView();
+        return this.gJe.getRootView();
     }
 
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.gIQ != null) {
-            this.gIQ.onChangeSkinType(tbPageContext, i);
+        if (this.gJe != null) {
+            this.gJe.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -175,7 +175,7 @@ public class a {
             alaLiveInfoCoreData.fillWithInfoData(cbVar.boj());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (cb cbVar2 : this.gIR.bSp()) {
+            for (cb cbVar2 : this.gJf.bSw()) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(W(cbVar2));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "square_category", str2, z, "颜值".equals(str) ? str : null, null)));
@@ -190,13 +190,13 @@ public class a {
     }
 
     public void onDestroy() {
-        if (this.gIR != null) {
-            this.gIR.onDestroy();
-            this.gIR = null;
+        if (this.gJf != null) {
+            this.gJf.onDestroy();
+            this.gJf = null;
         }
-        if (this.gIQ != null) {
-            this.gIQ.onDestroy();
-            this.gIQ = null;
+        if (this.gJe != null) {
+            this.gJe.onDestroy();
+            this.gJe = null;
         }
     }
 }

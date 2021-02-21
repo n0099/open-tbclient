@@ -13,22 +13,22 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 /* loaded from: classes11.dex */
 public class k {
     private TextView eIO;
-    private TextView hvY;
-    private int hvo;
-    private HeadImageView hxu;
-    private com.baidu.live.challenge.d hxv;
-    private a hxw;
+    private int hvC;
+    private TextView hwm;
+    private HeadImageView hxI;
+    private com.baidu.live.challenge.d hxJ;
+    private a hxK;
     private Context mContext;
     private View mRootView;
-    private Runnable hdA = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.k.4
+    private Runnable hdO = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.k.4
         @Override // java.lang.Runnable
         public void run() {
             k.e(k.this);
-            k.this.hvY.setText(k.this.mContext.getString(a.h.ala_challenge_panel_countdown, Integer.valueOf(k.this.hvo)));
-            if (k.this.hvo > 0) {
+            k.this.hwm.setText(k.this.mContext.getString(a.h.ala_challenge_panel_countdown, Integer.valueOf(k.this.hvC)));
+            if (k.this.hvC > 0) {
                 k.this.mHandler.postDelayed(this, 1000L);
-            } else if (k.this.hxw != null) {
-                k.this.hxw.a(k.this);
+            } else if (k.this.hxK != null) {
+                k.this.hxK.a(k.this);
             }
         }
     };
@@ -42,23 +42,23 @@ public class k {
     }
 
     static /* synthetic */ int e(k kVar) {
-        int i = kVar.hvo;
-        kVar.hvo = i - 1;
+        int i = kVar.hvC;
+        kVar.hvC = i - 1;
         return i;
     }
 
     public k(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_challenger_item_layout, (ViewGroup) null);
-        this.hxu = (HeadImageView) this.mRootView.findViewById(a.f.ala_challenger_user_header);
-        this.hxu.setIsRound(true);
-        this.hxu.setAutoChangeStyle(false);
+        this.hxI = (HeadImageView) this.mRootView.findViewById(a.f.ala_challenger_user_header);
+        this.hxI.setIsRound(true);
+        this.hxI.setAutoChangeStyle(false);
         this.eIO = (TextView) this.mRootView.findViewById(a.f.ala_challenger_user_name);
-        this.hvY = (TextView) this.mRootView.findViewById(a.f.ala_challenger_wait_time);
+        this.hwm = (TextView) this.mRootView.findViewById(a.f.ala_challenger_wait_time);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                k.this.cdI();
+                k.this.cdP();
             }
         });
     }
@@ -68,25 +68,25 @@ public class k {
             this.mRootView.setVisibility(8);
             return;
         }
-        this.hxv = dVar;
-        this.hxu.startLoad(dVar.avatar, 25, false);
+        this.hxJ = dVar;
+        this.hxI.startLoad(dVar.avatar, 25, false);
         this.eIO.setText(dVar.userName);
-        this.hvo = (int) ((dVar.aFF + 60) - (System.currentTimeMillis() / 1000));
-        if (this.hvo > 0) {
-            if (this.hvo > 60) {
-                this.hvo = 60;
+        this.hvC = (int) ((dVar.aFF + 60) - (System.currentTimeMillis() / 1000));
+        if (this.hvC > 0) {
+            if (this.hvC > 60) {
+                this.hvC = 60;
             }
-            this.hvY.setText(this.mContext.getString(a.h.ala_challenge_panel_countdown, Integer.valueOf(this.hvo)));
-            this.mHandler.removeCallbacks(this.hdA);
-            this.mHandler.postDelayed(this.hdA, 1000L);
+            this.hwm.setText(this.mContext.getString(a.h.ala_challenge_panel_countdown, Integer.valueOf(this.hvC)));
+            this.mHandler.removeCallbacks(this.hdO);
+            this.mHandler.postDelayed(this.hdO, 1000L);
             return;
         }
         this.mRootView.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cdI() {
-        if (this.hxv != null) {
+    public void cdP() {
+        if (this.hxJ != null) {
             final Dialog dialog = new Dialog(this.mContext, a.i.ChallengeDialogStyle);
             dialog.requestWindowFeature(1);
             dialog.setCancelable(true);
@@ -94,10 +94,10 @@ public class k {
             View inflate = LayoutInflater.from(this.mContext).inflate(a.g.ala_challenge_accept_dialog_layout, (ViewGroup) null);
             HeadImageView headImageView = (HeadImageView) inflate.findViewById(a.f.ala_challenger_accept_header);
             headImageView.setIsRound(true);
-            headImageView.startLoad(this.hxv.avatar, 25, false);
-            ((TextView) inflate.findViewById(a.f.ala_challenge_accept_name)).setText(this.hxv.userName);
-            ((TextView) inflate.findViewById(a.f.ala_challenge_accept_ala_id)).setText(this.mContext.getString(a.h.sdk_host_id, String.valueOf(this.hxv.alaId)));
-            ((TextView) inflate.findViewById(a.f.ala_challenge_accept_tip)).setText(this.mContext.getString(a.h.ala_challenge_panel_accept_tip, this.hxv.userName));
+            headImageView.startLoad(this.hxJ.avatar, 25, false);
+            ((TextView) inflate.findViewById(a.f.ala_challenge_accept_name)).setText(this.hxJ.userName);
+            ((TextView) inflate.findViewById(a.f.ala_challenge_accept_ala_id)).setText(this.mContext.getString(a.h.sdk_host_id, String.valueOf(this.hxJ.alaId)));
+            ((TextView) inflate.findViewById(a.f.ala_challenge_accept_tip)).setText(this.mContext.getString(a.h.ala_challenge_panel_accept_tip, this.hxJ.userName));
             ((TextView) inflate.findViewById(a.f.ala_challenge_deny)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.k.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -107,8 +107,8 @@ public class k {
             ((TextView) inflate.findViewById(a.f.ala_challenge_accept)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.k.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (k.this.hxw != null) {
-                        k.this.hxw.c(k.this.hxv);
+                    if (k.this.hxK != null) {
+                        k.this.hxK.c(k.this.hxJ);
                     }
                     dialog.dismiss();
                 }
@@ -128,18 +128,18 @@ public class k {
     }
 
     public void a(a aVar) {
-        this.hxw = aVar;
+        this.hxK = aVar;
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public com.baidu.live.challenge.d cdJ() {
-        return this.hxv;
+    public com.baidu.live.challenge.d cdQ() {
+        return this.hxJ;
     }
 
     public void onDestory() {
-        this.mHandler.removeCallbacksAndMessages(this.hdA);
+        this.mHandler.removeCallbacksAndMessages(this.hdO);
     }
 }

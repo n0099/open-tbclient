@@ -37,7 +37,7 @@ public class w implements Runnable {
         } catch (Throwable th) {
         }
         if (a2 == null || a2.size() < 1) {
-            com.xiaomi.channel.commonutils.logger.b.m80a("no crash file to upload");
+            com.xiaomi.channel.commonutils.logger.b.m79a("no crash file to upload");
             return;
         }
         context2 = this.f13843a.f162a;
@@ -60,7 +60,7 @@ public class w implements Runnable {
                     file3.renameTo(new File(sb2.append(context5.getFilesDir()).append("/crash").toString(), a4 + ":0"));
                     this.f13843a.b();
                 } else {
-                    com.xiaomi.channel.commonutils.logger.b.m80a("zip crash file failed");
+                    com.xiaomi.channel.commonutils.logger.b.m79a("zip crash file failed");
                 }
                 i++;
                 file2 = file4;
@@ -74,7 +74,7 @@ public class w implements Runnable {
         }
         file = file2;
         if (file != null && file.exists() && !file.delete()) {
-            com.xiaomi.channel.commonutils.logger.b.m80a("delete zip crash file failed");
+            com.xiaomi.channel.commonutils.logger.b.m79a("delete zip crash file failed");
         }
         obj = v.f13842a;
         synchronized (obj) {

@@ -14,11 +14,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes6.dex */
 public class h {
-    private static volatile h qcE = null;
+    private static volatile h qde = null;
     private long f;
     private final List<com.ss.android.downloadlib.a.g> c = new CopyOnWriteArrayList();
     private final Map<String, com.ss.android.downloadlib.a.g> d = new ConcurrentHashMap();
-    private final CopyOnWriteArrayList<com.ss.android.a.a.b.a.a> qcF = new CopyOnWriteArrayList<>();
+    private final CopyOnWriteArrayList<com.ss.android.a.a.b.a.a> qdf = new CopyOnWriteArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
     private final Handler f12999b = new Handler(Looper.getMainLooper());
@@ -26,15 +26,15 @@ public class h {
     private h() {
     }
 
-    public static h eFd() {
-        if (qcE == null) {
+    public static h eFl() {
+        if (qde == null) {
             synchronized (h.class) {
-                if (qcE == null) {
-                    qcE = new h();
+                if (qde == null) {
+                    qde = new h();
                 }
             }
         }
-        return qcE;
+        return qde;
     }
 
     public void a(Context context, int i, com.ss.android.a.a.b.d dVar, com.ss.android.a.a.b.c cVar) {
@@ -50,7 +50,7 @@ public class h {
         }
     }
 
-    public com.ss.android.downloadlib.a.f aaN(String str) {
+    public com.ss.android.downloadlib.a.f aaZ(String str) {
         if (this.d == null || this.d.size() == 0 || TextUtils.isEmpty(str)) {
             return null;
         }
@@ -114,7 +114,7 @@ public class h {
 
     public void a(com.ss.android.a.a.b.a.a aVar) {
         if (aVar != null) {
-            this.qcF.add(aVar);
+            this.qdf.add(aVar);
         }
     }
 
@@ -146,7 +146,7 @@ public class h {
         this.f12999b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.1
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.qcF.iterator();
+                Iterator it = h.this.qdf.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).a(cVar, aVar, bVar);
                 }
@@ -158,7 +158,7 @@ public class h {
         this.f12999b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.2
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.qcF.iterator();
+                Iterator it = h.this.qdf.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).a(cVar, aVar, str);
                 }
@@ -170,7 +170,7 @@ public class h {
         this.f12999b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.3
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.qcF.iterator();
+                Iterator it = h.this.qdf.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).a(cVar, str);
                 }
@@ -182,7 +182,7 @@ public class h {
         this.f12999b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.4
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.qcF.iterator();
+                Iterator it = h.this.qdf.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).b(cVar, str);
                 }
@@ -194,7 +194,7 @@ public class h {
         this.f12999b.post(new Runnable() { // from class: com.ss.android.downloadlib.h.5
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = h.this.qcF.iterator();
+                Iterator it = h.this.qdf.iterator();
                 while (it.hasNext()) {
                     ((com.ss.android.a.a.b.a.a) it.next()).a(cVar);
                 }

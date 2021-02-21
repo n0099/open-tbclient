@@ -62,7 +62,7 @@ public final class bd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m70a(Context context) {
+    public static String m69a(Context context) {
         try {
             return ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         } catch (Exception e) {
@@ -115,9 +115,9 @@ public final class bd {
 
     public static String c(Context context) {
         String deviceId;
-        String m69e = az.m69e(context);
+        String m68e = az.m68e(context);
         try {
-            if (TextUtils.isEmpty(m69e)) {
+            if (TextUtils.isEmpty(m68e)) {
                 String str = "";
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (Build.VERSION.SDK_INT >= 23) {
@@ -143,9 +143,9 @@ public final class bd {
                     return deviceId;
                 }
             }
-            return m69e;
+            return m68e;
         } catch (Exception e2) {
-            return m69e;
+            return m68e;
         }
     }
 
@@ -192,9 +192,9 @@ public final class bd {
         }
     }
 
-    public static String eIW() {
+    public static String eJe() {
         try {
-            byte[] hardwareAddress = NetworkInterface.getByInetAddress(eJk()).getHardwareAddress();
+            byte[] hardwareAddress = NetworkInterface.getByInetAddress(eJs()).getHardwareAddress();
             StringBuffer stringBuffer = new StringBuffer();
             for (int i = 0; i < hardwareAddress.length; i++) {
                 if (i != 0) {
@@ -212,7 +212,7 @@ public final class bd {
         }
     }
 
-    private static InetAddress eJk() {
+    private static InetAddress eJs() {
         SocketException e;
         InetAddress inetAddress;
         try {
@@ -288,7 +288,7 @@ public final class bd {
         return Arrays.toString(strArr);
     }
 
-    public static List<String> eJl() {
+    public static List<String> eJt() {
         ArrayList arrayList = new ArrayList();
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("pm list package -3").getInputStream()));

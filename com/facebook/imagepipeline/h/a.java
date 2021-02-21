@@ -16,16 +16,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(21)
 /* loaded from: classes5.dex */
 public class a implements e {
-    private final com.facebook.imagepipeline.memory.c pGH;
-    final Pools.SynchronizedPool<ByteBuffer> pLh;
-    private static final Class<?> pxC = a.class;
-    private static final byte[] pLi = {-1, -39};
+    private final com.facebook.imagepipeline.memory.c pHh;
+    final Pools.SynchronizedPool<ByteBuffer> pLH;
+    private static final Class<?> pyc = a.class;
+    private static final byte[] pLI = {-1, -39};
 
     public a(com.facebook.imagepipeline.memory.c cVar, int i, Pools.SynchronizedPool synchronizedPool) {
-        this.pGH = cVar;
-        this.pLh = synchronizedPool;
+        this.pHh = cVar;
+        this.pLH = synchronizedPool;
         for (int i2 = 0; i2 < i; i2++) {
-            this.pLh.release(ByteBuffer.allocate(16384));
+            this.pLH.release(ByteBuffer.allocate(16384));
         }
     }
 
@@ -45,12 +45,12 @@ public class a implements e {
 
     @Override // com.facebook.imagepipeline.h.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.f.e eVar, Bitmap.Config config, @Nullable Rect rect, int i) {
-        boolean PN = eVar.PN(i);
+        boolean PO = eVar.PO(i);
         BitmapFactory.Options a2 = a(eVar, config);
         InputStream inputStream = eVar.getInputStream();
         g.checkNotNull(inputStream);
         InputStream aVar = eVar.getSize() > i ? new com.facebook.common.f.a(inputStream, i) : inputStream;
-        InputStream bVar = !PN ? new com.facebook.common.f.b(aVar, pLi) : aVar;
+        InputStream bVar = !PO ? new com.facebook.common.f.b(aVar, pLI) : aVar;
         boolean z = a2.inPreferredConfig != Bitmap.Config.ARGB_8888;
         try {
             return a(bVar, a2, rect);
@@ -88,12 +88,12 @@ public class a implements e {
             i = i4;
             i2 = i3;
         }
-        Bitmap bitmap2 = this.pGH.get(com.facebook.d.a.i(i2, i, options.inPreferredConfig));
+        Bitmap bitmap2 = this.pHh.get(com.facebook.d.a.i(i2, i, options.inPreferredConfig));
         if (bitmap2 == null) {
             throw new NullPointerException("BitmapPool.get returned null");
         }
         options.inBitmap = bitmap2;
-        ByteBuffer acquire = this.pLh.acquire();
+        ByteBuffer acquire = this.pLH.acquire();
         ByteBuffer allocate = acquire == null ? ByteBuffer.allocate(16384) : acquire;
         try {
             try {
@@ -112,20 +112,20 @@ public class a implements e {
                                     bitmap = decodeRegion;
                                 }
                             } catch (IOException e) {
-                                com.facebook.common.c.a.d(pxC, "Could not decode region %s, decoding full bitmap instead.", rect);
+                                com.facebook.common.c.a.d(pyc, "Could not decode region %s, decoding full bitmap instead.", rect);
                                 if (bitmapRegionDecoder != null) {
                                     bitmapRegionDecoder.recycle();
                                     bitmap = null;
                                     if (bitmap == null) {
                                     }
-                                    this.pLh.release(allocate);
+                                    this.pLH.release(allocate);
                                     if (bitmap2 == bitmap) {
                                     }
                                 }
                                 bitmap = null;
                                 if (bitmap == null) {
                                 }
-                                this.pLh.release(allocate);
+                                this.pLH.release(allocate);
                                 if (bitmap2 == bitmap) {
                                 }
                             }
@@ -148,40 +148,40 @@ public class a implements e {
                     if (bitmap == null) {
                         bitmap = BitmapFactory.decodeStream(inputStream, null, options);
                     }
-                    this.pLh.release(allocate);
+                    this.pLH.release(allocate);
                     if (bitmap2 == bitmap) {
-                        this.pGH.release(bitmap2);
+                        this.pHh.release(bitmap2);
                         bitmap.recycle();
                         throw new IllegalStateException();
                     }
-                    return com.facebook.common.references.a.a(bitmap, this.pGH);
+                    return com.facebook.common.references.a.a(bitmap, this.pHh);
                 }
                 bitmap = null;
                 if (bitmap == null) {
                 }
-                this.pLh.release(allocate);
+                this.pLH.release(allocate);
                 if (bitmap2 == bitmap) {
                 }
             } catch (Throwable th4) {
-                this.pLh.release(allocate);
+                this.pLH.release(allocate);
                 throw th4;
             }
         } catch (IllegalArgumentException e3) {
-            this.pGH.release(bitmap2);
+            this.pHh.release(bitmap2);
             try {
                 inputStream.reset();
                 Bitmap decodeStream = BitmapFactory.decodeStream(inputStream);
                 if (decodeStream == null) {
                     throw e3;
                 }
-                com.facebook.common.references.a<Bitmap> a2 = com.facebook.common.references.a.a(decodeStream, com.facebook.imagepipeline.a.g.evE());
-                this.pLh.release(allocate);
+                com.facebook.common.references.a<Bitmap> a2 = com.facebook.common.references.a.a(decodeStream, com.facebook.imagepipeline.a.g.evM());
+                this.pLH.release(allocate);
                 return a2;
             } catch (IOException e4) {
                 throw e3;
             }
         } catch (RuntimeException e5) {
-            this.pGH.release(bitmap2);
+            this.pHh.release(bitmap2);
             throw e5;
         }
     }

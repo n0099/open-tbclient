@@ -100,7 +100,7 @@ public class p extends BdAsyncTask<String, String, b> {
             }
         } else {
             if (this.fMV && S(new File(this.imagePath))) {
-                String replace = this.imagePath.replace(Dl(this.imagePath), ".gif");
+                String replace = this.imagePath.replace(Dj(this.imagePath), ".gif");
                 this.fMS.renameTo(new File(replace));
                 this.imagePath = replace;
                 this.fMS = new File(this.imagePath);
@@ -165,7 +165,7 @@ public class p extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.dlq + lowerCase + Dl(this.url);
+            this.imagePath = this.dlq + lowerCase + Dj(this.url);
             this.fMS = new File(this.imagePath);
             if (this.fMS.exists()) {
                 this.fMS.delete();
@@ -211,7 +211,7 @@ public class p extends BdAsyncTask<String, String, b> {
         try {
             a2 = a(new URL(str), i, i2);
             try {
-                fileOutputStream = new FileOutputStream(DN(str2), true);
+                fileOutputStream = new FileOutputStream(DL(str2), true);
                 try {
                     a2.connect();
                     int responseCode = a2.getResponseCode();
@@ -224,7 +224,7 @@ public class p extends BdAsyncTask<String, String, b> {
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.dlq + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + Dl(headerField);
+                        this.imagePath = this.dlq + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + Dj(headerField);
                         this.fMS = new File(this.imagePath);
                         if (this.fMS.exists()) {
                             this.fMS.delete();
@@ -357,7 +357,7 @@ public class p extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private File DN(String str) {
+    private File DL(String str) {
         com.baidu.adp.lib.util.f.delFile(str);
         return new File(str);
     }
@@ -414,7 +414,7 @@ public class p extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private String Dl(String str) {
+    private String Dj(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

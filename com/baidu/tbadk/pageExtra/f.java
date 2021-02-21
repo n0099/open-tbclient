@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class f {
     private static f fIJ;
-    private List<String> fIH = Dt(com.baidu.tbadk.core.sharedPref.b.brQ().getString("key_need_add_source_stat_list", ""));
-    private List<String> fII = Dt("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
+    private List<String> fIH = Dr(com.baidu.tbadk.core.sharedPref.b.brQ().getString("key_need_add_source_stat_list", ""));
+    private List<String> fII = Dr("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
 
     public static f bDO() {
         if (fIJ == null) {
@@ -26,15 +26,15 @@ public class f {
         return fIJ;
     }
 
-    public void Ds(String str) {
-        this.fIH = Dt(str);
+    public void Dq(String str) {
+        this.fIH = Dr(str);
         if (str == null) {
             str = "";
         }
         com.baidu.tbadk.core.sharedPref.b.brQ().putString("key_need_add_source_stat_list", str);
     }
 
-    private List<String> Dt(String str) {
+    private List<String> Dr(String str) {
         if (au.isEmpty(str)) {
             return null;
         }
@@ -54,7 +54,7 @@ public class f {
         return arrayList;
     }
 
-    public boolean Du(String str) {
+    public boolean Ds(String str) {
         if (y.isEmpty(this.fII) || au.isEmpty(str)) {
             return false;
         }
@@ -66,7 +66,7 @@ public class f {
         return false;
     }
 
-    public boolean Dv(String str) {
+    public boolean Dt(String str) {
         if (y.isEmpty(this.fIH) || au.isEmpty(str)) {
             return false;
         }
@@ -80,7 +80,7 @@ public class f {
 
     public void c(ar arVar) {
         if (arVar != null && !arVar.Bc("page_source")) {
-            if (Dv(arVar.getKey()) || Du(arVar.getKey())) {
+            if (Dt(arVar.getKey()) || Ds(arVar.getKey())) {
                 d(arVar);
             }
         }

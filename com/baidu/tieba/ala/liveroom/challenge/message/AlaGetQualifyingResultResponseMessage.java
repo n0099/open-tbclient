@@ -5,17 +5,17 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMessage {
-    private int hvl;
-    private boolean hvm;
-    private int hvn;
-    private int hvo;
-    private String hvp;
+    private boolean hvA;
+    private int hvB;
+    private int hvC;
+    private String hvD;
+    private int hvz;
 
     public AlaGetQualifyingResultResponseMessage() {
         super(1021209);
-        this.hvl = 0;
-        this.hvm = false;
-        this.hvn = 0;
+        this.hvz = 0;
+        this.hvA = false;
+        this.hvB = 0;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -24,41 +24,41 @@ public class AlaGetQualifyingResultResponseMessage extends JsonHttpResponsedMess
         ar arVar;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null && (arVar = com.baidu.live.ae.a.Qj().buX) != null && arVar.aNn != null) {
-            this.hvm = arVar.aNn.aQK;
-            if (this.hvm) {
+            this.hvA = arVar.aNn.aQK;
+            if (this.hvA) {
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("season_info");
                 if (optJSONObject2 != null) {
-                    this.hvl = 1;
-                    this.hvp = optJSONObject2.optString("show_last_time");
-                    if (this.hvp == null || this.hvp.isEmpty()) {
-                        this.hvn = 0;
+                    this.hvz = 1;
+                    this.hvD = optJSONObject2.optString("show_last_time");
+                    if (this.hvD == null || this.hvD.isEmpty()) {
+                        this.hvB = 0;
                         return;
                     } else {
-                        this.hvn = 1;
+                        this.hvB = 1;
                         return;
                     }
                 }
-                this.hvl = 0;
+                this.hvz = 0;
                 return;
             }
-            this.hvl = 0;
+            this.hvz = 0;
         }
     }
 
-    public boolean ccY() {
-        return this.hvl == 1;
+    public boolean cdf() {
+        return this.hvz == 1;
     }
 
-    public boolean ccZ() {
-        return this.hvn == 1;
+    public boolean cdg() {
+        return this.hvB == 1;
     }
 
-    public long cda() {
+    public long cdh() {
         try {
-            this.hvo = Integer.parseInt(this.hvp);
+            this.hvC = Integer.parseInt(this.hvD);
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-        return this.hvo * 1000;
+        return this.hvC * 1000;
     }
 }

@@ -80,7 +80,7 @@ public class PublishProgressView extends RelativeLayout implements View.OnClickL
                 this.fiH.bmS();
                 updateUI();
             }
-            com.baidu.tieba.tbadkCore.writeModel.d.dPg();
+            com.baidu.tieba.tbadkCore.writeModel.d.dPo();
         }
     }
 }

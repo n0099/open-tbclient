@@ -8,7 +8,7 @@ import com.baidu.yuyinala.privatemessage.implugin.a.a;
 import com.baidu.yuyinala.privatemessage.implugin.util.c;
 /* loaded from: classes11.dex */
 public class EventDispatchRelativeLayout extends RelativeLayout {
-    private a.f pbL;
+    private a.f pcl;
 
     public EventDispatchRelativeLayout(Context context) {
         super(context);
@@ -37,10 +37,10 @@ public class EventDispatchRelativeLayout extends RelativeLayout {
     }
 
     public void setSubviewLongClickListener(a.f fVar) {
-        this.pbL = fVar;
+        this.pcl = fVar;
     }
 
     public a.f getSubViewLongClickListener() {
-        return this.pbL;
+        return this.pcl;
     }
 }

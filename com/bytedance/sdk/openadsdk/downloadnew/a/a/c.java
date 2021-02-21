@@ -50,8 +50,8 @@ public class c implements g {
                 i = 0;
                 break;
         }
-        i eqH = i.eqH();
-        new j(i, str2, eqH) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
+        i eqP = i.eqP();
+        new j(i, str2, eqP) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
             @Override // com.bytedance.sdk.adnet.core.Request
             protected Map<String, String> c() throws com.bytedance.sdk.adnet.err.a {
                 HashMap hashMap = new HashMap();
@@ -62,7 +62,7 @@ public class c implements g {
             }
         }.build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).d());
         try {
-            pVar2 = eqH.get();
+            pVar2 = eqP.get();
         } catch (Throwable th) {
             pVar2 = null;
         }
@@ -73,10 +73,10 @@ public class c implements g {
             }
             return;
         }
-        boolean z = TextUtils.isEmpty(pVar2 != null && pVar2.pvp != null ? pVar2.pvp.getMessage() : null) ? false : true;
+        boolean z = TextUtils.isEmpty(pVar2 != null && pVar2.pvP != null ? pVar2.pvP.getMessage() : null) ? false : true;
         if (pVar != null) {
             if (z) {
-                valueOf = pVar2.pvp.getMessage();
+                valueOf = pVar2.pvP.getMessage();
             } else {
                 valueOf = pVar2 != null ? String.valueOf(pVar2.h) : "";
             }

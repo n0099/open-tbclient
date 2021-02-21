@@ -14,48 +14,48 @@ import tbclient.ThreadInfo;
 public class a {
     public String ePt;
     public boolean hasMore;
-    public String kot;
-    public b kou;
-    private boolean kov;
-    private boolean kow = false;
+    public String koH;
+    public b koI;
+    private boolean koJ;
+    private boolean koK = false;
     public List<n> mDataList;
     public String shareTitle;
     public long topicId;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.kov = false;
+            this.koJ = false;
             if (dataRes.topic_info != null) {
                 this.topicId = dataRes.topic_info.topic_id.longValue();
                 this.ePt = dataRes.topic_info.topic_name;
                 this.shareTitle = dataRes.topic_info.share_title;
-                this.kot = dataRes.topic_info.share_pic;
-                this.kou = new b();
-                this.kou.a(dataRes.topic_info);
+                this.koH = dataRes.topic_info.share_pic;
+                this.koI = new b();
+                this.koI.a(dataRes.topic_info);
                 if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                    this.kov = true;
+                    this.koJ = true;
                 }
             }
             if (dataRes.pk_module != null) {
-                this.kow = true;
-                this.kov = true;
-                if (this.kou == null) {
-                    this.kou = new b();
+                this.koK = true;
+                this.koJ = true;
+                if (this.koI == null) {
+                    this.koI = new b();
                 }
-                this.kou.a(dataRes.pk_module);
+                this.koI.a(dataRes.pk_module);
             } else {
-                this.kow = false;
+                this.koK = false;
             }
             if (dataRes.time_line != null) {
-                this.kov = true;
-                if (this.kou == null) {
-                    this.kou = new b();
+                this.koJ = true;
+                if (this.koI == null) {
+                    this.koI = new b();
                 }
-                this.kou.a(dataRes.time_line);
+                this.koI.a(dataRes.time_line);
             }
             this.mDataList = new ArrayList();
             if (!y.isEmpty(dataRes.special_topic)) {
-                this.kov = true;
+                this.koJ = true;
                 int i = 1;
                 for (SpecialTopic specialTopic : dataRes.special_topic) {
                     if (specialTopic != null && !y.isEmpty(specialTopic.thread_list)) {
@@ -65,8 +65,8 @@ public class a {
                             if (threadInfo != null) {
                                 d dVar = new d();
                                 if (!z) {
-                                    dVar.koG = true;
-                                    dVar.koH = specialTopic.title;
+                                    dVar.koU = true;
+                                    dVar.koV = specialTopic.title;
                                     z = true;
                                 }
                                 dVar.index = i2;
@@ -80,15 +80,15 @@ public class a {
                     }
                 }
             }
-            if (this.kov) {
+            if (this.koJ) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar = new com.baidu.tieba.homepage.topic.topictab.b.c();
-                cVar.iMk = R.dimen.tbds78;
+                cVar.iMy = R.dimen.tbds78;
                 cVar.eWx = R.color.CAM_X0201;
                 this.mDataList.add(cVar);
             }
             if (dataRes.relate_thread != null && !y.isEmpty(dataRes.relate_thread.thread_list)) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar2 = new com.baidu.tieba.homepage.topic.topictab.b.c();
-                cVar2.iMk = R.dimen.tbds16;
+                cVar2.iMy = R.dimen.tbds16;
                 this.mDataList.add(cVar2);
                 this.hasMore = dataRes.relate_thread.has_more.intValue() == 1;
                 for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
@@ -96,7 +96,7 @@ public class a {
                         c cVar3 = new c();
                         cVar3.a(topicThread);
                         cVar3.topicId = this.topicId;
-                        cVar3.koE = this.kow;
+                        cVar3.koS = this.koK;
                         this.mDataList.add(cVar3);
                     }
                 }
@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public boolean cSh() {
-        return this.kow;
+    public boolean cSo() {
+        return this.koK;
     }
 }

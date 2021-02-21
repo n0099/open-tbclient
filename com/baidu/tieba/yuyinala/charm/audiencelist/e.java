@@ -22,51 +22,51 @@ import java.util.List;
 public class e {
     private CommonEmptyView bwJ;
     private AlaLoadingView cdW;
-    private View.OnClickListener gNK = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.e.2
+    private PbListView gNM;
+    private View.OnClickListener gNY = new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.e.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ViewHelper.checkUpIsLogin(view.getContext());
         }
     };
-    private PbListView gNy;
-    private TextView gel;
+    private TextView ger;
     private BdListView mListView;
     private String mLiveId;
     private View mRootView;
-    private YuyinALaAudiencesActivity opk;
-    private h opl;
+    private YuyinALaAudiencesActivity opL;
+    private h opM;
 
     public e(YuyinALaAudiencesActivity yuyinALaAudiencesActivity, String str) {
-        this.opk = yuyinALaAudiencesActivity;
+        this.opL = yuyinALaAudiencesActivity;
         this.mLiveId = str;
-        this.mRootView = this.opk.getLayoutInflater().inflate(a.g.yuyin_online_list_detail_layout, (ViewGroup) null);
+        this.mRootView = this.opL.getLayoutInflater().inflate(a.g.yuyin_online_list_detail_layout, (ViewGroup) null);
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.detail_list);
         this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.emptyView);
         this.cdW = (AlaLoadingView) this.mRootView.findViewById(a.f.loading_view);
-        this.opl = new h(yuyinALaAudiencesActivity.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.opl);
+        this.opM = new h(yuyinALaAudiencesActivity.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.opM);
         this.mListView.setEmptyView(this.bwJ);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.e.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                e.this.opk.finish();
-                e.this.a(e.this.opl.getItem(i));
+                e.this.opL.finish();
+                e.this.a(e.this.opM.getItem(i));
             }
         });
-        this.gel = (TextView) this.mRootView.findViewById(a.f.top_text);
-        if (this.gNy == null) {
-            this.gNy = new PbListView(this.opk);
-            this.gNy.setTextColor(this.opk.getResources().getColor(a.c.sdk_color_858585));
-            this.gNy.setSkinType(0);
-            this.gNy.setContainerBackgroundColorResId(a.c.sdk_transparent);
-            this.gNy.setmTextSize(14.0f);
-            this.gNy.createView();
-            this.gNy.setHeight(BdUtilHelper.dip2px(this.opk, 60.0f));
+        this.ger = (TextView) this.mRootView.findViewById(a.f.top_text);
+        if (this.gNM == null) {
+            this.gNM = new PbListView(this.opL);
+            this.gNM.setTextColor(this.opL.getResources().getColor(a.c.sdk_color_858585));
+            this.gNM.setSkinType(0);
+            this.gNM.setContainerBackgroundColorResId(a.c.sdk_transparent);
+            this.gNM.setmTextSize(14.0f);
+            this.gNM.createView();
+            this.gNM.setHeight(BdUtilHelper.dip2px(this.opL, 60.0f));
         }
     }
 
     public void gn(List<a> list) {
-        this.opl.setData(list);
+        this.opM.setData(list);
     }
 
     public void dQ(boolean z) {
@@ -74,7 +74,7 @@ public class e {
             this.bwJ.reset();
             this.bwJ.setTitle("还没有观众哦~");
             this.bwJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.bwJ.setTextColor(this.opk.getResources().getColor(a.c.sdk_color_525252));
+            this.bwJ.setTextColor(this.opL.getResources().getColor(a.c.sdk_color_525252));
             this.bwJ.setVisibility(0);
             return;
         }
@@ -94,7 +94,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar) {
         if (aVar != null && aVar.aId != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.opk.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(aVar.aId.userUk), aVar.aId.userName, aVar.aId.portrait, aVar.aId.sex, aVar.aId.levelId, null, null, 0L, aVar.aId.fansCount, aVar.aId.fansCount, aVar.aId.userStatus, "", this.mLiveId, false, "", null, aVar.aId.userName, "")));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.opL.getPageContext().getPageActivity(), ExtraParamsManager.getDecryptUserId(aVar.aId.userUk), aVar.aId.userName, aVar.aId.portrait, aVar.aId.sex, aVar.aId.levelId, null, null, 0L, aVar.aId.fansCount, aVar.aId.fansCount, aVar.aId.userStatus, "", this.mLiveId, false, "", null, aVar.aId.userName, "")));
         }
     }
 
@@ -107,7 +107,7 @@ public class e {
         this.bwJ.setTitle("网络加载失败了哦~");
         this.bwJ.setRefreshButton("重新加载", onClickListener);
         this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bwJ.setTextColor(this.opk.getResources().getColor(a.c.sdk_color_525252));
+        this.bwJ.setTextColor(this.opL.getResources().getColor(a.c.sdk_color_525252));
         this.bwJ.setVisibility(0);
     }
 
@@ -115,9 +115,9 @@ public class e {
         this.bwJ.setVisibility(8);
     }
 
-    public void Gz(String str) {
-        this.mListView.setNextPage(this.gNy);
-        this.gNy.endLoadDataWithNoMore(str);
+    public void GA(String str) {
+        this.mListView.setNextPage(this.gNM);
+        this.gNM.endLoadDataWithNoMore(str);
     }
 
     public BdListView getListView() {

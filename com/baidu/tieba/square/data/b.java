@@ -11,7 +11,7 @@ public class b extends BaseCardInfo {
     public String extInfo;
     public long forumId;
     public String forumName;
-    public String iLX;
+    public String iMl;
     public int memberCount;
     public int threadCount;
 
@@ -44,12 +44,12 @@ public class b extends BaseCardInfo {
         return this.memberCount;
     }
 
-    public int dLF() {
+    public int dLN() {
         return this.threadCount;
     }
 
     public String blo() {
-        return this.iLX;
+        return this.iMl;
     }
 
     public void c(RecommendForumInfo recommendForumInfo) {
@@ -60,7 +60,7 @@ public class b extends BaseCardInfo {
             this.memberCount = recommendForumInfo.member_count.intValue();
             this.threadCount = recommendForumInfo.thread_count.intValue();
             this.ePK = recommendForumInfo.is_like.intValue() == 1;
-            this.iLX = recommendForumInfo.recom_reason;
+            this.iMl = recommendForumInfo.recom_reason;
             this.extInfo = recommendForumInfo.extra;
         }
     }

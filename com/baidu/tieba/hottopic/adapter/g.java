@@ -14,13 +14,13 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.holder.HotTopicPkItemHolder;
 /* loaded from: classes8.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.i, HotTopicPkItemHolder> {
-    private HotTopicActivity ksB;
+    private HotTopicActivity ksP;
     public int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.ksB = hotTopicActivity;
+        this.ksP = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,23 +45,23 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(HotTopicPkItemHolder hotTopicPkItemHolder, View view) {
         if (hotTopicPkItemHolder != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (this.ksB != null && hotTopicPkItemHolder.ajU != this.mSkinType) {
+            if (this.ksP != null && hotTopicPkItemHolder.ajU != this.mSkinType) {
                 hotTopicPkItemHolder.ajU = this.mSkinType;
                 ap.setBackgroundColor(hotTopicPkItemHolder.getView(), R.color.CAM_X0201);
-                this.ksB.getLayoutMode().setNightMode(this.mSkinType == 1);
-                this.ksB.getLayoutMode().onModeChanged(view);
+                this.ksP.getLayoutMode().setNightMode(this.mSkinType == 1);
+                this.ksP.getLayoutMode().onModeChanged(view);
             }
         }
     }
 
     private void a(HotTopicPkItemHolder hotTopicPkItemHolder, com.baidu.tieba.hottopic.data.i iVar) {
         if (hotTopicPkItemHolder != null && iVar != null) {
-            hotTopicPkItemHolder.kvM.setText(StringUtils.isNull(iVar.ktS) ? this.ksB.getResources().getString(R.string.pk_topic_default) : iVar.ktS.trim());
-            hotTopicPkItemHolder.kvN.setText(au.cutStringWithSuffix(iVar.ktT.trim(), 32, StringHelper.STRING_MORE));
-            hotTopicPkItemHolder.kvN.setText(iVar.ktT.trim());
-            hotTopicPkItemHolder.kvO.setData(iVar, this.ksB);
-            hotTopicPkItemHolder.kvP.setText(iVar.kuK.trim());
-            hotTopicPkItemHolder.kvQ.setText(iVar.kuN.trim());
+            hotTopicPkItemHolder.kwa.setText(StringUtils.isNull(iVar.kug) ? this.ksP.getResources().getString(R.string.pk_topic_default) : iVar.kug.trim());
+            hotTopicPkItemHolder.kwb.setText(au.cutStringWithSuffix(iVar.kuh.trim(), 32, StringHelper.STRING_MORE));
+            hotTopicPkItemHolder.kwb.setText(iVar.kuh.trim());
+            hotTopicPkItemHolder.kwc.setData(iVar, this.ksP);
+            hotTopicPkItemHolder.kwd.setText(iVar.kuY.trim());
+            hotTopicPkItemHolder.kwe.setText(iVar.kvb.trim());
         }
     }
 }

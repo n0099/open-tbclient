@@ -30,7 +30,7 @@ import java.util.List;
 public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewHolder> {
     private com.baidu.tbadk.h.f<MetaData> ajq;
     private BdUniqueId foA;
-    private boolean kba;
+    private boolean kbo;
     private Context mContext;
     private List<MetaData> mData;
     private TbPageContext mPageContext;
@@ -82,8 +82,8 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     }
 
     private void a(final MetaData metaData, final ForumViewHolder forumViewHolder) {
-        forumViewHolder.kbg.setData(metaData, true);
-        forumViewHolder.kbg.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter.1
+        forumViewHolder.kbu.setData(metaData, true);
+        forumViewHolder.kbu.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ar arVar = new ar("c13566");
@@ -95,7 +95,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     }
 
     private void b(final MetaData metaData, ForumViewHolder forumViewHolder) {
-        forumViewHolder.kbh.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter.2
+        forumViewHolder.kbv.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter.2
             @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
             public void cO(View view) {
                 if (metaData != null) {
@@ -168,7 +168,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                     str = "";
                 }
             }
-            forumViewHolder.kbf.setText(str);
+            forumViewHolder.kbt.setText(str);
         }
     }
 
@@ -177,49 +177,49 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     }
 
     public void setHasBorder(boolean z) {
-        this.kba = z;
+        this.kbo = z;
     }
 
     /* loaded from: classes2.dex */
     public class ForumViewHolder extends RecyclerView.ViewHolder {
         public com.baidu.tbadk.core.view.userLike.c akz;
         public TextView eIO;
-        public TextView kbf;
-        public HeadPendantClickableView kbg;
-        public DynamicUserLikeButton kbh;
-        private boolean kbi;
+        public TextView kbt;
+        public HeadPendantClickableView kbu;
+        public DynamicUserLikeButton kbv;
+        private boolean kbw;
         public LinearLayout mContainer;
 
         public ForumViewHolder(View view) {
             super(view);
-            this.kbi = false;
+            this.kbw = false;
             this.mContainer = (LinearLayout) view.findViewById(R.id.concern_container);
-            this.kbg = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-            this.kbg.getHeadView().setIsRound(true);
-            this.kbg.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.kbg.getHeadView().setDefaultResource(17170445);
-            this.kbg.getHeadView().setPlaceHolder(1);
-            this.kbg.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(ConcernRecommendListAdapter.this.mContext, R.dimen.tbds1));
-            this.kbg.getHeadView().setBorderColor(ap.getColor(R.color.CAM_X0401));
+            this.kbu = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
+            this.kbu.getHeadView().setIsRound(true);
+            this.kbu.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.kbu.getHeadView().setDefaultResource(17170445);
+            this.kbu.getHeadView().setPlaceHolder(1);
+            this.kbu.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(ConcernRecommendListAdapter.this.mContext, R.dimen.tbds1));
+            this.kbu.getHeadView().setBorderColor(ap.getColor(R.color.CAM_X0401));
             this.eIO = (TextView) view.findViewById(R.id.concern_user_name);
-            this.kbf = (TextView) view.findViewById(R.id.concern_user_desc);
-            this.kbh = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-            this.akz = new com.baidu.tbadk.core.view.userLike.c(ConcernRecommendListAdapter.this.mPageContext, this.kbh);
+            this.kbt = (TextView) view.findViewById(R.id.concern_user_desc);
+            this.kbv = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
+            this.akz = new com.baidu.tbadk.core.view.userLike.c(ConcernRecommendListAdapter.this.mPageContext, this.kbv);
         }
 
         public void onChangeSkinType(int i) {
-            if (!this.kbi) {
+            if (!this.kbw) {
                 ap.setViewTextColor(this.eIO, R.color.CAM_X0105);
             } else {
                 ap.setViewTextColor(this.eIO, R.color.CAM_X0301);
             }
-            ap.setViewTextColor(this.kbf, R.color.CAM_X0109);
-            this.kbh.onChangeSkinType(i);
+            ap.setViewTextColor(this.kbt, R.color.CAM_X0109);
+            this.kbv.onChangeSkinType(i);
             com.baidu.tbadk.core.elementsMaven.c.br(this.mContainer).og(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
         }
 
         public void rX(boolean z) {
-            this.kbi = z;
+            this.kbw = z;
         }
     }
 

@@ -52,7 +52,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                     if (aVar != null && aVar.bBh() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.CY((String) aVar2.data);
+                                aVar.CW((String) aVar2.data);
                                 return;
                             case 5:
                             case 6:
@@ -62,7 +62,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.bwm().showToast(R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.dVG();
+                                aVar.dVO();
                                 if (b.this.a(aVar.bwm(), RequestResponseCode.REQUEST_LOGIN_WRITE)) {
                                     aVar.bCm();
                                     return;

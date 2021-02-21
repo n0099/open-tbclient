@@ -13,16 +13,16 @@ public class o {
     public String mExtra;
     public String mFloor;
     public String mGroupId;
-    public String mIe;
-    public String mIf;
-    public String mIg;
-    public int mIh;
-    public String mIi;
-    public String mIj;
-    public String mIk;
-    public String mIl;
-    public String mIm;
-    public String mIn;
+    public String mIA;
+    public String mIB;
+    public String mIC;
+    public String mIE;
+    public String mIF;
+    public String mIv;
+    public String mIw;
+    public String mIx;
+    public int mIy;
+    public String mIz;
     public String mLocate;
     public String mSource;
     public String mType;
@@ -48,56 +48,56 @@ public class o {
             } else {
                 arVar.ap("obj_source", 0);
             }
-            if (!StringUtils.isNull(this.mIe)) {
-                arVar.dR("obj_param1", this.mIe);
+            if (!StringUtils.isNull(this.mIv)) {
+                arVar.dR("obj_param1", this.mIv);
             } else {
                 arVar.ap("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.mIf)) {
-                arVar.dR(TiebaInitialize.Params.OBJ_PARAM2, this.mIf);
+            if (!StringUtils.isNull(this.mIw)) {
+                arVar.dR(TiebaInitialize.Params.OBJ_PARAM2, this.mIw);
             }
-            if (!StringUtils.isNull(this.mIg)) {
-                arVar.dR(TiebaInitialize.Params.OBJ_PARAM3, this.mIg);
+            if (!StringUtils.isNull(this.mIx)) {
+                arVar.dR(TiebaInitialize.Params.OBJ_PARAM3, this.mIx);
             }
-            if (this.mIh > 0) {
-                arVar.ap("obj_param5", this.mIh);
+            if (this.mIy > 0) {
+                arVar.ap("obj_param5", this.mIy);
             }
             if (!StringUtils.isNull(this.eNE)) {
                 arVar.dR("obj_id", this.eNE);
             }
-            if (!StringUtils.isNull(this.mIi)) {
-                arVar.dR("ab_tag", this.mIi);
+            if (!StringUtils.isNull(this.mIz)) {
+                arVar.dR("ab_tag", this.mIz);
             } else {
                 arVar.ap("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.mIk)) {
-                arVar.dR("topic_type", this.mIk);
+            if (!StringUtils.isNull(this.mIB)) {
+                arVar.dR("topic_type", this.mIB);
             }
             if (!StringUtils.isNull(this.mExtra)) {
                 arVar.dR("extra", this.mExtra);
             } else {
                 arVar.ap("extra", 0);
             }
-            if (!StringUtils.isNull(this.mIl)) {
-                arVar.dR("is_vertical", this.mIl);
+            if (!StringUtils.isNull(this.mIC)) {
+                arVar.dR("is_vertical", this.mIC);
             }
             if (!StringUtils.isNull(this.mFloor)) {
                 arVar.dR("obj_floor", this.mFloor);
             }
-            if (!StringUtils.isNull(this.mIm)) {
-                arVar.dR("resource_id", this.mIm);
+            if (!StringUtils.isNull(this.mIE)) {
+                arVar.dR("resource_id", this.mIE);
             }
             if (!StringUtils.isNull(this.mGroupId)) {
                 arVar.dR("group_id", this.mGroupId);
             }
             arVar.dR("obj_param4", StringUtils.isNull(this.eTz) ? "" : this.eTz);
             arVar.dR("obj_param6", StringUtils.isNull(this.mVid) ? "" : this.mVid);
-            arVar.dR(IntentConfig.NID, StringUtils.isNull(this.mIn) ? "" : this.mIn);
+            arVar.dR(IntentConfig.NID, StringUtils.isNull(this.mIF) ? "" : this.mIF);
         }
         return arVar;
     }
 
-    public o dAh() {
+    public o dAo() {
         o oVar = new o();
         oVar.mLocate = this.mLocate;
         oVar.mType = this.mType;
@@ -105,19 +105,19 @@ public class o {
         oVar.fNd = this.fNd;
         oVar.mUid = this.mUid;
         oVar.mSource = this.mSource;
-        oVar.mIe = this.mIe;
-        oVar.mIf = this.mIf;
-        oVar.mIg = this.mIg;
+        oVar.mIv = this.mIv;
+        oVar.mIw = this.mIw;
+        oVar.mIx = this.mIx;
         oVar.eNE = this.eNE;
-        oVar.mIi = this.mIi;
-        oVar.mIj = this.mIj;
-        oVar.mIk = this.mIk;
+        oVar.mIz = this.mIz;
+        oVar.mIA = this.mIA;
+        oVar.mIB = this.mIB;
         oVar.mFloor = this.mFloor;
-        oVar.mIm = this.mIm;
+        oVar.mIE = this.mIE;
         oVar.mGroupId = this.mGroupId;
         oVar.eTz = this.eTz;
         oVar.mVid = this.mVid;
-        oVar.mIn = this.mIn;
+        oVar.mIF = this.mIF;
         return oVar;
     }
 }

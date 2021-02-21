@@ -13,15 +13,15 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class e {
-    private PopupWindow iJL;
+    private PopupWindow iJZ;
     private TbPageContext<?> mPageContext;
     private View mRootView;
     private Handler mHandler = new Handler();
-    private Runnable iJM = new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.1
+    private Runnable iKa = new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.iJL != null) {
-                g.dismissPopupWindow(e.this.iJL);
+            if (e.this.iJZ != null) {
+                g.dismissPopupWindow(e.this.iJZ);
             }
         }
     };
@@ -42,7 +42,7 @@ public class e {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.home.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    e.this.ch(i, i2);
+                    e.this.ci(i, i2);
                 }
             }, 100L);
         }
@@ -60,30 +60,30 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ch(int i, int i2) {
+    public void ci(int i, int i2) {
         com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean(SharedPrefConfig.KEY_ENTER_FORUM_UFAN_RECENT_VISIT_TIP_SHOW, true);
-        if (this.iJL == null || !this.iJL.isShowing()) {
+        if (this.iJZ == null || !this.iJZ.isShowing()) {
             if (this.mRootView == null) {
                 this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.enter_forum_ufan_item_tip, (ViewGroup) null);
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.cws();
+                        e.this.cwz();
                     }
                 });
             }
-            if (this.iJL == null) {
-                this.iJL = new PopupWindow(this.mRootView, -2, -2);
-                this.iJL.setOutsideTouchable(true);
+            if (this.iJZ == null) {
+                this.iJZ = new PopupWindow(this.mRootView, -2, -2);
+                this.iJZ.setOutsideTouchable(true);
             }
-            g.showPopupWindowAtLocation(this.iJL, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds220) * i2), i);
-            this.mHandler.postDelayed(this.iJM, 5000L);
+            g.showPopupWindowAtLocation(this.iJZ, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds220) * i2), i);
+            this.mHandler.postDelayed(this.iKa, 5000L);
         }
     }
 
-    public void cws() {
-        if (this.iJL != null) {
-            g.dismissPopupWindow(this.iJL);
+    public void cwz() {
+        if (this.iJZ != null) {
+            g.dismissPopupWindow(this.iJZ);
         }
     }
 

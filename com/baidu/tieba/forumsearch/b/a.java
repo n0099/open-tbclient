@@ -5,11 +5,11 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class a extends BaseCardInfo {
-    public static final BdUniqueId jen = BdUniqueId.gen();
-    public static final BdUniqueId jeo = BdUniqueId.gen();
-    public static final BdUniqueId jep = BdUniqueId.gen();
+    public static final BdUniqueId jeB = BdUniqueId.gen();
+    public static final BdUniqueId jeC = BdUniqueId.gen();
+    public static final BdUniqueId jeD = BdUniqueId.gen();
     private BdUniqueId Wm;
-    private ArrayList<String> jeq;
+    private ArrayList<String> jeE;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
@@ -21,17 +21,17 @@ public class a extends BaseCardInfo {
     }
 
     public a() {
-        this.Wm = jeo;
-        this.Wm = jeo;
+        this.Wm = jeC;
+        this.Wm = jeC;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.Wm = jeo;
-        this.jeq = arrayList;
-        this.Wm = jen;
+        this.Wm = jeC;
+        this.jeE = arrayList;
+        this.Wm = jeB;
     }
 
-    public ArrayList<String> cBd() {
-        return this.jeq;
+    public ArrayList<String> cBk() {
+        return this.jeE;
     }
 }

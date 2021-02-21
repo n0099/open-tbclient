@@ -17,10 +17,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NEGFeedBackReasonCheckBox extends CheckBox {
     private CustomMessageListener eVF;
-    private GradientDrawable gdn;
-    private GradientDrawable gdo;
-    private GradientDrawable gdp;
-    private StateListDrawable gdq;
+    private GradientDrawable gds;
+    private GradientDrawable gdt;
+    private GradientDrawable gdu;
+    private StateListDrawable gdv;
     private Context mContext;
     private int mSkinType;
 
@@ -104,22 +104,22 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
 
     private void e(int i, int i2, int i3, int i4, int i5) {
         int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i).split(",")[0]);
-        this.gdn = new GradientDrawable();
-        this.gdn.setShape(0);
-        this.gdn.setCornerRadius(parseInt);
-        this.gdn.setStroke(i2, ap.getColor(i3));
-        this.gdo = new GradientDrawable();
-        this.gdo.setShape(0);
-        this.gdo.setCornerRadius(parseInt);
-        this.gdo.setStroke(i2, com.baidu.tieba.tbadkCore.c.l(ap.getColor(i4), ap.faN));
-        this.gdp = new GradientDrawable();
-        this.gdp.setShape(0);
-        this.gdp.setCornerRadius(parseInt);
-        this.gdp.setStroke(i2, com.baidu.tieba.tbadkCore.c.l(ap.getColor(i5), ap.faO));
-        this.gdq = new StateListDrawable();
-        this.gdq.addState(new int[]{16842912}, this.gdo);
-        this.gdq.addState(new int[]{-16842910}, this.gdp);
-        this.gdq.addState(new int[0], this.gdn);
-        setBackgroundDrawable(this.gdq);
+        this.gds = new GradientDrawable();
+        this.gds.setShape(0);
+        this.gds.setCornerRadius(parseInt);
+        this.gds.setStroke(i2, ap.getColor(i3));
+        this.gdt = new GradientDrawable();
+        this.gdt.setShape(0);
+        this.gdt.setCornerRadius(parseInt);
+        this.gdt.setStroke(i2, com.baidu.tieba.tbadkCore.c.l(ap.getColor(i4), ap.faN));
+        this.gdu = new GradientDrawable();
+        this.gdu.setShape(0);
+        this.gdu.setCornerRadius(parseInt);
+        this.gdu.setStroke(i2, com.baidu.tieba.tbadkCore.c.l(ap.getColor(i5), ap.faO));
+        this.gdv = new StateListDrawable();
+        this.gdv.addState(new int[]{16842912}, this.gdt);
+        this.gdv.addState(new int[]{-16842910}, this.gdu);
+        this.gdv.addState(new int[0], this.gds);
+        setBackgroundDrawable(this.gdv);
     }
 }

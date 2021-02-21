@@ -30,7 +30,7 @@ final class s extends XMPushService.i {
     public void a() {
         try {
             ii a2 = p.a((Context) this.f1008a, this.f14321a);
-            a2.m444a().a("message_obsleted", "1");
+            a2.m443a().a("message_obsleted", "1");
             w.a(this.f1008a, a2);
         } catch (gd e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

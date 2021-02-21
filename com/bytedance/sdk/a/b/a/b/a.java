@@ -17,8 +17,8 @@ public final class a implements x {
     @Override // com.bytedance.sdk.a.b.x
     public com.bytedance.sdk.a.b.b a(x.a aVar) throws IOException {
         com.bytedance.sdk.a.b.a.c.g gVar = (com.bytedance.sdk.a.b.a.c.g) aVar;
-        ab epm = gVar.epm();
-        g epi = gVar.epi();
-        return gVar.a(epm, epi, epi.a(this.f5861a, aVar, !epm.b().equals("GET")), epi.epf());
+        ab epu = gVar.epu();
+        g epq = gVar.epq();
+        return gVar.a(epu, epq, epq.a(this.f5861a, aVar, !epu.b().equals("GET")), epq.epn());
     }
 }

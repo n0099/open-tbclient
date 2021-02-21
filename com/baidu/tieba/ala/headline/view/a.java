@@ -60,103 +60,103 @@ public class a {
     private AnimatorSet aZa;
     private int ds20;
     private int ds240;
-    private ObjectAnimator heA;
-    private List<Animator> heB;
-    private int heC;
-    private RelativeLayout.LayoutParams heD;
-    private TBLottieAnimationView heE;
-    private View heF;
-    private long heK;
-    private long hea;
-    private View hed;
-    private TextView hee;
-    private ViewGroup hef;
-    private ViewGroup heg;
-    private TextView heh;
-    private TextView hei;
-    private ViewGroup hej;
-    private ViewGroup hek;
-    private View hel;
-    private View hem;
-    private ViewGroup hen;
-    private HeadImageView heo;
-    private HeadImageView hep;
-    private HeadImageView heq;
-    private HeadImageView her;
-    private ImageView hes;
-    private TbImageView het;
-    private TextView heu;
-    private ImageView hev;
-    private ObjectAnimator hew;
-    private ObjectAnimator hex;
-    private ObjectAnimator hey;
-    private ObjectAnimator hez;
+    private View heA;
+    private ViewGroup heB;
+    private HeadImageView heC;
+    private HeadImageView heD;
+    private HeadImageView heE;
+    private HeadImageView heF;
+    private ImageView heG;
+    private TbImageView heH;
+    private TextView heI;
+    private ImageView heJ;
+    private ObjectAnimator heK;
+    private ObjectAnimator heL;
+    private ObjectAnimator heM;
+    private ObjectAnimator heN;
+    private ObjectAnimator heO;
+    private List<Animator> heP;
+    private int heQ;
+    private RelativeLayout.LayoutParams heR;
+    private TBLottieAnimationView heS;
+    private View heT;
+    private long heY;
+    private long heo;
+    private View her;
+    private TextView hes;
+    private ViewGroup het;
+    private ViewGroup heu;
+    private TextView hev;
+    private TextView hew;
+    private ViewGroup hex;
+    private ViewGroup hey;
+    private View hez;
     private boolean isHost;
     Activity mContext;
     private int mScreenWidth;
     private boolean DEBUG = false;
     String otherParams = "";
     private int aUb = 1;
-    private boolean hec = false;
+    private boolean heq = false;
     private boolean aYP = false;
-    private Runnable heG = new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.15
+    private Runnable heU = new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.15
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.this.hec) {
-                ObjectAnimator bWO = a.this.bWO();
-                if (bWO != null && !bWO.isRunning()) {
-                    bWO.start();
+            if (!a.this.heq) {
+                ObjectAnimator bWV = a.this.bWV();
+                if (bWV != null && !bWV.isRunning()) {
+                    bWV.start();
                 }
                 a.this.mHandler.postDelayed(this, 2000L);
             }
         }
     };
-    private Runnable heH = new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.16
+    private Runnable heV = new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.16
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.this.hec) {
+            if (!a.this.heq) {
                 if (!a.this.aYP) {
                     a.this.mHandler.removeCallbacks(this);
                     return;
                 }
-                ObjectAnimator bWN = a.this.bWN();
-                if (bWN != null && !bWN.isRunning()) {
-                    bWN.start();
+                ObjectAnimator bWU = a.this.bWU();
+                if (bWU != null && !bWU.isRunning()) {
+                    bWU.start();
                 }
                 a.this.mHandler.postDelayed(this, 1500L);
             }
         }
     };
-    private boolean heI = false;
-    private Runnable heJ = new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.17
+    private boolean heW = false;
+    private Runnable heX = new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.17
         @Override // java.lang.Runnable
         public void run() {
-            a.this.hea--;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913245, Long.valueOf(a.this.hea)));
-            if (a.this.hea <= 0) {
-                a.this.hei.setText("");
-                a.this.heh.setText("");
+            a.this.heo--;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913245, Long.valueOf(a.this.heo)));
+            if (a.this.heo <= 0) {
+                a.this.hew.setText("");
+                a.this.hev.setText("");
                 a.this.N(false, false);
                 a.this.mHandler.removeCallbacks(this);
                 if (a.this.aIB != null) {
-                    a.this.heK = a.this.aIB.aHs;
+                    a.this.heY = a.this.aIB.aHs;
                     return;
                 }
                 return;
             }
-            a.this.hei.setText(a.this.hea + "s");
-            if (a.this.heI) {
-                a.this.heI = false;
+            a.this.hew.setText(a.this.heo + "s");
+            if (a.this.heW) {
+                a.this.heW = false;
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.17.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.heh != null) {
-                            a.this.heh.setText(a.this.hea + "s");
+                        if (a.this.hev != null) {
+                            a.this.hev.setText(a.this.heo + "s");
                         }
                     }
                 }, 1000L);
             } else {
-                a.this.heh.setText(a.this.hea + "s");
+                a.this.hev.setText(a.this.heo + "s");
             }
             a.this.mHandler.postDelayed(this, 1000L);
         }
@@ -164,8 +164,8 @@ public class a {
     private List<q> mList = new ArrayList();
     private Handler mHandler = new Handler();
 
-    public View bWG() {
-        return this.heF;
+    public View bWN() {
+        return this.heT;
     }
 
     public a(TbPageContext tbPageContext) {
@@ -174,54 +174,54 @@ public class a {
     }
 
     private void initView() {
-        this.hed = LayoutInflater.from(this.mContext).inflate(a.g.sdk_headline_layout, (ViewGroup) null, false);
-        this.heg = (ViewGroup) this.hed.findViewById(a.f.ala_sdk_rl_all_content_container);
-        this.hej = (ViewGroup) this.hed.findViewById(a.f.ala_ll_have_fixed_container);
-        this.hek = (ViewGroup) this.hed.findViewById(a.f.ala_ll_empty_fixed_container);
-        this.heh = (TextView) this.hed.findViewById(a.f.ala_tv_time);
-        this.hev = (ImageView) this.hed.findViewById(a.f.ala_sdk_iv_sweep);
-        this.hep = (HeadImageView) this.hed.findViewById(a.f.ala_iv_host_head);
-        b(this.hep);
-        this.heo = (HeadImageView) this.hed.findViewById(a.f.ala_iv_user_head);
-        b(this.heo);
-        this.heu = (TextView) this.hed.findViewById(a.f.ala_sdk_head_line_tv_text);
-        this.het = (TbImageView) this.hed.findViewById(a.f.ala_iv_empty_icon);
-        this.hel = this.hed.findViewById(a.f.ala_sdk_rl_boardcast_root_view);
-        this.hel.setVisibility(4);
-        this.hem = this.hel.findViewById(a.f.ala_sdk_anim_container);
-        this.hen = (ViewGroup) this.hel.findViewById(a.f.ala_anim_ll_have_fixed_container);
-        this.hei = (TextView) this.hel.findViewById(a.f.ala_anim_tv_time);
-        this.hee = (TextView) this.hel.findViewById(a.f.ala_sdk_tv_gift_show);
-        this.hef = (ViewGroup) this.hel.findViewById(a.f.ala_sdk_ll_gift_text_show_container);
-        this.her = (HeadImageView) this.hel.findViewById(a.f.ala_anim_iv_host_head);
-        b(this.her);
-        this.heq = (HeadImageView) this.hel.findViewById(a.f.ala_anim_iv_user_head);
-        b(this.heq);
-        this.hes = (ImageView) this.hel.findViewById(a.f.ala_sdk_iv_anim_sweep);
-        this.heg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.a.1
+        this.her = LayoutInflater.from(this.mContext).inflate(a.g.sdk_headline_layout, (ViewGroup) null, false);
+        this.heu = (ViewGroup) this.her.findViewById(a.f.ala_sdk_rl_all_content_container);
+        this.hex = (ViewGroup) this.her.findViewById(a.f.ala_ll_have_fixed_container);
+        this.hey = (ViewGroup) this.her.findViewById(a.f.ala_ll_empty_fixed_container);
+        this.hev = (TextView) this.her.findViewById(a.f.ala_tv_time);
+        this.heJ = (ImageView) this.her.findViewById(a.f.ala_sdk_iv_sweep);
+        this.heD = (HeadImageView) this.her.findViewById(a.f.ala_iv_host_head);
+        b(this.heD);
+        this.heC = (HeadImageView) this.her.findViewById(a.f.ala_iv_user_head);
+        b(this.heC);
+        this.heI = (TextView) this.her.findViewById(a.f.ala_sdk_head_line_tv_text);
+        this.heH = (TbImageView) this.her.findViewById(a.f.ala_iv_empty_icon);
+        this.hez = this.her.findViewById(a.f.ala_sdk_rl_boardcast_root_view);
+        this.hez.setVisibility(4);
+        this.heA = this.hez.findViewById(a.f.ala_sdk_anim_container);
+        this.heB = (ViewGroup) this.hez.findViewById(a.f.ala_anim_ll_have_fixed_container);
+        this.hew = (TextView) this.hez.findViewById(a.f.ala_anim_tv_time);
+        this.hes = (TextView) this.hez.findViewById(a.f.ala_sdk_tv_gift_show);
+        this.het = (ViewGroup) this.hez.findViewById(a.f.ala_sdk_ll_gift_text_show_container);
+        this.heF = (HeadImageView) this.hez.findViewById(a.f.ala_anim_iv_host_head);
+        b(this.heF);
+        this.heE = (HeadImageView) this.hez.findViewById(a.f.ala_anim_iv_user_head);
+        b(this.heE);
+        this.heG = (ImageView) this.hez.findViewById(a.f.ala_sdk_iv_anim_sweep);
+        this.heu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.QE();
             }
         });
-        this.hel.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.a.12
+        this.hez.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.view.a.12
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.QE();
             }
         });
-        this.heF = LayoutInflater.from(this.mContext).inflate(a.g.ala_sdk_head_line_lottie_layout, (ViewGroup) null, false);
-        this.heE = (TBLottieAnimationView) this.heF.findViewById(a.f.ala_sdk_head_line_lot_view);
-        this.heE.setAnimation("head_linedata_explosion.json");
-        this.heE.setAnimationDir("/");
-        this.heD = (RelativeLayout.LayoutParams) this.hem.getLayoutParams();
+        this.heT = LayoutInflater.from(this.mContext).inflate(a.g.ala_sdk_head_line_lottie_layout, (ViewGroup) null, false);
+        this.heS = (TBLottieAnimationView) this.heT.findViewById(a.f.ala_sdk_head_line_lot_view);
+        this.heS.setAnimation("head_linedata_explosion.json");
+        this.heS.setAnimationDir("/");
+        this.heR = (RelativeLayout.LayoutParams) this.heA.getLayoutParams();
         this.mScreenWidth = ScreenHelper.getRealScreenWidth(this.mContext);
         this.ds20 = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds20);
         this.ds240 = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds232);
-        this.heC = this.mScreenWidth - (this.ds20 * 2);
-        this.heD.width = this.heC;
-        this.hem.setLayoutParams(this.heD);
-        this.mHandler.postDelayed(this.heG, 2000L);
+        this.heQ = this.mScreenWidth - (this.ds20 * 2);
+        this.heR.width = this.heQ;
+        this.heA.setLayoutParams(this.heR);
+        this.mHandler.postDelayed(this.heU, 2000L);
     }
 
     private void b(HeadImageView headImageView) {
@@ -232,13 +232,13 @@ public class a {
     }
 
     public View getRootView() {
-        return this.hed;
+        return this.her;
     }
 
     private void a(final q qVar, boolean z) {
         if (qVar != null) {
-            this.her.startLoad(qVar.aHz, 12, false);
-            this.heq.startLoad(qVar.aHA, 12, false);
+            this.heF.startLoad(qVar.aHz, 12, false);
+            this.heE.startLoad(qVar.aHA, 12, false);
             if (z) {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.13
                     @Override // java.lang.Runnable
@@ -282,11 +282,11 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(q qVar) {
-        if (this.hep != null && qVar != null) {
-            this.hep.startLoad(qVar.aHz, 12, false);
+        if (this.heD != null && qVar != null) {
+            this.heD.startLoad(qVar.aHz, 12, false);
         }
-        if (this.heo != null && qVar != null) {
-            this.heo.startLoad(qVar.aHA, 12, false);
+        if (this.heC != null && qVar != null) {
+            this.heC.startLoad(qVar.aHA, 12, false);
         }
     }
 
@@ -298,45 +298,45 @@ public class a {
                 next();
                 return;
             }
-            this.hee.setText(spannableStringBuilder);
-            this.hee.setTranslationX(0.0f);
-            int textWidth = BdUtilHelper.getTextWidth(this.hee.getPaint(), spannableStringBuilder.toString());
-            int width = this.hef.getWidth();
-            int width2 = this.hen.getWidth();
-            int i = width > 0 ? width : this.heC - this.ds240;
+            this.hes.setText(spannableStringBuilder);
+            this.hes.setTranslationX(0.0f);
+            int textWidth = BdUtilHelper.getTextWidth(this.hes.getPaint(), spannableStringBuilder.toString());
+            int width = this.het.getWidth();
+            int width2 = this.heB.getWidth();
+            int i = width > 0 ? width : this.heQ - this.ds240;
             float f = -(textWidth - i);
             if (this.DEBUG) {
                 Log.e(">>>>>>", "1 calculateWidthAndStartAnimator ssb.length:" + spannableStringBuilder.length() + " " + spannableStringBuilder.toString() + " mScreenWidth：" + this.mScreenWidth);
-                Log.e(">>>>>>", "2 maxContentLength:" + i + " textWidth:" + textWidth + " desToXValue:" + f + " mBoardCastContentWidth:" + this.heC + " mLlBoardCastContainerView width:" + width + " mBoardCastFixedContainerViewwidth1: " + width2);
+                Log.e(">>>>>>", "2 maxContentLength:" + i + " textWidth:" + textWidth + " desToXValue:" + f + " mBoardCastContentWidth:" + this.heQ + " mLlBoardCastContainerView width:" + width + " mBoardCastFixedContainerViewwidth1: " + width2);
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hee.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hes.getLayoutParams();
             if (textWidth < i) {
                 layoutParams.width = -2;
-                this.hee.setLayoutParams(layoutParams);
+                this.hes.setLayoutParams(layoutParams);
             } else {
                 layoutParams.width = textWidth;
-                this.hee.setLayoutParams(layoutParams);
-                this.hew = ObjectAnimator.ofFloat(this.hee, "translationX", 0.0f, f);
-                this.hew.setDuration(1000L);
-                this.hew.setStartDelay(1000L);
+                this.hes.setLayoutParams(layoutParams);
+                this.heK = ObjectAnimator.ofFloat(this.hes, "translationX", 0.0f, f);
+                this.heK.setDuration(1000L);
+                this.heK.setStartDelay(1000L);
             }
-            ObjectAnimator bWM = bWM();
-            ValueAnimator bWL = bWL();
-            ObjectAnimator bWK = bWK();
-            ObjectAnimator bWN = bWN();
-            ObjectAnimator bWJ = bWJ();
-            ObjectAnimator bWI = bWI();
+            ObjectAnimator bWT = bWT();
+            ValueAnimator bWS = bWS();
+            ObjectAnimator bWR = bWR();
+            ObjectAnimator bWU = bWU();
+            ObjectAnimator bWQ = bWQ();
+            ObjectAnimator bWP = bWP();
             this.aZa = new AnimatorSet();
-            this.heB = new ArrayList();
-            this.heB.add(bWM);
-            this.heB.add(bWJ);
-            this.heB.add(bWI);
-            if (this.hew != null) {
-                this.heB.add(this.hew);
+            this.heP = new ArrayList();
+            this.heP.add(bWT);
+            this.heP.add(bWQ);
+            this.heP.add(bWP);
+            if (this.heK != null) {
+                this.heP.add(this.heK);
             }
-            this.heB.add(bWN);
-            this.heB.add(bWL);
-            this.heB.add(bWK);
+            this.heP.add(bWU);
+            this.heP.add(bWS);
+            this.heP.add(bWR);
             this.aZa.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.headline.view.a.18
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -346,7 +346,7 @@ public class a {
                     a.this.next();
                 }
             });
-            this.aZa.playTogether(this.heB);
+            this.aZa.playTogether(this.heP);
             this.aZa.start();
         }
     }
@@ -358,33 +358,33 @@ public class a {
         }
         if (!this.mList.isEmpty()) {
             q qVar = this.mList.get(this.mList.size() - 1);
-            if (qVar.aHu > this.heK) {
+            if (qVar.aHu > this.heY) {
                 this.aIB = qVar;
-                this.heK = this.aIB.aHu;
-                this.hea = this.aIB.endTime - this.aIB.serverTime;
-                bWH();
+                this.heY = this.aIB.aHu;
+                this.heo = this.aIB.endTime - this.aIB.serverTime;
+                bWO();
                 a(this.aIB, true);
             }
             this.mList.clear();
         }
     }
 
-    private void bWH() {
-        this.heI = true;
+    private void bWO() {
+        this.heW = true;
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.19
             @Override // java.lang.Runnable
             public void run() {
-                a.this.mHandler.removeCallbacks(a.this.heJ);
-                if (a.this.hea > 1) {
-                    a.this.hea++;
+                a.this.mHandler.removeCallbacks(a.this.heX);
+                if (a.this.heo > 1) {
+                    a.this.heo++;
                 }
-                a.this.mHandler.post(a.this.heJ);
+                a.this.mHandler.post(a.this.heX);
             }
         });
     }
 
-    private ObjectAnimator bWI() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.heg, "alpha", 0.1f, 1.0f);
+    private ObjectAnimator bWP() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.heu, "alpha", 0.1f, 1.0f);
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setDuration(300L);
         ofFloat.setStartDelay(6700L);
@@ -392,21 +392,21 @@ public class a {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                a.this.heg.setVisibility(0);
+                a.this.heu.setVisibility(0);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                a.this.mHandler.removeCallbacks(a.this.heG);
-                a.this.mHandler.post(a.this.heG);
+                a.this.mHandler.removeCallbacks(a.this.heU);
+                a.this.mHandler.post(a.this.heU);
             }
         });
         return ofFloat;
     }
 
-    private ObjectAnimator bWJ() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.heg, "translationX", 0.0f, this.heg.getWidth());
+    private ObjectAnimator bWQ() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.heu, "translationX", 0.0f, this.heu.getWidth());
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setDuration(300L);
         ofFloat.setStartDelay(100L);
@@ -414,40 +414,40 @@ public class a {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                a.this.heg.setTranslationX(0.0f);
-                a.this.heg.setVisibility(4);
-                a.this.heE.setVisibility(4);
+                a.this.heu.setTranslationX(0.0f);
+                a.this.heu.setVisibility(4);
+                a.this.heS.setVisibility(4);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                a.this.heE.setVisibility(0);
-                a.this.heE.playAnimation();
+                a.this.heS.setVisibility(0);
+                a.this.heS.playAnimation();
             }
         });
         return ofFloat;
     }
 
-    private ObjectAnimator bWK() {
-        if (this.heA == null) {
-            this.heA = ObjectAnimator.ofFloat(this.hel, "alpha", 1.0f, 0.0f);
-            this.heA.setDuration(300L);
-            this.heA.setStartDelay(6700L);
+    private ObjectAnimator bWR() {
+        if (this.heO == null) {
+            this.heO = ObjectAnimator.ofFloat(this.hez, "alpha", 1.0f, 0.0f);
+            this.heO.setDuration(300L);
+            this.heO.setStartDelay(6700L);
         }
-        return this.heA;
+        return this.heO;
     }
 
-    private ValueAnimator bWL() {
-        ValueAnimator ofInt = ValueAnimator.ofInt(0, this.hem.getMeasuredWidth() - this.heg.getMeasuredWidth());
+    private ValueAnimator bWS() {
+        ValueAnimator ofInt = ValueAnimator.ofInt(0, this.heA.getMeasuredWidth() - this.heu.getMeasuredWidth());
         ofInt.setInterpolator(new AccelerateInterpolator());
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.headline.view.a.4
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                if (a.this.heD.leftMargin < intValue) {
-                    a.this.heD.leftMargin = intValue;
-                    a.this.hem.setLayoutParams(a.this.heD);
+                if (a.this.heR.leftMargin < intValue) {
+                    a.this.heR.leftMargin = intValue;
+                    a.this.heA.setLayoutParams(a.this.heR);
                 }
             }
         });
@@ -456,106 +456,106 @@ public class a {
         return ofInt;
     }
 
-    private ObjectAnimator bWM() {
-        if (this.hez == null) {
-            this.hez = ObjectAnimator.ofFloat(this.hel, "translationX", -this.mScreenWidth, 0.0f);
-            this.hez.setDuration(1000L);
-            this.hez.setInterpolator(new OvershootInterpolator());
-            this.hez.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.headline.view.a.5
+    private ObjectAnimator bWT() {
+        if (this.heN == null) {
+            this.heN = ObjectAnimator.ofFloat(this.hez, "translationX", -this.mScreenWidth, 0.0f);
+            this.heN.setDuration(1000L);
+            this.heN.setInterpolator(new OvershootInterpolator());
+            this.heN.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.headline.view.a.5
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
                     a.this.aYP = true;
-                    a.this.hel.setVisibility(0);
+                    a.this.hez.setVisibility(0);
                 }
             });
         }
-        return this.hez;
+        return this.heN;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ObjectAnimator bWN() {
-        if (this.hex == null) {
-            this.hex = ObjectAnimator.ofFloat(this.hes, "translationX", 0.0f, this.heC);
-            this.hex.setDuration(800L);
-            this.hex.setInterpolator(new AccelerateInterpolator());
-            this.hex.setStartDelay(1000L);
-            this.hex.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.headline.view.a.6
+    public ObjectAnimator bWU() {
+        if (this.heL == null) {
+            this.heL = ObjectAnimator.ofFloat(this.heG, "translationX", 0.0f, this.heQ);
+            this.heL.setDuration(800L);
+            this.heL.setInterpolator(new AccelerateInterpolator());
+            this.heL.setStartDelay(1000L);
+            this.heL.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.headline.view.a.6
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     super.onAnimationCancel(animator);
-                    a.this.hes.setVisibility(8);
+                    a.this.heG.setVisibility(8);
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    a.this.hes.setVisibility(0);
+                    a.this.heG.setVisibility(0);
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
-                    a.this.hes.setVisibility(8);
-                    a.this.mHandler.removeCallbacks(a.this.heH);
-                    a.this.mHandler.postDelayed(a.this.heH, 1500L);
+                    a.this.heG.setVisibility(8);
+                    a.this.mHandler.removeCallbacks(a.this.heV);
+                    a.this.mHandler.postDelayed(a.this.heV, 1500L);
                 }
             });
-            this.hex.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.headline.view.a.7
+            this.heL.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.headline.view.a.7
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     if (valueAnimator.getAnimatedFraction() <= 0.5f) {
-                        a.this.hes.setAlpha(valueAnimator.getAnimatedFraction() * 2.0f * 0.8f);
+                        a.this.heG.setAlpha(valueAnimator.getAnimatedFraction() * 2.0f * 0.8f);
                     } else {
-                        a.this.hes.setAlpha((2.0f - (valueAnimator.getAnimatedFraction() * 2.0f)) * 0.8f);
+                        a.this.heG.setAlpha((2.0f - (valueAnimator.getAnimatedFraction() * 2.0f)) * 0.8f);
                     }
                 }
             });
         } else {
-            this.hes.clearAnimation();
+            this.heG.clearAnimation();
         }
-        return this.hex;
+        return this.heL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ObjectAnimator bWO() {
+    public ObjectAnimator bWV() {
         int width;
-        if (this.hev == null) {
+        if (this.heJ == null) {
             return null;
         }
-        if ((this.hek.getVisibility() == 0 || this.hej.getVisibility() == 0) && (width = this.heg.getWidth()) > 0) {
-            this.hev.clearAnimation();
-            if (this.hey == null) {
-                this.hey = ObjectAnimator.ofFloat(this.hev, "translationX", 0.0f, width);
-                this.hey.setDuration(1000L);
-                this.hey.setInterpolator(new AccelerateInterpolator());
-                this.hey.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.headline.view.a.8
+        if ((this.hey.getVisibility() == 0 || this.hex.getVisibility() == 0) && (width = this.heu.getWidth()) > 0) {
+            this.heJ.clearAnimation();
+            if (this.heM == null) {
+                this.heM = ObjectAnimator.ofFloat(this.heJ, "translationX", 0.0f, width);
+                this.heM.setDuration(1000L);
+                this.heM.setInterpolator(new AccelerateInterpolator());
+                this.heM.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.headline.view.a.8
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
                         super.onAnimationStart(animator);
-                        a.this.hev.setVisibility(0);
+                        a.this.heJ.setVisibility(0);
                     }
 
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         super.onAnimationEnd(animator);
-                        a.this.hev.setVisibility(8);
+                        a.this.heJ.setVisibility(8);
                     }
                 });
-                this.hey.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.headline.view.a.9
+                this.heM.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.headline.view.a.9
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
                         if (valueAnimator.getAnimatedFraction() <= 0.5f) {
-                            a.this.hev.setAlpha(valueAnimator.getAnimatedFraction() * 2.0f * 0.8f);
+                            a.this.heJ.setAlpha(valueAnimator.getAnimatedFraction() * 2.0f * 0.8f);
                         } else {
-                            a.this.hev.setAlpha((2.0f - (valueAnimator.getAnimatedFraction() * 2.0f)) * 0.8f);
+                            a.this.heJ.setAlpha((2.0f - (valueAnimator.getAnimatedFraction() * 2.0f)) * 0.8f);
                         }
                     }
                 });
             } else {
-                this.hey.setFloatValues(0.0f, width);
+                this.heM.setFloatValues(0.0f, width);
             }
-            return this.hey;
+            return this.heM;
         }
         return null;
     }
@@ -563,16 +563,16 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void FP() {
         this.aYP = false;
-        this.hel.clearAnimation();
-        this.hee.clearAnimation();
-        this.heg.clearAnimation();
-        this.heg.setAlpha(1.0f);
-        this.hee.setAlpha(1.0f);
+        this.hez.clearAnimation();
         this.hes.clearAnimation();
-        this.hel.setAlpha(1.0f);
-        this.heD.leftMargin = 0;
-        this.hem.setLayoutParams(this.heD);
-        this.hel.setVisibility(4);
+        this.heu.clearAnimation();
+        this.heu.setAlpha(1.0f);
+        this.hes.setAlpha(1.0f);
+        this.heG.clearAnimation();
+        this.hez.setAlpha(1.0f);
+        this.heR.leftMargin = 0;
+        this.heA.setLayoutParams(this.heR);
+        this.hez.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -583,53 +583,53 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        a.this.hej.setVisibility(0);
-                        a.this.hek.setVisibility(8);
+                        a.this.hex.setVisibility(0);
+                        a.this.hey.setVisibility(8);
                         return;
                     }
-                    a.this.hej.setVisibility(8);
-                    a.this.hek.setVisibility(0);
+                    a.this.hex.setVisibility(8);
+                    a.this.hey.setVisibility(0);
                 }
             }, 1000L);
         } else if (z) {
-            this.hej.setVisibility(0);
-            this.hek.setVisibility(8);
+            this.hex.setVisibility(0);
+            this.hey.setVisibility(8);
         } else {
-            this.hej.setVisibility(8);
-            this.hek.setVisibility(0);
+            this.hex.setVisibility(8);
+            this.hey.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void QE() {
         if (this.aDd != null && this.aDd.aIB != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new j(this.mContext, this.aDd, this.aUb, this.otherParams, this.hea)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new j(this.mContext, this.aDd, this.aUb, this.otherParams, this.heo)));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913242, this.aDd));
         }
     }
 
     public void nt(boolean z) {
-        this.hed.setVisibility(8);
+        this.her.setVisibility(8);
         if (this.DEBUG) {
             Log.e(">>>>>>", "onCloseEntryView first：" + z);
         }
-        this.heK = 0L;
-        this.hec = true;
+        this.heY = 0L;
+        this.heq = true;
         if (!z) {
             FP();
             this.mList.clear();
         }
     }
 
-    public void bWP() {
-        if (this.hed != null && this.hed.getVisibility() != 0) {
+    public void bWW() {
+        if (this.her != null && this.her.getVisibility() != 0) {
             if (this.DEBUG) {
                 Log.e(">>>>>>", "setEntryViewVisibility");
             }
-            this.hec = false;
-            this.mHandler.removeCallbacks(this.heG);
-            this.mHandler.post(this.heG);
-            this.hed.setVisibility(0);
+            this.heq = false;
+            this.mHandler.removeCallbacks(this.heU);
+            this.mHandler.post(this.heU);
+            this.her.setVisibility(0);
         }
     }
 
@@ -639,16 +639,16 @@ public class a {
         this.aDd = abVar;
         this.isHost = abVar.isHost;
         if (qVar.endTime - qVar.serverTime <= 1) {
-            this.heK = qVar.aHs;
+            this.heY = qVar.aHs;
             N(false, false);
         } else {
-            if (this.heK <= 0) {
-                this.heK = qVar.aHu;
+            if (this.heY <= 0) {
+                this.heY = qVar.aHu;
             }
-            if (this.heK < qVar.aHu) {
+            if (this.heY < qVar.aHu) {
                 if (this.aUb != 1) {
                     if (this.DEBUG) {
-                        Log.e(">>>>>>", "3 setData countdownTime:" + this.hea + " mCurScore:" + this.heK);
+                        Log.e(">>>>>>", "3 setData countdownTime:" + this.heo + " mCurScore:" + this.heY);
                     }
                     if (!c(qVar)) {
                         this.mList.add(qVar);
@@ -659,44 +659,44 @@ public class a {
                         this.mList.add(qVar);
                     }
                     if (this.DEBUG) {
-                        Log.e(">>>>>>", "2 setData countdownTime:" + this.hea + " mCurScore:" + this.heK);
+                        Log.e(">>>>>>", "2 setData countdownTime:" + this.heo + " mCurScore:" + this.heY);
                     }
                 } else {
                     if (this.aUb == 1) {
                         N(true, true);
                     }
                     this.aIB = qVar;
-                    this.heK = qVar.aHu;
-                    this.hea = qVar.endTime - qVar.serverTime;
-                    bWH();
+                    this.heY = qVar.aHu;
+                    this.heo = qVar.endTime - qVar.serverTime;
+                    bWO();
                     a(this.aIB, true);
                     if (this.DEBUG) {
-                        Log.e(">>>>>>", "1 setData countdownTime:" + this.hea + " mCurScore:" + this.heK + "info.endTime:" + qVar.endTime + " info.serverTime:" + qVar.serverTime);
+                        Log.e(">>>>>>", "1 setData countdownTime:" + this.heo + " mCurScore:" + this.heY + "info.endTime:" + qVar.endTime + " info.serverTime:" + qVar.serverTime);
                     }
                 }
             } else {
                 this.aIB = qVar;
-                this.heK = qVar.aHu;
-                if (this.heK <= qVar.aHs) {
-                    this.hea = 0L;
+                this.heY = qVar.aHu;
+                if (this.heY <= qVar.aHs) {
+                    this.heo = 0L;
                     N(false, false);
                 } else {
-                    if (this.hea <= 0) {
-                        this.hea = qVar.endTime - qVar.serverTime;
+                    if (this.heo <= 0) {
+                        this.heo = qVar.endTime - qVar.serverTime;
                     } else {
                         long j = qVar.endTime - qVar.serverTime;
-                        if (j < this.hea && j > 1) {
-                            this.hea = j;
+                        if (j < this.heo && j > 1) {
+                            this.heo = j;
                         }
                     }
                     N(true, true);
-                    bWH();
+                    bWO();
                     a(this.aIB, false);
                 }
             }
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913242, this.aDd));
-        this.hec = false;
+        this.heq = false;
     }
 
     private boolean c(q qVar) {
@@ -713,20 +713,20 @@ public class a {
     }
 
     public void onDestory() {
-        this.heK = 0L;
-        this.hec = true;
-        this.hea = 0L;
+        this.heY = 0L;
+        this.heq = true;
+        this.heo = 0L;
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
     }
 
     public void IZ() {
-        this.hea = 0L;
-        this.heK = 0L;
+        this.heo = 0L;
+        this.heY = 0L;
         this.aUb = 1;
         this.aYP = false;
-        this.hec = true;
+        this.heq = true;
         if (this.mList != null) {
             this.mList.clear();
         }
@@ -761,8 +761,8 @@ public class a {
                         SpannableString spannableString = new SpannableString("[img]");
                         spannableString.setSpan(centeredImageSpan, 0, spannableString.length(), 33);
                         spannableStringBuilder.replace(length2, length2 + "[img]".length(), (CharSequence) spannableString);
-                        a.this.hee.setText(spannableStringBuilder);
-                        a.this.hee.forceLayout();
+                        a.this.hes.setText(spannableStringBuilder);
+                        a.this.hes.forceLayout();
                     }
                 }
             }, null);

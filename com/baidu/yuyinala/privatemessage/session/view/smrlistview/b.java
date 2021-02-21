@@ -14,7 +14,7 @@ import com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMView;
 public class b implements WrapperListAdapter, SMView.a {
     private ListAdapter mAdapter;
     private Context mContext;
-    private SMListView.a pkW;
+    private SMListView.a plw;
 
     public b(Context context, ListAdapter listAdapter) {
         this.mAdapter = listAdapter;
@@ -51,7 +51,7 @@ public class b implements WrapperListAdapter, SMView.a {
             return sMLayout;
         }
         SMLayout sMLayout2 = (SMLayout) view;
-        sMLayout2.enb();
+        sMLayout2.enk();
         sMLayout2.setPosition(i);
         this.mAdapter.getView(i, sMLayout2.getContentView(), viewGroup);
         return sMLayout2;
@@ -71,8 +71,8 @@ public class b implements WrapperListAdapter, SMView.a {
     }
 
     public void a(SMView sMView, c cVar, int i) {
-        if (this.pkW != null) {
-            this.pkW.a(sMView.getPosition(), cVar, i);
+        if (this.plw != null) {
+            this.plw.a(sMView.getPosition(), cVar, i);
         }
     }
 

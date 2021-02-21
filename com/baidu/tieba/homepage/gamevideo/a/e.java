@@ -26,7 +26,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     private s amk;
     private BdUniqueId fGZ;
     private int feu;
-    private NEGFeedBackView.a gdO;
+    private NEGFeedBackView.a gdT;
     private TbPageContext mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
@@ -112,7 +112,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
                 }
             });
         }
-        threadCardViewHolder.aK(false).a(this.gdO);
+        threadCardViewHolder.aK(false).a(this.gdT);
         threadCardViewHolder.b((ThreadCardViewHolder) kVar);
         threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         threadCardViewHolder.tj().a(this.agg);
@@ -128,6 +128,6 @@ public class e extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.gdO = aVar;
+        this.gdT = aVar;
     }
 }

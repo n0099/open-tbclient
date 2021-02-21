@@ -20,57 +20,57 @@ import tbclient.ExcPbPage.UserInfo;
 /* loaded from: classes8.dex */
 public class d {
     private TextView enq;
-    private View lJm;
-    private b lJn;
-    private TextView lJo;
-    private BarImageView lJp;
-    private TextView lJq;
-    private TextView lJr;
-    private LinearLayout lJs;
-    private HeadImageView leU;
+    private View lJA;
+    private b lJB;
+    private TextView lJC;
+    private BarImageView lJD;
+    private TextView lJE;
+    private TextView lJF;
+    private LinearLayout lJG;
+    private HeadImageView lfi;
     private TextView title;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void Pg(String str);
+        void Ph(String str);
 
-        void dkP();
+        void dkW();
 
         void fS(String str, String str2);
     }
 
     public d(Context context) {
-        this.lJm = LayoutInflater.from(context).inflate(R.layout.chosen_pb_person_info, (ViewGroup) null);
-        this.title = (TextView) this.lJm.findViewById(R.id.chosen_pb_title);
-        this.leU = (HeadImageView) this.lJm.findViewById(R.id.chosen_pb_person_info_head);
-        this.enq = (TextView) this.lJm.findViewById(R.id.chosen_pb_person_info_name);
-        this.lJo = (TextView) this.lJm.findViewById(R.id.chosen_pb_bar_forum_name);
-        this.leU.setRadius(l.dip2px(context, 2.0f));
-        this.lJp = (BarImageView) this.lJm.findViewById(R.id.chosen_pb_bar_pic);
-        this.lJq = (TextView) this.lJm.findViewById(R.id.chosen_pb_bar_attention_number);
-        this.lJr = (TextView) this.lJm.findViewById(R.id.chosen_pb_bar_attention_button);
-        this.lJr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.1
+        this.lJA = LayoutInflater.from(context).inflate(R.layout.chosen_pb_person_info, (ViewGroup) null);
+        this.title = (TextView) this.lJA.findViewById(R.id.chosen_pb_title);
+        this.lfi = (HeadImageView) this.lJA.findViewById(R.id.chosen_pb_person_info_head);
+        this.enq = (TextView) this.lJA.findViewById(R.id.chosen_pb_person_info_name);
+        this.lJC = (TextView) this.lJA.findViewById(R.id.chosen_pb_bar_forum_name);
+        this.lfi.setRadius(l.dip2px(context, 2.0f));
+        this.lJD = (BarImageView) this.lJA.findViewById(R.id.chosen_pb_bar_pic);
+        this.lJE = (TextView) this.lJA.findViewById(R.id.chosen_pb_bar_attention_number);
+        this.lJF = (TextView) this.lJA.findViewById(R.id.chosen_pb_bar_attention_button);
+        this.lJF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.lJn != null) {
-                    d.this.lJn.dkP();
+                if (d.this.lJB != null) {
+                    d.this.lJB.dkW();
                 }
             }
         });
-        this.lJs = (LinearLayout) this.lJm.findViewById(R.id.chosen_pb_bar_container);
+        this.lJG = (LinearLayout) this.lJA.findViewById(R.id.chosen_pb_bar_container);
     }
 
-    public View dkS() {
-        return this.lJm;
+    public View dkZ() {
+        return this.lJA;
     }
 
     public void a(b bVar) {
-        this.lJn = bVar;
+        this.lJB = bVar;
     }
 
-    public void Pi(String str) {
-        if (!StringUtils.isNull(str) && this.leU != null) {
-            this.leU.startLoad(str, 12, false);
+    public void Pj(String str) {
+        if (!StringUtils.isNull(str) && this.lfi != null) {
+            this.lfi.startLoad(str, 12, false);
         }
     }
 
@@ -78,18 +78,18 @@ public class d {
         if (excellentPbThreadInfo != null && this.title != null) {
             this.title.setText(excellentPbThreadInfo.title);
             if (StringUtils.isNull(excellentPbThreadInfo.forum.forum_name) || excellentPbThreadInfo.forum.forum_id == null || excellentPbThreadInfo.excid.longValue() <= 0) {
-                this.lJs.setVisibility(8);
+                this.lJG.setVisibility(8);
                 return;
             }
             k.bkT().setForumNameForWaterImage(excellentPbThreadInfo.forum.forum_name);
-            this.lJs.setVisibility(0);
-            bb(context, excellentPbThreadInfo.forum.forum_name);
-            if (this.lJp != null) {
-                this.lJp.startLoad(excellentPbThreadInfo.forum.avatar, 16, false);
-                this.lJp.setOnClickListener(new a(excellentPbThreadInfo.forum.forum_name));
+            this.lJG.setVisibility(0);
+            aZ(context, excellentPbThreadInfo.forum.forum_name);
+            if (this.lJD != null) {
+                this.lJD.startLoad(excellentPbThreadInfo.forum.avatar, 16, false);
+                this.lJD.setOnClickListener(new a(excellentPbThreadInfo.forum.forum_name));
             }
-            if (this.lJq != null && excellentPbThreadInfo.forum.member_count != null) {
-                this.lJq.setText(au.numFormatOver10000(excellentPbThreadInfo.forum.member_count.intValue()));
+            if (this.lJE != null && excellentPbThreadInfo.forum.member_count != null) {
+                this.lJE.setText(au.numFormatOver10000(excellentPbThreadInfo.forum.member_count.intValue()));
             }
             if (excellentPbThreadInfo.forum.is_like != null && excellentPbThreadInfo.forum.is_like.intValue() == 1) {
                 uE(true);
@@ -105,23 +105,23 @@ public class d {
         }
     }
 
-    private void bb(Context context, String str) {
-        if (this.lJo != null) {
+    private void aZ(Context context, String str) {
+        if (this.lJC != null) {
             if (StringUtils.isNull(str)) {
-                this.lJo.setVisibility(4);
+                this.lJC.setVisibility(4);
                 return;
             }
-            this.lJo.setText(context.getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
-            this.lJo.setOnClickListener(new a(str));
-            this.lJo.setVisibility(0);
+            this.lJC.setText(context.getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
+            this.lJC.setOnClickListener(new a(str));
+            this.lJC.setVisibility(0);
         }
     }
 
     public void a(final UserInfo userInfo) {
         if (userInfo != null) {
             setName(userInfo.name);
-            Pi(userInfo.portrait);
-            this.leU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.2
+            Pj(userInfo.portrait);
+            this.lfi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     d.this.z(userInfo.id.longValue(), userInfo.name);
@@ -138,21 +138,21 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void z(long j, String str) {
-        if (this.lJn != null) {
-            this.lJn.fS(String.valueOf(j), str);
+        if (this.lJB != null) {
+            this.lJB.fS(String.valueOf(j), str);
         }
     }
 
     public void uE(boolean z) {
         if (z) {
-            this.lJr.setText(R.string.relate_forum_is_followed);
-            ap.setViewTextColor(this.lJr, R.color.CAM_X0109, 1);
-            this.lJr.setEnabled(false);
+            this.lJF.setText(R.string.relate_forum_is_followed);
+            ap.setViewTextColor(this.lJF, R.color.CAM_X0109, 1);
+            this.lJF.setEnabled(false);
             return;
         }
-        this.lJr.setText(R.string.attention);
-        this.lJr.setEnabled(true);
-        ap.setViewTextColor(this.lJr, R.color.CAM_X0111, 1);
+        this.lJF.setText(R.string.attention);
+        this.lJF.setEnabled(true);
+        ap.setViewTextColor(this.lJF, R.color.CAM_X0111, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -166,8 +166,8 @@ public class d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.lJn != null) {
-                d.this.lJn.Pg(this.forumName);
+            if (d.this.lJB != null) {
+                d.this.lJB.Ph(this.forumName);
             }
         }
     }

@@ -10,15 +10,15 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 /* loaded from: classes8.dex */
 public abstract class AdOperateBarHolder<M extends ICardInfo> {
-    protected a lcl;
-    protected c lcm;
+    protected a lcA;
+    protected c lcB;
     protected TbPageContext mPageContext;
     protected final View mRootView;
-    protected final int mYo;
+    protected final int mYO;
 
     public AdOperateBarHolder(TbPageContext tbPageContext, int i, View view) {
         this.mPageContext = tbPageContext;
-        this.mYo = i;
+        this.mYO = i;
         this.mRootView = view;
     }
 
@@ -62,7 +62,7 @@ public abstract class AdOperateBarHolder<M extends ICardInfo> {
     }
 
     public void setAfterClickSchemeListener(a aVar) {
-        this.lcl = aVar;
+        this.lcA = aVar;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
@@ -70,6 +70,6 @@ public abstract class AdOperateBarHolder<M extends ICardInfo> {
     }
 
     public void setDownloadAppCallback(c cVar) {
-        this.lcm = cVar;
+        this.lcB = cVar;
     }
 }

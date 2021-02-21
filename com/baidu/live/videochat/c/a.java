@@ -61,11 +61,11 @@ public class a extends Dialog implements View.OnClickListener {
         this.bPl = (TextView) findViewById(a.f.ala_link_mic_status_dialog_btn_second);
         this.bPl.setVisibility(8);
         this.bPi.setBackgroundResource(a.e.sdk_default_avatar);
-        RoundingParams euz = this.bPi.getHierarchy().euz();
-        RoundingParams roundingParams = euz == null ? new RoundingParams() : euz;
+        RoundingParams euH = this.bPi.getHierarchy().euH();
+        RoundingParams roundingParams = euH == null ? new RoundingParams() : euH;
         roundingParams.Br(true);
         roundingParams.bL(6.0f);
-        roundingParams.Pq(-1);
+        roundingParams.Pr(-1);
         this.bPi.getHierarchy().a(roundingParams);
         this.bPi.setOnClickListener(this);
         this.bCH.setOnClickListener(this);

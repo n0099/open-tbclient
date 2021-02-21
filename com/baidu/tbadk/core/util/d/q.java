@@ -60,11 +60,11 @@ public class q extends a {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        com.baidu.adp.widget.ImageView.a Dj = com.baidu.tbadk.imageManager.c.bCP().Dj(str);
+        com.baidu.adp.widget.ImageView.a Dh = com.baidu.tbadk.imageManager.c.bCP().Dh(str);
         if (z) {
-            com.baidu.adp.lib.e.a.b(Dj != null, System.currentTimeMillis() - currentTimeMillis);
+            com.baidu.adp.lib.e.a.b(Dh != null, System.currentTimeMillis() - currentTimeMillis);
         }
-        return Dj;
+        return Dh;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

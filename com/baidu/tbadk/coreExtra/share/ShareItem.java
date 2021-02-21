@@ -296,8 +296,8 @@ public class ShareItem {
                 forwardInfo.originalBaijiahaoData = cbVar.eTc.oriUgcInfo;
                 forwardInfo.originalTid = cbVar.eTc.threadId;
                 if (i == 1) {
-                    if (postData != null && postData.dNz() != null) {
-                        str = postData.dNz().toString();
+                    if (postData != null && postData.dNH() != null) {
+                        str = postData.dNH().toString();
                     } else if (cbVar.getAbstract() != null) {
                         str = cbVar.bnr().toString();
                     }

@@ -7,7 +7,7 @@ import java.util.List;
 @kotlin.e
 /* loaded from: classes6.dex */
 public class o {
-    public static final <T> List<T> eKW() {
+    public static final <T> List<T> eLe() {
         return EmptyList.INSTANCE;
     }
 
@@ -33,7 +33,7 @@ public class o {
         kotlin.jvm.internal.p.o(list, "$receiver");
         switch (list.size()) {
             case 0:
-                return n.eKW();
+                return n.eLe();
             case 1:
                 return n.bS(list.get(0));
             default:

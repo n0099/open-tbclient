@@ -36,22 +36,22 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a {
     private long eOn;
-    private long jpC;
-    private TopicDetailModel kok;
-    private TopicDetailView kol;
-    private long kom = 1;
+    private long jpQ;
+    private TopicDetailModel koy;
+    private TopicDetailView koz;
+    private long koA = 1;
     private boolean mIsFromSchema = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kok = new TopicDetailModel(getPageContext());
-        this.kol = new TopicDetailView(getPageContext(), this, bundle);
-        setContentView(this.kol);
+        this.koy = new TopicDetailModel(getPageContext());
+        this.koz = new TopicDetailView(getPageContext(), this, bundle);
+        setContentView(this.koz);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.kok.a(this);
+        this.koy.a(this);
         loadData();
         if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.kB().bo("MainTabActivity")) {
             this.mIsFromSchema = true;
@@ -59,7 +59,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.mIsFromSchema) {
             setIsAddSwipeBackLayout(false);
         }
-        this.kol.getEditor().cGN();
+        this.koz.getEditor().cGU();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -73,8 +73,8 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.kol != null && this.kol.getEditor() != null) {
-            this.kol.getEditor().bCn();
+        if (this.koz != null && this.koz.getEditor() != null) {
+            this.koz.getEditor().bCn();
         }
     }
 
@@ -123,7 +123,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             } else if (!StringUtils.isNull(uri2) && uri2.startsWith("tbtopicdetail://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
-                    Lh(decode);
+                    Li(decode);
                     Matcher matcher = Pattern.compile(".*fr=(.*)&topic_id=([\\d]+).*").matcher(decode);
                     if (matcher.find()) {
                         substring = matcher.group(2);
@@ -148,53 +148,53 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.eOn < 0) {
             finish();
         } else if (!j.isNetworkAvailableForImmediately()) {
-            this.kol.hideLoadingView();
-            this.kol.qa(true);
+            this.koz.hideLoadingView();
+            this.koz.qa(true);
         } else {
-            this.kol.WZ();
-            this.kol.ir(false);
-            if (this.kol != null && this.kol.getEditor() != null) {
-                this.kol.getEditor().setTopicId(this.eOn);
+            this.koz.WZ();
+            this.koz.ir(false);
+            if (this.koz != null && this.koz.getEditor() != null) {
+                this.koz.getEditor().setTopicId(this.eOn);
             }
-            this.kok.gI(this.eOn);
+            this.koy.gI(this.eOn);
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, com.baidu.tieba.homepage.topic.topicdetail.a.a aVar) {
-        this.kol.hideLoadingView();
+        this.koz.hideLoadingView();
         if (i != 0 || aVar == null || y.isEmpty(aVar.mDataList)) {
-            this.kol.qa(true);
+            this.koz.qa(true);
             return;
         }
-        this.kol.WZ();
-        this.kol.setData(aVar);
+        this.koz.WZ();
+        this.koz.setData(aVar);
     }
 
     public void gH(long j) {
-        this.kom++;
-        this.jpC = j;
-        this.kok.f(this.eOn, this.kom, this.jpC);
+        this.koA++;
+        this.jpQ = j;
+        this.koy.f(this.eOn, this.koA, this.jpQ);
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, boolean z, List<n> list) {
-        this.kol.setNextData(i, z, list);
+        this.koz.setNextData(i, z, list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kol.onChangeSkinType();
+        this.koz.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.kol != null && this.kol.getEditor() != null) {
-            this.kol.getEditor().onActivityResult(i, i2, intent);
+        if (this.koz != null && this.koz.getEditor() != null) {
+            this.koz.getEditor().onActivityResult(i, i2, intent);
         }
     }
 
@@ -203,7 +203,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         return "a024";
     }
 
-    private void Lh(String str) {
+    private void Li(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }

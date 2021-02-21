@@ -4,23 +4,23 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class c {
-    private final String lbT;
-    private final int lbU;
-    private final int lbV;
-    private final String lbW;
+    private final String lch;
+    private final int lci;
+    private final int lcj;
+    private final String lck;
 
     private c(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.lbT = jSONObject.optString("moreText");
-            this.lbU = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("moreColor", ""));
-            this.lbV = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("moreColorNight", ""));
-            this.lbW = jSONObject.optString("moreScheme");
+            this.lch = jSONObject.optString("moreText");
+            this.lci = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("moreColor", ""));
+            this.lcj = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("moreColorNight", ""));
+            this.lck = jSONObject.optString("moreScheme");
             return;
         }
-        this.lbT = "";
-        this.lbU = Integer.MAX_VALUE;
-        this.lbV = Integer.MAX_VALUE;
-        this.lbW = "";
+        this.lch = "";
+        this.lci = Integer.MAX_VALUE;
+        this.lcj = Integer.MAX_VALUE;
+        this.lck = "";
     }
 
     public static c ez(JSONObject jSONObject) {
@@ -28,22 +28,22 @@ public class c {
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.lbT);
+        return !TextUtils.isEmpty(this.lch);
     }
 
-    public String dbI() {
-        return this.lbT;
+    public String dbP() {
+        return this.lch;
     }
 
-    public int dbJ() {
-        return this.lbU;
+    public int dbQ() {
+        return this.lci;
     }
 
-    public String dbK() {
-        return this.lbW;
+    public String dbR() {
+        return this.lck;
     }
 
-    public int dbL() {
-        return this.lbV;
+    public int dbS() {
+        return this.lcj;
     }
 }

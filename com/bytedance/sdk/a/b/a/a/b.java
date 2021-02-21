@@ -6,5 +6,5 @@ import java.io.IOException;
 public interface b {
     void b();
 
-    r eoS() throws IOException;
+    r epa() throws IOException;
 }

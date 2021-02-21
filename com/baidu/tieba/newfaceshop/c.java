@@ -22,19 +22,19 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    private static volatile c lAe;
-    public static final String lAf = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
+    private static volatile c lAs;
+    public static final String lAt = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
     private Handler mUIHandler = new Handler(Looper.getMainLooper());
 
-    public static c dil() {
-        if (lAe == null) {
+    public static c dis() {
+        if (lAs == null) {
             synchronized (c.class) {
-                if (lAe == null) {
-                    lAe = new c();
+                if (lAs == null) {
+                    lAs = new c();
                 }
             }
         }
-        return lAe;
+        return lAs;
     }
 
     public boolean v(List<String> list, boolean z) {
@@ -47,9 +47,9 @@ public class c {
             MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
             myEmotionGroupData.setGroupId(str);
             myEmotionGroupData.setUid(TbadkApplication.getCurrentAccount());
-            if (com.baidu.tieba.faceshop.a.cyo().a(myEmotionGroupData)) {
-                o.deleteFileOrDir(new File(lAf + str));
-                i.cyE().JD(str);
+            if (com.baidu.tieba.faceshop.a.cyv().a(myEmotionGroupData)) {
+                o.deleteFileOrDir(new File(lAt + str));
+                i.cyL().JE(str);
                 i = i2 + 1;
             } else {
                 i = i2;
@@ -59,32 +59,32 @@ public class c {
         if (i2 > 0) {
             MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
             if (z) {
-                d.dip().diq();
+                d.diw().dix();
             }
             return true;
         }
         return false;
     }
 
-    public List<MyEmotionGroupData> dim() {
+    public List<MyEmotionGroupData> dit() {
         try {
-            List<MyEmotionGroupData> Jw = com.baidu.tieba.faceshop.a.cyo().Jw(TbadkCoreApplication.getCurrentAccount());
-            Iterator<MyEmotionGroupData> it = Jw.iterator();
+            List<MyEmotionGroupData> Jx = com.baidu.tieba.faceshop.a.cyv().Jx(TbadkCoreApplication.getCurrentAccount());
+            Iterator<MyEmotionGroupData> it = Jx.iterator();
             while (it.hasNext()) {
                 MyEmotionGroupData next = it.next();
                 if (next.getGroupId() != null && next.getGroupId().contains("collect_")) {
                     it.remove();
                 }
             }
-            return Jw;
+            return Jx;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public MyEmotionGroupData OP(String str) {
-        return com.baidu.tieba.faceshop.a.cyo().eS(TbadkCoreApplication.getCurrentAccount(), str);
+    public MyEmotionGroupData OQ(String str) {
+        return com.baidu.tieba.faceshop.a.cyv().eS(TbadkCoreApplication.getCurrentAccount(), str);
     }
 
     public boolean w(List<String> list, boolean z) {
@@ -92,10 +92,10 @@ public class c {
             return false;
         }
         try {
-            i.cyE().i(list, TbadkCoreApplication.getCurrentAccount());
+            i.cyL().i(list, TbadkCoreApplication.getCurrentAccount());
             MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
             if (z) {
-                d.dip().diq();
+                d.diw().dix();
             }
             return true;
         } catch (Exception e) {
@@ -178,14 +178,14 @@ public class c {
         com.baidu.tbadk.download.d.bBd().f(downloadData);
     }
 
-    public void din() {
+    public void diu() {
         new BdAsyncTask<Void, Void, List<String>>() { // from class: com.baidu.tieba.newfaceshop.c.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: c */
             public List<String> doInBackground(Void... voidArr) {
-                return c.this.dio();
+                return c.this.div();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -204,10 +204,10 @@ public class c {
     }
 
     public boolean ur(boolean z) {
-        List<String> dio = dio();
-        if (dio.size() > 0) {
+        List<String> div = div();
+        if (div.size() > 0) {
             if (z) {
-                v(dio, false);
+                v(div, false);
                 return false;
             }
             return false;
@@ -215,10 +215,10 @@ public class c {
         return true;
     }
 
-    public List<String> dio() {
+    public List<String> div() {
         ArrayList arrayList = new ArrayList();
-        for (MyEmotionGroupData myEmotionGroupData : dim()) {
-            File file = new File(lAf + myEmotionGroupData.getGroupId());
+        for (MyEmotionGroupData myEmotionGroupData : dit()) {
+            File file = new File(lAt + myEmotionGroupData.getGroupId());
             BdLog.e("getFileUnExistList Called:" + file.getName() + "   Exsists:" + file.exists());
             if (!file.exists()) {
                 arrayList.add(myEmotionGroupData.getGroupId());

@@ -5,14 +5,14 @@ import com.ss.android.socialbase.downloader.impls.r;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class l {
-    private static com.ss.android.downloadlib.a.a.d qch;
+    private static com.ss.android.downloadlib.a.a.d qcH;
 
-    public static com.ss.android.downloadlib.a.a.d eEU() {
-        return qch;
+    public static com.ss.android.downloadlib.a.a.d eFc() {
+        return qcH;
     }
 
     public static void a(com.ss.android.downloadlib.a.a.d dVar) {
-        qch = dVar;
+        qcH = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,12 +29,12 @@ public class l {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        com.ss.android.downloadlib.e.a.eFc().a("pause_reserve_wifi_switch_status", jSONObject, aVar);
+        com.ss.android.downloadlib.e.a.eFk().a("pause_reserve_wifi_switch_status", jSONObject, aVar);
         if (n && a(i)) {
             if (com.ss.android.socialbase.downloader.m.d.a(j.a())) {
                 if (cVar.U()) {
                     cVar.Y();
-                    com.ss.android.downloadlib.e.a.eFc().a("pause_reserve_wifi_cancel_on_wifi", aVar);
+                    com.ss.android.downloadlib.e.a.eFk().a("pause_reserve_wifi_cancel_on_wifi", aVar);
                 }
             } else if (!cVar.V()) {
                 a(new com.ss.android.downloadlib.a.a.d() { // from class: com.ss.android.downloadlib.a.l.1
@@ -44,8 +44,8 @@ public class l {
                         com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iB(j.a()).h(g);
                         if (h != null) {
                             h.X();
-                            r.eIt().a(h);
-                            com.ss.android.downloadlib.e.a.eFc().a("pause_reserve_wifi_confirm", aVar);
+                            r.eIB().a(h);
+                            com.ss.android.downloadlib.e.a.eFk().a("pause_reserve_wifi_confirm", aVar);
                         }
                     }
 
@@ -56,7 +56,7 @@ public class l {
                         if (h != null) {
                             h.Y();
                         }
-                        com.ss.android.downloadlib.e.a.eFc().a("pause_reserve_wifi_cancel", aVar);
+                        com.ss.android.downloadlib.e.a.eFk().a("pause_reserve_wifi_cancel", aVar);
                     }
                 });
                 TTDelegateActivity.b(aVar.j());

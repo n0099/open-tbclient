@@ -4,33 +4,33 @@ import com.win.opensdk.bn;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class bp<T extends bn> {
-    private static bp qjd;
-    private ConcurrentHashMap<String, T> qkx = new ConcurrentHashMap<>();
+    private static bp qjD;
+    private ConcurrentHashMap<String, T> qkX = new ConcurrentHashMap<>();
 
     private bp() {
     }
 
-    public static bp eJo() {
-        if (qjd == null) {
+    public static bp eJw() {
+        if (qjD == null) {
             synchronized (bp.class) {
-                if (qjd == null) {
-                    qjd = new bp();
+                if (qjD == null) {
+                    qjD = new bp();
                 }
             }
         }
-        return qjd;
+        return qjD;
     }
 
     public final void a(String str, T t) {
         synchronized (bp.class) {
-            this.qkx.put(str, t);
+            this.qkX.put(str, t);
         }
     }
 
-    public final T abM(String str) {
+    public final T abY(String str) {
         T remove;
         synchronized (bp.class) {
-            remove = this.qkx.remove(str);
+            remove = this.qkX.remove(str);
         }
         return remove;
     }

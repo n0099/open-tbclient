@@ -19,12 +19,12 @@ public class b extends c implements TTDrawFeedAd {
     private int o;
     private TTDrawFeedAd.DrawVideoListener p;
 
-    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC1026a
+    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.multipro.b.a.InterfaceC1028a
     public /* bridge */ /* synthetic */ com.bytedance.sdk.openadsdk.multipro.b.a a() {
         return super.a();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1011c
+    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1013c
     public /* bridge */ /* synthetic */ void a(int i, int i2) {
         super.a(i, i2);
     }
@@ -54,7 +54,7 @@ public class b extends c implements TTDrawFeedAd {
         super.e();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1011c
+    @Override // com.bytedance.sdk.openadsdk.component.a.c, com.bytedance.sdk.openadsdk.core.video.nativevideo.c.InterfaceC1013c
     public /* bridge */ /* synthetic */ void f() {
         super.f();
     }

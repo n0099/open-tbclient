@@ -17,9 +17,9 @@ import com.baidu.tieba.ala.message.AlaGetRedPacketInfoResponseMessage;
 import com.baidu.tieba.ala.message.AlaSnatchRedPacketResponseMessage;
 /* loaded from: classes11.dex */
 public class h extends BdBaseModel {
-    private a gqB;
-    private HttpMessageListener hTS;
-    private HttpMessageListener hTT;
+    private a gqP;
+    private HttpMessageListener hUg;
+    private HttpMessageListener hUh;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -34,7 +34,7 @@ public class h extends BdBaseModel {
 
     public h(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hTS = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.g.h.1
+        this.hUg = new HttpMessageListener(1021160) { // from class: com.baidu.tieba.ala.g.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -43,34 +43,34 @@ public class h extends BdBaseModel {
                     long logId = alaGetRedPacketInfoResponseMessage.getLogId();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(alaGetRedPacketInfoResponseMessage.getError()));
-                    if (alaGetRedPacketInfoResponseMessage.clO() != null) {
-                        com.baidu.tieba.ala.data.i iVar = alaGetRedPacketInfoResponseMessage.clO().gSd;
+                    if (alaGetRedPacketInfoResponseMessage.clV() != null) {
+                        com.baidu.tieba.ala.data.i iVar = alaGetRedPacketInfoResponseMessage.clV().gSr;
                         if (iVar != null) {
                             alaStatsItem.addValue("redpacketId", iVar.id);
                             alaStatsItem.addValue("status", Integer.valueOf(iVar.status));
                         }
-                        c.a aVar2 = alaGetRedPacketInfoResponseMessage.clO().gSe;
+                        c.a aVar2 = alaGetRedPacketInfoResponseMessage.clV().gSs;
                         if (aVar2 != null) {
-                            alaStatsItem.addValue("needFollow", aVar2.gSh ? "1" : "0");
+                            alaStatsItem.addValue("needFollow", aVar2.gSv ? "1" : "0");
                             alaStatsItem.addValue("hasFollowed", aVar2.isFollowed ? "1" : "0");
-                            alaStatsItem.addValue("needSendGift", aVar2.gSi ? "1" : "0");
-                            alaStatsItem.addValue("hasSendGift", aVar2.gSj ? "1" : "0");
-                            alaStatsItem.addValue("myLootResult", Integer.valueOf(aVar2.gSf));
-                            alaStatsItem.addValue("myLootAmount", Long.valueOf(aVar2.gSg));
+                            alaStatsItem.addValue("needSendGift", aVar2.gSw ? "1" : "0");
+                            alaStatsItem.addValue("hasSendGift", aVar2.gSx ? "1" : "0");
+                            alaStatsItem.addValue("myLootResult", Integer.valueOf(aVar2.gSt));
+                            alaStatsItem.addValue("myLootAmount", Long.valueOf(aVar2.gSu));
                         }
                     }
                     AlaStatManager.getInstance().debug("redpacket_get_info", logId, "", alaStatsItem);
-                    if (h.this.gqB != null) {
+                    if (h.this.gqP != null) {
                         if (alaGetRedPacketInfoResponseMessage.getError() != 0 || !alaGetRedPacketInfoResponseMessage.isSuccess()) {
-                            h.this.gqB.aW(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
+                            h.this.gqP.aW(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
                         } else {
-                            h.this.gqB.b(alaGetRedPacketInfoResponseMessage.clO());
+                            h.this.gqP.b(alaGetRedPacketInfoResponseMessage.clV());
                         }
                     }
                 }
             }
         };
-        this.hTT = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.g.h.2
+        this.hUh = new HttpMessageListener(1021161) { // from class: com.baidu.tieba.ala.g.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -79,27 +79,27 @@ public class h extends BdBaseModel {
                     long logId = alaSnatchRedPacketResponseMessage.getLogId();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(alaSnatchRedPacketResponseMessage.getError()));
-                    com.baidu.tieba.ala.data.l clQ = alaSnatchRedPacketResponseMessage.clQ();
-                    if (clQ != null) {
-                        alaStatsItem.addValue("result", clQ.bUe() ? "1" : "0");
-                        alaStatsItem.addValue("resultAmount", Long.valueOf(clQ.bUf()));
+                    com.baidu.tieba.ala.data.l clX = alaSnatchRedPacketResponseMessage.clX();
+                    if (clX != null) {
+                        alaStatsItem.addValue("result", clX.bUl() ? "1" : "0");
+                        alaStatsItem.addValue("resultAmount", Long.valueOf(clX.bUm()));
                     }
                     AlaStatManager.getInstance().debug("redpacket_loot_result", logId, "", alaStatsItem);
-                    if (h.this.gqB != null) {
-                        com.baidu.tieba.ala.data.l clQ2 = alaSnatchRedPacketResponseMessage.clQ();
+                    if (h.this.gqP != null) {
+                        com.baidu.tieba.ala.data.l clX2 = alaSnatchRedPacketResponseMessage.clX();
                         if (alaSnatchRedPacketResponseMessage.getError() != 0 || !alaSnatchRedPacketResponseMessage.isSuccess()) {
-                            h.this.gqB.aX(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
+                            h.this.gqP.aX(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
                         } else {
-                            h.this.gqB.b(clQ2);
+                            h.this.gqP.b(clX2);
                         }
                     }
                 }
             }
         };
-        this.gqB = aVar;
+        this.gqP = aVar;
         initTasks();
-        registerListener(this.hTS);
-        registerListener(this.hTT);
+        registerListener(this.hUg);
+        registerListener(this.hUh);
     }
 
     private void initTasks() {
@@ -146,8 +146,8 @@ public class h extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hTT);
-        MessageManager.getInstance().unRegisterListener(this.hTS);
+        MessageManager.getInstance().unRegisterListener(this.hUh);
+        MessageManager.getInstance().unRegisterListener(this.hUg);
         MessageManager.getInstance().unRegisterTask(1021161);
         MessageManager.getInstance().unRegisterTask(1021160);
     }

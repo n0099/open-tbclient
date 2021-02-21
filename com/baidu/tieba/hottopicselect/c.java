@@ -10,7 +10,7 @@ import java.util.List;
 public class c {
     private String title;
     private int type = -1;
-    private List<d> jzH = new ArrayList();
+    private List<d> jzV = new ArrayList();
 
     public int getType() {
         return this.type;
@@ -20,7 +20,7 @@ public class c {
         this.type = i;
     }
 
-    public String cTX() {
+    public String cUe() {
         return this.title;
     }
 
@@ -29,7 +29,7 @@ public class c {
     }
 
     public List<d> getList() {
-        return this.jzH;
+        return this.jzV;
     }
 
     public void a(TopicListModule topicListModule) {
@@ -43,7 +43,7 @@ public class c {
                     if (topicList != null) {
                         dVar.a(topicList);
                         if (!k.isEmptyStringAfterTrim(dVar.getTopicName())) {
-                            this.jzH.add(dVar);
+                            this.jzV.add(dVar);
                         }
                     }
                 }

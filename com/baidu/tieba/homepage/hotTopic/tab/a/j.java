@@ -11,7 +11,7 @@ import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabThreadItem;
 public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba.homepage.hotTopic.tab.b.e, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.kgB);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.hotTopic.tab.b.a.kgP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,21 +42,21 @@ public class j extends com.baidu.tieba.homepage.hotTopic.tab.a.a<com.baidu.tieba
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a extends TypeAdapter.ViewHolder {
-        private HotTopicTabThreadItem kgw;
+        private HotTopicTabThreadItem kgK;
 
         a(HotTopicTabThreadItem hotTopicTabThreadItem) {
             super(hotTopicTabThreadItem);
-            this.kgw = hotTopicTabThreadItem;
+            this.kgK = hotTopicTabThreadItem;
         }
 
         void a(com.baidu.tieba.homepage.hotTopic.tab.b.e eVar) {
             if (eVar != null) {
-                this.kgw.a(eVar);
+                this.kgK.a(eVar);
             }
         }
 
         void onChangeSkinType(int i) {
-            this.kgw.onChangeSkinType(i);
+            this.kgK.onChangeSkinType(i);
         }
     }
 }

@@ -23,7 +23,7 @@ public class ak extends ai.b {
         obj = this.f13856a.f175a;
         synchronized (obj) {
             sparseArray = this.f13856a.f174a;
-            sparseArray.remove(this.f13854a.mo192a());
+            sparseArray.remove(this.f13854a.mo191a());
         }
     }
 }

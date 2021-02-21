@@ -15,9 +15,9 @@ import com.baidu.live.view.AlaLoadingButton;
 public class d extends a {
     private TextView aYt;
     private View cBE;
-    private TextView hEG;
-    private BarImageView ovv;
-    private AlaLoadingButton ovw;
+    private TextView hEU;
+    private BarImageView ovV;
+    private AlaLoadingButton ovW;
 
     public d(@NonNull Context context) {
         super(context);
@@ -40,36 +40,36 @@ public class d extends a {
             }
         });
         this.aYt = (TextView) findViewById(a.f.tv_guide_folllow_tip);
-        this.ovv = (BarImageView) findViewById(a.f.iv_avatar);
-        this.hEG = (TextView) findViewById(a.f.ala_live_name);
-        this.ovv.setShowOval(true);
-        this.ovv.setBorderColor(getContext().getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-        this.ovv.setAutoChangeStyle(false);
-        this.ovw = (AlaLoadingButton) findViewById(a.f.tv_confirm);
-        this.ovw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.h.d.2
+        this.ovV = (BarImageView) findViewById(a.f.iv_avatar);
+        this.hEU = (TextView) findViewById(a.f.ala_live_name);
+        this.ovV.setShowOval(true);
+        this.ovV.setBorderColor(getContext().getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+        this.ovV.setAutoChangeStyle(false);
+        this.ovW = (AlaLoadingButton) findViewById(a.f.tv_confirm);
+        this.ovW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.h.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.ovn != null) {
-                    d.this.ovn.onConfirm();
+                if (d.this.ovN != null) {
+                    d.this.ovN.onConfirm();
                 }
             }
         });
-        this.hEq = this.ovw.getText().toString();
-        cfU();
+        this.hEE = this.ovW.getText().toString();
+        cgb();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.h.a
-    public void LW(int i) {
-        if (this.ovw != null) {
-            this.ovw.setStatus(i);
+    public void LX(int i) {
+        if (this.ovW != null) {
+            this.ovW.setStatus(i);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.h.a
     public void o(String str, String str2, String str3) {
-        cfT();
-        this.ovv.startLoad(str, 25, false, false);
-        this.hEG.setText(str2);
+        cga();
+        this.ovV.startLoad(str, 25, false, false);
+        this.hEU.setText(str2);
         if (!TextUtils.isEmpty(str3)) {
             this.aYt.setText(str3);
         }
@@ -77,7 +77,7 @@ public class d extends a {
         show();
     }
 
-    private void cfU() {
+    private void cgb() {
         if (com.baidu.live.ae.a.Qj().buX != null && com.baidu.live.ae.a.Qj().buX.aMM == null) {
         }
     }
@@ -86,7 +86,7 @@ public class d extends a {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.h.d.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                d.this.cfT();
+                d.this.cga();
             }
         });
     }
@@ -99,9 +99,9 @@ public class d extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfT() {
-        if (this.ovv != null) {
-            this.ovv.stopLoad();
+    public void cga() {
+        if (this.ovV != null) {
+            this.ovV.stopLoad();
         }
     }
 }

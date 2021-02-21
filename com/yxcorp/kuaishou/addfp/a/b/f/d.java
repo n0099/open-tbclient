@@ -16,8 +16,8 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public final class d {
     private Context e;
-    private com.yxcorp.kuaishou.addfp.a.b.b qlM;
-    public a qlL = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qmm;
+    public a qml = null;
 
     /* renamed from: b  reason: collision with root package name */
     private String f14361b = null;
@@ -29,9 +29,9 @@ public final class d {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qlM.a(this.qlL);
+                this.qmm.a(this.qml);
             } else {
-                this.qlM.e();
+                this.qmm.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -82,7 +82,7 @@ public final class d {
                 if (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f14361b)) {
                     return "";
                 }
-                String a2 = this.qlL.a(this.f14361b, this.c, str);
+                String a2 = this.qml.a(this.f14361b, this.c, str);
                 return TextUtils.isEmpty(a2) ? "" : a2;
             }
             return "";
@@ -101,7 +101,7 @@ public final class d {
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qlM = bVar;
+            this.qmm = bVar;
             this.e = context;
             this.h = b(context);
             if (this.h) {
@@ -110,7 +110,7 @@ public final class d {
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
                 if (context.bindService(intent, this.g, 1)) {
                     this.f.await(IMConnection.RETRY_DELAY_TIMES, TimeUnit.MILLISECONDS);
-                    if (this.qlL != null) {
+                    if (this.qml != null) {
                         a(true);
                     } else {
                         a(false);

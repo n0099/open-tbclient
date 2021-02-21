@@ -11,11 +11,11 @@ import com.baidu.tieba.frs.c.b;
 /* loaded from: classes2.dex */
 public class f {
     private com.baidu.tbadk.n.a.a XT;
-    private b jIH;
-    private g jIy;
+    private g jIM;
+    private b jIV;
     private Context mContext;
     private ViewGroup mParent;
-    private b.a jII = new b.a() { // from class: com.baidu.tieba.frs.c.f.1
+    private b.a jIW = new b.a() { // from class: com.baidu.tieba.frs.c.f.1
         @Override // com.baidu.tieba.frs.c.b.a
         public void onStateChanged(int i) {
             if (i == 1) {
@@ -31,7 +31,7 @@ public class f {
                     f.this.XT.bEs();
                 }
             } else if (i == 0) {
-                f.this.cKx();
+                f.this.cKE();
             }
         }
     };
@@ -45,21 +45,21 @@ public class f {
     public f(Context context, ViewGroup viewGroup, Intent intent) {
         this.mContext = context;
         this.mParent = viewGroup;
-        this.jIy = new g(context);
-        this.jIH = c.a(this.jIy, intent);
-        this.jIH.a(this.jII);
+        this.jIM = new g(context);
+        this.jIV = c.a(this.jIM, intent);
+        this.jIV.a(this.jIW);
     }
 
-    public void cKv() {
+    public void cKC() {
         if (this.mParent != null) {
-            cKx();
-            this.mParent.addView(this.jIy.mRootView);
-            cKw();
-            this.jIH.cKl();
+            cKE();
+            this.mParent.addView(this.jIM.mRootView);
+            cKD();
+            this.jIV.cKs();
         }
     }
 
-    public void cBG() {
+    public void cBN() {
         if (this.mParent != null) {
             hide();
         }
@@ -68,12 +68,12 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mHideRunnable);
-        if (this.jIH.getState() == 1) {
+        if (this.jIV.getState() == 1) {
             com.baidu.adp.lib.f.e.mA().postDelayed(this.mHideRunnable, 10L);
             return;
         }
         showContentView();
-        this.jIH.cKm();
+        this.jIV.cKt();
     }
 
     public static boolean U(Intent intent) {
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void cKw() {
+    private void cKD() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,10 +101,10 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cKx() {
-        ViewParent parent = this.jIy.mRootView.getParent();
+    public void cKE() {
+        ViewParent parent = this.jIM.mRootView.getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(this.jIy.mRootView);
+            ((ViewGroup) parent).removeView(this.jIM.mRootView);
         }
         com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mHideRunnable);
     }

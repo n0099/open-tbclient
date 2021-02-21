@@ -20,10 +20,10 @@ import java.util.List;
 public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public int ajU;
     public TextView eHx;
-    public View jTj;
+    public View jTx;
     public TbPageContext mPageContext;
-    public HTypeListView msH;
-    public e msI;
+    public HTypeListView msW;
+    public e msX;
     public View rootView;
 
     public PersonInfoUserPicsHolder(View view, TbPageContext tbPageContext) {
@@ -31,15 +31,15 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.ajU = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.jTj = view.findViewById(R.id.divider_view_under_photo_album);
+        this.jTx = view.findViewById(R.id.divider_view_under_photo_album);
         this.eHx = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.msH = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.msI = new e(this.mPageContext, this.msH);
+        this.msW = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.msX = new e(this.mPageContext, this.msW);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.msI.setDatas(fs(fVar.getPhotoAlbum()));
+            this.msX.setDatas(fs(fVar.getPhotoAlbum()));
         }
     }
 
@@ -54,13 +54,13 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         return list;
     }
 
-    public void dwq() {
+    public void dwx() {
         if (this.ajU != TbadkCoreApplication.getInst().getSkinType()) {
             this.ajU = TbadkCoreApplication.getInst().getSkinType();
             ap.setBackgroundColor(this.rootView, R.color.CAM_X0201);
-            ap.setBackgroundColor(this.jTj, R.color.CAM_X0204);
+            ap.setBackgroundColor(this.jTx, R.color.CAM_X0204);
             ap.setViewTextColor(this.eHx, R.color.CAM_X0109, 1);
-            this.msI.notifyDataSetChanged();
+            this.msX.notifyDataSetChanged();
         }
     }
 }

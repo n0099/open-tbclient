@@ -255,9 +255,9 @@ public class NativeVideoTsView extends FrameLayout implements c.a, f.a, am.a {
         });
     }
 
-    public void setVideoAdLoadListener(c.InterfaceC1011c interfaceC1011c) {
+    public void setVideoAdLoadListener(c.InterfaceC1013c interfaceC1013c) {
         if (this.f6723b != null) {
-            this.f6723b.a(interfaceC1011c);
+            this.f6723b.a(interfaceC1013c);
         }
     }
 

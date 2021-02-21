@@ -5,44 +5,44 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class b {
-    private static b nFh;
+    private static b nFH;
     private boolean mInited = false;
-    private a nFi = dQI();
+    private a nFI = dQQ();
 
     /* loaded from: classes.dex */
     public interface a {
         void initSdk(Application application);
     }
 
-    private boolean dQH() {
+    private boolean dQP() {
         return com.baidu.tbadk.core.sharedPref.b.brQ().getInt("pref_key_jpush_sdk_enable", 0) == 1;
     }
 
     private b() {
     }
 
-    private a dQI() {
+    private a dQQ() {
         CustomResponsedMessage runTask;
-        if (!dQH() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
+        if (!dQP() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static b dQJ() {
-        if (nFh == null) {
+    public static b dQR() {
+        if (nFH == null) {
             synchronized (b.class) {
-                if (nFh == null) {
-                    nFh = new b();
+                if (nFH == null) {
+                    nFH = new b();
                 }
             }
         }
-        return nFh;
+        return nFH;
     }
 
     public void initSdk(Application application) {
-        if (!this.mInited && this.nFi != null) {
-            this.nFi.initSdk(application);
+        if (!this.mInited && this.nFI != null) {
+            this.nFI.initSdk(application);
             this.mInited = true;
         }
     }

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes8.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a lGP = null;
-    private final a.InterfaceC0555a lGQ = new a.InterfaceC0555a() { // from class: com.baidu.tieba.passaccount.b.a.1
+    private static a lHd = null;
+    private final a.InterfaceC0555a lHe = new a.InterfaceC0555a() { // from class: com.baidu.tieba.passaccount.b.a.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0555a
         public void onBeforeLogin(String str) {
         }
@@ -30,11 +30,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a dkd() {
-        if (lGP == null) {
-            lGP = new a();
+    public static a dkk() {
+        if (lHd == null) {
+            lHd = new a();
         }
-        return lGP;
+        return lHd;
     }
 
     @Override // com.baidu.tbadk.core.a.a
@@ -73,7 +73,7 @@ public class a extends com.baidu.tbadk.core.a.a {
             if (currentAccountObj != null) {
                 a.b zH = zH(currentAccountObj.getBDUSS());
                 if (zH != null) {
-                    com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), zH.mBduss, zH.mPtoken, currentAccountObj.getStoken(), this.lGQ);
+                    com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), zH.mBduss, zH.mPtoken, currentAccountObj.getStoken(), this.lHe);
                     return;
                 }
                 return;

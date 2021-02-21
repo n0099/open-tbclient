@@ -9,17 +9,17 @@ import java.util.concurrent.atomic.AtomicReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final class c implements io.reactivex.disposables.b, Callable<Void> {
-    static final FutureTask<Void> qqO = new FutureTask<>(Functions.qnB, null);
+    static final FutureTask<Void> qro = new FutureTask<>(Functions.qob, null);
     final Runnable bSa;
-    final ExecutorService qqN;
+    final ExecutorService qrn;
     Thread runner;
-    final AtomicReference<Future<?>> qqM = new AtomicReference<>();
-    final AtomicReference<Future<?>> qqL = new AtomicReference<>();
+    final AtomicReference<Future<?>> qrm = new AtomicReference<>();
+    final AtomicReference<Future<?>> qrl = new AtomicReference<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Runnable runnable, ExecutorService executorService) {
         this.bSa = runnable;
-        this.qqN = executorService;
+        this.qrn = executorService;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public final class c implements io.reactivex.disposables.b, Callable<Void> {
         try {
             this.runner = Thread.currentThread();
             this.bSa.run();
-            c(this.qqN.submit(this));
+            c(this.qrn.submit(this));
             return null;
         } finally {
             this.runner = null;
@@ -37,39 +37,39 @@ public final class c implements io.reactivex.disposables.b, Callable<Void> {
 
     @Override // io.reactivex.disposables.b
     public void dispose() {
-        Future<?> andSet = this.qqM.getAndSet(qqO);
-        if (andSet != null && andSet != qqO) {
+        Future<?> andSet = this.qrm.getAndSet(qro);
+        if (andSet != null && andSet != qro) {
             andSet.cancel(this.runner != Thread.currentThread());
         }
-        Future<?> andSet2 = this.qqL.getAndSet(qqO);
-        if (andSet2 != null && andSet2 != qqO) {
+        Future<?> andSet2 = this.qrl.getAndSet(qro);
+        if (andSet2 != null && andSet2 != qro) {
             andSet2.cancel(this.runner != Thread.currentThread());
         }
     }
 
     @Override // io.reactivex.disposables.b
     public boolean isDisposed() {
-        return this.qqM.get() == qqO;
+        return this.qrm.get() == qro;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(Future<?> future) {
         Future<?> future2;
         do {
-            future2 = this.qqM.get();
-            if (future2 == qqO) {
+            future2 = this.qrm.get();
+            if (future2 == qro) {
                 future.cancel(this.runner != Thread.currentThread());
             }
-        } while (!this.qqM.compareAndSet(future2, future));
+        } while (!this.qrm.compareAndSet(future2, future));
     }
 
     void c(Future<?> future) {
         Future<?> future2;
         do {
-            future2 = this.qqL.get();
-            if (future2 == qqO) {
+            future2 = this.qrl.get();
+            if (future2 == qro) {
                 future.cancel(this.runner != Thread.currentThread());
             }
-        } while (!this.qqL.compareAndSet(future2, future));
+        } while (!this.qrl.compareAndSet(future2, future));
     }
 }

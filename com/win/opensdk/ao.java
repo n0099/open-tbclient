@@ -3,20 +3,20 @@ package com.win.opensdk;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public class ao {
-    private static ao qke;
-    public Context qiN;
+    private static ao qkE;
+    public Context qjn;
 
     private ao() {
     }
 
-    public static ao eJd() {
-        if (qke == null) {
+    public static ao eJl() {
+        if (qkE == null) {
             synchronized (ao.class) {
-                if (qke == null) {
-                    qke = new ao();
+                if (qkE == null) {
+                    qkE = new ao();
                 }
             }
         }
-        return qke;
+        return qkE;
     }
 }

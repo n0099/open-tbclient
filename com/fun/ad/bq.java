@@ -14,7 +14,7 @@ public final class bq {
 
     /* renamed from: b  reason: collision with root package name */
     public static ExecutorService f7777b = Executors.newSingleThreadExecutor();
-    public static a pPT;
+    public static a pQt;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -62,7 +62,7 @@ public final class bq {
         a(context, bfVar);
     }
 
-    public static void j(Context context, String str, String str2, String str3) {
+    public static void k(Context context, String str, String str2, String str3) {
         bf bfVar = new bf();
         bfVar.f7769b = "as";
         bfVar.c = str;
@@ -71,7 +71,7 @@ public final class bq {
         a(context, bfVar);
     }
 
-    public static void k(Context context, String str, String str2, String str3) {
+    public static void l(Context context, String str, String str2, String str3) {
         bf bfVar = new bf();
         bfVar.f7769b = "ao";
         bfVar.c = str;

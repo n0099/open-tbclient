@@ -9,8 +9,9 @@ public class QuickPersistConfig extends SharedPrefsWrapper {
         super(SP_FILE_STARTUP);
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
-    private static final class Holder {
+    public static final class Holder {
         private static final QuickPersistConfig INSTANCE = new QuickPersistConfig();
 
         private Holder() {

@@ -41,64 +41,64 @@ public class c {
     private NoNetworkView fLP;
     private NavigationBar mNavigationBar;
     private View mRoot;
-    private TextView nFZ;
-    private MemberRecommendView nGD;
-    private DressupCenterActivity nIS;
-    private b nIT;
+    private TextView nGz;
+    private MemberRecommendView nHd;
+    private DressupCenterActivity nJs;
+    private b nJt;
     private int topMargin;
 
     public c(DressupCenterActivity dressupCenterActivity) {
         this.topMargin = 0;
-        this.nIS = dressupCenterActivity;
+        this.nJs = dressupCenterActivity;
         this.topMargin = l.getDimens(dressupCenterActivity.getPageContext().getPageActivity(), R.dimen.ds120);
-        this.mRoot = LayoutInflater.from(this.nIS.getPageContext().getPageActivity()).inflate(R.layout.dressup_center_activity_layout, (ViewGroup) null);
-        this.nIS.setContentView(this.mRoot);
+        this.mRoot = LayoutInflater.from(this.nJs.getPageContext().getPageActivity()).inflate(R.layout.dressup_center_activity_layout, (ViewGroup) null);
+        this.nJs.setContentView(this.mRoot);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.nIS.getPageContext().getString(R.string.dressup_center_title));
+        this.mNavigationBar.setCenterTextTitle(this.nJs.getPageContext().getString(R.string.dressup_center_title));
         this.fLP = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
         this.WO = (BdListView) this.mRoot.findViewById(R.id.dress_listview);
         this.ajA = (CoverFlowView) this.mRoot.findViewById(R.id.dressup_center_coverflowview);
-        dRn();
-        this.nGD = (MemberRecommendView) this.mRoot.findViewById(R.id.dressup_center_recommend);
-        this.nGD.setFromType(1);
-        this.nIT = new b(this.nIS.getPageContext());
-        this.nFZ = new TextView(this.nIS.getActivity());
-        this.nFZ.setHeight(l.getDimens(this.nIS.getActivity(), R.dimen.ds30));
-        this.WO.setAdapter((ListAdapter) this.nIT);
+        dRv();
+        this.nHd = (MemberRecommendView) this.mRoot.findViewById(R.id.dressup_center_recommend);
+        this.nHd.setFromType(1);
+        this.nJt = new b(this.nJs.getPageContext());
+        this.nGz = new TextView(this.nJs.getActivity());
+        this.nGz.setHeight(l.getDimens(this.nJs.getActivity(), R.dimen.ds30));
+        this.WO.setAdapter((ListAdapter) this.nJt);
         this.WO.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.themeCenter.dressCenter.c.1
             /* JADX DEBUG: Multi-variable search result rejected for r3v5, resolved type: com.baidu.tieba.themeCenter.dressCenter.DressupCenterActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                d item = c.this.nIT.getItem(i);
+                d item = c.this.nJt.getItem(i);
                 if (item != null) {
                     com.baidu.tbadk.core.sharedPref.b.brQ().putLong(SharedPrefConfig.DRESSUP_CENTER_RED_TIP + TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + item.getType(), item.getUpdateTime());
-                    c.this.nIT.notifyDataSetChanged();
+                    c.this.nJt.notifyDataSetChanged();
                     if (!StringUtils.isNull(item.getType())) {
                         String type = item.getType();
                         CustomMessage customMessage = null;
                         switch (com.baidu.adp.lib.f.b.toInt(type, 0)) {
                             case 1:
                                 TiebaStatic.log("c10263");
-                                c.this.dRm();
+                                c.this.dRu();
                                 break;
                             case 2:
                                 TiebaStatic.log("c10264");
-                                customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(c.this.nIS.getActivity()));
+                                customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(c.this.nJs.getActivity()));
                                 break;
                             case 3:
-                                customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BubbleGroupActivityConfig(c.this.nIS.getActivity()));
+                                customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BubbleGroupActivityConfig(c.this.nJs.getActivity()));
                                 break;
                             case 4:
-                                customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardCategoryActivityConfig(c.this.nIS.getPageContext().getPageActivity()));
+                                customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalCardCategoryActivityConfig(c.this.nJs.getPageContext().getPageActivity()));
                                 break;
                             case 5:
                                 TiebaStatic.log("c11611");
-                                customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AvatarPendantActivityConfig(c.this.nIS.getActivity()));
+                                customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AvatarPendantActivityConfig(c.this.nJs.getActivity()));
                                 break;
                             default:
-                                bf.bsV().b(c.this.nIS.getPageContext(), new String[]{type});
+                                bf.bsV().b(c.this.nJs.getPageContext(), new String[]{type});
                                 break;
                         }
                         if (customMessage != null) {
@@ -111,8 +111,8 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dRm() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.nIS.getPageContext().getPageActivity());
+    public void dRu() {
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.nJs.getPageContext().getPageActivity());
         aVar.nx(R.string.function_unavailable_tip);
         aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.themeCenter.dressCenter.c.2
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -120,15 +120,15 @@ public class c {
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.nIS.getPageContext()).bqx();
+        aVar.b(this.nJs.getPageContext()).bqx();
     }
 
     public void a(List<a> list, e eVar, List<d> list2, boolean z) {
-        if ((list == null || list.size() <= 0) && ((eVar == null || StringUtils.isNull(eVar.dRo())) && (list2 == null || list2.size() <= 0))) {
-            cAH();
+        if ((list == null || list.size() <= 0) && ((eVar == null || StringUtils.isNull(eVar.dRw())) && (list2 == null || list2.size() <= 0))) {
+            cAO();
             return;
         }
-        cAI();
+        cAP();
         z(list2, fV(list) || b(eVar));
     }
 
@@ -143,12 +143,12 @@ public class c {
     }
 
     private boolean b(e eVar) {
-        if (eVar == null || StringUtils.isNull(eVar.dRo())) {
-            this.nGD.setVisibility(8);
+        if (eVar == null || StringUtils.isNull(eVar.dRw())) {
+            this.nHd.setVisibility(8);
             return false;
         }
-        this.nGD.setVisibility(0);
-        this.nGD.a(eVar);
+        this.nHd.setVisibility(0);
+        this.nHd.a(eVar);
         return true;
     }
 
@@ -158,55 +158,55 @@ public class c {
             return;
         }
         if (z) {
-            this.WO.removeHeaderView(this.nFZ);
-            this.WO.addHeaderView(this.nFZ);
+            this.WO.removeHeaderView(this.nGz);
+            this.WO.addHeaderView(this.nGz);
         } else {
-            this.WO.removeHeaderView(this.nFZ);
+            this.WO.removeHeaderView(this.nGz);
         }
         this.WO.setVisibility(0);
-        this.nIT.setData(list);
-        this.nIT.notifyDataSetChanged();
+        this.nJt.setData(list);
+        this.nJt.notifyDataSetChanged();
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void bzn() {
-        this.nIS.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.nIS.getLayoutMode().onModeChanged(this.mRoot);
+        this.nJs.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.nJs.getLayoutMode().onModeChanged(this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.nIS.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.nJs.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
         if (this.fLP != null) {
-            this.fLP.onChangeSkinType(this.nIS.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.fLP.onChangeSkinType(this.nJs.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
         if (this.ajA != null && this.ajA.getVisibility() == 0) {
             this.ajA.onChangeSkinType();
         }
-        if (this.WO != null && this.WO.getVisibility() == 0 && this.nIT != null) {
-            this.nIT.notifyDataSetChanged();
+        if (this.WO != null && this.WO.getVisibility() == 0 && this.nJt != null) {
+            this.nJt.notifyDataSetChanged();
         }
-        if (this.nGD != null && this.nGD.getVisibility() == 0) {
-            this.nGD.bup();
+        if (this.nHd != null && this.nHd.getVisibility() == 0) {
+            this.nHd.bup();
         }
-        ap.setBackgroundColor(this.nFZ, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.nGz, R.color.CAM_X0204);
     }
 
-    public void cAH() {
+    public void cAO() {
         this.WO.setVisibility(8);
         this.ajA.setVisibility(8);
-        this.nGD.setVisibility(8);
-        String string = this.nIS.getPageContext().getResources().getString(R.string.no_data_text);
-        this.nIS.setNetRefreshViewTopMargin(this.topMargin);
-        this.nIS.showNetRefreshView(this.mRoot, string, false);
+        this.nHd.setVisibility(8);
+        String string = this.nJs.getPageContext().getResources().getString(R.string.no_data_text);
+        this.nJs.setNetRefreshViewTopMargin(this.topMargin);
+        this.nJs.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void cAI() {
-        this.nIS.hideNetRefreshView(this.mRoot);
+    public void cAP() {
+        this.nJs.hideNetRefreshView(this.mRoot);
         this.WO.setVisibility(0);
-        this.nGD.setVisibility(0);
+        this.nHd.setVisibility(0);
         this.ajA.setVisibility(0);
     }
 
-    private void dRn() {
+    private void dRv() {
         if (this.ajA != null) {
             this.ajA.setCoverFlowFactory(new com.baidu.tbadk.core.flow.a() { // from class: com.baidu.tieba.themeCenter.dressCenter.c.3
                 @Override // com.baidu.tbadk.core.flow.a
@@ -247,7 +247,7 @@ public class c {
                 @Override // com.baidu.tbadk.core.flow.a.d
                 public void f(int i, String str) {
                     TiebaStatic.log("c10262");
-                    bf.bsV().b(c.this.nIS.getPageContext(), new String[]{str});
+                    bf.bsV().b(c.this.nJs.getPageContext(), new String[]{str});
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */

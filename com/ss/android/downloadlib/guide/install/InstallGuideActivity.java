@@ -16,10 +16,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class InstallGuideActivity extends TTDelegateActivity {
-    private static m qcL;
+    private static m qdl;
 
     public static void a(int i, @NonNull m mVar) {
-        qcL = mVar;
+        qdl = mVar;
         Intent intent = new Intent(j.a(), InstallGuideActivity.class);
         intent.addFlags(268435456);
         intent.putExtra("type", 6);
@@ -37,7 +37,7 @@ public class InstallGuideActivity extends TTDelegateActivity {
         if (this.f12966a.getIntExtra("type", 0) == 6) {
             int intExtra = this.f12966a.getIntExtra("download_info_id", 0);
             String b2 = b(intExtra);
-            long QY = com.ss.android.downloadlib.f.d.QY(intExtra);
+            long QZ = com.ss.android.downloadlib.f.d.QZ(intExtra);
             com.ss.android.socialbase.downloader.g.c h = f.iB(j.a()).h(intExtra);
             if (h == null) {
                 a(intExtra);
@@ -62,19 +62,19 @@ public class InstallGuideActivity extends TTDelegateActivity {
                 }
             }
             c.b();
-            j.eER().a(this, intExtra, h2, drawable, b2, QY, qcL);
+            j.eEZ().a(this, intExtra, h2, drawable, b2, QZ, qdl);
         }
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        j.eER().a();
+        j.eEZ().a();
     }
 
     private void a(int i) {
-        if (qcL != null) {
-            qcL.a();
+        if (qdl != null) {
+            qdl.a();
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -83,22 +83,22 @@ public class InstallGuideActivity extends TTDelegateActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        j.eEI().a(null, new com.ss.android.socialbase.downloader.e.a(0, jSONObject.toString()), 6);
+        j.eEQ().a(null, new com.ss.android.socialbase.downloader.e.a(0, jSONObject.toString()), 6);
     }
 
     private String b(int i) {
         if (g.b()) {
-            return com.ss.android.downloadlib.f.d.QW(i);
+            return com.ss.android.downloadlib.f.d.QX(i);
         }
         if (g.d()) {
-            return com.ss.android.downloadlib.f.d.OJ(i);
+            return com.ss.android.downloadlib.f.d.OK(i);
         }
         if (g.c()) {
-            return com.ss.android.downloadlib.f.d.OK(i);
+            return com.ss.android.downloadlib.f.d.OL(i);
         }
         if (!g.a()) {
             return "";
         }
-        return com.ss.android.downloadlib.f.d.OL(i);
+        return com.ss.android.downloadlib.f.d.OM(i);
     }
 }

@@ -5,39 +5,39 @@ import androidx.annotation.RestrictTo;
 import com.baidu.tieba.b.b;
 /* loaded from: classes.dex */
 public final class e {
-    double ioP;
-    double ioQ;
-    private double ioR;
-    private double ioS;
-    private double ioT;
-    private double ioU;
-    private double ioV;
-    private double ioW;
-    private final b.a ioX;
+    double ipd;
+    double ipe;
+    private double ipf;
+    private double ipg;
+    private double iph;
+    private double ipi;
+    private double ipj;
+    private double ipk;
+    private final b.a ipl;
     private boolean mInitialized;
 
     public e() {
-        this.ioP = Math.sqrt(1500.0d);
-        this.ioQ = 0.5d;
+        this.ipd = Math.sqrt(1500.0d);
+        this.ipe = 0.5d;
         this.mInitialized = false;
-        this.ioW = Double.MAX_VALUE;
-        this.ioX = new b.a();
+        this.ipk = Double.MAX_VALUE;
+        this.ipl = new b.a();
     }
 
     public e(float f) {
-        this.ioP = Math.sqrt(1500.0d);
-        this.ioQ = 0.5d;
+        this.ipd = Math.sqrt(1500.0d);
+        this.ipe = 0.5d;
         this.mInitialized = false;
-        this.ioW = Double.MAX_VALUE;
-        this.ioX = new b.a();
-        this.ioW = f;
+        this.ipk = Double.MAX_VALUE;
+        this.ipl = new b.a();
+        this.ipk = f;
     }
 
     public e aF(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
         if (f <= 0.0f) {
             throw new IllegalArgumentException("Spring stiffness constant must be positive.");
         }
-        this.ioP = Math.sqrt(f);
+        this.ipd = Math.sqrt(f);
         this.mInitialized = false;
         return this;
     }
@@ -46,35 +46,35 @@ public final class e {
         if (f < 0.0f) {
             throw new IllegalArgumentException("Damping ratio must be non-negative");
         }
-        this.ioQ = f;
+        this.ipe = f;
         this.mInitialized = false;
         return this;
     }
 
     public e aH(float f) {
-        this.ioW = f;
+        this.ipk = f;
         return this;
     }
 
-    public float cqK() {
-        return (float) this.ioW;
+    public float cqR() {
+        return (float) this.ipk;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public boolean D(float f, float f2) {
-        return ((double) Math.abs(f2)) < this.ioS && ((double) Math.abs(f - cqK())) < this.ioR;
+        return ((double) Math.abs(f2)) < this.ipg && ((double) Math.abs(f - cqR())) < this.ipf;
     }
 
     private void init() {
         if (!this.mInitialized) {
-            if (this.ioW == Double.MAX_VALUE) {
+            if (this.ipk == Double.MAX_VALUE) {
                 throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
             }
-            if (this.ioQ > 1.0d) {
-                this.ioT = ((-this.ioQ) * this.ioP) + (this.ioP * Math.sqrt((this.ioQ * this.ioQ) - 1.0d));
-                this.ioU = ((-this.ioQ) * this.ioP) - (this.ioP * Math.sqrt((this.ioQ * this.ioQ) - 1.0d));
-            } else if (this.ioQ >= 0.0d && this.ioQ < 1.0d) {
-                this.ioV = this.ioP * Math.sqrt(1.0d - (this.ioQ * this.ioQ));
+            if (this.ipe > 1.0d) {
+                this.iph = ((-this.ipe) * this.ipd) + (this.ipd * Math.sqrt((this.ipe * this.ipe) - 1.0d));
+                this.ipi = ((-this.ipe) * this.ipd) - (this.ipd * Math.sqrt((this.ipe * this.ipe) - 1.0d));
+            } else if (this.ipe >= 0.0d && this.ipe < 1.0d) {
+                this.ipj = this.ipd * Math.sqrt(1.0d - (this.ipe * this.ipe));
             }
             this.mInitialized = true;
         }
@@ -86,29 +86,29 @@ public final class e {
         double cos;
         init();
         double d3 = j / 1000.0d;
-        double d4 = d - this.ioW;
-        if (this.ioQ > 1.0d) {
-            double d5 = d4 - (((this.ioU * d4) - d2) / (this.ioU - this.ioT));
-            double d6 = ((this.ioU * d4) - d2) / (this.ioU - this.ioT);
-            pow = (Math.pow(2.718281828459045d, this.ioU * d3) * d5) + (Math.pow(2.718281828459045d, this.ioT * d3) * d6);
-            cos = (Math.pow(2.718281828459045d, d3 * this.ioT) * d6 * this.ioT) + (d5 * this.ioU * Math.pow(2.718281828459045d, this.ioU * d3));
-        } else if (this.ioQ == 1.0d) {
-            double d7 = d2 + (this.ioP * d4);
-            pow = ((d7 * d3) + d4) * Math.pow(2.718281828459045d, (-this.ioP) * d3);
-            cos = (Math.pow(2.718281828459045d, d3 * (-this.ioP)) * d7) + ((d4 + (d7 * d3)) * Math.pow(2.718281828459045d, (-this.ioP) * d3) * (-this.ioP));
+        double d4 = d - this.ipk;
+        if (this.ipe > 1.0d) {
+            double d5 = d4 - (((this.ipi * d4) - d2) / (this.ipi - this.iph));
+            double d6 = ((this.ipi * d4) - d2) / (this.ipi - this.iph);
+            pow = (Math.pow(2.718281828459045d, this.ipi * d3) * d5) + (Math.pow(2.718281828459045d, this.iph * d3) * d6);
+            cos = (Math.pow(2.718281828459045d, d3 * this.iph) * d6 * this.iph) + (d5 * this.ipi * Math.pow(2.718281828459045d, this.ipi * d3));
+        } else if (this.ipe == 1.0d) {
+            double d7 = d2 + (this.ipd * d4);
+            pow = ((d7 * d3) + d4) * Math.pow(2.718281828459045d, (-this.ipd) * d3);
+            cos = (Math.pow(2.718281828459045d, d3 * (-this.ipd)) * d7) + ((d4 + (d7 * d3)) * Math.pow(2.718281828459045d, (-this.ipd) * d3) * (-this.ipd));
         } else {
-            double d8 = ((this.ioQ * this.ioP * d4) + d2) * (1.0d / this.ioV);
-            pow = Math.pow(2.718281828459045d, (-this.ioQ) * this.ioP * d3) * ((Math.cos(this.ioV * d3) * d4) + (Math.sin(this.ioV * d3) * d8));
-            cos = (((Math.cos(d3 * this.ioV) * d8 * this.ioV) + (d4 * (-this.ioV) * Math.sin(this.ioV * d3))) * Math.pow(2.718281828459045d, (-this.ioQ) * this.ioP * d3)) + ((-this.ioP) * pow * this.ioQ);
+            double d8 = ((this.ipe * this.ipd * d4) + d2) * (1.0d / this.ipj);
+            pow = Math.pow(2.718281828459045d, (-this.ipe) * this.ipd * d3) * ((Math.cos(this.ipj * d3) * d4) + (Math.sin(this.ipj * d3) * d8));
+            cos = (((Math.cos(d3 * this.ipj) * d8 * this.ipj) + (d4 * (-this.ipj) * Math.sin(this.ipj * d3))) * Math.pow(2.718281828459045d, (-this.ipe) * this.ipd * d3)) + ((-this.ipd) * pow * this.ipe);
         }
-        this.ioX.mValue = (float) (pow + this.ioW);
-        this.ioX.ioC = (float) cos;
-        return this.ioX;
+        this.ipl.mValue = (float) (pow + this.ipk);
+        this.ipl.ioQ = (float) cos;
+        return this.ipl;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void u(double d) {
-        this.ioR = Math.abs(d);
-        this.ioS = this.ioR * 62.5d;
+        this.ipf = Math.abs(d);
+        this.ipg = this.ipf * 62.5d;
     }
 }

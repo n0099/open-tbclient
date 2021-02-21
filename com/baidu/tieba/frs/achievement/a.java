@@ -20,20 +20,20 @@ import java.util.Date;
 public class a implements y.a {
     private TbPageContext context;
     private ImageView eIT;
-    private View jkq;
-    private TextView jlG;
-    private TextView jlH;
-    private TextView jlI;
-    private b jlJ;
-    private y jlK;
-    private ImageView jlL;
-    private ImageView jlM;
-    private TextView jlN;
-    private View jlO;
+    private View jkE;
+    private TextView jlU;
+    private TextView jlV;
+    private TextView jlW;
+    private b jlX;
+    private y jlY;
+    private ImageView jlZ;
+    private ImageView jma;
+    private TextView jmb;
+    private View jmc;
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() == a.this.jlL.getId()) {
+            if (view.getId() == a.this.jlZ.getId()) {
                 a.this.context.getPageActivity().finish();
             }
         }
@@ -43,32 +43,32 @@ public class a implements y.a {
     public a(TbPageContext tbPageContext, View view) {
         this.context = tbPageContext;
         this.rootView = view;
-        this.jlG = (TextView) view.findViewById(R.id.to_user_name);
-        this.jlH = (TextView) view.findViewById(R.id.content);
-        this.jlI = (TextView) view.findViewById(R.id.sender);
-        this.jkq = view.findViewById(R.id.share_view);
+        this.jlU = (TextView) view.findViewById(R.id.to_user_name);
+        this.jlV = (TextView) view.findViewById(R.id.content);
+        this.jlW = (TextView) view.findViewById(R.id.sender);
+        this.jkE = view.findViewById(R.id.share_view);
         this.eIT = (ImageView) view.findViewById(R.id.frs_private_share_qrcode);
-        this.jlL = (ImageView) view.findViewById(R.id.close_button);
-        this.jlL.setOnClickListener(this.onClickListener);
-        this.jlM = (ImageView) view.findViewById(R.id.img_top);
-        ViewGroup.LayoutParams layoutParams = this.jlM.getLayoutParams();
+        this.jlZ = (ImageView) view.findViewById(R.id.close_button);
+        this.jlZ.setOnClickListener(this.onClickListener);
+        this.jma = (ImageView) view.findViewById(R.id.img_top);
+        ViewGroup.LayoutParams layoutParams = this.jma.getLayoutParams();
         layoutParams.width = l.getEquipmentWidth(tbPageContext.getPageActivity()) - (l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds49) * 2);
         layoutParams.height = (int) (((layoutParams.width * 364) * 1.0f) / 980.0f);
-        this.jlM.setLayoutParams(layoutParams);
-        this.jlN = (TextView) view.findViewById(R.id.qr_view_intro);
-        this.jlO = view.findViewById(R.id.layout_content);
-        this.jlO.setBackground(cES());
-        this.jkq.setBackground(cES());
-        this.jlJ = new b(tbPageContext);
-        this.jlJ.cEU();
-        cET();
-        this.jlK = new y(tbPageContext);
-        this.jlK.a(view, this.jkq, this);
-        this.jlK.setData(this.jlJ.url, this.jlJ.fname);
-        this.jlK.setFrom(5);
+        this.jma.setLayoutParams(layoutParams);
+        this.jmb = (TextView) view.findViewById(R.id.qr_view_intro);
+        this.jmc = view.findViewById(R.id.layout_content);
+        this.jmc.setBackground(cEZ());
+        this.jkE.setBackground(cEZ());
+        this.jlX = new b(tbPageContext);
+        this.jlX.cFb();
+        cFa();
+        this.jlY = new y(tbPageContext);
+        this.jlY.a(view, this.jkE, this);
+        this.jlY.setData(this.jlX.url, this.jlX.fname);
+        this.jlY.setFrom(5);
     }
 
-    private GradientDrawable cES() {
+    private GradientDrawable cEZ() {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{ap.getColor(R.color.CAM_X0201), ap.getColor(R.color.CAM_X0201)});
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);
@@ -80,11 +80,11 @@ public class a implements y.a {
         this.rootView.setVisibility(z ? 0 : 8);
     }
 
-    private void cET() {
-        this.jlG.setText("你好，朋友！");
-        this.jlH.setText(this.jlJ.cEW());
-        this.jlI.setText(this.jlJ.nickName + "\n" + new SimpleDateFormat("yyyy年MM月dd日").format(new Date(System.currentTimeMillis())));
-        zF(this.jlJ.shareUrl);
+    private void cFa() {
+        this.jlU.setText("你好，朋友！");
+        this.jlV.setText(this.jlX.cFd());
+        this.jlW.setText(this.jlX.nickName + "\n" + new SimpleDateFormat("yyyy年MM月dd日").format(new Date(System.currentTimeMillis())));
+        zF(this.jlX.shareUrl);
     }
 
     private void zF(String str) {
@@ -95,22 +95,22 @@ public class a implements y.a {
     }
 
     public void onChangeSkinType(int i) {
-        ap.setImageResource(this.jlL, R.drawable.icon_popup_shut_n);
-        ap.setViewTextColor(this.jlG, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jlH, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jlI, R.color.CAM_X0109);
-        ap.setViewTextColor(this.jlN, R.color.CAM_X0109);
+        ap.setImageResource(this.jlZ, R.drawable.icon_popup_shut_n);
+        ap.setViewTextColor(this.jlU, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jlV, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jlW, R.color.CAM_X0109);
+        ap.setViewTextColor(this.jmb, R.color.CAM_X0109);
     }
 
     @Override // com.baidu.tieba.frs.y.a
-    public void cEo() {
-        this.jkq.setBackground(cES());
-        this.jlM.setImageResource(R.drawable.pic_yaoqinghan_980x364);
+    public void cEv() {
+        this.jkE.setBackground(cEZ());
+        this.jma.setImageResource(R.drawable.pic_yaoqinghan_980x364);
     }
 
     @Override // com.baidu.tieba.frs.y.a
-    public void cEp() {
-        this.jkq.setBackground(new ColorDrawable(ap.getColor(R.color.CAM_X0201)));
-        this.jlM.setImageResource(R.drawable.pic_yaoqinghan_square_corner);
+    public void cEw() {
+        this.jkE.setBackground(new ColorDrawable(ap.getColor(R.color.CAM_X0201)));
+        this.jma.setImageResource(R.drawable.pic_yaoqinghan_square_corner);
     }
 }

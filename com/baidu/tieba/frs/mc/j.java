@@ -5,24 +5,24 @@ import com.baidu.tieba.frs.at;
 import com.baidu.tieba.frs.q;
 /* loaded from: classes2.dex */
 public class j {
-    protected final FrsFragment jEH;
-    protected final com.baidu.tieba.frs.vc.n jFP;
-    protected final at jFQ;
-    protected final c jFR;
-    protected final com.baidu.tieba.frs.vc.h jgA;
-    protected final q jgh;
-    protected final FrsModelController jgz;
+    protected final FrsFragment jEV;
+    protected final com.baidu.tieba.frs.vc.n jGd;
+    protected final at jGe;
+    protected final c jGf;
+    protected final FrsModelController jgN;
+    protected final com.baidu.tieba.frs.vc.h jgO;
+    protected final q jgv;
 
     public j(FrsFragment frsFragment) {
         if (frsFragment == null) {
             throw new NullPointerException("FrsActivity is NullPointerException");
         }
-        this.jEH = frsFragment;
-        this.jgA = this.jEH.cCr();
-        this.jgh = this.jEH.cCu();
-        this.jFP = this.jEH.cCs();
-        this.jgz = this.jEH.cCp();
-        this.jFQ = this.jEH.cCt();
-        this.jFR = this.jEH.cCq();
+        this.jEV = frsFragment;
+        this.jgO = this.jEV.cCy();
+        this.jgv = this.jEV.cCB();
+        this.jGd = this.jEV.cCz();
+        this.jgN = this.jEV.cCw();
+        this.jGe = this.jEV.cCA();
+        this.jGf = this.jEV.cCx();
     }
 }

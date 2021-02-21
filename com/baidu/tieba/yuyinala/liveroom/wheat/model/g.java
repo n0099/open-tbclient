@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.FrameNumCallBackHttpRespo
 /* loaded from: classes11.dex */
 public class g extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oJH;
+    private a oKh;
     private HttpMessageListener messageListener = new HttpMessageListener(1031090) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.g.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrameNumCallBackHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.aCW && g.this.oJH != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrameNumCallBackHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == g.this.aCW && g.this.oKh != null) {
                 FrameNumCallBackHttpResponseMessage frameNumCallBackHttpResponseMessage = (FrameNumCallBackHttpResponseMessage) httpResponsedMessage;
                 if (frameNumCallBackHttpResponseMessage.getError() != 0 || !frameNumCallBackHttpResponseMessage.isSuccess()) {
-                    g.this.oJH.onFail(frameNumCallBackHttpResponseMessage.getError(), frameNumCallBackHttpResponseMessage.getErrorString());
+                    g.this.oKh.onFail(frameNumCallBackHttpResponseMessage.getError(), frameNumCallBackHttpResponseMessage.getErrorString());
                 } else {
-                    g.this.oJH.a(frameNumCallBackHttpResponseMessage);
+                    g.this.oKh.a(frameNumCallBackHttpResponseMessage);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class g extends BdBaseModel {
     public g(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.oJH = aVar;
+        this.oKh = aVar;
         zH();
         registerListener(this.messageListener);
     }
@@ -55,7 +55,7 @@ public class g extends BdBaseModel {
         sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.m(str));
     }
 
-    public void gY(String str, String str2) {
+    public void ha(String str, String str2) {
         sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.m(str, str2));
     }
 

@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHolder> {
     private ArrayList<a> fansList;
     private Context mContext;
-    private View.OnClickListener jba = null;
-    private View.OnClickListener hlQ = null;
+    private View.OnClickListener jbo = null;
+    private View.OnClickListener hme = null;
 
     public MyForbiddenFansListAdapter(Context context) {
         this.mContext = context;
@@ -37,11 +37,11 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public void onBindViewHolder(FansViewHolder fansViewHolder, int i) {
         a yg;
         if (fansViewHolder != null && (yg = yg(i)) != null) {
-            fansViewHolder.jbb.startLoad(yg.portrait, 12, false);
-            fansViewHolder.ghV.setText(yg.nameShow);
-            fansViewHolder.jbc.setOnClickListener(this.jba);
-            fansViewHolder.jbc.setTag(yg);
-            fansViewHolder.containerView.setOnClickListener(this.hlQ);
+            fansViewHolder.jbp.startLoad(yg.portrait, 12, false);
+            fansViewHolder.gik.setText(yg.nameShow);
+            fansViewHolder.jbq.setOnClickListener(this.jbo);
+            fansViewHolder.jbq.setTag(yg);
+            fansViewHolder.containerView.setOnClickListener(this.hme);
             fansViewHolder.containerView.setTag(yg);
             a(fansViewHolder);
         }
@@ -79,7 +79,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         return false;
     }
 
-    public boolean cAy() {
+    public boolean cAF() {
         return y.isEmpty(this.fansList);
     }
 
@@ -87,35 +87,35 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public static class FansViewHolder extends RecyclerView.ViewHolder {
         public View containerView;
         public View dividerLine;
-        public TextView ghV;
-        public ClickableHeaderImageView jbb;
-        public TextView jbc;
+        public TextView gik;
+        public ClickableHeaderImageView jbp;
+        public TextView jbq;
 
         public FansViewHolder(View view) {
             super(view);
             this.containerView = view.findViewById(R.id.container_forbidden_item);
-            this.jbb = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
-            this.jbb.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
-            this.jbb.setAutoChangeStyle(true);
-            this.jbb.setClickable(false);
-            this.ghV = (TextView) view.findViewById(R.id.view_fans_name);
-            this.jbc = (TextView) view.findViewById(R.id.view_fans_remove);
+            this.jbp = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
+            this.jbp.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
+            this.jbp.setAutoChangeStyle(true);
+            this.jbp.setClickable(false);
+            this.gik = (TextView) view.findViewById(R.id.view_fans_name);
+            this.jbq = (TextView) view.findViewById(R.id.view_fans_remove);
             this.dividerLine = view.findViewById(R.id.line_divider);
         }
     }
 
     private void a(FansViewHolder fansViewHolder) {
-        ap.setViewTextColor(fansViewHolder.ghV, R.color.CAM_X0105);
+        ap.setViewTextColor(fansViewHolder.gik, R.color.CAM_X0105);
         ap.setBackgroundColor(fansViewHolder.dividerLine, R.color.CAM_X0204);
-        ap.setViewTextColor(fansViewHolder.jbc, R.color.btn_color_remove);
-        ap.setBackgroundResource(fansViewHolder.jbc, R.drawable.btn_transparent_focus_border_bg);
+        ap.setViewTextColor(fansViewHolder.jbq, R.color.btn_color_remove);
+        ap.setBackgroundResource(fansViewHolder.jbq, R.drawable.btn_transparent_focus_border_bg);
     }
 
     public void z(View.OnClickListener onClickListener) {
-        this.jba = onClickListener;
+        this.jbo = onClickListener;
     }
 
     public void p(View.OnClickListener onClickListener) {
-        this.hlQ = onClickListener;
+        this.hme = onClickListener;
     }
 }

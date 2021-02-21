@@ -16,20 +16,20 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends BdBaseModel {
     private ab aDd;
-    private InterfaceC0961a oWA;
-    private int oWB = -1;
+    private InterfaceC0963a oXa;
+    private int oXb = -1;
 
     /* renamed from: com.baidu.yuyinala.mode.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0961a {
-        void ejd();
+    public interface InterfaceC0963a {
+        void ejl();
 
-        void eje();
+        void ejm();
     }
 
-    public a(ab abVar, InterfaceC0961a interfaceC0961a) {
+    public a(ab abVar, InterfaceC0963a interfaceC0963a) {
         this.aDd = abVar;
-        this.oWA = interfaceC0961a;
+        this.oXa = interfaceC0963a;
         registerListener();
     }
 
@@ -44,16 +44,16 @@ public class a extends BdBaseModel {
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage.getCmd() == 1031079) {
                     if (httpResponsedMessage.getError() != 0) {
-                        if (a.this.oWA != null) {
-                            a.this.oWA.ejd();
+                        if (a.this.oXa != null) {
+                            a.this.oXa.ejl();
                             return;
                         }
                         return;
                     }
-                    if (a.this.oWA != null) {
-                        a.this.oWA.eje();
+                    if (a.this.oXa != null) {
+                        a.this.oXa.ejm();
                     }
-                    a.this.eji();
+                    a.this.ejq();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501073));
                 }
             }
@@ -61,15 +61,15 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eji() {
-        if (this.oWB >= 0) {
+    public void ejq() {
+        if (this.oXb >= 0) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.oWB == 0) {
+                if (this.oXb == 0) {
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "normal");
-                } else if (this.oWB == 1) {
+                } else if (this.oXb == 1) {
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "dating");
-                } else if (this.oWB == 2) {
+                } else if (this.oXb == 2) {
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "battle");
                 }
                 jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, com.baidu.live.ao.a.Yj().Yq().aIU.croom_id);
@@ -90,8 +90,8 @@ public class a extends BdBaseModel {
         return false;
     }
 
-    public void Nx(int i) {
-        this.oWB = i;
+    public void Ny(int i) {
+        this.oXb = i;
         String str = null;
         if (this.aDd != null && this.aDd.aIU != null) {
             str = this.aDd.aIU.aTK;

@@ -9,13 +9,13 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class cm extends ch {
     private final Context e;
-    private final cn pmw;
+    private final cn pmW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cm(Context context, cn cnVar) {
         super(false, false);
         this.e = context;
-        this.pmw = cnVar;
+        this.pmW = cnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,23 +23,23 @@ public class cm extends ch {
     public boolean a(JSONObject jSONObject) {
         jSONObject.put(SapiContext.KEY_SDK_VERSION, 336);
         jSONObject.put(HttpConstants.SDK_VERSION_NAME, "3.6.0-rc.5-embed");
-        jSONObject.put("channel", this.pmw.k());
-        m.a(jSONObject, "aid", this.pmw.j());
-        m.a(jSONObject, "release_build", this.pmw.A());
-        m.a(jSONObject, "app_region", this.pmw.n());
-        m.a(jSONObject, "app_language", this.pmw.m());
-        m.a(jSONObject, "user_agent", this.pmw.B());
-        m.a(jSONObject, "ab_sdk_version", this.pmw.p());
-        m.a(jSONObject, "ab_version", this.pmw.t());
-        m.a(jSONObject, "aliyun_uuid", this.pmw.a());
-        String l = this.pmw.l();
+        jSONObject.put("channel", this.pmW.k());
+        m.a(jSONObject, "aid", this.pmW.j());
+        m.a(jSONObject, "release_build", this.pmW.A());
+        m.a(jSONObject, "app_region", this.pmW.n());
+        m.a(jSONObject, "app_language", this.pmW.m());
+        m.a(jSONObject, "user_agent", this.pmW.B());
+        m.a(jSONObject, "ab_sdk_version", this.pmW.p());
+        m.a(jSONObject, "ab_version", this.pmW.t());
+        m.a(jSONObject, "aliyun_uuid", this.pmW.a());
+        String l = this.pmW.l();
         if (TextUtils.isEmpty(l)) {
-            l = aq.a(this.e, this.pmw);
+            l = aq.a(this.e, this.pmW);
         }
         if (!TextUtils.isEmpty(l)) {
             m.a(jSONObject, "google_aid", l);
         }
-        String z = this.pmw.z();
+        String z = this.pmW.z();
         if (!TextUtils.isEmpty(z)) {
             try {
                 jSONObject.put("app_track", new JSONObject(z));
@@ -47,11 +47,11 @@ public class cm extends ch {
                 au.a(th);
             }
         }
-        String o = this.pmw.o();
+        String o = this.pmW.o();
         if (o != null && o.length() > 0) {
             jSONObject.put("custom", new JSONObject(o));
         }
-        m.a(jSONObject, "user_unique_id", this.pmw.q());
+        m.a(jSONObject, "user_unique_id", this.pmW.q());
         return true;
     }
 }

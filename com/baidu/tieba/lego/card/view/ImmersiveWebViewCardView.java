@@ -19,14 +19,14 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.recapp.r;
+import com.baidu.tieba.recapp.s;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard> {
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
-    private LinearLayout kWf;
-    private XiubaTbJsBridge ldR;
+    private LinearLayout kWt;
+    private XiubaTbJsBridge lef;
     private BaseWebView mWebView;
 
     public ImmersiveWebViewCardView(TbPageContext tbPageContext) {
@@ -38,19 +38,19 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbO() {
-        this.kWf = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
-        dcy();
-        return this.kWf;
+    protected View dbV() {
+        this.kWt = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
+        dcF();
+        return this.kWt;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    private void dcy() {
+    private void dcF() {
         createWebView();
-        if (this.ldR == null) {
-            this.ldR = new XiubaTbJsBridge(this.eUY);
+        if (this.lef == null) {
+            this.lef = new XiubaTbJsBridge(this.eUY);
         }
-        this.ldR.setBaseWebView(this.mWebView);
+        this.lef.setBaseWebView(this.mWebView);
         this.mWebView.setHorizontalScrollBarEnabled(false);
         this.mWebView.setWebChromeClient(new WebChromeClient() { // from class: com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView.1
             @Override // android.webkit.WebChromeClient
@@ -65,7 +65,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
                 return true;
             }
         });
-        this.kWf.addView(this.mWebView);
+        this.kWt.addView(this.mWebView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,7 +86,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             if (StringUtils.isNull(optString) || StringUtils.isNull(optString2) || StringUtils.isNull(optString3)) {
                 return false;
             }
-            return this.ldR.dealJsInterface(optString, optString2, optString3, jsPromptResult);
+            return this.lef.dealJsInterface(optString, optString2, optString3, jsPromptResult);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;
@@ -115,7 +115,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
                 if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
                     CompatibleUtile.getInstance().loadUrl(this.mWebView, immersiveWebViewCard.getPageUrl());
                 }
-                r.dDm().dDi().eh(immersiveWebViewCard.getShowExtra(), this.mFrom);
+                s.dDt().dDp().eh(immersiveWebViewCard.getShowExtra(), this.mFrom);
                 immersiveWebViewCard.mHasShown = true;
             }
         }

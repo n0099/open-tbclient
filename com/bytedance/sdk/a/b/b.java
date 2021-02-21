@@ -11,35 +11,35 @@ public final class b implements Closeable {
     final String d;
     final long k;
     final long l;
-    final ab pof;
-    final u pqP;
-    final v pqQ;
-    final c pqR;
-    final b pqS;
-    final b pqT;
-    final b pqU;
-    private volatile g pqV;
+    final ab poI;
+    final u prp;
+    final v prq;
+    final c prr;
+    final b prs;
+    final b prt;
+    final b pru;
+    private volatile g prv;
 
     b(a aVar) {
-        this.pof = aVar.pof;
+        this.poI = aVar.poI;
         this.f5955b = aVar.f5956b;
         this.c = aVar.c;
         this.d = aVar.d;
-        this.pqP = aVar.pqP;
-        this.pqQ = aVar.pqW.epV();
-        this.pqR = aVar.pqR;
-        this.pqS = aVar.pqS;
-        this.pqT = aVar.pqT;
-        this.pqU = aVar.pqU;
+        this.prp = aVar.prp;
+        this.prq = aVar.prw.eqd();
+        this.prr = aVar.prr;
+        this.prs = aVar.prs;
+        this.prt = aVar.prt;
+        this.pru = aVar.pru;
         this.k = aVar.k;
         this.l = aVar.l;
     }
 
-    public ab epm() {
-        return this.pof;
+    public ab epu() {
+        return this.poI;
     }
 
-    public w epC() {
+    public w epK() {
         return this.f5955b;
     }
 
@@ -51,8 +51,8 @@ public final class b implements Closeable {
         return this.d;
     }
 
-    public u epD() {
-        return this.pqP;
+    public u epL() {
+        return this.prp;
     }
 
     public String a(String str) {
@@ -60,33 +60,33 @@ public final class b implements Closeable {
     }
 
     public String a(String str, String str2) {
-        String a2 = this.pqQ.a(str);
+        String a2 = this.prq.a(str);
         return a2 != null ? a2 : str2;
     }
 
-    public v epE() {
-        return this.pqQ;
+    public v epM() {
+        return this.prq;
     }
 
-    public c epF() {
-        return this.pqR;
+    public c epN() {
+        return this.prr;
     }
 
-    public a epG() {
+    public a epO() {
         return new a(this);
     }
 
-    public b epH() {
-        return this.pqU;
+    public b epP() {
+        return this.pru;
     }
 
-    public g epI() {
-        g gVar = this.pqV;
+    public g epQ() {
+        g gVar = this.prv;
         if (gVar != null) {
             return gVar;
         }
-        g d = g.d(this.pqQ);
-        this.pqV = d;
+        g d = g.d(this.prq);
+        this.prv = d;
         return d;
     }
 
@@ -100,14 +100,14 @@ public final class b implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        if (this.pqR == null) {
+        if (this.prr == null) {
             throw new IllegalStateException("response is not eligible for a body and must not be closed");
         }
-        this.pqR.close();
+        this.prr.close();
     }
 
     public String toString() {
-        return "Response{protocol=" + this.f5955b + ", code=" + this.c + ", message=" + this.d + ", url=" + this.pof.eoJ() + '}';
+        return "Response{protocol=" + this.f5955b + ", code=" + this.c + ", message=" + this.d + ", url=" + this.poI.eoR() + '}';
     }
 
     /* loaded from: classes6.dex */
@@ -119,37 +119,37 @@ public final class b implements Closeable {
         String d;
         long k;
         long l;
-        ab pof;
-        u pqP;
-        c pqR;
-        b pqS;
-        b pqT;
-        b pqU;
-        v.a pqW;
+        ab poI;
+        u prp;
+        c prr;
+        b prs;
+        b prt;
+        b pru;
+        v.a prw;
 
         public a() {
             this.c = -1;
-            this.pqW = new v.a();
+            this.prw = new v.a();
         }
 
         a(b bVar) {
             this.c = -1;
-            this.pof = bVar.pof;
+            this.poI = bVar.poI;
             this.f5956b = bVar.f5955b;
             this.c = bVar.c;
             this.d = bVar.d;
-            this.pqP = bVar.pqP;
-            this.pqW = bVar.pqQ.epU();
-            this.pqR = bVar.pqR;
-            this.pqS = bVar.pqS;
-            this.pqT = bVar.pqT;
-            this.pqU = bVar.pqU;
+            this.prp = bVar.prp;
+            this.prw = bVar.prq.eqc();
+            this.prr = bVar.prr;
+            this.prs = bVar.prs;
+            this.prt = bVar.prt;
+            this.pru = bVar.pru;
             this.k = bVar.k;
             this.l = bVar.l;
         }
 
         public a f(ab abVar) {
-            this.pof = abVar;
+            this.poI = abVar;
             return this;
         }
 
@@ -158,33 +158,33 @@ public final class b implements Closeable {
             return this;
         }
 
-        public a OF(int i) {
+        public a OG(int i) {
             this.c = i;
             return this;
         }
 
-        public a YC(String str) {
+        public a YO(String str) {
             this.d = str;
             return this;
         }
 
         public a a(u uVar) {
-            this.pqP = uVar;
+            this.prp = uVar;
             return this;
         }
 
-        public a hi(String str, String str2) {
-            this.pqW.hj(str, str2);
+        public a hk(String str, String str2) {
+            this.prw.hl(str, str2);
             return this;
         }
 
         public a c(v vVar) {
-            this.pqW = vVar.epU();
+            this.prw = vVar.eqc();
             return this;
         }
 
         public a a(c cVar) {
-            this.pqR = cVar;
+            this.prr = cVar;
             return this;
         }
 
@@ -192,7 +192,7 @@ public final class b implements Closeable {
             if (bVar != null) {
                 a("networkResponse", bVar);
             }
-            this.pqS = bVar;
+            this.prs = bVar;
             return this;
         }
 
@@ -200,21 +200,21 @@ public final class b implements Closeable {
             if (bVar != null) {
                 a("cacheResponse", bVar);
             }
-            this.pqT = bVar;
+            this.prt = bVar;
             return this;
         }
 
         private void a(String str, b bVar) {
-            if (bVar.pqR != null) {
+            if (bVar.prr != null) {
                 throw new IllegalArgumentException(str + ".body != null");
             }
-            if (bVar.pqS != null) {
+            if (bVar.prs != null) {
                 throw new IllegalArgumentException(str + ".networkResponse != null");
             }
-            if (bVar.pqT != null) {
+            if (bVar.prt != null) {
                 throw new IllegalArgumentException(str + ".cacheResponse != null");
             }
-            if (bVar.pqU != null) {
+            if (bVar.pru != null) {
                 throw new IllegalArgumentException(str + ".priorResponse != null");
             }
         }
@@ -223,12 +223,12 @@ public final class b implements Closeable {
             if (bVar != null) {
                 k(bVar);
             }
-            this.pqU = bVar;
+            this.pru = bVar;
             return this;
         }
 
         private void k(b bVar) {
-            if (bVar.pqR != null) {
+            if (bVar.prr != null) {
                 throw new IllegalArgumentException("priorResponse.body != null");
             }
         }
@@ -243,8 +243,8 @@ public final class b implements Closeable {
             return this;
         }
 
-        public b epJ() {
-            if (this.pof == null) {
+        public b epR() {
+            if (this.poI == null) {
                 throw new IllegalStateException("request == null");
             }
             if (this.f5956b == null) {

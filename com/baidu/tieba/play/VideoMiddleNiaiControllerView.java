@@ -25,15 +25,15 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
     }
 
     public void setBottomBarShow(boolean z) {
-        if (this.ghF != null) {
+        if (this.ghT != null) {
             if (z) {
-                this.ghF.setThumb(null);
-                this.ghF.setProgressDrawable(TbadkCoreApplication.getInst().getDrawable(R.drawable.video_navi_video_three_width_seekbar));
+                this.ghT.setThumb(null);
+                this.ghT.setProgressDrawable(TbadkCoreApplication.getInst().getDrawable(R.drawable.video_navi_video_three_width_seekbar));
                 return;
             }
-            this.ghF.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_pressed));
-            this.ghF.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_normal));
-            this.ghF.setProgressDrawable(TbadkCoreApplication.getInst().getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
+            this.ghT.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_pressed));
+            this.ghT.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_normal));
+            this.ghT.setProgressDrawable(TbadkCoreApplication.getInst().getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
         }
     }
 }

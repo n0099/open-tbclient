@@ -18,42 +18,42 @@ import tbclient.Hottopic.SpecialTopic;
 import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
 public class e {
-    private ArrayList<com.baidu.adp.widget.ListView.n> kug;
-    private bo kuj;
-    public boolean kuv;
+    public boolean kuJ;
+    private ArrayList<com.baidu.adp.widget.ListView.n> kuu;
+    private bo kux;
     public int sortType;
-    private f kuh = null;
-    private n kui = null;
-    private PostForumData kuk = null;
-    private i kul = null;
-    private a kum = null;
-    private a kun = null;
-    private a kuo = null;
-    private g kup = null;
-    public d kuq = null;
-    private g kur = null;
-    private List<com.baidu.tieba.card.data.b> kus = null;
-    private List<com.baidu.adp.widget.ListView.n> kut = null;
+    private f kuv = null;
+    private n kuw = null;
+    private PostForumData kuy = null;
+    private i kuz = null;
+    private a kuA = null;
+    private a kuB = null;
+    private a kuC = null;
+    private g kuD = null;
+    public d kuE = null;
+    private g kuF = null;
+    private List<com.baidu.tieba.card.data.b> kuG = null;
+    private List<com.baidu.adp.widget.ListView.n> kuH = null;
     private az pageData = null;
-    private boolean iOK = true;
-    private int kuu = 0;
+    private boolean iOY = true;
+    private int kuI = 0;
 
     public e() {
-        this.kug = null;
-        this.kug = new ArrayList<>();
+        this.kuu = null;
+        this.kuu = new ArrayList<>();
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.iOK = dataRes.is_new_url.intValue() == 1;
+            this.iOY = dataRes.is_new_url.intValue() == 1;
             if (dataRes.topic_info != null) {
-                this.kuh = new f();
-                this.kuh.a(dataRes.topic_info);
+                this.kuv = new f();
+                this.kuv.a(dataRes.topic_info);
             }
             if (dataRes.good_threads != null && !StringUtils.isNull(dataRes.good_threads.hot_title) && y.getCount(dataRes.good_threads.thread_list) != 0) {
-                this.kur = new g();
-                this.kur.a(dataRes.good_threads);
-                this.kus = new ArrayList();
+                this.kuF = new g();
+                this.kuF.a(dataRes.good_threads);
+                this.kuG = new ArrayList();
                 for (ThreadInfo threadInfo : dataRes.good_threads.thread_list) {
                     cb cbVar = new cb();
                     cbVar.nj(5);
@@ -65,7 +65,7 @@ public class e {
                         kVar = kVar2;
                     } else if (com.baidu.tieba.card.data.l.ae(cbVar)) {
                         com.baidu.tieba.card.data.l lVar = new com.baidu.tieba.card.data.l(cbVar);
-                        lVar.iAk = true;
+                        lVar.iAy = true;
                         kVar = lVar;
                     } else if (com.baidu.tieba.card.data.k.ae(cbVar)) {
                         com.baidu.tieba.card.data.k kVar3 = new com.baidu.tieba.card.data.k();
@@ -73,23 +73,23 @@ public class e {
                         kVar = kVar3;
                     }
                     if (kVar != null && kVar.isValid()) {
-                        kVar.IQ("c10814");
-                        this.kus.add(kVar);
+                        kVar.IR("c10814");
+                        this.kuG.add(kVar);
                     }
                 }
             }
             if (dataRes.relate_forum != null && dataRes.relate_forum.size() != 0) {
-                this.kui = new n();
-                this.kui.parserProtobuf(dataRes.relate_forum);
-                this.kuj = new bo();
-                this.kuj.floorPosition = 2;
+                this.kuw = new n();
+                this.kuw.parserProtobuf(dataRes.relate_forum);
+                this.kux = new bo();
+                this.kux.floorPosition = 2;
                 if (TextUtils.isEmpty(dataRes.relate_forum_title)) {
-                    this.kuj.title = TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_recommend_forum_list_title);
+                    this.kux.title = TbadkCoreApplication.getInst().getString(R.string.hot_topic_detail_recommend_forum_list_title);
                 } else {
-                    this.kuj.title = dataRes.relate_forum_title;
+                    this.kux.title = dataRes.relate_forum_title;
                 }
-                this.kuj.ePm = R.color.CAM_X0108;
-                ArrayList<bn> bmW = this.kuj.bmW();
+                this.kux.ePm = R.color.CAM_X0108;
+                ArrayList<bn> bmW = this.kux.bmW();
                 for (RelateForum relateForum : dataRes.relate_forum) {
                     if (!StringUtils.isNull(relateForum.forum_name)) {
                         bn bnVar = new bn();
@@ -105,40 +105,40 @@ public class e {
                 }
             }
             if (dataRes.post_forum != null && dataRes.post_forum.size() != 0) {
-                this.kuk = new PostForumData();
-                this.kuk.parserProtobuf(dataRes.post_forum);
+                this.kuy = new PostForumData();
+                this.kuy.parserProtobuf(dataRes.post_forum);
             }
             if (dataRes.pk_module != null && !StringUtils.isNull(dataRes.pk_module.ques_desc)) {
-                this.kul = new i();
-                this.kul.a(dataRes.pk_module);
+                this.kuz = new i();
+                this.kuz.a(dataRes.pk_module);
             }
             if (dataRes.bless_module != null) {
-                this.kum = new a();
-                this.kum.a(dataRes.bless_module);
+                this.kuA = new a();
+                this.kuA.a(dataRes.bless_module);
             }
             if (dataRes.candle_module != null) {
-                this.kun = new a();
-                this.kun.a(dataRes.candle_module);
+                this.kuB = new a();
+                this.kuB.a(dataRes.candle_module);
             }
             if (dataRes.weiguan_module != null) {
-                this.kuo = new a();
-                this.kuo.a(dataRes.weiguan_module);
+                this.kuC = new a();
+                this.kuC.a(dataRes.weiguan_module);
             }
             if (dataRes.hot_thread != null && y.getCount(dataRes.hot_thread.thread_list) != 0) {
-                this.kup = new g();
-                this.kup.a(dataRes.hot_thread);
-                this.kuq = new d();
-                this.kuq.a(dataRes.hot_thread);
+                this.kuD = new g();
+                this.kuD.a(dataRes.hot_thread);
+                this.kuE = new d();
+                this.kuE.a(dataRes.hot_thread);
                 if (dataRes.hot_thread.page != null) {
                     this.pageData = new az();
                     this.pageData.a(dataRes.hot_thread.page);
-                    this.kuv = this.pageData.bmF() != 0;
+                    this.kuJ = this.pageData.bmF() != 0;
                 }
-                this.kuu = dataRes.is_global_block.intValue();
+                this.kuI = dataRes.is_global_block.intValue();
             }
             if (!y.isEmpty(dataRes.special_topic)) {
-                this.kut = new ArrayList();
-                boolean z = this.kul != null;
+                this.kuH = new ArrayList();
+                boolean z = this.kuz != null;
                 Iterator<SpecialTopic> it = dataRes.special_topic.iterator();
                 while (true) {
                     boolean z2 = z;
@@ -152,28 +152,28 @@ public class e {
                         if (!TextUtils.isEmpty(next.title)) {
                             com.baidu.tieba.newdetail.a.c cVar = new com.baidu.tieba.newdetail.a.c(next.title);
                             if (!z2) {
-                                cVar.lml = false;
+                                cVar.lmz = false;
                                 z2 = true;
                             }
-                            this.kut.add(cVar);
+                            this.kuH.add(cVar);
                         }
                         boolean z3 = z2;
                         int size = next.thread_list.size();
                         for (int i = 0; i < size; i++) {
-                            this.kut.add(new com.baidu.tieba.newdetail.a.b(next.thread_list.get(i), i + 1 == size));
+                            this.kuH.add(new com.baidu.tieba.newdetail.a.b(next.thread_list.get(i), i + 1 == size));
                         }
                         z = z3;
                     }
                 }
             }
-            cTq();
+            cTx();
         }
     }
 
     public void a(d dVar) {
-        if (dVar != null && y.getCount(dVar.gcs) != 0) {
-            for (com.baidu.tieba.card.data.b bVar : dVar.gcs) {
-                this.kug.add(bVar);
+        if (dVar != null && y.getCount(dVar.gcy) != 0) {
+            for (com.baidu.tieba.card.data.b bVar : dVar.gcy) {
+                this.kuu.add(bVar);
             }
         }
     }
@@ -183,44 +183,44 @@ public class e {
             com.baidu.tieba.card.data.k kVar = new com.baidu.tieba.card.data.k();
             kVar.eJQ = cbVar;
             kVar.eJQ.nj(5);
-            this.kug.add(0, kVar);
+            this.kuu.add(0, kVar);
         }
     }
 
-    public f cTh() {
-        return this.kuh;
+    public f cTo() {
+        return this.kuv;
     }
 
-    public i cTi() {
-        return this.kul;
+    public i cTp() {
+        return this.kuz;
     }
 
-    public a cTj() {
-        return this.kum;
+    public a cTq() {
+        return this.kuA;
     }
 
-    public a cTk() {
-        return this.kun;
+    public a cTr() {
+        return this.kuB;
     }
 
-    public a cTl() {
-        return this.kuo;
+    public a cTs() {
+        return this.kuC;
     }
 
-    public n cTm() {
-        return this.kui;
+    public n cTt() {
+        return this.kuw;
     }
 
-    public bo cTn() {
-        return this.kuj;
+    public bo cTu() {
+        return this.kux;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.n> cTo() {
-        return this.kug;
+    public ArrayList<com.baidu.adp.widget.ListView.n> cTv() {
+        return this.kuu;
     }
 
-    public List<com.baidu.adp.widget.ListView.n> cTp() {
-        return this.kut;
+    public List<com.baidu.adp.widget.ListView.n> cTw() {
+        return this.kuH;
     }
 
     public az getPageData() {
@@ -231,39 +231,39 @@ public class e {
         this.pageData = azVar;
     }
 
-    public boolean cxf() {
-        return this.iOK;
+    public boolean cxm() {
+        return this.iOY;
     }
 
-    private ArrayList<com.baidu.adp.widget.ListView.n> cTq() {
-        if (this.kul != null) {
-            this.kug.add(this.kul);
+    private ArrayList<com.baidu.adp.widget.ListView.n> cTx() {
+        if (this.kuz != null) {
+            this.kuu.add(this.kuz);
         }
-        if (y.getCount(this.kus) > 0) {
-            this.kug.add(this.kur);
-            if (this.kus.size() > 5) {
-                this.kus = this.kus.subList(0, 5);
+        if (y.getCount(this.kuG) > 0) {
+            this.kuu.add(this.kuF);
+            if (this.kuG.size() > 5) {
+                this.kuG = this.kuG.subList(0, 5);
             }
-            for (com.baidu.tieba.card.data.b bVar : this.kus) {
-                this.kug.add(bVar);
+            for (com.baidu.tieba.card.data.b bVar : this.kuG) {
+                this.kuu.add(bVar);
             }
         }
-        if (this.kui != null && this.kui.getCount() > 0 && this.sortType == 1) {
-            this.kug.add(this.kui);
+        if (this.kuw != null && this.kuw.getCount() > 0 && this.sortType == 1) {
+            this.kuu.add(this.kuw);
         }
-        if (this.kuq != null && !y.isEmpty(this.kuq.gcs)) {
-            this.kug.add(this.kup);
-            for (int i = 0; i < this.kuq.gcs.size(); i++) {
-                this.kug.add((com.baidu.tieba.card.data.b) y.getItem(this.kuq.gcs, i));
-                if (this.kui != null && this.kui.getCount() > 0 && i == 2 && this.sortType == 0) {
-                    this.kug.add(this.kui);
+        if (this.kuE != null && !y.isEmpty(this.kuE.gcy)) {
+            this.kuu.add(this.kuD);
+            for (int i = 0; i < this.kuE.gcy.size(); i++) {
+                this.kuu.add((com.baidu.tieba.card.data.b) y.getItem(this.kuE.gcy, i));
+                if (this.kuw != null && this.kuw.getCount() > 0 && i == 2 && this.sortType == 0) {
+                    this.kuu.add(this.kuw);
                 }
             }
         }
-        return this.kug;
+        return this.kuu;
     }
 
-    public int cTr() {
-        return this.kuu;
+    public int cTy() {
+        return this.kuI;
     }
 }

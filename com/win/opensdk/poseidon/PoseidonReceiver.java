@@ -16,26 +16,26 @@ public class PoseidonReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if ("android.intent.action.USER_PRESENT".equals(intent.getAction())) {
             u iK = u.iK(context);
-            Context eIU = iK.eIU();
-            if (eIU == null || iK.qiT == null || !az.iM(eIU) || !iK.qiT.isReady()) {
+            Context eJc = iK.eJc();
+            if (eJc == null || iK.qjt == null || !az.iM(eJc) || !iK.qjt.isReady()) {
                 return;
             }
-            iK.qiT.show();
-            az.j(eIU, (float) System.currentTimeMillis());
+            iK.qjt.show();
+            az.j(eJc, (float) System.currentTimeMillis());
             return;
         }
         final u iK2 = u.iK(context);
-        Context eIU2 = iK2.eIU();
-        if (eIU2 == null || !az.iM(eIU2)) {
+        Context eJc2 = iK2.eJc();
+        if (eJc2 == null || !az.iM(eJc2)) {
             return;
         }
-        String m65c = az.m65c(eIU2);
-        if (TextUtils.isEmpty(m65c)) {
+        String m64c = az.m64c(eJc2);
+        if (TextUtils.isEmpty(m64c)) {
             return;
         }
-        if (iK2.qiT == null) {
-            iK2.qiT = new PBInterstitial(eIU2, m65c);
-            iK2.qiT.setInterstitialListener(new PBInterstitialListener() { // from class: com.win.opensdk.u.1
+        if (iK2.qjt == null) {
+            iK2.qjt = new PBInterstitial(eJc2, m64c);
+            iK2.qjt.setInterstitialListener(new PBInterstitialListener() { // from class: com.win.opensdk.u.1
                 @Override // com.win.opensdk.PBListener
                 public final void onFail(PBError pBError) {
                 }
@@ -61,9 +61,9 @@ public class PoseidonReceiver extends BroadcastReceiver {
                 }
             });
         }
-        if (iK2.qiT == null || iK2.qiT.isReady()) {
+        if (iK2.qjt == null || iK2.qjt.isReady()) {
             return;
         }
-        iK2.qiT.load();
+        iK2.qjt.load();
     }
 }

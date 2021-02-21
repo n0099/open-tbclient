@@ -14,9 +14,9 @@ public class f {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a DL = a.DL(str);
-                if (DL != null && !StringUtils.isNull(DL.forumName)) {
-                    arrayList.add(DL.forumName);
+                a DJ = a.DJ(str);
+                if (DJ != null && !StringUtils.isNull(DJ.forumName)) {
+                    arrayList.add(DJ.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -44,7 +44,7 @@ public class f {
             return this.forumName + "#" + this.level;
         }
 
-        public static a DL(String str) {
+        public static a DJ(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

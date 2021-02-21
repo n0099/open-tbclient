@@ -51,7 +51,7 @@ public class ab {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m151a() {
+    public static boolean m150a() {
         return f13849a == 2;
     }
 

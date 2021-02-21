@@ -10,24 +10,24 @@ import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements n {
-    public static final BdUniqueId jUc = BdUniqueId.gen();
+    public static final BdUniqueId jUq = BdUniqueId.gen();
     private List<a> aGx;
-    private int iAe;
-    private String jUd;
-    private String jUe;
+    private int iAs;
+    private String jUr;
+    private String jUs;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.iAe = esport.floor_no.intValue();
+            this.iAs = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.jUd = esport._static.img;
-                this.jUe = esport._static.url;
+                this.jUr = esport._static.img;
+                this.jUs = esport._static.url;
             }
             this.aGx = new ArrayList();
-            if (!StringUtils.isNull(this.jUd)) {
+            if (!StringUtils.isNull(this.jUr)) {
                 a aVar = new a();
-                aVar.Lt(this.jUd);
-                aVar.Lu(this.jUe);
+                aVar.Lu(this.jUr);
+                aVar.Lv(this.jUs);
                 this.aGx.add(aVar);
             }
             if (!y.isEmpty(esport.billboard)) {
@@ -40,16 +40,16 @@ public class b implements n {
         }
     }
 
-    public int cNH() {
-        return this.iAe;
+    public int cNO() {
+        return this.iAs;
     }
 
-    public List<a> cNI() {
+    public List<a> cNP() {
         return this.aGx;
     }
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jUc;
+        return jUq;
     }
 }

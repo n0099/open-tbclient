@@ -59,28 +59,28 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.new_user_img_item, viewGroup, false);
             aVar = new a();
-            aVar.iSZ = (TbImageView) view.findViewById(R.id.pic);
+            aVar.iTn = (TbImageView) view.findViewById(R.id.pic);
             aVar.bMa = (ImageView) view.findViewById(R.id.select_icon);
             aVar.bMb = (RelativeLayout) view.findViewById(R.id.lay_select);
             aVar.textView = (TextView) view.findViewById(R.id.tv_fname);
-            aVar.nEv = (FrameLayout) view.findViewById(R.id.pic_layout);
-            aVar.nEv.setOnClickListener(this.fhT);
+            aVar.nEV = (FrameLayout) view.findViewById(R.id.pic_layout);
+            aVar.nEV.setOnClickListener(this.fhT);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.iSZ.setTag(null);
+        aVar.iTn.setTag(null);
         aVar.bMb.setTag(null);
         aVar.textView.setText("");
-        aVar.nEv.setTag(null);
+        aVar.nEV.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
             d(aVar.bMa, card.getIs_like() == 1);
             aVar.bMb.setTag(card);
-            aVar.nEv.setTag(card);
-            aVar.iSZ.setTag(card.getIcon_url());
-            aVar.iSZ.startLoad(card.getIcon_url(), 21, false);
+            aVar.nEV.setTag(card);
+            aVar.iTn.setTag(card.getIcon_url());
+            aVar.iTn.startLoad(card.getIcon_url(), 21, false);
             aVar.textView.setText(card.getFname());
         }
         return view;
@@ -98,8 +98,8 @@ public class c extends BaseAdapter {
     private class a {
         ImageView bMa;
         RelativeLayout bMb;
-        TbImageView iSZ;
-        FrameLayout nEv;
+        TbImageView iTn;
+        FrameLayout nEV;
         TextView textView;
 
         private a() {

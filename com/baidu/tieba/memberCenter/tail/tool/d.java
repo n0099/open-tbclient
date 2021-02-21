@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class d {
-    private TextView ltm;
+    private TextView ltB;
     private View mRootView;
 
     public View gB(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.tail_tool_edit_item, (ViewGroup) null);
-        this.ltm = (TextView) this.mRootView.findViewById(R.id.tail_tool_edit_item_btn);
+        this.ltB = (TextView) this.mRootView.findViewById(R.id.tail_tool_edit_item_btn);
         this.mRootView.setTag(this);
         return this.mRootView;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this.ltm, R.drawable.tail_tool_add_button_bg);
-        ap.setViewTextColor(this.ltm, R.color.CAM_X0302, 1);
+        ap.setBackgroundResource(this.ltB, R.drawable.tail_tool_add_button_bg);
+        ap.setViewTextColor(this.ltB, R.color.CAM_X0302, 1);
     }
 
     public void L(View.OnClickListener onClickListener) {

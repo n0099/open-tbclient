@@ -31,10 +31,10 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements View.OnTouchListener {
     private long buN;
-    private long goL;
-    private AlaLiveRoomPanelTabHost hue;
-    private AlaChallengeShowAllJinzhuPagerAdapter huf;
-    private long hug;
+    private long goZ;
+    private AlaLiveRoomPanelTabHost hus;
+    private AlaChallengeShowAllJinzhuPagerAdapter hut;
+    private long huu;
     private boolean mIsHost;
     private View mRootView;
     private int mScreenWidth;
@@ -92,26 +92,26 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             this.baH = false;
             this.mRootView.setVisibility(4);
-            if (this.mType == 2 && this.huf.getCount() > 1) {
-                this.hue.setCurrentIndex(1);
+            if (this.mType == 2 && this.hut.getCount() > 1) {
+                this.hus.setCurrentIndex(1);
             } else {
-                this.hue.setCurrentIndex(0);
+                this.hus.setCurrentIndex(0);
             }
         }
     }
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.hug = bundle.getLong("challengeid");
+            this.huu = bundle.getLong("challengeid");
             this.buN = bundle.getLong(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
-            this.goL = bundle.getLong("anchorid");
+            this.goZ = bundle.getLong("anchorid");
             this.mType = bundle.getInt("type", 1);
             this.mIsHost = bundle.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST);
             return;
         }
-        this.hug = getIntent().getLongExtra("challengeid", 0L);
+        this.huu = getIntent().getLongExtra("challengeid", 0L);
         this.buN = getIntent().getLongExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, 0L);
-        this.goL = getIntent().getLongExtra("anchorid", 0L);
+        this.goZ = getIntent().getLongExtra("anchorid", 0L);
         this.mType = getIntent().getIntExtra("type", 1);
         this.mIsHost = getIntent().getBooleanExtra(AlaPersonCenterExpActivityConfig.IS_HOST, false);
     }
@@ -200,9 +200,9 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
     @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putLong("challengeid", this.hug);
+        bundle.putLong("challengeid", this.huu);
         bundle.putLong(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, this.buN);
-        bundle.putLong("anchorid", this.goL);
+        bundle.putLong("anchorid", this.goZ);
         bundle.putInt("type", this.mType);
         bundle.putBoolean(AlaPersonCenterExpActivityConfig.IS_HOST, this.mIsHost);
     }
@@ -258,17 +258,17 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
     }
 
     private void initTabSpec() {
-        this.huf = new AlaChallengeShowAllJinzhuPagerAdapter(getPageContext(), this.hug, this.buN, this.goL, this.mIsHost);
-        this.hue = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_jinzhu_tab_host);
-        this.hue.setIndicatorWidthAuto(true);
-        this.hue.setData(this.huf.getDataList());
+        this.hut = new AlaChallengeShowAllJinzhuPagerAdapter(getPageContext(), this.huu, this.buN, this.goZ, this.mIsHost);
+        this.hus = (AlaLiveRoomPanelTabHost) this.mRootView.findViewById(a.f.ala_jinzhu_tab_host);
+        this.hus.setIndicatorWidthAuto(true);
+        this.hus.setData(this.hut.getDataList());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Iterator<com.baidu.live.liveroom.d.d> it = this.huf.getDataList().iterator();
+        Iterator<com.baidu.live.liveroom.d.d> it = this.hut.getDataList().iterator();
         while (it.hasNext()) {
             it.next().onDestroy();
         }

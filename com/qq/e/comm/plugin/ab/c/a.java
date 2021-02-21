@@ -8,7 +8,7 @@ public class a implements e {
 
     /* renamed from: com.qq.e.comm.plugin.ab.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes15.dex */
-    private static final class C1190a {
+    private static final class C1192a {
 
         /* renamed from: a  reason: collision with root package name */
         static final a f11728a = new a();
@@ -18,7 +18,7 @@ public class a implements e {
     }
 
     public static final a a() {
-        return C1190a.f11728a;
+        return C1192a.f11728a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e

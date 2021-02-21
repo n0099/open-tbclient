@@ -40,19 +40,19 @@ import org.json.JSONObject;
 import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes2.dex */
 public class EnterForumTabFeedNetModel extends BdBaseModel {
-    private boolean gcx;
-    private int iOP;
-    private int iOQ;
-    private b iOR;
-    private int iOS;
-    private HashMap<String, Integer> iOT;
-    private com.baidu.tieba.enterForum.tabfeed.b.b iOU;
-    private a iOV;
-    private cb iOW;
-    private CustomMessageListener iOX;
-    private CustomMessageListener iOY;
-    private CustomMessageListener iOZ;
-    private final com.baidu.adp.framework.listener.a iPa;
+    private boolean gcC;
+    private int iPd;
+    private int iPe;
+    private b iPf;
+    private int iPg;
+    private HashMap<String, Integer> iPh;
+    private com.baidu.tieba.enterForum.tabfeed.b.b iPi;
+    private a iPj;
+    private cb iPk;
+    private CustomMessageListener iPl;
+    private CustomMessageListener iPm;
+    private CustomMessageListener iPn;
+    private final com.baidu.adp.framework.listener.a iPo;
     private boolean isLoading;
     private com.baidu.adp.framework.listener.a netMessageListener;
     private String tabCode;
@@ -60,31 +60,31 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar, boolean z) {
-        if (aVar != null && this.iOU != null) {
-            ArrayList<n> cxb = aVar.cxb();
-            this.iOU.gcx = this.gcx;
-            if (!this.gcx) {
-                this.iOP++;
+        if (aVar != null && this.iPi != null) {
+            ArrayList<n> cxi = aVar.cxi();
+            this.iPi.gcC = this.gcC;
+            if (!this.gcC) {
+                this.iPd++;
             } else {
-                this.iOU.refreshCount = z ? y.getCount(cxb) : -1;
-                e(cxb, aVar.cxc());
+                this.iPi.refreshCount = z ? y.getCount(cxi) : -1;
+                e(cxi, aVar.cxj());
             }
-            if (this.iOS + y.getCount(cxb) > this.iOQ) {
-                this.iOU.iON = cxj();
+            if (this.iPg + y.getCount(cxi) > this.iPe) {
+                this.iPi.iPb = cxq();
             }
-            ArrayList<n> am = am(switchThreadDataToThreadCardInfo(cxb));
-            if (this.gcx) {
-                this.iOU.iOM.addAll(0, am);
-                this.iOU.iON = 0;
+            ArrayList<n> am = am(switchThreadDataToThreadCardInfo(cxi));
+            if (this.gcC) {
+                this.iPi.iPa.addAll(0, am);
+                this.iPi.iPb = 0;
             } else {
-                this.iOU.iOM.addAll(am);
-                this.iOU.hasMore = !y.isEmpty(cxb);
+                this.iPi.iPa.addAll(am);
+                this.iPi.hasMore = !y.isEmpty(cxi);
             }
-            this.iOU.akO = aVar.cxf();
-            this.iOU.iOO = aVar.cxe();
-            this.iOU.iOL = aVar.cxd();
-            if (this.iOR != null) {
-                this.iOR.a(this.iOU);
+            this.iPi.akO = aVar.cxm();
+            this.iPi.iPc = aVar.cxl();
+            this.iPi.iOZ = aVar.cxk();
+            if (this.iPf != null) {
+                this.iPf.a(this.iPi);
             }
         }
     }
@@ -92,55 +92,55 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     public EnterForumTabFeedNetModel(TbPageContext tbPageContext, b bVar, BdUniqueId bdUniqueId) {
         super(tbPageContext);
         this.isLoading = false;
-        this.iOP = 1;
-        this.gcx = true;
+        this.iPd = 1;
+        this.gcC = true;
         this.netMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TAB_FEED_LIST, 309651) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 a aVar;
                 EnterForumTabFeedNetModel.this.isLoading = false;
-                if (responsedMessage != null && EnterForumTabFeedNetModel.this.iOU != null && EnterForumTabFeedNetModel.this.iOU.iOM != null) {
+                if (responsedMessage != null && EnterForumTabFeedNetModel.this.iPi != null && EnterForumTabFeedNetModel.this.iPi.iPa != null) {
                     if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
                         aVar = ((TabFeedListHttpResponsedMessage) responsedMessage).enterForumTabFeedData;
                     } else {
                         aVar = responsedMessage instanceof TabFeedListSocketResponsedMessage ? ((TabFeedListSocketResponsedMessage) responsedMessage).enterForumTabFeedData : null;
                     }
-                    EnterForumTabFeedNetModel.this.iOV = aVar;
+                    EnterForumTabFeedNetModel.this.iPj = aVar;
                     EnterForumTabFeedNetModel.this.mErrorCode = responsedMessage.getError();
                     EnterForumTabFeedNetModel.this.mErrorString = responsedMessage.getErrorString();
                     ErrorData errorData = new ErrorData();
                     errorData.setError_code(EnterForumTabFeedNetModel.this.mErrorCode);
                     errorData.setError_msg(EnterForumTabFeedNetModel.this.mErrorString);
                     if (EnterForumTabFeedNetModel.this.mErrorCode != 0 || aVar == null) {
-                        EnterForumTabFeedNetModel.this.iOR.a(errorData);
+                        EnterForumTabFeedNetModel.this.iPf.a(errorData);
                         return;
                     }
-                    if (aVar != null && EnterForumTabFeedNetModel.this.iOW != null) {
-                        aVar.cxb().add(0, EnterForumTabFeedNetModel.this.iOW);
-                        if (EnterForumTabFeedNetModel.this.iOT != null && EnterForumTabFeedNetModel.this.iOT.containsKey(EnterForumTabFeedNetModel.this.iOW.getTid())) {
-                            EnterForumTabFeedNetModel.this.iOT.remove(EnterForumTabFeedNetModel.this.iOW.getTid());
+                    if (aVar != null && EnterForumTabFeedNetModel.this.iPk != null) {
+                        aVar.cxi().add(0, EnterForumTabFeedNetModel.this.iPk);
+                        if (EnterForumTabFeedNetModel.this.iPh != null && EnterForumTabFeedNetModel.this.iPh.containsKey(EnterForumTabFeedNetModel.this.iPk.getTid())) {
+                            EnterForumTabFeedNetModel.this.iPh.remove(EnterForumTabFeedNetModel.this.iPk.getTid());
                         }
-                        EnterForumTabFeedNetModel.this.iOW = null;
+                        EnterForumTabFeedNetModel.this.iPk = null;
                     }
                     EnterForumTabFeedNetModel.this.a(aVar, true);
                 }
             }
         };
-        this.iOX = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.2
+        this.iPl = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 EnterForumTabFeedNetModel.this.g(customResponsedMessage);
             }
         };
-        this.iOY = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.3
+        this.iPm = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 EnterForumTabFeedNetModel.this.g(customResponsedMessage);
             }
         };
-        this.iOZ = new CustomMessageListener(2921453) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.5
+        this.iPn = new CustomMessageListener(2921453) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -160,7 +160,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 }
             }
         };
-        this.iPa = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.6
+        this.iPo = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.6
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 GetMyPostResIdl getMyPostResIdl = null;
@@ -172,8 +172,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 if (getMyPostResIdl != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
                     cb cbVar = new cb();
                     cbVar.a(getMyPostResIdl.data.thread_info);
-                    EnterForumTabFeedNetModel.this.iOW = cbVar;
-                    if (EnterForumTabFeedNetModel.this.iOV != null) {
+                    EnterForumTabFeedNetModel.this.iPk = cbVar;
+                    if (EnterForumTabFeedNetModel.this.iPj != null) {
                         EnterForumTabFeedNetModel.this.refresh();
                     }
                 }
@@ -183,24 +183,24 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         this.netMessageListener.getHttpMessageListener().setSelfListener(true);
         this.netMessageListener.getSocketMessageListener().setSelfListener(true);
         registerListener(this.netMessageListener);
-        this.iOT = new HashMap<>();
-        this.iOU = new com.baidu.tieba.enterForum.tabfeed.b.b();
-        this.iOR = bVar;
-        this.iOQ = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("home_page_max_thread_count", 300);
-        registerListener(this.iOX);
-        registerListener(this.iOY);
-        this.iPa.setTag(getUniqueId());
-        if (this.iPa.getHttpMessageListener() != null) {
-            this.iPa.getHttpMessageListener().setSelfListener(true);
+        this.iPh = new HashMap<>();
+        this.iPi = new com.baidu.tieba.enterForum.tabfeed.b.b();
+        this.iPf = bVar;
+        this.iPe = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("home_page_max_thread_count", 300);
+        registerListener(this.iPl);
+        registerListener(this.iPm);
+        this.iPo.setTag(getUniqueId());
+        if (this.iPo.getHttpMessageListener() != null) {
+            this.iPo.getHttpMessageListener().setSelfListener(true);
         }
-        if (this.iPa.getSocketMessageListener() != null) {
-            this.iPa.getSocketMessageListener().setSelfListener(true);
+        if (this.iPo.getSocketMessageListener() != null) {
+            this.iPo.getSocketMessageListener().setSelfListener(true);
         }
-        registerListener(this.iPa);
+        registerListener(this.iPo);
     }
 
-    public void cxh() {
-        registerListener(this.iOZ);
+    public void cxo() {
+        registerListener(this.iPn);
     }
 
     public void destory() {
@@ -232,7 +232,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     private void e(ArrayList<n> arrayList, ArrayList<bv> arrayList2) {
-        cxi();
+        cxp();
         if (!y.isEmpty(arrayList) && !y.isEmpty(arrayList2)) {
             Collections.sort(arrayList2, new Comparator<bv>() { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.4
                 /* JADX DEBUG: Method merged with bridge method */
@@ -265,10 +265,10 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         }
     }
 
-    private void cxi() {
-        if (!y.isEmpty(this.iOU.iOM)) {
+    private void cxp() {
+        if (!y.isEmpty(this.iPi.iPa)) {
             int i = 0;
-            Iterator<n> it = this.iOU.iOM.iterator();
+            Iterator<n> it = this.iPi.iPa.iterator();
             while (true) {
                 int i2 = i;
                 if (it.hasNext()) {
@@ -286,28 +286,28 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         }
     }
 
-    private int cxj() {
+    private int cxq() {
         int i;
-        if (this.iOU == null || this.iOU.iOM == null) {
+        if (this.iPi == null || this.iPi.iPa == null) {
             return 0;
         }
-        if (!this.gcx) {
+        if (!this.gcC) {
             i = 30;
         } else {
-            i = this.iOS - 60;
+            i = this.iPg - 60;
         }
         int i2 = i + 30;
-        if (i < 0 || i > this.iOS || i2 < 0 || i2 > this.iOS || i2 < i) {
+        if (i < 0 || i > this.iPg || i2 < 0 || i2 > this.iPg || i2 < i) {
             return 0;
         }
         int i3 = 0;
         int i4 = -1;
         while (true) {
-            if (i3 >= this.iOU.iOM.size()) {
+            if (i3 >= this.iPi.iPa.size()) {
                 i3 = -1;
                 break;
             }
-            n nVar = this.iOU.iOM.get(i3);
+            n nVar = this.iPi.iPa.get(i3);
             if (nVar instanceof ca) {
                 if (i4 == -1 && ((ca) nVar).position > i) {
                     i4 = i3;
@@ -315,7 +315,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                     break;
                 }
                 if (i4 > 0 && ((ca) nVar).eJQ != null) {
-                    this.iOT.remove(((ca) nVar).eJQ.getTid());
+                    this.iPh.remove(((ca) nVar).eJQ.getTid());
                 }
             }
             i3++;
@@ -325,19 +325,19 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             return 0;
         }
         ArrayList<n> arrayList = new ArrayList<>();
-        arrayList.addAll(this.iOU.iOM.subList(0, i4));
-        arrayList.addAll(this.iOU.iOM.subList(i3, this.iOU.iOM.size()));
-        this.iOU.iOM = arrayList;
+        arrayList.addAll(this.iPi.iPa.subList(0, i4));
+        arrayList.addAll(this.iPi.iPa.subList(i3, this.iPi.iPa.size()));
+        this.iPi.iPa = arrayList;
         return i3 - i4;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(CustomResponsedMessage<?> customResponsedMessage) {
         int i;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.iOS > 0 && this.iOU != null && !y.isEmpty(this.iOU.iOM)) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.iPg > 0 && this.iPi != null && !y.isEmpty(this.iPi.iPa)) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            if (!StringUtils.isNull(optString) && this.iOT.containsKey(optString)) {
-                Iterator<n> it = this.iOU.iOM.iterator();
+            if (!StringUtils.isNull(optString) && this.iPh.containsKey(optString)) {
+                Iterator<n> it = this.iPi.iPa.iterator();
                 int i2 = 0;
                 int i3 = -1;
                 int i4 = -1;
@@ -365,22 +365,22 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                     i3 = i;
                 }
                 if (i4 < i3) {
-                    this.iOR.ci(i4, i3);
+                    this.iPf.cj(i4, i3);
                 }
             }
         }
     }
 
-    public void bRc() {
+    public void bRj() {
         if (!this.isLoading) {
-            this.gcx = false;
+            this.gcC = false;
             xP(2);
         }
     }
 
     public void refresh() {
         if (!this.isLoading) {
-            this.gcx = true;
+            this.gcC = true;
             xP(1);
         }
     }
@@ -391,7 +391,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         tabFeedListRequestMessage.tabCode = this.tabCode;
         tabFeedListRequestMessage.tabName = this.tabName;
         if (i == 2) {
-            tabFeedListRequestMessage.pn = this.iOP + 1;
+            tabFeedListRequestMessage.pn = this.iPd + 1;
         } else if (i == 1) {
             tabFeedListRequestMessage.pn = 1;
         } else {
@@ -419,11 +419,11 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     public boolean hasData() {
-        return (this.iOU == null || y.isEmpty(this.iOU.iOM)) ? false : true;
+        return (this.iPi == null || y.isEmpty(this.iPi.iPa)) ? false : true;
     }
 
     private ArrayList<n> switchThreadDataToThreadCardInfo(ArrayList<n> arrayList) {
-        int i = this.iOS;
+        int i = this.iPg;
         ArrayList<n> arrayList2 = new ArrayList<>();
         Iterator<n> it = arrayList.iterator();
         int i2 = i;
@@ -433,8 +433,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 arrayList2.add(next);
             } else if (next instanceof cb) {
                 cb cbVar = (cb) next;
-                if (!this.iOT.containsKey(cbVar.getTid())) {
-                    this.iOT.put(cbVar.getTid(), 0);
+                if (!this.iPh.containsKey(cbVar.getTid())) {
+                    this.iPh.put(cbVar.getTid(), 0);
                     cbVar.eTI = true;
                     int[] imageWidthAndHeight = cbVar.getImageWidthAndHeight();
                     if (cbVar.getType() == cb.eQm) {
@@ -542,7 +542,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             }
             i2 = i2;
         }
-        this.iOS = i2;
+        this.iPg = i2;
         com.baidu.tbadk.a.a.a.bj(arrayList2);
         return arrayList2;
     }

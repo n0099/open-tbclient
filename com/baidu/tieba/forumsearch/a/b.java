@@ -26,7 +26,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.forumsearch.b.a aVar, CardViewHolder<com.baidu.tieba.forumsearch.c.b> cardViewHolder) {
-        cardViewHolder.ctb().a(aVar);
+        cardViewHolder.cti().a(aVar);
         return cardViewHolder.getView();
     }
 }

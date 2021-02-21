@@ -6,7 +6,7 @@ import com.baidu.tieba.ala.data.p;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class AlaGetHourRankListResponseMessage extends JsonHttpResponsedMessage {
-    private p hTk;
+    private p hTy;
 
     public AlaGetHourRankListResponseMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
@@ -17,12 +17,12 @@ public class AlaGetHourRankListResponseMessage extends JsonHttpResponsedMessage 
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.hTk = new p();
-            this.hTk.parserJson(optJSONObject);
+            this.hTy = new p();
+            this.hTy.parserJson(optJSONObject);
         }
     }
 
-    public p clN() {
-        return this.hTk;
+    public p clU() {
+        return this.hTy;
     }
 }

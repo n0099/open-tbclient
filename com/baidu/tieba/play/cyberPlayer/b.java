@@ -12,65 +12,65 @@ import com.baidu.tieba.play.o;
 /* loaded from: classes.dex */
 public class b {
     private cb eJQ;
-    private long mIv;
-    private o mIw;
-    private boolean mIy;
-    private long mIu = 0;
+    private long mIL;
+    private o mIM;
+    private boolean mIO;
+    private long mIK = 0;
     private long mStartTime = 0;
-    private String mIx = "1";
-    private j mIz = new j();
+    private String mIN = "1";
+    private j mIQ = new j();
 
-    public void dAk() {
-        this.mIz.dgV();
+    public void dAr() {
+        this.mIQ.dhc();
     }
 
     public void hA(long j) {
-        this.mIv = j;
-        this.mIz.dgW();
+        this.mIL = j;
+        this.mIQ.dhd();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.mIu = (System.currentTimeMillis() - this.mStartTime) + this.mIu;
+            this.mIK = (System.currentTimeMillis() - this.mStartTime) + this.mIK;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.mIy = true;
-        this.mIz.dgX();
+        this.mIO = true;
+        this.mIQ.dhe();
     }
 
     public void b(TbCyberVideoView tbCyberVideoView) {
-        this.mIz.a(tbCyberVideoView);
+        this.mIQ.a(tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.mIu = (System.currentTimeMillis() - this.mStartTime) + this.mIu;
+            this.mIK = (System.currentTimeMillis() - this.mStartTime) + this.mIK;
             this.mStartTime = 0L;
         }
-        this.mIy = false;
+        this.mIO = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.mIu = (System.currentTimeMillis() - this.mStartTime) + this.mIu;
+            this.mIK = (System.currentTimeMillis() - this.mStartTime) + this.mIK;
             this.mStartTime = 0L;
         }
-        dAl();
-        this.mIu = 0L;
+        dAs();
+        this.mIK = 0L;
         this.mStartTime = 0L;
-        this.mIy = false;
-        this.mIz.dgU();
+        this.mIO = false;
+        this.mIQ.dhb();
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.mIu = (System.currentTimeMillis() - this.mStartTime) + this.mIu;
+            this.mIK = (System.currentTimeMillis() - this.mStartTime) + this.mIK;
             this.mStartTime = 0L;
         }
     }
 
     public void setVideoStatsData(o oVar) {
-        this.mIw = oVar;
+        this.mIM = oVar;
     }
 
     public void setThreadData(cb cbVar) {
@@ -78,22 +78,22 @@ public class b {
     }
 
     public void setPlayMode(String str) {
-        this.mIx = str;
+        this.mIN = str;
     }
 
-    private void dAl() {
-        if (this.mIu >= 0 && this.mIu < 86400000) {
-            if (this.mIu > 0) {
+    private void dAs() {
+        if (this.mIK >= 0 && this.mIK < 86400000) {
+            if (this.mIK > 0) {
                 ar arVar = new ar(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                arVar.v("obj_duration", this.mIu);
-                arVar.dR("obj_type", this.mIx);
-                arVar.v("playduration", this.mIv);
+                arVar.v("obj_duration", this.mIK);
+                arVar.dR("obj_type", this.mIN);
+                arVar.v("playduration", this.mIL);
                 arVar.ap("player_type", 1);
                 if (!au.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     arVar.dR("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.mIw != null) {
-                    this.mIw.f(arVar);
+                if (this.mIM != null) {
+                    this.mIM.f(arVar);
                 }
                 if (!arVar.Bc("obj_param5") && this.eJQ != null) {
                     if (this.eJQ.getBaijiahaoData() != null) {
@@ -107,9 +107,9 @@ public class b {
                     }
                 }
                 TiebaStatic.log(arVar);
-                h.a(this.mIu, this.mIx, this.mIw, "", this.mIv);
-            } else if (this.mIy) {
-                h.a(this.mIu, this.mIx, this.mIw, "", this.mIv);
+                h.a(this.mIK, this.mIN, this.mIM, "", this.mIL);
+            } else if (this.mIO) {
+                h.a(this.mIK, this.mIN, this.mIM, "", this.mIL);
             }
         }
     }

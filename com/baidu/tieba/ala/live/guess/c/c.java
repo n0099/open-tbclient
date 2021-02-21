@@ -17,19 +17,19 @@ public class c {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
         if (layoutParams != null) {
             if (i != -1 && i != -2 && i != -1) {
-                layoutParams.width = a.bXK().uL(i);
+                layoutParams.width = a.bXR().uL(i);
             } else {
                 layoutParams.width = i;
             }
             if (i2 != -1 && i2 != -2 && i2 != -1) {
-                layoutParams.height = a.bXK().uM(i2);
+                layoutParams.height = a.bXR().uM(i2);
             } else {
                 layoutParams.height = i2;
             }
-            layoutParams.topMargin = a.bXK().uM(i3);
-            layoutParams.bottomMargin = a.bXK().uM(i4);
-            layoutParams.leftMargin = a.bXK().uL(i5);
-            layoutParams.rightMargin = a.bXK().uL(i6);
+            layoutParams.topMargin = a.bXR().uM(i3);
+            layoutParams.bottomMargin = a.bXR().uM(i4);
+            layoutParams.leftMargin = a.bXR().uL(i5);
+            layoutParams.rightMargin = a.bXR().uL(i6);
             view.setLayoutParams(layoutParams);
         }
     }
@@ -38,36 +38,36 @@ public class c {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
         if (layoutParams != null) {
             if (i != -1 && i != -2 && i != -1) {
-                layoutParams.width = a.bXK().uL(i);
+                layoutParams.width = a.bXR().uL(i);
             } else {
                 layoutParams.width = i;
             }
             if (i2 != -1 && i2 != -2 && i2 != -1) {
-                layoutParams.height = a.bXK().uM(i2);
+                layoutParams.height = a.bXR().uM(i2);
             } else {
                 layoutParams.height = i2;
             }
-            layoutParams.topMargin = a.bXK().uM(i3);
-            layoutParams.bottomMargin = a.bXK().uM(i4);
-            layoutParams.leftMargin = a.bXK().uL(i5);
-            layoutParams.rightMargin = a.bXK().uL(i6);
+            layoutParams.topMargin = a.bXR().uM(i3);
+            layoutParams.bottomMargin = a.bXR().uM(i4);
+            layoutParams.leftMargin = a.bXR().uL(i5);
+            layoutParams.rightMargin = a.bXR().uL(i6);
             view.setLayoutParams(layoutParams);
         }
     }
 
     public static void c(TextView textView, int i) {
-        textView.setTextSize(0, a.bXK().uM(i));
+        textView.setTextSize(0, a.bXR().uM(i));
     }
 
     public static void o(View view, int i, int i2) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
         if (i != -1 && i != -2 && i != -1) {
-            layoutParams.width = a.bXK().uL(i);
+            layoutParams.width = a.bXR().uL(i);
         } else {
             layoutParams.width = i;
         }
         if (i2 != -1 && i2 != -2 && i2 != -1) {
-            layoutParams.height = a.bXK().uM(i2);
+            layoutParams.height = a.bXR().uM(i2);
         } else {
             layoutParams.height = i2;
         }
@@ -77,12 +77,12 @@ public class c {
     public static void p(View view, int i, int i2) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (i != -1 && i != -2 && i != -1) {
-            layoutParams.width = a.bXK().uL(i);
+            layoutParams.width = a.bXR().uL(i);
         } else {
             layoutParams.width = i;
         }
         if (i2 != -1 && i2 != -2 && i2 != -1) {
-            layoutParams.height = a.bXK().uM(i2);
+            layoutParams.height = a.bXR().uM(i2);
         } else {
             layoutParams.height = i2;
         }

@@ -10,8 +10,8 @@ public class e {
     private static float bJd = 8.0f;
     private static float bJe;
     private final boolean bJc;
-    private final a ksg;
-    private final a ksh;
+    private final a ksu;
+    private final a ksv;
     private Interpolator mInterpolator;
     private int mMode;
 
@@ -42,8 +42,8 @@ public class e {
     public e(Context context, Interpolator interpolator, boolean z) {
         this.mInterpolator = interpolator;
         this.bJc = z;
-        this.ksg = new a(context);
-        this.ksh = new a(context);
+        this.ksu = new a(context);
+        this.ksv = new a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,20 +52,20 @@ public class e {
     }
 
     public final void setFriction(float f) {
-        this.ksg.setFriction(f);
-        this.ksh.setFriction(f);
+        this.ksu.setFriction(f);
+        this.ksv.setFriction(f);
     }
 
     public final boolean isFinished() {
-        return this.ksg.mFinished && this.ksh.mFinished;
+        return this.ksu.mFinished && this.ksv.mFinished;
     }
 
     public final int getCurrX() {
-        return this.ksg.mCurrentPosition;
+        return this.ksu.mCurrentPosition;
     }
 
     public float getCurrVelocity() {
-        return (float) Math.sqrt((this.ksg.bJh * this.ksg.bJh) + (this.ksh.bJh * this.ksh.bJh));
+        return (float) Math.sqrt((this.ksu.bJh * this.ksu.bJh) + (this.ksv.bJh * this.ksv.bJh));
     }
 
     public boolean computeScrollOffset() {
@@ -75,8 +75,8 @@ public class e {
         }
         switch (this.mMode) {
             case 0:
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.ksg.mStartTime;
-                int i = this.ksg.mDuration;
+                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.ksu.mStartTime;
+                int i = this.ksu.mDuration;
                 if (currentAnimationTimeMillis < i) {
                     float f = ((float) currentAnimationTimeMillis) / i;
                     if (this.mInterpolator == null) {
@@ -84,19 +84,19 @@ public class e {
                     } else {
                         interpolation = this.mInterpolator.getInterpolation(f);
                     }
-                    this.ksg.u(interpolation);
-                    this.ksh.u(interpolation);
+                    this.ksu.u(interpolation);
+                    this.ksv.u(interpolation);
                     break;
                 } else {
                     abortAnimation();
                     break;
                 }
             case 1:
-                if (!this.ksg.mFinished && !this.ksg.update() && !this.ksg.TX()) {
-                    this.ksg.finish();
+                if (!this.ksu.mFinished && !this.ksu.update() && !this.ksu.TX()) {
+                    this.ksu.finish();
                 }
-                if (!this.ksh.mFinished && !this.ksh.update() && !this.ksh.TX()) {
-                    this.ksh.finish();
+                if (!this.ksv.mFinished && !this.ksv.update() && !this.ksv.TX()) {
+                    this.ksv.finish();
                     break;
                 }
                 break;
@@ -106,13 +106,13 @@ public class e {
 
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
         this.mMode = 0;
-        this.ksg.p(i, i3, i5);
-        this.ksh.p(i2, i4, i5);
+        this.ksu.p(i, i3, i5);
+        this.ksv.p(i2, i4, i5);
     }
 
     public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         this.mMode = 1;
-        return this.ksg.q(i, i3, i4) || this.ksh.q(i2, i5, i6);
+        return this.ksu.q(i, i3, i4) || this.ksv.q(i2, i5, i6);
     }
 
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
@@ -122,33 +122,33 @@ public class e {
     public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         int i11;
         if (this.bJc && !isFinished()) {
-            float f = this.ksg.bJh;
-            float f2 = this.ksh.bJh;
+            float f = this.ksu.bJh;
+            float f2 = this.ksv.bJh;
             if (Math.signum(i3) == Math.signum(f) && Math.signum(i4) == Math.signum(f2)) {
                 i4 = (int) (i4 + f2);
                 i11 = (int) (f + i3);
                 this.mMode = 1;
-                this.ksg.b(i, i11, i5, i6, i9);
-                this.ksh.b(i2, i4, i7, i8, i10);
+                this.ksu.b(i, i11, i5, i6, i9);
+                this.ksv.b(i2, i4, i7, i8, i10);
             }
         }
         i11 = i3;
         this.mMode = 1;
-        this.ksg.b(i, i11, i5, i6, i9);
-        this.ksh.b(i2, i4, i7, i8, i10);
+        this.ksu.b(i, i11, i5, i6, i9);
+        this.ksv.b(i2, i4, i7, i8, i10);
     }
 
     public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
-        this.ksg.u(i, i2, i3);
+        this.ksu.u(i, i2, i3);
     }
 
     public void abortAnimation() {
-        this.ksg.finish();
-        this.ksh.finish();
+        this.ksu.finish();
+        this.ksv.finish();
     }
 
     public boolean m(float f, float f2) {
-        return !isFinished() && Math.signum(f) == Math.signum((float) (this.ksg.bJf - this.ksg.mStart)) && Math.signum(f2) == Math.signum((float) (this.ksh.bJf - this.ksh.mStart));
+        return !isFinished() && Math.signum(f) == Math.signum((float) (this.ksu.bJf - this.ksu.mStart)) && Math.signum(f2) == Math.signum((float) (this.ksv.bJf - this.ksv.mStart));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

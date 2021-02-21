@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.cb;
 /* loaded from: classes2.dex */
 public class p implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId lLx = BdUniqueId.gen();
+    public static final BdUniqueId lLM = BdUniqueId.gen();
     private cb akU;
     private AntiData fiz;
-    private boolean lLy = false;
-    public boolean lLz = false;
-    private boolean lLA = false;
+    private boolean lLN = false;
+    public boolean lLO = false;
+    private boolean lLP = false;
 
     public p(cb cbVar, AntiData antiData) {
         this.akU = cbVar;
@@ -19,7 +19,7 @@ public class p implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return lLx;
+        return lLM;
     }
 
     public int bpt() {
@@ -29,7 +29,7 @@ public class p implements com.baidu.adp.widget.ListView.n {
         return 0;
     }
 
-    public boolean dlT() {
+    public boolean dma() {
         return this.akU != null && this.akU.bps() == 1;
     }
 
@@ -42,18 +42,18 @@ public class p implements com.baidu.adp.widget.ListView.n {
     }
 
     public void uH(boolean z) {
-        this.lLy = z;
+        this.lLN = z;
     }
 
-    public boolean dlU() {
-        return this.lLy;
+    public boolean dmb() {
+        return this.lLN;
     }
 
-    public boolean dlV() {
-        return this.lLA;
+    public boolean dmc() {
+        return this.lLP;
     }
 
     public void uI(boolean z) {
-        this.lLA = z;
+        this.lLP = z;
     }
 }

@@ -55,7 +55,7 @@ public class a implements View.OnClickListener {
         public void callback(Object obj) {
             if ((obj instanceof w) && ((w) obj).getErrorCode() != 0) {
                 if (AntiHelper.bX(a.this.fnw.getErrorCode(), a.this.fnw.getErrorString())) {
-                    AntiHelper.br(a.this.mPageContext.getPageActivity(), a.this.fnw.getErrorString());
+                    AntiHelper.bq(a.this.mPageContext.getPageActivity(), a.this.fnw.getErrorString());
                 } else {
                     a.this.mPageContext.showToast(a.this.fnw.getErrorString());
                 }
@@ -100,7 +100,7 @@ public class a implements View.OnClickListener {
         }
         if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
             if (this.fny != null) {
-                this.fnw.gw(this.fny.getForumName(), this.fny.getForumId());
+                this.fnw.gy(this.fny.getForumName(), this.fny.getForumId());
             } else {
                 return;
             }

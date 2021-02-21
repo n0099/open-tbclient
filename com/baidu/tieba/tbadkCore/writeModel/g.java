@@ -27,7 +27,7 @@ public class g {
         toast.show();
     }
 
-    public static void i(Context context, String str, String str2, String str3) {
+    public static void j(Context context, String str, String str2, String str3) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
         inflate.setBackgroundDrawable(ap.aL(l.getDimens(context, R.dimen.tbds32), ap.getColor(R.color.CAM_X0701)));
         View findViewById = inflate.findViewById(R.id.experience_score);
@@ -61,7 +61,7 @@ public class g {
                 aaVar.addPostData("lat", String.valueOf(address.getLatitude()));
                 aaVar.addPostData("lng", String.valueOf(address.getLongitude()));
             }
-            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dOk().getLocationData();
+            LocationData locationData = com.baidu.tieba.tbadkCore.location.b.dOs().getLocationData();
             if (locationData != null) {
                 aaVar.addPostData("name", locationData.getFormatted_address());
                 aaVar.addPostData(IXAdRequestInfo.SN, locationData.getSn());

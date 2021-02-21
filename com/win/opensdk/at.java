@@ -12,7 +12,7 @@ public final class at {
             as.a iQ = as.iQ(context);
             String str = iQ == null ? null : iQ.java;
             if (TextUtils.isEmpty(str)) {
-                az.bI(context, str);
+                az.bH(context, str);
                 return str;
             }
             return str;

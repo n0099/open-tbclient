@@ -15,8 +15,8 @@ import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes11.dex */
 public abstract class BaseWheatItemView extends SafeFrameLayout {
     public ab bxN;
-    public AlaWheatInfoData oKh;
-    public BaseWheatLayout.a oKi;
+    public AlaWheatInfoData oKH;
+    public BaseWheatLayout.a oKI;
 
     protected abstract int getLayoutViewId();
 
@@ -40,10 +40,10 @@ public abstract class BaseWheatItemView extends SafeFrameLayout {
     }
 
     public void setOnItemClickListener(BaseWheatLayout.a aVar) {
-        this.oKi = aVar;
+        this.oKI = aVar;
     }
 
     public void a(SimpleDraweeView simpleDraweeView, String str) {
-        simpleDraweeView.setController(c.eto().bo(ImageRequest.Zz(str)).Bm(true).c(simpleDraweeView.getController()).euf());
+        simpleDraweeView.setController(c.etw().bo(ImageRequest.ZL(str)).Bm(true).c(simpleDraweeView.getController()).eun());
     }
 }

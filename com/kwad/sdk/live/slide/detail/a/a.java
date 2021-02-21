@@ -17,14 +17,14 @@ public class a {
     private List<TextureView.SurfaceTextureListener> c;
     private List<KSLiveStateListener> d;
     private List<Object> e;
-    private List<InterfaceC1143a> f;
+    private List<InterfaceC1145a> f;
     private g g;
     private boolean h;
     private boolean i;
 
     /* renamed from: com.kwad.sdk.live.slide.detail.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1143a {
+    public interface InterfaceC1145a {
         void a();
     }
 
@@ -44,8 +44,8 @@ public class a {
         this.i = false;
         this.f10482a = null;
         this.g.a((g.a) null);
-        for (InterfaceC1143a interfaceC1143a : this.f) {
-            interfaceC1143a.a();
+        for (InterfaceC1145a interfaceC1145a : this.f) {
+            interfaceC1145a.a();
         }
     }
 }

@@ -93,7 +93,7 @@ public class g extends com.baidu.tbadk.editortools.c {
                     if (eVar2 != null && eVar2.bBh() != null && aVar != null) {
                         switch (aVar.code) {
                             case 4:
-                                eVar2.CY(aVar.data.toString());
+                                eVar2.CW(aVar.data.toString());
                                 if (aVar.data instanceof SpanGroupManager) {
                                     eVar2.setSpanGroupManager((SpanGroupManager) aVar.data);
                                 }
@@ -205,7 +205,7 @@ public class g extends com.baidu.tbadk.editortools.c {
                                 }
                             case 20:
                                 eVar2.bBh().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                                com.baidu.tieba.tbadkCore.location.b.dOk().yB(true);
+                                com.baidu.tieba.tbadkCore.location.b.dOs().yB(true);
                                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                                 return;
                             case 27:
@@ -287,7 +287,7 @@ public class g extends com.baidu.tbadk.editortools.c {
         arrayList.add(6);
         arrayList.add(9);
         bBh.b(new com.baidu.tbadk.editortools.imagetool.d(bBh.getContext(), 1));
-        if (com.baidu.tieba.tbadkCore.voice.c.dOT() && u.d(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, bBh.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
+        if (com.baidu.tieba.tbadkCore.voice.c.dPb() && u.d(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_NEW_SEND_VOICE_VIEW, bBh.getContext()), m.class)) != null && (mVar = (m) runTask.getData()) != null) {
             mVar.fCh = 2;
             bBh.b(mVar);
         }

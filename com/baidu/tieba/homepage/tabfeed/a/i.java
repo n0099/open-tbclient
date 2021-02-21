@@ -31,7 +31,7 @@ public class i extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, cb cbVar) {
-                t.csu().mG(true);
+                t.csB().mG(true);
                 com.baidu.tieba.homepage.tabfeed.b.a(view, cbVar, i.this.mTabName);
             }
         };

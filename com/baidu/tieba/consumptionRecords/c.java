@@ -31,15 +31,15 @@ public class c extends BaseAdapter {
     /* loaded from: classes9.dex */
     public static class a {
         public TextView eHx;
-        public TextView iCP;
-        public TbImageView iCQ;
-        public TextView iCR;
-        public TextView iCS;
-        public TextView iCT;
-        public TextView iCU;
-        public View iCV;
-        public TextView iCW;
-        public TextView iCX;
+        public TextView iDd;
+        public TbImageView iDe;
+        public TextView iDf;
+        public TextView iDg;
+        public TextView iDh;
+        public TextView iDi;
+        public View iDj;
+        public TextView iDk;
+        public TextView iDl;
     }
 
     public c(TbPageContext<?> tbPageContext, int i) {
@@ -79,16 +79,16 @@ public class c extends BaseAdapter {
         } else {
             view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.records_item_layout, viewGroup, false);
             a aVar2 = new a();
-            aVar2.iCP = (TextView) view.findViewById(R.id.order_id_textview);
-            aVar2.iCQ = (TbImageView) view.findViewById(R.id.order_status_textview);
+            aVar2.iDd = (TextView) view.findViewById(R.id.order_id_textview);
+            aVar2.iDe = (TbImageView) view.findViewById(R.id.order_status_textview);
             aVar2.eHx = (TextView) view.findViewById(R.id.order_title_textview);
-            aVar2.iCR = (TextView) view.findViewById(R.id.order_price_textview);
-            aVar2.iCU = (TextView) view.findViewById(R.id.order_id_tip);
-            aVar2.iCT = (TextView) view.findViewById(R.id.order_account_textview);
-            aVar2.iCS = (TextView) view.findViewById(R.id.order_time_textview);
-            aVar2.iCV = view.findViewById(R.id.order_activity_content);
-            aVar2.iCW = (TextView) view.findViewById(R.id.activity_desc_textview);
-            aVar2.iCX = (TextView) view.findViewById(R.id.activity_button_textview);
+            aVar2.iDf = (TextView) view.findViewById(R.id.order_price_textview);
+            aVar2.iDi = (TextView) view.findViewById(R.id.order_id_tip);
+            aVar2.iDh = (TextView) view.findViewById(R.id.order_account_textview);
+            aVar2.iDg = (TextView) view.findViewById(R.id.order_time_textview);
+            aVar2.iDj = view.findViewById(R.id.order_activity_content);
+            aVar2.iDk = (TextView) view.findViewById(R.id.activity_desc_textview);
+            aVar2.iDl = (TextView) view.findViewById(R.id.activity_button_textview);
             view.setTag(aVar2);
             aVar = aVar2;
         }
@@ -103,9 +103,9 @@ public class c extends BaseAdapter {
         SpannableString spannableString3;
         SpannableString spannableString4;
         if (aVar != null && aVar2 != null) {
-            aVar.iCU.setText(this.eUY.getString(R.string.order_id) + "    ");
-            aVar.iCP.setText(aVar2.getOrderId());
-            aVar.iCP.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.consumptionRecords.c.1
+            aVar.iDi.setText(this.eUY.getString(R.string.order_id) + "    ");
+            aVar.iDd.setText(aVar2.getOrderId());
+            aVar.iDd.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.consumptionRecords.c.1
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
                     String orderId = aVar2.getOrderId();
@@ -122,11 +122,11 @@ public class c extends BaseAdapter {
                 }
             });
             if (aVar2.getStatus() == 1) {
-                aVar.iCQ.startLoad(String.valueOf(R.drawable.icon_payment_success), 24, false);
-                ap.setViewTextColor(aVar.iCQ, R.color.CAM_X0305, 1);
+                aVar.iDe.startLoad(String.valueOf(R.drawable.icon_payment_success), 24, false);
+                ap.setViewTextColor(aVar.iDe, R.color.CAM_X0305, 1);
             } else {
-                aVar.iCQ.startLoad(String.valueOf(R.drawable.icon_payment_fail), 24, false);
-                ap.setViewTextColor(aVar.iCQ, R.color.CAM_X0109, 1);
+                aVar.iDe.startLoad(String.valueOf(R.drawable.icon_payment_fail), 24, false);
+                ap.setViewTextColor(aVar.iDe, R.color.CAM_X0109, 1);
             }
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0109));
             ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0105));
@@ -134,16 +134,16 @@ public class c extends BaseAdapter {
             AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(24, true);
             if (this.type == 1) {
                 SpannableString a2 = a(R.string.buy_product, aVar2.getTitle(), foregroundColorSpan, foregroundColorSpan2);
-                SpannableString a3 = a(R.string.consumption_t_bean, aVar2.ctp(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
+                SpannableString a3 = a(R.string.consumption_t_bean, aVar2.ctw(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
                 spannableString2 = a(R.string.buy_time, aVar2.getCreateTime(), foregroundColorSpan, foregroundColorSpan2);
                 spannableString = null;
                 spannableString3 = a3;
                 spannableString4 = a2;
             } else if (this.type == 2) {
                 SpannableString a4 = a(R.string.get_with_product, aVar2.getTitle(), foregroundColorSpan, foregroundColorSpan2);
-                SpannableString a5 = a(R.string.get_t_bean, aVar2.ctp(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
+                SpannableString a5 = a(R.string.get_t_bean, aVar2.ctw(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan);
                 SpannableString a6 = a(R.string.buy_time, aVar2.getCreateTime(), foregroundColorSpan, foregroundColorSpan2);
-                String str = "" + aVar2.ctu();
+                String str = "" + aVar2.ctB();
                 String str2 = this.eUY.getString(R.string.alternative_account) + "    " + str;
                 spannableString = new SpannableString(str2);
                 UtilHelper.setSpan(spannableString, str2, str2, foregroundColorSpan);
@@ -158,14 +158,14 @@ public class c extends BaseAdapter {
                 SpannableString spannableString5 = new SpannableString(str3);
                 UtilHelper.setSpan(spannableString5, str3, str3, foregroundColorSpan);
                 UtilHelper.setSpan(spannableString5, str3, title, foregroundColorSpan2);
-                String str4 = ("" + aVar2.ctr()) + this.eUY.getString(R.string.recharge_use_money);
+                String str4 = ("" + aVar2.cty()) + this.eUY.getString(R.string.recharge_use_money);
                 String str5 = this.eUY.getString(R.string.recharge_money) + "    " + str4;
                 SpannableString spannableString6 = new SpannableString(str5);
                 UtilHelper.setSpan(spannableString6, str5, str5, foregroundColorSpan);
                 UtilHelper.setSpan(spannableString6, str5, str4, foregroundColorSpan2);
                 UtilHelper.setSpan(spannableString6, str5, str4, absoluteSizeSpan);
-                SpannableString a7 = a(R.string.recharge_time, aVar2.ctq(), foregroundColorSpan, foregroundColorSpan2);
-                String str6 = "" + aVar2.ctu();
+                SpannableString a7 = a(R.string.recharge_time, aVar2.ctx(), foregroundColorSpan, foregroundColorSpan2);
+                String str6 = "" + aVar2.ctB();
                 String str7 = this.eUY.getString(R.string.recharge_account) + "    " + str6;
                 spannableString = new SpannableString(str7);
                 UtilHelper.setSpan(spannableString, str7, str7, foregroundColorSpan);
@@ -180,32 +180,32 @@ public class c extends BaseAdapter {
                 spannableString4 = null;
             }
             aVar.eHx.setText(spannableString4);
-            aVar.iCR.setText(spannableString3);
-            aVar.iCS.setText(spannableString2);
-            if (!StringUtils.isNull(aVar2.ctu()) && (this.type == 3 || this.type == 2)) {
-                aVar.iCT.setVisibility(0);
-                aVar.iCT.setText(spannableString);
+            aVar.iDf.setText(spannableString3);
+            aVar.iDg.setText(spannableString2);
+            if (!StringUtils.isNull(aVar2.ctB()) && (this.type == 3 || this.type == 2)) {
+                aVar.iDh.setVisibility(0);
+                aVar.iDh.setText(spannableString);
             } else {
-                aVar.iCT.setVisibility(8);
+                aVar.iDh.setVisibility(8);
             }
-            if (!StringUtils.isNull(aVar2.cts())) {
-                aVar.iCW.setText(aVar2.cts());
-                if (!StringUtils.isNull(aVar2.ctt())) {
-                    aVar.iCX.setText(aVar2.ctt());
-                    aVar.iCX.setVisibility(0);
+            if (!StringUtils.isNull(aVar2.ctz())) {
+                aVar.iDk.setText(aVar2.ctz());
+                if (!StringUtils.isNull(aVar2.ctA())) {
+                    aVar.iDl.setText(aVar2.ctA());
+                    aVar.iDl.setVisibility(0);
                 } else {
-                    aVar.iCX.setVisibility(8);
+                    aVar.iDl.setVisibility(8);
                 }
-                aVar.iCX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.consumptionRecords.c.2
+                aVar.iDl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.consumptionRecords.c.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         bf.bsV().b(c.this.eUY, new String[]{aVar2.getActivityUrl()});
                     }
                 });
-                aVar.iCV.setVisibility(0);
+                aVar.iDj.setVisibility(0);
                 return;
             }
-            aVar.iCV.setVisibility(8);
+            aVar.iDj.setVisibility(8);
         }
     }
 

@@ -10,45 +10,45 @@ import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class AlaChallengeShowAllJinzhuPagerAdapter extends PagerAdapter {
     private long buN;
-    private long goL;
-    private ArrayList<d> hcB = new ArrayList<>();
-    private long hug;
+    private long goZ;
+    private ArrayList<d> hcP = new ArrayList<>();
+    private long huu;
     private boolean mIsHost;
     private TbPageContext mTbPageContext;
 
     public AlaChallengeShowAllJinzhuPagerAdapter(TbPageContext tbPageContext, long j, long j2, long j3, boolean z) {
         this.mTbPageContext = tbPageContext;
         this.mIsHost = z;
-        this.hug = j;
+        this.huu = j;
         this.buN = j2;
-        this.goL = j3;
-        bWn();
+        this.goZ = j3;
+        bWu();
     }
 
-    private void bWn() {
+    private void bWu() {
         com.baidu.tieba.ala.liveroom.challenge.view.b bVar = new com.baidu.tieba.ala.liveroom.challenge.view.b(this.mTbPageContext, 1, this.mIsHost);
-        bVar.e(this.hug, this.buN, this.goL);
-        this.hcB.add(bVar);
+        bVar.e(this.huu, this.buN, this.goZ);
+        this.hcP.add(bVar);
         com.baidu.tieba.ala.liveroom.challenge.view.b bVar2 = new com.baidu.tieba.ala.liveroom.challenge.view.b(this.mTbPageContext, 2, this.mIsHost);
-        bVar2.e(this.hug, this.buN, this.goL);
-        this.hcB.add(bVar2);
+        bVar2.e(this.huu, this.buN, this.goZ);
+        this.hcP.add(bVar2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.hcB != null) {
-            return this.hcB.size();
+        if (this.hcP != null) {
+            return this.hcP.size();
         }
         return 0;
     }
 
     public ArrayList<d> getDataList() {
-        return this.hcB;
+        return this.hcP;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        d dVar = (d) ListUtils.getItem(this.hcB, i);
+        d dVar = (d) ListUtils.getItem(this.hcP, i);
         if (dVar != null && dVar.getPanelView() != null) {
             View panelView = dVar.getPanelView();
             if (panelView.getParent() != null) {

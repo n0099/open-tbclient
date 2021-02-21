@@ -28,7 +28,7 @@ public class b {
             }
             return;
         }
-        final String str = c.lAf + aVar.id + "/";
+        final String str = c.lAt + aVar.id + "/";
         com.baidu.tbadk.download.c cVar = new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.newfaceshop.b.1
             @Override // com.baidu.tbadk.download.c
             public void onFileUpdateProgress(DownloadData downloadData) {
@@ -85,8 +85,8 @@ public class b {
                 }
             }
         };
-        new File(c.lAf).mkdirs();
-        a(aVar, c.lAf, cVar);
+        new File(c.lAt).mkdirs();
+        a(aVar, c.lAt, cVar);
     }
 
     public static void a(com.baidu.tieba.newfaceshop.b.a aVar, String str, com.baidu.tbadk.download.c cVar) {

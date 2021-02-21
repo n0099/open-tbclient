@@ -110,7 +110,7 @@ public class m extends a<bo, ThreadCardViewHolder<bo>> implements com.baidu.tieb
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ey(String str) {
+    public void Ew(String str) {
         this.aif = str;
     }
 }

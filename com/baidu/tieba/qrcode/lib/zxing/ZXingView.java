@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes8.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader mPC;
+    private MultiFormatReader mPR;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -19,12 +19,12 @@ public class ZXingView extends QRCodeView {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        dCH();
+        dCO();
     }
 
-    private void dCH() {
-        this.mPC = new MultiFormatReader();
-        this.mPC.setHints(a.mPB);
+    private void dCO() {
+        this.mPR = new MultiFormatReader();
+        this.mPR.setHints(a.mPQ);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect HG = this.mOw.HG(i2);
+                Rect HG = this.mOL.HG(i2);
                 if (HG != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, HG.left, HG.top, HG.width(), HG.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.mPC.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.mPR.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.mPC.reset();
+                this.mPR.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.mPC.reset();
+            this.mPR.reset();
         }
     }
 }

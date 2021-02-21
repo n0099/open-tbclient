@@ -10,10 +10,10 @@ import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveScoketResMsg;
 public class LowFlowsActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LowFlowsActivityConfig.class, LowFlowsActivity.class);
-        cQN();
+        cQU();
     }
 
-    private static void cQN() {
+    private static void cQU() {
         com.baidu.tieba.tbadkCore.a.a.a(309691, MoreTreasureTroveScoketResMsg.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309691, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, TbConfig.MORE_TREASURE_TROVE, MoreTreasureTroveHttpResMsg.class, false, true, true, true);
     }

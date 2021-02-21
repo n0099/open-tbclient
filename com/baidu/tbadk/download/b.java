@@ -141,7 +141,7 @@ public class b {
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                String str = next.eLx;
+                String str = next.eLw;
                 if (o.GetFile(b.this.getFileOfUrl(next.apkUrl)) != null) {
                     DownloadData downloadData = new DownloadData(str);
                     downloadData.setStatus(3);
@@ -163,7 +163,7 @@ public class b {
             for (DownloadData downloadData : d.bBd().getDownloadList()) {
                 Iterator<AdvertAppInfo> it = this.fAT.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().eLx, downloadData.getId())) {
+                    if (TextUtils.equals(it.next().eLw, downloadData.getId())) {
                         list.add(downloadData);
                     }
                 }
@@ -274,15 +274,6 @@ public class b {
         return PendingIntent.getActivity(TbadkCoreApplication.getInst(), 0, intent, 0);
     }
 
-    public boolean CI(String str) {
-        for (DownloadData downloadData : d.bBd().getDownloadList()) {
-            if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public int dX(String str, String str2) {
         long dY = dY(str, str2);
         long j = TbadkCoreApplication.getInst().getSharedPreferences(SharedPrefConfig.APP_DOWNLOAD_PROGRESS, 0).getLong(str, 0L);
@@ -301,9 +292,5 @@ public class b {
             return GetFile.length();
         }
         return -1L;
-    }
-
-    public boolean CJ(String str) {
-        return (TextUtils.isEmpty(str) || o.GetFile(new StringBuilder().append(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)).append(".apk").toString()) == null) ? false : true;
     }
 }

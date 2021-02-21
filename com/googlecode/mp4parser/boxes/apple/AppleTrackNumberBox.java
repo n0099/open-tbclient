@@ -6,10 +6,10 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes6.dex */
 public class AppleTrackNumberBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1308a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_3 = null;
 
     /* renamed from: a  reason: collision with root package name */
     int f7893a;
@@ -39,7 +39,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
     }
 
     public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Sx(i)));
         this.f7893a = i;
     }
 
@@ -49,7 +49,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
     }
 
     public void setB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Sw(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Sx(i)));
         this.f7894b = i;
     }
 

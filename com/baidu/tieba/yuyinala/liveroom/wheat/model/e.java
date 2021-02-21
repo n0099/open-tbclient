@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaCancelApplyOrCancelInv
 /* loaded from: classes11.dex */
 public class e extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oJD;
+    private a oKd;
     private HttpMessageListener messageListener = new HttpMessageListener(1031010) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.aCW && e.this.oJD != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaCancelApplyOrCancelInviteHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == e.this.aCW && e.this.oKd != null) {
                 AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage = (AlaCancelApplyOrCancelInviteHttpResponseMessage) httpResponsedMessage;
                 if (alaCancelApplyOrCancelInviteHttpResponseMessage.getError() != 0 || !alaCancelApplyOrCancelInviteHttpResponseMessage.isSuccess()) {
-                    e.this.oJD.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
+                    e.this.oKd.onFail(alaCancelApplyOrCancelInviteHttpResponseMessage.getError(), alaCancelApplyOrCancelInviteHttpResponseMessage.getErrorString());
                 } else {
-                    e.this.oJD.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
+                    e.this.oKd.a(alaCancelApplyOrCancelInviteHttpResponseMessage);
                 }
             }
         }
@@ -38,7 +38,7 @@ public class e extends BdBaseModel {
     public e(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.aCW);
         this.mPageContext = tbPageContext;
-        this.oJD = aVar;
+        this.oKd = aVar;
         zH();
         registerListener(this.messageListener);
     }
@@ -51,7 +51,7 @@ public class e extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void gY(String str, String str2) {
+    public void ha(String str, String str2) {
         sendMessage(new com.baidu.tieba.yuyinala.liveroom.wheat.message.d(str, str2));
     }
 

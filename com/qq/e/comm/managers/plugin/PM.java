@@ -25,7 +25,7 @@ public class PM {
     private final Context f11551b;
     private RandomAccessFile c;
     private FileLock d;
-    private a.InterfaceC1185a f;
+    private a.InterfaceC1187a f;
 
     /* renamed from: a  reason: collision with root package name */
     private ExecutorService f11550a = Executors.newSingleThreadExecutor();
@@ -38,7 +38,7 @@ public class PM {
 
         /* renamed from: com.qq.e.comm.managers.plugin.PM$a$a  reason: collision with other inner class name */
         /* loaded from: classes15.dex */
-        public interface InterfaceC1185a {
+        public interface InterfaceC1187a {
         }
 
         /* loaded from: classes15.dex */
@@ -46,9 +46,9 @@ public class PM {
         }
     }
 
-    public PM(Context context, a.InterfaceC1185a interfaceC1185a) {
+    public PM(Context context, a.InterfaceC1187a interfaceC1187a) {
         this.f11551b = context.getApplicationContext();
-        this.f = interfaceC1185a;
+        this.f = interfaceC1187a;
     }
 
     private boolean a() {

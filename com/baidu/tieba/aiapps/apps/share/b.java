@@ -29,25 +29,25 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        bNC();
+        bNJ();
         f(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        bND();
+        bNK();
     }
 
-    private void bNC() {
+    private void bNJ() {
     }
 
-    private void bND() {
+    private void bNK() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void mg(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        bND();
+        bNK();
         finish();
     }
 
@@ -62,9 +62,9 @@ public class b extends ActivityDelegation {
             TbadkCoreApplication.getInst().setCurAiAppid(aVar.fvo);
             if (!TextUtils.isEmpty(aVar.getMediaType())) {
                 int aR = aR(-1, aVar.getMediaType());
-                if (!TextUtils.isEmpty(aVar.bNA()) && !TextUtils.isEmpty(aVar.bNB())) {
+                if (!TextUtils.isEmpty(aVar.bNH()) && !TextUtils.isEmpty(aVar.bNI())) {
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                    httpMessage.addParam("scheme", aVar.bNA());
+                    httpMessage.addParam("scheme", aVar.bNH());
                     httpMessage.setExtra(new com.baidu.tbadk.core.atomData.a(aVar, activity, aR, new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
                         @Override // android.content.DialogInterface.OnCancelListener
                         public void onCancel(DialogInterface dialogInterface) {
@@ -91,12 +91,12 @@ public class b extends ActivityDelegation {
                 public void onDismiss(DialogInterface dialogInterface) {
                 }
             };
-            JSONArray bNz = aVar.bNz();
-            if (bNz != null && !TextUtils.isEmpty(aVar.bNA()) && !TextUtils.isEmpty(aVar.bNB())) {
+            JSONArray bNG = aVar.bNG();
+            if (bNG != null && !TextUtils.isEmpty(aVar.bNH()) && !TextUtils.isEmpty(aVar.bNI())) {
                 ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < bNz.length(); i++) {
+                for (int i = 0; i < bNG.length(); i++) {
                     try {
-                        arrayList.add(Integer.valueOf(aR(-1, bNz.getString(i))));
+                        arrayList.add(Integer.valueOf(aR(-1, bNG.getString(i))));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -105,7 +105,7 @@ public class b extends ActivityDelegation {
                     aVar.bD(arrayList);
                 }
                 HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                httpMessage2.addParam("scheme", aVar.bNA());
+                httpMessage2.addParam("scheme", aVar.bNH());
                 httpMessage2.setExtra(new com.baidu.tbadk.core.atomData.a(aVar, activity, shareDialogConfig.onCancelListener));
                 MessageManager.getInstance().sendMessage(httpMessage2);
                 return;

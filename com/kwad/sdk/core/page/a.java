@@ -42,7 +42,7 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
 
     /* renamed from: com.kwad.sdk.core.page.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C1102a extends d {
+    private static class C1104a extends d {
 
         /* renamed from: a  reason: collision with root package name */
         AdTemplate f9344a;
@@ -51,7 +51,7 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
         e f9345b;
         private Context c;
 
-        C1102a(AdTemplate adTemplate, Context context, e eVar) {
+        C1104a(AdTemplate adTemplate, Context context, e eVar) {
             this.f9344a = adTemplate;
             this.c = context;
             this.f9345b = eVar;
@@ -128,7 +128,7 @@ public class a extends com.kwad.sdk.core.page.recycle.a {
 
     @Override // com.kwad.sdk.core.page.recycle.a
     protected d a(RecyclerView recyclerView) {
-        return new C1102a(this.f9339a, recyclerView.getContext(), new e(this.f9339a, this.d, recyclerView));
+        return new C1104a(this.f9339a, recyclerView.getContext(), new e(this.f9339a, this.d, recyclerView));
     }
 
     public void a(b bVar) {

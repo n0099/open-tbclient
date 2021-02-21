@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class ConcernEmotionTipAdapter extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.a.b, ConcernEmotionTipViewHolder> {
     public ConcernEmotionTipAdapter(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.a.b.kby);
+        super(context, com.baidu.tieba.homepage.concern.a.b.kbM);
     }
 
     public ConcernEmotionTipAdapter(Context context, BdUniqueId bdUniqueId) {
@@ -36,19 +36,19 @@ public class ConcernEmotionTipAdapter extends com.baidu.adp.widget.ListView.a<co
         if (bVar.tipString != null) {
             concernEmotionTipViewHolder.tipText.setText(bVar.tipString);
         }
-        if (bVar.getType() == com.baidu.tieba.homepage.concern.a.b.kbx) {
-            if (bVar.kbz == 2) {
+        if (bVar.getType() == com.baidu.tieba.homepage.concern.a.b.kbL) {
+            if (bVar.kbN == 2) {
                 concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
             } else {
                 concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
             }
         }
-        switch (bVar.kbz) {
+        switch (bVar.kbN) {
             case 2:
-                concernEmotionTipViewHolder.cB(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
+                concernEmotionTipViewHolder.cC(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
                 break;
             case 3:
-                concernEmotionTipViewHolder.cB(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
+                concernEmotionTipViewHolder.cC(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
                 break;
         }
         return concernEmotionTipViewHolder.getView();
@@ -57,23 +57,23 @@ public class ConcernEmotionTipAdapter extends com.baidu.adp.widget.ListView.a<co
     /* loaded from: classes2.dex */
     public static class ConcernEmotionTipViewHolder extends TypeAdapter.ViewHolder {
         private int ajU;
-        public ViewGroup kaJ;
-        public ImageView kaK;
+        public ViewGroup kaX;
+        public ImageView kaY;
         public TextView tipText;
 
         public ConcernEmotionTipViewHolder(View view) {
             super(view);
             this.ajU = 3;
-            this.kaJ = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.kaK = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.kaX = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.kaY = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.tipText = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
-        protected void cB(int i, int i2) {
+        protected void cC(int i, int i2) {
             if (this.ajU != i) {
                 ap.setViewTextColor(this.tipText, R.color.CAM_X0107);
             }
-            ap.setImageResource(this.kaK, i2);
+            ap.setImageResource(this.kaY, i2);
             this.ajU = i;
         }
     }

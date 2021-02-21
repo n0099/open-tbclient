@@ -27,16 +27,16 @@ public class g {
     }
 
     public static void a(String str) {
-        a aaM;
-        if (!TextUtils.isEmpty(str) && (aaM = aaM(str)) != null) {
-            aaM.a();
+        a aaY;
+        if (!TextUtils.isEmpty(str) && (aaY = aaY(str)) != null) {
+            aaY.a();
         }
     }
 
     public static void a(String str, String str2) {
-        a aaM;
-        if (!TextUtils.isEmpty(str) && (aaM = aaM(str)) != null) {
-            aaM.a(str2);
+        a aaY;
+        if (!TextUtils.isEmpty(str) && (aaY = aaY(str)) != null) {
+            aaY.a(str2);
         }
     }
 
@@ -46,7 +46,7 @@ public class g {
         }
     }
 
-    private static a aaM(String str) {
+    private static a aaY(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -54,6 +54,6 @@ public class g {
     }
 
     public static boolean b(String str) {
-        return com.ss.android.downloadlib.a.j.eEH().a(com.ss.android.downloadlib.a.j.a(), str);
+        return com.ss.android.downloadlib.a.j.eEP().a(com.ss.android.downloadlib.a.j.a(), str);
     }
 }

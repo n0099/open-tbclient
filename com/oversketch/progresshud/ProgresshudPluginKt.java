@@ -14,7 +14,7 @@ public final class ProgresshudPluginKt {
     public static final SVProgressHUD getDialog() {
         SVProgressHUD sVProgressHUD = dialog;
         if (sVProgressHUD == null) {
-            p.acg("dialog");
+            p.acs("dialog");
         }
         return sVProgressHUD;
     }
@@ -27,7 +27,7 @@ public final class ProgresshudPluginKt {
     public static final SVProgressHUD.SVProgressHUDMaskType getMaskType() {
         SVProgressHUD.SVProgressHUDMaskType sVProgressHUDMaskType = maskType;
         if (sVProgressHUDMaskType == null) {
-            p.acg("maskType");
+            p.acs("maskType");
         }
         return sVProgressHUDMaskType;
     }

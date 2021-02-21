@@ -11,8 +11,8 @@ public final class o {
     int c;
     boolean d;
     boolean e;
-    o pnO;
-    o pnP;
+    o poq;
+    o por;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o() {
@@ -31,54 +31,54 @@ public final class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final o eoG() {
+    public final o eoO() {
         this.d = true;
         return new o(this.f5850a, this.f5851b, this.c, true, false);
     }
 
-    public final o eoH() {
-        o oVar = this.pnO != this ? this.pnO : null;
-        this.pnP.pnO = this.pnO;
-        this.pnO.pnP = this.pnP;
-        this.pnO = null;
-        this.pnP = null;
+    public final o eoP() {
+        o oVar = this.poq != this ? this.poq : null;
+        this.por.poq = this.poq;
+        this.poq.por = this.por;
+        this.poq = null;
+        this.por = null;
         return oVar;
     }
 
     public final o a(o oVar) {
-        oVar.pnP = this;
-        oVar.pnO = this.pnO;
-        this.pnO.pnP = oVar;
-        this.pnO = oVar;
+        oVar.por = this;
+        oVar.poq = this.poq;
+        this.poq.por = oVar;
+        this.poq = oVar;
         return oVar;
     }
 
-    public final o OB(int i) {
-        o eoG;
+    public final o OC(int i) {
+        o eoO;
         if (i <= 0 || i > this.c - this.f5851b) {
             throw new IllegalArgumentException();
         }
         if (i >= 1024) {
-            eoG = eoG();
+            eoO = eoO();
         } else {
-            eoG = p.eoG();
-            System.arraycopy(this.f5850a, this.f5851b, eoG.f5850a, 0, i);
+            eoO = p.eoO();
+            System.arraycopy(this.f5850a, this.f5851b, eoO.f5850a, 0, i);
         }
-        eoG.c = eoG.f5851b + i;
+        eoO.c = eoO.f5851b + i;
         this.f5851b += i;
-        this.pnP.a(eoG);
-        return eoG;
+        this.por.a(eoO);
+        return eoO;
     }
 
     public final void c() {
-        if (this.pnP == this) {
+        if (this.por == this) {
             throw new IllegalStateException();
         }
-        if (this.pnP.e) {
+        if (this.por.e) {
             int i = this.c - this.f5851b;
-            if (i <= (this.pnP.d ? 0 : this.pnP.f5851b) + (8192 - this.pnP.c)) {
-                a(this.pnP, i);
-                eoH();
+            if (i <= (this.por.d ? 0 : this.por.f5851b) + (8192 - this.por.c)) {
+                a(this.por, i);
+                eoP();
                 p.b(this);
             }
         }

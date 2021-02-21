@@ -87,7 +87,7 @@ public abstract class a {
 
     public void c(Notification notification) {
         if (this.f13253b != 0 && notification != null) {
-            b.eIB().a(this.f13253b, this.f, notification);
+            b.eIJ().a(this.f13253b, this.f, notification);
         }
     }
 
@@ -108,7 +108,7 @@ public abstract class a {
         this.i = z;
     }
 
-    public Notification eIA() {
+    public Notification eII() {
         return this.f13252a;
     }
 }

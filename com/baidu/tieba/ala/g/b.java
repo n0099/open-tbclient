@@ -12,8 +12,8 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes11.dex */
 public class b extends BdBaseModel {
-    private a gUD;
-    private HttpMessageListener hTD;
+    private a gUR;
+    private HttpMessageListener hTR;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -22,18 +22,18 @@ public class b extends BdBaseModel {
 
     public b(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.hTD = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.g.b.1
+        this.hTR = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.g.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == b.this.unique_id) {
-                    b.this.gUD.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                    b.this.gUR.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
                 }
             }
         };
-        this.gUD = aVar;
+        this.gUR = aVar;
         registerTask();
-        registerListener(this.hTD);
+        registerListener(this.hTR);
     }
 
     private void registerTask() {
@@ -45,7 +45,7 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void Id(String str) {
+    public void Ie(String str) {
         HttpMessage httpMessage = new HttpMessage(1021118);
         httpMessage.addParam("portrait", str);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);

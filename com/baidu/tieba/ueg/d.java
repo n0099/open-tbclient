@@ -12,8 +12,8 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class d {
-    private static BlockPopInfo nJI;
-    private static BlockPopInfo nJJ;
+    private static BlockPopInfo nKi;
+    private static BlockPopInfo nKj;
     private TbPageContext eUY;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.ueg.d.3
         /* JADX DEBUG: Method merged with bridge method */
@@ -56,12 +56,12 @@ public class d {
         }
     }
 
-    public boolean dRs() {
-        return a(nJI);
+    public boolean dRA() {
+        return a(nKi);
     }
 
-    public boolean dRt() {
-        return a(nJJ);
+    public boolean dRB() {
+        return a(nKj);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
@@ -87,15 +87,15 @@ public class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            AntiHelper.bs(this.eUY.getPageActivity(), blockPopInfo.ahead_url);
+            AntiHelper.br(this.eUY.getPageActivity(), blockPopInfo.ahead_url);
         }
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        nJI = blockPopInfo;
+        nKi = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        nJJ = blockPopInfo;
+        nKj = blockPopInfo;
     }
 }

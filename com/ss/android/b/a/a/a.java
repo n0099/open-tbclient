@@ -20,16 +20,16 @@ public class a implements com.ss.android.a.a.b.a {
     public a() {
     }
 
-    private a(C1218a c1218a) {
-        this.f12910a = c1218a.f12912a;
-        this.f12911b = c1218a.f12913b;
-        this.c = c1218a.c;
-        this.d = c1218a.d;
-        this.e = c1218a.e;
-        this.f = c1218a.f;
-        this.g = c1218a.g;
-        this.h = c1218a.h;
-        this.i = c1218a.i;
+    private a(C1220a c1220a) {
+        this.f12910a = c1220a.f12912a;
+        this.f12911b = c1220a.f12913b;
+        this.c = c1220a.c;
+        this.d = c1220a.d;
+        this.e = c1220a.e;
+        this.f = c1220a.f;
+        this.g = c1220a.g;
+        this.h = c1220a.h;
+        this.i = c1220a.i;
     }
 
     @Override // com.ss.android.a.a.b.a
@@ -54,7 +54,7 @@ public class a implements com.ss.android.a.a.b.a {
 
     /* renamed from: com.ss.android.b.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C1218a {
+    public static final class C1220a {
 
         /* renamed from: a  reason: collision with root package name */
         private int f12912a;
@@ -69,42 +69,42 @@ public class a implements com.ss.android.a.a.b.a {
         private JSONObject h;
         private Object i;
 
-        public C1218a QN(int i) {
+        public C1220a QO(int i) {
             this.f12912a = i;
             return this;
         }
 
-        public C1218a QO(int i) {
+        public C1220a QP(int i) {
             this.f12913b = i;
             return this;
         }
 
-        public C1218a BM(boolean z) {
+        public C1220a BM(boolean z) {
             this.c = z;
             return this;
         }
 
-        public C1218a BN(boolean z) {
+        public C1220a BN(boolean z) {
             this.d = z;
             return this;
         }
 
         @Deprecated
-        public C1218a BO(boolean z) {
+        public C1220a BO(boolean z) {
             return this;
         }
 
-        public C1218a bG(Object obj) {
+        public C1220a bG(Object obj) {
             this.e = obj;
             return this;
         }
 
-        public C1218a BP(boolean z) {
+        public C1220a BP(boolean z) {
             this.f = z;
             return this;
         }
 
-        public a eEe() {
+        public a eEm() {
             return new a(this);
         }
     }

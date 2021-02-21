@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes8.dex */
 public class c {
-    public static void OK(String str) {
+    public static void OL(String str) {
         if (!StringUtils.isNull(str)) {
             ar arVar = new ar(str);
             arVar.dR("uid", TbadkApplication.getCurrentAccount());

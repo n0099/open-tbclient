@@ -55,7 +55,7 @@ public class i extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return ((o) getItem(i)).bUq();
+        return ((o) getItem(i)).bUx();
     }
 
     @Override // android.widget.Adapter
@@ -102,7 +102,7 @@ public class i extends BaseAdapter {
         }
         final o oVar = (o) getItem(i);
         if (oVar != null) {
-            switch (oVar.bUq()) {
+            switch (oVar.bUx()) {
                 case 0:
                     if (aVar != null && aVar.rootView != null) {
                         aVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.i.1
@@ -117,21 +117,21 @@ public class i extends BaseAdapter {
                 case 1:
                     if (bVar != null) {
                         bVar.aZR.setText(oVar.getmName());
-                        bVar.gqX.setText(oVar.bUr() + "个");
-                        bVar.gqY.setText(oVar.bUt() + "小时");
+                        bVar.grl.setText(oVar.bUy() + "个");
+                        bVar.grm.setText(oVar.bUA() + "小时");
                         String string = this.mPageContext.getResources().getString(a.h.add_wish_thank_way_txt);
-                        if (!TextUtils.isEmpty(oVar.bUu())) {
-                            string = oVar.bUu();
+                        if (!TextUtils.isEmpty(oVar.bUB())) {
+                            string = oVar.bUB();
                         }
-                        bVar.gqZ.setText(string);
-                        bVar.gra.startLoad(oVar.bUs(), 10, false);
-                        if (oVar.bUq() == 1) {
+                        bVar.grn.setText(string);
+                        bVar.gro.startLoad(oVar.bUz(), 10, false);
+                        if (oVar.bUx() == 1) {
                             if (getItemId(i) == 0) {
-                                bVar.grc.setImageResource(a.e.ala_wish_list_item_num_icon_no1);
+                                bVar.grq.setImageResource(a.e.ala_wish_list_item_num_icon_no1);
                             } else if (getItemId(i) == 1) {
-                                bVar.grc.setImageResource(a.e.ala_wish_list_item_num_icon_no2);
+                                bVar.grq.setImageResource(a.e.ala_wish_list_item_num_icon_no2);
                             } else if (getItemId(i) == 2) {
-                                bVar.grc.setImageResource(a.e.ala_wish_list_item_num_icon_no3);
+                                bVar.grq.setImageResource(a.e.ala_wish_list_item_num_icon_no3);
                             }
                         }
                         if (bVar != null && bVar.rootView != null) {
@@ -141,10 +141,10 @@ public class i extends BaseAdapter {
                                 }
                             });
                         }
-                        bVar.grb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.i.3
+                        bVar.grp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.i.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.d.f(i.this.mPageContext.getPageActivity(), oVar.bUv(), 1001, i.this.getItemId(i))));
+                                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new com.baidu.live.d.f(i.this.mPageContext.getPageActivity(), oVar.bUC(), 1001, i.this.getItemId(i))));
                             }
                         });
                         break;
@@ -167,24 +167,24 @@ public class i extends BaseAdapter {
     /* loaded from: classes11.dex */
     public static class b {
         public TextView aZR;
-        public TextView gqX;
-        public TextView gqY;
-        public TextView gqZ;
-        public TbImageView gra;
-        public TbImageView grb;
-        public TbImageView grc;
+        public TextView grl;
+        public TextView grm;
+        public TextView grn;
+        public TbImageView gro;
+        public TbImageView grp;
+        public TbImageView grq;
         public View rootView;
 
         public b(View view) {
             this.rootView = view;
             this.aZR = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_first_name);
-            this.gqX = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_first_num);
-            this.gqY = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_deadline_num);
-            this.gqZ = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_thank_way);
-            this.gra = (TbImageView) view.findViewById(a.f.ala_wish_list_item_icon);
-            this.gra.setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.grb = (TbImageView) view.findViewById(a.f.ala_wish_list_item_top_delete);
-            this.grc = (TbImageView) view.findViewById(a.f.ala_wish_list_item_num_icon);
+            this.grl = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_first_num);
+            this.grm = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_deadline_num);
+            this.grn = (TextView) view.findViewById(a.f.ala_wish_list_item_center_content_thank_way);
+            this.gro = (TbImageView) view.findViewById(a.f.ala_wish_list_item_icon);
+            this.gro.setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.grp = (TbImageView) view.findViewById(a.f.ala_wish_list_item_top_delete);
+            this.grq = (TbImageView) view.findViewById(a.f.ala_wish_list_item_num_icon);
         }
     }
 }

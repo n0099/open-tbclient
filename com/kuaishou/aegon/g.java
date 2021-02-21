@@ -4,10 +4,10 @@ final /* synthetic */ class g implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
     private final String f8113b;
-    private final f pXQ;
+    private final f pYq;
 
     private g(f fVar, String str) {
-        this.pXQ = fVar;
+        this.pYq = fVar;
         this.f8113b = str;
     }
 
@@ -17,6 +17,6 @@ final /* synthetic */ class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pXQ.a(this.f8113b);
+        this.pYq.a(this.f8113b);
     }
 }

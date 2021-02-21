@@ -37,14 +37,14 @@ public final class l {
                 u.a(cVar.f5842b, 0L, j);
                 while (j > 0) {
                     t.this.g();
-                    o oVar = cVar.pnC;
+                    o oVar = cVar.poc;
                     int min = (int) Math.min(j, oVar.c - oVar.f5851b);
                     outputStream.write(oVar.f5850a, oVar.f5851b, min);
                     oVar.f5851b += min;
                     j -= min;
                     cVar.f5842b -= min;
                     if (oVar.f5851b == oVar.c) {
-                        cVar.pnC = oVar.eoH();
+                        cVar.poc = oVar.eoP();
                         p.b(oVar);
                     }
                 }
@@ -61,7 +61,7 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.r
-            public t eoq() {
+            public t eoy() {
                 return t.this;
             }
 
@@ -104,12 +104,12 @@ public final class l {
                 }
                 try {
                     t.this.g();
-                    o Ow = cVar.Ow(1);
-                    int read = inputStream.read(Ow.f5850a, Ow.c, (int) Math.min(j, 8192 - Ow.c));
+                    o Ox = cVar.Ox(1);
+                    int read = inputStream.read(Ox.f5850a, Ox.c, (int) Math.min(j, 8192 - Ox.c));
                     if (read == -1) {
                         return -1L;
                     }
-                    Ow.c += read;
+                    Ox.c += read;
                     cVar.f5842b += read;
                     return read;
                 } catch (AssertionError e) {
@@ -126,7 +126,7 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.s
-            public t eoq() {
+            public t eoy() {
                 return t.this;
             }
 
@@ -159,7 +159,7 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.a
-            protected void eoo() {
+            protected void eow() {
                 try {
                     socket.close();
                 } catch (AssertionError e) {

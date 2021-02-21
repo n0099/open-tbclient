@@ -11,7 +11,7 @@ public final class ap {
 
     /* loaded from: classes6.dex */
     public static class a {
-        public static final ap pPq = new ap();
+        public static final ap pPQ = new ap();
     }
 
     public void a(View view, String str, ImageView imageView) {

@@ -11,8 +11,8 @@ public class b {
     private final double f7879b;
     private long d;
     private int e;
-    private final g pVr = new g();
-    private final g pVs = new g();
+    private final g pVR = new g();
+    private final g pVS = new g();
 
     public b(double d) {
         this.f7879b = 1.0d / (6.283185307179586d * d);
@@ -29,20 +29,20 @@ public class b {
     public void a(g gVar, long j, double d) {
         this.e++;
         if (this.e == 1) {
-            this.pVr.a(gVar);
+            this.pVR.a(gVar);
             this.d = j;
             return;
         }
         double d2 = (j - this.d) * d * f7878a;
         double d3 = d2 / (this.f7879b + d2);
-        this.pVr.a(1.0d - d3);
-        this.pVs.a(gVar);
-        this.pVs.a(d3);
-        g.a(this.pVs, this.pVr, this.pVr);
+        this.pVR.a(1.0d - d3);
+        this.pVS.a(gVar);
+        this.pVS.a(d3);
+        g.a(this.pVS, this.pVR, this.pVR);
         this.d = j;
     }
 
-    public g eBZ() {
-        return this.pVr;
+    public g eCh() {
+        return this.pVR;
     }
 }

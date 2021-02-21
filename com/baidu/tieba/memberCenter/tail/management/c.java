@@ -13,8 +13,8 @@ import com.baidu.tieba.memberCenter.tail.data.TailData;
 /* loaded from: classes9.dex */
 public class c {
     private TextView aDt;
-    private TailData lsM;
-    private TextView lsN;
+    private TailData lta;
+    private TextView ltb;
     private String mColor;
     private Context mContext;
     private View mRootView;
@@ -24,18 +24,18 @@ public class c {
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.tail_management_item, (ViewGroup) null);
         this.mRootView.setTag(this);
         this.aDt = (TextView) this.mRootView.findViewById(R.id.tail_management_item_text);
-        this.lsN = (TextView) this.mRootView.findViewById(R.id.tail_management_item_delete);
-        this.lsN.setTag(this);
+        this.ltb = (TextView) this.mRootView.findViewById(R.id.tail_management_item_delete);
+        this.ltb.setTag(this);
         return this.mRootView;
     }
 
     private void setContent(String str) {
-        this.aDt.setText(TbFaceManager.bCO().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.Op(str), null));
+        this.aDt.setText(TbFaceManager.bCO().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.Oq(str), null));
     }
 
     private void setColor(String str) {
         this.mColor = str;
-        this.aDt.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.Oo(str));
+        this.aDt.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.Op(str));
     }
 
     public void D(TbPageContext<?> tbPageContext) {
@@ -44,12 +44,12 @@ public class c {
         setColor(this.mColor);
     }
 
-    public TailData dfT() {
-        return this.lsM;
+    public TailData dga() {
+        return this.lta;
     }
 
     public void b(TailData tailData) {
-        this.lsM = tailData;
+        this.lta = tailData;
         setContent(tailData.getContent());
         setColor(tailData.getFontColor());
     }
@@ -59,10 +59,10 @@ public class c {
     }
 
     public void K(View.OnClickListener onClickListener) {
-        this.lsN.setOnClickListener(onClickListener);
+        this.ltb.setOnClickListener(onClickListener);
     }
 
     public void o(Boolean bool) {
-        this.lsN.setVisibility(bool.booleanValue() ? 0 : 8);
+        this.ltb.setVisibility(bool.booleanValue() ? 0 : 8);
     }
 }

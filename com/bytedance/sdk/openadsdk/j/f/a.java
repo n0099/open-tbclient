@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: b  reason: collision with root package name */
     private HashMap<String, Boolean> f7275b;
-    private C1023a c;
+    private C1025a c;
 
     private a() {
         this.f7275b = new HashMap<>();
@@ -54,7 +54,7 @@ public class a {
         e.a(1);
         f.a().d();
         try {
-            this.c = new C1023a();
+            this.c = new C1025a();
             this.c.start();
             e.a(c, p.a());
             d.c().a(30000L, 30000L, 30000L);
@@ -109,41 +109,41 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bytedance.sdk.openadsdk.j.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C1023a extends Thread {
-        private final Queue<C1024a> d = new ArrayBlockingQueue(10);
+    public class C1025a extends Thread {
+        private final Queue<C1026a> d = new ArrayBlockingQueue(10);
 
         /* renamed from: b  reason: collision with root package name */
-        private Queue<C1024a> f7277b = new LinkedBlockingQueue();
+        private Queue<C1026a> f7277b = new LinkedBlockingQueue();
         private boolean c = true;
-        private Queue<C1024a> e = new LinkedBlockingQueue();
+        private Queue<C1026a> e = new LinkedBlockingQueue();
 
-        public C1023a() {
+        public C1025a() {
         }
 
-        private C1024a a(int i, com.bytedance.sdk.openadsdk.j.f.b bVar) {
+        private C1026a a(int i, com.bytedance.sdk.openadsdk.j.f.b bVar) {
             b();
             u.b("VideoCachePreloader", "pool: " + this.d.size());
-            C1024a poll = this.d.poll();
+            C1026a poll = this.d.poll();
             if (poll == null) {
-                poll = new C1024a();
+                poll = new C1026a();
             }
             poll.f7278a = i;
             poll.f = bVar;
             return poll;
         }
 
-        private void a(C1024a c1024a) {
+        private void a(C1026a c1026a) {
             a();
-            c1024a.c = null;
-            c1024a.f7279b = null;
-            c1024a.f7278a = -1;
-            c1024a.f = null;
-            this.d.offer(c1024a);
+            c1026a.c = null;
+            c1026a.f7279b = null;
+            c1026a.f7278a = -1;
+            c1026a.f = null;
+            this.d.offer(c1026a);
         }
 
-        private synchronized void b(C1024a c1024a) {
+        private synchronized void b(C1026a c1026a) {
             b();
-            this.e.add(c1024a);
+            this.e.add(c1026a);
             notify();
         }
 
@@ -153,10 +153,10 @@ public class a {
         private void b() {
         }
 
-        private void c(C1024a c1024a) {
+        private void c(C1026a c1026a) {
             a();
-            if (c1024a != null) {
-                this.f7277b.offer(c1024a);
+            if (c1026a != null) {
+                this.f7277b.offer(c1026a);
                 notify();
             }
         }
@@ -170,7 +170,7 @@ public class a {
                         c();
                     }
                     while (!this.f7277b.isEmpty()) {
-                        C1024a poll = this.f7277b.poll();
+                        C1026a poll = this.f7277b.poll();
                         if (poll != null) {
                             switch (poll.f7278a) {
                                 case 0:
@@ -221,7 +221,7 @@ public class a {
         private void c() {
             a();
             while (true) {
-                C1024a poll = this.e.poll();
+                C1026a poll = this.e.poll();
                 if (poll != null) {
                     poll.f7279b = poll.f.f7281a;
                     poll.c = new String[]{poll.f.f7281a};
@@ -245,7 +245,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.bytedance.sdk.openadsdk.j.f.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1024a {
+        public class C1026a {
 
             /* renamed from: a  reason: collision with root package name */
             public int f7278a;
@@ -257,7 +257,7 @@ public class a {
             public String e;
             public com.bytedance.sdk.openadsdk.j.f.b f;
 
-            public C1024a() {
+            public C1026a() {
             }
         }
     }

@@ -20,34 +20,34 @@ public final class g {
     private boolean l;
     private boolean m;
     private boolean n;
-    public final com.bytedance.sdk.a.b.a poG;
-    private f.a poK;
-    private com.bytedance.sdk.a.b.d poL;
-    public final h poM;
-    public final t poN;
-    private final f poO;
-    private c poP;
-    private com.bytedance.sdk.a.b.a.c.c poQ;
-    private final m pox;
+    private final m poX;
+    public final com.bytedance.sdk.a.b.a ppg;
+    private f.a ppl;
+    private com.bytedance.sdk.a.b.d ppm;
+    public final h ppn;
+    public final t ppo;
+    private final f ppp;
+    private c ppq;
+    private com.bytedance.sdk.a.b.a.c.c ppr;
 
     static {
         d = !g.class.desiredAssertionStatus();
     }
 
     public g(m mVar, com.bytedance.sdk.a.b.a aVar, h hVar, t tVar, Object obj) {
-        this.pox = mVar;
-        this.poG = aVar;
-        this.poM = hVar;
-        this.poN = tVar;
-        this.poO = new f(aVar, epe(), hVar, tVar);
+        this.poX = mVar;
+        this.ppg = aVar;
+        this.ppn = hVar;
+        this.ppo = tVar;
+        this.ppp = new f(aVar, epm(), hVar, tVar);
         this.h = obj;
     }
 
     public com.bytedance.sdk.a.b.a.c.c a(z zVar, x.a aVar, boolean z) {
         try {
             com.bytedance.sdk.a.b.a.c.c a2 = a(aVar.b(), aVar.c(), aVar.d(), zVar.r(), z).a(zVar, aVar, this);
-            synchronized (this.pox) {
-                this.poQ = a2;
+            synchronized (this.poX) {
+                this.ppr = a2;
             }
             return a2;
         } catch (IOException e) {
@@ -59,7 +59,7 @@ public final class g {
         c f;
         while (true) {
             f = f(i, i2, i3, z);
-            synchronized (this.pox) {
+            synchronized (this.poX) {
                 if (f.f5865b != 0) {
                     if (f.a(z2)) {
                         break;
@@ -75,69 +75,69 @@ public final class g {
 
     private c f(int i, int i2, int i3, boolean z) throws IOException {
         c cVar;
-        Socket epc;
+        Socket epk;
         c cVar2;
         boolean z2 = false;
         c cVar3 = null;
         com.bytedance.sdk.a.b.d dVar = null;
-        synchronized (this.pox) {
+        synchronized (this.poX) {
             if (this.m) {
                 throw new IllegalStateException("released");
             }
-            if (this.poQ != null) {
+            if (this.ppr != null) {
                 throw new IllegalStateException("codec != null");
             }
             if (this.n) {
                 throw new IOException(ResponseException.CANCELED);
             }
-            cVar = this.poP;
-            epc = epc();
-            if (this.poP != null) {
-                cVar3 = this.poP;
+            cVar = this.ppq;
+            epk = epk();
+            if (this.ppq != null) {
+                cVar3 = this.ppq;
                 cVar = null;
             }
             if (!this.l) {
                 cVar = null;
             }
             if (cVar3 == null) {
-                com.bytedance.sdk.a.b.a.a.poa.a(this.pox, this.poG, this, null);
-                if (this.poP != null) {
+                com.bytedance.sdk.a.b.a.a.poD.a(this.poX, this.ppg, this, null);
+                if (this.ppq != null) {
                     z2 = true;
-                    cVar3 = this.poP;
+                    cVar3 = this.ppq;
                 } else {
-                    dVar = this.poL;
+                    dVar = this.ppm;
                 }
             }
         }
-        com.bytedance.sdk.a.b.a.c.a(epc);
+        com.bytedance.sdk.a.b.a.c.a(epk);
         if (cVar != null) {
-            this.poN.b(this.poM, cVar);
+            this.ppo.b(this.ppn, cVar);
         }
         if (z2) {
-            this.poN.a(this.poM, cVar3);
+            this.ppo.a(this.ppn, cVar3);
         }
         if (cVar3 != null) {
             return cVar3;
         }
         boolean z3 = false;
-        if (dVar == null && (this.poK == null || !this.poK.a())) {
+        if (dVar == null && (this.ppl == null || !this.ppl.a())) {
             z3 = true;
-            this.poK = this.poO.eoZ();
+            this.ppl = this.ppp.eph();
         }
-        synchronized (this.pox) {
+        synchronized (this.poX) {
             if (this.n) {
                 throw new IOException(ResponseException.CANCELED);
             }
             if (z3) {
-                List<com.bytedance.sdk.a.b.d> c = this.poK.c();
+                List<com.bytedance.sdk.a.b.d> c = this.ppl.c();
                 int size = c.size();
                 for (int i4 = 0; i4 < size; i4++) {
                     com.bytedance.sdk.a.b.d dVar2 = c.get(i4);
-                    com.bytedance.sdk.a.b.a.a.poa.a(this.pox, this.poG, this, dVar2);
-                    if (this.poP != null) {
+                    com.bytedance.sdk.a.b.a.a.poD.a(this.poX, this.ppg, this, dVar2);
+                    if (this.ppq != null) {
                         z2 = true;
-                        c cVar4 = this.poP;
-                        this.poL = dVar2;
+                        c cVar4 = this.ppq;
+                        this.ppm = dVar2;
                         cVar2 = cVar4;
                         break;
                     }
@@ -145,36 +145,36 @@ public final class g {
             }
             cVar2 = cVar3;
             if (!z2) {
-                com.bytedance.sdk.a.b.d epb = dVar == null ? this.poK.epb() : dVar;
-                this.poL = epb;
+                com.bytedance.sdk.a.b.d epj = dVar == null ? this.ppl.epj() : dVar;
+                this.ppm = epj;
                 this.j = 0;
-                cVar2 = new c(this.pox, epb);
+                cVar2 = new c(this.poX, epj);
                 a(cVar2, false);
             }
         }
         if (z2) {
-            this.poN.a(this.poM, cVar2);
+            this.ppo.a(this.ppn, cVar2);
             return cVar2;
         }
-        cVar2.a(i, i2, i3, z, this.poM, this.poN);
-        epe().b(cVar2.eoW());
+        cVar2.a(i, i2, i3, z, this.ppn, this.ppo);
+        epm().b(cVar2.epe());
         Socket socket = null;
-        synchronized (this.pox) {
+        synchronized (this.poX) {
             this.l = true;
-            com.bytedance.sdk.a.b.a.a.poa.a(this.pox, cVar2);
+            com.bytedance.sdk.a.b.a.a.poD.a(this.poX, cVar2);
             if (cVar2.d()) {
-                socket = com.bytedance.sdk.a.b.a.a.poa.a(this.pox, this.poG, this);
-                cVar2 = this.poP;
+                socket = com.bytedance.sdk.a.b.a.a.poD.a(this.poX, this.ppg, this);
+                cVar2 = this.ppq;
             }
         }
         com.bytedance.sdk.a.b.a.c.a(socket);
-        this.poN.a(this.poM, cVar2);
+        this.ppo.a(this.ppn, cVar2);
         return cVar2;
     }
 
-    private Socket epc() {
-        if (d || Thread.holdsLock(this.pox)) {
-            c cVar = this.poP;
+    private Socket epk() {
+        if (d || Thread.holdsLock(this.poX)) {
+            c cVar = this.ppq;
             if (cVar == null || !cVar.f5864a) {
                 return null;
             }
@@ -187,108 +187,108 @@ public final class g {
         c cVar2;
         Socket n;
         boolean z2;
-        this.poN.b(this.poM, j);
-        synchronized (this.pox) {
+        this.ppo.b(this.ppn, j);
+        synchronized (this.poX) {
             if (cVar != null) {
-                if (cVar == this.poQ) {
+                if (cVar == this.ppr) {
                     if (!z) {
-                        this.poP.f5865b++;
+                        this.ppq.f5865b++;
                     }
-                    cVar2 = this.poP;
+                    cVar2 = this.ppq;
                     n = n(z, false, true);
-                    if (this.poP != null) {
+                    if (this.ppq != null) {
                         cVar2 = null;
                     }
                     z2 = this.m;
                 }
             }
-            throw new IllegalStateException("expected " + this.poQ + " but was " + cVar);
+            throw new IllegalStateException("expected " + this.ppr + " but was " + cVar);
         }
         com.bytedance.sdk.a.b.a.c.a(n);
         if (cVar2 != null) {
-            this.poN.b(this.poM, cVar2);
+            this.ppo.b(this.ppn, cVar2);
         }
         if (iOException != null) {
-            this.poN.a(this.poM, iOException);
+            this.ppo.a(this.ppn, iOException);
         } else if (z2) {
-            this.poN.g(this.poM);
+            this.ppo.g(this.ppn);
         }
     }
 
-    public com.bytedance.sdk.a.b.a.c.c epd() {
+    public com.bytedance.sdk.a.b.a.c.c epl() {
         com.bytedance.sdk.a.b.a.c.c cVar;
-        synchronized (this.pox) {
-            cVar = this.poQ;
+        synchronized (this.poX) {
+            cVar = this.ppr;
         }
         return cVar;
     }
 
-    private d epe() {
-        return com.bytedance.sdk.a.b.a.a.poa.a(this.pox);
+    private d epm() {
+        return com.bytedance.sdk.a.b.a.a.poD.a(this.poX);
     }
 
-    public synchronized c epf() {
-        return this.poP;
+    public synchronized c epn() {
+        return this.ppq;
     }
 
     public void c() {
         c cVar;
         Socket n;
-        synchronized (this.pox) {
-            cVar = this.poP;
+        synchronized (this.poX) {
+            cVar = this.ppq;
             n = n(false, true, false);
-            if (this.poP != null) {
+            if (this.ppq != null) {
                 cVar = null;
             }
         }
         com.bytedance.sdk.a.b.a.c.a(n);
         if (cVar != null) {
-            this.poN.b(this.poM, cVar);
+            this.ppo.b(this.ppn, cVar);
         }
     }
 
     public void d() {
         c cVar;
         Socket n;
-        synchronized (this.pox) {
-            cVar = this.poP;
+        synchronized (this.poX) {
+            cVar = this.ppq;
             n = n(true, false, false);
-            if (this.poP != null) {
+            if (this.ppq != null) {
                 cVar = null;
             }
         }
         com.bytedance.sdk.a.b.a.c.a(n);
         if (cVar != null) {
-            this.poN.b(this.poM, cVar);
+            this.ppo.b(this.ppn, cVar);
         }
     }
 
     private Socket n(boolean z, boolean z2, boolean z3) {
         Socket socket;
-        if (d || Thread.holdsLock(this.pox)) {
+        if (d || Thread.holdsLock(this.poX)) {
             if (z3) {
-                this.poQ = null;
+                this.ppr = null;
             }
             if (z2) {
                 this.m = true;
             }
-            if (this.poP != null) {
+            if (this.ppq != null) {
                 if (z) {
-                    this.poP.f5864a = true;
+                    this.ppq.f5864a = true;
                 }
-                if (this.poQ == null) {
-                    if (this.m || this.poP.f5864a) {
-                        a(this.poP);
-                        if (this.poP.d.isEmpty()) {
-                            this.poP.e = System.nanoTime();
-                            if (com.bytedance.sdk.a.b.a.a.poa.b(this.pox, this.poP)) {
-                                socket = this.poP.eoX();
-                                this.poP = null;
+                if (this.ppr == null) {
+                    if (this.m || this.ppq.f5864a) {
+                        a(this.ppq);
+                        if (this.ppq.d.isEmpty()) {
+                            this.ppq.e = System.nanoTime();
+                            if (com.bytedance.sdk.a.b.a.a.poD.b(this.poX, this.ppq)) {
+                                socket = this.ppq.epf();
+                                this.ppq = null;
                                 return socket;
                             }
                         }
                         socket = null;
-                        this.poP = null;
+                        this.ppq = null;
                         return socket;
                     }
                     return null;
@@ -305,45 +305,45 @@ public final class g {
         Socket n;
         boolean z = false;
         boolean z2 = true;
-        synchronized (this.pox) {
+        synchronized (this.poX) {
             if (iOException instanceof o) {
                 o oVar = (o) iOException;
                 if (oVar.f5928a == com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM) {
                     this.j++;
                 }
                 if (oVar.f5928a != com.bytedance.sdk.a.b.a.e.b.REFUSED_STREAM || this.j > 1) {
-                    this.poL = null;
+                    this.ppm = null;
                     z = true;
                 }
                 z2 = z;
-            } else if (this.poP == null || (this.poP.d() && !(iOException instanceof com.bytedance.sdk.a.b.a.e.a))) {
+            } else if (this.ppq == null || (this.ppq.d() && !(iOException instanceof com.bytedance.sdk.a.b.a.e.a))) {
                 z2 = false;
-            } else if (this.poP.f5865b == 0) {
-                if (this.poL != null && iOException != null) {
-                    this.poO.a(this.poL, iOException);
+            } else if (this.ppq.f5865b == 0) {
+                if (this.ppm != null && iOException != null) {
+                    this.ppp.a(this.ppm, iOException);
                 }
-                this.poL = null;
+                this.ppm = null;
             }
-            cVar = this.poP;
+            cVar = this.ppq;
             n = n(z2, false, true);
-            if (this.poP != null || !this.l) {
+            if (this.ppq != null || !this.l) {
                 cVar = null;
             }
         }
         com.bytedance.sdk.a.b.a.c.a(n);
         if (cVar != null) {
-            this.poN.b(this.poM, cVar);
+            this.ppo.b(this.ppn, cVar);
         }
     }
 
     public void a(c cVar, boolean z) {
-        if (!d && !Thread.holdsLock(this.pox)) {
+        if (!d && !Thread.holdsLock(this.poX)) {
             throw new AssertionError();
         }
-        if (this.poP != null) {
+        if (this.ppq != null) {
             throw new IllegalStateException();
         }
-        this.poP = cVar;
+        this.ppq = cVar;
         this.l = z;
         cVar.d.add(new a(this, this.h));
     }
@@ -360,11 +360,11 @@ public final class g {
     }
 
     public Socket b(c cVar) {
-        if (d || Thread.holdsLock(this.pox)) {
-            if (this.poQ == null && this.poP.d.size() == 1) {
+        if (d || Thread.holdsLock(this.poX)) {
+            if (this.ppr == null && this.ppq.d.size() == 1) {
                 Socket n = n(true, false, false);
-                this.poP = cVar;
-                cVar.d.add(this.poP.d.get(0));
+                this.ppq = cVar;
+                cVar.d.add(this.ppq.d.get(0));
                 return n;
             }
             throw new IllegalStateException();
@@ -373,12 +373,12 @@ public final class g {
     }
 
     public boolean e() {
-        return this.poL != null || (this.poK != null && this.poK.a()) || this.poO.a();
+        return this.ppm != null || (this.ppl != null && this.ppl.a()) || this.ppp.a();
     }
 
     public String toString() {
-        c epf = epf();
-        return epf != null ? epf.toString() : this.poG.toString();
+        c epn = epn();
+        return epn != null ? epn.toString() : this.ppg.toString();
     }
 
     /* loaded from: classes6.dex */

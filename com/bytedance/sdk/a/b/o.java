@@ -150,7 +150,7 @@ public final class o {
         } else if (!a(f, str3)) {
             return null;
         }
-        if (f.length() != str3.length() && com.bytedance.sdk.a.b.a.h.a.epA().a(str3) == null) {
+        if (f.length() != str3.length() && com.bytedance.sdk.a.b.a.h.a.epI().a(str3) == null) {
             return null;
         }
         if (str4 == null || !str4.startsWith("/")) {
@@ -212,7 +212,7 @@ public final class o {
         if (i5 < 0 || i5 > 59) {
             throw new IllegalArgumentException();
         }
-        GregorianCalendar gregorianCalendar = new GregorianCalendar(com.bytedance.sdk.a.b.a.c.ppd);
+        GregorianCalendar gregorianCalendar = new GregorianCalendar(com.bytedance.sdk.a.b.a.c.ppF);
         gregorianCalendar.setLenient(false);
         gregorianCalendar.set(1, i8);
         gregorianCalendar.set(2, i7 - 1);

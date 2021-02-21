@@ -42,7 +42,7 @@ public class d extends com.kwad.sdk.core.video.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
-    public static class a implements com.kwai.video.ksvodplayerkit.b, d.a, d.b, d.c, d.InterfaceC1165d, d.e, d.f {
+    public static class a implements com.kwai.video.ksvodplayerkit.b, d.a, d.b, d.c, d.InterfaceC1167d, d.e, d.f {
 
         /* renamed from: a  reason: collision with root package name */
         final WeakReference<d> f9454a;
@@ -101,7 +101,7 @@ public class d extends com.kwad.sdk.core.video.a.a {
         public void a(@Nullable com.kwai.video.ksvodplayerkit.c cVar) {
         }
 
-        @Override // com.kwai.video.ksvodplayerkit.d.InterfaceC1165d
+        @Override // com.kwai.video.ksvodplayerkit.d.InterfaceC1167d
         public void b() {
             com.kwad.sdk.core.d.a.b("KwaiMediaPlayer", "onPrepared");
             d c = c();
@@ -200,7 +200,7 @@ public class d extends com.kwad.sdk.core.video.a.a {
     }
 
     private void s() {
-        this.f9451a.a((d.InterfaceC1165d) this.f9452b);
+        this.f9451a.a((d.InterfaceC1167d) this.f9452b);
         this.f9451a.a((d.a) this.f9452b);
         this.f9451a.a((d.c) this.f9452b);
         this.f9451a.a((d.e) this.f9452b);
@@ -211,7 +211,7 @@ public class d extends com.kwad.sdk.core.video.a.a {
     }
 
     private void t() {
-        this.f9451a.a((d.InterfaceC1165d) null);
+        this.f9451a.a((d.InterfaceC1167d) null);
         this.f9451a.a((d.a) null);
         this.f9451a.a((d.c) null);
         this.f9451a.a((d.e) null);

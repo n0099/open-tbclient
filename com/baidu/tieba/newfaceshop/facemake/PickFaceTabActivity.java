@@ -27,15 +27,15 @@ import java.util.Map;
 /* loaded from: classes9.dex */
 public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     private NoNetworkView fLP;
-    private FaceGroupMakeTitleBar lAG;
-    private LinearLayout lAI;
-    private FaceSearchFragment lCo;
-    private FaceCollectFragment lCp;
-    private FaceAlbumFragment lCq;
+    private FaceGroupMakeTitleBar lAU;
+    private LinearLayout lAW;
+    private FaceSearchFragment lCC;
+    private FaceCollectFragment lCD;
+    private FaceAlbumFragment lCE;
     private Activity mActivity;
     private NavigationBar mNavigationBar;
     private FragmentTabHost mTabHost;
-    private int iWJ = 0;
+    private int iWX = 0;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.newfaceshop.facemake.PickFaceTabActivity.2
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -68,35 +68,35 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     }
 
     private void IC() {
-        this.lAI = (LinearLayout) findViewById(R.id.layout_root);
+        this.lAW = (LinearLayout) findViewById(R.id.layout_root);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.lAG = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
-        this.lAG.setLayoutParams(new RelativeLayout.LayoutParams(l.getEquipmentWidth(getPageContext().getPageActivity()), -1));
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.lAG, (View.OnClickListener) null);
+        this.lAU = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
+        this.lAU.setLayoutParams(new RelativeLayout.LayoutParams(l.getEquipmentWidth(getPageContext().getPageActivity()), -1));
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.lAU, (View.OnClickListener) null);
         this.fLP = (NoNetworkView) findViewById(R.id.view_no_network);
-        this.lAG.setRightListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.PickFaceTabActivity.1
+        this.lAU.setRightListener(new View.OnClickListener() { // from class: com.baidu.tieba.newfaceshop.facemake.PickFaceTabActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent();
                 ArrayList arrayList = new ArrayList();
-                if (PickFaceTabActivity.this.lCo != null && PickFaceTabActivity.this.lCo.div() != null) {
-                    for (Map.Entry<String, EmotionImageData> entry : PickFaceTabActivity.this.lCo.div().entrySet()) {
+                if (PickFaceTabActivity.this.lCC != null && PickFaceTabActivity.this.lCC.diC() != null) {
+                    for (Map.Entry<String, EmotionImageData> entry : PickFaceTabActivity.this.lCC.diC().entrySet()) {
                         FaceData faceData = new FaceData();
                         faceData.type = 2;
                         faceData.emotionImageData = entry.getValue();
                         arrayList.add(faceData);
                     }
                 }
-                if (PickFaceTabActivity.this.lCq != null && PickFaceTabActivity.this.lCq.div() != null) {
-                    for (Map.Entry<String, ImageFileInfo> entry2 : PickFaceTabActivity.this.lCq.div().entrySet()) {
+                if (PickFaceTabActivity.this.lCE != null && PickFaceTabActivity.this.lCE.diC() != null) {
+                    for (Map.Entry<String, ImageFileInfo> entry2 : PickFaceTabActivity.this.lCE.diC().entrySet()) {
                         FaceData faceData2 = new FaceData();
                         faceData2.type = 3;
                         faceData2.imageFileInfo = entry2.getValue();
                         arrayList.add(faceData2);
                     }
                 }
-                if (PickFaceTabActivity.this.lCp != null && PickFaceTabActivity.this.lCp.div() != null) {
-                    for (Map.Entry<String, EmotionImageData> entry3 : PickFaceTabActivity.this.lCp.div().entrySet()) {
+                if (PickFaceTabActivity.this.lCD != null && PickFaceTabActivity.this.lCD.diC() != null) {
+                    for (Map.Entry<String, EmotionImageData> entry3 : PickFaceTabActivity.this.lCD.diC().entrySet()) {
                         FaceData faceData3 = new FaceData();
                         faceData3.type = 1;
                         faceData3.emotionImageData = entry3.getValue();
@@ -108,19 +108,19 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
                 PickFaceTabActivity.this.finish();
             }
         });
-        ap.setBackgroundColor(this.lAG, R.color.CAM_X0201);
+        ap.setBackgroundColor(this.lAU, R.color.CAM_X0201);
         setTitleText(0);
-        czF();
+        czM();
     }
 
     private void Uu() {
         ArrayList arrayList;
-        this.lCo = new FaceSearchFragment();
-        this.lCo.a(this);
-        this.lCq = new FaceAlbumFragment();
-        this.lCq.a(this);
-        this.lCp = new FaceCollectFragment();
-        this.lCp.a(this);
+        this.lCC = new FaceSearchFragment();
+        this.lCC.a(this);
+        this.lCE = new FaceAlbumFragment();
+        this.lCE.a(this);
+        this.lCD = new FaceCollectFragment();
+        this.lCD.a(this);
         Intent intent = getIntent();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST);
@@ -132,16 +132,16 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
             if (!y.isEmpty(arrayList)) {
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(PickFaceTabActivityConfig.CHOOSED_LIST, arrayList);
-                this.lCo.setArguments(bundle);
-                this.lCp.setArguments(bundle);
-                this.lCq.setArguments(bundle);
-                this.iWJ = arrayList.size();
-                czF();
+                this.lCC.setArguments(bundle);
+                this.lCD.setArguments(bundle);
+                this.lCE.setArguments(bundle);
+                this.iWX = arrayList.size();
+                czM();
             }
         }
-        a(this.lCo, 1, this.mActivity.getText(R.string.face_group_make_search).toString());
-        a(this.lCq, 3, this.mActivity.getText(R.string.face_group_make_album).toString());
-        a(this.lCp, 2, this.mActivity.getText(R.string.my_mark).toString());
+        a(this.lCC, 1, this.mActivity.getText(R.string.face_group_make_search).toString());
+        a(this.lCE, 3, this.mActivity.getText(R.string.face_group_make_album).toString());
+        a(this.lCD, 2, this.mActivity.getText(R.string.my_mark).toString());
         this.mTabHost.initViewPager(1);
         this.mTabHost.setCurrentTab(0);
         this.mTabHost.getFragmentTabWidget().getLayoutParams().height = l.getDimens(getPageContext().getPageActivity(), R.dimen.ds110);
@@ -165,12 +165,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.lAI);
-        ap.setBackgroundResource(this.lAI, R.color.CAM_X0201);
+        getLayoutMode().onModeChanged(this.lAW);
+        ap.setBackgroundResource(this.lAW, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.lCo.onChangeSkinType(i);
-        this.lCp.onChangeSkinType(i);
-        this.lCq.onChangeSkinType(i);
+        this.lCC.onChangeSkinType(i);
+        this.lCD.onChangeSkinType(i);
+        this.lCE.onChangeSkinType(i);
         this.fLP.onChangeSkinType(getPageContext(), i);
         this.mTabHost.onChangeSkinType(i);
     }
@@ -180,13 +180,13 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         if (this.mNavigationBar != null) {
             switch (i) {
                 case 0:
-                    this.lAG.setTitle(this.mActivity.getText(R.string.face_group_tab_search).toString());
+                    this.lAU.setTitle(this.mActivity.getText(R.string.face_group_tab_search).toString());
                     return;
                 case 1:
-                    this.lAG.setTitle(this.mActivity.getText(R.string.album_all).toString());
+                    this.lAU.setTitle(this.mActivity.getText(R.string.album_all).toString());
                     return;
                 case 2:
-                    this.lAG.setTitle(this.mActivity.getText(R.string.my_mark).toString());
+                    this.lAU.setTitle(this.mActivity.getText(R.string.my_mark).toString());
                     return;
                 default:
                     return;
@@ -195,30 +195,30 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.f
-    public void czC() {
-        this.iWJ++;
-        czF();
+    public void czJ() {
+        this.iWX++;
+        czM();
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.f
-    public void czD() {
-        if (this.iWJ > 0) {
-            this.iWJ--;
+    public void czK() {
+        if (this.iWX > 0) {
+            this.iWX--;
         }
-        czF();
+        czM();
     }
 
     @Override // com.baidu.tieba.newfaceshop.facemake.f
-    public boolean czE() {
-        return this.iWJ < 24;
+    public boolean czL() {
+        return this.iWX < 24;
     }
 
-    private void czF() {
+    private void czM() {
         String string = this.mActivity.getString(R.string.add);
-        if (this.iWJ > 0) {
-            this.lAG.setRightText(string + "(" + this.iWJ + ")");
+        if (this.iWX > 0) {
+            this.lAU.setRightText(string + "(" + this.iWX + ")");
         } else {
-            this.lAG.setRightText(string);
+            this.lAU.setRightText(string);
         }
     }
 }

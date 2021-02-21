@@ -10,7 +10,7 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
     private static File cacheFile = i.getPrivateCaptureRootChildDir("duFilter");
-    private static List<String> gth = Collections.synchronizedList(new ArrayList());
+    private static List<String> gtv = Collections.synchronizedList(new ArrayList());
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -23,38 +23,38 @@ public class e {
         void onStarted();
     }
 
-    public static String FA(String str) {
-        File FC;
-        if (TextUtils.isEmpty(str) || (FC = FC(Md5.toMd5(str))) == null || !FC.exists()) {
+    public static String FB(String str) {
+        File FD;
+        if (TextUtils.isEmpty(str) || (FD = FD(Md5.toMd5(str))) == null || !FD.exists()) {
             return null;
         }
-        return FC.getAbsolutePath();
+        return FD.getAbsolutePath();
     }
 
-    public static boolean FB(String str) {
-        return !TextUtils.isEmpty(FA(str));
+    public static boolean FC(String str) {
+        return !TextUtils.isEmpty(FB(str));
     }
 
     public static boolean cE(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return com.baidu.tieba.ala.alaar.sticker.download.b.bPJ().isRunning(str);
+        return com.baidu.tieba.ala.alaar.sticker.download.b.bPQ().isRunning(str);
     }
 
     public static void a(final String str, final a aVar) {
         if (!TextUtils.isEmpty(str)) {
-            String FA = FA(str);
-            if (!TextUtils.isEmpty(FA)) {
+            String FB = FB(str);
+            if (!TextUtils.isEmpty(FB)) {
                 if (aVar != null) {
-                    aVar.onCompleted(FA);
+                    aVar.onCompleted(FB);
                     return;
                 }
                 return;
             }
             final String md5 = Md5.toMd5(str);
-            gth.add(str);
-            com.baidu.tieba.ala.alaar.sticker.download.b.bPJ().a(str, cacheFile, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
+            gtv.add(str);
+            com.baidu.tieba.ala.alaar.sticker.download.b.bPQ().a(str, cacheFile, md5 + ".tmp", new com.baidu.tieba.ala.alaar.sticker.download.a.a() { // from class: com.baidu.tieba.ala.alaar.sticker.a.e.1
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onStarted() {
                     super.onStarted();
@@ -84,12 +84,12 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void onCompleted(String str2) {
                     super.onCompleted(str2);
-                    e.gth.remove(str);
+                    e.gtv.remove(str);
                     if (!TextUtils.isEmpty(str2) && a.this != null) {
                         File file = new File(str2);
-                        File FC = e.FC(md5);
-                        if (file.exists() && file.renameTo(FC) && FC != null) {
-                            a.this.onCompleted(FC.getAbsolutePath());
+                        File FD = e.FD(md5);
+                        if (file.exists() && file.renameTo(FD) && FD != null) {
+                            a.this.onCompleted(FD.getAbsolutePath());
                             return;
                         }
                     }
@@ -109,7 +109,7 @@ public class e {
                 @Override // com.baidu.tieba.ala.alaar.sticker.download.a.a
                 public void a(DownloadException downloadException) {
                     int i;
-                    e.gth.remove(str);
+                    e.gtv.remove(str);
                     super.a(downloadException);
                     if (a.this != null) {
                         String str2 = null;
@@ -127,7 +127,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static File FC(String str) {
+    public static File FD(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

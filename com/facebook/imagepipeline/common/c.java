@@ -4,46 +4,46 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class c {
-    private boolean pHR;
-    private boolean pHS;
-    private boolean pHT;
-    private boolean pHU;
+    private boolean pIr;
+    private boolean pIs;
+    private boolean pIt;
+    private boolean pIu;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b pHV;
-    private int pHQ = 100;
+    private com.facebook.imagepipeline.decoder.b pIv;
+    private int pIq = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int ewe() {
-        return this.pHQ;
+    public int ewm() {
+        return this.pIq;
     }
 
-    public boolean ewf() {
-        return this.pHR;
+    public boolean ewn() {
+        return this.pIr;
     }
 
-    public boolean ewg() {
-        return this.pHS;
+    public boolean ewo() {
+        return this.pIs;
     }
 
-    public boolean ewh() {
-        return this.pHT;
+    public boolean ewp() {
+        return this.pIt;
     }
 
     public c Bs(boolean z) {
-        this.pHU = z;
+        this.pIu = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b ewi() {
-        return this.pHV;
+    public com.facebook.imagepipeline.decoder.b ewq() {
+        return this.pIv;
     }
 
-    public boolean ewj() {
-        return this.pHU;
+    public boolean ewr() {
+        return this.pIu;
     }
 
-    public Bitmap.Config ewk() {
+    public Bitmap.Config ews() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b ewl() {
+    public b ewt() {
         return new b(this);
     }
 }

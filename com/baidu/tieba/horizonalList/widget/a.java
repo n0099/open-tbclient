@@ -32,15 +32,15 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a H(int i, int i2, int i3, int i4) {
-        a cSA = cSA();
-        cSA.type = i;
-        cSA.bIr = i2;
-        cSA.bIs = i3;
-        cSA.bIt = i4;
-        return cSA;
+        a cSH = cSH();
+        cSH.type = i;
+        cSH.bIr = i2;
+        cSH.bIs = i3;
+        cSH.bIt = i4;
+        return cSH;
     }
 
-    private static a cSA() {
+    private static a cSH() {
         a aVar;
         synchronized (bIn) {
             if (bIn.size() > 0) {

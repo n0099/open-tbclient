@@ -18,11 +18,11 @@ import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
 /* loaded from: classes2.dex */
 public class FrsSchoolRecommendItemView extends ItemViewHolder {
     private com.baidu.tbadk.core.view.userLike.c akz;
-    public HeadImageView jkj;
-    public TextView jkk;
-    public TextView jkl;
-    public EntelechyUserLikeButton jkm;
-    private ay jkn;
+    public EntelechyUserLikeButton jkA;
+    private ay jkB;
+    public HeadImageView jkx;
+    public TextView jky;
+    public TextView jkz;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
     private BdUniqueId mPageId;
@@ -34,20 +34,20 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.FrsSchoolRecommendItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (FrsSchoolRecommendItemView.this.jkn != null && !com.baidu.tbadk.core.util.au.isEmpty(FrsSchoolRecommendItemView.this.jkn.metaData.getUserName()) && !com.baidu.tbadk.core.util.au.isEmpty(FrsSchoolRecommendItemView.this.jkn.metaData.getUserId())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(FrsSchoolRecommendItemView.this.getView().getContext(), FrsSchoolRecommendItemView.this.jkn.metaData.getUserId(), FrsSchoolRecommendItemView.this.jkn.metaData.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                if (FrsSchoolRecommendItemView.this.jkB != null && !com.baidu.tbadk.core.util.au.isEmpty(FrsSchoolRecommendItemView.this.jkB.metaData.getUserName()) && !com.baidu.tbadk.core.util.au.isEmpty(FrsSchoolRecommendItemView.this.jkB.metaData.getUserId())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(FrsSchoolRecommendItemView.this.getView().getContext(), FrsSchoolRecommendItemView.this.jkB.metaData.getUserId(), FrsSchoolRecommendItemView.this.jkB.metaData.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
         this.mPageId = bdUniqueId;
         this.mPageContext = tbPageContext;
-        this.jkj = (HeadImageView) view.findViewById(R.id.rec_usr_header);
-        this.jkj.setPageId(this.mPageId);
-        this.jkj.setIsRound(true);
-        this.jkk = (TextView) view.findViewById(R.id.rec_user_name);
-        this.jkl = (TextView) view.findViewById(R.id.rec_user_describe);
-        this.jkm = (EntelechyUserLikeButton) view.findViewById(R.id.rec_user_like);
-        this.akz = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.jkm);
+        this.jkx = (HeadImageView) view.findViewById(R.id.rec_usr_header);
+        this.jkx.setPageId(this.mPageId);
+        this.jkx.setIsRound(true);
+        this.jky = (TextView) view.findViewById(R.id.rec_user_name);
+        this.jkz = (TextView) view.findViewById(R.id.rec_user_describe);
+        this.jkA = (EntelechyUserLikeButton) view.findViewById(R.id.rec_user_like);
+        this.akz = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.jkA);
         this.akz.Ag("1");
         this.akz.l(bdUniqueId);
     }
@@ -60,14 +60,14 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void a(com.baidu.tieba.horizonalList.widget.c cVar) {
         if (cVar instanceof ay) {
-            this.jkn = (ay) cVar;
-            if (!StringUtils.isNull(this.jkn.metaData.getUserId())) {
-                this.jkj.startLoad(this.jkn.metaData.getPortrait(), 28, false);
-                String cutStringWithEllipsis = com.baidu.tbadk.core.util.au.cutStringWithEllipsis(this.jkn.metaData.getUserName(), 5);
-                this.jkl.setText(com.baidu.tbadk.core.util.au.cutStringWithEllipsis(this.jkn.metaData.getGodUserData().getIntro(), 6));
-                this.jkk.setText(cutStringWithEllipsis);
+            this.jkB = (ay) cVar;
+            if (!StringUtils.isNull(this.jkB.metaData.getUserId())) {
+                this.jkx.startLoad(this.jkB.metaData.getPortrait(), 28, false);
+                String cutStringWithEllipsis = com.baidu.tbadk.core.util.au.cutStringWithEllipsis(this.jkB.metaData.getUserName(), 5);
+                this.jkz.setText(com.baidu.tbadk.core.util.au.cutStringWithEllipsis(this.jkB.metaData.getGodUserData().getIntro(), 6));
+                this.jky.setText(cutStringWithEllipsis);
                 getView().setOnClickListener(this.mOnClickListener);
-                this.akz.a(this.jkn.metaData);
+                this.akz.a(this.jkB.metaData);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }
@@ -76,9 +76,9 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.jkk, R.color.CAM_X0105);
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.jkl, R.color.CAM_X0109);
-            this.jkm.onChangeSkinType(i);
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.jky, R.color.CAM_X0105);
+            com.baidu.tbadk.core.util.ap.setViewTextColor(this.jkz, R.color.CAM_X0109);
+            this.jkA.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }

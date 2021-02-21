@@ -33,7 +33,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, k kVar) {
-                t.csu().mG(true);
+                t.csB().mG(true);
                 if (view != null && kVar != null && kVar.bln() != null && !StringUtils.isNull(kVar.bln().getTid())) {
                     f.this.b(view, kVar);
                 }

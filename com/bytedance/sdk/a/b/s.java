@@ -40,8 +40,8 @@ public final class s {
         this.j = aVar.toString();
     }
 
-    public URI epW() {
-        String aVar = epY().epZ().toString();
+    public URI eqe() {
+        String aVar = eqg().eqh().toString();
         try {
             return new URI(aVar);
         } catch (URISyntaxException e) {
@@ -108,7 +108,7 @@ public final class s {
         }
     }
 
-    public List<String> epX() {
+    public List<String> eqf() {
         int indexOf = this.j.indexOf(47, this.f5973a.length() + 3);
         int a2 = com.bytedance.sdk.a.b.a.c.a(this.j, indexOf, this.j.length(), "?#");
         ArrayList arrayList = new ArrayList();
@@ -182,18 +182,18 @@ public final class s {
     }
 
     public String m() {
-        return YH("/...").YK("").YL("").eqa().toString();
+        return YT("/...").YW("").YX("").eqi().toString();
     }
 
-    public s YG(String str) {
-        a YH = YH(str);
-        if (YH != null) {
-            return YH.eqa();
+    public s YS(String str) {
+        a YT = YT(str);
+        if (YT != null) {
+            return YT.eqi();
         }
         return null;
     }
 
-    public a epY() {
+    public a eqg() {
         a aVar = new a();
         aVar.f5975a = this.f5973a;
         aVar.f5976b = d();
@@ -201,30 +201,30 @@ public final class s {
         aVar.d = this.f5974b;
         aVar.e = this.c != a(this.f5973a) ? this.c : -1;
         aVar.f.clear();
-        aVar.f.addAll(epX());
-        aVar.YM(j());
+        aVar.f.addAll(eqf());
+        aVar.YY(j());
         aVar.h = l();
         return aVar;
     }
 
-    public a YH(String str) {
+    public a YT(String str) {
         a aVar = new a();
-        if (aVar.b(this, str) == a.EnumC0995a.SUCCESS) {
+        if (aVar.b(this, str) == a.EnumC0997a.SUCCESS) {
             return aVar;
         }
         return null;
     }
 
-    public static s YI(String str) {
+    public static s YU(String str) {
         a aVar = new a();
-        if (aVar.b(null, str) == a.EnumC0995a.SUCCESS) {
-            return aVar.eqa();
+        if (aVar.b(null, str) == a.EnumC0997a.SUCCESS) {
+            return aVar.eqi();
         }
         return null;
     }
 
     public static s d(URL url) {
-        return YI(url.toString());
+        return YU(url.toString());
     }
 
     public boolean equals(Object obj) {
@@ -257,7 +257,7 @@ public final class s {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.bytedance.sdk.a.b.s$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public enum EnumC0995a {
+        public enum EnumC0997a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -269,7 +269,7 @@ public final class s {
             this.f.add("");
         }
 
-        public a YJ(String str) {
+        public a YV(String str) {
             if (str == null) {
                 throw new NullPointerException("scheme == null");
             }
@@ -283,7 +283,7 @@ public final class s {
             return this;
         }
 
-        public a YK(String str) {
+        public a YW(String str) {
             if (str == null) {
                 throw new NullPointerException("username == null");
             }
@@ -291,7 +291,7 @@ public final class s {
             return this;
         }
 
-        public a YL(String str) {
+        public a YX(String str) {
             if (str == null) {
                 throw new NullPointerException("password == null");
             }
@@ -299,7 +299,7 @@ public final class s {
             return this;
         }
 
-        public a YH(String str) {
+        public a YT(String str) {
             if (str == null) {
                 throw new NullPointerException("host == null");
             }
@@ -311,7 +311,7 @@ public final class s {
             return this;
         }
 
-        public a OG(int i) {
+        public a OH(int i) {
             if (i <= 0 || i > 65535) {
                 throw new IllegalArgumentException("unexpected port: " + i);
             }
@@ -323,12 +323,12 @@ public final class s {
             return this.e != -1 ? this.e : s.a(this.f5975a);
         }
 
-        public a YM(String str) {
+        public a YY(String str) {
             this.g = str != null ? s.b(s.a(str, " \"'<>#", true, false, true, true)) : null;
             return this;
         }
 
-        a epZ() {
+        a eqh() {
             int size = this.f.size();
             for (int i = 0; i < size; i++) {
                 this.f.set(i, s.a(this.f.get(i), "[]", true, true, false, true));
@@ -348,7 +348,7 @@ public final class s {
             return this;
         }
 
-        public s eqa() {
+        public s eqi() {
             if (this.f5975a == null) {
                 throw new IllegalStateException("scheme == null");
             }
@@ -394,7 +394,7 @@ public final class s {
             return sb.toString();
         }
 
-        EnumC0995a b(s sVar, String str) {
+        EnumC0997a b(s sVar, String str) {
             int i;
             int a2 = com.bytedance.sdk.a.b.a.c.a(str, 0, str.length());
             int b2 = com.bytedance.sdk.a.b.a.c.b(str, a2, str.length());
@@ -406,12 +406,12 @@ public final class s {
                     this.f5975a = HttpHost.DEFAULT_SCHEME_NAME;
                     a2 += UrlSchemaHelper.SCHEMA_TYPE_HTTP.length();
                 } else {
-                    return EnumC0995a.UNSUPPORTED_SCHEME;
+                    return EnumC0997a.UNSUPPORTED_SCHEME;
                 }
             } else if (sVar != null) {
                 this.f5975a = sVar.f5973a;
             } else {
-                return EnumC0995a.MISSING_SCHEME;
+                return EnumC0997a.MISSING_SCHEME;
             }
             int c = c(str, a2, b2);
             if (c >= 2 || sVar == null || !sVar.f5973a.equals(this.f5975a)) {
@@ -431,7 +431,7 @@ public final class s {
                                 this.d = e(str, i2, d);
                                 this.e = F(str, d + 1, a3);
                                 if (this.e == -1) {
-                                    return EnumC0995a.INVALID_PORT;
+                                    return EnumC0997a.INVALID_PORT;
                                 }
                             } else {
                                 this.d = e(str, i2, d);
@@ -441,7 +441,7 @@ public final class s {
                                 a2 = a3;
                                 break;
                             } else {
-                                return EnumC0995a.INVALID_HOST;
+                                return EnumC0997a.INVALID_HOST;
                             }
                         case '@':
                             if (!z) {
@@ -471,9 +471,9 @@ public final class s {
                 this.d = sVar.f5974b;
                 this.e = sVar.c;
                 this.f.clear();
-                this.f.addAll(sVar.epX());
+                this.f.addAll(sVar.eqf());
                 if (a2 == b2 || str.charAt(a2) == '#') {
-                    YM(sVar.j());
+                    YY(sVar.j());
                 }
             }
             int a6 = com.bytedance.sdk.a.b.a.c.a(str, a2, b2, "?#");
@@ -487,7 +487,7 @@ public final class s {
             if (i < b2 && str.charAt(i) == '#') {
                 this.h = s.a(str, i + 1, b2, "", true, false, false, false, null);
             }
-            return EnumC0995a.SUCCESS;
+            return EnumC0997a.SUCCESS;
         }
 
         private void a(String str, int i, int i2) {
@@ -656,15 +656,15 @@ public final class s {
                 int a2 = com.bytedance.sdk.a.b.a.c.a(str.charAt(i3 + 1));
                 int a3 = com.bytedance.sdk.a.b.a.c.a(str.charAt(i3 + 2));
                 if (a2 != -1 && a3 != -1) {
-                    cVar.OA((a2 << 4) + a3);
+                    cVar.OB((a2 << 4) + a3);
                     i3 += 2;
                 }
-                cVar.Os(codePointAt);
+                cVar.Ot(codePointAt);
             } else {
                 if (codePointAt == 43 && z) {
-                    cVar.OA(32);
+                    cVar.OB(32);
                 }
-                cVar.Os(codePointAt);
+                cVar.Ot(codePointAt);
             }
             i3 += Character.charCount(codePointAt);
         }
@@ -696,24 +696,24 @@ public final class s {
             int codePointAt = str.codePointAt(i);
             if (!z || (codePointAt != 9 && codePointAt != 10 && codePointAt != 12 && codePointAt != 13)) {
                 if (codePointAt == 43 && z3) {
-                    cVar.YA(z ? "+" : "%2B");
+                    cVar.YM(z ? "+" : "%2B");
                 } else if (codePointAt < 32 || codePointAt == 127 || ((codePointAt >= 128 && z4) || str2.indexOf(codePointAt) != -1 || (codePointAt == 37 && (!z || (z2 && !a(str, i, i2)))))) {
                     if (cVar2 == null) {
                         cVar2 = new com.bytedance.sdk.a.a.c();
                     }
-                    if (charset == null || charset.equals(com.bytedance.sdk.a.b.a.c.poY)) {
-                        cVar2.Os(codePointAt);
+                    if (charset == null || charset.equals(com.bytedance.sdk.a.b.a.c.ppA)) {
+                        cVar2.Ot(codePointAt);
                     } else {
                         cVar2.a(str, i, Character.charCount(codePointAt) + i, charset);
                     }
                     while (!cVar2.e()) {
-                        int eou = cVar2.eou() & 255;
-                        cVar.OA(37);
-                        cVar.OA(d[(eou >> 4) & 15]);
-                        cVar.OA(d[eou & 15]);
+                        int eoC = cVar2.eoC() & 255;
+                        cVar.OB(37);
+                        cVar.OB(d[(eoC >> 4) & 15]);
+                        cVar.OB(d[eoC & 15]);
                     }
                 } else {
-                    cVar.Os(codePointAt);
+                    cVar.Ot(codePointAt);
                 }
             }
             i += Character.charCount(codePointAt);

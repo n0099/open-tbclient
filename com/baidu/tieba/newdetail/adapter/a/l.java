@@ -11,62 +11,62 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class l {
     private List<com.baidu.adp.widget.ListView.a> bns = new LinkedList();
-    private BdTypeRecyclerView iNV;
-    private TbPageContext<?> jAN;
-    private j lyB;
-    private c lyC;
-    private e lyD;
-    private d lyE;
-    private f lyF;
-    private k lyG;
-    private g lyH;
-    private h lyI;
-    private b lyJ;
-    private m lyK;
-    private i lyL;
+    private BdTypeRecyclerView iOj;
+    private TbPageContext<?> jBb;
+    private j lyP;
+    private c lyQ;
+    private e lyR;
+    private d lyS;
+    private f lyT;
+    private k lyU;
+    private g lyV;
+    private h lyW;
+    private b lyX;
+    private m lyY;
+    private i lyZ;
     private BdUniqueId pageId;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jAN = tbPageContext;
+        this.jBb = tbPageContext;
         this.pageId = bdUniqueId;
-        this.iNV = bdTypeRecyclerView;
+        this.iOj = bdTypeRecyclerView;
         Kw();
     }
 
     private void Kw() {
-        this.lyB = new j(this.jAN, cb.eQs, this.pageId);
-        this.lyB.a(this.iNV);
-        this.bns.add(this.lyB);
-        this.lyC = new c(this.jAN, cb.eQx, this.pageId);
-        this.lyC.a(this.iNV);
-        this.bns.add(this.lyC);
-        this.lyD = new e(this.jAN, cb.eQv, this.pageId);
-        this.lyD.a(this.iNV);
-        this.bns.add(this.lyD);
-        this.lyE = new d(this.jAN, cb.eQw, this.pageId);
-        this.lyE.a(this.iNV);
-        this.bns.add(this.lyE);
-        this.lyF = new f(this.jAN, cb.eQt, this.pageId);
-        this.lyF.a(this.iNV);
-        this.bns.add(this.lyF);
-        this.lyG = new k(this.jAN, cb.eQK, this.pageId);
-        this.lyG.a(this.iNV);
-        this.bns.add(this.lyG);
-        this.lyH = new g(this.jAN, cb.eQC, this.pageId);
-        this.lyH.a(this.iNV);
-        this.bns.add(this.lyH);
-        this.lyI = new h(this.jAN, cb.eQy, this.pageId);
-        this.lyI.a(this.iNV);
-        this.bns.add(this.lyI);
-        this.lyJ = new b(this.jAN, cb.eQB, this.pageId);
-        this.lyJ.a(this.iNV);
-        this.bns.add(this.lyJ);
-        this.lyK = new m(this.jAN, bo.eMV);
-        this.lyK.a(this.iNV);
-        this.bns.add(this.lyK);
-        this.lyL = new i(this.jAN, com.baidu.tieba.card.data.k.eQP);
-        this.bns.add(this.lyL);
-        this.iNV.addAdapters(this.bns);
+        this.lyP = new j(this.jBb, cb.eQs, this.pageId);
+        this.lyP.a(this.iOj);
+        this.bns.add(this.lyP);
+        this.lyQ = new c(this.jBb, cb.eQx, this.pageId);
+        this.lyQ.a(this.iOj);
+        this.bns.add(this.lyQ);
+        this.lyR = new e(this.jBb, cb.eQv, this.pageId);
+        this.lyR.a(this.iOj);
+        this.bns.add(this.lyR);
+        this.lyS = new d(this.jBb, cb.eQw, this.pageId);
+        this.lyS.a(this.iOj);
+        this.bns.add(this.lyS);
+        this.lyT = new f(this.jBb, cb.eQt, this.pageId);
+        this.lyT.a(this.iOj);
+        this.bns.add(this.lyT);
+        this.lyU = new k(this.jBb, cb.eQK, this.pageId);
+        this.lyU.a(this.iOj);
+        this.bns.add(this.lyU);
+        this.lyV = new g(this.jBb, cb.eQC, this.pageId);
+        this.lyV.a(this.iOj);
+        this.bns.add(this.lyV);
+        this.lyW = new h(this.jBb, cb.eQy, this.pageId);
+        this.lyW.a(this.iOj);
+        this.bns.add(this.lyW);
+        this.lyX = new b(this.jBb, cb.eQB, this.pageId);
+        this.lyX.a(this.iOj);
+        this.bns.add(this.lyX);
+        this.lyY = new m(this.jBb, bo.eMV);
+        this.lyY.a(this.iOj);
+        this.bns.add(this.lyY);
+        this.lyZ = new i(this.jBb, com.baidu.tieba.card.data.k.eQP);
+        this.bns.add(this.lyZ);
+        this.iOj.addAdapters(this.bns);
     }
 
     public void uq(boolean z) {
@@ -78,10 +78,10 @@ public class l {
     }
 
     public void notifyDataSetChanged() {
-        this.iNV.getAdapter().notifyDataSetChanged();
+        this.iOj.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(List<? extends n> list) {
-        this.iNV.setData(list);
+        this.iOj.setData(list);
     }
 }

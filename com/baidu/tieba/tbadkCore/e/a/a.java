@@ -27,7 +27,7 @@ public abstract class a {
                 list = new ArrayList<>();
             }
             b bVar = new b();
-            bVar.setName(cVar.cuv());
+            bVar.setName(cVar.cuC());
             bVar.yx(z);
             list.add(bVar);
             this.mAsyncCallBackMethodList.put(str, list);

@@ -3,7 +3,7 @@ package kotlin.collections;
 @kotlin.e
 /* loaded from: classes6.dex */
 public class ad extends ac {
-    public static final int Ss(int i) {
+    public static final int St(int i) {
         if (i < 3) {
             return i + 1;
         }

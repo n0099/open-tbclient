@@ -86,8 +86,8 @@ public class ca extends a implements com.baidu.adp.widget.ListView.n {
             } else {
                 if (this.eJQ.bpz()) {
                     return this.eJQ.bny() != null ? cb.eQV : cb.eQU;
-                } else if (this.eJQ.eUi != null && this.eJQ.eUi.dNi()) {
-                    return (this.eJQ.eUi.dNh() == null && this.eJQ.eUi.dNj()) ? AdvertAppInfo.eLl : AdvertAppInfo.eLm;
+                } else if (this.eJQ.eUi != null && this.eJQ.eUi.dNq()) {
+                    return (this.eJQ.eUi.dNp() == null && this.eJQ.eUi.dNr()) ? AdvertAppInfo.eLl : AdvertAppInfo.eLm;
                 } else if (this.eQi) {
                     return cb.eQr;
                 } else {

@@ -26,8 +26,8 @@ public class a extends e {
     private NoDataViewFactory.b fIx;
     private FrameLayout.LayoutParams fIy;
     private String from;
-    private boolean jja;
-    private List<ICardInfo> lbj;
+    private boolean jjo;
+    private List<ICardInfo> lbx;
     private int mCount;
 
     protected void bDG() {
@@ -94,10 +94,10 @@ public class a extends e {
 
     private int getAdapterCount() {
         int i = 0;
-        if (this.lbj == null) {
+        if (this.lbx == null) {
             return 0;
         }
-        Iterator<ICardInfo> it = this.lbj.iterator();
+        Iterator<ICardInfo> it = this.lbx.iterator();
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
@@ -115,7 +115,7 @@ public class a extends e {
     }
 
     private ICardInfo getAdapterItem(int i) {
-        for (ICardInfo iCardInfo : this.lbj) {
+        for (ICardInfo iCardInfo : this.lbx) {
             int adapterCount = iCardInfo.getAdapterCount();
             if (i < adapterCount) {
                 return iCardInfo.getAdapterItem(i);
@@ -129,7 +129,7 @@ public class a extends e {
     public int getItemViewType(int i) {
         ICardInfo adapterItem = getAdapterItem(i);
         if (adapterItem != null) {
-            return com.baidu.tieba.lego.card.e.lbm.get(adapterItem.getAdapterType());
+            return com.baidu.tieba.lego.card.e.lbA.get(adapterItem.getAdapterType());
         }
         return 0;
     }
@@ -141,7 +141,7 @@ public class a extends e {
 
     @Override // com.baidu.adp.widget.ListView.e, android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return com.baidu.tieba.lego.card.e.lbm.size() + 1;
+        return com.baidu.tieba.lego.card.e.lbA.size() + 1;
     }
 
     @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter
@@ -162,7 +162,7 @@ public class a extends e {
     }
 
     private void DP(int i) {
-        if (this.jja) {
+        if (this.jjo) {
             int DR = DR(i - 1);
             int DR2 = DR(i - 2);
             DQ(DR);
@@ -176,7 +176,7 @@ public class a extends e {
     }
 
     private void DQ(int i) {
-        ICardInfo iCardInfo = this.lbj.get(i);
+        ICardInfo iCardInfo = this.lbx.get(i);
         if (iCardInfo instanceof com.baidu.tieba.lego.card.b.a) {
             ((com.baidu.tieba.lego.card.b.a) iCardInfo).doLoad(iCardInfo, this.eUY);
         }
@@ -186,8 +186,8 @@ public class a extends e {
         if (i < 0) {
             i = 0;
         }
-        if (i >= this.lbj.size()) {
-            return this.lbj.size() - 1;
+        if (i >= this.lbx.size()) {
+            return this.lbx.size() - 1;
         }
         return i;
     }
@@ -199,24 +199,24 @@ public class a extends e {
         if (view instanceof BaseLegoCardView) {
             return (BaseLegoCardView) view;
         }
-        return (BaseLegoCardView) b.dbs().a(this.eUY, iCardInfo, 0);
+        return (BaseLegoCardView) b.dbz().a(this.eUY, iCardInfo, 0);
     }
 
     public void eK(List<ICardInfo> list) {
-        if (this.lbj == null) {
-            this.lbj = new ArrayList();
+        if (this.lbx == null) {
+            this.lbx = new ArrayList();
         } else {
-            this.lbj.clear();
+            this.lbx.clear();
         }
         if (list != null) {
-            this.lbj.addAll(list);
+            this.lbx.addAll(list);
         }
         this.mCount = getAdapterCount();
         notifyDataSetChanged();
     }
 
     protected boolean isDataEmpty() {
-        return this.lbj != null && this.lbj.size() == 0;
+        return this.lbx != null && this.lbx.size() == 0;
     }
 
     public void setFrom(String str) {
@@ -224,6 +224,6 @@ public class a extends e {
     }
 
     public void tF(boolean z) {
-        this.jja = z;
+        this.jjo = z;
     }
 }

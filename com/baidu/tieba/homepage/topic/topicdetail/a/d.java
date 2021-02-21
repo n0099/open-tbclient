@@ -6,16 +6,16 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class d extends BaseCardInfo {
-    public static final BdUniqueId koF = BdUniqueId.gen();
+    public static final BdUniqueId koT = BdUniqueId.gen();
     public cb eJQ;
     public int index;
-    public boolean koG;
-    public String koH;
+    public boolean koU;
+    public String koV;
     public long topicId;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return koF;
+        return koT;
     }
 
     public void c(ThreadInfo threadInfo) {

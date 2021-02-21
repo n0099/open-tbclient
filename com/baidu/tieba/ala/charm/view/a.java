@@ -13,29 +13,29 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class a extends BaseAdapter {
     private ArrayList<ALaCharmData> eVV = new ArrayList<>();
-    private View.OnClickListener gOP;
-    private View.OnClickListener gOQ;
-    private View.OnClickListener gOR;
-    private int gOS;
+    private View.OnClickListener gPd;
+    private View.OnClickListener gPe;
+    private View.OnClickListener gPf;
+    private int gPg;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.gOS = 1;
+        this.gPg = 1;
         this.mPageContext = tbPageContext;
-        this.gOS = i;
+        this.gPg = i;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.gOP = onClickListener;
+        this.gPd = onClickListener;
     }
 
     public void p(View.OnClickListener onClickListener) {
-        this.gOR = onClickListener;
+        this.gPf = onClickListener;
     }
 
     public void q(View.OnClickListener onClickListener) {
-        this.gOQ = onClickListener;
+        this.gPe = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.gOS == 1) {
+            if (this.gPg == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.gOS == 2) {
+            } else if (this.gPg == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            dVar = new d(inflate, this.gOS);
-            dVar.r(this.gOR);
-            dVar.o(this.gOP);
-            dVar.s(this.gOQ);
+            dVar = new d(inflate, this.gPg);
+            dVar.r(this.gPf);
+            dVar.o(this.gPd);
+            dVar.s(this.gPe);
             inflate.setTag(dVar);
             view = inflate;
         } else {

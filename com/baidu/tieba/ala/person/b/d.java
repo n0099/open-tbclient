@@ -12,15 +12,15 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.ala.person.b.a;
 /* loaded from: classes11.dex */
 public class d implements com.baidu.live.liveroom.d.d {
-    private BdUniqueId gOC;
-    private int hWN;
-    private b hWR;
-    private CustomMessageListener hoN = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
+    private BdUniqueId gOQ;
+    private int hXb;
+    private b hXf;
+    private CustomMessageListener hpb = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.person.b.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.hWR != null && d.this.hWR.isEmpty() && !d.this.hWR.isLoading()) {
-                d.this.hWR.refreshData();
+            if (BdNetTypeUtil.isNetWorkAvailable() && d.this.hXf != null && d.this.hXf.isEmpty() && !d.this.hXf.isLoading()) {
+                d.this.hXf.refreshData();
             }
         }
     };
@@ -28,39 +28,39 @@ public class d implements com.baidu.live.liveroom.d.d {
     private String mUserId;
 
     public d(TbPageContext tbPageContext, int i, String str, BdUniqueId bdUniqueId) {
-        this.gOC = null;
+        this.gOQ = null;
         this.mPageContext = tbPageContext;
-        this.hWN = i;
+        this.hXb = i;
         this.mUserId = str;
-        this.gOC = bdUniqueId;
-        this.hWR = new b(this.mPageContext, this.hWN, this.mUserId, this.gOC);
-        if (this.hWR != null && this.hWR.isEmpty() && !this.hWR.isLoading()) {
-            this.hWR.refreshData();
+        this.gOQ = bdUniqueId;
+        this.hXf = new b(this.mPageContext, this.hXb, this.mUserId, this.gOQ);
+        if (this.hXf != null && this.hXf.isEmpty() && !this.hXf.isLoading()) {
+            this.hXf.refreshData();
         }
-        MessageManager.getInstance().registerListener(this.hoN);
+        MessageManager.getInstance().registerListener(this.hpb);
     }
 
     public void aD(String str, boolean z) {
-        if (this.hWR != null) {
-            this.hWR.aD(str, z);
+        if (this.hXf != null) {
+            this.hXf.aD(str, z);
         }
     }
 
     public int getTabType() {
-        return this.hWN;
+        return this.hXb;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.hWR == null) {
+        if (this.hXf == null) {
             return null;
         }
-        return this.hWR.cmE();
+        return this.hXf.cmL();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.hWN == 0 ? this.mPageContext.getString(a.h.ala_person_fans) : this.mPageContext.getString(a.h.ala_person_attentions);
+        return this.hXb == 0 ? this.mPageContext.getString(a.h.ala_person_fans) : this.mPageContext.getString(a.h.ala_person_attentions);
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -68,9 +68,9 @@ public class d implements com.baidu.live.liveroom.d.d {
         return null;
     }
 
-    public void a(a.InterfaceC0682a interfaceC0682a) {
-        if (this.hWR != null) {
-            this.hWR.a(interfaceC0682a);
+    public void a(a.InterfaceC0683a interfaceC0683a) {
+        if (this.hXf != null) {
+            this.hXf.a(interfaceC0683a);
         }
     }
 
@@ -89,16 +89,16 @@ public class d implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hoN);
-        if (this.hWR != null) {
-            this.hWR.onDestory();
+        MessageManager.getInstance().unRegisterListener(this.hpb);
+        if (this.hXf != null) {
+            this.hXf.onDestory();
         }
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public void onChangeSkinType(int i) {
-        if (this.hWR != null) {
-            this.hWR.onChangeSkinType(i);
+        if (this.hXf != null) {
+            this.hXf.onChangeSkinType(i);
         }
     }
 }

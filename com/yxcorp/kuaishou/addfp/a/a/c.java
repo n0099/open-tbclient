@@ -13,11 +13,11 @@ public final class c implements Runnable {
 
     /* renamed from: b  reason: collision with root package name */
     private /* synthetic */ Context f14340b;
-    private /* synthetic */ b qlz;
+    private /* synthetic */ b qlZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, a aVar, Context context) {
-        this.qlz = bVar;
+        this.qlZ = bVar;
         this.f14339a = aVar;
         this.f14340b = context;
     }
@@ -33,8 +33,8 @@ public final class c implements Runnable {
         com.yxcorp.kuaishou.addfp.a.b.a aVar6;
         char c = 0;
         try {
-            this.qlz.f14338a = this.f14339a;
-            String a2 = b.a(this.qlz);
+            this.qlZ.f14338a = this.f14339a;
+            String a2 = b.a(this.qlZ);
             switch (a2.hashCode()) {
                 case -1619859642:
                     if (a2.equals("blackshark")) {
@@ -147,60 +147,60 @@ public final class c implements Runnable {
             switch (c) {
                 case 0:
                 case 1:
-                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.f14340b);
+                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.i.b(this.f14340b);
                     break;
                 case 2:
-                    this.qlz.qly = new e(this.f14340b);
+                    this.qlZ.qlY = new e(this.f14340b);
                     break;
                 case 3:
-                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.h.a(this.f14340b);
-                    aVar = this.qlz.qly;
+                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.h.a(this.f14340b);
+                    aVar = this.qlZ.qlY;
                     ((com.yxcorp.kuaishou.addfp.a.b.h.a) aVar).a("100215079");
                     break;
                 case 4:
-                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f14340b, b.eJv());
+                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.b.c(this.f14340b, b.eJD());
                     break;
                 case 5:
                 case 6:
-                    this.qlz.qly = new g(this.f14340b, b.eJv());
+                    this.qlZ.qlY = new g(this.f14340b, b.eJD());
                     break;
                 case 7:
                 case '\b':
-                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f14340b, b.eJv());
+                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.c.d(this.f14340b, b.eJD());
                     break;
                 case '\t':
-                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f14340b, b.eJv());
+                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.a.a(this.f14340b, b.eJD());
                     break;
                 case '\n':
-                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f14340b, b.eJv());
+                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.g.g(this.f14340b, b.eJD());
                     break;
                 case 11:
-                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.e.b(this.f14340b);
+                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.e.b(this.f14340b);
                     break;
                 case '\f':
                 case '\r':
                 case 14:
-                    this.qlz.qly = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.f14340b, b.eJv());
+                    this.qlZ.qlY = new com.yxcorp.kuaishou.addfp.a.b.j.g(this.f14340b, b.eJD());
                     break;
             }
-            aVar2 = this.qlz.qly;
+            aVar2 = this.qlZ.qlY;
             if (aVar2 == null) {
-                this.qlz.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                this.qlZ.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                 return;
             }
-            aVar3 = this.qlz.qly;
+            aVar3 = this.qlZ.qlY;
             if (!aVar3.a()) {
-                aVar6 = this.qlz.qly;
-                aVar6.a(b.eJv());
+                aVar6 = this.qlZ.qlY;
+                aVar6.a(b.eJD());
                 return;
             }
-            aVar4 = this.qlz.qly;
+            aVar4 = this.qlZ.qlY;
             if (!aVar4.c()) {
-                this.qlz.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
+                this.qlZ.a(false, (com.yxcorp.kuaishou.addfp.a.b.a) null);
                 return;
             }
-            b bVar = this.qlz;
-            aVar5 = this.qlz.qly;
+            b bVar = this.qlZ;
+            aVar5 = this.qlZ.qlY;
             bVar.a(true, aVar5);
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);

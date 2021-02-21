@@ -7,7 +7,7 @@ import com.baidu.tieba.recapp.report.e;
 /* loaded from: classes.dex */
 public class c {
     private final String DEFAULT_PAGE = "DOWNLOAD_PAGE";
-    private final String ghp = "DOWNLOAD_BUTTON";
+    private final String ghv = "DOWNLOAD_BUTTON";
 
     public void j(int i, @Nullable String str, String str2) {
         c("DOWNLOAD_PAGE", i, str, str2);
@@ -19,8 +19,8 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             str = "DOWNLOAD_PAGE";
         }
-        cVar.RQ(str);
-        cVar.RR("DOWNLOAD_BUTTON");
+        cVar.Sc(str);
+        cVar.Sd("DOWNLOAD_BUTTON");
         if (!TextUtils.isEmpty(str2)) {
             DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
             downloadStaticsData.setApk_name(str2);
@@ -29,6 +29,6 @@ public class c {
         if (!TextUtils.isEmpty(str3)) {
             cVar.setExtInfo(str3);
         }
-        e.dEm().a(cVar);
+        e.dEu().a(cVar);
     }
 }

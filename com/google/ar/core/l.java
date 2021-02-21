@@ -7,19 +7,19 @@ final class l extends Thread {
     /* renamed from: a  reason: collision with root package name */
     private final Context f7862a;
     private volatile boolean c;
-    private final y pRE;
+    private final y pSe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Context context, y yVar) {
         this.f7862a = context;
-        this.pRE = yVar;
+        this.pSe = yVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         while (!this.c) {
-            if (o.eAS().b(this.f7862a)) {
-                this.pRE.a(p.COMPLETED);
+            if (o.eBa().b(this.f7862a)) {
+                this.pSe.a(p.COMPLETED);
                 return;
             }
             try {

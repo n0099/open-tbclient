@@ -95,6 +95,11 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
         return false;
     }
 
+    @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
+    public String getDownloadKey() {
+        return null;
+    }
+
     @Override // com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData, com.baidu.tieba.lego.card.model.ICardInfo
     public boolean isReusable(ICardInfo iCardInfo) {
         return (iCardInfo instanceof AdPost) && getCardType() == ((AdPost) iCardInfo).getCardType();

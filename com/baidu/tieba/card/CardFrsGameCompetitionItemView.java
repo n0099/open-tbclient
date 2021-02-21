@@ -21,18 +21,18 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetitionSubNode;
 /* loaded from: classes2.dex */
 public class CardFrsGameCompetitionItemView extends LinearLayout {
-    private RelativeLayout iuY;
-    private TbImageView iuZ;
-    private LinearLayout iva;
-    private ClickableHeaderImageView ivb;
-    private TextView ivc;
-    private RelativeLayout ivd;
-    private TextView ive;
-    private ClickableHeaderImageView ivf;
-    private TextView ivg;
-    private ClickableHeaderImageView ivh;
-    private TextView ivi;
-    private TextView ivj;
+    private RelativeLayout ivm;
+    private TbImageView ivn;
+    private LinearLayout ivo;
+    private ClickableHeaderImageView ivp;
+    private TextView ivq;
+    private RelativeLayout ivr;
+    private TextView ivs;
+    private ClickableHeaderImageView ivt;
+    private TextView ivu;
+    private ClickableHeaderImageView ivv;
+    private TextView ivw;
+    private TextView ivx;
     private String mForumId;
     public int mSkinType;
 
@@ -56,47 +56,47 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_competition_view_item, (ViewGroup) this, true);
-        this.iuY = (RelativeLayout) findViewById(R.id.card_competition_layout);
-        this.iuZ = (TbImageView) findViewById(R.id.card_competition_bg);
-        this.iva = (LinearLayout) findViewById(R.id.card_competition_title_layout);
-        this.ivb = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
-        this.ivc = (TextView) findViewById(R.id.card_competition_title);
-        this.ivd = (RelativeLayout) findViewById(R.id.card_competition_content_layout);
-        this.ive = (TextView) findViewById(R.id.card_competition_vs);
-        this.ivf = (ClickableHeaderImageView) findViewById(R.id.card_competition_left_img);
-        this.ivg = (TextView) findViewById(R.id.card_competition_left_name);
-        this.ivh = (ClickableHeaderImageView) findViewById(R.id.card_competition_right_img);
-        this.ivi = (TextView) findViewById(R.id.card_competition_right_name);
-        this.ivj = (TextView) findViewById(R.id.card_competition_btn_discuss);
+        this.ivm = (RelativeLayout) findViewById(R.id.card_competition_layout);
+        this.ivn = (TbImageView) findViewById(R.id.card_competition_bg);
+        this.ivo = (LinearLayout) findViewById(R.id.card_competition_title_layout);
+        this.ivp = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
+        this.ivq = (TextView) findViewById(R.id.card_competition_title);
+        this.ivr = (RelativeLayout) findViewById(R.id.card_competition_content_layout);
+        this.ivs = (TextView) findViewById(R.id.card_competition_vs);
+        this.ivt = (ClickableHeaderImageView) findViewById(R.id.card_competition_left_img);
+        this.ivu = (TextView) findViewById(R.id.card_competition_left_name);
+        this.ivv = (ClickableHeaderImageView) findViewById(R.id.card_competition_right_img);
+        this.ivw = (TextView) findViewById(R.id.card_competition_right_name);
+        this.ivx = (TextView) findViewById(R.id.card_competition_btn_discuss);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
         int i = (dimensionPixelSize * 21) / 9;
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iuZ.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ivn.getLayoutParams();
         layoutParams.height = dimensionPixelSize;
         layoutParams.width = i;
-        this.iuZ.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iuY.getLayoutParams();
+        this.ivn.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.ivm.getLayoutParams();
         layoutParams2.height = dimensionPixelSize;
         layoutParams2.width = i;
-        this.iuY.setLayoutParams(layoutParams2);
-        this.iuZ.setDefaultBgResource(R.drawable.icon_morenpic);
-        this.ivb.setDrawBorder(true);
-        this.ivb.setDrawerType(1);
-        this.ivb.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
-        this.ivb.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ivb.setBorderColor(ap.getColor(R.color.common_color_10043));
-        this.ivb.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
-        this.ivf.setDefaultResource(17170445);
-        this.ivf.setDefaultBgResource(R.color.CAM_X0205);
-        this.ivf.setIsRound(true);
-        this.ivf.setDrawBorder(true);
-        this.ivf.setBorderColor(ap.getColor(R.color.common_color_10043));
-        this.ivf.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
-        this.ivh.setDefaultResource(17170445);
-        this.ivh.setDefaultBgResource(R.color.CAM_X0205);
-        this.ivh.setIsRound(true);
-        this.ivh.setDrawBorder(true);
-        this.ivh.setBorderColor(ap.getColor(R.color.common_color_10043));
-        this.ivh.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.ivm.setLayoutParams(layoutParams2);
+        this.ivn.setDefaultBgResource(R.drawable.icon_morenpic);
+        this.ivp.setDrawBorder(true);
+        this.ivp.setDrawerType(1);
+        this.ivp.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
+        this.ivp.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.ivp.setBorderColor(ap.getColor(R.color.common_color_10043));
+        this.ivp.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.ivt.setDefaultResource(17170445);
+        this.ivt.setDefaultBgResource(R.color.CAM_X0205);
+        this.ivt.setIsRound(true);
+        this.ivt.setDrawBorder(true);
+        this.ivt.setBorderColor(ap.getColor(R.color.common_color_10043));
+        this.ivt.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.ivv.setDefaultResource(17170445);
+        this.ivv.setDefaultBgResource(R.color.CAM_X0205);
+        this.ivv.setIsRound(true);
+        this.ivv.setDrawBorder(true);
+        this.ivv.setBorderColor(ap.getColor(R.color.common_color_10043));
+        this.ivv.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.CardFrsGameCompetitionItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -113,22 +113,22 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     }
 
     public void a(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
-        this.ivb.startLoad(featureCardCompetitionSubNode.competition_logo, 10, false);
-        this.iuZ.startLoad(featureCardCompetitionSubNode.competition_image, 10, false);
-        this.ivc.setText(featureCardCompetitionSubNode.title);
-        this.ivf.startLoad(featureCardCompetitionSubNode.team1_image, 10, false);
-        this.ivg.setText(featureCardCompetitionSubNode.team1_name);
-        this.ivh.startLoad(featureCardCompetitionSubNode.team2_image, 10, false);
-        this.ivi.setText(featureCardCompetitionSubNode.team2_name);
+        this.ivp.startLoad(featureCardCompetitionSubNode.competition_logo, 10, false);
+        this.ivn.startLoad(featureCardCompetitionSubNode.competition_image, 10, false);
+        this.ivq.setText(featureCardCompetitionSubNode.title);
+        this.ivt.startLoad(featureCardCompetitionSubNode.team1_image, 10, false);
+        this.ivu.setText(featureCardCompetitionSubNode.team1_name);
+        this.ivv.startLoad(featureCardCompetitionSubNode.team2_image, 10, false);
+        this.ivw.setText(featureCardCompetitionSubNode.team2_name);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            ap.setViewTextColor(this.ivc, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.ive, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.ivg, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.ivi, R.color.CAM_X0101, 1);
-            ap.setViewTextColor(this.ivj, R.color.CAM_X0101, 1);
+            ap.setViewTextColor(this.ivq, R.color.CAM_X0101, 1);
+            ap.setViewTextColor(this.ivs, R.color.CAM_X0101, 1);
+            ap.setViewTextColor(this.ivu, R.color.CAM_X0101, 1);
+            ap.setViewTextColor(this.ivw, R.color.CAM_X0101, 1);
+            ap.setViewTextColor(this.ivx, R.color.CAM_X0101, 1);
         }
         this.mSkinType = i;
     }

@@ -44,15 +44,15 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes.dex */
 public class c {
     public static AntiData antiData;
-    private static WeakReference<com.baidu.tbadk.core.view.a> nAI;
-    public static PostWriteCallBackData nAJ;
-    public static ah nAK;
-    public static WriteData nAL;
-    public static Intent nAM;
+    private static WeakReference<com.baidu.tbadk.core.view.a> nBi;
+    public static PostWriteCallBackData nBj;
+    public static ah nBk;
+    public static WriteData nBl;
+    public static Intent nBm;
     private static final BdUniqueId uniqueId = BdUniqueId.gen();
 
     static {
-        dPe();
+        dPm();
     }
 
     public static void k(PostWriteCallBackData postWriteCallBackData) {
@@ -179,9 +179,9 @@ public class c {
             b.d("发帖-失败： 失败弹框 -- 无backData");
             return;
         }
-        nAJ = postWriteCallBackData;
-        nAK = ahVar;
-        nAL = writeData;
+        nBj = postWriteCallBackData;
+        nBk = ahVar;
+        nBl = writeData;
         antiData = antiData2;
         b.d("发帖-失败： 失败弹框 -- start");
         final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -231,27 +231,27 @@ public class c {
                 b.d("发帖-失败： 重新编辑 -- start");
                 view.setOnClickListener(null);
                 WriteActivityConfig newInstance = WriteActivityConfig.newInstance(currentActivity);
-                if (c.nAM != null) {
-                    newInstance.setIntent(c.nAM);
+                if (c.nBm != null) {
+                    newInstance.setIntent(c.nBm);
                 }
                 newInstance.setFromErrorDialog(true);
                 newInstance.send();
-                d.dPi();
+                d.dPq();
                 b.d("发帖-失败： 重新编辑 -- end");
             }
         });
         navigationBarCoverTip.setBackgroundColor(0);
         navigationBarCoverTip.a(currentActivity, shadowLinearLayout, 5000);
-        d.dPh();
+        d.dPp();
         b.d("发帖-失败： 失败弹框 -- 成功 -- end");
     }
 
-    private static void dPe() {
+    private static void dPm() {
         com.baidu.adp.framework.listener.a aVar = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.tbadkCore.writeModel.c.3
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 b.d("发帖-成功： 分享进行 -- 接受GetMyPost");
-                c.ckq();
+                c.ckx();
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                     c.a(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
@@ -328,7 +328,7 @@ public class c {
             bundle.putInt("obj_source", shareItem.eUk);
             shareItem.ae(bundle);
             b.d("发帖-成功： 分享弹框 -- 显示 -- end");
-            com.baidu.tieba.c.f.ctz().b(new ShareDialogConfig((Context) activity, shareItem, true, true));
+            com.baidu.tieba.c.f.ctG().b(new ShareDialogConfig((Context) activity, shareItem, true, true));
         }
     }
 
@@ -368,19 +368,19 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public static void av(Activity activity) {
         com.baidu.tbadk.core.view.a aVar = new com.baidu.tbadk.core.view.a(activity);
-        nAI = new WeakReference<>(aVar);
+        nBi = new WeakReference<>(aVar);
         aVar.setDialogVisiable(true);
         b.d("发帖-成功： 开始分享 -- 显示loading");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void ckq() {
+    public static void ckx() {
         com.baidu.tbadk.core.view.a aVar;
         b.d("发帖-成功： 开始分享 -- 隐藏loading -- start");
-        if (nAI != null && (aVar = nAI.get()) != null) {
+        if (nBi != null && (aVar = nBi.get()) != null) {
             aVar.setDialogVisiable(false);
             b.d("发帖-成功： 开始分享 -- 隐藏loading -- end");
-            nAI.clear();
+            nBi.clear();
         }
     }
 }

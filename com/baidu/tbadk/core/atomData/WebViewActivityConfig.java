@@ -14,6 +14,7 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
+    public static final String TAG_AD_EXT_INFO = "tag_ad_ext_info";
     public static final String TAG_COOKIE = "tag_cookie";
     public static final String TAG_DOWNLOAD_AD_ID = "tag_download_ad_id";
     public static final String TAG_ENABLE_JS = "tag_enable_js";

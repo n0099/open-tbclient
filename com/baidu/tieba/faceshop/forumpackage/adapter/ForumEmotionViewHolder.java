@@ -25,40 +25,40 @@ import com.baidu.tieba.horizonalList.widget.AdapterView;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 /* loaded from: classes9.dex */
 public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
-    private ForumEmotionItemView jad;
-    private com.baidu.tieba.faceshop.forumpackage.data.c jae;
-    private NewFaceGroupDownloadModel jaf;
+    private ForumEmotionItemView jar;
+    private com.baidu.tieba.faceshop.forumpackage.data.c jas;
+    private NewFaceGroupDownloadModel jat;
     private TbPageContext pageContext;
 
     public ForumEmotionViewHolder(TbPageContext tbPageContext, View view) {
         super(view);
-        this.jad = (ForumEmotionItemView) view;
+        this.jar = (ForumEmotionItemView) view;
         this.pageContext = tbPageContext;
     }
 
     public void a(com.baidu.tieba.faceshop.forumpackage.data.c cVar, com.baidu.tieba.faceshop.forumpackage.data.b bVar, a aVar, int i) {
-        this.jae = cVar;
-        if (this.jad == null || cVar == null) {
+        this.jas = cVar;
+        if (this.jar == null || cVar == null) {
             return;
         }
-        if (cVar.jal != null || i == 0) {
+        if (cVar.jaz != null || i == 0) {
             a(bVar, aVar, i);
-            b(cVar.jal);
-            c(cVar.jal);
-            d(cVar.jal);
-            e(cVar.jal);
+            b(cVar.jaz);
+            c(cVar.jaz);
+            d(cVar.jaz);
+            e(cVar.jaz);
         }
     }
 
     private void a(final com.baidu.tieba.faceshop.forumpackage.data.b bVar, final a aVar, int i) {
         String string;
-        ViewGroup filterDropDownView = this.jad.getFilterDropDownView();
+        ViewGroup filterDropDownView = this.jar.getFilterDropDownView();
         if (i == 0 && bVar != null) {
-            Resources resources = this.jad.getResources();
-            TextView filterView = this.jad.getFilterView();
-            this.jad.getHeaderView().setVisibility(0);
+            Resources resources = this.jar.getResources();
+            TextView filterView = this.jar.getFilterView();
+            this.jar.getHeaderView().setVisibility(0);
             filterDropDownView.setVisibility(0);
-            if (bVar.cAl() == 0) {
+            if (bVar.cAs() == 0) {
                 string = resources.getString(R.string.forum_emotion_filter_all_bar);
             } else {
                 string = resources.getString(R.string.forum_emotion_filter_my_bar);
@@ -74,7 +74,7 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
                 public void onClick(View view) {
                     bVar.setExpanded(!bVar.isExpanded());
                     if (aVar != null) {
-                        aVar.cAk();
+                        aVar.cAr();
                     }
                 }
             });
@@ -85,7 +85,7 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
                         bVar.setExpanded(false);
                         bVar.yf(0);
                         if (aVar != null) {
-                            aVar.ye(bVar.cAl());
+                            aVar.ye(bVar.cAs());
                         }
                     }
                 });
@@ -95,7 +95,7 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
                         bVar.setExpanded(false);
                         bVar.yf(1);
                         if (aVar != null) {
-                            aVar.ye(bVar.cAl());
+                            aVar.ye(bVar.cAs());
                         }
                     }
                 });
@@ -103,16 +103,16 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
             }
             return;
         }
-        this.jad.getHeaderView().setVisibility(8);
+        this.jar.getHeaderView().setVisibility(8);
         filterDropDownView.setVisibility(8);
     }
 
     private void b(final ForumEmotionPackageData forumEmotionPackageData) {
         if (forumEmotionPackageData != null) {
-            this.jad.getListView().setVisibility(0);
-            this.jad.getListView().setAdapter((ListAdapter) this.jad.getAdapter());
-            this.jad.getAdapter().setData(forumEmotionPackageData.pics, forumEmotionPackageData.forum_id > 0);
-            this.jad.getListView().setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder.4
+            this.jar.getListView().setVisibility(0);
+            this.jar.getListView().setAdapter((ListAdapter) this.jar.getAdapter());
+            this.jar.getAdapter().setData(forumEmotionPackageData.pics, forumEmotionPackageData.forum_id > 0);
+            this.jar.getListView().setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder.4
                 @Override // com.baidu.tieba.horizonalList.widget.AdapterView.c
                 public void a(AdapterView<?> adapterView, View view, int i, long j) {
                     ForumEmotionViewHolder.this.pageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(ForumEmotionViewHolder.this.pageContext.getPageActivity(), forumEmotionPackageData.id, 0)));
@@ -120,11 +120,11 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
             });
             return;
         }
-        this.jad.getListView().setVisibility(4);
+        this.jar.getListView().setVisibility(4);
     }
 
     private void c(ForumEmotionPackageData forumEmotionPackageData) {
-        TextView rankView = this.jad.getRankView();
+        TextView rankView = this.jar.getRankView();
         if (forumEmotionPackageData != null) {
             rankView.setVisibility(0);
             if (forumEmotionPackageData.rank_num > 20) {
@@ -156,31 +156,31 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(ForumEmotionPackageData forumEmotionPackageData) {
         if (forumEmotionPackageData != null) {
-            this.jad.getDownloadNumView().setVisibility(0);
-            this.jad.getShareNumView().setVisibility(0);
-            this.jad.getTitleView().setVisibility(0);
+            this.jar.getDownloadNumView().setVisibility(0);
+            this.jar.getShareNumView().setVisibility(0);
+            this.jar.getTitleView().setVisibility(0);
             if (!TextUtils.isEmpty(forumEmotionPackageData.forum_name)) {
-                this.jad.getTitleView().setText(forumEmotionPackageData.forum_name + "吧·" + forumEmotionPackageData.name);
+                this.jar.getTitleView().setText(forumEmotionPackageData.forum_name + "吧·" + forumEmotionPackageData.name);
             } else {
-                this.jad.getTitleView().setText(forumEmotionPackageData.name);
+                this.jar.getTitleView().setText(forumEmotionPackageData.name);
             }
-            this.jad.getDownloadNumView().setText(String.format(h.getString(R.string.forum_emotion_down_num), au.numberUniform(forumEmotionPackageData.download)));
-            this.jad.getShareNumView().setText(String.format(h.getString(R.string.forum_emotion_share_num), au.numberUniform(forumEmotionPackageData.share)));
+            this.jar.getDownloadNumView().setText(String.format(h.getString(R.string.forum_emotion_down_num), au.numberUniform(forumEmotionPackageData.download)));
+            this.jar.getShareNumView().setText(String.format(h.getString(R.string.forum_emotion_share_num), au.numberUniform(forumEmotionPackageData.share)));
         } else {
-            this.jad.getTitleView().setVisibility(4);
-            this.jad.getDownloadNumView().setVisibility(4);
-            this.jad.getShareNumView().setVisibility(4);
+            this.jar.getTitleView().setVisibility(4);
+            this.jar.getDownloadNumView().setVisibility(4);
+            this.jar.getShareNumView().setVisibility(4);
         }
-        this.jad.getLineView().setVisibility(forumEmotionPackageData != null ? 0 : 4);
+        this.jar.getLineView().setVisibility(forumEmotionPackageData != null ? 0 : 4);
         if (forumEmotionPackageData == null) {
-            ap.setBackgroundColor(this.jad, R.color.CAM_X0201);
+            ap.setBackgroundColor(this.jar, R.color.CAM_X0201);
         } else {
-            this.jad.setBackgroundColor(0);
+            this.jar.setBackgroundColor(0);
         }
     }
 
     private void e(final ForumEmotionPackageData forumEmotionPackageData) {
-        TextView downLoadView = this.jad.getDownLoadView();
+        TextView downLoadView = this.jar.getDownLoadView();
         if (forumEmotionPackageData == null) {
             downLoadView.setVisibility(4);
             return;
@@ -192,7 +192,7 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
                 ForumEmotionViewHolder.this.f(forumEmotionPackageData);
             }
         });
-        if (com.baidu.tieba.faceshop.a.cyo().Jv("" + forumEmotionPackageData.id)) {
+        if (com.baidu.tieba.faceshop.a.cyv().Jw("" + forumEmotionPackageData.id)) {
             downLoadView.setText(R.string.already_downloaded);
             downLoadView.setBackgroundDrawable(null);
             ap.setViewTextColor(downLoadView, R.color.CAM_X0109);
@@ -233,20 +233,20 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
     /* JADX INFO: Access modifiers changed from: private */
     public void f(final ForumEmotionPackageData forumEmotionPackageData) {
         if (bh.checkUpIsLogin(this.pageContext.getPageActivity()) && forumEmotionPackageData != null && forumEmotionPackageData.id >= 0) {
-            if (this.jaf == null) {
-                this.jaf = new NewFaceGroupDownloadModel();
+            if (this.jat == null) {
+                this.jat = new NewFaceGroupDownloadModel();
             }
-            this.jad.getDownLoadView().setEnabled(false);
-            this.jaf.a(Integer.toString(forumEmotionPackageData.id), true, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder.6
+            this.jar.getDownLoadView().setEnabled(false);
+            this.jat.a(Integer.toString(forumEmotionPackageData.id), true, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder.6
                 @Override // com.baidu.tieba.newfaceshop.a.b
                 public void onSuccess(String str) {
                     l.showToast(ForumEmotionViewHolder.this.pageContext.getPageActivity(), R.string.down_state_success);
-                    ForumEmotionViewHolder.this.jad.getDownLoadView().setText(R.string.already_downloaded);
-                    ap.setViewTextColor(ForumEmotionViewHolder.this.jad.getDownLoadView(), R.color.CAM_X0109);
-                    ForumEmotionViewHolder.this.jad.getDownLoadView().setBackgroundDrawable(null);
-                    ForumEmotionViewHolder.this.jad.getDownLoadView().setEnabled(false);
+                    ForumEmotionViewHolder.this.jar.getDownLoadView().setText(R.string.already_downloaded);
+                    ap.setViewTextColor(ForumEmotionViewHolder.this.jar.getDownLoadView(), R.color.CAM_X0109);
+                    ForumEmotionViewHolder.this.jar.getDownLoadView().setBackgroundDrawable(null);
+                    ForumEmotionViewHolder.this.jar.getDownLoadView().setEnabled(false);
                     forumEmotionPackageData.download++;
-                    if (ForumEmotionViewHolder.this.jae != null && ForumEmotionViewHolder.this.jae.jal == forumEmotionPackageData) {
+                    if (ForumEmotionViewHolder.this.jas != null && ForumEmotionViewHolder.this.jas.jaz == forumEmotionPackageData) {
                         ForumEmotionViewHolder.this.d(forumEmotionPackageData);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_MY_EMOTION_PACKAGE));
@@ -264,7 +264,7 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
                 @Override // com.baidu.tieba.newfaceshop.a.b
                 public void onFail(String str) {
                     l.showToast(ForumEmotionViewHolder.this.pageContext.getPageActivity(), R.string.download_error);
-                    ForumEmotionViewHolder.this.jad.getDownLoadView().setEnabled(true);
+                    ForumEmotionViewHolder.this.jar.getDownLoadView().setEnabled(true);
                 }
             });
         }

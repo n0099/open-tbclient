@@ -10,10 +10,10 @@ import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class CharmRankTotalHeaderView extends RelativeLayout implements View.OnClickListener {
-    private CharmRankMedalItemView gPB;
-    private CharmRankMedalItemView gPC;
-    private CharmRankMedalItemView gPD;
-    private a gPE;
+    private CharmRankMedalItemView gPP;
+    private CharmRankMedalItemView gPQ;
+    private CharmRankMedalItemView gPR;
+    private a gPS;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -26,7 +26,7 @@ public class CharmRankTotalHeaderView extends RelativeLayout implements View.OnC
     }
 
     public void setCallback(a aVar) {
-        this.gPE = aVar;
+        this.gPS = aVar;
     }
 
     public void setData(List<ALaCharmData> list) {
@@ -44,8 +44,8 @@ public class CharmRankTotalHeaderView extends RelativeLayout implements View.OnC
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gPE != null && (view.getTag() instanceof ALaCharmData)) {
-            this.gPE.a((ALaCharmData) view.getTag());
+        if (this.gPS != null && (view.getTag() instanceof ALaCharmData)) {
+            this.gPS.a((ALaCharmData) view.getTag());
         }
     }
 
@@ -53,41 +53,41 @@ public class CharmRankTotalHeaderView extends RelativeLayout implements View.OnC
         setBackgroundColor(0);
         setPadding(0, 0, 0, getResources().getDimensionPixelOffset(a.d.sdk_ds20));
         LayoutInflater.from(getContext()).inflate(a.g.sdk_charm_rank_total_header, (ViewGroup) this, true);
-        this.gPB = (CharmRankMedalItemView) findViewById(a.f.medal_first);
-        this.gPC = (CharmRankMedalItemView) findViewById(a.f.medal_second);
-        this.gPD = (CharmRankMedalItemView) findViewById(a.f.medal_third);
-        ViewGroup.LayoutParams layoutParams = this.gPB.gPt.getLayoutParams();
+        this.gPP = (CharmRankMedalItemView) findViewById(a.f.medal_first);
+        this.gPQ = (CharmRankMedalItemView) findViewById(a.f.medal_second);
+        this.gPR = (CharmRankMedalItemView) findViewById(a.f.medal_third);
+        ViewGroup.LayoutParams layoutParams = this.gPP.gPH.getLayoutParams();
         if (layoutParams != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds144);
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
-            this.gPB.gPt.setLayoutParams(layoutParams);
+            this.gPP.gPH.setLayoutParams(layoutParams);
         }
-        ViewGroup.LayoutParams layoutParams2 = this.gPB.gPz.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.gPP.gPN.getLayoutParams();
         if (layoutParams2 != null) {
             int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(a.d.sdk_ds220);
             layoutParams2.width = dimensionPixelOffset2;
             layoutParams2.height = dimensionPixelOffset2;
-            this.gPB.gPz.setLayoutParams(layoutParams2);
+            this.gPP.gPN.setLayoutParams(layoutParams2);
         }
     }
 
     private void setFirstMedal(ALaCharmData aLaCharmData) {
-        this.gPB.setOnClickListener(this);
-        this.gPB.setTag(aLaCharmData);
-        this.gPB.setData(aLaCharmData);
-        this.gPB.gPA.setVisibility(8);
+        this.gPP.setOnClickListener(this);
+        this.gPP.setTag(aLaCharmData);
+        this.gPP.setData(aLaCharmData);
+        this.gPP.gPO.setVisibility(8);
     }
 
     private void setSecondMedal(ALaCharmData aLaCharmData) {
-        this.gPC.setOnClickListener(this);
-        this.gPC.setTag(aLaCharmData);
-        this.gPC.setData(aLaCharmData);
+        this.gPQ.setOnClickListener(this);
+        this.gPQ.setTag(aLaCharmData);
+        this.gPQ.setData(aLaCharmData);
     }
 
     private void setThirdMedal(ALaCharmData aLaCharmData) {
-        this.gPD.setOnClickListener(this);
-        this.gPD.setTag(aLaCharmData);
-        this.gPD.setData(aLaCharmData);
+        this.gPR.setOnClickListener(this);
+        this.gPR.setTag(aLaCharmData);
+        this.gPR.setData(aLaCharmData);
     }
 }

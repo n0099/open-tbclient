@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public abstract class a {
-    protected int gAb;
-    protected com.baidu.tieba.ala.alasquare.special_forum.data.a gIs;
+    protected int gAp;
+    protected com.baidu.tieba.ala.alasquare.special_forum.data.a gIG;
     protected View mMaskView;
     protected int mScreenWidth;
     protected TbPageContext mTbPageContext;
@@ -34,11 +34,11 @@ public abstract class a {
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mScreenWidth = l.getEquipmentWidth(this.mTbPageContext.getPageActivity());
-        this.gAb = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
+        this.gAp = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
     }
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        this.gIs = aVar;
+        this.gIG = aVar;
     }
 
     public void aj(ViewGroup viewGroup) {
@@ -49,9 +49,9 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bSs() {
+    public View bSz() {
         this.mMaskView = new View(this.mTbPageContext.getPageActivity());
-        this.mMaskView.setLayoutParams(new FrameLayout.LayoutParams(this.mScreenWidth, this.gAb));
+        this.mMaskView.setLayoutParams(new FrameLayout.LayoutParams(this.mScreenWidth, this.gAp));
         this.mMaskView.setBackgroundDrawable(new ColorDrawable(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.black_alpha30)));
         return this.mMaskView;
     }
@@ -62,13 +62,13 @@ public abstract class a {
     public void resume() {
     }
 
-    public void bSt() {
+    public void bSA() {
         this.mScreenWidth = l.getEquipmentWidth(this.mTbPageContext.getPageActivity());
-        this.gAb = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
+        this.gAp = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
         if (this.mMaskView != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mMaskView.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.gAb;
+            layoutParams.height = this.gAp;
             this.mMaskView.setLayoutParams(layoutParams);
         }
     }

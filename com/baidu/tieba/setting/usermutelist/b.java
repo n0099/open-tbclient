@@ -14,17 +14,17 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class b extends d<UserMuteListActivity> {
     private BdListView WO;
-    private NoNetworkView gxW;
+    private NoNetworkView gyk;
     private BaseActivity<UserMuteListActivity> mActivity;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private View mRoot;
-    private a njz;
+    private a njZ;
 
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
         this.mActivity = baseActivity;
-        this.njz = aVar;
+        this.njZ = aVar;
         initUI();
     }
 
@@ -35,7 +35,7 @@ public class b extends d<UserMuteListActivity> {
     private void initUI() {
         this.mActivity.setContentView(R.layout.user_mute_list_activity);
         this.mRoot = this.mActivity.findViewById(R.id.root_view);
-        this.gxW = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.gyk = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.user_mute_list_text);
@@ -50,16 +50,16 @@ public class b extends d<UserMuteListActivity> {
         this.mActivity.getLayoutMode().onModeChanged(this.mRoot);
         this.mNavigationBar.onChangeSkinType(this.mActivity.getPageContext(), skinType);
         this.mNoDataView.onChangeSkinType(this.mActivity.getPageContext(), skinType);
-        this.gxW.onChangeSkinType(this.mActivity.getPageContext(), skinType);
+        this.gyk.onChangeSkinType(this.mActivity.getPageContext(), skinType);
     }
 
-    public void cJg() {
+    public void cJn() {
         this.WO.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.pz(R.string.user_mute_list_no_data_text));
     }
 
-    public void dIO() {
+    public void dIW() {
         this.WO.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.pz(R.string.refresh_view_title_text));

@@ -18,9 +18,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ad {
-    private final cn pmA;
-    private final m pmB;
-    private final a pmC;
+    private final cn pna;
+    private final m pnb;
+    private final a pnc;
 
     /* renamed from: b  reason: collision with root package name */
     private static int f5779b = 0;
@@ -56,9 +56,9 @@ public class ad {
     }
 
     public ad(Application application, m mVar, cn cnVar) {
-        this.pmC = new a(application, "bd_embed_tea_agent.db", null, 29);
-        this.pmB = mVar;
-        this.pmA = cnVar;
+        this.pnc = new a(application, "bd_embed_tea_agent.db", null, 29);
+        this.pnb = mVar;
+        this.pna = cnVar;
     }
 
     private static void a(ac acVar) {
@@ -74,7 +74,7 @@ public class ad {
         SQLiteDatabase sQLiteDatabase = null;
         try {
             try {
-                sQLiteDatabase = this.pmC.getWritableDatabase();
+                sQLiteDatabase = this.pnc.getWritableDatabase();
                 sQLiteDatabase.beginTransaction();
                 ac[] acVarArr = {aeVar, agVar, afVar};
                 JSONArray[] jSONArrayArr = new JSONArray[3];
@@ -147,7 +147,7 @@ public class ad {
         SQLiteDatabase sQLiteDatabase = null;
         Cursor cursor2 = null;
         try {
-            sQLiteDatabase = this.pmC.getWritableDatabase();
+            sQLiteDatabase = this.pnc.getWritableDatabase();
             sQLiteDatabase.beginTransaction();
             cursor = sQLiteDatabase.rawQuery("SELECT * FROM launch ORDER BY local_time_ms DESC LIMIT 5", null);
             long j = Long.MAX_VALUE;
@@ -156,9 +156,9 @@ public class ad {
             JSONObject jSONObject2 = jSONObject;
             while (cursor.moveToNext()) {
                 try {
-                    ahVar.B(cursor);
+                    ahVar.C(cursor);
                     if (!TextUtils.equals(ahVar.c, bx.c())) {
-                        if (!TextUtils.equals(ahVar.i, this.pmB.d()) || ahVar.h != this.pmB.c()) {
+                        if (!TextUtils.equals(ahVar.i, this.pnb.d()) || ahVar.h != this.pnb.c()) {
                             JSONObject jSONObject3 = new JSONObject();
                             av.e(jSONObject3, jSONObject2);
                             jSONObject3.put("app_version", ahVar.i);
@@ -285,12 +285,12 @@ public class ad {
             ai aiVar = new ai();
             int i = f5779b;
             ag agVar = new ag("bav2b_monitor", true, new ak("db_monitor", "db_fail", i).f().toString());
-            if (bx.enW() != null) {
-                bx.enW().c(agVar);
+            if (bx.eoe() != null) {
+                bx.eoe().c(agVar);
             }
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(agVar.f());
-            aiVar.a(System.currentTimeMillis(), this.pmB.a(), null, null, null, null, jSONArray, null);
+            aiVar.a(System.currentTimeMillis(), this.pnb.a(), null, null, null, null, jSONArray, null);
             if (a(context, aiVar)) {
                 f5779b -= i;
             }
@@ -300,12 +300,12 @@ public class ad {
     private void a(long j) {
         if (j > 0) {
             au.a("d succ:maxTs =" + j, null);
-            this.pmC.getWritableDatabase().execSQL(f, new String[]{String.valueOf(j)});
+            this.pnc.getWritableDatabase().execSQL(f, new String[]{String.valueOf(j)});
         }
     }
 
     private boolean a(Context context, ai aiVar) {
-        return aa.a(new String[]{ab.n(context, this.pmB.a())}, b.Yu(aiVar.f().toString()), this.pmA) == 200;
+        return aa.a(new String[]{ab.n(context, this.pnb.a())}, b.YG(aiVar.f().toString()), this.pna) == 200;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:49:0x00e7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -323,16 +323,16 @@ public class ad {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         try {
-            sQLiteDatabase = this.pmC.getWritableDatabase();
+            sQLiteDatabase = this.pnc.getWritableDatabase();
             try {
                 sQLiteDatabase.beginTransaction();
                 Cursor rawQuery = sQLiteDatabase.rawQuery(e, new String[]{String.valueOf(at.a()), String.valueOf(200)});
                 while (rawQuery.moveToNext()) {
-                    akVar.B(rawQuery);
+                    akVar.C(rawQuery);
                     JSONObject f2 = akVar.f();
                     agVar.p = f2.toString();
-                    if (bx.enW() != null) {
-                        bx.enW().c(agVar);
+                    if (bx.eoe() != null) {
+                        bx.eoe().c(agVar);
                     }
                     if (akVar.f5776a > j2) {
                         j2 = akVar.f5776a;
@@ -425,7 +425,7 @@ public class ad {
             j = 0;
             while (cursor.moveToNext()) {
                 try {
-                    acVar.B(cursor);
+                    acVar.C(cursor);
                     if (au.f5788b) {
                         au.a("queryEvnetInner, " + str + ", " + acVar, null);
                     }
@@ -471,7 +471,7 @@ public class ad {
             cursor = sQLiteDatabase.rawQuery("SELECT * FROM page WHERE session_id=? LIMIT 500", strArr);
             boolean z = false;
             while (cursor.moveToNext()) {
-                ajVar.B(cursor);
+                ajVar.C(cursor);
                 if (au.f5788b) {
                     au.a("queryPageInner, " + strArr + ", " + ajVar, null);
                 }
@@ -505,7 +505,7 @@ public class ad {
             amVar.c = ahVar.c;
             amVar.f5776a = ahVar.f5776a;
             amVar.i = (j + ahVar.f5776a) / 1000;
-            amVar.f5777b = ce.a(this.pmA);
+            amVar.f5777b = ce.a(this.pna);
             amVar.e = ahVar.e;
             amVar.f = ahVar.f;
         }
@@ -522,11 +522,11 @@ public class ad {
         ArrayList<ai> arrayList = new ArrayList<>();
         ai aiVar = (ai) f5778a.get("pack");
         try {
-            cursor = this.pmC.getWritableDatabase().rawQuery("SELECT * FROM pack ORDER BY local_time_ms DESC,_full DESC LIMIT 2", null);
+            cursor = this.pnc.getWritableDatabase().rawQuery("SELECT * FROM pack ORDER BY local_time_ms DESC,_full DESC LIMIT 2", null);
             while (cursor.moveToNext()) {
                 try {
                     aiVar = (ai) aiVar.clone();
-                    aiVar.B(cursor);
+                    aiVar.C(cursor);
                     arrayList.add(aiVar);
                 } catch (Throwable th) {
                     th = th;
@@ -663,7 +663,7 @@ public class ad {
         Ld5:
             r3 = 0
             r0 = r16
-            com.bytedance.embedapplog.ad$a r2 = r0.pmC     // Catch: java.lang.Throwable -> L19a
+            com.bytedance.embedapplog.ad$a r2 = r0.pnc     // Catch: java.lang.Throwable -> L19a
             android.database.sqlite.SQLiteDatabase r4 = r2.getWritableDatabase()     // Catch: java.lang.Throwable -> L19a
             r4.beginTransaction()     // Catch: java.lang.Throwable -> L104
             java.util.Iterator r3 = r17.iterator()     // Catch: java.lang.Throwable -> L104
@@ -803,7 +803,7 @@ public class ad {
         ContentValues contentValues = null;
         au.a("save, " + arrayList.toString(), null);
         try {
-            sQLiteDatabase = this.pmC.getWritableDatabase();
+            sQLiteDatabase = this.pnc.getWritableDatabase();
             try {
                 sQLiteDatabase.beginTransaction();
                 Iterator<ac> it = arrayList.iterator();

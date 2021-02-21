@@ -44,7 +44,7 @@ public class g implements d {
     private Map<String, String> h;
     private KSVodPlayerBuilder i;
     private boolean j;
-    private d.InterfaceC1165d t;
+    private d.InterfaceC1167d t;
     private d.b u;
     private d.c v;
     private com.kwai.video.ksvodplayerkit.b w;
@@ -733,8 +733,8 @@ public class g implements d {
         this.v = cVar;
     }
 
-    public void a(d.InterfaceC1165d interfaceC1165d) {
-        this.t = interfaceC1165d;
+    public void a(d.InterfaceC1167d interfaceC1167d) {
+        this.t = interfaceC1167d;
     }
 
     public void a(d.e eVar) {

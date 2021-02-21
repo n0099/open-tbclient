@@ -69,8 +69,8 @@ public class ArCoreApk {
         void a(Availability availability);
     }
 
-    public static ArCoreApk eAK() {
-        return o.eAS();
+    public static ArCoreApk eAS() {
+        return o.eBa();
     }
 
     /* loaded from: classes15.dex */

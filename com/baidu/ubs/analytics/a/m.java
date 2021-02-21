@@ -3,17 +3,17 @@ package com.baidu.ubs.analytics.a;
 import java.util.List;
 /* loaded from: classes15.dex */
 public final class m {
-    private k oTN = new k();
+    private k oUn = new k();
 
     public final void b(l lVar) {
-        this.oTN.a(lVar);
+        this.oUn.a(lVar);
     }
 
     public final List<l> J() {
-        return this.oTN.J();
+        return this.oUn.J();
     }
 
     public final void a(int i) {
-        this.oTN.a(i);
+        this.oUn.a(i);
     }
 }

@@ -16,8 +16,8 @@ import java.util.Iterator;
 public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     private String aNa;
     private String buH;
-    private ArrayList<c> hcB = new ArrayList<>();
-    private ArrayList<com.baidu.tieba.ala.guardthrone.b.b> hcC = new ArrayList<>();
+    private ArrayList<c> hcP = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.ala.guardthrone.b.b> hcQ = new ArrayList<>();
     private boolean mIsHost;
     private String mLiveId;
     private int mTabId;
@@ -30,17 +30,17 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
         this.aNa = str3;
         this.mTabId = i;
         this.mIsHost = z;
-        bWn();
+        bWu();
     }
 
-    private void bWn() {
+    private void bWu() {
         com.baidu.tieba.ala.guardthrone.b.b bVar = new com.baidu.tieba.ala.guardthrone.b.b();
         com.baidu.tieba.ala.guardthrone.a.a aVar = new com.baidu.tieba.ala.guardthrone.a.a();
         aVar.a(this.mTbPageContext, this.mLiveId, this.buH, this.aNa, this.mTabId, this.mIsHost);
-        this.hcB.add(aVar);
+        this.hcP.add(aVar);
         bVar.tabName = this.mTbPageContext.getString(a.h.guard_throne_title);
-        bVar.hcQ = "guard_throne";
-        this.hcC.add(bVar);
+        bVar.hde = "guard_throne";
+        this.hcQ.add(bVar);
         c cVar = null;
         com.baidu.live.noble.data.c cVar2 = new com.baidu.live.noble.data.c();
         cVar2.mTbPageContext = this.mTbPageContext;
@@ -54,29 +54,29 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
             cVar = (c) runTask.getData();
         }
         if (cVar != null) {
-            this.hcB.add(cVar);
+            this.hcP.add(cVar);
             com.baidu.tieba.ala.guardthrone.b.b bVar2 = new com.baidu.tieba.ala.guardthrone.b.b();
             bVar2.tabName = this.mTbPageContext.getString(a.h.noble_title);
-            bVar2.hcQ = "noble";
-            this.hcC.add(bVar2);
+            bVar2.hde = "noble";
+            this.hcQ.add(bVar2);
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.hcB != null) {
-            return this.hcB.size();
+        if (this.hcP != null) {
+            return this.hcP.size();
         }
         return 0;
     }
 
     public ArrayList<c> getDataList() {
-        return this.hcB;
+        return this.hcP;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        c cVar = (c) ListUtils.getItem(this.hcB, i);
+        c cVar = (c) ListUtils.getItem(this.hcP, i);
         if (cVar != null && cVar.getView() != null) {
             View view = cVar.getView();
             if (view.getParent() != null) {
@@ -94,9 +94,9 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     }
 
     public void to(int i) {
-        if (i >= 0 && i < this.hcC.size()) {
-            for (int i2 = 0; i2 < this.hcB.size(); i2++) {
-                c cVar = this.hcB.get(i2);
+        if (i >= 0 && i < this.hcQ.size()) {
+            for (int i2 = 0; i2 < this.hcP.size(); i2++) {
+                c cVar = this.hcP.get(i2);
                 if (i2 == i) {
                     cVar.cb(true);
                 } else {
@@ -107,8 +107,8 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (!ListUtils.isEmpty(this.hcB)) {
-            Iterator<c> it = this.hcB.iterator();
+        if (!ListUtils.isEmpty(this.hcP)) {
+            Iterator<c> it = this.hcP.iterator();
             while (it.hasNext()) {
                 it.next().onConfigurationChanged(configuration);
             }
@@ -116,8 +116,8 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
     }
 
     public void onDestroy() {
-        if (!ListUtils.isEmpty(this.hcB)) {
-            Iterator<c> it = this.hcB.iterator();
+        if (!ListUtils.isEmpty(this.hcP)) {
+            Iterator<c> it = this.hcP.iterator();
             while (it.hasNext()) {
                 it.next().onDestroy();
             }

@@ -29,48 +29,48 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends BaseRtcRoom {
-    private static String oDC;
+    private static String oEc;
     private boolean mIsMute;
     private String mPlayUrl;
-    private CyberPlayer oDD;
-    private String oDE;
-    private String oDF;
-    private boolean oDG;
-    private volatile int oDH;
-    private volatile int oDI;
-    private HashMap<Integer, Integer> oDJ;
-    private boolean oDK;
-    private boolean oDL;
-    private StringBuilder oDM;
-    private volatile boolean oDN;
-    private volatile boolean oDO;
-    private volatile boolean oDP;
-    public static boolean oDA = false;
-    private static int oDB = 6;
-    private static long oDQ = 300;
+    private CyberPlayer oEd;
+    private String oEe;
+    private String oEf;
+    private boolean oEg;
+    private volatile int oEh;
+    private volatile int oEi;
+    private HashMap<Integer, Integer> oEj;
+    private boolean oEk;
+    private boolean oEl;
+    private StringBuilder oEm;
+    private volatile boolean oEn;
+    private volatile boolean oEo;
+    private volatile boolean oEp;
+    public static boolean oEa = false;
+    private static int oEb = 6;
+    private static long oEq = 300;
 
     static /* synthetic */ int l(a aVar) {
-        int i = aVar.oDH;
-        aVar.oDH = i + 1;
+        int i = aVar.oEh;
+        aVar.oEh = i + 1;
         return i;
     }
 
     static {
-        if (TextUtils.isEmpty(oDC)) {
-            oDC = UtilHelper.is64Bit() ? "arm64-v8a" : "armeabi";
+        if (TextUtils.isEmpty(oEc)) {
+            oEc = UtilHelper.is64Bit() ? "arm64-v8a" : "armeabi";
         }
     }
 
     public a(Context context) {
         super(context);
-        this.oDI = 0;
-        this.oDJ = new HashMap<>();
-        this.oDK = true;
-        this.oDM = new StringBuilder();
-        VW("initaudioroom");
+        this.oEi = 0;
+        this.oEj = new HashMap<>();
+        this.oEk = true;
+        this.oEm = new StringBuilder();
+        Wi("initaudioroom");
     }
 
-    public void VV(String str) {
+    public void Wh(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("url", str);
@@ -82,8 +82,8 @@ public class a extends BaseRtcRoom {
     }
 
     public void n(String str, boolean z, boolean z2) {
-        if (oDA) {
-            VW("enterLiveRoom:" + str + ",mstatus:" + this.oDI + ",misConnect:" + this.oDL);
+        if (oEa) {
+            Wi("enterLiveRoom:" + str + ",mstatus:" + this.oEi + ",misConnect:" + this.oEl);
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -94,10 +94,10 @@ public class a extends BaseRtcRoom {
             e.printStackTrace();
         }
         aR("audio_room_debug", jSONObject.toString(), "enterLiveRoom");
-        this.oDO = true;
-        if (!z && !this.oDG && TextUtils.equals(this.mPlayUrl, str)) {
-            if (!z2 && this.oDD != null) {
-                this.oDD.muteOrUnmuteAudio(false);
+        this.oEo = true;
+        if (!z && !this.oEg && TextUtils.equals(this.mPlayUrl, str)) {
+            if (!z2 && this.oEd != null) {
+                this.oEd.muteOrUnmuteAudio(false);
             }
         } else if (TextUtils.isEmpty(str)) {
             if (this.mRtcRoomListener != null) {
@@ -105,11 +105,11 @@ public class a extends BaseRtcRoom {
                 this.mRtcRoomListener.onEnterRoomResult(false);
             }
         } else {
-            this.oDG = false;
+            this.oEg = false;
             this.mPlayUrl = str;
             if (!i.MT().MU()) {
                 log("playersdk do not init");
-                VW("playersdk do not init");
+                Wi("playersdk do not init");
                 if (this.mRtcRoomListener != null) {
                     this.mRtcRoomListener.onError(-4, "playersdk do not init");
                     this.mRtcRoomListener.onEnterRoomResult(false);
@@ -117,11 +117,11 @@ public class a extends BaseRtcRoom {
                 }
                 return;
             }
-            if (this.oDD != null) {
-                this.oDD.stop();
-                this.oDD.release();
+            if (this.oEd != null) {
+                this.oEd.stop();
+                this.oEd.release();
             }
-            this.oDD = new CyberPlayer();
+            this.oEd = new CyberPlayer();
             long j = 2000;
             final float f = 1.0f;
             final long j2 = 2000;
@@ -134,31 +134,31 @@ public class a extends BaseRtcRoom {
                 j3 = clVar.aRh * 1000;
             }
             log("cyplayer:cloudconfig:" + j + "," + f + "," + j2 + "," + j3);
-            if (oDA) {
-                VW("cyplayer:cloudconfig:" + j + "," + f + "," + j2 + "," + j3);
+            if (oEa) {
+                Wi("cyplayer:cloudconfig:" + j + "," + f + "," + j2 + "," + j3);
             }
-            this.oDD.setOption("opt-open-audio-delay", 0L);
-            this.oDD.setOption("realtime-low-latency-threshold", j);
-            this.oDD.setOption("realtime-cache-duration-notify-timeout", 1000L);
-            this.oDD.setOption("start-on-prepared", 1L);
-            this.oDD.setOption("max-analyze-duration", String.valueOf(j3));
-            this.oDD.setOption("max-probe-size", "204800");
-            this.oDD.setDataSource(str);
+            this.oEd.setOption("opt-open-audio-delay", 0L);
+            this.oEd.setOption("realtime-low-latency-threshold", j);
+            this.oEd.setOption("realtime-cache-duration-notify-timeout", 1000L);
+            this.oEd.setOption("start-on-prepared", 1L);
+            this.oEd.setOption("max-analyze-duration", String.valueOf(j3));
+            this.oEd.setOption("max-probe-size", "204800");
+            this.oEd.setDataSource(str);
             HashMap hashMap = new HashMap();
             hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_STAGE_INFO));
             hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, "1004");
-            this.oDD.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
-            this.oDD.setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.1
+            this.oEd.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
+            this.oEd.setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.1
                 @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
                 public boolean onError(int i, int i2, Object obj) {
-                    if (a.this.oDO && a.this.mRtcRoomListener != null) {
+                    if (a.this.oEo && a.this.mRtcRoomListener != null) {
                         a.this.mRtcRoomListener.onEnterRoomResult(false);
                     }
-                    a.this.oDG = true;
-                    a.this.oDP = false;
-                    a.this.oDO = false;
+                    a.this.oEg = true;
+                    a.this.oEp = false;
+                    a.this.oEo = false;
                     a.this.log("cyplayer:onerror:" + i + "," + i2);
-                    a.this.VW("cyplayer:onerror:" + i + "," + i2);
+                    a.this.Wi("cyplayer:onerror:" + i + "," + i2);
                     if (a.this.mRtcRoomListener != null) {
                         a.this.mRtcRoomListener.onError(-4, "playererror:" + i + "," + i2);
                     }
@@ -174,7 +174,7 @@ public class a extends BaseRtcRoom {
                     return false;
                 }
             });
-            this.oDD.setOnInfoListener(new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.2
+            this.oEd.setOnInfoListener(new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.2
                 @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
                 public boolean onInfo(int i, int i2, Object obj) {
                     a.this.log("cyplayer:onInfo:" + i + "," + i2 + "," + (obj == null));
@@ -183,9 +183,9 @@ public class a extends BaseRtcRoom {
                             try {
                                 long optLong = new JSONObject((String) obj).optLong("audio_duration");
                                 if (optLong > j2) {
-                                    a.this.oDD.setSpeed(f);
+                                    a.this.oEd.setSpeed(f);
                                 } else {
-                                    a.this.oDD.setSpeed(1.0f);
+                                    a.this.oEd.setSpeed(1.0f);
                                 }
                                 a.this.log("cyplayer:ondelayaudio:" + optLong);
                             } catch (JSONException e2) {
@@ -193,38 +193,38 @@ public class a extends BaseRtcRoom {
                             }
                         }
                     } else if (i == 904 || i == 10002) {
-                        if (a.this.oDO && a.this.mRtcRoomListener != null) {
+                        if (a.this.oEo && a.this.mRtcRoomListener != null) {
                             a.this.mRtcRoomListener.onEnterRoomResult(true);
                         }
-                        a.this.oDP = true;
-                        a.this.oDO = false;
+                        a.this.oEp = true;
+                        a.this.oEo = false;
                     }
                     return false;
                 }
             });
-            this.oDD.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.3
+            this.oEd.setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.3
                 @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
                 public void onPrepared() {
                     a.this.log("cyplayer:onPrepared");
-                    if (a.oDA) {
-                        a.this.VW(",cyplayer:onPrepared");
+                    if (a.oEa) {
+                        a.this.Wi(",cyplayer:onPrepared");
                     }
                     JSONObject jSONObject2 = new JSONObject();
                     try {
                         jSONObject2.put("url", a.this.mPlayUrl);
-                        jSONObject2.put("mIsLeaveRoom", a.this.oDN);
+                        jSONObject2.put("mIsLeaveRoom", a.this.oEn);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
                     a.this.aR("audio_room_debug", jSONObject2.toString(), "CyberPlayerManager.OnPreparedListener");
-                    if (a.this.oDN) {
-                        a.this.oDD.stop();
-                        a.this.oDD.release();
+                    if (a.this.oEn) {
+                        a.this.oEd.stop();
+                        a.this.oEd.release();
                     }
                 }
             });
-            this.oDD.prepareAsync();
-            this.oDD.muteOrUnmuteAudio(z2);
+            this.oEd.prepareAsync();
+            this.oEd.muteOrUnmuteAudio(z2);
             log("cyplayer:start:" + str);
         }
     }
@@ -235,7 +235,7 @@ public class a extends BaseRtcRoom {
         v("login_rtc", 0, "success");
         BaiduRtcRoom baiduRtcRoom = this.mBaiduRtcRoom;
         this.mBaiduRtcRoom = BaiduRtcRoom.a(this.mContext, this.mAppId, this.mToken, "", true);
-        if (oDA) {
+        if (oEa) {
             this.mBaiduRtcRoom.enableStatsToServer(true, "online");
         } else {
             this.mBaiduRtcRoom.f(true, false, "online");
@@ -267,70 +267,70 @@ public class a extends BaseRtcRoom {
                     a.this.bf("RTCRoomEvent:" + i, true);
                     a.this.v("login_rtc_result", i, "loginroomfail:RTC_ROOM_EVENT_LOGIN_ERROR");
                     a.this.v("rtc_fail", i, "room event error:RTC_ROOM_EVENT_LOGIN_ERROR");
-                    a.this.oDL = false;
+                    a.this.oEl = false;
                     if (a.this.canRetry()) {
                         a.this.t(5000L, true);
                         a.l(a.this);
                         return;
                     }
-                    a.this.Mp(3);
+                    a.this.Mq(3);
                 } else if (i == 101) {
                     a.this.bf("RTCRoomEvent:" + i, true);
                     a.this.v("rtc_fail", i, "room event error:RTC_ROOM_EVENT_LOGIN_TIMEOUT");
-                    a.this.oDL = false;
-                    if (a.this.oDI != 4) {
+                    a.this.oEl = false;
+                    if (a.this.oEi != 4) {
                         if (a.this.canRetry()) {
                             a.this.t(5000L, true);
                         } else {
-                            a.this.Mp(3);
+                            a.this.Mq(3);
                         }
                     }
                 } else if (i == 2003) {
                     a.this.v("rtc_fail", i, "room event error:RTC_STATE_STREAM_DOWN");
                     a.this.bf("RTCRoomEvent:" + i, true);
-                    a.this.oDL = false;
-                    if (a.this.oDI != 4) {
+                    a.this.oEl = false;
+                    if (a.this.oEi != 4) {
                         if (a.this.canRetry()) {
                             a.this.t(5000L, true);
                         } else {
-                            a.this.Mp(3);
+                            a.this.Mq(3);
                         }
                     }
                 } else if (i == 117 || i == 118) {
                     a.this.v("rtc_rtmp_result", i, "room event error:RTC_ROOM_EVENTS_LIVE_PUBLISH_FAIL:" + str);
                     a.this.v("rtc_fail", i, "room event error:RTC_ROOM_EVENTS_LIVE_PUBLISH_FAIL");
                     a.this.bf("RTCRoomEvent:" + i, true);
-                    a.this.oDL = false;
+                    a.this.oEl = false;
                     if (a.this.canRetry()) {
                         a.this.t(5000L, true);
                     } else {
-                        a.this.Mp(3);
+                        a.this.Mq(3);
                     }
                 } else if (i == 116) {
                     a.this.v("rtc_rtmp_result", 0, "success:" + str);
                 } else if (i == 100) {
                     a.this.bf("RTCRoomEvent:" + i, true);
                     a.this.v("login_rtc_result", 0, "loginroomsuccess");
-                    if (a.this.oDN) {
+                    if (a.this.oEn) {
                         a.this.logoutRoom();
                     }
                     if (!a.this.mIsAutoPublish && !a.this.mIsAutoSubScribe) {
-                        a.this.oDL = false;
-                        if (a.this.oDI == 2) {
-                            a.this.Mp(2);
+                        a.this.oEl = false;
+                        if (a.this.oEi == 2) {
+                            a.this.Mq(2);
                         } else {
-                            a.this.Mp(2);
+                            a.this.Mq(2);
                         }
                     }
                 } else if (i == 103) {
                     a.this.bf("RTCRoomEvent:" + i, true);
                     a.this.v("rtc_fail", i, "room event error:RTC_ROOM_EVENT_CONNECTION_LOST");
-                    a.this.oDL = false;
-                    if (a.this.oDI != 4) {
+                    a.this.oEl = false;
+                    if (a.this.oEi != 4) {
                         if (a.this.canRetry()) {
                             a.this.t(5000L, true);
                         } else {
-                            a.this.Mp(3);
+                            a.this.Mq(3);
                         }
                     }
                 }
@@ -348,32 +348,32 @@ public class a extends BaseRtcRoom {
                 a.this.aR("audio_room_debug", jSONObject.toString(), "onPeerConnectStateUpdate");
                 if (i == 10000) {
                     a.this.bf("RTCRoomEvent:" + i, true);
-                    a.this.oDL = false;
-                    if ((!a.this.canRetry() || a.this.oDJ.get(Integer.valueOf(i)) != null) && ((Integer) a.this.oDJ.get(Integer.valueOf(i))).intValue() != 0) {
-                        if (!a.this.canRetry() || ((Integer) a.this.oDJ.get(Integer.valueOf(i))).intValue() <= 0) {
-                            a.this.Mp(3);
+                    a.this.oEl = false;
+                    if ((!a.this.canRetry() || a.this.oEj.get(Integer.valueOf(i)) != null) && ((Integer) a.this.oEj.get(Integer.valueOf(i))).intValue() != 0) {
+                        if (!a.this.canRetry() || ((Integer) a.this.oEj.get(Integer.valueOf(i))).intValue() <= 0) {
+                            a.this.Mq(3);
                             return;
                         }
                         return;
                     }
-                    if (a.this.oDI == 1) {
+                    if (a.this.oEi == 1) {
                         a.this.v("rtc_publish_result", i, "onPeerConnectStateUpdate:RTC_ROOM_PEER_CONNECTION_ERROR");
                     }
-                    a.this.oDJ.put(Integer.valueOf(i), 1);
+                    a.this.oEj.put(Integer.valueOf(i), 1);
                     a.this.t(5000L, true);
                     a.l(a.this);
                 } else if (i == 2001) {
                     a.this.v("rtc_publish_result", 0, "success");
                     a.this.bf("RTCRoomEvent:" + i, true);
-                    if (a.this.oDD != null) {
-                        a.this.oDD.stop();
+                    if (a.this.oEd != null) {
+                        a.this.oEd.stop();
                     }
-                    a.this.oDL = false;
+                    a.this.oEl = false;
                     a.this.mBaiduRtcRoom.muteMicphone(a.this.mIsMute);
-                    if (a.this.oDI == 2) {
-                        a.this.Mp(2);
+                    if (a.this.oEi == 2) {
+                        a.this.Mq(2);
                     } else {
-                        a.this.Mp(2);
+                        a.this.Mq(2);
                     }
                 } else if (i == 2002) {
                     a.this.v("rtc_fail", i, "room event error:RTC_STATE_SENDING_MEDIA_FAILED");
@@ -393,7 +393,7 @@ public class a extends BaseRtcRoom {
                 a.this.aR("audio_room_debug", jSONObject.toString(), "onErrorInfoUpdate");
                 a.this.bf("ErrorRoomEventInfo:" + i, true);
                 a.this.v("rtc_fail", i, "onErrorInfoUpdate");
-                a.this.oDL = false;
+                a.this.oEl = false;
                 if (i == 436) {
                     a.this.v("login_rtc_result", i, "RTC_ROOM_USERID_ALREADY_EXIST_ERROR");
                 }
@@ -402,7 +402,7 @@ public class a extends BaseRtcRoom {
                     a.this.mBaiduRtcRoom.logoutRtcRoom();
                     a.this.mBaiduRtcRoom.destroy();
                 }
-                a.this.Mp(3);
+                a.this.Mq(3);
                 if (a.this.mRtcRoomListener != null) {
                     a.this.mRtcRoomListener.onError(i, "onErrorInfoUpdate");
                 }
@@ -419,11 +419,11 @@ public class a extends BaseRtcRoom {
                 if (aew != null) {
                     for (BaiduRtcRoom.c cVar : aew) {
                         if (cVar != null && cVar.userId == a.this.mUid) {
-                            ab Yq = c.ecJ().Yq();
+                            ab Yq = c.ecR().Yq();
                             if (Yq != null) {
-                                long unused = a.oDQ = Yq.aJh;
+                                long unused = a.oEq = Yq.aJh;
                             }
-                            if (cVar.volumeLevel > a.oDQ) {
+                            if (cVar.volumeLevel > a.oEq) {
                             }
                         }
                     }
@@ -438,7 +438,7 @@ public class a extends BaseRtcRoom {
         aeQ.AutoPublish = this.mIsAutoPublish;
         aeQ.AutoSubScribe = this.mIsAutoSubScribe;
         this.mBaiduRtcRoom.a(aeQ, RtcParameterSettings.RtcParamSettingType.RTC_PARAM_SETTINGS_ALL);
-        ecx();
+        ecF();
         String str = "loginRtcRoom,appid:" + this.mAppId + ",token:" + this.mToken + ",roomName:" + this.mRoomName + ",uid:" + this.mUid + ",userName:" + this.mUserName + ",autoPublish:" + this.mIsAutoPublish + ",autoSubScribe:" + this.mIsAutoSubScribe + ",reLogin:" + z;
         log(str);
         bf(str, true);
@@ -451,7 +451,7 @@ public class a extends BaseRtcRoom {
             v("rtc_start_publish", 0, "success");
         }
         if (!loginRtcRoomWithRoomName) {
-            VW("firstloginfailed");
+            Wi("firstloginfailed");
             if (this.mRtcRoomListener != null) {
                 this.mRtcRoomListener.onError(-1, "firstloginfailed");
             }
@@ -460,36 +460,36 @@ public class a extends BaseRtcRoom {
 
     public void yo() {
         aR("audio_room_debug", "", "leaveRoom");
-        this.oDN = true;
-        if (this.oDD != null) {
-            this.oDD.stop();
-            this.oDD.release();
+        this.oEn = true;
+        if (this.oEd != null) {
+            this.oEd.stop();
+            this.oEd.release();
         }
-        this.oDL = false;
-        Mp(4);
-        if (this.oDM != null) {
-            this.oDM = null;
+        this.oEl = false;
+        Mq(4);
+        if (this.oEm != null) {
+            this.oEm = null;
         }
     }
 
     public void aAJ() {
-        if (this.oDP) {
+        if (this.oEp) {
             aR("audio_room_debug", "", "pausePlayer");
         }
-        this.oDP = false;
-        if (this.oDD != null) {
-            this.oDD.pause();
+        this.oEp = false;
+        if (this.oEd != null) {
+            this.oEd.pause();
         }
     }
 
-    public void cnE() {
+    public void cnL() {
         bf("restartPlayer", true);
         SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (!a.this.oDO) {
-                    if (a.this.oDD != null) {
-                        a.this.oDD.release();
+                if (!a.this.oEo) {
+                    if (a.this.oEd != null) {
+                        a.this.oEd.release();
                     }
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -504,26 +504,26 @@ public class a extends BaseRtcRoom {
         });
     }
 
-    public boolean ecv() {
-        return this.oDP;
+    public boolean ecD() {
+        return this.oEp;
     }
 
     public void muteOrUnmuteAudio(boolean z) {
-        if (this.oDD != null) {
-            this.oDD.muteOrUnmuteAudio(z);
+        if (this.oEd != null) {
+            this.oEd.muteOrUnmuteAudio(z);
         }
     }
 
-    public String ecw() {
-        if (this.oDM != null) {
-            String sb = this.oDM.toString();
+    public String ecE() {
+        if (this.oEm != null) {
+            String sb = this.oEm.toString();
             if (sb == null || !sb.contains("common")) {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append(",common:");
-                sb2.append(this.oDG);
+                sb2.append(this.oEg);
                 sb2.append(",");
-                if (this.oDD != null) {
-                    sb2.append(this.oDD.isPlaying());
+                if (this.oEd != null) {
+                    sb2.append(this.oEd.isPlaying());
                 } else {
                     sb2.append("false");
                 }
@@ -544,30 +544,30 @@ public class a extends BaseRtcRoom {
         try {
             jSONObject.put("delayMs", j);
             jSONObject.put("isRetry", z);
-            jSONObject.put("mIsConneting", this.oDL);
+            jSONObject.put("mIsConneting", this.oEl);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         aR("audio_room_debug", jSONObject.toString(), "reLoginRtcRoom");
-        if (!this.oDL) {
-            this.oDL = true;
+        if (!this.oEl) {
+            this.oEl = true;
             logoutRoom();
             if (j > 0) {
                 d(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.a.7
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!a.this.oDN) {
-                            a.this.oDL = true;
+                        if (!a.this.oEn) {
+                            a.this.oEl = true;
                             if (!z) {
-                                a.this.Mp(1);
+                                a.this.Mq(1);
                             }
                             a.this.loginRtcRoom(a.this.mRoomName, a.this.mUid, a.this.mUserName, a.this.mAppId, a.this.mToken, a.this.mIsAutoPublish, a.this.mIsAutoSubScribe, true);
                         }
                     }
                 }, j);
-            } else if (!this.oDN) {
+            } else if (!this.oEn) {
                 if (!z) {
-                    Mp(1);
+                    Mq(1);
                 }
                 loginRtcRoom(this.mRoomName, this.mUid, this.mUserName, this.mAppId, this.mToken, this.mIsAutoPublish, this.mIsAutoSubScribe, true);
             }
@@ -576,16 +576,16 @@ public class a extends BaseRtcRoom {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean canRetry() {
-        return !this.oDL && (this.oDI == 1 || this.oDI == 2) && this.oDH < oDB && this.oDK && BdNetTypeUtil.isNetWorkAvailable();
+        return !this.oEl && (this.oEi == 1 || this.oEi == 2) && this.oEh < oEb && this.oEk && BdNetTypeUtil.isNetWorkAvailable();
     }
 
-    private void ecx() {
+    private void ecF() {
         if (this.mBaiduRtcRoom != null) {
-            if (!TextUtils.isEmpty(this.oDE)) {
-                this.mBaiduRtcRoom.a(this.oDE, true, true, "pure_audio", BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION);
+            if (!TextUtils.isEmpty(this.oEe)) {
+                this.mBaiduRtcRoom.a(this.oEe, true, true, "pure_audio", BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION);
             }
-            if (!TextUtils.isEmpty(this.oDF)) {
-                this.mBaiduRtcRoom.a(this.oDF, false, true, "pure_audio", BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION);
+            if (!TextUtils.isEmpty(this.oEf)) {
+                this.mBaiduRtcRoom.a(this.oEf, false, true, "pure_audio", BaiduRtcRoom.RtcLiveTransferMode.RTC_LIVE_TRANSFER_MODE_ANCHOR_TRASNSMISSION);
             }
         }
     }
@@ -595,59 +595,59 @@ public class a extends BaseRtcRoom {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mp(int i) {
+    public void Mq(int i) {
         bf("changeRtcStatus:" + i, true);
-        this.oDI = i;
-        this.oDH = 0;
-        this.oDJ.clear();
+        this.oEi = i;
+        this.oEh = 0;
+        this.oEj.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void log(String str) {
-        if (oDA) {
+        if (oEa) {
             Log.i("AudioRoom", str);
         }
     }
 
-    public void VW(String str) {
-        if (this.oDM != null) {
-            if (!oDA) {
+    public void Wi(String str) {
+        if (this.oEm != null) {
+            if (!oEa) {
                 try {
-                    if (this.oDM.length() > 1900) {
-                        this.oDM.delete(0, this.oDM.length() - 1900);
+                    if (this.oEm.length() > 1900) {
+                        this.oEm.delete(0, this.oEm.length() - 1900);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            this.oDM.append("#");
-            this.oDM.append(System.currentTimeMillis());
-            this.oDM.append(":");
-            this.oDM.append(str);
+            this.oEm.append("#");
+            this.oEm.append(System.currentTimeMillis());
+            this.oEm.append(":");
+            this.oEm.append(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bf(String str, boolean z) {
-        if (this.oDM != null) {
-            if (!oDA) {
+        if (this.oEm != null) {
+            if (!oEa) {
                 try {
-                    if (this.oDM.length() > 1900) {
-                        this.oDM.delete(0, this.oDM.length() - 1900);
+                    if (this.oEm.length() > 1900) {
+                        this.oEm.delete(0, this.oEm.length() - 1900);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            VW(str);
+            Wi(str);
             if (z) {
-                this.oDM.append(",common:");
-                this.oDM.append(this.oDG);
-                this.oDM.append(",");
-                if (this.oDD != null) {
-                    this.oDM.append(this.oDD.isPlaying());
+                this.oEm.append(",common:");
+                this.oEm.append(this.oEg);
+                this.oEm.append(",");
+                if (this.oEd != null) {
+                    this.oEm.append(this.oEd.isPlaying());
                 } else {
-                    this.oDM.append("false");
+                    this.oEm.append("false");
                 }
             }
         }
@@ -657,7 +657,7 @@ public class a extends BaseRtcRoom {
     public void v(String str, int i, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            ab Yq = c.ecJ().Yq();
+            ab Yq = c.ecR().Yq();
             if (Yq != null && Yq.aIU != null) {
                 jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yq.aIU.live_id);
             }
@@ -678,7 +678,7 @@ public class a extends BaseRtcRoom {
         JSONObject jSONObject;
         JSONObject jSONObject2 = new JSONObject();
         try {
-            ab Yq = c.ecJ().Yq();
+            ab Yq = c.ecR().Yq();
             if (Yq != null && Yq.aIU != null) {
                 jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yq.aIU.live_id);
             }

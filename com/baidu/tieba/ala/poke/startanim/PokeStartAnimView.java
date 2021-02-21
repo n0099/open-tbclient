@@ -13,14 +13,14 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class PokeStartAnimView extends FrameLayout {
     private com.baidu.live.alphavideo.c bei;
-    private FrameLayout ifP;
-    private ImageView ifQ;
-    private Runnable ifR;
-    private a ifS;
+    private FrameLayout igd;
+    private ImageView ige;
+    private Runnable igf;
+    private a igg;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cov();
+        void coC();
     }
 
     public PokeStartAnimView(Context context) {
@@ -28,18 +28,18 @@ public class PokeStartAnimView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.ifS = aVar;
+        this.igg = aVar;
     }
 
-    public void bW(int i, int i2) {
-        bX(i, i2);
-        coB();
-        coC();
+    public void bX(int i, int i2) {
+        bY(i, i2);
+        coI();
+        coJ();
     }
 
-    public void Iu(String str) {
+    public void Iv(String str) {
         if (this.bei != null && !TextUtils.isEmpty(str)) {
-            this.ifQ.setVisibility(8);
+            this.ige.setVisibility(8);
             this.bei.getView().setVisibility(0);
             this.bei.play(str);
             return;
@@ -47,21 +47,21 @@ public class PokeStartAnimView extends FrameLayout {
         if (this.bei != null) {
             this.bei.getView().setVisibility(8);
         }
-        this.ifQ.setVisibility(0);
-        this.ifR = new Runnable() { // from class: com.baidu.tieba.ala.poke.startanim.PokeStartAnimView.1
+        this.ige.setVisibility(0);
+        this.igf = new Runnable() { // from class: com.baidu.tieba.ala.poke.startanim.PokeStartAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (PokeStartAnimView.this.ifS != null) {
-                    PokeStartAnimView.this.ifS.cov();
+                if (PokeStartAnimView.this.igg != null) {
+                    PokeStartAnimView.this.igg.coC();
                 }
             }
         };
-        postDelayed(this.ifR, IMConnection.RETRY_DELAY_TIMES);
+        postDelayed(this.igf, IMConnection.RETRY_DELAY_TIMES);
     }
 
     public void stopAnim() {
-        if (this.ifR != null) {
-            removeCallbacks(this.ifR);
+        if (this.igf != null) {
+            removeCallbacks(this.igf);
         }
         if (this.bei != null) {
             this.bei.stop();
@@ -77,21 +77,21 @@ public class PokeStartAnimView extends FrameLayout {
         removeAllViews();
     }
 
-    private void bX(int i, int i2) {
-        if (this.ifP == null) {
-            this.ifP = new FrameLayout(getContext());
+    private void bY(int i, int i2) {
+        if (this.igd == null) {
+            this.igd = new FrameLayout(getContext());
         }
-        if (indexOfChild(this.ifP) < 0) {
-            addView(this.ifP);
+        if (indexOfChild(this.igd) < 0) {
+            addView(this.igd);
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.ifP.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.igd.getLayoutParams();
         layoutParams.width = i;
         layoutParams.height = i2;
         layoutParams.gravity = 16;
-        this.ifP.setLayoutParams(layoutParams);
+        this.igd.setLayoutParams(layoutParams);
     }
 
-    private void coB() {
+    private void coI() {
         if (this.bei == null || this.bei.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
@@ -101,8 +101,8 @@ public class PokeStartAnimView extends FrameLayout {
             }
         }
         if (this.bei != null) {
-            if (this.ifP.indexOfChild(this.bei.getView()) < 0) {
-                this.ifP.addView(this.bei.getView(), new ViewGroup.LayoutParams(-1, -1));
+            if (this.igd.indexOfChild(this.bei.getView()) < 0) {
+                this.igd.addView(this.bei.getView(), new ViewGroup.LayoutParams(-1, -1));
             }
             this.bei.a(new c.a() { // from class: com.baidu.tieba.ala.poke.startanim.PokeStartAnimView.2
                 @Override // com.baidu.live.alphavideo.c.a
@@ -111,8 +111,8 @@ public class PokeStartAnimView extends FrameLayout {
 
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onEnd() {
-                    if (PokeStartAnimView.this.ifS != null) {
-                        PokeStartAnimView.this.ifS.cov();
+                    if (PokeStartAnimView.this.igg != null) {
+                        PokeStartAnimView.this.igg.coC();
                     }
                 }
 
@@ -125,15 +125,15 @@ public class PokeStartAnimView extends FrameLayout {
         }
     }
 
-    private void coC() {
-        if (this.ifQ == null) {
-            this.ifQ = new ImageView(getContext());
-            this.ifQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.ifQ.setImageResource(a.e.ala_poke_gif_bg);
+    private void coJ() {
+        if (this.ige == null) {
+            this.ige = new ImageView(getContext());
+            this.ige.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.ige.setImageResource(a.e.ala_poke_gif_bg);
         }
-        if (this.ifP.indexOfChild(this.ifQ) < 0) {
-            this.ifP.addView(this.ifQ, new ViewGroup.LayoutParams(-1, -1));
+        if (this.igd.indexOfChild(this.ige) < 0) {
+            this.igd.addView(this.ige, new ViewGroup.LayoutParams(-1, -1));
         }
-        this.ifQ.setVisibility(8);
+        this.ige.setVisibility(8);
     }
 }

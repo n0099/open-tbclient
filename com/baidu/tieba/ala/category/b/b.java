@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private List<IAdapterData> gMR;
+    private List<IAdapterData> gNf;
 
     public void dH(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("list")) != null) {
-            this.gMR = new ArrayList();
+            this.gNf = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 c cVar = new c();
                 cVar.dH(optJSONObject);
-                this.gMR.add(cVar);
+                this.gNf.add(cVar);
             }
         }
     }
 
-    public List<IAdapterData> bTn() {
-        return this.gMR;
+    public List<IAdapterData> bTu() {
+        return this.gNf;
     }
 }

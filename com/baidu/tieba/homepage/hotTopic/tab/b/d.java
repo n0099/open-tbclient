@@ -9,31 +9,31 @@ import java.util.List;
 import tbclient.RecomTopicList;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tbadk.core.data.a {
-    private List<c> kgG;
+    private List<c> kgU;
 
     public d() {
     }
 
     public d(@NonNull List<RecomTopicList> list) {
-        this.kgG = new ArrayList();
+        this.kgU = new ArrayList();
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            this.kgG.add(new c(list.get(i), i));
+            this.kgU.add(new c(list.get(i), i));
         }
-        this.kgG.add(new c());
+        this.kgU.add(new c());
     }
 
-    public List<c> cQJ() {
-        return this.kgG;
+    public List<c> cQQ() {
+        return this.kgU;
     }
 
     public void dZ(List<c> list) {
-        this.kgG = list;
+        this.kgU = list;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.kgA;
+        return a.kgO;
     }
 
     @Override // com.baidu.tbadk.core.data.a

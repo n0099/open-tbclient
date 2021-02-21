@@ -18,7 +18,7 @@ public abstract class a {
 
     abstract void ED();
 
-    abstract void bXL();
+    abstract void bXS();
 
     abstract void initView();
 
@@ -30,7 +30,7 @@ public abstract class a {
     public final void initDialog() {
         this.mDialog = new d(this.mContext);
         Hf();
-        bXL();
+        bXS();
         initView();
         this.mDialog.setContentView(this.mRootView);
         ED();
