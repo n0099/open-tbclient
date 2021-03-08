@@ -11,10 +11,8 @@ import java.util.Arrays;
 public class Reflect {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Class<?> f8184a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Object f8185b;
+    private final Class<?> f5453a;
+    private final Object b;
 
     /* loaded from: classes3.dex */
     public static class ReflectException extends RuntimeException {
@@ -41,10 +39,8 @@ public class Reflect {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final Method f8186a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private static final Method f8187b;
+        private static final Method f5454a;
+        private static final Method b;
         private static final Method c;
         private static final Method d;
         private static final Method e;
@@ -60,8 +56,8 @@ public class Reflect {
 
         static {
             try {
-                f8186a = Class.class.getDeclaredMethod("forName", String.class);
-                f8187b = Class.class.getDeclaredMethod("forName", String.class, Boolean.TYPE, ClassLoader.class);
+                f5454a = Class.class.getDeclaredMethod("forName", String.class);
+                b = Class.class.getDeclaredMethod("forName", String.class, Boolean.TYPE, ClassLoader.class);
                 c = Class.class.getDeclaredMethod("getDeclaredField", String.class);
                 d = Class.class.getDeclaredMethod("getDeclaredFields", new Class[0]);
                 e = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
@@ -81,7 +77,7 @@ public class Reflect {
 
         static Class a(String str) {
             try {
-                return (Class) f8186a.invoke(null, str);
+                return (Class) f5454a.invoke(null, str);
             } catch (Exception e2) {
                 ClassNotFoundException classNotFoundException = new ClassNotFoundException();
                 classNotFoundException.initCause(e2);
@@ -176,8 +172,8 @@ public class Reflect {
     }
 
     private Reflect(Class<?> cls, Object obj) {
-        this.f8184a = cls;
-        this.f8185b = obj;
+        this.f5453a = cls;
+        this.b = obj;
     }
 
     public static Reflect a(Class<?> cls) {
@@ -350,7 +346,7 @@ public class Reflect {
                 } catch (NoSuchFieldException e2) {
                 }
             }
-            e.set(this.f8185b, b(obj));
+            e.set(this.b, b(obj));
             return this;
         } catch (Exception e3) {
             throw new ReflectException(e3);
@@ -359,10 +355,10 @@ public class Reflect {
 
     public Reflect a(String str, Class<?>[] clsArr, Object... objArr) {
         try {
-            return a(a(str, clsArr), this.f8185b, objArr);
+            return a(a(str, clsArr), this.b, objArr);
         } catch (NoSuchMethodException e) {
             try {
-                return a(b(str, clsArr), this.f8185b, objArr);
+                return a(b(str, clsArr), this.b, objArr);
             } catch (NoSuchMethodException e2) {
                 throw new ReflectException(e2);
             }
@@ -392,7 +388,7 @@ public class Reflect {
     }
 
     public <T> T a() {
-        return (T) this.f8185b;
+        return (T) this.b;
     }
 
     public Reflect b() {
@@ -406,14 +402,14 @@ public class Reflect {
     public Reflect c(String str) {
         try {
             Field e = e(str);
-            return a(e.getType(), e.get(this.f8185b));
+            return a(e.getType(), e.get(this.b));
         } catch (Exception e2) {
             throw new ReflectException(e2);
         }
     }
 
     public Class<?> c() {
-        return this.f8184a;
+        return this.f5453a;
     }
 
     public Reflect d(String str) {
@@ -422,16 +418,16 @@ public class Reflect {
 
     public boolean equals(Object obj) {
         if (obj instanceof Reflect) {
-            return this.f8185b.equals(((Reflect) obj).a());
+            return this.b.equals(((Reflect) obj).a());
         }
         return false;
     }
 
     public int hashCode() {
-        return this.f8185b.hashCode();
+        return this.b.hashCode();
     }
 
     public String toString() {
-        return String.valueOf(this.f8185b);
+        return String.valueOf(this.b);
     }
 }

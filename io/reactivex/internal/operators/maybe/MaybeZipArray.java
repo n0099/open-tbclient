@@ -8,7 +8,7 @@ import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MaybeZipArray<T, R> extends k<R> {
     final o<? extends T>[] sources;
     final h<? super Object[], ? extends R> zipper;
@@ -33,7 +33,7 @@ public final class MaybeZipArray<T, R> extends k<R> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class ZipCoordinator<T, R> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -5556924161382950569L;
         final m<? super R> actual;
@@ -72,7 +72,7 @@ public final class MaybeZipArray<T, R> extends k<R> {
             this.values[i] = t;
             if (decrementAndGet() == 0) {
                 try {
-                    this.actual.onSuccess(io.reactivex.internal.functions.a.m(this.zipper.apply(this.values), "The zipper returned a null value"));
+                    this.actual.onSuccess(io.reactivex.internal.functions.a.n(this.zipper.apply(this.values), "The zipper returned a null value"));
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.N(th);
                     this.actual.onError(th);
@@ -109,7 +109,7 @@ public final class MaybeZipArray<T, R> extends k<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class ZipMaybeObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
         private static final long serialVersionUID = 3323743579927613702L;
         final int index;
@@ -145,7 +145,7 @@ public final class MaybeZipArray<T, R> extends k<R> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     final class a implements h<T, R> {
         a() {
         }
@@ -153,7 +153,7 @@ public final class MaybeZipArray<T, R> extends k<R> {
         /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object[], java.lang.Object] */
         @Override // io.reactivex.b.h
         public R apply(T t) throws Exception {
-            return (R) io.reactivex.internal.functions.a.m(MaybeZipArray.this.zipper.apply(new Object[]{t}), "The zipper returned a null value");
+            return (R) io.reactivex.internal.functions.a.n(MaybeZipArray.this.zipper.apply(new Object[]{t}), "The zipper returned a null value");
         }
     }
 }

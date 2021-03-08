@@ -8,9 +8,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SelectLocationActivity extends SuspendedActivity {
-    private CustomMessageListener liC = new CustomMessageListener(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY) { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.1
+    private CustomMessageListener lkE = new CustomMessageListener(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY) { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -24,7 +24,7 @@ public class SelectLocationActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.liC);
+        registerListener(this.lkE);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -33,7 +33,7 @@ public class SelectLocationActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bEN() {
+    protected void bER() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

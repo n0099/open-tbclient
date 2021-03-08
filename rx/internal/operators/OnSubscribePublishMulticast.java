@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.a.ae;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements d.a<T>, rx.e<T>, rx.k {
     static final PublishProducer<?>[] EMPTY = new PublishProducer[0];
     static final PublishProducer<?>[] TERMINATED = new PublishProducer[0];
@@ -34,7 +34,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
         this.prefetch = i;
         this.delayError = z;
-        if (ae.eNI()) {
+        if (ae.eNq()) {
             this.queue = new rx.internal.util.a.q(i);
         } else {
             this.queue = new rx.internal.util.atomic.c(i);
@@ -263,32 +263,32 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> extends rx.j<T> {
-        final OnSubscribePublishMulticast<T> qzN;
+        final OnSubscribePublishMulticast<T> qAp;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.qzN = onSubscribePublishMulticast;
+            this.qAp = onSubscribePublishMulticast;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.qzN.onNext(t);
+            this.qAp.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.qzN.onError(th);
+            this.qAp.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.qzN.onCompleted();
+            this.qAp.onCompleted();
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.qzN.setProducer(fVar);
+            this.qAp.setProducer(fVar);
         }
     }
 
@@ -307,7 +307,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class PublishProducer<T> extends AtomicLong implements rx.f, rx.k {
         private static final long serialVersionUID = 960704844171597367L;
         final rx.j<? super T> actual;

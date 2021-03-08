@@ -2,7 +2,7 @@ package com.baidu.searchbox.process.ipc;
 
 import android.content.Context;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IPCLibConfig {
     public static final boolean DEBUG = false;
     public static final Context sAppContext = AppRuntime.getAppContext();

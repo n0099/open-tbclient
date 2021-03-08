@@ -7,7 +7,7 @@ import androidx.webkit.WebViewCompat;
 import java.lang.reflect.InvocationHandler;
 import org.chromium.support_lib_boundary.WebViewProviderBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class WebViewProviderAdapter {
     WebViewProviderBoundaryInterface mImpl;
 

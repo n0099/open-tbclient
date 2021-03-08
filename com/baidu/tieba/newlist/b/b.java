@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.n;
 import tbclient.TopicList.NewTopicList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements n {
     public String cover;
     public String desc;
@@ -26,6 +26,6 @@ public class b implements n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.lFS;
+        return a.lHU;
     }
 }

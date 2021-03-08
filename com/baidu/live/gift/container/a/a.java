@@ -1,35 +1,35 @@
 package com.baidu.live.gift.container.a;
 
 import android.animation.TypeEvaluator;
-/* loaded from: classes11.dex */
-public class a implements TypeEvaluator<C0174a> {
-    private C0174a bcC = new C0174a();
-    private float bcD;
-    private float bcE;
+/* loaded from: classes10.dex */
+public class a implements TypeEvaluator<C0180a> {
+    private C0180a bec = new C0180a();
+    private float bed;
+    private float bee;
 
     public a() {
-        this.bcC.l(1.0f, 1.0f);
-        this.bcD = 0.05882353f;
-        this.bcE = 0.90588236f;
+        this.bec.l(1.0f, 1.0f);
+        this.bed = 0.05882353f;
+        this.bee = 0.90588236f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
     /* renamed from: a */
-    public C0174a evaluate(float f, C0174a c0174a, C0174a c0174a2) {
-        if (f <= this.bcD) {
-            this.bcC.l(f / this.bcD, f / this.bcD);
-        } else if (f <= this.bcE) {
-            this.bcC.l(1.0f, 1.0f);
+    public C0180a evaluate(float f, C0180a c0180a, C0180a c0180a2) {
+        if (f <= this.bed) {
+            this.bec.l(f / this.bed, f / this.bed);
+        } else if (f <= this.bee) {
+            this.bec.l(1.0f, 1.0f);
         } else {
-            this.bcC.l(1.0f - ((f - this.bcE) / (1.0f - this.bcE)), 1.0f - ((f - this.bcE) / (1.0f - this.bcE)));
+            this.bec.l(1.0f - ((f - this.bee) / (1.0f - this.bee)), 1.0f - ((f - this.bee) / (1.0f - this.bee)));
         }
-        return this.bcC;
+        return this.bec;
     }
 
     /* renamed from: com.baidu.live.gift.container.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0174a {
+    /* loaded from: classes10.dex */
+    public static class C0180a {
         public float alpha;
         public float scale;
 

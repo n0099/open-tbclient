@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.tbean.b.b;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends BaseAdapter {
-    private int jlJ;
-    private LinkedList<b> kau = new LinkedList<>();
+    private int jnt;
+    private LinkedList<b> kcw = new LinkedList<>();
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -20,26 +20,26 @@ public class a extends BaseAdapter {
 
     public void setDatas(List<b> list) {
         if (!y.isEmpty(list)) {
-            this.kau.clear();
-            this.kau.addAll(list);
+            this.kcw.clear();
+            this.kcw.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public void JX(int i) {
-        this.jlJ = i;
+    public void Kc(int i) {
+        this.jnt = i;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return y.getCount(this.kau);
+        return y.getCount(this.kcw);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: JY */
+    /* renamed from: Kd */
     public b getItem(int i) {
-        return (b) y.getItem(this.kau, i);
+        return (b) y.getItem(this.kcw, i);
     }
 
     @Override // android.widget.Adapter
@@ -51,7 +51,7 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.tbean.view.a aVar;
         if (view == null) {
-            aVar = new com.baidu.tieba.tbean.view.a(this.mPageContext, this.jlJ);
+            aVar = new com.baidu.tieba.tbean.view.a(this.mPageContext, this.jnt);
             view = aVar.getView();
             view.setTag(aVar);
         } else {

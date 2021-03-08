@@ -2,21 +2,21 @@ package com.baidu.turbonet.net;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
-    private PipedInputStreamAndroid25 oRs;
+    private PipedInputStreamAndroid25 oTx;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        if (this.oRs == null) {
+        if (this.oTx == null) {
             throw new IOException("Pipe not connected");
         }
-        this.oRs.MY(i);
+        this.oTx.Nc(i);
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (this.oRs == null) {
+        if (this.oTx == null) {
             throw new IOException("Pipe not connected");
         }
         if (bArr == null) {
@@ -26,23 +26,23 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             throw new IndexOutOfBoundsException();
         }
         if (i2 != 0) {
-            this.oRs.u(bArr, i, i2);
+            this.oTx.u(bArr, i, i2);
         }
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.oRs != null) {
-            synchronized (this.oRs) {
-                this.oRs.notifyAll();
+        if (this.oTx != null) {
+            synchronized (this.oTx) {
+                this.oTx.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.oRs != null) {
-            this.oRs.egI();
+        if (this.oTx != null) {
+            this.oTx.egQ();
         }
     }
 }

@@ -9,33 +9,33 @@ import javax.annotation.concurrent.Immutable;
 public class c implements com.facebook.cache.common.b {
     private final long mCacheTime;
     private final int mHash;
-    private final Object pBi;
-    private final String pHr;
+    private final Object pDn;
     @Nullable
-    private final com.facebook.imagepipeline.common.d pHs;
-    private final com.facebook.imagepipeline.common.e pHt;
-    private final com.facebook.imagepipeline.common.b pHu;
+    private final com.facebook.cache.common.b pJA;
     @Nullable
-    private final com.facebook.cache.common.b pHv;
+    private final String pJB;
+    private final String pJw;
     @Nullable
-    private final String pHw;
+    private final com.facebook.imagepipeline.common.d pJx;
+    private final com.facebook.imagepipeline.common.e pJy;
+    private final com.facebook.imagepipeline.common.b pJz;
 
     public c(String str, @Nullable com.facebook.imagepipeline.common.d dVar, com.facebook.imagepipeline.common.e eVar, com.facebook.imagepipeline.common.b bVar, @Nullable com.facebook.cache.common.b bVar2, @Nullable String str2, Object obj) {
-        this.pHr = (String) com.facebook.common.internal.g.checkNotNull(str);
-        this.pHs = dVar;
-        this.pHt = eVar;
-        this.pHu = bVar;
-        this.pHv = bVar2;
-        this.pHw = str2;
-        this.mHash = com.facebook.common.util.a.a(Integer.valueOf(str.hashCode()), Integer.valueOf(dVar != null ? dVar.hashCode() : 0), Integer.valueOf(eVar.hashCode()), this.pHu, this.pHv, str2);
-        this.pBi = obj;
+        this.pJw = (String) com.facebook.common.internal.g.checkNotNull(str);
+        this.pJx = dVar;
+        this.pJy = eVar;
+        this.pJz = bVar;
+        this.pJA = bVar2;
+        this.pJB = str2;
+        this.mHash = com.facebook.common.util.a.a(Integer.valueOf(str.hashCode()), Integer.valueOf(dVar != null ? dVar.hashCode() : 0), Integer.valueOf(eVar.hashCode()), this.pJz, this.pJA, str2);
+        this.pDn = obj;
         this.mCacheTime = RealtimeSinceBootClock.get().now();
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof c) {
             c cVar = (c) obj;
-            return this.mHash == cVar.mHash && this.pHr.equals(cVar.pHr) && com.facebook.common.internal.f.equal(this.pHs, cVar.pHs) && com.facebook.common.internal.f.equal(this.pHt, cVar.pHt) && com.facebook.common.internal.f.equal(this.pHu, cVar.pHu) && com.facebook.common.internal.f.equal(this.pHv, cVar.pHv) && com.facebook.common.internal.f.equal(this.pHw, cVar.pHw);
+            return this.mHash == cVar.mHash && this.pJw.equals(cVar.pJw) && com.facebook.common.internal.f.equal(this.pJx, cVar.pJx) && com.facebook.common.internal.f.equal(this.pJy, cVar.pJy) && com.facebook.common.internal.f.equal(this.pJz, cVar.pJz) && com.facebook.common.internal.f.equal(this.pJA, cVar.pJA) && com.facebook.common.internal.f.equal(this.pJB, cVar.pJB);
         }
         return false;
     }
@@ -47,15 +47,15 @@ public class c implements com.facebook.cache.common.b {
 
     @Override // com.facebook.cache.common.b
     public boolean I(Uri uri) {
-        return erU().contains(uri.toString());
+        return esd().contains(uri.toString());
     }
 
     @Override // com.facebook.cache.common.b
-    public String erU() {
-        return this.pHr;
+    public String esd() {
+        return this.pJw;
     }
 
     public String toString() {
-        return String.format(null, "%s_%s_%s_%s_%s_%s_%d", this.pHr, this.pHs, this.pHt, this.pHu, this.pHv, this.pHw, Integer.valueOf(this.mHash));
+        return String.format(null, "%s_%s_%s_%s_%s_%s_%d", this.pJw, this.pJx, this.pJy, this.pJz, this.pJA, this.pJB, Integer.valueOf(this.mHash));
     }
 }

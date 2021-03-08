@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
 /* loaded from: classes.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private boolean akA;
-    private c akz;
+    private c alS;
+    private boolean alT;
     private BdUniqueId mBdUniqueId;
 
     public FollowUserDecorView(Context context) {
@@ -31,26 +31,26 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     public void setData(cb cbVar) {
-        if (cbVar == null || cbVar.bnQ() == null) {
+        if (cbVar == null || cbVar.bnS() == null) {
             setVisibility(8);
             return;
         }
-        if (this.akz == null) {
-            this.akz = new c(W(getContext()), this);
-            this.akz.l(this.mBdUniqueId);
+        if (this.alS == null) {
+            this.alS = new c(V(getContext()), this);
+            this.alS.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.akz.a(cbVar.bnQ());
+        this.alS.a(cbVar.bnS());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        if (this.akz != null) {
-            this.akz.l(this.mBdUniqueId);
+        if (this.alS != null) {
+            this.alS.l(this.mBdUniqueId);
         }
     }
 
-    private TbPageContext W(Context context) {
+    private TbPageContext V(Context context) {
         if (context instanceof BaseActivity) {
             return ((BaseActivity) context).getPageContext();
         }
@@ -63,14 +63,14 @@ public class FollowUserDecorView extends FollowUserButton {
     @Override // com.baidu.tieba.view.FollowUserButton
     public void aM(boolean z) {
         super.aM(z);
-        if (this.akA && !z) {
+        if (this.alT && !z) {
             b bVar = new b();
-            bVar.pR(R.color.CAM_X0304);
+            bVar.pS(R.color.CAM_X0304);
             setConfig(bVar);
         }
     }
 
     public void setUseNewStyle(boolean z) {
-        this.akA = z;
+        this.alT = z;
     }
 }

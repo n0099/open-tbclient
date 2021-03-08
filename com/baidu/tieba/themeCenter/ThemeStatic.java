@@ -33,14 +33,14 @@ import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity;
 import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterActivity;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ThemeStatic {
     static {
-        dRc();
-        dRd();
-        dRe();
-        dRb();
-        dRf();
+        dRl();
+        dRm();
+        dRn();
+        dRk();
+        dRo();
         TbadkApplication.getInst().RegisterIntent(DressupCenterActivityConfig.class, DressupCenterActivity.class);
         TbadkApplication.getInst().RegisterIntent(PersonalBackdropGroupActivityConfig.class, BackgroundGroupActivity.class);
         TbadkApplication.getInst().RegisterIntent(PersonalBackdropListActivityConfig.class, BackgroundListActivity.class);
@@ -54,8 +54,8 @@ public class ThemeStatic {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_PERSONAL_BACKGROUND_SET, 1003036, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
-    private static void dRb() {
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.1
+    private static void dRk() {
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.1
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
@@ -80,8 +80,8 @@ public class ThemeStatic {
         });
     }
 
-    private static void dRc() {
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.2
+    private static void dRl() {
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.2
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
@@ -95,7 +95,7 @@ public class ThemeStatic {
                         indexOf = substring.length();
                     }
                     int i = com.baidu.adp.lib.f.b.toInt(substring.substring(0, indexOf), 0);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(tbPageContext.getPageActivity(), i, i == com.baidu.tbadk.core.sharedPref.b.brQ().getInt(new StringBuilder().append(SharedPrefConfig.CURRENT_USED_PERSONAL_BACKGROUND).append(TbadkCoreApplication.getCurrentAccount()).toString(), 0) ? 1 : 0)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackgroundPreviewActivityConfig(tbPageContext.getPageActivity(), i, i == com.baidu.tbadk.core.sharedPref.b.brR().getInt(new StringBuilder().append(SharedPrefConfig.CURRENT_USED_PERSONAL_BACKGROUND).append(TbadkCoreApplication.getCurrentAccount()).toString(), 0) ? 1 : 0)));
                     return 0;
                 }
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG)) {
@@ -106,8 +106,8 @@ public class ThemeStatic {
         });
     }
 
-    private static void dRd() {
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.3
+    private static void dRm() {
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.3
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
@@ -122,8 +122,8 @@ public class ThemeStatic {
         });
     }
 
-    private static void dRe() {
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.4
+    private static void dRn() {
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.4
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
@@ -143,8 +143,8 @@ public class ThemeStatic {
         });
     }
 
-    private static void dRf() {
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.5
+    private static void dRo() {
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.themeCenter.ThemeStatic.5
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

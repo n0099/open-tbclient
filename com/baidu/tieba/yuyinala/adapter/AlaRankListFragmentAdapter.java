@@ -5,31 +5,31 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.live.liveroom.d.d;
 import com.baidu.tieba.yuyinala.AlaRankListActivity;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaRankListFragmentAdapter extends PagerAdapter {
-    private ArrayList<d> grG;
-    private AlaRankListActivity opx;
+    private ArrayList<d> gtp;
+    private AlaRankListActivity orD;
 
     public AlaRankListFragmentAdapter(AlaRankListActivity alaRankListActivity, String str) {
-        this.opx = alaRankListActivity;
-        VI(str);
+        this.orD = alaRankListActivity;
+        VP(str);
     }
 
-    private void VI(String str) {
-        this.grG = new ArrayList<>();
-        this.grG.add(new com.baidu.tieba.yuyinala.b.a(this.opx, str));
+    private void VP(String str) {
+        this.gtp = new ArrayList<>();
+        this.gtp.add(new com.baidu.tieba.yuyinala.b.a(this.orD, str));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.grG != null) {
-            return this.grG.size();
+        if (this.gtp != null) {
+            return this.gtp.size();
         }
         return 0;
     }
 
     public ArrayList<d> getDataList() {
-        return this.grG;
+        return this.gtp;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter

@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Build {
     public static final int CHOOSE_INVOICE_TILE_SUPPORT_SDK_INT = 620822528;
     public static final int EMOJI_SUPPORTED_SDK_INT = 553844737;

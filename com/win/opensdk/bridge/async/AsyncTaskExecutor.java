@@ -5,14 +5,17 @@ import android.os.Looper;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class AsyncTaskExecutor {
-    private static final ThreadPoolExecutor qkN = new ThreadPoolExecutor(3, 3, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
 
-    public static void B(Runnable runnable) {
-        if (runnable != null) {
-            new Handler(Looper.getMainLooper()).post(runnable);
+    /* renamed from: a  reason: collision with root package name */
+    public static final ThreadPoolExecutor f8124a = new ThreadPoolExecutor(3, 3, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
+
+    public static void A(Runnable runnable) {
+        if (runnable == null) {
+            return;
         }
+        new Handler(Looper.getMainLooper()).post(runnable);
     }
 
     public static boolean isMainThread() {

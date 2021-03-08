@@ -89,27 +89,27 @@ public class a {
             if (agreeData.baijiahaoData != null) {
                 i = agreeData.baijiahaoData.oriUgcType;
             }
-            ar dR = new ar("c13271").ap("obj_type", eVar.eMf).ap("obj_locate", eVar.eMg).ap("obj_id", eVar.eMh).ap("obj_name", i).dR("post_id", agreeData.postId).dR(IntentConfig.NID, agreeData.nid);
+            ar dR = new ar("c13271").aq("obj_type", eVar.eNG).aq("obj_locate", eVar.eNH).aq("obj_id", eVar.eNI).aq("obj_name", i).dR("post_id", agreeData.postId).dR(IntentConfig.NID, agreeData.nid);
             if (cbVar != null) {
-                dR.dR("tid", cbVar.getId()).dR(IntentConfig.NID, cbVar.bmo()).v("fid", cbVar.getFid()).dR("ab_tag", cbVar.mRecomAbTag).dR(IntentConfig.RECOM_SOURCE, cbVar.mRecomSource).dR("weight", cbVar.mRecomWeight).dR("extra", cbVar.mRecomExtra);
+                dR.dR("tid", cbVar.getId()).dR(IntentConfig.NID, cbVar.bmq()).v("fid", cbVar.getFid()).dR("ab_tag", cbVar.mRecomAbTag).dR(IntentConfig.RECOM_SOURCE, cbVar.mRecomSource).dR("weight", cbVar.mRecomWeight).dR("extra", cbVar.mRecomExtra);
                 if (cbVar.getBaijiahaoData() != null) {
                     dR.dR("obj_param4", cbVar.getBaijiahaoData().oriUgcNid);
-                    if (cbVar.bmy() || cbVar.bpO()) {
+                    if (cbVar.bmA() || cbVar.bpQ()) {
                         dR.dR("obj_param6", cbVar.getBaijiahaoData().oriUgcVid);
                     }
                 }
-                if (cbVar.bpM()) {
-                    dR.ap("obj_param5", 2);
-                } else if (cbVar.bmx() || cbVar.bmy()) {
-                    dR.ap("obj_param5", 3);
+                if (cbVar.bpO()) {
+                    dR.aq("obj_param5", 2);
+                } else if (cbVar.bmz() || cbVar.bmA()) {
+                    dR.aq("obj_param5", 3);
                 } else if (cbVar.threadType == 0 || cbVar.threadType == 40) {
-                    dR.ap("obj_param5", 1);
+                    dR.aq("obj_param5", 1);
                 }
             } else {
                 dR.dR("tid", agreeData.threadId);
                 dR.dR(IntentConfig.NID, agreeData.nid);
                 dR.dR("fid", agreeData.forumId);
-                dR.ap(IntentConfig.CARD_TYPE, agreeData.cardType);
+                dR.aq(IntentConfig.CARD_TYPE, agreeData.cardType);
                 dR.dR("ab_tag", agreeData.recomAbTag);
                 dR.dR(IntentConfig.RECOM_SOURCE, agreeData.recomSource);
                 dR.dR("weight", agreeData.recomWeight);

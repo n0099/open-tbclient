@@ -94,11 +94,11 @@ public class LoginManager {
             this.cidTryLoginedTimes--;
             this.mLoginState = LoginState.NOT_LOGIN;
         } else if (110 != i && 7 != i && 23 != i && 1004 != i && 1001 != i && 8010 != i) {
-            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.aug);
+            LogUtils.d(this.TAG, "error :" + i + ", and retry ：" + IMUserLoginByTokenMsg.sRetrytimes + "， isLcp :" + a.avG);
             this.mLoginState = LoginState.NOT_LOGIN;
-            if (a.aug && IMUserLoginByTokenMsg.sRetrytimes < 3) {
+            if (a.avG && IMUserLoginByTokenMsg.sRetrytimes < 3) {
                 imRetryLogin(i);
-            } else if (!a.aug && IMConnection.getInstance(mContext).shouldRetryLogin()) {
+            } else if (!a.avG && IMConnection.getInstance(mContext).shouldRetryLogin()) {
                 LogUtils.d(this.TAG, "IMConnection，im login ：" + IMUserLoginByTokenMsg.sRetrytimes);
                 IMConnection.getInstance(mContext).disconnectedByPeer();
             }

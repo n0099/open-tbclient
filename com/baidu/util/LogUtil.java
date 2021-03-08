@@ -2,27 +2,25 @@ package com.baidu.util;
 
 import android.content.Context;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LogUtil f5623a;
+    private static LogUtil f3802a;
     private static Boolean c = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f5624b;
+    private Context b;
 
     private LogUtil(Context context) {
-        this.f5624b = context;
+        this.b = context;
     }
 
     public static synchronized LogUtil getInstance(Context context) {
         LogUtil logUtil;
         synchronized (LogUtil.class) {
-            if (f5623a == null) {
-                f5623a = new LogUtil(context);
+            if (f3802a == null) {
+                f3802a = new LogUtil(context);
             }
-            logUtil = f5623a;
+            logUtil = f3802a;
         }
         return logUtil;
     }

@@ -25,9 +25,9 @@ public class c extends com.kwad.sdk.lib.b.b<AdTemplate, AdResultData> {
     protected i<g, AdResultData> a() {
         final l.a aVar = new l.a();
         f fVar = new f(this.d);
-        fVar.f9168b = this.d.getPageScene();
-        aVar.f9284a = fVar;
-        aVar.f9285b = new com.kwad.sdk.core.g.a.c();
+        fVar.b = this.d.getPageScene();
+        aVar.f6164a = fVar;
+        aVar.b = new com.kwad.sdk.core.g.a.c();
         aVar.c = String.valueOf(com.kwad.sdk.core.response.b.d.k(this.c.photoInfo));
         return new i<g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.detail.photo.related.c.1
             /* JADX DEBUG: Method merged with bridge method */

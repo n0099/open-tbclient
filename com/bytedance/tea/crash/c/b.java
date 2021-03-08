@@ -27,17 +27,15 @@ import org.json.JSONObject;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f7629a = {"version_code", "manifest_version_code", "aid", "update_version_code"};
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f7630b;
+    private static final String[] f5164a = {"version_code", "manifest_version_code", "aid", "update_version_code"};
+    private Context b;
     private JSONObject c = new JSONObject();
 
     public b(Context context) {
-        this.f7630b = context;
+        this.b = context;
     }
 
-    public static b ia(Context context) {
+    public static b hZ(Context context) {
         b bVar = new b(context);
         JSONObject a2 = bVar.a();
         bVar.a(a2);
@@ -54,9 +52,9 @@ public final class b {
     private void a(JSONObject jSONObject) {
         int i;
         try {
-            PackageInfo packageInfo = this.f7630b.getPackageManager().getPackageInfo(this.f7630b.getPackageName(), 0);
+            PackageInfo packageInfo = this.b.getPackageManager().getPackageInfo(this.b.getPackageName(), 0);
             if (packageInfo.applicationInfo != null && (i = packageInfo.applicationInfo.labelRes) > 0) {
-                jSONObject.put("display_name", this.f7630b.getString(i));
+                jSONObject.put("display_name", this.b.getString(i));
             }
             jSONObject.put(SapiContext.KEY_SDK_VERSION, 22130);
             jSONObject.put(HttpConstants.SDK_VERSION_NAME, "2.2.1-alpha.30");
@@ -95,14 +93,14 @@ public final class b {
     }
 
     private void b(JSONObject jSONObject) {
-        Map<String, Object> b2;
+        Map<String, Object> b;
         Object obj;
-        com.bytedance.tea.crash.e.a erl = h.erl();
-        if (erl != null && jSONObject != null && (b2 = erl.b()) != null) {
+        com.bytedance.tea.crash.e.a erv = h.erv();
+        if (erv != null && jSONObject != null && (b = erv.b()) != null) {
             try {
                 JSONObject jSONObject2 = new JSONObject();
-                for (String str : b2.keySet()) {
-                    if (!TextUtils.isEmpty(str) && (obj = b2.get(str)) != null) {
+                for (String str : b.keySet()) {
+                    if (!TextUtils.isEmpty(str) && (obj = b.get(str)) != null) {
                         jSONObject2.put(str, obj);
                     }
                 }
@@ -121,7 +119,7 @@ public final class b {
     private void c(JSONObject jSONObject) {
         String str;
         try {
-            DisplayMetrics displayMetrics = this.f7630b.getResources().getDisplayMetrics();
+            DisplayMetrics displayMetrics = this.b.getResources().getDisplayMetrics();
             int i = displayMetrics.densityDpi;
             switch (i) {
                 case 120:
@@ -146,7 +144,7 @@ public final class b {
 
     private void d(JSONObject jSONObject) {
         try {
-            String language = this.f7630b.getResources().getConfiguration().locale.getLanguage();
+            String language = this.b.getResources().getConfiguration().locale.getLanguage();
             if (!TextUtils.isEmpty(language)) {
                 jSONObject.put(KsMediaMeta.KSM_KEY_LANGUAGE, language);
             }
@@ -188,7 +186,7 @@ public final class b {
 
     private void f(JSONObject jSONObject) {
         try {
-            jSONObject.put("access", i.a(this.f7630b));
+            jSONObject.put("access", i.a(this.b));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -196,7 +194,7 @@ public final class b {
 
     private void g(JSONObject jSONObject) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f7630b.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.b.getSystemService("phone");
             if (telephonyManager != null) {
                 String networkOperatorName = telephonyManager.getNetworkOperatorName();
                 if (!TextUtils.isEmpty(networkOperatorName)) {
@@ -222,7 +220,7 @@ public final class b {
                 this.c.put(entry.getKey(), entry.getValue());
             }
         }
-        for (String str : f7629a) {
+        for (String str : f5164a) {
             if (map.containsKey(str)) {
                 try {
                     this.c.put(str, Integer.parseInt((String) map.get(str)));

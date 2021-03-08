@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPOutputStream;
@@ -31,15 +32,34 @@ import org.json.JSONObject;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ai f7552a = new ai();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f7553b = "";
+    private static String f5121a = "";
+    private static String b = null;
     private static String c = null;
-    private static String d = null;
-    private static String e = null;
 
-    public static Intent a(Context context, String str) {
+    public static boolean a(Context context, String str) {
+        Intent b2;
+        boolean z = false;
+        if (context != null && !TextUtils.isEmpty(str)) {
+            try {
+                if (!c(context)) {
+                    Intent b3 = b(context, str);
+                    if (b3 != null) {
+                        b3.putExtra("START_ONLY_FOR_ANDROID", true);
+                        context.startActivity(b3);
+                        z = true;
+                    }
+                } else if (c(context, str) && (b2 = b(context, str)) != null) {
+                    b2.putExtra("START_ONLY_FOR_ANDROID", true);
+                    b.a(context, b2, null);
+                    z = true;
+                }
+            } catch (Throwable th) {
+            }
+        }
+        return z;
+    }
+
+    public static Intent b(Context context, String str) {
         Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
         if (launchIntentForPackage == null) {
             return null;
@@ -53,8 +73,8 @@ public class aj {
         return launchIntentForPackage;
     }
 
-    public static boolean b(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
+    public static boolean c(Context context, String str) {
+        if (context == null || !c(context) || TextUtils.isEmpty(str)) {
             return false;
         }
         try {
@@ -65,12 +85,22 @@ public class aj {
     }
 
     public static boolean a(Context context, Intent intent) {
-        List<ResolveInfo> queryIntentActivities;
-        return (intent == null || (queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536)) == null || queryIntentActivities.size() <= 0) ? false : true;
+        if (intent == null || context == null || !c(context)) {
+            return false;
+        }
+        try {
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
+            if (queryIntentActivities != null) {
+                return queryIntentActivities.size() > 0;
+            }
+            return false;
+        } catch (Throwable th) {
+            return false;
+        }
     }
 
-    public static boolean c(Context context, String str) {
-        return (com.bytedance.sdk.openadsdk.core.i.c() == null || com.bytedance.sdk.openadsdk.core.i.c().a()) ? false : true;
+    public static boolean a() {
+        return (com.bytedance.sdk.openadsdk.core.i.d() == null || com.bytedance.sdk.openadsdk.core.i.d().a()) ? false : true;
     }
 
     public static boolean d(Context context, String str) {
@@ -84,7 +114,7 @@ public class aj {
             }
             b.a(context, intent, null);
             return true;
-        } catch (Exception e2) {
+        } catch (Exception e) {
             return false;
         }
     }
@@ -192,9 +222,10 @@ public class aj {
             case 4:
                 return "splash_ad";
             case 5:
-            case 6:
             default:
                 return "embeded_ad";
+            case 6:
+                return "stream";
             case 7:
                 return "rewarded_video";
             case 8:
@@ -209,7 +240,7 @@ public class aj {
             return null;
         }
         try {
-            return b(c(lVar.W()));
+            return b(c(lVar.aj()));
         } catch (Throwable th) {
             return null;
         }
@@ -223,8 +254,8 @@ public class aj {
         if (str != null && !str.isEmpty()) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -233,30 +264,37 @@ public class aj {
     }
 
     public static boolean b(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        return lVar != null && c(lVar.W()) == 9;
+        return lVar != null && c(lVar.aj()) == 9;
     }
 
     public static boolean c(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null || lVar.aj() == null) {
+            return false;
+        }
+        return c(lVar.aj()) == 5 || c(lVar.aj()) == 1 || c(lVar.aj()) == 2;
+    }
+
+    public static boolean d(com.bytedance.sdk.openadsdk.core.d.l lVar) {
         if (lVar != null) {
-            return c(lVar.W()) == 3 || c(lVar.W()) == 4;
+            return c(lVar.aj()) == 3 || c(lVar.aj()) == 4;
         }
         return false;
     }
 
-    public static boolean d(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        return lVar != null && c(lVar.W()) == 7;
-    }
-
     public static boolean e(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        return lVar != null && c(lVar.W()) == 8;
+        return lVar != null && c(lVar.aj()) == 7;
     }
 
     public static boolean f(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        return (lVar == null || lVar.V() == null || TextUtils.isEmpty(lVar.V().a())) ? false : true;
+        return lVar != null && c(lVar.aj()) == 8;
     }
 
-    public static String g(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        return f(lVar) ? "deeplink_fail" : "installed";
+    public static boolean g(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        return (lVar == null || lVar.ai() == null || TextUtils.isEmpty(lVar.ai().a())) ? false : true;
+    }
+
+    public static String h(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        return g(lVar) ? "deeplink_fail" : "installed";
     }
 
     public static int c(String str) {
@@ -304,95 +342,80 @@ public class aj {
         return b2 != null ? b2.optString("req_id", "") : "";
     }
 
-    public static String h(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        if (lVar == null || lVar.U() == null || TextUtils.isEmpty(lVar.U().b())) {
+    public static String i(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null || lVar.ah() == null || TextUtils.isEmpty(lVar.ah().b())) {
             return null;
         }
-        return lVar.U().b();
+        return lVar.ah().b();
     }
 
-    public static void a(@NonNull final com.bytedance.sdk.openadsdk.core.d.l lVar, @NonNull final View view) {
-        com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.aj.1
-            @Override // java.lang.Runnable
-            public void run() {
-                JSONObject b2 = aj.b(com.bytedance.sdk.openadsdk.core.d.l.this.W());
-                if (b2 != null) {
-                    com.bytedance.sdk.openadsdk.core.p.f().a(b2.optInt("rit", 0), b2.optString("req_id", ""), com.bytedance.sdk.openadsdk.core.d.l.this.T(), ak.b(view.getRootView(), 1048576));
-                }
-            }
-        }, 5);
-    }
-
-    public static String a() {
-        if (!TextUtils.isEmpty(f7553b)) {
-            return f7553b;
+    public static String b() {
+        if (!TextUtils.isEmpty(f5121a)) {
+            return f5121a;
         }
         try {
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                f7553b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                f5121a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
             } else {
-                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.aj.2
+                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.aj.1
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            String unused = aj.f7553b = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
-                        } catch (Exception e2) {
+                            String unused = aj.f5121a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                        } catch (Exception e) {
                         }
                     }
                 });
             }
-        } catch (Exception e2) {
+        } catch (Exception e) {
         }
-        return f7553b;
-    }
-
-    public static String b() {
-        return UUID.randomUUID().toString();
+        return f5121a;
     }
 
     public static String c() {
+        return UUID.randomUUID().toString();
+    }
+
+    public static String d() {
         try {
             byte[] bArr = new byte[8];
             new SecureRandom().nextBytes(bArr);
             return j.a(bArr);
-        } catch (Exception e2) {
+        } catch (Exception e) {
             return null;
         }
     }
 
-    public static synchronized String d() {
-        String str;
-        synchronized (aj.class) {
-            if (TextUtils.isEmpty(c) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
-                c = com.bytedance.sdk.openadsdk.core.p.a().getPackageName();
-            }
-            str = c;
-        }
-        return str;
-    }
-
     public static synchronized String e() {
-        String str;
+        String packageName;
         synchronized (aj.class) {
-            if (TextUtils.isEmpty(d) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
-                PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(d(), 0);
-                d = String.valueOf(packageInfo.versionCode);
-                e = packageInfo.versionName;
-            }
-            str = d;
+            packageName = com.bytedance.sdk.openadsdk.core.p.a() != null ? com.bytedance.sdk.openadsdk.core.p.a().getPackageName() : null;
         }
-        return str;
+        return packageName;
     }
 
     public static synchronized String f() {
         String str;
         synchronized (aj.class) {
-            if (TextUtils.isEmpty(e) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
-                PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(d(), 0);
-                d = String.valueOf(packageInfo.versionCode);
-                e = packageInfo.versionName;
+            if (TextUtils.isEmpty(b) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
+                PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(e(), 0);
+                b = String.valueOf(packageInfo.versionCode);
+                c = packageInfo.versionName;
             }
-            str = e;
+            str = b;
+        }
+        return str;
+    }
+
+    public static synchronized String g() {
+        String str;
+        synchronized (aj.class) {
+            if (TextUtils.isEmpty(c) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
+                PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(e(), 0);
+                b = String.valueOf(packageInfo.versionCode);
+                c = packageInfo.versionName;
+            }
+            str = c;
         }
         return str;
     }
@@ -400,9 +423,9 @@ public class aj {
     public static String a(Context context) {
         String b2 = com.bytedance.sdk.openadsdk.core.d.a(context).b("total_memory", (String) null);
         if (b2 == null) {
-            String e2 = e(context, "MemTotal");
-            com.bytedance.sdk.openadsdk.core.d.a(context).a("total_memory", e2);
-            return e2;
+            String e = e(context, "MemTotal");
+            com.bytedance.sdk.openadsdk.core.d.a(context).a("total_memory", e);
+            return e;
         }
         return b2;
     }
@@ -415,7 +438,7 @@ public class aj {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [614=5, 616=4, 620=4, 622=4, 623=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [640=4, 641=4, 632=5, 634=4, 638=4] */
     public static java.lang.String e(android.content.Context r7, java.lang.String r8) {
         /*
             r0 = 0
@@ -527,17 +550,17 @@ public class aj {
         throw new UnsupportedOperationException("Method not decompiled: com.bytedance.sdk.openadsdk.utils.aj.e(android.content.Context, java.lang.String):java.lang.String");
     }
 
-    public static Map<String, Object> a(long j, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.core.video.c.d dVar) {
+    public static Map<String, Object> a(long j, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.core.video.d.d dVar) {
         HashMap hashMap = new HashMap();
         hashMap.put("video_start_duration", Long.valueOf(j));
         if (lVar != null) {
-            if (!TextUtils.isEmpty(lVar.T())) {
-                hashMap.put("creative_id", lVar.T());
+            if (!TextUtils.isEmpty(lVar.ag())) {
+                hashMap.put("creative_id", lVar.ag());
             }
-            com.bytedance.sdk.openadsdk.core.d.s F = lVar.F();
-            if (F != null) {
-                hashMap.put(AlaRecorderLog.KEY_VIDEO_RESOLUTION, F.f());
-                hashMap.put("video_size", Long.valueOf(F.d()));
+            com.bytedance.sdk.openadsdk.core.d.t R = lVar.R();
+            if (R != null) {
+                hashMap.put(AlaRecorderLog.KEY_VIDEO_RESOLUTION, R.f());
+                hashMap.put("video_size", Long.valueOf(R.d()));
             }
         }
         a(hashMap, dVar);
@@ -546,12 +569,12 @@ public class aj {
 
     public static Map<String, Object> a(boolean z, com.bytedance.sdk.openadsdk.core.d.l lVar, long j, long j2, String str) {
         HashMap hashMap = new HashMap();
-        hashMap.put("creative_id", lVar.T());
+        hashMap.put("creative_id", lVar.ag());
         hashMap.put("load_time", Long.valueOf(j));
-        com.bytedance.sdk.openadsdk.core.d.s F = lVar.F();
-        if (F != null) {
-            hashMap.put("video_size", Long.valueOf(F.d()));
-            hashMap.put(AlaRecorderLog.KEY_VIDEO_RESOLUTION, F.f());
+        com.bytedance.sdk.openadsdk.core.d.t R = lVar.R();
+        if (R != null) {
+            hashMap.put("video_size", Long.valueOf(R.d()));
+            hashMap.put(AlaRecorderLog.KEY_VIDEO_RESOLUTION, R.f());
         }
         if (!z) {
             hashMap.put("error_code", Long.valueOf(j2));
@@ -565,7 +588,7 @@ public class aj {
 
     public static Map<String, Object> b(boolean z, com.bytedance.sdk.openadsdk.core.d.l lVar, long j, long j2, String str) {
         HashMap hashMap = new HashMap();
-        hashMap.put("creative_id", lVar.T());
+        hashMap.put("creative_id", lVar.ag());
         hashMap.put("load_time", Long.valueOf(j));
         if (!z) {
             hashMap.put("error_code", Long.valueOf(j2));
@@ -577,34 +600,34 @@ public class aj {
         return hashMap;
     }
 
-    public static Map<String, Object> a(com.bytedance.sdk.openadsdk.core.d.l lVar, int i, int i2, com.bytedance.sdk.openadsdk.core.video.c.d dVar) {
+    public static Map<String, Object> a(com.bytedance.sdk.openadsdk.core.d.l lVar, int i, int i2, com.bytedance.sdk.openadsdk.core.video.d.d dVar) {
         HashMap hashMap = new HashMap();
-        hashMap.put("creative_id", lVar.T());
+        hashMap.put("creative_id", lVar.ag());
         hashMap.put("error_code", Integer.valueOf(i));
         hashMap.put("extra_error_code", Integer.valueOf(i2));
-        com.bytedance.sdk.openadsdk.core.d.s F = lVar.F();
-        if (F != null) {
-            hashMap.put("video_size", Long.valueOf(F.d()));
-            hashMap.put(AlaRecorderLog.KEY_VIDEO_RESOLUTION, F.f());
+        com.bytedance.sdk.openadsdk.core.d.t R = lVar.R();
+        if (R != null) {
+            hashMap.put("video_size", Long.valueOf(R.d()));
+            hashMap.put(AlaRecorderLog.KEY_VIDEO_RESOLUTION, R.f());
         }
         a(hashMap, dVar);
         return hashMap;
     }
 
-    public static Map<String, Object> a(com.bytedance.sdk.openadsdk.core.d.l lVar, long j, com.bytedance.sdk.openadsdk.core.video.c.d dVar) {
+    public static Map<String, Object> a(com.bytedance.sdk.openadsdk.core.d.l lVar, long j, com.bytedance.sdk.openadsdk.core.video.d.d dVar) {
         HashMap hashMap = new HashMap();
-        hashMap.put("creative_id", lVar.T());
+        hashMap.put("creative_id", lVar.ag());
         hashMap.put("buffers_time", Long.valueOf(j));
-        com.bytedance.sdk.openadsdk.core.d.s F = lVar.F();
-        if (F != null) {
-            hashMap.put("video_size", Long.valueOf(F.d()));
-            hashMap.put(AlaRecorderLog.KEY_VIDEO_RESOLUTION, F.f());
+        com.bytedance.sdk.openadsdk.core.d.t R = lVar.R();
+        if (R != null) {
+            hashMap.put("video_size", Long.valueOf(R.d()));
+            hashMap.put(AlaRecorderLog.KEY_VIDEO_RESOLUTION, R.f());
         }
         a(hashMap, dVar);
         return hashMap;
     }
 
-    private static void a(Map<String, Object> map, com.bytedance.sdk.openadsdk.core.video.c.d dVar) {
+    private static void a(Map<String, Object> map, com.bytedance.sdk.openadsdk.core.video.d.d dVar) {
         if (map.containsKey(AlaRecorderLog.KEY_VIDEO_RESOLUTION) || dVar == null) {
             return;
         }
@@ -626,14 +649,14 @@ public class aj {
             try {
                 gZIPOutputStream.write(str.getBytes());
                 return byteArrayOutputStream.toByteArray();
-            } catch (Exception e2) {
-                u.b(e2.toString());
+            } catch (Exception e) {
+                u.b(e.toString());
                 if (gZIPOutputStream != null) {
                     try {
                         gZIPOutputStream.close();
                         return null;
-                    } catch (Exception e3) {
-                        u.b(e3.toString());
+                    } catch (Exception e2) {
+                        u.b(e2.toString());
                         return null;
                     }
                 }
@@ -643,8 +666,8 @@ public class aj {
             if (gZIPOutputStream != null) {
                 try {
                     gZIPOutputStream.close();
-                } catch (Exception e4) {
-                    u.b(e4.toString());
+                } catch (Exception e3) {
+                    u.b(e3.toString());
                 }
             }
         }
@@ -668,14 +691,14 @@ public class aj {
             }
             str = locale.getLanguage();
             return str;
-        } catch (Exception e2) {
-            u.f("ToolUtils", e2.toString());
+        } catch (Exception e) {
+            u.f("ToolUtils", e.toString());
             return str;
         }
     }
 
     public static int a(com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar, boolean z) {
-        if (cVar == null || cVar.t() == null || !cVar.t().g()) {
+        if (cVar == null || cVar.u() == null || !cVar.u().g()) {
             return 3;
         }
         return z ? 0 : 1;
@@ -707,12 +730,12 @@ public class aj {
 
     public static String k(String str) {
         if (!TextUtils.isEmpty(str) && str.length() >= 17) {
-            return com.bytedance.sdk.openadsdk.core.a.b(str.substring(17), t(str.substring(1, 17)));
+            return com.bytedance.sdk.openadsdk.core.a.b(str.substring(17), o(str.substring(1, 17)));
         }
         return str;
     }
 
-    private static String t(String str) {
+    private static String o(String str) {
         String a2 = com.bytedance.sdk.openadsdk.core.a.a(str);
         if (str == null) {
             String a3 = com.bytedance.sdk.openadsdk.core.b.a();
@@ -721,62 +744,30 @@ public class aj {
         return a2;
     }
 
-    public static boolean l(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return m(str) || n(str);
-    }
-
-    public static boolean m(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return Pattern.matches("([1-9]|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])(\\.(\\d|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])){3}", str);
-    }
-
-    public static boolean n(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return o(str) || p(str);
-    }
-
-    public static boolean o(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return Pattern.matches("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$", str);
-    }
-
-    public static boolean p(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return Pattern.matches("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$", str);
-    }
-
-    public static void a(com.bytedance.sdk.openadsdk.core.d.l lVar, String str) {
+    public static boolean a(com.bytedance.sdk.openadsdk.core.d.l lVar, String str) {
         if (lVar != null) {
             try {
-                String K = lVar.K();
-                if (TextUtils.isEmpty(K) && lVar.V() != null && lVar.V().c() == 1 && !TextUtils.isEmpty(lVar.V().b())) {
-                    K = lVar.V().b();
+                String W = lVar.W();
+                if (TextUtils.isEmpty(W) && lVar.ai() != null && lVar.ai().c() == 1 && !TextUtils.isEmpty(lVar.ai().b())) {
+                    W = lVar.ai().b();
                 }
-                if (!TextUtils.isEmpty(K)) {
-                    com.bytedance.sdk.openadsdk.core.z.a(com.bytedance.sdk.openadsdk.core.p.a(), K, lVar, a(str), str, false);
+                if (!TextUtils.isEmpty(W)) {
+                    com.bytedance.sdk.openadsdk.core.z.a(com.bytedance.sdk.openadsdk.core.p.a(), W, lVar, a(str), str, false, null);
+                    return true;
                 }
             } catch (Throwable th) {
+                return false;
             }
         }
+        return false;
     }
 
-    public static boolean i(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+    public static boolean j(com.bytedance.sdk.openadsdk.core.d.l lVar) {
         boolean z = false;
         if (lVar == null) {
             return true;
         }
-        switch (com.bytedance.sdk.openadsdk.core.p.h().c(d(lVar.W()))) {
+        switch (com.bytedance.sdk.openadsdk.core.p.h().c(d(lVar.aj()))) {
             case 1:
                 return x.d(com.bytedance.sdk.openadsdk.core.p.a());
             case 2:
@@ -792,48 +783,52 @@ public class aj {
         }
     }
 
-    public static String q(String str) {
-        String a2;
+    public static String l(String str) {
         String format = String.format("https://%s%s", com.bytedance.sdk.openadsdk.core.p.h().b(), str);
-        if (f7552a.a(com.bytedance.sdk.openadsdk.core.p.a()) && (a2 = f7552a.a("testIp.txt")) != null) {
-            return f7552a.a(format, a2);
+        if (ai.a()) {
+            String b2 = ai.b(format);
+            String a2 = ai.a("testIp.txt");
+            if (a2 != null) {
+                return ai.a(b2, a2);
+            }
+            return b2;
         }
         return format;
     }
 
-    public static String g() {
-        return String.format("https://%s", com.bytedance.sdk.openadsdk.core.p.h().c());
-    }
-
     public static String h() {
-        return String.format("https://%s", "log.snssdk.com/service/2/app_log_test/");
+        return ai.b(String.format("https://%s", com.bytedance.sdk.openadsdk.core.p.h().c()));
     }
 
-    public static int i() {
-        try {
-            return (int) ((Runtime.getRuntime().maxMemory() * 1.0d) / 1048576.0d);
-        } catch (Exception e2) {
-            return -1;
-        }
+    public static String i() {
+        return ai.b(String.format("https://%s", "log.snssdk.com/service/2/app_log_test/"));
     }
 
     public static int j() {
         try {
-            return (int) ((Runtime.getRuntime().freeMemory() * 1.0d) / 1048576.0d);
-        } catch (Exception e2) {
+            return (int) ((Runtime.getRuntime().maxMemory() * 1.0d) / 1048576.0d);
+        } catch (Exception e) {
             return -1;
         }
     }
 
     public static int k() {
         try {
-            return (int) ((Runtime.getRuntime().totalMemory() * 1.0d) / 1048576.0d);
-        } catch (Exception e2) {
+            return (int) ((Runtime.getRuntime().freeMemory() * 1.0d) / 1048576.0d);
+        } catch (Exception e) {
             return -1;
         }
     }
 
-    public static String r(String str) {
+    public static int l() {
+        try {
+            return (int) ((Runtime.getRuntime().totalMemory() * 1.0d) / 1048576.0d);
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
+    public static String m(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -844,5 +839,50 @@ public class aj {
             return "";
         }
         return str.replace("kllk", RomUtils.MANUFACTURER_OPPO);
+    }
+
+    public static boolean a(long j, long j2) {
+        long j3 = j2 - j;
+        return j3 < 86400000 && j3 > -86400000 && a(j) == a(j2);
+    }
+
+    public static long a(long j) {
+        return (TimeZone.getDefault().getOffset(j) + j) / 86400000;
+    }
+
+    public static String a(com.bytedance.sdk.openadsdk.core.d.l lVar, View view) {
+        if (lVar == null) {
+            return "";
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("rit", d(lVar.aj()));
+            jSONObject.put("app_id", com.bytedance.sdk.openadsdk.core.i.d().f());
+            jSONObject.put("creative_id", lVar.ag());
+            jSONObject.put("ad_sdk_version", 3401);
+            jSONObject.put("ad_slot_type", c(lVar.aj()));
+            if (view != null) {
+                jSONObject.put("ad_width", view.getWidth());
+                jSONObject.put("ad_height", view.getHeight());
+                int[] iArr = new int[2];
+                view.getLocationOnScreen(iArr);
+                jSONObject.put("ad_x", iArr[0]);
+                jSONObject.put("ad_y", iArr[1]);
+            }
+            jSONObject.put("screen_width", ak.c(com.bytedance.sdk.openadsdk.core.p.a()));
+            jSONObject.put("screen_height", ak.d(com.bytedance.sdk.openadsdk.core.p.a()));
+        } catch (Exception e) {
+        }
+        String a2 = com.bytedance.sdk.openadsdk.core.a.a(jSONObject.toString(), com.bytedance.sdk.openadsdk.core.b.a());
+        return TextUtils.isEmpty(a2) ? "" : a2;
+    }
+
+    public static boolean c(Context context) {
+        if (context == null) {
+            throw new IllegalArgumentException("params context is null");
+        }
+        boolean z = context.getApplicationInfo().targetSdkVersion >= 30 && Build.VERSION.SDK_INT >= 30 && context.checkSelfPermission("android.permission.QUERY_ALL_PACKAGES") != 0;
+        u.c("ToolUtils", "can query all package = " + (!z));
+        return !z;
     }
 }

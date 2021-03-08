@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.holder.HotTopicIntervalItemHolder;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.g, HotTopicIntervalItemHolder> {
     public int mSkinType;
 
@@ -22,7 +22,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cc */
+    /* renamed from: cb */
     public HotTopicIntervalItemHolder e(ViewGroup viewGroup) {
         return new HotTopicIntervalItemHolder(LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_interval, viewGroup, false));
     }
@@ -41,24 +41,24 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(HotTopicIntervalItemHolder hotTopicIntervalItemHolder, View view) {
         if (hotTopicIntervalItemHolder != null) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            if (hotTopicIntervalItemHolder.ajU != this.mSkinType) {
-                hotTopicIntervalItemHolder.ajU = this.mSkinType;
+            if (hotTopicIntervalItemHolder.aln != this.mSkinType) {
+                hotTopicIntervalItemHolder.aln = this.mSkinType;
                 ap.setBackgroundColor(hotTopicIntervalItemHolder.getView(), R.color.CAM_X0201);
-                ap.setBackgroundColor(hotTopicIntervalItemHolder.kvY, R.color.CAM_X0204);
-                ap.setViewTextColor(hotTopicIntervalItemHolder.kvZ, R.color.CAM_X0108, 1);
+                ap.setBackgroundColor(hotTopicIntervalItemHolder.kya, R.color.CAM_X0204);
+                ap.setViewTextColor(hotTopicIntervalItemHolder.kyb, R.color.CAM_X0108, 1);
             }
         }
     }
 
     private void a(HotTopicIntervalItemHolder hotTopicIntervalItemHolder, com.baidu.tieba.hottopic.data.g gVar) {
-        if (hotTopicIntervalItemHolder == null || gVar == null || StringUtils.isNull(gVar.kut)) {
+        if (hotTopicIntervalItemHolder == null || gVar == null || StringUtils.isNull(gVar.kwv)) {
             if (hotTopicIntervalItemHolder != null) {
-                hotTopicIntervalItemHolder.kvZ.setVisibility(8);
+                hotTopicIntervalItemHolder.kyb.setVisibility(8);
                 return;
             }
             return;
         }
-        hotTopicIntervalItemHolder.kvZ.setVisibility(0);
-        hotTopicIntervalItemHolder.kvZ.setText(gVar.kut);
+        hotTopicIntervalItemHolder.kyb.setVisibility(0);
+        hotTopicIntervalItemHolder.kyb.setText(gVar.kwv);
     }
 }

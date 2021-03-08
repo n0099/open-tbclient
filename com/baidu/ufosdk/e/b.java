@@ -8,11 +8,11 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f5376a;
+    private static String f3616a;
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x00f5 A[Catch: Exception -> 0x0140, TryCatch #6 {Exception -> 0x0140, blocks: (B:20:0x00f0, B:22:0x00f5, B:24:0x00fa, B:26:0x00ff), top: B:76:0x00f0 }] */
     /* JADX WARN: Removed duplicated region for block: B:24:0x00fa A[Catch: Exception -> 0x0140, TryCatch #6 {Exception -> 0x0140, blocks: (B:20:0x00f0, B:22:0x00f5, B:24:0x00fa, B:26:0x00ff), top: B:76:0x00f0 }] */
@@ -43,10 +43,10 @@ public final class b {
                 httpURLConnection2.setDoOutput(true);
                 httpURLConnection2.setUseCaches(false);
                 httpURLConnection2.setInstanceFollowRedirects(true);
-                if (f5376a == null) {
-                    f5376a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + ")";
+                if (f3616a == null) {
+                    f3616a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + ")";
                 }
-                httpURLConnection2.setRequestProperty("User-Agent", f5376a);
+                httpURLConnection2.setRequestProperty("User-Agent", f3616a);
                 httpURLConnection2.setConnectTimeout(5000);
                 httpURLConnection2.setReadTimeout(5000);
                 httpURLConnection2.setChunkedStreamingMode(0);

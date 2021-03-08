@@ -9,18 +9,18 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.model.h;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
     @Nullable
-    private com.airbnb.lottie.a ET;
+    private com.airbnb.lottie.a Gm;
     private final AssetManager assetManager;
-    private final h<String> EP = new h<>();
-    private final Map<h<String>, Typeface> ER = new HashMap();
-    private final Map<String, Typeface> ES = new HashMap();
-    private String EU = ".ttf";
+    private final h<String> Gj = new h<>();
+    private final Map<h<String>, Typeface> Gk = new HashMap();
+    private final Map<String, Typeface> Gl = new HashMap();
+    private String Gn = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.airbnb.lottie.a aVar) {
-        this.ET = aVar;
+        this.Gm = aVar;
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
             this.assetManager = null;
@@ -30,35 +30,35 @@ public class a {
     }
 
     public void a(@Nullable com.airbnb.lottie.a aVar) {
-        this.ET = aVar;
+        this.Gm = aVar;
     }
 
     public Typeface n(String str, String str2) {
-        this.EP.set(str, str2);
-        Typeface typeface = this.ER.get(this.EP);
+        this.Gj.set(str, str2);
+        Typeface typeface = this.Gk.get(this.Gj);
         if (typeface == null) {
-            Typeface b2 = b(bi(str), str2);
-            this.ER.put(this.EP, b2);
-            return b2;
+            Typeface b = b(bm(str), str2);
+            this.Gk.put(this.Gj, b);
+            return b;
         }
         return typeface;
     }
 
-    private Typeface bi(String str) {
-        String ba;
-        Typeface typeface = this.ES.get(str);
+    private Typeface bm(String str) {
+        String be;
+        Typeface typeface = this.Gl.get(str);
         if (typeface == null) {
             typeface = null;
-            if (this.ET != null) {
-                typeface = this.ET.aZ(str);
+            if (this.Gm != null) {
+                typeface = this.Gm.bd(str);
             }
-            if (this.ET != null && typeface == null && (ba = this.ET.ba(str)) != null) {
-                typeface = Typeface.createFromAsset(this.assetManager, ba);
+            if (this.Gm != null && typeface == null && (be = this.Gm.be(str)) != null) {
+                typeface = Typeface.createFromAsset(this.assetManager, be);
             }
             if (typeface == null) {
-                typeface = Typeface.createFromAsset(this.assetManager, "fonts/" + str + this.EU);
+                typeface = Typeface.createFromAsset(this.assetManager, "fonts/" + str + this.Gn);
             }
-            this.ES.put(str, typeface);
+            this.Gl.put(str, typeface);
         }
         return typeface;
     }

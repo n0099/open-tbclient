@@ -1,5 +1,5 @@
 package com.yy.mediaframework.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ChannelModel {
     public static final int FILLMODE_INNERFIT = 1;
     public static final int FILLMODE_OUTERFIT = 2;
@@ -8,7 +8,7 @@ public class ChannelModel {
     public int fillMode;
     public Rect location;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class Rect {
         public int bottom;
         public int left;

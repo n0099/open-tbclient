@@ -3,23 +3,23 @@ package com.baidu.tbadk.coreExtra.data;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class k {
-    private final int dYS;
-    private final int dYT;
-    private final TbPageContext<?> eUY;
+    private final TbPageContext<?> eWx;
+    private final int eau;
+    private final int eav;
 
-    public TbPageContext<?> bwm() {
-        return this.eUY;
+    public TbPageContext<?> bwp() {
+        return this.eWx;
     }
 
     public int getAdHeight() {
-        return this.dYT;
+        return this.eav;
     }
 
     public int getAdWidth() {
-        return this.dYS;
+        return this.eau;
     }
 
     public boolean isAvailable() {
-        return this.eUY != null && this.dYT > 0 && this.dYS > 0;
+        return this.eWx != null && this.eav > 0 && this.eau > 0;
     }
 }

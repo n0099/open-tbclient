@@ -2,11 +2,11 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.a.a;
 
 import androidx.annotation.NonNull;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.inlinewidget.rtcroom.c.a> {
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String avW() {
+    public String avZ() {
         return "onItemRelease";
     }
 

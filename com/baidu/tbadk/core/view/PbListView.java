@@ -15,19 +15,19 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class PbListView extends com.baidu.adp.widget.ListView.b {
-    private ImageView fiu;
-    private boolean fiw;
+    private ImageView fjU;
+    private boolean fjW;
     private Context mContext;
-    private final int fiq = R.drawable.new_pic_emotion_03;
-    private final int fir = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40);
-    private final int fis = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds256);
-    private final int fit = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    private final int fjQ = R.drawable.new_pic_emotion_03;
+    private final int fjR = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+    private final int fjS = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds256);
+    private final int fjT = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     private TextView mTextView = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
     private View mRoot = null;
     private View mEmpty = null;
-    private int fiv = this.fiq;
+    private int fjV = this.fjQ;
     private int mEmptyBgColorId = 0;
     private String endText = null;
     private LinearLayout mContainer = null;
@@ -39,7 +39,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     private boolean mIsMoreViewVisible = true;
     private int mSkinType = -1;
     private int mContainerBackgroundColorResId = 0;
-    public boolean fiy = false;
+    public boolean fjX = false;
 
     /* loaded from: classes.dex */
     public enum IconType {
@@ -61,7 +61,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.mContainer = (LinearLayout) this.mRoot.findViewById(R.id.pb_more_view);
         this.mTextView = (TextView) this.mRoot.findViewById(R.id.pb_more_text);
-        this.fiu = (ImageView) this.mRoot.findViewById(R.id.no_data_image);
+        this.fjU = (ImageView) this.mRoot.findViewById(R.id.no_data_image);
         if (this.mIsMoreViewVisible) {
             this.mContainer.setVisibility(0);
         } else {
@@ -161,69 +161,69 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mContainer.setLayoutParams(layoutParams);
     }
 
-    public void bud() {
+    public void bug() {
         this.mRoot.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
     }
 
-    public void bue() {
-        this.fiw = false;
-        this.fiu.setVisibility(8);
+    public void buh() {
+        this.fjW = false;
+        this.fjU.setVisibility(8);
         hideEmptyView();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
-        layoutParams.height = this.fit;
+        layoutParams.height = this.fjT;
         layoutParams.bottomMargin = 0;
         this.mContainer.setLayoutParams(layoutParams);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void at(String str, int i) {
-        this.endText = str;
-        this.mTextView.setText(str);
-        this.fiw = true;
-        this.fiu.setVisibility(0);
-        this.fiv = this.fiq;
-        changeSkin(TbadkCoreApplication.getInst().getSkinType());
-        pD(i);
-        this.fiy = false;
-    }
-
     public void au(String str, int i) {
         this.endText = str;
         this.mTextView.setText(str);
-        this.fiw = true;
-        this.fiu.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fiu.getLayoutParams();
+        this.fjW = true;
+        this.fjU.setVisibility(0);
+        this.fjV = this.fjQ;
+        changeSkin(TbadkCoreApplication.getInst().getSkinType());
+        pE(i);
+        this.fjX = false;
+    }
+
+    public void av(String str, int i) {
+        this.endText = str;
+        this.mTextView.setText(str);
+        this.fjW = true;
+        this.fjU.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fjU.getLayoutParams();
         layoutParams.topMargin = i;
-        this.fiu.setLayoutParams(layoutParams);
+        this.fjU.setLayoutParams(layoutParams);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void t(String str, @DrawableRes int i, int i2) {
         this.endText = str;
         this.mTextView.setText(str);
-        this.fiw = true;
-        this.fiv = i;
-        this.fiu.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fiu.getLayoutParams();
+        this.fjW = true;
+        this.fjV = i;
+        this.fjU.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fjU.getLayoutParams();
         layoutParams.topMargin = i2;
-        layoutParams.bottomMargin = this.fir;
-        this.fiu.setLayoutParams(layoutParams);
+        layoutParams.bottomMargin = this.fjR;
+        this.fjU.setLayoutParams(layoutParams);
         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams2.height = -2;
-        layoutParams2.bottomMargin = this.fis;
+        layoutParams2.bottomMargin = this.fjS;
         this.mContainer.setLayoutParams(layoutParams2);
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setText(String str) {
-        av(str, this.fit);
+        setText(str, this.fjT);
     }
 
-    public void av(String str, int i) {
+    public void setText(String str, int i) {
         this.endText = str;
         this.mTextView.setText(str);
-        this.fiw = false;
-        this.fiu.setVisibility(8);
+        this.fjW = false;
+        this.fjU.setVisibility(8);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams.height = i;
         layoutParams.bottomMargin = 0;
@@ -299,8 +299,8 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         if (this.mEmptyBgColorId != 0) {
             ap.setBackgroundColor(this.mEmpty, this.mEmptyBgColorId, i);
         }
-        if (this.fiw) {
-            ap.setImageResource(this.fiu, this.fiv);
+        if (this.fjW) {
+            ap.setImageResource(this.fjU, this.fjV);
             ap.setViewTextColor(this.mTextView, R.color.CAM_X0109);
         }
     }
@@ -312,7 +312,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mEmpty.setVisibility(0);
     }
 
-    public void pC(int i) {
+    public void pD(int i) {
         if (this.mTopExtraView != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mTopExtraView.getLayoutParams();
             layoutParams.height = i;
@@ -350,15 +350,15 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         return this.mProgressBar != null && this.mProgressBar.getVisibility() == 0;
     }
 
-    public boolean buf() {
-        return this.fiw;
+    public boolean bui() {
+        return this.fjW;
     }
 
-    public void pD(int i) {
+    public void pE(int i) {
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.tbds156);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fiu.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fjU.getLayoutParams();
         layoutParams.topMargin = dimension;
-        this.fiu.setLayoutParams(layoutParams);
+        this.fjU.setLayoutParams(layoutParams);
         showEmptyView(dimension);
     }
 

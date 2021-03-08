@@ -1,21 +1,21 @@
 package com.baidu.swan.apps.framework;
 
 import android.view.KeyEvent;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface b {
-    void ajU();
+    void ajX();
 
-    void ajV();
+    void ajY();
 
-    void ajW();
+    void ajZ();
 
-    void alo();
+    void alr();
 
-    void anq();
+    void ant();
 
-    void auU();
+    void auX();
 
-    void auV();
+    void auY();
 
     boolean onKeyDown(int i, KeyEvent keyEvent);
 }

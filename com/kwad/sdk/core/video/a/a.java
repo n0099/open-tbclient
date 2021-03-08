@@ -6,21 +6,19 @@ import com.kwad.sdk.core.video.a.c;
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private c.e f9442a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private c.b f9443b;
+    private c.e f6260a;
+    private c.b b;
     private c.a c;
     private c.f d;
     private c.h e;
-    private c.InterfaceC1106c f;
+    private c.InterfaceC1123c f;
     private c.d g;
     private c.g h;
 
     public void a() {
-        this.f9442a = null;
+        this.f6260a = null;
         this.c = null;
-        this.f9443b = null;
+        this.b = null;
         this.d = null;
         this.e = null;
         this.f = null;
@@ -56,12 +54,12 @@ public abstract class a implements c {
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.b bVar) {
-        this.f9443b = bVar;
+        this.b = bVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
-    public void a(c.InterfaceC1106c interfaceC1106c) {
-        this.f = interfaceC1106c;
+    public void a(c.InterfaceC1123c interfaceC1123c) {
+        this.f = interfaceC1123c;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
@@ -71,7 +69,7 @@ public abstract class a implements c {
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.e eVar) {
-        this.f9442a = eVar;
+        this.f6260a = eVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
@@ -86,8 +84,8 @@ public abstract class a implements c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.f9442a != null) {
-            this.f9442a.a(this);
+        if (this.f6260a != null) {
+            this.f6260a.a(this);
         }
     }
 
@@ -98,8 +96,8 @@ public abstract class a implements c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void c() {
-        if (this.f9443b != null) {
-            this.f9443b.a(this);
+        if (this.b != null) {
+            this.b.a(this);
         }
     }
 

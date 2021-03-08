@@ -7,17 +7,15 @@ import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.supplier.h.a.d;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5754a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f5755b;
+    private String f3885a = "";
+    private Context b;
 
     public a(Context context) {
-        this.f5755b = context;
+        this.b = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -41,7 +39,7 @@ public class a implements InnerIdSupplier {
     }
 
     public void a(String str) {
-        this.f5754a = str;
+        this.f3885a = str;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -51,14 +49,14 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
-        String b2 = d.b(this.f5755b, this.f5754a);
-        return TextUtils.isEmpty(b2) ? sysParamters.f() : b2;
+        String b = d.b(this.b, this.f3885a);
+        return TextUtils.isEmpty(b) ? sysParamters.f() : b;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
-        String b2 = d.b(this.f5755b);
-        return b2 == null ? "" : b2;
+        String b = d.b(this.b);
+        return b == null ? "" : b;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -68,13 +66,13 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
-        String a2 = d.a(this.f5755b, this.f5754a);
+        String a2 = d.a(this.b, this.f3885a);
         return a2 == null ? "" : a2;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
-        return d.a(this.f5755b);
+        return d.a(this.b);
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier

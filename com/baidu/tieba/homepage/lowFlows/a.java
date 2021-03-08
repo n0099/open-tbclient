@@ -8,13 +8,13 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.homepage.lowFlows.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0747a {
+    public interface InterfaceC0753a {
         boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
     }
 
     /* loaded from: classes2.dex */
     public interface b {
-        boolean BT(int i);
+        boolean BW(int i);
 
         boolean a(int i, com.baidu.tieba.homepage.lowFlows.message.a aVar);
 
@@ -25,7 +25,7 @@ public interface a {
 
     /* loaded from: classes2.dex */
     public interface c {
-        void BU(int i);
+        void BX(int i);
 
         void loadData();
 

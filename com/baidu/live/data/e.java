@@ -6,12 +6,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public String aGh;
-    public String aGi;
-    public boolean aGj;
-    public long aGk;
+    public String aHH;
+    public String aHI;
+    public boolean aHJ;
+    public long aHK;
     public String cuid;
     public int level;
     public String mCustomRoomId;
@@ -27,7 +27,7 @@ public class e {
     public void parseJson(JSONObject jSONObject) {
         this.mRoomId = jSONObject.optString("room_id", "");
         this.mCustomRoomId = jSONObject.optString(UbcStatConstant.KEY_CUSTOM_ROOM_ID, "");
-        this.aGh = jSONObject.optString("apply_user_id", "");
+        this.aHH = jSONObject.optString("apply_user_id", "");
         this.uk = jSONObject.optString("uk", "");
         this.mUserName = jSONObject.optString("user_nickname", "");
         this.mPortrait = jSONObject.optString("portrait", "");
@@ -36,9 +36,9 @@ public class e {
         this.phone_order = jSONObject.optInt("phone_order", 0);
         this.level = jSONObject.optInt("level", 0);
         this.cuid = jSONObject.optString("cuid", "");
-        this.aGi = jSONObject.optString("client_version", "0");
-        this.aGk = jSONObject.optLong("app_id", 0L);
-        this.aGj = jSONObject.optInt("forbidden_status", 0) == 0;
+        this.aHI = jSONObject.optString("client_version", "0");
+        this.aHK = jSONObject.optLong("app_id", 0L);
+        this.aHJ = jSONObject.optInt("forbidden_status", 0) == 0;
         JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             this.mLiveMarkInfo = new ArrayList();

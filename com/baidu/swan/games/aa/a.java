@@ -3,30 +3,30 @@ package com.baidu.swan.games.aa;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private static final ReentrantLock elw = new ReentrantLock();
-    private static volatile a elx;
-    private d ees;
-    private List<c> efk = new ArrayList(3);
+    private static final ReentrantLock emX = new ReentrantLock();
+    private static volatile a emY;
+    private d efT;
+    private List<c> egM = new ArrayList(3);
 
     private a() {
     }
 
-    public static a aYA() {
-        if (elx == null) {
+    public static a aYD() {
+        if (emY == null) {
             synchronized (a.class) {
-                if (elx == null) {
-                    elx = new a();
+                if (emY == null) {
+                    emY = new a();
                 }
             }
         }
-        return elx;
+        return emY;
     }
 
     public void a(d dVar) {
-        this.ees = dVar;
-        aYB();
+        this.efT = dVar;
+        aYE();
     }
 
     public void as(String str, boolean z) {
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.ees = null;
-        this.efk.clear();
+        this.efT = null;
+        this.egM.clear();
     }
 
     private void a(c cVar) {
-        elw.lock();
+        emX.lock();
         try {
-            if (this.ees != null) {
-                this.ees.c(cVar);
+            if (this.efT != null) {
+                this.efT.c(cVar);
             } else {
-                this.efk.add(cVar);
+                this.egM.add(cVar);
             }
         } finally {
-            elw.unlock();
+            emX.unlock();
         }
     }
 
-    private void aYB() {
-        if (!this.efk.isEmpty() && this.ees != null) {
-            elw.lock();
+    private void aYE() {
+        if (!this.egM.isEmpty() && this.efT != null) {
+            emX.lock();
             try {
-                for (c cVar : this.efk) {
-                    this.ees.c(cVar);
+                for (c cVar : this.egM) {
+                    this.efT.c(cVar);
                 }
-                this.efk.clear();
+                this.egM.clear();
             } finally {
-                elw.unlock();
+                emX.unlock();
             }
         }
     }

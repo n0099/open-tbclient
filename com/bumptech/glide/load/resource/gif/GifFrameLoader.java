@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.resource.gif;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -16,8 +17,9 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
+import com.bumptech.glide.request.BaseRequestOptions;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.signature.ObjectKey;
 import com.bumptech.glide.util.Preconditions;
@@ -26,14 +28,16 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class GifFrameLoader {
     private final BitmapPool bitmapPool;
     private final List<FrameCallback> callbacks;
     private DelayTarget current;
     private Bitmap firstFrame;
+    private int firstFrameSize;
     private final GifDecoder gifDecoder;
     private final Handler handler;
+    private int height;
     private boolean isCleared;
     private boolean isLoadPending;
     private boolean isRunning;
@@ -45,15 +49,16 @@ public class GifFrameLoader {
     final RequestManager requestManager;
     private boolean startFromFirstFrame;
     private Transformation<Bitmap> transformation;
+    private int width;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface FrameCallback {
         void onFrameReady();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnEveryFrameListener {
         void onFrameReady();
     }
@@ -78,7 +83,10 @@ public class GifFrameLoader {
     public void setFrameTransformation(Transformation<Bitmap> transformation, Bitmap bitmap) {
         this.transformation = (Transformation) Preconditions.checkNotNull(transformation);
         this.firstFrame = (Bitmap) Preconditions.checkNotNull(bitmap);
-        this.requestBuilder = this.requestBuilder.apply(new RequestOptions().transform(transformation));
+        this.requestBuilder = this.requestBuilder.apply((BaseRequestOptions<?>) new RequestOptions().transform(transformation));
+        this.firstFrameSize = Util.getBitmapByteSize(bitmap);
+        this.width = bitmap.getWidth();
+        this.height = bitmap.getHeight();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -116,17 +124,17 @@ public class GifFrameLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getWidth() {
-        return getCurrentFrame().getWidth();
+        return this.width;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getHeight() {
-        return getCurrentFrame().getHeight();
+        return this.height;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getSize() {
-        return this.gifDecoder.getByteSize() + getFrameSize();
+        return this.gifDecoder.getByteSize() + this.firstFrameSize;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -135,10 +143,6 @@ public class GifFrameLoader {
             return this.current.index;
         }
         return -1;
-    }
-
-    private int getFrameSize() {
-        return Util.getBitmapByteSize(getCurrentFrame().getWidth(), getCurrentFrame().getHeight(), getCurrentFrame().getConfig());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -211,7 +215,7 @@ public class GifFrameLoader {
             long nextDelay = this.gifDecoder.getNextDelay() + SystemClock.uptimeMillis();
             this.gifDecoder.advance();
             this.next = new DelayTarget(this.handler, this.gifDecoder.getCurrentFrameIndex(), nextDelay);
-            this.requestBuilder.apply(RequestOptions.signatureOf(getFrameSignature())).load((Object) this.gifDecoder).into((RequestBuilder<Bitmap>) this.next);
+            this.requestBuilder.apply((BaseRequestOptions<?>) RequestOptions.signatureOf(getFrameSignature())).load((Object) this.gifDecoder).into((RequestBuilder<Bitmap>) this.next);
         }
     }
 
@@ -263,7 +267,7 @@ public class GifFrameLoader {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private class FrameLoaderCallback implements Handler.Callback {
         static final int MSG_CLEAR = 2;
         static final int MSG_DELAY = 1;
@@ -286,8 +290,8 @@ public class GifFrameLoader {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
-    public static class DelayTarget extends SimpleTarget<Bitmap> {
+    /* loaded from: classes14.dex */
+    public static class DelayTarget extends CustomTarget<Bitmap> {
         private final Handler handler;
         final int index;
         private Bitmap resource;
@@ -312,10 +316,15 @@ public class GifFrameLoader {
             this.resource = bitmap;
             this.handler.sendMessageAtTime(this.handler.obtainMessage(1, this), this.targetTime);
         }
+
+        @Override // com.bumptech.glide.request.target.Target
+        public void onLoadCleared(@Nullable Drawable drawable) {
+            this.resource = null;
+        }
     }
 
     private static RequestBuilder<Bitmap> getRequestBuilder(RequestManager requestManager, int i, int i2) {
-        return requestManager.asBitmap().apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i, i2));
+        return requestManager.asBitmap().apply((BaseRequestOptions<?>) RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i, i2));
     }
 
     private static Key getFrameSignature() {

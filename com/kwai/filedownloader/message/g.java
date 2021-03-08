@@ -9,16 +9,12 @@ import java.util.concurrent.Executor;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<a> f10960a = new ArrayList();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final e.b f10961b;
+    private final List<a> f7228a = new ArrayList();
+    private final e.b b;
 
     /* loaded from: classes3.dex */
     public class a {
-
-        /* renamed from: b  reason: collision with root package name */
-        private final List<Integer> f10963b = new ArrayList();
+        private final List<Integer> b = new ArrayList();
         private final Executor c;
 
         public a(int i) {
@@ -26,16 +22,16 @@ public class g {
         }
 
         public void a(int i) {
-            this.f10963b.add(Integer.valueOf(i));
+            this.b.add(Integer.valueOf(i));
         }
 
         public void a(final MessageSnapshot messageSnapshot) {
             this.c.execute(new Runnable() { // from class: com.kwai.filedownloader.message.g.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.f10961b.a(messageSnapshot);
+                    g.this.b.a(messageSnapshot);
                     try {
-                        a.this.f10963b.remove(Integer.valueOf(messageSnapshot.m()));
+                        a.this.b.remove(Integer.valueOf(messageSnapshot.m()));
                     } catch (Exception e) {
                     }
                 }
@@ -45,42 +41,42 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(int i, e.b bVar) {
-        this.f10961b = bVar;
+        this.b = bVar;
         for (int i2 = 0; i2 < i; i2++) {
-            this.f10960a.add(new a(i2));
+            this.f7228a.add(new a(i2));
         }
     }
 
     public void a(MessageSnapshot messageSnapshot) {
         a aVar = null;
         try {
-            synchronized (this.f10960a) {
+            synchronized (this.f7228a) {
                 int m = messageSnapshot.m();
-                Iterator<a> it = this.f10960a.iterator();
+                Iterator<a> it = this.f7228a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     a next = it.next();
-                    if (next.f10963b.contains(Integer.valueOf(m))) {
+                    if (next.b.contains(Integer.valueOf(m))) {
                         aVar = next;
                         break;
                     }
                 }
                 if (aVar == null) {
                     int i = 0;
-                    Iterator<a> it2 = this.f10960a.iterator();
+                    Iterator<a> it2 = this.f7228a.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
                         }
                         a next2 = it2.next();
-                        if (next2.f10963b.size() <= 0) {
+                        if (next2.b.size() <= 0) {
                             aVar = next2;
                             break;
                         }
-                        if (i == 0 || next2.f10963b.size() < i) {
-                            i = next2.f10963b.size();
+                        if (i == 0 || next2.b.size() < i) {
+                            i = next2.b.size();
                         } else {
                             next2 = aVar;
                         }

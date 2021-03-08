@@ -13,16 +13,14 @@ import com.kwad.sdk.core.network.j;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private a f8773b;
+    private a b;
     private i<q, ProfileResultData> c;
     private f e;
     private long f;
     private boolean d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f8772a = new Handler(Looper.getMainLooper());
+    private Handler f5845a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -42,7 +40,7 @@ public class b {
     public b(f fVar, long j, a aVar) {
         this.e = fVar;
         this.f = j;
-        this.f8773b = aVar;
+        this.b = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -60,26 +58,26 @@ public class b {
     }
 
     private void a(UserProfile userProfile) {
-        if (this.f8773b != null) {
-            this.f8773b.a(userProfile);
+        if (this.b != null) {
+            this.b.a(userProfile);
         }
     }
 
     private void b(int i, String str) {
-        if (this.f8773b != null) {
-            this.f8773b.a(i, str);
+        if (this.b != null) {
+            this.b.a(i, str);
         }
     }
 
     private void c() {
-        if (this.f8773b != null) {
-            this.f8773b.a();
+        if (this.b != null) {
+            this.b.a();
         }
     }
 
     private void d() {
-        if (this.f8773b != null) {
-            this.f8773b.b();
+        if (this.b != null) {
+            this.b.b();
         }
     }
 
@@ -113,7 +111,7 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull q qVar, final int i, final String str) {
-                b.this.f8772a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.b.2.2
+                b.this.f5845a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.b.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         b.this.a(i, str);
@@ -124,7 +122,7 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull q qVar, @NonNull final ProfileResultData profileResultData) {
-                b.this.f8772a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.b.2.1
+                b.this.f5845a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.b.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         b.this.a(profileResultData);
@@ -138,7 +136,7 @@ public class b {
         if (this.c != null) {
             this.c.e();
         }
-        this.f8773b = null;
-        this.f8772a.removeCallbacksAndMessages(null);
+        this.b = null;
+        this.f5845a.removeCallbacksAndMessages(null);
     }
 }

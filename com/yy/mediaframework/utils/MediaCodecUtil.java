@@ -5,7 +5,7 @@ import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import com.yy.mediaframework.base.VideoEncoderType;
 @TargetApi(18)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MediaCodecUtil {
     private static final String TAG = "MediaCodecUtil";
     private int mCorlorFormatH264;

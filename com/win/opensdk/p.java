@@ -1,23 +1,22 @@
 package com.win.opensdk;
-/* loaded from: classes3.dex */
-public final class p {
 
-    /* renamed from: a  reason: collision with root package name */
-    int[] f13756a;
+import com.win.opensdk.top.PProvider;
+/* loaded from: classes14.dex */
+public class p implements Runnable {
+    public final /* synthetic */ PProvider qkv;
 
-    /* renamed from: b  reason: collision with root package name */
-    int[] f13757b;
-    int[] c;
+    public p(PProvider pProvider) {
+        this.qkv = pProvider;
+    }
 
-    /* renamed from: case  reason: not valid java name */
-    String f65case;
-    int java;
-
-    /* renamed from: java  reason: collision with other field name */
-    String f66java;
-
-    /* renamed from: java  reason: collision with other field name */
-    int[] f67java;
-    String[] qjX;
-    int[] qjY;
+    @Override // java.lang.Runnable
+    public void run() {
+        PProvider pProvider = this.qkv;
+        pProvider.f8173a = pProvider.getContext();
+        PProvider pProvider2 = this.qkv;
+        if (pProvider2.f8173a == null) {
+            return;
+        }
+        pProvider2.a();
+    }
 }

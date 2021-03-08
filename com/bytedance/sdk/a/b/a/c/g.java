@@ -9,35 +9,35 @@ import java.util.List;
 public final class g implements x.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<x> f5881a;
+    private final List<x> f3962a;
     private final int e;
     private final int i;
     private final int j;
     private final int k;
     private int l;
-    private final com.bytedance.sdk.a.b.a.b.g ppK;
-    private final c ppL;
-    private final com.bytedance.sdk.a.b.a.b.c ppM;
-    private final ab ppN;
-    private final com.bytedance.sdk.a.b.h ppO;
-    private final t ppP;
+    private final com.bytedance.sdk.a.b.a.b.g prP;
+    private final c prQ;
+    private final com.bytedance.sdk.a.b.a.b.c prR;
+    private final ab prS;
+    private final com.bytedance.sdk.a.b.h prT;
+    private final t prU;
 
     public g(List<x> list, com.bytedance.sdk.a.b.a.b.g gVar, c cVar, com.bytedance.sdk.a.b.a.b.c cVar2, int i, ab abVar, com.bytedance.sdk.a.b.h hVar, t tVar, int i2, int i3, int i4) {
-        this.f5881a = list;
-        this.ppM = cVar2;
-        this.ppK = gVar;
-        this.ppL = cVar;
+        this.f3962a = list;
+        this.prR = cVar2;
+        this.prP = gVar;
+        this.prQ = cVar;
         this.e = i;
-        this.ppN = abVar;
-        this.ppO = hVar;
-        this.ppP = tVar;
+        this.prS = abVar;
+        this.prT = hVar;
+        this.prU = tVar;
         this.i = i2;
         this.j = i3;
         this.k = i4;
     }
 
-    public com.bytedance.sdk.a.b.l epp() {
-        return this.ppM;
+    public com.bytedance.sdk.a.b.l epw() {
+        return this.prR;
     }
 
     @Override // com.bytedance.sdk.a.b.x.a
@@ -55,53 +55,53 @@ public final class g implements x.a {
         return this.k;
     }
 
-    public com.bytedance.sdk.a.b.a.b.g epq() {
-        return this.ppK;
+    public com.bytedance.sdk.a.b.a.b.g epx() {
+        return this.prP;
     }
 
-    public c epr() {
-        return this.ppL;
+    public c epy() {
+        return this.prQ;
     }
 
-    public com.bytedance.sdk.a.b.h eps() {
-        return this.ppO;
+    public com.bytedance.sdk.a.b.h epz() {
+        return this.prT;
     }
 
-    public t ept() {
-        return this.ppP;
+    public t epA() {
+        return this.prU;
     }
 
     @Override // com.bytedance.sdk.a.b.x.a
-    public ab epu() {
-        return this.ppN;
+    public ab epB() {
+        return this.prS;
     }
 
     @Override // com.bytedance.sdk.a.b.x.a
     public com.bytedance.sdk.a.b.b b(ab abVar) throws IOException {
-        return a(abVar, this.ppK, this.ppL, this.ppM);
+        return a(abVar, this.prP, this.prQ, this.prR);
     }
 
     public com.bytedance.sdk.a.b.b a(ab abVar, com.bytedance.sdk.a.b.a.b.g gVar, c cVar, com.bytedance.sdk.a.b.a.b.c cVar2) throws IOException {
-        if (this.e >= this.f5881a.size()) {
+        if (this.e >= this.f3962a.size()) {
             throw new AssertionError();
         }
         this.l++;
-        if (this.ppL != null && !this.ppM.a(abVar.eoR())) {
-            throw new IllegalStateException("network interceptor " + this.f5881a.get(this.e - 1) + " must retain the same host and port");
+        if (this.prQ != null && !this.prR.a(abVar.eoY())) {
+            throw new IllegalStateException("network interceptor " + this.f3962a.get(this.e - 1) + " must retain the same host and port");
         }
-        if (this.ppL != null && this.l > 1) {
-            throw new IllegalStateException("network interceptor " + this.f5881a.get(this.e - 1) + " must call proceed() exactly once");
+        if (this.prQ != null && this.l > 1) {
+            throw new IllegalStateException("network interceptor " + this.f3962a.get(this.e - 1) + " must call proceed() exactly once");
         }
-        g gVar2 = new g(this.f5881a, gVar, cVar, cVar2, this.e + 1, abVar, this.ppO, this.ppP, this.i, this.j, this.k);
-        x xVar = this.f5881a.get(this.e);
+        g gVar2 = new g(this.f3962a, gVar, cVar, cVar2, this.e + 1, abVar, this.prT, this.prU, this.i, this.j, this.k);
+        x xVar = this.f3962a.get(this.e);
         com.bytedance.sdk.a.b.b a2 = xVar.a(gVar2);
-        if (cVar != null && this.e + 1 < this.f5881a.size() && gVar2.l != 1) {
+        if (cVar != null && this.e + 1 < this.f3962a.size() && gVar2.l != 1) {
             throw new IllegalStateException("network interceptor " + xVar + " must call proceed() exactly once");
         }
         if (a2 == null) {
             throw new NullPointerException("interceptor " + xVar + " returned null");
         }
-        if (a2.epN() == null) {
+        if (a2.epU() == null) {
             throw new IllegalStateException("interceptor " + xVar + " returned a response with no body");
         }
         return a2;

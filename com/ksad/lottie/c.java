@@ -12,26 +12,24 @@ public class c {
     private static long[] e;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7969a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Set<String> f7970b = new HashSet();
+    public static boolean f5327a = false;
+    private static final Set<String> b = new HashSet();
     private static boolean c = false;
     private static int f = 0;
     private static int g = 0;
 
     public static void a(String str) {
-        if (f7969a) {
+        if (f5327a) {
             Log.d("LOTTIE", str);
         }
     }
 
     public static void b(String str) {
-        if (f7970b.contains(str)) {
+        if (b.contains(str)) {
             return;
         }
         Log.w("LOTTIE", str);
-        f7970b.add(str);
+        b.add(str);
     }
 
     public static void c(String str) {

@@ -6,45 +6,45 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 /* loaded from: classes5.dex */
 public final class p {
-    private static PackageManager apg;
-    private static PackageInfo aph;
-    private static String api;
+    private static PackageManager aqH;
+    private static PackageInfo aqI;
+    private static String aqJ;
     private static Context mContext;
 
-    public static String J() {
-        return mContext.getPackageName();
-    }
-
-    public static String K() {
-        if (api == null) {
-            if (aph == null) {
-                return "N/A";
-            }
-            api = aph.applicationInfo.loadLabel(apg).toString();
-        }
-        return api;
-    }
-
     public static String L() {
-        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? aph == null ? "N/A" : aph.versionName : com.baidu.crabsdk.a.o;
+        return TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? aqI == null ? "N/A" : aqI.versionName : com.baidu.crabsdk.a.o;
     }
 
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            apg = context.getPackageManager();
+            aqH = context.getPackageManager();
             try {
-                aph = apg.getPackageInfo(mContext.getPackageName(), 0);
+                aqI = aqH.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.a("PackageCollector.init fail.", e);
             }
         }
     }
 
-    public static int up() {
-        if (aph == null) {
+    public static String up() {
+        return mContext.getPackageName();
+    }
+
+    public static String uq() {
+        if (aqJ == null) {
+            if (aqI == null) {
+                return "N/A";
+            }
+            aqJ = aqI.applicationInfo.loadLabel(aqH).toString();
+        }
+        return aqJ;
+    }
+
+    public static int ur() {
+        if (aqI == null) {
             return 0;
         }
-        return aph.versionCode;
+        return aqI.versionCode;
     }
 }

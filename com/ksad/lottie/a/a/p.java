@@ -6,13 +6,11 @@ import com.ksad.lottie.a.b.a;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class p implements l, a.InterfaceC1067a {
+public class p implements l, a.InterfaceC1084a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f7954a = new Path();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f7955b;
+    private final Path f5320a = new Path();
+    private final String b;
     private final com.ksad.lottie.f c;
     private final com.ksad.lottie.a.b.a<?, Path> d;
     private boolean e;
@@ -20,7 +18,7 @@ public class p implements l, a.InterfaceC1067a {
     private r f;
 
     public p(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.k kVar) {
-        this.f7955b = kVar.a();
+        this.b = kVar.a();
         this.c = fVar;
         this.d = kVar.b().a();
         aVar.a(this.d);
@@ -32,7 +30,7 @@ public class p implements l, a.InterfaceC1067a {
         this.c.invalidateSelf();
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1084a
     public void a() {
         b();
     }
@@ -57,13 +55,13 @@ public class p implements l, a.InterfaceC1067a {
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
         if (this.e) {
-            return this.f7954a;
+            return this.f5320a;
         }
-        this.f7954a.reset();
-        this.f7954a.set(this.d.e());
-        this.f7954a.setFillType(Path.FillType.EVEN_ODD);
-        com.ksad.lottie.d.f.a(this.f7954a, this.f);
+        this.f5320a.reset();
+        this.f5320a.set(this.d.e());
+        this.f5320a.setFillType(Path.FillType.EVEN_ODD);
+        com.ksad.lottie.d.f.a(this.f5320a, this.f);
         this.e = true;
-        return this.f7954a;
+        return this.f5320a;
     }
 }

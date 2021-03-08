@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BubbleListData extends OrmObject implements Serializable, Cloneable {
     private static final long serialVersionUID = -4612117445868668894L;
     private List<BubbleData> b_info = new ArrayList();
@@ -23,7 +23,7 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
         return this.b_info;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class BubbleData extends OrmObject implements Serializable {
         private static final long serialVersionUID = 1540726255641451917L;
         private String b_url;
@@ -104,7 +104,7 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BubbleListData m35clone() {
+    public BubbleListData m36clone() {
         try {
             Object clone = super.clone();
             if (clone instanceof BubbleListData) {

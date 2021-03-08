@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.model;
 
 import androidx.annotation.Keep;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.bytedance.sdk.openadsdk.d.a.c;
+import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.List;
 @Keep
 /* loaded from: classes6.dex */

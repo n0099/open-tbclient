@@ -7,9 +7,9 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e OG;
-    private HashMap<String, a> OE = new HashMap<>();
-    private HashMap<String, b> OF = new HashMap<>();
+    private static e Qi;
+    private HashMap<String, a> Qg = new HashMap<>();
+    private HashMap<String, b> Qh = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -31,14 +31,14 @@ public class e {
     };
 
     public static e mE() {
-        if (OG == null) {
+        if (Qi == null) {
             synchronized (e.class) {
-                if (OG == null) {
-                    OG = new e();
+                if (Qi == null) {
+                    Qi = new e();
                 }
             }
         }
-        return OG;
+        return Qi;
     }
 
     public e() {
@@ -46,42 +46,42 @@ public class e {
         bVar.aA(3000);
         bVar.aB(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar.aC(500);
-        this.OF.put("net", bVar);
-        this.OF.put("op", bVar);
-        this.OF.put("stat", bVar);
-        this.OF.put("crash", bVar);
-        this.OF.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
+        this.Qh.put("net", bVar);
+        this.Qh.put("op", bVar);
+        this.Qh.put("stat", bVar);
+        this.Qh.put("crash", bVar);
+        this.Qh.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
         b bVar2 = new b();
         bVar2.aA(3000);
         bVar2.aB(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar2.aC(1500);
-        this.OF.put("file", bVar2);
-        this.OF.put(BdStatsConstant.OpSubType.DB, bVar2);
-        this.OF.put("img", bVar2);
-        this.OF.put("voice", bVar2);
-        this.OF.put(BdStatsConstant.StatsType.ERROR, bVar2);
+        this.Qh.put("file", bVar2);
+        this.Qh.put(BdStatsConstant.OpSubType.DB, bVar2);
+        this.Qh.put("img", bVar2);
+        this.Qh.put("voice", bVar2);
+        this.Qh.put(BdStatsConstant.StatsType.ERROR, bVar2);
         b bVar3 = new b();
         bVar3.aA(3000);
         bVar3.aB(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar3.aC(1500);
-        this.OF.put("dbg", bVar3);
+        this.Qh.put("dbg", bVar3);
     }
 
-    public synchronized boolean bT(String str) {
+    public synchronized boolean bX(String str) {
         a aVar;
         boolean z;
-        b bVar = this.OF.get(str);
+        b bVar = this.Qh.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.OE.get(str);
+            a aVar2 = this.Qg.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
                 aVar3.an(false);
                 aVar3.am(false);
                 aVar3.G(currentTimeMillis);
-                this.OE.put(str, aVar3);
+                this.Qg.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
@@ -126,32 +126,32 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private long OI;
-        private long OJ;
-        private boolean OL;
+        private long Qk;
+        private long Ql;
+        private boolean Qm;
         private int mCount;
         private boolean mIsRunning;
 
         private a() {
             this.mIsRunning = false;
             this.mCount = 0;
-            this.OL = false;
+            this.Qm = false;
         }
 
         public boolean mF() {
-            return this.OL;
+            return this.Qm;
         }
 
         public void am(boolean z) {
-            this.OL = z;
+            this.Qm = z;
         }
 
         public long mG() {
-            return this.OJ;
+            return this.Ql;
         }
 
         public void F(long j) {
-            this.OJ = j;
+            this.Ql = j;
         }
 
         public int mH() {
@@ -163,11 +163,11 @@ public class e {
         }
 
         public long mI() {
-            return this.OI;
+            return this.Qk;
         }
 
         public void G(long j) {
-            this.OI = j;
+            this.Qk = j;
         }
 
         public boolean mJ() {
@@ -182,8 +182,8 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int OM;
-        private int OO;
+        private int Qn;
+        private int Qo;
         private int mInterval;
 
         private b() {
@@ -198,19 +198,19 @@ public class e {
         }
 
         public int mL() {
-            return this.OM;
+            return this.Qn;
         }
 
         public void aB(int i) {
-            this.OM = i;
+            this.Qn = i;
         }
 
         public int mM() {
-            return this.OO;
+            return this.Qo;
         }
 
         public void aC(int i) {
-            this.OO = i;
+            this.Qo = i;
         }
     }
 }

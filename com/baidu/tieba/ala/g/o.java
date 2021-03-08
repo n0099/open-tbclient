@@ -1,5 +1,5 @@
 package com.baidu.tieba.ala.g;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface o {
     void A(int i, String str);
 

@@ -28,27 +28,27 @@ import com.baidu.tieba.ala.live.guess.result.AlaGuessSingleBottomCenterView;
 import com.baidu.tieba.ala.live.guess.result.AlaGuessSingleJoinGroupButtonView;
 import com.baidu.tieba.ala.live.guess.widget.HorizontalProgressBar;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e implements View.OnClickListener, com.baidu.tieba.ala.live.guess.result.b {
-    private ab hfW;
-    private ImageView hhN;
-    private HorizontalProgressBar hiA;
-    private TextView hiB;
-    private ImageView hiC;
-    private RelativeLayout hiD;
-    private RelativeLayout hiE;
-    private LinearLayout hiF;
-    private TextView hiG;
-    private ImageView hiH;
-    private Space hiI;
-    private FrameLayout hiJ;
-    private TextView hiK;
-    private TextView hiL;
-    private com.baidu.tieba.ala.live.guess.result.a hiM;
-    private AlaGuessGroupBottomView hiN;
-    private o hiO;
-    private TextView hiw;
-    private TextView hiz;
+    private ab hhF;
+    private ImageView hjx;
+    private TextView hkf;
+    private TextView hki;
+    private HorizontalProgressBar hkj;
+    private TextView hkk;
+    private ImageView hkl;
+    private RelativeLayout hkm;
+    private RelativeLayout hkn;
+    private LinearLayout hko;
+    private TextView hkp;
+    private ImageView hkq;
+    private Space hkr;
+    private FrameLayout hks;
+    private TextView hkt;
+    private TextView hku;
+    private com.baidu.tieba.ala.live.guess.result.a hkv;
+    private AlaGuessGroupBottomView hkw;
+    private o hkx;
     private Activity mContext;
     private Dialog mDialog;
     private View mRootView;
@@ -62,12 +62,12 @@ public class e implements View.OnClickListener, com.baidu.tieba.ala.live.guess.r
         this.mDialog = new AlertDialog.Builder(this.mContext, a.i.guess_theme_dialog).create();
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(false);
-        Hf();
+        Hi();
         initView();
-        ED();
+        EG();
     }
 
-    private void Hf() {
+    private void Hi() {
         if (this.mDialog != null) {
             Window window = this.mDialog.getWindow();
             window.setGravity(17);
@@ -88,27 +88,27 @@ public class e implements View.OnClickListener, com.baidu.tieba.ala.live.guess.r
         }
     }
 
-    private void ED() {
-        this.hhN.setOnClickListener(this);
+    private void EG() {
+        this.hjx.setOnClickListener(this);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_guess_result_dialog, (ViewGroup) null);
-        this.hiD = (RelativeLayout) this.mRootView.findViewById(a.f.layout_panel);
-        this.hiz = (TextView) this.mRootView.findViewById(a.f.tv_average);
-        this.hiB = (TextView) this.mRootView.findViewById(a.f.tv_notify);
-        this.hiw = (TextView) this.mRootView.findViewById(a.f.tv_guess_cong);
-        this.hhN = (ImageView) this.mRootView.findViewById(a.f.img_exit);
-        this.hiC = (ImageView) this.mRootView.findViewById(a.f.img_crown);
-        this.hiA = (HorizontalProgressBar) this.mRootView.findViewById(a.f.progress_horizontal);
-        this.hiE = (RelativeLayout) this.mRootView.findViewById(a.f.rlayout_guess_no_double_ticket);
-        this.hiF = (LinearLayout) this.mRootView.findViewById(a.f.llayout_guess_have_double_ticket);
-        this.hiG = (TextView) this.mRootView.findViewById(a.f.txt_double_ticket_group);
-        this.hiH = (ImageView) this.mRootView.findViewById(a.f.img_double_ticket_single);
-        this.hiI = (Space) this.mRootView.findViewById(a.f.space_double_ticket_single);
-        this.hiK = (TextView) this.mRootView.findViewById(a.f.txt_left_average);
-        this.hiL = (TextView) this.mRootView.findViewById(a.f.txt_right_average);
-        this.hiJ = (FrameLayout) this.mRootView.findViewById(a.f.flayout_guess_result_bottom_container);
+        this.hkm = (RelativeLayout) this.mRootView.findViewById(a.f.layout_panel);
+        this.hki = (TextView) this.mRootView.findViewById(a.f.tv_average);
+        this.hkk = (TextView) this.mRootView.findViewById(a.f.tv_notify);
+        this.hkf = (TextView) this.mRootView.findViewById(a.f.tv_guess_cong);
+        this.hjx = (ImageView) this.mRootView.findViewById(a.f.img_exit);
+        this.hkl = (ImageView) this.mRootView.findViewById(a.f.img_crown);
+        this.hkj = (HorizontalProgressBar) this.mRootView.findViewById(a.f.progress_horizontal);
+        this.hkn = (RelativeLayout) this.mRootView.findViewById(a.f.rlayout_guess_no_double_ticket);
+        this.hko = (LinearLayout) this.mRootView.findViewById(a.f.llayout_guess_have_double_ticket);
+        this.hkp = (TextView) this.mRootView.findViewById(a.f.txt_double_ticket_group);
+        this.hkq = (ImageView) this.mRootView.findViewById(a.f.img_double_ticket_single);
+        this.hkr = (Space) this.mRootView.findViewById(a.f.space_double_ticket_single);
+        this.hkt = (TextView) this.mRootView.findViewById(a.f.txt_left_average);
+        this.hku = (TextView) this.mRootView.findViewById(a.f.txt_right_average);
+        this.hks = (FrameLayout) this.mRootView.findViewById(a.f.flayout_guess_result_bottom_container);
         this.mDialog.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.view.e.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -119,7 +119,7 @@ public class e implements View.OnClickListener, com.baidu.tieba.ala.live.guess.r
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hhN) {
+        if (view == this.hjx) {
             dismiss();
         }
     }
@@ -128,9 +128,9 @@ public class e implements View.OnClickListener, com.baidu.tieba.ala.live.guess.r
         if ((this.mContext instanceof Activity) && !this.mContext.isFinishing() && this.mDialog != null) {
             ShowUtil.showDialog(this.mDialog, this.mContext);
             this.mDialog.setContentView(this.mRootView);
-            this.hiM = new com.baidu.tieba.ala.live.guess.result.a();
-            this.hiM.a(this.mContext, this);
-            this.hiM.a(this.hiO, this.hfW);
+            this.hkv = new com.baidu.tieba.ala.live.guess.result.a();
+            this.hkv.a(this.mContext, this);
+            this.hkv.a(this.hkx, this.hhF);
         }
     }
 
@@ -139,117 +139,117 @@ public class e implements View.OnClickListener, com.baidu.tieba.ala.live.guess.r
     }
 
     public void c(o oVar, ab abVar) {
-        this.hiO = oVar;
-        this.hfW = abVar;
+        this.hkx = oVar;
+        this.hhF = abVar;
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
     public void f(SpannableStringBuilder spannableStringBuilder) {
-        if (this.hiz != null) {
-            this.hiz.setText(spannableStringBuilder);
+        if (this.hki != null) {
+            this.hki.setText(spannableStringBuilder);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
-    public void uI(int i) {
-        if (this.hiC != null) {
-            this.hiC.setImageResource(i);
+    public void uK(int i) {
+        if (this.hkl != null) {
+            this.hkl.setImageResource(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
-    public void He(String str) {
-        if (this.hiw != null) {
-            this.hiw.setText(str);
+    public void Hn(String str) {
+        if (this.hkf != null) {
+            this.hkf.setText(str);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
-    public void Hf(String str) {
-        if (this.hiA != null) {
-            this.hiA.setLeftFirstString(str);
+    public void Ho(String str) {
+        if (this.hkj != null) {
+            this.hkj.setLeftFirstString(str);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
-    public void Hg(String str) {
-        if (this.hiA != null) {
-            this.hiA.setRightFirstString(str);
+    public void Hp(String str) {
+        if (this.hkj != null) {
+            this.hkj.setRightFirstString(str);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
     public void g(SpannableStringBuilder spannableStringBuilder) {
-        if (this.hiK != null) {
-            this.hiK.setText(spannableStringBuilder);
+        if (this.hkt != null) {
+            this.hkt.setText(spannableStringBuilder);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
     public void h(SpannableStringBuilder spannableStringBuilder) {
-        if (this.hiL != null) {
-            this.hiL.setText(spannableStringBuilder);
+        if (this.hku != null) {
+            this.hku.setText(spannableStringBuilder);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
     public void a(StringBuilder sb) {
-        if (this.hiB != null) {
-            this.hiB.setText(sb);
+        if (this.hkk != null) {
+            this.hkk.setText(sb);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
     public void nw(boolean z) {
-        if (this.hiA != null) {
-            this.hiA.nD(z);
+        if (this.hkj != null) {
+            this.hkj.nD(z);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
     public void bJ(int i, int i2) {
-        if (this.hiA != null) {
-            this.hiA.bK(i, i2);
+        if (this.hkj != null) {
+            this.hkj.bK(i, i2);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
-    public void uJ(int i) {
+    public void uL(int i) {
         if (i == 1) {
-            this.hiD.getLayoutParams().height = (int) this.mContext.getResources().getDimension(a.d.sdk_ds720);
-            this.hiE.setVisibility(0);
-            this.hiF.setVisibility(8);
+            this.hkm.getLayoutParams().height = (int) this.mContext.getResources().getDimension(a.d.sdk_ds720);
+            this.hkn.setVisibility(0);
+            this.hko.setVisibility(8);
         } else if (i == 2) {
-            this.hiD.getLayoutParams().height = (int) this.mContext.getResources().getDimension(a.d.sdk_ds740);
-            this.hiE.setVisibility(8);
-            this.hiF.setVisibility(0);
-            this.hiG.setVisibility(8);
-            this.hiH.setVisibility(0);
-            this.hiI.setVisibility(0);
+            this.hkm.getLayoutParams().height = (int) this.mContext.getResources().getDimension(a.d.sdk_ds740);
+            this.hkn.setVisibility(8);
+            this.hko.setVisibility(0);
+            this.hkp.setVisibility(8);
+            this.hkq.setVisibility(0);
+            this.hkr.setVisibility(0);
         } else if (i == 5) {
-            this.hiD.getLayoutParams().height = (int) this.mContext.getResources().getDimension(a.d.sdk_ds720);
-            ay(this.mContext.getResources().getDimension(a.d.sdk_ds40));
-            this.hiE.setVisibility(0);
-            this.hiF.setVisibility(8);
-            if (this.hiN != null) {
-                this.hiN.setLeftRightMarging(this.mContext.getResources().getDimension(a.d.sdk_ds48));
+            this.hkm.getLayoutParams().height = (int) this.mContext.getResources().getDimension(a.d.sdk_ds720);
+            aC(this.mContext.getResources().getDimension(a.d.sdk_ds40));
+            this.hkn.setVisibility(0);
+            this.hko.setVisibility(8);
+            if (this.hkw != null) {
+                this.hkw.setLeftRightMarging(this.mContext.getResources().getDimension(a.d.sdk_ds48));
             }
         } else if (i == 4) {
-            this.hiD.getLayoutParams().height = (int) this.mContext.getResources().getDimension(a.d.sdk_ds740);
-            ay(this.mContext.getResources().getDimension(a.d.sdk_ds40));
-            this.hiE.setVisibility(8);
-            this.hiF.setVisibility(0);
-            this.hiG.setVisibility(0);
-            this.hiH.setVisibility(8);
-            this.hiI.setVisibility(8);
-            if (this.hiN != null) {
-                this.hiN.setLeftRightMarging(this.mContext.getResources().getDimension(a.d.sdk_ds48));
+            this.hkm.getLayoutParams().height = (int) this.mContext.getResources().getDimension(a.d.sdk_ds740);
+            aC(this.mContext.getResources().getDimension(a.d.sdk_ds40));
+            this.hkn.setVisibility(8);
+            this.hko.setVisibility(0);
+            this.hkp.setVisibility(0);
+            this.hkq.setVisibility(8);
+            this.hkr.setVisibility(8);
+            if (this.hkw != null) {
+                this.hkw.setLeftRightMarging(this.mContext.getResources().getDimension(a.d.sdk_ds48));
             }
         }
     }
 
-    private void ay(float f) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hiJ.getLayoutParams();
+    private void aC(float f) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hks.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.topMargin = (int) f;
         }
@@ -257,63 +257,63 @@ public class e implements View.OnClickListener, com.baidu.tieba.ala.live.guess.r
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
     public void k(int i, List<o.b> list) {
-        if (this.hiJ != null) {
-            this.hiJ.removeAllViews();
-            this.hiN = new AlaGuessGroupBottomView(this.mContext);
-            this.hiN.setData(i, list);
-            this.hiN.setUIStyle();
-            this.hiJ.addView(this.hiN);
+        if (this.hks != null) {
+            this.hks.removeAllViews();
+            this.hkw = new AlaGuessGroupBottomView(this.mContext);
+            this.hkw.setData(i, list);
+            this.hkw.setUIStyle();
+            this.hks.addView(this.hkw);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
     public void a(o.c cVar, boolean z, String str) {
-        if (this.hiJ != null && this.hiD != null) {
-            this.hiJ.removeAllViews();
+        if (this.hks != null && this.hkm != null) {
+            this.hks.removeAllViews();
             AlaGuessSingleJoinGroupButtonView alaGuessSingleJoinGroupButtonView = new AlaGuessSingleJoinGroupButtonView(this.mContext);
             alaGuessSingleJoinGroupButtonView.setData(z, str);
             alaGuessSingleJoinGroupButtonView.setOnClickJoinButtonListener(new AlaGuessSingleJoinGroupButtonView.a() { // from class: com.baidu.tieba.ala.live.guess.view.e.2
                 @Override // com.baidu.tieba.ala.live.guess.result.AlaGuessSingleJoinGroupButtonView.a
-                public void abu() {
+                public void abx() {
                     e.this.dismiss();
-                    com.baidu.tieba.ala.live.guess.result.c.bXQ();
+                    com.baidu.tieba.ala.live.guess.result.c.bXW();
                 }
             });
-            this.hiJ.addView(alaGuessSingleJoinGroupButtonView);
+            this.hks.addView(alaGuessSingleJoinGroupButtonView);
             AlaGuessSingleBottomCenterView alaGuessSingleBottomCenterView = new AlaGuessSingleBottomCenterView(this.mContext);
             alaGuessSingleBottomCenterView.setData(cVar);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.hiD.addView(alaGuessSingleBottomCenterView, layoutParams);
+            this.hkm.addView(alaGuessSingleBottomCenterView, layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
     public void u(boolean z, String str) {
-        if (this.hiJ != null && this.hiD != null) {
-            this.hiJ.removeAllViews();
+        if (this.hks != null && this.hkm != null) {
+            this.hks.removeAllViews();
             AlaGuessSingleJoinGroupButtonView alaGuessSingleJoinGroupButtonView = new AlaGuessSingleJoinGroupButtonView(this.mContext);
             alaGuessSingleJoinGroupButtonView.setData(z, str);
             alaGuessSingleJoinGroupButtonView.setOnClickJoinButtonListener(new AlaGuessSingleJoinGroupButtonView.a() { // from class: com.baidu.tieba.ala.live.guess.view.e.3
                 @Override // com.baidu.tieba.ala.live.guess.result.AlaGuessSingleJoinGroupButtonView.a
-                public void abu() {
+                public void abx() {
                     e.this.dismiss();
-                    com.baidu.tieba.ala.live.guess.result.c.bXQ();
+                    com.baidu.tieba.ala.live.guess.result.c.bXW();
                 }
             });
-            this.hiJ.addView(alaGuessSingleJoinGroupButtonView);
+            this.hks.addView(alaGuessSingleJoinGroupButtonView);
             AlaGuessSingleBottomCenterView alaGuessSingleBottomCenterView = new AlaGuessSingleBottomCenterView(this.mContext);
             alaGuessSingleBottomCenterView.setSpecialUI();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.hiD.addView(alaGuessSingleBottomCenterView, layoutParams);
+            this.hkm.addView(alaGuessSingleBottomCenterView, layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.live.guess.result.b
-    public void uK(int i) {
-        if (this.hiG != null) {
-            this.hiG.setText(String.format("x%d倍", Integer.valueOf(i)));
+    public void uM(int i) {
+        if (this.hkp != null) {
+            this.hkp.setText(String.format("x%d倍", Integer.valueOf(i)));
         }
     }
 }

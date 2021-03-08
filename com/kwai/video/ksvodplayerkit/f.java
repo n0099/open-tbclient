@@ -10,11 +10,9 @@ import java.util.Map;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f11076a = null;
+    private static f f7291a = null;
     private final Object c = new Object();
-
-    /* renamed from: b  reason: collision with root package name */
-    private Map<String, a> f11077b = new LinkedHashMap(100);
+    private Map<String, a> b = new LinkedHashMap(100);
     private com.kwai.video.ksvodplayerkit.a d = new com.kwai.video.ksvodplayerkit.a() { // from class: com.kwai.video.ksvodplayerkit.f.1
         @Override // com.kwai.video.ksvodplayerkit.a
         public String a(String str) {
@@ -27,14 +25,12 @@ public class f {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f11079a;
-
-        /* renamed from: b  reason: collision with root package name */
-        long f11080b;
+        boolean f7293a;
+        long b;
 
         private a() {
-            this.f11079a = false;
-            this.f11080b = 0L;
+            this.f7293a = false;
+            this.b = 0L;
         }
     }
 
@@ -45,10 +41,10 @@ public class f {
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f11076a == null) {
-                f11076a = new f();
+            if (f7291a == null) {
+                f7291a = new f();
             }
-            fVar = f11076a;
+            fVar = f7291a;
         }
         return fVar;
     }
@@ -61,11 +57,11 @@ public class f {
     public String a(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
-            com.kwai.video.ksvodplayerkit.a.b.a("KSVodPlayStatManager", "size:" + this.f11077b.size() + ", add url:" + str);
+            com.kwai.video.ksvodplayerkit.a.b.a("KSVodPlayStatManager", "size:" + this.b.size() + ", add url:" + str);
             synchronized (this.c) {
-                if (this.f11077b.size() >= 100) {
+                if (this.b.size() >= 100) {
                     int i = 0;
-                    Iterator<Map.Entry<String, a>> it = this.f11077b.entrySet().iterator();
+                    Iterator<Map.Entry<String, a>> it = this.b.entrySet().iterator();
                     while (it.hasNext()) {
                         it.next();
                         it.remove();
@@ -76,10 +72,10 @@ public class f {
                     }
                 }
                 str2 = this.d.a(str);
-                if (!this.f11077b.containsKey(str2)) {
+                if (!this.b.containsKey(str2)) {
                     a aVar = new a();
-                    aVar.f11079a = AwesomeCache.isFullyCached(str2);
-                    this.f11077b.put(str2, aVar);
+                    aVar.f7293a = AwesomeCache.isFullyCached(str2);
+                    this.b.put(str2, aVar);
                 }
             }
         }
@@ -93,12 +89,12 @@ public class f {
         }
         String a2 = this.d.a(str);
         synchronized (this.c) {
-            if (!this.f11077b.containsKey(a2)) {
+            if (!this.b.containsKey(a2)) {
                 a(str);
             }
-            a aVar = this.f11077b.get(a2);
+            a aVar = this.b.get(a2);
             if (aVar != null) {
-                aVar.f11080b = j;
+                aVar.b = j;
             }
         }
     }
@@ -119,9 +115,9 @@ public class f {
         }
         String a2 = this.d.a(str);
         synchronized (this.c) {
-            if (this.f11077b.containsKey(a2)) {
-                a aVar = this.f11077b.get(a2);
-                j = aVar != null ? aVar.f11080b : 0L;
+            if (this.b.containsKey(a2)) {
+                a aVar = this.b.get(a2);
+                j = aVar != null ? aVar.b : 0L;
             } else {
                 j = 0;
             }

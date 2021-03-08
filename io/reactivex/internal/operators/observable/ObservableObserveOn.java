@@ -6,7 +6,7 @@ import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.internal.schedulers.k;
 import io.reactivex.u;
 import io.reactivex.v;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ObservableObserveOn<T> extends a<T, T> {
     final int bufferSize;
     final boolean delayError;
@@ -18,10 +18,10 @@ public final class ObservableObserveOn<T> extends a<T, T> {
             this.source.subscribe(uVar);
             return;
         }
-        this.source.subscribe(new ObserveOnObserver(uVar, this.scheduler.eKq(), this.delayError, this.bufferSize));
+        this.source.subscribe(new ObserveOnObserver(uVar, this.scheduler.eJY(), this.delayError, this.bufferSize));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class ObserveOnObserver<T> extends BasicIntQueueDisposable<T> implements u<T>, Runnable {
         private static final long serialVersionUID = 6576896619930983584L;
         final u<? super T> actual;
@@ -117,7 +117,7 @@ public final class ObservableObserveOn<T> extends a<T, T> {
 
         void schedule() {
             if (getAndIncrement() == 0) {
-                this.worker.E(this);
+                this.worker.C(this);
             }
         }
 

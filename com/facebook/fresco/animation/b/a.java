@@ -11,29 +11,29 @@ import com.facebook.fresco.animation.a.c;
 import com.facebook.fresco.animation.a.d;
 import com.facebook.imagepipeline.a.f;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements com.facebook.fresco.animation.a.a, c.a {
-    private static final Class<?> pyc = a.class;
+    private static final Class<?> pAh = a.class;
     private int mBitmapHeight;
     private int mBitmapWidth;
     @Nullable
     private Rect mBounds;
-    private final f pFi;
-    private final b pFj;
-    private final d pFk;
-    private final c pFl;
+    private final f pHn;
+    private final b pHo;
+    private final d pHp;
+    private final c pHq;
     @Nullable
-    private final com.facebook.fresco.animation.b.b.a pFm;
+    private final com.facebook.fresco.animation.b.b.a pHr;
     @Nullable
-    private final com.facebook.fresco.animation.b.b.b pFn;
+    private final com.facebook.fresco.animation.b.b.b pHs;
     @Nullable
-    private InterfaceC1051a pFo;
+    private InterfaceC1066a pHt;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
     private final Paint mPaint = new Paint(6);
 
     /* renamed from: com.facebook.fresco.animation.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC1051a {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC1066a {
         void a(a aVar, int i);
 
         void a(a aVar, int i, int i2);
@@ -42,41 +42,41 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
     }
 
     public a(f fVar, b bVar, d dVar, c cVar, @Nullable com.facebook.fresco.animation.b.b.a aVar, @Nullable com.facebook.fresco.animation.b.b.b bVar2) {
-        this.pFi = fVar;
-        this.pFj = bVar;
-        this.pFk = dVar;
-        this.pFl = cVar;
-        this.pFm = aVar;
-        this.pFn = bVar2;
-        evp();
+        this.pHn = fVar;
+        this.pHo = bVar;
+        this.pHp = dVar;
+        this.pHq = cVar;
+        this.pHr = aVar;
+        this.pHs = bVar2;
+        evy();
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getFrameCount() {
-        return this.pFk.getFrameCount();
+        return this.pHp.getFrameCount();
     }
 
     @Override // com.facebook.fresco.animation.a.d
-    public int Pt(int i) {
-        return this.pFk.Pt(i);
+    public int Px(int i) {
+        return this.pHp.Px(i);
     }
 
     @Override // com.facebook.fresco.animation.a.d
     public int getLoopCount() {
-        return this.pFk.getLoopCount();
+        return this.pHp.getLoopCount();
     }
 
     @Override // com.facebook.fresco.animation.a.a
     public boolean a(Drawable drawable, Canvas canvas, int i) {
-        if (this.pFo != null) {
-            this.pFo.a(this, i);
+        if (this.pHt != null) {
+            this.pHt.a(this, i);
         }
         boolean a2 = a(canvas, i, 0);
-        if (!a2 && this.pFo != null) {
-            this.pFo.b(this, i);
+        if (!a2 && this.pHt != null) {
+            this.pHt.b(this, i);
         }
-        if (this.pFm != null && this.pFn != null) {
-            this.pFm.a(this.pFn, this.pFj, this, i);
+        if (this.pHr != null && this.pHs != null) {
+            this.pHr.a(this.pHs, this.pHo, this, i);
         }
         return a2;
     }
@@ -99,13 +99,13 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
                 try {
                     switch (i2) {
                         case 0:
-                            com.facebook.common.references.a<Bitmap> Pu = this.pFj.Pu(i);
+                            com.facebook.common.references.a<Bitmap> Py = this.pHo.Py(i);
                             i3 = 1;
-                            z = a(i, Pu, canvas, 0);
-                            aVar = Pu;
+                            z = a(i, Py, canvas, 0);
+                            aVar = Py;
                             break;
                         case 1:
-                            com.facebook.common.references.a<Bitmap> ai = this.pFj.ai(i, this.mBitmapWidth, this.mBitmapHeight);
+                            com.facebook.common.references.a<Bitmap> ai = this.pHo.ai(i, this.mBitmapWidth, this.mBitmapHeight);
                             if (!a(i, ai) || !a(i, ai, canvas, 1)) {
                                 z2 = false;
                             }
@@ -115,7 +115,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
                             break;
                         case 2:
                             try {
-                                com.facebook.common.references.a<Bitmap> f = this.pFi.f(this.mBitmapWidth, this.mBitmapHeight, this.mBitmapConfig);
+                                com.facebook.common.references.a<Bitmap> f = this.pHn.f(this.mBitmapWidth, this.mBitmapHeight, this.mBitmapConfig);
                                 if (!a(i, f) || !a(i, f, canvas, 2)) {
                                     z2 = false;
                                 }
@@ -124,16 +124,16 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
                                 aVar = f;
                                 break;
                             } catch (RuntimeException e) {
-                                com.facebook.common.c.a.a(pyc, "Failed to create frame bitmap", e);
+                                com.facebook.common.c.a.a(pAh, "Failed to create frame bitmap", (Throwable) e);
                                 com.facebook.common.references.a.c(null);
                                 return false;
                             }
                             break;
                         case 3:
-                            com.facebook.common.references.a<Bitmap> Pv = this.pFj.Pv(i);
+                            com.facebook.common.references.a<Bitmap> Pz = this.pHo.Pz(i);
                             i3 = -1;
-                            z = a(i, Pv, canvas, 3);
-                            aVar = Pv;
+                            z = a(i, Pz, canvas, 3);
+                            aVar = Pz;
                             break;
                         default:
                             com.facebook.common.references.a.c(null);
@@ -173,8 +173,8 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
     @Override // com.facebook.fresco.animation.a.a
     public void setBounds(@Nullable Rect rect) {
         this.mBounds = rect;
-        this.pFl.setBounds(rect);
-        evp();
+        this.pHq.setBounds(rect);
+        evy();
     }
 
     @Override // com.facebook.fresco.animation.a.a
@@ -189,7 +189,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
 
     @Override // com.facebook.fresco.animation.a.a
     public void clear() {
-        this.pFj.clear();
+        this.pHo.clear();
     }
 
     @Override // com.facebook.fresco.animation.a.c.a
@@ -197,12 +197,12 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
         clear();
     }
 
-    private void evp() {
-        this.mBitmapWidth = this.pFl.getIntrinsicWidth();
+    private void evy() {
+        this.mBitmapWidth = this.pHq.getIntrinsicWidth();
         if (this.mBitmapWidth == -1) {
             this.mBitmapWidth = this.mBounds == null ? -1 : this.mBounds.width();
         }
-        this.mBitmapHeight = this.pFl.getIntrinsicHeight();
+        this.mBitmapHeight = this.pHq.getIntrinsicHeight();
         if (this.mBitmapHeight == -1) {
             this.mBitmapHeight = this.mBounds != null ? this.mBounds.height() : -1;
         }
@@ -212,7 +212,7 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
         if (!com.facebook.common.references.a.a(aVar)) {
             return false;
         }
-        boolean c = this.pFl.c(i, aVar.get());
+        boolean c = this.pHq.c(i, aVar.get());
         if (!c) {
             com.facebook.common.references.a.c(aVar);
             return c;
@@ -230,10 +230,10 @@ public class a implements com.facebook.fresco.animation.a.a, c.a {
             canvas.drawBitmap(aVar.get(), (Rect) null, this.mBounds, this.mPaint);
         }
         if (i2 != 3) {
-            this.pFj.a(i, aVar, i2);
+            this.pHo.a(i, aVar, i2);
         }
-        if (this.pFo != null) {
-            this.pFo.a(this, i, i2);
+        if (this.pHt != null) {
+            this.pHt.a(this, i, i2);
         }
         return true;
     }

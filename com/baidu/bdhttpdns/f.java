@@ -8,40 +8,38 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class f {
-    private static volatile f aeM;
+    private static volatile f agf;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     interface a {
         void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private class b implements Runnable {
-        private a aeN;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f1575b;
+        private a agg;
+        private String b;
 
         public b(String str, a aVar) {
-            this.f1575b = str;
-            this.aeN = aVar;
+            this.b = str;
+            this.agg = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ArrayList<String> arrayList;
             ArrayList<String> arrayList2;
-            Map b2 = f.this.b(this.f1575b);
-            if (b2 != null) {
-                arrayList = (ArrayList) b2.get("ipv6");
-                arrayList2 = (ArrayList) b2.get("ipv4");
+            Map b = f.this.b(this.b);
+            if (b != null) {
+                arrayList = (ArrayList) b.get("ipv6");
+                arrayList2 = (ArrayList) b.get("ipv4");
             } else {
                 arrayList = null;
                 arrayList2 = null;
             }
-            this.aeN.a(((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? -1 : 0, arrayList2, arrayList, 60L, this.f1575b);
+            this.agg.a(((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? -1 : 0, arrayList2, arrayList, 60L, this.b);
         }
     }
 
@@ -89,14 +87,14 @@ final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static f sp() {
-        if (aeM == null) {
+        if (agf == null) {
             synchronized (f.class) {
-                if (aeM == null) {
-                    aeM = new f();
+                if (agf == null) {
+                    agf = new f();
                 }
             }
         }
-        return aeM;
+        return agf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -108,7 +106,7 @@ final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BDHttpDnsResult cZ(String str) {
+    public BDHttpDnsResult dd(String str) {
         ArrayList arrayList;
         ArrayList arrayList2;
         Map<String, ArrayList> b2 = b(str);

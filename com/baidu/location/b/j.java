@@ -8,11 +8,11 @@ import com.baidu.location.b.i;
 class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i.a f2616a;
+    final /* synthetic */ i.a f1959a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i.a aVar) {
-        this.f2616a = aVar;
+        this.f1959a = aVar;
     }
 
     @Override // java.lang.Runnable

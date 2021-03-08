@@ -9,24 +9,24 @@ import kotlin.jvm.internal.s;
 import kotlin.reflect.j;
 @SuppressLint({"SwanCommentErr"})
 @e
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     static final /* synthetic */ j[] $$delegatedProperties = {s.a(new PropertyReference1Impl(s.G(a.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
-    private final c eiI = d.b(SwanLoadingTips$loadingTips$2.INSTANCE);
-    private int eiJ;
+    private final c ekj = d.b(SwanLoadingTips$loadingTips$2.INSTANCE);
+    private int ekk;
 
-    private final String[] aXv() {
-        c cVar = this.eiI;
+    private final String[] aXy() {
+        c cVar = this.ekj;
         j jVar = $$delegatedProperties[0];
         return (String[]) cVar.getValue();
     }
 
-    public final String aXw() {
-        String[] aXv = aXv();
-        if (aXv != null) {
-            if (!(aXv.length == 0)) {
-                String str = aXv[this.eiJ % aXv.length];
-                this.eiJ++;
+    public final String aXz() {
+        String[] aXy = aXy();
+        if (aXy != null) {
+            if (!(aXy.length == 0)) {
+                String str = aXy[this.ekk % aXy.length];
+                this.ekk++;
                 return str;
             }
         }

@@ -10,43 +10,43 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.util.ScreenHelper;
 import com.baidu.tieba.ala.view.PkRankKillAnimView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private MediaMetadataRetriever bem;
-    private CustomMessageListener ifM;
-    private PkRankKillAnimView igM;
+    private MediaMetadataRetriever bfP;
+    private CustomMessageListener ihv;
+    private PkRankKillAnimView iiv;
     private boolean isShowing = false;
     private ViewGroup mParentView;
 
     public void setParentView(ViewGroup viewGroup) {
         this.mParentView = viewGroup;
-        coB();
+        coH();
     }
 
-    public void PU() {
+    public void PX() {
         reset();
-        coz();
+        coF();
     }
 
-    public void Fy() {
-        coA();
+    public void FB() {
+        coG();
         reset();
     }
 
     private Context getContext() {
-        if (bkq() != null) {
-            return bkq().getContext();
+        if (bks() != null) {
+            return bks().getContext();
         }
         return null;
     }
 
-    private ViewGroup bkq() {
+    private ViewGroup bks() {
         return this.mParentView;
     }
 
-    private void coz() {
-        if (this.ifM == null) {
-            this.ifM = new CustomMessageListener(2913291) { // from class: com.baidu.tieba.ala.h.e.1
+    private void coF() {
+        if (this.ihv == null) {
+            this.ihv = new CustomMessageListener(2913291) { // from class: com.baidu.tieba.ala.h.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -56,12 +56,12 @@ public class e {
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.ifM);
+        MessageManager.getInstance().registerListener(this.ihv);
     }
 
-    private void coA() {
-        if (this.ifM != null) {
-            MessageManager.getInstance().unRegisterListener(this.ifM);
+    private void coG() {
+        if (this.ihv != null) {
+            MessageManager.getInstance().unRegisterListener(this.ihv);
         }
     }
 
@@ -76,35 +76,35 @@ public class e {
         int i2;
         int i3;
         this.isShowing = true;
-        coB();
-        this.igM.setVisibility(0);
-        String coE = g.coV().coE();
-        if (TextUtils.isEmpty(coE)) {
+        coH();
+        this.iiv.setVisibility(0);
+        String coK = g.cpb().coK();
+        if (TextUtils.isEmpty(coK)) {
             i = 0;
             i2 = 0;
         } else {
-            if (this.bem == null) {
-                this.bem = new MediaMetadataRetriever();
+            if (this.bfP == null) {
+                this.bfP = new MediaMetadataRetriever();
             }
             try {
-                this.bem.setDataSource(coE);
-                i3 = Integer.valueOf(this.bem.extractMetadata(18)).intValue();
+                this.bfP.setDataSource(coK);
+                i3 = Integer.valueOf(this.bfP.extractMetadata(18)).intValue();
                 try {
-                    i = Integer.valueOf(this.bem.extractMetadata(19)).intValue();
+                    i = Integer.valueOf(this.bfP.extractMetadata(19)).intValue();
                     i2 = i3;
                 } catch (Throwable th) {
                     th = th;
                     th.printStackTrace();
                     i = 0;
                     i2 = i3;
-                    coE = null;
+                    coK = null;
                     if (i2 > 0) {
                     }
-                    coE = null;
+                    coK = null;
                     int realScreenWidth = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-                    this.igM.bX(realScreenWidth, TextUtils.isEmpty(coE) ? (realScreenWidth * i) / (i2 / 2) : realScreenWidth);
-                    this.igM.bringToFront();
-                    this.igM.Iv(coE);
+                    this.iiv.bX(realScreenWidth, TextUtils.isEmpty(coK) ? (realScreenWidth * i) / (i2 / 2) : realScreenWidth);
+                    this.iiv.bringToFront();
+                    this.iiv.IE(coK);
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -112,29 +112,29 @@ public class e {
             }
         }
         if (i2 > 0 || i <= 0) {
-            coE = null;
+            coK = null;
         }
         int realScreenWidth2 = ScreenHelper.getRealScreenWidth(getContext().getApplicationContext());
-        this.igM.bX(realScreenWidth2, TextUtils.isEmpty(coE) ? (realScreenWidth2 * i) / (i2 / 2) : realScreenWidth2);
-        this.igM.bringToFront();
-        this.igM.Iv(coE);
+        this.iiv.bX(realScreenWidth2, TextUtils.isEmpty(coK) ? (realScreenWidth2 * i) / (i2 / 2) : realScreenWidth2);
+        this.iiv.bringToFront();
+        this.iiv.IE(coK);
     }
 
-    private void coB() {
-        if (this.igM == null) {
-            this.igM = new PkRankKillAnimView(getContext(), true);
+    private void coH() {
+        if (this.iiv == null) {
+            this.iiv = new PkRankKillAnimView(getContext(), true);
         }
-        if (bkq().indexOfChild(this.igM) < 0) {
-            bkq().addView(this.igM, new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds216), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds304))));
+        if (bks().indexOfChild(this.iiv) < 0) {
+            bks().addView(this.iiv, new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds216), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds304))));
         }
-        this.igM.setVisibility(8);
-        this.igM.setCallback(new PkRankKillAnimView.a() { // from class: com.baidu.tieba.ala.h.e.2
+        this.iiv.setVisibility(8);
+        this.iiv.setCallback(new PkRankKillAnimView.a() { // from class: com.baidu.tieba.ala.h.e.2
             @Override // com.baidu.tieba.ala.view.PkRankKillAnimView.a
-            public void coC() {
+            public void coI() {
                 e.this.isShowing = false;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913294, ""));
-                if (e.this.igM != null) {
-                    e.this.igM.setVisibility(8);
+                if (e.this.iiv != null) {
+                    e.this.iiv.setVisibility(8);
                 }
             }
         });
@@ -142,24 +142,24 @@ public class e {
 
     private void reset() {
         this.isShowing = false;
-        if (this.igM != null) {
-            this.igM.stopAnim();
-            this.igM.setVisibility(8);
+        if (this.iiv != null) {
+            this.iiv.stopAnim();
+            this.iiv.setVisibility(8);
         }
     }
 
     public void release() {
-        Fy();
-        if (this.bem != null) {
-            this.bem.release();
-            this.bem = null;
+        FB();
+        if (this.bfP != null) {
+            this.bfP.release();
+            this.bfP = null;
         }
-        if (this.igM != null) {
-            this.igM.setCallback(null);
-            this.igM.release();
+        if (this.iiv != null) {
+            this.iiv.setCallback(null);
+            this.iiv.release();
         }
-        if (this.igM != null && (this.igM.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.igM.getParent()).removeView(this.igM);
+        if (this.iiv != null && (this.iiv.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.iiv.getParent()).removeView(this.iiv);
         }
         this.mParentView = null;
     }

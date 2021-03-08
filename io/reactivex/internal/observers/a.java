@@ -2,11 +2,11 @@ package io.reactivex.internal.observers;
 
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     protected final u<? super R> actual;
     protected boolean done;
-    protected io.reactivex.internal.a.b<T> qon;
+    protected io.reactivex.internal.a.b<T> qoP;
     protected io.reactivex.disposables.b s;
     protected int sourceMode;
 
@@ -19,20 +19,20 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
             if (bVar instanceof io.reactivex.internal.a.b) {
-                this.qon = (io.reactivex.internal.a.b) bVar;
+                this.qoP = (io.reactivex.internal.a.b) bVar;
             }
-            if (eKt()) {
+            if (eKb()) {
                 this.actual.onSubscribe(this);
-                eKu();
+                eKc();
             }
         }
     }
 
-    protected boolean eKt() {
+    protected boolean eKb() {
         return true;
     }
 
-    protected void eKu() {
+    protected void eKc() {
     }
 
     @Override // io.reactivex.u
@@ -61,8 +61,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Sk(int i) {
-        io.reactivex.internal.a.b<T> bVar = this.qon;
+    public final int Sj(int i) {
+        io.reactivex.internal.a.b<T> bVar = this.qoP;
         if (bVar == null || (i & 4) != 0) {
             return 0;
         }
@@ -86,12 +86,12 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
 
     @Override // io.reactivex.internal.a.f
     public boolean isEmpty() {
-        return this.qon.isEmpty();
+        return this.qoP.isEmpty();
     }
 
     @Override // io.reactivex.internal.a.f
     public void clear() {
-        this.qon.clear();
+        this.qoP.clear();
     }
 
     @Override // io.reactivex.internal.a.f

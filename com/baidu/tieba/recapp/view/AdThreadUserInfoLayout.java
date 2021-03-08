@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
-    private AfterAdjustChildWidthListener mZg;
+    private AfterAdjustChildWidthListener nbr;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface AfterAdjustChildWidthListener {
         void afterChildWidth();
     }
@@ -25,12 +25,12 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
 
     public void addAdTagView(View view) {
         if (view != null) {
-            this.akg.removeAllViews();
+            this.alz.removeAllViews();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             view.setLayoutParams(layoutParams);
-            this.akg.addView(view);
+            this.alz.addView(view);
         }
     }
 
@@ -42,12 +42,12 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     @Override // com.baidu.card.view.CardUserInfoLayout
     public void tB() {
         super.tB();
-        if (this.mZg != null) {
-            this.mZg.afterChildWidth();
+        if (this.nbr != null) {
+            this.nbr.afterChildWidth();
         }
     }
 
     public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
-        this.mZg = afterAdjustChildWidthListener;
+        this.nbr = afterAdjustChildWidthListener;
     }
 }

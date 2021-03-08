@@ -25,10 +25,8 @@ public class a {
     private File i;
 
     /* renamed from: a  reason: collision with root package name */
-    private Stack<HomeApkBannerData> f10400a = new Stack<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    private Stack<HomeApkBannerData> f10401b = new Stack<>();
+    private Stack<HomeApkBannerData> f6858a = new Stack<>();
+    private Stack<HomeApkBannerData> b = new Stack<>();
     private Map<String, Integer> c = new HashMap();
     private int j = 0;
     private boolean k = false;
@@ -107,10 +105,10 @@ public class a {
                 }
                 return;
             }
-            this.f10400a.push(convertAdTemplateToHomeApkBannerData);
+            this.f6858a.push(convertAdTemplateToHomeApkBannerData);
             objectOutputStream2 = new ObjectOutputStream(new FileOutputStream(this.e));
             try {
-                objectOutputStream2.writeObject(this.f10400a);
+                objectOutputStream2.writeObject(this.f6858a);
                 objectOutputStream = new ObjectOutputStream(new FileOutputStream(b(convertAdTemplateToHomeApkBannerData, true)));
                 try {
                     try {
@@ -388,10 +386,10 @@ public class a {
                 objectInputStream = null;
             }
             if (this.e.exists()) {
-                this.f10400a.clear();
+                this.f6858a.clear();
                 objectInputStream = new ObjectInputStream(new FileInputStream(this.e));
                 try {
-                    this.f10400a = (Stack) objectInputStream.readObject();
+                    this.f6858a = (Stack) objectInputStream.readObject();
                 } catch (Exception e2) {
                     e = e2;
                     objectInputStream2 = objectInputStream;
@@ -423,7 +421,7 @@ public class a {
                     }
                     throw th;
                 }
-                if (this.f10400a.isEmpty()) {
+                if (this.f6858a.isEmpty()) {
                     if (objectInputStream != null) {
                         try {
                             objectInputStream.close();
@@ -434,7 +432,7 @@ public class a {
                     return null;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                Stack stack = (Stack) this.f10400a.clone();
+                Stack stack = (Stack) this.f6858a.clone();
                 while (!stack.isEmpty()) {
                     HomeApkBannerData homeApkBannerData = (HomeApkBannerData) stack.pop();
                     if (homeApkBannerData != null) {
@@ -496,7 +494,7 @@ public class a {
                 return;
             }
             boolean z2 = false;
-            Iterator<HomeApkBannerData> it = this.f10400a.iterator();
+            Iterator<HomeApkBannerData> it = this.f6858a.iterator();
             while (it.hasNext()) {
                 if (TextUtils.equals(convertAdTemplateToHomeApkBannerData.appPackageName, it.next().appPackageName)) {
                     it.remove();
@@ -511,7 +509,7 @@ public class a {
                     objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.e));
                     try {
                         try {
-                            objectOutputStream.writeObject(this.f10400a);
+                            objectOutputStream.writeObject(this.f6858a);
                             if (objectOutputStream != null) {
                                 try {
                                     objectOutputStream.close();
@@ -574,10 +572,10 @@ public class a {
                 objectInputStream = null;
             }
             if (this.f.exists()) {
-                this.f10401b.clear();
+                this.b.clear();
                 objectInputStream = new ObjectInputStream(new FileInputStream(this.f));
                 try {
-                    this.f10401b = (Stack) objectInputStream.readObject();
+                    this.b = (Stack) objectInputStream.readObject();
                 } catch (Exception e2) {
                     e = e2;
                     objectInputStream2 = objectInputStream;
@@ -609,7 +607,7 @@ public class a {
                     }
                     throw th;
                 }
-                if (this.f10401b.isEmpty()) {
+                if (this.b.isEmpty()) {
                     if (objectInputStream != null) {
                         try {
                             objectInputStream.close();
@@ -620,7 +618,7 @@ public class a {
                     return null;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                Stack stack = (Stack) this.f10401b.clone();
+                Stack stack = (Stack) this.b.clone();
                 while (!stack.isEmpty()) {
                     HomeApkBannerData homeApkBannerData = (HomeApkBannerData) stack.pop();
                     if (homeApkBannerData != null) {
@@ -705,10 +703,10 @@ public class a {
                 }
                 return;
             }
-            this.f10401b.push(convertAdTemplateToHomeApkBannerData);
+            this.b.push(convertAdTemplateToHomeApkBannerData);
             objectOutputStream2 = new ObjectOutputStream(new FileOutputStream(this.f));
             try {
-                objectOutputStream2.writeObject(this.f10401b);
+                objectOutputStream2.writeObject(this.b);
                 objectOutputStream = new ObjectOutputStream(new FileOutputStream(b(convertAdTemplateToHomeApkBannerData, false)));
                 try {
                     try {
@@ -790,15 +788,15 @@ public class a {
         ObjectOutputStream objectOutputStream4 = null;
         synchronized (a.class) {
             long currentTimeMillis = System.currentTimeMillis();
-            Iterator<HomeApkBannerData> it2 = this.f10400a.iterator();
+            Iterator<HomeApkBannerData> it2 = this.f6858a.iterator();
             ObjectOutputStream objectOutputStream5 = null;
             while (it2.hasNext()) {
                 HomeApkBannerData next = it2.next();
                 if (currentTimeMillis - next.mTimeStamp > 604800000) {
                     it2.remove();
-                    File b2 = b(next, true);
-                    if (b2.exists()) {
-                        b2.delete();
+                    File b = b(next, true);
+                    if (b.exists()) {
+                        b.delete();
                     }
                     objectOutputStream3 = 1;
                 } else {
@@ -811,7 +809,7 @@ public class a {
                     try {
                         objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.e));
                         try {
-                            objectOutputStream.writeObject(this.f10400a);
+                            objectOutputStream.writeObject(this.f6858a);
                             objectOutputStream5 = objectOutputStream;
                             if (objectOutputStream != null) {
                                 try {
@@ -835,7 +833,7 @@ public class a {
                                     objectOutputStream5 = "HomeApkBannerDataManager";
                                 }
                             }
-                            it = this.f10401b.iterator();
+                            it = this.b.iterator();
                             z = false;
                             while (it.hasNext()) {
                             }
@@ -858,15 +856,15 @@ public class a {
                         throw th;
                     }
                 }
-                it = this.f10401b.iterator();
+                it = this.b.iterator();
                 z = false;
                 while (it.hasNext()) {
                     HomeApkBannerData next2 = it.next();
                     if (currentTimeMillis - next2.mTimeStamp > 604800000) {
                         it.remove();
-                        File b3 = b(next2, false);
-                        if (b3.exists()) {
-                            b3.delete();
+                        File b2 = b(next2, false);
+                        if (b2.exists()) {
+                            b2.delete();
                         }
                         z2 = true;
                     } else {
@@ -885,7 +883,7 @@ public class a {
                         th = th2;
                     }
                     try {
-                        objectOutputStream2.writeObject(this.f10401b);
+                        objectOutputStream2.writeObject(this.b);
                         if (objectOutputStream2 != null) {
                             try {
                                 objectOutputStream2.close();
@@ -933,7 +931,7 @@ public class a {
         synchronized (a.class) {
             HomeApkBannerData convertAdTemplateToHomeApkBannerData = HomeApkBannerData.convertAdTemplateToHomeApkBannerData(adTemplate);
             boolean z2 = false;
-            Iterator<HomeApkBannerData> it = this.f10401b.iterator();
+            Iterator<HomeApkBannerData> it = this.b.iterator();
             while (it.hasNext()) {
                 if (TextUtils.equals(convertAdTemplateToHomeApkBannerData.appPackageName, it.next().appPackageName)) {
                     it.remove();
@@ -948,7 +946,7 @@ public class a {
                     objectOutputStream = new ObjectOutputStream(new FileOutputStream(this.f));
                     try {
                         try {
-                            objectOutputStream.writeObject(this.f10401b);
+                            objectOutputStream.writeObject(this.b);
                             if (objectOutputStream != null) {
                                 try {
                                     objectOutputStream.close();

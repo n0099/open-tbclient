@@ -14,57 +14,55 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2054a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private C0109a f2055b;
+    private Context f1606a;
+    private C0115a b;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, int i, Bundle bundle) {
-        this.f2054a = context;
-        this.f2055b = new C0109a();
+        this.f1606a = context;
+        this.b = new C0115a();
         b.a a2 = b.a(i);
-        c a3 = b.a(context).a(context.getApplicationContext(), a2.f2060a);
-        this.f2055b.j = a2.f2060a;
+        c a3 = b.a(context).a(context.getApplicationContext(), a2.f1609a);
+        this.b.j = a2.f1609a;
         try {
             if (!a3.q || !a3.r) {
-                this.f2055b.i = a2.f2061b;
-                this.f2055b.k = true;
+                this.b.i = a2.b;
+                this.b.k = true;
                 a(a2.d, a2);
                 return true;
             }
             if (!a3.p) {
                 a(a2, a3, a2.d);
-            } else if (a2.f2061b.compareTo(a3.n) > 0) {
-                this.f2055b.i = a2.f2061b;
+            } else if (a2.b.compareTo(a3.n) > 0) {
+                this.b.i = a2.b;
                 a(a2.d, a2);
             } else {
                 a(a2, a3, a2.d);
             }
-            this.f2055b.k = true;
+            this.b.k = true;
             return true;
         } catch (Throwable th) {
             try {
-                this.f2055b.n = Log.getStackTraceString(th);
-                this.f2055b.o = this.f2055b.i;
-                this.f2055b.k = false;
+                this.b.n = Log.getStackTraceString(th);
+                this.b.o = this.b.i;
+                this.b.k = false;
                 return false;
             } finally {
-                this.f2055b.b();
+                this.b.b();
             }
         }
     }
 
     private void a(String[] strArr, b.a aVar) {
         for (String str : strArr) {
-            String str2 = b.b(this.f2054a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
+            String str2 = b.b(this.f1606a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
             if (g.a(str2)) {
                 g.b(str2);
             }
             System.loadLibrary(str);
         }
-        this.f2055b.l = true;
+        this.b.l = true;
     }
 
     private void a(b.a aVar, c cVar, String[] strArr) {
@@ -72,14 +70,14 @@ public class a {
         try {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
-                System.load(b.b(this.f2054a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
+                System.load(b.b(this.f1606a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
             }
-            this.f2055b.i = cVar.n;
+            this.b.i = cVar.n;
         } catch (Throwable th) {
-            this.f2055b.m = false;
-            this.f2055b.i = aVar.f2061b;
-            this.f2055b.n = Log.getStackTraceString(th);
-            this.f2055b.o = cVar.n;
+            this.b.m = false;
+            this.b.i = aVar.b;
+            this.b.n = Log.getStackTraceString(th);
+            this.b.o = cVar.n;
             z = false;
         }
         if (!z) {
@@ -90,10 +88,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.face.base.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0109a {
-
-        /* renamed from: b  reason: collision with root package name */
-        private static final String f2056b = "load_so_zip_version";
+    public class C0115a {
+        private static final String b = "load_so_zip_version";
         private static final String c = "load_so_modle_name";
         private static final String d = "load_default_so";
         private static final String e = "load_so_success";
@@ -108,14 +104,14 @@ public class a {
         private String n;
         private String o;
 
-        private C0109a() {
+        private C0115a() {
             this.l = false;
             this.m = true;
         }
 
         private Map<String, String> a() {
             HashMap hashMap = new HashMap();
-            hashMap.put(f2056b, this.i);
+            hashMap.put(b, this.i);
             hashMap.put(c, this.j);
             hashMap.put(d, this.l ? "1" : "-1");
             hashMap.put(e, this.k ? "1" : "-1");

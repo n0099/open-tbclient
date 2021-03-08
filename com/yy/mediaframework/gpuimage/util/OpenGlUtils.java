@@ -6,7 +6,7 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.IntBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OpenGlUtils {
     public static final int NO_TEXTURE = -1;
 

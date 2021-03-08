@@ -7,15 +7,15 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
     private final TypeAdapter<T> delegate;
-    private final Gson pUd;
+    private final Gson pUS;
     private final Type type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TypeAdapterRuntimeTypeWrapper(Gson gson, TypeAdapter<T> typeAdapter, Type type) {
-        this.pUd = gson;
+        this.pUS = gson;
         this.delegate = typeAdapter;
         this.type = type;
     }
@@ -28,9 +28,9 @@ public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
     @Override // com.google.gson.TypeAdapter
     public void write(com.google.gson.stream.b bVar, T t) throws IOException {
         TypeAdapter<T> typeAdapter = this.delegate;
-        Type b2 = b(this.type, t);
-        if (b2 != this.type) {
-            typeAdapter = this.pUd.getAdapter(com.google.gson.b.a.r(b2));
+        Type b = b(this.type, t);
+        if (b != this.type) {
+            typeAdapter = this.pUS.getAdapter(com.google.gson.b.a.r(b));
             if ((typeAdapter instanceof ReflectiveTypeAdapterFactory.Adapter) && !(this.delegate instanceof ReflectiveTypeAdapterFactory.Adapter)) {
                 typeAdapter = this.delegate;
             }

@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.StringTokenizer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AudioManagerAndroid implements AppBackgroundMonitorListener, AudioRoutingListener, VolumeChangeListener {
     private static final int DEFAULT_FRAMES_PER_BUFFER = 256;
     private static final int DEFAULT_SAMPLING_RATE = 44100;

@@ -28,7 +28,7 @@ public class e extends com.baidu.adp.widget.ListView.a<i, CardViewHolder<h>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, i iVar, CardViewHolder<h> cardViewHolder) {
-        cardViewHolder.cti().a(iVar);
+        cardViewHolder.cto().a(iVar);
         return cardViewHolder.getView();
     }
 }

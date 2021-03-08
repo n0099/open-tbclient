@@ -5,43 +5,43 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class g extends BaseCardInfo {
-    public static final BdUniqueId eQK = BdUniqueId.gen();
-    public cb gyO;
-    private boolean gyZ;
+    public static final BdUniqueId eSl = BdUniqueId.gen();
+    private boolean gAI;
+    public cb gAx;
     public int locate;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return eQK;
+        return eSl;
     }
 
     public ar az(String str, boolean z) {
-        if (this.gyO == null) {
+        if (this.gAx == null) {
             return null;
         }
         int i = 1;
-        if (this.gyO.bpe()) {
+        if (this.gAx.bpg()) {
             i = 2;
-        } else if (this.gyO.bpi() != null && this.gyO.bpi().eUx != 0) {
+        } else if (this.gAx.bpk() != null && this.gAx.bpk().eVW != 0) {
             i = 3;
         }
-        ar dR = new ar(str).dR("tid", this.gyO.getTid()).ap("obj_type", i).dR("obj_param1", this.gyO.mRecomWeight).dR("obj_source", this.gyO.mRecomSource).ap("obj_locate", this.locate).dR("ab_tag", this.gyO.mRecomAbTag).dR(TiebaInitialize.Params.OBJ_PARAM3, getAspectRatio() > 1.0f ? "1" : "0");
+        ar dR = new ar(str).dR("tid", this.gAx.getTid()).aq("obj_type", i).dR("obj_param1", this.gAx.mRecomWeight).dR("obj_source", this.gAx.mRecomSource).aq("obj_locate", this.locate).dR("ab_tag", this.gAx.mRecomAbTag).dR(TiebaInitialize.Params.OBJ_PARAM3, getAspectRatio() > 1.0f ? "1" : "0");
         if (z) {
-            dR.dR(TiebaInitialize.Params.OBJ_PARAM2, this.gyO.boe() > 0 ? "0" : "1");
+            dR.dR(TiebaInitialize.Params.OBJ_PARAM2, this.gAx.bog() > 0 ? "0" : "1");
         }
         return dR;
     }
 
     public float getAspectRatio() {
-        if (this.gyO == null || this.gyO.boh() == null || this.gyO.boh().video_height.intValue() <= 0) {
+        if (this.gAx == null || this.gAx.boj() == null || this.gAx.boj().video_height.intValue() <= 0) {
             return 0.0f;
         }
-        return this.gyO.boh().video_width.intValue() / this.gyO.boh().video_height.intValue();
+        return this.gAx.boj().video_width.intValue() / this.gAx.boj().video_height.intValue();
     }
 
-    public boolean bRg() {
-        return this.gyZ;
+    public boolean bRm() {
+        return this.gAI;
     }
 }

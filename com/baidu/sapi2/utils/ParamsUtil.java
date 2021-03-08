@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ParamsUtil implements NoProguard {
     private static HttpCookie a(String str, String str2, String str3) {
         HttpCookie httpCookie = new HttpCookie(str, str2);
@@ -133,7 +133,7 @@ public class ParamsUtil implements NoProguard {
             hashMap.put("connect", "1");
         }
         if (sapiConfiguration.language == Language.ENGLISH) {
-            hashMap.put("lang", com.baidu.fsg.base.statistics.h.f1945a);
+            hashMap.put("lang", com.baidu.fsg.base.statistics.h.f1535a);
         }
         hashMap.put("suppcheck", "1");
         if (sapiConfiguration.supportFaceLogin) {

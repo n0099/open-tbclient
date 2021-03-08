@@ -12,10 +12,8 @@ import java.util.ArrayList;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f12812a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f12813b = "";
+    private static boolean f7627a = false;
+    private static String b = "";
     private static String c = "";
 
     public static AInfo a(Context context) {

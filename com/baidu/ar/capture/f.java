@@ -9,7 +9,7 @@ import com.baidu.ar.databasic.AlgoHandleController;
 import com.baidu.ar.databasic.ReserveHandleData;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class f {
     public static long a(AlgoHandleController algoHandleController, Bitmap[] bitmapArr, int i) {
         if (bitmapArr == null || bitmapArr.length == 0) {

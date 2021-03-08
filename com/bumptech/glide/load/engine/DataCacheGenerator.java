@@ -9,7 +9,7 @@ import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DataCacheGenerator implements DataFetcher.DataCallback<Object>, DataFetcherGenerator {
     private File cacheFile;
     private final List<Key> cacheKeys;

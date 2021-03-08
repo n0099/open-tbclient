@@ -5,25 +5,25 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b implements k {
-    private Set<k> qFo;
-    private volatile boolean qyH;
+    private Set<k> qFQ;
+    private volatile boolean qzj;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qyH;
+        return this.qzj;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.qyH) {
+            if (!this.qzj) {
                 synchronized (this) {
-                    if (!this.qyH) {
-                        if (this.qFo == null) {
-                            this.qFo = new HashSet(4);
+                    if (!this.qzj) {
+                        if (this.qFQ == null) {
+                            this.qFQ = new HashSet(4);
                         }
-                        this.qFo.add(kVar);
+                        this.qFQ.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.qyH) {
+        if (!this.qzj) {
             synchronized (this) {
-                if (!this.qyH && this.qFo != null) {
-                    boolean remove = this.qFo.remove(kVar);
+                if (!this.qzj && this.qFQ != null) {
+                    boolean remove = this.qFQ.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.qyH) {
+        if (!this.qzj) {
             synchronized (this) {
-                if (!this.qyH) {
-                    this.qyH = true;
-                    Set<k> set = this.qFo;
-                    this.qFo = null;
+                if (!this.qzj) {
+                    this.qzj = true;
+                    Set<k> set = this.qFQ;
+                    this.qFQ = null;
                     u(set);
                 }
             }
@@ -71,7 +71,7 @@ public final class b implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.hk(arrayList);
+            rx.exceptions.a.hj(arrayList);
         }
     }
 }

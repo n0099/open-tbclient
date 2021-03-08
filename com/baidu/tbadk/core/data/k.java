@@ -6,13 +6,13 @@ import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
 public class k {
     private String badge_url;
-    private int eMr;
+    private int eNS;
     private String webview;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eMr = jSONObject.optInt("badge_id", 0);
+                this.eNS = jSONObject.optInt("badge_id", 0);
                 this.badge_url = jSONObject.optString("badge_url", "");
                 this.webview = jSONObject.optString("webview");
             } catch (Exception e) {
@@ -23,7 +23,7 @@ public class k {
 
     public void a(Badges badges) {
         if (badges != null) {
-            this.eMr = badges.badge_id.intValue();
+            this.eNS = badges.badge_id.intValue();
             this.badge_url = badges.badge_url;
             this.webview = badges.webview;
         }

@@ -2,7 +2,7 @@ package com.yy.mediaframework.model;
 
 import com.yy.mediaframework.base.VideoEncoderType;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class JVideoEncodedData {
     public int mFrameType = 255;
     public long mPts = 0;

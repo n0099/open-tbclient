@@ -24,7 +24,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SoLoader {
     private static final String TAG = "SoLoader";
     private StringBuilder sb = new StringBuilder();
@@ -36,20 +36,20 @@ public final class SoLoader {
     }
 
     public static f loadV8EngineSo(Context context) {
-        String aZh = e.aZh();
-        if (sLoadedLibraries.contains(aZh)) {
-            return f.aZj();
+        String aZk = e.aZk();
+        if (sLoadedLibraries.contains(aZk)) {
+            return f.aZm();
         }
         f a2 = e.a(context, new SoLoader());
         if (a2.isSuccess()) {
-            sLoadedLibraries.add(aZh);
+            sLoadedLibraries.add(aZk);
             return a2;
         }
         return a2;
     }
 
     public static String getV8SoDependentFilePath() {
-        if (!sLoadedLibraries.contains(e.aZh())) {
+        if (!sLoadedLibraries.contains(e.aZk())) {
             return null;
         }
         String v8SoDependentFilePath = e.getV8SoDependentFilePath();
@@ -71,11 +71,11 @@ public final class SoLoader {
     public static void load(Context context, String str, boolean z, boolean z2) {
         boolean load;
         if (!sLoadedLibraries.contains(str)) {
-            a aYX = a.aYX();
+            a aZa = a.aZa();
             if (!z) {
-                load = new SoLoader().loadInternalFromLocal(context, str, aYX, z2);
+                load = new SoLoader().loadInternalFromLocal(context, str, aZa, z2);
             } else {
-                load = load(context, str, aYX, z2);
+                load = load(context, str, aZa, z2);
             }
             if (load) {
                 sLoadedLibraries.add(str);
@@ -85,7 +85,7 @@ public final class SoLoader {
 
     private static boolean load(Context context, String str, b bVar, boolean z) {
         if (bVar == null) {
-            bVar = a.aYX();
+            bVar = a.aZa();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {

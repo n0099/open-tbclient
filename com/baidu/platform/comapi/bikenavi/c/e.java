@@ -6,15 +6,15 @@ import com.baidu.tieba.R;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4157a;
+    final /* synthetic */ b f2877a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.f4157a = bVar;
+        this.f2877a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f4157a.a(true, R.drawable.res_0x7f080002_avd_hide_password__2);
+        this.f2877a.a(true, R.drawable.res_0x7f080002_avd_hide_password__2);
     }
 }

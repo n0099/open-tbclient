@@ -14,10 +14,8 @@ import java.util.Set;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final c f10112a = new c();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final n<Object, Object> f10113b = new a();
+    private static final c f6692a = new c();
+    private static final n<Object, Object> b = new a();
     private final List<b<?, ?>> c;
     private final c d;
     private final Set<b<?, ?>> e;
@@ -45,16 +43,14 @@ public class r {
     public static class b<Model, Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        final Class<Data> f10114a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final o<? extends Model, ? extends Data> f10115b;
+        final Class<Data> f6693a;
+        final o<? extends Model, ? extends Data> b;
         private final Class<Model> c;
 
         public b(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<? extends Model, ? extends Data> oVar) {
             this.c = cls;
-            this.f10114a = cls2;
-            this.f10115b = oVar;
+            this.f6693a = cls2;
+            this.b = oVar;
         }
 
         public boolean a(@NonNull Class<?> cls) {
@@ -62,7 +58,7 @@ public class r {
         }
 
         public boolean a(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return a(cls) && this.f10114a.isAssignableFrom(cls2);
+            return a(cls) && this.f6693a.isAssignableFrom(cls2);
         }
     }
 
@@ -78,7 +74,7 @@ public class r {
     }
 
     public r(@NonNull Pools.Pool<List<Throwable>> pool) {
-        this(pool, f10112a);
+        this(pool, f6692a);
     }
 
     @VisibleForTesting
@@ -91,12 +87,12 @@ public class r {
 
     @NonNull
     private static <Model, Data> n<Model, Data> a() {
-        return (n<Model, Data>) f10113b;
+        return (n<Model, Data>) b;
     }
 
     @NonNull
     private <Model, Data> n<Model, Data> a(@NonNull b<?, ?> bVar) {
-        return (n) com.kwad.sdk.glide.g.j.a(bVar.f10115b.a(this));
+        return (n) com.kwad.sdk.glide.g.j.a(bVar.b.a(this));
     }
 
     private <Model, Data> void a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<? extends Model, ? extends Data> oVar, boolean z) {
@@ -167,8 +163,8 @@ public class r {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (b<?, ?> bVar : this.c) {
-            if (!arrayList.contains(bVar.f10114a) && bVar.a(cls)) {
-                arrayList.add(bVar.f10114a);
+            if (!arrayList.contains(bVar.f6693a) && bVar.a(cls)) {
+                arrayList.add(bVar.f6693a);
             }
         }
         return arrayList;

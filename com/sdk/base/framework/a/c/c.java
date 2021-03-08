@@ -5,22 +5,20 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
 public abstract class c<Params, Progress, Result> {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final g f12780b = new g((byte) 0);
+    private static final g b = new g((byte) 0);
     private static Executor c = new i();
     private final AtomicBoolean f = new AtomicBoolean();
     private final AtomicBoolean g = new AtomicBoolean();
     private volatile boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected Boolean f12781a = Boolean.valueOf(com.sdk.base.framework.c.f.c);
+    protected Boolean f7609a = Boolean.valueOf(com.sdk.base.framework.c.f.c);
     private final h<Params, Result> d = new d(this);
     private final FutureTask<Result> e = new e(this, this.d);
 
     /* JADX INFO: Access modifiers changed from: private */
     public Result a(Result result) {
-        f12780b.obtainMessage(1, new f(this, result)).sendToTarget();
+        b.obtainMessage(1, new f(this, result)).sendToTarget();
         return result;
     }
 
@@ -58,7 +56,7 @@ public abstract class c<Params, Progress, Result> {
             throw new IllegalStateException("Cannot execute task: the task is already executed.");
         }
         this.h = true;
-        this.d.f12786a = paramsArr;
+        this.d.f7612a = paramsArr;
         executor.execute(new n(0, this.e));
         return this;
     }
@@ -68,6 +66,6 @@ public abstract class c<Params, Progress, Result> {
         if (this.f.get()) {
             return;
         }
-        f12780b.obtainMessage(2, new f(this, progressArr)).sendToTarget();
+        b.obtainMessage(2, new f(this, progressArr)).sendToTarget();
     }
 }

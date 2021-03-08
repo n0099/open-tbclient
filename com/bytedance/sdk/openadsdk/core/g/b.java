@@ -7,20 +7,32 @@ import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class b {
     public static void a(Context context, l lVar) {
-        d.k(context, lVar, "playable_preload", "preload_start", null);
+        if (lVar != null) {
+            if (lVar.D() || lVar.C()) {
+                d.k(context, lVar, "playable_preload", "preload_start", null);
+            }
+        }
     }
 
     public static void a(Context context, l lVar, long j, long j2) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("loadzip_success_time", Long.valueOf(j));
-        hashMap.put("unzip_success_time", Long.valueOf(j2));
-        d.k(context, lVar, "playable_preload", "preload_success", hashMap);
+        if (lVar != null) {
+            if (lVar.D() || lVar.C()) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("loadzip_success_time", Long.valueOf(j));
+                hashMap.put("unzip_success_time", Long.valueOf(j2));
+                d.k(context, lVar, "playable_preload", "preload_success", hashMap);
+            }
+        }
     }
 
     public static void a(Context context, l lVar, int i, String str) {
-        HashMap hashMap = new HashMap();
-        hashMap.put("error_code", Integer.valueOf(i));
-        hashMap.put("error_reason", str);
-        d.k(context, lVar, "playable_preload", "preload_fail", hashMap);
+        if (lVar != null) {
+            if (lVar.D() || lVar.C()) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("error_code", Integer.valueOf(i));
+                hashMap.put("error_reason", str);
+                d.k(context, lVar, "playable_preload", "preload_fail", hashMap);
+            }
+        }
     }
 }

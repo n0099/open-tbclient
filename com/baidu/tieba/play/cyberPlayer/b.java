@@ -11,105 +11,105 @@ import com.baidu.tieba.play.h;
 import com.baidu.tieba.play.o;
 /* loaded from: classes.dex */
 public class b {
-    private cb eJQ;
-    private long mIL;
-    private o mIM;
-    private boolean mIO;
-    private long mIK = 0;
+    private cb eLr;
+    private long mKO;
+    private o mKP;
+    private boolean mKR;
+    private long mKN = 0;
     private long mStartTime = 0;
-    private String mIN = "1";
-    private j mIQ = new j();
+    private String mKQ = "1";
+    private j mKS = new j();
 
-    public void dAr() {
-        this.mIQ.dhc();
+    public void dAz() {
+        this.mKS.dhl();
     }
 
     public void hA(long j) {
-        this.mIL = j;
-        this.mIQ.dhd();
+        this.mKO = j;
+        this.mKS.dhm();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.mIK = (System.currentTimeMillis() - this.mStartTime) + this.mIK;
+            this.mKN = (System.currentTimeMillis() - this.mStartTime) + this.mKN;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.mIO = true;
-        this.mIQ.dhe();
+        this.mKR = true;
+        this.mKS.dhn();
     }
 
     public void b(TbCyberVideoView tbCyberVideoView) {
-        this.mIQ.a(tbCyberVideoView);
+        this.mKS.a(tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.mIK = (System.currentTimeMillis() - this.mStartTime) + this.mIK;
+            this.mKN = (System.currentTimeMillis() - this.mStartTime) + this.mKN;
             this.mStartTime = 0L;
         }
-        this.mIO = false;
+        this.mKR = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.mIK = (System.currentTimeMillis() - this.mStartTime) + this.mIK;
+            this.mKN = (System.currentTimeMillis() - this.mStartTime) + this.mKN;
             this.mStartTime = 0L;
         }
-        dAs();
-        this.mIK = 0L;
+        dAA();
+        this.mKN = 0L;
         this.mStartTime = 0L;
-        this.mIO = false;
-        this.mIQ.dhb();
+        this.mKR = false;
+        this.mKS.dhk();
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.mIK = (System.currentTimeMillis() - this.mStartTime) + this.mIK;
+            this.mKN = (System.currentTimeMillis() - this.mStartTime) + this.mKN;
             this.mStartTime = 0L;
         }
     }
 
     public void setVideoStatsData(o oVar) {
-        this.mIM = oVar;
+        this.mKP = oVar;
     }
 
     public void setThreadData(cb cbVar) {
-        this.eJQ = cbVar;
+        this.eLr = cbVar;
     }
 
     public void setPlayMode(String str) {
-        this.mIN = str;
+        this.mKQ = str;
     }
 
-    private void dAs() {
-        if (this.mIK >= 0 && this.mIK < 86400000) {
-            if (this.mIK > 0) {
+    private void dAA() {
+        if (this.mKN >= 0 && this.mKN < 86400000) {
+            if (this.mKN > 0) {
                 ar arVar = new ar(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                arVar.v("obj_duration", this.mIK);
-                arVar.dR("obj_type", this.mIN);
-                arVar.v("playduration", this.mIL);
-                arVar.ap("player_type", 1);
+                arVar.v("obj_duration", this.mKN);
+                arVar.dR("obj_type", this.mKQ);
+                arVar.v("playduration", this.mKO);
+                arVar.aq("player_type", 1);
                 if (!au.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     arVar.dR("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.mIM != null) {
-                    this.mIM.f(arVar);
+                if (this.mKP != null) {
+                    this.mKP.f(arVar);
                 }
-                if (!arVar.Bc("obj_param5") && this.eJQ != null) {
-                    if (this.eJQ.getBaijiahaoData() != null) {
-                        if (this.eJQ.getBaijiahaoData().oriUgcType == 2) {
-                            arVar.ap("obj_param5", 3);
-                        } else if (this.eJQ.getBaijiahaoData().oriUgcType == 4) {
-                            arVar.ap("obj_param5", 2);
+                if (!arVar.Bj("obj_param5") && this.eLr != null) {
+                    if (this.eLr.getBaijiahaoData() != null) {
+                        if (this.eLr.getBaijiahaoData().oriUgcType == 2) {
+                            arVar.aq("obj_param5", 3);
+                        } else if (this.eLr.getBaijiahaoData().oriUgcType == 4) {
+                            arVar.aq("obj_param5", 2);
                         }
                     } else {
-                        arVar.ap("obj_param5", 1);
+                        arVar.aq("obj_param5", 1);
                     }
                 }
                 TiebaStatic.log(arVar);
-                h.a(this.mIK, this.mIN, this.mIM, "", this.mIL);
-            } else if (this.mIO) {
-                h.a(this.mIK, this.mIN, this.mIM, "", this.mIL);
+                h.a(this.mKN, this.mKQ, this.mKP, "", this.mKO);
+            } else if (this.mKR) {
+                h.a(this.mKN, this.mKQ, this.mKP, "", this.mKO);
             }
         }
     }

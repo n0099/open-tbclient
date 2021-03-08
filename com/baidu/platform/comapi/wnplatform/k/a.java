@@ -6,34 +6,32 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static JSONObject f4426a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static a f4427b = null;
+    private static JSONObject f3064a = null;
+    private static a b = null;
 
     private a() {
     }
 
     public static a a() {
-        if (f4427b == null) {
-            f4427b = new a();
+        if (b == null) {
+            b = new a();
         }
-        if (f4426a == null) {
-            f4426a = new JSONObject();
+        if (f3064a == null) {
+            f3064a = new JSONObject();
         }
-        return f4427b;
+        return b;
     }
 
     public void a(String str, String str2) {
         try {
-            f4426a.put(str, str2);
+            f3064a.put(str, str2);
         } catch (JSONException e) {
         }
     }
 
     public void a(String str, int i) {
         try {
-            f4426a.put(str, Integer.toString(i));
+            f3064a.put(str, Integer.toString(i));
         } catch (JSONException e) {
         }
     }

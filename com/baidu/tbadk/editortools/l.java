@@ -7,11 +7,11 @@ import com.baidu.tieba.R;
 public class l extends m {
     public l(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_add_title), 30, i);
-        this.fCb = R.drawable.icon_pure_post_more_title24;
-        this.fCd = R.drawable.icon_pure_post_more_tittle64;
-        this.fCe = false;
-        this.fCf = true;
-        this.fCg = false;
-        this.fCk = new int[]{56};
+        this.fDA = R.drawable.icon_pure_post_more_title24;
+        this.fDC = R.drawable.icon_pure_post_more_tittle64;
+        this.fDD = false;
+        this.fDE = true;
+        this.fDF = false;
+        this.fDJ = new int[]{56};
     }
 }

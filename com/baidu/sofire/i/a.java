@@ -3,7 +3,7 @@ package com.baidu.sofire.i;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {
@@ -15,10 +15,10 @@ public final class a {
             }
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
             byte[] doFinal = cipher.doFinal(bArr2);
-            byte[] b2 = p.b(bArr2);
-            byte[] bArr4 = new byte[doFinal.length + b2.length];
+            byte[] b = p.b(bArr2);
+            byte[] bArr4 = new byte[doFinal.length + b.length];
             System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-            System.arraycopy(b2, 0, bArr4, doFinal.length, b2.length);
+            System.arraycopy(b, 0, bArr4, doFinal.length, b.length);
             return bArr4;
         } catch (Throwable th) {
             e.a();

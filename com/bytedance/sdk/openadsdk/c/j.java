@@ -29,10 +29,8 @@ public class j {
     private p w;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6233a = 1;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f6234b = false;
+    private int f4203a = 1;
+    private boolean b = false;
     private boolean c = false;
     private boolean d = false;
     private int e = -1;
@@ -95,8 +93,8 @@ public class j {
         if (this.w != null) {
             this.w.e();
         }
-        if (!this.f6234b) {
-            this.f6234b = true;
+        if (!this.b) {
+            this.b = true;
             a("load_start", new JSONObject());
         }
     }
@@ -106,7 +104,7 @@ public class j {
         if (this.w != null) {
             this.w.f();
         }
-        if (webView != null && !this.n) {
+        if (webView != null && !this.n && this.q) {
             this.n = true;
             t.a(webView, "javascript:\n    function sendScroll() {\n        try {\n            var totalH = document.body.scrollHeight || document.documentElement.scrollHeight;\n            var clientH = window.innerHeight || document.documentElement.clientHeight;\n            var scrollH = document.body.scrollTop || document.documentElement.scrollTop;\n            var validH = scrollH + clientH;\n            var result = (validH / totalH * 100).toFixed(2);\n            console.log('LandingPageLogscroll status: (' + scrollH + '+' + clientH + ')/' + totalH + '=' + result);\n            window.JS_LANDING_PAGE_LOG_OBJ.readPercent(result);\n        } catch (e) {\n            console.log('sendScroll error' + e)\n        }\n    }\nsendScroll();\nwindow.addEventListener('scroll', function (e) {\n    sendScroll();\n});");
             if (b(str)) {
@@ -115,10 +113,10 @@ public class j {
                 this.r.incrementAndGet();
             }
         }
-        if (this.f6233a != 3) {
-            this.f6233a = 2;
+        if (this.f4203a != 3) {
+            this.f4203a = 2;
         }
-        if (this.f6233a == 2) {
+        if (this.f4203a == 2) {
             long j = this.m - this.l;
             if (!this.c) {
                 this.c = true;
@@ -146,7 +144,7 @@ public class j {
         if (this.w != null) {
             this.w.g();
         }
-        this.f6233a = 3;
+        this.f4203a = 3;
         this.e = i;
         this.f = str;
     }
@@ -158,12 +156,12 @@ public class j {
 
     public void c() {
         u.b("LandingPageLog", MissionEvent.MESSAGE_STOP);
-        boolean z = this.f6233a == 2;
+        boolean z = this.f4203a == 2;
         this.k = System.currentTimeMillis();
         long j = this.k - this.j;
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("load_status", this.f6233a);
+            jSONObject.put("load_status", this.f4203a);
             jSONObject.put("stay_page_duration", j);
             jSONObject.put("max_scroll_percent", z ? this.o.get() : 0);
         } catch (JSONException e) {
@@ -205,7 +203,7 @@ public class j {
                 jSONObject2 = null;
             } else {
                 try {
-                    jSONObject.put("is_playable", this.h.s() ? 1 : 0);
+                    jSONObject.put("is_playable", this.h.C() ? 1 : 0);
                     jSONObject.put("usecache", com.bytedance.sdk.openadsdk.core.g.a.a().a(this.h) ? 1 : 0);
                 } catch (JSONException e) {
                 }
@@ -225,14 +223,14 @@ public class j {
     }
 
     private boolean b(String str) {
-        com.bytedance.sdk.openadsdk.core.h.l h;
-        return (TextUtils.isEmpty(str) || this.h == null || this.h.l() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.HTML || (h = com.bytedance.sdk.openadsdk.core.p.h()) == null || h.n() <= this.r.get()) ? false : true;
+        com.bytedance.sdk.openadsdk.core.h.h h;
+        return (TextUtils.isEmpty(str) || this.h == null || this.h.v() == 0 || com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str) != e.a.HTML || (h = com.bytedance.sdk.openadsdk.core.p.h()) == null || h.m() <= this.r.get()) ? false : true;
     }
 
     private void e() {
         if (this.s != null && this.s.size() != 0) {
-            if (!com.bytedance.sdk.openadsdk.core.p.h().w() || x.c(com.bytedance.sdk.openadsdk.core.p.a()) == 4) {
-                com.bytedance.sdk.openadsdk.h.a.a().a(this.s, this.h, this.v);
+            if (!com.bytedance.sdk.openadsdk.core.p.h().v() || x.c(com.bytedance.sdk.openadsdk.core.p.a()) == 4) {
+                com.bytedance.sdk.openadsdk.g.a.a().a(this.s, this.h, this.v);
             }
         }
     }

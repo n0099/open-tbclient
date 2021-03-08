@@ -8,11 +8,9 @@ public class a implements Comparable<a> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f11027a;
+    public final String f7263a;
     @NonNull
-
-    /* renamed from: b  reason: collision with root package name */
-    public final String f11028b;
+    public final String b;
     @Nullable
     public final f c;
     @Nullable
@@ -25,15 +23,15 @@ public class a implements Comparable<a> {
     }
 
     public a(@NonNull String str, @NonNull String str2, @Nullable f fVar, Map<String, String> map) {
-        this.f11027a = str;
-        this.f11028b = str2;
+        this.f7263a = str;
+        this.b = str2;
         this.c = fVar;
         this.d = map;
     }
 
     public a(@NonNull String str, @NonNull String str2, @NonNull String str3, @Nullable f fVar) {
-        this.f11027a = str;
-        this.f11028b = str3;
+        this.f7263a = str;
+        this.b = str3;
         this.c = fVar;
         this.e = str2;
         this.d = null;
@@ -55,7 +53,7 @@ public class a implements Comparable<a> {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return this.f11028b != null ? this.f11028b.equals(aVar.f11028b) : aVar.f11028b == null;
+            return this.b != null ? this.b.equals(aVar.b) : aVar.b == null;
         }
         return false;
     }

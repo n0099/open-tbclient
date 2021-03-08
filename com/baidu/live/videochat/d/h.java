@@ -1,15 +1,15 @@
 package com.baidu.live.videochat.d;
 
 import com.baidu.live.adp.lib.util.BdLog;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
-    public static boolean ff(int i) {
-        BdLog.e("chatStatus=" + i);
-        return i == c.bFK;
-    }
-
     public static boolean fg(int i) {
         BdLog.e("chatStatus=" + i);
-        return i > c.bFG && i < c.bFK;
+        return i == c.bHk;
+    }
+
+    public static boolean fh(int i) {
+        BdLog.e("chatStatus=" + i);
+        return i > c.bHg && i < c.bHk;
     }
 }

@@ -4,11 +4,11 @@ package com.baidu.location.a;
 public class r implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f2579a;
+    final /* synthetic */ p f1934a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.f2579a = pVar;
+        this.f1934a = pVar;
     }
 
     @Override // java.lang.Runnable

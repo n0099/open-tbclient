@@ -1,7 +1,7 @@
 package com.baidu.live.alablmsdk.config.enums;
 
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public enum BLMAudioSampleRate {
     BLM_AUDIO_SAMPLE_RATE_11025HZ(RequestResponseCode.REQUEST_LOGIN_PB_AT),
     BLM_AUDIO_SAMPLE_RATE_22050HZ(22050),

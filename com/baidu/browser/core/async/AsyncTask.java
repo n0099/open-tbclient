@@ -17,13 +17,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public abstract class AsyncTask<Params, Progress, Result> {
-    private static final b afA;
-    public static final Executor afy;
-    public static final Executor afz;
+    public static final Executor agR;
+    public static final Executor agS;
+    private static final b agT;
     private static volatile Executor sDefaultExecutor;
-    private volatile Status afB;
+    private volatile Status agU;
     private final AtomicBoolean mCancelled;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = CPU_COUNT + 1;
@@ -39,28 +39,28 @@ public abstract class AsyncTask<Params, Progress, Result> {
     private static final BlockingQueue<Runnable> sPoolWorkQueue = new LinkedBlockingQueue(128);
     public static final Executor THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, 1, TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public enum Status {
         PENDING,
         RUNNING,
         FINISHED
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     private static class a<Data> {
-        final AsyncTask afC;
+        final AsyncTask agV;
         final Data[] mData;
     }
 
     static {
-        afy = Build.VERSION.SDK_INT >= 11 ? new c() : Executors.newSingleThreadExecutor(sThreadFactory);
-        afz = Executors.newFixedThreadPool(2, sThreadFactory);
-        afA = new b(Looper.getMainLooper());
-        sDefaultExecutor = afy;
+        agR = Build.VERSION.SDK_INT >= 11 ? new c() : Executors.newSingleThreadExecutor(sThreadFactory);
+        agS = Executors.newFixedThreadPool(2, sThreadFactory);
+        agT = new b(Looper.getMainLooper());
+        sDefaultExecutor = agR;
     }
 
     @TargetApi(11)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     private static class c implements Executor {
         Runnable mActive;
         final ArrayDeque<Runnable> mTasks;
@@ -126,10 +126,10 @@ public abstract class AsyncTask<Params, Progress, Result> {
         } catch (Throwable th) {
             Log.w("AsyncTask", th);
         }
-        this.afB = Status.FINISHED;
+        this.agU = Status.FINISHED;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     private static class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -140,10 +140,10 @@ public abstract class AsyncTask<Params, Progress, Result> {
             a aVar = (a) message.obj;
             switch (message.what) {
                 case 1:
-                    aVar.afC.finish(aVar.mData[0]);
+                    aVar.agV.finish(aVar.mData[0]);
                     return;
                 case 2:
-                    aVar.afC.onProgressUpdate(aVar.mData);
+                    aVar.agV.onProgressUpdate(aVar.mData);
                     return;
                 default:
                     return;

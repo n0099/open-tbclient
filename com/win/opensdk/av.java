@@ -1,21 +1,9 @@
 package com.win.opensdk;
+/* loaded from: classes14.dex */
+public class av {
+    public static final av qkR = new av();
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-/* loaded from: classes3.dex */
-public final class av {
-    public static boolean iM(Context context) {
-        NetworkInfo[] allNetworkInfo;
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager == null || (allNetworkInfo = connectivityManager.getAllNetworkInfo()) == null) {
-            return false;
-        }
-        for (NetworkInfo networkInfo : allNetworkInfo) {
-            if (networkInfo.isConnectedOrConnecting()) {
-                return true;
-            }
-        }
-        return false;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public double f8113a;
+    public double b;
 }

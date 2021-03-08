@@ -10,9 +10,9 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.yuyinala.charm.audiencelist.a> eVV = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.yuyinala.charm.audiencelist.a> eXu = new ArrayList<>();
     private TbPageContext mPageContext;
 
     public h(TbPageContext tbPageContext) {
@@ -21,28 +21,28 @@ public class h extends BaseAdapter {
 
     public void setData(List<com.baidu.tieba.yuyinala.charm.audiencelist.a> list) {
         if (list != null) {
-            this.eVV.clear();
-            this.eVV.addAll(list);
+            this.eXu.clear();
+            this.eXu.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eVV == null) {
+        if (this.eXu == null) {
             return 0;
         }
-        return this.eVV.size();
+        return this.eXu.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: LJ */
+    /* renamed from: LN */
     public com.baidu.tieba.yuyinala.charm.audiencelist.a getItem(int i) {
-        if (this.eVV == null) {
+        if (this.eXu == null) {
             return null;
         }
-        return this.eVV.get(i);
+        return this.eXu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,25 +57,25 @@ public class h extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_list_item, viewGroup, false);
             aVar = new a();
-            aVar.opV = (OnlineAudienceItemView) view.findViewById(a.f.item);
+            aVar.osb = (OnlineAudienceItemView) view.findViewById(a.f.item);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).aId) != null) {
-            if (aVar.opV.getTag() == null || !TextUtils.equals(((AlaLiveUserInfoData) aVar.opV.getTag()).userUk, alaLiveUserInfoData.userUk)) {
-                aVar.opV.opU.setData4Yuyin(alaLiveUserInfoData);
-                aVar.opV.setTag(alaLiveUserInfoData);
+        if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).aJD) != null) {
+            if (aVar.osb.getTag() == null || !TextUtils.equals(((AlaLiveUserInfoData) aVar.osb.getTag()).userUk, alaLiveUserInfoData.userUk)) {
+                aVar.osb.osa.setData4Yuyin(alaLiveUserInfoData);
+                aVar.osb.setTag(alaLiveUserInfoData);
             }
-            aVar.opV.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.contributionStr, alaLiveUserInfoData.nobleRoleId);
+            aVar.osb.setData(i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.contribution, alaLiveUserInfoData.contributionStr, alaLiveUserInfoData.nobleRoleId);
         }
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class a {
-        private OnlineAudienceItemView opV;
+        private OnlineAudienceItemView osb;
 
         private a() {
         }

@@ -1,29 +1,27 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class jr extends js {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14185a;
+    private int f8473a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f863a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f14186b;
+    private byte[] f784a;
+    private int b;
 
     @Override // com.xiaomi.push.js
     public int a() {
-        return this.f14185a;
+        return this.f8473a;
     }
 
     @Override // com.xiaomi.push.js
     public int a(byte[] bArr, int i, int i2) {
-        int b2 = b();
-        if (i2 > b2) {
-            i2 = b2;
+        int b = b();
+        if (i2 > b) {
+            i2 = b;
         }
         if (i2 > 0) {
-            System.arraycopy(this.f863a, this.f14185a, bArr, i, i2);
+            System.arraycopy(this.f784a, this.f8473a, bArr, i, i2);
             a(i2);
         }
         return i2;
@@ -31,7 +29,7 @@ public final class jr extends js {
 
     @Override // com.xiaomi.push.js
     public void a(int i) {
-        this.f14185a += i;
+        this.f8473a += i;
     }
 
     public void a(byte[] bArr) {
@@ -45,18 +43,18 @@ public final class jr extends js {
 
     @Override // com.xiaomi.push.js
     public byte[] a() {
-        return this.f863a;
+        return this.f784a;
     }
 
     @Override // com.xiaomi.push.js
     public int b() {
-        return this.f14186b - this.f14185a;
+        return this.b - this.f8473a;
     }
 
     @Override // com.xiaomi.push.js
     public void b(byte[] bArr, int i, int i2) {
-        this.f863a = bArr;
-        this.f14185a = i;
-        this.f14186b = i + i2;
+        this.f784a = bArr;
+        this.f8473a = i;
+        this.b = i + i2;
     }
 }

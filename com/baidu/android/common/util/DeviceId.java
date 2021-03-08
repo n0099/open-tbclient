@@ -8,14 +8,12 @@ import com.baidu.cesium.e.a;
 import com.baidu.cesium.f;
 import com.baidu.cesium.g;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class DeviceId {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1144a = "DeviceId";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final boolean f1145b = false;
+    private static final String f1061a = "DeviceId";
+    private static final boolean b = false;
     private static g.a d;
     private static volatile DeviceId g;
     public static boolean sDataCuidInfoShable = true;
@@ -83,9 +81,9 @@ public final class DeviceId {
     }
 
     private g.a b(String str) {
-        e dk = this.f.dk(str);
-        if (dk != null) {
-            return this.e.b(dk);
+        e m18do = this.f.m18do(str);
+        if (m18do != null) {
+            return this.e.b(m18do);
         }
         return null;
     }
@@ -128,12 +126,12 @@ public final class DeviceId {
     }
 
     private g.a e() {
-        e di;
+        e dm;
         File file = new File(this.c.getFilesDir(), "libcuid.so");
-        if (!file.exists() || (di = e.di(com.baidu.cesium.f.c.a(file))) == null) {
+        if (!file.exists() || (dm = e.dm(com.baidu.cesium.f.c.a(file))) == null) {
             return null;
         }
-        return this.e.b(di);
+        return this.e.b(dm);
     }
 
     public static String getCUID(Context context) {

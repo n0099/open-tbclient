@@ -10,10 +10,8 @@ public class RouteStep implements Parcelable {
     public static final Parcelable.Creator<RouteStep> CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2850a;
-
-    /* renamed from: b  reason: collision with root package name */
-    int f2851b;
+    int f2103a;
+    int b;
     String c;
     protected List<LatLng> mWayPoints;
 
@@ -23,8 +21,8 @@ public class RouteStep implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public RouteStep(Parcel parcel) {
-        this.f2850a = parcel.readInt();
-        this.f2851b = parcel.readInt();
+        this.f2103a = parcel.readInt();
+        this.b = parcel.readInt();
         this.c = parcel.readString();
         this.mWayPoints = new ArrayList();
         parcel.readList(this.mWayPoints, LatLng.class.getClassLoader());
@@ -39,11 +37,11 @@ public class RouteStep implements Parcelable {
     }
 
     public int getDistance() {
-        return this.f2850a;
+        return this.f2103a;
     }
 
     public int getDuration() {
-        return this.f2851b;
+        return this.b;
     }
 
     public String getName() {
@@ -55,11 +53,11 @@ public class RouteStep implements Parcelable {
     }
 
     public void setDistance(int i) {
-        this.f2850a = i;
+        this.f2103a = i;
     }
 
     public void setDuration(int i) {
-        this.f2851b = i;
+        this.b = i;
     }
 
     public void setName(String str) {
@@ -72,8 +70,8 @@ public class RouteStep implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f2850a);
-        parcel.writeInt(this.f2851b);
+        parcel.writeInt(this.f2103a);
+        parcel.writeInt(this.b);
         parcel.writeString(this.c);
         parcel.writeList(this.mWayPoints);
     }

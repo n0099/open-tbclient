@@ -1,12 +1,13 @@
 package com.qq.e.comm.pi;
 
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public interface NSPVI {
     public static final Map<String, String> ext = new HashMap();
 
@@ -17,6 +18,8 @@ public interface NSPVI {
     String getAdNetWorkName();
 
     String getECPMLevel();
+
+    Bitmap getZoomOutBitmap();
 
     void preload();
 
@@ -34,5 +37,9 @@ public interface NSPVI {
 
     void setSkipView(View view);
 
+    void setSupportZoomOut(boolean z);
+
     void showAd(ViewGroup viewGroup);
+
+    void zoomOutAnimationFinish();
 }

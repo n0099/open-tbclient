@@ -3,29 +3,27 @@ package com.xiaomi.push;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class hu implements ix<hu, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public long f545a;
+    public long f466a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ho f546a;
+    public ho f467a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f547a;
+    public String f468a;
 
     /* renamed from: a  reason: collision with other field name */
-    private BitSet f548a = new BitSet(1);
+    private BitSet f469a = new BitSet(1);
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f544a = new jn("DataCollectionItem");
+    private static final jn f465a = new jn("DataCollectionItem");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14108a = new jf("", (byte) 10, 1);
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final jf f14109b = new jf("", (byte) 8, 2);
+    private static final jf f8426a = new jf("", (byte) 10, 1);
+    private static final jf b = new jf("", (byte) 8, 2);
     private static final jf c = new jf("", Constants.GZIP_CAST_TYPE, 3);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,15 +34,15 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (getClass().equals(huVar.getClass())) {
-            int compareTo = Boolean.valueOf(m381a()).compareTo(Boolean.valueOf(huVar.m381a()));
+            int compareTo = Boolean.valueOf(m360a()).compareTo(Boolean.valueOf(huVar.m360a()));
             if (compareTo == 0) {
-                if (!m381a() || (a4 = iy.a(this.f545a, huVar.f545a)) == 0) {
+                if (!m360a() || (a4 = iy.a(this.f466a, huVar.f466a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(huVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a3 = iy.a(this.f546a, huVar.f546a)) == 0) {
+                        if (!b() || (a3 = iy.a(this.f467a, huVar.f467a)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(huVar.c()));
                             if (compareTo3 == 0) {
-                                if (!c() || (a2 = iy.a(this.f547a, huVar.f547a)) == 0) {
+                                if (!c() || (a2 = iy.a(this.f468a, huVar.f468a)) == 0) {
                                     return 0;
                                 }
                                 return a2;
@@ -63,76 +61,76 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     }
 
     public hu a(long j) {
-        this.f545a = j;
+        this.f466a = j;
         a(true);
         return this;
     }
 
     public hu a(ho hoVar) {
-        this.f546a = hoVar;
+        this.f467a = hoVar;
         return this;
     }
 
     public hu a(String str) {
-        this.f547a = str;
+        this.f468a = str;
         return this;
     }
 
     public String a() {
-        return this.f547a;
+        return this.f468a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m380a() {
-        if (this.f546a == null) {
+    public void m359a() {
+        if (this.f467a == null) {
             throw new jj("Required field 'collectionType' was not present! Struct: " + toString());
         }
-        if (this.f547a == null) {
+        if (this.f468a == null) {
             throw new jj("Required field 'content' was not present! Struct: " + toString());
         }
     }
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m514a();
+        jiVar.m493a();
         while (true) {
-            jf m510a = jiVar.m510a();
-            if (m510a.f14173a == 0) {
+            jf m489a = jiVar.m489a();
+            if (m489a.f8463a == 0) {
                 jiVar.f();
-                if (!m381a()) {
+                if (!m360a()) {
                     throw new jj("Required field 'collectedAt' was not found in serialized data! Struct: " + toString());
                 }
-                m380a();
+                m359a();
                 return;
             }
-            switch (m510a.f857a) {
+            switch (m489a.f778a) {
                 case 1:
-                    if (m510a.f14173a != 10) {
-                        jl.a(jiVar, m510a.f14173a);
+                    if (m489a.f8463a != 10) {
+                        jl.a(jiVar, m489a.f8463a);
                         break;
                     } else {
-                        this.f545a = jiVar.m509a();
+                        this.f466a = jiVar.m488a();
                         a(true);
                         break;
                     }
                 case 2:
-                    if (m510a.f14173a != 8) {
-                        jl.a(jiVar, m510a.f14173a);
+                    if (m489a.f8463a != 8) {
+                        jl.a(jiVar, m489a.f8463a);
                         break;
                     } else {
-                        this.f546a = ho.a(jiVar.m508a());
+                        this.f467a = ho.a(jiVar.m487a());
                         break;
                     }
                 case 3:
-                    if (m510a.f14173a != 11) {
-                        jl.a(jiVar, m510a.f14173a);
+                    if (m489a.f8463a != 11) {
+                        jl.a(jiVar, m489a.f8463a);
                         break;
                     } else {
-                        this.f547a = jiVar.m515a();
+                        this.f468a = jiVar.m494a();
                         break;
                     }
                 default:
-                    jl.a(jiVar, m510a.f14173a);
+                    jl.a(jiVar, m489a.f8463a);
                     break;
             }
             jiVar.g();
@@ -140,61 +138,61 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f548a.set(0, z);
+        this.f469a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m381a() {
-        return this.f548a.get(0);
+    public boolean m360a() {
+        return this.f469a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m382a(hu huVar) {
-        if (huVar != null && this.f545a == huVar.f545a) {
+    public boolean m361a(hu huVar) {
+        if (huVar != null && this.f466a == huVar.f466a) {
             boolean b2 = b();
             boolean b3 = huVar.b();
-            if ((b2 || b3) && !(b2 && b3 && this.f546a.equals(huVar.f546a))) {
+            if ((b2 || b3) && !(b2 && b3 && this.f467a.equals(huVar.f467a))) {
                 return false;
             }
             boolean c2 = c();
             boolean c3 = huVar.c();
-            return !(c2 || c3) || (c2 && c3 && this.f547a.equals(huVar.f547a));
+            return !(c2 || c3) || (c2 && c3 && this.f468a.equals(huVar.f468a));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m380a();
-        jiVar.a(f544a);
-        jiVar.a(f14108a);
-        jiVar.a(this.f545a);
+        m359a();
+        jiVar.a(f465a);
+        jiVar.a(f8426a);
+        jiVar.a(this.f466a);
         jiVar.b();
-        if (this.f546a != null) {
-            jiVar.a(f14109b);
-            jiVar.a(this.f546a.a());
+        if (this.f467a != null) {
+            jiVar.a(b);
+            jiVar.a(this.f467a.a());
             jiVar.b();
         }
-        if (this.f547a != null) {
+        if (this.f468a != null) {
             jiVar.a(c);
-            jiVar.a(this.f547a);
+            jiVar.a(this.f468a);
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m518a();
+        jiVar.m497a();
     }
 
     public boolean b() {
-        return this.f546a != null;
+        return this.f467a != null;
     }
 
     public boolean c() {
-        return this.f547a != null;
+        return this.f468a != null;
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hu)) {
-            return m382a((hu) obj);
+            return m361a((hu) obj);
         }
         return false;
     }
@@ -206,20 +204,20 @@ public class hu implements ix<hu, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("DataCollectionItem(");
         sb.append("collectedAt:");
-        sb.append(this.f545a);
+        sb.append(this.f466a);
         sb.append(", ");
         sb.append("collectionType:");
-        if (this.f546a == null) {
+        if (this.f467a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f546a);
+            sb.append(this.f467a);
         }
         sb.append(", ");
         sb.append("content:");
-        if (this.f547a == null) {
+        if (this.f468a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f547a);
+            sb.append(this.f468a);
         }
         sb.append(")");
         return sb.toString();

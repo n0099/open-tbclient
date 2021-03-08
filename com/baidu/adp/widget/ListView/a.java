@@ -13,12 +13,12 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 /* loaded from: classes.dex */
 public abstract class a<T, V extends TypeAdapter.ViewHolder> {
-    protected w Wk;
-    protected x Wl;
-    protected BdUniqueId Wm;
-    private r<n> Wn;
-    protected V Wo;
-    private com.baidu.adp.widget.a.a Wp = new com.baidu.adp.widget.a.a();
+    protected w XE;
+    protected x XF;
+    protected BdUniqueId XG;
+    private r<n> XH;
+    protected V XI;
+    private com.baidu.adp.widget.a.a XJ = new com.baidu.adp.widget.a.a();
     protected Context mContext;
     protected BdUniqueId mPageId;
 
@@ -31,13 +31,13 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
         this.mContext = context;
-        this.Wm = bdUniqueId;
+        this.XG = bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         this.mContext = context;
-        this.Wm = bdUniqueId;
+        this.XG = bdUniqueId;
         this.mPageId = bdUniqueId2;
     }
 
@@ -46,10 +46,10 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     public View getView(int i, View view, ViewGroup viewGroup, T t) {
         View view2;
         if (needCreateNewHolder(view)) {
-            this.Wo = (V) a(viewGroup, t);
-            view2 = this.Wo.getView();
+            this.XI = (V) a(viewGroup, t);
+            view2 = this.XI.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.i("convertView is creating" + this.Wo.getClass().getName());
+                BdLog.i("convertView is creating" + this.XI.getClass().getName());
             }
         } else {
             view2 = view;
@@ -58,7 +58,7 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     }
 
     private boolean needCreateNewHolder(View view) {
-        return view == null || view.getTag() == null || this.Wo == null || !this.Wo.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.Wo.getClass());
+        return view == null || view.getTag() == null || this.XI == null || !this.XI.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.XI.getClass());
     }
 
     public V a(ViewGroup viewGroup, T t) {
@@ -118,23 +118,23 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     }
 
     public void a(w wVar) {
-        this.Wk = wVar;
+        this.XE = wVar;
     }
 
     public w qp() {
-        return this.Wk;
+        return this.XE;
     }
 
     public void a(x xVar) {
-        this.Wl = xVar;
+        this.XF = xVar;
     }
 
     public x qq() {
-        return this.Wl;
+        return this.XF;
     }
 
     public BdUniqueId getType() {
-        return this.Wm;
+        return this.XG;
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
@@ -143,27 +143,27 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(r<n> rVar) {
-        this.Wn = rVar;
+        this.XH = rVar;
     }
 
     public void notifyDataSetChanged() {
-        if (this.Wn != null) {
-            this.Wn.notifyDataSetChanged();
+        if (this.XH != null) {
+            this.XH.notifyDataSetChanged();
         }
     }
 
     public n getItem(int i) {
-        if (this.Wn != null) {
-            return this.Wn.getItem(i);
+        if (this.XH != null) {
+            return this.XH.getItem(i);
         }
         return null;
     }
 
     public int getPositionByType(int i) {
-        if (this.Wn == null || this.Wm == null) {
+        if (this.XH == null || this.XG == null) {
             return -1;
         }
-        return this.Wn.getPositionByType(i, this.Wm.getId());
+        return this.XH.getPositionByType(i, this.XG.getId());
     }
 
     public ViewGroup.LayoutParams generateLayoutParamsByParent(ViewGroup viewGroup) {
@@ -177,10 +177,10 @@ public abstract class a<T, V extends TypeAdapter.ViewHolder> {
     }
 
     public boolean h(int i, int i2, int i3) {
-        return this.Wp.h(i, i2, i3);
+        return this.XJ.h(i, i2, i3);
     }
 
     public boolean aO(int i) {
-        return this.Wp.aO(i);
+        return this.XJ.aO(i);
     }
 }

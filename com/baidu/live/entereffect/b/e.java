@@ -4,21 +4,21 @@ import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private List<com.baidu.live.im.data.b> aUQ;
-    private com.baidu.live.im.data.b aUR;
+    private List<com.baidu.live.im.data.b> aWq;
+    private com.baidu.live.im.data.b aWr;
 
-    public static e Dk() {
-        return a.aUT;
+    public static e Dn() {
+        return a.aWt;
     }
 
     public void j(com.baidu.live.im.data.b bVar) {
-        if (this.aUQ == null) {
-            this.aUQ = new ArrayList();
+        if (this.aWq == null) {
+            this.aWq = new ArrayList();
         }
-        if (k(bVar) || this.aUQ.size() < com.baidu.live.ae.a.Qj().buX.aMT) {
-            this.aUQ.add(bVar);
+        if (k(bVar) || this.aWq.size() < com.baidu.live.ae.a.Qm().bwx.aOt) {
+            this.aWq.add(bVar);
         }
     }
 
@@ -27,38 +27,38 @@ public class e {
     }
 
     public boolean hasMsg() {
-        return (this.aUQ == null || this.aUQ.isEmpty()) ? false : true;
+        return (this.aWq == null || this.aWq.isEmpty()) ? false : true;
     }
 
-    public boolean Dg() {
-        return this.aUR != null;
+    public boolean Dj() {
+        return this.aWr != null;
     }
 
-    public com.baidu.live.im.data.b Dh() {
+    public com.baidu.live.im.data.b Dk() {
         if (hasMsg()) {
-            this.aUR = this.aUQ.remove(0);
+            this.aWr = this.aWq.remove(0);
         } else {
-            this.aUR = null;
+            this.aWr = null;
         }
-        return this.aUR;
+        return this.aWr;
     }
 
-    public com.baidu.live.im.data.b Di() {
-        return this.aUR;
+    public com.baidu.live.im.data.b Dl() {
+        return this.aWr;
     }
 
     public void release() {
-        this.aUR = null;
-        if (this.aUQ != null) {
-            this.aUQ.clear();
+        this.aWr = null;
+        if (this.aWq != null) {
+            this.aWq.clear();
         }
     }
 
     private e() {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a {
-        private static final e aUT = new e();
+        private static final e aWt = new e();
     }
 }

@@ -9,10 +9,8 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f9181a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f9182b = false;
+    private static boolean f6108a = false;
+    private static volatile boolean b = false;
     private static Context c;
     private static a d;
 
@@ -35,9 +33,9 @@ public class d {
             if (d.d != null) {
                 d.d.a();
             }
-            if (!d.f9181a) {
+            if (!d.f6108a) {
                 com.kwad.sdk.core.report.e.a(d.c);
-                boolean unused = d.f9181a = true;
+                boolean unused = d.f6108a = true;
             }
             d.a();
         }
@@ -104,9 +102,9 @@ public class d {
 
     public static synchronized void a(Context context, a aVar) {
         synchronized (d.class) {
-            if (!f9182b) {
+            if (!b) {
                 c = context;
-                f9182b = true;
+                b = true;
             }
             d = aVar;
             com.kwad.sdk.utils.f.a(new b());

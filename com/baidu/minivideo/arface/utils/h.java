@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static void closeQuietly(Closeable closeable) {
         if (closeable != null) {

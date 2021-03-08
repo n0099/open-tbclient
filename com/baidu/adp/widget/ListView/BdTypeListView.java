@@ -13,8 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView implements s<BdTypeListView> {
-    private HashMap<BdUniqueId, a> Xn;
-    private HashMap<BdUniqueId, h> Xo;
+    private HashMap<BdUniqueId, a> YG;
+    private HashMap<BdUniqueId, h> YH;
     TypeAdapter mTypeAdapter;
 
     public BdTypeListView(Context context) {
@@ -39,11 +39,11 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         if (this.mTypeAdapter == null) {
             this.mTypeAdapter = new TypeAdapter();
         }
-        if (this.Xn == null) {
-            this.Xn = new HashMap<>();
+        if (this.YG == null) {
+            this.YG = new HashMap<>();
         }
-        if (this.Xo == null) {
-            this.Xo = new HashMap<>();
+        if (this.YH == null) {
+            this.YH = new HashMap<>();
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -89,44 +89,44 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 BdUniqueId bdUniqueId = null;
                 if (aVar.ql() != null) {
                     bdUniqueId = aVar.ql();
-                    if (!this.Xo.containsKey(bdUniqueId)) {
+                    if (!this.YH.containsKey(bdUniqueId)) {
                         h hVar = new h(aVar.mContext, bdUniqueId, aVar.mPageId);
                         hVar.a(aVar);
                         this.mTypeAdapter.addAdapter(hVar);
-                        this.Xo.put(bdUniqueId, hVar);
+                        this.YH.put(bdUniqueId, hVar);
                     }
                 }
                 if (aVar.qm() != null) {
                     bdUniqueId = aVar.qm();
-                    if (!this.Xo.containsKey(bdUniqueId)) {
+                    if (!this.YH.containsKey(bdUniqueId)) {
                         h hVar2 = new h(aVar.mContext, bdUniqueId, aVar.mPageId);
                         hVar2.a(aVar);
                         this.mTypeAdapter.addAdapter(hVar2);
-                        this.Xo.put(bdUniqueId, hVar2);
+                        this.YH.put(bdUniqueId, hVar2);
                     }
                 }
                 if (aVar.qn() != null) {
                     bdUniqueId = aVar.qn();
-                    if (!this.Xo.containsKey(bdUniqueId)) {
+                    if (!this.YH.containsKey(bdUniqueId)) {
                         h hVar3 = new h(aVar.mContext, bdUniqueId, aVar.mPageId);
                         hVar3.a(aVar);
                         this.mTypeAdapter.addAdapter(hVar3);
-                        this.Xo.put(bdUniqueId, hVar3);
+                        this.YH.put(bdUniqueId, hVar3);
                     }
                 }
                 if (aVar.qo() != null) {
                     bdUniqueId = aVar.qo();
-                    if (!this.Xo.containsKey(bdUniqueId)) {
+                    if (!this.YH.containsKey(bdUniqueId)) {
                         h hVar4 = new h(aVar.mContext, bdUniqueId, aVar.mPageId);
                         hVar4.a(aVar);
                         this.mTypeAdapter.addAdapter(hVar4);
-                        this.Xo.put(bdUniqueId, hVar4);
+                        this.YH.put(bdUniqueId, hVar4);
                     }
                 }
                 if (bdUniqueId == null) {
                     this.mTypeAdapter.addAdapter(aVar);
                 } else {
-                    this.Xn.put(aVar.Wm, aVar);
+                    this.YG.put(aVar.XG, aVar);
                 }
             }
         }
@@ -138,8 +138,8 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
         ArrayList arrayList = new ArrayList();
         for (n nVar : list) {
             if (nVar != null) {
-                if (this.Xn.containsKey(nVar.getType())) {
-                    a aVar = this.Xn.get(nVar.getType());
+                if (this.YG.containsKey(nVar.getType())) {
+                    a aVar = this.YG.get(nVar.getType());
                     if (aVar.ql() != null) {
                         g gVar = new g();
                         gVar.g(aVar.ql());

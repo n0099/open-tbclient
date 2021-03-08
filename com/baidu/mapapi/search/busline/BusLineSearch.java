@@ -6,12 +6,10 @@ import com.baidu.platform.core.busline.IBusLineSearch;
 import com.baidu.platform.core.busline.c;
 /* loaded from: classes4.dex */
 public class BusLineSearch extends l {
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f2834b = false;
+    private boolean b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    IBusLineSearch f2833a = new c();
+    IBusLineSearch f2094a = new c();
 
     BusLineSearch() {
     }
@@ -22,31 +20,31 @@ public class BusLineSearch extends l {
     }
 
     public void destroy() {
-        if (this.f2834b) {
+        if (this.b) {
             return;
         }
-        this.f2834b = true;
-        this.f2833a.a();
+        this.b = true;
+        this.f2094a.a();
         BMapManager.destroy();
     }
 
     public boolean searchBusLine(BusLineSearchOption busLineSearchOption) {
-        if (this.f2833a == null) {
+        if (this.f2094a == null) {
             throw new IllegalStateException("searcher is null, please call newInstance first.");
         }
         if (busLineSearchOption == null || busLineSearchOption.mCity == null || busLineSearchOption.mUid == null) {
             throw new IllegalArgumentException("option or city or uid can not be null");
         }
-        return this.f2833a.a(busLineSearchOption);
+        return this.f2094a.a(busLineSearchOption);
     }
 
     public void setOnGetBusLineSearchResultListener(OnGetBusLineSearchResultListener onGetBusLineSearchResultListener) {
-        if (this.f2833a == null) {
+        if (this.f2094a == null) {
             throw new IllegalStateException("searcher is null, please call newInstance first.");
         }
         if (onGetBusLineSearchResultListener == null) {
             throw new IllegalArgumentException("listener can not be null");
         }
-        this.f2833a.a(onGetBusLineSearchResultListener);
+        this.f2094a.a(onGetBusLineSearchResultListener);
     }
 }

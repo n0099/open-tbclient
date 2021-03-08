@@ -3,10 +3,10 @@ package rx.internal.operators;
 import java.util.Arrays;
 import rx.d;
 import rx.exceptions.CompositeException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c<T> implements d.a<T> {
-    private final rx.d<T> qyO;
-    private final rx.e<? super T> qzp;
+    private final rx.e<? super T> qzR;
+    private final rx.d<T> qzq;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -14,32 +14,32 @@ public class c<T> implements d.a<T> {
     }
 
     public c(rx.d<T> dVar, rx.e<? super T> eVar) {
-        this.qyO = dVar;
-        this.qzp = eVar;
+        this.qzq = dVar;
+        this.qzR = eVar;
     }
 
     public void call(rx.j<? super T> jVar) {
-        this.qyO.a((rx.j) new a(jVar, this.qzp));
+        this.qzq.a((rx.j) new a(jVar, this.qzR));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T> extends rx.j<T> {
         private boolean done;
-        private final rx.e<? super T> qzp;
+        private final rx.e<? super T> qzR;
         private final rx.j<? super T> subscriber;
 
         a(rx.j<? super T> jVar, rx.e<? super T> eVar) {
             super(jVar);
             this.subscriber = jVar;
-            this.qzp = eVar;
+            this.qzR = eVar;
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 try {
-                    this.qzp.onCompleted();
+                    this.qzR.onCompleted();
                     this.done = true;
                     this.subscriber.onCompleted();
                 } catch (Throwable th) {
@@ -56,7 +56,7 @@ public class c<T> implements d.a<T> {
             }
             this.done = true;
             try {
-                this.qzp.onError(th);
+                this.qzR.onError(th);
                 this.subscriber.onError(th);
             } catch (Throwable th2) {
                 rx.exceptions.a.N(th2);
@@ -68,7 +68,7 @@ public class c<T> implements d.a<T> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.qzp.onNext(t);
+                    this.qzR.onNext(t);
                     this.subscriber.onNext(t);
                 } catch (Throwable th) {
                     rx.exceptions.a.a(th, this, t);

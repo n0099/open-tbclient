@@ -28,7 +28,7 @@ public class m {
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
             aVar.bn(inflate);
-            aVar.nA(2);
+            aVar.nB(2);
             aVar.jG(true);
             aVar.setAutoNight(true);
             aVar.jF(true);
@@ -59,7 +59,7 @@ public class m {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                 }
             });
-            aVar.b(tbPageContext).bqx();
+            aVar.b(tbPageContext).bqz();
         }
     }
 
@@ -82,7 +82,7 @@ public class m {
             }
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
             aVar.bn(inflate);
-            aVar.nA(2);
+            aVar.nB(2);
             aVar.jG(false);
             aVar.setAutoNight(true);
             aVar.jF(true);
@@ -104,13 +104,13 @@ public class m {
             com.baidu.tbadk.core.util.ap.setImageResource(tbImageView, R.drawable.backguard_mask_apity);
             com.baidu.tbadk.core.util.ap.setViewTextColor(textView, R.color.CAM_X0107);
             com.baidu.tbadk.core.util.ap.setViewTextColor(textView2, R.color.CAM_X0304);
-            SvgManager.bsR().a(imageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bsU().a(imageView, R.drawable.ic_icon_popup_close_n, SvgManager.SvgResourceStateType.NORMAL);
             textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.m.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                     if (intValue == 1) {
-                        bf.bsV().b(tbPageContext, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", str2, str)});
+                        bf.bsY().b(tbPageContext, new String[]{String.format("https://tieba.baidu.com/mo/q/bawu/taskinfoview?fn=%1$s&fid=%2$s&noshare=1", str2, str)});
                     }
                 }
             });
@@ -120,7 +120,7 @@ public class m {
                     com.baidu.tbadk.core.dialog.a.this.dismiss();
                 }
             });
-            aVar.b(tbPageContext).bqx();
+            aVar.b(tbPageContext).bqz();
         }
     }
 }

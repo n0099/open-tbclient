@@ -1,5 +1,5 @@
 package com.yy.mediaframework.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TimerUtil {
     private static final boolean on = false;
     private boolean isOpen;

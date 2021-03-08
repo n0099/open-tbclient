@@ -4,7 +4,7 @@ import android.view.Surface;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DecodeVideoConfig {
     private static final String TAG = "DecodeVideoConfig";
     public static final byte[] header = {0, 0, 0, 1};
@@ -72,8 +72,8 @@ public class DecodeVideoConfig {
 
     private static String byte2hex(byte[] bArr) {
         String str = "";
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (hexString.length() == 1) {
                 hexString = "0" + hexString;
             }

@@ -1,24 +1,24 @@
 package com.airbnb.lottie;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class p {
-    private final Map<String, String> Do;
-    private boolean Dp;
+    private final Map<String, String> EK;
+    private boolean EL;
 
-    private String bg(String str) {
+    private String bk(String str) {
         return str;
     }
 
-    public final String bh(String str) {
-        if (this.Dp && this.Do.containsKey(str)) {
-            return this.Do.get(str);
+    public final String bl(String str) {
+        if (this.EL && this.EK.containsKey(str)) {
+            return this.EK.get(str);
         }
-        String bg = bg(str);
-        if (this.Dp) {
-            this.Do.put(str, bg);
-            return bg;
+        String bk = bk(str);
+        if (this.EL) {
+            this.EK.put(str, bk);
+            return bk;
         }
-        return bg;
+        return bk;
     }
 }

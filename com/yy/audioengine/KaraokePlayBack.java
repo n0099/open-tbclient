@@ -2,7 +2,7 @@ package com.yy.audioengine;
 
 import android.os.Build;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class KaraokePlayBack {
     private static String TAG = "[KaraokePlayBack]";
     private long mCtx;

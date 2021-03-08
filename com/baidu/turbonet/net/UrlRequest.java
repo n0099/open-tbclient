@@ -12,23 +12,23 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class StatusListener {
         public abstract void onStatus(int i);
     }
 
-    void MN(int i);
+    void MR(int i);
 
-    void MO(int i);
+    void MS(int i);
 
-    void MP(int i);
+    void MT(int i);
 
-    void WY(String str);
+    void Xf(String str);
 
-    void WZ(String str);
+    void Xg(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -36,9 +36,9 @@ public interface UrlRequest {
 
     void cancel();
 
-    void egl();
+    void egt();
 
-    void egm();
+    void egu();
 
     void followRedirect();
 
@@ -54,7 +54,7 @@ public interface UrlRequest {
 
     void start();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         boolean mDisableCache;
         boolean mDisableConnectionMigration;
@@ -64,23 +64,23 @@ public interface UrlRequest {
         int mTimeout;
         Executor mUploadDataProviderExecutor;
         final String mUrl;
-        final Callback oPV;
-        boolean oQk;
-        boolean oQm;
-        int oQn;
-        int oQo;
-        int oQp;
-        String oQq;
-        String oQr;
-        UploadDataProvider oRN;
-        boolean oRO;
-        final TurbonetEngine oRj;
+        final Callback oSa;
+        boolean oSp;
+        boolean oSr;
+        int oSs;
+        int oSt;
+        int oSu;
+        String oSv;
+        String oSw;
+        UploadDataProvider oTS;
+        boolean oTT;
+        final TurbonetEngine oTo;
         final ArrayList<Pair<String, String>> mRequestHeaders = new ArrayList<>();
         int mPriority = 3;
         Collection<Object> mRequestAnnotations = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public @interface RequestPriority {
         }
 
@@ -98,21 +98,21 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.oPV = callback;
+            this.oSa = callback;
             this.mExecutor = executor;
-            this.oRj = turbonetEngine;
-            this.oRO = false;
-            this.oQm = false;
+            this.oTo = turbonetEngine;
+            this.oTT = false;
+            this.oSr = false;
             this.mTimeout = 0;
-            this.oQn = 0;
-            this.oQo = 0;
-            this.oQp = 0;
+            this.oSs = 0;
+            this.oSt = 0;
+            this.oSu = 0;
             this.mTag = null;
-            this.oQq = null;
-            this.oQr = null;
+            this.oSv = null;
+            this.oSw = null;
         }
 
-        public Builder Xj(String str) {
+        public Builder Xq(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
@@ -135,43 +135,43 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder egW() {
+        public Builder ehe() {
             this.mDisableCache = true;
             return this;
         }
 
-        public Builder egX() {
-            this.oRO = true;
+        public Builder ehf() {
+            this.oTT = true;
             return this;
         }
 
-        public Builder egY() {
-            this.oQk = true;
+        public Builder ehg() {
+            this.oSp = true;
             return this;
         }
 
-        public Builder MZ(int i) {
+        public Builder Nd(int i) {
             this.mTimeout = i;
             return this;
         }
 
-        public Builder Na(int i) {
-            this.oQn = i;
+        public Builder Ne(int i) {
+            this.oSs = i;
             return this;
         }
 
-        public Builder Nb(int i) {
-            this.oQo = i;
+        public Builder Nf(int i) {
+            this.oSt = i;
             return this;
         }
 
-        public Builder Xk(String str) {
-            this.oQq = str;
+        public Builder Xr(String str) {
+            this.oSv = str;
             return this;
         }
 
-        public Builder Xl(String str) {
-            this.oQr = str;
+        public Builder Xs(String str) {
+            this.oSw = str;
             return this;
         }
 
@@ -185,13 +185,13 @@ public interface UrlRequest {
             if (this.mMethod == null) {
                 this.mMethod = "POST";
             }
-            this.oRN = uploadDataProvider;
+            this.oTS = uploadDataProvider;
             this.mUploadDataProviderExecutor = executor;
             return this;
         }
 
-        public UrlRequest egZ() {
-            UrlRequest a2 = this.oRj.a(this.mUrl, this.oPV, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oQk);
+        public UrlRequest ehh() {
+            UrlRequest a2 = this.oTo.a(this.mUrl, this.oSa, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oSp);
             if (this.mMethod != null) {
                 a2.setHttpMethod(this.mMethod);
             }
@@ -200,41 +200,41 @@ public interface UrlRequest {
                 Pair<String, String> next = it.next();
                 a2.addHeader((String) next.first, (String) next.second);
             }
-            if (this.oRN != null) {
-                a2.a(this.oRN, this.mUploadDataProviderExecutor);
+            if (this.oTS != null) {
+                a2.a(this.oTS, this.mUploadDataProviderExecutor);
             }
-            if (this.oRO) {
-                a2.egl();
+            if (this.oTT) {
+                a2.egt();
             }
-            if (this.oQm) {
-                a2.egm();
+            if (this.oSr) {
+                a2.egu();
             }
             if (this.mTimeout > 0) {
                 a2.setTimeout(this.mTimeout);
             }
-            if (this.oQn > 0) {
-                a2.MN(this.oQn);
+            if (this.oSs > 0) {
+                a2.MR(this.oSs);
             }
-            if (this.oQo > 0) {
-                a2.MO(this.oQo);
+            if (this.oSt > 0) {
+                a2.MS(this.oSt);
             }
-            if (this.oQp > 0) {
-                a2.MP(this.oQp);
+            if (this.oSu > 0) {
+                a2.MT(this.oSu);
             }
             if (this.mTag != null) {
                 a2.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.oQq)) {
-                a2.WY(this.oQq);
+            if (!TextUtils.isEmpty(this.oSv)) {
+                a2.Xf(this.oSv);
             }
-            if (!TextUtils.isEmpty(this.oQr)) {
-                a2.WZ(this.oQr);
+            if (!TextUtils.isEmpty(this.oSw)) {
+                a2.Xg(this.oSw);
             }
             return a2;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Callback {
         public abstract void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) throws Exception;
 
@@ -250,12 +250,12 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Status {
         static final /* synthetic */ boolean $assertionsDisabled;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes6.dex */
+        /* loaded from: classes5.dex */
         public @interface StatusValues {
         }
 
@@ -267,7 +267,7 @@ public interface UrlRequest {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static int Nc(int i) {
+        public static int Ng(int i) {
             if ($assertionsDisabled || (i >= 0 && i <= 15)) {
                 switch (i) {
                     case 0:

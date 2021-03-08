@@ -5,7 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static String xU = "pro";
     private static String xV = "101";

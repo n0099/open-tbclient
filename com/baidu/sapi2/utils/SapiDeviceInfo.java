@@ -3,6 +3,7 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
@@ -21,16 +22,14 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class SapiDeviceInfo implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f5088a = 11;
+    private static final int f3435a = 11;
     private static final String c = "android";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f5089b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", "w", "8", "h", "P"});
+    private static final String b = Character.toString(1);
+    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
 
     static String a() {
         return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 11) + "0";
@@ -123,7 +122,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static String getDeviceInfo(String str) {
         List<String> buildDeviceTokens = buildDeviceTokens(str);
         a.a(buildDeviceTokens);
-        return a(TextUtils.join(f5089b, buildDeviceTokens));
+        return a(TextUtils.join(b, buildDeviceTokens));
     }
 
     public static String getDiCookieInfo(List<String> list) {
@@ -132,10 +131,10 @@ public class SapiDeviceInfo implements NoProguard {
 
     public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        if (!a.f5090a.isEmpty() && list != null) {
+        if (!a.f3436a.isEmpty() && list != null) {
             for (String str : list) {
                 try {
-                    jSONObject.put(str, a.f5090a.get(str));
+                    jSONObject.put(str, a.f3436a.get(str));
                 } catch (JSONException e) {
                     Log.e(e);
                 }
@@ -172,11 +171,11 @@ public class SapiDeviceInfo implements NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static Map<String, String> f5090a = new HashMap();
+        static Map<String, String> f3436a = new HashMap();
 
         a() {
         }
@@ -226,7 +225,7 @@ public class SapiDeviceInfo implements NoProguard {
         static void a(List<String> list) {
             List<String> a2 = a();
             for (int i = 0; i < a2.size() && i < list.size(); i++) {
-                f5090a.put(a2.get(i), list.get(i));
+                f3436a.put(a2.get(i), list.get(i));
             }
         }
     }

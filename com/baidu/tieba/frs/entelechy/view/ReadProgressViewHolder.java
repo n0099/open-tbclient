@@ -30,11 +30,11 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public void a(u uVar) {
         if (uVar != null) {
             this.mTipView.setText(R.string.read_here);
-            bup();
+            bus();
         }
     }
 
-    public void bup() {
+    public void bus() {
         ap.setViewTextColor(this.mTipView, R.color.CAM_X0304);
         Drawable a2 = WebPManager.a(R.drawable.icon_pure_card_refresh16, ap.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
         a2.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));

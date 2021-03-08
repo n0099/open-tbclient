@@ -1,9 +1,9 @@
 package com.baidu.live.ag;
 
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface d {
-    void IZ();
+    void Jc();
 
     void h(ab abVar);
 

@@ -4,7 +4,7 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class Md5 {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     public String str;
@@ -22,8 +22,8 @@ public class Md5 {
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }

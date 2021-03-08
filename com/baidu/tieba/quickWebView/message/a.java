@@ -4,27 +4,27 @@ import tbclient.GetWebviewCacheInfo.Offpack;
 /* loaded from: classes.dex */
 public class a {
     private String mMd5;
-    private String mQB;
-    private boolean mQC = true;
-    private boolean mQD = false;
-    private boolean mQE = false;
+    private String mSE;
+    private boolean mSF = true;
+    private boolean mSG = false;
+    private boolean mSH = false;
     private String mVersion;
 
     public void a(Offpack offpack) {
         if (offpack != null) {
-            this.mQB = offpack.src;
+            this.mSE = offpack.src;
             this.mMd5 = offpack.md5;
             this.mVersion = offpack.webview_version;
-            this.mQC = offpack.is_use.intValue() == 1;
+            this.mSF = offpack.is_use.intValue() == 1;
         }
     }
 
-    public boolean dCW() {
-        return this.mQC;
+    public boolean dDe() {
+        return this.mSF;
     }
 
-    public String dCX() {
-        return this.mQB;
+    public String dDf() {
+        return this.mSE;
     }
 
     public String getMd5() {

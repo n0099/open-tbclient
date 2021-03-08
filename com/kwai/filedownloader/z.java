@@ -35,15 +35,15 @@ public class z implements e.b {
     @Override // com.kwai.filedownloader.message.e.b
     public void a(MessageSnapshot messageSnapshot) {
         synchronized (Integer.toString(messageSnapshot.m()).intern()) {
-            List<a.b> b2 = h.a().b(messageSnapshot.m());
-            if (b2.size() > 0) {
-                a F = b2.get(0).F();
-                if (com.kwai.filedownloader.f.d.f10930a) {
-                    com.kwai.filedownloader.f.d.c(this, "~~~callback %s old[%s] new[%s] %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(F.v()), Byte.valueOf(messageSnapshot.b()), Integer.valueOf(b2.size()));
+            List<a.b> b = h.a().b(messageSnapshot.m());
+            if (b.size() > 0) {
+                a F = b.get(0).F();
+                if (com.kwai.filedownloader.f.d.f7212a) {
+                    com.kwai.filedownloader.f.d.c(this, "~~~callback %s old[%s] new[%s] %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(F.v()), Byte.valueOf(messageSnapshot.b()), Integer.valueOf(b.size()));
                 }
-                if (!a(b2, messageSnapshot)) {
-                    StringBuilder sb = new StringBuilder("The event isn't consumed, id:" + messageSnapshot.m() + " status:" + ((int) messageSnapshot.b()) + " task-count:" + b2.size());
-                    for (a.b bVar : b2) {
+                if (!a(b, messageSnapshot)) {
+                    StringBuilder sb = new StringBuilder("The event isn't consumed, id:" + messageSnapshot.m() + " status:" + ((int) messageSnapshot.b()) + " task-count:" + b.size());
+                    for (a.b bVar : b) {
                         sb.append(" | ").append((int) bVar.F().v());
                     }
                     com.kwai.filedownloader.f.d.b(this, sb.toString(), new Object[0]);

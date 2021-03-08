@@ -10,10 +10,8 @@ import java.util.ArrayList;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f2262a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f2263b;
+    public long f1748a;
+    public int b;
     public int c;
     private long i;
     private long j;
@@ -45,7 +43,7 @@ public class b {
         ArrayList arrayList = new ArrayList();
         if (d.t.equals(str)) {
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(this.f2263b + "");
+            arrayList2.add(this.b + "");
             arrayList2.add(this.c + "");
             arrayList2.add(spno);
             RimStatisticsUtil.onEventWithValues(d.t, arrayList2);
@@ -56,7 +54,7 @@ public class b {
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(d.s, arrayList);
         } else if (d.f.equals(str)) {
-            arrayList.add(((System.currentTimeMillis() - this.f2262a) / 1000) + "");
+            arrayList.add(((System.currentTimeMillis() - this.f1748a) / 1000) + "");
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(d.f, arrayList);
         } else if (d.u.equals(str)) {
@@ -70,7 +68,7 @@ public class b {
                 } else {
                     this.p.add("");
                 }
-                this.p.add(this.f2263b + "*" + this.c);
+                this.p.add(this.b + "*" + this.c);
                 this.p.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, this.p);
             }
@@ -80,7 +78,7 @@ public class b {
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(str, arrayList);
         } else if (d.o.equals(str)) {
-            arrayList.add((System.currentTimeMillis() - this.f2262a) + "");
+            arrayList.add((System.currentTimeMillis() - this.f1748a) + "");
             arrayList.add(spno);
             RimStatisticsUtil.onEventWithValues(str, arrayList);
         }

@@ -16,7 +16,7 @@ import io.flutter.view.TextureRegistry;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class ShimRegistrar implements FlutterPlugin, ActivityAware, PluginRegistry.Registrar {
     private static final String TAG = "ShimRegistrar";
     private ActivityPluginBinding activityPluginBinding;

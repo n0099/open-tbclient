@@ -16,40 +16,40 @@ import com.baidu.tieba.R;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class b extends ReplacementSpan {
-    private Paint bhF;
-    private int dBe;
-    private int dxi;
-    private int feT;
-    private int feV;
-    private int feX;
-    private int feY;
-    private boolean feZ;
+    private Paint bjh;
+    private int dCF;
+    private int dyJ;
+    private int fgs;
+    private int fgu;
+    private int fgw;
+    private int fgx;
+    private boolean fgy;
     private String identify;
     private int mMarginLeft;
     private int mMarginRight;
     private int mTextSize;
-    private float[] feU = new float[8];
-    private RectF feW = new RectF();
-    private boolean ffa = false;
-    private int ffb = 0;
+    private float[] fgt = new float[8];
+    private RectF fgv = new RectF();
+    private boolean fgz = false;
+    private int fgA = 0;
 
     public b(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.feT = i;
+        this.fgs = i;
         if (i2 > 0) {
-            pm(i2);
+            po(i2);
         }
-        this.feV = i3;
+        this.fgu = i3;
         this.mTextSize = i4;
-        this.dBe = i5;
-        this.dxi = i6;
-        this.feY = i7;
-        this.bhF = new Paint();
-        this.bhF.setAntiAlias(true);
-        this.bhF.setStyle(Paint.Style.STROKE);
-        this.bhF.setTextSize(this.mTextSize);
+        this.dCF = i5;
+        this.dyJ = i6;
+        this.fgx = i7;
+        this.bjh = new Paint();
+        this.bjh.setAntiAlias(true);
+        this.bjh.setStyle(Paint.Style.STROKE);
+        this.bjh.setTextSize(this.mTextSize);
     }
 
-    public void pj(int i) {
+    public void pk(int i) {
         this.mMarginLeft = i;
     }
 
@@ -58,17 +58,17 @@ public class b extends ReplacementSpan {
     }
 
     public void jV(boolean z) {
-        this.ffa = z;
+        this.fgz = z;
     }
 
-    public void pk(int i) {
-        this.ffb = i;
+    public void pl(int i) {
+        this.fgA = i;
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.feX = ((int) this.bhF.measureText(charSequence, i, i2)) + (this.dxi * 2);
-        return this.feX + this.mMarginLeft + this.mMarginRight;
+        this.fgw = ((int) this.bjh.measureText(charSequence, i, i2)) + (this.dyJ * 2);
+        return this.fgw + this.mMarginLeft + this.mMarginRight;
     }
 
     @Override // android.text.style.ReplacementSpan
@@ -76,17 +76,17 @@ public class b extends ReplacementSpan {
         int dimenPixelSize;
         int color;
         int color2;
-        this.bhF.setColor(ap.getColor(this.feV));
-        if (this.feZ) {
-            this.bhF.setStyle(Paint.Style.FILL);
+        this.bjh.setColor(ap.getColor(this.fgu));
+        if (this.fgy) {
+            this.bjh.setStyle(Paint.Style.FILL);
         } else {
-            this.bhF.setStyle(Paint.Style.STROKE);
+            this.bjh.setStyle(Paint.Style.STROKE);
         }
-        if (this.ffa) {
-            this.feW.left = this.mMarginLeft + f;
-            this.feW.top = (i4 - this.feY) + this.ffb;
-            this.feW.right = this.feX + f + this.mMarginLeft;
-            this.feW.bottom = this.ffb + i4;
+        if (this.fgz) {
+            this.fgv.left = this.mMarginLeft + f;
+            this.fgv.top = (i4 - this.fgx) + this.fgA;
+            this.fgv.right = this.fgw + f + this.mMarginLeft;
+            this.fgv.bottom = this.fgA + i4;
         } else {
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
             if (!com.baidu.tbadk.core.elementsMaven.view.a.k(charSequence)) {
@@ -96,10 +96,10 @@ public class b extends ReplacementSpan {
                 dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
             }
             int i6 = dimenPixelSize + fontMetricsInt.ascent + i4;
-            this.feW.left = this.mMarginLeft + f;
-            this.feW.top = i6;
-            this.feW.right = this.feX + f + this.mMarginLeft;
-            this.feW.bottom = i6 + this.feY;
+            this.fgv.left = this.mMarginLeft + f;
+            this.fgv.top = i6;
+            this.fgv.right = this.fgw + f + this.mMarginLeft;
+            this.fgv.bottom = i6 + this.fgx;
         }
         if (this.identify != null) {
             if (" 吧主".equals(this.identify)) {
@@ -115,57 +115,57 @@ public class b extends ReplacementSpan {
                 color = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
                 color2 = com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0302);
             }
-            this.bhF.setShader(new LinearGradient(this.feW.left, this.feW.top, this.feW.right, this.feW.bottom, color, color2, Shader.TileMode.CLAMP));
+            this.bjh.setShader(new LinearGradient(this.fgv.left, this.fgv.top, this.fgv.right, this.fgv.bottom, color, color2, Shader.TileMode.CLAMP));
         }
         Path path = new Path();
-        path.addRoundRect(this.feW, this.feU, Path.Direction.CW);
-        canvas.drawPath(path, this.bhF);
-        this.bhF.setShader(null);
+        path.addRoundRect(this.fgv, this.fgt, Path.Direction.CW);
+        canvas.drawPath(path, this.bjh);
+        this.bjh.setShader(null);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if ((skinType == 1 || skinType == 4) && this.identify != null) {
-            this.bhF.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.mask));
-            if (this.feZ) {
-                this.bhF.setStyle(Paint.Style.FILL);
+            this.bjh.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.mask));
+            if (this.fgy) {
+                this.bjh.setStyle(Paint.Style.FILL);
             } else {
-                this.bhF.setStyle(Paint.Style.STROKE);
+                this.bjh.setStyle(Paint.Style.STROKE);
             }
             Path path2 = new Path();
-            path2.addRoundRect(this.feW, this.feU, Path.Direction.CW);
-            canvas.drawPath(path2, this.bhF);
+            path2.addRoundRect(this.fgv, this.fgt, Path.Direction.CW);
+            canvas.drawPath(path2, this.bjh);
         }
-        Paint.FontMetricsInt fontMetricsInt2 = this.bhF.getFontMetricsInt();
-        if (this.dBe != 0) {
-            this.bhF.setColor(ap.getColor(this.dBe));
+        Paint.FontMetricsInt fontMetricsInt2 = this.bjh.getFontMetricsInt();
+        if (this.dCF != 0) {
+            this.bjh.setColor(ap.getColor(this.dCF));
         } else {
-            this.bhF.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0201));
+            this.bjh.setColor(com.baidu.tbadk.core.util.f.c.a.getResources().getColor(R.color.CAM_X0201));
         }
-        this.bhF.setStyle(Paint.Style.FILL);
-        canvas.drawText(charSequence, i, i2, this.dxi + f + this.mMarginLeft, (int) ((this.feW.centerY() + ((fontMetricsInt2.bottom - fontMetricsInt2.top) / 2)) - fontMetricsInt2.bottom), this.bhF);
+        this.bjh.setStyle(Paint.Style.FILL);
+        canvas.drawText(charSequence, i, i2, this.dyJ + f + this.mMarginLeft, (int) ((this.fgv.centerY() + ((fontMetricsInt2.bottom - fontMetricsInt2.top) / 2)) - fontMetricsInt2.bottom), this.bjh);
     }
 
     public void jW(boolean z) {
-        if (this.bhF != null) {
-            this.feZ = z;
+        if (this.bjh != null) {
+            this.fgy = z;
             if (z) {
-                this.bhF.setStyle(Paint.Style.FILL);
+                this.bjh.setStyle(Paint.Style.FILL);
             } else {
-                this.bhF.setStyle(Paint.Style.STROKE);
+                this.bjh.setStyle(Paint.Style.STROKE);
             }
         }
     }
 
-    public void pl(int i) {
-        Arrays.fill(this.feU, i);
+    public void pm(int i) {
+        Arrays.fill(this.fgt, i);
     }
 
-    public void pm(int i) {
+    public void po(int i) {
         float[] aI = com.baidu.tbadk.core.elementsMaven.a.aI(i);
-        if (!Arrays.equals(this.feU, aI)) {
-            this.feU = aI;
+        if (!Arrays.equals(this.fgt, aI)) {
+            this.fgt = aI;
         }
     }
 
-    public void By(String str) {
+    public void BF(String str) {
         this.identify = str;
     }
 }

@@ -9,7 +9,7 @@ import com.tencent.open.utils.d;
 import com.tencent.open.utils.e;
 import com.tencent.open.utils.j;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class QQToken {
     public static final int AUTH_QQ = 2;
     public static final int AUTH_QZONE = 3;
@@ -17,36 +17,34 @@ public class QQToken {
     private static SharedPreferences f;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13299a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f13300b;
+    private String f7908a;
+    private String b;
     private String c;
     private int d = 1;
     private long e = -1;
 
     public QQToken(String str) {
-        this.f13299a = str;
+        this.f7908a = str;
     }
 
     public boolean isSessionValid() {
-        return this.f13300b != null && System.currentTimeMillis() < this.e;
+        return this.b != null && System.currentTimeMillis() < this.e;
     }
 
     public String getAppId() {
-        return this.f13299a;
+        return this.f7908a;
     }
 
     public void setAppId(String str) {
-        this.f13299a = str;
+        this.f7908a = str;
     }
 
     public String getAccessToken() {
-        return this.f13300b;
+        return this.b;
     }
 
     public void setAccessToken(String str, String str2) throws NumberFormatException {
-        this.f13300b = str;
+        this.b = str;
         this.e = 0L;
         if (str2 != null) {
             this.e = System.currentTimeMillis() + (Long.parseLong(str2) * 1000);
@@ -75,7 +73,7 @@ public class QQToken {
 
     public void saveSession(JSONObject jSONObject) {
         try {
-            a(this.f13299a, jSONObject);
+            a(this.f7908a, jSONObject);
         } catch (Exception e) {
             f.c("QQToken", "login saveSession" + e.toString());
         }

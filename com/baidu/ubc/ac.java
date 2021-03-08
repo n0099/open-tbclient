@@ -10,26 +10,26 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ac {
     private static final boolean DEBUG = AppConfig.isDebug();
-    private static volatile ac oTS;
-    private boolean oTR = com.baidu.pyramid.runtime.multiprocess.a.aeb();
+    private static volatile ac oVX;
+    private boolean oVW = com.baidu.pyramid.runtime.multiprocess.a.aee();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ac ehX() {
-        if (oTS == null) {
+    public static ac eif() {
+        if (oVX == null) {
             synchronized (e.class) {
-                if (oTS == null) {
-                    oTS = new ac();
+                if (oVX == null) {
+                    oVX = new ac();
                 }
             }
         }
-        return oTS;
+        return oVX;
     }
 
     private ac() {
     }
 
     public void h(String str, int i, int i2, int i3) {
-        if (this.oTR && !TextUtils.isEmpty(str)) {
+        if (this.oVW && !TextUtils.isEmpty(str)) {
             if (i != 0 || i2 != 0 || i3 != 0) {
                 try {
                     JSONObject jSONObject = new JSONObject();
@@ -51,8 +51,8 @@ public class ac {
         }
     }
 
-    public void w(String str, int i, String str2) {
-        if (this.oTR && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i != 0) {
+    public void x(String str, int i, String str2) {
+        if (this.oVW && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i != 0) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
@@ -66,7 +66,7 @@ public class ac {
     }
 
     public void ci(String str, int i) {
-        if (this.oTR && !TextUtils.isEmpty(str) && i != 0) {
+        if (this.oVW && !TextUtils.isEmpty(str) && i != 0) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
@@ -78,8 +78,8 @@ public class ac {
         }
     }
 
-    public void XE(String str) {
-        if (this.oTR && !TextUtils.isEmpty(str)) {
+    public void XL(String str) {
+        if (this.oVW && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
@@ -91,7 +91,7 @@ public class ac {
     }
 
     public void he(String str, String str2) {
-        if (this.oTR) {
+        if (this.oVW) {
             if (!TextUtils.isEmpty(str2) || !TextUtils.isEmpty(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject();
@@ -109,8 +109,8 @@ public class ac {
         }
     }
 
-    public void Nm(int i) {
-        if (this.oTR) {
+    public void Nq(int i) {
+        if (this.oVW) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(BaseJsonData.TAG_ERRNO, i);
@@ -121,8 +121,8 @@ public class ac {
         }
     }
 
-    public void XF(String str) {
-        if (this.oTR && !TextUtils.isEmpty(str)) {
+    public void XM(String str) {
+        if (this.oVW && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("exception", str);
@@ -133,8 +133,8 @@ public class ac {
         }
     }
 
-    public void XG(String str) {
-        if (this.oTR && !TextUtils.isEmpty(str)) {
+    public void XN(String str) {
+        if (this.oVW && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("exception", str);

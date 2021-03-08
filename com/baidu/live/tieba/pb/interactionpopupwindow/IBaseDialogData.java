@@ -1,7 +1,7 @@
 package com.baidu.live.tieba.pb.interactionpopupwindow;
 
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IBaseDialogData extends Serializable {
     public static final int TYPE_CUSTOM = 1;
 

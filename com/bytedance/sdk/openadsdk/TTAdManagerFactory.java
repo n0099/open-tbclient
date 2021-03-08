@@ -9,7 +9,7 @@ import com.bytedance.sdk.openadsdk.multipro.b;
 public class TTAdManagerFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final TTAdManager f6086a = new v();
+    private static final TTAdManager f4074a = new v();
 
     private TTAdManagerFactory() {
     }
@@ -23,11 +23,11 @@ public class TTAdManagerFactory {
             b.a();
         }
         m.a(context);
-        return f6086a;
+        return f4074a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static TTAdManager a() {
-        return f6086a;
+        return f4074a;
     }
 }

@@ -1,5 +1,5 @@
 package com.thunder.livesdk.video;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class ThunderVideoCaptureObserver implements IVideoCaptureObserver {
     public void onCaptureVideoFrame(ThunderVideoFrame thunderVideoFrame) {
     }

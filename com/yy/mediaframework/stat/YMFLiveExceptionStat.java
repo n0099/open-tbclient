@@ -1,5 +1,5 @@
 package com.yy.mediaframework.stat;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFLiveExceptionStat {
     private static YMFLiveExceptionStat mInstance;
     private String tag = "YMFLive";

@@ -8,35 +8,35 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class bk implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f14278a;
+    final /* synthetic */ Context f8547a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ hq f975a;
+    final /* synthetic */ hq f896a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(Context context, hq hqVar) {
-        this.f14278a = context;
-        this.f975a = hqVar;
+        this.f8547a = context;
+        this.f896a = hqVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         FileLock fileLock;
         RandomAccessFile randomAccessFile;
-        synchronized (bj.f14277a) {
+        synchronized (bj.f8546a) {
             try {
-                File file = new File(this.f14278a.getFilesDir(), "tiny_data.lock");
-                com.xiaomi.push.y.m615a(file);
+                File file = new File(this.f8547a.getFilesDir(), "tiny_data.lock");
+                com.xiaomi.push.y.m594a(file);
                 randomAccessFile = new RandomAccessFile(file, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
                     try {
                         try {
-                            bj.c(this.f14278a, this.f975a);
+                            bj.c(this.f8547a, this.f896a);
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();

@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableBuffer<T, C extends Collection<? super T>> extends io.reactivex.internal.operators.flowable.a<T, C> {
     final Callable<C> bufferSupplier;
     final int size;
@@ -21,15 +21,15 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
     @Override // io.reactivex.g
     public void a(org.a.c<? super C> cVar) {
         if (this.size == this.skip) {
-            this.qow.a((j) new a(cVar, this.size, this.bufferSupplier));
+            this.qoY.a((j) new a(cVar, this.size, this.bufferSupplier));
         } else if (this.skip > this.size) {
-            this.qow.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.qoY.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         } else {
-            this.qow.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.qoY.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class a<T, C extends Collection<? super T>> implements j<T>, d {
         final org.a.c<? super C> actual;
         C buffer;
@@ -71,7 +71,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
                 C c = this.buffer;
                 if (c == null) {
                     try {
-                        c = (C) io.reactivex.internal.functions.a.m(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
+                        c = (C) io.reactivex.internal.functions.a.n(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
                         this.buffer = c;
                     } catch (Throwable th) {
                         io.reactivex.exceptions.a.N(th);
@@ -115,7 +115,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class PublisherBufferSkipSubscriber<T, C extends Collection<? super T>> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = -5616169793639412593L;
         final org.a.c<? super C> actual;
@@ -166,7 +166,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
                 int i2 = i + 1;
                 if (i == 0) {
                     try {
-                        c = (C) io.reactivex.internal.functions.a.m(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
+                        c = (C) io.reactivex.internal.functions.a.n(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
                         this.buffer = c;
                     } catch (Throwable th) {
                         io.reactivex.exceptions.a.N(th);
@@ -211,7 +211,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class PublisherBufferOverlappingSubscriber<T, C extends Collection<? super T>> extends AtomicLong implements e, j<T>, d {
         private static final long serialVersionUID = -7370244972039324525L;
         final org.a.c<? super C> actual;
@@ -273,7 +273,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
                 int i2 = i + 1;
                 if (i == 0) {
                     try {
-                        arrayDeque.offer((Collection) io.reactivex.internal.functions.a.m(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer"));
+                        arrayDeque.offer((Collection) io.reactivex.internal.functions.a.n(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer"));
                     } catch (Throwable th) {
                         io.reactivex.exceptions.a.N(th);
                         cancel();

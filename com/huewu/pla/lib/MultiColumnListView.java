@@ -10,7 +10,7 @@ import android.view.View;
 import com.baidu.tieba.R;
 import com.huewu.pla.lib.internal.PLA_AbsListView;
 import com.huewu.pla.lib.internal.PLA_ListView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MultiColumnListView extends PLA_ListView {
     private static final int DEFAULT_COLUMN_NUMBER = 2;
     private static final String TAG = "MultiColumnListView";
@@ -26,9 +26,9 @@ public class MultiColumnListView extends PLA_ListView {
     private ParcelableSparseIntArray mItems;
     public PLA_AbsListView.c scroller;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface c {
-        void bWe();
+        void bWk();
     }
 
     public MultiColumnListView(Context context) {
@@ -43,20 +43,20 @@ public class MultiColumnListView extends PLA_ListView {
         this.mFrameRect = new Rect();
         this.loadingMoreComplete = true;
         this.scroller = new PLA_AbsListView.c() { // from class: com.huewu.pla.lib.MultiColumnListView.1
-            private int pXQ = 0;
+            private int pYE = 0;
 
             @Override // com.huewu.pla.lib.internal.PLA_AbsListView.c
             public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i) {
                 int count = MultiColumnListView.this.getAdapter().getCount() - 2;
-                if (i == 0 && this.pXQ == count && MultiColumnListView.this.loadingMoreComplete) {
-                    MultiColumnListView.this.loadMoreListener.bWe();
+                if (i == 0 && this.pYE == count && MultiColumnListView.this.loadingMoreComplete) {
+                    MultiColumnListView.this.loadMoreListener.bWk();
                     MultiColumnListView.this.loadingMoreComplete = false;
                 }
             }
 
             @Override // com.huewu.pla.lib.internal.PLA_AbsListView.c
             public void onScroll(PLA_AbsListView pLA_AbsListView, int i, int i2, int i3) {
-                this.pXQ = (i + i2) - 2;
+                this.pYE = (i + i2) - 2;
             }
         };
         init(null);
@@ -74,20 +74,20 @@ public class MultiColumnListView extends PLA_ListView {
         this.mFrameRect = new Rect();
         this.loadingMoreComplete = true;
         this.scroller = new PLA_AbsListView.c() { // from class: com.huewu.pla.lib.MultiColumnListView.1
-            private int pXQ = 0;
+            private int pYE = 0;
 
             @Override // com.huewu.pla.lib.internal.PLA_AbsListView.c
             public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i) {
                 int count = MultiColumnListView.this.getAdapter().getCount() - 2;
-                if (i == 0 && this.pXQ == count && MultiColumnListView.this.loadingMoreComplete) {
-                    MultiColumnListView.this.loadMoreListener.bWe();
+                if (i == 0 && this.pYE == count && MultiColumnListView.this.loadingMoreComplete) {
+                    MultiColumnListView.this.loadMoreListener.bWk();
                     MultiColumnListView.this.loadingMoreComplete = false;
                 }
             }
 
             @Override // com.huewu.pla.lib.internal.PLA_AbsListView.c
             public void onScroll(PLA_AbsListView pLA_AbsListView, int i, int i2, int i3) {
-                this.pXQ = (i + i2) - 2;
+                this.pYE = (i + i2) - 2;
             }
         };
         init(attributeSet);
@@ -105,20 +105,20 @@ public class MultiColumnListView extends PLA_ListView {
         this.mFrameRect = new Rect();
         this.loadingMoreComplete = true;
         this.scroller = new PLA_AbsListView.c() { // from class: com.huewu.pla.lib.MultiColumnListView.1
-            private int pXQ = 0;
+            private int pYE = 0;
 
             @Override // com.huewu.pla.lib.internal.PLA_AbsListView.c
             public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i2) {
                 int count = MultiColumnListView.this.getAdapter().getCount() - 2;
-                if (i2 == 0 && this.pXQ == count && MultiColumnListView.this.loadingMoreComplete) {
-                    MultiColumnListView.this.loadMoreListener.bWe();
+                if (i2 == 0 && this.pYE == count && MultiColumnListView.this.loadingMoreComplete) {
+                    MultiColumnListView.this.loadMoreListener.bWk();
                     MultiColumnListView.this.loadingMoreComplete = false;
                 }
             }
 
             @Override // com.huewu.pla.lib.internal.PLA_AbsListView.c
             public void onScroll(PLA_AbsListView pLA_AbsListView, int i2, int i22, int i3) {
-                this.pXQ = (i2 + i22) - 2;
+                this.pYE = (i2 + i22) - 2;
             }
         };
         init(attributeSet);
@@ -174,15 +174,15 @@ public class MultiColumnListView extends PLA_ListView {
         super.onMeasure(i, i2);
         int measuredWidth = (((((getMeasuredWidth() - this.mListPadding.left) - this.mListPadding.right) - this.mColumnPaddingLeft) - this.mColumnPaddingRight) - this.mColumnDiv) / this.mColumnNumber;
         for (int i3 = 0; i3 < this.mColumnNumber; i3++) {
-            this.mColumns[i3].pXS = measuredWidth;
+            this.mColumns[i3].pYG = measuredWidth;
             if (i3 == 0) {
-                this.mColumns[i3].pXT = this.mListPadding.left + this.mColumnPaddingLeft + (measuredWidth * i3);
+                this.mColumns[i3].pYH = this.mListPadding.left + this.mColumnPaddingLeft + (measuredWidth * i3);
             } else {
-                this.mColumns[i3].pXT = this.mListPadding.left + this.mColumnPaddingLeft + this.mColumnDiv + (measuredWidth * i3);
+                this.mColumns[i3].pYH = this.mListPadding.left + this.mColumnPaddingLeft + this.mColumnDiv + (measuredWidth * i3);
             }
         }
-        this.mFixedColumn.pXT = this.mListPadding.left;
-        this.mFixedColumn.pXS = getMeasuredWidth();
+        this.mFixedColumn.pYH = this.mListPadding.left;
+        this.mFixedColumn.pYG = getMeasuredWidth();
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
@@ -232,7 +232,7 @@ public class MultiColumnListView extends PLA_ListView {
         if (!z && firstVisiblePosition == 0) {
             int top = this.mColumns[0].getTop();
             for (a aVar : this.mColumns) {
-                aVar.QB(top - aVar.getTop());
+                aVar.QF(top - aVar.getTop());
             }
         }
         super.onAdjustChildViews(z);
@@ -304,7 +304,7 @@ public class MultiColumnListView extends PLA_ListView {
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
     protected int getItemLeft(int i) {
-        return isHeaderOrFooterPosition(i) ? this.mFixedColumn.eCu() : getColumnLeft(i);
+        return isHeaderOrFooterPosition(i) ? this.mFixedColumn.eCA() : getColumnLeft(i);
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
@@ -387,7 +387,7 @@ public class MultiColumnListView extends PLA_ListView {
         if (i2 == -1) {
             return 0;
         }
-        return this.mColumns[i2].eCu();
+        return this.mColumns[i2].eCA();
     }
 
     private int getColumnWidth(int i) {
@@ -395,28 +395,28 @@ public class MultiColumnListView extends PLA_ListView {
         if (i2 == -1) {
             return 0;
         }
-        return this.mColumns[i2].eCv();
+        return this.mColumns[i2].eCB();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class a {
         private int mIndex;
-        private int pXS;
-        private int pXT;
-        private int pXU = 0;
-        private int pXV = 0;
+        private int pYG;
+        private int pYH;
+        private int pYI = 0;
+        private int pYJ = 0;
 
         public a(int i) {
             this.mIndex = i;
         }
 
-        public int eCu() {
-            return this.pXT;
+        public int eCA() {
+            return this.pYH;
         }
 
-        public int eCv() {
-            return this.pXS;
+        public int eCB() {
+            return this.pYG;
         }
 
         public int getIndex() {
@@ -428,22 +428,22 @@ public class MultiColumnListView extends PLA_ListView {
             int i = Integer.MIN_VALUE;
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = MultiColumnListView.this.getChildAt(i2);
-                if ((childAt.getLeft() == this.pXT || MultiColumnListView.this.isFixedView(childAt)) && i < childAt.getBottom()) {
+                if ((childAt.getLeft() == this.pYH || MultiColumnListView.this.isFixedView(childAt)) && i < childAt.getBottom()) {
                     i = childAt.getBottom();
                 }
             }
             if (i == Integer.MIN_VALUE) {
-                return this.pXV;
+                return this.pYJ;
             }
             return i;
         }
 
-        public void QB(int i) {
+        public void QF(int i) {
             if (i != 0) {
                 int childCount = MultiColumnListView.this.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
                     View childAt = MultiColumnListView.this.getChildAt(i2);
-                    if (childAt.getLeft() == this.pXT || MultiColumnListView.this.isFixedView(childAt)) {
+                    if (childAt.getLeft() == this.pYH || MultiColumnListView.this.isFixedView(childAt)) {
                         childAt.offsetTopAndBottom(i);
                     }
                 }
@@ -455,29 +455,29 @@ public class MultiColumnListView extends PLA_ListView {
             int i = Integer.MAX_VALUE;
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = MultiColumnListView.this.getChildAt(i2);
-                if (childAt.getLeft() == this.pXT || MultiColumnListView.this.isFixedView(childAt)) {
+                if (childAt.getLeft() == this.pYH || MultiColumnListView.this.isFixedView(childAt)) {
                     i = Math.min(i, childAt.getTop());
                 }
             }
             if (i == Integer.MAX_VALUE) {
-                return this.pXU;
+                return this.pYI;
             }
             return i;
         }
 
         public void save() {
-            this.pXU = 0;
-            this.pXV = getTop();
+            this.pYI = 0;
+            this.pYJ = getTop();
         }
 
         public void clear() {
-            this.pXU = 0;
-            this.pXV = 0;
+            this.pYI = 0;
+            this.pYJ = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class b extends a {
         public b() {
             super(Integer.MAX_VALUE);

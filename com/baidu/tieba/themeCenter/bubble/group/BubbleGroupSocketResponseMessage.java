@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryResIdl;
 import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
     private List<b> mBubbleGroupList;
     private e mRecommand;

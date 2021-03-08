@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class Camera1Enumerator implements CameraEnumerator {
     private static final String TAG = "Camera1Enumerator";
     private static List<List<CameraEnumerationAndroid.CaptureFormat>> cachedSupportedFormats;

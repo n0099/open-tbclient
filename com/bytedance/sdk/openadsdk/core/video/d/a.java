@@ -1,56 +1,142 @@
 package com.bytedance.sdk.openadsdk.core.video.d;
 
-import android.os.Build;
-import android.view.View;
-import com.baidu.live.adp.lib.cache.BdKVCache;
-import com.kwad.sdk.collector.AppStatusRules;
+import com.bytedance.sdk.openadsdk.core.video.d.c;
+import com.bytedance.sdk.openadsdk.utils.u;
 /* loaded from: classes6.dex */
-public class a {
+public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f6719a = Build.VERSION.SDK_INT;
+    private c.e f4533a;
+    private c.b b;
+    private c.a c;
+    private c.f d;
+    private c.g e;
+    private c.InterfaceC1022c f;
+    private c.d g;
 
-    public static int a(long j, long j2) {
-        return Math.min(Math.max(0, j2 > 0 ? (int) (((j * 1.0d) / j2) * 100.0d) : 0), 100);
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.e eVar) {
+        this.f4533a = eVar;
     }
 
-    public static String a(long j) {
-        StringBuilder sb = new StringBuilder();
-        long j2 = j / AppStatusRules.DEFAULT_GRANULARITY;
-        long j3 = ((j % BdKVCache.MILLS_1Hour) % AppStatusRules.DEFAULT_GRANULARITY) / 1000;
-        if (j2 >= 10) {
-            sb.append(j2);
-        } else if (j2 > 0) {
-            sb.append(0);
-            sb.append(j2);
-        } else {
-            sb.append(0);
-            sb.append(0);
-        }
-        sb.append(":");
-        if (j3 >= 10) {
-            sb.append(j3);
-        } else if (j3 > 0) {
-            sb.append(0);
-            sb.append(j3);
-        } else {
-            sb.append(0);
-            sb.append(0);
-        }
-        return sb.toString();
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.b bVar) {
+        this.b = bVar;
     }
 
-    public static void a(View view, boolean z) {
-        if (view != null) {
-            if (z) {
-                view.setSystemUiVisibility(0);
-            } else if (f6719a >= 19) {
-                view.setSystemUiVisibility(3846);
-            } else if (f6719a >= 16) {
-                view.setSystemUiVisibility(5);
-            } else {
-                view.setSystemUiVisibility(1);
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.a aVar) {
+        this.c = aVar;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.f fVar) {
+        this.d = fVar;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.InterfaceC1022c interfaceC1022c) {
+        this.f = interfaceC1022c;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.d dVar) {
+        this.g = dVar;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.g gVar) {
+        this.e = gVar;
+    }
+
+    public void a() {
+        this.f4533a = null;
+        this.c = null;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void b() {
+        try {
+            if (this.f4533a != null) {
+                this.f4533a.b(this);
             }
+        } catch (Throwable th) {
+            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnPrepared error: ", th);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void c() {
+        try {
+            if (this.b != null) {
+                this.b.a(this);
+            }
+        } catch (Throwable th) {
+            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnCompletion error: ", th);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void a(int i) {
+        try {
+            if (this.c != null) {
+                this.c.a(this, i);
+            }
+        } catch (Throwable th) {
+            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnBufferingUpdate error: ", th);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void d() {
+        try {
+            if (this.d != null) {
+                this.d.c(this);
+            }
+        } catch (Throwable th) {
+            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnSeekComplete error: ", th);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void a(int i, int i2, int i3, int i4) {
+        try {
+            if (this.e != null) {
+                this.e.a(this, i, i2, i3, i4);
+            }
+        } catch (Throwable th) {
+            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnVideoSizeChanged error: ", th);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final boolean a(int i, int i2) {
+        try {
+            if (this.f != null) {
+                return this.f.a(this, i, i2);
+            }
+            return false;
+        } catch (Throwable th) {
+            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnError error: ", th);
+            return false;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final boolean b(int i, int i2) {
+        try {
+            if (this.g != null) {
+                return this.g.b(this, i, i2);
+            }
+            return false;
+        } catch (Throwable th) {
+            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnInfo error: ", th);
+            return false;
         }
     }
 }

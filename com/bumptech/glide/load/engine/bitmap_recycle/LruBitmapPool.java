@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class LruBitmapPool implements BitmapPool {
     private static final Bitmap.Config DEFAULT_CONFIG = Bitmap.Config.ARGB_8888;
     private static final String TAG = "LruBitmapPool";
@@ -28,7 +28,7 @@ public class LruBitmapPool implements BitmapPool {
     private final BitmapTracker tracker;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface BitmapTracker {
         void add(Bitmap bitmap);
 
@@ -49,6 +49,22 @@ public class LruBitmapPool implements BitmapPool {
 
     public LruBitmapPool(long j, Set<Bitmap.Config> set) {
         this(j, getDefaultStrategy(), set);
+    }
+
+    public long hitCount() {
+        return this.hits;
+    }
+
+    public long missCount() {
+        return this.misses;
+    }
+
+    public long evictionCount() {
+        return this.evictions;
+    }
+
+    public long getCurrentSize() {
+        return this.currentSize;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
@@ -178,7 +194,7 @@ public class LruBitmapPool implements BitmapPool {
         if (Log.isLoggable(TAG, 3)) {
             Log.d(TAG, "trimMemory, level=" + i);
         }
-        if (i >= 40) {
+        if (i >= 40 || (Build.VERSION.SDK_INT >= 23 && i >= 20)) {
             clearMemory();
         } else if (i >= 20 || i == 15) {
             trimToSize(getMaxSize() / 2);
@@ -247,7 +263,7 @@ public class LruBitmapPool implements BitmapPool {
         return Collections.unmodifiableSet(hashSet);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class ThrowingBitmapTracker implements BitmapTracker {
         private final Set<Bitmap> bitmaps = Collections.synchronizedSet(new HashSet());
 
@@ -271,7 +287,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static final class NullBitmapTracker implements BitmapTracker {
         NullBitmapTracker() {
         }

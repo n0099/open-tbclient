@@ -2,7 +2,7 @@ package androidx.core.util;
 
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class DebugUtils {
     public static void buildShortClassTag(Object obj, StringBuilder sb) {
         int lastIndexOf;

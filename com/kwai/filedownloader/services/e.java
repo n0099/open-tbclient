@@ -10,10 +10,8 @@ import java.lang.ref.WeakReference;
 public class e extends b.a implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final g f10990a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final WeakReference<FileDownloadServiceProxy> f10991b;
+    private final g f7242a;
+    private final WeakReference<FileDownloadServiceProxy> b;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -24,8 +22,8 @@ public class e extends b.a implements i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(WeakReference<FileDownloadServiceProxy> weakReference, g gVar) {
-        this.f10991b = weakReference;
-        this.f10990a = gVar;
+        this.b = weakReference;
+        this.f7242a = gVar;
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -35,15 +33,15 @@ public class e extends b.a implements i {
 
     @Override // com.kwai.filedownloader.c.b
     public void a() {
-        this.f10990a.a();
+        this.f7242a.a();
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void a(int i, Notification notification) {
-        if (this.f10991b == null || this.f10991b.get() == null) {
+        if (this.b == null || this.b.get() == null) {
             return;
         }
-        this.f10991b.get().context.startForeground(i, notification);
+        this.b.get().context.startForeground(i, notification);
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -57,25 +55,25 @@ public class e extends b.a implements i {
 
     @Override // com.kwai.filedownloader.c.b
     public void a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3) {
-        this.f10990a.a(str, str2, z, i, i2, i3, z2, bVar, z3);
+        this.f7242a.a(str, str2, z, i, i2, i3, z2, bVar, z3);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void a(boolean z) {
-        if (this.f10991b == null || this.f10991b.get() == null) {
+        if (this.b == null || this.b.get() == null) {
             return;
         }
-        this.f10991b.get().context.stopForeground(z);
+        this.b.get().context.stopForeground(z);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean a(int i) {
-        return this.f10990a.b(i);
+        return this.f7242a.b(i);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean a(String str, String str2) {
-        return this.f10990a.a(str, str2);
+        return this.f7242a.a(str, str2);
     }
 
     @Override // com.kwai.filedownloader.c.b
@@ -84,27 +82,27 @@ public class e extends b.a implements i {
 
     @Override // com.kwai.filedownloader.c.b
     public boolean b() {
-        return this.f10990a.b();
+        return this.f7242a.b();
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean b(int i) {
-        return this.f10990a.f(i);
+        return this.f7242a.f(i);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public long c(int i) {
-        return this.f10990a.c(i);
+        return this.f7242a.c(i);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void c() {
-        this.f10990a.c();
+        this.f7242a.c();
     }
 
     @Override // com.kwai.filedownloader.c.b
     public long d(int i) {
-        return this.f10990a.d(i);
+        return this.f7242a.d(i);
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -114,11 +112,11 @@ public class e extends b.a implements i {
 
     @Override // com.kwai.filedownloader.c.b
     public byte e(int i) {
-        return this.f10990a.e(i);
+        return this.f7242a.e(i);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean f(int i) {
-        return this.f10990a.g(i);
+        return this.f7242a.g(i);
     }
 }

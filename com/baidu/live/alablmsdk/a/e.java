@@ -2,43 +2,43 @@ package com.baidu.live.alablmsdk.a;
 
 import android.os.Handler;
 import android.os.HandlerThread;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private static e awt;
-    private Handler awu;
-    private HandlerThread awv = new HandlerThread("blm_work_threads");
+    private static e axT;
+    private Handler axU;
+    private HandlerThread axV = new HandlerThread("blm_work_threads");
 
     private e() {
-        this.awv.start();
-        this.awu = new Handler(this.awv.getLooper());
+        this.axV.start();
+        this.axU = new Handler(this.axV.getLooper());
     }
 
-    public static e xq() {
-        if (awt == null) {
+    public static e xt() {
+        if (axT == null) {
             synchronized (e.class) {
-                if (awt == null) {
-                    awt = new e();
+                if (axT == null) {
+                    axT = new e();
                 }
             }
         }
-        return awt;
+        return axT;
     }
 
     public void post(Runnable runnable) {
-        if (this.awu != null) {
-            this.awu.post(runnable);
+        if (this.axU != null) {
+            this.axU.post(runnable);
         }
     }
 
     public void release() {
-        if (this.awu != null) {
-            this.awu.removeCallbacksAndMessages(null);
-            this.awu = null;
+        if (this.axU != null) {
+            this.axU.removeCallbacksAndMessages(null);
+            this.axU = null;
         }
-        if (this.awv != null) {
-            this.awv.quit();
-            this.awv = null;
+        if (this.axV != null) {
+            this.axV.quit();
+            this.axV = null;
         }
-        awt = null;
+        axT = null;
     }
 }

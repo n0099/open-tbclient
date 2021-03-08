@@ -6,7 +6,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.data.ErrorData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     private long mLogId;
 

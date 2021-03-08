@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.AsyncTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VolumeChangeReceiver extends BroadcastReceiver {
     private static final String TAG = "[VolumeChangeReceiver]";
     private static final String VOLUME_CHANGED_ACTION = "android.media.VOLUME_CHANGED_ACTION";

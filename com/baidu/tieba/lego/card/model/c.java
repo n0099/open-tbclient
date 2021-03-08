@@ -2,48 +2,48 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private final String lch;
-    private final int lci;
-    private final int lcj;
-    private final String lck;
+    private final String lek;
+    private final int lel;
+    private final int lem;
+    private final String leo;
 
     private c(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.lch = jSONObject.optString("moreText");
-            this.lci = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("moreColor", ""));
-            this.lcj = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("moreColorNight", ""));
-            this.lck = jSONObject.optString("moreScheme");
+            this.lek = jSONObject.optString("moreText");
+            this.lel = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("moreColor", ""));
+            this.lem = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("moreColorNight", ""));
+            this.leo = jSONObject.optString("moreScheme");
             return;
         }
-        this.lch = "";
-        this.lci = Integer.MAX_VALUE;
-        this.lcj = Integer.MAX_VALUE;
-        this.lck = "";
+        this.lek = "";
+        this.lel = Integer.MAX_VALUE;
+        this.lem = Integer.MAX_VALUE;
+        this.leo = "";
     }
 
-    public static c ez(JSONObject jSONObject) {
+    public static c eB(JSONObject jSONObject) {
         return new c(jSONObject);
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.lch);
+        return !TextUtils.isEmpty(this.lek);
     }
 
-    public String dbP() {
-        return this.lch;
+    public String dbY() {
+        return this.lek;
     }
 
-    public int dbQ() {
-        return this.lci;
+    public int dbZ() {
+        return this.lel;
     }
 
-    public String dbR() {
-        return this.lck;
+    public String dca() {
+        return this.leo;
     }
 
-    public int dbS() {
-        return this.lcj;
+    public int dcb() {
+        return this.lem;
     }
 }

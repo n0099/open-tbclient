@@ -9,7 +9,7 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Texture2dProgram {
     private static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
     private static final String FRAGMENT_SHADER_2D_WITH_EXTRA_TXT = "precision mediump float;\nvarying vec2 vTextureCoord;\nvarying vec2 vExtraTextureCoord;\nuniform sampler2D uTexture;\nuniform sampler2D uExtraTexture;\nuniform int uExtraTxtEnabled;\n\nvoid main() {\n    if (uExtraTxtEnabled == 1) {\n       vec4 base = texture2D(uTexture, vTextureCoord);\n       vec4 overlay = texture2D(uExtraTexture, vExtraTextureCoord);\n       vec4 outputColor;\n       outputColor.r = overlay.r + base.r * base.a * (1.0 - overlay.a);\n       outputColor.g = overlay.g + base.g * base.a * (1.0 - overlay.a);\n       outputColor.b = overlay.b + base.b * base.a * (1.0 - overlay.a);\n       outputColor.a = overlay.a + base.a * (1.0 - overlay.a);\n       gl_FragColor = outputColor;\n    }\n    else {\n        gl_FragColor = texture2D(uTexture, vTextureCoord);\n    }\n}";
@@ -51,7 +51,7 @@ public class Texture2dProgram {
     private int muTexOffsetLoc;
     private int muTextureLoc;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum ProgramType {
         TEXTURE_2D,
         TEXTURE_2D_WITH_EXTRA_TXT,

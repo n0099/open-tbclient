@@ -9,10 +9,8 @@ import org.apache.http.client.methods.HttpPut;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final f f11170a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f11171b;
+    private final f f7348a;
+    private final String b;
     private final c c;
     private final j d;
     private final Object e;
@@ -21,10 +19,8 @@ public class i {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private f f11172a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f11173b = "GET";
+        private f f7349a;
+        private String b = "GET";
         private c.a c = new c.a();
         private j d;
         private Object e;
@@ -42,7 +38,7 @@ public class i {
             if (fVar == null) {
                 throw new IllegalArgumentException("url == null");
             }
-            this.f11172a = fVar;
+            this.f7349a = fVar;
             return this;
         }
 
@@ -74,7 +70,7 @@ public class i {
                 if (jVar == null && d.a(str)) {
                     throw new IllegalArgumentException("method " + str + " must have a request body.");
                 }
-                this.f11173b = str;
+                this.b = str;
                 this.d = jVar;
                 return this;
             }
@@ -99,7 +95,7 @@ public class i {
         }
 
         public i c() {
-            if (this.f11172a == null) {
+            if (this.f7349a == null) {
                 throw new IllegalStateException("url == null");
             }
             return new i(this);
@@ -111,15 +107,15 @@ public class i {
     }
 
     private i(a aVar) {
-        this.f11170a = aVar.f11172a;
-        this.f11171b = aVar.f11173b;
+        this.f7348a = aVar.f7349a;
+        this.b = aVar.b;
         this.c = aVar.c.a();
         this.d = aVar.d;
         this.e = aVar.e != null ? aVar.e : this;
     }
 
     public f a() {
-        return this.f11170a;
+        return this.f7348a;
     }
 
     public String a(String str) {
@@ -127,7 +123,7 @@ public class i {
     }
 
     public String b() {
-        return this.f11171b;
+        return this.b;
     }
 
     public int c() {
@@ -158,10 +154,10 @@ public class i {
     }
 
     public boolean f() {
-        return this.f11170a.a();
+        return this.f7348a.a();
     }
 
     public String toString() {
-        return "Request{method=" + this.f11171b + ", url=" + this.f11170a + ", tag=" + (this.e != this ? this.e : null) + '}';
+        return "Request{method=" + this.b + ", url=" + this.f7348a + ", tag=" + (this.e != this ? this.e : null) + '}';
     }
 }

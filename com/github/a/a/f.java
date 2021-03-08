@@ -9,29 +9,29 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f {
-    private static final Object pRd = new Object();
-    private static final SimpleDateFormat pRe = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-    private static final SimpleDateFormat pRf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    private static final Object pRS = new Object();
+    private static final SimpleDateFormat pRT = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+    private static final SimpleDateFormat pRU = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 
-    public static String ZQ(String str) {
+    public static String ZV(String str) {
         String hw;
-        synchronized (pRd) {
+        synchronized (pRS) {
             hw = hw("looper", str);
         }
         return hw;
     }
 
-    public static void eAM() {
-        e.eAL().post(new Runnable() { // from class: com.github.a.a.f.1
+    public static void eAS() {
+        e.eAR().post(new Runnable() { // from class: com.github.a.a.f.1
             @Override // java.lang.Runnable
             public void run() {
                 long currentTimeMillis = System.currentTimeMillis();
-                File[] anh = c.anh();
-                if (anh != null && anh.length > 0) {
-                    synchronized (f.pRd) {
-                        for (File file : anh) {
+                File[] ank = c.ank();
+                if (ank != null && ank.length > 0) {
+                    synchronized (f.pRS) {
+                        for (File file : ank) {
                             if (currentTimeMillis - file.lastModified() > 172800000) {
                                 file.delete();
                             }
@@ -47,9 +47,9 @@ public class f {
         long currentTimeMillis;
         String str3 = "";
         try {
-            File eAJ = c.eAJ();
+            File eAP = c.eAP();
             currentTimeMillis = System.currentTimeMillis();
-            str3 = eAJ.getAbsolutePath() + "/" + str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + pRe.format(Long.valueOf(currentTimeMillis)) + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+            str3 = eAP.getAbsolutePath() + "/" + str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + pRT.format(Long.valueOf(currentTimeMillis)) + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
             bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
         } catch (Throwable th) {
             th = th;
@@ -59,7 +59,7 @@ public class f {
             bufferedWriter.write("\r\n");
             bufferedWriter.write("**********************");
             bufferedWriter.write("\r\n");
-            bufferedWriter.write(pRf.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+            bufferedWriter.write(pRU.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
             bufferedWriter.write("\r\n");
             bufferedWriter.write("\r\n");
             bufferedWriter.write(str2);

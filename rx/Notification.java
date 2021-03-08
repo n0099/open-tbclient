@@ -1,19 +1,19 @@
 package rx;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class Notification<T> {
-    private static final Notification<Void> qyq = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind qyo;
-    private final Throwable qyp;
+    private static final Notification<Void> qyS = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind qyQ;
+    private final Throwable qyR;
     private final T value;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum Kind {
         OnNext,
         OnError,
         OnCompleted
     }
 
-    public static <T> Notification<T> bW(T t) {
+    public static <T> Notification<T> bX(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> eMD() {
-        return (Notification<T>) qyq;
+    public static <T> Notification<T> eMl() {
+        return (Notification<T>) qyS;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.qyp = th;
-        this.qyo = kind;
+        this.qyR = th;
+        this.qyQ = kind;
     }
 
-    public Throwable eME() {
-        return this.qyp;
+    public Throwable eMm() {
+        return this.qyR;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return eMI() && this.value != null;
+        return eMq() && this.value != null;
     }
 
-    public boolean eMF() {
-        return eKn() && this.qyp != null;
+    public boolean eMn() {
+        return eJV() && this.qyR != null;
     }
 
-    public Kind eMG() {
-        return this.qyo;
+    public Kind eMo() {
+        return this.qyQ;
     }
 
-    public boolean eKn() {
-        return eMG() == Kind.OnError;
+    public boolean eJV() {
+        return eMo() == Kind.OnError;
     }
 
-    public boolean eMH() {
-        return eMG() == Kind.OnCompleted;
+    public boolean eMp() {
+        return eMo() == Kind.OnCompleted;
     }
 
-    public boolean eMI() {
-        return eMG() == Kind.OnNext;
+    public boolean eMq() {
+        return eMo() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eMG());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(eMo());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (eMF()) {
-            append.append(' ').append(eME().getMessage());
+        if (eMn()) {
+            append.append(' ').append(eMm().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = eMG().hashCode();
+        int hashCode = eMo().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (eMF()) {
-            return (hashCode * 31) + eME().hashCode();
+        if (eMn()) {
+            return (hashCode * 31) + eMm().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.eMG() != eMG() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qyp != notification.qyp && (this.qyp == null || !this.qyp.equals(notification.qyp))))) {
+            if (notification.eMo() != eMo() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.qyR != notification.qyR && (this.qyR == null || !this.qyR.equals(notification.qyR))))) {
                 z = false;
             }
             return z;

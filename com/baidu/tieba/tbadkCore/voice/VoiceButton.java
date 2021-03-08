@@ -10,16 +10,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
 /* loaded from: classes.dex */
 public class VoiceButton extends ImageView {
-    f nAZ;
-    private boolean nBa;
+    f nDe;
+    private boolean nDf;
 
     public VoiceButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nBa = false;
+        this.nDf = false;
     }
 
     public void setRecorderView(f fVar) {
-        this.nAZ = fVar;
+        this.nDe = fVar;
         a recorderManager = getRecorderManager();
         if (recorderManager != null) {
             recorderManager.a(fVar);
@@ -33,10 +33,10 @@ public class VoiceButton extends ImageView {
             if (recorderManager == null || !recorderManager.rV()) {
                 return false;
             }
-            this.nBa = recorderManager.a(this.nAZ, -1);
+            this.nDf = recorderManager.a(this.nDe, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-            if (this.nBa && recorderManager != null) {
+            if (this.nDf && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             setPressed(false);
@@ -52,7 +52,7 @@ public class VoiceButton extends ImageView {
         if (context instanceof VoiceManager.c) {
             return ((VoiceManager.c) context).getVoiceManager();
         }
-        if ((j.K(getContext()) instanceof com.baidu.adp.base.f) && (tbPageContext = (TbPageContext) j.K(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
+        if ((j.J(getContext()) instanceof com.baidu.adp.base.f) && (tbPageContext = (TbPageContext) j.J(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
             return ((VoiceManager.c) tbPageContext.getOrignalPage()).getVoiceManager();
         }
         return null;

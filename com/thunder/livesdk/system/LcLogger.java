@@ -1,7 +1,7 @@
 package com.thunder.livesdk.system;
 
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LcLogger {
     public static boolean enableLog = true;
 

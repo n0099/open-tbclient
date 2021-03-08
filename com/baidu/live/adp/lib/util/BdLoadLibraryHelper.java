@@ -20,7 +20,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdLoadLibraryHelper {
     private static BdLoadLibraryHelper mInstance = null;
 
@@ -290,7 +290,7 @@ public class BdLoadLibraryHelper {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class LoadApkTask extends BdAsyncTask<Object, Object, Object> {
         BdLoadLibraryHelperCallback mCallback;
         String mLibName;

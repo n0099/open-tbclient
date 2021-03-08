@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tieba.chosen.posts.ChosenPostActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ChosenPostCacheModel extends CacheModel<b, ChosenPostActivity> {
     public static final String CACHE_KEY = "chosen_post_cache";
 
@@ -13,27 +13,27 @@ public class ChosenPostCacheModel extends CacheModel<b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<b> bDy() {
+    public Class<b> bDB() {
         return b.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String bDh() {
+    public String bDk() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int bDz() {
+    public int bDC() {
         return CmdConfigCustom.CMD_CHOSEN_POST_READ_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int bDA() {
+    public int bDD() {
         return CmdConfigCustom.CMD_CHOSEN_POST_WRITE_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    protected boolean bDr() {
+    protected boolean bDu() {
         return false;
     }
 }

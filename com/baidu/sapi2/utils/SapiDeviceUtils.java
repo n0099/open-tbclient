@@ -12,17 +12,17 @@ import java.io.FileInputStream;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.Collections;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class SapiDeviceUtils {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class DeviceCrypto implements NoProguard {
         public static String base64Encode(byte[] bArr) {
             int i;
             if (bArr != null && bArr.length != 0) {
                 StringBuilder sb = new StringBuilder();
                 int length = bArr.length * 8;
-                byte b2 = 0;
+                byte b = 0;
                 int i2 = 0;
                 int i3 = 0;
                 int i4 = 6;
@@ -30,20 +30,20 @@ public class SapiDeviceUtils {
                 do {
                     if (i5 <= 0 || i4 <= 0) {
                         if (i5 == 0) {
-                            b2 = (byte) ((bArr[i3] & 255) >> (8 - i4));
+                            b = (byte) ((bArr[i3] & 255) >> (8 - i4));
                             i5 = 2;
                             i4 = 4;
                         } else if (i4 == 0) {
-                            b2 = (byte) (bArr[i3] & 63);
+                            b = (byte) (bArr[i3] & 63);
                             i4 = 6;
                             i5 = 0;
                         }
                     } else {
                         i5 = 8 - i4;
-                        b2 = (byte) (((byte) (((bArr[i3] & 255) << i4) | ((bArr[i3 + 1] & 255) >> i5))) & 63);
+                        b = (byte) (((byte) (((bArr[i3] & 255) << i4) | ((bArr[i3 + 1] & 255) >> i5))) & 63);
                         i4 = 6 - i5;
                     }
-                    sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b2));
+                    sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b));
                     i2 += 6;
                     i3 = i2 / 8;
                     i = length - i2;

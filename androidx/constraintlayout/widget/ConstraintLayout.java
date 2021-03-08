@@ -21,9 +21,10 @@ import androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer;
 import androidx.constraintlayout.solver.widgets.ResolutionAnchor;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.ViewCompat;
+import androidx.exifinterface.media.ExifInterface;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ConstraintLayout extends ViewGroup {
     static final boolean ALLOWS_EMBEDDED = false;
     private static final boolean CACHE_MEASURED_DIMENSION = false;
@@ -1303,7 +1304,7 @@ public class ConstraintLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static final int BASELINE = 5;
         public static final int BOTTOM = 4;
@@ -1520,7 +1521,7 @@ public class ConstraintLayout extends ViewGroup {
             this.widget = layoutParams.widget;
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         private static class Table {
             public static final int ANDROID_ORIENTATION = 1;
             public static final int LAYOUT_CONSTRAINED_HEIGHT = 28;
@@ -1948,7 +1949,7 @@ public class ConstraintLayout extends ViewGroup {
                                 i = 0;
                             } else {
                                 String substring = this.dimensionRatio.substring(0, indexOf);
-                                if (substring.equalsIgnoreCase("W")) {
+                                if (substring.equalsIgnoreCase(ExifInterface.LONGITUDE_WEST)) {
                                     this.dimensionRatioSide = 0;
                                 } else if (substring.equalsIgnoreCase("H")) {
                                     this.dimensionRatioSide = 1;

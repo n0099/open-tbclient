@@ -18,7 +18,7 @@ import okio.BufferedSource;
 import okio.Sink;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class Http2Stream {
     static final /* synthetic */ boolean $assertionsDisabled;
     long bytesLeftInWriteWindow;
@@ -247,7 +247,7 @@ public final class Http2Stream {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public final class FramingSource implements Source {
         static final /* synthetic */ boolean $assertionsDisabled;
         boolean closed;
@@ -433,7 +433,7 @@ public final class Http2Stream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public final class FramingSink implements Sink {
         static final /* synthetic */ boolean $assertionsDisabled;
         private static final long EMIT_BUFFER_SIZE = 16384;
@@ -554,7 +554,7 @@ public final class Http2Stream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class StreamTimeout extends AsyncTimeout {
         StreamTimeout() {
         }

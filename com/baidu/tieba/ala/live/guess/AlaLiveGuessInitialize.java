@@ -6,15 +6,15 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.guess.d;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveGuessInitialize {
     static {
-        bXs();
-        bXt();
-        bXu();
+        bXy();
+        bXz();
+        bXA();
     }
 
-    private static void bXs() {
+    private static void bXy() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913247, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.live.guess.AlaLiveGuessInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guess.a> run(CustomMessage<TbPageContext> customMessage) {
@@ -25,7 +25,7 @@ public class AlaLiveGuessInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bXt() {
+    private static void bXz() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913299, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.live.guess.AlaLiveGuessInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guess.b> run(CustomMessage<TbPageContext> customMessage) {
@@ -36,7 +36,7 @@ public class AlaLiveGuessInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bXu() {
+    private static void bXA() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913298, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.live.guess.AlaLiveGuessInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<d> run(CustomMessage<TbPageContext> customMessage) {

@@ -2,61 +2,61 @@ package com.baidu.swan.apps.performance.d;
 
 import android.view.View;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b drS;
+    private b dtv;
     private long mCostTime;
     private long mStartTime;
 
     public c() {
         if (isOn()) {
-            this.drS = new b();
+            this.dtv = new b();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
     public void cH(long j) {
-        if (isOn() && this.drS != null) {
-            this.drS.cK(j - this.mStartTime);
+        if (isOn() && this.dtv != null) {
+            this.dtv.cK(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
     public void cg(long j) {
-        if (isOn() && this.drS != null) {
-            this.drS.cJ(j - this.mStartTime);
+        if (isOn() && this.dtv != null) {
+            this.dtv.cJ(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
     public void cI(long j) {
-        if (isOn() && this.drS != null) {
-            this.drS.cL(j - this.mStartTime);
+        if (isOn() && this.dtv != null) {
+            this.dtv.cL(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.d.a
     public void cf(long j) {
-        if (isOn() && this.drS != null) {
-            this.drS.cM(j - this.mStartTime);
+        if (isOn() && this.dtv != null) {
+            this.dtv.cM(j - this.mStartTime);
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void start(long j) {
-        if (isOn() && this.drS != null) {
+        if (isOn() && this.dtv != null) {
             this.mStartTime = j;
-            this.drS.reset();
+            this.dtv.reset();
         }
     }
 
     @Override // com.baidu.swan.apps.performance.a.e
     public void cD(long j) {
-        if (isOn() && this.drS != null) {
+        if (isOn() && this.dtv != null) {
             this.mCostTime = j;
-            this.drS.q(this.mStartTime, this.mCostTime);
-            this.drS.done();
+            this.dtv.q(this.mStartTime, this.mCostTime);
+            this.dtv.done();
         }
     }
 
@@ -80,17 +80,17 @@ public class c implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void turnOn() {
         AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", true).apply();
-        if (this.drS == null) {
-            this.drS = new b();
+        if (this.dtv == null) {
+            this.dtv = new b();
         }
-        this.drS.aEH();
+        this.dtv.aEK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void turnOff() {
         AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).edit().putBoolean("light_info_switch", false).apply();
-        if (this.drS != null) {
-            this.drS.aEI();
+        if (this.dtv != null) {
+            this.dtv.aEL();
         }
     }
 

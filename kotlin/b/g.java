@@ -3,17 +3,17 @@ package kotlin.b;
 import java.util.NoSuchElementException;
 import kotlin.collections.y;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class g extends y {
     private boolean hasNext;
     private int next;
-    private final int qtZ;
+    private final int quB;
     private final int step;
 
     public g(int i, int i2, int i3) {
         boolean z = true;
         this.step = i3;
-        this.qtZ = i2;
+        this.quB = i2;
         if (this.step > 0) {
             if (i > i2) {
                 z = false;
@@ -22,7 +22,7 @@ public final class g extends y {
             z = false;
         }
         this.hasNext = z;
-        this.next = this.hasNext ? i : this.qtZ;
+        this.next = this.hasNext ? i : this.quB;
     }
 
     @Override // java.util.Iterator
@@ -31,9 +31,9 @@ public final class g extends y {
     }
 
     @Override // kotlin.collections.y
-    public int eBG() {
+    public int eBM() {
         int i = this.next;
-        if (i == this.qtZ) {
+        if (i == this.quB) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }

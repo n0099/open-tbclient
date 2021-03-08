@@ -16,23 +16,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static a d;
 
     /* renamed from: a  reason: collision with root package name */
-    int f5202a = 5;
-
-    /* renamed from: b  reason: collision with root package name */
-    String f5203b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
+    int f3504a = 5;
+    String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0340a e;
+    private C0346a e;
     private Context f;
 
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.e = new C0340a(context.getApplicationContext());
+        this.e = new C0346a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
@@ -54,18 +52,18 @@ public final class a {
     }
 
     /* renamed from: com.baidu.sofire.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private class C0340a extends SQLiteOpenHelper {
-        public C0340a(Context context) {
-            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f5202a);
-            new StringBuilder().append(a.this.f5202a);
+    /* loaded from: classes4.dex */
+    private class C0346a extends SQLiteOpenHelper {
+        public C0346a(Context context) {
+            super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.f3504a);
+            new StringBuilder().append(a.this.f3504a);
             b.a();
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public final void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(a.this.f5203b);
+                sQLiteDatabase.execSQL(a.this.b);
             } catch (Throwable th) {
                 e.a();
             }
@@ -341,12 +339,12 @@ public final class a {
                         apkInfo2.activities = new ActivityInfo[size];
                         for (int i2 = 0; i2 < size; i2++) {
                             ActivityInfo activityInfo = new ActivityInfo();
-                            activityInfo.theme = a2.get(i2).f5208a;
+                            activityInfo.theme = a2.get(i2).f3508a;
                             activityInfo.name = a2.get(i2).j;
                             activityInfo.configChanges = a2.get(i2).h;
                             activityInfo.flags = a2.get(i2).f;
                             activityInfo.labelRes = a2.get(i2).l;
-                            activityInfo.launchMode = a2.get(i2).f5209b;
+                            activityInfo.launchMode = a2.get(i2).b;
                             activityInfo.nonLocalizedLabel = a2.get(i2).m;
                             activityInfo.packageName = a2.get(i2).k;
                             activityInfo.permission = a2.get(i2).c;
@@ -605,7 +603,7 @@ public final class a {
         try {
             ArrayList<ApkInfo> arrayList = new ArrayList();
             for (ApkInfo apkInfo : a()) {
-                if (!e.c(apkInfo.pkgPath) && f.f5230b != null && !f.f5230b.contains(Integer.valueOf(apkInfo.key))) {
+                if (!e.c(apkInfo.pkgPath) && f.b != null && !f.b.contains(Integer.valueOf(apkInfo.key))) {
                     arrayList.add(apkInfo);
                 }
             }
@@ -1034,12 +1032,12 @@ public final class a {
                                 apkInfo3.activities = new ActivityInfo[size];
                                 for (int i = 0; i < size; i++) {
                                     ActivityInfo activityInfo = new ActivityInfo();
-                                    activityInfo.theme = a2.get(i).f5208a;
+                                    activityInfo.theme = a2.get(i).f3508a;
                                     activityInfo.name = a2.get(i).j;
                                     activityInfo.configChanges = a2.get(i).h;
                                     activityInfo.flags = a2.get(i).f;
                                     activityInfo.labelRes = a2.get(i).l;
-                                    activityInfo.launchMode = a2.get(i).f5209b;
+                                    activityInfo.launchMode = a2.get(i).b;
                                     activityInfo.nonLocalizedLabel = a2.get(i).m;
                                     activityInfo.packageName = a2.get(i).k;
                                     activityInfo.permission = a2.get(i).c;

@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class bf {
     public static String a(int i) {
         Random random = new Random();
@@ -27,7 +27,7 @@ public class bf {
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-            messageDigest.update(m189a(str));
+            messageDigest.update(m168a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException e) {
             return str;
@@ -135,7 +135,7 @@ public class bf {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m188a(String str) {
+    public static boolean m167a(String str) {
         if (str != null) {
             for (int i = 0; i < str.length(); i++) {
                 char charAt = str.charAt(i);
@@ -148,7 +148,7 @@ public class bf {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m189a(String str) {
+    public static byte[] m168a(String str) {
         try {
             return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -160,7 +160,7 @@ public class bf {
         if (str != null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(m189a(str));
+                messageDigest.update(m168a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException e) {
                 return str;
@@ -170,7 +170,7 @@ public class bf {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m190b(String str) {
+    public static boolean m169b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

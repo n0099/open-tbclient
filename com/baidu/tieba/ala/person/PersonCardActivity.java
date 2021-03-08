@@ -40,37 +40,37 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.utils.i;
 import com.baidu.megapp.ma.Util;
+import com.baidu.tieba.ala.person.a.c;
 import com.baidu.tieba.ala.person.c.a;
 import com.baidu.tieba.ala.person.view.PersonCardViewNew;
-import com.baidu.tieba.ala.person.view.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PersonCardActivity extends BaseFragmentActivity {
-    private boolean aJC;
+    private boolean aLc;
     private String appId;
-    private String bcX;
+    private String bez;
     private String extInfo;
     private String groupId;
-    private PersonCardViewNew hUF;
-    private PersonCardViewNew hUG;
-    private PersonCardViewNew hUH;
-    private PersonCardViewNew hUI;
-    private c hUJ;
-    private c hUK;
-    JSONObject hUN;
-    private PersonUserData hUO;
-    private com.baidu.tieba.ala.person.c.a hUP;
-    private e hUQ;
-    private com.baidu.tieba.ala.person.a.c hUR;
-    private com.baidu.tieba.ala.person.a.c hUS;
-    private boolean hUT;
-    private boolean hUV;
-    private boolean hUW;
-    private String hUY;
-    private String hUZ;
-    private String hVa;
-    FrameLayout hVb;
+    private c hWA;
+    private c hWB;
+    private boolean hWC;
+    private boolean hWE;
+    private boolean hWF;
+    private String hWH;
+    private String hWI;
+    private String hWJ;
+    FrameLayout hWK;
+    private PersonCardViewNew hWo;
+    private PersonCardViewNew hWp;
+    private PersonCardViewNew hWq;
+    private PersonCardViewNew hWr;
+    private com.baidu.tieba.ala.person.view.c hWs;
+    private com.baidu.tieba.ala.person.view.c hWt;
+    JSONObject hWw;
+    private PersonUserData hWx;
+    private com.baidu.tieba.ala.person.c.a hWy;
+    private e hWz;
     private String liveId;
     private String metaKey;
     private String otherParams;
@@ -78,12 +78,12 @@ public class PersonCardActivity extends BaseFragmentActivity {
     private String showName;
     private String userId;
     private String vid;
-    private boolean hUL = false;
-    private boolean hUM = false;
-    private boolean hUU = false;
-    private String hUX = "该用户开启了神秘人尊贵身份";
+    private boolean hWu = false;
+    private boolean hWv = false;
+    private boolean hWD = false;
+    private String hWG = "该用户开启了神秘人尊贵身份";
     private boolean isLocal = false;
-    CustomMessageListener gNG = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.6
+    CustomMessageListener gPp = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -93,16 +93,16 @@ public class PersonCardActivity extends BaseFragmentActivity {
                     str = "";
                 }
                 PersonCardActivity.this.otherParams = str;
-                if (PersonCardActivity.this.hUH != null) {
-                    PersonCardActivity.this.hUH.setOtherParams(PersonCardActivity.this.otherParams);
+                if (PersonCardActivity.this.hWq != null) {
+                    PersonCardActivity.this.hWq.setOtherParams(PersonCardActivity.this.otherParams);
                 }
-                if (PersonCardActivity.this.hUI != null) {
-                    PersonCardActivity.this.hUI.setOtherParams(PersonCardActivity.this.otherParams);
+                if (PersonCardActivity.this.hWr != null) {
+                    PersonCardActivity.this.hWr.setOtherParams(PersonCardActivity.this.otherParams);
                 }
             }
         }
     };
-    private CustomMessageListener gNu = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.7
+    private CustomMessageListener gPd = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -111,8 +111,8 @@ public class PersonCardActivity extends BaseFragmentActivity {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && updateAttentionMessage.getData().toUid.equals(PersonCardActivity.this.userId)) {
                     if (updateAttentionMessage.getData().isSucc && updateAttentionMessage.getData().errno == 0) {
-                        if (PersonCardActivity.this.hUP != null) {
-                            PersonCardActivity.this.hUP.aE(PersonCardActivity.this.userId, PersonCardActivity.this.metaKey);
+                        if (PersonCardActivity.this.hWy != null) {
+                            PersonCardActivity.this.hWy.aE(PersonCardActivity.this.userId, PersonCardActivity.this.metaKey);
                         }
                         Message<?> message = updateAttentionMessage.getmOrginalMessage();
                         if (message != null && message.getTag() != null && message.getTag().equals(PersonCardActivity.this.getUniqueId())) {
@@ -123,7 +123,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
                                 } else {
                                     PersonCardActivity.this.showToast(PersonCardActivity.this.getResources().getString(a.h.sdk_attention_success_toast));
                                 }
-                                if (PersonCardActivity.this.bcX != null && PersonCardActivity.this.bcX.equals(updateAttentionMessage.getData().toUid)) {
+                                if (PersonCardActivity.this.bez != null && PersonCardActivity.this.bez.equals(updateAttentionMessage.getData().toUid)) {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913135));
                                     return;
                                 }
@@ -135,14 +135,14 @@ public class PersonCardActivity extends BaseFragmentActivity {
                         return;
                     }
                     if (!updateAttentionMessage.isAttention()) {
-                        PersonCardActivity.this.hUH.wp(0);
-                        PersonCardActivity.this.hUI.wp(0);
+                        PersonCardActivity.this.hWq.wq(0);
+                        PersonCardActivity.this.hWr.wq(0);
                     } else {
-                        PersonCardActivity.this.hUH.wp(1);
-                        PersonCardActivity.this.hUI.wp(1);
+                        PersonCardActivity.this.hWq.wq(1);
+                        PersonCardActivity.this.hWr.wq(1);
                     }
                     Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
-                    if (message2 != null && message2.getTag() != null && message2.getTag().equals(PersonCardActivity.this.getUniqueId()) && !com.baidu.live.view.a.Xo().a(updateAttentionMessage.getData(), (BdPageContext<?>) PersonCardActivity.this.getPageContext(), false)) {
+                    if (message2 != null && message2.getTag() != null && message2.getTag().equals(PersonCardActivity.this.getUniqueId()) && !com.baidu.live.view.a.Xr().a(updateAttentionMessage.getData(), (BdPageContext<?>) PersonCardActivity.this.getPageContext(), false)) {
                         if (!TextUtils.isEmpty(updateAttentionMessage.getData().usermsg)) {
                             string = updateAttentionMessage.getData().usermsg;
                         } else if (!TextUtils.isEmpty(updateAttentionMessage.getData().errmsg)) {
@@ -158,25 +158,25 @@ public class PersonCardActivity extends BaseFragmentActivity {
             }
         }
     };
-    CustomMessageListener aWK = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.8
+    CustomMessageListener aYk = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PersonCardActivity.this.closeActivity();
         }
     };
-    CustomMessageListener hVc = new CustomMessageListener(2913186) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.9
+    CustomMessageListener hWL = new CustomMessageListener(2913186) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PersonCardActivity.this.closeActivity();
         }
     };
-    CustomMessageListener hVd = new CustomMessageListener(2913203) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.10
+    CustomMessageListener hWM = new CustomMessageListener(2913203) { // from class: com.baidu.tieba.ala.person.PersonCardActivity.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            PersonCardActivity.this.j(PersonCardActivity.this.userId, PersonCardActivity.this.bcX, PersonCardActivity.this.groupId, "", PersonCardActivity.this.showName);
+            PersonCardActivity.this.j(PersonCardActivity.this.userId, PersonCardActivity.this.bez, PersonCardActivity.this.groupId, "", PersonCardActivity.this.showName);
         }
     };
 
@@ -191,32 +191,32 @@ public class PersonCardActivity extends BaseFragmentActivity {
                 getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.c.sdk_transparent)));
             }
             setContentView(a.g.ala_person_card_temp_view);
-            this.hVb = (FrameLayout) findViewById(a.f.person_card_content_view);
+            this.hWK = (FrameLayout) findViewById(a.f.person_card_content_view);
             initModel();
-            cmr();
+            cmx();
             initView();
-            this.hUJ.d(this.hUO);
-            this.hUK.d(this.hUO);
-            this.hUH.a(this.hUO, true);
-            this.hUI.a(this.hUO, true);
-            this.hUF.a(this.hUO, true);
-            this.hUG.a(this.hUO, true);
+            this.hWs.d(this.hWx);
+            this.hWt.d(this.hWx);
+            this.hWq.a(this.hWx, true);
+            this.hWr.a(this.hWx, true);
+            this.hWo.a(this.hWx, true);
+            this.hWp.a(this.hWx, true);
             if (this.isLocal) {
-                String str2 = this.hUZ;
-                if (!TextUtils.isEmpty(this.hVa)) {
-                    str2 = str2 + this.hVa;
+                String str2 = this.hWI;
+                if (!TextUtils.isEmpty(this.hWJ)) {
+                    str2 = str2 + this.hWJ;
                 }
-                this.hUO.user_info.user_id = this.userId;
-                this.hUO.user_info.user_name = str2;
-                this.hUO.user_info.user_nickname = str2;
-                this.hUO.user_info.extInfoJson = this.hUN;
-                eB(str2, this.hUY);
+                this.hWx.user_info.user_id = this.userId;
+                this.hWx.user_info.user_name = str2;
+                this.hWx.user_info.user_nickname = str2;
+                this.hWx.user_info.extInfoJson = this.hWw;
+                eB(str2, this.hWH);
             }
             initListener();
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                i.ae(this.hUI.getRootView());
+                i.ae(this.hWr.getRootView());
             } else {
-                i.af(this.hUH.getRootView());
+                i.af(this.hWq.getRootView());
             }
             TiebaInitialize.log("c11899");
         }
@@ -224,64 +224,64 @@ public class PersonCardActivity extends BaseFragmentActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void invalidate() {
-        if (!isFinishing() && !this.hUU) {
+        if (!isFinishing() && !this.hWD) {
             getContentView().removeAllViews();
             if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-                if (this.hUM) {
-                    this.hUG.getRootView().setVisibility(0);
-                    this.hUF.getRootView().setVisibility(8);
-                    this.hUK.getRootView().setVisibility(8);
-                    this.hUJ.getRootView().setVisibility(8);
-                    this.hUH.getRootView().setVisibility(8);
-                    this.hUI.getRootView().setVisibility(8);
-                    getContentView().addView(this.hUF.getRootView());
-                    i.ae(this.hUG.getRootView());
-                } else if (this.hUL) {
-                    this.hUK.getRootView().setVisibility(0);
-                    this.hUJ.getRootView().setVisibility(8);
-                    this.hUH.getRootView().setVisibility(8);
-                    this.hUI.getRootView().setVisibility(8);
-                    this.hUG.getRootView().setVisibility(8);
-                    this.hUF.getRootView().setVisibility(8);
-                    getContentView().addView(this.hUK.getRootView());
-                    i.ae(this.hUK.getRootView());
+                if (this.hWv) {
+                    this.hWp.getRootView().setVisibility(0);
+                    this.hWo.getRootView().setVisibility(8);
+                    this.hWt.getRootView().setVisibility(8);
+                    this.hWs.getRootView().setVisibility(8);
+                    this.hWq.getRootView().setVisibility(8);
+                    this.hWr.getRootView().setVisibility(8);
+                    getContentView().addView(this.hWo.getRootView());
+                    i.ae(this.hWp.getRootView());
+                } else if (this.hWu) {
+                    this.hWt.getRootView().setVisibility(0);
+                    this.hWs.getRootView().setVisibility(8);
+                    this.hWq.getRootView().setVisibility(8);
+                    this.hWr.getRootView().setVisibility(8);
+                    this.hWp.getRootView().setVisibility(8);
+                    this.hWo.getRootView().setVisibility(8);
+                    getContentView().addView(this.hWt.getRootView());
+                    i.ae(this.hWt.getRootView());
                 } else {
-                    this.hUJ.getRootView().setVisibility(8);
-                    this.hUK.getRootView().setVisibility(8);
-                    this.hUH.getRootView().setVisibility(8);
-                    this.hUI.getRootView().setVisibility(0);
-                    this.hUG.getRootView().setVisibility(8);
-                    this.hUF.getRootView().setVisibility(8);
-                    getContentView().addView(this.hUI.getRootView());
-                    i.ae(this.hUI.getRootView());
+                    this.hWs.getRootView().setVisibility(8);
+                    this.hWt.getRootView().setVisibility(8);
+                    this.hWq.getRootView().setVisibility(8);
+                    this.hWr.getRootView().setVisibility(0);
+                    this.hWp.getRootView().setVisibility(8);
+                    this.hWo.getRootView().setVisibility(8);
+                    getContentView().addView(this.hWr.getRootView());
+                    i.ae(this.hWr.getRootView());
                 }
-            } else if (this.hUM) {
-                this.hUG.getRootView().setVisibility(8);
-                this.hUF.getRootView().setVisibility(0);
-                this.hUK.getRootView().setVisibility(8);
-                this.hUJ.getRootView().setVisibility(8);
-                this.hUH.getRootView().setVisibility(8);
-                this.hUI.getRootView().setVisibility(8);
-                getContentView().addView(this.hUF.getRootView());
-                i.ae(this.hUF.getRootView());
-            } else if (this.hUL) {
-                this.hUJ.getRootView().setVisibility(0);
-                this.hUK.getRootView().setVisibility(8);
-                this.hUI.getRootView().setVisibility(8);
-                this.hUH.getRootView().setVisibility(8);
-                this.hUG.getRootView().setVisibility(8);
-                this.hUF.getRootView().setVisibility(8);
-                getContentView().addView(this.hUJ.getRootView());
-                i.af(this.hUJ.getRootView());
+            } else if (this.hWv) {
+                this.hWp.getRootView().setVisibility(8);
+                this.hWo.getRootView().setVisibility(0);
+                this.hWt.getRootView().setVisibility(8);
+                this.hWs.getRootView().setVisibility(8);
+                this.hWq.getRootView().setVisibility(8);
+                this.hWr.getRootView().setVisibility(8);
+                getContentView().addView(this.hWo.getRootView());
+                i.ae(this.hWo.getRootView());
+            } else if (this.hWu) {
+                this.hWs.getRootView().setVisibility(0);
+                this.hWt.getRootView().setVisibility(8);
+                this.hWr.getRootView().setVisibility(8);
+                this.hWq.getRootView().setVisibility(8);
+                this.hWp.getRootView().setVisibility(8);
+                this.hWo.getRootView().setVisibility(8);
+                getContentView().addView(this.hWs.getRootView());
+                i.af(this.hWs.getRootView());
             } else {
-                this.hUJ.getRootView().setVisibility(8);
-                this.hUK.getRootView().setVisibility(8);
-                this.hUI.getRootView().setVisibility(8);
-                this.hUH.getRootView().setVisibility(0);
-                this.hUG.getRootView().setVisibility(8);
-                this.hUF.getRootView().setVisibility(8);
-                getContentView().addView(this.hUH.getRootView());
-                i.af(this.hUH.getRootView());
+                this.hWs.getRootView().setVisibility(8);
+                this.hWt.getRootView().setVisibility(8);
+                this.hWr.getRootView().setVisibility(8);
+                this.hWq.getRootView().setVisibility(0);
+                this.hWp.getRootView().setVisibility(8);
+                this.hWo.getRootView().setVisibility(8);
+                getContentView().addView(this.hWq.getRootView());
+                i.af(this.hWq.getRootView());
             }
         }
     }
@@ -289,45 +289,45 @@ public class PersonCardActivity extends BaseFragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (!this.hUU) {
+        if (!this.hWD) {
             invalidate();
-            this.hUH.bkp();
-            this.hUI.bkp();
-            this.hUJ.bkp();
-            this.hUK.bkp();
-            this.hUG.bkp();
-            this.hUF.bkp();
+            this.hWq.bkr();
+            this.hWr.bkr();
+            this.hWs.bkr();
+            this.hWt.bkr();
+            this.hWp.bkr();
+            this.hWo.bkr();
         }
     }
 
     private void eB(String str, String str2) {
-        this.hUJ.eC(str, str2);
-        this.hUK.eC(str, str2);
+        this.hWs.eC(str, str2);
+        this.hWt.eC(str, str2);
     }
 
-    private void Ih(String str) {
+    private void Iq(String str) {
         if (str == null || str.length() == 0) {
-            wk(0);
+            wl(0);
         }
         if (str != null && str.length() > 0) {
             try {
-                this.hUN = new JSONObject(str);
-                this.hUL = this.hUN.optInt("is_mysterious_man", 0) == 1;
-                this.hUY = this.hUN.optString("mysterious_man_bd_portrait");
-                this.hUZ = this.hUN.optString("mysterious_man_nickname");
-                this.hVa = this.hUN.optString("mysterious_man_uid");
-                this.hUX = this.hUN.optString("mysterious_show_text", "该用户开启了神秘人尊贵身份");
+                this.hWw = new JSONObject(str);
+                this.hWu = this.hWw.optInt("is_mysterious_man", 0) == 1;
+                this.hWH = this.hWw.optString("mysterious_man_bd_portrait");
+                this.hWI = this.hWw.optString("mysterious_man_nickname");
+                this.hWJ = this.hWw.optString("mysterious_man_uid");
+                this.hWG = this.hWw.optString("mysterious_show_text", "该用户开启了神秘人尊贵身份");
                 if (this.userId != null && TbadkCoreApplication.getCurrentAccount() != null && TextUtils.equals(this.userId, TbadkCoreApplication.getCurrentAccount())) {
-                    if (this.hUL) {
-                        this.hUL = false;
-                        this.hUM = true;
+                    if (this.hWu) {
+                        this.hWu = false;
+                        this.hWv = true;
                     }
-                    wk(0);
-                } else if (!this.hUL) {
-                    wk(2);
+                    wl(0);
+                } else if (!this.hWu) {
+                    wl(2);
                 } else {
                     this.isLocal = true;
-                    wk(1);
+                    wl(1);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -336,18 +336,18 @@ public class PersonCardActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ii(String str) {
-        if (!isFinishing() && !this.hUU && str != null && str.length() != 0) {
+    public void Ir(String str) {
+        if (!isFinishing() && !this.hWD && str != null && str.length() != 0) {
             try {
-                this.hUN = new JSONObject(str);
-                this.hUL = this.hUN.optInt("is_mysterious_man", 0) == 1;
-                this.hUY = this.hUN.optString("mysterious_man_bd_portrait");
-                this.hUZ = this.hUN.optString("mysterious_man_nickname");
-                this.hVa = this.hUN.optString("mysterious_man_uid");
-                this.hUX = this.hUN.optString("mysterious_show_text", "该用户开启了神秘人尊贵身份");
-                if (this.userId != null && TbadkCoreApplication.getCurrentAccount() != null && TextUtils.equals(this.userId, TbadkCoreApplication.getCurrentAccount()) && this.hUL) {
-                    this.hUL = false;
-                    this.hUM = true;
+                this.hWw = new JSONObject(str);
+                this.hWu = this.hWw.optInt("is_mysterious_man", 0) == 1;
+                this.hWH = this.hWw.optString("mysterious_man_bd_portrait");
+                this.hWI = this.hWw.optString("mysterious_man_nickname");
+                this.hWJ = this.hWw.optString("mysterious_man_uid");
+                this.hWG = this.hWw.optString("mysterious_show_text", "该用户开启了神秘人尊贵身份");
+                if (this.userId != null && TbadkCoreApplication.getCurrentAccount() != null && TextUtils.equals(this.userId, TbadkCoreApplication.getCurrentAccount()) && this.hWu) {
+                    this.hWu = false;
+                    this.hWv = true;
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -355,19 +355,19 @@ public class PersonCardActivity extends BaseFragmentActivity {
         }
     }
 
-    private void cmr() {
+    private void cmx() {
         this.userId = getIntent().getStringExtra("PERSON_USER_ID");
         this.portrait = getIntent().getStringExtra("PERSON_PORTRAIT_URL");
         this.showName = getIntent().getStringExtra(AlaPersonCardActivityConfig.PERSON_SHOW_NAME);
         this.groupId = getIntent().getStringExtra("PERSON_GROUP_ID");
         this.liveId = getIntent().getStringExtra("PERSON_LIVE_ID");
         this.vid = getIntent().getStringExtra("vid");
-        this.bcX = getIntent().getStringExtra("PERSON_LIVE_OWNER_UID");
-        this.aJC = getIntent().getBooleanExtra("PERSON_LIVE_OWNER_FLAG", false);
+        this.bez = getIntent().getStringExtra("PERSON_LIVE_OWNER_UID");
+        this.aLc = getIntent().getBooleanExtra("PERSON_LIVE_OWNER_FLAG", false);
         this.appId = getIntent().getStringExtra("PERSON_APP_ID");
         this.otherParams = getIntent().getStringExtra("other_params");
-        this.hUV = getIntent().getBooleanExtra(AlaPersonCardActivityConfig.PERSON_IS_FROM_GUARD_CLUB, false);
-        this.hUW = getIntent().getBooleanExtra(AlaPersonCardActivityConfig.PERSON_NAV_LIVEROOM_ENABLED, false);
+        this.hWE = getIntent().getBooleanExtra(AlaPersonCardActivityConfig.PERSON_IS_FROM_GUARD_CLUB, false);
+        this.hWF = getIntent().getBooleanExtra(AlaPersonCardActivityConfig.PERSON_NAV_LIVEROOM_ENABLED, false);
         getIntent().getStringExtra("PERSON_USER_NAME");
         getIntent().getStringExtra("PERSON_PORTRAIT_URL");
         int intExtra = getIntent().getIntExtra("PERSON_SEX", 0);
@@ -378,67 +378,67 @@ public class PersonCardActivity extends BaseFragmentActivity {
         getIntent().getLongExtra("PERSON_FANS_COUNT", 0L);
         getIntent().getLongExtra("PERSON_FOLLOWS_COUNT", 0L);
         getIntent().getIntExtra("PERSON_FOLLOW_STATUS", 0);
-        this.hUO = new PersonUserData();
-        this.hUO.user_info = new ax();
-        this.hUO.location_info = new AlaLocationData();
-        this.hUO.relation_info = new AlaRelationData();
-        this.hUO.user_info.user_id = "1111111";
-        this.hUO.user_info.user_name = "";
-        this.hUO.user_info.user_nickname = "";
-        this.hUO.user_info.sex = intExtra;
-        this.hUO.user_info.level_id = 1;
-        this.hUO.user_info.description = "";
-        this.hUO.user_info.send_count = 0L;
-        this.hUO.user_info.fans_count = 0L;
-        this.hUO.user_info.follow_count = 0L;
-        this.hUO.user_info.portrait = "";
-        this.hUO.user_info.third_app_id = this.appId;
-        this.hUO.location_info.location = "火星";
+        this.hWx = new PersonUserData();
+        this.hWx.user_info = new ax();
+        this.hWx.location_info = new AlaLocationData();
+        this.hWx.relation_info = new AlaRelationData();
+        this.hWx.user_info.user_id = "1111111";
+        this.hWx.user_info.user_name = "";
+        this.hWx.user_info.user_nickname = "";
+        this.hWx.user_info.sex = intExtra;
+        this.hWx.user_info.level_id = 1;
+        this.hWx.user_info.description = "";
+        this.hWx.user_info.send_count = 0L;
+        this.hWx.user_info.fans_count = 0L;
+        this.hWx.user_info.follow_count = 0L;
+        this.hWx.user_info.portrait = "";
+        this.hWx.user_info.third_app_id = this.appId;
+        this.hWx.location_info.location = "火星";
         this.extInfo = getIntent().getStringExtra(AlaPersonCardActivityConfig.PERSON_EXT_INFO);
-        Ih(this.extInfo);
+        Iq(this.extInfo);
     }
 
     private ViewGroup getContentView() {
-        return this.hVb;
+        return this.hWK;
     }
 
     private void initView() {
-        if (this.hUW && TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.hUW = com.baidu.live.ae.a.Qj().buX.aMw;
+        if (this.hWF && TbadkCoreApplication.getInst().isMobileBaidu()) {
+            this.hWF = com.baidu.live.ae.a.Qm().bwx.aNW;
         }
-        this.hUJ = new c(this, false);
-        this.hUJ.E(this.liveId, this.bcX, this.hUX);
-        this.hUK = new c(this, true);
-        this.hUK.E(this.liveId, this.bcX, this.hUX);
-        this.hUH = new PersonCardViewNew(this, false, false);
-        this.hUH.aN(this.liveId, this.bcX);
-        this.hUH.setOtherParams(this.otherParams);
-        this.hUH.oX(this.hUV);
-        this.hUH.oY(this.hUW);
-        this.hUI = new PersonCardViewNew(this, true, false);
-        this.hUI.aN(this.liveId, this.bcX);
-        this.hUI.setOtherParams(this.otherParams);
-        this.hUI.oX(this.hUV);
-        this.hUI.oY(this.hUW);
-        this.hUF = new PersonCardViewNew(this, false, true);
-        this.hUF.aN(this.liveId, this.bcX);
-        this.hUF.setOtherParams(this.otherParams);
-        this.hUF.oX(this.hUV);
-        this.hUF.oY(this.hUW);
-        this.hUG = new PersonCardViewNew(this, true, true);
-        this.hUG.aN(this.liveId, this.bcX);
-        this.hUG.setOtherParams(this.otherParams);
-        this.hUG.oX(this.hUV);
-        this.hUG.oY(this.hUW);
+        this.hWs = new com.baidu.tieba.ala.person.view.c(this, false);
+        this.hWs.E(this.liveId, this.bez, this.hWG);
+        this.hWt = new com.baidu.tieba.ala.person.view.c(this, true);
+        this.hWt.E(this.liveId, this.bez, this.hWG);
+        this.hWq = new PersonCardViewNew(this, false, false);
+        this.hWq.aN(this.liveId, this.bez);
+        this.hWq.setOtherParams(this.otherParams);
+        this.hWq.oX(this.hWE);
+        this.hWq.oY(this.hWF);
+        this.hWr = new PersonCardViewNew(this, true, false);
+        this.hWr.aN(this.liveId, this.bez);
+        this.hWr.setOtherParams(this.otherParams);
+        this.hWr.oX(this.hWE);
+        this.hWr.oY(this.hWF);
+        this.hWo = new PersonCardViewNew(this, false, true);
+        this.hWo.aN(this.liveId, this.bez);
+        this.hWo.setOtherParams(this.otherParams);
+        this.hWo.oX(this.hWE);
+        this.hWo.oY(this.hWF);
+        this.hWp = new PersonCardViewNew(this, true, true);
+        this.hWp.aN(this.liveId, this.bez);
+        this.hWp.setOtherParams(this.otherParams);
+        this.hWp.oX(this.hWE);
+        this.hWp.oY(this.hWF);
         invalidate();
-        this.hUH.a(new PersonCardViewNew.a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.1
+        this.hWq.a(new PersonCardViewNew.a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.1
             @Override // com.baidu.tieba.ala.person.view.PersonCardViewNew.a
-            public void cmy() {
-                PersonCardActivity.this.cmx();
+            public void cmE() {
+                PersonCardActivity.this.cmD();
             }
 
             @Override // com.baidu.tieba.ala.person.view.PersonCardViewNew.a
-            public void cmz() {
+            public void cmF() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("live_id", PersonCardActivity.this.liveId);
@@ -447,88 +447,88 @@ public class PersonCardActivity extends BaseFragmentActivity {
                     BdLog.e(e);
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "add_ impression").setContentExt("authorcard", "", jSONObject));
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveTagActivityConfig(PersonCardActivity.this.getPageContext().getPageActivity(), PersonCardActivity.this.bcX, PersonCardActivity.this.liveId)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveTagActivityConfig(PersonCardActivity.this.getPageContext().getPageActivity(), PersonCardActivity.this.bez, PersonCardActivity.this.liveId)));
             }
         });
-        this.hUI.a(new PersonCardViewNew.a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.3
+        this.hWr.a(new PersonCardViewNew.a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.3
             @Override // com.baidu.tieba.ala.person.view.PersonCardViewNew.a
-            public void cmy() {
-                PersonCardActivity.this.cmx();
+            public void cmE() {
+                PersonCardActivity.this.cmD();
             }
 
             @Override // com.baidu.tieba.ala.person.view.PersonCardViewNew.a
-            public void cmz() {
+            public void cmF() {
             }
         });
     }
 
     private void initListener() {
-        registerListener(this.aWK);
-        registerListener(this.gNu);
-        registerListener(this.gNG);
-        registerListener(this.hVc);
-        registerListener(this.hVd);
+        registerListener(this.aYk);
+        registerListener(this.gPd);
+        registerListener(this.gPp);
+        registerListener(this.hWL);
+        registerListener(this.hWM);
     }
 
     private void initModel() {
-        this.hUP = new com.baidu.tieba.ala.person.c.a(getPageContext());
-        this.hUP.a(new a.InterfaceC0684a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.4
-            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0684a
+        this.hWy = new com.baidu.tieba.ala.person.c.a(getPageContext());
+        this.hWy.a(new a.InterfaceC0690a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.4
+            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0690a
             public void b(PersonUserData personUserData) {
-                if (personUserData != null && !PersonCardActivity.this.isFinishing() && !PersonCardActivity.this.hUU) {
+                if (personUserData != null && !PersonCardActivity.this.isFinishing() && !PersonCardActivity.this.hWD) {
                     if (PersonCardActivity.this.isLocal && personUserData.user_info != null) {
-                        String str = PersonCardActivity.this.hUZ;
-                        if (!TextUtils.isEmpty(PersonCardActivity.this.hVa)) {
-                            str = str + PersonCardActivity.this.hVa;
+                        String str = PersonCardActivity.this.hWI;
+                        if (!TextUtils.isEmpty(PersonCardActivity.this.hWJ)) {
+                            str = str + PersonCardActivity.this.hWJ;
                         }
                         personUserData.user_info.user_id = PersonCardActivity.this.userId;
                         personUserData.user_info.user_name = str;
                         personUserData.user_info.user_nickname = str;
-                        personUserData.user_info.portrait = PersonCardActivity.this.hUY;
-                        personUserData.user_info.extInfoJson = PersonCardActivity.this.hUN;
+                        personUserData.user_info.portrait = PersonCardActivity.this.hWH;
+                        personUserData.user_info.extInfoJson = PersonCardActivity.this.hWw;
                         PersonCardActivity.this.portrait = personUserData.user_info.portrait;
-                        PersonCardActivity.this.metaKey = personUserData.user_info.aOn;
-                        PersonCardActivity.this.hUO.user_info = personUserData.user_info;
-                        PersonCardActivity.this.hUO.login_user_info = personUserData.login_user_info;
-                        PersonCardActivity.this.hUO.live_info = personUserData.live_info;
+                        PersonCardActivity.this.metaKey = personUserData.user_info.aPN;
+                        PersonCardActivity.this.hWx.user_info = personUserData.user_info;
+                        PersonCardActivity.this.hWx.login_user_info = personUserData.login_user_info;
+                        PersonCardActivity.this.hWx.live_info = personUserData.live_info;
                     } else if (personUserData.user_info != null) {
                         PersonCardActivity.this.userId = personUserData.user_info.user_id;
                         PersonCardActivity.this.portrait = personUserData.user_info.portrait;
-                        PersonCardActivity.this.metaKey = personUserData.user_info.aOn;
+                        PersonCardActivity.this.metaKey = personUserData.user_info.aPN;
                         if (personUserData.user_info.extInfoJson != null) {
                             PersonCardActivity.this.extInfo = personUserData.user_info.extInfoJson.toString();
                         }
-                        PersonCardActivity.this.Ii(PersonCardActivity.this.extInfo);
-                        PersonCardActivity.this.hUH.a(personUserData, false, personUserData.hadPoked, PersonCardActivity.this.aJC);
-                        PersonCardActivity.this.hUI.a(personUserData, false);
-                        PersonCardActivity.this.hUJ.d(personUserData);
-                        PersonCardActivity.this.hUK.d(personUserData);
-                        PersonCardActivity.this.hUF.a(personUserData, false, personUserData.hadPoked, PersonCardActivity.this.aJC);
-                        PersonCardActivity.this.hUG.a(personUserData, false);
+                        PersonCardActivity.this.Ir(PersonCardActivity.this.extInfo);
+                        PersonCardActivity.this.hWq.a(personUserData, false, personUserData.hadPoked, PersonCardActivity.this.aLc);
+                        PersonCardActivity.this.hWr.a(personUserData, false);
+                        PersonCardActivity.this.hWs.d(personUserData);
+                        PersonCardActivity.this.hWt.d(personUserData);
+                        PersonCardActivity.this.hWo.a(personUserData, false, personUserData.hadPoked, PersonCardActivity.this.aLc);
+                        PersonCardActivity.this.hWp.a(personUserData, false);
                         PersonCardActivity.this.invalidate();
                     }
                 }
             }
 
-            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0684a
-            public void a(com.baidu.tieba.ala.person.a.c cVar) {
-                PersonCardActivity.this.hUR = cVar;
+            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0690a
+            public void a(c cVar) {
+                PersonCardActivity.this.hWA = cVar;
             }
 
-            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0684a
-            public void b(com.baidu.tieba.ala.person.a.c cVar) {
-                PersonCardActivity.this.hUS = cVar;
+            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0690a
+            public void b(c cVar) {
+                PersonCardActivity.this.hWB = cVar;
             }
 
-            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0684a
+            @Override // com.baidu.tieba.ala.person.c.a.InterfaceC0690a
             public void onFail(String str) {
                 PersonCardActivity.this.showToast(str);
             }
         });
-        this.hUQ = new e(getPageContext());
-        this.hUQ.a(new e.a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.5
+        this.hWz = new e(getPageContext());
+        this.hWz.a(new e.a() { // from class: com.baidu.tieba.ala.person.PersonCardActivity.5
             @Override // com.baidu.live.personmanager.e.a
-            public void Pg() {
+            public void Pj() {
                 PersonCardActivity.this.showToast(a.h.ala_person_report_online_success);
             }
 
@@ -540,94 +540,94 @@ public class PersonCardActivity extends BaseFragmentActivity {
     }
 
     public void j(String str, String str2, String str3, String str4, String str5) {
-        this.hUR = null;
-        this.hUS = null;
-        this.hUP.k(str, str2, str3, str4, str5);
+        this.hWA = null;
+        this.hWB = null;
+        this.hWy.k(str, str2, str3, str4, str5);
     }
 
     public void f(String str, String str2, String str3, String str4, String str5, String str6) {
-        this.hUR = null;
-        this.hUS = null;
-        this.hUP.c(str, str2, str3, str4, str5, str6);
+        this.hWA = null;
+        this.hWB = null;
+        this.hWy.c(str, str2, str3, str4, str5, str6);
     }
 
-    public boolean cms() {
-        return (TextUtils.isEmpty(this.appId) || this.userId == null || this.userId.equals(this.bcX)) ? false : true;
+    public boolean cmy() {
+        return (TextUtils.isEmpty(this.appId) || this.userId == null || this.userId.equals(this.bez)) ? false : true;
     }
 
-    public boolean Ij(String str) {
-        return (TextUtils.isEmpty(this.bcX) || TextUtils.isEmpty(str) || !str.equals(this.bcX)) ? false : true;
+    public boolean Is(String str) {
+        return (TextUtils.isEmpty(this.bez) || TextUtils.isEmpty(str) || !str.equals(this.bez)) ? false : true;
     }
 
-    public String cmt() {
-        return this.bcX;
+    public String cmz() {
+        return this.bez;
     }
 
     public void oU(boolean z) {
-        this.hUH.oW(z);
-        this.hUI.oW(z);
+        this.hWq.oW(z);
+        this.hWr.oW(z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.hUT = true;
+        this.hWC = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!this.hUT) {
-            this.hUH.onResume();
-            this.hUI.onResume();
-            this.hUJ.onResume();
-            this.hUK.onResume();
-            this.hUF.onResume();
-            this.hUG.onResume();
+        if (!this.hWC) {
+            this.hWq.onResume();
+            this.hWr.onResume();
+            this.hWs.onResume();
+            this.hWt.onResume();
+            this.hWo.onResume();
+            this.hWp.onResume();
         }
-        this.hUT = false;
+        this.hWC = false;
     }
 
     public void c(PersonUserData personUserData) {
-        this.hUH.a(personUserData, false);
-        this.hUI.a(personUserData, false);
-        this.hUJ.d(personUserData);
-        this.hUK.d(personUserData);
+        this.hWq.a(personUserData, false);
+        this.hWr.a(personUserData, false);
+        this.hWs.d(personUserData);
+        this.hWt.d(personUserData);
         this.userId = personUserData.user_info.user_id;
         this.portrait = personUserData.user_info.portrait;
-        this.metaKey = personUserData.user_info.aOn;
+        this.metaKey = personUserData.user_info.aPN;
         this.showName = personUserData.user_info.getNameShow();
-        j(this.userId, this.bcX, this.groupId, this.metaKey, this.showName);
+        j(this.userId, this.bez, this.groupId, this.metaKey, this.showName);
     }
 
-    public void cmu() {
+    public void cmA() {
         f fVar = new f(this.portrait, this.userId, this.metaKey, "1", true, getUniqueId());
         fVar.setFrom("source_person_card");
-        com.baidu.live.view.a.Xo().a(this.userId, fVar);
+        com.baidu.live.view.a.Xr().a(this.userId, fVar);
     }
 
-    public void cmv() {
+    public void cmB() {
         f fVar = new f(this.portrait, this.userId, this.metaKey, "1", false, getUniqueId());
         fVar.setFrom("source_person_card");
-        com.baidu.live.view.a.Xo().a(this.userId, fVar);
+        com.baidu.live.view.a.Xr().a(this.userId, fVar);
     }
 
-    public void cmw() {
-        this.hUQ.aF(this.userId, null);
+    public void cmC() {
+        this.hWz.aF(this.userId, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmx() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new x(this, this.userId, this.groupId, this.liveId, this.aJC, this.bcX, this.otherParams)));
+    public void cmD() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new x(this, this.userId, this.groupId, this.liveId, this.aLc, this.bez, this.otherParams)));
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             if (this instanceof Activity) {
-                overridePendingTransition(a.C0195a.alpha_in, 0);
+                overridePendingTransition(a.C0201a.alpha_in, 0);
             } else if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba()) {
                 overridePendingTransition(Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, "slide_in_from_bottom", ResUtils.ANIM), Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, "slide_out_to_bottom", ResUtils.ANIM));
             } else {
@@ -644,65 +644,65 @@ public class PersonCardActivity extends BaseFragmentActivity {
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.hUP != null) {
-            this.hUP.onDestroy();
+        if (this.hWy != null) {
+            this.hWy.onDestroy();
         }
-        if (this.hUF != null) {
-            this.hUF.onDestroy();
+        if (this.hWo != null) {
+            this.hWo.onDestroy();
         }
-        if (this.hUG != null) {
-            this.hUG.onDestroy();
+        if (this.hWp != null) {
+            this.hWp.onDestroy();
         }
-        if (this.hUH != null) {
-            this.hUH.onDestroy();
+        if (this.hWq != null) {
+            this.hWq.onDestroy();
         }
-        if (this.hUI != null) {
-            this.hUI.onDestroy();
+        if (this.hWr != null) {
+            this.hWr.onDestroy();
         }
-        if (this.hVc != null) {
-            MessageManager.getInstance().unRegisterListener(this.hVc);
+        if (this.hWL != null) {
+            MessageManager.getInstance().unRegisterListener(this.hWL);
         }
-        if (this.hVd != null) {
-            MessageManager.getInstance().unRegisterListener(this.hVd);
+        if (this.hWM != null) {
+            MessageManager.getInstance().unRegisterListener(this.hWM);
         }
-        if (this.hUJ != null) {
-            this.hUJ.onDestroy();
+        if (this.hWs != null) {
+            this.hWs.onDestroy();
         }
-        if (this.hUK != null) {
-            this.hUK.onDestroy();
+        if (this.hWt != null) {
+            this.hWt.onDestroy();
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        if (!this.hUU) {
-            this.hUU = true;
-            if (this.hUQ != null) {
-                this.hUQ.onDestroy();
+        if (!this.hWD) {
+            this.hWD = true;
+            if (this.hWz != null) {
+                this.hWz.onDestroy();
             }
             Animation animation = null;
             if (UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity()) == 2) {
-                if (this.hUM) {
-                    if (this.hUG != null) {
-                        animation = this.hUG.bWH();
+                if (this.hWv) {
+                    if (this.hWp != null) {
+                        animation = this.hWp.bWN();
                     }
-                } else if (this.hUL) {
-                    if (this.hUK != null) {
-                        animation = this.hUK.bWH();
+                } else if (this.hWu) {
+                    if (this.hWt != null) {
+                        animation = this.hWt.bWN();
                     }
-                } else if (this.hUI != null) {
-                    animation = this.hUI.bWH();
+                } else if (this.hWr != null) {
+                    animation = this.hWr.bWN();
                 }
-            } else if (this.hUM) {
-                if (this.hUF != null) {
-                    animation = this.hUF.bWH();
+            } else if (this.hWv) {
+                if (this.hWo != null) {
+                    animation = this.hWo.bWN();
                 }
-            } else if (this.hUL) {
-                if (this.hUJ != null) {
-                    animation = this.hUJ.bWH();
+            } else if (this.hWu) {
+                if (this.hWs != null) {
+                    animation = this.hWs.bWN();
                 }
-            } else if (this.hUH != null) {
-                animation = this.hUH.bWH();
+            } else if (this.hWq != null) {
+                animation = this.hWq.bWN();
             }
             if (animation == null) {
                 super.finish();
@@ -717,7 +717,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
                         PersonCardActivity.super.finish();
                         if (PersonCardActivity.this instanceof Activity) {
                             BdLog.e("PersonCard hide");
-                            PersonCardActivity.this.overridePendingTransition(a.C0195a.alpha_in, a.C0195a.alpha_out);
+                            PersonCardActivity.this.overridePendingTransition(a.C0201a.alpha_in, a.C0201a.alpha_out);
                             return;
                         }
                         PersonCardActivity.this.overridePendingTransition(0, Util.getHostResourcesId(PersonCardActivity.this.getActivity(), TbConfig.PACKAGE_NAME, "sdk_fade_out", ResUtils.ANIM));
@@ -735,9 +735,9 @@ public class PersonCardActivity extends BaseFragmentActivity {
         super.finish();
     }
 
-    private void wk(int i) {
-        if (!cms()) {
-            f(this.userId, this.bcX, this.groupId, "", this.showName, String.valueOf(i));
+    private void wl(int i) {
+        if (!cmy()) {
+            f(this.userId, this.bez, this.groupId, "", this.showName, String.valueOf(i));
         }
     }
 

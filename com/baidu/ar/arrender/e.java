@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class e extends f implements View.OnTouchListener, OnRenderFinishedListener, OnRenderStartedListener, IRenderer {
     private g D;
     com.baidu.ar.arplay.core.engine.a hd;
@@ -161,12 +161,12 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
                 i6 = inputWidth;
             }
             new Size(i2, i);
-            Size b2 = b.b(i6, i5, i2, i);
-            if (b2.getWidth() != i6) {
+            Size b = b.b(i6, i5, i2, i);
+            if (b.getWidth() != i6) {
                 i3 = 0;
-                i4 = (i2 - b2.getWidth()) / 2;
-            } else if (b2.getHeight() != i5) {
-                i3 = (i - b2.getHeight()) / 2;
+                i4 = (i2 - b.getWidth()) / 2;
+            } else if (b.getHeight() != i5) {
+                i3 = (i - b.getHeight()) / 2;
                 i4 = 0;
             }
             watermark.setRenderRect(a(watermark, i2, i, i4, i3));

@@ -11,24 +11,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableSampleTimed<T> extends a<T, T> {
     final long period;
-    final boolean qpg;
+    final boolean qpI;
     final v scheduler;
     final TimeUnit unit;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.qpg) {
-            this.qow.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
+        if (this.qpI) {
+            this.qoY.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
-            this.qow.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
+            this.qoY.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static abstract class SampleTimedSubscriber<T> extends AtomicReference<T> implements j<T>, Runnable, d {
         private static final long serialVersionUID = -3517602651313910099L;
         final org.a.c<? super T> actual;
@@ -106,7 +106,7 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class SampleTimedNoLast<T> extends SampleTimedSubscriber<T> {
         private static final long serialVersionUID = -7139995637533111443L;
 
@@ -125,7 +125,7 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class SampleTimedEmitLast<T> extends SampleTimedSubscriber<T> {
         private static final long serialVersionUID = -7139995637533111443L;
         final AtomicInteger wip;

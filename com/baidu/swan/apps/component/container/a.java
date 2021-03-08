@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.baidu.swan.apps.adaptation.b.e;
 import com.baidu.swan.apps.v.f;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -17,20 +17,20 @@ public class a {
             return null;
         }
         String name = bVar.getName();
-        String str = bVar.cLr;
+        String str = bVar.cMR;
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " : slaveId is empty");
             return null;
         }
-        com.baidu.swan.apps.component.c.a lO = lO(str);
-        if (lO == null) {
+        com.baidu.swan.apps.component.c.a lV = lV(str);
+        if (lV == null) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " : null component context");
             return null;
         }
-        String str2 = bVar.cLq;
+        String str2 = bVar.cMQ;
         if (TextUtils.isEmpty(str2)) {
             com.baidu.swan.apps.console.c.w("Component-Finder", "find " + name + " with a empty componentId");
-            List<com.baidu.swan.apps.component.b.a> list = lO.alv().cMB.get(bVar.cLp);
+            List<com.baidu.swan.apps.component.b.a> list = lV.aly().cOb.get(bVar.cMP);
             if (list == null) {
                 com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " with a empty componentId: fallbackComponents are null ");
                 return null;
@@ -42,7 +42,7 @@ public class a {
                 c = (C) list.get(0);
             }
         } else {
-            c = (C) lO.alv().cMA.get(str2);
+            c = (C) lV.aly().cOa.get(str2);
         }
         if (c == null) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + name + " : not exist");
@@ -56,12 +56,12 @@ public class a {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        com.baidu.swan.apps.component.c.a lO = lO(str);
-        if (lO == null) {
+        com.baidu.swan.apps.component.c.a lV = lV(str);
+        if (lV == null) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + str2 + " : null component context");
             return null;
         }
-        C c = (C) lO.alv().cMA.get(str2);
+        C c = (C) lV.aly().cOa.get(str2);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find a null " + str2 + " : not exist");
             return null;
@@ -75,18 +75,18 @@ public class a {
             com.baidu.swan.apps.component.e.a.bk("Component-Finder", "find component context with a null model");
             return null;
         }
-        return lO(bVar.cLr);
+        return lV(bVar.cMR);
     }
 
     @Nullable
-    private static com.baidu.swan.apps.component.c.a lO(String str) {
+    private static com.baidu.swan.apps.component.c.a lV(String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.e("Component-Finder", "find component context with a null slave id");
             return null;
         }
-        e ni = f.aAl().ni(str);
-        if (ni instanceof com.baidu.swan.apps.adaptation.b.c) {
-            return ((com.baidu.swan.apps.adaptation.b.c) ni).aiS();
+        e np = f.aAo().np(str);
+        if (np instanceof com.baidu.swan.apps.adaptation.b.c) {
+            return ((com.baidu.swan.apps.adaptation.b.c) np).aiV();
         }
         return null;
     }

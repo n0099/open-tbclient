@@ -8,28 +8,26 @@ import java.util.List;
 public final class PolygonOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2752a;
+    int f2041a;
     Bundle c;
     private Stroke d;
     private List<LatLng> f;
     private int e = ViewCompat.MEASURED_STATE_MASK;
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f2753b = true;
+    boolean b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Polygon polygon = new Polygon();
-        polygon.x = this.f2753b;
-        polygon.w = this.f2752a;
+        polygon.x = this.b;
+        polygon.w = this.f2041a;
         polygon.y = this.c;
         if (this.f == null || this.f.size() < 2) {
             throw new IllegalStateException("when you add polyline, you must at least supply 2 points");
         }
         polygon.c = this.f;
-        polygon.f2751b = this.e;
-        polygon.f2750a = this.d;
+        polygon.b = this.e;
+        polygon.f2040a = this.d;
         return polygon;
     }
 
@@ -60,11 +58,11 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2752a;
+        return this.f2041a;
     }
 
     public boolean isVisible() {
-        return this.f2753b;
+        return this.b;
     }
 
     public PolygonOptions points(List<LatLng> list) {
@@ -104,12 +102,12 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public PolygonOptions visible(boolean z) {
-        this.f2753b = z;
+        this.b = z;
         return this;
     }
 
     public PolygonOptions zIndex(int i) {
-        this.f2752a = i;
+        this.f2041a = i;
         return this;
     }
 }

@@ -3,7 +3,7 @@ package com.yy.videoplayer.view;
 import com.yy.videoplayer.decoder.VideoConstant;
 import com.yy.videoplayer.decoder.VideoSizeUtils;
 import com.yy.videoplayer.render.YMFImageBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFRenderImage {
     public YMFImageBuffer mDecodeImage;
     public YMFVideoPosition mBackGroundPosition = new YMFVideoPosition();

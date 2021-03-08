@@ -7,11 +7,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaCharmDetailEmptyView extends LinearLayout {
-    private ImageView gPr;
-    private TextView gPs;
-    private TextView gPt;
+    private ImageView gRa;
+    private TextView gRb;
+    private TextView gRc;
 
     public AlaCharmDetailEmptyView(Context context) {
         super(context);
@@ -31,31 +31,31 @@ public class AlaCharmDetailEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.g.ala_charm_empty_view, this);
-        this.gPr = (ImageView) findViewById(a.f.empty_image);
-        this.gPs = (TextView) findViewById(a.f.empty_text);
-        this.gPt = (TextView) findViewById(a.f.empty_sub_text);
+        this.gRa = (ImageView) findViewById(a.f.empty_image);
+        this.gRb = (TextView) findViewById(a.f.empty_text);
+        this.gRc = (TextView) findViewById(a.f.empty_sub_text);
         if (getResources().getConfiguration().orientation == 2) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gPr.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gRa.getLayoutParams();
             layoutParams.topMargin = getResources().getDimensionPixelSize(a.d.sdk_ds20);
-            this.gPr.setLayoutParams(layoutParams);
+            this.gRa.setLayoutParams(layoutParams);
         }
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.gPr.setImageResource(i);
+            this.gRa.setImageResource(i);
         } else {
-            this.gPr.setVisibility(8);
+            this.gRa.setVisibility(8);
         }
         if (i2 != -1) {
-            this.gPs.setText(i2);
+            this.gRb.setText(i2);
         } else {
-            this.gPs.setVisibility(8);
+            this.gRb.setVisibility(8);
         }
         if (i3 != -1) {
-            this.gPt.setText(i3);
+            this.gRc.setText(i3);
         } else {
-            this.gPt.setVisibility(8);
+            this.gRc.setVisibility(8);
         }
     }
 }

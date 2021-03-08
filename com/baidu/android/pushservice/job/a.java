@@ -14,30 +14,26 @@ import com.baidu.android.pushservice.h.a.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static C0064a f1444a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static boolean f1445b;
+    private static C0070a f1230a;
+    private static boolean b;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static class C0064a {
+    private static class C0070a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Context f1446a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private final JobScheduler f1447b;
+        private final Context f1231a;
+        private final JobScheduler b;
         private boolean c;
 
-        C0064a(Context context) {
-            this.f1446a = context;
-            this.f1447b = (JobScheduler) this.f1446a.getSystemService("jobscheduler");
+        C0070a(Context context) {
+            this.f1231a = context;
+            this.b = (JobScheduler) this.f1231a.getSystemService("jobscheduler");
         }
 
         private void a() {
             this.c = false;
-            this.f1447b.cancel(1);
+            this.b.cancel(1);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -49,27 +45,27 @@ public class a {
                     j = 300000 - (SystemClock.elapsedRealtime() % 300000);
                 }
                 this.c = true;
-                JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f1446a.getPackageName(), PushJobService.class.getName()));
+                JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f1231a.getPackageName(), PushJobService.class.getName()));
                 builder.setMinimumLatency(j);
                 builder.setOverrideDeadline(j);
                 builder.setRequiredNetworkType(1);
                 builder.setPersisted(false);
-                this.f1447b.schedule(builder.build());
+                this.b.schedule(builder.build());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
             this.c = false;
-            this.f1447b.cancelAll();
+            this.b.cancelAll();
         }
     }
 
     public static synchronized void a(Context context) {
         synchronized (a.class) {
-            if (f1444a == null && Build.VERSION.SDK_INT >= 21) {
+            if (f1230a == null && Build.VERSION.SDK_INT >= 21) {
                 try {
-                    f1444a = new C0064a(context);
+                    f1230a = new C0070a(context);
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
@@ -79,10 +75,10 @@ public class a {
 
     public static synchronized void a(Context context, boolean z) {
         synchronized (a.class) {
-            if (f1444a != null) {
+            if (f1230a != null) {
                 try {
-                    f1445b = true;
-                    f1444a.a(z);
+                    b = true;
+                    f1230a.a(z);
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
@@ -91,19 +87,19 @@ public class a {
     }
 
     public static boolean a() {
-        return f1445b;
+        return b;
     }
 
     public static synchronized void b(Context context) {
         synchronized (a.class) {
-            if (f1444a != null) {
+            if (f1230a != null) {
                 try {
-                    f1444a.b();
+                    f1230a.b();
                 } catch (Exception e) {
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                 }
-                f1444a = null;
-                f1445b = false;
+                f1230a = null;
+                b = false;
             }
         }
     }

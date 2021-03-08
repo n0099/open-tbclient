@@ -15,9 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.platform.base.d {
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f4484b = false;
+    boolean b = false;
     String c = null;
 
     private boolean a(String str, DistrictResult districtResult) {
@@ -162,7 +160,7 @@ public class b extends com.baidu.platform.base.d {
                     }
                 }
                 if (!a(str, districtResult, false)) {
-                    if (this.f4484b) {
+                    if (this.b) {
                         b(str, districtResult);
                     } else if (!a(str, districtResult)) {
                         districtResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -184,6 +182,6 @@ public class b extends com.baidu.platform.base.d {
     }
 
     public void a(boolean z) {
-        this.f4484b = z;
+        this.b = z;
     }
 }

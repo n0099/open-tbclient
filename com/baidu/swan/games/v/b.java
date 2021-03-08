@@ -5,39 +5,39 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private static volatile b elc;
-    private volatile ArrayList<a> eld = new ArrayList<>(20);
+    private static volatile b emD;
+    private volatile ArrayList<a> emE = new ArrayList<>(20);
     private int mDropCount;
 
     private b() {
     }
 
-    public static b aYl() {
-        if (elc == null) {
+    public static b aYo() {
+        if (emD == null) {
             synchronized (b.class) {
-                if (elc == null) {
-                    elc = new b();
+                if (emD == null) {
+                    emD = new b();
                 }
             }
         }
-        return elc;
+        return emD;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (this.eld.size() < 20) {
-                this.eld.add(aVar);
+            if (this.emE.size() < 20) {
+                this.emE.add(aVar);
             } else {
                 this.mDropCount++;
             }
         }
     }
 
-    public synchronized JSONObject aYm() {
+    public synchronized JSONObject aYp() {
         JSONObject jSONObject;
-        int size = this.eld.size();
+        int size = this.emE.size();
         if (size == 0) {
             jSONObject = null;
         } else {
@@ -47,20 +47,20 @@ public class b {
                 jSONObject2.put("errorcnt", size);
                 JSONArray jSONArray = new JSONArray();
                 jSONObject2.put("errors", jSONArray);
-                Iterator<a> it = this.eld.iterator();
+                Iterator<a> it = this.emE.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().toJSON());
                 }
             } catch (JSONException e) {
             }
-            this.eld.clear();
+            this.emE.clear();
             jSONObject = jSONObject2;
         }
         return jSONObject;
     }
 
     public synchronized void clear() {
-        this.eld.clear();
+        this.emE.clear();
         this.mDropCount = 0;
     }
 }

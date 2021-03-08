@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.core.engine3d;
 
 import android.util.Log;
 import com.baidu.ar.arplay.core.engine.engine3d.IARPCamera;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ARPCamera extends ARPNode implements IARPCamera {
     private static ARPCamera fJ = null;
 

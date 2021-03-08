@@ -12,32 +12,30 @@ import android.graphics.Xfermode;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.pass.biometrics.face.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class XfordView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f4052a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Paint f4053b;
+    private Bitmap f2807a;
+    private Paint b;
     private Rect c;
     private Rect d;
     private Xfermode e;
 
     public XfordView(Context context) {
         super(context);
-        this.f4052a = null;
-        this.f4053b = null;
+        this.f2807a = null;
+        this.b = null;
         a();
     }
 
     private void a() {
-        if (this.f4053b == null) {
-            this.f4053b = new Paint();
-            this.f4053b.setColor(1711276032);
+        if (this.b == null) {
+            this.b = new Paint();
+            this.b.setColor(1711276032);
         }
-        if (this.f4052a == null) {
-            this.f4052a = BitmapFactory.decodeResource(getResources(), R.drawable.pass_liveness_recog_face_mask);
+        if (this.f2807a == null) {
+            this.f2807a = BitmapFactory.decodeResource(getResources(), R.drawable.pass_liveness_recog_face_mask);
         }
         if (this.e == null) {
             this.e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
@@ -47,10 +45,10 @@ public class XfordView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Bitmap bitmap = this.f4052a;
+        Bitmap bitmap = this.f2807a;
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.f4052a.recycle();
-            this.f4052a = null;
+            this.f2807a.recycle();
+            this.f2807a = null;
         }
         System.gc();
         this.e = null;
@@ -70,26 +68,26 @@ public class XfordView extends ImageView {
             this.d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
         }
         if (this.c == null) {
-            this.c = new Rect(0, 0, this.f4052a.getWidth(), this.f4052a.getHeight());
+            this.c = new Rect(0, 0, this.f2807a.getWidth(), this.f2807a.getHeight());
         }
-        canvas.drawBitmap(this.f4052a, this.c, this.d, this.f4053b);
-        this.f4053b.setXfermode(this.e);
-        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f4053b);
-        this.f4053b.setXfermode(null);
+        canvas.drawBitmap(this.f2807a, this.c, this.d, this.b);
+        this.b.setXfermode(this.e);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.b);
+        this.b.setXfermode(null);
         canvas.restoreToCount(saveLayer);
     }
 
     public void setBgPaintColor(int i) {
-        if (this.f4053b == null) {
-            this.f4053b = new Paint();
+        if (this.b == null) {
+            this.b = new Paint();
         }
-        this.f4053b.setColor(i);
+        this.b.setColor(i);
     }
 
     public XfordView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4052a = null;
-        this.f4053b = null;
+        this.f2807a = null;
+        this.b = null;
         a();
     }
 }

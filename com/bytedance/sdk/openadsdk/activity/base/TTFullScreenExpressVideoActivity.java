@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.bytedance.sdk.openadsdk.c.d;
 import com.bytedance.sdk.openadsdk.component.reward.b;
@@ -20,6 +21,7 @@ import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.e;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.g;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.c;
+import com.bytedance.sdk.openadsdk.d.a;
 import com.bytedance.sdk.openadsdk.downloadnew.core.a;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
@@ -40,13 +42,13 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity
-    public void L() {
+    public void N() {
         if (this.s == null) {
             finish();
             return;
         }
         this.aG = false;
-        super.L();
+        super.N();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,9 +66,9 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
         a("reward_endcard");
         p();
         l lVar = this.s;
-        if (l.b(this.s)) {
+        if (l.d(this.s)) {
             this.aG = true;
-            this.T = aj.d(this.s.W());
+            this.T = aj.d(this.s.aj());
             h();
             t();
             return;
@@ -74,7 +76,7 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
         d(true);
     }
 
-    private void V() {
+    private void X() {
         if (!this.aZ) {
             this.aZ = true;
             View decorView = getWindow().getDecorView();
@@ -88,7 +90,7 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
     }
 
     private void a(float[] fArr) {
-        this.aR = new FullRewardExpressView(this, this.s, new AdSlot.Builder().setCodeId(String.valueOf(aj.d(this.s.W()))).setExpressViewAcceptedSize(fArr[0], fArr[1]).build(), this.aV);
+        this.aR = new FullRewardExpressView(this, this.s, new AdSlot.Builder().setCodeId(String.valueOf(aj.d(this.s.aj()))).setExpressViewAcceptedSize(fArr[0], fArr[1]).build(), this.aV);
         this.aR.setExpressVideoListenerProxy(this);
         this.aR.setExpressInteractionListener(this);
         a(this.aR, this.s);
@@ -96,17 +98,17 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
         this.o.addView(this.aR, new FrameLayout.LayoutParams(-1, -1));
         this.aR.h();
         if (!this.aR.m()) {
-            f(false);
+            g(false);
         }
         this.aR.i();
     }
 
-    private void f(boolean z) {
+    private void g(boolean z) {
         if (this.c != null) {
-            if (this.s.t()) {
+            if (this.s.D()) {
                 if (!this.U.get()) {
                     this.c.setShowSound(z);
-                    if (this.s.ak()) {
+                    if (this.s.aC()) {
                         this.c.setShowDislike(z);
                     } else {
                         this.c.setShowDislike(false);
@@ -115,7 +117,7 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
             } else if (!this.U.get()) {
                 this.c.setShowSkip(z);
                 this.c.setShowSound(z);
-                if (this.s.ak()) {
+                if (this.s.aC()) {
                     this.c.setShowDislike(z);
                 } else {
                     this.c.setShowDislike(false);
@@ -131,7 +133,7 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
         ak.a((View) this.aw, 8);
     }
 
-    @Override // com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity, com.bytedance.sdk.openadsdk.core.video.b.b
+    @Override // com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity, com.bytedance.sdk.openadsdk.core.video.c.b
     public boolean a(long j, boolean z) {
         boolean z2 = false;
         this.aS = this.aR.getVideoFrameLayout();
@@ -149,10 +151,11 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
             public void a(long j2, int i) {
                 if (TTFullScreenExpressVideoActivity.this.I != null) {
                     TTFullScreenExpressVideoActivity.this.I.removeMessages(300);
+                    TTFullScreenExpressVideoActivity.this.M();
                 }
                 TTFullScreenExpressVideoActivity.this.aY = true;
-                TTFullScreenExpressVideoActivity.this.U();
-                if (TTFullScreenExpressVideoActivity.this.R()) {
+                TTFullScreenExpressVideoActivity.this.W();
+                if (TTFullScreenExpressVideoActivity.this.T()) {
                     TTFullScreenExpressVideoActivity.this.t();
                 } else {
                     TTFullScreenExpressVideoActivity.this.finish();
@@ -164,12 +167,14 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
                 if (TTFullScreenExpressVideoActivity.this.I != null) {
                     TTFullScreenExpressVideoActivity.this.I.removeMessages(300);
                 }
+                TTFullScreenExpressVideoActivity.this.e(false);
                 if (!TTFullScreenExpressVideoActivity.this.u()) {
+                    TTFullScreenExpressVideoActivity.this.M();
                     if (TTFullScreenExpressVideoActivity.this.D != null) {
-                        TTFullScreenExpressVideoActivity.this.D.l();
+                        TTFullScreenExpressVideoActivity.this.D.m();
                     }
                     u.f("TTFullScreenExpressVideoActivity", "onError、、、、、、、、");
-                    if (TTFullScreenExpressVideoActivity.this.R()) {
+                    if (TTFullScreenExpressVideoActivity.this.T()) {
                         TTFullScreenExpressVideoActivity.this.t();
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put("vbtt_skip_type", 1);
@@ -185,9 +190,10 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
             public void a() {
                 if (TTFullScreenExpressVideoActivity.this.I != null) {
                     TTFullScreenExpressVideoActivity.this.I.removeMessages(300);
+                    TTFullScreenExpressVideoActivity.this.M();
                 }
                 u.b("TTFullScreenExpressVideoActivity", "onTimeOut、、、、、、、、");
-                if (TTFullScreenExpressVideoActivity.this.R()) {
+                if (TTFullScreenExpressVideoActivity.this.T()) {
                     TTFullScreenExpressVideoActivity.this.t();
                 } else {
                     TTFullScreenExpressVideoActivity.this.finish();
@@ -196,7 +202,7 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
                 hashMap2.put("vbtt_skip_type", 0);
                 TTFullScreenExpressVideoActivity.this.a("fullscreen_interstitial_ad", hashMap2);
                 if (TTFullScreenExpressVideoActivity.this.D != null) {
-                    TTFullScreenExpressVideoActivity.this.D.l();
+                    TTFullScreenExpressVideoActivity.this.D.m();
                 }
             }
 
@@ -204,9 +210,10 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
             public void a(long j2, long j3) {
                 if (TTFullScreenExpressVideoActivity.this.I != null) {
                     TTFullScreenExpressVideoActivity.this.I.removeMessages(300);
+                    TTFullScreenExpressVideoActivity.this.M();
                 }
                 TTFullScreenExpressVideoActivity.this.aT = j2;
-                TTFullScreenExpressVideoActivity.this.Q = (int) (TTFullScreenExpressVideoActivity.this.J() - (j2 / 1000));
+                TTFullScreenExpressVideoActivity.this.Q = (int) (TTFullScreenExpressVideoActivity.this.K() - (j2 / 1000));
                 if (TTFullScreenExpressVideoActivity.this.aR.m()) {
                     TTFullScreenExpressVideoActivity.this.e((int) (j2 / 1000));
                     if (TTFullScreenExpressVideoActivity.this.Q >= 0 && TTFullScreenExpressVideoActivity.this.c != null) {
@@ -216,7 +223,7 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
                 }
                 if (TTFullScreenExpressVideoActivity.this.Q <= 0) {
                     u.b("TTFullScreenExpressVideoActivity", "onProgressUpdate、、、、、、、、");
-                    if (TTFullScreenExpressVideoActivity.this.R()) {
+                    if (TTFullScreenExpressVideoActivity.this.T()) {
                         TTFullScreenExpressVideoActivity.this.t();
                     } else {
                         TTFullScreenExpressVideoActivity.this.finish();
@@ -227,25 +234,26 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
                 }
             }
         });
-        String h = this.s.F() != null ? this.s.F().h() : null;
+        String i = this.s.R() != null ? this.s.R().i() : null;
         if (this.x != null) {
             File file = new File(this.x);
             if (file.exists() && file.length() > 0) {
-                h = this.x;
+                i = this.x;
                 this.z = true;
             }
         }
-        String str = h;
+        String str = i;
         u.f("wzj", "videoUrl:" + str);
         if (this.D != null) {
             Message message = new Message();
             message.what = 300;
             message.arg1 = 0;
             this.I.sendMessageDelayed(message, 5000L);
-            z2 = this.D.a(str, this.s.T(), this.aS.getWidth(), this.aS.getHeight(), null, this.s.W(), j, this.P);
+            z2 = this.D.a(str, this.s.ag(), this.aS.getWidth(), this.aS.getHeight(), null, this.s.aj(), j, this.P);
             if (z2 && !z) {
+                u.e("AdEvent", "pangolin ad show " + aj.a(this.s, (View) null));
                 d.a(this.e, this.s, "fullscreen_interstitial_ad", hashMap);
-                Q();
+                S();
             }
         }
         return z2;
@@ -257,14 +265,14 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public void e(boolean z) {
+    public void f(boolean z) {
         if (this.P != z && this.c != null) {
             this.c.b();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public void M() {
+    public void O() {
         if (this.c != null) {
             this.c.a();
         }
@@ -274,7 +282,7 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
     @Override // com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity, com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        V();
+        X();
         ak.a((Activity) this);
         if (this.aR != null) {
             this.aR.i();
@@ -304,7 +312,7 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
             case 3:
                 try {
                     if (v()) {
-                        this.D.j();
+                        this.D.k();
                         return;
                     }
                     return;
@@ -314,7 +322,7 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
                 }
             case 4:
                 if (this.D != null) {
-                    this.D.k();
+                    this.D.l();
                     this.D = null;
                     return;
                 }
@@ -331,12 +339,12 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public long N() {
+    public long P() {
         return this.aT;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public int O() {
+    public int Q() {
         if (this.aX) {
             return 4;
         }
@@ -355,8 +363,8 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
-    public void P() {
-        K();
+    public void R() {
+        L();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -367,9 +375,9 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
     public void onAdShow(View view, int i) {
     }
 
-    @Override // com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity, com.bytedance.sdk.openadsdk.core.video.b.b
-    public void Q() {
-        super.Q();
+    @Override // com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity, com.bytedance.sdk.openadsdk.core.video.c.b
+    public void S() {
+        super.S();
         if (this.aR != null) {
             this.aR.g();
         }
@@ -393,9 +401,9 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
     public void onRenderSuccess(View view, float f, float f2) {
-        if (this.s.c() != 1 || !this.s.s()) {
+        if (this.s.i() != 1 || !this.s.C()) {
             if (this.aR.m()) {
-                f(true);
+                g(true);
             }
             d(false);
             this.aG = true;
@@ -412,12 +420,12 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity, com.bytedance.sdk.openadsdk.activity.base.TTBaseVideoActivity, android.app.Activity
     public void onDestroy() {
+        if (this.aR != null) {
+            this.aR.k();
+        }
         super.onDestroy();
         if (this.aW != null) {
             this.aW.removeCallbacksAndMessages(null);
-        }
-        if (this.aR != null) {
-            this.aR.k();
         }
     }
 
@@ -506,11 +514,65 @@ public class TTFullScreenExpressVideoActivity extends TTFullScreenVideoActivity 
             }
             this.aR.setClickCreativeListener(dVar);
             emptyView.setNeedCheckingShow(false);
+            a(this.aU, this.aR);
         }
     }
 
-    private a a(l lVar) {
-        if (lVar.H() == 4) {
+    private void a(a aVar, NativeExpressView nativeExpressView) {
+        if (aVar != null && nativeExpressView != null) {
+            final String str = "";
+            if (this.s != null) {
+                str = this.s.ag();
+            }
+            aVar.a(new TTAppDownloadListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTFullScreenExpressVideoActivity.6
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onIdle() {
+                    TTFullScreenExpressVideoActivity.this.c("点击开始下载");
+                    a.C1028a.a(str, 1, 0);
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onDownloadActive(long j, long j2, String str2, String str3) {
+                    if (j > 0) {
+                        int i = (int) ((100 * j2) / j);
+                        TTFullScreenExpressVideoActivity.this.c("已下载" + i + "%");
+                        a.C1028a.a(str, 3, i);
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onDownloadPaused(long j, long j2, String str2, String str3) {
+                    TTFullScreenExpressVideoActivity.this.c("下载暂停");
+                    if (j > 0) {
+                        a.C1028a.a(str, 2, (int) ((100 * j2) / j));
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onDownloadFailed(long j, long j2, String str2, String str3) {
+                    TTFullScreenExpressVideoActivity.this.c("下载失败");
+                    if (j > 0) {
+                        a.C1028a.a(str, 4, (int) ((100 * j2) / j));
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onDownloadFinished(long j, String str2, String str3) {
+                    TTFullScreenExpressVideoActivity.this.c("点击安装");
+                    a.C1028a.a(str, 5, 100);
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+                public void onInstalled(String str2, String str3) {
+                    TTFullScreenExpressVideoActivity.this.c("点击打开");
+                    a.C1028a.a(str, 6, 100);
+                }
+            });
+        }
+    }
+
+    private com.bytedance.sdk.openadsdk.downloadnew.core.a a(l lVar) {
+        if (lVar.T() == 4) {
             return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.e, lVar, this.aV);
         }
         return null;

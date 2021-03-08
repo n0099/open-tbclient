@@ -13,7 +13,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okio.ByteString;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class CertificatePinner {
     public static final CertificatePinner DEFAULT = new Builder().build();
     @Nullable
@@ -125,7 +125,7 @@ public final class CertificatePinner {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Pin {
         private static final String WILDCARD = "*.";
         final String canonicalHostname;
@@ -177,7 +177,7 @@ public final class CertificatePinner {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Builder {
         private final List<Pin> pins = new ArrayList();
 

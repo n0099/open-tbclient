@@ -1,9 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 /* loaded from: classes6.dex */
-public interface b<IN> {
-    <I> I a(Class<? extends d<I, ?>> cls);
+public interface b {
+    boolean a(c cVar);
 
-    Object a(IN in) throws Exception;
-
-    <O> O b(Class<? extends d<?, O>> cls);
+    boolean a(Class<?> cls);
 }

@@ -1,9 +1,9 @@
 package rx.b;
 
 import rx.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e<T> extends j<T> {
-    private final rx.e<T> qEf;
+    private final rx.e<T> qEH;
 
     public e(j<? super T> jVar) {
         this(jVar, true);
@@ -11,21 +11,21 @@ public class e<T> extends j<T> {
 
     public e(j<? super T> jVar, boolean z) {
         super(jVar, z);
-        this.qEf = new d(jVar);
+        this.qEH = new d(jVar);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.qEf.onCompleted();
+        this.qEH.onCompleted();
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.qEf.onError(th);
+        this.qEH.onError(th);
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.qEf.onNext(t);
+        this.qEH.onNext(t);
     }
 }

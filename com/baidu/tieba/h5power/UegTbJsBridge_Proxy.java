@@ -28,26 +28,26 @@ public class UegTbJsBridge_Proxy extends a {
         if (cVar == null) {
             cVar = new c();
         }
-        String dOr = eVar.dOr();
-        JSONObject dOp = eVar.dOp();
-        if (dOr.equals("host/callNativeSMS")) {
-            cVar.yy(true);
-            c callNativeSMS = this.mJsBridge.callNativeSMS(dOp.optString("phoneNumber"), dOp.optString("content"));
+        String dOA = eVar.dOA();
+        JSONObject dOy = eVar.dOy();
+        if (dOA.equals("host/callNativeSMS")) {
+            cVar.yx(true);
+            c callNativeSMS = this.mJsBridge.callNativeSMS(dOy.optString("phoneNumber"), dOy.optString("content"));
             if (callNativeSMS != null) {
                 cVar.setStatus(callNativeSMS.getStatus());
                 cVar.setMessage(callNativeSMS.getMessage());
                 cVar.setData(callNativeSMS.getData());
             }
-            cVar.JM(0);
-        } else if (dOr.equals("device/setBlockPopInfo")) {
-            cVar.yy(true);
-            c blockPopInfo = this.mJsBridge.setBlockPopInfo(dOp.optInt("canPost"), dOp.optString("blockInfo"), dOp.optString("aheadInfo"), dOp.optString("aheadUrl"), dOp.optString("okInfo"), dOp.optInt("aheadType"));
+            cVar.JR(0);
+        } else if (dOA.equals("device/setBlockPopInfo")) {
+            cVar.yx(true);
+            c blockPopInfo = this.mJsBridge.setBlockPopInfo(dOy.optInt("canPost"), dOy.optString("blockInfo"), dOy.optString("aheadInfo"), dOy.optString("aheadUrl"), dOy.optString("okInfo"), dOy.optInt("aheadType"));
             if (blockPopInfo != null) {
                 cVar.setStatus(blockPopInfo.getStatus());
                 cVar.setMessage(blockPopInfo.getMessage());
                 cVar.setData(blockPopInfo.getData());
             }
-            cVar.JM(0);
+            cVar.JR(0);
         }
         return cVar;
     }
@@ -60,7 +60,7 @@ public class UegTbJsBridge_Proxy extends a {
         }
         ArrayList arrayList = new ArrayList();
         if (0 != 0) {
-            cVar.JM(0);
+            cVar.JR(0);
         }
         List<b> list = this.mAsyncCallBackMethodList.get(str);
         if (0 != 0 && list != null) {
@@ -68,12 +68,12 @@ public class UegTbJsBridge_Proxy extends a {
             while (it.hasNext()) {
                 b next = it.next();
                 c cVar2 = new c();
-                cVar2.Tt(next.getName());
+                cVar2.TA(next.getName());
                 cVar2.setStatus(cVar.getStatus());
                 cVar2.setMessage(cVar.getMessage());
                 cVar2.setData(cVar.getData());
                 arrayList.add(cVar2);
-                if (!next.dOi()) {
+                if (!next.dOr()) {
                     it.remove();
                 }
             }

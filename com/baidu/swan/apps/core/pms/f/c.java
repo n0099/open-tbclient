@@ -9,21 +9,21 @@ import com.baidu.swan.apps.statistic.a.d;
 import com.baidu.swan.apps.statistic.h;
 import com.facebook.common.b.i;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void k(Bitmap bitmap);
     }
 
     public static void a(String str, final int i, final a aVar) {
-        Uri tV = ak.tV(str);
-        if (tV == null) {
+        Uri uc = ak.uc(str);
+        if (uc == null) {
             a(i, aVar, "download icon fail: icon url is null");
             return;
         }
-        com.facebook.drawee.a.a.c.ety().e(ImageRequestBuilder.ag(tV).eAq(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
+        com.facebook.drawee.a.a.c.etH().e(ImageRequestBuilder.ag(uc).eAz(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.swan.apps.core.pms.f.c.1
             @Override // com.facebook.imagepipeline.d.b
             protected void f(Bitmap bitmap) {
                 Bitmap copy;
@@ -55,14 +55,14 @@ public class c {
                 super.b(bVar);
                 c.a(i, a.this, "download icon fail: onCancellation");
             }
-        }, i.esE());
+        }, i.esN());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(int i, a aVar, String str) {
-        com.baidu.swan.apps.al.a tH = new com.baidu.swan.apps.al.a().db(4L).dc(10L).tH(str);
-        e.aNj().j(tH);
-        h.b(new d().i(tH).sP(h.ju(i)));
+        com.baidu.swan.apps.al.a tO = new com.baidu.swan.apps.al.a().db(4L).dc(10L).tO(str);
+        e.aNm().j(tO);
+        h.b(new d().i(tO).sW(h.jv(i)));
         if (aVar != null) {
             aVar.k(null);
         }

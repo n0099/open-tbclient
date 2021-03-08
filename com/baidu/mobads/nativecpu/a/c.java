@@ -8,20 +8,18 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c {
     private static volatile Map<String, c> c = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    private Class<?> f3409a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Method[] f3410b;
+    private Class<?> f2430a;
+    private Method[] b;
 
     public static c a(Context context, String str) {
-        if (!c.containsKey(str) || c.get(str).f3409a == null) {
+        if (!c.containsKey(str) || c.get(str).f2430a == null) {
             synchronized (c.class) {
-                if (!c.containsKey(str) || c.get(str).f3409a == null) {
+                if (!c.containsKey(str) || c.get(str).f2430a == null) {
                     c.put(str, new c(context, str));
                 }
             }
@@ -30,15 +28,15 @@ public class c {
     }
 
     private c(Context context, String str) {
-        this.f3410b = null;
+        this.b = null;
         try {
             DexClassLoader d = com.baidu.mobads.g.b.d();
             if (d == null) {
-                this.f3409a = b(context, str);
+                this.f2430a = b(context, str);
             } else {
-                this.f3409a = Class.forName(str, true, d);
+                this.f2430a = Class.forName(str, true, d);
             }
-            this.f3410b = this.f3409a.getMethods();
+            this.b = this.f2430a.getMethods();
         } catch (Throwable th) {
             q.a().d(th);
         }
@@ -49,7 +47,7 @@ public class c {
         if (objArr != null) {
             try {
                 if (objArr.length != 0) {
-                    constructor = this.f3409a.getConstructor(clsArr);
+                    constructor = this.f2430a.getConstructor(clsArr);
                     return constructor.newInstance(objArr);
                 }
             } catch (Throwable th) {
@@ -57,7 +55,7 @@ public class c {
                 return null;
             }
         }
-        constructor = this.f3409a.getConstructor(new Class[0]);
+        constructor = this.f2430a.getConstructor(new Class[0]);
         return constructor.newInstance(objArr);
     }
 
@@ -126,10 +124,10 @@ public class c {
 
     private Method a(String str) {
         Method[] methodArr;
-        if (this.f3410b == null) {
+        if (this.b == null) {
             return null;
         }
-        for (Method method : this.f3410b) {
+        for (Method method : this.b) {
             if (method.getName().equals(str)) {
                 method.setAccessible(true);
                 return method;

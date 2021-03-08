@@ -1,15 +1,15 @@
 package com.baidu.live.audiolive;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface e {
-    void fl(String str);
-
-    void zK();
-
-    void zL();
-
-    void zM();
+    void fr(String str);
 
     void zN();
 
     void zO();
+
+    void zP();
+
+    void zQ();
+
+    void zR();
 }

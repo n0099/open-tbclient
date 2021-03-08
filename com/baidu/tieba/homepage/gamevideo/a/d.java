@@ -18,16 +18,16 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.data.k;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k>> {
-    private ab<k> agg;
-    private s amk;
-    private BdUniqueId fGZ;
-    private int feu;
+    private ab<k> ahy;
+    private s anC;
+    private BdUniqueId fIy;
+    private int ffT;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.agg = new ab<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.1
+        this.ahy = new ab<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, k kVar) {
@@ -37,7 +37,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     }
 
     public void a(s sVar) {
-        this.amk = sVar;
+        this.anC = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,10 +50,10 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
         nVar.setFromCDN(true);
         nVar.setForm(ImageViewerConfig.FROM_GAME_VIDEO);
         aVar.a((h) nVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.amk);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.EXTEND, viewGroup, this.anC);
         a2.setSourceForPb(18);
         ThreadCardViewHolder<k> threadCardViewHolder = new ThreadCardViewHolder<>(a2);
-        threadCardViewHolder.setPageId(this.fGZ);
+        threadCardViewHolder.setPageId(this.fIy);
         a(new w() { // from class: com.baidu.tieba.homepage.gamevideo.a.d.2
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, com.baidu.adp.widget.ListView.n nVar2, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -61,11 +61,11 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
                     ThreadCardViewHolder threadCardViewHolder2 = (ThreadCardViewHolder) view.getTag();
                     k kVar = (k) nVar2;
                     kVar.objType = 1;
-                    if (d.this.agg != null) {
-                        d.this.agg.a(threadCardViewHolder2.getView(), kVar);
+                    if (d.this.ahy != null) {
+                        d.this.ahy.a(threadCardViewHolder2.getView(), kVar);
                     }
                     com.baidu.tieba.homepage.gamevideo.e.a.a(kVar, view.getContext(), 18, false, com.baidu.card.e.a((s) viewGroup2, view, i));
-                    threadCardViewHolder2.tj().b(new a.C0089a(1));
+                    threadCardViewHolder2.tj().b(new a.C0095a(1));
                 }
             }
         });
@@ -76,22 +76,22 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, ThreadCardViewHolder<k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.eJQ == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.eLr == null) {
             return null;
         }
-        kVar.xd(kVar.position + 1);
+        kVar.xe(kVar.position + 1);
         threadCardViewHolder.tj().setPosition(i);
         threadCardViewHolder.b((ThreadCardViewHolder<k>) kVar);
         threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        threadCardViewHolder.tj().a(this.agg);
+        threadCardViewHolder.tj().a(this.ahy);
         return threadCardViewHolder.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fGZ = bdUniqueId;
+        this.fIy = bdUniqueId;
     }
 
-    public void BN(int i) {
-        this.feu = i;
+    public void BQ(int i) {
+        this.ffT = i;
     }
 }

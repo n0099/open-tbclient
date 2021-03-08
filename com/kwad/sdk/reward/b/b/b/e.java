@@ -21,9 +21,7 @@ import com.kwad.sdk.widget.AnimatedImageView;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private ImageView f10589b;
+    private ImageView b;
     private TextView c;
     private ImageView d;
     private ViewGroup e;
@@ -94,9 +92,9 @@ public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
     }
 
     private void e() {
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f10589b.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.b.getLayoutParams();
         marginLayoutParams.leftMargin = 0;
-        this.f10589b.setLayoutParams(marginLayoutParams);
+        this.b.setLayoutParams(marginLayoutParams);
         this.c.setVisibility(8);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
         if (this.d == null || this.d.getVisibility() != 0) {
@@ -106,46 +104,46 @@ public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
         }
         this.e.setLayoutParams(layoutParams);
         AdInfo j = com.kwad.sdk.core.response.b.c.j(this.i);
-        long b2 = com.kwad.sdk.core.response.b.a.b(j) * 1000;
+        long b = com.kwad.sdk.core.response.b.a.b(j) * 1000;
         long m = com.kwad.sdk.core.response.b.a.m(j);
-        if (!com.kwad.sdk.core.response.b.a.l(j) && m > 0 && b2 != 0) {
-            b2 = Math.min(m, b2);
+        if (!com.kwad.sdk.core.response.b.a.l(j) && m > 0 && b != 0) {
+            b = Math.min(m, b);
         }
         this.k = com.kwad.sdk.core.response.b.b.b(this.i);
         if (ag.a(this.k)) {
             this.k = o().getString(R.string.ksad_reward_default_tip);
         }
         a(com.kwad.sdk.core.response.b.b.c(this.i));
-        a(b2, 0L);
+        a(b, 0L);
         this.e.setOnClickListener(this);
         this.e.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.kwad.sdk.core.report.b.a(this.i, 41, this.f10652a.h.getTouchCoords(), this.f10652a.d);
-        this.f10652a.f10527b.a();
+        com.kwad.sdk.core.report.b.a(this.i, 41, this.f7028a.h.getTouchCoords(), this.f7028a.d);
+        this.f7028a.b.a();
     }
 
     private void g() {
-        this.f10652a.f10527b.e();
+        this.f7028a.b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.i = this.f10652a.f;
-        this.j = this.f10652a.j;
+        this.i = this.f7028a.f;
+        this.j = this.f7028a.j;
         e();
-        this.f10652a.i.a(this.l);
+        this.f7028a.i.a(this.l);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10652a.i.b(this.l);
+        this.f7028a.i.b(this.l);
         this.f.b();
     }
 
@@ -154,7 +152,7 @@ public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
     public void c() {
         super.c();
         this.c = (TextView) b(R.id.ksad_video_count_down);
-        this.f10589b = (ImageView) b(R.id.ksad_video_sound_switch);
+        this.b = (ImageView) b(R.id.ksad_video_sound_switch);
         this.d = (ImageView) b(R.id.ksad_detail_close_btn);
         this.e = (ViewGroup) b(R.id.ksad_reward_container_new);
         this.f = (AnimatedImageView) this.e.findViewById(R.id.ksad_detail_reward_icon_new);
@@ -165,8 +163,8 @@ public class e extends com.kwad.sdk.reward.d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.e) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.i, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.b.b.b.e.3
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.i, new a.InterfaceC1111a() { // from class: com.kwad.sdk.reward.b.b.b.e.3
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
                 public void a() {
                     e.this.f();
                 }

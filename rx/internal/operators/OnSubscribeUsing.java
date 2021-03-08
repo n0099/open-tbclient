@@ -2,12 +2,12 @@ package rx.internal.operators;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     private final rx.functions.b<? super Resource> dispose;
-    private final rx.functions.e<Resource> qAh;
-    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> qAi;
-    private final boolean qAj;
+    private final rx.functions.e<Resource> qAJ;
+    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> qAK;
+    private final boolean qAL;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -15,18 +15,18 @@ public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     }
 
     public void call(rx.j<? super T> jVar) {
-        rx.d<? extends T> b2;
+        rx.d<? extends T> b;
         try {
-            Resource call = this.qAh.call();
+            Resource call = this.qAJ.call();
             DisposeAction disposeAction = new DisposeAction(this.dispose, call);
             jVar.add(disposeAction);
-            rx.d<? extends T> call2 = this.qAi.call(call);
-            if (this.qAj) {
-                b2 = call2.a(disposeAction);
+            rx.d<? extends T> call2 = this.qAK.call(call);
+            if (this.qAL) {
+                b = call2.a(disposeAction);
             } else {
-                b2 = call2.b(disposeAction);
+                b = call2.b(disposeAction);
             }
-            b2.a(rx.b.f.d(jVar));
+            b.a(rx.b.f.d(jVar));
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
         }
@@ -42,7 +42,7 @@ public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class DisposeAction<Resource> extends AtomicBoolean implements rx.functions.a, rx.k {
         private static final long serialVersionUID = 4262875056400218316L;
         private rx.functions.b<? super Resource> dispose;

@@ -8,15 +8,15 @@ import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class f extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, String> f3439a;
+    private HashMap<String, String> f2448a;
 
     public f(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.f3529b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         a("androidfeed");
     }
 
@@ -28,23 +28,23 @@ public class f extends com.baidu.mobads.vo.d {
         } else {
             hashMap.put(IXAdRequestInfo.FET, "ANTI,MSSP,VIDEO,NMON,HTML,CLICK2VIDEO");
         }
-        if (this.f3439a != null && !this.f3439a.isEmpty()) {
-            hashMap.putAll(this.f3439a);
+        if (this.f2448a != null && !this.f2448a.isEmpty()) {
+            hashMap.putAll(this.f2448a);
         }
         return hashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Map<String, String> map) {
-        if (this.f3439a == null) {
-            this.f3439a = new HashMap<>();
+        if (this.f2448a == null) {
+            this.f2448a = new HashMap<>();
         } else {
-            this.f3439a.clear();
+            this.f2448a.clear();
         }
         if (map != null && !map.isEmpty()) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 try {
-                    this.f3439a.put(e(entry.getKey().trim()), entry.getValue().trim());
+                    this.f2448a.put(e(entry.getKey().trim()), entry.getValue().trim());
                 } catch (Throwable th) {
                 }
             }

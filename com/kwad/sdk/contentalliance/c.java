@@ -12,10 +12,8 @@ import com.kwad.sdk.mvp.Presenter;
 public abstract class c<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Presenter f8280a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected T f8281b;
+    protected Presenter f5510a;
+    protected T b;
     protected ViewGroup c;
 
     public c(Context context) {
@@ -24,8 +22,8 @@ public abstract class c<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
     }
 
     protected void a() {
-        if (this.f8280a != null) {
-            this.f8280a.j();
+        if (this.f5510a != null) {
+            this.f5510a.j();
         }
         this.c = null;
     }
@@ -42,20 +40,20 @@ public abstract class c<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.f8281b = b();
-        if (this.f8280a == null) {
-            this.f8280a = c();
-            this.f8280a.a((View) this.c);
+        this.b = b();
+        if (this.f5510a == null) {
+            this.f5510a = c();
+            this.f5510a.a((View) this.c);
         }
-        this.f8280a.a(this.f8281b);
+        this.f5510a.a(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.f8281b != null) {
-            this.f8281b.a();
+        if (this.b != null) {
+            this.b.a();
         }
         a();
     }

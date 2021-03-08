@@ -13,40 +13,40 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    private h f9325a = null;
+    private h f6188a = null;
 
     @Override // com.kwad.sdk.core.network.a
     protected void a(R r, c cVar) {
         if (cVar == null) {
             com.kwad.sdk.core.d.a.d("Networking", "request responseBase is null");
-            if (this.f9325a != null) {
-                this.f9325a.a(r, f.f9323a.k, f.f9323a.l);
+            if (this.f6188a != null) {
+                this.f6188a.a(r, f.f6187a.k, f.f6187a.l);
             }
-        } else if (TextUtils.isEmpty(cVar.f9321b) || cVar.f9320a != 200) {
-            if (this.f9325a != null) {
-                this.f9325a.a(r, cVar.f9320a, "网络错误");
+        } else if (TextUtils.isEmpty(cVar.b) || cVar.f6185a != 200) {
+            if (this.f6188a != null) {
+                this.f6188a.a(r, cVar.f6185a, "网络错误");
             }
         } else {
             try {
-                T b2 = b(cVar.f9321b);
-                if (b2 == null) {
-                    if (this.f9325a != null) {
-                        this.f9325a.a(r, f.f9324b.k, f.f9324b.l);
+                T b = b(cVar.b);
+                if (b == null) {
+                    if (this.f6188a != null) {
+                        this.f6188a.a(r, f.b.k, f.b.l);
                     }
-                } else if (!b2.isResultOk()) {
-                    if (this.f9325a != null) {
-                        this.f9325a.a(r, b2.result, b2.errorMsg);
+                } else if (!b.isResultOk()) {
+                    if (this.f6188a != null) {
+                        this.f6188a.a(r, b.result, b.errorMsg);
                     }
-                } else if (b2.isDataEmpty()) {
-                    if (this.f9325a != null) {
-                        this.f9325a.a(r, f.c.k, f.c.l);
+                } else if (b.isDataEmpty()) {
+                    if (this.f6188a != null) {
+                        this.f6188a.a(r, f.c.k, f.c.l);
                     }
-                } else if (this.f9325a != null) {
-                    this.f9325a.a(r, b2);
+                } else if (this.f6188a != null) {
+                    this.f6188a.a(r, b);
                 }
             } catch (Exception e) {
-                if (this.f9325a != null) {
-                    this.f9325a.a(r, f.f9324b.k, f.f9324b.l);
+                if (this.f6188a != null) {
+                    this.f6188a.a(r, f.b.k, f.b.l);
                 }
                 com.kwad.sdk.core.d.a.a(e);
             }
@@ -54,7 +54,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     }
 
     public void a(@NonNull h hVar) {
-        this.f9325a = hVar;
+        this.f6188a = hVar;
         d();
     }
 
@@ -68,7 +68,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Override // com.kwad.sdk.core.network.a
     public void e() {
         super.e();
-        this.f9325a = null;
+        this.f6188a = null;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x0063 -> B:23:0x004c). Please submit an issue!!! */
@@ -76,27 +76,27 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @WorkerThread
     protected void f() {
         c cVar;
-        R b2 = b();
-        if (this.f9325a != null) {
-            this.f9325a.a(b2);
+        R b = b();
+        if (this.f6188a != null) {
+            this.f6188a.a(b);
         }
         if (!com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
-            if (this.f9325a != null) {
-                this.f9325a.a(b2, f.f9323a.k, f.f9323a.l);
+            if (this.f6188a != null) {
+                this.f6188a.a(b, f.f6187a.k, f.f6187a.l);
                 return;
             }
             return;
         }
         try {
-            String a2 = b2.a();
+            String a2 = b.a();
             AdHttpProxy proxyForHttp = KsAdSDKImpl.get().getProxyForHttp();
-            cVar = a_() ? proxyForHttp.doPost(a2, b2.b(), b2.d()) : proxyForHttp.doPost(a2, b2.b(), b2.c());
+            cVar = a_() ? proxyForHttp.doPost(a2, b.b(), b.d()) : proxyForHttp.doPost(a2, b.b(), b.c());
         } catch (Exception e) {
             com.kwad.sdk.core.d.a.a(e);
             cVar = null;
         }
         try {
-            a(b2, cVar);
+            a(b, cVar);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }

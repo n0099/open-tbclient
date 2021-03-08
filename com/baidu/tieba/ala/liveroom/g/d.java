@@ -5,9 +5,9 @@ import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c hBy;
+    private com.baidu.tieba.ala.liveroom.views.c hDh;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,19 +17,19 @@ public class d {
     }
 
     private void init() {
-        this.hBy = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.hBy.setTbPageContext(this.mPageContext);
-        this.mRootView = this.hBy.getView();
+        this.hDh = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.hDh.setTbPageContext(this.mPageContext);
+        this.mRootView = this.hDh.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.hBy != null) {
-            this.hBy.a(iShareCallback);
+        if (this.hDh != null) {
+            this.hDh.a(iShareCallback);
         }
     }
 
-    private void cew() {
-        this.hBy.cew();
+    private void ceC() {
+        this.hDh.ceC();
     }
 
     public View getView() {
@@ -37,40 +37,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.hBy.c(alaLiveRecorder);
-        cew();
+        this.hDh.c(alaLiveRecorder);
+        ceC();
     }
 
-    public boolean cex() {
-        return this.hBy.cex();
+    public boolean ceD() {
+        return this.hDh.ceD();
     }
 
-    public boolean cey() {
-        return this.hBy.cey();
+    public boolean ceE() {
+        return this.hDh.ceE();
     }
 
     public String getLiveTitle() {
-        return this.hBy.getLiveTitle();
+        return this.hDh.getLiveTitle();
     }
 
-    public boolean cez() {
-        return this.hBy.cez();
+    public boolean ceF() {
+        return this.hDh.ceF();
     }
 
-    public boolean ceA() {
-        return this.hBy.ceA();
+    public boolean ceG() {
+        return this.hDh.ceG();
     }
 
     public void oh(boolean z) {
-        this.hBy.oh(z);
+        this.hDh.oh(z);
     }
 
-    public void ceB() {
-        this.hBy.hPz = false;
+    public void ceH() {
+        this.hDh.hRi = false;
     }
 
-    public String ceC() {
-        return this.hBy.ceC();
+    public String ceI() {
+        return this.hDh.ceI();
     }
 
     public void setVisibility(int i) {
@@ -82,68 +82,68 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.hBy.a(bVar);
+        this.hDh.a(bVar);
     }
 
     public void R(boolean z, boolean z2) {
         if (z) {
-            this.hBy.onKeyboardVisibilityChanged(false);
+            this.hDh.onKeyboardVisibilityChanged(false);
         } else {
-            this.hBy.onKeyboardVisibilityChanged(z2);
+            this.hDh.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.hBy.a(aVar);
+        this.hDh.a(aVar);
     }
 
-    public void HI(String str) {
-        this.hBy.HI(str);
+    public void HR(String str) {
+        this.hDh.HR(str);
     }
 
     public void onResume() {
-        this.hBy.onResume();
+        this.hDh.onResume();
     }
 
     public void onRefresh() {
-        this.hBy.onRefresh();
+        this.hDh.onRefresh();
     }
 
-    public boolean ceD() {
-        return this.hBy.ceD();
+    public boolean ceJ() {
+        return this.hDh.ceJ();
     }
 
-    public void ceE() {
-        this.hBy.ceE();
+    public void ceK() {
+        this.hDh.ceK();
     }
 
     public void release() {
-        this.hBy.release();
+        this.hDh.release();
     }
 
     public void destroy() {
-        this.hBy.destroy();
+        this.hDh.destroy();
     }
 
     public void oi(boolean z) {
-        this.hBy.oi(z);
+        this.hDh.oi(z);
     }
 
-    public void ceF() {
-        if (this.hBy != null) {
-            this.hBy.ceF();
+    public void ceL() {
+        if (this.hDh != null) {
+            this.hDh.ceL();
         }
     }
 
     public void oj(boolean z) {
-        if (this.hBy != null) {
-            this.hBy.oj(z);
+        if (this.hDh != null) {
+            this.hDh.oj(z);
         }
     }
 
     public void a(com.baidu.live.m.a aVar) {
-        if (this.hBy != null) {
-            this.hBy.a(aVar);
+        if (this.hDh != null) {
+            this.hDh.a(aVar);
         }
     }
 }

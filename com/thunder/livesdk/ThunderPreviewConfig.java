@@ -1,5 +1,5 @@
 package com.thunder.livesdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderPreviewConfig extends ThunderVideoCaptureConfig {
     public static final int YYPREVIEW_MODE_HIGHQULITY = 1;
     public static final int YYPREVIEW_MODE_NORMAL = 0;

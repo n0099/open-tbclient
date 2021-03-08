@@ -22,14 +22,12 @@ import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Set<String> f3441a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Set<String> f3442b;
+    private Set<String> f2450a;
+    private Set<String> b;
     private Set<String> c;
     private CookieManager d;
     private IXAdSystemUtils e;
@@ -84,13 +82,13 @@ public class d {
     }
 
     private void c() {
-        this.f3441a = new HashSet();
-        this.f3441a.add("46000");
-        this.f3441a.add("46002");
-        this.f3441a.add("46007");
-        this.f3442b = new HashSet();
-        this.f3442b.add("46001");
-        this.f3442b.add("46006");
+        this.f2450a = new HashSet();
+        this.f2450a.add("46000");
+        this.f2450a.add("46002");
+        this.f2450a.add("46007");
+        this.b = new HashSet();
+        this.b.add("46001");
+        this.b.add("46006");
         this.c = new HashSet();
         this.c.add("46003");
         this.c.add("46005");
@@ -101,7 +99,7 @@ public class d {
         int height = screenRect.height();
         int width = screenRect.width();
         boolean e = e();
-        String b2 = e ? b(h()) : null;
+        String b = e ? b(h()) : null;
         int f = e ? f() : 0;
         String g = e ? g() : null;
         int i = e ? 1 : 0;
@@ -116,7 +114,7 @@ public class d {
         a(UserAccountActionItem.KEY_SRC, 1);
         a("h", Integer.valueOf(height));
         a("w", Integer.valueOf(width));
-        a("apm", b2);
+        a("apm", b);
         a("rssi", Integer.valueOf(f));
         a("apn", g);
         a("isc", Integer.valueOf(i));
@@ -192,13 +190,13 @@ public class d {
         if (networkOperator == null) {
             return 0;
         }
-        if (this.f3441a.contains(networkOperator)) {
+        if (this.f2450a.contains(networkOperator)) {
             return 1;
         }
         if (this.c.contains(networkOperator)) {
             return 2;
         }
-        if (this.f3442b.contains(networkOperator)) {
+        if (this.b.contains(networkOperator)) {
             return 3;
         }
         return 99;

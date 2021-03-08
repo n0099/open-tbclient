@@ -8,17 +8,17 @@ import com.baidu.swan.gamecenter.appmanager.a.f;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b implements aw {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private HashMap<String, a> ebN = new HashMap<>();
+    private HashMap<String, a> edo = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        aJR();
+        aJU();
     }
 
-    private void aJR() {
+    private void aJU() {
         a(new com.baidu.swan.gamecenter.b.a());
         a(new com.baidu.swan.gamecenter.b.b());
         a(new com.baidu.swan.gamecenter.appmanager.a.b());
@@ -36,10 +36,10 @@ public class b implements aw {
         if (DEBUG && TextUtils.isEmpty(aVar.name)) {
             throw new IllegalArgumentException("action name is null");
         }
-        if (DEBUG && this.ebN.containsKey(aVar.name)) {
+        if (DEBUG && this.edo.containsKey(aVar.name)) {
             throw new IllegalArgumentException("duplicate action: " + aVar);
         }
-        this.ebN.put(aVar.name, aVar);
+        this.edo.put(aVar.name, aVar);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aw
@@ -48,7 +48,7 @@ public class b implements aw {
     }
 
     private com.baidu.swan.apps.api.c.b b(String str, JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
-        a aVar = this.ebN.get(str);
+        a aVar = this.edo.get(str);
         if (aVar != null) {
             if (DEBUG) {
                 Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);

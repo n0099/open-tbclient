@@ -37,56 +37,56 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes9.dex */
-public class e extends c implements a.InterfaceC0453a {
+/* loaded from: classes8.dex */
+public class e extends c implements a.InterfaceC0459a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final int cSc = ah.P(149.0f);
-    private static String cSj = "-1";
-    private static String cSk = cSj;
-    private static String cSl;
-    private com.baidu.swan.apps.res.widget.floatlayer.a cCc;
-    private com.baidu.swan.apps.statistic.a cSd;
-    private FrameLayout cSg;
-    private com.baidu.swan.apps.adaptation.b.c cSh;
-    private com.baidu.swan.apps.tabbar.b.a cSi;
-    private com.baidu.swan.apps.runtime.config.c cSm;
-    private com.baidu.swan.apps.core.f.c cSo;
-    private com.baidu.swan.apps.adaptation.a.ah cSp;
+    private static final int cTC = ah.T(149.0f);
+    private static String cTJ = "-1";
+    private static String cTK = cTJ;
+    private static String cTL;
+    private com.baidu.swan.apps.res.widget.floatlayer.a cDC;
+    private com.baidu.swan.apps.statistic.a cTD;
+    private FrameLayout cTG;
+    private com.baidu.swan.apps.adaptation.b.c cTH;
+    private com.baidu.swan.apps.tabbar.b.a cTI;
+    private com.baidu.swan.apps.runtime.config.c cTM;
+    private com.baidu.swan.apps.core.f.c cTO;
+    private com.baidu.swan.apps.adaptation.a.ah cTP;
     private View mRootView;
-    private com.baidu.swan.apps.model.b cSe = new com.baidu.swan.apps.model.b();
-    private Map<String, com.baidu.swan.apps.adaptation.b.c> cSf = new TreeMap();
-    private int cSn = 0;
-    public boolean cSq = false;
+    private com.baidu.swan.apps.model.b cTE = new com.baidu.swan.apps.model.b();
+    private Map<String, com.baidu.swan.apps.adaptation.b.c> cTF = new TreeMap();
+    private int cTN = 0;
+    public boolean cTQ = false;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        apa();
+        apd();
         if (DEBUG) {
             Log.d("SwanAppFragment", "onCreate() obj: " + this);
         }
         p.b(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.1
             @Override // java.lang.Runnable
             public void run() {
-                e.this.cSp = com.baidu.swan.apps.t.a.axL();
-                e.this.cSp.a(e.this.cRF, e.this.getContext());
+                e.this.cTP = com.baidu.swan.apps.t.a.axO();
+                e.this.cTP.a(e.this.cTf, e.this.getContext());
             }
         }, "SwanAppPageHistory");
         com.baidu.swan.apps.performance.h.B("route", "fragment create.");
     }
 
-    private void apa() {
+    private void apd() {
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.cRF = com.baidu.swan.apps.model.c.pQ(arguments.getString("ai_apps_param"));
-            this.cSe.mPage = this.cRF != null ? this.cRF.getPage() : "";
-            this.cSe.mParams = this.cRF != null ? this.cRF.getParams() : "";
-            this.cSe.dnO = com.baidu.swan.apps.scheme.actions.k.j.sq(this.cSe.getPage());
-            this.cSm = com.baidu.swan.apps.v.f.aAl().pm(this.cSe.aCw());
-            if (this.cSm.dFM) {
-                this.cSm = com.baidu.swan.apps.v.f.aAl().pn(this.cSe.getPage());
+            this.cTf = com.baidu.swan.apps.model.c.pX(arguments.getString("ai_apps_param"));
+            this.cTE.mPage = this.cTf != null ? this.cTf.getPage() : "";
+            this.cTE.mParams = this.cTf != null ? this.cTf.getParams() : "";
+            this.cTE.dps = com.baidu.swan.apps.scheme.actions.k.j.sy(this.cTE.getPage());
+            this.cTM = com.baidu.swan.apps.v.f.aAo().pt(this.cTE.aCz());
+            if (this.cTM.dHn) {
+                this.cTM = com.baidu.swan.apps.v.f.aAo().pu(this.cTE.getPage());
             }
-            this.cSn = aoP().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
+            this.cTN = aoS().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
         }
     }
 
@@ -103,22 +103,22 @@ public class e extends c implements a.InterfaceC0453a {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         com.baidu.swan.apps.performance.h.B("route", "fragment onCreateView.");
         View inflate = layoutInflater.inflate(a.g.aiapps_fragment, viewGroup, false);
-        this.cSg = (FrameLayout) inflate.findViewById(a.f.ai_apps_fragment_content);
+        this.cTG = (FrameLayout) inflate.findViewById(a.f.ai_apps_fragment_content);
         aq(inflate);
-        this.cSi = new com.baidu.swan.apps.tabbar.b.a(this);
+        this.cTI = new com.baidu.swan.apps.tabbar.b.a(this);
         aw(inflate);
-        if (!com.baidu.swan.apps.menu.fontsize.b.aCr() && !com.baidu.swan.apps.menu.fontsize.b.aCp()) {
-            com.baidu.swan.apps.menu.fontsize.a.bY(this.cSh.aiY(), String.valueOf(com.baidu.swan.apps.menu.fontsize.b.aCo()));
+        if (!com.baidu.swan.apps.menu.fontsize.b.aCu() && !com.baidu.swan.apps.menu.fontsize.b.aCs()) {
+            com.baidu.swan.apps.menu.fontsize.a.bY(this.cTH.ajb(), String.valueOf(com.baidu.swan.apps.menu.fontsize.b.aCr()));
         }
-        this.mRootView = a(aoI() ? av(inflate) : inflate, this);
-        this.mSlideHelper.setRegionFactor(this.cSh.aiH());
-        com.baidu.swan.apps.y.f.aCU().start();
+        this.mRootView = a(aoL() ? av(inflate) : inflate, this);
+        this.mSlideHelper.setRegionFactor(this.cTH.aiK());
+        com.baidu.swan.apps.y.f.aCX().start();
         return this.mRootView;
     }
 
-    public PullToRefreshBaseWebView aiO() {
-        if (this.cSh != null) {
-            return this.cSh.aiO();
+    public PullToRefreshBaseWebView aiR() {
+        if (this.cTH != null) {
+            return this.cTH.aiR();
         }
         return null;
     }
@@ -127,79 +127,79 @@ public class e extends c implements a.InterfaceC0453a {
     @Override // com.baidu.swan.apps.core.d.c
     public void aq(View view) {
         super.aq(view);
-        fl(aoF());
-        if (ape()) {
-            aoE();
+        fl(aoI());
+        if (aph()) {
+            aoH();
         }
-        apr();
-        this.cRH.setOnDoubleClickListener(new SwanAppActionBar.b() { // from class: com.baidu.swan.apps.core.d.e.2
+        apu();
+        this.cTh.setOnDoubleClickListener(new SwanAppActionBar.b() { // from class: com.baidu.swan.apps.core.d.e.2
             /* JADX WARN: Type inference failed for: r2v1, types: [org.json.JSONObject, T] */
             @Override // com.baidu.swan.apps.view.SwanAppActionBar.b
             public void ax(View view2) {
-                String aiY = e.this.cSh.aiY();
+                String ajb = e.this.cTH.ajb();
                 com.baidu.swan.apps.event.a.g gVar = new com.baidu.swan.apps.event.a.g();
-                gVar.mData = com.baidu.swan.apps.view.b.b.a.cI(aiY, "scrollViewBackToTop");
-                com.baidu.swan.apps.v.f.aAl().a(aiY, gVar);
+                gVar.mData = com.baidu.swan.apps.view.b.b.a.cI(ajb, "scrollViewBackToTop");
+                com.baidu.swan.apps.v.f.aAo().a(ajb, gVar);
             }
         });
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void aof() {
-        this.cSh.aiR();
-        ajx();
+    protected void aoi() {
+        this.cTH.aiU();
+        ajA();
         fp(true);
-        if (this.cRJ != null) {
-            this.cRJ.setAttentionBtnStates(com.baidu.swan.apps.database.favorite.a.np(com.baidu.swan.apps.runtime.d.aIG().getAppId()));
+        if (this.cTj != null) {
+            this.cTj.setAttentionBtnStates(com.baidu.swan.apps.database.favorite.a.nw(com.baidu.swan.apps.runtime.d.aIJ().getAppId()));
         }
-        this.cRI.a(com.baidu.swan.apps.t.a.axs().aii(), aoT(), this.cRJ, false);
+        this.cTi.a(com.baidu.swan.apps.t.a.axv().ail(), aoW(), this.cTj, false);
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean ajr() {
+    protected boolean aju() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void aoC() {
-        aoV();
+    protected void aoF() {
+        aoY();
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mValue = "gohome";
         fVar.mSource = "bar";
-        e apy = com.baidu.swan.apps.v.f.aAl().apy();
-        com.baidu.swan.apps.model.c aoW = apy == null ? null : apy.aoW();
-        if (aoW != null && !TextUtils.isEmpty(aoW.getPage())) {
-            fVar.r("page", aoW.getPage());
+        e apB = com.baidu.swan.apps.v.f.aAo().apB();
+        com.baidu.swan.apps.model.c aoZ = apB == null ? null : apB.aoZ();
+        if (aoZ != null && !TextUtils.isEmpty(aoZ.getPage())) {
+            fVar.s("page", aoZ.getPage());
         }
         a(fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public void gJ(int i) {
+    public void gK(int i) {
         boolean z = true;
-        if (!com.baidu.swan.apps.runtime.config.c.a(this.cSm)) {
-            super.gJ(i);
+        if (!com.baidu.swan.apps.runtime.config.c.a(this.cTM)) {
+            super.gK(i);
             return;
         }
-        if (!apo() && ac.dB(this.mActivity)) {
+        if (!apr() && ac.dA(this.mActivity)) {
             z = false;
         }
         y(i, z);
-        apr();
+        apu();
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean gH(int i) {
-        boolean gH = super.gH(i);
-        apr();
-        return gH;
+    public boolean gI(int i) {
+        boolean gI = super.gI(i);
+        apu();
+        return gI;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public void aoL() {
-        super.aoL();
-        apr();
+    public void aoO() {
+        super.aoO();
+        apu();
     }
 
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.swan.support.v4.app.Fragment
@@ -219,11 +219,11 @@ public class e extends c implements a.InterfaceC0453a {
         if (getUserVisibleHint()) {
             resume();
         }
-        if (this.cRI != null && this.cRI.isShowing()) {
-            this.cRI.iA(com.baidu.swan.apps.t.a.axs().aii());
+        if (this.cTi != null && this.cTi.isShowing()) {
+            this.cTi.iA(com.baidu.swan.apps.t.a.axv().ail());
         }
         if (DEBUG) {
-            Log.d("SwanAppFragment", Log.getStackTraceString(new Exception("performResume() wvID: " + this.cSh.aiY())));
+            Log.d("SwanAppFragment", Log.getStackTraceString(new Exception("performResume() wvID: " + this.cTH.ajb())));
         }
     }
 
@@ -232,46 +232,46 @@ public class e extends c implements a.InterfaceC0453a {
             pause();
         }
         if (DEBUG) {
-            Log.d("SwanAppFragment", Log.getStackTraceString(new Exception("performPause() wvID: " + this.cSh.aiY())));
+            Log.d("SwanAppFragment", Log.getStackTraceString(new Exception("performPause() wvID: " + this.cTH.ajb())));
         }
     }
 
-    public static void mw(String str) {
-        cSl = str;
+    public static void mD(String str) {
+        cTL = str;
     }
 
-    private void apb() {
-        if (!TextUtils.equals(cSk, this.cSh.aiY()) || TextUtils.equals(cSl, "switchTab")) {
-            int tE = this.cSi.tE(apl().aCw());
+    private void ape() {
+        if (!TextUtils.equals(cTK, this.cTH.ajb()) || TextUtils.equals(cTL, "switchTab")) {
+            int tL = this.cTI.tL(apo().aCz());
             com.baidu.swan.apps.event.a.e eVar = new com.baidu.swan.apps.event.a.e();
-            eVar.daT = cSk;
-            eVar.daU = this.cSh.aiY();
-            eVar.cSD = cSl;
-            eVar.daV = this.cSe.mPage;
-            eVar.daW = String.valueOf(tE);
-            cSl = "";
+            eVar.dcv = cTK;
+            eVar.dcw = this.cTH.ajb();
+            eVar.cUd = cTL;
+            eVar.dcx = this.cTE.mPage;
+            eVar.dcy = String.valueOf(tL);
+            cTL = "";
             if (DEBUG) {
-                Log.d("SwanAppFragment", "sendRouteMessage fromId: " + eVar.daT + " ,toId: " + eVar.daU + " ,RouteType: " + eVar.cSD + " page:" + eVar.daV + ",TabIndex: " + eVar.daW);
+                Log.d("SwanAppFragment", "sendRouteMessage fromId: " + eVar.dcv + " ,toId: " + eVar.dcw + " ,RouteType: " + eVar.cUd + " page:" + eVar.dcx + ",TabIndex: " + eVar.dcy);
             }
-            com.baidu.swan.apps.v.f.aAl().b(eVar);
-            cSk = this.cSh.aiY();
+            com.baidu.swan.apps.v.f.aAo().b(eVar);
+            cTK = this.cTH.ajb();
         }
     }
 
-    private void mx(String str) {
+    private void mE(String str) {
         HashMap hashMap = new HashMap();
         hashMap.put("lcType", str);
-        hashMap.put("wvID", this.cSh.aiY());
+        hashMap.put("wvID", this.cTH.ajb());
         com.baidu.swan.apps.event.a.c cVar = new com.baidu.swan.apps.event.a.c(hashMap);
         if (DEBUG) {
-            Log.d("SwanAppFragment", "sendLifecycleMessage type: " + str + " wvID: " + this.cSh.aiY());
+            Log.d("SwanAppFragment", "sendLifecycleMessage type: " + str + " wvID: " + this.cTH.ajb());
         }
-        com.baidu.swan.apps.v.f.aAl().b(cVar);
+        com.baidu.swan.apps.v.f.aAo().b(cVar);
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public void aoj() {
-        if (this.cSh == null) {
+    public void aom() {
+        if (this.cTH == null) {
             if (DEBUG) {
                 Log.e("SwanAppFragment", Log.getStackTraceString(new Exception("mCurWebViewManager is null.")));
                 return;
@@ -279,42 +279,42 @@ public class e extends c implements a.InterfaceC0453a {
             return;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("wvID", this.cSh.aiY());
-        com.baidu.swan.apps.adaptation.b.f aiP = this.cSh.aiP();
-        if (aiP != null) {
-            hashMap.put("webViewUrl", aiP.getCurrentPageUrl());
+        hashMap.put("wvID", this.cTH.ajb());
+        com.baidu.swan.apps.adaptation.b.f aiS = this.cTH.aiS();
+        if (aiS != null) {
+            hashMap.put("webViewUrl", aiS.getCurrentPageUrl());
         }
-        com.baidu.swan.apps.v.f.aAl().b(new com.baidu.swan.apps.event.a.b("sharebtn", hashMap));
+        com.baidu.swan.apps.v.f.aAo().b(new com.baidu.swan.apps.event.a.b("sharebtn", hashMap));
     }
 
     private void aw(View view) {
         com.baidu.swan.apps.performance.h.B("route", "createSlaveWebView start.");
-        String azS = this.cRF.azS();
-        String params = this.cRF.getParams();
-        String page = this.cRF.getPage();
-        String ae = ak.ae(azS, page, params);
-        this.cSh = com.baidu.swan.apps.core.slave.b.ne(ae);
+        String azV = this.cTf.azV();
+        String params = this.cTf.getParams();
+        String page = this.cTf.getPage();
+        String ae = ak.ae(azV, page, params);
+        this.cTH = com.baidu.swan.apps.core.slave.b.nl(ae);
         if (DEBUG) {
-            Log.d("SwanAppFragment", "pageUrl: " + ae + " is load: " + (this.cSh != null));
+            Log.d("SwanAppFragment", "pageUrl: " + ae + " is load: " + (this.cTH != null));
         }
-        if (this.cSh == null) {
+        if (this.cTH == null) {
             if (DEBUG) {
                 Log.e("SwanAppFragment", Log.getStackTraceString(new Exception("createSlaveWebView failed.")));
             }
-            this.cSh = q(azS, page, params, "");
+            this.cTH = q(azV, page, params, "");
         }
-        com.baidu.swan.apps.runtime.config.c pm = com.baidu.swan.apps.v.f.aAl().pm(page);
+        com.baidu.swan.apps.runtime.config.c pt = com.baidu.swan.apps.v.f.aAo().pt(page);
         com.baidu.swan.apps.console.c.i("SwanAppFragment", "create slave webview: " + page);
-        this.cSh.b(this.cSg, pm);
-        this.cSh.a(this.cSg, pm);
-        mB(page);
-        a(this.cSh);
-        if (aog()) {
-            this.cSf.put(page, this.cSh);
-            this.cSi.a(view, getContext(), page);
+        this.cTH.b(this.cTG, pt);
+        this.cTH.a(this.cTG, pt);
+        mI(page);
+        a(this.cTH);
+        if (aoj()) {
+            this.cTF.put(page, this.cTH);
+            this.cTI.a(view, getContext(), page);
         }
         com.baidu.swan.apps.performance.h.B("route", "createSlaveWebView end.");
-        aps();
+        apv();
     }
 
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.swan.support.v4.app.Fragment
@@ -325,52 +325,52 @@ public class e extends c implements a.InterfaceC0453a {
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        if (this.cSf != null && !this.cSf.isEmpty()) {
-            for (com.baidu.swan.apps.adaptation.b.c cVar : this.cSf.values()) {
+        if (this.cTF != null && !this.cTF.isEmpty()) {
+            for (com.baidu.swan.apps.adaptation.b.c cVar : this.cTF.values()) {
                 if (cVar != null) {
-                    cVar.aiZ();
+                    cVar.ajc();
                 }
             }
-        } else if (this.cSh != null) {
-            this.cSh.aiZ();
+        } else if (this.cTH != null) {
+            this.cTH.ajc();
         }
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (a.apw()) {
+        if (a.apz()) {
             ak.getHandler().postAtFrontOfQueue(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    e.this.apc();
+                    e.this.apf();
                 }
             });
         } else {
-            apc();
+            apf();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apc() {
-        if (this.cSf != null && !this.cSf.isEmpty()) {
-            for (com.baidu.swan.apps.adaptation.b.c cVar : this.cSf.values()) {
+    public void apf() {
+        if (this.cTF != null && !this.cTF.isEmpty()) {
+            for (com.baidu.swan.apps.adaptation.b.c cVar : this.cTF.values()) {
                 if (cVar != null) {
                     b(cVar);
                     cVar.destroy();
                 }
             }
-            this.cSf.clear();
-        } else if (this.cSh != null) {
-            b(this.cSh);
-            this.cSh.destroy();
+            this.cTF.clear();
+        } else if (this.cTH != null) {
+            b(this.cTH);
+            this.cTH.destroy();
         }
-        this.cSh = null;
+        this.cTH = null;
         if (DEBUG) {
             Log.d("SwanAppFragment", "onDestroy() obj: " + this);
         }
-        if (!this.cSq) {
-            com.baidu.swan.apps.core.slave.b.cL(com.baidu.swan.apps.v.f.aAl().azV());
+        if (!this.cTQ) {
+            com.baidu.swan.apps.core.slave.b.cK(com.baidu.swan.apps.v.f.aAo().azY());
         }
     }
 
@@ -391,48 +391,48 @@ public class e extends c implements a.InterfaceC0453a {
     }
 
     public void resume() {
-        boolean z = this.cSh == null;
-        String aiY = z ? "" : this.cSh.aiY();
+        boolean z = this.cTH == null;
+        String ajb = z ? "" : this.cTH.ajb();
         if (DEBUG) {
-            Log.d("SwanAppFragment", "resume() wvID: " + aiY);
+            Log.d("SwanAppFragment", "resume() wvID: " + ajb);
         }
         if (!z) {
-            fl(aoF());
-            this.cSh.onResume();
-            apb();
-            mx("onShow");
+            fl(aoI());
+            this.cTH.onResume();
+            ape();
+            mE("onShow");
         }
         com.baidu.swan.apps.console.c.i("SwanApp", "onShow");
         com.baidu.swan.apps.media.b.fZ(true);
-        if (com.baidu.swan.apps.console.c.alO()) {
-            com.baidu.swan.apps.core.c.b.anU();
+        if (com.baidu.swan.apps.console.c.alR()) {
+            com.baidu.swan.apps.core.c.b.anX();
         }
     }
 
     public void pause() {
-        PullToRefreshBaseWebView aiO;
-        boolean z = this.cSh == null;
-        String aiY = z ? "" : this.cSh.aiY();
+        PullToRefreshBaseWebView aiR;
+        boolean z = this.cTH == null;
+        String ajb = z ? "" : this.cTH.ajb();
         if (DEBUG) {
-            Log.d("SwanAppFragment", "pause() wvID: " + aiY);
+            Log.d("SwanAppFragment", "pause() wvID: " + ajb);
         }
         if (!z) {
-            this.cSh.onPause();
-            mx("onHide");
+            this.cTH.onPause();
+            mE("onHide");
         }
-        if (afS() != null && !afS().aId()) {
-            afS().reset();
+        if (afV() != null && !afV().aIg()) {
+            afV().reset();
         }
         com.baidu.swan.apps.console.c.i("SwanApp", "onHide");
         com.baidu.swan.apps.media.b.fZ(false);
-        if (!z && (aiO = this.cSh.aiO()) != null) {
-            aiO.gH(false);
+        if (!z && (aiR = this.cTH.aiR()) != null) {
+            aiR.gH(false);
         }
     }
 
-    public String my(String str) {
-        if (this.cSf.containsKey(str)) {
-            return this.cSf.get(str).aiY();
+    public String mF(String str) {
+        if (this.cTF.containsKey(str)) {
+            return this.cTF.get(str).ajb();
         }
         return null;
     }
@@ -441,31 +441,31 @@ public class e extends c implements a.InterfaceC0453a {
         if (DEBUG) {
             Log.d("SwanAppFragment", "switchTab pageParam: " + bVar);
         }
-        if (this.cSi.tE(apl().aCw()) != this.cSi.tE(bVar.aCw())) {
-            this.cSi.tB(bVar.aCw());
+        if (this.cTI.tL(apo().aCz()) != this.cTI.tL(bVar.aCz())) {
+            this.cTI.tI(bVar.aCz());
             onPause();
             b(bVar, "");
         }
     }
 
     private void a(com.baidu.swan.apps.model.b bVar, String str) {
-        if (this.cSf.get(bVar.dnO) == null) {
+        if (this.cTF.get(bVar.dps) == null) {
             String ae = ak.ae(bVar.mBaseUrl, bVar.mPage, bVar.mParams);
-            com.baidu.swan.apps.adaptation.b.c ne = com.baidu.swan.apps.core.slave.b.ne(ae);
-            if (ne != null) {
+            com.baidu.swan.apps.adaptation.b.c nl = com.baidu.swan.apps.core.slave.b.nl(ae);
+            if (nl != null) {
                 if (DEBUG) {
                     Log.d("SwanAppFragment", "createTabSlaveWebView loaded manager pageUrl: " + ae);
                 }
-                this.cSf.put(bVar.mPage, ne);
+                this.cTF.put(bVar.mPage, nl);
             } else {
                 if (DEBUG) {
                     Log.d("SwanAppFragment", "createTabSlaveWebView createNew.");
                 }
-                ne = q(bVar.mBaseUrl, bVar.mPage, bVar.mParams, str);
-                this.cSf.put(bVar.mPage, ne);
+                nl = q(bVar.mBaseUrl, bVar.mPage, bVar.mParams, str);
+                this.cTF.put(bVar.mPage, nl);
             }
-            mB(bVar.mPage);
-            a(ne);
+            mI(bVar.mPage);
+            a(nl);
         }
     }
 
@@ -473,45 +473,45 @@ public class e extends c implements a.InterfaceC0453a {
         if (DEBUG) {
             Log.d("SwanAppFragment", "createSlaveAndLoad start.");
         }
-        final b.a z = com.baidu.swan.apps.core.slave.b.z(bdU());
+        final b.a z = com.baidu.swan.apps.core.slave.b.z(bdW());
         if (!TextUtils.isEmpty(str4)) {
             com.baidu.swan.apps.performance.i.cd("route", str4).f(new UbcFlowEvent("na_pre_load_slave_check")).cg("preload", z.isReady ? "1" : "0");
         }
         if (DEBUG) {
             Log.d("SwanAppFragment", "createSlaveAndLoad preloadManager: " + z);
         }
-        com.baidu.swan.apps.core.slave.b.a(z, new b.InterfaceC0415b() { // from class: com.baidu.swan.apps.core.d.e.4
+        com.baidu.swan.apps.core.slave.b.a(z, new b.InterfaceC0421b() { // from class: com.baidu.swan.apps.core.d.e.4
             /* JADX WARN: Type inference failed for: r0v31, types: [com.baidu.swan.apps.adaptation.b.d] */
-            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0415b
+            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0421b
             public void onReady() {
                 com.baidu.swan.apps.core.turbo.b bVar = new com.baidu.swan.apps.core.turbo.b();
-                bVar.cXB = z.cXb.aiT();
+                bVar.cZb = z.cYB.aiW();
                 if (!TextUtils.isEmpty(str4)) {
                     com.baidu.swan.apps.performance.j.a(z, str4);
                 }
-                String sq = com.baidu.swan.apps.scheme.actions.k.j.sq(str2);
+                String sy = com.baidu.swan.apps.scheme.actions.k.j.sy(str2);
                 bVar.appPath = str;
-                bVar.cXD = TextUtils.isEmpty(str3) ? str2 : str2 + "?" + str3;
-                if (com.baidu.swan.apps.runtime.e.aIL() != null) {
-                    bVar.pageType = com.baidu.swan.apps.runtime.e.aIL().rF(sq);
-                    bVar.cXF = com.baidu.swan.apps.runtime.e.aIL().rH(sq);
+                bVar.cZd = TextUtils.isEmpty(str3) ? str2 : str2 + "?" + str3;
+                if (com.baidu.swan.apps.runtime.e.aIO() != null) {
+                    bVar.pageType = com.baidu.swan.apps.runtime.e.aIO().rM(sy);
+                    bVar.cZf = com.baidu.swan.apps.runtime.e.aIO().rO(sy);
                 }
-                bVar.cXz = com.baidu.swan.apps.core.turbo.a.b(com.baidu.swan.apps.runtime.e.aIK(), bVar.cXD);
-                bVar.cXE = com.baidu.swan.apps.v.f.aAl().pm(sq).cXE;
-                bVar.cXy = String.valueOf(com.baidu.swan.apps.console.a.alL());
-                bVar.cXA = e.DEBUG || com.baidu.swan.apps.v.f.aAl().azP();
-                if (com.baidu.swan.apps.ad.a.a.aFm()) {
-                    bVar.cXC = com.baidu.swan.apps.console.debugger.b.alT();
+                bVar.cYZ = com.baidu.swan.apps.core.turbo.a.b(com.baidu.swan.apps.runtime.e.aIN(), bVar.cZd);
+                bVar.cZe = com.baidu.swan.apps.v.f.aAo().pt(sy).cZe;
+                bVar.cYY = String.valueOf(com.baidu.swan.apps.console.a.alO());
+                bVar.cZa = e.DEBUG || com.baidu.swan.apps.v.f.aAo().azS();
+                if (com.baidu.swan.apps.ad.a.a.aFp()) {
+                    bVar.cZc = com.baidu.swan.apps.console.debugger.b.alW();
                 }
                 if (!TextUtils.isEmpty(str4)) {
-                    bVar.cXG = str4;
+                    bVar.cZg = str4;
                     com.baidu.swan.apps.performance.i.cd("route", str4).f(new UbcFlowEvent("slave_dispatch_start"));
                 }
-                ab.aNX();
-                z.cXb.aiW().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, str2);
-                z.cXb.jY(bVar.cXD);
-                com.baidu.swan.apps.v.f.aAl().a(z.cXb.aiY(), com.baidu.swan.apps.core.turbo.b.b(bVar));
-                com.baidu.swan.apps.statistic.e.cv(z.cXb.aiY(), bVar.cXD);
+                ab.aOa();
+                z.cYB.aiZ().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, str2);
+                z.cYB.kf(bVar.cZd);
+                com.baidu.swan.apps.v.f.aAo().a(z.cYB.ajb(), com.baidu.swan.apps.core.turbo.b.b(bVar));
+                com.baidu.swan.apps.statistic.e.cv(z.cYB.ajb(), bVar.cZd);
                 if (e.DEBUG) {
                     Log.d("SwanAppFragment", "createSlaveAndLoad onReady. pageEvent: " + bVar.toString());
                 }
@@ -520,24 +520,24 @@ public class e extends c implements a.InterfaceC0453a {
         if (DEBUG) {
             Log.d("SwanAppFragment", "createSlaveAndLoad end.");
         }
-        return z.cXb;
+        return z.cYB;
     }
 
     public void b(com.baidu.swan.apps.model.b bVar, String str) {
         String str2 = bVar.mPage;
-        String str3 = bVar.dnO;
-        com.baidu.swan.apps.runtime.config.c pm = com.baidu.swan.apps.v.f.aAl().pm(TextUtils.isEmpty(str3) ? "" : str3);
-        this.cSe.mPage = str2;
-        this.cSe.mParams = bVar != null ? bVar.getParams() : "";
-        this.cSe.dnO = str3;
-        this.cSm = pm;
+        String str3 = bVar.dps;
+        com.baidu.swan.apps.runtime.config.c pt = com.baidu.swan.apps.v.f.aAo().pt(TextUtils.isEmpty(str3) ? "" : str3);
+        this.cTE.mPage = str2;
+        this.cTE.mParams = bVar != null ? bVar.getParams() : "";
+        this.cTE.dps = str3;
+        this.cTM = pt;
         boolean z = false;
-        if (mA(str3)) {
-            mz(str3);
+        if (mH(str3)) {
+            mG(str3);
         } else {
             z = true;
             a(bVar, str);
-            mz(str2);
+            mG(str2);
         }
         if (!TextUtils.isEmpty(str)) {
             if (z) {
@@ -546,38 +546,38 @@ public class e extends c implements a.InterfaceC0453a {
                 com.baidu.swan.apps.performance.j.as(6, str);
             }
             com.baidu.swan.apps.performance.i.cd("route", str).f(new UbcFlowEvent("na_push_page_end"));
-            com.baidu.swan.apps.performance.j.qz(str);
+            com.baidu.swan.apps.performance.j.qG(str);
         }
-        mv(pm.dFC);
-        gI(SwanAppConfigData.rM(pm.dFD));
-        gH(pm.dFB);
-        apr();
+        mC(pt.dHd);
+        gJ(SwanAppConfigData.rT(pt.dHe));
+        gI(pt.dHc);
         apu();
-        com.baidu.swan.apps.console.c.i("SwanAppFragment", "switch tab title: " + pm.dFC + " page:" + str2);
+        apx();
+        com.baidu.swan.apps.console.c.i("SwanAppFragment", "switch tab title: " + pt.dHd + " page:" + str2);
     }
 
-    private void mz(String str) {
-        com.baidu.swan.apps.adaptation.b.c cVar = this.cSf.get(str);
-        if (this.cSh != cVar && cVar != null) {
-            com.baidu.swan.apps.runtime.config.c pm = com.baidu.swan.apps.v.f.aAl().pm(str);
-            cVar.b(this.cSg, pm);
-            if (!cVar.aiN()) {
-                cVar.a(this.cSg, pm);
+    private void mG(String str) {
+        com.baidu.swan.apps.adaptation.b.c cVar = this.cTF.get(str);
+        if (this.cTH != cVar && cVar != null) {
+            com.baidu.swan.apps.runtime.config.c pt = com.baidu.swan.apps.v.f.aAo().pt(str);
+            cVar.b(this.cTG, pt);
+            if (!cVar.aiQ()) {
+                cVar.a(this.cTG, pt);
             }
-            cVar.ge(0);
-            if (this.cSh != null) {
-                this.cSh.ge(8);
+            cVar.gf(0);
+            if (this.cTH != null) {
+                this.cTH.gf(8);
             }
-            this.cSh = cVar;
+            this.cTH = cVar;
         }
     }
 
     public FrameLayout getWebViewContainer() {
-        return this.cSg;
+        return this.cTG;
     }
 
-    private boolean mA(String str) {
-        return (this.cSf.isEmpty() || this.cSf.get(str) == null) ? false : true;
+    private boolean mH(String str) {
+        return (this.cTF.isEmpty() || this.cTF.get(str) == null) ? false : true;
     }
 
     public static e a(com.baidu.swan.apps.model.c cVar) {
@@ -592,82 +592,82 @@ public class e extends c implements a.InterfaceC0453a {
 
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.searchbox.widget.SlideInterceptor
     public boolean isSlidable(MotionEvent motionEvent) {
-        return aoF() && this.cSh.isSlidable(motionEvent);
+        return aoI() && this.cTH.isSlidable(motionEvent);
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean aog() {
-        SwanAppConfigData azQ;
-        com.baidu.swan.apps.v.f aAl = com.baidu.swan.apps.v.f.aAl();
-        if (aAl == null || (azQ = aAl.azQ()) == null || !azQ.aJA() || this.cRF == null) {
+    public boolean aoj() {
+        SwanAppConfigData azT;
+        com.baidu.swan.apps.v.f aAo = com.baidu.swan.apps.v.f.aAo();
+        if (aAo == null || (azT = aAo.azT()) == null || !azT.aJD() || this.cTf == null) {
             return false;
         }
-        return azQ.rS(this.cRF.getPage());
+        return azT.rZ(this.cTf.getPage());
     }
 
-    public boolean apd() {
-        if (this.cSi == null) {
+    public boolean apg() {
+        if (this.cTI == null) {
             return false;
         }
-        return this.cSi.apd();
+        return this.cTI.apg();
     }
 
-    protected final boolean ape() {
-        SwanAppConfigData azQ;
-        f afX = afX();
-        if (afX == null) {
+    protected final boolean aph() {
+        SwanAppConfigData azT;
+        f aga = aga();
+        if (aga == null) {
             return false;
         }
-        if ((this.cSm != null && this.cSm.dFJ) || (azQ = com.baidu.swan.apps.v.f.aAl().azQ()) == null) {
+        if ((this.cTM != null && this.cTM.dHk) || (azT = com.baidu.swan.apps.v.f.aAo().azT()) == null) {
             return false;
         }
-        return a(afX, azQ) ? false : true;
+        return a(aga, azT) ? false : true;
     }
 
     private boolean a(f fVar, SwanAppConfigData swanAppConfigData) {
-        c gL = fVar.gL(0);
-        if (gL == null || !(gL instanceof e)) {
+        c gM = fVar.gM(0);
+        if (gM == null || !(gM instanceof e)) {
             return false;
         }
-        String page = ((e) gL).apl().getPage();
-        return swanAppConfigData.rS(page) || TextUtils.equals(swanAppConfigData.azU(), page);
+        String page = ((e) gM).apo().getPage();
+        return swanAppConfigData.rZ(page) || TextUtils.equals(swanAppConfigData.azX(), page);
     }
 
-    private boolean apf() {
-        SwanAppConfigData azQ = com.baidu.swan.apps.v.f.aAl().azQ();
-        return (azQ == null || TextUtils.equals(azQ.azU(), this.cSe.getPage())) ? false : true;
+    private boolean apj() {
+        SwanAppConfigData azT = com.baidu.swan.apps.v.f.aAo().azT();
+        return (azT == null || TextUtils.equals(azT.azX(), this.cTE.getPage())) ? false : true;
     }
 
-    public String apg() {
-        return this.cSh != null ? this.cSh.aiY() : "";
+    public String apk() {
+        return this.cTH != null ? this.cTH.ajb() : "";
     }
 
-    public List<String> aph() {
+    public List<String> apl() {
         ArrayList arrayList = new ArrayList();
-        if (this.cSf != null && !this.cSf.isEmpty()) {
-            for (Map.Entry<String, com.baidu.swan.apps.adaptation.b.c> entry : this.cSf.entrySet()) {
+        if (this.cTF != null && !this.cTF.isEmpty()) {
+            for (Map.Entry<String, com.baidu.swan.apps.adaptation.b.c> entry : this.cTF.entrySet()) {
                 if (entry != null) {
-                    arrayList.add(entry.getValue().aiY());
+                    arrayList.add(entry.getValue().ajb());
                 }
             }
         }
-        if (this.cSh != null) {
-            String aiY = this.cSh.aiY();
-            if (!arrayList.contains(aiY)) {
-                arrayList.add(aiY);
+        if (this.cTH != null) {
+            String ajb = this.cTH.ajb();
+            if (!arrayList.contains(ajb)) {
+                arrayList.add(ajb);
             }
         }
         return arrayList;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean aiQ() {
-        if ((afS() == null || !afS().aId()) && !com.baidu.k.a.adc()) {
-            if (this.cSh != null) {
-                if (com.baidu.swan.apps.media.b.pq(this.cSh.aiY())) {
+    public boolean aiT() {
+        if ((afV() == null || !afV().aIg()) && !com.baidu.k.a.adf()) {
+            if (this.cTH != null) {
+                if (com.baidu.swan.apps.media.b.px(this.cTH.ajb())) {
                     return true;
                 }
-                return this.cSh.aiQ();
+                return this.cTH.aiT();
             }
             return false;
         }
@@ -676,85 +676,85 @@ public class e extends c implements a.InterfaceC0453a {
 
     @Override // com.baidu.swan.apps.core.d.c
     @DebugTrace
-    protected void ajx() {
-        FragmentActivity bdU = bdU();
-        if (this.cRJ == null) {
-            this.cRJ = new SwanAppMenuHeaderView(getContext());
+    protected void ajA() {
+        FragmentActivity bdW = bdW();
+        if (this.cTj == null) {
+            this.cTj = new SwanAppMenuHeaderView(getContext());
         }
-        if (bdU != null && this.cRI == null) {
-            this.cRI = new com.baidu.swan.menu.g(bdU, this.cRH, ajy(), com.baidu.swan.apps.t.a.axa(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.menu.a(this.cRI, this, this.cRJ).aCb();
-            if (com.baidu.swan.apps.menu.fontsize.b.aCr()) {
-                this.cRI.lD(50);
+        if (bdW != null && this.cTi == null) {
+            this.cTi = new com.baidu.swan.menu.g(bdW, this.cTh, ajB(), com.baidu.swan.apps.t.a.axd(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.menu.a(this.cTi, this, this.cTj).aCe();
+            if (com.baidu.swan.apps.menu.fontsize.b.aCu()) {
+                this.cTi.lE(50);
             }
         }
     }
 
-    private int ajy() {
-        return aoU() ? apf() ? 18 : 17 : apf() ? 12 : 15;
+    private int ajB() {
+        return aoX() ? apj() ? 18 : 17 : apj() ? 12 : 15;
     }
 
     /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.swan.apps.adaptation.b.d] */
     @NonNull
-    public Pair<Integer, Integer> apj() {
-        if (this.cSh == null) {
+    public Pair<Integer, Integer> apm() {
+        if (this.cTH == null) {
             return new Pair<>(0, 0);
         }
-        AbsoluteLayout currentWebView = this.cSh.aiW().getCurrentWebView();
+        AbsoluteLayout currentWebView = this.cTH.aiZ().getCurrentWebView();
         return currentWebView == null ? new Pair<>(0, 0) : new Pair<>(Integer.valueOf(currentWebView.getWidth()), Integer.valueOf(currentWebView.getHeight()));
     }
 
     @Nullable
-    public com.baidu.swan.apps.tabbar.b.a apk() {
-        return this.cSi;
+    public com.baidu.swan.apps.tabbar.b.a apn() {
+        return this.cTI;
     }
 
-    public com.baidu.swan.apps.model.b apl() {
-        return this.cSe;
+    public com.baidu.swan.apps.model.b apo() {
+        return this.cTE;
     }
 
-    public com.baidu.swan.apps.adaptation.b.c apm() {
-        return this.cSh;
+    public com.baidu.swan.apps.adaptation.b.c app() {
+        return this.cTH;
     }
 
-    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0453a
-    public com.baidu.swan.apps.res.widget.floatlayer.a afS() {
-        if (this.cCc == null) {
+    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0459a
+    public com.baidu.swan.apps.res.widget.floatlayer.a afV() {
+        if (this.cDC == null) {
             if (this.mRootView == null) {
                 return null;
             }
-            this.cCc = new com.baidu.swan.apps.res.widget.floatlayer.a(this, (LinearLayout) this.mRootView.findViewById(a.f.ai_apps_fragment_base_view), aoP().getDimensionPixelOffset(a.d.aiapps_normal_base_action_bar_height));
+            this.cDC = new com.baidu.swan.apps.res.widget.floatlayer.a(this, (LinearLayout) this.mRootView.findViewById(a.f.ai_apps_fragment_base_view), aoS().getDimensionPixelOffset(a.d.aiapps_normal_base_action_bar_height));
         }
-        return this.cCc;
+        return this.cDC;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public com.baidu.swan.apps.runtime.config.c aoJ() {
-        return this.cSm;
+    public com.baidu.swan.apps.runtime.config.c aoM() {
+        return this.cTM;
     }
 
-    private boolean apn() {
-        return this.cSm != null && this.cSm.dFG;
+    private boolean apq() {
+        return this.cTM != null && this.cTM.dHh;
     }
 
-    private boolean apo() {
-        if (this.cSm == null) {
+    private boolean apr() {
+        if (this.cTM == null) {
             return false;
         }
-        return TextUtils.equals(this.cSm.dFI, "custom");
+        return TextUtils.equals(this.cTM.dHj, "custom");
     }
 
-    private void mB(String str) {
-        if (!apo()) {
-            com.baidu.swan.apps.v.f aAl = com.baidu.swan.apps.v.f.aAl();
+    private void mI(String str) {
+        if (!apr()) {
+            com.baidu.swan.apps.v.f aAo = com.baidu.swan.apps.v.f.aAo();
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            if (aAl.pm(str).dFG && this.cSo == null) {
-                this.cSo = new com.baidu.swan.apps.core.f.c() { // from class: com.baidu.swan.apps.core.d.e.5
+            if (aAo.pt(str).dHh && this.cTO == null) {
+                this.cTO = new com.baidu.swan.apps.core.f.c() { // from class: com.baidu.swan.apps.core.d.e.5
                     @Override // com.baidu.swan.apps.core.f.c
                     public void onScrollChanged(int i, int i2, int i3, int i4) {
-                        e.this.gK(i2);
+                        e.this.gL(i2);
                     }
                 };
             }
@@ -763,77 +763,77 @@ public class e extends c implements a.InterfaceC0453a {
 
     private void a(com.baidu.swan.apps.adaptation.b.c cVar) {
         if (cVar != null) {
-            if (this.cSo != null) {
-                cVar.a(this.cSo);
+            if (this.cTO != null) {
+                cVar.a(this.cTO);
             }
-            cVar.a(app());
+            cVar.a(aps());
         }
     }
 
-    private com.baidu.swan.apps.core.f.e app() {
+    private com.baidu.swan.apps.core.f.e aps() {
         return new com.baidu.swan.apps.core.f.e() { // from class: com.baidu.swan.apps.core.d.e.6
             @Override // com.baidu.swan.apps.core.f.e
             public void a(com.baidu.swan.apps.adaptation.b.f fVar) {
                 if (fVar != null) {
-                    fVar.a(e.this.cSo);
-                    fVar.a(e.this.apq());
-                    com.baidu.swan.apps.y.f.aCU().a(fVar);
+                    fVar.a(e.this.cTO);
+                    fVar.a(e.this.apt());
+                    com.baidu.swan.apps.y.f.aCX().a(fVar);
                 }
             }
 
             @Override // com.baidu.swan.apps.core.f.e
             public void b(com.baidu.swan.apps.adaptation.b.f fVar) {
                 if (fVar != null) {
-                    fVar.b(e.this.cSo);
-                    com.baidu.swan.apps.y.f.aCU().b(fVar);
+                    fVar.b(e.this.cTO);
+                    com.baidu.swan.apps.y.f.aCX().b(fVar);
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.swan.apps.core.f.a apq() {
+    public com.baidu.swan.apps.core.f.a apt() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.core.d.e.7
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public void iv(String str) {
-                e.this.mv(str);
+            public void iB(String str) {
+                e.this.mC(str);
             }
         };
     }
 
     private void b(com.baidu.swan.apps.adaptation.b.c cVar) {
-        if (this.cSo != null && cVar != null) {
-            cVar.b(this.cSo);
-            if (cVar.aiP() != null) {
-                cVar.b(this.cSo);
+        if (this.cTO != null && cVar != null) {
+            cVar.b(this.cTO);
+            if (cVar.aiS() != null) {
+                cVar.b(this.cTO);
             }
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    private void apr() {
+    private void apu() {
         int i;
         boolean z;
         int i2;
         com.baidu.swan.apps.adaptation.b.d dVar;
-        if (this.cRH != null) {
-            if (apo()) {
+        if (this.cTh != null) {
+            if (apr()) {
                 fm(true);
                 z = true;
                 i2 = 1;
                 i = 0;
-            } else if (apn()) {
+            } else if (apq()) {
                 fm(false);
-                if (this.cSh != null) {
-                    if (this.cSh.aiP() != null) {
-                        dVar = this.cSh.aiP().aiW();
+                if (this.cTH != null) {
+                    if (this.cTH.aiS() != null) {
+                        dVar = this.cTH.aiS().aiZ();
                     } else {
-                        dVar = this.cSh.aiW();
+                        dVar = this.cTH.aiZ();
                     }
                     if (dVar != null) {
                         i = dVar.getWebViewScrollY();
-                        if (this.cSm == null && this.cSm.dFH) {
+                        if (this.cTM == null && this.cTM.dHi) {
                             z = true;
                             i2 = 0;
                         } else {
@@ -843,21 +843,21 @@ public class e extends c implements a.InterfaceC0453a {
                     }
                 }
                 i = 0;
-                if (this.cSm == null) {
+                if (this.cTM == null) {
                 }
                 z = true;
                 i2 = 1;
             } else {
                 fm(false);
-                i = cSc + this.cSn;
+                i = cTC + this.cTN;
                 z = false;
                 i2 = 1;
             }
-            TextView centerTitleView = this.cRH.getCenterTitleView();
+            TextView centerTitleView = this.cTh.getCenterTitleView();
             if (centerTitleView != null) {
                 centerTitleView.setAlpha(i2);
             }
-            gK(i);
+            gL(i);
             fn(z);
         }
     }
@@ -866,7 +866,7 @@ public class e extends c implements a.InterfaceC0453a {
         int i;
         int dimensionPixelSize;
         if (z) {
-            if (this.cRN == null || !this.cRN.aOT()) {
+            if (this.cTn == null || !this.cTn.aOW()) {
                 i = 0;
                 dimensionPixelSize = 0;
             } else {
@@ -875,23 +875,23 @@ public class e extends c implements a.InterfaceC0453a {
             }
         } else {
             i = 0;
-            dimensionPixelSize = aoP().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
+            dimensionPixelSize = aoS().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cSg.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cTG.getLayoutParams();
         layoutParams.topMargin = dimensionPixelSize;
-        this.cSg.setLayoutParams(layoutParams);
-        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.cRG.getLayoutParams();
+        this.cTG.setLayoutParams(layoutParams);
+        FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.cTg.getLayoutParams();
         layoutParams2.topMargin = i;
-        this.cRG.setLayoutParams(layoutParams2);
+        this.cTg.setLayoutParams(layoutParams2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gK(int i) {
+    public void gL(int i) {
         TextView centerTitleView;
-        View aOS;
+        View aOV;
         Drawable background;
         float f = 0.0f;
-        float f2 = ((i - cSc) * 1.0f) / (this.cSn == 0 ? 1 : this.cSn);
+        float f2 = ((i - cTC) * 1.0f) / (this.cTN == 0 ? 1 : this.cTN);
         if (f2 > 0.0f) {
             f = f2 >= 1.0f ? 1.0f : f2;
         }
@@ -899,76 +899,76 @@ public class e extends c implements a.InterfaceC0453a {
         if (DEBUG && i2 != 0 && i2 != 255) {
             Log.d("SwanAppFragment", "update bar transparent degree: " + f + " : " + i2);
         }
-        if (this.cRN != null && this.cRN.aOT() && (aOS = this.cRN.aOS()) != null && (background = aOS.getBackground()) != null) {
+        if (this.cTn != null && this.cTn.aOW() && (aOV = this.cTn.aOV()) != null && (background = aOV.getBackground()) != null) {
             background.setAlpha(i2);
         }
-        Drawable background2 = this.cRH.getBackground();
+        Drawable background2 = this.cTh.getBackground();
         if (background2 != null) {
             background2.setAlpha(i2);
         }
-        if (this.cSm != null && this.cSm.dFH && (centerTitleView = this.cRH.getCenterTitleView()) != null) {
+        if (this.cTM != null && this.cTM.dHi && (centerTitleView = this.cTh.getCenterTitleView()) != null) {
             centerTitleView.setAlpha(f);
         }
-        Drawable background3 = this.cRL.getBackground();
+        Drawable background3 = this.cTl.getBackground();
         if (background3 != null) {
             background3.setAlpha(i2);
         }
     }
 
-    private void aps() {
-        this.cSd = com.baidu.swan.apps.statistic.h.sI("805");
+    private void apv() {
+        this.cTD = com.baidu.swan.apps.statistic.h.sP("805");
     }
 
     public void a(com.baidu.swan.apps.statistic.a.g gVar) {
-        if (this.cSd != null) {
-            com.baidu.swan.apps.statistic.h.a(this.cSd, gVar);
-            this.cSd = null;
+        if (this.cTD != null) {
+            com.baidu.swan.apps.statistic.h.a(this.cTD, gVar);
+            this.cTD = null;
         }
     }
 
-    public void apt() {
-        this.cSm.dFI = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
-        aoK();
-        apr();
+    public void apw() {
+        this.cTM.dHj = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
+        aoN();
+        apu();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void apu() {
-        if (this.cRF != null) {
-            this.cRF.apu();
+    public void apx() {
+        if (this.cTf != null) {
+            this.cTf.apx();
         }
     }
 
     private void fo(boolean z) {
         if (com.baidu.swan.apps.x.a.gh(z)) {
-            com.baidu.swan.apps.x.a.a(getContext(), this.cRH, com.baidu.swan.apps.runtime.e.aIL().aIO().azq().paNumber);
-        } else if (com.baidu.swan.apps.runtime.e.aIL() != null) {
-            com.baidu.swan.apps.x.a.a(this.cRH, com.baidu.swan.apps.runtime.e.aIL().aJc().c("key_unread_counts_message", 0).intValue());
+            com.baidu.swan.apps.x.a.a(getContext(), this.cTh, com.baidu.swan.apps.runtime.e.aIO().aIR().azt().paNumber);
+        } else if (com.baidu.swan.apps.runtime.e.aIO() != null) {
+            com.baidu.swan.apps.x.a.a(this.cTh, com.baidu.swan.apps.runtime.e.aIO().aJf().c("key_unread_counts_message", (Integer) 0).intValue());
         }
     }
 
     private void fp(boolean z) {
         if (com.baidu.swan.apps.x.a.gh(z)) {
-            com.baidu.swan.apps.x.a.a(getContext(), this.cRI, com.baidu.swan.apps.runtime.e.aIL().aIO().azq().paNumber);
+            com.baidu.swan.apps.x.a.a(getContext(), this.cTi, com.baidu.swan.apps.runtime.e.aIO().aIR().azt().paNumber);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        static int cSt = -1;
+        static int cTT = -1;
 
-        static int apv() {
-            if (cSt < 0) {
-                cSt = com.baidu.swan.apps.t.a.awZ().getSwitch("swan_app_fragment_destroy_switch", 1);
+        static int apy() {
+            if (cTT < 0) {
+                cTT = com.baidu.swan.apps.t.a.axc().getSwitch("swan_app_fragment_destroy_switch", 1);
             }
             if (e.DEBUG) {
-                Log.d("SwanAppFragment", "getFragmentDestroySwitch:" + cSt);
+                Log.d("SwanAppFragment", "getFragmentDestroySwitch:" + cTT);
             }
-            return cSt;
+            return cTT;
         }
 
-        static boolean apw() {
-            return apv() > 0;
+        static boolean apz() {
+            return apy() > 0;
         }
     }
 }

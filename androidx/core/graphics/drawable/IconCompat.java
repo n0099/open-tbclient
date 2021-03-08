@@ -51,7 +51,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class IconCompat extends CustomVersionedParcelable {
     private static final float ADAPTIVE_ICON_INSET_FACTOR = 0.25f;
     private static final int AMBIENT_SHADOW_ALPHA = 30;
@@ -88,7 +88,7 @@ public class IconCompat extends CustomVersionedParcelable {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public @interface IconType {
     }
 

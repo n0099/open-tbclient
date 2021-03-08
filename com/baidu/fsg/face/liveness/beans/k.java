@@ -19,9 +19,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class k extends l {
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2277b;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -45,7 +43,7 @@ public class k extends l {
         super(context);
         this.c = RimGlobalUtils.getZid2();
         if (TextUtils.isEmpty(this.c)) {
-            this.f2277b = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.b = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
@@ -81,15 +79,15 @@ public class k extends l {
         }
         String randomString = RandomUtils.getRandomString(4096);
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f2278a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f1755a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         }
         arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
         if (!TextUtils.isEmpty(this.c)) {
             arrayList.add(new RestNameValuePair("zid2", this.c));
-        } else if (!TextUtils.isEmpty(this.f2277b)) {
-            arrayList.add(new RestNameValuePair("zid", this.f2277b));
+        } else if (!TextUtils.isEmpty(this.b)) {
+            arrayList.add(new RestNameValuePair("zid", this.b));
         }
         arrayList.add(new RestNameValuePair("report_type", this.d));
         if (!TextUtils.isEmpty(this.e)) {

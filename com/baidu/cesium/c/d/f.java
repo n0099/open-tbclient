@@ -13,11 +13,11 @@ import java.util.Map;
 import javax.crypto.BadPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class f {
-    private static final Map<String, byte[]> l = Collections.synchronizedMap(new HashMap());
-    private MessageDigest anq;
-    private MessageDigest anr;
+    private static final Map<String, byte[]> aoR = Collections.synchronizedMap(new HashMap());
+    private MessageDigest aoP;
+    private MessageDigest aoQ;
     private final int e;
     private final int f;
     private SecureRandom g;
@@ -61,9 +61,9 @@ public final class f {
                         throw new InvalidKeyException("Digest SHA-1 not available", e);
                     }
                 }
-                this.anq = MessageDigest.getInstance(str);
-                this.anr = MessageDigest.getInstance(str2);
-                this.k = c(this.anq, bArr);
+                this.aoP = MessageDigest.getInstance(str);
+                this.aoQ = MessageDigest.getInstance(str2);
+                this.k = c(this.aoP, bArr);
                 this.h = (i2 - 2) - (this.k.length * 2);
                 if (this.h <= 0) {
                     throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str + " and MGF1" + str2);
@@ -88,10 +88,10 @@ public final class f {
         int i5 = i4;
         int i6 = i3;
         while (i5 > 0) {
-            this.anr.update(bArr, i, i2);
-            this.anr.update(bArr3);
+            this.aoQ.update(bArr, i, i2);
+            this.aoQ.update(bArr3);
             try {
-                this.anr.digest(bArr4, 0, bArr4.length);
+                this.aoQ.digest(bArr4, 0, bArr4.length);
                 int i7 = 0;
                 int i8 = i5;
                 while (i7 < bArr4.length && i8 > 0) {
@@ -104,9 +104,9 @@ public final class f {
                     int length = bArr3.length;
                     while (true) {
                         length--;
-                        byte b2 = (byte) (bArr3[length] + 1);
-                        bArr3[length] = b2;
-                        if (b2 != 0 || length <= 0) {
+                        byte b = (byte) (bArr3[length] + 1);
+                        bArr3[length] = b;
+                        if (b != 0 || length <= 0) {
                             break;
                         }
                     }
@@ -123,10 +123,10 @@ public final class f {
     private static byte[] c(MessageDigest messageDigest, byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             String algorithm = messageDigest.getAlgorithm();
-            byte[] bArr2 = l.get(algorithm);
+            byte[] bArr2 = aoR.get(algorithm);
             if (bArr2 == null) {
                 byte[] digest = messageDigest.digest();
-                l.put(algorithm, digest);
+                aoR.put(algorithm, digest);
                 return digest;
             }
             return bArr2;
@@ -146,7 +146,7 @@ public final class f {
         bArr2[1] = (byte) this.e;
         if (this.e != 1) {
             if (this.g == null) {
-                this.g = b.ane;
+                this.g = b.aoD;
             }
             byte[] bArr3 = new byte[64];
             int i5 = 2;
@@ -217,9 +217,9 @@ public final class f {
         }
     }
 
-    private byte[] e(byte[] bArr) {
+    private byte[] t(byte[] bArr) {
         if (this.g == null) {
-            this.g = b.ane;
+            this.g = b.aoD;
         }
         int length = this.k.length;
         byte[] bArr2 = new byte[length];
@@ -237,7 +237,7 @@ public final class f {
         return bArr3;
     }
 
-    private byte[] f(byte[] bArr) {
+    private byte[] u(byte[] bArr) {
         int length = this.k.length;
         if (bArr[0] != 0) {
             throw new BadPaddingException("Data must start with zero");
@@ -283,7 +283,7 @@ public final class f {
             case 3:
                 return bArr;
             case 4:
-                return e(bArr);
+                return t(bArr);
             default:
                 throw new AssertionError();
         }
@@ -300,7 +300,7 @@ public final class f {
             case 3:
                 return bArr;
             case 4:
-                return f(bArr);
+                return u(bArr);
             default:
                 throw new AssertionError();
         }

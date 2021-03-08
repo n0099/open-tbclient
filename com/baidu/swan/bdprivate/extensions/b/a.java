@@ -18,7 +18,7 @@ import java.util.Iterator;
 import okhttp3.HttpUrl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends i {
     public a(j jVar) {
         super(jVar, "/swanAPI/adRequest");
@@ -37,12 +37,12 @@ public class a extends i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(@NonNull e eVar, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        JSONObject b2 = b(unitedSchemeEntity, "params");
-        String optString = b2.optString("cb");
+        JSONObject b = b(unitedSchemeEntity, "params");
+        String optString = b.optString("cb");
         try {
-            String optString2 = b2.optString("url");
-            b(b2, optString2, ai.isBaiduDomain(optString2));
-            unitedSchemeEntity.putParams("params", b2.toString());
+            String optString2 = b.optString("url");
+            b(b, optString2, ai.isBaiduDomain(optString2));
+            unitedSchemeEntity.putParams("params", b.toString());
             if (!super.a(eVar, unitedSchemeEntity, callbackHandler, str)) {
                 c.e("AdRequest", "request fail");
                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
@@ -61,7 +61,7 @@ public class a extends i {
             if (!z) {
                 str2 = "";
             } else {
-                str2 = aDc();
+                str2 = aDf();
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
                 if (optJSONObject2 == null) {
                     optJSONObject2 = new JSONObject();
@@ -78,7 +78,7 @@ public class a extends i {
                 String next = keys.next();
                 String optString = optJSONObject.optString(next);
                 if (TextUtils.equals(optString, "cuid")) {
-                    str3 = com.baidu.swan.apps.t.a.axb().cb(com.baidu.swan.apps.t.a.awW());
+                    str3 = com.baidu.swan.apps.t.a.axe().ca(com.baidu.swan.apps.t.a.awZ());
                 } else if (TextUtils.equals(optString, ETAG.KEY_BAIDU_ID) && z) {
                     str3 = ai.getCookieValue(str2, "BAIDUID");
                 } else {

@@ -19,7 +19,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ByteString implements Serializable, Comparable<ByteString> {
     private static final long serialVersionUID = 1;
     final byte[] data;
@@ -170,10 +170,10 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         int i = 0;
         int i2 = 0;
         while (i < length) {
-            byte b2 = bArr[i];
+            byte b = bArr[i];
             int i3 = i2 + 1;
-            cArr[i2] = HEX_DIGITS[(b2 >> 4) & 15];
-            cArr[i3] = HEX_DIGITS[b2 & 15];
+            cArr[i2] = HEX_DIGITS[(b >> 4) & 15];
+            cArr[i3] = HEX_DIGITS[b & 15];
             i++;
             i2 = i3 + 1;
         }
@@ -231,16 +231,16 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         while (true) {
             int i2 = i;
             if (i2 < this.data.length) {
-                byte b2 = this.data[i2];
-                if (b2 < 65 || b2 > 90) {
+                byte b = this.data[i2];
+                if (b < 65 || b > 90) {
                     i = i2 + 1;
                 } else {
                     byte[] bArr = (byte[]) this.data.clone();
-                    bArr[i2] = (byte) (b2 + 32);
+                    bArr[i2] = (byte) (b + 32);
                     for (int i3 = i2 + 1; i3 < bArr.length; i3++) {
-                        byte b3 = bArr[i3];
-                        if (b3 >= 65 && b3 <= 90) {
-                            bArr[i3] = (byte) (b3 + 32);
+                        byte b2 = bArr[i3];
+                        if (b2 >= 65 && b2 <= 90) {
+                            bArr[i3] = (byte) (b2 + 32);
                         }
                     }
                     return new ByteString(bArr);
@@ -256,16 +256,16 @@ public class ByteString implements Serializable, Comparable<ByteString> {
         while (true) {
             int i2 = i;
             if (i2 < this.data.length) {
-                byte b2 = this.data[i2];
-                if (b2 < 97 || b2 > 122) {
+                byte b = this.data[i2];
+                if (b < 97 || b > 122) {
                     i = i2 + 1;
                 } else {
                     byte[] bArr = (byte[]) this.data.clone();
-                    bArr[i2] = (byte) (b2 - 32);
+                    bArr[i2] = (byte) (b - 32);
                     for (int i3 = i2 + 1; i3 < bArr.length; i3++) {
-                        byte b3 = bArr[i3];
-                        if (b3 >= 97 && b3 <= 122) {
-                            bArr[i3] = (byte) (b3 - 32);
+                        byte b2 = bArr[i3];
+                        if (b2 >= 97 && b2 <= 122) {
+                            bArr[i3] = (byte) (b2 - 32);
                         }
                     }
                     return new ByteString(bArr);

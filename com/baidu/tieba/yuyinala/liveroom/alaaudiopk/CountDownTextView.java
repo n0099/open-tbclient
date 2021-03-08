@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CountDownTextView extends TextView {
-    private a osZ;
+    private a ovf;
 
     public CountDownTextView(Context context) {
         super(context);
@@ -17,24 +17,24 @@ public class CountDownTextView extends TextView {
     }
 
     public a getData() {
-        return this.osZ;
+        return this.ovf;
     }
 
     public void setData(a aVar) {
-        this.osZ = aVar;
-        if (this.osZ != null) {
-            setText(aVar.otb);
+        this.ovf = aVar;
+        if (this.ovf != null) {
+            setText(aVar.ovh);
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public int ota;
-        public String otb;
+        public int ovg;
+        public String ovh;
 
         public a(int i, String str) {
-            this.ota = i;
-            this.otb = str;
+            this.ovg = i;
+            this.ovh = str;
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.live.alablmsdk.c.b;
 
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface f {
     void a(b bVar);
 
@@ -17,7 +17,7 @@ public interface f {
 
     void c(com.baidu.live.alablmsdk.module.rtc.c cVar);
 
-    void ch(int i);
+    void ci(int i);
 
     void d(com.baidu.live.alablmsdk.module.c cVar);
 
@@ -35,5 +35,5 @@ public interface f {
 
     void onError(int i, String str);
 
-    List<com.baidu.live.alablmsdk.module.c> yd();
+    List<com.baidu.live.alablmsdk.module.c> yg();
 }

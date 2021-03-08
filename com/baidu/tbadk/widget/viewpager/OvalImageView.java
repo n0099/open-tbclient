@@ -18,17 +18,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.c;
 /* loaded from: classes.dex */
 public class OvalImageView extends ImageView {
-    private static final int gaM = ap.getColor(R.color.CAM_X0306);
+    private static final int gcm = ap.getColor(R.color.CAM_X0306);
     private int color;
     private int endColor;
-    private PorterDuffXfermode fNV;
-    private PorterDuffXfermode fNW;
-    private boolean fOj;
-    private Paint fOm;
-    private float[] fOn;
-    private float[] fOo;
-    private LinearGradient fOp;
-    private boolean gaN;
+    private boolean fPJ;
+    private Paint fPM;
+    private float[] fPN;
+    private float[] fPO;
+    private LinearGradient fPP;
+    private PorterDuffXfermode fPv;
+    private PorterDuffXfermode fPw;
+    private boolean gcn;
     private Drawable mIcon;
     private Paint mPaint;
     private Path mPath;
@@ -45,39 +45,39 @@ public class OvalImageView extends ImageView {
 
     public OvalImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fOj = true;
-        this.fOn = new float[4];
-        this.fOo = new float[4];
-        this.gaN = true;
-        this.color = gaM;
-        this.fNV = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.fNW = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.fPJ = true;
+        this.fPN = new float[4];
+        this.fPO = new float[4];
+        this.gcn = true;
+        this.color = gcm;
+        this.fPv = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.fPw = new PorterDuffXfermode(PorterDuff.Mode.SRC);
         this.mSkinType = 3;
         init();
     }
 
     private void init() {
-        bGf();
+        bGj();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setAntiAlias(true);
-        this.fOm = new Paint();
-        this.fOm.setColor(ap.getColor(R.color.CAM_X0101));
-        this.fOm.setStrokeCap(Paint.Cap.ROUND);
-        this.fOm.setAntiAlias(true);
+        this.fPM = new Paint();
+        this.fPM.setColor(ap.getColor(R.color.CAM_X0101));
+        this.fPM.setStrokeCap(Paint.Cap.ROUND);
+        this.fPM.setAntiAlias(true);
         setLayerType(1, null);
     }
 
-    private void bGf() {
+    private void bGj() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType == 0) {
-            this.startColor = c.rM("#2bb8ff");
-            this.endColor = c.rM("#2b80ff");
+            this.startColor = c.rT("#2bb8ff");
+            this.endColor = c.rT("#2b80ff");
         } else if (this.mSkinType == 1 || this.mSkinType == 4) {
-            this.startColor = c.rM("#249BD6");
-            this.endColor = c.rM("#246CD6");
+            this.startColor = c.rT("#249BD6");
+            this.endColor = c.rT("#246CD6");
         }
     }
 
@@ -128,34 +128,34 @@ public class OvalImageView extends ImageView {
             this.mPath.cubicTo(f - f3, height2, width, f2 + f4, width, f2);
             this.mPath.cubicTo(width, f2 - f4, f - f3, height, f, height);
             this.mPath.close();
-            if (this.fOj) {
-                this.fOp = new LinearGradient(width, 0.0f, width2, 0.0f, new int[]{this.startColor, this.endColor}, (float[]) null, Shader.TileMode.CLAMP);
-                this.fOj = false;
+            if (this.fPJ) {
+                this.fPP = new LinearGradient(width, 0.0f, width2, 0.0f, new int[]{this.startColor, this.endColor}, (float[]) null, Shader.TileMode.CLAMP);
+                this.fPJ = false;
             }
-            if (this.gaN) {
+            if (this.gcn) {
                 float width3 = 0.054f * canvas.getWidth();
                 float width4 = canvas.getWidth() * 0.0226f;
                 double radians = Math.toRadians(getRotation() - 45.0f);
-                this.mPaint.setShadowLayer(width3, (float) (width4 * Math.cos(radians)), (-1.0f) * ((float) (Math.sin(radians) * width4)), c.l(this.fOp == null ? this.color : this.endColor, 0.83f));
+                this.mPaint.setShadowLayer(width3, (float) (width4 * Math.cos(radians)), (-1.0f) * ((float) (Math.sin(radians) * width4)), c.l(this.fPP == null ? this.color : this.endColor, 0.83f));
             }
-            if (this.fOp != null) {
-                this.mPaint.setShader(this.fOp);
+            if (this.fPP != null) {
+                this.mPaint.setShader(this.fPP);
             } else {
                 this.mPaint.setColor(this.color);
             }
             canvas.drawPath(this.mPath, this.mPaint);
-            this.fOn[0] = ((3.0f * f) + width) / 4.0f;
-            this.fOn[1] = ((3.0f * f2) + height) / 4.0f;
-            this.fOn[2] = ((3.0f * f) + width2) / 4.0f;
-            this.fOn[3] = ((3.0f * f2) + height2) / 4.0f;
-            this.fOo[0] = (width2 + (3.0f * f)) / 4.0f;
-            this.fOo[1] = (height + (3.0f * f2)) / 4.0f;
-            this.fOo[2] = ((3.0f * f) + width) / 4.0f;
-            this.fOo[3] = ((3.0f * f2) + height2) / 4.0f;
+            this.fPN[0] = ((3.0f * f) + width) / 4.0f;
+            this.fPN[1] = ((3.0f * f2) + height) / 4.0f;
+            this.fPN[2] = ((3.0f * f) + width2) / 4.0f;
+            this.fPN[3] = ((3.0f * f2) + height2) / 4.0f;
+            this.fPO[0] = (width2 + (3.0f * f)) / 4.0f;
+            this.fPO[1] = (height + (3.0f * f2)) / 4.0f;
+            this.fPO[2] = ((3.0f * f) + width) / 4.0f;
+            this.fPO[3] = ((3.0f * f2) + height2) / 4.0f;
             N(canvas);
-            this.fOm.setStrokeWidth(canvas.getWidth() * 0.032f);
-            canvas.drawLines(this.fOn, this.fOm);
-            canvas.drawLines(this.fOo, this.fOm);
+            this.fPM.setStrokeWidth(canvas.getWidth() * 0.032f);
+            canvas.drawLines(this.fPN, this.fPM);
+            canvas.drawLines(this.fPO, this.fPM);
         }
         if (saveCount2 >= 1 && saveCount2 <= canvas.getSaveCount()) {
             canvas.restoreToCount(saveCount2);
@@ -164,7 +164,7 @@ public class OvalImageView extends ImageView {
 
     private void N(Canvas canvas) {
         if (this.mIcon == null) {
-            this.fOm.setAlpha(255);
+            this.fPM.setAlpha(255);
             return;
         }
         if (Build.VERSION.SDK_INT < 19 || this.mIcon.getAlpha() > 0) {
@@ -182,10 +182,10 @@ public class OvalImageView extends ImageView {
             if (this.mIcon != null) {
                 this.mIcon.setAlpha(255);
             }
-            this.fOm.setAlpha(0);
+            this.fPM.setAlpha(0);
         } else {
             this.mIcon = null;
-            this.fOm.setAlpha(255);
+            this.fPM.setAlpha(255);
         }
         postInvalidate();
     }
@@ -196,9 +196,9 @@ public class OvalImageView extends ImageView {
             int i = (int) (255.0f * f2 * 2.0f);
             if (f2 > 0.0f) {
                 this.mIcon.setAlpha(i);
-                this.fOm.setAlpha(0);
+                this.fPM.setAlpha(0);
             } else {
-                this.fOm.setAlpha(-i);
+                this.fPM.setAlpha(-i);
                 this.mIcon.setAlpha(0);
             }
             invalidate();
@@ -212,27 +212,27 @@ public class OvalImageView extends ImageView {
     }
 
     private void clear(Canvas canvas) {
-        this.mPaint.setXfermode(this.fNV);
+        this.mPaint.setXfermode(this.fPv);
         canvas.drawPaint(this.mPaint);
-        this.mPaint.setXfermode(this.fNW);
+        this.mPaint.setXfermode(this.fPw);
     }
 
     public void setStartAndEndColor(String str, String str2) {
-        this.startColor = c.rM(str);
-        this.endColor = c.rM(str2);
-        this.fOj = true;
+        this.startColor = c.rT(str);
+        this.endColor = c.rT(str2);
+        this.fPJ = true;
         invalidate();
     }
 
     public void setStartAndEndColor(int i, int i2) {
         this.startColor = i;
         this.endColor = i2;
-        this.fOj = true;
+        this.fPJ = true;
         invalidate();
     }
 
     public void setNeedShadow(boolean z) {
-        this.gaN = z;
+        this.gcn = z;
     }
 
     public void setColor(int i) {
@@ -240,6 +240,6 @@ public class OvalImageView extends ImageView {
     }
 
     public void setStringColor(String str) {
-        this.color = c.rM(str);
+        this.color = c.rT(str);
     }
 }

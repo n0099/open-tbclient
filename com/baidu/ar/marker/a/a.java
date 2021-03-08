@@ -2,7 +2,7 @@ package com.baidu.ar.marker.a;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.baidu.ar.marker.a.a.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class a {
     private final Context appContext;
     private final String url;
@@ -28,18 +28,18 @@ class a {
     public Pair<FileExtension, InputStream> kj() {
         FileExtension fileExtension;
         try {
-            File bn = bn(this.url);
-            if (bn == null) {
+            File br = br(this.url);
+            if (br == null) {
                 return null;
             }
             try {
-                FileInputStream fileInputStream = new FileInputStream(bn);
-                if (bn.getAbsolutePath().endsWith(".zip")) {
+                FileInputStream fileInputStream = new FileInputStream(br);
+                if (br.getAbsolutePath().endsWith(".zip")) {
                     fileExtension = FileExtension.Zip;
                 } else {
                     fileExtension = FileExtension.Json;
                 }
-                d.debug("Cache hit for " + this.url + " at " + bn.getAbsolutePath());
+                d.debug("Cache hit for " + this.url + " at " + br.getAbsolutePath());
                 return new Pair<>(fileExtension, fileInputStream);
             } catch (FileNotFoundException e) {
                 return null;
@@ -82,7 +82,7 @@ class a {
     }
 
     @Nullable
-    private File bn(String str) throws FileNotFoundException {
+    private File br(String str) throws FileNotFoundException {
         File file = new File(this.appContext.getCacheDir(), a(str, FileExtension.Json, false));
         if (!file.exists()) {
             File file2 = new File(this.appContext.getCacheDir(), a(str, FileExtension.Zip, false));

@@ -20,9 +20,9 @@ import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements k.a {
     private boolean isLeft;
-    private boolean jpx;
-    public k kEG;
-    private a kEH;
+    private boolean jrg;
+    public k kGI;
+    private a kGJ;
     private final Path mDefaultPath;
     public int position;
 
@@ -44,8 +44,8 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this.isLeft = true;
         this.position = 0;
         this.mDefaultPath = new Path();
-        this.jpx = true;
-        this.kEH = null;
+        this.jrg = true;
+        this.kGJ = null;
         init(context, attributeSet, i);
     }
 
@@ -78,20 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
             }
         }
         if (z) {
-            this.kEG = new h();
+            this.kGI = new h();
         } else {
-            this.kEG = new n();
+            this.kGI = new n();
         }
-        this.Ss.isChatPage = true;
-        this.kEG.a(this);
-        this.St = this.kEG;
-        this.St.a(this.Ss);
+        this.TQ.isChatPage = true;
+        this.kGI.a(this);
+        this.TR = this.kGI;
+        this.TR.a(this.TQ);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.kEG.releaseMemory();
+        this.kGI.releaseMemory();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.kEG.releaseMemory();
-        } else if (!this.jpx) {
-            this.kEG.onFinishComputeBounds();
+            this.kGI.releaseMemory();
+        } else if (!this.jrg) {
+            this.kGI.onFinishComputeBounds();
             invalidate();
         } else {
-            this.jpx = false;
+            this.jrg = false;
         }
     }
 
@@ -116,9 +116,9 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         this.isLeft = z;
     }
 
-    public void cVp() {
-        this.kEG.onFinishComputeBounds();
-        this.kEG.setPathAvailable(true);
+    public void cVw() {
+        this.kGI.onFinishComputeBounds();
+        this.kGI.setPathAvailable(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
@@ -127,7 +127,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
         com.baidu.adp.widget.ImageView.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
         boolean z3 = bdImage != null && bdImage.isValidNow();
-        k kVar = this.kEG;
+        k kVar = this.kGI;
         if (z3 || z2) {
             z = true;
         }
@@ -138,7 +138,7 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public com.baidu.adp.widget.ImageView.a getDefaultBdImage() {
-        this.kEG.setPathAvailable(false);
+        this.kGI.setPathAvailable(false);
         return super.getDefaultBdImage();
     }
 
@@ -203,15 +203,15 @@ public class ChatClipImageItemView extends TbImageView implements k.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.kEH == null) {
+        if (this.kGJ == null) {
             ap.setBackgroundColor(this, R.color.CAM_X0204);
         } else {
-            this.kEH.ai(canvas);
+            this.kGJ.ai(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.kEH = aVar;
+        this.kGJ = aVar;
     }
 }

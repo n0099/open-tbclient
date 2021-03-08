@@ -1,7 +1,7 @@
 package com.airbnb.lottie.a.a;
 
 import java.util.ListIterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 interface i {
     void b(ListIterator<b> listIterator);
 }

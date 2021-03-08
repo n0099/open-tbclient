@@ -4,23 +4,23 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.editortools.emotiontool.a;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class v extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static v iWJ;
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> iGR = new LinkedList<>();
+    private static v iYs;
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> iIA = new LinkedList<>();
 
     private v() {
     }
 
-    public static v czF() {
-        if (iWJ == null) {
+    public static v czL() {
+        if (iYs == null) {
             synchronized (v.class) {
-                if (iWJ == null) {
-                    iWJ = new v();
+                if (iYs == null) {
+                    iYs = new v();
                 }
             }
         }
-        return iWJ;
+        return iYs;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
@@ -29,18 +29,18 @@ public class v extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void a(a.InterfaceC0573a interfaceC0573a) {
+    public void a(a.InterfaceC0579a interfaceC0579a) {
         if (com.baidu.tbadk.core.util.o.checkSD()) {
-            List<MyEmotionGroupData> Jx = a.cyv().Jx(TbadkApplication.getCurrentAccount());
-            this.iGR.clear();
-            for (MyEmotionGroupData myEmotionGroupData : Jx) {
-                EmotionGroupData JD = i.cyL().JD(myEmotionGroupData.getGroupId());
-                if (JD != null) {
-                    c cVar = new c(JD);
-                    if (cVar.bBC() != null) {
-                        this.iGR.add(cVar);
-                        if (interfaceC0573a != null) {
-                            interfaceC0573a.a(cVar);
+            List<MyEmotionGroupData> JG = a.cyB().JG(TbadkApplication.getCurrentAccount());
+            this.iIA.clear();
+            for (MyEmotionGroupData myEmotionGroupData : JG) {
+                EmotionGroupData JM = i.cyR().JM(myEmotionGroupData.getGroupId());
+                if (JM != null) {
+                    c cVar = new c(JM);
+                    if (cVar.bBF() != null) {
+                        this.iIA.add(cVar);
+                        if (interfaceC0579a != null) {
+                            interfaceC0579a.a(cVar);
                         }
                     }
                 }

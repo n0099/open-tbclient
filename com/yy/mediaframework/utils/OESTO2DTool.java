@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OESTO2DTool {
     public static String fragmentShader = "#extension GL_OES_EGL_image_external : require                     \nprecision mediump float;                                           \nvarying vec2 vTexCoord;                                            \nuniform samplerExternalOES uTexture0;                              \nvoid main()                                                        \n{                                                                  \n    vec4 color = texture2D(uTexture0, vTexCoord);                  \n    gl_FragColor = color; //vec4(color.y, color.y, color.y, 1.0);  \n}";
     public static final String vertexShader = "attribute vec4 aPosition;          \nattribute vec4 aTextureCoord;      \nvarying vec2 vTexCoord;            \nvoid main()                        \n{                                  \n    gl_Position = aPosition;       \n    vTexCoord = aTextureCoord.xy;  \n}";

@@ -2,9 +2,9 @@ package com.baidu.live.ag;
 
 import com.baidu.live.data.ab;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void ab(JSONObject jSONObject);
+    void ad(JSONObject jSONObject);
 
     void dc(boolean z);
 

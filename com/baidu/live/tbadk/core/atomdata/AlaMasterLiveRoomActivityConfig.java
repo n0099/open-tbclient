@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.core.atomdata;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaMasterLiveRoomActivityConfig extends IntentConfig {
     public static final String CREATE_MASTER_LIVE_TYPE = "create_master_live_type";
     public static final int CREATE_MASTER_LIVE_TYPE_FROM_CRASH_REOPEN = 2;

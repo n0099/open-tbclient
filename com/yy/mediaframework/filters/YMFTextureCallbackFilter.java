@@ -8,7 +8,7 @@ import com.yy.mediaframework.opengles.YMFFramebuffer;
 import com.yy.mediaframework.opengles.YMFShaderData;
 import com.yy.mediaframework.stat.VideoDataStatUtil;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFTextureCallbackFilter extends AbstractYYMediaFilter {
     private static final String TAG = "YMFTextureCallbackFilter";
     private boolean mCallBackInited;

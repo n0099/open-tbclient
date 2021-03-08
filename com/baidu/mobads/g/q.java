@@ -7,20 +7,18 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.lang.Thread;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class q implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3357a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Thread.UncaughtExceptionHandler f3358b;
+    public static String f2399a = "";
+    private static Thread.UncaughtExceptionHandler b;
     private static volatile q c;
     private Context d;
     private a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(String str);
     }
@@ -38,7 +36,7 @@ public class q implements Thread.UncaughtExceptionHandler {
 
     private q(Context context) {
         this.d = context.getApplicationContext();
-        f3358b = Thread.getDefaultUncaughtExceptionHandler();
+        b = Thread.getDefaultUncaughtExceptionHandler();
         com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new r(this));
     }
 
@@ -58,8 +56,8 @@ public class q implements Thread.UncaughtExceptionHandler {
                     this.e.a(a2);
                 }
             }
-            if (f3358b != null) {
-                f3358b.uncaughtException(thread, th);
+            if (b != null) {
+                b.uncaughtException(thread, th);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);
@@ -115,7 +113,7 @@ public class q implements Thread.UncaughtExceptionHandler {
         SharedPreferences.Editor d = d();
         d.putString("key_crash_source", str);
         d.putString("key_crash_trace", ("crashtime:" + System.currentTimeMillis() + " ") + str2);
-        d.putString("key_crash_ad", f3357a);
+        d.putString("key_crash_ad", f2399a);
         if (Build.VERSION.SDK_INT >= 9) {
             d.apply();
         } else {

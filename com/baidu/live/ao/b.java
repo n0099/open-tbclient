@@ -3,41 +3,41 @@ package com.baidu.live.ao;
 import com.baidu.live.data.AlaWheatInfoData;
 import com.baidu.live.data.ab;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void G(String str, boolean z);
 
-    boolean Yk();
+    boolean Yn();
 
-    AlaWheatInfoData Yl();
+    AlaWheatInfoData Yo();
 
-    List<AlaWheatInfoData> Ym();
+    List<AlaWheatInfoData> Yp();
 
-    List<AlaWheatInfoData> Yn();
-
-    String Yo();
-
-    String Yp();
-
-    ab Yq();
+    List<AlaWheatInfoData> Yq();
 
     String Yr();
 
-    void Ys();
+    String Ys();
 
-    void Yt();
+    ab Yt();
+
+    String Yu();
+
+    void Yv();
+
+    void Yw();
 
     String getCustomRoomId();
 
-    boolean iH(String str);
+    boolean iN(String str);
 
-    boolean iI(String str);
+    boolean iO(String str);
 
-    boolean iJ(String str);
+    boolean iP(String str);
 
-    AlaWheatInfoData iK(String str);
+    AlaWheatInfoData iQ(String str);
 
-    boolean iL(String str);
+    boolean iR(String str);
 
     boolean isApplying();
 

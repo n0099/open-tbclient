@@ -3,17 +3,17 @@ package com.baidu.live.im.d;
 import android.view.View;
 import androidx.annotation.NonNull;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void H(String str, int i);
     }
 
-    void LG();
+    void LJ();
 
-    void LH();
+    void LK();
 
     @NonNull
     View getView();

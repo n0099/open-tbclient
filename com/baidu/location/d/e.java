@@ -18,10 +18,8 @@ public abstract class e {
     public static int g = a.g;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2633a = "10.0.0.172";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static int f2634b = 80;
+    private static String f1969a = "10.0.0.172";
+    private static int b = 80;
     protected static int p = 0;
 
     private static int a(Context context, NetworkInfo networkInfo) {
@@ -29,11 +27,11 @@ public abstract class e {
         if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
             if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 String defaultHost = Proxy.getDefaultHost();
-                f2633a = (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) ? "10.0.0.172" : "10.0.0.172";
+                f1969a = (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) ? "10.0.0.172" : "10.0.0.172";
                 return a.d;
             } else if (lowerCase.startsWith("ctwap")) {
                 String defaultHost2 = Proxy.getDefaultHost();
-                f2633a = (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) ? "10.0.0.200" : "10.0.0.200";
+                f1969a = (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) ? "10.0.0.200" : "10.0.0.200";
                 return a.d;
             } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                 return a.e;
@@ -42,10 +40,10 @@ public abstract class e {
         String defaultHost3 = Proxy.getDefaultHost();
         if (defaultHost3 != null && defaultHost3.length() > 0) {
             if ("10.0.0.172".equals(defaultHost3.trim())) {
-                f2633a = "10.0.0.172";
+                f1969a = "10.0.0.172";
                 return a.d;
             } else if ("10.0.0.200".equals(defaultHost3.trim())) {
-                f2633a = "10.0.0.200";
+                f1969a = "10.0.0.200";
                 return a.d;
             }
         }

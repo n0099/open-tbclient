@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class LocalBroadcastManager {
     private static final boolean DEBUG = false;
     static final int MSG_EXEC_PENDING_BROADCASTS = 1;
@@ -26,7 +26,7 @@ public final class LocalBroadcastManager {
     private final ArrayList<BroadcastRecord> mPendingBroadcasts = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ReceiverRecord {
         boolean broadcasting;
         boolean dead;
@@ -53,7 +53,7 @@ public final class LocalBroadcastManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class BroadcastRecord {
         final Intent intent;
         final ArrayList<ReceiverRecord> receivers;

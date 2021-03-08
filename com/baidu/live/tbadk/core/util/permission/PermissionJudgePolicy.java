@@ -17,18 +17,18 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PermissionJudgePolicy {
     private PermissionDialogClickListener mDialogClickListener;
     private OnPermissionsGrantedListener mOnPermissionsGrantedListener;
     private ArrayList<String> requestPermissionList = new ArrayList<>();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnPermissionsGrantedListener {
         void onPermissionsGranted();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface PermissionDialogClickListener {
         void onDialogCaneled(String str);
 
@@ -56,7 +56,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.adh()) {
+        if (!a.adk()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {

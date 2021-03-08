@@ -10,19 +10,19 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
     final h<? super T, ? extends e> mapper;
     final int maxConcurrency;
-    final g<T> qow;
+    final g<T> qoY;
 
     @Override // io.reactivex.a
     protected void b(io.reactivex.c cVar) {
-        this.qow.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.qoY.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class FlatMapCompletableMainSubscriber<T> extends AtomicInteger implements io.reactivex.disposables.b, j<T> {
         private static final long serialVersionUID = 8443155186132538303L;
         final io.reactivex.c actual;
@@ -59,7 +59,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
         @Override // org.a.c
         public void onNext(T t) {
             try {
-                e eVar = (e) io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper returned a null CompletableSource");
+                e eVar = (e) io.reactivex.internal.functions.a.n(this.mapper.apply(t), "The mapper returned a null CompletableSource");
                 getAndIncrement();
                 InnerObserver innerObserver = new InnerObserver();
                 if (!this.disposed && this.set.a(innerObserver)) {
@@ -132,7 +132,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
             onError(th);
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         final class InnerObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, io.reactivex.disposables.b {
             private static final long serialVersionUID = 8606673141535671828L;
 

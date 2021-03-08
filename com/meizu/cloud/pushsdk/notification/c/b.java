@@ -15,21 +15,19 @@ import java.util.concurrent.ConcurrentHashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Field f11336a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Field f11337b;
+    private static Field f7441a;
+    private static Field b;
     private static Field c;
     private static Object d = new Object();
     private static Map<String, Set<String>> e = new ConcurrentHashMap();
 
     static {
-        f11336a = null;
-        f11337b = null;
+        f7441a = null;
+        b = null;
         try {
-            f11336a = Notification.class.getDeclaredField("mFlymeNotification");
-            f11337b = Class.forName("android.app.NotificationExt").getDeclaredField("internalApp");
-            f11337b.setAccessible(true);
+            f7441a = Notification.class.getDeclaredField("mFlymeNotification");
+            b = Class.forName("android.app.NotificationExt").getDeclaredField("internalApp");
+            b.setAccessible(true);
             c = Notification.class.getDeclaredField("replyIntent");
             c.setAccessible(true);
         } catch (ClassNotFoundException e2) {
@@ -50,11 +48,11 @@ public class b {
     }
 
     public static void a(Notification notification, boolean z) {
-        if (f11336a == null || f11337b == null) {
+        if (f7441a == null || b == null) {
             return;
         }
         try {
-            f11337b.set(f11336a.get(notification), Integer.valueOf(z ? 1 : 0));
+            b.set(f7441a.get(notification), Integer.valueOf(z ? 1 : 0));
         } catch (IllegalAccessException e2) {
             com.meizu.cloud.a.a.e("NotificationUtils", "setInternalApp error " + e2.getMessage());
         }

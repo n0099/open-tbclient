@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean akA;
-    private a nXu;
-    private boolean nXv;
+    private boolean alT;
+    private boolean nZA;
+    private a nZz;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -31,39 +31,39 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     public DynamicUserLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        bVar.pR(R.color.CAM_X0302);
+        bVar.pS(R.color.CAM_X0302);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
     }
 
     public void aM(boolean z) {
-        if (this.nXv) {
+        if (this.nZA) {
             if (z) {
                 com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-                bVar.buX();
+                bVar.bva();
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
-                bVar2.pS(R.color.CAM_X0105);
+                bVar2.pT(R.color.CAM_X0105);
                 bVar2.setIconSize(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                 bVar2.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-                bVar2.pN(R.color.CAM_X0105);
+                bVar2.pO(R.color.CAM_X0105);
                 setConfig(bVar2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.attention));
             }
         } else if (z) {
             com.baidu.tbadk.core.view.commonBtn.b bVar3 = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar3.pT(R.color.CAM_X0109);
+            bVar3.pU(R.color.CAM_X0109);
             setConfig(bVar3);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
             com.baidu.tbadk.core.view.commonBtn.b bVar4 = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar4.pR(R.color.CAM_X0302);
-            if (this.akA) {
+            bVar4.pS(R.color.CAM_X0302);
+            if (this.alT) {
                 bVar4.setIconSize(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                 bVar4.a(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             }
@@ -83,18 +83,18 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void c(boolean z, int i, boolean z2) {
+    public void b(boolean z, int i, boolean z2) {
         r(z, i);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void qb(int i) {
+    public void qc(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void bG(View view) {
-        if (this.nXu != null) {
-            this.nXu.cO(view);
+        if (this.nZz != null) {
+            this.nZz.cO(view);
         }
     }
 
@@ -104,18 +104,18 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void onChangeSkinType(int i) {
-        bup();
+        bus();
     }
 
     public void setOnClickEvent(a aVar) {
-        this.nXu = aVar;
+        this.nZz = aVar;
     }
 
     public void setUseNewStyle(boolean z) {
-        this.akA = z;
+        this.alT = z;
     }
 
     public void setGodRecommendStyle(boolean z) {
-        this.nXv = z;
+        this.nZA = z;
     }
 }

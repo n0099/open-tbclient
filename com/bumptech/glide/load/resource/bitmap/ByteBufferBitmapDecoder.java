@@ -8,7 +8,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ByteBufferBitmapDecoder implements ResourceDecoder<ByteBuffer, Bitmap> {
     private final Downsampler downsampler;
 

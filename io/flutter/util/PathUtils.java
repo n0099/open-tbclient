@@ -2,7 +2,7 @@ package io.flutter.util;
 
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class PathUtils {
     public static String getFilesDir(Context context) {
         return context.getFilesDir().getPath();

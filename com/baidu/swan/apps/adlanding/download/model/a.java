@@ -3,7 +3,7 @@ package com.baidu.swan.apps.adlanding.download.model;
 import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static final boolean DEBUG = b.DEBUG;
     public String contentDisposition;
@@ -26,7 +26,7 @@ public class a {
         this.title = str3;
     }
 
-    public JSONObject ajv() {
+    public JSONObject ajy() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("url", this.url);

@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.n;
 import tbclient.User;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d implements n {
-    public static final BdUniqueId jcp = BdUniqueId.gen();
+    public static final BdUniqueId jdY = BdUniqueId.gen();
     private int fansNum;
     private String headUrl;
     private String intro;
@@ -16,7 +16,7 @@ public class d implements n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jcp;
+        return jdY;
     }
 
     public String getUserId() {

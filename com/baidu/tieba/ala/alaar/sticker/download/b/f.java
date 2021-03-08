@@ -10,16 +10,16 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
-    private final g.a gtq;
+    private final g.a guZ;
     private volatile long mStartTime;
     private volatile int mStatus;
     private final String mUri;
 
     public f(String str, g.a aVar) {
         this.mUri = str;
-        this.gtq = aVar;
+        this.guZ = aVar;
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.g
@@ -46,7 +46,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
     public void run() {
         Process.setThreadPriority(10);
         this.mStatus = 102;
-        this.gtq.onConnecting();
+        this.guZ.onConnecting();
         try {
             executeConnection();
         } catch (DownloadException e) {
@@ -129,7 +129,7 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
         }
         checkCanceledOrPaused();
         this.mStatus = 103;
-        this.gtq.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
+        this.guZ.onConnected(System.currentTimeMillis() - this.mStartTime, contentLength, z);
     }
 
     private void checkCanceledOrPaused() throws DownloadException {
@@ -143,19 +143,19 @@ public class f implements com.baidu.tieba.ala.alaar.sticker.download.a.g {
 
     private void e(DownloadException downloadException) {
         if (downloadException.getErrorCode() == 108) {
-            synchronized (this.gtq) {
+            synchronized (this.guZ) {
                 this.mStatus = 108;
-                this.gtq.b(downloadException);
+                this.guZ.b(downloadException);
             }
         } else if (downloadException.getErrorCode() == 106) {
-            synchronized (this.gtq) {
+            synchronized (this.guZ) {
                 this.mStatus = 106;
-                this.gtq.onConnectPaused();
+                this.guZ.onConnectPaused();
             }
         } else if (downloadException.getErrorCode() == 107) {
-            synchronized (this.gtq) {
+            synchronized (this.guZ) {
                 this.mStatus = 107;
-                this.gtq.onConnectCanceled();
+                this.guZ.onConnectCanceled();
             }
         } else {
             throw new IllegalArgumentException("Unknown state");

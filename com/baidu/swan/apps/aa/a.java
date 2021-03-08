@@ -10,27 +10,27 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.core.d.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static volatile a dpX;
+    public static volatile a drz;
     public String appId;
-    public String dpV;
-    public String dpW;
-    public com.baidu.k.a.a dpY;
+    public com.baidu.k.a.a drA;
+    public String drx;
+    public String dry;
 
     private a() {
     }
 
-    public static a aDC() {
-        if (dpX == null) {
+    public static a aDF() {
+        if (drz == null) {
             synchronized (a.class) {
-                if (dpX == null) {
-                    dpX = new a();
+                if (drz == null) {
+                    drz = new a();
                 }
             }
         }
-        return dpX;
+        return drz;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -39,8 +39,8 @@ public class a {
             com.baidu.swan.apps.console.c.i("SwanAppPayLaunchMsg", "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.k.b.add().bK(context)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).aIs();
+        } else if (!com.baidu.k.b.adg().bJ(context)) {
+            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).aIv();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
         } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.bZ(a2, a2))) {
@@ -74,7 +74,7 @@ public class a {
         }
     }
 
-    public static int iq(int i) {
+    public static int ir(int i) {
         switch (i) {
             case -2:
                 return 2;

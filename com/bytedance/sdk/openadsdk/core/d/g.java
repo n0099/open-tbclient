@@ -3,26 +3,24 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6499a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f6500b;
+    private String f4392a;
+    private String b;
     private int c;
 
     public String a() {
-        return this.f6499a;
+        return this.f4392a;
     }
 
     public void a(String str) {
-        this.f6499a = str;
+        this.f4392a = str;
     }
 
     public String b() {
-        return this.f6500b;
+        return this.b;
     }
 
     public void b(String str) {
-        this.f6500b = str;
+        this.b = str;
     }
 
     public int c() {

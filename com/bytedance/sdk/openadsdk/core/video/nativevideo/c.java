@@ -26,12 +26,12 @@ public interface c {
 
         void d_();
 
-        void e();
+        void e_();
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.nativevideo.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1013c {
+    public interface InterfaceC1024c {
         void a(int i, int i2);
 
         void f();
@@ -41,7 +41,7 @@ public interface c {
 
     void a(a aVar);
 
-    void a(InterfaceC1013c interfaceC1013c);
+    void a(InterfaceC1024c interfaceC1024c);
 
     void a(e eVar);
 
@@ -75,7 +75,7 @@ public interface c {
 
     void l();
 
-    long m();
+    void m();
 
     long n();
 
@@ -83,17 +83,19 @@ public interface c {
 
     long p();
 
-    int q();
+    long q();
 
-    long r();
+    int r();
 
-    boolean s();
+    long s();
 
-    com.bytedance.sdk.openadsdk.core.video.c.d t();
+    boolean t();
 
-    h u();
+    com.bytedance.sdk.openadsdk.core.video.d.d u();
 
-    boolean v();
+    h v();
 
     boolean w();
+
+    boolean x();
 }

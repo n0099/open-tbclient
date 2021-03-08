@@ -7,36 +7,36 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StateSwitchView extends EditorInfoView {
-    private boolean eUZ;
-    private int fgP;
+    private boolean eWy;
+    private int fiq;
     private int mSkinType;
     private int mState;
-    private String ogk;
-    private String ogl;
-    private int ogm;
-    private int ogn;
-    private com.baidu.tbadk.core.util.e.a ogo;
-    private com.baidu.tbadk.core.util.e.a ogp;
+    private String oip;
+    private String oiq;
+    private int oir;
+    private int ois;
+    private com.baidu.tbadk.core.util.e.a oit;
+    private com.baidu.tbadk.core.util.e.a oiu;
 
     public StateSwitchView(Context context) {
         super(context);
-        this.eUZ = false;
+        this.eWy = false;
         this.mSkinType = 3;
         init();
     }
 
     public StateSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eUZ = false;
+        this.eWy = false;
         this.mSkinType = 3;
         init();
     }
 
     public StateSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eUZ = false;
+        this.eWy = false;
         this.mSkinType = 3;
         init();
     }
@@ -49,7 +49,7 @@ public class StateSwitchView extends EditorInfoView {
     private void initUI() {
         int dimension = (int) getResources().getDimension(R.dimen.ds26);
         setPadding(dimension, 0, dimension, 0);
-        XN();
+        XQ();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -57,11 +57,11 @@ public class StateSwitchView extends EditorInfoView {
         this.mState = 0;
     }
 
-    private void XN() {
+    private void XQ() {
         if (this.mState == 1) {
-            setText(this.ogl);
+            setText(this.oiq);
         } else {
-            setText(this.ogk);
+            setText(this.oip);
         }
     }
 
@@ -69,41 +69,41 @@ public class StateSwitchView extends EditorInfoView {
         if (i == 0 || i == 1) {
             this.mState = i;
         }
-        XN();
-        dXo();
+        XQ();
+        dXw();
     }
 
     public void setStateString(String str, String str2) {
-        this.ogk = str;
-        this.ogl = str2;
-        XN();
+        this.oip = str;
+        this.oiq = str2;
+        XQ();
     }
 
     public void setLeftStateDrawable(int i, int i2) {
-        this.ogm = i;
-        this.ogn = i2;
-        this.eUZ = false;
-        dXo();
+        this.oir = i;
+        this.ois = i2;
+        this.eWy = false;
+        dXw();
     }
 
     public void setLeftStateDrawable(com.baidu.tbadk.core.util.e.a aVar, com.baidu.tbadk.core.util.e.a aVar2) {
         if (aVar != null && aVar2 != null) {
-            this.eUZ = true;
-            this.ogo = aVar;
-            this.ogp = aVar2;
-            dXo();
+            this.eWy = true;
+            this.oit = aVar;
+            this.oiu = aVar2;
+            dXw();
         }
     }
 
-    private void dXo() {
+    private void dXw() {
         Drawable drawable;
         Drawable drawable2;
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds48);
         if (this.mState == 1) {
-            if (this.eUZ && this.ogp != null) {
-                drawable2 = this.ogp.getDrawable();
+            if (this.eWy && this.oiu != null) {
+                drawable2 = this.oiu.getDrawable();
             } else {
-                drawable2 = this.ogn > 0 ? ap.getDrawable(this.ogn) : null;
+                drawable2 = this.ois > 0 ? ap.getDrawable(this.ois) : null;
             }
             if (drawable2 != null) {
                 drawable2.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
@@ -111,10 +111,10 @@ public class StateSwitchView extends EditorInfoView {
                 setCompoundDrawablePadding(getResources().getDimensionPixelSize(R.dimen.ds8));
             }
         } else if (this.mState == 0) {
-            if (this.eUZ && this.ogo != null) {
-                drawable = this.ogo.getDrawable();
+            if (this.eWy && this.oit != null) {
+                drawable = this.oit.getDrawable();
             } else {
-                drawable = this.ogn > 0 ? ap.getDrawable(this.ogm) : null;
+                drawable = this.ois > 0 ? ap.getDrawable(this.oir) : null;
             }
             if (drawable != null) {
                 drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
@@ -129,9 +129,9 @@ public class StateSwitchView extends EditorInfoView {
     }
 
     public void setBackgroundId(int i) {
-        this.fgP = i;
-        if (this.fgP > 0) {
-            ap.setBackgroundResource(this, this.fgP);
+        this.fiq = i;
+        if (this.fiq > 0) {
+            ap.setBackgroundResource(this, this.fiq);
         }
     }
 
@@ -140,10 +140,10 @@ public class StateSwitchView extends EditorInfoView {
         super.onChangeSkinType(i);
         if (this.mSkinType != i) {
             ap.setViewTextColor(this, R.color.CAM_X0106);
-            if (this.fgP > 0) {
-                ap.setBackgroundResource(this, this.fgP);
+            if (this.fiq > 0) {
+                ap.setBackgroundResource(this, this.fiq);
             }
-            dXo();
+            dXw();
             this.mSkinType = i;
         }
     }

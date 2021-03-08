@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class EmojiconTextView extends TextView {
-    private int bUJ;
-    private int bUK;
-    private int bUL;
-    private SpannableString bUW;
+    private int bWj;
+    private int bWk;
+    private int bWl;
+    private SpannableString bWw;
 
     public EmojiconTextView(Context context) {
         super(context);
@@ -31,13 +31,13 @@ public class EmojiconTextView extends TextView {
     }
 
     private void init(AttributeSet attributeSet) {
-        this.bUL = (int) getTextSize();
+        this.bWl = (int) getTextSize();
         if (attributeSet == null) {
-            this.bUJ = (int) getTextSize();
+            this.bWj = (int) getTextSize();
         } else {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.Expression);
-            this.bUJ = (int) obtainStyledAttributes.getDimension(a.j.Expression_expressionSize, getTextSize());
-            this.bUK = obtainStyledAttributes.getInt(a.j.Expression_expressionAlignment, 1);
+            this.bWj = (int) obtainStyledAttributes.getDimension(a.j.Expression_expressionSize, getTextSize());
+            this.bWk = obtainStyledAttributes.getInt(a.j.Expression_expressionAlignment, 1);
             obtainStyledAttributes.recycle();
         }
         setText(getText());
@@ -45,23 +45,23 @@ public class EmojiconTextView extends TextView {
 
     @Override // android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
-        if (!TextUtils.isEmpty(charSequence) && this.bUW == null) {
+        if (!TextUtils.isEmpty(charSequence) && this.bWw == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
-            d.a(getContext(), spannableStringBuilder, this.bUJ, this.bUK, this.bUL);
+            d.a(getContext(), spannableStringBuilder, this.bWj, this.bWk, this.bWl);
             charSequence = spannableStringBuilder;
-        } else if (this.bUW != null) {
-            d.a(getContext(), this.bUW, this.bUJ, this.bUK, this.bUL);
-            charSequence = this.bUW;
+        } else if (this.bWw != null) {
+            d.a(getContext(), this.bWw, this.bWj, this.bWk, this.bWl);
+            charSequence = this.bWw;
         }
         super.setText(charSequence, bufferType);
     }
 
     public void setSpannableString(SpannableString spannableString) {
-        this.bUW = spannableString;
+        this.bWw = spannableString;
     }
 
     public void setExpressionSize(int i) {
-        this.bUJ = i;
+        this.bWj = i;
         super.setText(getText());
     }
 }

@@ -16,7 +16,7 @@ import androidx.core.content.res.TypedArrayUtils;
 import androidx.transition.Transition;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class TransitionSet extends Transition {
     private static final int FLAG_CHANGE_EPICENTER = 8;
     private static final int FLAG_CHANGE_INTERPOLATOR = 1;
@@ -370,7 +370,7 @@ public class TransitionSet extends Transition {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public static class TransitionSetListener extends TransitionListenerAdapter {
         TransitionSet mTransitionSet;
 

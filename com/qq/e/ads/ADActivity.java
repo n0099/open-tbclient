@@ -8,32 +8,32 @@ import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.pi.ACTD;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class ADActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private ACTD f11410a;
+    private ACTD f7486a;
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.f11410a != null) {
-            this.f11410a.onActivityResult(i, i2, intent);
+        if (this.f7486a != null) {
+            this.f7486a.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.f11410a != null) {
-            this.f11410a.onBackPressed();
+        if (this.f7486a != null) {
+            this.f7486a.onBackPressed();
         }
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.f11410a != null) {
-            this.f11410a.onConfigurationChanged(configuration);
+        if (this.f7486a != null) {
+            this.f7486a.onConfigurationChanged(configuration);
         }
     }
 
@@ -47,8 +47,8 @@ public class ADActivity extends Activity {
             if (!StringUtil.isEmpty(string) && !StringUtil.isEmpty(string2)) {
                 try {
                     if (GDTADManager.getInstance().initWith(getApplicationContext(), string2)) {
-                        this.f11410a = GDTADManager.getInstance().getPM().getPOFactory().getActivityDelegate(string, this);
-                        if (this.f11410a == null) {
+                        this.f7486a = GDTADManager.getInstance().getPM().getPOFactory().getActivityDelegate(string, this);
+                        if (this.f7486a == null) {
                             GDTLogger.e("Init ADActivity Delegate return null,delegateName" + string);
                         }
                     } else {
@@ -59,29 +59,29 @@ public class ADActivity extends Activity {
                 }
             }
         }
-        if (this.f11410a != null) {
-            this.f11410a.onBeforeCreate(bundle);
+        if (this.f7486a != null) {
+            this.f7486a.onBeforeCreate(bundle);
         } else {
             finish();
         }
         super.onCreate(bundle);
-        if (this.f11410a != null) {
-            this.f11410a.onAfterCreate(bundle);
+        if (this.f7486a != null) {
+            this.f7486a.onAfterCreate(bundle);
         }
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        if (this.f11410a != null) {
-            this.f11410a.onDestroy();
+        if (this.f7486a != null) {
+            this.f7486a.onDestroy();
         }
     }
 
     @Override // android.app.Activity
     public void onPause() {
-        if (this.f11410a != null) {
-            this.f11410a.onPause();
+        if (this.f7486a != null) {
+            this.f7486a.onPause();
         }
         super.onPause();
     }
@@ -89,15 +89,15 @@ public class ADActivity extends Activity {
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (this.f11410a != null) {
-            this.f11410a.onResume();
+        if (this.f7486a != null) {
+            this.f7486a.onResume();
         }
     }
 
     @Override // android.app.Activity
     protected void onStop() {
-        if (this.f11410a != null) {
-            this.f11410a.onStop();
+        if (this.f7486a != null) {
+            this.f7486a.onStop();
         }
         super.onStop();
     }

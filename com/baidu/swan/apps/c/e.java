@@ -9,13 +9,13 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends aa {
-    private com.baidu.swan.apps.c.b cCO;
+    private com.baidu.swan.apps.c.b cEo;
 
     public e(j jVar) {
         super(jVar, "/swanAPI/rewardedVideoAd");
-        this.cCO = null;
+        this.cEo = null;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
@@ -28,42 +28,42 @@ public class e extends aa {
         String optString2 = b2.optString("action");
         b bVar = new b(callbackHandler, optString);
         a aVar = new a(unitedSchemeEntity, callbackHandler);
-        if (this.cCO == null) {
-            this.cCO = com.baidu.swan.apps.t.a.axz().a(b2, bVar, aVar);
-            if (this.cCO == null) {
-                this.cCO = new com.baidu.swan.apps.c.a();
+        if (this.cEo == null) {
+            this.cEo = com.baidu.swan.apps.t.a.axC().a(b2, bVar, aVar);
+            if (this.cEo == null) {
+                this.cEo = new com.baidu.swan.apps.c.a();
             }
         }
         if (TextUtils.equals(optString2, "show")) {
-            this.cCO.a(b2, aVar);
+            this.cEo.a(b2, aVar);
             return true;
         } else if (TextUtils.equals(optString2, TrackLoadSettingsAtom.TYPE)) {
-            this.cCO.a(b2, aVar, bVar);
+            this.cEo.a(b2, aVar, bVar);
             return true;
         } else {
             return true;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class a implements c {
-        private final UnitedSchemeEntity cCP;
-        private final CallbackHandler cCQ;
+        private final UnitedSchemeEntity cEp;
+        private final CallbackHandler cEq;
 
         public a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            this.cCP = unitedSchemeEntity;
-            this.cCQ = callbackHandler;
+            this.cEp = unitedSchemeEntity;
+            this.cEq = callbackHandler;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class b implements d {
-        private final CallbackHandler cCQ;
-        private final String cCS;
+        private final CallbackHandler cEq;
+        private final String cEs;
 
         public b(CallbackHandler callbackHandler, String str) {
-            this.cCQ = callbackHandler;
-            this.cCS = str;
+            this.cEq = callbackHandler;
+            this.cEs = str;
         }
     }
 }

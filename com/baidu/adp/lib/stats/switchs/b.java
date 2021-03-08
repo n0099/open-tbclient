@@ -9,8 +9,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    public long PE = 0;
-    public String PF = null;
+    public long Rc = 0;
+    public String Rd = null;
 
     public boolean nw() {
         String str = null;
@@ -26,15 +26,15 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.PE = jSONObject.getLong("time");
-            this.PF = jSONObject.getString("data");
+            this.Rc = jSONObject.getLong("time");
+            this.Rd = jSONObject.getString("data");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return true;
     }
 
-    public void cb(String str) {
+    public void cf(String str) {
         if (!TextUtils.isEmpty(str)) {
             long currentTimeMillis = System.currentTimeMillis();
             try {

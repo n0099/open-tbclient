@@ -1,10 +1,8 @@
 package com.baidu.mobstat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bb extends ba {
     private static bb c = new bb();
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f3742b;
+    private boolean b;
 
     private bb() {
     }
@@ -20,6 +18,6 @@ public class bb extends ba {
 
     @Override // com.baidu.mobstat.ba
     public boolean b() {
-        return this.f3742b;
+        return this.b;
     }
 }

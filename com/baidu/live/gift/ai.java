@@ -2,11 +2,11 @@ package com.baidu.live.gift;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface ai {
-    void EK();
+    void EN();
 
-    void FA();
+    void FD();
 
     void a(int i, int i2, Intent intent, com.baidu.live.data.ab abVar, String str);
 

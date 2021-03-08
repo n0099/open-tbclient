@@ -36,61 +36,61 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickListener {
-    public static volatile boolean ijT = true;
-    public static volatile boolean ijU = false;
+    public static volatile boolean ilC = true;
+    public static volatile boolean ilD = false;
     private FrameLayout container;
     Context context;
-    public volatile int ijV;
-    private volatile boolean ijW;
-    private volatile boolean ijX;
-    private volatile boolean ijY;
-    private LinearLayout ijZ;
-    private LinearLayout ika;
-    private LinearLayout ikb;
-    private HeadImageView ikc;
-    private HeadImageView ikd;
-    private HeadImageView ike;
-    private HeadImageView ikf;
-    private AnimatorSet ikg;
-    private AnimatorSet ikh;
-    private TextView iki;
-    private Button ikj;
-    private volatile boolean ikk;
-    private boolean ikl;
-    private boolean ikm;
-    private int ikn;
-    private int iko;
-    com.baidu.tieba.ala.data.j ikp;
-    com.baidu.tieba.ala.data.k[] ikq;
-    HashMap<Integer, HeadImageView> ikr;
-    a iks;
+    public volatile int ilE;
+    private volatile boolean ilF;
+    private volatile boolean ilG;
+    private volatile boolean ilH;
+    private LinearLayout ilI;
+    private LinearLayout ilJ;
+    private LinearLayout ilK;
+    private HeadImageView ilL;
+    private HeadImageView ilM;
+    private HeadImageView ilN;
+    private HeadImageView ilO;
+    private AnimatorSet ilP;
+    private AnimatorSet ilQ;
+    private TextView ilR;
+    private Button ilS;
+    private volatile boolean ilT;
+    private boolean ilU;
+    private boolean ilV;
+    private int ilW;
+    private int ilX;
+    com.baidu.tieba.ala.data.j ilY;
+    com.baidu.tieba.ala.data.k[] ilZ;
+    HashMap<Integer, HeadImageView> ima;
+    a imb;
     boolean isHost;
     private View mView;
     private TextView titleText;
 
     public AlaSeriesGiftPendant(Context context, boolean z, String str) {
         super(context);
-        this.ijV = 0;
-        this.ijW = false;
-        this.ijX = false;
-        this.ijY = true;
-        this.ikg = new AnimatorSet();
-        this.ikh = new AnimatorSet();
-        this.ikk = false;
-        this.ikl = false;
-        this.ikr = new HashMap<>();
-        this.iks = new a(this);
+        this.ilE = 0;
+        this.ilF = false;
+        this.ilG = false;
+        this.ilH = true;
+        this.ilP = new AnimatorSet();
+        this.ilQ = new AnimatorSet();
+        this.ilT = false;
+        this.ilU = false;
+        this.ima = new HashMap<>();
+        this.imb = new a(this);
         this.context = context;
         this.isHost = z;
-        this.ikm = true;
+        this.ilV = true;
         initView();
-        cpI();
+        cpO();
         getSpinTime();
         if (str != null) {
             try {
-                ef(new JSONObject(str));
+                eh(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -100,57 +100,57 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     private void initView() {
         this.mView = LayoutInflater.from(this.context).inflate(a.g.ala_pendant_series_gift, (ViewGroup) this, true);
         this.container = (FrameLayout) this.mView.findViewById(a.f.pendant_card_container);
-        this.ijZ = (LinearLayout) this.mView.findViewById(a.f.front_view);
-        this.ika = (LinearLayout) this.mView.findViewById(a.f.back_view);
-        this.ikj = (Button) this.mView.findViewById(a.f.pendant_send_btn);
-        this.ikj.setOnClickListener(this);
-        this.iki = (TextView) this.mView.findViewById(a.f.pendant_countdown_text);
-        this.ikc = (HeadImageView) this.mView.findViewById(a.f.first_icon);
-        this.ikc.setOnClickListener(this);
-        this.ikr.put(0, this.ikc);
-        this.ikd = (HeadImageView) this.mView.findViewById(a.f.second_icon);
-        this.ikd.setOnClickListener(this);
-        this.ikr.put(1, this.ikd);
-        this.ike = (HeadImageView) this.mView.findViewById(a.f.third_icon);
-        this.ike.setOnClickListener(this);
-        this.ikr.put(2, this.ike);
-        this.ikf = (HeadImageView) this.mView.findViewById(a.f.fourth_icon);
-        this.ikf.setOnClickListener(this);
-        this.ikr.put(3, this.ikf);
-        this.ikb = (LinearLayout) this.mView.findViewById(a.f.second_row);
+        this.ilI = (LinearLayout) this.mView.findViewById(a.f.front_view);
+        this.ilJ = (LinearLayout) this.mView.findViewById(a.f.back_view);
+        this.ilS = (Button) this.mView.findViewById(a.f.pendant_send_btn);
+        this.ilS.setOnClickListener(this);
+        this.ilR = (TextView) this.mView.findViewById(a.f.pendant_countdown_text);
+        this.ilL = (HeadImageView) this.mView.findViewById(a.f.first_icon);
+        this.ilL.setOnClickListener(this);
+        this.ima.put(0, this.ilL);
+        this.ilM = (HeadImageView) this.mView.findViewById(a.f.second_icon);
+        this.ilM.setOnClickListener(this);
+        this.ima.put(1, this.ilM);
+        this.ilN = (HeadImageView) this.mView.findViewById(a.f.third_icon);
+        this.ilN.setOnClickListener(this);
+        this.ima.put(2, this.ilN);
+        this.ilO = (HeadImageView) this.mView.findViewById(a.f.fourth_icon);
+        this.ilO.setOnClickListener(this);
+        this.ima.put(3, this.ilO);
+        this.ilK = (LinearLayout) this.mView.findViewById(a.f.second_row);
         this.titleText = (TextView) this.mView.findViewById(a.f.title_text);
-        this.ika.setVisibility(8);
+        this.ilJ.setVisibility(8);
         setCanVisible(false);
     }
 
-    private void cpI() {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.ijZ, "alpha", 1.0f, 0.0f);
+    private void cpO() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.ilI, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(750L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.ijZ, "alpha", 0.0f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.ilI, "alpha", 0.0f, 1.0f);
         ofFloat2.setDuration(750L);
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.ika, "alpha", 1.0f, 0.0f);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.ilJ, "alpha", 1.0f, 0.0f);
         ofFloat3.setDuration(750L);
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.ika, "alpha", 0.0f, 1.0f);
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.ilJ, "alpha", 0.0f, 1.0f);
         ofFloat4.setDuration(750L);
-        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.ijZ, "scaleX", 1.0f, 0.0f);
+        ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.ilI, "scaleX", 1.0f, 0.0f);
         ofFloat5.setDuration(750L);
-        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.ijZ, "scaleY", 1.0f, 0.0f);
+        ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.ilI, "scaleY", 1.0f, 0.0f);
         ofFloat6.setDuration(750L);
-        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.ijZ, "scaleX", 0.0f, 1.0f);
+        ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.ilI, "scaleX", 0.0f, 1.0f);
         ofFloat7.setDuration(750L);
-        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.ijZ, "scaleY", 0.0f, 1.0f);
+        ObjectAnimator ofFloat8 = ObjectAnimator.ofFloat(this.ilI, "scaleY", 0.0f, 1.0f);
         ofFloat8.setDuration(750L);
-        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.ika, "scaleX", 1.0f, 0.0f);
+        ObjectAnimator ofFloat9 = ObjectAnimator.ofFloat(this.ilJ, "scaleX", 1.0f, 0.0f);
         ofFloat9.setDuration(750L);
-        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.ika, "scaleY", 1.0f, 0.0f);
+        ObjectAnimator ofFloat10 = ObjectAnimator.ofFloat(this.ilJ, "scaleY", 1.0f, 0.0f);
         ofFloat10.setDuration(750L);
-        ObjectAnimator ofFloat11 = ObjectAnimator.ofFloat(this.ika, "scaleX", 0.0f, 1.0f);
+        ObjectAnimator ofFloat11 = ObjectAnimator.ofFloat(this.ilJ, "scaleX", 0.0f, 1.0f);
         ofFloat11.setDuration(750L);
-        ObjectAnimator ofFloat12 = ObjectAnimator.ofFloat(this.ika, "scaleY", 0.0f, 1.0f);
+        ObjectAnimator ofFloat12 = ObjectAnimator.ofFloat(this.ilJ, "scaleY", 0.0f, 1.0f);
         ofFloat12.setDuration(750L);
-        this.ikg.play(ofFloat2).with(ofFloat7).with(ofFloat8).with(ofFloat3).with(ofFloat9).with(ofFloat10);
-        this.ikh.play(ofFloat4).with(ofFloat11).with(ofFloat12).with(ofFloat).with(ofFloat5).with(ofFloat6);
-        this.ikg.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.1
+        this.ilP.play(ofFloat2).with(ofFloat7).with(ofFloat8).with(ofFloat3).with(ofFloat9).with(ofFloat10);
+        this.ilQ.play(ofFloat4).with(ofFloat11).with(ofFloat12).with(ofFloat).with(ofFloat5).with(ofFloat6);
+        this.ilP.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
@@ -163,11 +163,11 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                 super.onAnimationEnd(animator);
             }
         });
-        this.ikh.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.2
+        this.ilQ.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                AlaSeriesGiftPendant.this.ika.setVisibility(0);
+                AlaSeriesGiftPendant.this.ilJ.setVisibility(0);
                 AlaSeriesGiftPendant.this.container.setClickable(false);
             }
 
@@ -180,40 +180,40 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.tieba.ala.view.AlaSeriesGiftPendant$3] */
-    public void cpJ() {
+    public void cpP() {
         new Thread() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.3
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                while (AlaSeriesGiftPendant.this.ijV >= 0 && AlaSeriesGiftPendant.this.ijY) {
-                    if (!AlaSeriesGiftPendant.ijU) {
-                        if (AlaSeriesGiftPendant.this.ikm) {
-                            AlaSeriesGiftPendant.this.iks.sendEmptyMessageDelayed(1, AlaSeriesGiftPendant.this.ikn);
+                while (AlaSeriesGiftPendant.this.ilE >= 0 && AlaSeriesGiftPendant.this.ilH) {
+                    if (!AlaSeriesGiftPendant.ilD) {
+                        if (AlaSeriesGiftPendant.this.ilV) {
+                            AlaSeriesGiftPendant.this.imb.sendEmptyMessageDelayed(1, AlaSeriesGiftPendant.this.ilW);
                             try {
-                                sleep(AlaSeriesGiftPendant.this.ikn + AlaSeriesGiftPendant.this.iko);
+                                sleep(AlaSeriesGiftPendant.this.ilW + AlaSeriesGiftPendant.this.ilX);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            AlaSeriesGiftPendant.this.ikm = false;
+                            AlaSeriesGiftPendant.this.ilV = false;
                         }
-                        if (!AlaSeriesGiftPendant.this.ikk) {
-                            AlaSeriesGiftPendant.this.ijW = true;
-                            AlaSeriesGiftPendant.this.iks.sendEmptyMessage(1);
+                        if (!AlaSeriesGiftPendant.this.ilT) {
+                            AlaSeriesGiftPendant.this.ilF = true;
+                            AlaSeriesGiftPendant.this.imb.sendEmptyMessage(1);
                             try {
-                                sleep(AlaSeriesGiftPendant.this.iko);
+                                sleep(AlaSeriesGiftPendant.this.ilX);
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
                         } else {
-                            AlaSeriesGiftPendant.this.ijW = true;
-                            AlaSeriesGiftPendant.this.iks.sendEmptyMessage(1);
+                            AlaSeriesGiftPendant.this.ilF = true;
+                            AlaSeriesGiftPendant.this.imb.sendEmptyMessage(1);
                             try {
-                                sleep(AlaSeriesGiftPendant.this.ikn);
+                                sleep(AlaSeriesGiftPendant.this.ilW);
                             } catch (Exception e3) {
                                 e3.printStackTrace();
                             }
                         }
                     } else {
-                        AlaSeriesGiftPendant.this.iks.sendEmptyMessage(4);
+                        AlaSeriesGiftPendant.this.imb.sendEmptyMessage(4);
                         return;
                     }
                 }
@@ -223,34 +223,34 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
 
     /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.tieba.ala.view.AlaSeriesGiftPendant$4] */
     public void startCountDown() {
-        if (this.ijV <= 0) {
-            this.ijX = false;
+        if (this.ilE <= 0) {
+            this.ilG = false;
         } else {
             new Thread() { // from class: com.baidu.tieba.ala.view.AlaSeriesGiftPendant.4
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     while (true) {
-                        if (AlaSeriesGiftPendant.this.ijV <= 0) {
+                        if (AlaSeriesGiftPendant.this.ilE <= 0) {
                             break;
-                        } else if (!AlaSeriesGiftPendant.ijU) {
-                            AlaSeriesGiftPendant.this.ijX = true;
-                            AlaSeriesGiftPendant.this.iks.sendEmptyMessage(2);
+                        } else if (!AlaSeriesGiftPendant.ilD) {
+                            AlaSeriesGiftPendant.this.ilG = true;
+                            AlaSeriesGiftPendant.this.imb.sendEmptyMessage(2);
                             AlaSeriesGiftPendant alaSeriesGiftPendant = AlaSeriesGiftPendant.this;
-                            alaSeriesGiftPendant.ijV--;
+                            alaSeriesGiftPendant.ilE--;
                             try {
                                 sleep(1000L);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         } else {
-                            AlaSeriesGiftPendant.this.iks.sendEmptyMessage(5);
+                            AlaSeriesGiftPendant.this.imb.sendEmptyMessage(5);
                             break;
                         }
                     }
                     try {
                         sleep(2000L);
-                        if (AlaSeriesGiftPendant.this.ijV <= 0) {
-                            AlaSeriesGiftPendant.this.iks.sendEmptyMessage(3);
+                        if (AlaSeriesGiftPendant.this.ilE <= 0) {
+                            AlaSeriesGiftPendant.this.imb.sendEmptyMessage(3);
                         } else {
                             AlaSeriesGiftPendant.this.startCountDown();
                         }
@@ -264,42 +264,42 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setCountDownNum(int i) {
-        this.iki.setText(i + "s");
-        this.ikj.setText("赠送" + i + "s");
+        this.ilR.setText(i + "s");
+        this.ilS.setText("赠送" + i + "s");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpK() {
-        this.iki.setText(" ");
-        this.ijX = false;
+    public void cpQ() {
+        this.ilR.setText(" ");
+        this.ilG = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpL() {
-        if (this.ikk) {
-            this.ikk = false;
-            this.ikg.start();
-        } else if (this.ijY) {
-            this.ikk = true;
-            this.ikh.start();
+    public void cpR() {
+        if (this.ilT) {
+            this.ilT = false;
+            this.ilP.start();
+        } else if (this.ilH) {
+            this.ilT = true;
+            this.ilQ.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpM() {
-        if (this.ikk) {
-            this.ikg.start();
-            this.ikk = false;
+    public void cpS() {
+        if (this.ilT) {
+            this.ilP.start();
+            this.ilT = false;
             return;
         }
-        this.ijY = false;
+        this.ilH = false;
     }
 
-    public void ef(JSONObject jSONObject) {
+    public void eh(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ikp = new com.baidu.tieba.ala.data.j();
-            this.ikp.parserJson(jSONObject);
-            this.ikq = this.ikp.bUt();
+            this.ilY = new com.baidu.tieba.ala.data.j();
+            this.ilY.parserJson(jSONObject);
+            this.ilZ = this.ilY.bUz();
             JSONObject jSONObject2 = new JSONObject();
             try {
                 JSONObject jSONObject3 = new JSONObject();
@@ -310,48 +310,48 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                 e.printStackTrace();
             }
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_TYING_GIFT, UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT, this.isHost ? "author_liveroom" : "liveroom", UbcStatConstant.Value.VALUE_TYING_IM_REC).setContentExt(null, null, jSONObject2));
-            this.ijV = this.ikp.bUr();
-            if (this.ikp.bUs()) {
-                cpK();
+            this.ilE = this.ilY.bUx();
+            if (this.ilY.bUy()) {
+                cpQ();
             } else {
-                setCountDownNum(this.ijV);
+                setCountDownNum(this.ilE);
             }
-            this.titleText.setText(this.ikp.EV() == null ? "套系礼物" : this.ikp.EV());
-            switch (this.ikq.length) {
+            this.titleText.setText(this.ilY.EY() == null ? "套系礼物" : this.ilY.EY());
+            switch (this.ilZ.length) {
                 case 2:
-                    this.ikb.setVisibility(8);
+                    this.ilK.setVisibility(8);
                     break;
                 case 3:
-                    this.ikb.setVisibility(0);
-                    this.ikf.setVisibility(8);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.ike.getLayoutParams());
+                    this.ilK.setVisibility(0);
+                    this.ilO.setVisibility(8);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.ilN.getLayoutParams());
                     layoutParams.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.d.sdk_ds58);
-                    this.ike.setLayoutParams(layoutParams);
+                    this.ilN.setLayoutParams(layoutParams);
                     break;
                 case 4:
-                    this.ikb.setVisibility(0);
+                    this.ilK.setVisibility(0);
                     break;
             }
-            for (int i = 0; i < this.ikq.length; i++) {
-                if (this.ikq[i].getStatus() == 0) {
-                    HeadImageView headImageView = this.ikr.get(Integer.valueOf(i));
+            for (int i = 0; i < this.ilZ.length; i++) {
+                if (this.ilZ[i].getStatus() == 0) {
+                    HeadImageView headImageView = this.ima.get(Integer.valueOf(i));
                     headImageView.setIsRound(true);
                     headImageView.setBorderColor(this.context.getResources().getColor(a.c.sdk_black_alpha10));
                     headImageView.setAutoChangeStyle(false);
                     headImageView.stopLoad();
-                    headImageView.startLoad(this.ikq[i].bUu(), 12, false, false);
-                } else if (this.ikq[i].getStatus() == 1) {
-                    HeadImageView headImageView2 = this.ikr.get(Integer.valueOf(i));
+                    headImageView.startLoad(this.ilZ[i].bUA(), 12, false, false);
+                } else if (this.ilZ[i].getStatus() == 1) {
+                    HeadImageView headImageView2 = this.ima.get(Integer.valueOf(i));
                     headImageView2.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     headImageView2.setIsRound(true);
                     headImageView2.setBorderColor(this.context.getResources().getColor(a.c.sdk_black_alpha10));
                     headImageView2.setAutoChangeStyle(false);
                     headImageView2.stopLoad();
-                    headImageView2.startLoad(this.ikq[i].getPortrait(), 12, false, false);
+                    headImageView2.startLoad(this.ilZ[i].getPortrait(), 12, false, false);
                 }
             }
             setCanVisible(true);
-            if (this.ikp.bUs()) {
+            if (this.ilY.bUy()) {
                 JSONObject jSONObject4 = new JSONObject();
                 try {
                     JSONObject jSONObject5 = new JSONObject();
@@ -362,19 +362,19 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                     e2.printStackTrace();
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_TYING_GIFT, UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT, this.isHost ? "author_liveroom" : "liveroom", UbcStatConstant.Value.VALUE_TYING_GIFT_GATHER).setContentExt(null, null, jSONObject4));
-                ijU = true;
-                this.iks.sendEmptyMessageDelayed(3, IMConnection.RETRY_DELAY_TIMES);
+                ilD = true;
+                this.imb.sendEmptyMessageDelayed(3, IMConnection.RETRY_DELAY_TIMES);
             } else {
-                ijU = false;
+                ilD = false;
             }
-            if (!this.ijW && !this.ijX) {
+            if (!this.ilF && !this.ilG) {
                 startCountDown();
                 if (!this.isHost) {
-                    cpJ();
+                    cpP();
                 }
             }
             if (this.isHost) {
-                this.ijZ.setOnClickListener(this);
+                this.ilI.setOnClickListener(this);
             }
         }
     }
@@ -382,79 +382,79 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     /* JADX INFO: Access modifiers changed from: private */
     public void pk(boolean z) {
         if (z) {
-            this.ikc.setClickable(true);
-            this.ikd.setClickable(true);
-            this.ike.setClickable(true);
-            this.ikf.setClickable(true);
-            this.ikj.setClickable(false);
+            this.ilL.setClickable(true);
+            this.ilM.setClickable(true);
+            this.ilN.setClickable(true);
+            this.ilO.setClickable(true);
+            this.ilS.setClickable(false);
             return;
         }
-        this.ikc.setClickable(false);
-        this.ikd.setClickable(false);
-        this.ike.setClickable(false);
-        this.ikf.setClickable(false);
-        this.ikj.setClickable(true);
+        this.ilL.setClickable(false);
+        this.ilM.setClickable(false);
+        this.ilN.setClickable(false);
+        this.ilO.setClickable(false);
+        this.ilS.setClickable(true);
     }
 
-    private void cpN() {
-        if (this.ikp.EV() == null) {
-            BdUtilHelper.showToast(this.context, "每" + this.ikp.bUr() + "s内送出1个套系礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
+    private void cpT() {
+        if (this.ilY.EY() == null) {
+            BdUtilHelper.showToast(this.context, "每" + this.ilY.bUx() + "s内送出1个套系礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
         } else {
-            BdUtilHelper.showToast(this.context, "每" + this.ikp.bUr() + "s内送出1个" + this.ikp.EV() + "系列礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
+            BdUtilHelper.showToast(this.context, "每" + this.ilY.bUx() + "s内送出1个" + this.ilY.EY() + "系列礼物，集齐全部获得惊喜特效，尊享全站广播哟！");
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i = 0;
-        if (this.isHost || this.ikq == null) {
-            cpN();
-        } else if (this.ikc == view) {
-            if (this.ikq[0].getStatus() == 1) {
-                AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ikq[0].bUv()));
-                alaPersonCardActivityConfig.setExtInfo(this.ikq[0].bUw());
+        if (this.isHost || this.ilZ == null) {
+            cpT();
+        } else if (this.ilL == view) {
+            if (this.ilZ[0].getStatus() == 1) {
+                AlaPersonCardActivityConfig alaPersonCardActivityConfig = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ilZ[0].bUB()));
+                alaPersonCardActivityConfig.setExtInfo(this.ilZ[0].bUC());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
                 return;
             }
             ao aoVar = new ao();
-            aoVar.aJX = this.ikq[0].getGiftId();
+            aoVar.aLx = this.ilZ[0].getGiftId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, aoVar));
-        } else if (this.ikd == view) {
-            if (this.ikq[1].getStatus() == 1) {
-                AlaPersonCardActivityConfig alaPersonCardActivityConfig2 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ikq[1].bUv()));
-                alaPersonCardActivityConfig2.setExtInfo(this.ikq[1].bUw());
+        } else if (this.ilM == view) {
+            if (this.ilZ[1].getStatus() == 1) {
+                AlaPersonCardActivityConfig alaPersonCardActivityConfig2 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ilZ[1].bUB()));
+                alaPersonCardActivityConfig2.setExtInfo(this.ilZ[1].bUC());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig2));
                 return;
             }
             ao aoVar2 = new ao();
-            aoVar2.aJX = this.ikq[1].getGiftId();
+            aoVar2.aLx = this.ilZ[1].getGiftId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, aoVar2));
-        } else if (this.ike == view) {
-            if (this.ikq[2].getStatus() == 1) {
-                AlaPersonCardActivityConfig alaPersonCardActivityConfig3 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ikq[2].bUv()));
-                alaPersonCardActivityConfig3.setExtInfo(this.ikq[2].bUw());
+        } else if (this.ilN == view) {
+            if (this.ilZ[2].getStatus() == 1) {
+                AlaPersonCardActivityConfig alaPersonCardActivityConfig3 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ilZ[2].bUB()));
+                alaPersonCardActivityConfig3.setExtInfo(this.ilZ[2].bUC());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig3));
                 return;
             }
             ao aoVar3 = new ao();
-            aoVar3.aJX = this.ikq[2].getGiftId();
+            aoVar3.aLx = this.ilZ[2].getGiftId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, aoVar3));
-        } else if (this.ikf == view) {
-            if (this.ikq[3].getStatus() == 1) {
-                AlaPersonCardActivityConfig alaPersonCardActivityConfig4 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ikq[3].bUv()));
-                alaPersonCardActivityConfig4.setExtInfo(this.ikq[3].bUw());
+        } else if (this.ilO == view) {
+            if (this.ilZ[3].getStatus() == 1) {
+                AlaPersonCardActivityConfig alaPersonCardActivityConfig4 = new AlaPersonCardActivityConfig(TbadkCoreApplication.getInst(), String.valueOf(this.ilZ[3].bUB()));
+                alaPersonCardActivityConfig4.setExtInfo(this.ilZ[3].bUC());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig4));
                 return;
             }
             ao aoVar4 = new ao();
-            aoVar4.aJX = this.ikq[3].getGiftId();
+            aoVar4.aLx = this.ilZ[3].getGiftId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913055, aoVar4));
-        } else if (this.ikj == view) {
+        } else if (this.ilS == view) {
             ao aoVar5 = new ao();
-            aoVar5.aJW = -1;
-            aoVar5.aJX = -1;
-            aoVar5.aJZ = null;
-            com.baidu.tieba.ala.data.k[] kVarArr = this.ikq;
+            aoVar5.aLw = -1;
+            aoVar5.aLx = -1;
+            aoVar5.aLz = null;
+            com.baidu.tieba.ala.data.k[] kVarArr = this.ilZ;
             int length = kVarArr.length;
             while (true) {
                 if (i >= length) {
@@ -464,7 +464,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                 if (kVar.getStatus() != 0) {
                     i++;
                 } else {
-                    aoVar5.aJX = kVar.getGiftId();
+                    aoVar5.aLx = kVar.getGiftId();
                     break;
                 }
             }
@@ -473,7 +473,7 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void cpO() {
+    public synchronized void cpU() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mView, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(750L);
         ofFloat.start();
@@ -484,47 +484,47 @@ public class AlaSeriesGiftPendant extends LinearLayout implements View.OnClickLi
                 AlaSeriesGiftPendant.this.mView.setAlpha(1.0f);
             }
         });
-        ijT = true;
-        this.ijY = false;
+        ilC = true;
+        this.ilH = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a extends Handler {
-        private final WeakReference<AlaSeriesGiftPendant> iku;
+        private final WeakReference<AlaSeriesGiftPendant> imd;
 
         public a(AlaSeriesGiftPendant alaSeriesGiftPendant) {
-            this.iku = new WeakReference<>(alaSeriesGiftPendant);
+            this.imd = new WeakReference<>(alaSeriesGiftPendant);
         }
 
         @Override // android.os.Handler
         public void handleMessage(@NonNull Message message) {
-            if (this.iku.get() != null) {
-                if (message.what == 1 && !AlaSeriesGiftPendant.ijU) {
-                    this.iku.get().cpL();
+            if (this.imd.get() != null) {
+                if (message.what == 1 && !AlaSeriesGiftPendant.ilD) {
+                    this.imd.get().cpR();
                 } else if (message.what == 2) {
-                    this.iku.get().setCountDownNum(this.iku.get().ijV);
+                    this.imd.get().setCountDownNum(this.imd.get().ilE);
                 } else if (message.what == 3) {
-                    this.iku.get().cpO();
+                    this.imd.get().cpU();
                 } else if (message.what == 4) {
-                    this.iku.get().cpM();
+                    this.imd.get().cpS();
                 } else if (message.what == 5) {
-                    this.iku.get().cpK();
+                    this.imd.get().cpQ();
                 }
             }
         }
     }
 
     public void setCanVisible(boolean z) {
-        this.ikl = z;
+        this.ilU = z;
         this.mView.setVisibility(z ? 0 : 8);
         if (z) {
-            ijT = false;
+            ilC = false;
         }
     }
 
     private void getSpinTime() {
-        this.ikn = com.baidu.live.ae.a.Qj().buX.aMh * 1000;
-        this.iko = com.baidu.live.ae.a.Qj().buX.aMi * 1000;
+        this.ilW = com.baidu.live.ae.a.Qm().bwx.aNH * 1000;
+        this.ilX = com.baidu.live.ae.a.Qm().bwx.aNI * 1000;
     }
 }

@@ -1,5 +1,5 @@
 package com.facebook.common.internal;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static int s(int... iArr) {
         g.checkArgument(iArr.length > 0);

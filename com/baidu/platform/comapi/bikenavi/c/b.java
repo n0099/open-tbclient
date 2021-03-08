@@ -26,10 +26,8 @@ import java.math.BigDecimal;
 public class b extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f4151a;
-
-    /* renamed from: b  reason: collision with root package name */
-    LatLng f4152b;
+    LatLng f2873a;
+    LatLng b;
     private View e;
     private Activity f;
     private com.baidu.platform.comapi.bikenavi.widget.a g;
@@ -80,17 +78,17 @@ public class b extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     private LatLng w() {
-        if (this.f4152b == null) {
-            this.f4152b = com.baidu.platform.comapi.walknavi.b.a().N();
+        if (this.b == null) {
+            this.b = com.baidu.platform.comapi.walknavi.b.a().N();
         }
-        return this.f4152b;
+        return this.b;
     }
 
     private LatLng x() {
-        if (this.f4151a == null) {
-            this.f4151a = com.baidu.platform.comapi.walknavi.b.a().M();
+        if (this.f2873a == null) {
+            this.f2873a = com.baidu.platform.comapi.walknavi.b.a().M();
         }
-        return this.f4151a;
+        return this.f2873a;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.n.a
@@ -209,29 +207,27 @@ public class b extends com.baidu.platform.comapi.wnplatform.n.a {
     public class a extends CountDownTimer {
 
         /* renamed from: a  reason: collision with root package name */
-        Activity f4153a;
-
-        /* renamed from: b  reason: collision with root package name */
-        com.baidu.platform.comapi.walknavi.widget.a f4154b;
+        Activity f2874a;
+        com.baidu.platform.comapi.walknavi.widget.a b;
 
         public a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
-            this.f4153a = activity;
-            this.f4154b = aVar;
+            this.f2874a = activity;
+            this.b = aVar;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            if (this.f4154b != null) {
-                ((Button) this.f4154b.c()).setText("确定(" + ((j / 1000) - 1) + ")");
+            if (this.b != null) {
+                ((Button) this.b.c()).setText("确定(" + ((j / 1000) - 1) + ")");
             }
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             b.this.q();
-            if (this.f4153a != null && !this.f4153a.isFinishing()) {
-                this.f4154b.dismiss();
+            if (this.f2874a != null && !this.f2874a.isFinishing()) {
+                this.b.dismiss();
             }
         }
     }
@@ -472,20 +468,20 @@ public class b extends com.baidu.platform.comapi.wnplatform.n.a {
     }
 
     public void a(boolean z, int i) {
-        String b2;
+        String b;
         try {
             if (this.f == null || this.f.isFinishing()) {
                 com.baidu.platform.comapi.wnplatform.k.a.a().a("BikeNaviPG.exitNavi");
                 s();
                 return;
             }
-            com.baidu.platform.comapi.walknavi.widget.a b3 = new com.baidu.platform.comapi.walknavi.widget.a(this.f).a(true).b(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.drawable.res_0x7f080004_avd_show_password__1));
-            if (com.baidu.platform.comapi.walknavi.g.a.b.f4285a == 2) {
-                b2 = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, i);
+            com.baidu.platform.comapi.walknavi.widget.a b2 = new com.baidu.platform.comapi.walknavi.widget.a(this.f).a(true).b(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.drawable.res_0x7f080004_avd_show_password__1));
+            if (com.baidu.platform.comapi.walknavi.g.a.b.f2963a == 2) {
+                b = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, i);
             } else {
-                b2 = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, i);
+                b = com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, i);
             }
-            this.i = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.drawable.res_0x7f080000_avd_hide_password__0)).b().b(new g(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.drawable.res_0x7f080005_avd_show_password__2)).a(new f(this));
+            this.i = b2.a(b).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.drawable.res_0x7f080000_avd_hide_password__0)).b().b(new g(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f, R.drawable.res_0x7f080005_avd_show_password__2)).a(new f(this));
             if (z) {
                 this.v = new a(7000L, 1000L, this.f, this.i);
                 this.v.start();

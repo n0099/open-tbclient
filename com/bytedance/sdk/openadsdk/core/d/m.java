@@ -8,10 +8,8 @@ public class m {
     public long f;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f6515a = aj.b();
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f6516b = -1;
+    public final String f4400a = aj.c();
+    public int b = -1;
     public int c = -1;
     public JSONArray d = null;
     public int e = 1;
@@ -19,7 +17,7 @@ public class m {
 
     public m a() {
         m mVar = new m();
-        mVar.f6516b = this.f6516b;
+        mVar.b = this.b;
         mVar.c = this.c;
         mVar.d = this.d;
         mVar.e = this.e;

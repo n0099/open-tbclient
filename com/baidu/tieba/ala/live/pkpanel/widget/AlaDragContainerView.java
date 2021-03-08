@@ -7,29 +7,29 @@ import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import com.baidu.live.tbadk.util.ScreenHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaDragContainerView extends FrameLayout {
-    private float bqb;
-    private float bqc;
-    private int dVi;
+    private float brB;
+    private float brC;
+    private int dWJ;
     private int height;
-    private int hmP;
-    private int hmQ;
-    private boolean hmR;
-    private final int hmS;
-    private int hmT;
-    private int hmU;
-    private int hmV;
-    private int hmW;
+    private int hoA;
+    private boolean hoB;
+    private final int hoC;
+    private int hoD;
+    private int hoE;
+    private int hoF;
+    private int hoG;
+    private int hoz;
     private Context mContext;
     private int screenWidth;
     private int width;
 
     public AlaDragContainerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hmR = false;
+        this.hoB = false;
         this.mContext = context;
-        this.hmS = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.hoC = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -46,10 +46,10 @@ public class AlaDragContainerView extends FrameLayout {
         super.onMeasure(i, i2);
         this.width = getMeasuredWidth();
         this.height = getMeasuredHeight();
-        this.hmP = this.width / 2;
-        this.hmQ = this.height / 2;
+        this.hoz = this.width / 2;
+        this.hoA = this.height / 2;
         this.screenWidth = ScreenHelper.getScreenWidth(this.mContext);
-        this.dVi = ScreenHelper.getScreenHeight(this.mContext);
+        this.dWJ = ScreenHelper.getScreenHeight(this.mContext);
     }
 
     @Nullable
@@ -57,47 +57,47 @@ public class AlaDragContainerView extends FrameLayout {
         if (isEnabled()) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    this.hmR = false;
-                    this.bqb = motionEvent.getX();
-                    this.bqc = motionEvent.getY();
+                    this.hoB = false;
+                    this.brB = motionEvent.getX();
+                    this.brC = motionEvent.getY();
                     break;
                 case 2:
-                    float x = motionEvent.getX() - this.bqb;
-                    float y = motionEvent.getY() - this.bqc;
-                    if (Math.abs(x) > this.hmS || Math.abs(y) > this.hmS) {
-                        this.hmR = true;
+                    float x = motionEvent.getX() - this.brB;
+                    float y = motionEvent.getY() - this.brC;
+                    if (Math.abs(x) > this.hoC || Math.abs(y) > this.hoC) {
+                        this.hoB = true;
                         int left = (int) (x + getLeft());
                         int i = this.width + left;
                         int top = (int) (y + getTop());
                         int i2 = this.height + top;
-                        if (left < (-this.hmP)) {
-                            left = -this.hmP;
+                        if (left < (-this.hoz)) {
+                            left = -this.hoz;
                             i = this.width + left;
-                        } else if (i > this.screenWidth + this.hmP) {
-                            i = this.screenWidth + this.hmP;
+                        } else if (i > this.screenWidth + this.hoz) {
+                            i = this.screenWidth + this.hoz;
                             left = i - this.width;
                         }
-                        if (top < (-this.hmQ)) {
-                            top = -this.hmQ;
+                        if (top < (-this.hoA)) {
+                            top = -this.hoA;
                             i2 = this.height + top;
-                        } else if (i2 > this.dVi + this.hmQ) {
-                            i2 = this.dVi + this.hmQ;
+                        } else if (i2 > this.dWJ + this.hoA) {
+                            i2 = this.dWJ + this.hoA;
                             top = i2 - this.height;
                         }
-                        this.hmT = left;
-                        this.hmU = top;
-                        this.hmV = i;
-                        this.hmW = i2;
+                        this.hoD = left;
+                        this.hoE = top;
+                        this.hoF = i;
+                        this.hoG = i2;
                         layout(left, top, i, i2);
                         break;
                     }
                     break;
             }
         }
-        return Boolean.valueOf(this.hmR);
+        return Boolean.valueOf(this.hoB);
     }
 
-    public void bYS() {
-        layout(this.hmT, this.hmU, this.hmV, this.hmW);
+    public void bYY() {
+        layout(this.hoD, this.hoE, this.hoF, this.hoG);
     }
 }

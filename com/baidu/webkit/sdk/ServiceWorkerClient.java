@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class ServiceWorkerClient {
     @Nullable
     public WebResourceResponse shouldInterceptRequest(WebResourceRequest webResourceRequest) {

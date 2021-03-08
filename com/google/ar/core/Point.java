@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Point extends TrackableBase {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Point(long j, Session session) {
@@ -12,7 +12,7 @@ public class Point extends TrackableBase {
 
     private native h nativeGetPose(long j, long j2);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum OrientationMode {
         INITIALIZED_TO_IDENTITY(0),
         ESTIMATED_SURFACE_NORMAL(1);

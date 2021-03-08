@@ -9,7 +9,7 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class e extends com.bytedance.sdk.openadsdk.core.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.j f6637a;
+    private com.bytedance.sdk.openadsdk.core.d.j f4486a;
 
     public e(@NonNull Context context, @NonNull com.bytedance.sdk.openadsdk.core.d.l lVar, @NonNull String str, int i) {
         super(context, lVar, str, i);
@@ -18,9 +18,9 @@ public class e extends com.bytedance.sdk.openadsdk.core.a.b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.core.a.b
     public com.bytedance.sdk.openadsdk.core.d.f a(int i, int i2, int i3, int i4, long j, long j2, View view, View view2) {
-        this.x = 1;
-        this.y = 0;
+        this.y = 1;
         this.z = 0;
+        this.A = 0;
         int i5 = 0;
         int i6 = 0;
         int[] a2 = ak.a(view);
@@ -34,18 +34,18 @@ public class e extends com.bytedance.sdk.openadsdk.core.a.b {
         }
         int[] iArr = new int[2];
         int[] iArr2 = new int[2];
-        if (this.f6637a != null) {
-            j = this.f6637a.e;
-            j2 = this.f6637a.f;
-            iArr[0] = i5 + ((int) ak.a(this.c, this.f6637a.g));
-            iArr[1] = i6 + ((int) ak.a(this.c, this.f6637a.h));
-            iArr2[0] = (int) ak.a(this.c, this.f6637a.i);
-            iArr2[1] = (int) ak.a(this.c, this.f6637a.j);
+        if (this.f4486a != null) {
+            j = this.f4486a.e;
+            j2 = this.f4486a.f;
+            iArr[0] = i5 + ((int) ak.a(this.c, this.f4486a.g));
+            iArr[1] = i6 + ((int) ak.a(this.c, this.f4486a.h));
+            iArr2[0] = (int) ak.a(this.c, this.f4486a.i);
+            iArr2[1] = (int) ak.a(this.c, this.f4486a.j);
         }
-        return new f.a().e(i).d(i2).c(i3).b(i4).b(j).a(j2).b(a2).a(iArr).c(ak.c(view)).d(iArr2).f(this.x).g(this.y).h(this.z).a(com.bytedance.sdk.openadsdk.core.i.c().b() ? 1 : 2).a(this.B).a();
+        return new f.a().e(i).d(i2).c(i3).b(i4).b(j).a(j2).b(a2).a(iArr).c(ak.c(view)).d(iArr2).f(this.y).g(this.z).h(this.A).a(com.bytedance.sdk.openadsdk.core.i.d().b() ? 1 : 2).a(this.C).a();
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.j jVar) {
-        this.f6637a = jVar;
+        this.f4486a = jVar;
     }
 }

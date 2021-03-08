@@ -11,7 +11,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImageCaptureFilter extends AbstractYYMediaFilter {
     private int mCacheCnt;
     VideoLiveFilterContext mFilterContext;
@@ -19,7 +19,7 @@ public class ImageCaptureFilter extends AbstractYYMediaFilter {
     AtomicBoolean mInited = new AtomicBoolean(false);
     private ImageBufferPool<ImageBuffer> mImageBufferPool = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ImageAvailbleRunnable implements Runnable {
         ImageCaptureFilter mHandler;
         ImageBuffer mImageBuffer;

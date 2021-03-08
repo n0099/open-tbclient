@@ -4,32 +4,32 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements IAdapterData {
-    public static final BdUniqueId oXz = BdUniqueId.gen();
-    private String ggD;
+    public static final BdUniqueId oZE = BdUniqueId.gen();
+    private String gih;
     private String mAction;
     private String mIconUrl;
     private String mId;
     private String mName;
-    private boolean oXA;
-    private boolean oXB;
-    private String oXC;
+    private boolean oZF;
+    private boolean oZG;
+    private String oZH;
 
     public String getId() {
         return this.mId;
     }
 
-    public String BS() {
-        return this.ggD;
+    public String BV() {
+        return this.gih;
     }
 
-    public String ejD() {
-        return this.oXC;
+    public String ejN() {
+        return this.oZH;
     }
 
-    public void Yj(String str) {
-        this.oXC = str;
+    public void Yq(String str) {
+        this.oZH = str;
     }
 
     public String getIconUrl() {
@@ -44,16 +44,16 @@ public class a implements IAdapterData {
         return this.mAction;
     }
 
-    public boolean ejE() {
-        return this.oXA;
+    public boolean ejO() {
+        return this.oZF;
     }
 
-    public boolean ejF() {
-        return this.oXB;
+    public boolean ejP() {
+        return this.oZG;
     }
 
-    public void AI(boolean z) {
-        this.oXB = z;
+    public void AH(boolean z) {
+        this.oZG = z;
     }
 
     public void parse(JSONObject jSONObject) {
@@ -62,13 +62,13 @@ public class a implements IAdapterData {
             this.mIconUrl = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
             this.mName = jSONObject.optString("text");
             this.mAction = jSONObject.optString("action");
-            this.oXA = jSONObject.optInt("red_note", 0) == 1;
-            this.ggD = jSONObject.optString("url");
+            this.oZF = jSONObject.optInt("red_note", 0) == 1;
+            this.gih = jSONObject.optString("url");
         }
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return oXz;
+        return oZE;
     }
 }

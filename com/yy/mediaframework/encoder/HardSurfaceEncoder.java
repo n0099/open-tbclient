@@ -31,7 +31,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 @TargetApi(18)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class HardSurfaceEncoder {
     private static final int MEDIA_CODEC_RELEASE_TIMEOUT_MS = 2000;
     private static String TAG = "HardSurfaceEncoder";

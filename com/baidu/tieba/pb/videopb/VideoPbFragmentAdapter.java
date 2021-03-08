@@ -14,25 +14,25 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     private ArrayList<BaseFragment> mFragments;
-    private List<String> mla;
+    private List<String> mnc;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.mla == null) {
-            this.mla = new ArrayList();
+        if (this.mnc == null) {
+            this.mnc = new ArrayList();
         }
-        this.mla.clear();
-        if (com.baidu.tbadk.a.d.bja()) {
-            this.mla.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.mnc.clear();
+        if (com.baidu.tbadk.a.d.bjc()) {
+            this.mnc.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         } else {
-            this.mla.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-            this.mla.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+            this.mnc.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+            this.mnc.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         }
         if (this.mFragments == null) {
             this.mFragments = new ArrayList<>();
         }
         this.mFragments.clear();
-        if (com.baidu.tbadk.a.d.bja()) {
+        if (com.baidu.tbadk.a.d.bjc()) {
             this.mFragments.add(DetailInfoAndReplyFragment.ac(videoPbFragment));
             return;
         }
@@ -42,10 +42,10 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return Gw(i);
+        return Gz(i);
     }
 
-    public BaseFragment Gw(int i) {
+    public BaseFragment Gz(int i) {
         if (this.mFragments == null || i >= this.mFragments.size()) {
             return null;
         }
@@ -62,17 +62,17 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.mla == null || i < 0 || i >= this.mla.size()) {
+        if (this.mnc == null || i < 0 || i >= this.mnc.size()) {
             return null;
         }
-        return this.mla.get(i);
+        return this.mnc.get(i);
     }
 
-    public ArrayList<BaseFragment> dux() {
+    public ArrayList<BaseFragment> duG() {
         return this.mFragments;
     }
 
-    public void Gx(int i) {
+    public void GA(int i) {
         if (this.mFragments != null) {
             int i2 = 0;
             while (i2 < this.mFragments.size()) {

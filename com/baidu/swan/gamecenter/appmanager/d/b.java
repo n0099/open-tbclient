@@ -7,20 +7,20 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b extends f {
     public String packageName;
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.dLx = com.baidu.swan.apps.swancore.b.jD(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.dLz = SwanAppNetworkUtils.aDf().type;
-        if (this.dLv == null) {
-            this.dLv = new JSONObject();
+        this.dMY = com.baidu.swan.apps.swancore.b.jE(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.dNa = SwanAppNetworkUtils.aDi().type;
+        if (this.dMW == null) {
+            this.dMW = new JSONObject();
         }
         try {
-            this.dLv.put("host", com.baidu.swan.apps.t.a.axI().getHostName());
-            this.dLv.put("package", this.packageName);
+            this.dMW.put("host", com.baidu.swan.apps.t.a.axL().getHostName());
+            this.dMW.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -38,18 +38,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.dLA = aVar.dLA;
-            this.dLC = aVar.dLC;
+            this.dNb = aVar.dNb;
+            this.dNd = aVar.dNd;
             this.mScheme = aVar.mScheme;
-            this.dLF = aVar.dLF;
-            this.dEC = aVar.dEC;
+            this.dNg = aVar.dNg;
+            this.dGd = aVar.dGd;
             this.mAppVersion = aVar.mAppVersion;
-            this.dLy = aVar.dLy;
+            this.dMZ = aVar.dMZ;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String vP(String str) {
+    public static String vW(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

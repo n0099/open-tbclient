@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements IAdapterData {
-    public static final BdUniqueId gNg = BdUniqueId.gen();
+    public static final BdUniqueId gOP = BdUniqueId.gen();
     private String desc;
-    private List<IAdapterData> gNh;
+    private List<IAdapterData> gOQ;
     private String icon;
     private String id;
     private String level;
     private String name;
 
-    public void dH(JSONObject jSONObject) {
+    public void dJ(JSONObject jSONObject) {
         this.id = jSONObject.optString("id");
         this.name = jSONObject.optString("name");
         this.level = jSONObject.optString("level");
@@ -25,13 +25,13 @@ public class c implements IAdapterData {
         this.desc = jSONObject.optString("desc");
         JSONArray optJSONArray = jSONObject.optJSONArray("sub_list");
         if (optJSONArray != null) {
-            this.gNh = new ArrayList();
+            this.gOQ = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 c cVar = new c();
-                cVar.dH(optJSONObject);
-                this.gNh.add(cVar);
+                cVar.dJ(optJSONObject);
+                this.gOQ.add(cVar);
             }
         }
     }
@@ -44,12 +44,12 @@ public class c implements IAdapterData {
         return this.name;
     }
 
-    public List<IAdapterData> bTv() {
-        return this.gNh;
+    public List<IAdapterData> bTB() {
+        return this.gOQ;
     }
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return gNg;
+        return gOP;
     }
 }

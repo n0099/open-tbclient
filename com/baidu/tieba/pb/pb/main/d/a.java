@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static int Gk(int i) {
+    public static int Gn(int i) {
         switch (i) {
             case -4:
                 return 4;
@@ -63,12 +63,12 @@ public class a {
             case -3:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_comment30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case -2:
-                if (ao.getString(R.string.c_disagree, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.c_disagree, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_dislike30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_disliked30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case -1:
-                if (ao.getString(R.string.c_agree, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.c_agree, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_like30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_liked30, ap.getColor(R.color.CAM_X0301), (WebPManager.ResourceStateType) null);
@@ -83,23 +83,23 @@ public class a {
             case 3:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_copy30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case 4:
-                if (ao.getString(R.string.mark, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.mark, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_collect30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_collected30, ap.getColor(R.color.CAM_X0305), (WebPManager.ResourceStateType) null);
             case 5:
-                if (ao.getString(R.string.report_text, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.report_text, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_report30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (ao.getString(R.string.mute_option, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.mute_option, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_nospeakingset30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
             case 6:
-                if (ao.getString(R.string.report_text, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.report_text, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_report30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (ao.getString(R.string.delete, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.delete, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_delete30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
@@ -108,20 +108,20 @@ public class a {
             case 8:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_hide30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case 10:
-                if (ao.getString(R.string.delete_post, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.delete_post, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_delete30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (ao.getString(R.string.delete, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.delete, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_delete30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
             case 11:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_block30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case 12:
-                if (ao.getString(R.string.mute, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.mute, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_nospeaking30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (ao.getString(R.string.un_mute, new Object[0]).equals(gVar.bqI())) {
+                if (ao.getString(R.string.un_mute, new Object[0]).equals(gVar.bqJ())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_nospeakinged30, ap.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
@@ -136,38 +136,38 @@ public class a {
         if (agreeData.hasAgree) {
             if (agreeData.agreeType == 2) {
                 g gVar = new g(-1, ao.getString(R.string.c_agreeed, new Object[0]), kVar);
-                gVar.eVl.setTag(sparseArray);
+                gVar.eWK.setTag(sparseArray);
                 arrayList.add(gVar);
                 if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                     g gVar2 = new g(-2, ao.getString(R.string.c_disagree, new Object[0]), kVar);
-                    gVar2.eVl.setTag(sparseArray);
+                    gVar2.eWK.setTag(sparseArray);
                     arrayList.add(gVar2);
                 }
             } else {
                 g gVar3 = new g(-1, ao.getString(R.string.c_agree, new Object[0]), kVar);
-                gVar3.eVl.setTag(sparseArray);
+                gVar3.eWK.setTag(sparseArray);
                 arrayList.add(gVar3);
                 if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                     g gVar4 = new g(-2, ao.getString(R.string.c_disagreeed, new Object[0]), kVar);
-                    gVar4.eVl.setTag(sparseArray);
+                    gVar4.eWK.setTag(sparseArray);
                     arrayList.add(gVar4);
                 }
             }
         } else {
             g gVar5 = new g(-1, ao.getString(R.string.c_agree, new Object[0]), kVar);
-            gVar5.eVl.setTag(sparseArray);
+            gVar5.eWK.setTag(sparseArray);
             arrayList.add(gVar5);
             if (sparseArray == null || sparseArray.get(R.id.pb_dialog_item_isugc) == null || !((Boolean) sparseArray.get(R.id.pb_dialog_item_isugc)).booleanValue()) {
                 g gVar6 = new g(-2, ao.getString(R.string.c_disagree, new Object[0]), kVar);
-                gVar6.eVl.setTag(sparseArray);
+                gVar6.eWK.setTag(sparseArray);
                 arrayList.add(gVar6);
             }
         }
         g gVar7 = new g(-3, ao.getString(R.string.reply, new Object[0]), kVar);
-        gVar7.eVl.setTag(sparseArray);
+        gVar7.eWK.setTag(sparseArray);
         arrayList.add(gVar7);
         g gVar8 = new g(-4, ao.getString(R.string.share, new Object[0]), kVar);
-        gVar8.eVl.setTag(sparseArray);
+        gVar8.eWK.setTag(sparseArray);
         arrayList.add(gVar8);
         list.addAll(0, arrayList);
         return list;
@@ -191,10 +191,10 @@ public class a {
             return null;
         }
         String str = "";
-        if (postData.dNH() != null) {
-            str = postData.dNH().toString();
+        if (postData.dNQ() != null) {
+            str = postData.dNQ().toString();
         }
-        SpannableString bJ = bJ(postData.bnQ().getName_show() + " : ", ap.getColor(R.color.CAM_X0109));
+        SpannableString bJ = bJ(postData.bnS().getName_show() + " : ", ap.getColor(R.color.CAM_X0109));
         SpannableString bJ2 = bJ(str, ap.getColor(R.color.CAM_X0107));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) bJ);

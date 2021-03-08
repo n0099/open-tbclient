@@ -1,15 +1,15 @@
 package com.baidu.tieba.ala.liveroom.activeview;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void Hp(String str);
+    void HA(String str);
 
-    void Hq(String str);
+    void Hy(String str);
 
-    void Hr(String str);
+    void Hz(String str);
 
     void bM(int i, int i2);
 
-    void bZN();
+    void bZT();
 
     void nG(boolean z);
 }

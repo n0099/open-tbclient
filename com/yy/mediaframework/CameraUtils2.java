@@ -7,7 +7,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CameraUtils2 {
     private static final float RATIO_16_9 = 1.7777778f;
     private static final float RATIO_3_4 = 0.75f;
@@ -95,7 +95,7 @@ public class CameraUtils2 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class SizeComparator implements Comparator<Camera.Size> {
         SizeComparator() {
         }

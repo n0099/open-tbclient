@@ -26,68 +26,69 @@ import com.baidu.tieba.view.BdTopToast;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements h {
-    private ForumRulesShowModel juO;
-    private c juP;
-    a.InterfaceC0726a juQ = new a.InterfaceC0726a() { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.1
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0726a
+    private ForumRulesShowModel jwx;
+    private c jwy;
+    private String mFrom;
+    a.InterfaceC0732a jwz = new a.InterfaceC0732a() { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.1
+        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
         public void A(boolean z, String str) {
-            if (ForumRulesShowActivity.this.juP != null) {
+            if (ForumRulesShowActivity.this.jwy != null) {
                 if (z) {
-                    ForumRulesShowActivity.this.juP.KH(str);
+                    ForumRulesShowActivity.this.jwy.KQ(str);
                 } else {
-                    ForumRulesShowActivity.this.juP.cHS();
+                    ForumRulesShowActivity.this.jwy.cHY();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0726a
-        public void Ku(String str) {
-            if (ForumRulesShowActivity.this.juP != null) {
-                ForumRulesShowActivity.this.juP.addTitle(str);
+        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
+        public void KD(String str) {
+            if (ForumRulesShowActivity.this.jwy != null) {
+                ForumRulesShowActivity.this.jwy.addTitle(str);
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0726a
+        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
         public void a(b bVar) {
-            if (ForumRulesShowActivity.this.juP != null) {
-                ForumRulesShowActivity.this.juP.c(bVar);
+            if (ForumRulesShowActivity.this.jwy != null) {
+                ForumRulesShowActivity.this.jwy.c(bVar);
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0726a
+        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
         public void dp(List<com.baidu.tieba.frs.forumRule.b.c> list) {
-            if (ForumRulesShowActivity.this.juP != null) {
-                ForumRulesShowActivity.this.juP.dt(list);
+            if (ForumRulesShowActivity.this.jwy != null) {
+                ForumRulesShowActivity.this.jwy.dt(list);
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0726a
+        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
         public void a(com.baidu.tieba.frs.forumRule.b.a aVar) {
-            if (ForumRulesShowActivity.this.juP != null) {
-                ForumRulesShowActivity.this.juP.b(aVar);
+            if (ForumRulesShowActivity.this.jwy != null) {
+                ForumRulesShowActivity.this.jwy.b(aVar);
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0726a
-        public void bCh() {
-            if (ForumRulesShowActivity.this.juP != null) {
-                ForumRulesShowActivity.this.juP.cHQ();
-                ForumRulesShowActivity.this.juP.cHM();
-                ForumRulesShowActivity.this.showNetRefreshView(ForumRulesShowActivity.this.juP.cHL(), "");
+        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
+        public void bCk() {
+            if (ForumRulesShowActivity.this.jwy != null) {
+                ForumRulesShowActivity.this.jwy.cHW();
+                ForumRulesShowActivity.this.jwy.cHS();
+                ForumRulesShowActivity.this.showNetRefreshView(ForumRulesShowActivity.this.jwy.cHR(), "");
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0726a
+        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
         public void finish() {
-            if (ForumRulesShowActivity.this.juP != null) {
-                ForumRulesShowActivity.this.hideNetRefreshView(ForumRulesShowActivity.this.juP.cHL());
-                ForumRulesShowActivity.this.juP.cHN();
-                ForumRulesShowActivity.this.juP.cHP();
-                ForumRulesShowActivity.this.juP.cHO();
+            if (ForumRulesShowActivity.this.jwy != null) {
+                ForumRulesShowActivity.this.hideNetRefreshView(ForumRulesShowActivity.this.jwy.cHR());
+                ForumRulesShowActivity.this.jwy.cHT();
+                ForumRulesShowActivity.this.jwy.cHV();
+                ForumRulesShowActivity.this.jwy.cHU();
             }
         }
     };
-    private CustomMessageListener juR = new CustomMessageListener(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK) { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.2
+    private CustomMessageListener jwA = new CustomMessageListener(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK) { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -97,7 +98,6 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
             }
         }
     };
-    private String mFrom;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -105,14 +105,14 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         super.onCreate(bundle);
         initData(bundle);
         initView();
-        this.juO.ao(bundle);
+        this.jwx.ao(bundle);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.juP != null) {
-            this.juP.onChangeSkinType(i);
+        if (this.jwy != null) {
+            this.jwy.onChangeSkinType(i);
         }
     }
 
@@ -120,30 +120,30 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        registerListener(this.juR);
+        registerListener(this.jwA);
     }
 
     private void initData(Bundle bundle) {
-        this.juO = new ForumRulesShowModel(this);
-        cHa();
+        this.jwx = new ForumRulesShowModel(this);
+        cHg();
     }
 
     private void initView() {
         if (getIntent() != null) {
             this.mFrom = getIntent().getStringExtra("from");
         }
-        this.juP = new c(this, this.mFrom);
-        this.juP.a(getRefreshView());
+        this.jwy = new c(this, this.mFrom);
+        this.jwy.a(getRefreshView());
     }
 
-    private void cHa() {
-        this.juO.a(this.juQ);
+    private void cHg() {
+        this.jwx.a(this.jwz);
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
-        if (this.juP != null) {
-            this.juP.setFrom(str);
+        if (this.jwy != null) {
+            this.jwy.setFrom(str);
         }
     }
 
@@ -151,29 +151,29 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.juR);
+        MessageManager.getInstance().unRegisterListener(this.jwA);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.juO != null) {
-            this.juO.destory();
+        if (this.jwx != null) {
+            this.jwx.destory();
         }
-        if (this.juP != null) {
-            this.juP.destory();
-        }
-    }
-
-    public void cHb() {
-        if (this.juO != null) {
-            this.juO.cHs();
+        if (this.jwy != null) {
+            this.jwy.destory();
         }
     }
 
-    public c cHc() {
-        return this.juP;
+    public void cHh() {
+        if (this.jwx != null) {
+            this.jwx.cHy();
+        }
+    }
+
+    public c cHi() {
+        return this.jwy;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -183,11 +183,11 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         if (i2 == -1 && i == 25053) {
             String stringExtra = intent.getStringExtra("group_name");
             if (!intent.getBooleanExtra("from", true)) {
-                this.juP.remove();
-                this.juP.mData.clear();
-                this.juO.cHs();
+                this.jwy.remove();
+                this.jwy.mData.clear();
+                this.jwx.cHy();
             }
-            new BdTopToast(this, 3000).zn(true).UZ(stringExtra).aR(this.juP.getRootView());
+            new BdTopToast(this, 3000).zm(true).Vg(stringExtra).aR(this.jwy.getRootView());
         }
     }
 
@@ -197,37 +197,37 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public int bIg() {
+    public int bIk() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<ImageView> bIh() {
+    public com.baidu.adp.lib.d.b<ImageView> bIl() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<TextView> bIi() {
+    public com.baidu.adp.lib.d.b<TextView> bIm() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<GifView> bIj() {
+    public com.baidu.adp.lib.d.b<GifView> bIn() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<View> bIk() {
+    public com.baidu.adp.lib.d.b<View> bIo() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<LinearLayout> bIl() {
+    public com.baidu.adp.lib.d.b<LinearLayout> bIp() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<RelativeLayout> bIm() {
+    public com.baidu.adp.lib.d.b<RelativeLayout> bIq() {
         return null;
     }
 
@@ -237,7 +237,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
 
     @Override // com.baidu.tbadk.widget.richText.h
     public void g(Context context, String str, boolean z) {
-        bf.bsV().b(getPageContext(), new String[]{str});
+        bf.bsY().b(getPageContext(), new String[]{str});
     }
 
     @Override // com.baidu.tbadk.widget.richText.h

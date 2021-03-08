@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements h {
-    private Drawable ZH;
-    private m fAZ;
-    private boolean fBa;
+    private Drawable aaZ;
+    private m fCy;
+    private boolean fCz;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -25,9 +25,9 @@ public class BLauncher extends ImageView implements h {
     public BLauncher(Context context, m mVar) {
         super(context);
         this.mSkinType = 0;
-        this.fBa = false;
+        this.fCz = false;
         if (mVar != null) {
-            this.fAZ = mVar;
+            this.fCy = mVar;
             setIcon();
             setToolId(mVar.id);
         }
@@ -38,15 +38,15 @@ public class BLauncher extends ImageView implements h {
     }
 
     public void setIcon() {
-        if (this.fAZ != null) {
-            if (this.fAZ.fCe) {
-                setImageDrawable(SvgManager.bsR().z(this.fAZ.fCb, this.fAZ.fCc, this.mSkinType));
-            } else if (this.fAZ.fCf) {
-                setImageDrawable(WebPManager.A(this.fAZ.fCb, this.fAZ.fCc, this.mSkinType));
+        if (this.fCy != null) {
+            if (this.fCy.fDD) {
+                setImageDrawable(SvgManager.bsU().z(this.fCy.fDA, this.fCy.fDB, this.mSkinType));
+            } else if (this.fCy.fDE) {
+                setImageDrawable(WebPManager.A(this.fCy.fDA, this.fCy.fDB, this.mSkinType));
             } else {
-                ap.setImageResource(this, this.fAZ.fCb, this.mSkinType);
+                ap.setImageResource(this, this.fCy.fDA, this.mSkinType);
             }
-            if (!this.fAZ.isEnable()) {
+            if (!this.fCy.isEnable()) {
                 setEnabled(false);
             }
         }
@@ -68,23 +68,23 @@ public class BLauncher extends ImageView implements h {
 
     @Override // com.baidu.tbadk.editortools.h
     public void hide() {
-        bBf();
+        bBi();
         setVisibility(8);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (this.fAZ.fCl) {
-            this.ZH = ap.getDrawable(R.drawable.icon_news_red_dot);
+        if (this.fCy.fDK) {
+            this.aaZ = ap.getDrawable(R.drawable.icon_news_red_dot);
             int width = getWidth();
-            int intrinsicHeight = this.ZH.getIntrinsicHeight();
-            this.ZH.setBounds(getWidth() - this.ZH.getIntrinsicWidth(), 0, width, intrinsicHeight);
-            this.ZH.draw(canvas);
+            int intrinsicHeight = this.aaZ.getIntrinsicHeight();
+            this.aaZ.setBounds(getWidth() - this.aaZ.getIntrinsicWidth(), 0, width, intrinsicHeight);
+            this.aaZ.draw(canvas);
         }
     }
 
-    public void CI(String str) {
+    public void CP(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -109,15 +109,15 @@ public class BLauncher extends ImageView implements h {
                 return;
             }
             this.mTip.setVisibility(8);
-            this.fAZ.fCl = true;
+            this.fCy.fDK = true;
             invalidate();
         }
     }
 
-    public void bBf() {
+    public void bBi() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
-            bBg();
+            bBj();
         }
     }
 
@@ -127,8 +127,8 @@ public class BLauncher extends ImageView implements h {
     }
 
     @Override // com.baidu.tbadk.editortools.h
-    public void bBg() {
-        this.fAZ.fCl = false;
+    public void bBj() {
+        this.fCy.fDK = false;
         invalidate();
     }
 
@@ -136,9 +136,9 @@ public class BLauncher extends ImageView implements h {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                bBf();
+                bBi();
             } else if (aVar.data instanceof String) {
-                CI((String) aVar.data);
+                CP((String) aVar.data);
             }
         }
     }
@@ -158,11 +158,11 @@ public class BLauncher extends ImageView implements h {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.fBa;
+        return this.fCz;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.fBa = z;
+        this.fCz = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

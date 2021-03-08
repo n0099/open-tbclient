@@ -24,7 +24,7 @@ public class f extends b {
             return null;
         }
         if (this.roundPx > 0.0f) {
-            com.baidu.tbadk.imageManager.c.bCP().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.bCS().freePicCache(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.getRoundedCornerBitmap(bitmap, this.roundPx, z);
         }
         return bitmap;

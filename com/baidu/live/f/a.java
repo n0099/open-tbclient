@@ -1,28 +1,28 @@
 package com.baidu.live.f;
 
 import com.baidu.live.adp.widget.IGuideTab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private static volatile a aFG;
-    private b aFH;
+    private static volatile a aHg;
+    private b aHh;
 
     private a() {
     }
 
-    public static a AR() {
-        if (aFG == null) {
+    public static a AU() {
+        if (aHg == null) {
             synchronized (a.class) {
-                if (aFG == null) {
-                    aFG = new a();
+                if (aHg == null) {
+                    aHg = new a();
                 }
             }
         }
-        return aFG;
+        return aHg;
     }
 
-    public IGuideTab AS() {
-        if (this.aFH != null) {
-            return this.aFH.AT();
+    public IGuideTab AV() {
+        if (this.aHh != null) {
+            return this.aHh.AW();
         }
         return null;
     }

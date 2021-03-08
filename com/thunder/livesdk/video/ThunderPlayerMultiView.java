@@ -3,7 +3,7 @@ package com.thunder.livesdk.video;
 import android.content.Context;
 import android.util.AttributeSet;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderPlayerMultiView extends ThunderPlayerView {
     private static final String TAG = "ThunderPlayerMultiView";
 

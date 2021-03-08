@@ -99,7 +99,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static KsAdSDKImpl f8124a = new KsAdSDKImpl();
+        private static KsAdSDKImpl f5416a = new KsAdSDKImpl();
     }
 
     static {
@@ -132,7 +132,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     @KsAdSdkDynamicImpl(IKsAdSDK.class)
     @Keep
     public static KsAdSDKImpl get() {
-        return a.f8124a;
+        return a.f5416a;
     }
 
     public static Class<?> getProxyRealClass(Class cls) {
@@ -278,7 +278,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
     public int getSDKType() {
-        return d.f9671a;
+        return d.f6401a;
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
@@ -342,7 +342,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
                 }
                 com.kwad.sdk.core.a.a.a(KsAdSDKImpl.this.mAppContext, sdkConfig);
                 try {
-                    if (com.kwad.sdk.core.config.c.K() || com.kwad.sdk.a.f8126b.booleanValue()) {
+                    if (com.kwad.sdk.core.config.c.K() || com.kwad.sdk.a.b.booleanValue()) {
                         DynamicInstallReceiver.registerToApp(KsAdSDKImpl.this.mAppContext);
                     }
                 } catch (Throwable th2) {

@@ -5,10 +5,10 @@ import android.content.Context;
 import com.baidu.mobads.production.rewardvideo.a;
 import com.baidu.mobads.rewardvideo.AbstractScreenVideoAd;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RewardVideoAd extends AbstractScreenVideoAd {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface RewardVideoAdListener extends AbstractScreenVideoAd.ScreenVideoAdListener {
         @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd.ScreenVideoAdListener
         void onAdClick();
@@ -55,7 +55,7 @@ public class RewardVideoAd extends AbstractScreenVideoAd {
         return new RewardVideoIOAdEventListener();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private class RewardVideoIOAdEventListener extends AbstractScreenVideoAd.ScreenVideoIOAdEventListener {
         private RewardVideoIOAdEventListener() {
             super();

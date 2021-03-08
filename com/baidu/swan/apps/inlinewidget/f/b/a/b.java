@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.inlinewidget.f.b.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b implements a {
     @Override // com.baidu.swan.apps.inlinewidget.f.b.a.a
-    public void awB() {
+    public void awE() {
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.b.a.a

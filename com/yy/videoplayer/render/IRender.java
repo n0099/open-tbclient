@@ -2,7 +2,7 @@ package com.yy.videoplayer.render;
 
 import android.graphics.Bitmap;
 import com.yy.videoplayer.decoder.VideoConstant;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IRender {
     boolean checkUpdateMirrorMode(boolean z);
 

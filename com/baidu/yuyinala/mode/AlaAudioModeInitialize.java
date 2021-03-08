@@ -11,18 +11,18 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaAudioModeInitialize {
-    private static int oWR = -1;
+    private static int oYW = -1;
 
     static {
-        ejn();
-        ejo();
-        eiZ();
+        ejx();
+        ejy();
+        ejj();
     }
 
-    private static void ejn() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031079, com.baidu.live.a.avJ + "ala/audio/room/changeMode");
+    private static void ejx() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031079, com.baidu.live.a.axj + "ala/audio/room/changeMode");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
@@ -33,7 +33,7 @@ public class AlaAudioModeInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void ejo() {
+    private static void ejy() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501008) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -43,20 +43,20 @@ public class AlaAudioModeInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("ala_live_show_data");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof ab)) {
-                        a.ejk().b((TbPageContext) obj, (ab) obj2);
+                        a.eju().b((TbPageContext) obj, (ab) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void eiZ() {
+    private static void ejj() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.mode.AlaAudioModeInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.ejk().FA();
+                    a.eju().FD();
                 }
             }
         });

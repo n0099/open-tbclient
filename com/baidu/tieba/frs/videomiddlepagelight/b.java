@@ -23,21 +23,21 @@ import kotlin.jvm.internal.p;
 @e
 /* loaded from: classes2.dex */
 public final class b extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<c>> {
-    private final BdUniqueId Wm;
-    private final VideoMiddlePageViewModel jOk;
-    private final List<c> jOm;
+    private final BdUniqueId XG;
+    private final VideoMiddlePageViewModel jPT;
+    private final List<c> jPV;
     private final TbPageContext<?> pageContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, VideoMiddlePageViewModel videoMiddlePageViewModel) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        p.o(tbPageContext, "pageContext");
-        p.o(bdUniqueId, "mType");
-        p.o(videoMiddlePageViewModel, "viewModel");
+        p.p(tbPageContext, "pageContext");
+        p.p(bdUniqueId, "mType");
+        p.p(videoMiddlePageViewModel, "viewModel");
         this.pageContext = tbPageContext;
-        this.Wm = bdUniqueId;
-        this.jOk = videoMiddlePageViewModel;
-        this.jOm = new ArrayList();
+        this.XG = bdUniqueId;
+        this.jPT = videoMiddlePageViewModel;
+        this.jPV = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,8 +45,8 @@ public final class b extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<c
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aX */
     public CardViewHolder<c> e(ViewGroup viewGroup) {
-        c cVar = new c(this.pageContext, this.jOk);
-        this.jOm.add(cVar);
+        c cVar = new c(this.pageContext, this.jPT);
+        this.jPV.add(cVar);
         return new CardViewHolder<>(cVar);
     }
 
@@ -54,14 +54,14 @@ public final class b extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<c
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, g gVar, CardViewHolder<c> cardViewHolder) {
-        c cti;
-        AgreeData bpJ;
+        c cto;
+        AgreeData bpL;
         cb f = g.f(gVar);
-        if (gVar != null && (bpJ = gVar.bpJ()) != null) {
-            bpJ.keyFromHomePage = this.jOk.getFrom();
+        if (gVar != null && (bpL = gVar.bpL()) != null) {
+            bpL.keyFromHomePage = this.jPT.getFrom();
         }
-        if (cardViewHolder != null && (cti = cardViewHolder.cti()) != null) {
-            cti.b(gVar, i);
+        if (cardViewHolder != null && (cto = cardViewHolder.cto()) != null) {
+            cto.b(gVar, i);
         }
         a(gVar, f, i);
         a(gVar, i);
@@ -72,7 +72,7 @@ public final class b extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<c
     }
 
     public final void onDestroy() {
-        for (c cVar : this.jOm) {
+        for (c cVar : this.jPV) {
             if (cVar != null) {
                 cVar.onDestroy();
             }
@@ -84,20 +84,20 @@ public final class b extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<c
         arVar.dR("tid", gVar != null ? gVar.threadId : null);
         arVar.dR(IntentConfig.NID, gVar != null ? gVar.nid : null);
         arVar.v("uid", TbadkCoreApplication.getCurrentAccountId());
-        arVar.ap("obj_locate", i);
-        arVar.ap(TiebaInitialize.Params.OBJ_PARAM2, 1);
+        arVar.aq("obj_locate", i);
+        arVar.aq(TiebaInitialize.Params.OBJ_PARAM2, 1);
         if (gVar == null) {
-            p.eLu();
+            p.eLc();
         }
         arVar.dR("fid", gVar.forumId);
         arVar.dR("obj_param1", au.isEmpty(gVar.weight) ? "0" : gVar.weight);
         arVar.dR("extra", au.isEmpty(gVar.extra) ? "0" : gVar.extra);
-        arVar.dR("obj_id", this.jOk.cMY());
+        arVar.dR("obj_id", this.jPT.cNe());
         arVar.dR("ab_tag", au.isEmpty(gVar.abtest_tag) ? "0" : gVar.abtest_tag);
-        arVar.dR("obj_type", this.jOk.getFrom());
-        arVar.ap("obj_param5", gVar.getVideoType());
+        arVar.dR("obj_type", this.jPT.getFrom());
+        arVar.aq("obj_param5", gVar.getVideoType());
         arVar.dR("obj_source", au.isEmpty(gVar.source) ? "0" : gVar.source);
-        arVar.ap("is_vertical", gVar.cFC() ? 1 : 0);
+        arVar.aq("is_vertical", gVar.cFI() ? 1 : 0);
         if (gVar.mBaijiahao != null) {
             BaijiahaoData baijiahaoData = gVar.mBaijiahao;
             arVar.dR("obj_param4", baijiahaoData != null ? baijiahaoData.oriUgcNid : null);
@@ -109,8 +109,8 @@ public final class b extends com.baidu.adp.widget.ListView.a<g, CardViewHolder<c
 
     private final void a(g gVar, cb cbVar, int i) {
         if (gVar == null) {
-            p.eLu();
+            p.eLc();
         }
-        com.baidu.tieba.s.c.dMz().a(this.pageContext.getUniqueId(), com.baidu.tieba.s.a.a(gVar.threadId, "", "", gVar.mBaijiahao), com.baidu.tieba.s.a.a(cbVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_exp", i + 1, false, null, null));
+        com.baidu.tieba.s.c.dMH().a(this.pageContext.getUniqueId(), com.baidu.tieba.s.a.a(gVar.threadId, "", "", gVar.mBaijiahao), com.baidu.tieba.s.a.a(cbVar, PageStayDurationConstants.PageName.VIDEO_LIST, "common_exp", i + 1, false, null, null));
     }
 }

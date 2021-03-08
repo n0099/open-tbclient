@@ -2,21 +2,21 @@ package com.baidu.sapi2.share;
 
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f5059a;
+    private static a f3419a;
 
     public static a a() {
-        a aVar = f5059a;
+        a aVar = f3419a;
         if (aVar == null) {
             try {
                 Class.forName(SapiAccount.class.getName(), true, SapiAccount.class.getClassLoader());
             } catch (Exception e) {
                 Log.e(e);
             }
-            return f5059a;
+            return f3419a;
         }
         return aVar;
     }
@@ -49,8 +49,8 @@ public abstract class a {
     public abstract void d(SapiAccount sapiAccount, String str);
 
     public static void a(a aVar) {
-        if (f5059a == null) {
-            f5059a = aVar;
+        if (f3419a == null) {
+            f3419a = aVar;
             return;
         }
         throw new IllegalStateException();

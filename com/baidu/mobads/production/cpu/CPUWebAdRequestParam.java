@@ -3,7 +3,7 @@ package com.baidu.mobads.production.cpu;
 import com.baidu.mobads.nativecpu.CpuLpFontSize;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CPUWebAdRequestParam {
     private static final String DARK_MODE = "dark";
     private static final String LIGHT_MODE = "light";
@@ -21,7 +21,7 @@ public class CPUWebAdRequestParam {
         return this.mParameters;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         private HashMap<String, Object> mExtras = new HashMap<>();
 

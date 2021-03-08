@@ -20,7 +20,7 @@ public interface IListenerManager extends IInterface {
 
     void executeFullVideoCallback(String str, String str2) throws RemoteException;
 
-    void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3) throws RemoteException;
+    void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3, int i2, String str4) throws RemoteException;
 
     void registerDialogListener(String str, ICommonDialogListener iCommonDialogListener) throws RemoteException;
 
@@ -66,7 +66,7 @@ public interface IListenerManager extends IInterface {
                     return true;
                 case 2:
                     parcel.enforceInterface("com.bytedance.sdk.openadsdk.IListenerManager");
-                    executeRewardVideoCallback(parcel.readString(), parcel.readString(), parcel.readInt() != 0, parcel.readInt(), parcel.readString());
+                    executeRewardVideoCallback(parcel.readString(), parcel.readString(), parcel.readInt() != 0, parcel.readInt(), parcel.readString(), parcel.readInt(), parcel.readString());
                     parcel2.writeNoException();
                     return true;
                 case 3:
@@ -126,15 +126,15 @@ public interface IListenerManager extends IInterface {
         private static class a implements IListenerManager {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f6077a;
+            private IBinder f4068a;
 
             a(IBinder iBinder) {
-                this.f6077a = iBinder;
+                this.f4068a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f6077a;
+                return this.f4068a;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IListenerManager
@@ -145,7 +145,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iRewardAdInteractionListener != null ? iRewardAdInteractionListener.asBinder() : null);
-                    this.f6077a.transact(1, obtain, obtain2, 0);
+                    this.f4068a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -154,7 +154,7 @@ public interface IListenerManager extends IInterface {
             }
 
             @Override // com.bytedance.sdk.openadsdk.IListenerManager
-            public void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3) throws RemoteException {
+            public void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3, int i2, String str4) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -164,7 +164,9 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInt(z ? 1 : 0);
                     obtain.writeInt(i);
                     obtain.writeString(str3);
-                    this.f6077a.transact(2, obtain, obtain2, 0);
+                    obtain.writeInt(i2);
+                    obtain.writeString(str4);
+                    this.f4068a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -180,7 +182,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iFullScreenVideoAdInteractionListener != null ? iFullScreenVideoAdInteractionListener.asBinder() : null);
-                    this.f6077a.transact(3, obtain, obtain2, 0);
+                    this.f4068a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -196,7 +198,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f6077a.transact(4, obtain, obtain2, 0);
+                    this.f4068a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -212,7 +214,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iTTAppDownloadListener != null ? iTTAppDownloadListener.asBinder() : null);
-                    this.f6077a.transact(5, obtain, obtain2, 0);
+                    this.f4068a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -228,7 +230,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iTTAppDownloadListener != null ? iTTAppDownloadListener.asBinder() : null);
-                    this.f6077a.transact(6, obtain, obtain2, 0);
+                    this.f4068a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -248,7 +250,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeLong(j2);
                     obtain.writeString(str3);
                     obtain.writeString(str4);
-                    this.f6077a.transact(7, obtain, obtain2, 0);
+                    this.f4068a.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -264,7 +266,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iCommonDialogListener != null ? iCommonDialogListener.asBinder() : null);
-                    this.f6077a.transact(8, obtain, obtain2, 0);
+                    this.f4068a.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -280,7 +282,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeInt(i);
-                    this.f6077a.transact(9, obtain, obtain2, 0);
+                    this.f4068a.transact(9, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -296,7 +298,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeStrongBinder(iCommonPermissionListener != null ? iCommonPermissionListener.asBinder() : null);
-                    this.f6077a.transact(10, obtain, obtain2, 0);
+                    this.f4068a.transact(10, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -312,7 +314,7 @@ public interface IListenerManager extends IInterface {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IListenerManager");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f6077a.transact(11, obtain, obtain2, 0);
+                    this.f4068a.transact(11, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

@@ -3,8 +3,6 @@ package com.bytedance.sdk.openadsdk.c;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface e<T> {
-    List<T> a();
-
     List<T> a(int i, String str);
 
     void a(int i);
@@ -19,7 +17,7 @@ public interface e<T> {
 
     void a(boolean z);
 
-    boolean b();
+    boolean a();
 
-    int c();
+    int b();
 }

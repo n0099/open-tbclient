@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.log.ILiveRecordLogger;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HaokanLiveRecordLogger implements ILiveRecordLogger {
     @Override // com.baidu.live.tbadk.log.ILiveRecordLogger
     public void doClickFunctionButtonLog(String str, String str2, String str3) {

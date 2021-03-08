@@ -29,10 +29,8 @@ import java.util.List;
 public class CommentAdItemView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f8372a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ImageView f8373b;
+    private TextView f5577a;
+    private ImageView b;
     private ImageView c;
     private RelativeLayout d;
     private TextView e;
@@ -42,26 +40,24 @@ public class CommentAdItemView extends RelativeLayout {
     private static class a extends ClickableSpan {
 
         /* renamed from: a  reason: collision with root package name */
-        private View.OnClickListener f8380a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private int f8381b;
+        private View.OnClickListener f5583a;
+        private int b;
 
         public a(View.OnClickListener onClickListener, int i) {
-            this.f8380a = onClickListener;
-            this.f8381b = i;
+            this.f5583a = onClickListener;
+            this.b = i;
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (this.f8380a != null) {
-                this.f8380a.onClick(view);
+            if (this.f5583a != null) {
+                this.f5583a.onClick(view);
             }
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.linkColor = this.f8381b;
+            textPaint.linkColor = this.b;
             textPaint.setColor(textPaint.linkColor);
             textPaint.setUnderlineText(false);
         }
@@ -88,18 +84,18 @@ public class CommentAdItemView extends RelativeLayout {
     private void a() {
         com.kwad.sdk.core.d.a.a("CommentAdItemView", "initView");
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_photo_comment_ad_item, (ViewGroup) this, true);
-        this.f8373b = (ImageView) findViewById(R.id.ksad_photo_comment_item_avatar);
+        this.b = (ImageView) findViewById(R.id.ksad_photo_comment_item_avatar);
         this.c = (ImageView) findViewById(R.id.ksad_photo_comment_item_flag_img);
-        this.f8372a = (TextView) findViewById(R.id.ksad_photo_comment_item_name);
+        this.f5577a = (TextView) findViewById(R.id.ksad_photo_comment_item_name);
         this.d = (RelativeLayout) findViewById(R.id.ksad_photo_comment_item_content_frame);
         this.e = (TextView) this.d.findViewById(R.id.ksad_photo_comment_item_comment);
-        this.f8373b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentAdItemView.1
+        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentAdItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CommentAdItemView.this.a(49);
             }
         });
-        this.f8372a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentAdItemView.2
+        this.f5577a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.comment.CommentAdItemView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CommentAdItemView.this.a(47);
@@ -175,10 +171,10 @@ public class CommentAdItemView extends RelativeLayout {
     }
 
     public void setAuthorIcon(String str) {
-        com.kwad.sdk.glide.c.b(getContext()).a(str).a(getContext().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).c(getContext().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).a((h<Bitmap>) new com.kwad.sdk.support.a()).a(this.f8373b);
+        com.kwad.sdk.glide.c.b(getContext()).a(str).a(getContext().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).c(getContext().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).a((h<Bitmap>) new com.kwad.sdk.support.a()).a(this.b);
     }
 
     public void setName(String str) {
-        this.f8372a.setText(str);
+        this.f5577a.setText(str);
     }
 }

@@ -1,29 +1,27 @@
 package com.ss.android.socialbase.downloader.impls;
 /* loaded from: classes6.dex */
 public class l {
+    private static volatile com.ss.android.socialbase.downloader.downloader.n b;
+    private static volatile com.ss.android.socialbase.downloader.downloader.n qgz;
 
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile com.ss.android.socialbase.downloader.downloader.n f13193b;
-    private static volatile com.ss.android.socialbase.downloader.downloader.n qfK;
-
-    public static com.ss.android.socialbase.downloader.downloader.n CO(boolean z) {
+    public static com.ss.android.socialbase.downloader.downloader.n CM(boolean z) {
         if (z) {
-            if (f13193b == null) {
+            if (b == null) {
                 synchronized (l.class) {
-                    if (f13193b == null) {
-                        f13193b = new o();
+                    if (b == null) {
+                        b = new o();
                     }
                 }
             }
-            return f13193b;
+            return b;
         }
-        if (qfK == null) {
+        if (qgz == null) {
             synchronized (l.class) {
-                if (qfK == null) {
-                    qfK = new p();
+                if (qgz == null) {
+                    qgz = new p();
                 }
             }
         }
-        return qfK;
+        return qgz;
     }
 }

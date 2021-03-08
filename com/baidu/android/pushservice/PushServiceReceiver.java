@@ -50,9 +50,9 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     intent = Intent.parseUri(publicMsg.mPkgContent, 1);
                     intent.setPackage(context.getPackageName());
                 } catch (URISyntaxException e) {
-                    Intent b2 = b(context, publicMsg);
+                    Intent b = b(context, publicMsg);
                     new b.c(context).a(Log.getStackTraceString(e)).a();
-                    intent = b2;
+                    intent = b;
                 }
             }
             if (intent != null) {

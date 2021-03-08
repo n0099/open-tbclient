@@ -2,32 +2,32 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.c;
 
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface b extends c {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
     }
 
-    void JU();
+    void JX();
 
     void a(@NonNull a aVar);
 
     void a(com.baidu.swan.apps.inlinewidget.rtcroom.model.b bVar);
 
-    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> awi();
+    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> awl();
 
-    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> awj();
-
-    void awk();
-
-    void awl();
-
-    void awm();
+    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> awm();
 
     void awn();
 
     void awo();
+
+    void awp();
+
+    void awq();
+
+    void awr();
 
     void cn(long j);
 
@@ -61,15 +61,15 @@ public interface b extends c {
 
     void hD(int i);
 
-    void hx(int i);
+    void hE(int i);
 
     void hy(int i);
 
     void hz(int i);
 
-    void og(String str);
+    void oo(String str);
 
-    void oh(String str);
+    void op(String str);
 
     void setCameraFace(boolean z);
 

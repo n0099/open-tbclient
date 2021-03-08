@@ -16,31 +16,31 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public static List<Pair<String, Pair<String, String>>> drZ;
+    public static List<Pair<String, Pair<String, String>>> dtC;
 
     static {
         if (DEBUG) {
-            drZ = new ArrayList();
-            drZ.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            drZ.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            drZ.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            drZ.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            drZ.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            drZ.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            drZ.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            drZ.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
+            dtC = new ArrayList();
+            dtC.add(new Pair<>("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
+            dtC.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
+            dtC.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
+            dtC.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
+            dtC.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
+            dtC.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
+            dtC.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
+            dtC.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
         }
     }
 
     public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
         if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            com.baidu.swan.apps.statistic.a sI = h.sI("770");
+            com.baidu.swan.apps.statistic.a sP = h.sP("770");
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    com.baidu.swan.apps.statistic.b.a(sI, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.aEf());
+                    com.baidu.swan.apps.statistic.b.a(sP, ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.aEi());
                 }
             }
             JSONObject jSONObject = new JSONObject();
@@ -49,8 +49,8 @@ public class a {
                 jSONObject.put("from", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME);
                 jSONObject.put("type", str2);
                 jSONObject2.put("appid", str);
-                jSONObject2.put("mobile", l.aNN());
-                jSONObject2.put("net", SwanAppNetworkUtils.aDf().type);
+                jSONObject2.put("mobile", l.aNQ());
+                jSONObject2.put("net", SwanAppNetworkUtils.aDi().type);
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "0";
                 }
@@ -59,9 +59,9 @@ public class a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            com.baidu.swan.apps.statistic.b.a(sI, jSONObject.toString());
-            com.baidu.swan.apps.statistic.b.c(sI);
-            b(str, list, drZ);
+            com.baidu.swan.apps.statistic.b.a(sP, jSONObject.toString());
+            com.baidu.swan.apps.statistic.b.c(sP);
+            b(str, list, dtC);
         }
     }
 
@@ -75,8 +75,8 @@ public class a {
             sb.append("\n").append("小程序ID：").append(str);
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    sb.append("\n").append(ubcFlowEvent.aEf()).append(" : ").append(ubcFlowEvent.id);
-                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.aEf()));
+                    sb.append("\n").append(ubcFlowEvent.aEi()).append(" : ").append(ubcFlowEvent.id);
+                    hashMap.put(ubcFlowEvent.id, Long.valueOf(ubcFlowEvent.aEi()));
                 }
             }
             sb.append("\n").append("耗时计算开始：>>>>>>>>>>>>");

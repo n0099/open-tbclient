@@ -12,12 +12,12 @@ import com.ss.android.a.a.a.q;
 public class b implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private q f12979a;
+    private q f7725a;
 
     @Override // com.ss.android.a.a.a.h
     public void a(@NonNull Activity activity, @NonNull String[] strArr, q qVar) {
         if (Build.VERSION.SDK_INT >= 23) {
-            this.f12979a = qVar;
+            this.f7725a = qVar;
             activity.requestPermissions(strArr, 1);
         } else if (qVar != null) {
             qVar.a();
@@ -31,11 +31,11 @@ public class b implements h {
 
     @Override // com.ss.android.a.a.a.h
     public void a(@NonNull Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (iArr.length > 0 && this.f12979a != null) {
+        if (iArr.length > 0 && this.f7725a != null) {
             if (iArr[0] == -1) {
-                this.f12979a.a(strArr[0]);
+                this.f7725a.a(strArr[0]);
             } else if (iArr[0] == 0) {
-                this.f12979a.a();
+                this.f7725a.a();
             }
         }
     }

@@ -6,15 +6,15 @@ import android.content.Context;
 import android.os.Build;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class a {
-    private static final a oUp = new a();
+    private static final a oWu = new a();
     private boolean ac;
-    private final Set<InterfaceC0953a> oUq = new LinkedHashSet();
+    private final Set<InterfaceC0959a> oWv = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public interface InterfaceC0953a {
+    /* loaded from: classes14.dex */
+    public interface InterfaceC0959a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a eij() {
-        return oUp;
+    public static a eis() {
+        return oWu;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0953a> eik() {
-        return this.oUq;
+    public final Set<InterfaceC0959a> eit() {
+        return this.oWv;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0953a interfaceC0953a) {
-        synchronized (this.oUq) {
-            this.oUq.add(interfaceC0953a);
+    public final void a(InterfaceC0959a interfaceC0959a) {
+        synchronized (this.oWv) {
+            this.oWv.add(interfaceC0959a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.oUq) {
-            this.oUq.clear();
+        synchronized (this.oWv) {
+            this.oWv.clear();
         }
     }
 

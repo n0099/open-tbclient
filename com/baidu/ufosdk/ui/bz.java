@@ -1,15 +1,15 @@
 package com.baidu.ufosdk.ui;
 
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 final class bz implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f5482a;
+    final /* synthetic */ FeedbackInputActivity f3699a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bz(FeedbackInputActivity feedbackInputActivity) {
-        this.f5482a = feedbackInputActivity;
+        this.f3699a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,6 +17,6 @@ final class bz implements View.OnClickListener {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        FeedbackInputActivity.a(this.f5482a);
+        FeedbackInputActivity.a(this.f3699a);
     }
 }

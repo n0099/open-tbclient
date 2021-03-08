@@ -3,21 +3,19 @@ package com.baidu.sofire.k;
 import android.content.Context;
 import android.content.ServiceConnection;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f5293a;
-
-    /* renamed from: b  reason: collision with root package name */
-    c f5294b;
+    Context f3557a;
+    c b;
     ServiceConnection c;
     private com.baidu.sofire.j.c d;
     private String e;
 
     public a(Context context, com.baidu.sofire.j.c cVar) {
-        this.f5293a = null;
-        this.f5293a = context;
+        this.f3557a = null;
+        this.f3557a = context;
         this.d = cVar;
     }
 
@@ -27,8 +25,8 @@ public final class a {
             th.printStackTrace();
         }
         if (TextUtils.isEmpty(this.e)) {
-            if (this.f5294b != null) {
-                this.e = this.f5294b.a();
+            if (this.b != null) {
+                this.e = this.b.a();
             }
             return this.e;
         }

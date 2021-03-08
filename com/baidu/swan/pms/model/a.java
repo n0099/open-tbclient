@@ -3,7 +3,7 @@ package com.baidu.swan.pms.model;
 public class a {
     public String errorMsg;
     public int errorNo;
-    public String eue;
+    public String evF;
 
     public a(int i, String str) {
         this(i, str, "");
@@ -12,10 +12,10 @@ public class a {
     public a(int i, String str, String str2) {
         this.errorNo = i;
         this.errorMsg = str;
-        this.eue = str2;
+        this.evF = str2;
     }
 
     public String toString() {
-        return "ErrCode=" + this.errorNo + ",ErrMsg=" + this.errorMsg + ",TipMsg=" + this.eue;
+        return "ErrCode=" + this.errorNo + ",ErrMsg=" + this.errorMsg + ",TipMsg=" + this.evF;
     }
 }

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ex implements et {
     private void a(Service service, Intent intent) {
         if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
@@ -16,11 +16,11 @@ public class ex implements et {
             } else if (TextUtils.isEmpty(stringExtra2)) {
                 em.a(service.getApplicationContext(), stringExtra, 1007, "play with service ");
             } else {
-                String b2 = el.b(stringExtra2);
-                if (TextUtils.isEmpty(b2)) {
+                String b = el.b(stringExtra2);
+                if (TextUtils.isEmpty(b)) {
                     em.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
                 } else {
-                    em.a(service.getApplicationContext(), b2, 1007, "old version message ");
+                    em.a(service.getApplicationContext(), b, 1007, "old version message ");
                 }
             }
         }
@@ -68,7 +68,7 @@ public class ex implements et {
     @Override // com.xiaomi.push.et
     public void a(Context context, ep epVar) {
         if (epVar != null) {
-            a(context, epVar.m291a(), epVar.c(), epVar.d());
+            a(context, epVar.m270a(), epVar.c(), epVar.d());
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.live.videochat.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
     private String avatar;
     private boolean isHost;
@@ -21,7 +21,7 @@ public class c {
         return this.nickName;
     }
 
-    public boolean Xg() {
+    public boolean Xj() {
         return this.isHost;
     }
 

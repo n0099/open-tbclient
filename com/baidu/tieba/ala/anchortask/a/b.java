@@ -15,25 +15,25 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.anchortask.message.GetNewAnchorAssistTaskInfoHttpResponseMessage;
 import com.kwad.sdk.collector.AppStatusRules;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private ab alaLiveShowData;
     private Context context;
-    private int gLh;
-    public com.baidu.tieba.ala.anchortask.c.b gLq;
-    private com.baidu.tieba.ala.anchortask.b.a gLr;
-    private String gLs;
-    private String gLt;
+    private int gMQ;
+    public com.baidu.tieba.ala.anchortask.c.b gMZ;
+    private com.baidu.tieba.ala.anchortask.b.a gNa;
+    private String gNb;
+    private String gNc;
     private Handler handler = new Handler();
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.anchortask.a.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!TextUtils.isEmpty(b.this.gLs)) {
+            if (!TextUtils.isEmpty(b.this.gNb)) {
                 c cVar = new c();
-                cVar.url = b.this.gLs;
-                cVar.bWs = 510.0f;
+                cVar.url = b.this.gNb;
+                cVar.bXS = 510.0f;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
-                b.this.bSM();
+                b.this.bSS();
                 b.this.handler.removeCallbacksAndMessages(null);
                 b.this.handler.postDelayed(b.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
             }
@@ -42,33 +42,33 @@ public class b {
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.b.2
         @Override // java.lang.Runnable
         public void run() {
-            b.this.bSM();
+            b.this.bSS();
             b.this.handler.postDelayed(b.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
         }
     };
-    private Runnable gLu = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.b.3
+    private Runnable gNd = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.b.3
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.gLr != null && d.xc().getBoolean("new_anchor_assist_task_show", true)) {
+            if (b.this.gNa != null && d.xf().getBoolean("new_anchor_assist_task_show", true)) {
                 c cVar = new c();
-                cVar.url = b.this.gLr.gLx;
-                cVar.bWs = 510.0f;
+                cVar.url = b.this.gNa.gNg;
+                cVar.bXS = 510.0f;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
-                d.xc().putBoolean("new_anchor_assist_task_show", false);
+                d.xf().putBoolean("new_anchor_assist_task_show", false);
             }
         }
     };
-    private HttpMessageListener gLk = new HttpMessageListener(1021230) { // from class: com.baidu.tieba.ala.anchortask.a.b.4
+    private HttpMessageListener gMT = new HttpMessageListener(1021230) { // from class: com.baidu.tieba.ala.anchortask.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetNewAnchorAssistTaskInfoHttpResponseMessage) && b.this.gLq != null) {
-                b.this.gLr = ((GetNewAnchorAssistTaskInfoHttpResponseMessage) httpResponsedMessage).gLr;
-                if (b.this.gLr != null) {
-                    b.this.gLs = b.this.gLr.gLs;
-                    b.this.gLt = b.this.gLr.gLt;
-                    b.this.gLq.gMa.setText(b.this.gLr.gLy + "");
-                    b.this.gLq.gLZ.setText(b.this.gLr.gLz + "");
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof GetNewAnchorAssistTaskInfoHttpResponseMessage) && b.this.gMZ != null) {
+                b.this.gNa = ((GetNewAnchorAssistTaskInfoHttpResponseMessage) httpResponsedMessage).gNa;
+                if (b.this.gNa != null) {
+                    b.this.gNb = b.this.gNa.gNb;
+                    b.this.gNc = b.this.gNa.gNc;
+                    b.this.gMZ.gNJ.setText(b.this.gNa.gNh + "");
+                    b.this.gMZ.gNI.setText(b.this.gNa.gNi + "");
                 }
             }
         }
@@ -76,13 +76,13 @@ public class b {
 
     public b(Context context) {
         this.context = context;
-        this.gLq = new com.baidu.tieba.ala.anchortask.c.b(context);
+        this.gMZ = new com.baidu.tieba.ala.anchortask.c.b(context);
         initTasks();
-        if (this.gLq.getView() != null) {
-            this.gLq.getView().setOnClickListener(this.onClickListener);
+        if (this.gMZ.getView() != null) {
+            this.gMZ.getView().setOnClickListener(this.onClickListener);
         }
         this.handler.postDelayed(this.runnable, 10000L);
-        this.handler.postDelayed(this.gLu, 11000L);
+        this.handler.postDelayed(this.gNd, 11000L);
     }
 
     public void a(ab abVar) {
@@ -96,10 +96,10 @@ public class b {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetNewAnchorAssistTaskInfoHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.gLk);
+        MessageManager.getInstance().registerListener(this.gMT);
     }
 
-    public void bSM() {
+    public void bSS() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;
@@ -113,14 +113,14 @@ public class b {
 
     public void onDestory() {
         this.handler.removeCallbacksAndMessages(null);
-        MessageManager.getInstance().unRegisterListener(this.gLk);
-        if (this.gLq != null) {
-            this.gLq.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.gMT);
+        if (this.gMZ != null) {
+            this.gMZ.onDestroy();
         }
     }
 
-    public void ua(int i) {
-        this.gLh = i;
+    public void uc(int i) {
+        this.gMQ = i;
         if (i == 0) {
             this.handler.removeCallbacksAndMessages(null);
         }

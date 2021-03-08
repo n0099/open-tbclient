@@ -4,63 +4,63 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import kotlin.jvm.internal.p;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class a {
-    private static Long cnX = 0L;
-    private static Long cnY = 0L;
+    private static Long cpA = 0L;
+    private static Long cpB = 0L;
 
     public static final void E() {
-        Long l = cnY;
+        Long l = cpB;
         if (l != null) {
             if (l == null) {
-                p.eLu();
+                p.eLc();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = cnY;
+                    Long l2 = cpB;
                     if (l2 == null) {
-                        p.eLu();
+                        p.eLc();
                     }
                     jSONObject.put("3", l2.longValue());
                     jSONObject.put("4", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
-                d.a(new b("1000").az(jSONObject));
-                cnY = 0L;
+                d.a(new b("1000").aB(jSONObject));
+                cpB = 0L;
             }
         }
     }
 
     public static final void F() {
-        Long l = cnX;
+        Long l = cpA;
         if (l != null) {
             if (l == null) {
-                p.eLu();
+                p.eLc();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    Long l2 = cnX;
+                    Long l2 = cpA;
                     if (l2 == null) {
-                        p.eLu();
+                        p.eLc();
                     }
                     jSONObject.put("1", l2.longValue());
                     jSONObject.put("2", System.currentTimeMillis());
                 } catch (Exception e) {
                 }
-                d.a(new b("1000").az(jSONObject));
-                cnX = 0L;
+                d.a(new b("1000").aB(jSONObject));
+                cpA = 0L;
             }
         }
     }
 
     public static final void a(Long l) {
-        cnX = l;
+        cpA = l;
     }
 
     public static final void d(Long l) {
-        cnY = l;
+        cpB = l;
     }
 
     public static final void i(String str) {
@@ -69,7 +69,7 @@ public final class a {
             jSONObject.put("exceptionCode", 1);
         } catch (Exception e) {
         }
-        d.a(new b(str).az(jSONObject));
+        d.a(new b(str).aB(jSONObject));
     }
 
     public static final void j(String str) {
@@ -78,7 +78,7 @@ public final class a {
             jSONObject.put("exceptionCode", 0);
         } catch (Exception e) {
         }
-        d.a(new b(str).az(jSONObject));
+        d.a(new b(str).aB(jSONObject));
     }
 
     public static final void a(String str, String str2, String str3) {
@@ -93,6 +93,6 @@ public final class a {
             }
         } catch (Exception e) {
         }
-        d.a(new b(str).az(jSONObject));
+        d.a(new b(str).aB(jSONObject));
     }
 }

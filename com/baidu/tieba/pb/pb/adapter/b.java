@@ -10,52 +10,52 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> jOi = new ArrayList();
-    private BdTypeRecyclerView jZf;
-    private c lMs;
-    private d lMt;
-    private e lMu;
-    private f lMv;
-    private g lMw;
-    private h lMx;
+    private List<com.baidu.adp.widget.ListView.a> jPR = new ArrayList();
+    private BdTypeRecyclerView kbh;
+    private c lOu;
+    private d lOv;
+    private e lOw;
+    private f lOx;
+    private g lOy;
+    private h lOz;
     private List<n> mDataList;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.jZf = bdTypeRecyclerView;
+        this.kbh = bdTypeRecyclerView;
         this.mPageContext = tbPageContext;
-        Kw();
+        Kz();
         a(bdTypeRecyclerView);
-        bdTypeRecyclerView.addAdapters(this.jOi);
+        bdTypeRecyclerView.addAdapters(this.jPR);
     }
 
-    private void Kw() {
-        this.lMu = new e(this.mPageContext, k.iBc);
-        this.lMt = new d(this.mPageContext, k.iBd);
-        this.lMs = new c(this.mPageContext, k.iBe);
-        this.lMv = new f(this.mPageContext, k.eQr);
-        this.lMw = new g(this.mPageContext, k.iBg);
-        this.lMx = new h(this.mPageContext, l.eQK);
-        this.jOi.add(this.lMu);
-        this.jOi.add(this.lMt);
-        this.jOi.add(this.lMs);
-        this.jOi.add(this.lMv);
-        this.jOi.add(this.lMw);
-        this.jOi.add(this.lMx);
+    private void Kz() {
+        this.lOw = new e(this.mPageContext, k.iCL);
+        this.lOv = new d(this.mPageContext, k.iCM);
+        this.lOu = new c(this.mPageContext, k.iCN);
+        this.lOx = new f(this.mPageContext, k.eRS);
+        this.lOy = new g(this.mPageContext, k.iCP);
+        this.lOz = new h(this.mPageContext, l.eSl);
+        this.jPR.add(this.lOw);
+        this.jPR.add(this.lOv);
+        this.jPR.add(this.lOu);
+        this.jPR.add(this.lOx);
+        this.jPR.add(this.lOy);
+        this.jPR.add(this.lOz);
     }
 
     private void a(s sVar) {
-        this.lMu.a(sVar);
-        this.lMt.a(sVar);
-        this.lMs.a(sVar);
-        this.lMv.a(sVar);
-        this.lMw.a(sVar);
-        this.lMx.a(sVar);
+        this.lOw.a(sVar);
+        this.lOv.a(sVar);
+        this.lOu.a(sVar);
+        this.lOx.a(sVar);
+        this.lOy.a(sVar);
+        this.lOz.a(sVar);
     }
 
     public void cx(List<n> list) {
         this.mDataList = list;
-        this.jZf.setData(list);
+        this.kbh.setData(list);
     }
 
     public void onChangeSkinType() {
@@ -63,8 +63,8 @@ public class b {
     }
 
     public void notifyDataSetChanged() {
-        if (this.jZf != null) {
-            this.jZf.getListAdapter().notifyDataSetChanged();
+        if (this.kbh != null) {
+            this.kbh.getListAdapter().notifyDataSetChanged();
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.android.imrtc.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BIMRtcEvent {
     public static final int CREATE_ACTION = -10;
     public static final int TOKEN_ACTION = -11;

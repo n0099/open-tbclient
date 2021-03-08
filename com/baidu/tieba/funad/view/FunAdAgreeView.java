@@ -33,29 +33,29 @@ import com.baidu.tieba.tbadkCore.data.e;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes5.dex */
 public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorListener {
-    private View.OnClickListener ajT;
+    private View.OnClickListener alm;
     private int cardType;
-    private cb eJQ;
-    private LinearLayout feA;
-    private LinearLayout feB;
-    private boolean feC;
-    private boolean feD;
-    private CustomMessageListener feG;
-    private TBLottieAnimationView fek;
-    private TextView fel;
-    private TBLottieAnimationView fem;
-    private TextView fen;
-    private AgreeData feo;
-    private e fep;
-    private ScaleAnimation feq;
-    private boolean fer;
-    private boolean fes;
-    private int fev;
-    private int few;
-    private int fex;
-    private String fey;
-    public View.OnClickListener fez;
-    private a jTN;
+    private cb eLr;
+    private TBLottieAnimationView ffJ;
+    private TextView ffK;
+    private TBLottieAnimationView ffL;
+    private TextView ffM;
+    private AgreeData ffN;
+    private e ffO;
+    private ScaleAnimation ffP;
+    private boolean ffQ;
+    private boolean ffR;
+    private int ffU;
+    private int ffV;
+    private int ffW;
+    private String ffX;
+    public View.OnClickListener ffY;
+    private LinearLayout ffZ;
+    private LinearLayout fga;
+    private boolean fgb;
+    private boolean fgc;
+    private CustomMessageListener fgf;
+    private a jVf;
     private int mFrom;
     private View.OnClickListener mOnClickListener;
     private TbPageContext mPageContext;
@@ -69,10 +69,10 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AgreeData agreeData) {
-        if (agreeData != null && this.feo != null) {
-            this.feo.agreeType = agreeData.agreeType;
-            this.feo.hasAgree = agreeData.hasAgree;
-            this.feo.agreeNum = agreeData.agreeNum;
+        if (agreeData != null && this.ffN != null) {
+            this.ffN.agreeType = agreeData.agreeType;
+            this.ffN.hasAgree = agreeData.hasAgree;
+            this.ffN.agreeNum = agreeData.agreeNum;
             updateUI();
         }
     }
@@ -80,12 +80,12 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public FunAdAgreeView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.fev = R.raw.lottie_agree;
-        this.few = R.raw.lottie_disagree;
-        this.fex = R.color.CAM_X0107;
+        this.ffU = R.raw.lottie_agree;
+        this.ffV = R.raw.lottie_disagree;
+        this.ffW = R.color.CAM_X0107;
         this.cardType = 1;
-        this.feC = false;
-        this.feD = false;
+        this.fgb = false;
+        this.fgc = false;
         this.mThreadAgreeChangedListener = new CustomMessageListener(2016528) { // from class: com.baidu.tieba.funad.view.FunAdAgreeView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -93,17 +93,17 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
                     e eVar = (e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (FunAdAgreeView.this.feo != null && agreeData != null && FunAdAgreeView.this.fep != null && !FunAdAgreeView.this.feo.isInPost && FunAdAgreeView.this.fep.uniqueId != eVar.uniqueId) {
+                    if (FunAdAgreeView.this.ffN != null && agreeData != null && FunAdAgreeView.this.ffO != null && !FunAdAgreeView.this.ffN.isInPost && FunAdAgreeView.this.ffO.uniqueId != eVar.uniqueId) {
                         String str = agreeData.nid;
                         if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-                            if (FunAdAgreeView.this.feo.baijiahaoData != null && TextUtils.equals(str, FunAdAgreeView.this.feo.baijiahaoData.oriUgcNid)) {
+                            if (FunAdAgreeView.this.ffN.baijiahaoData != null && TextUtils.equals(str, FunAdAgreeView.this.ffN.baijiahaoData.oriUgcNid)) {
                                 FunAdAgreeView.this.a(agreeData);
                                 return;
                             }
                             return;
                         }
                         String str2 = agreeData.threadId;
-                        String str3 = FunAdAgreeView.this.feo.threadId;
+                        String str3 = FunAdAgreeView.this.ffN.threadId;
                         if (!"0".equals(str2) && !TextUtils.isEmpty(str2) && TextUtils.equals(str2, str3)) {
                             FunAdAgreeView.this.a(agreeData);
                         }
@@ -111,19 +111,19 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 }
             }
         };
-        this.feG = new CustomMessageListener(2016530) { // from class: com.baidu.tieba.funad.view.FunAdAgreeView.2
+        this.fgf = new CustomMessageListener(2016530) { // from class: com.baidu.tieba.funad.view.FunAdAgreeView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
                     e eVar = (e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (FunAdAgreeView.this.feo != null && !TextUtils.isEmpty(FunAdAgreeView.this.feo.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && FunAdAgreeView.this.feo.postId.equals(agreeData.postId) && !FunAdAgreeView.this.feo.isInThread) {
-                        if (FunAdAgreeView.this.fer) {
-                            if (FunAdAgreeView.this.feo.indexOfPic == agreeData.indexOfPic) {
+                    if (FunAdAgreeView.this.ffN != null && !TextUtils.isEmpty(FunAdAgreeView.this.ffN.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && FunAdAgreeView.this.ffN.postId.equals(agreeData.postId) && !FunAdAgreeView.this.ffN.isInThread) {
+                        if (FunAdAgreeView.this.ffQ) {
+                            if (FunAdAgreeView.this.ffN.indexOfPic == agreeData.indexOfPic) {
                                 return;
                             }
-                        } else if (FunAdAgreeView.this.fep.uniqueId == eVar.uniqueId) {
+                        } else if (FunAdAgreeView.this.ffO.uniqueId == eVar.uniqueId) {
                             return;
                         }
                         FunAdAgreeView.this.a(agreeData);
@@ -135,8 +135,8 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 FunAdAgreeView.this.bx(view);
-                if (FunAdAgreeView.this.fez != null) {
-                    FunAdAgreeView.this.fez.onClick(view);
+                if (FunAdAgreeView.this.ffY != null) {
+                    FunAdAgreeView.this.ffY.onClick(view);
                 }
             }
         };
@@ -146,12 +146,12 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public FunAdAgreeView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.fev = R.raw.lottie_agree;
-        this.few = R.raw.lottie_disagree;
-        this.fex = R.color.CAM_X0107;
+        this.ffU = R.raw.lottie_agree;
+        this.ffV = R.raw.lottie_disagree;
+        this.ffW = R.color.CAM_X0107;
         this.cardType = 1;
-        this.feC = false;
-        this.feD = false;
+        this.fgb = false;
+        this.fgc = false;
         this.mThreadAgreeChangedListener = new CustomMessageListener(2016528) { // from class: com.baidu.tieba.funad.view.FunAdAgreeView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -159,17 +159,17 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
                     e eVar = (e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (FunAdAgreeView.this.feo != null && agreeData != null && FunAdAgreeView.this.fep != null && !FunAdAgreeView.this.feo.isInPost && FunAdAgreeView.this.fep.uniqueId != eVar.uniqueId) {
+                    if (FunAdAgreeView.this.ffN != null && agreeData != null && FunAdAgreeView.this.ffO != null && !FunAdAgreeView.this.ffN.isInPost && FunAdAgreeView.this.ffO.uniqueId != eVar.uniqueId) {
                         String str = agreeData.nid;
                         if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-                            if (FunAdAgreeView.this.feo.baijiahaoData != null && TextUtils.equals(str, FunAdAgreeView.this.feo.baijiahaoData.oriUgcNid)) {
+                            if (FunAdAgreeView.this.ffN.baijiahaoData != null && TextUtils.equals(str, FunAdAgreeView.this.ffN.baijiahaoData.oriUgcNid)) {
                                 FunAdAgreeView.this.a(agreeData);
                                 return;
                             }
                             return;
                         }
                         String str2 = agreeData.threadId;
-                        String str3 = FunAdAgreeView.this.feo.threadId;
+                        String str3 = FunAdAgreeView.this.ffN.threadId;
                         if (!"0".equals(str2) && !TextUtils.isEmpty(str2) && TextUtils.equals(str2, str3)) {
                             FunAdAgreeView.this.a(agreeData);
                         }
@@ -177,19 +177,19 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 }
             }
         };
-        this.feG = new CustomMessageListener(2016530) { // from class: com.baidu.tieba.funad.view.FunAdAgreeView.2
+        this.fgf = new CustomMessageListener(2016530) { // from class: com.baidu.tieba.funad.view.FunAdAgreeView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
                     e eVar = (e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (FunAdAgreeView.this.feo != null && !TextUtils.isEmpty(FunAdAgreeView.this.feo.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && FunAdAgreeView.this.feo.postId.equals(agreeData.postId) && !FunAdAgreeView.this.feo.isInThread) {
-                        if (FunAdAgreeView.this.fer) {
-                            if (FunAdAgreeView.this.feo.indexOfPic == agreeData.indexOfPic) {
+                    if (FunAdAgreeView.this.ffN != null && !TextUtils.isEmpty(FunAdAgreeView.this.ffN.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && FunAdAgreeView.this.ffN.postId.equals(agreeData.postId) && !FunAdAgreeView.this.ffN.isInThread) {
+                        if (FunAdAgreeView.this.ffQ) {
+                            if (FunAdAgreeView.this.ffN.indexOfPic == agreeData.indexOfPic) {
                                 return;
                             }
-                        } else if (FunAdAgreeView.this.fep.uniqueId == eVar.uniqueId) {
+                        } else if (FunAdAgreeView.this.ffO.uniqueId == eVar.uniqueId) {
                             return;
                         }
                         FunAdAgreeView.this.a(agreeData);
@@ -201,8 +201,8 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 FunAdAgreeView.this.bx(view);
-                if (FunAdAgreeView.this.fez != null) {
-                    FunAdAgreeView.this.fez.onClick(view);
+                if (FunAdAgreeView.this.ffY != null) {
+                    FunAdAgreeView.this.ffY.onClick(view);
                 }
             }
         };
@@ -212,12 +212,12 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     public FunAdAgreeView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.fev = R.raw.lottie_agree;
-        this.few = R.raw.lottie_disagree;
-        this.fex = R.color.CAM_X0107;
+        this.ffU = R.raw.lottie_agree;
+        this.ffV = R.raw.lottie_disagree;
+        this.ffW = R.color.CAM_X0107;
         this.cardType = 1;
-        this.feC = false;
-        this.feD = false;
+        this.fgb = false;
+        this.fgc = false;
         this.mThreadAgreeChangedListener = new CustomMessageListener(2016528) { // from class: com.baidu.tieba.funad.view.FunAdAgreeView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -225,17 +225,17 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
                     e eVar = (e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (FunAdAgreeView.this.feo != null && agreeData != null && FunAdAgreeView.this.fep != null && !FunAdAgreeView.this.feo.isInPost && FunAdAgreeView.this.fep.uniqueId != eVar.uniqueId) {
+                    if (FunAdAgreeView.this.ffN != null && agreeData != null && FunAdAgreeView.this.ffO != null && !FunAdAgreeView.this.ffN.isInPost && FunAdAgreeView.this.ffO.uniqueId != eVar.uniqueId) {
                         String str = agreeData.nid;
                         if (!"0".equals(str) && !TextUtils.isEmpty(str)) {
-                            if (FunAdAgreeView.this.feo.baijiahaoData != null && TextUtils.equals(str, FunAdAgreeView.this.feo.baijiahaoData.oriUgcNid)) {
+                            if (FunAdAgreeView.this.ffN.baijiahaoData != null && TextUtils.equals(str, FunAdAgreeView.this.ffN.baijiahaoData.oriUgcNid)) {
                                 FunAdAgreeView.this.a(agreeData);
                                 return;
                             }
                             return;
                         }
                         String str2 = agreeData.threadId;
-                        String str3 = FunAdAgreeView.this.feo.threadId;
+                        String str3 = FunAdAgreeView.this.ffN.threadId;
                         if (!"0".equals(str2) && !TextUtils.isEmpty(str2) && TextUtils.equals(str2, str3)) {
                             FunAdAgreeView.this.a(agreeData);
                         }
@@ -243,19 +243,19 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                 }
             }
         };
-        this.feG = new CustomMessageListener(2016530) { // from class: com.baidu.tieba.funad.view.FunAdAgreeView.2
+        this.fgf = new CustomMessageListener(2016530) { // from class: com.baidu.tieba.funad.view.FunAdAgreeView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
                     e eVar = (e) customResponsedMessage.getData();
                     AgreeData agreeData = eVar.agreeData;
-                    if (FunAdAgreeView.this.feo != null && !TextUtils.isEmpty(FunAdAgreeView.this.feo.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && FunAdAgreeView.this.feo.postId.equals(agreeData.postId) && !FunAdAgreeView.this.feo.isInThread) {
-                        if (FunAdAgreeView.this.fer) {
-                            if (FunAdAgreeView.this.feo.indexOfPic == agreeData.indexOfPic) {
+                    if (FunAdAgreeView.this.ffN != null && !TextUtils.isEmpty(FunAdAgreeView.this.ffN.postId) && agreeData != null && !TextUtils.isEmpty(agreeData.postId) && FunAdAgreeView.this.ffN.postId.equals(agreeData.postId) && !FunAdAgreeView.this.ffN.isInThread) {
+                        if (FunAdAgreeView.this.ffQ) {
+                            if (FunAdAgreeView.this.ffN.indexOfPic == agreeData.indexOfPic) {
                                 return;
                             }
-                        } else if (FunAdAgreeView.this.fep.uniqueId == eVar.uniqueId) {
+                        } else if (FunAdAgreeView.this.ffO.uniqueId == eVar.uniqueId) {
                             return;
                         }
                         FunAdAgreeView.this.a(agreeData);
@@ -267,8 +267,8 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 FunAdAgreeView.this.bx(view);
-                if (FunAdAgreeView.this.fez != null) {
-                    FunAdAgreeView.this.fez.onClick(view);
+                if (FunAdAgreeView.this.ffY != null) {
+                    FunAdAgreeView.this.ffY.onClick(view);
                 }
             }
         };
@@ -277,137 +277,137 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
 
     private void init(Context context) {
         setOrientation(0);
-        this.fek = new TBLottieAnimationView(context);
-        this.fek.setId(R.id.img_agree);
-        this.fek.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.fek.setOnClickListener(this.mOnClickListener);
-        this.fek.addAnimatorListener(this);
-        this.fel = new TextView(context);
-        this.fel.setTextSize(0, l.getDimens(context, R.dimen.T_X09));
-        this.fel.setOnClickListener(this.mOnClickListener);
-        this.fem = new TBLottieAnimationView(context);
-        this.fem.setId(R.id.img_disagree);
-        this.fem.addAnimatorListener(this);
-        this.fem.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.fem.setOnClickListener(this.mOnClickListener);
-        this.fen = new TextView(context);
-        this.fen.setText(R.string.fun_ad_agree_view_c_disagree);
-        this.fen.setTextSize(0, l.getDimens(context, R.dimen.T_X09));
-        this.fen.setOnClickListener(this.mOnClickListener);
-        this.fep = new e();
-        this.fep.uniqueId = getPageId();
-        btI();
+        this.ffJ = new TBLottieAnimationView(context);
+        this.ffJ.setId(R.id.img_agree);
+        this.ffJ.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.ffJ.setOnClickListener(this.mOnClickListener);
+        this.ffJ.addAnimatorListener(this);
+        this.ffK = new TextView(context);
+        this.ffK.setTextSize(0, l.getDimens(context, R.dimen.T_X09));
+        this.ffK.setOnClickListener(this.mOnClickListener);
+        this.ffL = new TBLottieAnimationView(context);
+        this.ffL.setId(R.id.img_disagree);
+        this.ffL.addAnimatorListener(this);
+        this.ffL.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        this.ffL.setOnClickListener(this.mOnClickListener);
+        this.ffM = new TextView(context);
+        this.ffM.setText(R.string.fun_ad_agree_view_c_disagree);
+        this.ffM.setTextSize(0, l.getDimens(context, R.dimen.T_X09));
+        this.ffM.setOnClickListener(this.mOnClickListener);
+        this.ffO = new e();
+        this.ffO.uniqueId = getPageId();
+        btL();
         setAgreeAnimationResource();
         setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
     }
 
-    private void btI() {
+    private void btL() {
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.feB = linearLayout;
+        this.fga = linearLayout;
         linearLayout.setOrientation(0);
         addView(linearLayout);
-        linearLayout.addView(this.fek);
-        linearLayout.addView(this.fel);
+        linearLayout.addView(this.ffJ);
+        linearLayout.addView(this.ffK);
         LinearLayout linearLayout2 = new LinearLayout(getContext());
-        this.feA = linearLayout2;
+        this.ffZ = linearLayout2;
         linearLayout2.setOrientation(0);
         addView(linearLayout2);
-        linearLayout2.addView(this.fem);
-        linearLayout2.addView(this.fen);
+        linearLayout2.addView(this.ffL);
+        linearLayout2.addView(this.ffM);
         jS(true);
     }
 
     private void y(int i, int i2, int i3, int i4) {
         int i5 = -l.getDimens(getContext(), R.dimen.tbds24);
         int dimens = l.getDimens(getContext(), R.dimen.tbds34);
-        this.feB.setGravity(i4);
+        this.fga.setGravity(i4);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, -1);
         layoutParams.weight = i3;
-        this.feB.setLayoutParams(layoutParams);
-        this.fek.setLayoutParams(new LinearLayout.LayoutParams(i, i));
+        this.fga.setLayoutParams(layoutParams);
+        this.ffJ.setLayoutParams(new LinearLayout.LayoutParams(i, i));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.gravity = 16;
         layoutParams2.leftMargin = i5;
-        this.fel.setLayoutParams(layoutParams2);
-        this.feA.setGravity(i4);
+        this.ffK.setLayoutParams(layoutParams2);
+        this.ffZ.setGravity(i4);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(i2, -1);
         layoutParams3.weight = i3;
-        this.feA.setLayoutParams(layoutParams3);
+        this.ffZ.setLayoutParams(layoutParams3);
         LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(i, i);
         layoutParams4.leftMargin = dimens;
-        this.fem.setLayoutParams(layoutParams4);
+        this.ffL.setLayoutParams(layoutParams4);
         LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams5.gravity = 16;
         layoutParams5.leftMargin = i5;
-        this.fen.setLayoutParams(layoutParams5);
+        this.ffM.setLayoutParams(layoutParams5);
     }
 
     public void jS(boolean z) {
         if (z) {
             y(l.getDimens(getContext(), R.dimen.tbds126), 0, 1, 17);
-            setAgreeAlone(this.feC);
+            setAgreeAlone(this.fgb);
             return;
         }
         y(l.getDimens(getContext(), R.dimen.tbds126), -2, 0, 16);
-        setAgreeAlone(this.feC);
+        setAgreeAlone(this.fgb);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         MessageManager.getInstance().registerListener(this.mThreadAgreeChangedListener);
-        MessageManager.getInstance().registerListener(this.feG);
+        MessageManager.getInstance().registerListener(this.fgf);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         MessageManager.getInstance().unRegisterListener(this.mThreadAgreeChangedListener);
-        MessageManager.getInstance().unRegisterListener(this.feG);
+        MessageManager.getInstance().unRegisterListener(this.fgf);
     }
 
     public void setTopicId(String str) {
-        this.fey = str;
+        this.ffX = str;
     }
 
     public void setIsFromBigpic(boolean z) {
-        this.fer = z;
+        this.ffQ = z;
     }
 
     public void setIsFromMiddlePage(boolean z) {
-        this.fes = z;
+        this.ffR = z;
     }
 
     public TBLottieAnimationView getImgAgree() {
-        return this.fek;
+        return this.ffJ;
     }
 
     public TextView getAgreeNumView() {
-        return this.fel;
+        return this.ffK;
     }
 
     public TextView getDisagreeNumView() {
-        return this.fen;
+        return this.ffM;
     }
 
     public TBLottieAnimationView getImgDisagree() {
-        return this.fem;
+        return this.ffL;
     }
 
     public void setData(AgreeData agreeData) {
         if (agreeData != null) {
-            this.feo = agreeData;
+            this.ffN = agreeData;
             updateUI();
         }
     }
 
     public AgreeData getData() {
-        return this.feo;
+        return this.ffN;
     }
 
     public void setAgreeAnimationResource() {
-        ap.a(this.fek, this.fev);
-        ap.a(this.fem, this.few);
+        ap.a(this.ffJ, this.ffU);
+        ap.a(this.ffL, this.ffV);
     }
 
     private String b(AgreeData agreeData) {
@@ -426,123 +426,123 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     }
 
     public void updateUI() {
-        this.fel.setText(b(this.feo));
-        if (this.feo.hasAgree) {
-            if (this.feo.agreeType == 2) {
-                this.fem.setProgress(0.0f);
-                this.fek.setProgress(1.0f);
-                this.fel.setTextColor(ap.getColor(R.color.CAM_X0301));
-                setTextNormalColor(this.fen);
+        this.ffK.setText(b(this.ffN));
+        if (this.ffN.hasAgree) {
+            if (this.ffN.agreeType == 2) {
+                this.ffL.setProgress(0.0f);
+                this.ffJ.setProgress(1.0f);
+                this.ffK.setTextColor(ap.getColor(R.color.CAM_X0301));
+                setTextNormalColor(this.ffM);
                 return;
             }
-            this.fek.setProgress(0.0f);
-            this.fem.setProgress(1.0f);
-            setTextNormalColor(this.fel);
-            this.fen.setTextColor(ap.getColor(R.color.CAM_X0107));
+            this.ffJ.setProgress(0.0f);
+            this.ffL.setProgress(1.0f);
+            setTextNormalColor(this.ffK);
+            this.ffM.setTextColor(ap.getColor(R.color.CAM_X0107));
             return;
         }
-        this.fek.setProgress(0.0f);
-        this.fem.setProgress(0.0f);
-        setTextNormalColor(this.fel);
-        setTextNormalColor(this.fen);
+        this.ffJ.setProgress(0.0f);
+        this.ffL.setProgress(0.0f);
+        setTextNormalColor(this.ffK);
+        setTextNormalColor(this.ffM);
     }
 
     private void setTextNormalColor(TextView textView) {
-        if (this.fes) {
+        if (this.ffR) {
             textView.setTextColor(ap.getColor(R.color.CAM_X0107));
-        } else if (this.fer) {
+        } else if (this.ffQ) {
             textView.setTextColor(getResources().getColor(R.color.CAM_X0101));
         } else {
-            textView.setTextColor(ap.getColor(this.fex));
+            textView.setTextColor(ap.getColor(this.ffW));
         }
     }
 
     public void jU(boolean z) {
-        this.fek.setMinAndMaxProgress(0.0f, 1.0f);
-        this.fem.setMinAndMaxProgress(0.0f, 1.0f);
-        this.fel.setText(b(this.feo));
-        this.fek.clearColorFilter();
-        this.fem.clearColorFilter();
+        this.ffJ.setMinAndMaxProgress(0.0f, 1.0f);
+        this.ffL.setMinAndMaxProgress(0.0f, 1.0f);
+        this.ffK.setText(b(this.ffN));
+        this.ffJ.clearColorFilter();
+        this.ffL.clearColorFilter();
         if (z) {
-            this.fek.playAnimation();
-            this.fem.cancelAnimation();
-            this.fem.setFrame(0);
+            this.ffJ.playAnimation();
+            this.ffL.cancelAnimation();
+            this.ffL.setFrame(0);
         } else {
-            this.fem.playAnimation();
-            this.fek.cancelAnimation();
-            this.fek.setFrame(0);
+            this.ffL.playAnimation();
+            this.ffJ.cancelAnimation();
+            this.ffJ.setFrame(0);
         }
-        if (this.feo.hasAgree) {
-            if (this.feo.agreeType == 2) {
-                this.fel.setTextColor(ap.getColor(R.color.CAM_X0301));
-                setTextNormalColor(this.fen);
+        if (this.ffN.hasAgree) {
+            if (this.ffN.agreeType == 2) {
+                this.ffK.setTextColor(ap.getColor(R.color.CAM_X0301));
+                setTextNormalColor(this.ffM);
                 return;
             }
-            setTextNormalColor(this.fel);
-            this.fen.setTextColor(ap.getColor(R.color.CAM_X0107));
+            setTextNormalColor(this.ffK);
+            this.ffM.setTextColor(ap.getColor(R.color.CAM_X0107));
             return;
         }
-        setTextNormalColor(this.fel);
-        setTextNormalColor(this.fen);
+        setTextNormalColor(this.ffK);
+        setTextNormalColor(this.ffM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bx(View view) {
-        if (this.feo != null) {
-            if (!this.fer || f.checkUpIsLogin(getContext())) {
-                if (this.fer || bh.checkUpIsLogin(getContext())) {
-                    if (view != this.fel || this.feD) {
-                        if (view.getId() == this.fek.getId() || (this.feD && view.getId() == this.fel.getId())) {
-                            this.fek.cancelAnimation();
-                            if (this.feo.hasAgree) {
-                                if (this.feo.agreeType == 2) {
-                                    this.feo.agreeType = 2;
-                                    this.feo.hasAgree = false;
-                                    this.feo.agreeNum--;
+        if (this.ffN != null) {
+            if (!this.ffQ || f.checkUpIsLogin(getContext())) {
+                if (this.ffQ || bh.checkUpIsLogin(getContext())) {
+                    if (view != this.ffK || this.fgc) {
+                        if (view.getId() == this.ffJ.getId() || (this.fgc && view.getId() == this.ffK.getId())) {
+                            this.ffJ.cancelAnimation();
+                            if (this.ffN.hasAgree) {
+                                if (this.ffN.agreeType == 2) {
+                                    this.ffN.agreeType = 2;
+                                    this.ffN.hasAgree = false;
+                                    this.ffN.agreeNum--;
                                     updateUI();
                                 } else {
-                                    this.feo.agreeType = 2;
-                                    this.feo.hasAgree = true;
-                                    this.feo.agreeNum++;
+                                    this.ffN.agreeType = 2;
+                                    this.ffN.hasAgree = true;
+                                    this.ffN.agreeNum++;
                                     jU(true);
-                                    com.baidu.tieba.o.a.dCY().J(getTbPageContext());
+                                    com.baidu.tieba.o.a.dDg().J(getTbPageContext());
                                 }
                             } else {
-                                this.feo.agreeType = 2;
-                                this.feo.hasAgree = true;
-                                this.feo.agreeNum++;
+                                this.ffN.agreeType = 2;
+                                this.ffN.hasAgree = true;
+                                this.ffN.agreeNum++;
                                 jU(true);
-                                com.baidu.tieba.o.a.dCY().J(getTbPageContext());
+                                com.baidu.tieba.o.a.dDg().J(getTbPageContext());
                             }
                             c bR = d.bR(this);
                             if (bR != null) {
-                                this.feo.objSource = bR.getCurrentPageKey();
+                                this.ffN.objSource = bR.getCurrentPageKey();
                             }
-                        } else if (view.getId() == this.fem.getId()) {
-                            this.fem.cancelAnimation();
-                            if (this.feo.hasAgree) {
-                                if (this.feo.agreeType == 5) {
-                                    this.feo.agreeType = 5;
-                                    this.feo.hasAgree = false;
+                        } else if (view.getId() == this.ffL.getId()) {
+                            this.ffL.cancelAnimation();
+                            if (this.ffN.hasAgree) {
+                                if (this.ffN.agreeType == 5) {
+                                    this.ffN.agreeType = 5;
+                                    this.ffN.hasAgree = false;
                                     updateUI();
                                 } else {
-                                    this.feo.agreeType = 5;
-                                    this.feo.hasAgree = true;
-                                    this.feo.agreeNum--;
+                                    this.ffN.agreeType = 5;
+                                    this.ffN.hasAgree = true;
+                                    this.ffN.agreeNum--;
                                     jU(false);
                                 }
                             } else {
-                                this.feo.agreeType = 5;
-                                this.feo.hasAgree = true;
+                                this.ffN.agreeType = 5;
+                                this.ffN.hasAgree = true;
                                 jU(false);
                             }
                             c bR2 = d.bR(this);
                             if (bR2 != null) {
-                                this.feo.objSource = bR2.getCurrentPageKey();
+                                this.ffN.objSource = bR2.getCurrentPageKey();
                             }
                         }
-                        if (this.ajT != null) {
-                            this.ajT.onClick(view);
+                        if (this.alm != null) {
+                            this.alm.onClick(view);
                         }
                     }
                 }
@@ -551,11 +551,11 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     }
 
     public Animation getScaleAnimation() {
-        if (this.feq == null) {
-            this.feq = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.feq.setDuration(200L);
+        if (this.ffP == null) {
+            this.ffP = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.ffP.setDuration(200L);
         }
-        return this.feq;
+        return this.ffP;
     }
 
     public BdUniqueId getPageId() {
@@ -595,28 +595,28 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     }
 
     public void setAgreeAlone(boolean z) {
-        this.fem.setVisibility(z ? 8 : 0);
-        this.fen.setVisibility(z ? 8 : 0);
-        if (z && this.feA != null) {
-            this.feA.setVisibility(8);
+        this.ffL.setVisibility(z ? 8 : 0);
+        this.ffM.setVisibility(z ? 8 : 0);
+        if (z && this.ffZ != null) {
+            this.ffZ.setVisibility(8);
         }
-        if (this.feC != z && this.jTN != null) {
-            this.jTN.f(this.fem, z);
+        if (this.fgb != z && this.jVf != null) {
+            this.jVf.f(this.ffL, z);
         }
-        this.feC = z;
+        this.fgb = z;
     }
 
     public void setDisagreeShow(boolean z) {
-        this.fem.setVisibility(z ? 8 : 0);
-        this.fen.setVisibility(z ? 8 : 0);
-        if (this.feA != null) {
-            this.feA.setVisibility(z ? 8 : 0);
+        this.ffL.setVisibility(z ? 8 : 0);
+        this.ffM.setVisibility(z ? 8 : 0);
+        if (this.ffZ != null) {
+            this.ffZ.setVisibility(z ? 8 : 0);
         }
-        this.feC = z;
+        this.fgb = z;
     }
 
     public void setThreadData(cb cbVar) {
-        this.eJQ = cbVar;
+        this.eLr = cbVar;
     }
 
     public void setCardType(int i) {
@@ -624,19 +624,19 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     }
 
     public void setResourceId(int i, int i2) {
-        this.fev = i;
-        this.few = i2;
+        this.ffU = i;
+        this.ffV = i2;
         setAgreeAnimationResource();
     }
 
     public void setNormalColorResourceId(int i) {
-        this.fex = i;
-        setTextNormalColor(this.fel);
-        setTextNormalColor(this.fen);
+        this.ffW = i;
+        setTextNormalColor(this.ffK);
+        setTextNormalColor(this.ffM);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.ajT = onClickListener;
+        this.alm = onClickListener;
     }
 
     public void setFrom(int i) {
@@ -644,14 +644,14 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     }
 
     public void setVisibilityListener(a aVar) {
-        this.jTN = aVar;
+        this.jVf = aVar;
     }
 
     public TBLottieAnimationView getmImgDisagree() {
-        return this.fem;
+        return this.ffL;
     }
 
     public TBLottieAnimationView getmImgAgree() {
-        return this.fek;
+        return this.ffJ;
     }
 }

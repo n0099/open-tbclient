@@ -12,24 +12,24 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.live.guess.view.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends com.baidu.tieba.ala.live.guess.view.a implements View.OnClickListener {
-    private RelativeLayout amz;
-    private ImageView hiQ;
-    private TextView hiR;
-    private a hiS;
-    private TextView hiw;
-    private FrameLayout hix;
+    private RelativeLayout anR;
+    private TextView hkA;
+    private a hkB;
+    private TextView hkf;
+    private FrameLayout hkg;
+    private ImageView hkz;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void anC();
+        void anF();
 
-        void bXq();
+        void bXw();
     }
 
     public void a(a aVar) {
-        this.hiS = aVar;
+        this.hkB = aVar;
     }
 
     public f(Context context) {
@@ -37,25 +37,25 @@ public class f extends com.baidu.tieba.ala.live.guess.view.a implements View.OnC
     }
 
     @Override // com.baidu.tieba.ala.live.guess.view.a
-    public void ED() {
-        this.hiR.setOnClickListener(this);
-        this.hiQ.setOnClickListener(this);
+    public void EG() {
+        this.hkA.setOnClickListener(this);
+        this.hkz.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.view.a
-    void bXS() {
+    void bXY() {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.ala_guess_voucher_dialog, (ViewGroup) null);
     }
 
     @Override // com.baidu.tieba.ala.live.guess.view.a
     public void initView() {
-        this.hix = (FrameLayout) this.mRootView.findViewById(a.f.frame_icon);
-        this.hiw = (TextView) this.mRootView.findViewById(a.f.tv_follow_content);
-        this.amz = (RelativeLayout) this.mRootView.findViewById(a.f.layout_panel);
-        this.hiQ = (ImageView) this.mRootView.findViewById(a.f.img_exit);
-        this.hiR = (TextView) this.mRootView.findViewById(a.f.tv_guess_voucher);
-        bXY();
-        this.mDialog.setOnKeyListener(new b.DialogInterface$OnKeyListenerC0648b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.view.f.1
+        this.hkg = (FrameLayout) this.mRootView.findViewById(a.f.frame_icon);
+        this.hkf = (TextView) this.mRootView.findViewById(a.f.tv_follow_content);
+        this.anR = (RelativeLayout) this.mRootView.findViewById(a.f.layout_panel);
+        this.hkz = (ImageView) this.mRootView.findViewById(a.f.img_exit);
+        this.hkA = (TextView) this.mRootView.findViewById(a.f.tv_guess_voucher);
+        bYe();
+        this.mDialog.setOnKeyListener(new b.DialogInterface$OnKeyListenerC0654b(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.ala.live.guess.view.f.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                 return false;
@@ -63,22 +63,22 @@ public class f extends com.baidu.tieba.ala.live.guess.view.a implements View.OnC
         }));
     }
 
-    private void bXY() {
-        com.baidu.tieba.ala.live.guess.c.c.o(this.amz, 300, 210);
-        com.baidu.tieba.ala.live.guess.c.c.c(this.hix, 300, 118, -60, 0, 0, 0);
-        com.baidu.tieba.ala.live.guess.c.c.c(this.hiR, 190, 44, 30, 30, 0, 0);
-        com.baidu.tieba.ala.live.guess.c.c.c(this.hiw, 20);
+    private void bYe() {
+        com.baidu.tieba.ala.live.guess.c.c.o(this.anR, 300, 210);
+        com.baidu.tieba.ala.live.guess.c.c.c(this.hkg, 300, 118, -60, 0, 0, 0);
+        com.baidu.tieba.ala.live.guess.c.c.c(this.hkA, 190, 44, 30, 30, 0, 0);
+        com.baidu.tieba.ala.live.guess.c.c.c(this.hkf, 20);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hiQ) {
-            if (this.hiS != null) {
-                this.hiS.anC();
+        if (view == this.hkz) {
+            if (this.hkB != null) {
+                this.hkB.anF();
                 dismiss();
             }
-        } else if (view == this.hiR) {
-            this.hiS.bXq();
+        } else if (view == this.hkA) {
+            this.hkB.bXw();
             dismiss();
         }
     }

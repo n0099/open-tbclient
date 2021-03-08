@@ -4,10 +4,10 @@ import io.reactivex.exceptions.ProtocolViolationException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static boolean a(AtomicReference<io.reactivex.disposables.b> atomicReference, io.reactivex.disposables.b bVar, Class<?> cls) {
-        io.reactivex.internal.functions.a.m(bVar, "next is null");
+        io.reactivex.internal.functions.a.n(bVar, "next is null");
         if (atomicReference.compareAndSet(null, bVar)) {
             return true;
         }
@@ -19,7 +19,7 @@ public final class d {
     }
 
     public static boolean a(AtomicReference<org.a.d> atomicReference, org.a.d dVar, Class<?> cls) {
-        io.reactivex.internal.functions.a.m(dVar, "next is null");
+        io.reactivex.internal.functions.a.n(dVar, "next is null");
         if (atomicReference.compareAndSet(null, dVar)) {
             return true;
         }
@@ -30,11 +30,11 @@ public final class d {
         return false;
     }
 
-    public static String acq(String str) {
+    public static String acp(String str) {
         return "It is not allowed to subscribe with a(n) " + str + " multiple times. Please create a fresh instance of " + str + " and subscribe that to the target source instead.";
     }
 
     public static void F(Class<?> cls) {
-        io.reactivex.d.a.onError(new ProtocolViolationException(acq(cls.getName())));
+        io.reactivex.d.a.onError(new ProtocolViolationException(acp(cls.getName())));
     }
 }

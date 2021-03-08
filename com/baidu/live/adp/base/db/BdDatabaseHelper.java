@@ -2,10 +2,10 @@ package com.baidu.live.adp.base.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface BdDatabaseHelper {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnDatabaseCreatedCallback {
         void onDatabaseCreated(SQLiteDatabase sQLiteDatabase);
     }

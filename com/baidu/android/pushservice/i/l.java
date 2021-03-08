@@ -53,9 +53,9 @@ public class l {
             return true;
         }
         try {
-            String b2 = m.b(context, str, intent.getAction());
-            if (!TextUtils.isEmpty(b2)) {
-                intent.setClassName(str, b2);
+            String b = m.b(context, str, intent.getAction());
+            if (!TextUtils.isEmpty(b)) {
+                intent.setClassName(str, b);
                 context.sendBroadcast(intent);
                 com.baidu.android.pushservice.f.a.a("ServiceUtils", "startPushService by sendBroadcast", context.getApplicationContext());
                 return true;

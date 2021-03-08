@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static c fIV = null;
+    private static c fKv = null;
 
     private c() {
     }
 
-    public static synchronized c bDV() {
+    public static synchronized c bDZ() {
         c cVar;
         synchronized (c.class) {
-            if (fIV == null) {
-                fIV = new c();
+            if (fKv == null) {
+                fKv = new c();
             }
-            cVar = fIV;
+            cVar = fKv;
         }
         return cVar;
     }
@@ -44,7 +44,7 @@ public class c {
         }
     }
 
-    public boolean bDW() {
+    public boolean bEa() {
         try {
             Class.forName("com.baidu.wallet.home.WalletNewHomeActivity");
             return true;
@@ -54,7 +54,7 @@ public class c {
         }
     }
 
-    public boolean bDX() {
+    public boolean bEb() {
         try {
             Class.forName("com.baidu.wallet.lightapp.business.LightappBrowseActivity");
             return true;
@@ -66,7 +66,7 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            bf.bsV().b(tbPageContext, new String[]{str});
+            bf.bsY().b(tbPageContext, new String[]{str});
         }
     }
 

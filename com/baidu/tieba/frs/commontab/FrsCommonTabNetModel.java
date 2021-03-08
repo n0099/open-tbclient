@@ -18,27 +18,27 @@ public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestDat
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int acP() {
+    protected int acS() {
         return CmdConfigHttp.CMD_FRS_COMMON_TAB;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int acO() {
+    protected int acR() {
         return 309622;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String acI() {
+    protected String acL() {
         return TbConfig.FRS_COMMON_TAB;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> acS() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> acV() {
         return FrsCommonTabHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> acU() {
+    protected Class<? extends MvcSocketResponsedMessage> acX() {
         return FrsCommonTabSocketResponseMessage.class;
     }
 }

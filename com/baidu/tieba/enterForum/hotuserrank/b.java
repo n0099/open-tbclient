@@ -15,25 +15,25 @@ import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
 import com.baidu.tieba.enterForum.hotuserrank.a.c;
 /* loaded from: classes2.dex */
 public class b {
-    private TbPageContext eUY;
-    private RankListViewController.RankListViewHolder iKV;
-    private TextView iKW;
-    private TextView iKX;
-    private String iKY;
-    private int iKZ;
+    private TbPageContext eWx;
+    private RankListViewController.RankListViewHolder iME;
+    private TextView iMF;
+    private TextView iMG;
+    private String iMH;
+    private int iMI;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.hotuserrank.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(b.this.iKY)) {
-                b.this.eUY.showToast(R.string.load_error_retry);
+            if (TextUtils.isEmpty(b.this.iMH)) {
+                b.this.eWx.showToast(R.string.load_error_retry);
                 return;
             }
-            bf.bsV().b(b.this.eUY, new String[]{b.this.iKY});
-            if (b.this.iKZ != 0) {
-                if (b.this.iKZ != 2) {
-                    if (b.this.iKZ == 1) {
+            bf.bsY().b(b.this.eWx, new String[]{b.this.iMH});
+            if (b.this.iMI != 0) {
+                if (b.this.iMI != 2) {
+                    if (b.this.iMI == 1) {
                         ar arVar = new ar("c13669");
-                        arVar.ap("obj_locate", 2);
+                        arVar.aq("obj_locate", 2);
                         TiebaStatic.log(arVar);
                         return;
                     }
@@ -41,7 +41,7 @@ public class b {
                 }
                 ar arVar2 = new ar("c13658");
                 arVar2.v("uid", TbadkCoreApplication.getCurrentAccountId());
-                arVar2.ap("obj_locate", 2);
+                arVar2.aq("obj_locate", 2);
                 TiebaStatic.log(arVar2);
             }
         }
@@ -49,34 +49,34 @@ public class b {
     private View mRootView;
 
     public b(TbPageContext tbPageContext, View view) {
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
         this.mRootView = view;
-        this.iKV = new RankListViewController.RankListViewHolder(view.findViewById(R.id.user_view));
-        this.iKV.xJ(1);
-        this.iKW = (TextView) view.findViewById(R.id.get_influence);
-        this.iKX = (TextView) view.findViewById(R.id.rank_num);
-        this.iKX.setTextSize(0, l.getDimens(this.eUY.getPageActivity(), R.dimen.tbfontsize46));
-        this.iKW.setOnClickListener(this.mOnClickListener);
+        this.iME = new RankListViewController.RankListViewHolder(view.findViewById(R.id.user_view));
+        this.iME.xK(1);
+        this.iMF = (TextView) view.findViewById(R.id.get_influence);
+        this.iMG = (TextView) view.findViewById(R.id.rank_num);
+        this.iMG.setTextSize(0, l.getDimens(this.eWx.getPageActivity(), R.dimen.tbfontsize46));
+        this.iMF.setOnClickListener(this.mOnClickListener);
     }
 
     public void b(c cVar) {
-        if (cVar != null && cVar.iLz != null && cVar.iLz.iLv != null && !cVar.iLz.iLv.isMask && TbadkCoreApplication.isLogin()) {
+        if (cVar != null && cVar.iNi != null && cVar.iNi.iNe != null && !cVar.iNi.iNe.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
-            this.iKV.a(cVar.iLz);
-            this.iKV.cwD();
-            this.iKY = cVar.iLA;
+            this.iME.a(cVar.iNi);
+            this.iME.cwJ();
+            this.iMH = cVar.iNj;
             return;
         }
         this.mRootView.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.iKV.onChangeSkinType(i);
-        ap.setBackgroundColor(this.iKV.itemView, R.color.CAM_X0207);
-        ap.setViewTextColor(this.iKW, R.color.CAM_X0302);
+        this.iME.onChangeSkinType(i);
+        ap.setBackgroundColor(this.iME.itemView, R.color.CAM_X0207);
+        ap.setViewTextColor(this.iMF, R.color.CAM_X0302);
     }
 
-    public void xI(int i) {
-        this.iKZ = i;
+    public void xJ(int i) {
+        this.iMI = i;
     }
 }

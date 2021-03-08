@@ -10,14 +10,14 @@ import com.squareup.wire2.internal.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static final ProtoAdapter<SpriteEntity> ADAPTER = new ProtoAdapter_SpriteEntity();
     public static final String DEFAULT_IMAGEKEY = "";
     private static final long serialVersionUID = 0;
-    @WireField(eDW = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", eDX = WireField.Label.REPEATED, tag = 2)
+    @WireField(eEc = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", eEd = WireField.Label.REPEATED, tag = 2)
     public final List<FrameEntity> frames;
-    @WireField(eDW = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(eEc = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
     public SpriteEntity(String str, List<FrameEntity> list) {
@@ -75,9 +75,9 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         return sb.replace(0, 2, "SpriteEntity{").append('}').toString();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
-        public List<FrameEntity> frames = a.eDZ();
+        public List<FrameEntity> frames = a.eEf();
         public String imageKey;
 
         public Builder imageKey(String str) {
@@ -99,7 +99,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static final class ProtoAdapter_SpriteEntity extends ProtoAdapter<SpriteEntity> {
         ProtoAdapter_SpriteEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, SpriteEntity.class);
@@ -126,11 +126,11 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public SpriteEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eDO = cVar.eDO();
+            long eDU = cVar.eDU();
             while (true) {
-                int eDP = cVar.eDP();
-                if (eDP != -1) {
-                    switch (eDP) {
+                int eDV = cVar.eDV();
+                if (eDV != -1) {
+                    switch (eDV) {
                         case 1:
                             builder.imageKey(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -138,12 +138,12 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                             builder.frames.add(FrameEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eDQ = cVar.eDQ();
-                            builder.addUnknownField(eDP, eDQ, eDQ.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eDW = cVar.eDW();
+                            builder.addUnknownField(eDV, eDW, eDW.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.iV(eDO);
+                    cVar.iV(eDU);
                     return builder.build();
                 }
             }

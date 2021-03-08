@@ -5,10 +5,10 @@ import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.production.rewardvideo.a;
 import com.baidu.mobads.rewardvideo.AbstractScreenVideoAd;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FullScreenVideoAd extends AbstractScreenVideoAd {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface FullScreenVideoAdListener extends AbstractScreenVideoAd.ScreenVideoAdListener {
         @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd.ScreenVideoAdListener
         void onAdClick();
@@ -50,7 +50,7 @@ public class FullScreenVideoAd extends AbstractScreenVideoAd {
         return fullScreenIOEventListener;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private class FullScreenIOEventListener extends AbstractScreenVideoAd.ScreenVideoIOAdEventListener {
         private FullScreenIOEventListener() {
             super();

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.adevent.ADListener;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseNativeUnifiedAd {
     public static final int CALLBACK_CLICK = 3;
     public static final int CALLBACK_IMPRESSION = 4;

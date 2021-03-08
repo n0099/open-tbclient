@@ -21,7 +21,7 @@ public class b extends com.baidu.tbadk.core.view.viewpager.b<com.baidu.tbadk.cor
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.viewpager.b
     public View a(ViewGroup viewGroup, a aVar, com.baidu.tbadk.core.view.viewpager.bannerflow.a aVar2) {
-        aVar.feK.startLoad(aVar2.getImageUrl(), 10, false);
+        aVar.fgj.startLoad(aVar2.getImageUrl(), 10, false);
         return null;
     }
 
@@ -36,13 +36,13 @@ public class b extends com.baidu.tbadk.core.view.viewpager.b<com.baidu.tbadk.cor
 
     /* loaded from: classes.dex */
     public class a extends BdBaseViewPagerAdapter.a {
-        public TbImageView feK;
+        public TbImageView fgj;
 
         public a(View view) {
             super(view);
             if (view instanceof TbImageView) {
-                this.feK = (TbImageView) view;
-                this.feK.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.fgj = (TbImageView) view;
+                this.fgj.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
     }

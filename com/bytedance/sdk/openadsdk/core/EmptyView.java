@@ -8,17 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.utils.aj;
-import com.bytedance.sdk.openadsdk.utils.am;
+import com.bytedance.sdk.openadsdk.utils.al;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class EmptyView extends View implements am.a {
+public class EmptyView extends View implements al.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6441a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f6442b;
+    private boolean f4354a;
+    private boolean b;
     private a c;
     private View d;
     private List<View> e;
@@ -42,7 +40,7 @@ public class EmptyView extends View implements am.a {
 
     public EmptyView(Context context, View view) {
         super(p.a());
-        this.i = new am(Looper.getMainLooper(), this);
+        this.i = new al(Looper.getMainLooper(), this);
         this.j = new AtomicBoolean(true);
         this.d = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
@@ -119,24 +117,24 @@ public class EmptyView extends View implements am.a {
     }
 
     private void d() {
-        if (this.f6442b && !this.f6441a) {
-            this.f6441a = true;
+        if (this.b && !this.f4354a) {
+            this.f4354a = true;
             this.i.sendEmptyMessage(1);
         }
     }
 
     private void e() {
-        if (this.f6441a) {
+        if (this.f4354a) {
             this.i.removeCallbacksAndMessages(null);
-            this.f6441a = false;
+            this.f4354a = false;
         }
     }
 
     public void setNeedCheckingShow(boolean z) {
-        this.f6442b = z;
-        if (!z && this.f6441a) {
+        this.b = z;
+        if (!z && this.f4354a) {
             e();
-        } else if (z && !this.f6441a) {
+        } else if (z && !this.f4354a) {
             d();
         }
     }
@@ -149,11 +147,11 @@ public class EmptyView extends View implements am.a {
         this.h = i;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.utils.am.a
+    @Override // com.bytedance.sdk.openadsdk.utils.al.a
     public void a(Message message) {
         switch (message.what) {
             case 1:
-                if (this.f6441a) {
+                if (this.f4354a) {
                     if (y.a(this.d, 20, this.h)) {
                         e();
                         this.i.sendEmptyMessageDelayed(2, 1000L);
@@ -168,8 +166,8 @@ public class EmptyView extends View implements am.a {
                 }
                 return;
             case 2:
-                boolean c = aj.c(p.a(), p.a().getPackageName());
-                if (y.a(this.d, 20, this.h) || !c) {
+                boolean a2 = aj.a();
+                if (y.a(this.d, 20, this.h) || !a2) {
                     this.i.sendEmptyMessageDelayed(2, 1000L);
                     return;
                 } else if (!this.g) {

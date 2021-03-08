@@ -5,11 +5,11 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.tbadk.core.data.AccountData;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class AccountLoginCoreHelper {
     public static AccountLoginCoreHelper mAccountLoginCoreHelper = null;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface IReLoginCallback {
         void onBeforeLogin(String str);
 
@@ -18,7 +18,7 @@ public abstract class AccountLoginCoreHelper {
         void onSuccess(AccountData accountData);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class OurToken {
         public String mBduss = null;
         public String mPtoken = null;

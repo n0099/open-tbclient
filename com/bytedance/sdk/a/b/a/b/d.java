@@ -6,17 +6,17 @@ import java.util.Set;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Set<com.bytedance.sdk.a.b.d> f5866a = new LinkedHashSet();
+    private final Set<com.bytedance.sdk.a.b.d> f3952a = new LinkedHashSet();
 
     public synchronized void a(com.bytedance.sdk.a.b.d dVar) {
-        this.f5866a.add(dVar);
+        this.f3952a.add(dVar);
     }
 
     public synchronized void b(com.bytedance.sdk.a.b.d dVar) {
-        this.f5866a.remove(dVar);
+        this.f3952a.remove(dVar);
     }
 
     public synchronized boolean c(com.bytedance.sdk.a.b.d dVar) {
-        return this.f5866a.contains(dVar);
+        return this.f3952a.contains(dVar);
     }
 }

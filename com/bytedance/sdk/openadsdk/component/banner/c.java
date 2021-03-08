@@ -10,23 +10,21 @@ import com.bytedance.sdk.openadsdk.core.d.l;
 class c extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f6272a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Context f6273b;
+    private ImageView f4247a;
+    private final Context b;
     private l c;
 
     public c(@NonNull Context context) {
         super(context);
-        this.f6273b = context;
+        this.b = context;
         c();
     }
 
     private void c() {
-        this.f6272a = new ImageView(this.f6273b);
-        this.f6272a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.f6272a.setScaleType(ImageView.ScaleType.FIT_XY);
-        addView(this.f6272a);
+        this.f4247a = new ImageView(this.b);
+        this.f4247a.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.f4247a.setScaleType(ImageView.ScaleType.FIT_XY);
+        addView(this.f4247a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,12 +39,12 @@ class c extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Bitmap bitmap) {
-        this.f6272a.setImageBitmap(bitmap);
+        this.f4247a.setImageBitmap(bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        this.f6272a.setImageBitmap(null);
+        this.f4247a.setImageBitmap(null);
         setOnClickListener(null);
         this.c = null;
     }

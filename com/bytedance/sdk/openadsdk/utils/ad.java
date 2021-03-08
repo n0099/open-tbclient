@@ -16,10 +16,8 @@ public class ad {
     private static final CharSequence e = "funtouch";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7542a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f7543b = false;
+    public static boolean f5115a = false;
+    public static boolean b = false;
 
     public static String a() {
         if (o()) {
@@ -69,18 +67,18 @@ public class ad {
     }
 
     public static boolean e() {
-        if (!f7543b) {
+        if (!b) {
             try {
                 if (Class.forName("miui.os.Build") != null) {
-                    f7542a = true;
-                    f7543b = true;
-                    return f7542a;
+                    f5115a = true;
+                    b = true;
+                    return f5115a;
                 }
             } catch (Exception e2) {
             }
-            f7543b = true;
+            b = true;
         }
-        return f7542a;
+        return f5115a;
     }
 
     public static String f() {
@@ -142,12 +140,12 @@ public class ad {
 
     public static boolean r() {
         String str = Build.MANUFACTURER;
-        return !TextUtils.isEmpty(str) && str.toLowerCase().contains(aj.r("kllk"));
+        return !TextUtils.isEmpty(str) && str.toLowerCase().contains(aj.m("kllk"));
     }
 
     public static String s() {
         if (r()) {
-            return "coloros_" + d(aj.r("ro.build.version.kllkrom")) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.DISPLAY;
+            return "coloros_" + d(aj.m("ro.build.version.kllkrom")) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.DISPLAY;
         }
         return "";
     }
@@ -175,94 +173,69 @@ public class ad {
         return (!TextUtils.isEmpty(str) && str.toLowerCase().startsWith("emotionui")) || t();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [300=5, 302=4, 303=4, 304=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x004e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x00a8 */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [301=5, 303=4, 304=4, 305=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v13 */
-    /* JADX WARN: Type inference failed for: r3v14, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r3v15, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r3v6, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r3v7 */
     public static String c(String str) {
         Process process;
-        ?? r3;
-        BufferedReader bufferedReader = null;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
         String str2 = "";
         try {
             try {
                 try {
+                    process = Runtime.getRuntime().exec("getprop " + str);
                     try {
-                        process = Runtime.getRuntime().exec("getprop " + str);
-                        try {
-                            r3 = new BufferedReader(new InputStreamReader(process.getInputStream()), 1024);
-                        } catch (IllegalThreadStateException e2) {
-                            r3 = 0;
-                        }
-                    } catch (IllegalThreadStateException e3) {
-                        process = null;
-                        r3 = 0;
+                        bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()), 1024);
+                    } catch (IllegalThreadStateException e2) {
+                        bufferedReader = null;
                     }
-                } catch (Throwable th) {
-                    th = th;
+                } catch (IllegalThreadStateException e3) {
+                    process = null;
+                    bufferedReader = null;
                 }
-                try {
-                    str2 = r3.readLine();
-                    process.exitValue();
-                    if (r3 != 0) {
-                        try {
-                            r3.close();
-                        } catch (IOException e4) {
-                            r3 = "Exception while closing InputStream";
-                            u.c("ToolUtils", "Exception while closing InputStream", e4);
-                        }
-                    }
-                } catch (IllegalThreadStateException e5) {
-                    try {
-                        process.destroy();
-                    } catch (Exception e6) {
-                    }
-                    if (r3 != 0) {
-                        try {
-                            r3.close();
-                        } catch (IOException e7) {
-                            r3 = "Exception while closing InputStream";
-                            u.c("ToolUtils", "Exception while closing InputStream", e7);
-                        }
-                    }
-                    return str2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedReader = r3;
-                    u.c("ToolUtils", "Unable to read sysprop " + str, th);
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e8) {
-                            u.c("ToolUtils", "Exception while closing InputStream", e8);
-                        }
-                    }
-                    return str2;
-                }
-                return str2;
-            } catch (Throwable th3) {
-                th = th3;
-                if (bufferedReader != null) {
-                    try {
-                        bufferedReader.close();
-                    } catch (IOException e9) {
-                        u.c("ToolUtils", "Exception while closing InputStream", e9);
-                    }
-                }
-                throw th;
+            } catch (Throwable th) {
+                th = th;
             }
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        try {
+            str2 = bufferedReader.readLine();
+            process.exitValue();
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e4) {
+                    u.c("ToolUtils", "Exception while closing InputStream", e4);
+                }
+            }
+        } catch (IllegalThreadStateException e5) {
+            try {
+                process.destroy();
+            } catch (Throwable th3) {
+            }
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e6) {
+                    u.c("ToolUtils", "Exception while closing InputStream", e6);
+                }
+            }
+            return str2;
         } catch (Throwable th4) {
             th = th4;
-            bufferedReader = r3;
+            bufferedReader2 = bufferedReader;
+            u.c("ToolUtils", "Unable to read sysprop " + str, th);
+            if (bufferedReader2 != null) {
+                try {
+                    bufferedReader2.close();
+                } catch (IOException e7) {
+                    u.c("ToolUtils", "Exception while closing InputStream", e7);
+                }
+            }
+            return str2;
         }
+        return str2;
     }
 
     private static String d(String str) {
@@ -271,14 +244,14 @@ public class ad {
         try {
             str3 = u();
             if (TextUtils.isEmpty(str3)) {
-                final com.bytedance.sdk.openadsdk.k.b bVar = new com.bytedance.sdk.openadsdk.k.b(new a(str), 5, 2);
-                com.bytedance.sdk.openadsdk.k.a.a().b(new com.bytedance.sdk.openadsdk.k.c() { // from class: com.bytedance.sdk.openadsdk.utils.ad.1
+                final com.bytedance.sdk.openadsdk.j.f fVar = new com.bytedance.sdk.openadsdk.j.f(new a(str), 5, 2);
+                com.bytedance.sdk.openadsdk.j.e.a().execute(new com.bytedance.sdk.openadsdk.j.g() { // from class: com.bytedance.sdk.openadsdk.utils.ad.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.bytedance.sdk.openadsdk.k.b.this.run();
+                        com.bytedance.sdk.openadsdk.j.f.this.run();
                     }
                 });
-                str2 = (String) bVar.get(1L, TimeUnit.SECONDS);
+                str2 = (String) fVar.get(1L, TimeUnit.SECONDS);
             } else {
                 str2 = str3;
             }
@@ -295,10 +268,10 @@ public class ad {
     public static class a implements Callable<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f7545a;
+        private String f5117a;
 
         public a(String str) {
-            this.f7545a = str;
+            this.f5117a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -306,7 +279,7 @@ public class ad {
         /* renamed from: a */
         public String call() throws Exception {
             long currentTimeMillis = System.currentTimeMillis();
-            String c = ad.c(this.f7545a);
+            String c = ad.c(this.f5117a);
             u.b("RomUtils", "property:" + c + ",getSystemProperty use time :" + (System.currentTimeMillis() - currentTimeMillis));
             if (!TextUtils.isEmpty(c)) {
                 try {

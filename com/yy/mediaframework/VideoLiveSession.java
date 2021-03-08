@@ -44,7 +44,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoLiveSession implements IEncoderListener, ILiveSession, IYYVideoSurfaceInfoListener {
     private static final String TAG = "VideoLiveSession";
     public CameraCaptureFilter mCaptureFilter;

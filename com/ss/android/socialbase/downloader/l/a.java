@@ -7,10 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f13209a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final AtomicInteger f13210b;
+    private final String f7866a;
+    private final AtomicInteger b;
     private final boolean c;
 
     public a(String str) {
@@ -18,14 +16,14 @@ public class a implements ThreadFactory {
     }
 
     public a(String str, boolean z) {
-        this.f13210b = new AtomicInteger();
-        this.f13209a = str;
+        this.b = new AtomicInteger();
+        this.f7866a = str;
         this.c = z;
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        Thread thread = new Thread(runnable, this.f13209a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.f13210b.incrementAndGet());
+        Thread thread = new Thread(runnable, this.f7866a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.b.incrementAndGet());
         if (!this.c) {
             if (thread.isDaemon()) {
                 thread.setDaemon(false);

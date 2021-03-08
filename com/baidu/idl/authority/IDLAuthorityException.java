@@ -1,5 +1,5 @@
 package com.baidu.idl.authority;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class IDLAuthorityException extends RuntimeException {
     private static final long serialVersionUID = 1;
 

@@ -18,7 +18,7 @@ public interface br extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof br)) {
                 return (br) queryLocalInterface;
             }
-            return new C0989a(iBinder);
+            return new C0997a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -40,18 +40,18 @@ public interface br extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.br$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        static class C0989a implements br {
+        static class C0997a implements br {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f5812a;
+            private IBinder f3922a;
 
-            C0989a(IBinder iBinder) {
-                this.f5812a = iBinder;
+            C0997a(IBinder iBinder) {
+                this.f3922a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f5812a;
+                return this.f3922a;
             }
 
             @Override // com.bytedance.embedapplog.br
@@ -63,7 +63,7 @@ public interface br extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    this.f5812a.transact(1, obtain, obtain2, 0);
+                    this.f3922a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

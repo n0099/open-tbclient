@@ -4,7 +4,7 @@ import android.opengl.Matrix;
 import com.yy.mediaframework.gles.GlUtil;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFShaderData {
     public static final int COORD_SIZE = 2;
     private static final int SIZEOF_FLOAT = 4;

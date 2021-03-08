@@ -2,14 +2,12 @@ package com.baidu.webkit.internal.monitor;
 
 import com.baidu.webkit.sdk.Log;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    long f5677a = -1;
-
-    /* renamed from: b  reason: collision with root package name */
-    long f5678b = -1;
+    long f3837a = -1;
+    long b = -1;
     long c = -1;
     long d = -1;
     long e = -1;
@@ -18,8 +16,8 @@ public final class b {
     JSONObject h;
 
     private void c() {
-        this.f5677a = -1L;
-        this.f5678b = -1L;
+        this.f3837a = -1L;
+        this.b = -1L;
         this.c = -1L;
     }
 
@@ -60,16 +58,16 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final JSONObject b() {
-        if (this.f5677a == -1 && this.f5678b == -1 && this.c == -1) {
+        if (this.f3837a == -1 && this.b == -1 && this.c == -1) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            if (this.f5677a != -1) {
-                jSONObject.put("click", this.f5677a);
+            if (this.f3837a != -1) {
+                jSONObject.put("click", this.f3837a);
             }
-            if (this.f5678b != -1) {
-                jSONObject.put("evajs", this.f5678b);
+            if (this.b != -1) {
+                jSONObject.put("evajs", this.b);
             }
             if (this.c != -1) {
                 jSONObject.put("loadurl", this.c);

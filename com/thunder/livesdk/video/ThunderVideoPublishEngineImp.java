@@ -47,7 +47,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderVideoPublishEngineImp implements CameraListener, IPublishListener, ITextureListener, IYMFBehaviorEventListener, IYMFExceptionListener {
     private static final String TAG = "ThunderVideoPublishEngineImp";
     private static final int VIDEO_DYNAMIC_ENC_FRAME_RATE = 4;
@@ -809,7 +809,7 @@ public class ThunderVideoPublishEngineImp implements CameraListener, IPublishLis
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class VideoPublishParams {
         public boolean bEnableLocalDualStreamMode;
         public boolean bLowLatency;
@@ -834,7 +834,7 @@ public class ThunderVideoPublishEngineImp implements CameraListener, IPublishLis
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class VideoPublishWeakNetParam {
         public int codecid;
         public String encoderParam;
@@ -849,7 +849,7 @@ public class ThunderVideoPublishEngineImp implements CameraListener, IPublishLis
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class VideoPublishLowStreamConfig {
         public int codecid;
         public int encodeCodeRate;

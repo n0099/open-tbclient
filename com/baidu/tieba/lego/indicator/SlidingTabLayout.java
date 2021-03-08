@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SlidingTabLayout extends MyHorizontalScrollView {
-    private ViewPager Ze;
+    private ViewPager aaw;
     private int currentIndex;
-    private int kyV;
-    private ViewPager.OnPageChangeListener kyW;
-    private final SlidingTabStrip lgj;
+    private int kAX;
+    private ViewPager.OnPageChangeListener kAY;
+    private final SlidingTabStrip lil;
 
     public SlidingTabLayout(Context context) {
         this(context, null);
@@ -35,25 +35,25 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
         this.currentIndex = 0;
         setHorizontalScrollBarEnabled(false);
         setFillViewport(true);
-        this.kyV = (int) (24.0f * getResources().getDisplayMetrics().density);
-        this.lgj = new SlidingTabStrip(context);
-        addView(this.lgj, -1, -2);
+        this.kAX = (int) (24.0f * getResources().getDisplayMetrics().density);
+        this.lil = new SlidingTabStrip(context);
+        addView(this.lil, -1, -2);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.kyW = onPageChangeListener;
+        this.kAY = onPageChangeListener;
     }
 
     public void setViewPager(ViewPager viewPager, int i) {
-        this.lgj.removeAllViews();
-        this.Ze = viewPager;
+        this.lil.removeAllViews();
+        this.aaw = viewPager;
         if (viewPager != null) {
             viewPager.setOnPageChangeListener(new a());
-            Ei(i);
+            El(i);
         }
     }
 
-    protected TextView gy(Context context) {
+    protected TextView gx(Context context) {
         float dimension = getResources().getDimension(R.dimen.ds28);
         TextView textView = new TextView(context);
         textView.setGravity(17);
@@ -63,28 +63,28 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
         return textView;
     }
 
-    private void Ei(int i) {
-        PagerAdapter adapter = this.Ze.getAdapter();
+    private void El(int i) {
+        PagerAdapter adapter = this.aaw.getAdapter();
         b bVar = new b();
         for (int i2 = 0; i2 < adapter.getCount(); i2++) {
-            TextView gy = gy(getContext());
-            gy.setText(au.cutChineseAndEnglishWithSuffix(((Object) adapter.getPageTitle(i2)) + "", 8, null));
-            gy.setOnClickListener(bVar);
+            TextView gx = gx(getContext());
+            gx.setText(au.cutChineseAndEnglishWithSuffix(((Object) adapter.getPageTitle(i2)) + "", 8, null));
+            gx.setOnClickListener(bVar);
             if (adapter.getCount() < 8) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
                 layoutParams.weight = 1.0f;
                 int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds22);
-                gy.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
-                this.lgj.addView(gy, layoutParams);
+                gx.setPadding(0, dimensionPixelSize, 0, dimensionPixelSize);
+                this.lil.addView(gx, layoutParams);
             } else {
                 int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds22);
                 int dimensionPixelSize3 = getResources().getDimensionPixelSize(R.dimen.ds16);
-                gy.setPadding(dimensionPixelSize3, dimensionPixelSize2, dimensionPixelSize3, dimensionPixelSize2);
-                this.lgj.addView(gy);
+                gx.setPadding(dimensionPixelSize3, dimensionPixelSize2, dimensionPixelSize3, dimensionPixelSize2);
+                this.lil.addView(gx);
             }
             if (i2 == i) {
-                gy.setTextSize(0, getResources().getDimension(R.dimen.ds32));
-                ap.setViewTextColor(gy, R.color.CAM_X0308, 1);
+                gx.setTextSize(0, getResources().getDimension(R.dimen.ds32));
+                ap.setViewTextColor(gx, R.color.CAM_X0308, 1);
             }
         }
     }
@@ -92,25 +92,25 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.Ze != null) {
-            cL(this.Ze.getCurrentItem(), 0);
+        if (this.aaw != null) {
+            cL(this.aaw.getCurrentItem(), 0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cL(int i, int i2) {
         View childAt;
-        int childCount = this.lgj.getChildCount();
-        if (childCount != 0 && i >= 0 && i < childCount && (childAt = this.lgj.getChildAt(i)) != null) {
+        int childCount = this.lil.getChildCount();
+        if (childCount != 0 && i >= 0 && i < childCount && (childAt = this.lil.getChildAt(i)) != null) {
             int left = childAt.getLeft() + i2;
             if (i > 0 || i2 > 0) {
-                left -= this.kyV;
+                left -= this.kAX;
             }
             scrollTo(left, 0);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class a implements ViewPager.OnPageChangeListener {
         private int mScrollState;
 
@@ -119,12 +119,12 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            int childCount = SlidingTabLayout.this.lgj.getChildCount();
+            int childCount = SlidingTabLayout.this.lil.getChildCount();
             if (childCount != 0 && i >= 0 && i < childCount) {
-                View childAt = SlidingTabLayout.this.lgj.getChildAt(i);
+                View childAt = SlidingTabLayout.this.lil.getChildAt(i);
                 SlidingTabLayout.this.cL(i, childAt != null ? (int) (childAt.getWidth() * f) : 0);
-                if (SlidingTabLayout.this.kyW != null) {
-                    SlidingTabLayout.this.kyW.onPageScrolled(i, f, i2);
+                if (SlidingTabLayout.this.kAY != null) {
+                    SlidingTabLayout.this.kAY.onPageScrolled(i, f, i2);
                 }
             }
         }
@@ -132,42 +132,42 @@ public class SlidingTabLayout extends MyHorizontalScrollView {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
             this.mScrollState = i;
-            if (SlidingTabLayout.this.kyW != null) {
-                SlidingTabLayout.this.kyW.onPageScrollStateChanged(i);
+            if (SlidingTabLayout.this.kAY != null) {
+                SlidingTabLayout.this.kAY.onPageScrollStateChanged(i);
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            SlidingTabLayout.this.lgj.cO(i, SlidingTabLayout.this.currentIndex);
+            SlidingTabLayout.this.lil.cO(i, SlidingTabLayout.this.currentIndex);
             SlidingTabLayout.this.currentIndex = i;
             if (this.mScrollState == 0) {
                 SlidingTabLayout.this.cL(i, SlidingTabLayout.this.currentIndex);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEGO_SWITCH_TAB, Integer.valueOf(SlidingTabLayout.this.currentIndex)));
-            if (SlidingTabLayout.this.kyW != null) {
-                SlidingTabLayout.this.kyW.onPageSelected(i);
+            if (SlidingTabLayout.this.kAY != null) {
+                SlidingTabLayout.this.kAY.onPageSelected(i);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.lgj != null) {
-            this.lgj.onChangeSkinType(i);
+        if (this.lil != null) {
+            this.lil.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         private b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            for (int i = 0; i < SlidingTabLayout.this.lgj.getChildCount(); i++) {
-                if (view == SlidingTabLayout.this.lgj.getChildAt(i)) {
-                    SlidingTabLayout.this.Ze.setCurrentItem(i, false);
+            for (int i = 0; i < SlidingTabLayout.this.lil.getChildCount(); i++) {
+                if (view == SlidingTabLayout.this.lil.getChildAt(i)) {
+                    SlidingTabLayout.this.aaw.setCurrentItem(i, false);
                     return;
                 }
             }

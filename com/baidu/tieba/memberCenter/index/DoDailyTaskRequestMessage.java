@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.DoDailyTask.DataReq;
 import tbclient.DoDailyTask.DoDailyTaskReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DoDailyTaskRequestMessage extends NetMessage {
     private long taskId;
     private long userId;

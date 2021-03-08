@@ -3,7 +3,7 @@ package com.baidu.yuyinala.privatemessage.implugin.util.audio;
 import android.content.Context;
 import android.media.AudioManager;
 import com.baidu.yuyinala.privatemessage.implugin.util.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements AudioManager.OnAudioFocusChangeListener {
     private AudioManager mAudioManager;
     private Context mContext;
@@ -17,7 +17,7 @@ public class a implements AudioManager.OnAudioFocusChangeListener {
         return 1 == this.mAudioManager.requestAudioFocus(this, 3, 2);
     }
 
-    public boolean emC() {
+    public boolean emM() {
         return 1 == this.mAudioManager.abandonAudioFocus(this);
     }
 

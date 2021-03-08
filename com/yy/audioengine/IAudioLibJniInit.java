@@ -1,7 +1,7 @@
 package com.yy.audioengine;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IAudioLibJniInit {
     private static Context mContext;
 

@@ -1,7 +1,7 @@
 package com.thunder.livesdk.helper;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NativeByteBufferPool {
     public static AtomicReference<IByteBufferPool> mNativeByteBufferPool = new AtomicReference<>(null);
 

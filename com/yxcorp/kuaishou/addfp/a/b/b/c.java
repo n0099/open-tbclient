@@ -8,10 +8,8 @@ import android.text.TextUtils;
 public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14346a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f14347b = "";
+    private Context f8598a;
+    private String b = "";
     private String c = "";
     private String d = "";
     private boolean e = false;
@@ -19,7 +17,7 @@ public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     private a g;
 
     public c(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f14346a = context;
+        this.f8598a = context;
         this.f = aVar;
         this.g = new a(context);
     }
@@ -27,8 +25,8 @@ public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
         try {
-            this.f14347b = ((d) iInterface).a();
-            if (!TextUtils.isEmpty(this.f14347b)) {
+            this.b = ((d) iInterface).a();
+            if (!TextUtils.isEmpty(this.b)) {
                 this.e = true;
                 if (this.f != null) {
                     this.f.a(this.e, this);
@@ -58,7 +56,7 @@ public final class c implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final String b() {
-        return this.f14347b;
+        return this.b;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a

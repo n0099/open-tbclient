@@ -4,31 +4,31 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SingleSubject<T> extends w<T> implements y<T> {
-    static final SingleDisposable[] qtj = new SingleDisposable[0];
-    static final SingleDisposable[] qtk = new SingleDisposable[0];
+    static final SingleDisposable[] qtL = new SingleDisposable[0];
+    static final SingleDisposable[] qtM = new SingleDisposable[0];
     Throwable error;
     T value;
     final AtomicBoolean once = new AtomicBoolean();
-    final AtomicReference<SingleDisposable<T>[]> observers = new AtomicReference<>(qtj);
+    final AtomicReference<SingleDisposable<T>[]> observers = new AtomicReference<>(qtL);
 
     SingleSubject() {
     }
 
     @Override // io.reactivex.y
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.observers.get() == qtk) {
+        if (this.observers.get() == qtM) {
             bVar.dispose();
         }
     }
 
     @Override // io.reactivex.y
     public void onSuccess(T t) {
-        io.reactivex.internal.functions.a.m(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
+        io.reactivex.internal.functions.a.n(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.value = t;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qtk)) {
+            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qtM)) {
                 singleDisposable.actual.onSuccess(t);
             }
         }
@@ -36,10 +36,10 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
 
     @Override // io.reactivex.y
     public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.m(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        io.reactivex.internal.functions.a.n(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (this.once.compareAndSet(false, true)) {
             this.error = th;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qtk)) {
+            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qtM)) {
                 singleDisposable.actual.onError(th);
             }
             return;
@@ -72,7 +72,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
         SingleDisposable<T>[] singleDisposableArr2;
         do {
             singleDisposableArr = this.observers.get();
-            if (singleDisposableArr == qtk) {
+            if (singleDisposableArr == qtM) {
                 return false;
             }
             int length = singleDisposableArr.length;
@@ -104,7 +104,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        singleDisposableArr2 = qtj;
+                        singleDisposableArr2 = qtL;
                     } else {
                         singleDisposableArr2 = new SingleDisposable[length - 1];
                         System.arraycopy(singleDisposableArr, 0, singleDisposableArr2, 0, i);
@@ -120,7 +120,7 @@ public final class SingleSubject<T> extends w<T> implements y<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class SingleDisposable<T> extends AtomicReference<SingleSubject<T>> implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -7650903191002190468L;
         final y<? super T> actual;

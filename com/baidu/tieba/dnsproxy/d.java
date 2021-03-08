@@ -3,19 +3,19 @@ package com.baidu.tieba.dnsproxy;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
-    private static volatile d iEC = null;
+    private static volatile d iGl = null;
 
-    public static final d cug() {
-        if (iEC == null) {
+    public static final d cum() {
+        if (iGl == null) {
             synchronized (d.class) {
-                if (iEC == null) {
-                    iEC = new d();
+                if (iGl == null) {
+                    iGl = new d();
                 }
             }
         }
-        return iEC;
+        return iGl;
     }
 
     private d() {

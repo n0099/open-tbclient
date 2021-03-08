@@ -10,26 +10,26 @@ import java.util.TreeSet;
 public final class v {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String[] f5980a;
+    private final String[] f4012a;
 
     v(a aVar) {
-        this.f5980a = (String[]) aVar.f5981a.toArray(new String[aVar.f5981a.size()]);
+        this.f4012a = (String[]) aVar.f4013a.toArray(new String[aVar.f4013a.size()]);
     }
 
     public String a(String str) {
-        return a(this.f5980a, str);
+        return a(this.f4012a, str);
     }
 
     public int a() {
-        return this.f5980a.length / 2;
+        return this.f4012a.length / 2;
     }
 
     public String a(int i) {
-        return this.f5980a[i * 2];
+        return this.f4012a[i * 2];
     }
 
     public String b(int i) {
-        return this.f5980a[(i * 2) + 1];
+        return this.f4012a[(i * 2) + 1];
     }
 
     public Set<String> b() {
@@ -58,18 +58,18 @@ public final class v {
         return Collections.emptyList();
     }
 
-    public a eqc() {
+    public a eqj() {
         a aVar = new a();
-        Collections.addAll(aVar.f5981a, this.f5980a);
+        Collections.addAll(aVar.f4013a, this.f4012a);
         return aVar;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof v) && Arrays.equals(((v) obj).f5980a, this.f5980a);
+        return (obj instanceof v) && Arrays.equals(((v) obj).f4012a, this.f4012a);
     }
 
     public int hashCode() {
-        return Arrays.hashCode(this.f5980a);
+        return Arrays.hashCode(this.f4012a);
     }
 
     public String toString() {
@@ -94,10 +94,10 @@ public final class v {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final List<String> f5981a = new ArrayList(20);
+        final List<String> f4013a = new ArrayList(20);
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a YQ(String str) {
+        public a YX(String str) {
             int indexOf = str.indexOf(":", 1);
             if (indexOf != -1) {
                 return hm(str.substring(0, indexOf), str.substring(indexOf + 1));
@@ -115,19 +115,19 @@ public final class v {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a hm(String str, String str2) {
-            this.f5981a.add(str);
-            this.f5981a.add(str2.trim());
+            this.f4013a.add(str);
+            this.f4013a.add(str2.trim());
             return this;
         }
 
-        public a YR(String str) {
+        public a YY(String str) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.f5981a.size()) {
-                    if (str.equalsIgnoreCase(this.f5981a.get(i2))) {
-                        this.f5981a.remove(i2);
-                        this.f5981a.remove(i2);
+                if (i2 < this.f4013a.size()) {
+                    if (str.equalsIgnoreCase(this.f4013a.get(i2))) {
+                        this.f4013a.remove(i2);
+                        this.f4013a.remove(i2);
                         i2 -= 2;
                     }
                     i = i2 + 2;
@@ -139,7 +139,7 @@ public final class v {
 
         public a hn(String str, String str2) {
             d(str, str2);
-            YR(str);
+            YY(str);
             hm(str, str2);
             return this;
         }
@@ -170,7 +170,7 @@ public final class v {
             }
         }
 
-        public v eqd() {
+        public v eqk() {
             return new v(this);
         }
     }

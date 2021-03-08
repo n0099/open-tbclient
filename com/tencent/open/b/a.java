@@ -6,11 +6,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final Uri f13390a = Uri.parse("content://telephony/carriers/preferapn");
+    protected static final Uri f7961a = Uri.parse("content://telephony/carriers/preferapn");
 
     public static String a(Context context) {
         int d = d(context);
@@ -47,16 +47,16 @@ public class a {
         if (d == 1024) {
             return "3gwap";
         }
-        String b2 = b(context);
-        if (b2 == null || b2.length() == 0) {
+        String b = b(context);
+        if (b == null || b.length() == 0) {
             return "none";
         }
-        return b2;
+        return b;
     }
 
     public static String b(Context context) {
         try {
-            Cursor query = context.getContentResolver().query(f13390a, null, null, null, null);
+            Cursor query = context.getContentResolver().query(f7961a, null, null, null, null);
             if (query == null) {
                 return null;
             }
@@ -84,7 +84,7 @@ public class a {
 
     public static String c(Context context) {
         try {
-            Cursor query = context.getContentResolver().query(f13390a, null, null, null, null);
+            Cursor query = context.getContentResolver().query(f7961a, null, null, null, null);
             if (query == null) {
                 return null;
             }

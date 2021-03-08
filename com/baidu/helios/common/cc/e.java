@@ -1,9 +1,7 @@
 package com.baidu.helios.common.cc;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 abstract class e {
-
-    /* renamed from: b  reason: collision with root package name */
-    protected long f2439b;
+    protected long b;
     protected int c;
     protected int d;
     protected int e;

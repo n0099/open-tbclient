@@ -11,13 +11,11 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f4209a = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f4210b;
+    public static boolean f2913a = true;
+    private Context b;
     private com.baidu.platform.comapi.walknavi.d.a.a c;
     private com.baidu.platform.comapi.walknavi.d.a.f.b d;
-    private C0283b f;
+    private C0289b f;
     private a g;
     private com.baidu.platform.comapi.walknavi.d.a.a.b i;
     private com.baidu.platform.comapi.walknavi.d.a.d.b l;
@@ -37,19 +35,19 @@ public class b {
     }
 
     public b(Context context) {
-        this.f4210b = context;
-        this.l = new com.baidu.platform.comapi.walknavi.d.a.d.b(this.f4210b);
-        this.m = new f(this.f4210b);
-        com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f4210b.getPackageName());
+        this.b = context;
+        this.l = new com.baidu.platform.comapi.walknavi.d.a.d.b(this.b);
+        this.m = new f(this.b);
+        com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.b.getPackageName());
     }
 
     public void a(String str, com.baidu.platform.comapi.walknavi.d.a.a aVar) {
         b();
-        f4209a = true;
+        f2913a = true;
         this.h.a(str);
         this.h.a(4);
         this.c = aVar;
-        if (g.a(this.f4210b) != null) {
+        if (g.a(this.b) != null) {
             c();
         } else if (this.c != null) {
             this.c.a(1, "no network");
@@ -58,11 +56,11 @@ public class b {
 
     public void b(String str, com.baidu.platform.comapi.walknavi.d.a.a aVar) {
         b();
-        f4209a = false;
+        f2913a = false;
         this.h.a(str);
         this.h.a(4);
         this.c = aVar;
-        if (g.a(this.f4210b) != null) {
+        if (g.a(this.b) != null) {
             c();
         } else if (this.c != null) {
             this.c.a(1, "no network");
@@ -121,8 +119,8 @@ public class b {
 
     private void a(com.baidu.platform.comapi.walknavi.d.a.a.a aVar) {
         this.j = c.QUERYING;
-        this.f = new C0283b(this);
-        this.e = com.baidu.platform.comapi.walknavi.d.a.f.e.a(this.f4210b, aVar, this.f);
+        this.f = new C0289b(this);
+        this.e = com.baidu.platform.comapi.walknavi.d.a.f.e.a(this.b, aVar, this.f);
         if (this.e == null) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("Http Request Occur Error! Please Check");
         }
@@ -131,21 +129,21 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0283b implements f.a<JSONObject> {
+    public static class C0289b implements f.a<JSONObject> {
 
         /* renamed from: a  reason: collision with root package name */
-        private SoftReference<b> f4212a;
+        private SoftReference<b> f2915a;
 
-        public C0283b(b bVar) {
-            this.f4212a = new SoftReference<>(bVar);
+        public C0289b(b bVar) {
+            this.f2915a = new SoftReference<>(bVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.platform.comapi.walknavi.d.a.f.f.a
         public void a(JSONObject jSONObject) {
             try {
-                if (this.f4212a.get() != null) {
-                    this.f4212a.get().a(jSONObject);
+                if (this.f2915a.get() != null) {
+                    this.f2915a.get().a(jSONObject);
                 }
             } catch (Exception e) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("query onResponse exception: " + e.getMessage());
@@ -156,12 +154,12 @@ public class b {
         public void b(String str) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("http error msg = " + str);
             try {
-                if (this.f4212a.get() != null) {
-                    this.f4212a.get().j = c.INITIAL_STATE;
-                    if (this.f4212a.get().c != null) {
-                        this.f4212a.get().c.a(5, str);
+                if (this.f2915a.get() != null) {
+                    this.f2915a.get().j = c.INITIAL_STATE;
+                    if (this.f2915a.get().c != null) {
+                        this.f2915a.get().c.a(5, str);
                     }
-                    this.f4212a.get().e = null;
+                    this.f2915a.get().e = null;
                 }
             } catch (Exception e) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("query onErrorResponse exception: " + e.getMessage());
@@ -170,10 +168,10 @@ public class b {
 
         public void a() {
             try {
-                if (this.f4212a.get() != null) {
-                    this.f4212a.get().j = c.INITIAL_STATE;
+                if (this.f2915a.get() != null) {
+                    this.f2915a.get().j = c.INITIAL_STATE;
                 }
-                this.f4212a.clear();
+                this.f2915a.clear();
             } catch (Exception e) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("query destroy exception: " + e.getMessage());
             }
@@ -259,10 +257,10 @@ public class b {
     public static class a implements com.baidu.platform.comapi.walknavi.d.a.f.a<String> {
 
         /* renamed from: a  reason: collision with root package name */
-        private SoftReference<b> f4211a;
+        private SoftReference<b> f2914a;
 
         public a(b bVar) {
-            this.f4211a = new SoftReference<>(bVar);
+            this.f2914a = new SoftReference<>(bVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -270,12 +268,12 @@ public class b {
         public void a(String str) {
             try {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("download res finished");
-                if (this.f4211a.get() != null) {
-                    this.f4211a.get().j = c.DOWNLOAD_FINISHED;
-                    if (this.f4211a.get().c != null) {
-                        this.f4211a.get().c.a(0, str);
-                        if (this.f4211a.get().i != null) {
-                            this.f4211a.get().m.a(this.f4211a.get().i.c(), str);
+                if (this.f2914a.get() != null) {
+                    this.f2914a.get().j = c.DOWNLOAD_FINISHED;
+                    if (this.f2914a.get().c != null) {
+                        this.f2914a.get().c.a(0, str);
+                        if (this.f2914a.get().i != null) {
+                            this.f2914a.get().m.a(this.f2914a.get().i.c(), str);
                         }
                     }
                 }
@@ -287,10 +285,10 @@ public class b {
         @Override // com.baidu.platform.comapi.walknavi.d.a.f.f.a
         public void b(String str) {
             try {
-                if (this.f4211a.get() != null) {
-                    this.f4211a.get().j = c.DOWNLOAD_FINISHED;
-                    if (this.f4211a.get().c != null) {
-                        this.f4211a.get().c.a(6, str);
+                if (this.f2914a.get() != null) {
+                    this.f2914a.get().j = c.DOWNLOAD_FINISHED;
+                    if (this.f2914a.get().c != null) {
+                        this.f2914a.get().c.a(6, str);
                     }
                 }
             } catch (Exception e) {
@@ -301,8 +299,8 @@ public class b {
         @Override // com.baidu.platform.comapi.walknavi.d.a.f.a
         public void a(int i) {
             try {
-                if (this.f4211a.get() != null && this.f4211a.get().c != null) {
-                    this.f4211a.get().c.a(b(i));
+                if (this.f2914a.get() != null && this.f2914a.get().c != null) {
+                    this.f2914a.get().c.a(b(i));
                 }
             } catch (Exception e) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("download onProgress exception: " + e.getMessage());
@@ -310,7 +308,7 @@ public class b {
         }
 
         private int b(int i) {
-            if (this.f4211a.get() != null && this.f4211a.get().k) {
+            if (this.f2914a.get() != null && this.f2914a.get().k) {
                 return (i / 2) + 50;
             }
             return i;
@@ -319,14 +317,14 @@ public class b {
         @Override // com.baidu.platform.comapi.walknavi.d.a.f.a
         public void a(boolean z, float f) {
             try {
-                if (this.f4211a.get() != null) {
-                    this.f4211a.get().j = c.DOWNLOAD_FINISHED;
-                    if (this.f4211a.get().c != null) {
+                if (this.f2914a.get() != null) {
+                    this.f2914a.get().j = c.DOWNLOAD_FINISHED;
+                    if (this.f2914a.get().c != null) {
                         com.baidu.platform.comapi.walknavi.d.a.g.a.a("isUpdate=" + z + ", size=" + f);
-                        if (this.f4211a.get().l != null && this.f4211a.get().i != null && this.f4211a.get().l.a(this.f4211a.get().i.h())) {
+                        if (this.f2914a.get().l != null && this.f2914a.get().i != null && this.f2914a.get().l.a(this.f2914a.get().i.h())) {
                             z = true;
                         }
-                        this.f4211a.get().c.a(z, f);
+                        this.f2914a.get().c.a(z, f);
                     }
                 }
             } catch (Exception e) {
@@ -336,10 +334,10 @@ public class b {
 
         public void a() {
             try {
-                if (this.f4211a.get() != null) {
-                    this.f4211a.get().j = c.INITIAL_STATE;
+                if (this.f2914a.get() != null) {
+                    this.f2914a.get().j = c.INITIAL_STATE;
                 }
-                this.f4211a.clear();
+                this.f2914a.clear();
             } catch (Exception e) {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("download destroy exception: " + e.getMessage());
             }

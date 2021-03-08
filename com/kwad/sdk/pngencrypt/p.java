@@ -3,10 +3,8 @@ package com.kwad.sdk.pngencrypt;
 class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f10522a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final e f10523b;
+    public final k f6932a;
+    public final e b;
     public final boolean c;
     int d;
     int e;
@@ -23,8 +21,8 @@ class p {
     int p;
 
     public p(k kVar, e eVar) {
-        this.f10522a = kVar;
-        this.f10523b = eVar;
+        this.f6932a = kVar;
+        this.b = eVar;
         this.c = eVar != null;
     }
 
@@ -32,16 +30,16 @@ class p {
     public void a(int i) {
         this.h = i;
         if (this.c) {
-            this.n = this.f10523b.d();
-            this.e = this.f10523b.c;
-            this.d = this.f10523b.f10511b;
-            this.g = this.f10523b.e;
-            this.f = this.f10523b.d;
-            this.i = this.f10523b.c();
-            this.j = this.f10523b.b();
-            this.k = this.f10523b.e();
-            this.l = this.f10523b.f();
-            this.m = ((this.f10522a.i * this.l) + 7) / 8;
+            this.n = this.b.d();
+            this.e = this.b.c;
+            this.d = this.b.b;
+            this.g = this.b.e;
+            this.f = this.b.d;
+            this.i = this.b.c();
+            this.j = this.b.b();
+            this.k = this.b.e();
+            this.l = this.b.f();
+            this.m = ((this.f6932a.i * this.l) + 7) / 8;
             return;
         }
         this.n = 1;
@@ -51,9 +49,9 @@ class p {
         this.g = 0;
         this.j = i;
         this.i = i;
-        this.k = this.f10522a.f10514b;
-        this.l = this.f10522a.f10513a;
-        this.m = this.f10522a.k;
+        this.k = this.f6932a.b;
+        this.l = this.f6932a.f6927a;
+        this.m = this.f6932a.k;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

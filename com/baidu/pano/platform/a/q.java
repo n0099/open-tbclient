@@ -5,10 +5,8 @@ import com.baidu.pano.platform.a.b;
 public class q<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f3893a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final b.a f3894b;
+    public final T f2713a;
+    public final b.a b;
     public final v c;
     public boolean d;
 
@@ -36,15 +34,15 @@ public class q<T> {
 
     private q(T t, b.a aVar) {
         this.d = false;
-        this.f3893a = t;
-        this.f3894b = aVar;
+        this.f2713a = t;
+        this.b = aVar;
         this.c = null;
     }
 
     private q(v vVar) {
         this.d = false;
-        this.f3893a = null;
-        this.f3894b = null;
+        this.f2713a = null;
+        this.b = null;
         this.c = vVar;
     }
 }

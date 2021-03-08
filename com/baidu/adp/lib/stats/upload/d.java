@@ -23,37 +23,37 @@ class d {
         a(hashMap, "_client_type", "2");
         a(hashMap, "_client_version", cVar.mAppVersion);
         a(hashMap, "_phone_imei", cVar.mIMEI);
-        a(hashMap, "_client_id", cVar.Oj);
-        a(hashMap, "subapp_type", cVar.Om);
+        a(hashMap, "_client_id", cVar.PI);
+        a(hashMap, "subapp_type", cVar.PN);
         a(hashMap, "from", cVar.mChannel);
-        a(hashMap, "net_type", cVar.Oq);
+        a(hashMap, "net_type", cVar.PQ);
         a(hashMap, "cuid", cVar.mCuid);
-        a(hashMap, "model", cVar.Oo);
+        a(hashMap, "model", cVar.PO);
         if (TextUtils.isEmpty(cVar.mUid)) {
             cVar.mUid = "0";
         }
         a(hashMap, "uid", cVar.mUid);
-        a(hashMap, "un", cVar.Op);
+        a(hashMap, "un", cVar.PP);
         a(hashMap, "BDUSS", cVar.mBduss);
         if (z) {
             a(hashMap, "find_bug", "2");
         } else {
             a(hashMap, "find_bug", "0");
         }
-        a(hashMap, "sz", cVar.Os);
-        a(hashMap, "cua", cVar.Ot);
-        a(hashMap, "bdid", cVar.Oz);
+        a(hashMap, "sz", cVar.PT);
+        a(hashMap, "cua", cVar.PU);
+        a(hashMap, "bdid", cVar.Qb);
         a(hashMap, "cookie", cVar.mBduss);
-        a(hashMap, "oaid", cVar.Ou);
-        a(hashMap, "mac", cVar.Ov);
+        a(hashMap, "oaid", cVar.PV);
+        a(hashMap, "mac", cVar.PW);
         a(hashMap, "android_id", cVar.mAndroidId);
-        a(hashMap, "utbrand", cVar.Ow);
-        a(hashMap, "baiduapppb_ut", cVar.Ox);
-        a(hashMap, "user_agent", cVar.Oy);
-        a(hashMap, "active_timestamp", cVar.OA);
-        a(hashMap, "first_install_time", cVar.OB);
-        a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, cVar.OC);
-        a(hashMap, "event_day", cVar.OD);
+        a(hashMap, "utbrand", cVar.PY);
+        a(hashMap, "baiduapppb_ut", cVar.PZ);
+        a(hashMap, "user_agent", cVar.Qa);
+        a(hashMap, "active_timestamp", cVar.Qc);
+        a(hashMap, "first_install_time", cVar.Qd);
+        a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, cVar.Qe);
+        a(hashMap, "event_day", cVar.Qf);
         return hashMap;
     }
 
@@ -75,7 +75,7 @@ class d {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append(BdStatsConstant.StatsKey.SUB_SYSTEM);
             sb.append("=");
-            sb.append(URLEncoder.encode(cVar.Oh, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.PG, "utf-8"));
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("version");
             sb.append("=");
@@ -87,34 +87,34 @@ class d {
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("os_version");
             sb.append("=");
-            sb.append(URLEncoder.encode(cVar.Or, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.PR, "utf-8"));
             if (!TextUtils.isEmpty(cVar.mChannel)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("from");
                 sb.append("=");
                 sb.append(URLEncoder.encode(cVar.mChannel, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Oi)) {
+            if (!TextUtils.isEmpty(cVar.PH)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(BdStatsConstant.StatsKey.CURRENT_CHANNEL);
                 sb.append("=");
-                sb.append(URLEncoder.encode(cVar.Oi, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.PH, "utf-8"));
             }
             sb.append(ETAG.ITEM_SEPARATOR);
             sb.append("phone");
             sb.append("=");
-            sb.append(URLEncoder.encode(cVar.Oo, "utf-8"));
+            sb.append(URLEncoder.encode(cVar.PO, "utf-8"));
             if (!TextUtils.isEmpty(cVar.mUid)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("uid");
                 sb.append("=");
                 sb.append(URLEncoder.encode(cVar.mUid, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Oj)) {
+            if (!TextUtils.isEmpty(cVar.PI)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append("client_id");
                 sb.append("=");
-                sb.append(URLEncoder.encode(cVar.Oj, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.PI, "utf-8"));
             }
             if (!TextUtils.isEmpty(cVar.mIMEI)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
@@ -122,11 +122,11 @@ class d {
                 sb.append("=");
                 sb.append(URLEncoder.encode(cVar.mIMEI, "utf-8"));
             }
-            if (!TextUtils.isEmpty(cVar.Op)) {
+            if (!TextUtils.isEmpty(cVar.PP)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
                 sb.append(BdStatsConstant.StatsKey.UNAME);
                 sb.append("=");
-                sb.append(URLEncoder.encode(cVar.Op, "utf-8"));
+                sb.append(URLEncoder.encode(cVar.PP, "utf-8"));
             }
             if (!TextUtils.isEmpty(cVar.mCuid)) {
                 sb.append(ETAG.ITEM_SEPARATOR);
@@ -167,21 +167,21 @@ class d {
         sb.append("_client_type=2");
         a(sb, "_client_version", cVar.mAppVersion, z);
         a(sb, "_phone_imei", cVar.mIMEI, z);
-        a(sb, "_client_id", cVar.Oj, z);
-        a(sb, "subapp_type", cVar.Om, z);
-        a(sb, "os_version", cVar.Or, z);
+        a(sb, "_client_id", cVar.PI, z);
+        a(sb, "subapp_type", cVar.PN, z);
+        a(sb, "os_version", cVar.PR, z);
         a(sb, "from", cVar.mChannel, z);
-        a(sb, BdStatsConstant.StatsKey.CURRENT_CHANNEL, cVar.Oi, z);
-        a(sb, "net_type", cVar.Oq, z);
+        a(sb, BdStatsConstant.StatsKey.CURRENT_CHANNEL, cVar.PH, z);
+        a(sb, "net_type", cVar.PQ, z);
         a(sb, "cuid", cVar.mCuid, z);
-        a(sb, "model", cVar.Oo, z);
+        a(sb, "model", cVar.PO, z);
         if (TextUtils.isEmpty(cVar.mUid)) {
             a(sb, "uid", "0", z);
         } else {
             a(sb, "uid", cVar.mUid, z);
         }
-        a(sb, "un", cVar.Op, z);
-        a(sb, "utbrand", cVar.Ow, z);
+        a(sb, "un", cVar.PP, z);
+        a(sb, "utbrand", cVar.PY, z);
         return sb.toString();
     }
 }

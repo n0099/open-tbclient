@@ -1,4 +1,4 @@
 package androidx.lifecycle;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public interface LifecycleObserver {
 }

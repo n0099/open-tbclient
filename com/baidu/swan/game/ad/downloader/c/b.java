@@ -5,11 +5,11 @@ import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 public interface b {
     void a(DownloadException downloadException);
 
-    void aRx();
+    void aRA();
 
-    void aRy();
+    void aRB();
 
-    void aRz();
+    void aRC();
 
     void onStart();
 

@@ -13,11 +13,11 @@ import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private static final int fWF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int mDY = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int mDZ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int fYf = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    private static final int mGa = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int mGb = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
     public static List<n> fA(List<n> list) {
         cb cbVar;
@@ -27,7 +27,7 @@ public class a {
         }
         for (int i = 0; i < list.size(); i++) {
             n nVar = (n) y.getItem(list, i);
-            if ((nVar instanceof CardPersonDynamicThreadData) && (cbVar = ((CardPersonDynamicThreadData) nVar).eJQ) != null) {
+            if ((nVar instanceof CardPersonDynamicThreadData) && (cbVar = ((CardPersonDynamicThreadData) nVar).eLr) != null) {
                 com.baidu.tbadk.a.a.a.a(cbVar);
                 b aE = aE(cbVar);
                 if (aE != null) {
@@ -60,10 +60,10 @@ public class a {
 
     public static cb i(n nVar) {
         if (nVar != null && (nVar instanceof com.baidu.tbadk.core.data.a)) {
-            cb bln = ((com.baidu.tbadk.core.data.a) nVar).bln();
-            bln.eTH = true;
-            com.baidu.tbadk.a.a.a.a(bln);
-            return bln;
+            cb blp = ((com.baidu.tbadk.core.data.a) nVar).blp();
+            blp.eVi = true;
+            com.baidu.tbadk.a.a.a.a(blp);
+            return blp;
         }
         return null;
     }
@@ -73,11 +73,11 @@ public class a {
         k kVar = null;
         kVar = null;
         if (cbVar != null) {
-            cbVar.eTH = true;
-            cbVar.bns();
+            cbVar.eVi = true;
+            cbVar.bnu();
             if (cbVar.isShareThread) {
                 k kVar2 = new k();
-                kVar2.eJQ = cbVar;
+                kVar2.eLr = cbVar;
                 kVar = kVar2;
             } else if (e.ae(cbVar)) {
                 kVar = new e(cbVar);
@@ -87,18 +87,18 @@ public class a {
                 k kVar3 = new k();
                 if (cbVar.isLinkThread()) {
                     kVar3.isLinkThread = true;
-                } else if (cbVar.boU()) {
-                    kVar3.eQc = true;
+                } else if (cbVar.boW()) {
+                    kVar3.eRD = true;
                 } else {
                     kVar3.isLinkThread = false;
-                    if (cbVar.bnT()) {
-                        kVar3.iBj = true;
+                    if (cbVar.bnV()) {
+                        kVar3.iCS = true;
                     } else {
-                        kVar3.iBj = false;
+                        kVar3.iCS = false;
                     }
                 }
-                kVar3.eJQ = cbVar;
-                kVar3.iBk = true;
+                kVar3.eLr = cbVar;
+                kVar3.iCT = true;
                 kVar = kVar3;
             } else if (l.ae(cbVar)) {
                 kVar = new l(cbVar);
@@ -114,9 +114,9 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!y.isEmpty(list)) {
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.paddingBottom = mDZ;
-            kVar.paddingTop = mDY;
-            kVar.paddingLeft = fWF;
+            kVar.paddingBottom = mGb;
+            kVar.paddingTop = mGa;
+            kVar.paddingLeft = fYf;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);
             for (int i = 0; i < list.size(); i++) {

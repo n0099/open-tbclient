@@ -9,19 +9,19 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b fbI;
-    private a fbJ;
+    private static volatile b fdi;
+    private a fdj;
     private Application mApplication;
 
-    public static b bsZ() {
-        if (fbI == null) {
+    public static b btc() {
+        if (fdi == null) {
             synchronized (b.class) {
-                if (fbI == null) {
-                    fbI = new b();
+                if (fdi == null) {
+                    fdi = new b();
                 }
             }
         }
-        return fbI;
+        return fdi;
     }
 
     private b() {
@@ -34,42 +34,42 @@ public class b {
         defaultDisplay.getMetrics(displayMetrics);
         float f = displayMetrics.density;
         if (f > 2.5d && f < 3.0f) {
-            fa(null);
-            this.fbJ = new a(displayMetrics);
-            this.mApplication.registerActivityLifecycleCallbacks(this.fbJ);
+            eZ(null);
+            this.fdj = new a(displayMetrics);
+            this.mApplication.registerActivityLifecycleCallbacks(this.fdj);
         }
     }
 
     public void a(Context context, float f, int i) {
+        DisplayMetrics fa = fa(context);
+        DisplayMetrics fa2 = fa(this.mApplication);
+        a(fa, f, i);
+        a(fa2, f, i);
         DisplayMetrics fb = fb(context);
         DisplayMetrics fb2 = fb(this.mApplication);
         a(fb, f, i);
         a(fb2, f, i);
-        DisplayMetrics fc = fc(context);
-        DisplayMetrics fc2 = fc(this.mApplication);
-        a(fc, f, i);
-        a(fc2, f, i);
     }
 
-    public void fa(Context context) {
+    public void eZ(Context context) {
+        DisplayMetrics fa = fa(context);
+        DisplayMetrics fa2 = fa(this.mApplication);
+        a(fa, 3.0f, 480);
+        a(fa2, 3.0f, 480);
         DisplayMetrics fb = fb(context);
         DisplayMetrics fb2 = fb(this.mApplication);
         a(fb, 3.0f, 480);
         a(fb2, 3.0f, 480);
-        DisplayMetrics fc = fc(context);
-        DisplayMetrics fc2 = fc(this.mApplication);
-        a(fc, 3.0f, 480);
-        a(fc2, 3.0f, 480);
     }
 
-    private static DisplayMetrics fb(Context context) {
+    private static DisplayMetrics fa(Context context) {
         if (context == null) {
             return null;
         }
         return context.getResources().getDisplayMetrics();
     }
 
-    private static DisplayMetrics fc(Context context) {
+    private static DisplayMetrics fb(Context context) {
         if (context == null) {
             return null;
         }

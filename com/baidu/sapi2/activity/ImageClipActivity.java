@@ -30,7 +30,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
     public static final int BUSSINESS_SET_PORTRAIT = 0;
@@ -47,10 +47,8 @@ public class ImageClipActivity extends Activity {
     private static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4812a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f4813b = 0;
+    private int f3262a = 0;
+    private int b = 0;
     private int c = 0;
     private int d = 0;
     private int e;
@@ -105,7 +103,7 @@ public class ImageClipActivity extends Activity {
         Bitmap a2 = a(str);
         float f = 0.0f;
         try {
-            int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
+            int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
             if (attributeInt == 3) {
                 f = 180.0f;
             } else if (attributeInt == 6) {
@@ -122,8 +120,8 @@ public class ImageClipActivity extends Activity {
     }
 
     protected void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.f4812a = i;
-        this.f4813b = i2;
+        this.f3262a = i;
+        this.b = i2;
         this.c = i3;
         this.d = i4;
     }
@@ -197,7 +195,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.E = ClipBoxView.G;
             clipBoxView.F = false;
         }
-        setPendingTransition(a.C0145a.sapi_sdk_slide_right_in, a.C0145a.sapi_sdk_slide_left_out, a.C0145a.sapi_sdk_slide_left_in, a.C0145a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0151a.sapi_sdk_slide_right_in, a.C0151a.sapi_sdk_slide_left_out, a.C0151a.sapi_sdk_slide_left_in, a.C0151a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -221,12 +219,12 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f4812a == 0 && this.f4813b == 0) {
+        if (this.f3262a == 0 && this.b == 0) {
             return;
         }
-        overridePendingTransition(this.f4812a, this.f4813b);
-        this.f4812a = 0;
-        this.f4813b = 0;
+        overridePendingTransition(this.f3262a, this.b);
+        this.f3262a = 0;
+        this.b = 0;
     }
 
     @TargetApi(19)

@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
 import com.facebook.drawee.drawable.p;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveRoomCoverLayout extends FrameLayout {
-    public SimpleDraweeView hRm;
+    public SimpleDraweeView hSV;
 
     public AlaLiveRoomCoverLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -21,7 +21,7 @@ public class AlaLiveRoomCoverLayout extends FrameLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_liveroom_cover_layout, (ViewGroup) this, true);
-        this.hRm = (SimpleDraweeView) findViewById(a.f.ala_liveroom_background_img);
-        this.hRm.getHierarchy().a(a.e.bg_live_cover_default, p.b.pDW);
+        this.hSV = (SimpleDraweeView) findViewById(a.f.ala_liveroom_background_img);
+        this.hSV.getHierarchy().a(a.e.bg_live_cover_default, p.b.pGb);
     }
 }

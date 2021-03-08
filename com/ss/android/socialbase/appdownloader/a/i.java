@@ -11,7 +11,7 @@ public class i extends a {
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
         Intent intent = new Intent("com.android.filemanager.OPEN_FOLDER");
-        intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.f13010b);
+        intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.b);
         intent.putExtra("com.iqoo.secure", true);
         intent.addFlags(268435456);
         intent.addFlags(32768);

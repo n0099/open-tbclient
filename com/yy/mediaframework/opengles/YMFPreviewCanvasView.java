@@ -20,12 +20,10 @@ import com.yy.mediaframework.utils.YMFLog;
 import com.yy.mediaframework.watermark.WaterMark;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFPreviewCanvasView extends SurfaceView implements SurfaceHolder.Callback, IMediaFilter {
     private static final String TAG = "YMFPreviewCanvasView";
-
-    /* renamed from: b  reason: collision with root package name */
-    public byte[] f14396b;
+    public byte[] b;
     private long feedCurrentTime;
     private long feedFrameCounter;
     private boolean hasCatchException;

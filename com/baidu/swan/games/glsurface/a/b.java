@@ -7,31 +7,31 @@ import com.baidu.searchbox.v8engine.event.EventTarget;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.games.utils.e;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b {
-    private static com.baidu.swan.games.glsurface.a.a.b[] eht;
-    public static int ehy;
-    public static long ehz;
+    private static com.baidu.swan.games.glsurface.a.a.b[] eiU;
+    public static int eiZ;
+    public static long eja;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static Point ehu = new Point();
-    private static float ehv = 1.0f;
-    private static float ehw = 1.0f;
-    private static boolean ehx = false;
+    private static Point eiV = new Point();
+    private static float eiW = 1.0f;
+    private static float eiX = 1.0f;
+    private static boolean eiY = false;
 
     public static void aw(int i, int i2) {
-        ehu.x = i;
-        ehu.y = i2;
+        eiV.x = i;
+        eiV.y = i2;
     }
 
     public static void av(int i, int i2) {
         float f = 1.0f;
-        ehv = (i == 0 || ehu.x == 0) ? 1.0f : ehu.x / i;
-        if (i2 != 0 && ehu.y != 0) {
-            f = ehu.y / i2;
+        eiW = (i == 0 || eiV.x == 0) ? 1.0f : eiV.x / i;
+        if (i2 != 0 && eiV.y != 0) {
+            f = eiV.y / i2;
         }
-        ehw = f;
+        eiX = f;
         if (DEBUG) {
-            Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(ehv), Float.valueOf(ehw)));
+            Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(eiW), Float.valueOf(eiX)));
         }
     }
 
@@ -49,10 +49,10 @@ public final class b {
             case 0:
                 str = "touchstart";
                 a(motionEvent, aVar, false);
-                int i = ehy + 1;
-                ehy = i;
-                ehy = Math.min(i, 1000);
-                ehz = System.currentTimeMillis();
+                int i = eiZ + 1;
+                eiZ = i;
+                eiZ = Math.min(i, 1000);
+                eja = System.currentTimeMillis();
                 break;
             case 1:
                 str = "touchend";
@@ -116,31 +116,31 @@ public final class b {
     }
 
     private static float getX(MotionEvent motionEvent, int i) {
-        return e.Z(motionEvent.getX(i) * ehv);
+        return e.ad(motionEvent.getX(i) * eiW);
     }
 
     private static float getY(MotionEvent motionEvent, int i) {
-        return e.Z(motionEvent.getY(i) * ehw);
+        return e.ad(motionEvent.getY(i) * eiX);
     }
 
     public static void ie(boolean z) {
-        ehx = z;
+        eiY = z;
     }
 
-    public static boolean aWZ() {
-        return ehx;
+    public static boolean aXc() {
+        return eiY;
     }
 
-    public static void aXa() {
-        ehy = 0;
+    public static void aXd() {
+        eiZ = 0;
     }
 
-    public static int aXb() {
-        return ehy;
+    public static int aXe() {
+        return eiZ;
     }
 
-    public static long aXc() {
-        return ehz;
+    public static long aXf() {
+        return eja;
     }
 
     private static void a(MotionEvent motionEvent, com.baidu.swan.games.glsurface.a.a.a aVar, boolean z) {
@@ -155,8 +155,8 @@ public final class b {
                 return;
             }
             int pointerCount = motionEvent.getPointerCount();
-            if (eht == null || eht.length != pointerCount) {
-                eht = new com.baidu.swan.games.glsurface.a.a.b[pointerCount];
+            if (eiU == null || eiU.length != pointerCount) {
+                eiU = new com.baidu.swan.games.glsurface.a.a.b[pointerCount];
             }
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < pointerCount; i++) {
@@ -164,10 +164,10 @@ public final class b {
                 bVar.identifier = motionEvent.getPointerId(i);
                 bVar.clientX = getX(motionEvent, i);
                 bVar.clientY = getY(motionEvent, i);
-                if (!bVar.equals(eht[i])) {
+                if (!bVar.equals(eiU[i])) {
                     arrayList.add(bVar);
                 }
-                eht[i] = bVar;
+                eiU[i] = bVar;
             }
             if (arrayList.size() != 0) {
                 aVar.changedTouches = new com.baidu.swan.games.glsurface.a.a.b[arrayList.size()];

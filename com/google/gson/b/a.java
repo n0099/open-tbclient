@@ -3,21 +3,21 @@ package com.google.gson.b;
 import com.google.gson.internal.C$Gson$Types;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a<T> {
     final int hashCode;
-    final Class<? super T> pVv;
+    final Class<? super T> pWk;
     final Type type;
 
     protected a() {
         this.type = B(getClass());
-        this.pVv = (Class<? super T>) C$Gson$Types.m(this.type);
+        this.pWk = (Class<? super T>) C$Gson$Types.m(this.type);
         this.hashCode = this.type.hashCode();
     }
 
     a(Type type) {
         this.type = C$Gson$Types.l((Type) com.google.gson.internal.a.checkNotNull(type));
-        this.pVv = (Class<? super T>) C$Gson$Types.m(this.type);
+        this.pWk = (Class<? super T>) C$Gson$Types.m(this.type);
         this.hashCode = this.type.hashCode();
     }
 
@@ -29,8 +29,8 @@ public class a<T> {
         return C$Gson$Types.l(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
     }
 
-    public final Class<? super T> eBU() {
-        return this.pVv;
+    public final Class<? super T> eCa() {
+        return this.pWk;
     }
 
     public final Type getType() {

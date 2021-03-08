@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
 import java.io.UnsupportedEncodingException;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Base64 {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final int CRLF = 4;
@@ -19,7 +19,7 @@ public class Base64 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Coder {
         public int op;
         public byte[] output;
@@ -54,7 +54,7 @@ public class Base64 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Decoder extends Coder {
         private static final int[] DECODE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         private static final int[] DECODE_WEBSAFE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
@@ -294,7 +294,7 @@ public class Base64 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Encoder extends Coder {
         static final /* synthetic */ boolean $assertionsDisabled;
         private static final byte[] ENCODE;
@@ -336,11 +336,11 @@ public class Base64 {
         public boolean process(byte[] bArr, int i, int i2, boolean z) {
             int i3;
             int i4;
-            byte b2;
+            byte b;
             int i5;
-            byte b3;
+            byte b2;
             int i6;
-            byte b4;
+            byte b3;
             int i7;
             int i8;
             int i9;
@@ -424,13 +424,13 @@ public class Base64 {
                         if (i3 - this.tailLen == i12 - 1) {
                             if (this.tailLen > 0) {
                                 i7 = 1;
-                                b4 = this.tail[0];
+                                b3 = this.tail[0];
                             } else {
-                                b4 = bArr[i3];
+                                b3 = bArr[i3];
                                 i7 = 0;
                                 i3++;
                             }
-                            int i18 = (b4 & 255) << 4;
+                            int i18 = (b3 & 255) << 4;
                             this.tailLen -= i7;
                             int i19 = i16 + 1;
                             bArr3[i16] = bArr2[(i18 >> 6) & 63];
@@ -454,21 +454,21 @@ public class Base64 {
                         } else if (i3 - this.tailLen == i12 - 2) {
                             if (this.tailLen > 1) {
                                 i5 = 1;
-                                b2 = this.tail[0];
+                                b = this.tail[0];
                             } else {
-                                b2 = bArr[i3];
+                                b = bArr[i3];
                                 i5 = 0;
                                 i3++;
                             }
-                            int i22 = (b2 & 255) << 10;
+                            int i22 = (b & 255) << 10;
                             if (this.tailLen > 0) {
-                                b3 = this.tail[i5];
+                                b2 = this.tail[i5];
                                 i5++;
                             } else {
-                                b3 = bArr[i3];
+                                b2 = bArr[i3];
                                 i3++;
                             }
-                            int i23 = ((b3 & 255) << 2) | i22;
+                            int i23 = ((b2 & 255) << 2) | i22;
                             this.tailLen -= i5;
                             int i24 = i16 + 1;
                             bArr3[i16] = bArr2[(i23 >> 12) & 63];

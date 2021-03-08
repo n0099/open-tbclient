@@ -22,62 +22,62 @@ import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
-    private IClientUpdaterCallback kZq;
-    private volatile ClientUpdateInfo kZr;
-    private String kZs;
-    private boolean kZt;
+    private IClientUpdaterCallback lbt;
+    private volatile ClientUpdateInfo lbu;
+    private String lbv;
+    private boolean lbw;
     private Handler mHandler;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.lc.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.kZr != null && "1".equals(a.this.kZr.mStatus) && TbConfig.COULD_UPDATE) {
+            if (a.this.lbu != null && "1".equals(a.this.lbu.mStatus) && TbConfig.COULD_UPDATE) {
                 VersionData versionData = new VersionData();
-                versionData.setForceUpdate(Integer.parseInt(a.this.kZr.mIsForceUpdate));
+                versionData.setForceUpdate(Integer.parseInt(a.this.lbu.mIsForceUpdate));
                 versionData.setStrategy(0);
-                versionData.setNewVersion(a.this.kZr.mVername);
-                versionData.setNewVersionCode(Integer.parseInt(a.this.kZr.mVercode));
-                versionData.setNewFile(a.this.kZr.mPackageName + a.this.kZr.mVername + ".apk");
-                versionData.setHasNewVer(Integer.parseInt(a.this.kZr.mStatus));
-                versionData.setNewVersionDesc(a.this.kZr.mChangelog);
-                versionData.setUrl(a.this.kZr.mDownurl);
-                versionData.setSize(a.this.kZr.mSize);
-                versionData.setPatch(a.this.kZr.mPatchDownUrl);
-                versionData.setPatchSize(a.this.kZr.mPatchSize);
-                versionData.setTiebaIconUrl(a.this.kZr.mIconUrl);
-                versionData.setApkMD5RSA(a.this.kZr.mSignMd5);
+                versionData.setNewVersion(a.this.lbu.mVername);
+                versionData.setNewVersionCode(Integer.parseInt(a.this.lbu.mVercode));
+                versionData.setNewFile(a.this.lbu.mPackageName + a.this.lbu.mVername + ".apk");
+                versionData.setHasNewVer(Integer.parseInt(a.this.lbu.mStatus));
+                versionData.setNewVersionDesc(a.this.lbu.mChangelog);
+                versionData.setUrl(a.this.lbu.mDownurl);
+                versionData.setSize(a.this.lbu.mSize);
+                versionData.setPatch(a.this.lbu.mPatchDownUrl);
+                versionData.setPatchSize(a.this.lbu.mPatchSize);
+                versionData.setTiebaIconUrl(a.this.lbu.mIconUrl);
+                versionData.setApkMD5RSA(a.this.lbu.mSignMd5);
                 TbadkCoreApplication.getInst().setVersionData(versionData);
                 TbadkCoreApplication.getInst().refreshNewVersion(true);
                 if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
                     if (versionData.forceUpdate()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), a.this.kZr, a.this.kZs)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), a.this.lbu, a.this.lbv)));
                         return;
                     }
                     Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
                     Long valueOf2 = Long.valueOf(new Date().getTime());
-                    if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || a.this.kZt) && versionData.getStrategy() == 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), a.this.kZr, a.this.kZs)));
+                    if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || a.this.lbw) && versionData.getStrategy() == 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), a.this.lbu, a.this.lbv)));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
                     }
                 }
             }
         }
     };
-    private ClientUpdater kZp = ClientUpdater.getInstance(TbadkCoreApplication.getInst());
+    private ClientUpdater lbs = ClientUpdater.getInstance(TbadkCoreApplication.getInst());
 
     public a(boolean z) {
-        this.kZt = z;
-        this.kZp.setUseCFG(false);
-        this.kZp.setUseRSA(false);
-        this.kZp.setFileProvider("com.baidu.tieba.fileprovider");
-        this.kZq = new IClientUpdaterCallback() { // from class: com.baidu.tieba.lc.a.2
+        this.lbw = z;
+        this.lbs.setUseCFG(false);
+        this.lbs.setUseRSA(false);
+        this.lbs.setFileProvider("com.baidu.tieba.fileprovider");
+        this.lbt = new IClientUpdaterCallback() { // from class: com.baidu.tieba.lc.a.2
             @Override // com.baidu.clientupdate.IClientUpdaterCallback
             public void onError(JSONObject jSONObject) {
             }
 
             @Override // com.baidu.clientupdate.IClientUpdaterCallback
             public void onCompleted(ClientUpdateInfo clientUpdateInfo, RuleInfo ruleInfo) {
-                if (clientUpdateInfo != null && !TextUtils.isEmpty(a.this.kZs)) {
-                    a.this.kZr = clientUpdateInfo;
+                if (clientUpdateInfo != null && !TextUtils.isEmpty(a.this.lbv)) {
+                    a.this.lbu = clientUpdateInfo;
                     a.this.mHandler.post(a.this.mRunnable);
                 }
             }
@@ -91,7 +91,7 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
                 JSONObject optJSONObject;
                 JSONObject optJSONObject2;
                 if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(Message.RULE)) != null && (optJSONObject2 = optJSONObject.optJSONObject("custom")) != null) {
-                    a.this.kZs = optJSONObject2.optString("apk_MD5_RSA");
+                    a.this.lbv = optJSONObject2.optString("apk_MD5_RSA");
                 }
             }
         };
@@ -110,12 +110,12 @@ public class a extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: T */
     public ClientUpdateInfo doInBackground(String... strArr) throws IOException {
-        this.kZp.setOsName(Info.PASSWORD);
-        this.kZp.setTypeId("0");
-        this.kZp.setFrom("tieba");
-        this.kZp.addParamValue("versionType", String.valueOf(TbConfig.getVersionType()));
-        this.kZp.addParamValue("tieba_versionname", TbConfig.getVersion());
-        this.kZp.checkUpdate(this.kZq);
+        this.lbs.setOsName(Info.PASSWORD);
+        this.lbs.setTypeId("0");
+        this.lbs.setFrom("tieba");
+        this.lbs.addParamValue("versionType", String.valueOf(TbConfig.getVersionType()));
+        this.lbs.addParamValue("tieba_versionname", TbConfig.getVersion());
+        this.lbs.checkUpdate(this.lbt);
         return null;
     }
 

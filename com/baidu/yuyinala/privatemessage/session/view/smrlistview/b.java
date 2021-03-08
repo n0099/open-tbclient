@@ -10,11 +10,11 @@ import android.widget.WrapperListAdapter;
 import androidx.core.internal.view.SupportMenu;
 import com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMListView;
 import com.baidu.yuyinala.privatemessage.session.view.smrlistview.SMView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements WrapperListAdapter, SMView.a {
     private ListAdapter mAdapter;
     private Context mContext;
-    private SMListView.a plw;
+    private SMListView.a pnB;
 
     public b(Context context, ListAdapter listAdapter) {
         this.mAdapter = listAdapter;
@@ -51,7 +51,7 @@ public class b implements WrapperListAdapter, SMView.a {
             return sMLayout;
         }
         SMLayout sMLayout2 = (SMLayout) view;
-        sMLayout2.enk();
+        sMLayout2.enu();
         sMLayout2.setPosition(i);
         this.mAdapter.getView(i, sMLayout2.getContentView(), viewGroup);
         return sMLayout2;
@@ -71,8 +71,8 @@ public class b implements WrapperListAdapter, SMView.a {
     }
 
     public void a(SMView sMView, c cVar, int i) {
-        if (this.plw != null) {
-            this.plw.a(sMView.getPosition(), cVar, i);
+        if (this.pnB != null) {
+            this.pnB.a(sMView.getPosition(), cVar, i);
         }
     }
 

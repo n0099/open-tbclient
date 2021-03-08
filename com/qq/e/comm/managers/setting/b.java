@@ -1,7 +1,7 @@
 package com.qq.e.comm.managers.setting;
 
 import com.qq.e.comm.constants.Constants;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public final class b extends d {
     public b() {
         a(Constants.KEYS.SDKServerGetADReportSamplingRate, (Object) 1);

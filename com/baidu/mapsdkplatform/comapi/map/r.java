@@ -17,11 +17,9 @@ import org.json.JSONObject;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3067a = r.class.getSimpleName();
+    private static final String f2230a = r.class.getSimpleName();
     private static r c;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.baidu.mapsdkplatform.comjni.map.basemap.a f3068b;
+    private com.baidu.mapsdkplatform.comjni.map.basemap.a b;
     private w d;
     private Handler e;
 
@@ -46,8 +44,8 @@ public class r {
     private void h() {
         Context context = BMapManager.getContext();
         EnvironmentUtilities.initAppDirectory(context);
-        this.f3068b = new com.baidu.mapsdkplatform.comjni.map.basemap.a();
-        this.f3068b.a(context.hashCode());
+        this.b = new com.baidu.mapsdkplatform.comjni.map.basemap.a();
+        this.b.a(context.hashCode());
         String moduleFileName = SysOSUtil.getModuleFileName();
         String appSDCardPath = EnvironmentUtilities.getAppSDCardPath();
         String appCachePath = EnvironmentUtilities.getAppCachePath();
@@ -58,14 +56,14 @@ public class r {
         String str = SysOSUtil.getDensityDpi() >= 180 ? "/h/" : "/l/";
         String str2 = moduleFileName + "/cfg";
         String str3 = appSDCardPath + "/vmp";
-        this.f3068b.a(str2 + "/a/", str3 + str, appCachePath + "/tmp/", appSecondCachePath + "/tmp/", str3 + str, str2 + "/a/", null, 0, str2 + "/idrres/", SysOSUtil.getScreenSizeX(), SysOSUtil.getScreenSizeY(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
-        this.f3068b.d();
+        this.b.a(str2 + "/a/", str3 + str, appCachePath + "/tmp/", appSecondCachePath + "/tmp/", str3 + str, str2 + "/a/", null, 0, str2 + "/idrres/", SysOSUtil.getScreenSizeX(), SysOSUtil.getScreenSizeY(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
+        this.b.d();
     }
 
     public ArrayList<q> a(String str) {
         String a2;
         JSONArray optJSONArray;
-        if (str.equals("") || this.f3068b == null || (a2 = this.f3068b.a(str)) == null || a2.equals("")) {
+        if (str.equals("") || this.b == null || (a2 = this.b.a(str)) == null || a2.equals("")) {
             return null;
         }
         ArrayList<q> arrayList = new ArrayList<>();
@@ -79,8 +77,8 @@ public class r {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                 int optInt = jSONObject2.optInt("id");
                 if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    qVar.f3065a = optInt;
-                    qVar.f3066b = jSONObject2.optString("name");
+                    qVar.f2229a = optInt;
+                    qVar.b = jSONObject2.optString("name");
                     qVar.c = jSONObject2.optInt("mapsize");
                     qVar.d = jSONObject2.optInt("cty");
                     if (jSONObject2.has("child")) {
@@ -89,8 +87,8 @@ public class r {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             q qVar2 = new q();
                             JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
-                            qVar2.f3065a = optJSONObject.optInt("id");
-                            qVar2.f3066b = optJSONObject.optString("name");
+                            qVar2.f2229a = optJSONObject.optInt("id");
+                            qVar2.b = optJSONObject.optString("name");
                             qVar2.c = optJSONObject.optInt("mapsize");
                             qVar2.d = optJSONObject.optInt("cty");
                             arrayList2.add(qVar2);
@@ -114,25 +112,25 @@ public class r {
     }
 
     public boolean a(int i) {
-        if (this.f3068b == null || i < 0) {
+        if (this.b == null || i < 0) {
             return false;
         }
         if (i <= 2000 || i == 2912 || i == 2911 || i == 9000) {
-            return this.f3068b.d(i);
+            return this.b.d(i);
         }
         return false;
     }
 
     public boolean a(boolean z, boolean z2) {
-        if (this.f3068b == null) {
+        if (this.b == null) {
             return false;
         }
-        return this.f3068b.a(z, z2);
+        return this.b.a(z, z2);
     }
 
     public void b() {
         MessageCenter.unregistMessage(UIMsg.m_AppUI.V_WM_VDATAENGINE, this.e);
-        this.f3068b.b(BMapManager.getContext().hashCode());
+        this.b.b(BMapManager.getContext().hashCode());
         c = null;
     }
 
@@ -143,28 +141,28 @@ public class r {
     }
 
     public boolean b(int i) {
-        if (this.f3068b == null || i < 0) {
+        if (this.b == null || i < 0) {
             return false;
         }
         if (i <= 2000 || i == 2912 || i == 2911 || i == 9000) {
-            return this.f3068b.a(i, false, 0);
+            return this.b.a(i, false, 0);
         }
         return false;
     }
 
     public ArrayList<q> c() {
-        if (this.f3068b == null) {
+        if (this.b == null) {
             return null;
         }
-        String m = this.f3068b.m();
+        String m = this.b.m();
         ArrayList<q> arrayList = new ArrayList<>();
         try {
             JSONArray optJSONArray = new JSONObject(m).optJSONArray(ActionJsonData.TAG_DATASET);
             for (int i = 0; i < optJSONArray.length(); i++) {
                 q qVar = new q();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                qVar.f3065a = optJSONObject.optInt("id");
-                qVar.f3066b = optJSONObject.optString("name");
+                qVar.f2229a = optJSONObject.optInt("id");
+                qVar.b = optJSONObject.optString("name");
                 qVar.c = optJSONObject.optInt("mapsize");
                 qVar.d = optJSONObject.optInt("cty");
                 if (optJSONObject.has("child")) {
@@ -173,8 +171,8 @@ public class r {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         q qVar2 = new q();
                         JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
-                        qVar2.f3065a = optJSONObject2.optInt("id");
-                        qVar2.f3066b = optJSONObject2.optString("name");
+                        qVar2.f2229a = optJSONObject2.optInt("id");
+                        qVar2.b = optJSONObject2.optString("name");
                         qVar2.c = optJSONObject2.optInt("mapsize");
                         qVar2.d = optJSONObject2.optInt("cty");
                         arrayList2.add(qVar2);
@@ -191,17 +189,17 @@ public class r {
     }
 
     public boolean c(int i) {
-        if (this.f3068b == null || i < 0) {
+        if (this.b == null || i < 0) {
             return false;
         }
-        return this.f3068b.b(i, false, 0);
+        return this.b.b(i, false, 0);
     }
 
     public ArrayList<q> d() {
-        if (this.f3068b == null) {
+        if (this.b == null) {
             return null;
         }
-        String a2 = this.f3068b.a("");
+        String a2 = this.b.a("");
         ArrayList<q> arrayList = new ArrayList<>();
         try {
             JSONArray optJSONArray = new JSONObject(a2).optJSONArray(ActionJsonData.TAG_DATASET);
@@ -210,8 +208,8 @@ public class r {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 int optInt = optJSONObject.optInt("id");
                 if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    qVar.f3065a = optInt;
-                    qVar.f3066b = optJSONObject.optString("name");
+                    qVar.f2229a = optInt;
+                    qVar.b = optJSONObject.optString("name");
                     qVar.c = optJSONObject.optInt("mapsize");
                     qVar.d = optJSONObject.optInt("cty");
                     if (optJSONObject.has("child")) {
@@ -220,8 +218,8 @@ public class r {
                         for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                             q qVar2 = new q();
                             JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
-                            qVar2.f3065a = optJSONObject2.optInt("id");
-                            qVar2.f3066b = optJSONObject2.optString("name");
+                            qVar2.f2229a = optJSONObject2.optInt("id");
+                            qVar2.b = optJSONObject2.optString("name");
                             qVar2.c = optJSONObject2.optInt("mapsize");
                             qVar2.d = optJSONObject2.optInt("cty");
                             arrayList2.add(qVar2);
@@ -240,15 +238,15 @@ public class r {
     }
 
     public boolean d(int i) {
-        if (this.f3068b == null) {
+        if (this.b == null) {
             return false;
         }
-        return this.f3068b.b(0, true, i);
+        return this.b.b(0, true, i);
     }
 
     public ArrayList<u> e() {
         String l;
-        if (this.f3068b == null || (l = this.f3068b.l()) == null || l.equals("")) {
+        if (this.b == null || (l = this.b.l()) == null || l.equals("")) {
             return null;
         }
         ArrayList<u> arrayList = new ArrayList<>();
@@ -260,8 +258,8 @@ public class r {
                     u uVar = new u();
                     t tVar = new t();
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    tVar.f3070a = optJSONObject.optInt("id");
-                    tVar.f3071b = optJSONObject.optString("name");
+                    tVar.f2232a = optJSONObject.optInt("id");
+                    tVar.b = optJSONObject.optString("name");
                     tVar.c = optJSONObject.optString("pinyin");
                     tVar.h = optJSONObject.optInt("mapoldsize");
                     tVar.i = optJSONObject.optInt("ratio");
@@ -287,18 +285,18 @@ public class r {
     }
 
     public boolean e(int i) {
-        if (this.f3068b == null || i < 0) {
+        if (this.b == null || i < 0) {
             return false;
         }
-        return this.f3068b.b(i, false);
+        return this.b.b(i, false);
     }
 
     public boolean f(int i) {
-        if (this.f3068b == null || i < 0) {
+        if (this.b == null || i < 0) {
             return false;
         }
         if (i <= 2000 || i == 2912 || i == 2911 || i == 9000) {
-            return this.f3068b.a(i, false);
+            return this.b.a(i, false);
         }
         return false;
     }
@@ -306,7 +304,7 @@ public class r {
     public u g(int i) {
         String e;
         u uVar = null;
-        if (this.f3068b == null || i < 0 || (e = this.f3068b.e(i)) == null || e.equals("")) {
+        if (this.b == null || i < 0 || (e = this.b.e(i)) == null || e.equals("")) {
             return null;
         }
         u uVar2 = new u();
@@ -316,8 +314,8 @@ public class r {
             if (jSONObject.length() != 0) {
                 int optInt = jSONObject.optInt("id");
                 if (optInt <= 2000 || optInt == 2912 || optInt == 2911 || optInt == 9000) {
-                    tVar.f3070a = optInt;
-                    tVar.f3071b = jSONObject.optString("name");
+                    tVar.f2232a = optInt;
+                    tVar.b = jSONObject.optString("name");
                     tVar.c = jSONObject.optString("pinyin");
                     tVar.d = jSONObject.optString("headchar");
                     tVar.h = jSONObject.optInt("mapoldsize");

@@ -4,7 +4,7 @@ import android.hardware.Camera;
 import com.yy.mediaframework.gpuimage.custom.YMFVideoFrame;
 import java.nio.FloatBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderVideoFrame {
     public long mIndex = 0;
     public AtomicBoolean mWillBeRendered = null;

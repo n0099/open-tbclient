@@ -1,7 +1,7 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BaseUrlManager {
     private static final boolean DEBUG = AppConfig.isDebug();
     public static final String ONLINE_URL = "https://mbd.baidu.com";

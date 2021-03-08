@@ -7,24 +7,24 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog implements View.OnClickListener {
-    private InterfaceC0200a bCF;
-    private TextView bCG;
-    private View bCH;
-    private TextView bCI;
+    private InterfaceC0206a bEf;
+    private TextView bEg;
+    private View bEh;
+    private TextView bEi;
     private Context mContext;
 
     /* renamed from: com.baidu.live.talentshow.components.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0200a {
-        boolean RL();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0206a {
+        boolean RO();
 
-        void RM();
+        void RP();
     }
 
-    public void a(InterfaceC0200a interfaceC0200a) {
-        this.bCF = interfaceC0200a;
+    public void a(InterfaceC0206a interfaceC0206a) {
+        this.bEf = interfaceC0206a;
     }
 
     public a(@NonNull Context context) {
@@ -39,32 +39,32 @@ public class a extends Dialog implements View.OnClickListener {
         resize();
         setCanceledOnTouchOutside(false);
         setCancelable(false);
-        this.bCH = findViewById(a.f.live_bc_video_chat_confirm_dialog_btn_first);
-        this.bCI = (TextView) findViewById(a.f.live_bc_video_chat_confirm_dialog_txt_first);
-        this.bCG = (TextView) findViewById(a.f.live_bc_video_chat_count_down);
-        this.bCH.setOnClickListener(this);
+        this.bEh = findViewById(a.f.live_bc_video_chat_confirm_dialog_btn_first);
+        this.bEi = (TextView) findViewById(a.f.live_bc_video_chat_confirm_dialog_txt_first);
+        this.bEg = (TextView) findViewById(a.f.live_bc_video_chat_count_down);
+        this.bEh.setOnClickListener(this);
     }
 
     public void resize() {
         getWindow().setGravity(17);
     }
 
-    public void hK(String str) {
-        this.bCI.setText(str);
+    public void hQ(String str) {
+        this.bEi.setText(str);
     }
 
-    public void eb(int i) {
-        this.bCH.setVisibility(i);
+    public void ec(int i) {
+        this.bEh.setVisibility(i);
     }
 
-    public void hL(String str) {
-        this.bCG.setText(str);
+    public void hR(String str) {
+        this.bEg.setText(str);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bCH && this.bCF != null) {
-            this.bCF.RL();
+        if (view == this.bEh && this.bEf != null) {
+            this.bEf.RO();
         }
     }
 }

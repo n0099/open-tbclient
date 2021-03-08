@@ -6,45 +6,45 @@ import java.util.Set;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<String> f7667a = new HashSet();
+    private static final Set<String> f5188a = new HashSet();
 
     static {
-        f7667a.add("HeapTaskDaemon");
-        f7667a.add("ThreadPlus");
-        f7667a.add("ApiDispatcher");
-        f7667a.add("ApiLocalDispatcher");
-        f7667a.add("AsyncLoader");
-        f7667a.add("AsyncTask");
-        f7667a.add("Binder");
-        f7667a.add("PackageProcessor");
-        f7667a.add("SettingsObserver");
-        f7667a.add("WifiManager");
-        f7667a.add("JavaBridge");
-        f7667a.add("Compiler");
-        f7667a.add("Signal Catcher");
-        f7667a.add("GC");
-        f7667a.add("ReferenceQueueDaemon");
-        f7667a.add("FinalizerDaemon");
-        f7667a.add("FinalizerWatchdogDaemon");
-        f7667a.add("CookieSyncManager");
-        f7667a.add("RefQueueWorker");
-        f7667a.add("CleanupReference");
-        f7667a.add("VideoManager");
-        f7667a.add("DBHelper-AsyncOp");
-        f7667a.add("InstalledAppTracker2");
-        f7667a.add("AppData-AsyncOp");
-        f7667a.add("IdleConnectionMonitor");
-        f7667a.add("LogReaper");
-        f7667a.add("ActionReaper");
-        f7667a.add("Okio Watchdog");
-        f7667a.add("CheckWaitingQueue");
-        f7667a.add("NPTH-CrashTimer");
-        f7667a.add("NPTH-JavaCallback");
-        f7667a.add("NPTH-LocalParser");
-        f7667a.add("ANR_FILE_MODIFY");
+        f5188a.add("HeapTaskDaemon");
+        f5188a.add("ThreadPlus");
+        f5188a.add("ApiDispatcher");
+        f5188a.add("ApiLocalDispatcher");
+        f5188a.add("AsyncLoader");
+        f5188a.add("AsyncTask");
+        f5188a.add("Binder");
+        f5188a.add("PackageProcessor");
+        f5188a.add("SettingsObserver");
+        f5188a.add("WifiManager");
+        f5188a.add("JavaBridge");
+        f5188a.add("Compiler");
+        f5188a.add("Signal Catcher");
+        f5188a.add("GC");
+        f5188a.add("ReferenceQueueDaemon");
+        f5188a.add("FinalizerDaemon");
+        f5188a.add("FinalizerWatchdogDaemon");
+        f5188a.add("CookieSyncManager");
+        f5188a.add("RefQueueWorker");
+        f5188a.add("CleanupReference");
+        f5188a.add("VideoManager");
+        f5188a.add("DBHelper-AsyncOp");
+        f5188a.add("InstalledAppTracker2");
+        f5188a.add("AppData-AsyncOp");
+        f5188a.add("IdleConnectionMonitor");
+        f5188a.add("LogReaper");
+        f5188a.add("ActionReaper");
+        f5188a.add("Okio Watchdog");
+        f5188a.add("CheckWaitingQueue");
+        f5188a.add("NPTH-CrashTimer");
+        f5188a.add("NPTH-JavaCallback");
+        f5188a.add("NPTH-LocalParser");
+        f5188a.add("ANR_FILE_MODIFY");
     }
 
     public static Set<String> a() {
-        return f7667a;
+        return f5188a;
     }
 }

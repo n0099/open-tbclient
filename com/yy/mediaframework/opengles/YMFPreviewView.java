@@ -25,7 +25,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFPreviewView extends GLSurfaceView implements GLSurfaceView.Renderer, SurfaceHolder.Callback, IMediaFilter, VideoLiveFilterContext.waterMarkUpdate {
     private static final String TAG = "YMFPreviewView";
     private long feedCurrentTime;
@@ -413,7 +413,7 @@ public class YMFPreviewView extends GLSurfaceView implements GLSurfaceView.Rende
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
         private int EGL_OPENGL_ES2_BIT;
         private int mAlphaSize;

@@ -9,28 +9,26 @@ import java.util.LinkedList;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1466a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private LinkedList<e> f1467b = new LinkedList<>();
+    protected Context f1246a;
+    private LinkedList<e> b = new LinkedList<>();
 
     public d(Context context) {
-        this.f1466a = context;
+        this.f1246a = context;
     }
 
     public abstract e a(byte[] bArr) throws IOException;
 
     public LinkedList<e> a() {
-        return this.f1467b;
+        return this.b;
     }
 
     public void a(e eVar) {
-        synchronized (this.f1467b) {
+        synchronized (this.b) {
             try {
-                this.f1467b.add(eVar);
-                this.f1467b.notifyAll();
+                this.b.add(eVar);
+                this.b.notifyAll();
             } catch (Exception e) {
-                new b.c(this.f1466a).a(Log.getStackTraceString(e)).a();
+                new b.c(this.f1246a).a(Log.getStackTraceString(e)).a();
             }
         }
     }

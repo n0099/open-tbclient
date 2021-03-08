@@ -6,65 +6,65 @@ import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes.dex */
 public class g {
-    private static g fcU = null;
-    private Queue<a> fcV = new LinkedList();
-    private BdAsyncTaskParallel fcW = null;
-    private BdAsyncTaskParallel fcX = null;
-    private float fcY = 0.0f;
+    private static g fet = null;
+    private Queue<a> feu = new LinkedList();
+    private BdAsyncTaskParallel fev = null;
+    private BdAsyncTaskParallel few = null;
+    private float fex = 0.0f;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public int fcZ;
-        public long fda;
+        public int fey;
+        public long fez;
 
         private a() {
-            this.fcZ = 0;
-            this.fda = 0L;
+            this.fey = 0;
+            this.fez = 0L;
         }
     }
 
-    public static g btr() {
-        if (fcU == null) {
-            fcU = new g();
+    public static g btu() {
+        if (fet == null) {
+            fet = new g();
         }
-        return fcU;
+        return fet;
     }
 
     public synchronized void u(int i, long j) {
         a aVar = new a();
-        aVar.fcZ = i;
-        aVar.fda = j;
-        this.fcV.offer(aVar);
-        if (this.fcV.size() > 5) {
-            this.fcV.poll();
+        aVar.fey = i;
+        aVar.fez = j;
+        this.feu.offer(aVar);
+        if (this.feu.size() > 5) {
+            this.feu.poll();
         }
-        if (bts()) {
+        if (btv()) {
             int i2 = 0;
-            for (a aVar2 : this.fcV) {
-                i2 = j > 0 ? (int) ((aVar2.fcZ / aVar2.fda) + i2) : i2;
+            for (a aVar2 : this.feu) {
+                i2 = j > 0 ? (int) ((aVar2.fey / aVar2.fez) + i2) : i2;
             }
-            this.fcY = i2 / 5;
+            this.fex = i2 / 5;
         }
     }
 
-    public boolean bts() {
-        return this.fcV.size() == 5;
+    public boolean btv() {
+        return this.feu.size() == 5;
     }
 
     public BdAsyncTaskParallel my() {
         if (!com.baidu.adp.lib.util.j.is4GNet()) {
             return null;
         }
-        if (bts() && this.fcY < 20.0f) {
-            if (this.fcW == null) {
-                this.fcW = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        if (btv() && this.fex < 20.0f) {
+            if (this.fev == null) {
+                this.fev = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }
-            return this.fcW;
+            return this.fev;
         }
-        if (this.fcX == null) {
-            this.fcX = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
+        if (this.few == null) {
+            this.few = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
         }
-        return this.fcX;
+        return this.few;
     }
 }

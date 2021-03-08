@@ -1,7 +1,7 @@
 package com.baidu.swan.games.screenrecord.a;
 
 import java.util.Comparator;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     public long end;
     public long start;
@@ -23,8 +23,8 @@ public class a {
     }
 
     /* renamed from: com.baidu.swan.games.screenrecord.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0526a implements Comparator<a> {
+    /* loaded from: classes8.dex */
+    public static class C0532a implements Comparator<a> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */

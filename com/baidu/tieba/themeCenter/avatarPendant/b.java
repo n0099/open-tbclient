@@ -9,14 +9,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.avatarPendant.c;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
     private List<DressItemData> mDataList;
-    private AvatarPendantActivity nGn;
-    private c.a nGo;
+    private AvatarPendantActivity nIt;
+    private c.a nIu;
 
     public b(AvatarPendantActivity avatarPendantActivity) {
-        this.nGn = avatarPendantActivity;
+        this.nIt = avatarPendantActivity;
     }
 
     public void setData(List<DressItemData> list) {
@@ -38,7 +38,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Kf */
+    /* renamed from: Kk */
     public DressItemData getItem(int i) {
         if (this.mDataList == null || this.mDataList.size() <= 0 || this.mDataList.size() <= i) {
             return null;
@@ -50,10 +50,10 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.nGn.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
+            view = LayoutInflater.from(this.nIt.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.nGp = (AvatarPendantPerItemView) view.findViewById(R.id.avatar_pendant_per_item);
-            aVar2.nGp.setAvatarPendantItemClickListener(this.nGo);
+            aVar2.nIv = (AvatarPendantPerItemView) view.findViewById(R.id.avatar_pendant_per_item);
+            aVar2.nIv.setAvatarPendantItemClickListener(this.nIu);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -61,7 +61,7 @@ public class b extends BaseAdapter {
         }
         DressItemData item = getItem(i);
         if (item != null) {
-            aVar.nGp.d(item);
+            aVar.nIv.d(item);
         }
         ek(view);
         return view;
@@ -70,20 +70,20 @@ public class b extends BaseAdapter {
     private void ek(View view) {
         int skinType = TbadkApplication.getInst().getSkinType();
         if (view != null) {
-            this.nGn.getLayoutMode().setNightMode(skinType == 1);
-            this.nGn.getLayoutMode().onModeChanged(view);
+            this.nIt.getLayoutMode().setNightMode(skinType == 1);
+            this.nIt.getLayoutMode().onModeChanged(view);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class a {
-        AvatarPendantPerItemView nGp;
+        AvatarPendantPerItemView nIv;
 
         private a() {
         }
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
-        this.nGo = aVar;
+        this.nIu = aVar;
     }
 }

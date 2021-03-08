@@ -1,7 +1,7 @@
 package com.baidu.live.talentshow.components.waitpanel;
 
 import com.baidu.live.tieba.pb.interactionpopupwindow.IBaseDialogData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveVideoBCPanelData implements IBaseDialogData {
     private static final String DEFAULT = "";
     private String userPortrait = "";

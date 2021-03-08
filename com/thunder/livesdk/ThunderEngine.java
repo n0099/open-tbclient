@@ -35,7 +35,7 @@ import java.nio.ByteBuffer;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderEngine {
     private static ThunderHttpsRequestHandler mHttpsRequestHandler;
     private static ThunderEventHandler mRtcEventHandler;
@@ -78,7 +78,7 @@ public class ThunderEngine {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class NotificationHandler extends Handler {
         private final WeakReference<ThunderEngine> mThunderEngine;
 
@@ -574,7 +574,7 @@ public class ThunderEngine {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class SingleonHolder {
         private static ThunderEngine INSTANCE = new ThunderEngine();
 

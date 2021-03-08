@@ -18,15 +18,14 @@ import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.webkit.internal.ETAG;
+import com.fun.ad.sdk.FunAdSdk;
 import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class f {
-
-    /* renamed from: b  reason: collision with root package name */
-    static String f3165b;
+    static String b;
     static String c;
     static String d;
     static String e;
@@ -46,9 +45,9 @@ public class f {
     private static com.baidu.mapsdkplatform.comjni.util.a B = new com.baidu.mapsdkplatform.comjni.util.a();
 
     /* renamed from: a  reason: collision with root package name */
-    static String f3164a = "02";
-    static String n = "baidu";
-    static String o = "baidu";
+    static String f2287a = "02";
+    static String n = FunAdSdk.PLATFORM_BAIDU;
+    static String o = FunAdSdk.PLATFORM_BAIDU;
     static String p = "";
     static String q = "";
     static String r = "";
@@ -88,7 +87,7 @@ public class f {
     public static Bundle b() {
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
-        bundle.putString("resid", f3164a);
+        bundle.putString("resid", f2287a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);
@@ -139,7 +138,7 @@ public class f {
         }
         c = Build.MODEL;
         d = "Android" + Build.VERSION.SDK;
-        f3165b = context.getPackageName();
+        b = context.getPackageName();
         c(context);
         d(context);
         e(context);
@@ -149,7 +148,7 @@ public class f {
                 LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
                 D = locationManager.isProviderEnabled("gps") ? 1 : 0;
                 E = locationManager.isProviderEnabled("network") ? 1 : 0;
-                F.put("resid", AppMD5.encodeUrlParamsValue(f3164a));
+                F.put("resid", AppMD5.encodeUrlParamsValue(f2287a));
                 F.put("channel", AppMD5.encodeUrlParamsValue(m()));
                 F.put("mb", AppMD5.encodeUrlParamsValue(g()));
                 F.put("sv", AppMD5.encodeUrlParamsValue(i()));
@@ -165,7 +164,7 @@ public class f {
                 r2 = valueOf;
             } catch (Exception e2) {
                 Log.w("baidumapsdk", "LocationManager error");
-                F.put("resid", AppMD5.encodeUrlParamsValue(f3164a));
+                F.put("resid", AppMD5.encodeUrlParamsValue(f2287a));
                 F.put("channel", AppMD5.encodeUrlParamsValue(m()));
                 F.put("mb", AppMD5.encodeUrlParamsValue(g()));
                 F.put("sv", AppMD5.encodeUrlParamsValue(i()));
@@ -184,7 +183,7 @@ public class f {
                 B.a();
             }
         } catch (Throwable th) {
-            F.put("resid", AppMD5.encodeUrlParamsValue(f3164a));
+            F.put("resid", AppMD5.encodeUrlParamsValue(f2287a));
             F.put("channel", AppMD5.encodeUrlParamsValue(m()));
             F.put("mb", AppMD5.encodeUrlParamsValue(g()));
             F.put("sv", AppMD5.encodeUrlParamsValue(i()));
@@ -278,7 +277,7 @@ public class f {
         }
         Bundle bundle = new Bundle();
         bundle.putString("cpu", p);
-        bundle.putString("resid", f3164a);
+        bundle.putString("resid", f2287a);
         bundle.putString("channel", n);
         bundle.putString("glr", q);
         bundle.putString("glv", r);

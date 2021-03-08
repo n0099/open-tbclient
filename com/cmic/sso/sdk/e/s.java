@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static char[] f7738a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static char[] f5229a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(byte[] bArr) {
@@ -20,10 +20,10 @@ public class s {
         int i = 0;
         int i2 = 0;
         while (i < length) {
-            byte b2 = bArr[i];
+            byte b = bArr[i];
             int i3 = i2 + 1;
-            cArr[i2] = f7738a[(b2 >>> 4) & 15];
-            cArr[i3] = f7738a[b2 & 15];
+            cArr[i2] = f5229a[(b >>> 4) & 15];
+            cArr[i3] = f5229a[b & 15];
             i++;
             i2 = i3 + 1;
         }

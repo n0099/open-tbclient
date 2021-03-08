@@ -4,7 +4,7 @@ public class ax {
     public Object ext;
     public String forumId;
     public String forumName;
-    public boolean jlt = false;
+    public boolean jnd = false;
     public int pn;
     public String stType;
 }

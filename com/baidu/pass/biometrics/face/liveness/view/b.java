@@ -6,14 +6,12 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import androidx.appcompat.app.AppCompatDialog;
 import com.baidu.pass.biometrics.face.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b extends AppCompatDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f4056a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f4057b;
+    private ViewSwitcher f2809a;
+    private TextView b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -27,8 +25,8 @@ public class b extends AppCompatDialog {
     private void a() {
         setContentView(R.layout.layout_pass_liveness_dialog_alert);
         setCanceledOnTouchOutside(false);
-        this.f4056a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f4057b = (TextView) findViewById(R.id.title_text);
+        this.f2809a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.b = (TextView) findViewById(R.id.title_text);
         this.c = (TextView) findViewById(R.id.msg_text);
         this.d = (TextView) findViewById(R.id.positive_btn);
         this.e = (TextView) findViewById(R.id.negative_btn);
@@ -36,11 +34,11 @@ public class b extends AppCompatDialog {
     }
 
     public void b(String str) {
-        this.f4057b.setText(str);
+        this.b.setText(str);
     }
 
     public void c(int i) {
-        this.f4057b.setVisibility(i);
+        this.b.setVisibility(i);
     }
 
     public void b(int i) {
@@ -64,9 +62,9 @@ public class b extends AppCompatDialog {
             i = 2;
         }
         if (i == 2) {
-            this.f4056a.setDisplayedChild(0);
+            this.f2809a.setDisplayedChild(0);
         } else {
-            this.f4056a.setDisplayedChild(1);
+            this.f2809a.setDisplayedChild(1);
         }
     }
 

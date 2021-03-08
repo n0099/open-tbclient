@@ -6,30 +6,30 @@ import android.os.Message;
 import android.widget.MediaController;
 /* loaded from: classes.dex */
 public class f {
-    private MediaController.MediaPlayerControl ghQ;
-    private a ixc;
-    private c mHv;
-    private b mHw;
-    private int mHt = 1000;
-    private int mHu = 0;
+    private MediaController.MediaPlayerControl gju;
+    private a iyL;
+    private c mJC;
+    private b mJD;
+    private int mJA = 1000;
+    private int mJB = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && message.what == 1 && f.this.ghQ != null && f.this.ghQ.isPlaying()) {
-                int currentPosition = f.this.ghQ.getCurrentPosition();
-                int duration = f.this.ghQ.getDuration();
-                if (currentPosition < f.this.mHu) {
-                    if (f.this.ixc != null) {
-                        f.this.ixc.rD();
+            if (message != null && message.what == 1 && f.this.gju != null && f.this.gju.isPlaying()) {
+                int currentPosition = f.this.gju.getCurrentPosition();
+                int duration = f.this.gju.getDuration();
+                if (currentPosition < f.this.mJB) {
+                    if (f.this.iyL != null) {
+                        f.this.iyL.rD();
                     }
-                } else if (currentPosition == f.this.mHu && f.this.mHv != null) {
-                    f.this.mHv.bRv();
+                } else if (currentPosition == f.this.mJB && f.this.mJC != null) {
+                    f.this.mJC.bRB();
                 }
-                if (f.this.mHw != null) {
-                    f.this.mHw.cf(duration, currentPosition);
+                if (f.this.mJD != null) {
+                    f.this.mJD.cf(duration, currentPosition);
                 }
-                f.this.mHu = currentPosition;
-                f.this.dzZ();
+                f.this.mJB = currentPosition;
+                f.this.dAh();
             }
         }
     };
@@ -46,16 +46,16 @@ public class f {
 
     /* loaded from: classes.dex */
     public interface c {
-        void bRv();
+        void bRB();
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.ghQ = mediaPlayerControl;
+        this.gju = mediaPlayerControl;
     }
 
     public void start() {
-        this.mHu = 0;
-        dzZ();
+        this.mJB = 0;
+        dAh();
     }
 
     public void stop() {
@@ -63,20 +63,20 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dzZ() {
+    public void dAh() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.mHt);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.mJA);
     }
 
     public void a(a aVar) {
-        this.ixc = aVar;
+        this.iyL = aVar;
     }
 
     public void a(c cVar) {
-        this.mHv = cVar;
+        this.mJC = cVar;
     }
 
     public void a(b bVar) {
-        this.mHw = bVar;
+        this.mJD = bVar;
     }
 }

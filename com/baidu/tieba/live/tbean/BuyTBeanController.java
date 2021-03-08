@@ -47,7 +47,7 @@ import com.baidu.tieba.live.tbean.data.IconInfoWrapperData;
 import com.baidu.tieba.live.tbean.data.UserInfoData;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.CallBack {
     public static final String ACTION_CALLBACK_LIVE_BUYTBEAN_RESULT = "action_callback_live_buytbean_result";
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -269,7 +269,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             String valueOf = String.valueOf(i);
             String valueOf2 = String.valueOf(i2);
             String valueOf3 = String.valueOf(i3);
-            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.bk(this.activity)) {
+            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !d.bj(this.activity)) {
                 payWalletActivityConfig = new PayWalletActivityOpaqueConfig(this.activity, 2, "0", str2, valueOf, valueOf2, true, valueOf3, false, PageDialogHelper.PayForm.NOT_SET, getReferPage(), getClickZone(), RequestResponseCode.REQUEST_DO_PAY);
                 if (!TextUtils.isEmpty(this.from)) {
                     ((PayWalletActivityOpaqueConfig) payWalletActivityConfig).setFrom(this.from);

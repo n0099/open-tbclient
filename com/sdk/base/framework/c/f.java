@@ -5,10 +5,8 @@ import java.util.HashMap;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f12820a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f12821b;
+    public static String f7631a;
+    public static boolean b;
     public static boolean c;
     public static boolean d;
     public static boolean e;
@@ -16,9 +14,9 @@ public class f {
 
     static {
         f.class.getSimpleName();
-        f12820a = "aes_key";
+        f7631a = "aes_key";
         new HashMap();
-        f12821b = false;
+        b = false;
         c = true;
         d = false;
         e = false;

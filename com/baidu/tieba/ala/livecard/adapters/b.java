@@ -19,7 +19,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends BaseAdapter {
     private List<cb> data;
     private TbPageContext<?> mPageContext;
@@ -38,7 +38,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uY */
+    /* renamed from: va */
     public cb getItem(int i) {
         if (this.data != null && i >= 0 && i <= this.data.size()) {
             return this.data.get(i);
@@ -54,20 +54,20 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        AlaInfoData boj;
+        AlaInfoData bol;
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.ala_card_live_item, (ViewGroup) null);
             a aVar2 = new a(view);
-            aVar2.hmY.setIsRound(true);
-            aVar2.hmY.setDrawBorder(false);
-            aVar2.hmY.setAutoChangeStyle(true);
-            aVar2.hmY.setGifIconSupport(false);
+            aVar2.hoI.setIsRound(true);
+            aVar2.hoI.setDrawBorder(false);
+            aVar2.hoI.setAutoChangeStyle(true);
+            aVar2.hoI.setGifIconSupport(false);
             int equipmentWidth = (l.getEquipmentWidth(this.mPageContext.getPageActivity()) - this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.ds100)) / 3;
             int i2 = (equipmentWidth * 16) / 9;
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.hna.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.hoK.getLayoutParams();
             layoutParams.height = equipmentWidth;
             layoutParams.width = i2;
-            aVar2.hna.setLayoutParams(layoutParams);
+            aVar2.hoK.setLayoutParams(layoutParams);
             AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
             layoutParams2.width = i2;
             view.setLayoutParams(layoutParams2);
@@ -77,13 +77,13 @@ public class b extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         cb item = getItem(i);
-        if (item != null && (boj = item.boj()) != null) {
-            aVar.hmY.startLoad(boj.cover, 10, false);
-            aVar.hmZ.setData(item);
-            aVar.hmZ.setUserHeadImgVisible(8);
-            aVar.hnb.setText(item.getTitle());
-            aVar.hmZ.onChangeSkinType(this.mPageContext);
-            ap.setViewTextColor(aVar.hnb, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
+        if (item != null && (bol = item.bol()) != null) {
+            aVar.hoI.startLoad(bol.cover, 10, false);
+            aVar.hoJ.setData(item);
+            aVar.hoJ.setUserHeadImgVisible(8);
+            aVar.hoL.setText(item.getTitle());
+            aVar.hoJ.onChangeSkinType(this.mPageContext);
+            ap.setViewTextColor(aVar.hoL, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
             ap.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             return view;
         }
@@ -95,20 +95,20 @@ public class b extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a {
-        public TbImageView hmY;
-        public AlaCardBottomUserInfoLayout hmZ;
-        public RelativeLayout hna;
-        public TextView hnb;
+        public TbImageView hoI;
+        public AlaCardBottomUserInfoLayout hoJ;
+        public RelativeLayout hoK;
+        public TextView hoL;
         public View rootView;
 
         public a(View view) {
             this.rootView = view;
-            this.hmY = (TbImageView) view.findViewById(R.id.img_thumbnail);
-            this.hmZ = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
-            this.hna = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
-            this.hnb = (TextView) view.findViewById(R.id.ala_card_live_title);
+            this.hoI = (TbImageView) view.findViewById(R.id.img_thumbnail);
+            this.hoJ = (AlaCardBottomUserInfoLayout) view.findViewById(R.id.ala_card_bottom_user_info_layout);
+            this.hoK = (RelativeLayout) view.findViewById(R.id.ala_card_live_top);
+            this.hoL = (TextView) view.findViewById(R.id.ala_card_live_title);
         }
     }
 }

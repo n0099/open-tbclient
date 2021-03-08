@@ -7,14 +7,12 @@ import com.kwad.sdk.plugin.g;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f9671a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f9672b;
+    public static final int f6401a;
+    public static String b;
 
     static {
-        f9671a = a.f8125a.booleanValue() ? 1 : 2;
-        f9672b = "kwrules.csv";
+        f6401a = a.f5417a.booleanValue() ? 1 : 2;
+        b = "kwrules.csv";
     }
 
     public static String a() {

@@ -25,7 +25,7 @@ import com.baidu.mobads.utils.t;
 import com.baidu.tbadk.util.AdExtParam;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class d implements IXAdRequestInfo {
     protected Context d;
     protected Activity e;
@@ -39,7 +39,7 @@ public abstract class d implements IXAdRequestInfo {
     protected String c = "TODO";
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3528a = HttpConstants.OS_TYPE_VALUE;
+    private String f2507a = HttpConstants.OS_TYPE_VALUE;
     private String l = "";
     private int o = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
     private String p = "LP,DL";
@@ -47,9 +47,7 @@ public abstract class d implements IXAdRequestInfo {
     private int s = 0;
     private boolean u = true;
     private long v = System.currentTimeMillis();
-
-    /* renamed from: b  reason: collision with root package name */
-    protected String f3529b = "";
+    protected String b = "";
     protected IXAdConstants h = XAdSDKFoundationFacade.getInstance().getAdConstants();
     protected IXAdURIUitls i = XAdSDKFoundationFacade.getInstance().getURIUitls();
     protected IXAdActivityUtils k = XAdSDKFoundationFacade.getInstance().getActivityUtils();
@@ -201,7 +199,7 @@ public abstract class d implements IXAdRequestInfo {
     public String b() {
         HashMap<String, String> e = e();
         e.putAll(a());
-        return XAdSDKFoundationFacade.getInstance().getURIUitls().getRequestAdUrl(this.f3529b, e);
+        return XAdSDKFoundationFacade.getInstance().getURIUitls().getRequestAdUrl(this.b, e);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
@@ -214,11 +212,11 @@ public abstract class d implements IXAdRequestInfo {
     }
 
     public String f() {
-        return this.f3528a;
+        return this.f2507a;
     }
 
     public void a(String str) {
-        this.f3528a = str;
+        this.f2507a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
@@ -324,9 +322,9 @@ public abstract class d implements IXAdRequestInfo {
 
     private void a(Context context) {
         if ("0.0".equals(com.baidu.mobads.constants.a.c)) {
-            double b2 = g.b(context);
-            if (b2 > 0.0d) {
-                com.baidu.mobads.constants.a.c = String.valueOf(b2);
+            double b = g.b(context);
+            if (b > 0.0d) {
+                com.baidu.mobads.constants.a.c = String.valueOf(b);
             }
         }
     }

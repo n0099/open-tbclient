@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IXHybridAdRenderer extends IXAdContainer {
     String getJavaScriptBridge();
 

@@ -2,7 +2,7 @@ package com.baidu.ar.databasic;
 
 import com.baidu.ar.libloader.a;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class AlgoHandleAdapter {
     static {
         a.require("ardatabasic2");

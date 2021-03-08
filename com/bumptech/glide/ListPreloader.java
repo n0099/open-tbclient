@@ -1,15 +1,17 @@
 package com.bumptech.glide;
 
+import android.graphics.drawable.Drawable;
 import android.widget.AbsListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.bumptech.glide.request.target.BaseTarget;
+import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.target.SizeReadyCallback;
+import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ListPreloader<T> implements AbsListView.OnScrollListener {
     private int lastEnd;
     private int lastStart;
@@ -22,7 +24,7 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
     private int lastFirstVisible = -1;
     private boolean isIncreasing = true;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface PreloadModelProvider<U> {
         @NonNull
         List<U> getPreloadItems(int i);
@@ -31,7 +33,7 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
         RequestBuilder<?> getPreloadRequestBuilder(@NonNull U u);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface PreloadSizeProvider<T> {
         @Nullable
         int[] getPreloadSize(@NonNull T t, int i, int i2);
@@ -115,15 +117,15 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
     }
 
     private void cancelAll() {
-        for (int i = 0; i < this.maxPreload; i++) {
+        for (int i = 0; i < this.preloadTargetQueue.queue.size(); i++) {
             this.requestManager.clear(this.preloadTargetQueue.next(0, 0));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class PreloadTargetQueue {
-        private final Queue<PreloadTarget> queue;
+        final Queue<PreloadTarget> queue;
 
         PreloadTargetQueue(int i) {
             this.queue = Util.createQueue(i);
@@ -142,16 +144,30 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
-    public static final class PreloadTarget extends BaseTarget<Object> {
+    /* loaded from: classes14.dex */
+    public static final class PreloadTarget implements Target<Object> {
         int photoHeight;
         int photoWidth;
+        @Nullable
+        private Request request;
 
         PreloadTarget() {
         }
 
         @Override // com.bumptech.glide.request.target.Target
+        public void onLoadStarted(@Nullable Drawable drawable) {
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
+        public void onLoadFailed(@Nullable Drawable drawable) {
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
         public void onResourceReady(@NonNull Object obj, @Nullable Transition<? super Object> transition) {
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
+        public void onLoadCleared(@Nullable Drawable drawable) {
         }
 
         @Override // com.bumptech.glide.request.target.Target
@@ -161,6 +177,29 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
 
         @Override // com.bumptech.glide.request.target.Target
         public void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
+        public void setRequest(@Nullable Request request) {
+            this.request = request;
+        }
+
+        @Override // com.bumptech.glide.request.target.Target
+        @Nullable
+        public Request getRequest() {
+            return this.request;
+        }
+
+        @Override // com.bumptech.glide.manager.LifecycleListener
+        public void onStart() {
+        }
+
+        @Override // com.bumptech.glide.manager.LifecycleListener
+        public void onStop() {
+        }
+
+        @Override // com.bumptech.glide.manager.LifecycleListener
+        public void onDestroy() {
         }
     }
 }

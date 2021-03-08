@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static com.baidu.live.lottie.model.a.e a(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -83,7 +83,7 @@ public class a {
         }
         jsonReader.endObject();
         if (z) {
-            eVar.bc("Lottie doesn't support expressions.");
+            eVar.bg("Lottie doesn't support expressions.");
         }
         return eVar2 != null ? eVar2 : new com.baidu.live.lottie.model.a.i(bVar2, bVar);
     }

@@ -10,13 +10,13 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.alphavideo.c;
 import com.baidu.tieba.recapp.lego.model.FormCard;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaAudioVideoLayout extends RelativeLayout {
-    private com.baidu.live.alphavideo.c bei;
-    private MediaMetadataRetriever bem;
+    private com.baidu.live.alphavideo.c bfL;
+    private MediaMetadataRetriever bfP;
     private boolean mStopped;
     private String mVideoPath;
-    private d oJi;
+    private d oLn;
 
     public AlaAudioVideoLayout(Context context) {
         super(context);
@@ -24,8 +24,8 @@ public class AlaAudioVideoLayout extends RelativeLayout {
 
     public void setData(String str) {
         this.mVideoPath = str;
-        int[] gF = gF(str);
-        R(gF[0], gF[1]);
+        int[] gL = gL(str);
+        R(gL[0], gL[1]);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0037  */
@@ -34,18 +34,18 @@ public class AlaAudioVideoLayout extends RelativeLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int[] gF(String str) {
+    private int[] gL(String str) {
         int i;
         int i2;
         int i3;
-        if (this.bem == null) {
-            this.bem = new MediaMetadataRetriever();
+        if (this.bfP == null) {
+            this.bfP = new MediaMetadataRetriever();
         }
         try {
-            this.bem.setDataSource(str);
-            i = Integer.valueOf(this.bem.extractMetadata(18)).intValue();
+            this.bfP.setDataSource(str);
+            i = Integer.valueOf(this.bfP.extractMetadata(18)).intValue();
             try {
-                i2 = Integer.valueOf(this.bem.extractMetadata(19)).intValue();
+                i2 = Integer.valueOf(this.bfP.extractMetadata(19)).intValue();
             } catch (Throwable th) {
                 th = th;
                 th.printStackTrace();
@@ -78,70 +78,70 @@ public class AlaAudioVideoLayout extends RelativeLayout {
     }
 
     public void setVideoCallback(d dVar) {
-        this.oJi = dVar;
+        this.oLn = dVar;
     }
 
     public void startAnim() {
         this.mStopped = false;
-        if (this.bei != null && !this.bei.isDestroyed() && !TextUtils.isEmpty(this.mVideoPath)) {
-            this.bei.play(this.mVideoPath);
+        if (this.bfL != null && !this.bfL.isDestroyed() && !TextUtils.isEmpty(this.mVideoPath)) {
+            this.bfL.play(this.mVideoPath);
         }
     }
 
     public void stopAnim() {
         this.mStopped = true;
-        if (this.bei != null) {
-            this.bei.stop();
-            this.bei.reset();
+        if (this.bfL != null) {
+            this.bfL.stop();
+            this.bfL.reset();
         }
-        if (this.bem != null) {
-            this.bem.release();
+        if (this.bfP != null) {
+            this.bfP.release();
         }
     }
 
     private void R(int i, int i2) {
-        if (this.bei == null || this.bei.isDestroyed()) {
+        if (this.bfL == null || this.bfL.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
-                this.bei = (com.baidu.live.alphavideo.c) runTask.getData();
+                this.bfL = (com.baidu.live.alphavideo.c) runTask.getData();
             } else {
                 return;
             }
         }
-        GY();
-        if (indexOfChild(this.bei.getView()) < 0) {
-            addView(this.bei.getView());
+        Hb();
+        if (indexOfChild(this.bfL.getView()) < 0) {
+            addView(this.bfL.getView());
         }
         S(i, i2);
     }
 
-    private void GY() {
-        this.bei.a(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.AlaAudioVideoLayout.1
+    private void Hb() {
+        this.bfL.a(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.AlaAudioVideoLayout.1
             @Override // com.baidu.live.alphavideo.c.a
             public void onStart() {
-                if (AlaAudioVideoLayout.this.oJi != null) {
-                    AlaAudioVideoLayout.this.oJi.EL(AlaAudioVideoLayout.this.mVideoPath);
+                if (AlaAudioVideoLayout.this.oLn != null) {
+                    AlaAudioVideoLayout.this.oLn.ES(AlaAudioVideoLayout.this.mVideoPath);
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onEnd() {
-                if (!AlaAudioVideoLayout.this.mStopped && AlaAudioVideoLayout.this.oJi != null) {
-                    AlaAudioVideoLayout.this.oJi.WI(AlaAudioVideoLayout.this.mVideoPath);
+                if (!AlaAudioVideoLayout.this.mStopped && AlaAudioVideoLayout.this.oLn != null) {
+                    AlaAudioVideoLayout.this.oLn.WP(AlaAudioVideoLayout.this.mVideoPath);
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onError(int i, String str) {
-                if (AlaAudioVideoLayout.this.oJi != null) {
-                    AlaAudioVideoLayout.this.oJi.onFail(AlaAudioVideoLayout.this.mVideoPath);
+                if (AlaAudioVideoLayout.this.oLn != null) {
+                    AlaAudioVideoLayout.this.oLn.onFail(AlaAudioVideoLayout.this.mVideoPath);
                 }
             }
         });
     }
 
     private void S(int i, int i2) {
-        ViewGroup.LayoutParams layoutParams = this.bei.getView().getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.bfL.getView().getLayoutParams();
         if (!(layoutParams instanceof RelativeLayout.LayoutParams)) {
             layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         }
@@ -149,6 +149,6 @@ public class AlaAudioVideoLayout extends RelativeLayout {
         layoutParams.width = -1;
         layoutParams.height = screenDimensions[1] > screenDimensions[0] ? (screenDimensions[0] * i2) / i : (screenDimensions[0] * i) / i2;
         ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = 0;
-        this.bei.getView().setLayoutParams(layoutParams);
+        this.bfL.getView().setLayoutParams(layoutParams);
     }
 }

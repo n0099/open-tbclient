@@ -1,10 +1,10 @@
 package kotlin.text;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class p extends o {
     public static final <T> void a(Appendable appendable, T t, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {
-        kotlin.jvm.internal.p.o(appendable, "$receiver");
+        kotlin.jvm.internal.p.p(appendable, "$receiver");
         if (bVar == null) {
             if (!(t != null ? t instanceof CharSequence : true)) {
                 if (!(t instanceof Character)) {

@@ -12,28 +12,26 @@ import com.baidu.tieba.R;
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4386a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f4387b;
+    private TextView f3037a;
+    private TextView b;
     private TextView c;
     private TextView d;
     private LinearLayout e;
     private LinearLayout f;
-    private InterfaceC0289a g;
-    private InterfaceC0289a h;
+    private InterfaceC0295a g;
+    private InterfaceC0295a h;
     private boolean i;
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0289a {
+    public interface InterfaceC0295a {
         void a();
     }
 
     public a(Context context, int i) {
         super(context);
-        if (com.baidu.platform.comapi.bikenavi.a.a.f4146a) {
+        if (com.baidu.platform.comapi.bikenavi.a.a.f2869a) {
             Resources.Theme newTheme = com.baidu.platform.comapi.wnplatform.o.a.a.b().newTheme();
             newTheme.applyStyle(i, true);
             com.baidu.platform.comapi.wnplatform.o.a.a.a(this, newTheme);
@@ -48,8 +46,8 @@ public class a extends Dialog {
         this(activity, R.id.BOTH);
         View a2 = com.baidu.platform.comapi.wnplatform.o.a.a.a(activity, R.array.Mask_X005, null);
         setContentView(a2);
-        this.f4386a = (TextView) a2.findViewById(R.dimen.T_X03);
-        this.f4387b = (TextView) a2.findViewById(R.dimen.T_X06);
+        this.f3037a = (TextView) a2.findViewById(R.dimen.T_X03);
+        this.b = (TextView) a2.findViewById(R.dimen.T_X06);
         this.c = (TextView) a2.findViewById(R.dimen.T_X10);
         this.d = (TextView) a2.findViewById(R.dimen._bottom_enter_anim_place_holder_height);
         this.e = (LinearLayout) a2.findViewById(R.dimen.T_X09);
@@ -58,8 +56,8 @@ public class a extends Dialog {
         this.d.setOnClickListener(new c(this));
         this.i = false;
         this.j = false;
-        this.f4386a.setVisibility(8);
-        this.f4387b.setVisibility(8);
+        this.f3037a.setVisibility(8);
+        this.b.setVisibility(8);
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
@@ -69,22 +67,22 @@ public class a extends Dialog {
 
     public a a(String str) {
         if (str == null) {
-            this.f4387b.setVisibility(8);
-            this.f4387b.setText("", TextView.BufferType.SPANNABLE);
+            this.b.setVisibility(8);
+            this.b.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f4387b.setVisibility(0);
-            this.f4387b.setText(str, TextView.BufferType.SPANNABLE);
+            this.b.setVisibility(0);
+            this.b.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
 
     public a b(String str) {
         if (str == null) {
-            this.f4386a.setVisibility(8);
-            this.f4386a.setText("", TextView.BufferType.SPANNABLE);
+            this.f3037a.setVisibility(8);
+            this.f3037a.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f4386a.setVisibility(0);
-            this.f4386a.setText(str, TextView.BufferType.SPANNABLE);
+            this.f3037a.setVisibility(0);
+            this.f3037a.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
@@ -123,13 +121,13 @@ public class a extends Dialog {
         return this;
     }
 
-    public a a(InterfaceC0289a interfaceC0289a) {
-        this.g = interfaceC0289a;
+    public a a(InterfaceC0295a interfaceC0295a) {
+        this.g = interfaceC0295a;
         return this;
     }
 
-    public a b(InterfaceC0289a interfaceC0289a) {
-        this.h = interfaceC0289a;
+    public a b(InterfaceC0295a interfaceC0295a) {
+        this.h = interfaceC0295a;
         return this;
     }
 

@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class GsonBuilder {
     private boolean complexMapKeySerialization;
     private String datePattern;
@@ -32,7 +32,7 @@ public final class GsonBuilder {
     private int timeStyle;
 
     public GsonBuilder() {
-        this.excluder = Excluder.pSA;
+        this.excluder = Excluder.pTp;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -51,7 +51,7 @@ public final class GsonBuilder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public GsonBuilder(Gson gson) {
-        this.excluder = Excluder.pSA;
+        this.excluder = Excluder.pTp;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -100,7 +100,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
-        this.excluder = this.excluder.eBh();
+        this.excluder = this.excluder.eBn();
         return this;
     }
 
@@ -115,7 +115,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder disableInnerClassSerialization() {
-        this.excluder = this.excluder.eBg();
+        this.excluder = this.excluder.eBm();
         return this;
     }
 

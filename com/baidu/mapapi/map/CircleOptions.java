@@ -8,25 +8,23 @@ public final class CircleOptions extends OverlayOptions {
     private static final String d = CircleOptions.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2701a;
+    int f2013a;
     Bundle c;
     private LatLng e;
     private int g;
     private Stroke h;
     private int f = ViewCompat.MEASURED_STATE_MASK;
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f2702b = true;
+    boolean b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Circle circle = new Circle();
-        circle.x = this.f2702b;
-        circle.w = this.f2701a;
+        circle.x = this.b;
+        circle.w = this.f2013a;
         circle.y = this.c;
-        circle.f2700b = this.f;
-        circle.f2699a = this.e;
+        circle.b = this.f;
+        circle.f2012a = this.e;
         circle.c = this.g;
         circle.d = this.h;
         return circle;
@@ -71,11 +69,11 @@ public final class CircleOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2701a;
+        return this.f2013a;
     }
 
     public boolean isVisible() {
-        return this.f2702b;
+        return this.b;
     }
 
     public CircleOptions radius(int i) {
@@ -89,12 +87,12 @@ public final class CircleOptions extends OverlayOptions {
     }
 
     public CircleOptions visible(boolean z) {
-        this.f2702b = z;
+        this.b = z;
         return this;
     }
 
     public CircleOptions zIndex(int i) {
-        this.f2701a = i;
+        this.f2013a = i;
         return this;
     }
 }

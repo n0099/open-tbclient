@@ -19,7 +19,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.platform.PlatformPlugin;
 import io.flutter.view.FlutterMain;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FlutterFragment extends Fragment implements FlutterActivityAndFragmentDelegate.Host {
     protected static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
     protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
@@ -34,7 +34,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     @VisibleForTesting
     FlutterActivityAndFragmentDelegate delegate;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     @interface ActivityCallThrough {
     }
 
@@ -54,7 +54,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         return new NewEngineFragmentBuilder();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class NewEngineFragmentBuilder {
         private String appBundlePath;
         private String dartEntrypoint;
@@ -165,7 +165,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         return new CachedEngineFragmentBuilder(str);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class CachedEngineFragmentBuilder {
         private boolean destroyEngineWithFragment;
         private final String engineId;
@@ -314,7 +314,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
         this.delegate = null;
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0148a
+    @Override // androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0154a
     @ActivityCallThrough
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);

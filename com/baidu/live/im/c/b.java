@@ -17,10 +17,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements com.baidu.live.n.b {
-    private TextView bkl;
-    private RelativeLayout bpa;
+    private TextView blL;
+    private RelativeLayout bqA;
     int color = Color.parseColor("#FF4D4D");
     private String content;
     AnimatorSet mAnimatorSet;
@@ -29,18 +29,18 @@ public class b implements com.baidu.live.n.b {
 
     public b(Context context) {
         this.mContext = context;
-        this.bpa = (RelativeLayout) LayoutInflater.from(this.mContext).inflate(a.g.ala_warning_broadcast_layout, (ViewGroup) null);
-        this.bkl = (TextView) this.bpa.findViewById(a.f.warning_content);
+        this.bqA = (RelativeLayout) LayoutInflater.from(this.mContext).inflate(a.g.ala_warning_broadcast_layout, (ViewGroup) null);
+        this.blL = (TextView) this.bqA.findViewById(a.f.warning_content);
         this.mScreenWidth = BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels;
-        KX();
+        La();
     }
 
-    private void KX() {
+    private void La() {
         this.mAnimatorSet = new AnimatorSet();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bpa, "TranslationX", this.mScreenWidth, 20.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bqA, "TranslationX", this.mScreenWidth, 20.0f);
         ofFloat.setDuration(2000L);
         ofFloat.setInterpolator(new DecelerateInterpolator());
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.bpa, "TranslationX", 20.0f, -this.mScreenWidth);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.bqA, "TranslationX", 20.0f, -this.mScreenWidth);
         ofFloat2.setDuration(750L);
         ofFloat2.setInterpolator(new AccelerateInterpolator());
         this.mAnimatorSet.play(ofFloat2).after(6000L).after(ofFloat);
@@ -54,22 +54,22 @@ public class b implements com.baidu.live.n.b {
     }
 
     public void onDestroy() {
-        if (this.bpa != null && this.bpa.getParent() != null) {
-            this.bpa.clearAnimation();
-            ((ViewGroup) this.bpa.getParent()).removeView(this.bpa);
+        if (this.bqA != null && this.bqA.getParent() != null) {
+            this.bqA.clearAnimation();
+            ((ViewGroup) this.bqA.getParent()).removeView(this.bqA);
         }
     }
 
     @Override // com.baidu.live.n.b
-    public View KY() {
-        return this.bpa;
+    public View Lb() {
+        return this.bqA;
     }
 
     @Override // com.baidu.live.n.b
-    public void hg(String str) {
+    public void hm(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.content = str;
-            this.bkl.setText(this.content);
+            this.blL.setText(this.content);
             this.mAnimatorSet.start();
         }
     }

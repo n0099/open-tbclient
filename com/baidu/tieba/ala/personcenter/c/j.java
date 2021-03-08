@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.personcenter.c;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class j extends b {
-    public static final BdUniqueId hZY = BdUniqueId.gen();
+    public static final BdUniqueId ibH = BdUniqueId.gen();
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return hZY;
+        return ibH;
     }
 }

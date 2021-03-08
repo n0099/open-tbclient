@@ -18,103 +18,103 @@ import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public final class a implements x {
-    final e poE;
+    final e pqL;
 
     public a(e eVar) {
-        this.poE = eVar;
+        this.pqL = eVar;
     }
 
     @Override // com.bytedance.sdk.a.b.x
     public com.bytedance.sdk.a.b.b a(x.a aVar) throws IOException {
-        com.bytedance.sdk.a.b.b b2 = this.poE != null ? this.poE.b(aVar.epu()) : null;
-        c epb = new c.a(System.currentTimeMillis(), aVar.epu(), b2).epb();
-        ab abVar = epb.poI;
-        com.bytedance.sdk.a.b.b bVar = epb.poJ;
-        if (this.poE != null) {
-            this.poE.a(epb);
+        com.bytedance.sdk.a.b.b b = this.pqL != null ? this.pqL.b(aVar.epB()) : null;
+        c epi = new c.a(System.currentTimeMillis(), aVar.epB(), b).epi();
+        ab abVar = epi.pqP;
+        com.bytedance.sdk.a.b.b bVar = epi.pqQ;
+        if (this.pqL != null) {
+            this.pqL.a(epi);
         }
-        if (b2 != null && bVar == null) {
-            com.bytedance.sdk.a.b.a.c.a(b2.epN());
+        if (b != null && bVar == null) {
+            com.bytedance.sdk.a.b.a.c.a(b.epU());
         }
         if (abVar == null && bVar == null) {
-            return new b.a().f(aVar.epu()).a(w.HTTP_1_1).OG(504).YO("Unsatisfiable Request (only-if-cached)").a(com.bytedance.sdk.a.b.a.c.ppt).is(-1L).it(System.currentTimeMillis()).epR();
+            return new b.a().f(aVar.epB()).a(w.HTTP_1_1).OK(504).YV("Unsatisfiable Request (only-if-cached)").a(com.bytedance.sdk.a.b.a.c.pry).is(-1L).it(System.currentTimeMillis()).epY();
         }
         if (abVar == null) {
-            return bVar.epO().i(a(bVar)).epR();
+            return bVar.epV().i(a(bVar)).epY();
         }
         try {
-            com.bytedance.sdk.a.b.b b3 = aVar.b(abVar);
-            if (b3 == null && b2 != null) {
-                com.bytedance.sdk.a.b.a.c.a(b2.epN());
+            com.bytedance.sdk.a.b.b b2 = aVar.b(abVar);
+            if (b2 == null && b != null) {
+                com.bytedance.sdk.a.b.a.c.a(b.epU());
             }
             if (bVar != null) {
-                if (b3.c() == 304) {
-                    com.bytedance.sdk.a.b.b epR = bVar.epO().c(a(bVar.epM(), b3.epM())).is(b3.k()).it(b3.l()).i(a(bVar)).h(a(b3)).epR();
-                    b3.epN().close();
-                    this.poE.a();
-                    this.poE.a(bVar, epR);
-                    return epR;
+                if (b2.c() == 304) {
+                    com.bytedance.sdk.a.b.b epY = bVar.epV().c(a(bVar.epT(), b2.epT())).is(b2.l()).it(b2.m()).i(a(bVar)).h(a(b2)).epY();
+                    b2.epU().close();
+                    this.pqL.a();
+                    this.pqL.a(bVar, epY);
+                    return epY;
                 }
-                com.bytedance.sdk.a.b.a.c.a(bVar.epN());
+                com.bytedance.sdk.a.b.a.c.a(bVar.epU());
             }
-            com.bytedance.sdk.a.b.b epR2 = b3.epO().i(a(bVar)).h(a(b3)).epR();
-            if (this.poE != null) {
-                if (com.bytedance.sdk.a.b.a.c.e.e(epR2) && c.a(epR2, abVar)) {
-                    return a(this.poE.b(epR2), epR2);
+            com.bytedance.sdk.a.b.b epY2 = b2.epV().i(a(bVar)).h(a(b2)).epY();
+            if (this.pqL != null) {
+                if (com.bytedance.sdk.a.b.a.c.e.e(epY2) && c.a(epY2, abVar)) {
+                    return a(this.pqL.b(epY2), epY2);
                 }
                 if (f.a(abVar.b())) {
                     try {
-                        this.poE.c(abVar);
-                        return epR2;
+                        this.pqL.c(abVar);
+                        return epY2;
                     } catch (IOException e) {
-                        return epR2;
+                        return epY2;
                     }
                 }
-                return epR2;
+                return epY2;
             }
-            return epR2;
+            return epY2;
         } catch (Throwable th) {
-            if (0 == 0 && b2 != null) {
-                com.bytedance.sdk.a.b.a.c.a(b2.epN());
+            if (0 == 0 && b != null) {
+                com.bytedance.sdk.a.b.a.c.a(b.epU());
             }
             throw th;
         }
     }
 
     private static com.bytedance.sdk.a.b.b a(com.bytedance.sdk.a.b.b bVar) {
-        if (bVar == null || bVar.epN() == null) {
+        if (bVar == null || bVar.epU() == null) {
             return bVar;
         }
-        return bVar.epO().a((com.bytedance.sdk.a.b.c) null).epR();
+        return bVar.epV().a((com.bytedance.sdk.a.b.c) null).epY();
     }
 
     private com.bytedance.sdk.a.b.b a(final b bVar, com.bytedance.sdk.a.b.b bVar2) throws IOException {
-        r epa;
-        if (bVar != null && (epa = bVar.epa()) != null) {
-            final com.bytedance.sdk.a.a.e epw = bVar2.epN().epw();
-            final com.bytedance.sdk.a.a.d b2 = l.b(epa);
-            return bVar2.epO().a(new h(bVar2.a("Content-Type"), bVar2.epN().b(), l.c(new s() { // from class: com.bytedance.sdk.a.b.a.a.a.1
+        r eph;
+        if (bVar != null && (eph = bVar.eph()) != null) {
+            final com.bytedance.sdk.a.a.e epD = bVar2.epU().epD();
+            final com.bytedance.sdk.a.a.d b = l.b(eph);
+            return bVar2.epV().a(new h(bVar2.a("Content-Type"), bVar2.epU().b(), l.c(new s() { // from class: com.bytedance.sdk.a.b.a.a.a.1
 
                 /* renamed from: a  reason: collision with root package name */
-                boolean f5856a;
+                boolean f3945a;
 
                 @Override // com.bytedance.sdk.a.a.s
                 public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
                     try {
-                        long b3 = epw.b(cVar, j);
-                        if (b3 == -1) {
-                            if (!this.f5856a) {
-                                this.f5856a = true;
-                                b2.close();
+                        long b2 = epD.b(cVar, j);
+                        if (b2 == -1) {
+                            if (!this.f3945a) {
+                                this.f3945a = true;
+                                b.close();
                             }
                             return -1L;
                         }
-                        cVar.a(b2.eoz(), cVar.b() - b3, b3);
-                        b2.eoI();
-                        return b3;
+                        cVar.a(b.eoG(), cVar.b() - b2, b2);
+                        b.eoP();
+                        return b2;
                     } catch (IOException e) {
-                        if (!this.f5856a) {
-                            this.f5856a = true;
+                        if (!this.f3945a) {
+                            this.f3945a = true;
                             bVar.b();
                         }
                         throw e;
@@ -122,19 +122,19 @@ public final class a implements x {
                 }
 
                 @Override // com.bytedance.sdk.a.a.s
-                public t eoy() {
-                    return epw.eoy();
+                public t eoF() {
+                    return epD.eoF();
                 }
 
                 @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
                 public void close() throws IOException {
-                    if (!this.f5856a && !com.bytedance.sdk.a.b.a.c.a(this, 100, TimeUnit.MILLISECONDS)) {
-                        this.f5856a = true;
+                    if (!this.f3945a && !com.bytedance.sdk.a.b.a.c.a(this, 100, TimeUnit.MILLISECONDS)) {
+                        this.f3945a = true;
                         bVar.b();
                     }
-                    epw.close();
+                    epD.close();
                 }
-            }))).epR();
+            }))).epY();
         }
         return bVar2;
     }
@@ -144,19 +144,19 @@ public final class a implements x {
         int a2 = vVar.a();
         for (int i = 0; i < a2; i++) {
             String a3 = vVar.a(i);
-            String b2 = vVar.b(i);
-            if ((!"Warning".equalsIgnoreCase(a3) || !b2.startsWith("1")) && (!a(a3) || vVar2.a(a3) == null)) {
-                com.bytedance.sdk.a.b.a.a.poD.a(aVar, a3, b2);
+            String b = vVar.b(i);
+            if ((!"Warning".equalsIgnoreCase(a3) || !b.startsWith("1")) && (!a(a3) || vVar2.a(a3) == null)) {
+                com.bytedance.sdk.a.b.a.a.pqK.a(aVar, a3, b);
             }
         }
         int a4 = vVar2.a();
         for (int i2 = 0; i2 < a4; i2++) {
             String a5 = vVar2.a(i2);
             if (!"Content-Length".equalsIgnoreCase(a5) && a(a5)) {
-                com.bytedance.sdk.a.b.a.a.poD.a(aVar, a5, vVar2.b(i2));
+                com.bytedance.sdk.a.b.a.a.pqK.a(aVar, a5, vVar2.b(i2));
             }
         }
-        return aVar.eqd();
+        return aVar.eqk();
     }
 
     static boolean a(String str) {

@@ -1,5 +1,5 @@
 package com.yy.android.medialibrary.audiocodec;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Constant {
     public static final int AAC_AUDIT_CODEC = 36;
     public static final int AAC_ELD_CODEC = 4;

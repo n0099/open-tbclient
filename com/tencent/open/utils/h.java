@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class h {
     public static String a(Context context, String str) {
         try {

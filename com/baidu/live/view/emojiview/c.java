@@ -11,7 +11,7 @@ import android.text.style.DynamicDrawableSpan;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends DynamicDrawableSpan {
     private final Context mContext;
     private Drawable mDrawable;
@@ -43,7 +43,7 @@ public class c extends DynamicDrawableSpan {
                     this.mDrawable = this.mContext.getResources().getDrawable(this.mResourceId);
                 }
                 if (!TextUtils.isEmpty(this.mPath)) {
-                    this.mDrawable = ip(this.mPath);
+                    this.mDrawable = iv(this.mPath);
                 }
                 this.mHeight = this.mSize;
                 this.mWidth = (this.mHeight * this.mDrawable.getIntrinsicWidth()) / this.mDrawable.getIntrinsicHeight();
@@ -76,7 +76,7 @@ public class c extends DynamicDrawableSpan {
         return this.mDrawableRef.get();
     }
 
-    private Drawable ip(String str) {
+    private Drawable iv(String str) {
         if (str == null || str.isEmpty()) {
             return null;
         }

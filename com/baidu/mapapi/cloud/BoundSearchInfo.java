@@ -13,9 +13,9 @@ public class BoundSearchInfo extends BaseCloudSearchInfo {
 
     public BoundSearchInfo() {
         if (HttpClient.isHttpsEnable) {
-            this.f2669a = "https://api.map.baidu.com/geosearch/v2/bound";
+            this.f1994a = "https://api.map.baidu.com/geosearch/v2/bound";
         } else {
-            this.f2669a = "http://api.map.baidu.com/geosearch/v2/bound";
+            this.f1994a = "http://api.map.baidu.com/geosearch/v2/bound";
         }
     }
 

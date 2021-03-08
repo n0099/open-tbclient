@@ -10,15 +10,15 @@ import android.view.WindowManager;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
     protected Context mContext;
     protected Dialog mDialog;
     protected View mRootView;
 
-    abstract void ED();
+    abstract void EG();
 
-    abstract void bXS();
+    abstract void bXY();
 
     abstract void initView();
 
@@ -29,11 +29,11 @@ public abstract class a {
 
     public final void initDialog() {
         this.mDialog = new d(this.mContext);
-        Hf();
-        bXS();
+        Hi();
+        bXY();
         initView();
         this.mDialog.setContentView(this.mRootView);
-        ED();
+        EG();
     }
 
     public void show() {
@@ -48,7 +48,7 @@ public abstract class a {
         }
     }
 
-    protected void Hf() {
+    protected void Hi() {
         this.mDialog.setCancelable(true);
         this.mDialog.setCanceledOnTouchOutside(true);
         Window window = this.mDialog.getWindow();

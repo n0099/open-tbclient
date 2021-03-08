@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ExtraParamsManager {
     public static final String KEY_AB_TEST_OPEN = "key_ab_test_open";
     public static final String KEY_BUY_TBEAN_RESULT_CALLBACK = "buy_tbean_result_callback";
@@ -404,7 +404,7 @@ public class ExtraParamsManager {
         Log.i("ExtraParamsManager", "syncWebCookie");
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class InstanceHolder {
         private static final ExtraParamsManager sInst = new ExtraParamsManager();
     }

@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static boolean a(String str, String str2, InputStream inputStream) {
         return com.baidu.tbadk.core.util.o.saveFile(new StringBuilder().append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath()).append("/").append(new StringBuilder().append(".emotions/").append(str).toString()).append("/").append(str2).toString(), inputStream) != null;
@@ -20,7 +20,7 @@ public class b {
         return com.baidu.tbadk.core.util.o.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
     }
 
-    public static boolean Jy(String str) {
+    public static boolean JH(String str) {
         Bitmap eQ = eQ(str, "panel.png");
         if (eQ == null) {
             return false;

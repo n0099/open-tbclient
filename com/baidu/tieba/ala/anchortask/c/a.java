@@ -10,22 +10,22 @@ import android.widget.TextView;
 import androidx.legacy.widget.Space;
 import com.baidu.live.sdk.a;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private Context context;
-    private com.baidu.tieba.ala.anchortask.b.b gLO;
-    private Space gLP;
-    private TextView gLQ;
-    private FrameLayout gLR;
-    private ProgressBar gLS;
-    private View gLT;
-    private FrameLayout gLU;
-    private TextView gLV;
-    private TextView gLW;
-    private TextView gLX;
-    private boolean gLY = true;
-    private ArrayList<View> gLe = new ArrayList<>();
+    private FrameLayout gNA;
+    private ProgressBar gNB;
+    private View gNC;
+    private FrameLayout gND;
+    private TextView gNE;
+    private TextView gNF;
+    private TextView gNG;
+    private com.baidu.tieba.ala.anchortask.b.b gNx;
+    private Space gNy;
+    private TextView gNz;
     private View mView;
+    private boolean gNH = true;
+    private ArrayList<View> gMN = new ArrayList<>();
 
     public a(Context context) {
         this.context = context;
@@ -36,19 +36,19 @@ public class a {
         this.mView = LayoutInflater.from(this.context).inflate(a.g.layout_anchor_view, (ViewGroup) null);
         this.mView.setId(a.f.id_anchorTask_view);
         this.mView.setVisibility(8);
-        bSN();
+        bST();
     }
 
-    private void bSN() {
-        this.gLP = (Space) this.mView.findViewById(a.f.space);
-        this.gLQ = (TextView) this.mView.findViewById(a.f.currRatio_textView);
-        this.gLR = (FrameLayout) this.mView.findViewById(a.f.process_layout);
-        this.gLS = (ProgressBar) this.mView.findViewById(a.f.proportion_progressBar);
-        this.gLT = this.mView.findViewById(a.f.endPoint_view);
-        this.gLU = (FrameLayout) this.mView.findViewById(a.f.desc_layout);
-        this.gLV = (TextView) this.mView.findViewById(a.f.currProgess_textView);
-        this.gLW = (TextView) this.mView.findViewById(a.f.desc_textView);
-        this.gLX = (TextView) this.mView.findViewById(a.f.nextRatio_textView);
+    private void bST() {
+        this.gNy = (Space) this.mView.findViewById(a.f.space);
+        this.gNz = (TextView) this.mView.findViewById(a.f.currRatio_textView);
+        this.gNA = (FrameLayout) this.mView.findViewById(a.f.process_layout);
+        this.gNB = (ProgressBar) this.mView.findViewById(a.f.proportion_progressBar);
+        this.gNC = this.mView.findViewById(a.f.endPoint_view);
+        this.gND = (FrameLayout) this.mView.findViewById(a.f.desc_layout);
+        this.gNE = (TextView) this.mView.findViewById(a.f.currProgess_textView);
+        this.gNF = (TextView) this.mView.findViewById(a.f.desc_textView);
+        this.gNG = (TextView) this.mView.findViewById(a.f.nextRatio_textView);
     }
 
     public View getView() {
@@ -56,89 +56,89 @@ public class a {
     }
 
     public void setCanVisible(boolean z) {
-        this.gLY = z;
+        this.gNH = z;
     }
 
     public void refreshUI() {
-        if (!this.gLY) {
+        if (!this.gNH) {
             this.mView.setVisibility(8);
-        } else if (this.gLO == null) {
+        } else if (this.gNx == null) {
             this.mView.setVisibility(8);
         } else {
-            a(this.gLO);
+            a(this.gNx);
         }
     }
 
     public boolean a(com.baidu.tieba.ala.anchortask.b.b bVar) {
-        this.gLO = bVar;
-        if (!this.gLY) {
+        this.gNx = bVar;
+        if (!this.gNH) {
             this.mView.setVisibility(8);
             return false;
-        } else if (bVar.gLC == 2) {
+        } else if (bVar.gNl == 2) {
             this.mView.setVisibility(8);
             return false;
         } else {
-            this.gLQ.setText(bVar.gLE + "%");
-            int i = bVar.gLM;
+            this.gNz.setText(bVar.gNn + "%");
+            int i = bVar.gNv;
             if (i < 0) {
                 i = 0;
             }
             if (i > 100) {
                 i = 100;
             }
-            this.gLS.setProgress(i);
+            this.gNB.setProgress(i);
             if (i < 100) {
-                this.gLT.setBackgroundResource(a.e.bg_circlepoint_393939);
+                this.gNC.setBackgroundResource(a.e.bg_circlepoint_393939);
             } else {
-                this.gLT.setBackgroundResource(a.e.bg_circlepoint_faca21);
+                this.gNC.setBackgroundResource(a.e.bg_circlepoint_faca21);
             }
-            if (bVar.gLL == 1) {
-                this.gLP.setVisibility(0);
-                this.gLR.setVisibility(0);
-                this.gLU.setVisibility(0);
+            if (bVar.gNu == 1) {
+                this.gNy.setVisibility(0);
+                this.gNA.setVisibility(0);
+                this.gND.setVisibility(0);
                 this.mView.setBackgroundResource(a.e.bg_anchor_view);
-                if (bVar.gLN == 1) {
-                    this.gLV.setVisibility(0);
-                    this.gLV.setText(bVar.gLE + "%");
-                    this.gLW.setText(this.context.getText(a.h.txt_anchor_next_reach));
-                    this.gLX.setVisibility(0);
-                    this.gLX.setText(bVar.gLF + "%");
-                } else if (bVar.gLN == 2) {
-                    this.gLV.setVisibility(8);
-                    this.gLX.setVisibility(8);
-                    this.gLW.setText(this.context.getText(a.h.txt_anchor_done));
-                } else if (bVar.gLN == 3) {
-                    this.gLV.setVisibility(8);
-                    this.gLX.setVisibility(8);
-                    this.gLW.setText(this.context.getText(a.h.txt_anchor_not_finished));
+                if (bVar.gNw == 1) {
+                    this.gNE.setVisibility(0);
+                    this.gNE.setText(bVar.gNn + "%");
+                    this.gNF.setText(this.context.getText(a.h.txt_anchor_next_reach));
+                    this.gNG.setVisibility(0);
+                    this.gNG.setText(bVar.gNo + "%");
+                } else if (bVar.gNw == 2) {
+                    this.gNE.setVisibility(8);
+                    this.gNG.setVisibility(8);
+                    this.gNF.setText(this.context.getText(a.h.txt_anchor_done));
+                } else if (bVar.gNw == 3) {
+                    this.gNE.setVisibility(8);
+                    this.gNG.setVisibility(8);
+                    this.gNF.setText(this.context.getText(a.h.txt_anchor_not_finished));
                 }
-            } else if (bVar.gLL == 2) {
-                this.gLP.setVisibility(0);
-                this.gLR.setVisibility(8);
-                this.gLU.setVisibility(0);
-                this.gLV.setVisibility(8);
-                this.gLX.setVisibility(8);
+            } else if (bVar.gNu == 2) {
+                this.gNy.setVisibility(0);
+                this.gNA.setVisibility(8);
+                this.gND.setVisibility(0);
+                this.gNE.setVisibility(8);
+                this.gNG.setVisibility(8);
                 this.mView.setBackgroundResource(a.e.bg_anchor_view);
-                if (bVar.gLN == 1) {
-                    this.gLW.setText(this.context.getText(a.h.txt_anchor_risk_reduction));
-                } else if (bVar.gLN == 2) {
-                    this.gLW.setText(this.context.getText(a.h.txt_anchor_done));
-                } else if (bVar.gLN == 3) {
-                    this.gLW.setText(this.context.getText(a.h.txt_anchor_not_finished));
+                if (bVar.gNw == 1) {
+                    this.gNF.setText(this.context.getText(a.h.txt_anchor_risk_reduction));
+                } else if (bVar.gNw == 2) {
+                    this.gNF.setText(this.context.getText(a.h.txt_anchor_done));
+                } else if (bVar.gNw == 3) {
+                    this.gNF.setText(this.context.getText(a.h.txt_anchor_not_finished));
                 }
-            } else if (bVar.gLL == 3) {
-                this.gLR.setVisibility(8);
-                if (bVar.gLE < bVar.gLF) {
-                    this.gLP.setVisibility(0);
-                    this.gLU.setVisibility(0);
-                    this.gLX.setVisibility(0);
-                    this.gLV.setVisibility(8);
-                    this.gLW.setText(this.context.getText(a.h.txt_anchor_next_reach));
-                    this.gLX.setText(bVar.gLF + "%");
+            } else if (bVar.gNu == 3) {
+                this.gNA.setVisibility(8);
+                if (bVar.gNn < bVar.gNo) {
+                    this.gNy.setVisibility(0);
+                    this.gND.setVisibility(0);
+                    this.gNG.setVisibility(0);
+                    this.gNE.setVisibility(8);
+                    this.gNF.setText(this.context.getText(a.h.txt_anchor_next_reach));
+                    this.gNG.setText(bVar.gNo + "%");
                     this.mView.setBackgroundResource(a.e.bg_anchor_view);
                 } else {
-                    this.gLP.setVisibility(8);
-                    this.gLU.setVisibility(8);
+                    this.gNy.setVisibility(8);
+                    this.gND.setVisibility(8);
                     this.mView.setBackgroundResource(a.e.bg_anchor_view_halfround);
                 }
             }
@@ -151,6 +151,6 @@ public class a {
     }
 
     public void T(ArrayList<View> arrayList) {
-        this.gLe = arrayList;
+        this.gMN = arrayList;
     }
 }

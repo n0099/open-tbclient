@@ -5,7 +5,7 @@ import android.opengl.GLES20;
 import com.yy.videoplayer.decoder.VideoConstant;
 import com.yy.videoplayer.utils.YMFLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFRender implements IRender {
     private static final String TAG = "YMFRender";
     private YMFTexture mBackgroundTexture;

@@ -9,13 +9,13 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.runtime.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ake() {
+    public com.baidu.swan.apps.api.c.b akh() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if (TextUtils.isEmpty(networkClass)) {
             networkClass = "unknown";
@@ -37,9 +37,9 @@ public class a extends d {
         }
     }
 
-    public com.baidu.swan.apps.api.c.b kL(String str) {
-        final e aIK = e.aIK();
-        if (aIK == null) {
+    public com.baidu.swan.apps.api.c.b kS(String str) {
+        final e aIN = e.aIN();
+        if (aIN == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Network", "swan app is null");
             }
@@ -64,7 +64,7 @@ public class a extends d {
         com.baidu.swan.apps.runtime.d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.api.module.network.a.1
             @Override // java.lang.Runnable
             public void run() {
-                aIK.aIY().b(a.this.ajN().ajL(), optString);
+                aIN.aJb().b(a.this.ajQ().ajO(), optString);
             }
         });
         return new com.baidu.swan.apps.api.c.b(0);

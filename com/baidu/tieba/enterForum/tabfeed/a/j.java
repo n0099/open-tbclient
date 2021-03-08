@@ -28,10 +28,10 @@ import com.baidu.tieba.card.t;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class j extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<cb>> {
-    private ab<ca> agg;
-    private s amk;
-    public BdUniqueId fGZ;
-    private NEGFeedBackView.a gdT;
+    private ab<ca> ahy;
+    private s anC;
+    public BdUniqueId fIy;
+    private NEGFeedBackView.a gfx;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
@@ -44,17 +44,17 @@ public class j extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.agg = new ab<ca>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.1
+        this.ahy = new ab<ca>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, ca caVar) {
                 if (caVar != null) {
-                    t.csB().mG(true);
+                    t.csH().mG(true);
                     com.baidu.tieba.enterForum.a.a(view, caVar, j.this.mTabName);
                 }
             }
         };
-        this.gdT = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.2
+        this.gfx = new NEGFeedBackView.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.2
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void onNEGFeedbackWindowShow(av avVar) {
                 TiebaStatic.log(com.baidu.tbadk.core.util.m.a(avVar, j.this.mTabName));
@@ -69,12 +69,12 @@ public class j extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
             }
         };
         this.mPageContext = tbPageContext;
-        this.fGZ = bdUniqueId2;
+        this.fIy = bdUniqueId2;
         this.mTabName = str;
     }
 
     public void a(s sVar) {
-        this.amk = sVar;
+        this.anC = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,32 +85,32 @@ public class j extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity(), false);
         am amVar = new am(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.e eVar = new com.baidu.tbadk.core.data.e();
-        eVar.eMa = 22;
-        eVar.eMg = 19;
+        eVar.eNB = 22;
+        eVar.eNH = 19;
         amVar.setAgreeStatisticData(eVar);
         amVar.setTabName(this.mTabName);
         amVar.setFrom(18);
         amVar.setStType("personalize_page");
         amVar.setShareReportFrom(18);
         amVar.setFromForPb(2);
-        amVar.bq(32);
+        amVar.br(32);
         aVar.b(amVar);
-        ak a2 = aVar.a(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.amk);
+        ak a2 = aVar.a(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.anC);
         a2.setSourceForPb(2);
         ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(a2);
-        threadCardViewHolder.setPageId(this.fGZ);
+        threadCardViewHolder.setPageId(this.fIy);
         a(new w() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.3
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((nVar instanceof ca) && (view.getTag() instanceof ThreadCardViewHolder)) {
                     ThreadCardViewHolder threadCardViewHolder2 = (ThreadCardViewHolder) view.getTag();
-                    cb cbVar = ((ca) nVar).eJQ;
+                    cb cbVar = ((ca) nVar).eLr;
                     cbVar.objType = 1;
-                    if (j.this.agg != null) {
-                        j.this.agg.a(threadCardViewHolder2.getView(), (ca) nVar);
+                    if (j.this.ahy != null) {
+                        j.this.ahy.a(threadCardViewHolder2.getView(), (ca) nVar);
                     }
                     az.a((com.baidu.tbadk.core.data.a) cbVar, view.getContext(), 2, false, com.baidu.card.e.a((s) viewGroup2, view, i));
-                    threadCardViewHolder2.tj().b(new a.C0089a(1));
+                    threadCardViewHolder2.tj().b(new a.C0095a(1));
                 }
             }
         });
@@ -119,10 +119,10 @@ public class j extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(final int i, final View view, final ViewGroup viewGroup, ca caVar, ThreadCardViewHolder threadCardViewHolder) {
-        if (caVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || caVar.eJQ == null) {
+        if (caVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || caVar.eLr == null) {
             return null;
         }
-        caVar.eJQ.eOs = getPositionByType(i) + 1;
+        caVar.eLr.ePT = getPositionByType(i) + 1;
         threadCardViewHolder.tj().setPosition(i);
         if (threadCardViewHolder.tj().td() instanceof am) {
             ((am) threadCardViewHolder.tj().td()).setOnCommentClickCallback(new ThreadCommentAndPraiseInfoLayout.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.j.4
@@ -136,7 +136,7 @@ public class j extends com.baidu.adp.widget.ListView.a<ca, ThreadCardViewHolder<
         }
         threadCardViewHolder.b((ThreadCardViewHolder) caVar);
         threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        threadCardViewHolder.tj().a(this.agg);
+        threadCardViewHolder.tj().a(this.ahy);
         com.baidu.tieba.enterForum.a.a(caVar, this.mTabName);
         return threadCardViewHolder.getView();
     }

@@ -17,14 +17,12 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, f> f13434a = Collections.synchronizedMap(new HashMap());
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f13435b = null;
+    private static Map<String, f> f7990a = Collections.synchronizedMap(new HashMap());
+    private static String b = null;
     private Context c;
     private String d;
     private JSONObject e = null;
@@ -34,22 +32,22 @@ public class f {
 
     public static f a(Context context, String str) {
         f fVar;
-        synchronized (f13434a) {
+        synchronized (f7990a) {
             com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance begin");
             if (str != null) {
-                f13435b = str;
+                b = str;
             }
             if (str == null) {
-                if (f13435b != null) {
-                    str = f13435b;
+                if (b != null) {
+                    str = b;
                 } else {
                     str = "0";
                 }
             }
-            fVar = f13434a.get(str);
+            fVar = f7990a.get(str);
             if (fVar == null) {
                 fVar = new f(context, str);
-                f13434a.put(str, fVar);
+                f7990a.put(str, fVar);
             }
             com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance end");
         }
@@ -157,7 +155,7 @@ public class f {
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 try {
-                    f.this.a(j.d(HttpUtils.openUrl2(f.this.c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", bundle).f13448a));
+                    f.this.a(j.d(HttpUtils.openUrl2(f.this.c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", bundle).f7997a));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

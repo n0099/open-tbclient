@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ForumList;
 import tbclient.GetDislikeList.DataRes;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public List<b> dataList = new ArrayList();
     public boolean hasMore = true;
@@ -13,8 +13,8 @@ public class d {
         if (dataRes != null) {
             for (ForumList forumList : dataRes.forum_list) {
                 b bVar = new b();
-                bVar.neo = forumList.avatar;
-                bVar.nep = forumList.forum_name;
+                bVar.ngt = forumList.avatar;
+                bVar.ngu = forumList.forum_name;
                 bVar.forumId = String.valueOf(forumList.forum_id);
                 this.dataList.add(bVar);
             }

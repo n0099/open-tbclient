@@ -8,29 +8,29 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String dlR;
-    public static String dlS;
-    public static String dlT;
-    public static String dlU;
-    public static String dlV;
-    public static String dlW;
-    public static String dlX;
-    private CallbackHandler dbO;
-    private UnitedSchemeEntity dhx;
+    public static String dnt;
+    public static String dnu;
+    public static String dnv;
+    public static String dnw;
+    public static String dnx;
+    public static String dny;
+    public static String dnz;
+    private CallbackHandler ddq;
+    private UnitedSchemeEntity djb;
 
     private b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        this.dbO = callbackHandler;
-        this.dhx = unitedSchemeEntity;
-        dlR = str;
-        dlS = str2;
-        dlT = str3;
-        dlU = str4;
-        dlV = str5;
-        dlW = str6;
-        dlX = str7;
+        this.ddq = callbackHandler;
+        this.djb = unitedSchemeEntity;
+        dnt = str;
+        dnu = str2;
+        dnv = str3;
+        dnw = str4;
+        dnx = str5;
+        dny = str6;
+        dnz = str7;
     }
 
     public static b a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, b bVar) {
@@ -56,14 +56,14 @@ public class b {
         return bVar;
     }
 
-    public void px(String str) {
-        h(str, null);
+    public void pE(String str) {
+        i(str, null);
     }
 
-    public void h(String str, JSONObject jSONObject) {
+    public void i(String str, JSONObject jSONObject) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.dbO, this.dhx, wrapCallbackParams.toString(), str);
+            UnitedSchemeUtility.safeCallback(this.ddq, this.djb, wrapCallbackParams.toString(), str);
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }
@@ -79,7 +79,7 @@ public class b {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            h(dlV, jSONObject);
+            i(dnx, jSONObject);
         }
     }
 }

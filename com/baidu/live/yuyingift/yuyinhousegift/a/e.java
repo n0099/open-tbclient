@@ -6,7 +6,7 @@ import android.animation.PropertyValuesHolder;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.mobstat.Config;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends a {
     public float endX;
     public float endY;
@@ -19,11 +19,11 @@ public class e extends a {
         this.startY = f2;
         this.endX = f3;
         this.endY = f4;
-        this.cbU = Zw();
+        this.cdx = Zz();
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.a
-    protected AnimatorSet Zw() {
+    protected AnimatorSet Zz() {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat("scaleX", 1.2f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 1.2f, 1.0f))).with(ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat(Config.EVENT_HEAT_X, this.startX, this.endX), PropertyValuesHolder.ofFloat("y", this.startY, this.endY)));
         animatorSet.setInterpolator(new LinearInterpolator());

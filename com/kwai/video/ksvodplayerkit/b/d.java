@@ -14,8 +14,8 @@ public final class d {
             return null;
         }
         c cVar = new c();
-        cVar.f11045a = jSONObject.optString("version", cVar.f11045a);
-        cVar.f11046b = jSONObject.optString("type", cVar.f11046b);
+        cVar.f7274a = jSONObject.optString("version", cVar.f7274a);
+        cVar.b = jSONObject.optString("type", cVar.b);
         cVar.c = e.a(jSONObject.optJSONObject("adaptationSet"));
         return cVar;
     }
@@ -23,11 +23,11 @@ public final class d {
     public static String a(c cVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", cVar.f11045a);
+            jSONObject.put("version", cVar.f7274a);
         } catch (Exception e) {
         }
         try {
-            jSONObject.put("type", cVar.f11046b);
+            jSONObject.put("type", cVar.b);
         } catch (Exception e2) {
         }
         try {

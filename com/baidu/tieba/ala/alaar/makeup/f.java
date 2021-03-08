@@ -6,7 +6,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.ala.alaar.makeup.a;
 import com.xiaomi.mipush.sdk.MiPushClient;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends CustomMessageTask {
     public f() {
         super(2913246, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1
@@ -15,14 +15,14 @@ public class f extends CustomMessageTask {
                 if (h.isDebug()) {
                     h.d("MakeupDM_TASK", "GetMakeupDataTask run " + customMessage);
                 }
-                g.bPt().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1.1
+                g.bPz().a(new a.b() { // from class: com.baidu.tieba.ala.alaar.makeup.f.1.1
                     @Override // com.baidu.tieba.ala.alaar.makeup.a.b
                     public void c(a aVar) {
                         com.baidu.live.ar.g gVar = new com.baidu.live.ar.g();
-                        com.baidu.tieba.ala.alaar.makeup.a.c bPv = g.bPt().bPv();
-                        gVar.bf(bPv != null && bPv.zv());
+                        com.baidu.tieba.ala.alaar.makeup.a.c bPB = g.bPz().bPB();
+                        gVar.bf(bPB != null && bPB.zy());
                         if (h.isDebug()) {
-                            h.d("MakeupDM_TASK", "GetMakeupDataTask done " + gVar.zv());
+                            h.d("MakeupDM_TASK", "GetMakeupDataTask done " + gVar.zy());
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913246, gVar));
                     }

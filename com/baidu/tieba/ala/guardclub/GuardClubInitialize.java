@@ -23,21 +23,21 @@ import com.baidu.live.tbadk.core.atomdata.GuardClubJoinListActivityConfig;
 import com.baidu.live.tbadk.core.atomdata.GuardClubMemberListActivityConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.guardclub.model.GuardClubInfoRenameResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GuardClubInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubInfoActivityConfig.class, GuardClubInfoActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubMemberListActivityConfig.class, GuardClubMemberListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubJoinListActivityConfig.class, GuardClubJoinListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(GuardClubRankActivityConfig.class, GuardClubRankActivity.class);
-        bSJ();
-        bVF();
-        bVG();
-        bVH();
-        bVI();
+        bSP();
+        bVL();
+        bVM();
+        bVN();
+        bVO();
     }
 
-    private static void bSJ() {
+    private static void bSP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913159, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.guardclub.GuardClubInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.guardclub.h> run(CustomMessage<Context> customMessage) {
@@ -80,11 +80,11 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(customMessageTask5);
     }
 
-    private static void bVF() {
-        com.baidu.live.guardclub.e.a(c.bVB());
+    private static void bVL() {
+        com.baidu.live.guardclub.e.a(c.bVH());
     }
 
-    private static void bVG() {
+    private static void bVM() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021137, TbConfig.SERVER_HOST + "liveserver/guardClub/info");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -94,7 +94,7 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bVH() {
+    private static void bVN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS, TbConfig.SERVER_HOST + "liveserver/guardClub/join");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -104,7 +104,7 @@ public class GuardClubInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bVI() {
+    private static void bVO() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021142, TbConfig.SERVER_HOST + "liveserver/guardClub/updateClubName");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

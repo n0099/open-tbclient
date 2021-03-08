@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat;
 import com.yy.mediaframework.background.Background;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BackgroundTexture {
     private static final String TAG = "BackgroundTexture";
     public int mbackgroundHeight;

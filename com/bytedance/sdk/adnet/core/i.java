@@ -11,14 +11,12 @@ import java.util.concurrent.Executors;
 public class i implements com.bytedance.sdk.adnet.e.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Executor f6035a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Executor f6036b = Executors.newCachedThreadPool();
-    private com.bytedance.sdk.adnet.c.c pvC = com.bytedance.sdk.adnet.c.f.eqR();
+    private final Executor f4043a;
+    private final Executor b = Executors.newCachedThreadPool();
+    private com.bytedance.sdk.adnet.c.c pxH = com.bytedance.sdk.adnet.c.f.eqZ();
 
     public i(final Handler handler) {
-        this.f6035a = new Executor() { // from class: com.bytedance.sdk.adnet.core.i.1
+        this.f4043a = new Executor() { // from class: com.bytedance.sdk.adnet.core.i.1
             @Override // java.util.concurrent.Executor
             public void execute(Runnable runnable) {
                 handler.post(runnable);
@@ -27,75 +25,73 @@ public class i implements com.bytedance.sdk.adnet.e.d {
     }
 
     private Executor e(Request<?> request) {
-        return (request == null || request.isResponseOnMain()) ? this.f6035a : this.f6036b;
+        return (request == null || request.isResponseOnMain()) ? this.f4043a : this.b;
     }
 
     @Override // com.bytedance.sdk.adnet.e.d
-    public void a(Request<?> request, p<?> pVar) {
-        a(request, pVar, null);
-        if (this.pvC != null) {
-            this.pvC.a(request, pVar);
+    public void a(Request<?> request, o<?> oVar) {
+        a(request, oVar, null);
+        if (this.pxH != null) {
+            this.pxH.a(request, oVar);
         }
     }
 
     @Override // com.bytedance.sdk.adnet.e.d
-    public void a(Request<?> request, p<?> pVar, Runnable runnable) {
+    public void a(Request<?> request, o<?> oVar, Runnable runnable) {
         request.markDelivered();
         request.addMarker("post-response");
-        e(request).execute(new a(request, pVar, runnable));
-        if (this.pvC != null) {
-            this.pvC.a(request, pVar);
+        e(request).execute(new a(request, oVar, runnable));
+        if (this.pxH != null) {
+            this.pxH.a(request, oVar);
         }
     }
 
     @Override // com.bytedance.sdk.adnet.e.d
     public void a(Request<?> request, VAdError vAdError) {
         request.addMarker("post-error");
-        e(request).execute(new a(request, p.c(vAdError), null));
-        if (this.pvC != null) {
-            this.pvC.a(request, vAdError);
+        e(request).execute(new a(request, o.c(vAdError), null));
+        if (this.pxH != null) {
+            this.pxH.a(request, vAdError);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a implements Runnable {
-
-        /* renamed from: b  reason: collision with root package name */
-        private final p f6038b;
+        private final o b;
         private final Runnable c;
-        private final Request pvl;
+        private final Request pxq;
 
-        public a(Request request, p pVar, Runnable runnable) {
-            this.pvl = request;
-            this.f6038b = pVar;
+        public a(Request request, o oVar, Runnable runnable) {
+            this.pxq = request;
+            this.b = oVar;
             this.c = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.pvl.isCanceled()) {
-                this.pvl.a("canceled-at-delivery");
+            if (this.pxq.isCanceled()) {
+                this.pxq.a("canceled-at-delivery");
                 return;
             }
-            this.f6038b.g = this.pvl.getExtra();
-            this.f6038b.iu(SystemClock.elapsedRealtime() - this.pvl.getStartTime());
-            this.f6038b.iv(this.pvl.getNetDuration());
-            if (this.f6038b.a()) {
+            this.b.g = this.pxq.getExtra();
+            this.b.iu(SystemClock.elapsedRealtime() - this.pxq.getStartTime());
+            this.b.iv(this.pxq.getNetDuration());
+            if (this.b.a()) {
                 try {
-                    this.pvl.a(this.f6038b);
+                    this.pxq.a(this.b);
                 } catch (Throwable th) {
                 }
             } else {
                 try {
-                    this.pvl.deliverError(this.f6038b);
+                    this.pxq.deliverError(this.b);
                 } catch (Throwable th2) {
                 }
             }
-            if (this.f6038b.d) {
-                this.pvl.addMarker("intermediate-response");
+            if (this.b.d) {
+                this.pxq.addMarker("intermediate-response");
             } else {
-                this.pvl.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
+                this.pxq.a(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
             }
             if (this.c != null) {
                 try {

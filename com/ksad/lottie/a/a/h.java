@@ -11,9 +11,7 @@ import androidx.collection.LongSparseArray;
 import com.ksad.lottie.model.content.GradientType;
 /* loaded from: classes3.dex */
 public class h extends a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f7943b;
+    private final String b;
     private final LongSparseArray<LinearGradient> c;
     private final LongSparseArray<RadialGradient> d;
     private final RectF e;
@@ -28,7 +26,7 @@ public class h extends a {
         this.c = new LongSparseArray<>();
         this.d = new LongSparseArray<>();
         this.e = new RectF();
-        this.f7943b = eVar.a();
+        this.b = eVar.a();
         this.f = eVar.b();
         this.g = (int) (fVar.r().c() / 32.0f);
         this.h = eVar.c().a();
@@ -65,12 +63,12 @@ public class h extends a {
         PointF e = this.i.e();
         PointF e2 = this.j.e();
         com.ksad.lottie.model.content.c e3 = this.h.e();
-        int[] b2 = e3.b();
+        int[] b = e3.b();
         float[] a2 = e3.a();
         int width = (int) (this.e.left + (this.e.width() / 2.0f) + e.x);
         int height = (int) (e.y + this.e.top + (this.e.height() / 2.0f));
         float f = e2.y;
-        RadialGradient radialGradient2 = new RadialGradient(width, height, (float) Math.hypot(((int) ((this.e.left + (this.e.width() / 2.0f)) + e2.x)) - width, ((int) (f + (this.e.top + (this.e.height() / 2.0f)))) - height), b2, a2, Shader.TileMode.CLAMP);
+        RadialGradient radialGradient2 = new RadialGradient(width, height, (float) Math.hypot(((int) ((this.e.left + (this.e.width() / 2.0f)) + e2.x)) - width, ((int) (f + (this.e.top + (this.e.height() / 2.0f)))) - height), b, a2, Shader.TileMode.CLAMP);
         this.d.put(d, radialGradient2);
         return radialGradient2;
     }
@@ -90,9 +88,9 @@ public class h extends a {
     public void a(Canvas canvas, Matrix matrix, int i) {
         a(this.e, matrix);
         if (this.f == GradientType.Linear) {
-            this.f7931a.setShader(b());
+            this.f5308a.setShader(b());
         } else {
-            this.f7931a.setShader(c());
+            this.f5308a.setShader(c());
         }
         super.a(canvas, matrix, i);
     }

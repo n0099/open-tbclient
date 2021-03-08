@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.b.h;
 import io.reactivex.g;
 import io.reactivex.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T, U> {
     final h<? super T, ? extends U> mapper;
 
@@ -16,19 +16,19 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
     @Override // io.reactivex.g
     public void a(org.a.c<? super U> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.qow.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
+            this.qoY.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
         } else {
-            this.qow.a((j) new C1302b(cVar, this.mapper));
+            this.qoY.a((j) new C1284b(cVar, this.mapper));
         }
     }
 
     /* renamed from: io.reactivex.internal.operators.flowable.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    static final class C1302b<T, U> extends io.reactivex.internal.subscribers.b<T, U> {
+    /* loaded from: classes6.dex */
+    static final class C1284b<T, U> extends io.reactivex.internal.subscribers.b<T, U> {
         final h<? super T, ? extends U> mapper;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C1302b(org.a.c<? super U> cVar, h<? super T, ? extends U> hVar) {
+        public C1284b(org.a.c<? super U> cVar, h<? super T, ? extends U> hVar) {
             super(cVar);
             this.mapper = hVar;
         }
@@ -41,7 +41,7 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
                     return;
                 }
                 try {
-                    this.actual.onNext(io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper function returned a null value."));
+                    this.actual.onNext(io.reactivex.internal.functions.a.n(this.mapper.apply(t), "The mapper function returned a null value."));
                 } catch (Throwable th) {
                     O(th);
                 }
@@ -50,20 +50,20 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Sk(i);
+            return Sj(i);
         }
 
         @Override // io.reactivex.internal.a.f
         public U poll() throws Exception {
             T poll = this.qs.poll();
             if (poll != null) {
-                return (U) io.reactivex.internal.functions.a.m(this.mapper.apply(poll), "The mapper function returned a null value.");
+                return (U) io.reactivex.internal.functions.a.n(this.mapper.apply(poll), "The mapper function returned a null value.");
             }
             return null;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class a<T, U> extends io.reactivex.internal.subscribers.a<T, U> {
         final h<? super T, ? extends U> mapper;
 
@@ -80,7 +80,7 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
                     return;
                 }
                 try {
-                    this.actual.onNext(io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper function returned a null value."));
+                    this.actual.onNext(io.reactivex.internal.functions.a.n(this.mapper.apply(t), "The mapper function returned a null value."));
                 } catch (Throwable th) {
                     O(th);
                 }
@@ -93,7 +93,7 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
                 return false;
             }
             try {
-                return this.actual.tryOnNext(io.reactivex.internal.functions.a.m(this.mapper.apply(t), "The mapper function returned a null value."));
+                return this.actual.tryOnNext(io.reactivex.internal.functions.a.n(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
                 O(th);
                 return true;
@@ -102,14 +102,14 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Sk(i);
+            return Sj(i);
         }
 
         @Override // io.reactivex.internal.a.f
         public U poll() throws Exception {
             T poll = this.qs.poll();
             if (poll != null) {
-                return (U) io.reactivex.internal.functions.a.m(this.mapper.apply(poll), "The mapper function returned a null value.");
+                return (U) io.reactivex.internal.functions.a.n(this.mapper.apply(poll), "The mapper function returned a null value.");
             }
             return null;
         }

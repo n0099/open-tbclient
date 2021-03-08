@@ -2,12 +2,12 @@ package com.bytedance.sdk.openadsdk.preload.geckox.d;
 
 import android.util.Pair;
 /* loaded from: classes6.dex */
-public class i extends com.bytedance.sdk.openadsdk.preload.a.d<Pair<String, Long>, Pair<String, Long>> {
+public class i extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<String, Long>, Pair<String, Long>> {
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d
+    @Override // com.bytedance.sdk.openadsdk.preload.b.d
     /* renamed from: a */
-    public Object a_(com.bytedance.sdk.openadsdk.preload.a.b<Pair<String, Long>> bVar, Pair<String, Long> pair) throws Throwable {
+    public Object a_(com.bytedance.sdk.openadsdk.preload.b.b<Pair<String, Long>> bVar, Pair<String, Long> pair) throws Throwable {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "update success:", pair);
-        return bVar.a((com.bytedance.sdk.openadsdk.preload.a.b<Pair<String, Long>>) pair);
+        return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<String, Long>>) pair);
     }
 }

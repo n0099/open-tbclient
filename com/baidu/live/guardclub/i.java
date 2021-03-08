@@ -1,9 +1,9 @@
 package com.baidu.live.guardclub;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface i {
-    void IX();
+    void Ja();
 
     String aU(long j);
 

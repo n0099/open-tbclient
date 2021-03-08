@@ -28,7 +28,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFPlayerController implements IYMFDecoderListener {
     private static final int DEFAULT_FULL_VIEW_HEIGHT = -2;
     private static final int DEFAULT_FULL_VIEW_WIDTH = -2;
@@ -58,7 +58,7 @@ public class YMFPlayerController implements IYMFDecoderListener {
     private int mSurfaceHeight = 0;
     private boolean mUseTextureView = false;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IViewNotify {
         void onViewChangedNotify(Object obj, View view);
     }
@@ -834,7 +834,7 @@ public class YMFPlayerController implements IYMFDecoderListener {
         this.mBackGroundPosition.mWidth = this.mOriginBackGroundPosition.mWidth;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class YMFPlayerControlProxy {
         private YMFPlayerController mPlayerController;
 
@@ -872,7 +872,7 @@ public class YMFPlayerController implements IYMFDecoderListener {
         this.mViewNotify = iViewNotify;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class ViewChangedNotify implements IViewNotify {
         public ViewChangedNotify() {
         }

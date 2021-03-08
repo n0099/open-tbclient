@@ -4,31 +4,31 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class p extends a {
-    public static final BdUniqueId eGl = BdUniqueId.gen();
-    public final ArrayList<String> eGm = new ArrayList<>();
-    public com.baidu.tbadk.a.e eGn;
+    public static final BdUniqueId eHM = BdUniqueId.gen();
+    public final ArrayList<String> eHN = new ArrayList<>();
+    public com.baidu.tbadk.a.e eHO;
 
     public p() {
-        this.eGm.add("12_0_staticopt_a");
+        this.eHN.add("12_3_staticopt_a");
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public BdUniqueId bjD() {
-        return eGl;
+    public BdUniqueId bjF() {
+        return eHM;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public ArrayList<String> bjE() {
-        return this.eGm;
+    public ArrayList<String> bjG() {
+        return this.eHN;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public com.baidu.tbadk.a.e bjF() {
-        return this.eGn;
+    public com.baidu.tbadk.a.e bjH() {
+        return this.eHO;
     }
 
     @Override // com.baidu.tbadk.a.a.a
     public void a(com.baidu.tbadk.a.e eVar) {
-        this.eGn = eVar;
+        this.eHO = eVar;
     }
 }

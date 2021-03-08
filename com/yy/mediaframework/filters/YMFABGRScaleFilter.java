@@ -4,7 +4,7 @@ import com.yy.mediaframework.model.YMFImageBuffer;
 import com.yy.mediaframework.model.YYMediaSample;
 import com.yy.mediaframework.utils.ImageUtil;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFABGRScaleFilter extends AbstractYYMediaFilter {
     private static final String TAG = "YMFAbgrScaleFliter";
     private VideoLiveFilterContext mFilterContex;

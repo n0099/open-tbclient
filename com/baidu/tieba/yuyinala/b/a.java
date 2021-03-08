@@ -13,46 +13,46 @@ import com.baidu.tieba.yuyinala.data.g;
 import com.baidu.tieba.yuyinala.data.i;
 import com.baidu.tieba.yuyinala.message.AlaGetRoomRankListResponseMessage;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements d {
-    private String ooZ;
-    private AlaRankListActivity opx;
-    private b orT;
-    private com.baidu.tieba.yuyinala.view.b orU;
-    private i orV;
+    private AlaRankListActivity orD;
+    private String orf;
+    private b otY;
+    private com.baidu.tieba.yuyinala.view.b otZ;
+    private i oua;
 
     public a(AlaRankListActivity alaRankListActivity, String str) {
-        this.opx = alaRankListActivity;
-        this.ooZ = str;
-        bVr();
+        this.orD = alaRankListActivity;
+        this.orf = str;
+        bVx();
     }
 
-    private View bVr() {
-        this.orU = new com.baidu.tieba.yuyinala.view.b(this.opx, this.ooZ);
+    private View bVx() {
+        this.otZ = new com.baidu.tieba.yuyinala.view.b(this.orD, this.orf);
         nf(true);
-        return this.orU.getView();
+        return this.otZ.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nf(final boolean z) {
-        if (this.orT == null) {
-            this.orT = new b(this.opx.getUniqueId());
-            this.orT.a(new com.baidu.tieba.yuyinala.c.d() { // from class: com.baidu.tieba.yuyinala.b.a.1
+        if (this.otY == null) {
+            this.otY = new b(this.orD.getUniqueId());
+            this.otY.a(new com.baidu.tieba.yuyinala.c.d() { // from class: com.baidu.tieba.yuyinala.b.a.1
                 @Override // com.baidu.tieba.yuyinala.c.d
                 public void a(int i, String str, Object obj) {
                     if (obj != null && (obj instanceof AlaGetRoomRankListResponseMessage)) {
                         AlaGetRoomRankListResponseMessage alaGetRoomRankListResponseMessage = (AlaGetRoomRankListResponseMessage) obj;
-                        i efF = alaGetRoomRankListResponseMessage.efF();
+                        i efN = alaGetRoomRankListResponseMessage.efN();
                         if (alaGetRoomRankListResponseMessage.getOrginalMessage() != null) {
                             if (i == 0 || StringUtils.isNull(str)) {
-                                a.this.orV = efF;
-                                a.this.orU.WZ();
-                                a.this.a(a.this.orV);
-                            } else if (a.this.orU != null) {
-                                a.this.orU.dQ(false);
-                                a.this.orU.cpH();
-                                a.this.orU.WZ();
-                                a.this.orU.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.1.1
+                                a.this.oua = efN;
+                                a.this.otZ.Xc();
+                                a.this.a(a.this.oua);
+                            } else if (a.this.otZ != null) {
+                                a.this.otZ.dQ(false);
+                                a.this.otZ.cpN();
+                                a.this.otZ.Xc();
+                                a.this.otZ.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.1.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
                                         a.this.nf(true);
@@ -66,19 +66,19 @@ public class a implements d {
         }
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             if (z) {
-                this.orT.WU(this.ooZ);
+                this.otY.Xb(this.orf);
             }
-        } else if (this.orU != null) {
-            this.orU.WZ();
-            this.orU.dQ(false);
-            this.orU.cpH();
-            this.orU.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.2
+        } else if (this.otZ != null) {
+            this.otZ.Xc();
+            this.otZ.dQ(false);
+            this.otZ.cpN();
+            this.otZ.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
                         a.this.nf(z);
                     } else {
-                        a.this.opx.getPageContext().showToast(a.this.opx.getResources().getString(a.h.sdk_no_network_guide));
+                        a.this.orD.getPageContext().showToast(a.this.orD.getResources().getString(a.h.sdk_no_network_guide));
                     }
                 }
             });
@@ -88,15 +88,15 @@ public class a implements d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(i iVar) {
         if (iVar == null) {
-            if (this.orU != null) {
-                this.orU.cpH();
-                this.orU.WZ();
-                this.orU.setDatas(new ArrayList<>());
-                this.orU.wF(0);
-                this.orU.dQ(false);
-                this.orU.wE(8);
-                this.orU.fv(8);
-                this.orU.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.3
+            if (this.otZ != null) {
+                this.otZ.cpN();
+                this.otZ.Xc();
+                this.otZ.setDatas(new ArrayList<>());
+                this.otZ.wG(0);
+                this.otZ.dQ(false);
+                this.otZ.wF(8);
+                this.otZ.fw(8);
+                this.otZ.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.b.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         a.this.nf(true);
@@ -104,51 +104,51 @@ public class a implements d {
                 });
             }
         } else if (iVar.getList() == null || iVar.getList().size() <= 0) {
-            this.orU.WZ();
-            this.orU.fv(0);
-            this.orU.setDatas(new ArrayList<>());
-            this.orU.wF(0);
-            this.orU.dQ(true);
-            this.orU.wE(8);
-            if (this.orU != null) {
+            this.otZ.Xc();
+            this.otZ.fw(0);
+            this.otZ.setDatas(new ArrayList<>());
+            this.otZ.wG(0);
+            this.otZ.dQ(true);
+            this.otZ.wF(8);
+            if (this.otZ != null) {
                 g gVar = new g();
-                gVar.aGz = 0L;
-                gVar.cover = this.opx.getIntent().getStringExtra("room_cover");
-                gVar.room_name = this.opx.getIntent().getStringExtra(DpStatConstants.KEY_ROOM_NAME);
-                this.orU.b(gVar);
+                gVar.aHZ = 0L;
+                gVar.cover = this.orD.getIntent().getStringExtra("room_cover");
+                gVar.room_name = this.orD.getIntent().getStringExtra(DpStatConstants.KEY_ROOM_NAME);
+                this.otZ.b(gVar);
             }
         } else if (iVar.getList() != null && iVar.getList().size() > 0) {
-            this.orU.fv(0);
-            this.orU.WZ();
-            if (this.orU != null) {
-                this.orU.c(iVar);
-                g eas = iVar.eas();
-                eas.bt(iVar.getList().size() == 1);
+            this.otZ.fw(0);
+            this.otZ.Xc();
+            if (this.otZ != null) {
+                this.otZ.c(iVar);
+                g eaA = iVar.eaA();
+                eaA.bt(iVar.getList().size() == 1);
                 for (int i = 0; i < iVar.getList().size(); i++) {
                     if (iVar.getList().get(i).rank == 10) {
-                        eas.aM(iVar.getList().get(i).aGE);
+                        eaA.aM(iVar.getList().get(i).aIe);
                     }
                 }
                 if (iVar.getList().size() == 1) {
-                    this.orU.setDatas(new ArrayList<>());
-                    this.orU.dQ(false);
+                    this.otZ.setDatas(new ArrayList<>());
+                    this.otZ.dQ(false);
                 } else if (iVar.getList().size() > 1) {
                     int size = iVar.getList().size();
                     ArrayList<c> arrayList = new ArrayList<>();
                     for (int i2 = 1; i2 < size; i2++) {
                         arrayList.add(iVar.getList().get(i2));
                     }
-                    this.orU.setDatas(arrayList);
+                    this.otZ.setDatas(arrayList);
                 }
-                this.orU.wF(0);
-                this.orU.wE(0);
-                if (this.orU != null) {
-                    this.orU.b(eas);
+                this.otZ.wG(0);
+                this.otZ.wF(0);
+                if (this.otZ != null) {
+                    this.otZ.b(eaA);
                 }
-                if (iVar.getList().size() < iVar.eat()) {
-                    this.orU.WW(this.opx.getPageContext().getResources().getString(a.h.rank_nomore_text));
+                if (iVar.getList().size() < iVar.eaB()) {
+                    this.otZ.Xd(this.orD.getPageContext().getResources().getString(a.h.rank_nomore_text));
                 } else {
-                    this.orU.WW(this.opx.getPageContext().getResources().getString(a.h.rank_ten_text));
+                    this.otZ.Xd(this.orD.getPageContext().getResources().getString(a.h.rank_ten_text));
                 }
             }
         }
@@ -156,7 +156,7 @@ public class a implements d {
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        return this.orU.getView();
+        return this.otZ.getView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -165,12 +165,12 @@ public class a implements d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String JK() {
+    public String JN() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short JL() {
+    public short JO() {
         return (short) 0;
     }
 
@@ -184,11 +184,11 @@ public class a implements d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.orT != null) {
-            this.orT.destory();
+        if (this.otY != null) {
+            this.otY.destory();
         }
-        if (this.orU != null) {
-            this.orU.release();
+        if (this.otZ != null) {
+            this.otZ.release();
         }
     }
 

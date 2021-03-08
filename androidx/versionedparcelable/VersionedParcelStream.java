@@ -6,7 +6,6 @@ import android.os.IInterface;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import androidx.annotation.RestrictTo;
-import androidx.core.internal.view.SupportMenu;
 import androidx.versionedparcelable.VersionedParcel;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -18,7 +17,7 @@ import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.Set;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 class VersionedParcelStream extends VersionedParcel {
     private static final int TYPE_BOOLEAN = 5;
     private static final int TYPE_BOOLEAN_ARRAY = 6;
@@ -94,11 +93,11 @@ class VersionedParcelStream extends VersionedParcel {
         while (true) {
             try {
                 int readInt = this.mMasterInput.readInt();
-                int i2 = readInt & SupportMenu.USER_MASK;
+                int i2 = readInt & 65535;
                 if (i2 == 65535) {
                     i2 = this.mMasterInput.readInt();
                 }
-                InputBuffer inputBuffer2 = new InputBuffer((readInt >> 16) & SupportMenu.USER_MASK, i2, this.mMasterInput);
+                InputBuffer inputBuffer2 = new InputBuffer((readInt >> 16) & 65535, i2, this.mMasterInput);
                 if (inputBuffer2.mFieldId == i) {
                     this.mCurrentInput = inputBuffer2.mInputStream;
                     return true;
@@ -442,7 +441,7 @@ class VersionedParcelStream extends VersionedParcel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public static class FieldBuffer {
         private final int mFieldId;
         private final DataOutputStream mTarget;
@@ -465,7 +464,7 @@ class VersionedParcelStream extends VersionedParcel {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     private static class InputBuffer {
         final int mFieldId;
         final DataInputStream mInputStream;

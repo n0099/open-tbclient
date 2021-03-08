@@ -11,19 +11,19 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
-    private final LinkedList<Pair<RelativeLayout, com.baidu.tbadk.l.g>> Yg;
-    private int Yh;
-    private int Yi;
+    private int ZA;
+    private int ZB;
+    private final LinkedList<Pair<RelativeLayout, com.baidu.tbadk.l.g>> Zz;
 
     private int getDimens(int i) {
         return com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), i);
     }
 
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.Yk);
-        this.Yg = new LinkedList<>();
-        this.Yh = getDimens(R.dimen.tbds304);
-        this.Yi = getDimens(R.dimen.tbds198);
+        super(tbPageContext.getPageActivity(), t.ZD);
+        this.Zz = new LinkedList<>();
+        this.ZA = getDimens(R.dimen.tbds304);
+        this.ZB = getDimens(R.dimen.tbds198);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,17 +39,17 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         relativeLayout.setGravity(1);
         com.baidu.tbadk.l.g gVar = new com.baidu.tbadk.l.g(this.mContext, 0);
         gVar.attachView(relativeLayout);
-        gVar.setTopMargin(this.Yh);
-        gVar.bt(this.Yi);
+        gVar.setTopMargin(this.ZA);
+        gVar.bu(this.ZB);
         View view = gVar.getView();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
         layoutParams.addRule(14);
         view.setLayoutParams(layoutParams);
-        this.Yg.add(new Pair<>(relativeLayout, gVar));
+        this.Zz.add(new Pair<>(relativeLayout, gVar));
         TabLoadingViewHolder tabLoadingViewHolder = new TabLoadingViewHolder(relativeLayout);
-        tabLoadingViewHolder.Yj = gVar;
+        tabLoadingViewHolder.ZC = gVar;
         return tabLoadingViewHolder;
     }
 
@@ -57,15 +57,15 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
-        if (tabLoadingViewHolder != null && tabLoadingViewHolder.Yj != null) {
-            tabLoadingViewHolder.Yj.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if (tabLoadingViewHolder != null && tabLoadingViewHolder.ZC != null) {
+            tabLoadingViewHolder.ZC.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tbadk.l.g Yj;
+        public com.baidu.tbadk.l.g ZC;
 
         public TabLoadingViewHolder(View view) {
             super(view);

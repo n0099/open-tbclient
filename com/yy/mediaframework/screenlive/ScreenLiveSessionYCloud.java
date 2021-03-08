@@ -41,7 +41,7 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 @TargetApi(21)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ScreenLiveSessionYCloud implements IEncoderListener, ILiveSession, ScreenSurfaceCallback {
     private static final String TAG = "[ScreenLiveSessionYCloud]";
     private YMFCaptureReplaceImageFilter mCaptureReplaceImageFilter;

@@ -10,28 +10,28 @@ import com.baidu.poly.widget.m;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class b {
     private Activity activity;
-    private com.baidu.poly.d.a.c coz;
+    private com.baidu.poly.d.a.c cqb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public class a extends com.baidu.poly.a.a.a<Map<String, String>> {
-        final /* synthetic */ m col;
-        final /* synthetic */ String cow;
+        final /* synthetic */ m cpO;
+        final /* synthetic */ String cpY;
 
         a(m mVar, String str) {
-            this.col = mVar;
-            this.cow = str;
+            this.cpO = mVar;
+            this.cpY = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         public void a(Map<String, String> map) {
             com.baidu.poly.a.h.a.j("8");
-            this.col.e();
-            b.this.b(map, this.cow, this.col);
+            this.cpO.e();
+            b.this.b(map, this.cpY, this.cpO);
         }
 
         @Override // com.baidu.poly.a.a.a
@@ -42,33 +42,33 @@ public class b {
             } else {
                 message = th != null ? th.getMessage() : null;
             }
-            this.col.a("pay_platform error msg is " + message, (String) null);
-            d.a(new com.baidu.poly.a.h.b("1").jr(new com.baidu.poly.a.i.a("pay_platform error --> " + str, th).U()));
+            this.cpO.a("pay_platform error msg is " + message, (String) null);
+            d.a(new com.baidu.poly.a.h.b("1").jx(new com.baidu.poly.a.i.a("pay_platform error --> " + str, th).U()));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.poly.a.j.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C0303b implements com.baidu.poly.d.a.a {
-        final /* synthetic */ m col;
-        final /* synthetic */ String coy;
+    /* loaded from: classes14.dex */
+    public class C0309b implements com.baidu.poly.d.a.a {
+        final /* synthetic */ m cpO;
+        final /* synthetic */ String cqa;
 
-        C0303b(String str, m mVar) {
-            this.coy = str;
-            this.col = mVar;
+        C0309b(String str, m mVar) {
+            this.cqa = str;
+            this.cpO = mVar;
         }
 
         @Override // com.baidu.poly.d.a.a
         public void onResult(int i, String str) {
             com.baidu.poly.util.d.info("WalletChannel->thirdPay onResult statusCode = " + i + " msg = " + str);
-            this.col.a(i, com.baidu.poly.util.b.a(i, this.coy, str));
+            this.cpO.a(i, com.baidu.poly.util.b.a(i, this.cqa, str));
         }
     }
 
     public b(Activity activity, com.baidu.poly.d.a.c cVar) {
         this.activity = activity;
-        this.coz = cVar;
+        this.cqb = cVar;
     }
 
     public void a(Map<String, String> map, String str, m mVar) {
@@ -81,13 +81,13 @@ public class b {
 
     public void b(Map<String, String> map, String str, m mVar) {
         com.baidu.poly.d.a.b bVar = new com.baidu.poly.d.a.b();
-        bVar.cpc = l(map);
+        bVar.cqE = l(map);
         bVar.channel = str;
         String str2 = map.get("payOrderNo");
-        d.coh = str2;
-        if (this.coz != null) {
+        d.cpK = str2;
+        if (this.cqb != null) {
             com.baidu.poly.a.h.a.E();
-            this.coz.a(this.activity, bVar, new C0303b(str2, mVar));
+            this.cqb.a(this.activity, bVar, new C0309b(str2, mVar));
             com.baidu.poly.util.d.info("WalletChannel->thirdPay setIsPreparePaying()");
             mVar.setIsPreparePaying(false);
         }
@@ -105,6 +105,6 @@ public class b {
 
     public void a(Bundle bundle, String str, m mVar) {
         bundle.putString("reqData", "{\"payChannel\": \"" + str + "\"}");
-        com.baidu.poly.a.b.b.adj().b(bundle, new a(mVar, str));
+        com.baidu.poly.a.b.b.adm().b(bundle, new a(mVar, str));
     }
 }

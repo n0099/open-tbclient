@@ -9,20 +9,20 @@ import com.baidu.live.data.ax;
 import com.baidu.live.data.bl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static PersonUserData a(bl blVar) {
         PersonUserData personUserData = new PersonUserData();
         personUserData.user_info = new ax();
         personUserData.relation_info = new AlaRelationData();
         personUserData.location_info = new AlaLocationData();
-        personUserData.user_info.aOn = blVar.metaKey;
+        personUserData.user_info.aPN = blVar.metaKey;
         personUserData.user_info.user_id = blVar.id;
         personUserData.user_info.user_name = blVar.name;
         personUserData.user_info.user_nickname = blVar.name_show;
         personUserData.user_info.description = blVar.intro;
         personUserData.user_info.portrait = blVar.portrait;
-        personUserData.relation_info.follow_status = blVar.aOZ;
+        personUserData.relation_info.follow_status = blVar.aQz;
         return personUserData;
     }
 

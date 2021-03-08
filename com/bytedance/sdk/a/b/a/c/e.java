@@ -12,10 +12,10 @@ import org.apache.http.protocol.HTTP;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f5880a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
+    private static final Pattern f3961a = Pattern.compile(" +([^ \"=]*)=(:?\"([^\"]*)\"|([^ \"=]*)) *(:?,|$)");
 
     public static long d(com.bytedance.sdk.a.b.b bVar) {
-        return b(bVar.epM());
+        return b(bVar.epT());
     }
 
     public static long b(v vVar) {
@@ -34,7 +34,7 @@ public final class e {
     }
 
     public static void a(p pVar, s sVar, v vVar) {
-        if (pVar != p.ppI) {
+        if (pVar != p.prN) {
             List<o> a2 = o.a(sVar, vVar);
             if (!a2.isEmpty()) {
                 pVar.a(sVar, a2);
@@ -43,7 +43,7 @@ public final class e {
     }
 
     public static boolean e(com.bytedance.sdk.a.b.b bVar) {
-        if (bVar.epu().b().equals(HttpHead.METHOD_NAME)) {
+        if (bVar.epB().b().equals(HttpHead.METHOD_NAME)) {
             return false;
         }
         int c = bVar.c();
@@ -53,7 +53,7 @@ public final class e {
         return true;
     }
 
-    public static int y(String str, int i, String str2) {
+    public static int z(String str, int i, String str2) {
         while (i < str.length() && str2.indexOf(str.charAt(i)) == -1) {
             i++;
         }

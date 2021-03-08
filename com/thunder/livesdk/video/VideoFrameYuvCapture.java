@@ -4,7 +4,7 @@ import android.hardware.Camera;
 import com.thunder.livesdk.ThunderBridgeLib;
 import com.yy.mediaframework.facedetection.IYMFPreviewFrameCallback;
 import com.yy.mediaframework.gpuimage.custom.YMFVideoFrame;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoFrameYuvCapture implements IYMFPreviewFrameCallback {
     private static volatile VideoFrameYuvCapture instance;
     private static Object syncLock = new Object();

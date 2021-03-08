@@ -6,10 +6,10 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends ShareItem {
-    public void dC(JSONObject jSONObject) throws JSONException {
-        this.fvn = true;
+    public void dE(JSONObject jSONObject) throws JSONException {
+        this.fwM = true;
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");
@@ -19,34 +19,34 @@ public class a extends ShareItem {
         this.imageUri = Uri.parse(this.imageUrl);
         JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
         if (optJSONObject != null) {
-            this.fvo = optJSONObject.optString("source2");
-            this.fvq = optJSONObject.optString("source3");
+            this.fwN = optJSONObject.optString("source2");
+            this.fwP = optJSONObject.optString("source3");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
         if (optJSONObject2 != null) {
-            this.fvp = 2;
-            this.fvu = optJSONObject2.optJSONArray("cmd_pannel");
-            this.fvv = optJSONObject2.optJSONObject("info");
-            if (this.fvv != null) {
-                this.fvs = this.fvv.optString("key");
-                this.fvt = this.fvv.optString("content");
+            this.fwO = 2;
+            this.fwT = optJSONObject2.optJSONArray("cmd_pannel");
+            this.fwU = optJSONObject2.optJSONObject("info");
+            if (this.fwU != null) {
+                this.fwR = this.fwU.optString("key");
+                this.fwS = this.fwU.optString("content");
                 return;
             }
             return;
         }
-        this.fvp = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+        this.fwO = "url".equals(jSONObject.optString("type")) ? 1 : 3;
     }
 
-    public JSONArray bNG() {
-        return this.fvu;
+    public JSONArray bNM() {
+        return this.fwT;
     }
 
-    public String bNH() {
-        return this.fvs;
+    public String bNN() {
+        return this.fwR;
     }
 
-    public String bNI() {
-        return this.fvt;
+    public String bNO() {
+        return this.fwS;
     }
 
     public String getMediaType() {

@@ -3,21 +3,19 @@ package com.baidu.platform.comapi.pano;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f4186a;
-
-    /* renamed from: b  reason: collision with root package name */
-    PanoStateError f4187b;
+    String f2900a;
+    PanoStateError b;
     int c;
 
     public c() {
     }
 
     public c(PanoStateError panoStateError) {
-        this.f4187b = panoStateError;
+        this.b = panoStateError;
     }
 
     public PanoStateError a() {
-        return this.f4187b;
+        return this.b;
     }
 
     public void a(int i) {
@@ -25,11 +23,11 @@ public class c {
     }
 
     public void a(String str) {
-        this.f4186a = str;
+        this.f2900a = str;
     }
 
     public String b() {
-        return this.f4186a;
+        return this.f2900a;
     }
 
     public int c() {

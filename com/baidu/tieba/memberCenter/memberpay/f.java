@@ -7,27 +7,27 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f {
-    public String lqe;
-    public int lqd = 0;
-    public g lpH = new g();
-    public b lpI = new b();
+    public String lsg;
+    public int lsf = 0;
+    public g lrJ = new g();
+    public b lrK = new b();
 
     public void parseJson(JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
-            this.lqd = jSONObject.optInt("have_autopay", 0);
-            this.lpH.parseJson(jSONObject.optJSONObject("user"));
-            this.lpI.parseJson(jSONObject.optJSONObject("goods_info"));
-            this.lqe = jSONObject.optString("equal_cost");
+            this.lsf = jSONObject.optInt("have_autopay", 0);
+            this.lrJ.parseJson(jSONObject.optJSONObject("user"));
+            this.lrK.parseJson(jSONObject.optJSONObject("goods_info"));
+            this.lsg = jSONObject.optString("equal_cost");
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class g {
-        long lqx;
-        long lqy;
-        e lqz = new e();
+        long lsA;
+        e lsB = new e();
+        long lsz;
         long mId;
         String mName;
         String mNameShow;
@@ -39,58 +39,58 @@ public class f {
                 this.mName = jSONObject.optString("name");
                 this.mNameShow = jSONObject.optString("name_show");
                 this.mPortrait = jSONObject.optString("portrait");
-                this.lqx = jSONObject.optLong("user_type");
-                this.lqy = jSONObject.optLong("is_verify");
-                this.lqz.parseJson(jSONObject.optJSONObject("pay_member_info"));
+                this.lsz = jSONObject.optLong("user_type");
+                this.lsA = jSONObject.optLong("is_verify");
+                this.lsB.parseJson(jSONObject.optJSONObject("pay_member_info"));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class e {
-        long lqu;
-        long lqv;
+        long lsw;
+        long lsx;
         boolean mChecked = true;
         long mEndTime;
         String mPicUrl;
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
-                this.lqu = jSONObject.optLong("props_id");
+                this.lsw = jSONObject.optLong("props_id");
                 this.mEndTime = jSONObject.optLong("end_time");
                 this.mPicUrl = jSONObject.optString("pic_url");
-                this.lqv = jSONObject.optLong("upgrade_month");
+                this.lsx = jSONObject.optLong("upgrade_month");
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.memberCenter.memberpay.f$f  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0795f {
-        long lqw;
+    /* loaded from: classes8.dex */
+    public static class C0801f {
+        long lsy;
         String mName;
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
                 this.mName = jSONObject.optString("name");
-                this.lqw = jSONObject.optLong("num");
+                this.lsy = jSONObject.optLong("num");
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class d {
         int isAutoPay;
         boolean isChecked;
-        String lql;
-        String lqm;
-        String lqn;
-        String lqo;
-        long lqp;
-        long lqq;
-        long lqr;
-        long lqs;
-        boolean lqt;
+        String lsn;
+        String lso;
+        String lsp;
+        String lsq;
+        long lsr;
+        long lss;
+        long lst;
+        long lsu;
+        boolean lsv;
         String mDesc;
         String mDiscount;
         String mIcon;
@@ -99,38 +99,38 @@ public class f {
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
-                this.lql = jSONObject.optString("productId");
+                this.lsn = jSONObject.optString("productId");
                 this.mTitle = jSONObject.optString("title");
                 this.mDesc = jSONObject.optString("desc");
                 this.mDiscount = jSONObject.optString("discount");
-                this.lqm = jSONObject.optString("original_cost");
+                this.lso = jSONObject.optString("original_cost");
                 this.mIcon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                this.lqp = jSONObject.optLong("props_id");
-                this.lqq = jSONObject.optLong("money");
-                this.lqs = jSONObject.optLong("months");
-                this.lqr = jSONObject.optLong(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
-                this.lqn = jSONObject.optString("packet_text");
+                this.lsr = jSONObject.optLong("props_id");
+                this.lss = jSONObject.optLong("money");
+                this.lsu = jSONObject.optLong("months");
+                this.lst = jSONObject.optLong(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
+                this.lsp = jSONObject.optString("packet_text");
                 this.isAutoPay = jSONObject.optInt("is_autopay");
-                this.lqt = false;
-                this.lqo = jSONObject.optString("payment_pos_key");
+                this.lsv = false;
+                this.lsq = jSONObject.optString("payment_pos_key");
                 this.mTagName = jSONObject.optString("tag_name");
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class c {
-        public List<d> lqf = new ArrayList();
-        public List<C0795f> lqg = new ArrayList();
-        public String lqh;
-        public String lqi;
+        public List<d> lsh = new ArrayList();
+        public List<C0801f> lsi = new ArrayList();
+        public String lsj;
+        public String lsk;
         public String mContent;
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
                 this.mContent = jSONObject.optString("content");
-                this.lqh = jSONObject.optString("tip_text");
-                this.lqi = jSONObject.optString("img");
+                this.lsj = jSONObject.optString("tip_text");
+                this.lsk = jSONObject.optString("img");
                 JSONArray optJSONArray = jSONObject.optJSONArray("money_info");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -138,21 +138,21 @@ public class f {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         d dVar = new d();
                         dVar.parseJson(jSONObject2);
-                        if (1 == dVar.lqr) {
+                        if (1 == dVar.lst) {
                             dVar.isChecked = true;
                         } else {
                             dVar.isChecked = false;
                         }
-                        this.lqf.add(dVar);
+                        this.lsh.add(dVar);
                     }
                     JSONArray optJSONArray2 = jSONObject.optJSONArray(HorizontalTranslateLayout.DIRECTION_RIGHT);
                     if (optJSONArray2 != null) {
                         int length2 = optJSONArray2.length();
                         for (int i2 = 0; i2 < length2; i2++) {
                             JSONObject jSONObject3 = optJSONArray2.getJSONObject(i2);
-                            C0795f c0795f = new C0795f();
-                            c0795f.parseJson(jSONObject3);
-                            this.lqg.add(c0795f);
+                            C0801f c0801f = new C0801f();
+                            c0801f.parseJson(jSONObject3);
+                            this.lsi.add(c0801f);
                         }
                     }
                 }
@@ -160,19 +160,19 @@ public class f {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public List<d> lqf = new ArrayList();
-        public List<C0795f> lqg = new ArrayList();
-        public String lqh;
-        public String lqi;
+        public List<d> lsh = new ArrayList();
+        public List<C0801f> lsi = new ArrayList();
+        public String lsj;
+        public String lsk;
         public String mContent;
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
                 this.mContent = jSONObject.optString("content");
-                this.lqh = jSONObject.optString("tip_text");
-                this.lqi = jSONObject.optString("img");
+                this.lsj = jSONObject.optString("tip_text");
+                this.lsk = jSONObject.optString("img");
                 JSONArray optJSONArray = jSONObject.optJSONArray("money_info");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -180,20 +180,20 @@ public class f {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         d dVar = new d();
                         dVar.parseJson(jSONObject2);
-                        if (1 == dVar.lqr) {
+                        if (1 == dVar.lst) {
                             dVar.isChecked = true;
                         } else {
                             dVar.isChecked = false;
                         }
-                        this.lqf.add(dVar);
+                        this.lsh.add(dVar);
                     }
                     JSONArray optJSONArray2 = jSONObject.optJSONArray(HorizontalTranslateLayout.DIRECTION_RIGHT);
                     if (optJSONArray2 != null) {
                         int length2 = optJSONArray2.length();
                         for (int i2 = 0; i2 < length2; i2++) {
-                            C0795f c0795f = new C0795f();
-                            c0795f.parseJson(optJSONArray2.optJSONObject(i2));
-                            this.lqg.add(c0795f);
+                            C0801f c0801f = new C0801f();
+                            c0801f.parseJson(optJSONArray2.optJSONObject(i2));
+                            this.lsi.add(c0801f);
                         }
                     }
                 }
@@ -201,15 +201,15 @@ public class f {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
-        public c lqj = new c();
-        public a lqk = new a();
+        public c lsl = new c();
+        public a lsm = new a();
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
-                this.lqj.parseJson(jSONObject.optJSONObject("member"));
-                this.lqk.parseJson(jSONObject.optJSONObject("adv_member"));
+                this.lsl.parseJson(jSONObject.optJSONObject("member"));
+                this.lsm.parseJson(jSONObject.optJSONObject("adv_member"));
             }
         }
     }

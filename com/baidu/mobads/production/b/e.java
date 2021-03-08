@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e extends com.baidu.mobads.production.a {
     private ArrayList<IXAdInstanceInfo> A;
     private boolean B;
@@ -146,7 +146,7 @@ public class e extends com.baidu.mobads.production.a {
             stringBuffer.append("_&_");
             stringBuffer.append(iXAdInstanceInfo.getTitle());
             stringBuffer.append("_&_");
-            q.f3357a = stringBuffer.toString();
+            q.f2399a = stringBuffer.toString();
         } catch (Exception e) {
         }
         try {

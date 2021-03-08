@@ -16,48 +16,48 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonConstellationActivity extends BaseActivity {
-    private com.baidu.tbadk.widget.timepicker.a.f.b ftu;
-    private ImageView hSQ;
-    private TextView kYD;
+    private com.baidu.tbadk.widget.timepicker.a.f.b fuT;
+    private ImageView hUz;
+    private TextView laG;
+    private View mAp;
+    private BdSwitchView mAq;
+    private RelativeLayout mAr;
+    private TextView mAs;
+    private TextView mAt;
+    private TextView mAu;
+    private TextView mAv;
+    private TextView mAw;
+    private int mAx;
     private long mBirthdayTime;
     private NavigationBar mNavigationBar;
     private RelativeLayout mRootView;
-    private View myn;
-    private BdSwitchView myo;
-    private RelativeLayout myp;
-    private TextView myq;
-    private TextView myr;
-    private TextView mys;
-    private TextView myt;
-    private TextView myu;
-    private int myv;
-    private BdSwitchView.a myw = new BdSwitchView.a() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.1
+    private BdSwitchView.a mAy = new BdSwitchView.a() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.1
         @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
         public void a(View view, BdSwitchView.SwitchState switchState) {
             if (switchState == BdSwitchView.SwitchState.OFF) {
-                PersonConstellationActivity.this.myv = 2;
+                PersonConstellationActivity.this.mAx = 2;
             } else {
-                PersonConstellationActivity.this.myv = 1;
+                PersonConstellationActivity.this.mAx = 1;
             }
         }
     };
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == PersonConstellationActivity.this.myn) {
+            if (view == PersonConstellationActivity.this.mAp) {
                 PersonConstellationActivity.this.finishActivity();
-            } else if (view != PersonConstellationActivity.this.hSQ) {
-                if (view == PersonConstellationActivity.this.myp) {
-                    PersonConstellationActivity.this.dxQ();
+            } else if (view != PersonConstellationActivity.this.hUz) {
+                if (view == PersonConstellationActivity.this.mAr) {
+                    PersonConstellationActivity.this.dxZ();
                 }
             } else {
                 PersonConstellationActivity.this.finish();
             }
         }
     };
-    private com.baidu.tbadk.widget.timepicker.a.d.e myx = new com.baidu.tbadk.widget.timepicker.a.d.e() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.4
+    private com.baidu.tbadk.widget.timepicker.a.d.e mAz = new com.baidu.tbadk.widget.timepicker.a.d.e() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.4
         @Override // com.baidu.tbadk.widget.timepicker.a.d.e
         public void a(Date date, View view) {
             if (date != null) {
@@ -65,16 +65,16 @@ public class PersonConstellationActivity extends BaseActivity {
                     PersonConstellationActivity.this.showToast(R.string.person_center_birthday_time_limit);
                     return;
                 }
-                PersonConstellationActivity.this.myq.setText(au.p(date));
-                PersonConstellationActivity.this.myr.setText(au.o(date));
+                PersonConstellationActivity.this.mAs.setText(au.p(date));
+                PersonConstellationActivity.this.mAt.setText(au.o(date));
                 PersonConstellationActivity.this.mBirthdayTime = date.getTime() / 1000;
-                if (PersonConstellationActivity.this.myo.getVisibility() != 0) {
-                    PersonConstellationActivity.this.mys.setVisibility(8);
-                    PersonConstellationActivity.this.myo.setVisibility(0);
-                    if (PersonConstellationActivity.this.myv == 1) {
-                        PersonConstellationActivity.this.myo.turnOn();
+                if (PersonConstellationActivity.this.mAq.getVisibility() != 0) {
+                    PersonConstellationActivity.this.mAu.setVisibility(8);
+                    PersonConstellationActivity.this.mAq.setVisibility(0);
+                    if (PersonConstellationActivity.this.mAx == 1) {
+                        PersonConstellationActivity.this.mAq.turnOn();
                     } else {
-                        PersonConstellationActivity.this.myo.turnOff();
+                        PersonConstellationActivity.this.mAq.turnOff();
                     }
                 }
             }
@@ -100,47 +100,47 @@ public class PersonConstellationActivity extends BaseActivity {
         this.mRootView = (RelativeLayout) findViewById(R.id.person_constellation_root_view);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.person_constellation_title)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
-        this.myn = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
-        this.kYD = (TextView) this.myn.findViewById(R.id.right_textview);
-        this.kYD.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
-        this.kYD.setText(getPageContext().getString(R.string.person_constellation_complete));
-        ap.setViewTextColor(this.kYD, R.color.navi_op_text, 1);
-        this.myn.setOnClickListener(this.mClickListener);
-        this.hSQ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
-        this.hSQ.setOnClickListener(this.mClickListener);
-        ap.setImageResource(this.hSQ, R.drawable.selector_topbar_return_black);
-        this.myo = (BdSwitchView) findViewById(R.id.person_constellation_switch);
-        this.myo.setOnSwitchStateChangeListener(this.myw);
-        l.addToParentArea(getPageContext().getPageActivity(), this.myo, 10, 10, 10, 10);
-        this.myp = (RelativeLayout) findViewById(R.id.person_constellation_birthday);
-        this.myp.setOnClickListener(this.mClickListener);
-        this.myq = (TextView) findViewById(R.id.constellation_name);
-        this.myr = (TextView) findViewById(R.id.constellation_birthday);
-        this.myt = (TextView) findViewById(R.id.birthday_label);
-        this.myu = (TextView) findViewById(R.id.person_constellation_permission_label);
-        this.mys = (TextView) findViewById(R.id.person_constellation_tip);
+        this.mAp = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
+        this.laG = (TextView) this.mAp.findViewById(R.id.right_textview);
+        this.laG.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
+        this.laG.setText(getPageContext().getString(R.string.person_constellation_complete));
+        ap.setViewTextColor(this.laG, R.color.navi_op_text, 1);
+        this.mAp.setOnClickListener(this.mClickListener);
+        this.hUz = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
+        this.hUz.setOnClickListener(this.mClickListener);
+        ap.setImageResource(this.hUz, R.drawable.selector_topbar_return_black);
+        this.mAq = (BdSwitchView) findViewById(R.id.person_constellation_switch);
+        this.mAq.setOnSwitchStateChangeListener(this.mAy);
+        l.addToParentArea(getPageContext().getPageActivity(), this.mAq, 10, 10, 10, 10);
+        this.mAr = (RelativeLayout) findViewById(R.id.person_constellation_birthday);
+        this.mAr.setOnClickListener(this.mClickListener);
+        this.mAs = (TextView) findViewById(R.id.constellation_name);
+        this.mAt = (TextView) findViewById(R.id.constellation_birthday);
+        this.mAv = (TextView) findViewById(R.id.birthday_label);
+        this.mAw = (TextView) findViewById(R.id.person_constellation_permission_label);
+        this.mAu = (TextView) findViewById(R.id.person_constellation_tip);
         if (this.mBirthdayTime == 0) {
-            this.mys.setVisibility(0);
-            this.myo.setVisibility(8);
+            this.mAu.setVisibility(0);
+            this.mAq.setVisibility(8);
             return;
         }
-        this.mys.setVisibility(8);
-        this.myo.setVisibility(0);
-        if (this.myv == 1) {
-            this.myo.turnOnNoCallback();
+        this.mAu.setVisibility(8);
+        this.mAq.setVisibility(0);
+        if (this.mAx == 1) {
+            this.mAq.turnOnNoCallback();
         } else {
-            this.myo.turnOffNoCallback();
+            this.mAq.turnOffNoCallback();
         }
         Date date = new Date(this.mBirthdayTime * 1000);
-        this.myq.setText(au.p(date));
-        this.myr.setText(au.o(date));
+        this.mAs.setText(au.p(date));
+        this.mAt.setText(au.o(date));
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null) {
             this.mBirthdayTime = intent.getLongExtra("constellation_birthday", 0L);
-            this.myv = intent.getIntExtra("constellation_show_status", 1);
+            this.mAx = intent.getIntExtra("constellation_show_status", 1);
         }
     }
 
@@ -148,14 +148,14 @@ public class PersonConstellationActivity extends BaseActivity {
     public void finishActivity() {
         Intent intent = new Intent();
         intent.putExtra("constellation_birthday", this.mBirthdayTime);
-        intent.putExtra("constellation_show_status", this.myv);
+        intent.putExtra("constellation_show_status", this.mAx);
         setResult(-1, intent);
         finish();
     }
 
-    public void dxQ() {
-        if (this.ftu == null) {
-            this.ftu = new com.baidu.tbadk.widget.timepicker.a.b.a(getActivity(), this.myx).a(R.layout.person_birthday_select_layout, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.3
+    public void dxZ() {
+        if (this.fuT == null) {
+            this.fuT = new com.baidu.tbadk.widget.timepicker.a.b.a(getActivity(), this.mAz).a(R.layout.person_birthday_select_layout, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.3
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.a
                 public void bI(View view) {
                     ap.setBackgroundResource(view, R.drawable.person_birthday_select_top_bg);
@@ -163,8 +163,8 @@ public class PersonConstellationActivity extends BaseActivity {
                     textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.3.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            if (PersonConstellationActivity.this.ftu != null) {
-                                PersonConstellationActivity.this.ftu.dismiss();
+                            if (PersonConstellationActivity.this.fuT != null) {
+                                PersonConstellationActivity.this.fuT.dismiss();
                             }
                         }
                     });
@@ -174,16 +174,16 @@ public class PersonConstellationActivity extends BaseActivity {
                     textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonConstellationActivity.3.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            if (PersonConstellationActivity.this.ftu != null) {
-                                PersonConstellationActivity.this.ftu.bIG();
-                                PersonConstellationActivity.this.ftu.dismiss();
+                            if (PersonConstellationActivity.this.fuT != null) {
+                                PersonConstellationActivity.this.fuT.bIK();
+                                PersonConstellationActivity.this.fuT.dismiss();
                             }
                         }
                     });
                 }
-            }).st(18).a(new boolean[]{true, true, true, false, false, false}).d("年", "月", "日", "时", "分", "秒").av(2.0f).h(0, 0, 0, 0, 0, 0).lO(false).su(ap.getColor(R.color.CAM_X0206)).sw(ap.getColor(R.color.CAM_X0105)).sx(ap.getColor(R.color.CAM_X0109)).sv(ap.getColor(R.color.black_alpha30)).ss(ap.getColor(R.color.CAM_X0201)).lN(false).L(this.mRootView).bIy();
+            }).sv(18).a(new boolean[]{true, true, true, false, false, false}).d("年", "月", "日", "时", "分", "秒").az(2.0f).h(0, 0, 0, 0, 0, 0).lO(false).sw(ap.getColor(R.color.CAM_X0206)).sy(ap.getColor(R.color.CAM_X0105)).sz(ap.getColor(R.color.CAM_X0109)).sx(ap.getColor(R.color.black_alpha30)).su(ap.getColor(R.color.CAM_X0201)).lN(false).L(this.mRootView).bIC();
         }
-        this.ftu.show();
+        this.fuT.show();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -191,12 +191,12 @@ public class PersonConstellationActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.myo.setBackgroundRes(ap.getBitmap(R.drawable.bg_switch_open), ap.getBitmap(R.drawable.bg_switch_close), ap.getBitmap(R.drawable.btn_handle));
-        ap.setViewTextColor(this.myt, R.color.CAM_X0105, 1, i);
-        ap.setViewTextColor(this.myu, R.color.CAM_X0105, 1, i);
-        ap.setViewTextColor(this.myq, R.color.CAM_X0109, 1, i);
-        ap.setViewTextColor(this.myr, R.color.CAM_X0109, 1, i);
-        ap.setViewTextColor(this.mys, R.color.CAM_X0109, 1, i);
+        this.mAq.setBackgroundRes(ap.getBitmap(R.drawable.bg_switch_open), ap.getBitmap(R.drawable.bg_switch_close), ap.getBitmap(R.drawable.btn_handle));
+        ap.setViewTextColor(this.mAv, R.color.CAM_X0105, 1, i);
+        ap.setViewTextColor(this.mAw, R.color.CAM_X0105, 1, i);
+        ap.setViewTextColor(this.mAs, R.color.CAM_X0109, 1, i);
+        ap.setViewTextColor(this.mAt, R.color.CAM_X0109, 1, i);
+        ap.setViewTextColor(this.mAu, R.color.CAM_X0109, 1, i);
         ap.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i);
     }
 }

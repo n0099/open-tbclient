@@ -3,7 +3,7 @@ package cn.com.chinatelecom.account.api.c;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class c {
     private static SharedPreferences a(Context context) {
         return context.getSharedPreferences(b(context), 0);

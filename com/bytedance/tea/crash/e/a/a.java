@@ -14,13 +14,13 @@ public class a extends c {
     @Override // com.bytedance.tea.crash.e.a.c
     public com.bytedance.tea.crash.c.a a(com.bytedance.tea.crash.c.a aVar) {
         com.bytedance.tea.crash.c.a a2 = super.a(aVar);
-        com.bytedance.tea.crash.c.b ia = com.bytedance.tea.crash.c.b.ia(this.f7639b);
-        ia.a(h.erl().a());
-        ia.a(h.ern().a());
-        ia.b(this.pwn.c());
-        a2.a(ia);
-        a2.a("process_name", com.bytedance.tea.crash.g.a.d(this.f7639b));
-        k.a(a2, ia, this.f7638a);
+        com.bytedance.tea.crash.c.b hZ = com.bytedance.tea.crash.c.b.hZ(this.b);
+        hZ.a(h.erv().a());
+        hZ.a(h.erx().a());
+        hZ.b(this.pyq.c());
+        a2.a(hZ);
+        a2.a("process_name", com.bytedance.tea.crash.g.a.d(this.b));
+        k.a(a2, hZ, this.f5169a);
         return a2;
     }
 }

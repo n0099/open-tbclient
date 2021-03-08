@@ -2,7 +2,7 @@ package com.baidu.swan.gamecenter.c;
 
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String name;

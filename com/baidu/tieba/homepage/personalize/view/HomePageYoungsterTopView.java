@@ -21,15 +21,15 @@ import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class HomePageYoungsterTopView extends RelativeLayout {
-    private TextView kmF;
-    private ImageView kmG;
-    private b kmH;
-    private a kmI;
+    private TextView koH;
+    private ImageView koI;
+    private b koJ;
+    private a koK;
     private TbPageContext<?> pageContext;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cRw();
+        void cRD();
     }
 
     public HomePageYoungsterTopView(TbPageContext<?> tbPageContext) {
@@ -52,18 +52,18 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.view_homepage_youngster_top, this);
-        this.kmF = (TextView) findViewById(R.id.youngster_top_text);
-        this.kmG = (ImageView) findViewById(R.id.youngster_top_delete);
+        this.koH = (TextView) findViewById(R.id.youngster_top_text);
+        this.koI = (ImageView) findViewById(R.id.youngster_top_delete);
         SpannableString spannableString = new SpannableString(getContext().getString(R.string.youngster_open_title) + "，" + getContext().getString(R.string.youngster_homgpage_top_text));
-        this.kmH = new b(getContext());
-        spannableString.setSpan(this.kmH, 9, 13, 33);
-        this.kmF.setText(spannableString);
-        this.kmF.setMovementMethod(LinkMovementMethod.getInstance());
-        this.kmG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.HomePageYoungsterTopView.1
+        this.koJ = new b(getContext());
+        spannableString.setSpan(this.koJ, 9, 13, 33);
+        this.koH.setText(spannableString);
+        this.koH.setMovementMethod(LinkMovementMethod.getInstance());
+        this.koI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.view.HomePageYoungsterTopView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HomePageYoungsterTopView.this.kmI != null) {
-                    HomePageYoungsterTopView.this.kmI.cRw();
+                if (HomePageYoungsterTopView.this.koK != null) {
+                    HomePageYoungsterTopView.this.koK.cRD();
                 }
             }
         });
@@ -71,22 +71,22 @@ public class HomePageYoungsterTopView extends RelativeLayout {
     }
 
     public void setOnDeleteClick(a aVar) {
-        this.kmI = aVar;
+        this.koK = aVar;
     }
 
     public void onChangeSkinType() {
         ap.setBackgroundColor(this, R.color.CAM_X0206);
-        ap.setViewTextColor(this.kmF, R.color.CAM_X0107);
-        ap.setImageResource(this.kmG, R.drawable.icon_home_card_delete);
+        ap.setViewTextColor(this.koH, R.color.CAM_X0107);
+        ap.setImageResource(this.koI, R.drawable.icon_home_card_delete);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b extends ClickableSpan {
-        WeakReference<Context> kmK;
+        WeakReference<Context> koM;
 
         public b(Context context) {
-            this.kmK = new WeakReference<>(context);
+            this.koM = new WeakReference<>(context);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -97,8 +97,8 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
-            Context context = this.kmK.get();
-            if (context != null && com.baidu.tbadk.youngster.b.c.bJf()) {
+            Context context = this.koM.get();
+            if (context != null && com.baidu.tbadk.youngster.b.c.bJj()) {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);

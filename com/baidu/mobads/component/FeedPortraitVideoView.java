@@ -18,7 +18,7 @@ import dalvik.system.DexClassLoader;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FeedPortraitVideoView extends RelativeLayout implements View.OnClickListener {
     private static final int COVER_PIC_ID = 17;
     private static final int LOADING_VIEW_ID = 18;
@@ -44,7 +44,7 @@ public class FeedPortraitVideoView extends RelativeLayout implements View.OnClic
     private String mRemoteClassName;
     private Context mViewContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface IPortraitVideoViewClickListener {
         void onPortraitViewClick(FeedPortraitVideoView feedPortraitVideoView);
     }
@@ -316,7 +316,7 @@ public class FeedPortraitVideoView extends RelativeLayout implements View.OnClic
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     class a implements InvocationHandler {
         a() {
         }

@@ -1,5 +1,5 @@
 package com.baidu.tieba.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l implements k {
     @Override // com.baidu.tieba.l.k
     public h aM(String str, String str2, String str3) {
@@ -7,7 +7,7 @@ public class l implements k {
     }
 
     @Override // com.baidu.tieba.l.k
-    public g dhf() {
-        return com.baidu.tieba.post.j.dBp();
+    public g dho() {
+        return com.baidu.tieba.post.j.dBx();
     }
 }

@@ -10,14 +10,14 @@ import com.baidu.tieba.ala.alaar.makeup.c;
 import com.baidu.tieba.ala.alaar.view.b;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, T, a> {
-    private int gwA;
+    private int gyj;
     private Context mContext;
 
     public f(Context context) {
         super(context, null);
-        this.gwA = 0;
+        this.gyj = 0;
         this.mContext = context;
     }
 
@@ -31,7 +31,7 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tz */
+    /* renamed from: tB */
     public T getItem(int i) {
         return (T) ((List) this.mData).get(i);
     }
@@ -43,8 +43,8 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ala.alaar.view.h
-    /* renamed from: tA */
-    public T tB(int i) {
+    /* renamed from: tC */
+    public T tD(int i) {
         return (T) ((List) this.mData).get(i);
     }
 
@@ -55,24 +55,24 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
         return new a(new BeautyItemView(viewGroup.getContext()), null);
     }
 
-    public void tw(int i) {
-        this.gwA = i;
+    public void ty(int i) {
+        this.gyj = i;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class a extends b<T> {
-        private ObjectAnimator gvZ;
-        private BeautyItemView gxb;
+        private ObjectAnimator gxI;
+        private BeautyItemView gyK;
 
         public a(View view, b.a aVar) {
             super(view, aVar);
-            this.gxb = (BeautyItemView) view;
-            com.facebook.drawee.generic.a hierarchy = this.gxb.gwI.getHierarchy();
+            this.gyK = (BeautyItemView) view;
+            com.facebook.drawee.generic.a hierarchy = this.gyK.gyr.getHierarchy();
             if (hierarchy == null) {
-                this.gxb.gwI.setHierarchy(new com.facebook.drawee.generic.b(this.gxb.getResources()).Po(300).Pp(a.e.filter_beauty_item_bg).euY());
+                this.gyK.gyr.setHierarchy(new com.facebook.drawee.generic.b(this.gyK.getResources()).Ps(300).Pt(a.e.filter_beauty_item_bg).evh());
                 return;
             }
-            hierarchy.Pn(a.e.filter_beauty_item_bg);
+            hierarchy.Pr(a.e.filter_beauty_item_bg);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,27 +80,27 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
         /* renamed from: a */
         public void j(int i, T t) {
             String str;
-            c.a bPd = ((com.baidu.tieba.ala.alaar.makeup.c) this.item).bPd();
-            if (bPd == null) {
+            c.a bPj = ((com.baidu.tieba.ala.alaar.makeup.c) this.item).bPj();
+            if (bPj == null) {
                 str = null;
             } else {
-                str = bPd.bPo();
+                str = bPj.bPu();
             }
             if (TextUtils.isEmpty(str)) {
                 str = ((com.baidu.tieba.ala.alaar.makeup.c) this.item).getIcon();
             }
             if (!TextUtils.isEmpty(str) && !"null".equals(str)) {
                 if (str.charAt(0) == File.separatorChar) {
-                    this.gxb.gwI.setImageURI("file://" + str);
+                    this.gyK.gyr.setImageURI("file://" + str);
                 } else {
-                    this.gxb.gwI.setImageURI(str);
+                    this.gyK.gyr.setImageURI(str);
                 }
             }
-            this.gxb.setItemText(((com.baidu.tieba.ala.alaar.makeup.c) this.item).bPb());
-            if (i == 0 && f.this.gwA != 0) {
-                this.gxb.setPadding(f.this.gwA, 0, 0, 0);
+            this.gyK.setItemText(((com.baidu.tieba.ala.alaar.makeup.c) this.item).bPh());
+            if (i == 0 && f.this.gyj != 0) {
+                this.gyK.setPadding(f.this.gyj, 0, 0, 0);
             } else {
-                this.gxb.setPadding(0, 0, 0, 0);
+                this.gyK.setPadding(0, 0, 0, 0);
             }
             mn(false);
             b(t);
@@ -109,53 +109,53 @@ public class f<T extends com.baidu.tieba.ala.alaar.makeup.c> extends h<List<T>, 
         private void b(T t) {
             if (t == this.item) {
                 if (t.isLoaded()) {
-                    this.gxb.gvY.setVisibility(4);
-                    bQB();
+                    this.gyK.gxH.setVisibility(4);
+                    bQH();
                 } else if (t.isLoading()) {
-                    this.gxb.gvY.setVisibility(0);
-                    bQA();
+                    this.gyK.gxH.setVisibility(0);
+                    bQG();
                 } else {
-                    this.gxb.gvY.setVisibility(0);
-                    this.gxb.gvY.setRotation(0.0f);
-                    this.gxb.gvY.setImageResource(a.e.sticker_unload);
-                    bQB();
+                    this.gyK.gxH.setVisibility(0);
+                    this.gyK.gxH.setRotation(0.0f);
+                    this.gyK.gxH.setImageResource(a.e.sticker_unload);
+                    bQH();
                 }
             }
         }
 
         @Override // com.baidu.tieba.ala.alaar.view.b
-        public boolean tx(int i) {
+        public boolean tz(int i) {
             boolean z = i == this.position;
             if (com.baidu.tieba.ala.alaar.makeup.h.isDebug()) {
                 com.baidu.tieba.ala.alaar.makeup.h.d("MK_VIEW", "setCurrentPosition vHolder=" + this.position + "==" + i + " = " + z);
             }
-            return mn(z) | super.tx(i);
+            return mn(z) | super.tz(i);
         }
 
         public boolean mn(boolean z) {
             if (z) {
-                this.gxb.setSelectedBackground();
+                this.gyK.setSelectedBackground();
                 return false;
             }
-            this.gxb.setUnselectedBackground();
+            this.gyK.setUnselectedBackground();
             return false;
         }
 
-        public void bQA() {
-            if (this.gvZ == null) {
-                this.gvZ = ObjectAnimator.ofFloat(this.gxb.gvY, "rotation", 0.0f, 359.0f);
-                this.gvZ.setRepeatCount(-1);
-                this.gvZ.setDuration(1000L);
+        public void bQG() {
+            if (this.gxI == null) {
+                this.gxI = ObjectAnimator.ofFloat(this.gyK.gxH, "rotation", 0.0f, 359.0f);
+                this.gxI.setRepeatCount(-1);
+                this.gxI.setDuration(1000L);
             }
-            if (!this.gvZ.isRunning()) {
-                this.gxb.gvY.setImageResource(a.e.sticker_loading);
-                this.gvZ.start();
+            if (!this.gxI.isRunning()) {
+                this.gyK.gxH.setImageResource(a.e.sticker_loading);
+                this.gxI.start();
             }
         }
 
-        public void bQB() {
-            if (this.gvZ != null && this.gvZ.isRunning()) {
-                this.gvZ.cancel();
+        public void bQH() {
+            if (this.gxI != null && this.gxI.isRunning()) {
+                this.gxI.cancel();
             }
         }
     }

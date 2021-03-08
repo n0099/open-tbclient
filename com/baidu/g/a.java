@@ -32,15 +32,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public static volatile boolean aug;
-    private static volatile a aui;
+    public static volatile boolean avG;
+    private static volatile a avI;
     private static final HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
     private static Context mContext;
     public static Handler mHandler;
     private static volatile Map<Long, Message> msgList;
-    public boolean auh = false;
-    private AtomicInteger auj = new AtomicInteger();
-    private b auk = new b() { // from class: com.baidu.g.a.2
+    public boolean avH = false;
+    private AtomicInteger avJ = new AtomicInteger();
+    private b avK = new b() { // from class: com.baidu.g.a.2
         @Override // com.baidu.lcp.sdk.client.bean.b
         public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
             LogUtils.i("IMServiceImpl", "IMService err :" + i + ", methodId :" + j2 + ", data :" + bArr.length + ", Response :" + new String(bArr));
@@ -91,20 +91,20 @@ public class a {
     static {
         handlerThread.start();
         mHandler = new Handler(handlerThread.getLooper());
-        aug = true;
+        avG = true;
         msgList = new LinkedHashMap();
     }
 
-    public static a ao(Context context) {
-        if (aui == null) {
+    public static a an(Context context) {
+        if (avI == null) {
             synchronized (a.class) {
-                if (aui == null) {
+                if (avI == null) {
                     mContext = context.getApplicationContext();
-                    aui = new a();
+                    avI = new a();
                 }
             }
         }
-        return aui;
+        return avI;
     }
 
     public void e(Context context, final Intent intent) {
@@ -123,10 +123,10 @@ public class a {
 
     private void initService() {
         try {
-            LogUtils.d("IMServiceImpl", "isSmallFlow :" + aug);
+            LogUtils.d("IMServiceImpl", "isSmallFlow :" + avG);
             IMManager.init(mContext.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(mContext.getApplicationContext()));
-            if (aug) {
-                vx();
+            if (avG) {
+                vA();
             } else if (!IMSDK.getInstance(mContext.getApplicationContext()).init()) {
                 IMConnection.getInstance(mContext).disconnectedByPeer();
             }
@@ -134,34 +134,34 @@ public class a {
         }
     }
 
-    private void vx() {
+    private void vA() {
         for (int i : new int[]{96, Constants.METHOD_MEDIA_NOTIFY, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 231}) {
             s(2, Integer.valueOf(i).intValue());
         }
         s(3, 196);
-        this.auh = true;
+        this.avH = true;
     }
 
     private void s(int i, int i2) {
         com.baidu.lcp.sdk.client.bean.a aVar = new com.baidu.lcp.sdk.client.bean.a();
         aVar.serviceId = i;
         aVar.methodId = i2;
-        com.baidu.lcp.sdk.client.a.a(aVar, this.auk);
+        com.baidu.lcp.sdk.client.a.a(aVar, this.avK);
     }
 
     public void onHandleWork(@NonNull Intent intent) {
-        LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + aug);
+        LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + avG);
         if (intent == null) {
             intent = new Intent();
             LogUtils.i("IMServiceImpl", "--- onStart by null intent!");
         }
-        if (aug) {
+        if (avG) {
             try {
                 int intExtra = intent.getIntExtra("method", -1);
                 int intExtra2 = intent.getIntExtra(Constants.EXTRA_SERVICE, -1);
                 if (intExtra != -1 && intExtra2 != -1) {
                     if (intExtra == 50 || intExtra == 201) {
-                        vx();
+                        vA();
                     }
                     Message createNewMessage = MessageFactory.getInstance().createNewMessage(mContext, intExtra, intent);
                     if (createNewMessage != null) {
@@ -186,9 +186,9 @@ public class a {
                         if (intExtra2 == 3 && bLCPRequest.methodId == 55) {
                             bLCPRequest.methodId = 185L;
                         }
-                        bLCPRequest.auv = createNewMessage.getBody().getBytes();
-                        bLCPRequest.auw = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
-                        bLCPRequest.msgId = (bLCPRequest.serviceId * 1000000000000000L) + bLCPRequest.methodId + (Long.valueOf((System.currentTimeMillis() + "").substring((System.currentTimeMillis() + "").length() - 6) + this.auj.incrementAndGet()).longValue() * 1000);
+                        bLCPRequest.avV = createNewMessage.getBody().getBytes();
+                        bLCPRequest.avW = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
+                        bLCPRequest.msgId = (bLCPRequest.serviceId * 1000000000000000L) + bLCPRequest.methodId + (Long.valueOf((System.currentTimeMillis() + "").substring((System.currentTimeMillis() + "").length() - 6) + this.avJ.incrementAndGet()).longValue() * 1000);
                         synchronized (msgList) {
                             msgList.put(Long.valueOf(bLCPRequest.msgId), createNewMessage);
                             LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.msgId + ". msg :" + msgList.keySet().toString());
@@ -196,7 +196,7 @@ public class a {
                         if (intExtra == 50) {
                             new IMTrack.RequestBuilder(mContext.getApplicationContext()).method(UbcStatConstant.ContentType.UBC_TYPE_IM_SEND).requestId("2").errorCode(50L).ext("" + bLCPRequest.msgId).aliasId(501112L).build();
                         }
-                        com.baidu.lcp.sdk.client.a.a(bLCPRequest, this.auk);
+                        com.baidu.lcp.sdk.client.a.a(bLCPRequest, this.avK);
                         return;
                     }
                     return;
@@ -224,7 +224,7 @@ public class a {
         }
     }
 
-    public static void ap(Context context) {
+    public static void ao(Context context) {
         synchronized (msgList) {
             if (msgList != null) {
                 for (Message message : msgList.values()) {

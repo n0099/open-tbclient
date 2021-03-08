@@ -21,7 +21,7 @@ public class d implements com.kwad.sdk.plugin.b {
             ArrayList arrayList = new ArrayList();
             for (com.kwad.sdk.core.response.model.b bVar : list) {
                 if (bVar != null && bVar.c) {
-                    arrayList.add(new KsScene.Builder(bVar.f9434a).build());
+                    arrayList.add(new KsScene.Builder(bVar.f6256a).build());
                 }
             }
             com.kwad.sdk.contentalliance.home.b.a(arrayList);
@@ -30,7 +30,7 @@ public class d implements com.kwad.sdk.plugin.b {
 
     private void b(final Context context) {
         com.kwad.sdk.core.d.a.b("ContentPluginImpl", "初次获取Gid: initGId");
-        com.yxcorp.kuaishou.addfp.a.eJC().a(context, true, new com.yxcorp.kuaishou.addfp.b() { // from class: com.kwad.sdk.contentalliance.d.1
+        com.yxcorp.kuaishou.addfp.a.eJk().a(context, true, new com.yxcorp.kuaishou.addfp.b() { // from class: com.kwad.sdk.contentalliance.d.1
             @Override // com.yxcorp.kuaishou.addfp.b
             public void a(int i, String str) {
                 com.kwad.sdk.core.d.a.d("ContentPluginImpl", "初次获取Gid: initGId onFailed errorCode:" + i + "errorMessage :" + str);
@@ -79,7 +79,7 @@ public class d implements com.kwad.sdk.plugin.b {
         }
         ae.d(context, str);
         try {
-            com.yxcorp.kuaishou.addfp.a.eJC().a(context, str);
+            com.yxcorp.kuaishou.addfp.a.eJk().a(context, str);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.d("ContentPluginImpl", "ContentPluginImpl KWEGIDDFP setEGid error : " + th);
         }
@@ -87,9 +87,9 @@ public class d implements com.kwad.sdk.plugin.b {
 
     @Override // com.kwad.sdk.plugin.b
     public void a(@NonNull SdkConfigData sdkConfigData) {
-        List<com.kwad.sdk.core.response.model.b> b2 = c.a.aa.b();
-        if (b2 != null) {
-            a(b2);
+        List<com.kwad.sdk.core.response.model.b> b = c.a.aa.b();
+        if (b != null) {
+            a(b);
         }
         if (com.kwad.sdk.core.config.c.L()) {
             c();

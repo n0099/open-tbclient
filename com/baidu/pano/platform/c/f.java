@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.DisplayMetrics;
+import com.fun.ad.sdk.FunAdSdk;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes4.dex */
@@ -12,16 +13,14 @@ public class f {
     private static f j;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3914a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f3915b;
+    private int f2724a;
+    private int b;
     private int c;
     private int d;
     private String e = "-1";
     private String f = "02";
     private String g = "";
-    private String h = "baidu";
+    private String h = FunAdSdk.PLATFORM_BAIDU;
     private Context i;
 
     public static f a(Context context) {
@@ -117,11 +116,11 @@ public class f {
     }
 
     private int i() {
-        return this.f3914a;
+        return this.f2724a;
     }
 
     private int j() {
-        return this.f3915b;
+        return this.b;
     }
 
     private int k() {
@@ -143,8 +142,8 @@ public class f {
     private void n() {
         DisplayMetrics displayMetrics = this.i.getResources().getDisplayMetrics();
         if (displayMetrics != null) {
-            this.f3914a = displayMetrics.widthPixels;
-            this.f3915b = displayMetrics.heightPixels;
+            this.f2724a = displayMetrics.widthPixels;
+            this.b = displayMetrics.heightPixels;
         }
     }
 }

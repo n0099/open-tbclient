@@ -10,44 +10,44 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
 import com.baidu.tieba.lego.card.view.ButtonCardView;
 import com.baidu.tieba.lego.k;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LegoBottomView extends RelativeLayout implements k {
-    private boolean drR;
-    private ObjectAnimator lgS;
-    private Runnable lgT;
-    private boolean lgU;
+    private boolean dtu;
+    private ObjectAnimator liU;
+    private Runnable liV;
+    private boolean liW;
 
     public LegoBottomView(Context context) {
         super(context);
-        this.lgS = null;
-        this.lgT = null;
-        this.drR = false;
-        this.lgU = false;
+        this.liU = null;
+        this.liV = null;
+        this.dtu = false;
+        this.liW = false;
         init();
     }
 
     public LegoBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.lgS = null;
-        this.lgT = null;
-        this.drR = false;
-        this.lgU = false;
+        this.liU = null;
+        this.liV = null;
+        this.dtu = false;
+        this.liW = false;
         init();
     }
 
     public LegoBottomView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.lgS = null;
-        this.lgT = null;
-        this.drR = false;
-        this.lgU = false;
+        this.liU = null;
+        this.liV = null;
+        this.dtu = false;
+        this.liW = false;
         init();
     }
 
     private void init() {
-        this.lgS = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 0.5f, 1.0f);
-        this.lgS.setDuration(1000L);
-        this.lgS.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.lego.view.LegoBottomView.1
+        this.liU = ObjectAnimator.ofFloat(this, "alpha", 0.0f, 0.5f, 1.0f);
+        this.liU.setDuration(1000L);
+        this.liU.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.lego.view.LegoBottomView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 LegoBottomView.this.setVisibility(0);
@@ -65,16 +65,16 @@ public class LegoBottomView extends RelativeLayout implements k {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.lgT = new Runnable() { // from class: com.baidu.tieba.lego.view.LegoBottomView.2
+        this.liV = new Runnable() { // from class: com.baidu.tieba.lego.view.LegoBottomView.2
             @Override // java.lang.Runnable
             public void run() {
-                LegoBottomView.this.lgS.start();
+                LegoBottomView.this.liU.start();
             }
         };
     }
 
     public void a(BaseCardView baseCardView, ICardInfo iCardInfo) {
-        baseCardView.aN(iCardInfo);
+        baseCardView.aP(iCardInfo);
         if (baseCardView instanceof ButtonCardView) {
             ((ButtonCardView) baseCardView).setBackgroundAlpha(0.3f);
         }
@@ -82,18 +82,18 @@ public class LegoBottomView extends RelativeLayout implements k {
     }
 
     public void destory() {
-        this.drR = false;
-        this.lgU = false;
-        removeCallbacks(this.lgT);
+        this.dtu = false;
+        this.liW = false;
+        removeCallbacks(this.liV);
     }
 
     @Override // com.baidu.tieba.lego.k
     public void onScrollStateChanged(AbsListView absListView, int i) {
         switch (i) {
             case 0:
-                if (getVisibility() != 0 && !this.lgU) {
-                    removeCallbacks(this.lgT);
-                    postDelayed(this.lgT, 1000L);
+                if (getVisibility() != 0 && !this.liW) {
+                    removeCallbacks(this.liV);
+                    postDelayed(this.liV, 1000L);
                     return;
                 }
                 return;
@@ -107,15 +107,15 @@ public class LegoBottomView extends RelativeLayout implements k {
     }
 
     public boolean isShow() {
-        return this.drR;
+        return this.dtu;
     }
 
     public void setIsShow(boolean z) {
-        this.drR = z;
+        this.dtu = z;
     }
 
     public void setIsVideoLandscape(boolean z) {
-        removeCallbacks(this.lgT);
-        this.lgU = z;
+        removeCallbacks(this.liV);
+        this.liW = z;
     }
 }

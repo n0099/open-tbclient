@@ -4,10 +4,8 @@ package com.meizu.cloud.pushsdk.b.g;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    final byte[] f11210a;
-
-    /* renamed from: b  reason: collision with root package name */
-    int f11211b;
+    final byte[] f7371a;
+    int b;
     int c;
     boolean d;
     boolean e;
@@ -16,20 +14,20 @@ public final class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j() {
-        this.f11210a = new byte[2048];
+        this.f7371a = new byte[2048];
         this.e = true;
         this.d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(j jVar) {
-        this(jVar.f11210a, jVar.f11211b, jVar.c);
+        this(jVar.f7371a, jVar.b, jVar.c);
         jVar.d = true;
     }
 
     j(byte[] bArr, int i, int i2) {
-        this.f11210a = bArr;
-        this.f11211b = i;
+        this.f7371a = bArr;
+        this.b = i;
         this.c = i2;
         this.e = false;
         this.d = true;
@@ -45,12 +43,12 @@ public final class j {
     }
 
     public j a(int i) {
-        if (i <= 0 || i > this.c - this.f11211b) {
+        if (i <= 0 || i > this.c - this.b) {
             throw new IllegalArgumentException();
         }
         j jVar = new j(this);
-        jVar.c = jVar.f11211b + i;
-        this.f11211b += i;
+        jVar.c = jVar.b + i;
+        this.b += i;
         this.g.a(jVar);
         return jVar;
     }
@@ -71,16 +69,16 @@ public final class j {
             if (jVar.d) {
                 throw new IllegalArgumentException();
             }
-            if ((jVar.c + i) - jVar.f11211b > 2048) {
+            if ((jVar.c + i) - jVar.b > 2048) {
                 throw new IllegalArgumentException();
             }
-            System.arraycopy(jVar.f11210a, jVar.f11211b, jVar.f11210a, 0, jVar.c - jVar.f11211b);
-            jVar.c -= jVar.f11211b;
-            jVar.f11211b = 0;
+            System.arraycopy(jVar.f7371a, jVar.b, jVar.f7371a, 0, jVar.c - jVar.b);
+            jVar.c -= jVar.b;
+            jVar.b = 0;
         }
-        System.arraycopy(this.f11210a, this.f11211b, jVar.f11210a, jVar.c, i);
+        System.arraycopy(this.f7371a, this.b, jVar.f7371a, jVar.c, i);
         jVar.c += i;
-        this.f11211b += i;
+        this.b += i;
     }
 
     public void b() {
@@ -88,8 +86,8 @@ public final class j {
             throw new IllegalStateException();
         }
         if (this.g.e) {
-            int i = this.c - this.f11211b;
-            if (i <= (this.g.d ? 0 : this.g.f11211b) + (2048 - this.g.c)) {
+            int i = this.c - this.b;
+            if (i <= (this.g.d ? 0 : this.g.b) + (2048 - this.g.c)) {
                 a(this.g, i);
                 a();
                 k.a(this);

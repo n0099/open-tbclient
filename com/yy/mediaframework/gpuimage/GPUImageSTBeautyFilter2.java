@@ -1,7 +1,7 @@
 package com.yy.mediaframework.gpuimage;
 
 import android.opengl.GLES20;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageSTBeautyFilter2 extends GPUImageFilter {
     private static final float ratio = 0.004f;
     private int mHeightLocation;

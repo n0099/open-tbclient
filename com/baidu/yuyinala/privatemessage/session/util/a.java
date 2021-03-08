@@ -12,19 +12,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class a {
-    private static long pkh = -1;
+    private static long pmm = -1;
 
-    public static String k(Context context, long j) {
-        Calendar calendar = Calendar.getInstance(enb());
+    public static String i(Context context, long j) {
+        Calendar calendar = Calendar.getInstance(enm());
         calendar.setTimeInMillis(j);
         Date time = calendar.getTime();
-        Calendar calendar2 = Calendar.getInstance(enb());
+        Calendar calendar2 = Calendar.getInstance(enm());
         calendar2.setTimeInMillis(ic(System.currentTimeMillis()));
         SimpleDateFormat simpleDateFormat = null;
         if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5)) {
-            simpleDateFormat = new SimpleDateFormat("HH:mm", enb());
+            simpleDateFormat = new SimpleDateFormat("HH:mm", enm());
         } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) == calendar2.get(5) - 1) {
             return "昨天";
         } else {
@@ -52,25 +52,25 @@ public final class a {
                     return "星期日";
                 }
             } else if (calendar.get(1) == calendar2.get(1) && calendar.get(2) == calendar2.get(2) && calendar.get(5) != calendar2.get(5)) {
-                simpleDateFormat = new SimpleDateFormat("MM-dd", enb());
+                simpleDateFormat = new SimpleDateFormat("MM-dd", enm());
             } else {
-                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", enb());
+                simpleDateFormat = new SimpleDateFormat("yy-MM-dd", enm());
             }
         }
         return simpleDateFormat.format(time);
     }
 
     public static long ic(long j) {
-        if (pkh < 0) {
-            pkh = j;
+        if (pmm < 0) {
+            pmm = j;
         }
-        if (Math.abs(pkh - j) > 1000) {
-            pkh = j;
+        if (Math.abs(pmm - j) > 1000) {
+            pmm = j;
         }
-        return pkh;
+        return pmm;
     }
 
-    public static Locale enb() {
+    public static Locale enm() {
         return BdBaseApplication.getInst().getResources().getConfiguration().locale;
     }
 
@@ -89,7 +89,7 @@ public final class a {
     }
 
     public static void ie(long j) {
-        b.emY().ib(j);
+        b.enj().ib(j);
     }
 
     public static String b(ChatSession chatSession) {

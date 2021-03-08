@@ -22,35 +22,35 @@ import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
 import com.baidu.tieba.recapp.s;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard> {
     private com.baidu.tieba.tbadkCore.e.a jsBridge;
-    private LinearLayout kWt;
-    private XiubaTbJsBridge lef;
+    private LinearLayout kYv;
+    private XiubaTbJsBridge lgi;
     private BaseWebView mWebView;
 
     public ImmersiveWebViewCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
-        this.jsBridge.a(new XiubaTbJsBridge(this.eUY));
-        this.jsBridge.a(new CommonTbJsBridge(this.eUY.getPageActivity()));
+        this.jsBridge.a(new XiubaTbJsBridge(this.eWx));
+        this.jsBridge.a(new CommonTbJsBridge(this.eWx.getPageActivity()));
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dbV() {
-        this.kWt = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
-        dcF();
-        return this.kWt;
+    protected View dce() {
+        this.kYv = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_webview, (ViewGroup) null);
+        dcO();
+        return this.kYv;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
-    private void dcF() {
+    private void dcO() {
         createWebView();
-        if (this.lef == null) {
-            this.lef = new XiubaTbJsBridge(this.eUY);
+        if (this.lgi == null) {
+            this.lgi = new XiubaTbJsBridge(this.eWx);
         }
-        this.lef.setBaseWebView(this.mWebView);
+        this.lgi.setBaseWebView(this.mWebView);
         this.mWebView.setHorizontalScrollBarEnabled(false);
         this.mWebView.setWebChromeClient(new WebChromeClient() { // from class: com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView.1
             @Override // android.webkit.WebChromeClient
@@ -61,11 +61,11 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         this.mWebView.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView.2
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                bf.bsV().a(ImmersiveWebViewCardView.this.eUY, new String[]{str}, true);
+                bf.bsY().a(ImmersiveWebViewCardView.this.eWx, new String[]{str}, true);
                 return true;
             }
         });
-        this.kWt.addView(this.mWebView);
+        this.kYv.addView(this.mWebView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,7 +86,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             if (StringUtils.isNull(optString) || StringUtils.isNull(optString2) || StringUtils.isNull(optString3)) {
                 return false;
             }
-            return this.lef.dealJsInterface(optString, optString2, optString3, jsPromptResult);
+            return this.lgi.dealJsInterface(optString, optString2, optString3, jsPromptResult);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;
@@ -115,7 +115,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
                 if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
                     CompatibleUtile.getInstance().loadUrl(this.mWebView, immersiveWebViewCard.getPageUrl());
                 }
-                s.dDt().dDp().eh(immersiveWebViewCard.getShowExtra(), this.mFrom);
+                s.dDB().dDx().eh(immersiveWebViewCard.getShowExtra(), this.mFrom);
                 immersiveWebViewCard.mHasShown = true;
             }
         }
@@ -123,7 +123,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
 
     public View createWebView() {
         if (this.mWebView == null) {
-            this.mWebView = new BridgeWebView(this.eUY.getPageActivity());
+            this.mWebView = new BridgeWebView(this.eWx.getPageActivity());
             this.mWebView.getSettings().setJavaScriptEnabled(true);
             this.mWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
             this.mWebView.getSettings().setAllowFileAccess(true);

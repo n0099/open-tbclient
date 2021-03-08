@@ -5,10 +5,10 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.scheme.ILiveScheme;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
-        com.baidu.tieba.sdk.a.dFx().g(TbadkCoreApplication.getInst(), null, 0);
+        com.baidu.tieba.sdk.a.dFF().f(TbadkCoreApplication.getInst(), null, 0);
     }
 }

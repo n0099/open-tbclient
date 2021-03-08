@@ -1,5 +1,5 @@
 package com.xiaomi.clientreport.processor;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface c {
     void a();
 }

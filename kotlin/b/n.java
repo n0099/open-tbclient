@@ -1,21 +1,21 @@
 package kotlin.b;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class n extends m {
-    public static final f em(int i, int i2) {
-        return f.quh.an(i, i2, -1);
+    public static final f el(int i, int i2) {
+        return f.quJ.an(i, i2, -1);
     }
 
-    public static final h en(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? h.quj.eLG() : new h(i, i2 - 1);
+    public static final h em(int i, int i2) {
+        return i2 <= Integer.MIN_VALUE ? h.quL.eLo() : new h(i, i2 - 1);
     }
 
-    public static final int eo(int i, int i2) {
+    public static final int en(int i, int i2) {
         return i < i2 ? i2 : i;
     }
 
-    public static final int ep(int i, int i2) {
+    public static final int eo(int i, int i2) {
         return i > i2 ? i2 : i;
     }
 

@@ -1,13 +1,13 @@
 package com.baidu.live.lottie;
 
 import android.graphics.Typeface;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public Typeface aZ(String str) {
+    public Typeface bd(String str) {
         return null;
     }
 
-    public String ba(String str) {
+    public String be(String str) {
         return null;
     }
 }

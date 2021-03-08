@@ -6,10 +6,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.kwai.video.ksvodplayerkit.HttpDns.d f11065a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected AtomicInteger f11066b = new AtomicInteger();
+    protected com.kwai.video.ksvodplayerkit.HttpDns.d f7285a;
+    protected AtomicInteger b = new AtomicInteger();
     protected int c;
     protected String d;
     protected AbstractHodorPreloadTask e;
@@ -29,7 +27,7 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AtomicInteger d() {
-        return this.f11066b;
+        return this.b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

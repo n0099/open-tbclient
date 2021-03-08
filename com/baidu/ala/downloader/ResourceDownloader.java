@@ -13,7 +13,7 @@ import com.baidu.tbadk.download.c;
 import com.baidu.tbadk.download.d;
 import java.io.File;
 import java.util.Vector;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ResourceDownloader {
     private static Vector<String> sResDownloadingTaskList = null;
 
@@ -133,7 +133,7 @@ public class ResourceDownloader {
                         ResourceDownloader.addDownloadingResId(str);
                         DownloaderHelper.cleanDir(new File(str4));
                         downloadData.setPath(str8);
-                        d.bBd().f(downloadData);
+                        d.bBg().f(downloadData);
                         return true;
                     }
                     return false;

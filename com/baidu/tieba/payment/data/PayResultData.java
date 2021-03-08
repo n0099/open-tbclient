@@ -2,7 +2,7 @@ package com.baidu.tieba.payment.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PayResultData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 955562840790302592L;
     private UnusualInfo describe;
@@ -42,7 +42,7 @@ public class PayResultData extends OrmObject implements Serializable {
         this.pubkey = str;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class UnusualInfo extends OrmObject implements Serializable {
         private static final long serialVersionUID = 7762965384357134074L;
         private String url;

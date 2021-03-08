@@ -18,9 +18,7 @@ import com.kwad.sdk.utils.am;
 import com.kwad.sdk.utils.ao;
 /* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private AdBaseFrameLayout f8347b;
+    private AdBaseFrameLayout b;
     private ViewGroup c;
     private AdDownloadProgressBar d;
     private AdDownloadProgressBar e;
@@ -169,7 +167,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u() {
-        com.kwad.sdk.core.report.b.a(this.h, 1, this.f8347b.getTouchCoords());
+        com.kwad.sdk.core.report.b.a(this.h, 1, this.b.getTouchCoords());
     }
 
     private void v() {
@@ -180,10 +178,10 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.h = this.f8395a.j;
+        this.h = this.f5594a.j;
         this.i = com.kwad.sdk.core.response.b.c.j(this.h);
-        this.j = this.f8395a.o;
-        this.k = this.f8395a.m;
+        this.j = this.f5594a.o;
+        this.k = this.f5594a.m;
         this.d.setText(com.kwad.sdk.core.response.b.a.x(this.i));
         this.d.setVisibility(8);
         this.e.setText(com.kwad.sdk.core.response.b.a.x(this.i));
@@ -195,7 +193,7 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         if (this.k != null) {
             this.k.a(this.m);
         }
-        this.f8395a.f8405b.add(this.l);
+        this.f5594a.b.add(this.l);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -209,14 +207,14 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         if (this.k != null) {
             this.k.b(this.m);
         }
-        this.f8395a.f8405b.remove(this.l);
+        this.f5594a.b.remove(this.l);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8347b = (AdBaseFrameLayout) b(R.id.ksad_root_container);
+        this.b = (AdBaseFrameLayout) b(R.id.ksad_root_container);
         this.c = (ViewGroup) b(R.id.ksad_progress_container);
         this.d = (AdDownloadProgressBar) b(R.id.ksad_translate_progress);
         this.e = (AdDownloadProgressBar) b(R.id.ksad_light_progress);
@@ -227,8 +225,8 @@ public class a extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.kwad.sdk.core.download.b.b.a(this.j, true);
-        com.kwad.sdk.core.download.b.a.a(this.d.getContext(), this.h, new a.InterfaceC1094a() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.a.a.4
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+        com.kwad.sdk.core.download.b.a.a(this.d.getContext(), this.h, new a.InterfaceC1111a() { // from class: com.kwad.sdk.contentalliance.detail.ad.presenter.a.a.4
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
             public void a() {
                 a.this.u();
             }

@@ -13,9 +13,9 @@ import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.ao.v;
 import com.baidu.swan.gamecenter.a;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class InstallAntiBlockingActivity extends Activity {
-    private JSONObject ebi;
+    private JSONObject ecJ;
     private String mPackageName;
     private String mType;
 
@@ -24,13 +24,13 @@ public class InstallAntiBlockingActivity extends Activity {
         int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
         ak.fixedOrientation(this, releaseFixedOrientation);
-        a.aTy();
+        a.aTB();
         setContentView(a.e.aiapps_install_guide_layout);
         Intent intent = getIntent();
         if (intent != null) {
             this.mType = intent.getStringExtra("type");
             this.mPackageName = intent.getStringExtra("packageName");
-            this.ebi = v.parseString(intent.getStringExtra("ubc_params"));
+            this.ecJ = v.parseString(intent.getStringExtra("ubc_params"));
         }
         ImageView imageView = (ImageView) findViewById(a.d.install_guide_image);
         View findViewById = findViewById(a.d.install_guide_layout);
@@ -40,8 +40,8 @@ public class InstallAntiBlockingActivity extends Activity {
             imageView.setLayoutParams(layoutParams);
             findViewById(a.d.install_guide_image_mask).setVisibility(0);
             imageView.setImageResource(a.c.aiapps_install_guide_request);
-            findViewById(a.d.install_guide_bg_mask).setBackgroundResource(a.C0504a.aiapps_install_guide_mask);
-            a.aTt();
+            findViewById(a.d.install_guide_bg_mask).setBackgroundResource(a.C0510a.aiapps_install_guide_mask);
+            a.aTw();
         } else {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(a.b.aiapps_install_guide_image_height));
             layoutParams2.gravity = 80;
@@ -56,16 +56,16 @@ public class InstallAntiBlockingActivity extends Activity {
             } else {
                 imageView.setImageResource(a.c.aiapps_install_guide_default);
             }
-            findViewById(a.d.install_guide_bg_mask).setBackgroundResource(a.C0504a.aiapps_anti_block_mask);
-            a.aTv();
+            findViewById(a.d.install_guide_bg_mask).setBackgroundResource(a.C0510a.aiapps_anti_block_mask);
+            a.aTy();
         }
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.swan.gamecenter.appmanager.d.c.a(InstallAntiBlockingActivity.this.mPackageName, TextUtils.equals(InstallAntiBlockingActivity.this.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(InstallAntiBlockingActivity.this.ebi));
+                com.baidu.swan.gamecenter.appmanager.d.c.a(InstallAntiBlockingActivity.this.mPackageName, TextUtils.equals(InstallAntiBlockingActivity.this.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(InstallAntiBlockingActivity.this.ecJ));
                 InstallAntiBlockingActivity.this.finish();
             }
         });
-        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.mType, "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.ebi));
+        com.baidu.swan.gamecenter.appmanager.d.c.a(this.mPackageName, this.mType, "success", null, new com.baidu.swan.gamecenter.appmanager.d.a(this.ecJ));
     }
 }

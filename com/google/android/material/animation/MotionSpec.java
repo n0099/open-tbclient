@@ -13,7 +13,7 @@ import androidx.annotation.StyleableRes;
 import androidx.collection.SimpleArrayMap;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class MotionSpec {
     private static final String TAG = "MotionSpec";
     private final SimpleArrayMap<String, MotionTiming> timings = new SimpleArrayMap<>();

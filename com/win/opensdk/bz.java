@@ -1,23 +1,17 @@
 package com.win.opensdk;
-/* loaded from: classes3.dex */
-public final class bz {
+/* loaded from: classes14.dex */
+public class bz {
 
     /* renamed from: a  reason: collision with root package name */
-    int f13737a;
-
-    /* renamed from: b  reason: collision with root package name */
-    int f13738b;
-    int c;
-
-    /* renamed from: case  reason: not valid java name */
-    int f41case;
-    int d;
-    public int e;
-    int f;
-    int java;
-
-    /* renamed from: java  reason: collision with other field name */
-    int[] f42java;
-    boolean qjQ;
-    boolean qjq;
+    public int f8137a;
+    public int b;
+    public int c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int[] k;
 }

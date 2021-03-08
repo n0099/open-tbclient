@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetGiftList.DataReq;
 import tbclient.GetGiftList.GetGiftListReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DefaultGiftListRequest extends NetMessage {
     private String from;
     private long toUserId;

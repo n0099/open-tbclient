@@ -363,8 +363,8 @@ public final class Encoder {
 
     static void append8BitBytes(String str, BitArray bitArray, String str2) throws WriterException {
         try {
-            for (byte b2 : str.getBytes(str2)) {
-                bitArray.appendBits(b2, 8);
+            for (byte b : str.getBytes(str2)) {
+                bitArray.appendBits(b, 8);
             }
         } catch (UnsupportedEncodingException e) {
             throw new WriterException(e);

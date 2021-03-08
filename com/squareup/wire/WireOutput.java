@@ -2,7 +2,7 @@ package com.squareup.wire;
 
 import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class WireOutput {
     private final byte[] buffer;
     private final int limit;
@@ -122,14 +122,14 @@ public final class WireOutput {
         return (Long.MIN_VALUE & j) == 0 ? 9 : 10;
     }
 
-    void writeRawByte(byte b2) throws IOException {
+    void writeRawByte(byte b) throws IOException {
         if (this.position == this.limit) {
             throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);
         }
         byte[] bArr = this.buffer;
         int i = this.position;
         this.position = i + 1;
-        bArr[i] = b2;
+        bArr[i] = b;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

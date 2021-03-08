@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.framework;
 
 import com.baidu.swan.apps.SwanAppActivity;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static c a(SwanAppActivity swanAppActivity, com.baidu.swan.apps.runtime.e eVar) {
         if (eVar == null || !eVar.available()) {

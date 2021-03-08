@@ -13,16 +13,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
     final int bufferSize;
     final AtomicReference<PublishSubscriber<T>> current;
-    final org.a.b<T> qoS;
-    final g<T> qow;
+    final g<T> qoY;
+    final org.a.b<T> qpu;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qoS.subscribe(cVar);
+        this.qpu.subscribe(cVar);
     }
 
     @Override // io.reactivex.a.a
@@ -43,7 +43,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
         try {
             gVar.accept(publishSubscriber);
             if (z) {
-                this.qow.a((j) publishSubscriber);
+                this.qoY.a((j) publishSubscriber);
             }
         } catch (Throwable th) {
             io.reactivex.exceptions.a.N(th);
@@ -51,7 +51,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class PublishSubscriber<T> extends AtomicInteger implements io.reactivex.disposables.b, j<T> {
         static final InnerSubscriber[] EMPTY = new InnerSubscriber[0];
         static final InnerSubscriber[] TERMINATED = new InnerSubscriber[0];
@@ -311,7 +311,7 @@ public final class FlowablePublish<T> extends io.reactivex.a.a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class InnerSubscriber<T> extends AtomicLong implements d {
         private static final long serialVersionUID = -4453897557930727610L;
         final org.a.c<? super T> child;

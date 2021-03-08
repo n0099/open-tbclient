@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ValidateModel {
     public static void updateValidateData(m<Boolean> mVar, final ValidateItemData validateItemData) {
         if (validateItemData != null) {
@@ -29,7 +29,7 @@ public class ValidateModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ae
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.cVA().a(ValidateItemData.this));
+                    return Boolean.valueOf(d.cVH().a(ValidateItemData.this));
                 }
             }, mVar);
         }
@@ -51,7 +51,7 @@ public class ValidateModel {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    d.cVA().m(linkedList);
+                    d.cVH().m(linkedList);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -65,7 +65,7 @@ public class ValidateModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ae
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.cVA().MM(ValidateItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.cVH().MS(ValidateItemData.this.getNotice_id()));
                 }
             }, mVar);
         }
@@ -76,7 +76,7 @@ public class ValidateModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ae
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.cVA().a(0L, i, i2, "apply_join_group");
+                return d.cVH().a(0L, i, i2, "apply_join_group");
             }
         }, mVar);
     }
@@ -87,13 +87,13 @@ public class ValidateModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.ae
             public Integer doInBackground() {
-                return Integer.valueOf(d.cVA().MK("apply_join_group"));
+                return Integer.valueOf(d.cVH().MQ("apply_join_group"));
             }
         }, mVar);
     }
 
     public static ValidateItemData getByNoticeid(String str) {
-        return convertToValidateItemData(d.cVA().ML(str));
+        return convertToValidateItemData(d.cVH().MR(str));
     }
 
     public static List<ValidateItemData> convertToValidateItemDataList(LinkedList<GroupNewsPojo> linkedList) {
@@ -155,7 +155,7 @@ public class ValidateModel {
     private static void setGroupName(ValidateItemData validateItemData, String str) {
         if (!BdBaseApplication.getInst().isDebugMode() || l.isMainThread()) {
             String str2 = "";
-            ImMessageCenterPojo bs = b.cWL().bs(str, 1);
+            ImMessageCenterPojo bs = b.cWS().bs(str, 1);
             if (bs != null) {
                 str2 = bs.getGroup_name();
             }

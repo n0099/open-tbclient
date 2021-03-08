@@ -20,11 +20,11 @@ public class b extends e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b lby = new b();
+        private static final b ldB = new b();
     }
 
-    public static b dbz() {
-        return a.lby;
+    public static b dbI() {
+        return a.ldB;
     }
 
     public synchronized void a(e eVar) {
@@ -32,7 +32,7 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void dbA() {
+    protected void dbJ() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -62,11 +62,11 @@ public class b extends e {
 
     @Override // com.baidu.tieba.lego.card.e
     public <T> com.baidu.tieba.lego.card.view.e a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        com.baidu.tieba.lego.card.view.e b2 = b(tbPageContext, iCardInfo, i);
-        if (b2 != null) {
-            b2.setBusinessType(i);
+        com.baidu.tieba.lego.card.view.e b = b(tbPageContext, iCardInfo, i);
+        if (b != null) {
+            b.setBusinessType(i);
         }
-        return b2;
+        return b;
     }
 
     private <T> com.baidu.tieba.lego.card.view.e b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
@@ -85,12 +85,12 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo ND(String str) {
+    public static ICardInfo NJ(String str) {
         try {
-            ICardInfo ey = ey(new JSONObject(str));
-            if (ey != null) {
-                if (ey.isValid()) {
-                    return ey;
+            ICardInfo eA = eA(new JSONObject(str));
+            if (eA != null) {
+                if (eA.isValid()) {
+                    return eA;
                 }
             }
             return null;
@@ -103,15 +103,15 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo NE(String str) throws Exception {
-        ICardInfo ey = ey(new JSONObject(str));
-        if (ey == null || !ey.isValid()) {
+    public static ICardInfo NK(String str) throws Exception {
+        ICardInfo eA = eA(new JSONObject(str));
+        if (eA == null || !eA.isValid()) {
             return null;
         }
-        return ey;
+        return eA;
     }
 
-    public static ICardInfo ey(JSONObject jSONObject) throws CardParseException {
-        return dbz().g(jSONObject, jSONObject.optInt(IntentConfig.CARD_TYPE));
+    public static ICardInfo eA(JSONObject jSONObject) throws CardParseException {
+        return dbI().g(jSONObject, jSONObject.optInt(IntentConfig.CARD_TYPE));
     }
 }

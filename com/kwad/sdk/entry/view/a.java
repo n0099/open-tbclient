@@ -20,10 +20,8 @@ import java.util.List;
 public abstract class a extends com.kwad.sdk.widget.b implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.kwad.sdk.core.response.model.a f9803a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected com.kwad.sdk.widget.c f9804b;
+    protected com.kwad.sdk.core.response.model.a f6490a;
+    protected com.kwad.sdk.widget.c b;
     private TextView c;
     private KsEntryElement.OnFeedClickListener d;
 
@@ -48,21 +46,21 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
             this.c.setLayoutParams(layoutParams);
             addView(this.c);
         }
-        if (this.f9804b == null) {
-            this.f9804b = new com.kwad.sdk.widget.c(getContext());
-            this.f9804b.setGravity(16);
-            this.f9804b.setTextSize(18.0f);
-            this.f9804b.setTextColor(Color.parseColor("#323232"));
-            this.f9804b.setCompoundDrawablePadding(ao.a(getContext(), 2.0f));
+        if (this.b == null) {
+            this.b = new com.kwad.sdk.widget.c(getContext());
+            this.b.setGravity(16);
+            this.b.setTextSize(18.0f);
+            this.b.setTextColor(Color.parseColor("#323232"));
+            this.b.setCompoundDrawablePadding(ao.a(getContext(), 2.0f));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.bottomMargin = ao.a(getContext(), 8.0f);
-            this.f9804b.setLayoutParams(layoutParams2);
-            this.f9804b.setMaxEms(15);
-            this.f9804b.setMaxLines(1);
+            this.b.setLayoutParams(layoutParams2);
+            this.b.setMaxEms(15);
+            this.b.setMaxLines(1);
             Drawable drawable = getResources().getDrawable(R.drawable.ksad_entrytitle_arrow);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            this.f9804b.setCompoundDrawables(null, null, drawable, null);
-            this.f9804b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.a.1
+            this.b.setCompoundDrawables(null, null, drawable, null);
+            this.b.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     List<AdTemplate> realShowData = a.this.getRealShowData();
@@ -73,7 +71,7 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
                     a.this.a(realShowData.get(size), size, view, 2);
                 }
             });
-            addView(this.f9804b, 0);
+            addView(this.b, 0);
         }
     }
 
@@ -81,7 +79,7 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
     @Override // com.kwad.sdk.widget.b
     public void a() {
         super.a();
-        e.a(this.f9803a);
+        e.a(this.f6490a);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -89,29 +87,29 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
         if (this.d == null) {
             return;
         }
-        com.kwad.sdk.entry.model.a aVar = new com.kwad.sdk.entry.model.a(this.f9803a);
+        com.kwad.sdk.entry.model.a aVar = new com.kwad.sdk.entry.model.a(this.f6490a);
         aVar.a(adTemplate);
         com.kwad.sdk.entry.a.a(aVar);
-        e.a(adTemplate, this.f9803a.e, i2);
-        this.d.handleFeedClick(this.f9803a.f9432a, i, view);
+        e.a(adTemplate, this.f6490a.e, i2);
+        this.d.handleFeedClick(this.f6490a.f6255a, i, view);
     }
 
     @Override // com.kwad.sdk.entry.view.c
     public boolean a(com.kwad.sdk.core.response.model.a aVar) {
-        this.f9803a = aVar;
-        if (this.f9803a == null) {
+        this.f6490a = aVar;
+        if (this.f6490a == null) {
             removeAllViews();
             return false;
         }
-        boolean b2 = b();
+        boolean b = b();
         String entrySourceDesc = getEntrySourceDesc();
         if (entrySourceDesc != null) {
             this.c.setText(entrySourceDesc);
         } else {
-            if (TextUtils.isEmpty(aVar.f9433b)) {
-                aVar.f9433b = "来自 快手推荐";
+            if (TextUtils.isEmpty(aVar.b)) {
+                aVar.b = "来自 快手推荐";
             }
-            this.c.setText(aVar.f9433b);
+            this.c.setText(aVar.b);
         }
         switch (getEntrySourcePos()) {
             case 0:
@@ -130,13 +128,13 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
                 this.c.setVisibility(0);
                 break;
         }
-        if (getEntryTitlePos() != 1 || TextUtils.isEmpty(this.f9803a.f)) {
-            this.f9804b.setVisibility(8);
+        if (getEntryTitlePos() != 1 || TextUtils.isEmpty(this.f6490a.f)) {
+            this.b.setVisibility(8);
         } else {
-            this.f9804b.setText(this.f9803a.f);
-            this.f9804b.setVisibility(0);
+            this.b.setText(this.f6490a.f);
+            this.b.setVisibility(0);
         }
-        return b2;
+        return b;
     }
 
     protected abstract boolean b();
@@ -146,11 +144,11 @@ public abstract class a extends com.kwad.sdk.widget.b implements c {
     }
 
     public int getEntrySourcePos() {
-        return this.f9803a.c;
+        return this.f6490a.c;
     }
 
     public int getEntryTitlePos() {
-        return this.f9803a.g;
+        return this.f6490a.g;
     }
 
     @NonNull

@@ -23,10 +23,8 @@ import com.kwad.sdk.utils.ao;
 public class EpisodePhotoView extends com.kwad.sdk.widget.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f8999a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f9000b;
+    private ImageView f5987a;
+    private TextView b;
     private AdTemplate c;
     private PhotoInfo d;
     private FrameLayout e;
@@ -53,7 +51,7 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
         if (TextUtils.isEmpty(g)) {
             g = d.d(this.d);
         }
-        KSImageLoader.loadImage(this.f8999a, g, this.c, KSImageLoader.IMGOPTION_TUBE);
+        KSImageLoader.loadImage(this.f5987a, g, this.c, KSImageLoader.IMGOPTION_TUBE);
     }
 
     private void d() {
@@ -73,9 +71,9 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
     }
 
     protected void b() {
-        this.f8999a = (ImageView) findViewById(R.id.ksad_tube_trend_episode_cover);
+        this.f5987a = (ImageView) findViewById(R.id.ksad_tube_trend_episode_cover);
         this.e = (FrameLayout) findViewById(R.id.ksad_tube_trend_episode_more);
-        this.f9000b = (TextView) findViewById(R.id.ksad_tube_trend_episode_name);
+        this.b = (TextView) findViewById(R.id.ksad_tube_trend_episode_name);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -125,11 +123,11 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
     public void setLookMoreVisibility(boolean z) {
         if (z) {
             this.e.setVisibility(0);
-            this.f9000b.setVisibility(8);
+            this.b.setVisibility(8);
             return;
         }
         this.e.setVisibility(8);
-        this.f9000b.setVisibility(0);
+        this.b.setVisibility(0);
     }
 
     public void setRadius(float f) {
@@ -145,7 +143,7 @@ public class EpisodePhotoView extends com.kwad.sdk.widget.a {
         }
         d();
         c();
-        this.f9000b.setText(d.B(this.d));
-        this.f9000b.setVisibility(0);
+        this.b.setText(d.B(this.d));
+        this.b.setVisibility(0);
     }
 }

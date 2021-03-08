@@ -11,15 +11,13 @@ public class a {
     private static volatile a d;
 
     /* renamed from: a  reason: collision with root package name */
-    private List<AdTemplate> f9809a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private List<AdTemplate> f9810b;
-    private List<InterfaceC1116a> c;
+    private List<AdTemplate> f6495a;
+    private List<AdTemplate> b;
+    private List<InterfaceC1133a> c;
 
     /* renamed from: com.kwad.sdk.feed.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1116a {
+    public interface InterfaceC1133a {
         @MainThread
         void a(int i);
     }
@@ -43,71 +41,71 @@ public class a {
         if (this.c == null) {
             return;
         }
-        for (InterfaceC1116a interfaceC1116a : this.c) {
-            interfaceC1116a.a(i);
+        for (InterfaceC1133a interfaceC1133a : this.c) {
+            interfaceC1133a.a(i);
         }
     }
 
     @MainThread
-    public void a(InterfaceC1116a interfaceC1116a) {
+    public void a(InterfaceC1133a interfaceC1133a) {
         if (this.c == null) {
             this.c = new LinkedList();
         }
-        this.c.add(interfaceC1116a);
+        this.c.add(interfaceC1133a);
     }
 
     public void a(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f9809a == null) {
-            this.f9809a = new ArrayList();
+        if (this.f6495a == null) {
+            this.f6495a = new ArrayList();
         }
-        this.f9809a.clear();
-        this.f9809a.addAll(list);
+        this.f6495a.clear();
+        this.f6495a.addAll(list);
     }
 
     @Nullable
     public List<AdTemplate> b() {
-        return this.f9809a;
+        return this.f6495a;
     }
 
     @MainThread
-    public void b(InterfaceC1116a interfaceC1116a) {
+    public void b(InterfaceC1133a interfaceC1133a) {
         if (this.c == null) {
             this.c = new LinkedList();
         }
-        this.c.remove(interfaceC1116a);
+        this.c.remove(interfaceC1133a);
     }
 
     public void b(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f9810b == null) {
-            this.f9810b = new ArrayList();
+        if (this.b == null) {
+            this.b = new ArrayList();
         }
-        this.f9810b.clear();
-        this.f9810b.addAll(list);
+        this.b.clear();
+        this.b.addAll(list);
     }
 
     public void c() {
-        if (this.f9809a != null) {
-            this.f9809a.clear();
+        if (this.f6495a != null) {
+            this.f6495a.clear();
         }
-        this.f9809a = null;
+        this.f6495a = null;
     }
 
     @Nullable
     public List<AdTemplate> d() {
-        return this.f9810b;
+        return this.b;
     }
 
     public void e() {
-        if (this.f9810b != null) {
-            this.f9810b.clear();
+        if (this.b != null) {
+            this.b.clear();
         }
-        this.f9810b = null;
+        this.b = null;
     }
 
     @MainThread

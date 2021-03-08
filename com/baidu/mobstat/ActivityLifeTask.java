@@ -5,36 +5,34 @@ import com.baidu.mobstat.ActivityLifeObserver;
 import com.baidu.mobstat.AutoTrack;
 import com.baidu.mobstat.af;
 import com.baidu.mobstat.av;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ActivityLifeTask {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3534a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static ActivityLifeObserver.IActivityLifeCallback f3535b;
+    private static boolean f2511a = false;
+    private static ActivityLifeObserver.IActivityLifeCallback b;
     private static ActivityLifeObserver.IActivityLifeCallback c;
     private static ActivityLifeObserver.IActivityLifeCallback d;
     private static ActivityLifeObserver.IActivityLifeCallback e;
 
     public static synchronized void registerActivityLifeCallback(Context context) {
         synchronized (ActivityLifeTask.class) {
-            if (!f3534a) {
+            if (!f2511a) {
                 a(context);
                 ActivityLifeObserver.instance().clearObservers();
-                ActivityLifeObserver.instance().addObserver(f3535b);
+                ActivityLifeObserver.instance().addObserver(b);
                 ActivityLifeObserver.instance().addObserver(d);
                 ActivityLifeObserver.instance().addObserver(c);
                 ActivityLifeObserver.instance().addObserver(e);
                 ActivityLifeObserver.instance().registerActivityLifeCallback(context);
-                f3534a = true;
+                f2511a = true;
             }
         }
     }
 
     private static synchronized void a(Context context) {
         synchronized (ActivityLifeTask.class) {
-            f3535b = new AutoTrack.MyActivityLifeCallback(1);
+            b = new AutoTrack.MyActivityLifeCallback(1);
             d = new af.a();
             c = new av.a();
             e = new AutoTrack.MyActivityLifeCallback(2);

@@ -3,9 +3,9 @@ package com.baidu.tieba.yuyinala.liveroom.messages;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.yuyinala.liveroom.data.f;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveBackstageHttpResonpnseMessage extends JsonHttpResponsedMessage {
-    private f oxf;
+    private f ozk;
 
     public LiveBackstageHttpResonpnseMessage() {
         super(1021123);
@@ -16,8 +16,8 @@ public class LiveBackstageHttpResonpnseMessage extends JsonHttpResponsedMessage 
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONObject("data") != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            this.oxf = new f();
-            this.oxf.parserJson(optJSONObject);
+            this.ozk = new f();
+            this.ozk.parserJson(optJSONObject);
         }
     }
 }

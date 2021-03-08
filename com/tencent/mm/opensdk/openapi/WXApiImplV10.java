@@ -37,7 +37,7 @@ import com.tencent.mm.opensdk.utils.ILog;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
 import java.net.URLEncoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 final class WXApiImplV10 implements IWXAPI {
     private static final String TAG = "MicroMsg.SDK.WXApiImplV10";
     private static String wxappPayEntryClassname = null;
@@ -452,12 +452,12 @@ final class WXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         Log.d(TAG, "register app " + this.context.getPackageName());
-        a.C1263a c1263a = new a.C1263a();
-        c1263a.f13354a = "com.tencent.mm";
-        c1263a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-        c1263a.content = "weixin://registerapp?appid=" + this.appId;
-        c1263a.f13355b = j;
-        return a.a(this.context, c1263a);
+        a.C1253a c1253a = new a.C1253a();
+        c1253a.f7939a = "com.tencent.mm";
+        c1253a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+        c1253a.content = "weixin://registerapp?appid=" + this.appId;
+        c1253a.b = j;
+        return a.a(this.context, c1253a);
     }
 
     @Override // com.tencent.mm.opensdk.openapi.IWXAPI
@@ -596,10 +596,10 @@ final class WXApiImplV10 implements IWXAPI {
             return;
         }
         Log.d(TAG, "unregister app " + this.context.getPackageName());
-        a.C1263a c1263a = new a.C1263a();
-        c1263a.f13354a = "com.tencent.mm";
-        c1263a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-        c1263a.content = "weixin://unregisterapp?appid=" + this.appId;
-        a.a(this.context, c1263a);
+        a.C1253a c1253a = new a.C1253a();
+        c1253a.f7939a = "com.tencent.mm";
+        c1253a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+        c1253a.content = "weixin://unregisterapp?appid=" + this.appId;
+        a.a(this.context, c1253a);
     }
 }

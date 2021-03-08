@@ -6,17 +6,17 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.faceshop.forumpackage.data.c, ForumEmotionViewHolder> {
-    private a jag;
-    private com.baidu.tieba.faceshop.forumpackage.data.b jaj;
+    private a jbP;
+    private com.baidu.tieba.faceshop.forumpackage.data.b jbS;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext<?> tbPageContext, com.baidu.tieba.faceshop.forumpackage.data.b bVar, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.mPageContext = tbPageContext;
-        this.jaj = bVar;
+        this.jbS = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,11 +34,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.faceshop.
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.faceshop.forumpackage.data.c cVar, ForumEmotionViewHolder forumEmotionViewHolder) {
-        forumEmotionViewHolder.a(cVar, this.jaj, this.jag, i);
+        forumEmotionViewHolder.a(cVar, this.jbS, this.jbP, i);
         return forumEmotionViewHolder.getView();
     }
 
     public void a(a aVar) {
-        this.jag = aVar;
+        this.jbP = aVar;
     }
 }

@@ -27,11 +27,11 @@ public class l {
     }
 
     public static File b(Context context, boolean z, String str, String str2) {
-        String b2 = b(context);
+        String b = b(context);
         if (z) {
             str = "/" + aa.a(context) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + str;
         }
-        String str3 = b2 + str;
+        String str3 = b + str;
         File file = new File(str3);
         if (!file.exists()) {
             file.mkdirs();

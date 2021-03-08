@@ -2,36 +2,36 @@ package com.baidu.tieba.ala.liveroom.messages;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends HttpMessage {
     private long anchorId;
-    private int biX;
-    private long haA;
-    private String haB;
+    private int bkx;
+    private long hcj;
+    private String hck;
     private String sign;
 
     public e() {
         super(1021231);
-        this.biX = 2;
+        this.bkx = 2;
     }
 
     public void fq(long j) {
-        this.haA = j;
+        this.hcj = j;
     }
 
-    public void GS(String str) {
-        this.haB = str;
+    public void Hb(String str) {
+        this.hck = str;
     }
 
-    public void GT(String str) {
+    public void Hc(String str) {
         this.sign = str;
     }
 
     public void setParams() {
-        addParam("guard_club_id", this.haA);
-        addParam("club_name", this.haB);
+        addParam("guard_club_id", this.hcj);
+        addParam("club_name", this.hck);
         addParam("sign", this.sign);
         addParam("anchor_id", EncryptionHelper.getEncryptionUserId(this.anchorId + ""));
-        addParam("client_type", this.biX);
+        addParam("client_type", this.bkx);
     }
 }

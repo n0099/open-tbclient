@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 class f {
     public static boolean b(String str, File file, boolean z) {
         if (TextUtils.isEmpty(str)) {

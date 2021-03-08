@@ -20,13 +20,13 @@ public class a extends com.kwad.sdk.feed.a.b.a {
                 return;
             }
             int a2 = e.a(a.this.c);
-            int b2 = e.b(a.this.c);
-            if (-1 == a2 || -1 == b2) {
+            int b = e.b(a.this.c);
+            if (-1 == a2 || -1 == b) {
                 return;
             }
-            com.kwad.sdk.core.d.a.a("FeedHomeItemVisiblePresenter", "firstVisible=" + a2 + "--lastVisible=" + b2);
+            com.kwad.sdk.core.d.a.a("FeedHomeItemVisiblePresenter", "firstVisible=" + a2 + "--lastVisible=" + b);
             RecyclerView.LayoutManager layoutManager = a.this.c.getLayoutManager();
-            while (a2 <= b2) {
+            while (a2 <= b) {
                 if (adapter instanceof d) {
                     d dVar = (d) adapter;
                     if (a.this.a(a2, dVar)) {
@@ -52,7 +52,7 @@ public class a extends com.kwad.sdk.feed.a.b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AdTemplate adTemplate, float f) {
-        e.a aVar = this.f9836a.c.get(adTemplate.mUniqueId);
+        e.a aVar = this.f6505a.c.get(adTemplate.mUniqueId);
         if (aVar != null) {
             aVar.a(adTemplate, f);
         }
@@ -68,8 +68,8 @@ public class a extends com.kwad.sdk.feed.a.b.a {
     @Override // com.kwad.sdk.feed.a.b.a, com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f9836a.h;
-        this.c = this.f9836a.f;
+        this.d = this.f6505a.h;
+        this.c = this.f6505a.f;
         this.c.addOnScrollListener(this.e);
     }
 

@@ -14,10 +14,10 @@ import com.baidu.tbadk.util.ag;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    private TextView eVg;
-    private int eVh;
-    private View.OnClickListener eVi;
-    private View enH;
+    private TextView eWF;
+    private int eWG;
+    private View.OnClickListener eWH;
+    private View epj;
     private Drawable mBackgroundDrawable;
     private ViewGroup mContainer;
     private Activity mContext;
@@ -42,20 +42,20 @@ public class f implements View.OnClickListener {
             this.mContext = activity;
             this.mHeight = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds114);
             this.mCornerRadius = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds84);
-            this.eVh = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds44);
+            this.eWG = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds44);
             this.offsetY = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds222);
             this.offsetX = com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbds29);
             View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
             this.mContainer = (ViewGroup) inflate.findViewById(R.id.layout_container);
-            this.enH = inflate.findViewById(R.id.background);
-            this.eVg = (TextView) inflate.findViewById(R.id.toast_tv);
+            this.epj = inflate.findViewById(R.id.background);
+            this.eWF = (TextView) inflate.findViewById(R.id.toast_tv);
             this.mRootView = inflate;
-            this.enH.setBackgroundDrawable(bqG());
-            this.eVg.setMaxLines(1);
-            this.eVg.setGravity(17);
-            this.eVg.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbfontsize40));
-            this.eVg.setTextColor(this.mContext.getResources().getColor(R.color.CAM_X0101));
-            this.eVg.setPadding(this.eVh, 0, this.eVh, 0);
+            this.epj.setBackgroundDrawable(getBackgroundDrawable());
+            this.eWF.setMaxLines(1);
+            this.eWF.setGravity(17);
+            this.eWF.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(activity, R.dimen.tbfontsize40));
+            this.eWF.setTextColor(this.mContext.getResources().getColor(R.color.CAM_X0101));
+            this.eWF.setPadding(this.eWG, 0, this.eWG, 0);
             this.mWindowManager = (WindowManager) this.mContext.getSystemService("window");
             this.mLayoutParams = new WindowManager.LayoutParams();
             this.mLayoutParams.width = com.baidu.adp.lib.util.l.getEquipmentWidth(this.mContext) - (this.offsetX * 2);
@@ -65,49 +65,49 @@ public class f implements View.OnClickListener {
             this.mLayoutParams.windowAnimations = R.style.ToastAnimation;
             this.mLayoutParams.flags = 262152;
             this.mLayoutParams.gravity = 81;
-            this.mLayoutParams.y = bqE();
+            this.mLayoutParams.y = bqG();
             this.mLayoutParams.alpha = this.alpha;
         }
     }
 
-    private int bqE() {
+    private int bqG() {
         return this.offsetY + UtilHelper.getNavigationBarHeight(this.mContext);
     }
 
-    private GradientDrawable bqF() {
-        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{com.baidu.tieba.lego.card.c.b.rM("#FF722B"), com.baidu.tieba.lego.card.c.b.rM("#FF2b5D")});
+    private GradientDrawable bqH() {
+        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{com.baidu.tieba.lego.card.c.b.rT("#FF722B"), com.baidu.tieba.lego.card.c.b.rT("#FF2b5D")});
         gradientDrawable.setCornerRadius(this.mCornerRadius);
         return gradientDrawable;
     }
 
-    private Drawable bqG() {
+    private Drawable getBackgroundDrawable() {
         if (this.mBackgroundDrawable == null) {
-            this.mBackgroundDrawable = bqF();
+            this.mBackgroundDrawable = bqH();
         }
         return this.mBackgroundDrawable;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.eVi = onClickListener;
+        this.eWH = onClickListener;
     }
 
     public static f c(Activity activity, String str) {
-        return new f(activity).Ax(str);
+        return new f(activity).AE(str);
     }
 
-    private f Ax(String str) {
+    private f AE(String str) {
         if (this.mContext != null && !TextUtils.isEmpty(str)) {
             String interceptString = ag.interceptString(str, 34);
-            int textWidth = com.baidu.adp.lib.util.l.getTextWidth(this.eVg.getPaint(), interceptString);
+            int textWidth = com.baidu.adp.lib.util.l.getTextWidth(this.eWF.getPaint(), interceptString);
             ViewGroup.LayoutParams layoutParams = this.mContainer.getLayoutParams();
-            layoutParams.width = textWidth + (this.eVh * 2);
+            layoutParams.width = textWidth + (this.eWG * 2);
             this.mContainer.setLayoutParams(layoutParams);
-            this.eVg.setText(interceptString);
+            this.eWF.setText(interceptString);
         }
         return this;
     }
 
-    public f bqH() {
+    public f bqI() {
         com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mHideRunnable);
         if (this.mRootView != null && this.mRootView.getWindowToken() != null) {
             this.mWindowManager.removeView(this.mRootView);
@@ -124,7 +124,7 @@ public class f implements View.OnClickListener {
         }
     }
 
-    public f nJ(int i) {
+    public f nK(int i) {
         if (i > 0) {
             this.duration = i * 1000;
         }
@@ -138,8 +138,8 @@ public class f implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.eVi != null) {
-            this.eVi.onClick(view);
+        if (this.eWH != null) {
+            this.eWH.onClick(view);
         }
         hide();
     }

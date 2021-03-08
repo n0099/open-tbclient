@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import org.webrtc.VideoFrame;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class NativeCapturerObserver implements CapturerObserver {
     private static VideoSink myHookSink;
     private final long nativeSource;

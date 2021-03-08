@@ -9,23 +9,23 @@ import java.util.concurrent.TimeUnit;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14352a;
+    private Context f8602a;
     private CountDownLatch d = new CountDownLatch(1);
-    private ServiceConnection pms = new f(this);
-    private com.yxcorp.kuaishou.addfp.a.b.b qmc;
-    private a qmh;
+    private ServiceConnection poA = new f(this);
+    private com.yxcorp.kuaishou.addfp.a.b.b qmD;
+    private a qmJ;
 
     public e(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
-        this.f14352a = null;
+        this.f8602a = null;
         try {
-            this.f14352a = context;
-            this.qmc = bVar;
+            this.f8602a = context;
+            this.qmD = bVar;
             Intent intent = new Intent();
             intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-            if (this.f14352a.bindService(intent, this.pms, 1)) {
+            if (this.f8602a.bindService(intent, this.poA, 1)) {
                 com.yxcorp.kuaishou.addfp.android.b.b.b("bindService Successful!");
                 this.d.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qmh != null) {
+                if (this.qmJ != null) {
                     a(true);
                 } else {
                     a(false);
@@ -43,9 +43,9 @@ public final class e {
     private void a(boolean z) {
         try {
             if (z) {
-                this.qmc.a(this.qmh);
+                this.qmD.a(this.qmJ);
             } else {
-                this.qmc.e();
+                this.qmD.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -54,8 +54,8 @@ public final class e {
 
     public final String a() {
         try {
-            if (this.qmh != null) {
-                return this.qmh.a();
+            if (this.qmJ != null) {
+                return this.qmJ.a();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -65,8 +65,8 @@ public final class e {
 
     public final String b() {
         try {
-            if (this.qmh != null) {
-                return this.qmh.b();
+            if (this.qmJ != null) {
+                return this.qmJ.b();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -76,10 +76,10 @@ public final class e {
 
     public final boolean c() {
         try {
-            if (this.qmh == null) {
+            if (this.qmJ == null) {
                 return false;
             }
-            return this.qmh.c();
+            return this.qmJ.c();
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
             return false;
@@ -87,13 +87,13 @@ public final class e {
     }
 
     public final String d() {
-        String packageName = this.f14352a.getPackageName();
+        String packageName = this.f8602a.getPackageName();
         if (packageName == null || packageName.equals("")) {
             com.yxcorp.kuaishou.addfp.android.b.b.b("empty pkg");
         } else {
             try {
-                if (this.qmh != null) {
-                    return this.qmh.a(packageName);
+                if (this.qmJ != null) {
+                    return this.qmJ.a(packageName);
                 }
             } catch (Throwable th) {
                 com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -103,13 +103,13 @@ public final class e {
     }
 
     public final String e() {
-        String packageName = this.f14352a.getPackageName();
+        String packageName = this.f8602a.getPackageName();
         if (packageName == null || packageName.equals("")) {
             com.yxcorp.kuaishou.addfp.android.b.b.b("empty pkg");
         } else {
             try {
-                if (this.qmh != null) {
-                    return this.qmh.b(packageName);
+                if (this.qmJ != null) {
+                    return this.qmJ.b(packageName);
                 }
             } catch (Throwable th) {
                 com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -120,11 +120,11 @@ public final class e {
 
     public final void f() {
         try {
-            this.f14352a.unbindService(this.pms);
+            this.f8602a.unbindService(this.poA);
             com.yxcorp.kuaishou.addfp.android.b.b.b("unBind Service");
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
         }
-        this.qmh = null;
+        this.qmJ = null;
     }
 }

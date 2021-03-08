@@ -5,7 +5,7 @@ import android.os.Bundle;
 public class JNIBaseMap {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f3169a;
+    public long f2290a;
 
     public static native int MapProc(long j, int i, int i2, int i3);
 

@@ -4,16 +4,16 @@ import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.videochat.b.c;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveVideoChatSendCancelResponseMessage extends JsonHttpResponsedMessage {
-    private int bQt;
-    private com.baidu.live.videochat.b.a bQu;
-    private c bQv;
-    private AlaLiveInfoData bqM;
+    private int bRT;
+    private com.baidu.live.videochat.b.a bRU;
+    private c bRV;
+    private AlaLiveInfoData bsm;
 
     public LiveVideoChatSendCancelResponseMessage() {
         super(1021173);
-        this.bQt = -1;
+        this.bRT = -1;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,38 +21,38 @@ public class LiveVideoChatSendCancelResponseMessage extends JsonHttpResponsedMes
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.bQt = optJSONObject.optInt("cancel_status", -1);
+            this.bRT = optJSONObject.optInt("cancel_status", -1);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
-                this.bQv = new c();
-                this.bQv.parserJson(optJSONObject2);
+                this.bRV = new c();
+                this.bRV.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("match_info");
             if (optJSONObject3 != null) {
-                this.bQu = new com.baidu.live.videochat.b.a();
-                this.bQu.parserJson(optJSONObject3);
+                this.bRU = new com.baidu.live.videochat.b.a();
+                this.bRU.parserJson(optJSONObject3);
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("live_info");
             if (optJSONObject4 != null) {
-                this.bqM = new AlaLiveInfoData();
-                this.bqM.parserJson(optJSONObject4);
+                this.bsm = new AlaLiveInfoData();
+                this.bsm.parserJson(optJSONObject4);
             }
         }
     }
 
-    public boolean WI() {
-        return this.bQt == 1;
+    public boolean WL() {
+        return this.bRT == 1;
     }
 
-    public AlaLiveInfoData WJ() {
-        return this.bqM;
+    public AlaLiveInfoData WM() {
+        return this.bsm;
     }
 
-    public com.baidu.live.videochat.b.a WK() {
-        return this.bQu;
+    public com.baidu.live.videochat.b.a WN() {
+        return this.bRU;
     }
 
-    public c WL() {
-        return this.bQv;
+    public c WO() {
+        return this.bRV;
     }
 }

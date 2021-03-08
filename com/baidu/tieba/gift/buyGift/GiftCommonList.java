@@ -6,7 +6,7 @@ import java.util.List;
 import tbclient.GetGiftCommonList.GetGiftCommonListResIdl;
 import tbclient.GetGiftCommonList.GiftList;
 import tbclient.GetGiftCommonList.Item;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GiftCommonList implements Serializable {
     private static final long serialVersionUID = 1719387618953489739L;
     private String errmsg;
@@ -95,7 +95,7 @@ public class GiftCommonList implements Serializable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class GiftInfo implements Serializable {
         private static final long serialVersionUID = 4908690864725277352L;
         private List<TypeInfo> list;
@@ -133,7 +133,7 @@ public class GiftCommonList implements Serializable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class TypeInfo implements Serializable {
         private static final long serialVersionUID = -8689340701873734582L;
         private List<GiftItem> item;
@@ -168,7 +168,7 @@ public class GiftCommonList implements Serializable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class NumInfo implements Serializable {
         private static final long serialVersionUID = 6308284942592196517L;
         private String name;
@@ -191,7 +191,7 @@ public class GiftCommonList implements Serializable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class GiftItem implements Serializable {
         private static final long serialVersionUID = -628875343878681499L;
         private int gift_id;

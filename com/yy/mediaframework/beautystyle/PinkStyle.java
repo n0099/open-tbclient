@@ -1,5 +1,5 @@
 package com.yy.mediaframework.beautystyle;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PinkStyle extends AbstractStyle {
     public PinkStyle() {
         this.sMinParams = new float[]{0.35f, 0.65f, 0.25f, 0.45f};

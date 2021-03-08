@@ -21,36 +21,36 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b Ug;
-    private HashMap<String, String> Uh = new HashMap<>();
-    private a Ui = null;
-    private boolean Uj = false;
+    private static volatile b VC;
+    private HashMap<String, String> VD = new HashMap<>();
+    private a VE = null;
+    private boolean VF = false;
 
     public static b pq() {
-        if (Ug == null) {
+        if (VC == null) {
             synchronized (b.class) {
-                if (Ug == null) {
-                    Ug = new b();
+                if (VC == null) {
+                    VC = new b();
                 }
             }
         }
-        return Ug;
+        return VC;
     }
 
     private b() {
     }
 
     public void au(boolean z) {
-        if (z && !this.Uj && this.Ui == null && pr()) {
-            this.Ui = new a();
-            this.Ui.execute(new Void[0]);
-            this.Uj = true;
+        if (z && !this.VF && this.VE == null && pr()) {
+            this.VE = new a();
+            this.VE.execute(new Void[0]);
+            this.VF = true;
         }
     }
 
     private boolean pr() {
         String[] split;
-        this.Uh.clear();
+        this.VD.clear();
         PluginSettings pU = com.baidu.adp.plugin.packageManager.pluginSettings.c.pX().pU();
         if (pU == null) {
             return false;
@@ -62,26 +62,26 @@ public class b {
         for (Map.Entry<String, PluginSetting> entry : plugins.entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
-                this.Uh.put(new File(value.apkPath).getName(), "");
+                this.VD.put(new File(value.apkPath).getName(), "");
             }
             if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(",")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
-                        this.Uh.put(new File(str).getName(), "");
+                        this.VD.put(new File(str).getName(), "");
                     }
                 }
             }
             try {
                 if (value.tempVersionCode > 0 && value.installStatus > 0) {
-                    if (value.installStatus == a.b.Vb) {
+                    if (value.installStatus == a.b.Wv) {
                         String f = Util.f(value);
                         if (!TextUtils.isEmpty(f) && new File(f).exists()) {
-                            this.Uh.put(new File(f).getName(), "");
+                            this.VD.put(new File(f).getName(), "");
                         }
-                    } else if (value.installStatus == a.b.Ve || value.installStatus == a.b.Vd) {
+                    } else if (value.installStatus == a.b.Wy || value.installStatus == a.b.Wx) {
                         String str2 = Util.f(value) + ".tmp";
                         if (!TextUtils.isEmpty(str2) && new File(str2).exists()) {
-                            this.Uh.put(new File(str2).getName(), "");
+                            this.VD.put(new File(str2).getName(), "");
                         }
                     }
                 }
@@ -115,7 +115,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            b.this.Ui = null;
+            b.this.VE = null;
         }
 
         private ArrayList<File> ps() {
@@ -129,7 +129,7 @@ public class b {
             StringBuilder sb2 = new StringBuilder();
             StringBuilder sb3 = new StringBuilder();
             try {
-                for (Map.Entry entry : b.this.Uh.entrySet()) {
+                for (Map.Entry entry : b.this.VD.entrySet()) {
                     if (sb.length() > 0) {
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     }
@@ -180,7 +180,7 @@ public class b {
                                                             if (name3.endsWith(".vdex") || name3.endsWith(".odex")) {
                                                                 name3 = name3.substring(0, name3.length() - 5);
                                                             }
-                                                            if (b.this.Uh.get(name3 + ".apk") == null) {
+                                                            if (b.this.VD.get(name3 + ".apk") == null) {
                                                                 arrayList.add(file3);
                                                                 if (sb3.length() < 10000) {
                                                                     if (sb3.length() > 0) {
@@ -200,7 +200,7 @@ public class b {
                                                 if (name4.endsWith(".apk.cur.prof")) {
                                                     name4 = name4.substring(0, name4.length() - 13);
                                                 }
-                                                if (b.this.Uh.get(name4 + ".apk") == null) {
+                                                if (b.this.VD.get(name4 + ".apk") == null) {
                                                     arrayList.add(file2);
                                                     if (sb3.length() < 10000) {
                                                         if (sb3.length() > 0) {
@@ -216,7 +216,7 @@ public class b {
                                         }
                                     }
                                 }
-                            } else if (name.endsWith(".apk") || b.this.Uh.get(name + ".apk") != null) {
+                            } else if (name.endsWith(".apk") || b.this.VD.get(name + ".apk") != null) {
                                 if (sb2.length() < 10000) {
                                     if (sb2.length() > 0) {
                                         sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -235,7 +235,7 @@ public class b {
                                 }
                             }
                         } else if (name.endsWith(".apk")) {
-                            if (b.this.Uh.get(name) != null) {
+                            if (b.this.VD.get(name) != null) {
                                 if (sb2.length() < 10000) {
                                     if (sb2.length() > 0) {
                                         sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -260,7 +260,7 @@ public class b {
                                 }
                                 sb2.append(absolutePath);
                             }
-                        } else if (name.contains(".apk_") && b.this.Uh.get(name) != null) {
+                        } else if (name.contains(".apk_") && b.this.VD.get(name) != null) {
                             if (sb2.length() < 10000) {
                                 if (sb2.length() > 0) {
                                     sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);

@@ -1,7 +1,7 @@
 package com.yy.mediaframework.utils;
 
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RefBase {
     private AtomicInteger mRefCnt = new AtomicInteger(0);
 

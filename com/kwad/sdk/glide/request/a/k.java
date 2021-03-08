@@ -20,14 +20,12 @@ import java.util.List;
 @Deprecated
 /* loaded from: classes3.dex */
 public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.a<Z> {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static boolean f10347b;
+    private static boolean b;
     @Nullable
     private static Integer c;
 
     /* renamed from: a  reason: collision with root package name */
-    protected final T f10348a;
+    protected final T f6827a;
     private final a d;
     @Nullable
     private View.OnAttachStateChangeListener e;
@@ -41,25 +39,23 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
         @VisibleForTesting
 
         /* renamed from: a  reason: collision with root package name */
-        static Integer f10349a;
-
-        /* renamed from: b  reason: collision with root package name */
-        boolean f10350b;
+        static Integer f6828a;
+        boolean b;
         private final View c;
         private final List<i> d = new ArrayList();
         @Nullable
-        private ViewTreeObserver$OnPreDrawListenerC1136a e;
+        private ViewTreeObserver$OnPreDrawListenerC1153a e;
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.kwad.sdk.glide.request.a.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static final class ViewTreeObserver$OnPreDrawListenerC1136a implements ViewTreeObserver.OnPreDrawListener {
+        public static final class ViewTreeObserver$OnPreDrawListenerC1153a implements ViewTreeObserver.OnPreDrawListener {
 
             /* renamed from: a  reason: collision with root package name */
-            private final WeakReference<a> f10351a;
+            private final WeakReference<a> f6829a;
 
-            ViewTreeObserver$OnPreDrawListenerC1136a(@NonNull a aVar) {
-                this.f10351a = new WeakReference<>(aVar);
+            ViewTreeObserver$OnPreDrawListenerC1153a(@NonNull a aVar) {
+                this.f6829a = new WeakReference<>(aVar);
             }
 
             @Override // android.view.ViewTreeObserver.OnPreDrawListener
@@ -67,7 +63,7 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
                 if (Log.isLoggable("ViewTarget", 2)) {
                     Log.v("ViewTarget", "OnGlobalLayoutListener called attachStateListener=" + this);
                 }
-                a aVar = this.f10351a.get();
+                a aVar = this.f6829a.get();
                 if (aVar != null) {
                     aVar.a();
                     return true;
@@ -85,7 +81,7 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
             if (i4 > 0) {
                 return i4;
             }
-            if (this.f10350b && this.c.isLayoutRequested()) {
+            if (this.b && this.c.isLayoutRequested()) {
                 return 0;
             }
             int i5 = i - i3;
@@ -102,13 +98,13 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
         }
 
         private static int a(@NonNull Context context) {
-            if (f10349a == null) {
+            if (f6828a == null) {
                 Display defaultDisplay = ((WindowManager) com.kwad.sdk.glide.g.j.a((WindowManager) context.getSystemService("window"))).getDefaultDisplay();
                 Point point = new Point();
                 defaultDisplay.getSize(point);
-                f10349a = Integer.valueOf(Math.max(point.x, point.y));
+                f6828a = Integer.valueOf(Math.max(point.x, point.y));
             }
-            return f10349a.intValue();
+            return f6828a.intValue();
         }
 
         private void a(int i, int i2) {
@@ -162,7 +158,7 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
             }
             if (this.e == null) {
                 ViewTreeObserver viewTreeObserver = this.c.getViewTreeObserver();
-                this.e = new ViewTreeObserver$OnPreDrawListenerC1136a(this);
+                this.e = new ViewTreeObserver$OnPreDrawListenerC1153a(this);
                 viewTreeObserver.addOnPreDrawListener(this.e);
             }
         }
@@ -182,7 +178,7 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
     }
 
     public k(@NonNull T t) {
-        this.f10348a = (T) com.kwad.sdk.glide.g.j.a(t);
+        this.f6827a = (T) com.kwad.sdk.glide.g.j.a(t);
         this.d = new a(t);
     }
 
@@ -190,30 +186,30 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
         if (this.e == null || this.g) {
             return;
         }
-        this.f10348a.addOnAttachStateChangeListener(this.e);
+        this.f6827a.addOnAttachStateChangeListener(this.e);
         this.g = true;
     }
 
     private void a(@Nullable Object obj) {
         if (c != null) {
-            this.f10348a.setTag(c.intValue(), obj);
+            this.f6827a.setTag(c.intValue(), obj);
             return;
         }
-        f10347b = true;
-        this.f10348a.setTag(obj);
+        b = true;
+        this.f6827a.setTag(obj);
     }
 
     private void f() {
         if (this.e == null || !this.g) {
             return;
         }
-        this.f10348a.removeOnAttachStateChangeListener(this.e);
+        this.f6827a.removeOnAttachStateChangeListener(this.e);
         this.g = false;
     }
 
     @Nullable
     private Object g() {
-        return c == null ? this.f10348a.getTag() : this.f10348a.getTag(c.intValue());
+        return c == null ? this.f6827a.getTag() : this.f6827a.getTag(c.intValue());
     }
 
     @Override // com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.request.a.j
@@ -265,6 +261,6 @@ public abstract class k<T extends View, Z> extends com.kwad.sdk.glide.request.a.
     }
 
     public String toString() {
-        return "Target for: " + this.f10348a;
+        return "Target for: " + this.f6827a;
     }
 }

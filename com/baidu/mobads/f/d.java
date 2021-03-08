@@ -13,16 +13,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends AbstractExecutorService {
     private static final com.baidu.mobads.f.b n = new a();
     private static final RuntimePermission o = new RuntimePermission("modifyThread");
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicInteger f3326a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final BlockingQueue<Runnable> f3327b;
+    private final AtomicInteger f2379a;
+    private final BlockingQueue<Runnable> b;
     private final ReentrantLock c;
     private final HashSet<b> d;
     private final Condition e;
@@ -60,33 +58,31 @@ public class d extends AbstractExecutorService {
     }
 
     private boolean d(int i) {
-        return this.f3326a.compareAndSet(i, i + 1);
+        return this.f2379a.compareAndSet(i, i + 1);
     }
 
     private boolean e(int i) {
-        return this.f3326a.compareAndSet(i, i - 1);
+        return this.f2379a.compareAndSet(i, i - 1);
     }
 
     private void f() {
         do {
-        } while (!e(this.f3326a.get()));
+        } while (!e(this.f2379a.get()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public final class b extends AbstractQueuedSynchronizer implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final Thread f3328a;
-
-        /* renamed from: b  reason: collision with root package name */
-        Runnable f3329b;
+        final Thread f2380a;
+        Runnable b;
         volatile long c;
 
         b(Runnable runnable) {
             setState(-1);
-            this.f3329b = runnable;
-            this.f3328a = d.this.c().newThread(this);
+            this.b = runnable;
+            this.f2380a = d.this.c().newThread(this);
         }
 
         @Override // java.lang.Runnable
@@ -133,7 +129,7 @@ public class d extends AbstractExecutorService {
 
         void e() {
             Thread thread;
-            if (getState() >= 0 && (thread = this.f3328a) != null && !thread.isInterrupted()) {
+            if (getState() >= 0 && (thread = this.f2380a) != null && !thread.isInterrupted()) {
                 try {
                     thread.interrupt();
                 } catch (SecurityException e) {
@@ -145,18 +141,18 @@ public class d extends AbstractExecutorService {
     private void f(int i) {
         int i2;
         do {
-            i2 = this.f3326a.get();
+            i2 = this.f2379a.get();
             if (c(i2, i)) {
                 return;
             }
-        } while (!this.f3326a.compareAndSet(i2, a(i, b(i2))));
+        } while (!this.f2379a.compareAndSet(i2, a(i, b(i2))));
     }
 
     final void a() {
         while (true) {
-            int i = this.f3326a.get();
+            int i = this.f2379a.get();
             if (!c(i) && !c(i, 1073741824)) {
-                if (a(i) != 0 || this.f3327b.isEmpty()) {
+                if (a(i) != 0 || this.b.isEmpty()) {
                     if (b(i) != 0) {
                         a(true);
                         return;
@@ -164,9 +160,9 @@ public class d extends AbstractExecutorService {
                     ReentrantLock reentrantLock = this.c;
                     reentrantLock.lock();
                     try {
-                        if (this.f3326a.compareAndSet(i, a(1073741824, 0))) {
+                        if (this.f2379a.compareAndSet(i, a(1073741824, 0))) {
                             e();
-                            this.f3326a.set(a(1610612736, 0));
+                            this.f2379a.set(a(1610612736, 0));
                             this.e.signalAll();
                             return;
                         }
@@ -191,7 +187,7 @@ public class d extends AbstractExecutorService {
             try {
                 Iterator<b> it = this.d.iterator();
                 while (it.hasNext()) {
-                    securityManager.checkAccess(it.next().f3328a);
+                    securityManager.checkAccess(it.next().f2380a);
                 }
             } finally {
                 reentrantLock.unlock();
@@ -219,7 +215,7 @@ public class d extends AbstractExecutorService {
             Iterator<b> it = this.d.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                Thread thread = next.f3328a;
+                Thread thread = next.f2380a;
                 if (!thread.isInterrupted() && next.b()) {
                     try {
                         thread.interrupt();
@@ -251,7 +247,7 @@ public class d extends AbstractExecutorService {
 
     private List<Runnable> j() {
         Runnable[] runnableArr;
-        BlockingQueue<Runnable> blockingQueue = this.f3327b;
+        BlockingQueue<Runnable> blockingQueue = this.b;
         ArrayList arrayList = new ArrayList();
         blockingQueue.drainTo(arrayList);
         if (!blockingQueue.isEmpty()) {
@@ -277,9 +273,9 @@ public class d extends AbstractExecutorService {
         boolean z2;
         boolean z3;
         loop0: while (true) {
-            int i = this.f3326a.get();
+            int i = this.f2379a.get();
             int a2 = a(i);
-            if (a2 < 0 || (a2 == 0 && runnable == null && !this.f3327b.isEmpty())) {
+            if (a2 < 0 || (a2 == 0 && runnable == null && !this.b.isEmpty())) {
                 do {
                     int b2 = b(i);
                     if (b2 >= 536870911) {
@@ -288,16 +284,16 @@ public class d extends AbstractExecutorService {
                     if (b2 >= (z ? this.l : this.m)) {
                         break loop0;
                     } else if (!d(i)) {
-                        i = this.f3326a.get();
+                        i = this.f2379a.get();
                     } else {
                         try {
                             b bVar2 = new b(runnable);
                             try {
-                                Thread thread = bVar2.f3328a;
+                                Thread thread = bVar2.f2380a;
                                 if (thread != null) {
                                     ReentrantLock reentrantLock = this.c;
                                     reentrantLock.lock();
-                                    int a3 = a(this.f3326a.get());
+                                    int a3 = a(this.f2379a.get());
                                     if (a3 >= 0 && (a3 != 0 || runnable != null)) {
                                         z3 = false;
                                     } else if (thread.isAlive()) {
@@ -366,11 +362,11 @@ public class d extends AbstractExecutorService {
             this.d.remove(bVar);
             reentrantLock.unlock();
             a();
-            int i = this.f3326a.get();
+            int i = this.f2379a.get();
             if (b(i, 536870912)) {
                 if (!z) {
                     int i2 = this.k ? 0 : this.l;
-                    if (i2 == 0 && !this.f3327b.isEmpty()) {
+                    if (i2 == 0 && !this.b.isEmpty()) {
                         i2 = 1;
                     }
                     if (b(i) >= i2) {
@@ -386,7 +382,7 @@ public class d extends AbstractExecutorService {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:28:0x004c, code lost:
-        r0 = r8.f3327b.poll(r8.j, java.util.concurrent.TimeUnit.NANOSECONDS);
+        r0 = r8.b.poll(r8.j, java.util.concurrent.TimeUnit.NANOSECONDS);
      */
     /* JADX WARN: Code restructure failed: missing block: B:34:0x0066, code lost:
         r0 = false;
@@ -397,17 +393,17 @@ public class d extends AbstractExecutorService {
     private Runnable k() {
         boolean z = false;
         while (true) {
-            int i = this.f3326a.get();
+            int i = this.f2379a.get();
             int a2 = a(i);
-            if (a2 < 0 || (a2 < 536870912 && !this.f3327b.isEmpty())) {
+            if (a2 < 0 || (a2 < 536870912 && !this.b.isEmpty())) {
                 int b2 = b(i);
                 boolean z2 = this.k || b2 > this.l;
-                if ((b2 > this.m || (z2 && z)) && (b2 > 1 || this.f3327b.isEmpty())) {
+                if ((b2 > this.m || (z2 && z)) && (b2 > 1 || this.b.isEmpty())) {
                     if (e(i)) {
                         return null;
                     }
                 } else {
-                    Runnable take = this.f3327b.take();
+                    Runnable take = this.b.take();
                     if (take != null) {
                         return take;
                     }
@@ -421,8 +417,8 @@ public class d extends AbstractExecutorService {
 
     final void a(b bVar) {
         Thread currentThread = Thread.currentThread();
-        Runnable runnable = bVar.f3329b;
-        bVar.f3329b = null;
+        Runnable runnable = bVar.b;
+        bVar.b = null;
         bVar.c();
         while (true) {
             if (runnable == null) {
@@ -439,7 +435,7 @@ public class d extends AbstractExecutorService {
             }
             Runnable runnable2 = runnable;
             bVar.a();
-            if ((c(this.f3326a.get(), 536870912) || (Thread.interrupted() && c(this.f3326a.get(), 536870912))) && !currentThread.isInterrupted()) {
+            if ((c(this.f2379a.get(), 536870912) || (Thread.interrupted() && c(this.f2379a.get(), 536870912))) && !currentThread.isInterrupted()) {
                 currentThread.interrupt();
             }
             a(currentThread, runnable2);
@@ -464,7 +460,7 @@ public class d extends AbstractExecutorService {
     }
 
     public d(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory, com.baidu.mobads.f.b bVar) {
-        this.f3326a = new AtomicInteger(a(-536870912, 0));
+        this.f2379a = new AtomicInteger(a(-536870912, 0));
         this.c = new ReentrantLock();
         this.d = new HashSet<>();
         this.e = this.c.newCondition();
@@ -476,7 +472,7 @@ public class d extends AbstractExecutorService {
         }
         this.l = i;
         this.m = i2;
-        this.f3327b = blockingQueue;
+        this.b = blockingQueue;
         this.j = timeUnit.toNanos(j);
         this.h = threadFactory;
         this.i = bVar;
@@ -487,7 +483,7 @@ public class d extends AbstractExecutorService {
         if (runnable == null) {
             throw new NullPointerException();
         }
-        int b2 = b(this.f3326a.get());
+        int b2 = b(this.f2379a.get());
         if (b2 - d() > 0) {
             b(runnable);
         } else if (b2 < this.m) {
@@ -500,10 +496,10 @@ public class d extends AbstractExecutorService {
     }
 
     private void b(Runnable runnable) {
-        int i = this.f3326a.get();
+        int i = this.f2379a.get();
         if (!c(i)) {
             a(runnable);
-        } else if (this.f3327b.offer(runnable)) {
+        } else if (this.b.offer(runnable)) {
             if (b(i) == 0) {
                 a((Runnable) null, false);
             }
@@ -549,12 +545,12 @@ public class d extends AbstractExecutorService {
 
     @Override // java.util.concurrent.ExecutorService
     public boolean isShutdown() {
-        return !c(this.f3326a.get());
+        return !c(this.f2379a.get());
     }
 
     @Override // java.util.concurrent.ExecutorService
     public boolean isTerminated() {
-        return c(this.f3326a.get(), 1610612736);
+        return c(this.f2379a.get(), 1610612736);
     }
 
     @Override // java.util.concurrent.ExecutorService
@@ -562,7 +558,7 @@ public class d extends AbstractExecutorService {
         long nanos = timeUnit.toNanos(j);
         ReentrantLock reentrantLock = this.c;
         reentrantLock.lock();
-        while (!c(this.f3326a.get(), 1610612736)) {
+        while (!c(this.f2379a.get(), 1610612736)) {
             try {
                 if (nanos > 0) {
                     nanos = this.e.awaitNanos(nanos);
@@ -617,13 +613,13 @@ public class d extends AbstractExecutorService {
                 i = next.d() ? i + 1 : i;
             }
             reentrantLock.unlock();
-            int i2 = this.f3326a.get();
+            int i2 = this.f2379a.get();
             if (b(i2, 0)) {
                 str = "Running";
             } else {
                 str = c(i2, 1610612736) ? "Terminated" : "Shutting down";
             }
-            return super.toString() + "[" + str + ", pool size = " + size + ", active threads = " + i + ", queued tasks = " + this.f3327b.size() + ", completed tasks = " + j + "]";
+            return super.toString() + "[" + str + ", pool size = " + size + ", active threads = " + i + ", queued tasks = " + this.b.size() + ", completed tasks = " + j + "]";
         } catch (Throwable th) {
             reentrantLock.unlock();
             throw th;
@@ -639,7 +635,7 @@ public class d extends AbstractExecutorService {
     protected void e() {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements com.baidu.mobads.f.b {
         @Override // com.baidu.mobads.f.b
         public void a(Runnable runnable, d dVar) {

@@ -19,21 +19,21 @@ import java.util.Date;
 /* loaded from: classes2.dex */
 public class a implements y.a {
     private TbPageContext context;
-    private ImageView eIT;
-    private View jkE;
-    private TextView jlU;
-    private TextView jlV;
-    private TextView jlW;
-    private b jlX;
-    private y jlY;
-    private ImageView jlZ;
-    private ImageView jma;
-    private TextView jmb;
-    private View jmc;
+    private ImageView eKu;
+    private View jmn;
+    private TextView jnE;
+    private TextView jnF;
+    private TextView jnG;
+    private b jnH;
+    private y jnI;
+    private ImageView jnJ;
+    private ImageView jnK;
+    private TextView jnL;
+    private View jnM;
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() == a.this.jlZ.getId()) {
+            if (view.getId() == a.this.jnJ.getId()) {
                 a.this.context.getPageActivity().finish();
             }
         }
@@ -43,32 +43,32 @@ public class a implements y.a {
     public a(TbPageContext tbPageContext, View view) {
         this.context = tbPageContext;
         this.rootView = view;
-        this.jlU = (TextView) view.findViewById(R.id.to_user_name);
-        this.jlV = (TextView) view.findViewById(R.id.content);
-        this.jlW = (TextView) view.findViewById(R.id.sender);
-        this.jkE = view.findViewById(R.id.share_view);
-        this.eIT = (ImageView) view.findViewById(R.id.frs_private_share_qrcode);
-        this.jlZ = (ImageView) view.findViewById(R.id.close_button);
-        this.jlZ.setOnClickListener(this.onClickListener);
-        this.jma = (ImageView) view.findViewById(R.id.img_top);
-        ViewGroup.LayoutParams layoutParams = this.jma.getLayoutParams();
+        this.jnE = (TextView) view.findViewById(R.id.to_user_name);
+        this.jnF = (TextView) view.findViewById(R.id.content);
+        this.jnG = (TextView) view.findViewById(R.id.sender);
+        this.jmn = view.findViewById(R.id.share_view);
+        this.eKu = (ImageView) view.findViewById(R.id.frs_private_share_qrcode);
+        this.jnJ = (ImageView) view.findViewById(R.id.close_button);
+        this.jnJ.setOnClickListener(this.onClickListener);
+        this.jnK = (ImageView) view.findViewById(R.id.img_top);
+        ViewGroup.LayoutParams layoutParams = this.jnK.getLayoutParams();
         layoutParams.width = l.getEquipmentWidth(tbPageContext.getPageActivity()) - (l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds49) * 2);
         layoutParams.height = (int) (((layoutParams.width * 364) * 1.0f) / 980.0f);
-        this.jma.setLayoutParams(layoutParams);
-        this.jmb = (TextView) view.findViewById(R.id.qr_view_intro);
-        this.jmc = view.findViewById(R.id.layout_content);
-        this.jmc.setBackground(cEZ());
-        this.jkE.setBackground(cEZ());
-        this.jlX = new b(tbPageContext);
-        this.jlX.cFb();
-        cFa();
-        this.jlY = new y(tbPageContext);
-        this.jlY.a(view, this.jkE, this);
-        this.jlY.setData(this.jlX.url, this.jlX.fname);
-        this.jlY.setFrom(5);
+        this.jnK.setLayoutParams(layoutParams);
+        this.jnL = (TextView) view.findViewById(R.id.qr_view_intro);
+        this.jnM = view.findViewById(R.id.layout_content);
+        this.jnM.setBackground(cFf());
+        this.jmn.setBackground(cFf());
+        this.jnH = new b(tbPageContext);
+        this.jnH.cFh();
+        cFg();
+        this.jnI = new y(tbPageContext);
+        this.jnI.a(view, this.jmn, this);
+        this.jnI.setData(this.jnH.url, this.jnH.fname);
+        this.jnI.setFrom(5);
     }
 
-    private GradientDrawable cEZ() {
+    private GradientDrawable cFf() {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{ap.getColor(R.color.CAM_X0201), ap.getColor(R.color.CAM_X0201)});
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);
@@ -80,37 +80,37 @@ public class a implements y.a {
         this.rootView.setVisibility(z ? 0 : 8);
     }
 
-    private void cFa() {
-        this.jlU.setText("你好，朋友！");
-        this.jlV.setText(this.jlX.cFd());
-        this.jlW.setText(this.jlX.nickName + "\n" + new SimpleDateFormat("yyyy年MM月dd日").format(new Date(System.currentTimeMillis())));
-        zF(this.jlX.shareUrl);
+    private void cFg() {
+        this.jnE.setText("你好，朋友！");
+        this.jnF.setText(this.jnH.cFj());
+        this.jnG.setText(this.jnH.nickName + "\n" + new SimpleDateFormat("yyyy年MM月dd日").format(new Date(System.currentTimeMillis())));
+        zM(this.jnH.shareUrl);
     }
 
-    private void zF(String str) {
+    private void zM(String str) {
         CustomResponsedMessage runTask;
         if (str != null && str.length() != 0 && (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) != null && runTask.getData() != null) {
-            this.eIT.setImageBitmap((Bitmap) runTask.getData());
+            this.eKu.setImageBitmap((Bitmap) runTask.getData());
         }
     }
 
     public void onChangeSkinType(int i) {
-        ap.setImageResource(this.jlZ, R.drawable.icon_popup_shut_n);
-        ap.setViewTextColor(this.jlU, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jlV, R.color.CAM_X0105);
-        ap.setViewTextColor(this.jlW, R.color.CAM_X0109);
-        ap.setViewTextColor(this.jmb, R.color.CAM_X0109);
+        ap.setImageResource(this.jnJ, R.drawable.icon_popup_shut_n);
+        ap.setViewTextColor(this.jnE, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jnF, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jnG, R.color.CAM_X0109);
+        ap.setViewTextColor(this.jnL, R.color.CAM_X0109);
     }
 
     @Override // com.baidu.tieba.frs.y.a
-    public void cEv() {
-        this.jkE.setBackground(cEZ());
-        this.jma.setImageResource(R.drawable.pic_yaoqinghan_980x364);
+    public void cEB() {
+        this.jmn.setBackground(cFf());
+        this.jnK.setImageResource(R.drawable.pic_yaoqinghan_980x364);
     }
 
     @Override // com.baidu.tieba.frs.y.a
-    public void cEw() {
-        this.jkE.setBackground(new ColorDrawable(ap.getColor(R.color.CAM_X0201)));
-        this.jma.setImageResource(R.drawable.pic_yaoqinghan_square_corner);
+    public void cEC() {
+        this.jmn.setBackground(new ColorDrawable(ap.getColor(R.color.CAM_X0201)));
+        this.jnK.setImageResource(R.drawable.pic_yaoqinghan_square_corner);
     }
 }

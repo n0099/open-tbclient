@@ -5,10 +5,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.RequiresApi;
 @RequiresApi(23)
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 class MediaControllerCompatApi23 {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static class TransportControls {
         public static void playFromUri(Object obj, Uri uri, Bundle bundle) {
             ((MediaController.TransportControls) obj).playFromUri(uri, bundle);

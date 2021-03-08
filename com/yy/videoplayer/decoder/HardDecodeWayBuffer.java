@@ -23,7 +23,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HardDecodeWayBuffer implements HardDecRender.IDecoderDataOutCallBack, HardDecRender.OnDecoderYUVListener, HardDecodeWay, Runnable {
     private static final int COLOR_QCOM_FormatYUV420SemiPlanar32m = 2141391876;
     private static final int OMX_QCOM_COLOR_FormatYUV420PackedSemiPlanar64x32Tile2m8ka = 2141391875;

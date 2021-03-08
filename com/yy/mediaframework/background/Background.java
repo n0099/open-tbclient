@@ -1,7 +1,7 @@
 package com.yy.mediaframework.background;
 
 import android.graphics.Bitmap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Background {
     public Align align;
     public Bitmap bitmap;
@@ -10,7 +10,7 @@ public class Background {
     public int offsetY;
     public int width;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum Align {
         LeftTop,
         RightTop,

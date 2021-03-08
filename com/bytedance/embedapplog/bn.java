@@ -15,8 +15,8 @@ import java.security.MessageDigest;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class bn implements bi {
-    private aw<Boolean> pnh;
-    private final bi pnu;
+    private final bi ppE;
+    private aw<Boolean> ppq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn() {
@@ -25,12 +25,12 @@ public final class bn implements bi {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(bi biVar) {
-        this.pnh = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bn.1
+        this.ppq = new aw<Boolean>() { // from class: com.bytedance.embedapplog.bn.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.bytedance.embedapplog.aw
-            /* renamed from: N */
-            public Boolean M(Object... objArr) {
+            /* renamed from: M */
+            public Boolean L(Object... objArr) {
                 long j;
                 try {
                     PackageInfo packageInfo = ((Context) objArr[0]).getPackageManager().getPackageInfo("com.heytap.openid", 0);
@@ -43,13 +43,13 @@ public final class bn implements bi {
                         j = packageInfo.versionCode;
                     }
                     return Boolean.valueOf(j >= 1);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Throwable th) {
+                    th.printStackTrace();
                     return false;
                 }
             }
         };
-        this.pnu = biVar;
+        this.ppE = biVar;
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -57,23 +57,23 @@ public final class bn implements bi {
         if (context == null) {
             return false;
         }
-        Boolean b2 = this.pnh.b(context);
-        if (this.pnu != null && !b2.booleanValue()) {
-            return this.pnu.a(context);
+        Boolean b = this.ppq.b(context);
+        if (this.ppE != null && !b.booleanValue()) {
+            return this.ppE.a(context);
         }
-        return b2.booleanValue();
+        return b.booleanValue();
     }
 
     @Override // com.bytedance.embedapplog.bi
-    public bi.a hS(final Context context) {
-        if (this.pnu != null && !this.pnh.b(new Object[0]).booleanValue()) {
-            return this.pnu.hS(context);
+    public bi.a hR(final Context context) {
+        if (this.ppE != null && !this.ppq.b(new Object[0]).booleanValue()) {
+            return this.ppE.hR(context);
         }
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
         intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
         bi.a aVar = new bi.a();
-        aVar.f5803b = (String) new bp(context, intent, new bp.b<br, String>() { // from class: com.bytedance.embedapplog.bn.2
+        aVar.b = (String) new bp(context, intent, new bp.b<br, String>() { // from class: com.bytedance.embedapplog.bn.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b
             /* renamed from: a */
@@ -103,8 +103,8 @@ public final class bn implements bi {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
             signatureArr = packageInfo != null ? packageInfo.signatures : null;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
             signatureArr = null;
         }
         if (signatureArr == null || signatureArr.length <= 0) {
@@ -116,14 +116,14 @@ public final class bn implements bi {
             if (messageDigest != null) {
                 byte[] digest = messageDigest.digest(byteArray);
                 StringBuilder sb = new StringBuilder();
-                for (byte b2 : digest) {
-                    sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
+                for (byte b : digest) {
+                    sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
                 }
                 return sb.toString();
             }
             return null;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }

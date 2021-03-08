@@ -9,51 +9,51 @@ import android.util.Log;
 import android.view.View;
 import com.baidu.yuyinala.privatemessage.implugin.util.c;
 import java.lang.reflect.Field;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b implements Cloneable {
-    private float dlH;
-    private Rect pgR;
-    private Drawable pgG = null;
-    private Drawable pgH = null;
+    private float dni;
+    private Rect piZ;
+    private Drawable piO = null;
+    private Drawable piP = null;
     private Drawable mThumbDrawable = null;
-    private int pgI = a.pgT;
-    private int pgJ = a.pgS;
-    private int oCj = a.pgU;
-    private int pgK = a.pgV;
-    private int pgL = 0;
-    private int pgM = 0;
-    private int pgN = 0;
-    private int pgO = 0;
+    private int piQ = a.pjb;
+    private int piR = a.pja;
+    private int oEo = a.pjc;
+    private int piS = a.pjd;
+    private int piT = 0;
+    private int piU = 0;
+    private int piV = 0;
+    private int piW = 0;
     private int mThumbWidth = -1;
-    private int pgP = -1;
-    private int bJg = -1;
+    private int piX = -1;
+    private int bKG = -1;
     private float mRadius = -1.0f;
-    private float pgQ = 0.0f;
+    private float piY = 0.0f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        static int pgS = Color.parseColor("#E3E3E3");
-        static int pgT = Color.parseColor("#02BFE7");
-        static int pgU = Color.parseColor("#FFFFFF");
-        static int pgV = Color.parseColor("#fafafa");
-        static int pgW = 2;
+        static int pja = Color.parseColor("#E3E3E3");
+        static int pjb = Color.parseColor("#02BFE7");
+        static int pjc = Color.parseColor("#FFFFFF");
+        static int pjd = Color.parseColor("#fafafa");
+        static int pje = 2;
         static int DEFAULT_RADIUS = 999;
-        static float pgX = 2.0f;
-        static int pgY = 0;
+        static float pjf = 2.0f;
+        static int pjg = 0;
     }
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.b$b  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    static class C0976b {
-        static int pgZ = 24;
+    /* loaded from: classes10.dex */
+    static class C0982b {
+        static int pjh = 24;
     }
 
-    public static b bB(float f) {
+    public static b bF(float f) {
         b bVar = new b();
-        bVar.dlH = f;
-        bVar.NT(bVar.elZ());
-        bVar.pgR = new Rect(a.pgY, a.pgY, a.pgY, a.pgY);
+        bVar.dni = f;
+        bVar.NX(bVar.emj());
+        bVar.piZ = new Rect(a.pjg, a.pjg, a.pjg, a.pjg);
         return bVar;
     }
 
@@ -62,7 +62,7 @@ public class b implements Cloneable {
         if (drawable == null) {
             c.e("SwitchButtonConfiguration", "off drawable can not be null");
         } else {
-            this.pgH = drawable;
+            this.piP = drawable;
         }
     }
 
@@ -71,16 +71,16 @@ public class b implements Cloneable {
         if (drawable == null) {
             c.e("SwitchButtonConfiguration", "onDrawable can not be null");
         } else {
-            this.pgG = drawable;
+            this.piO = drawable;
         }
     }
 
-    public Drawable elX() {
-        return this.pgG;
+    public Drawable emh() {
+        return this.piO;
     }
 
-    public Drawable elY() {
-        return this.pgH;
+    public Drawable emi() {
+        return this.piP;
     }
 
     public void setThumbDrawable(Drawable drawable) {
@@ -96,38 +96,38 @@ public class b implements Cloneable {
     }
 
     public void N(int i, int i2, int i3, int i4) {
-        this.pgL = i;
-        this.pgM = i2;
-        this.pgN = i3;
-        this.pgO = i4;
+        this.piT = i;
+        this.piU = i2;
+        this.piV = i3;
+        this.piW = i4;
     }
 
-    public void NT(int i) {
+    public void NX(int i) {
         N(i, i, i, i);
     }
 
-    public int elZ() {
-        return (int) (a.pgW * this.dlH);
+    public int emj() {
+        return (int) (a.pje * this.dni);
     }
 
-    public int ema() {
-        return this.pgL;
+    public int emk() {
+        return this.piT;
     }
 
-    public int emb() {
-        return this.pgM;
+    public int eml() {
+        return this.piU;
     }
 
-    public int emc() {
-        return this.pgN;
+    public int emm() {
+        return this.piV;
     }
 
-    public int emd() {
-        return this.pgO;
+    public int emn() {
+        return this.piW;
     }
 
     public float getDensity() {
-        return this.dlH;
+        return this.dni;
     }
 
     public void setRadius(float f) {
@@ -138,12 +138,12 @@ public class b implements Cloneable {
         return this.mRadius < 0.0f ? a.DEFAULT_RADIUS : this.mRadius;
     }
 
-    public void NS(int i) {
-        this.bJg = i;
+    public void NW(int i) {
+        this.bKG = i;
     }
 
-    public int eme() {
-        return this.bJg;
+    public int emo() {
+        return this.bKG;
     }
 
     public void dR(int i, int i2) {
@@ -151,26 +151,26 @@ public class b implements Cloneable {
             this.mThumbWidth = i;
         }
         if (i2 > 0) {
-            this.pgP = i2;
+            this.piX = i2;
         }
     }
 
-    public Drawable emf() {
-        return this.pgH != null ? this.pgH : NY(this.pgJ);
+    public Drawable emp() {
+        return this.piP != null ? this.piP : Oc(this.piR);
     }
 
-    public Drawable emg() {
-        return this.pgG != null ? this.pgG : NY(this.pgI);
+    public Drawable emq() {
+        return this.piO != null ? this.piO : Oc(this.piQ);
     }
 
-    public Drawable emh() {
+    public Drawable emr() {
         int[] iArr;
         if (this.mThumbDrawable != null) {
             return this.mThumbDrawable;
         }
         StateListDrawable stateListDrawable = new StateListDrawable();
-        Drawable NY = NY(this.oCj);
-        Drawable NY2 = NY(this.pgK);
+        Drawable Oc = Oc(this.oEo);
+        Drawable Oc2 = Oc(this.piS);
         try {
             Field declaredField = View.class.getDeclaredField("PRESSED_ENABLED_STATE_SET");
             declaredField.setAccessible(true);
@@ -180,86 +180,86 @@ public class b implements Cloneable {
             iArr = null;
         }
         if (iArr != null) {
-            stateListDrawable.addState(iArr, NY2);
+            stateListDrawable.addState(iArr, Oc2);
         }
-        stateListDrawable.addState(new int[0], NY);
+        stateListDrawable.addState(new int[0], Oc);
         return stateListDrawable;
     }
 
-    public float emi() {
-        if (this.pgQ <= 0.0f) {
-            this.pgQ = a.pgX;
+    public float ems() {
+        if (this.piY <= 0.0f) {
+            this.piY = a.pjf;
         }
-        return this.pgQ;
+        return this.piY;
     }
 
-    public void bC(float f) {
+    public void bG(float f) {
         if (f <= 0.0f) {
-            this.pgQ = a.pgX;
+            this.piY = a.pjf;
         }
-        this.pgQ = f;
+        this.piY = f;
     }
 
-    public Rect emj() {
-        return this.pgR;
+    public Rect emt() {
+        return this.piZ;
     }
 
     public void O(int i, int i2, int i3, int i4) {
-        NU(i);
-        NV(i2);
-        NW(i3);
-        NX(i4);
+        NY(i);
+        NZ(i2);
+        Oa(i3);
+        Ob(i4);
     }
 
-    public void NU(int i) {
+    public void NY(int i) {
         if (i > 0) {
             i = -i;
         }
-        this.pgR.left = i;
+        this.piZ.left = i;
     }
 
-    public void NV(int i) {
+    public void NZ(int i) {
         if (i > 0) {
             i = -i;
         }
-        this.pgR.top = i;
+        this.piZ.top = i;
     }
 
-    public void NW(int i) {
+    public void Oa(int i) {
         if (i > 0) {
             i = -i;
         }
-        this.pgR.right = i;
+        this.piZ.right = i;
     }
 
-    public void NX(int i) {
+    public void Ob(int i) {
         if (i > 0) {
             i = -i;
         }
-        this.pgR.bottom = i;
+        this.piZ.bottom = i;
     }
 
-    public int emk() {
-        return emm() / 2;
+    public int emu() {
+        return emw() / 2;
     }
 
-    public int eml() {
-        return emn() / 2;
+    public int emv() {
+        return emx() / 2;
     }
 
-    public int emm() {
-        return this.pgR.left + this.pgR.right;
+    public int emw() {
+        return this.piZ.left + this.piZ.right;
     }
 
-    public int emn() {
-        return this.pgR.top + this.pgR.bottom;
+    public int emx() {
+        return this.piZ.top + this.piZ.bottom;
     }
 
-    public boolean emo() {
-        return ((this.pgR.left + this.pgR.right) + this.pgR.top) + this.pgR.bottom != 0;
+    public boolean emy() {
+        return ((this.piZ.left + this.piZ.right) + this.piZ.top) + this.piZ.bottom != 0;
     }
 
-    private Drawable NY(int i) {
+    private Drawable Oc(int i) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(getRadius());
         gradientDrawable.setColor(i);
@@ -271,11 +271,11 @@ public class b implements Cloneable {
         int i = this.mThumbWidth;
         if (i < 0) {
             if (this.mThumbDrawable == null || (i = this.mThumbDrawable.getIntrinsicWidth()) <= 0) {
-                if (this.dlH <= 0.0f) {
+                if (this.dni <= 0.0f) {
                     c.e("SwitchButtonConfiguration", "density must be a positive number");
                     return i;
                 }
-                return (int) (C0976b.pgZ * this.dlH);
+                return (int) (C0982b.pjh * this.dni);
             }
             return i;
         }
@@ -284,14 +284,14 @@ public class b implements Cloneable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int getThumbHeight() {
-        int i = this.pgP;
+        int i = this.piX;
         if (i < 0) {
             if (this.mThumbDrawable == null || (i = this.mThumbDrawable.getIntrinsicHeight()) <= 0) {
-                if (this.dlH <= 0.0f) {
+                if (this.dni <= 0.0f) {
                     c.e("SwitchButtonConfiguration", "density must be a positive number");
                     return i;
                 }
-                return (int) (C0976b.pgZ * this.dlH);
+                return (int) (C0982b.pjh * this.dni);
             }
             return i;
         }

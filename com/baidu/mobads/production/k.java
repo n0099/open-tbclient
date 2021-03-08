@@ -27,11 +27,9 @@ import com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager;
 import com.baidu.mobads.openad.interfaces.utils.IOAdTimer;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerContext {
-
-    /* renamed from: b  reason: collision with root package name */
-    public IXAdContainerEventListener f3461b;
+    public IXAdContainerEventListener b;
     private Context c;
     private Activity d;
     private RelativeLayout e;
@@ -42,16 +40,14 @@ public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerConte
     private long j = 0;
     private HashMap<String, Integer> k = new HashMap<>();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends com.baidu.mobads.openad.a.b {
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f3463b;
+        private String b;
         private HashMap<String, Object> c;
 
         public a(String str, String str2, HashMap<String, Object> hashMap) {
             super(str);
-            this.f3463b = str2;
+            this.b = str2;
             this.c = hashMap;
         }
 
@@ -68,7 +64,7 @@ public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerConte
         this.d = activity;
         this.i = iXAdProdInfo;
         this.e = relativeLayout;
-        this.f3461b = iXAdContainerEventListener;
+        this.b = iXAdContainerEventListener;
         this.f = iXAdResponseInfo;
         this.g = iXAdResponseInfo.getPrimaryAdInstanceInfo();
         this.h = view;
@@ -89,7 +85,7 @@ public class k extends com.baidu.mobads.openad.a.c implements IXAdContainerConte
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext
     public IXAdContainerEventListener getAdContainerListener() {
-        return this.f3461b;
+        return this.b;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdContainerContext

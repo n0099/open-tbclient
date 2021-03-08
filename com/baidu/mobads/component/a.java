@@ -1,23 +1,23 @@
 package com.baidu.mobads.component;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements IFeedPortraitListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XNativeView f3311a;
+    final /* synthetic */ XNativeView f2369a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(XNativeView xNativeView) {
-        this.f3311a = xNativeView;
+        this.f2369a = xNativeView;
     }
 
     @Override // com.baidu.mobads.component.IFeedPortraitListener
     public void playCompletion() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        iNativeVideoListener = this.f3311a.mFeedVideoListener;
+        iNativeVideoListener = this.f2369a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f3311a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f2369a.mFeedVideoListener;
             iNativeVideoListener2.onCompletion();
         }
     }
@@ -26,9 +26,9 @@ public class a implements IFeedPortraitListener {
     public void playError() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        iNativeVideoListener = this.f3311a.mFeedVideoListener;
+        iNativeVideoListener = this.f2369a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f3311a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f2369a.mFeedVideoListener;
             iNativeVideoListener2.onError();
         }
     }
@@ -37,10 +37,10 @@ public class a implements IFeedPortraitListener {
     public void playRenderingStart() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        XNativeViewManager.getInstance().resetAllPlayer(this.f3311a);
-        iNativeVideoListener = this.f3311a.mFeedVideoListener;
+        XNativeViewManager.getInstance().resetAllPlayer(this.f2369a);
+        iNativeVideoListener = this.f2369a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f3311a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f2369a.mFeedVideoListener;
             iNativeVideoListener2.onRenderingStart();
         }
     }
@@ -49,9 +49,9 @@ public class a implements IFeedPortraitListener {
     public void playPause() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        iNativeVideoListener = this.f3311a.mFeedVideoListener;
+        iNativeVideoListener = this.f2369a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f3311a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f2369a.mFeedVideoListener;
             iNativeVideoListener2.onPause();
         }
     }
@@ -60,9 +60,9 @@ public class a implements IFeedPortraitListener {
     public void playResume() {
         INativeVideoListener iNativeVideoListener;
         INativeVideoListener iNativeVideoListener2;
-        iNativeVideoListener = this.f3311a.mFeedVideoListener;
+        iNativeVideoListener = this.f2369a.mFeedVideoListener;
         if (iNativeVideoListener != null) {
-            iNativeVideoListener2 = this.f3311a.mFeedVideoListener;
+            iNativeVideoListener2 = this.f2369a.mFeedVideoListener;
             iNativeVideoListener2.onResume();
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
     private DefaultParams d;
     private String mCasePath;

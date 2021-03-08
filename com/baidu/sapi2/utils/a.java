@@ -8,11 +8,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f5098a = 2048;
+    private static final int f3442a = 2048;
 
     public static boolean a(File file) {
         try {

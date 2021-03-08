@@ -10,7 +10,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.drawable.ResourceDrawableDecoder;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ResourceBitmapDecoder implements ResourceDecoder<Uri, Bitmap> {
     private final BitmapPool bitmapPool;
     private final ResourceDrawableDecoder drawableDecoder;

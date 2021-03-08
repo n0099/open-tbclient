@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderPlayerMultiViewProxy {
     private static final String TAG = "ThunderPlayerView";
     private WeakReference<ThunderVideoPlayEngineImp> engineImp;
@@ -567,7 +567,7 @@ public class ThunderPlayerMultiViewProxy {
         return tArr.length;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Seat {
         private static final int STATUS_IDEL = 0;
         private static final int STATUS_LINK = 1;

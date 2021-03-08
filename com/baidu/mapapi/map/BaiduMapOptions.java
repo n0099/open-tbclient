@@ -9,10 +9,8 @@ public final class BaiduMapOptions implements Parcelable {
     public static final Parcelable.Creator<BaiduMapOptions> CREATOR = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    MapStatus f2694a;
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f2695b;
+    MapStatus f2009a;
+    boolean b;
     int c;
     boolean d;
     boolean e;
@@ -25,8 +23,8 @@ public final class BaiduMapOptions implements Parcelable {
     Point l;
 
     public BaiduMapOptions() {
-        this.f2694a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.f2695b = true;
+        this.f2009a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
+        this.b = true;
         this.c = 1;
         this.d = true;
         this.e = true;
@@ -38,8 +36,8 @@ public final class BaiduMapOptions implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public BaiduMapOptions(Parcel parcel) {
-        this.f2694a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
-        this.f2695b = true;
+        this.f2009a = new MapStatus(0.0f, new LatLng(39.914935d, 116.403119d), 0.0f, 12.0f, null, null);
+        this.b = true;
         this.c = 1;
         this.d = true;
         this.e = true;
@@ -47,8 +45,8 @@ public final class BaiduMapOptions implements Parcelable {
         this.g = true;
         this.h = true;
         this.i = true;
-        this.f2694a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
-        this.f2695b = parcel.readByte() != 0;
+        this.f2009a = (MapStatus) parcel.readParcelable(MapStatus.class.getClassLoader());
+        this.b = parcel.readByte() != 0;
         this.c = parcel.readInt();
         this.d = parcel.readByte() != 0;
         this.e = parcel.readByte() != 0;
@@ -62,11 +60,11 @@ public final class BaiduMapOptions implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public com.baidu.mapsdkplatform.comapi.map.z a() {
-        return new com.baidu.mapsdkplatform.comapi.map.z().a(this.f2694a.c()).a(this.f2695b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g);
+        return new com.baidu.mapsdkplatform.comapi.map.z().a(this.f2009a.c()).a(this.b).a(this.c).b(this.d).c(this.e).d(this.f).e(this.g);
     }
 
     public BaiduMapOptions compassEnabled(boolean z) {
-        this.f2695b = z;
+        this.b = z;
         return this;
     }
 
@@ -82,7 +80,7 @@ public final class BaiduMapOptions implements Parcelable {
 
     public BaiduMapOptions mapStatus(MapStatus mapStatus) {
         if (mapStatus != null) {
-            this.f2694a = mapStatus;
+            this.f2009a = mapStatus;
         }
         return this;
     }
@@ -119,8 +117,8 @@ public final class BaiduMapOptions implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f2694a, i);
-        parcel.writeByte((byte) (this.f2695b ? 1 : 0));
+        parcel.writeParcelable(this.f2009a, i);
+        parcel.writeByte((byte) (this.b ? 1 : 0));
         parcel.writeInt(this.c);
         parcel.writeByte((byte) (this.d ? 1 : 0));
         parcel.writeByte((byte) (this.e ? 1 : 0));

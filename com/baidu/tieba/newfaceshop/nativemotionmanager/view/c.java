@@ -9,22 +9,22 @@ import com.baidu.adp.lib.voice.h;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private TextView lDY;
-    private View lDZ;
-    private LinearLayout lEa;
+    private TextView lGa;
+    private View lGb;
+    private LinearLayout lGc;
     private View mHeaderView;
     private View rootView;
 
     public c(TbPageContext tbPageContext) {
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.emotion_manage_header, (ViewGroup) null, false);
-        this.lEa = (LinearLayout) this.rootView.findViewById(R.id.emotion_manage_header_content);
-        this.lEa.setVisibility(8);
+        this.lGc = (LinearLayout) this.rootView.findViewById(R.id.emotion_manage_header_content);
+        this.lGc.setVisibility(8);
         this.mHeaderView = this.rootView.findViewById(R.id.emotion_manage_item_header);
-        this.lDY = (TextView) this.rootView.findViewById(R.id.emotion_manage_total_title);
-        this.lDZ = this.rootView.findViewById(R.id.emotion_manage_edit_lable);
-        this.lDZ.setVisibility(8);
+        this.lGa = (TextView) this.rootView.findViewById(R.id.emotion_manage_total_title);
+        this.lGb = this.rootView.findViewById(R.id.emotion_manage_edit_lable);
+        this.lGb.setVisibility(8);
     }
 
     public View getView() {
@@ -35,40 +35,40 @@ public class c {
         if (this.mHeaderView != null) {
             ap.setBackgroundColor(this.mHeaderView, R.color.CAM_X0204, i);
         }
-        if (this.lEa != null) {
-            ap.setBackgroundColor(this.lEa, R.color.CAM_X0204, i);
+        if (this.lGc != null) {
+            ap.setBackgroundColor(this.lGc, R.color.CAM_X0204, i);
         }
-        if (this.lDY != null) {
-            ap.setViewTextColor(this.lDY, R.color.CAM_X0107, i);
-            ap.setBackgroundColor(this.lDY, R.color.CAM_X0204, i);
+        if (this.lGa != null) {
+            ap.setViewTextColor(this.lGa, R.color.CAM_X0107, i);
+            ap.setBackgroundColor(this.lGa, R.color.CAM_X0204, i);
         }
-        if (this.lDZ != null) {
-            ap.setViewTextColor(this.lDZ, R.color.CAM_X0107, i);
-            ap.setBackgroundColor(this.lDZ, R.color.CAM_X0204, i);
+        if (this.lGb != null) {
+            ap.setViewTextColor(this.lGb, R.color.CAM_X0107, i);
+            ap.setBackgroundColor(this.lGb, R.color.CAM_X0204, i);
         }
     }
 
     public void t(Integer num) {
         if (num != null) {
             if (num.intValue() == 0) {
-                this.lEa.setVisibility(8);
+                this.lGc.setVisibility(8);
             } else {
-                this.lDY.setText(String.format(h.getString(R.string.emotion_manage_local_number), num));
-                this.lEa.setVisibility(0);
+                this.lGa.setText(String.format(h.getString(R.string.emotion_manage_local_number), num));
+                this.lGc.setVisibility(0);
             }
-            if (com.baidu.tieba.newfaceshop.nativemotionmanager.a.diY().bLc()) {
-                this.lDZ.setVisibility(0);
+            if (com.baidu.tieba.newfaceshop.nativemotionmanager.a.djh().bLg()) {
+                this.lGb.setVisibility(0);
             } else {
-                this.lDZ.setVisibility(8);
+                this.lGb.setVisibility(8);
             }
         }
     }
 
-    public void dja() {
-        if (com.baidu.tieba.newfaceshop.nativemotionmanager.a.diY().bLc()) {
-            this.lDZ.setVisibility(0);
+    public void djj() {
+        if (com.baidu.tieba.newfaceshop.nativemotionmanager.a.djh().bLg()) {
+            this.lGb.setVisibility(0);
         } else {
-            this.lDZ.setVisibility(8);
+            this.lGb.setVisibility(8);
         }
     }
 }

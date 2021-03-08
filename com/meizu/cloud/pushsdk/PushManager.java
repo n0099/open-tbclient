@@ -61,8 +61,8 @@ public class PushManager {
     }
 
     public static String getPushId(Context context) {
-        int b2 = com.meizu.cloud.pushsdk.util.b.b(context, context.getPackageName());
-        if (b2 == 0 || System.currentTimeMillis() / 1000 <= b2) {
+        int b = com.meizu.cloud.pushsdk.util.b.b(context, context.getPackageName());
+        if (b == 0 || System.currentTimeMillis() / 1000 <= b) {
             return com.meizu.cloud.pushsdk.util.b.a(context, context.getPackageName());
         }
         return null;

@@ -28,7 +28,7 @@ public class a {
         if (bundle2 != null) {
             Bundle bundle3 = bundle2.getBundle("ll");
             if (bundle3 != null) {
-                aVar.f2827b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
+                aVar.b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
             }
             Bundle bundle4 = bundle2.getBundle("ru");
             if (bundle4 != null) {
@@ -54,7 +54,7 @@ public class a {
             }
         }
         aVar.d.trimToSize();
-        aVar.f2826a = (int) bundle.getDouble("type");
+        aVar.f2090a = (int) bundle.getDouble("type");
         return aVar;
     }
 

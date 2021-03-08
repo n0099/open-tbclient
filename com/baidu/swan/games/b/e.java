@@ -6,10 +6,10 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onFail(String str);
 
@@ -18,20 +18,20 @@ public class e {
 
     public static void a(long j, final a aVar) {
         if (aVar != null) {
-            com.baidu.swan.apps.runtime.e aIL = com.baidu.swan.apps.runtime.e.aIL();
-            if (aIL == null) {
+            com.baidu.swan.apps.runtime.e aIO = com.baidu.swan.apps.runtime.e.aIO();
+            if (aIO == null) {
                 aVar.onFail("swan app is null");
                 return;
             }
-            com.baidu.swan.games.network.b.aXB().getRequest().cookieManager(com.baidu.swan.apps.t.a.axv().aiy()).url(com.baidu.swan.apps.t.a.axi().ahC()).addUrlParam("appkey", aIL.getAppKey()).addUrlParam("duration", String.valueOf(j)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.1
+            com.baidu.swan.games.network.b.aXE().getRequest().cookieManager(com.baidu.swan.apps.t.a.axy().aiB()).url(com.baidu.swan.apps.t.a.axl().ahF()).addUrlParam("appkey", aIO.getAppKey()).addUrlParam("duration", String.valueOf(j)).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
-                /* renamed from: U */
+                /* renamed from: V */
                 public void onSuccess(String str, int i) {
                     if (!TextUtils.isEmpty(str)) {
-                        JSONObject b2 = e.b(str, a.this);
-                        if (b2 != null) {
-                            a.this.onSuccess(g.ct(b2));
+                        JSONObject b = e.b(str, a.this);
+                        if (b != null) {
+                            a.this.onSuccess(g.cv(b));
                             return;
                         }
                         return;
@@ -49,20 +49,20 @@ public class e {
 
     public static void a(String str, final a aVar) {
         if (aVar != null) {
-            com.baidu.swan.apps.runtime.e aIL = com.baidu.swan.apps.runtime.e.aIL();
-            if (aIL == null) {
+            com.baidu.swan.apps.runtime.e aIO = com.baidu.swan.apps.runtime.e.aIO();
+            if (aIO == null) {
                 aVar.onFail("swan app is null");
                 return;
             }
-            com.baidu.swan.games.network.b.aXB().getRequest().cookieManager(com.baidu.swan.apps.t.a.axv().aiy()).url(com.baidu.swan.apps.t.a.axi().ahD()).addUrlParam("appkey", aIL.getAppKey()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.2
+            com.baidu.swan.games.network.b.aXE().getRequest().cookieManager(com.baidu.swan.apps.t.a.axy().aiB()).url(com.baidu.swan.apps.t.a.axl().ahG()).addUrlParam("appkey", aIO.getAppKey()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.b.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
-                /* renamed from: U */
+                /* renamed from: V */
                 public void onSuccess(String str2, int i) {
                     if (!TextUtils.isEmpty(str2)) {
-                        JSONObject b2 = e.b(str2, a.this);
-                        if (b2 != null) {
-                            a.this.onSuccess(f.cs(b2));
+                        JSONObject b = e.b(str2, a.this);
+                        if (b != null) {
+                            a.this.onSuccess(f.cu(b));
                             return;
                         }
                         return;

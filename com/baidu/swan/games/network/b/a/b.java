@@ -6,26 +6,26 @@ import com.baidu.swan.games.network.b.d;
 import com.baidu.swan.games.network.b.e;
 import com.baidu.swan.games.network.c.c;
 import okhttp3.Request;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends c implements com.baidu.swan.games.network.b.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e ejj;
+    private e ekK;
 
     public b(com.baidu.swan.games.f.b bVar, com.baidu.swan.games.binding.model.c cVar) {
         super(bVar, cVar);
-        this.ejj = new e(this);
+        this.ekK = new e(this);
     }
 
     @Override // com.baidu.swan.games.network.a
     public void j(com.baidu.swan.games.binding.model.c cVar) {
         super.j(cVar);
-        this.ejj.aXD();
+        this.ekK.aXG();
     }
 
     @Override // com.baidu.swan.games.network.c.c
     protected void d(Request request) {
-        if (this.eiS != null) {
-            d.aXC().a(this.eiS.optString("url"), this);
+        if (this.ekt != null) {
+            d.aXF().a(this.ekt.optString("url"), this);
             super.d(request);
         }
     }
@@ -33,17 +33,17 @@ public class b extends c implements com.baidu.swan.games.network.b.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.network.a
     public void onSuccess(Object obj) {
-        this.ejj.onSuccess(obj);
+        this.ekK.onSuccess(obj);
     }
 
     @Override // com.baidu.swan.games.network.c.c, com.baidu.swan.games.network.a
-    protected void onError(String str, int i, String str2) {
-        this.ejj.onError(str, i, str2);
+    protected void l(String str, int i, String str2) {
+        this.ekK.l(str, i, str2);
     }
 
     @Override // com.baidu.swan.games.network.a, com.baidu.searchbox.v8engine.event.EventTargetImpl, com.baidu.searchbox.v8engine.event.EventTarget
     public boolean dispatchEvent(JSEvent jSEvent) {
-        return this.ejj.b(jSEvent);
+        return this.ekK.b(jSEvent);
     }
 
     @Override // com.baidu.swan.games.network.b.a
@@ -58,7 +58,7 @@ public class b extends c implements com.baidu.swan.games.network.b.a {
                     return;
                 case 2:
                     com.baidu.swan.games.network.c.b bVar2 = (com.baidu.swan.games.network.c.b) bVar.data;
-                    super.onError(bVar2.url, bVar2.statusCode, bVar2.errMsg);
+                    super.l(bVar2.url, bVar2.statusCode, bVar2.errMsg);
                     return;
                 case 3:
                     super.dispatchEvent((JSEvent) bVar.data);

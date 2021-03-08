@@ -1,5 +1,5 @@
 package com.baidu.sapi2.openbduss;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class BuildConfig {
     @Deprecated
     public static final String APPLICATION_ID = "com.baidu.sapi2.openbduss";

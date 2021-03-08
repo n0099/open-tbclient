@@ -17,7 +17,7 @@ import com.baidu.tbadk.util.al;
 import com.baidu.tieba.tbean.message.GetBigTbeanWalletH5ResponseMessage;
 import com.baidu.tieba.tbean.message.GetYinJiHttpResponseMessage;
 import com.baidu.tieba.tbean.message.GetYinJiResponseMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BuyTBeanActivityStatic {
     public static String Tag = "tag";
 
@@ -26,7 +26,7 @@ public class BuyTBeanActivityStatic {
         com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_GET_YINJI, GetYinJiResponseMessage.class, false);
         registerGetYinJiHttpTask();
         registerBuyTbeanJump();
-        dPL();
+        dPU();
     }
 
     private static void registerGetYinJiHttpTask() {
@@ -39,7 +39,7 @@ public class BuyTBeanActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void dPL() {
+    private static void dPU() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003410, TbConfig.SERVER_ADDRESS + "tbmall/getPayUrl");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -50,7 +50,7 @@ public class BuyTBeanActivityStatic {
     }
 
     private static void registerBuyTbeanJump() {
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.tbean.BuyTBeanActivityStatic.1
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.tbean.BuyTBeanActivityStatic.1
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {

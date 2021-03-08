@@ -10,18 +10,18 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.OAEPParameterSpec;
 import javax.crypto.spec.PSource;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f2430a = new byte[0];
-    private d asJ;
-    private com.baidu.helios.common.a.b.a asK;
+    private static final byte[] f1843a = new byte[0];
+    private d auj;
+    private com.baidu.helios.common.a.b.a auk;
     private int i;
     private byte[] m;
     private int n;
     private int o;
-    private OAEPParameterSpec anm = null;
+    private OAEPParameterSpec aoL = null;
     private String q = "SHA-1";
     private String j = "PKCS1Padding";
 
@@ -44,23 +44,23 @@ public final class b {
             throw new InvalidKeyException("only support helios key");
         }
         this.i = z ? 1 : 4;
-        this.asK = aVar;
-        int a2 = a.a(this.asK.vd());
+        this.auk = aVar;
+        int a2 = a.a(this.auk.vg());
         this.o = a2;
         this.n = 0;
         if (this.j == "NoPadding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.asJ = d.b(3, a2, secureRandom);
+            this.auj = d.b(3, a2, secureRandom);
             this.m = new byte[a2];
         } else if (this.j == "PKCS1Padding") {
             if (algorithmParameterSpec != null) {
                 throw new InvalidAlgorithmParameterException("Parameters not supported");
             }
-            this.asJ = d.b(this.i <= 2 ? 2 : 1, a2, secureRandom);
+            this.auj = d.b(this.i <= 2 ? 2 : 1, a2, secureRandom);
             if (z) {
-                this.m = new byte[this.asJ.a()];
+                this.m = new byte[this.auj.a()];
             } else {
                 this.m = new byte[a2];
             }
@@ -74,9 +74,9 @@ public final class b {
             } else {
                 oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
             }
-            this.asJ = d.b(4, a2, secureRandom, oAEPParameterSpec);
+            this.auj = d.b(4, a2, secureRandom, oAEPParameterSpec);
             if (z) {
-                this.m = new byte[this.asJ.a()];
+                this.m = new byte[this.auj.a()];
             } else {
                 this.m = new byte[a2];
             }
@@ -91,14 +91,14 @@ public final class b {
         try {
             switch (this.i) {
                 case 1:
-                    a2 = a.a(this.asJ.l(this.m, 0, this.n), this.asK);
+                    a2 = a.a(this.auj.l(this.m, 0, this.n), this.auk);
                     break;
                 case 2:
                     throw new UnsupportedOperationException("only verify supported");
                 case 3:
                     throw new UnsupportedOperationException("only verify supported");
                 case 4:
-                    a2 = this.asJ.b(a.a(a.l(this.m, 0, this.n), this.asK));
+                    a2 = this.auj.b(a.a(a.l(this.m, 0, this.n), this.auk));
                     break;
                 default:
                     throw new AssertionError("Internal error");

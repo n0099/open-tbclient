@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.ubc;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class UbcStatConstant {
     public static final String DEBUG_EVENT_ID = "1435";
     public static final String DEBUG_VALUE_CONTENT_FROM = "live_perform";
@@ -32,7 +32,7 @@ public class UbcStatConstant {
     public static final String VALUE_CONTENT_FROM = "live";
     public static final String VALUE_LIVE_TYPE_AUDIO = "voice_live";
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class ContentSource {
         public static final String HAOKAN = "haokan";
         public static final String QUANMIN = "mvapp";
@@ -40,7 +40,7 @@ public class UbcStatConstant {
         public static final String TIEBA = "tieba";
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class ContentType {
         public static final String ACCESS = "access";
         public static final String CLICK = "click";
@@ -120,14 +120,14 @@ public class UbcStatConstant {
         public static final String UBC_TYPE_TYING_GIFT = "tying_gift";
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class DebugContentType {
         public static final String EXCEPTION = "exception";
         public static final String REQUEST = "request";
         public static final String STAT = "stat";
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class DebugContentValue {
         public static final String CREATE_LIVE = "create_live";
         public static final String ENTER_LIVE = "enter_live";
@@ -137,7 +137,7 @@ public class UbcStatConstant {
         public static final String PK = "pk";
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class Page {
         public static final String AUDIO_LIVE_ROOM = "audio_live_room";
         public static final String AUTHOR_LIVE_ROOM = "author_liveroom";
@@ -150,13 +150,13 @@ public class UbcStatConstant {
         public static final String VOICE_ROOM_END = "voiceroom_end";
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class SubPage {
         public static final String GUESS_POPUP = "guesspop";
         public static final String POPUP = "popup";
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class Value {
         public static final String BIG_GIFT_DATA_ERROR = "big_gift_data_error";
         public static final String BIG_GIFT_DOWNLOADING = "big_gift_down";

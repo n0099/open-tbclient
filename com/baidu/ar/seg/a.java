@@ -1,5 +1,5 @@
 package com.baidu.ar.seg;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
     private int height;
     private int orientation;

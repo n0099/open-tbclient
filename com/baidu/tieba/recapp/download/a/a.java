@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static a dDG() {
-        return C0859a.mSQ;
+    public static a dDO() {
+        return C0865a.mUX;
     }
 
     /* renamed from: com.baidu.tieba.recapp.download.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0859a {
-        private static final a mSQ = new a();
+    private static class C0865a {
+        private static final a mUX = new a();
     }
 
     public synchronized void c(b bVar) {
@@ -32,7 +32,7 @@ public class a {
         }
     }
 
-    public synchronized void RE(String str) {
+    public synchronized void RK(String str) {
         if (!TextUtils.isEmpty(str)) {
             SQLiteDatabase openedDatabase = TiebaDatabase.getInstance().getMainDBDatabaseManager().getOpenedDatabase();
             openedDatabase.beginTransaction();
@@ -77,15 +77,15 @@ public class a {
             b bVar = new b();
             bVar.downloadKey = cursor.getString(cursor.getColumnIndex("download_key"));
             bVar.packageName = cursor.getString(cursor.getColumnIndex("package_name"));
-            bVar.mSR = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
-            bVar.mSS = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
-            bVar.lMP = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
-            bVar.mST = cursor.getString(cursor.getColumnIndex("ad_string"));
-            bVar.mSU = cursor.getString(cursor.getColumnIndex("cmatch"));
+            bVar.mUY = Long.parseLong(cursor.getString(cursor.getColumnIndex("finish_download_time")));
+            bVar.mUZ = Integer.parseInt(cursor.getString(cursor.getColumnIndex("show_times")));
+            bVar.lOR = Long.parseLong(cursor.getString(cursor.getColumnIndex("last_show_time")));
+            bVar.mVa = cursor.getString(cursor.getColumnIndex("ad_string"));
+            bVar.mVb = cursor.getString(cursor.getColumnIndex("cmatch"));
             bVar.installStatus = Integer.parseInt(cursor.getString(cursor.getColumnIndex("install_status")));
-            bVar.mSV = cursor.getString(cursor.getColumnIndex("ad_extension_info1"));
-            bVar.mSW = cursor.getString(cursor.getColumnIndex("ad_extension_info2"));
-            bVar.mSX = cursor.getString(cursor.getColumnIndex("ad_extension_info3"));
+            bVar.mVc = cursor.getString(cursor.getColumnIndex("ad_extension_info1"));
+            bVar.mVd = cursor.getString(cursor.getColumnIndex("ad_extension_info2"));
+            bVar.mVe = cursor.getString(cursor.getColumnIndex("ad_extension_info3"));
             return bVar;
         } catch (Exception e) {
             return null;
@@ -99,15 +99,15 @@ public class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put("download_key", bVar.downloadKey);
         contentValues.put("package_name", bVar.packageName);
-        contentValues.put("finish_download_time", String.valueOf(bVar.mSR));
-        contentValues.put("show_times", String.valueOf(bVar.mSS));
-        contentValues.put("last_show_time", String.valueOf(bVar.lMP));
-        contentValues.put("ad_string", bVar.mST);
-        contentValues.put("cmatch", bVar.mSU);
+        contentValues.put("finish_download_time", String.valueOf(bVar.mUY));
+        contentValues.put("show_times", String.valueOf(bVar.mUZ));
+        contentValues.put("last_show_time", String.valueOf(bVar.lOR));
+        contentValues.put("ad_string", bVar.mVa);
+        contentValues.put("cmatch", bVar.mVb);
         contentValues.put("install_status", Integer.valueOf(bVar.installStatus));
-        contentValues.put("ad_extension_info1", bVar.mSV);
-        contentValues.put("ad_extension_info2", bVar.mSW);
-        contentValues.put("ad_extension_info3", bVar.mSX);
+        contentValues.put("ad_extension_info1", bVar.mVc);
+        contentValues.put("ad_extension_info2", bVar.mVd);
+        contentValues.put("ad_extension_info3", bVar.mVe);
         return contentValues;
     }
 }

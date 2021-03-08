@@ -11,29 +11,29 @@ import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private TextView eHx;
-    private View ixF;
-    private View lJw;
-    private b lJx;
-    private b lJy;
-    private b lJz;
+    private TextView eIY;
+    private View izo;
+    private b lLA;
+    private b lLB;
+    private View lLy;
+    private b lLz;
     private View rootView;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void Pi(String str);
+        void Po(String str);
     }
 
     public c(Context context, a aVar) {
         this.rootView = LayoutInflater.from(context).inflate(R.layout.chosen_pb_comment_layout, (ViewGroup) null);
-        this.eHx = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_title);
-        this.ixF = this.rootView.findViewById(R.id.chosen_pb_comment_line);
-        this.lJw = this.rootView.findViewById(R.id.comment_layout_blank_view);
-        this.lJx = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
-        this.lJy = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
-        this.lJz = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
+        this.eIY = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_title);
+        this.izo = this.rootView.findViewById(R.id.chosen_pb_comment_line);
+        this.lLy = this.rootView.findViewById(R.id.comment_layout_blank_view);
+        this.lLz = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
+        this.lLA = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
+        this.lLB = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
     }
 
     public void a(Context context, List<Post> list, List<User> list2) {
@@ -41,32 +41,32 @@ public class c {
         boolean z2;
         boolean z3;
         if (list == null || list.isEmpty()) {
-            this.eHx.setVisibility(8);
-            this.lJx.uD(false);
-            this.lJy.uD(false);
-            this.lJz.uD(false);
-            this.ixF.setVisibility(8);
+            this.eIY.setVisibility(8);
+            this.lLz.uD(false);
+            this.lLA.uD(false);
+            this.lLB.uD(false);
+            this.izo.setVisibility(8);
             return;
         }
-        this.ixF.setVisibility(0);
+        this.izo.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            boolean a2 = this.lJx.a(context, list.get(0), a(list.get(0), list2));
-            this.lJy.uD(false);
-            this.lJz.uD(false);
+            boolean a2 = this.lLz.a(context, list.get(0), a(list.get(0), list2));
+            this.lLA.uD(false);
+            this.lLB.uD(false);
             z = false;
             z2 = false;
             z3 = a2;
         } else if (size == 2) {
-            boolean a3 = this.lJx.a(context, list.get(0), a(list.get(0), list2));
-            z2 = this.lJy.a(context, list.get(1), a(list.get(1), list2));
-            this.lJz.uD(false);
+            boolean a3 = this.lLz.a(context, list.get(0), a(list.get(0), list2));
+            z2 = this.lLA.a(context, list.get(1), a(list.get(1), list2));
+            this.lLB.uD(false);
             z = false;
             z3 = a3;
         } else if (size >= 3) {
-            z3 = this.lJx.a(context, list.get(0), a(list.get(0), list2));
-            boolean a4 = this.lJy.a(context, list.get(1), a(list.get(1), list2));
-            z = this.lJz.a(context, list.get(2), a(list.get(2), list2));
+            z3 = this.lLz.a(context, list.get(0), a(list.get(0), list2));
+            boolean a4 = this.lLA.a(context, list.get(1), a(list.get(1), list2));
+            z = this.lLB.a(context, list.get(2), a(list.get(2), list2));
             z2 = a4;
         } else {
             z = false;
@@ -74,9 +74,9 @@ public class c {
             z3 = false;
         }
         if (z3 || z2 || z) {
-            this.eHx.setVisibility(0);
+            this.eIY.setVisibility(0);
         } else {
-            this.eHx.setVisibility(8);
+            this.eIY.setVisibility(8);
         }
     }
 
@@ -98,12 +98,12 @@ public class c {
 
     public void onChangeSkinType() {
         ap.setBackgroundResource(this.rootView, R.color.common_color_10187);
-        ap.setBackgroundColor(this.lJw, R.color.CAM_X0201);
-        ap.setViewTextColor(this.eHx, R.color.CAM_X0106, 1);
-        ap.setBackgroundColor(this.ixF, R.color.CAM_X0204);
-        this.lJx.onChangeSkinType();
-        this.lJy.onChangeSkinType();
-        this.lJz.onChangeSkinType();
+        ap.setBackgroundColor(this.lLy, R.color.CAM_X0201);
+        ap.setViewTextColor(this.eIY, R.color.CAM_X0106, 1);
+        ap.setBackgroundColor(this.izo, R.color.CAM_X0204);
+        this.lLz.onChangeSkinType();
+        this.lLA.onChangeSkinType();
+        this.lLB.onChangeSkinType();
     }
 
     public View getView() {

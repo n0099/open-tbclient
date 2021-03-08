@@ -14,45 +14,45 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView kXW;
-    private List<com.baidu.tieba.interestlabel.b.a> kXY;
-    private List<Integer> kXZ = new ArrayList();
+    private LabelSettingView kZY;
+    private List<com.baidu.tieba.interestlabel.b.a> laa;
+    private List<Integer> lab = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.kXW = labelSettingView;
+        this.kZY = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !y.isEmpty(bVar.daN())) {
+        if (bVar != null && !y.isEmpty(bVar.daW())) {
             this.mLabelDataSet = bVar;
-            this.kXY = bVar.daN();
-            if (!y.isEmpty(bVar.daO())) {
-                this.kXZ = new ArrayList(bVar.daO());
+            this.laa = bVar.daW();
+            if (!y.isEmpty(bVar.daX())) {
+                this.lab = new ArrayList(bVar.daX());
             }
         }
     }
 
-    public List<Integer> daK() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.daO();
+    public List<Integer> daT() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.daX();
     }
 
-    public List<Integer> daL() {
-        return this.kXZ;
+    public List<Integer> daU() {
+        return this.lab;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return y.getCount(this.kXY);
+        return y.getCount(this.laa);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: DM */
+    /* renamed from: DP */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) y.getItem(this.kXY, i);
+        return (com.baidu.tieba.interestlabel.b.a) y.getItem(this.laa, i);
     }
 
     @Override // android.widget.Adapter
@@ -66,20 +66,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0772b c0772b;
+        C0778b c0778b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.kXW.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0772b c0772b2 = new C0772b();
-            c0772b2.kYb = (TextView) view2;
-            view2.setTag(c0772b2);
-            c0772b = c0772b2;
+            view2 = LayoutInflater.from(this.kZY.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            C0778b c0778b2 = new C0778b();
+            c0778b2.lad = (TextView) view2;
+            view2.setTag(c0778b2);
+            c0778b = c0778b2;
         } else {
-            c0772b = (C0772b) view.getTag();
+            c0778b = (C0778b) view.getTag();
             view2 = view;
         }
-        c0772b.kYb.setOnClickListener(new a(i));
-        a(c0772b.kYb, getItem(i));
+        c0778b.lad.setOnClickListener(new a(i));
+        a(c0778b.lad, getItem(i));
         return view2;
     }
 
@@ -104,15 +104,15 @@ public class b extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    class C0772b {
-        TextView kYb;
+    /* loaded from: classes7.dex */
+    class C0778b {
+        TextView lad;
 
-        C0772b() {
+        C0778b() {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     class a implements View.OnClickListener {
         private int index;
 
@@ -129,12 +129,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.kXZ.add(Integer.valueOf(item.labelId));
+                    b.this.lab.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.kXZ.remove(Integer.valueOf(item.labelId));
+                    b.this.lab.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.kXW != null) {
-                    b.this.kXW.tA(y.getCount(b.this.kXZ) > 0);
+                if (b.this.kZY != null) {
+                    b.this.kZY.tA(y.getCount(b.this.lab) > 0);
                 }
             }
         }

@@ -8,31 +8,31 @@ import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.view.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private List<EmotionPackageData> caS;
-    private BdListView lDj;
-    private SingleThreadEmotionHorizontalAdater lDu;
-    private e lDv;
+    private List<EmotionPackageData> ccu;
+    private BdListView lFl;
+    private SingleThreadEmotionHorizontalAdater lFw;
+    private e lFx;
 
     public b(TbPageContext<?> tbPageContext, BdListView bdListView) {
-        this.lDj = bdListView;
-        this.lDv = new e(tbPageContext);
-        this.lDv.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.lDj.addHeaderView(this.lDv.getView());
-        this.caS = new ArrayList();
-        this.lDu = new SingleThreadEmotionHorizontalAdater(this.caS, tbPageContext);
-        this.lDj.setAdapter((ListAdapter) this.lDu);
+        this.lFl = bdListView;
+        this.lFx = new e(tbPageContext);
+        this.lFx.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.lFl.addHeaderView(this.lFx.getView());
+        this.ccu = new ArrayList();
+        this.lFw = new SingleThreadEmotionHorizontalAdater(this.ccu, tbPageContext);
+        this.lFl.setAdapter((ListAdapter) this.lFw);
     }
 
     public void fa(List<EmotionPackageData> list) {
-        if (list != null && this.lDv != null && this.lDu != null) {
-            this.lDv.t(Integer.valueOf(list.size()));
-            this.caS.clear();
+        if (list != null && this.lFx != null && this.lFw != null) {
+            this.lFx.t(Integer.valueOf(list.size()));
+            this.ccu.clear();
             if (list != null) {
-                this.caS.addAll(list);
+                this.ccu.addAll(list);
             }
-            this.lDu.notifyDataSetChanged();
+            this.lFw.notifyDataSetChanged();
         }
     }
 }

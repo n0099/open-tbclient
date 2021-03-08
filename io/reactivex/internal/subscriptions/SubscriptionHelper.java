@@ -6,7 +6,7 @@ import io.reactivex.internal.util.b;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum SubscriptionHelper implements d {
     CANCELLED;
 
@@ -69,7 +69,7 @@ public enum SubscriptionHelper implements d {
     }
 
     public static boolean setOnce(AtomicReference<d> atomicReference, d dVar) {
-        io.reactivex.internal.functions.a.m(dVar, "s is null");
+        io.reactivex.internal.functions.a.n(dVar, "s is null");
         if (atomicReference.compareAndSet(null, dVar)) {
             return true;
         }

@@ -17,45 +17,45 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f {
-    private static f iTo = new f();
-    private a iTp;
-    private List<String> iTq;
+    private static f iUX = new f();
+    private a iUY;
+    private List<String> iUZ;
     private int max = 5;
-    private CustomMessageListener iTr = new CustomMessageListener(CmdConfigCustom.CMD_CANCEL_FILE_DOWNLOAD) { // from class: com.baidu.tieba.faceshop.f.1
+    private CustomMessageListener iVa = new CustomMessageListener(CmdConfigCustom.CMD_CANCEL_FILE_DOWNLOAD) { // from class: com.baidu.tieba.faceshop.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001140 && (customResponsedMessage instanceof CancelDownloadMessage)) {
-                f.this.cyz();
+                f.this.cyF();
             }
         }
     };
-    private CustomMessageListener eJz = new CustomMessageListener(CmdConfigCustom.CMD_QEURY_FILE_DOWNLOAD) { // from class: com.baidu.tieba.faceshop.f.2
+    private CustomMessageListener eLa = new CustomMessageListener(CmdConfigCustom.CMD_QEURY_FILE_DOWNLOAD) { // from class: com.baidu.tieba.faceshop.f.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001119 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-                f.this.iTq = ((QueryDownloadMessage) customResponsedMessage).getData();
-                f.this.cY(f.this.iTq);
+                f.this.iUZ = ((QueryDownloadMessage) customResponsedMessage).getData();
+                f.this.cY(f.this.iUZ);
             }
         }
     };
 
     private f() {
-        MessageManager.getInstance().registerListener(this.eJz);
-        MessageManager.getInstance().registerListener(this.iTr);
+        MessageManager.getInstance().registerListener(this.eLa);
+        MessageManager.getInstance().registerListener(this.iVa);
     }
 
-    public static f cyy() {
-        return iTo;
+    public static f cyE() {
+        return iUX;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cY(List<String> list) {
-        this.iTp = new a();
-        this.iTp.execute(list);
+        this.iUY = new a();
+        this.iUY.execute(list);
     }
 
     public void aG(String str, String str2, String str3) {
@@ -100,16 +100,16 @@ public class f {
             sb.append(str);
             downloadData.setPath(sb.toString());
             BdLog.d("download:path:" + downloadData.getPath());
-            com.baidu.tbadk.download.d.bBd().a(downloadData, this.max);
+            com.baidu.tbadk.download.d.bBg().a(downloadData, this.max);
         }
     }
 
-    public void Jz(String str) {
-        com.baidu.tbadk.download.d.bBd().cancelDownLoadById(str, 11);
+    public void JI(String str) {
+        com.baidu.tbadk.download.d.bBg().cancelDownLoadById(str, 11);
     }
 
-    public void cyz() {
-        com.baidu.tbadk.download.d.bBd().cancelDownloadByType(11);
+    public void cyF() {
+        com.baidu.tbadk.download.d.bBg().cancelDownloadByType(11);
     }
 
     public void b(DownloadData downloadData) {
@@ -123,7 +123,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends BdAsyncTask<List<String>, List<DownloadData>, List<DownloadData>> {
         a() {
         }
@@ -138,8 +138,8 @@ public class f {
                 return linkedList;
             }
             for (int i = 0; i < listArr[0].size(); i++) {
-                MyEmotionGroupData eS = com.baidu.tieba.faceshop.a.cyv().eS(TbadkApplication.getCurrentAccount(), listArr[0].get(i));
-                if (eS != null && b.Jy(eS.getGroupId())) {
+                MyEmotionGroupData eS = com.baidu.tieba.faceshop.a.cyB().eS(TbadkApplication.getCurrentAccount(), listArr[0].get(i));
+                if (eS != null && b.JH(eS.getGroupId())) {
                     DownloadData downloadData = new DownloadData(eS.getGroupId());
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -157,8 +157,8 @@ public class f {
             if (list == null) {
                 list = new LinkedList<>();
             }
-            for (DownloadData downloadData : com.baidu.tbadk.download.d.bBd().getDownloadList()) {
-                for (String str : f.this.iTq) {
+            for (DownloadData downloadData : com.baidu.tbadk.download.d.bBg().getDownloadList()) {
+                for (String str : f.this.iUZ) {
                     if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                         list.add(downloadData);
                     }

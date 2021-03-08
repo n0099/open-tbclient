@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static void a(int i, int i2, Handler handler) {
         c.d("postUrl is https://ufosdk.baidu.com/?m=Index&a=getProductType");
@@ -72,14 +72,14 @@ public final class a {
     }
 
     public static void a(Context context, int i, int i2, int i3, int i4, boolean z) {
-        String b2 = d.b(context);
-        boolean contains = b2.contains(RomUtils.UNKNOWN);
-        boolean contains2 = b2.contains("NONE");
+        String b = d.b(context);
+        boolean contains = b.contains(RomUtils.UNKNOWN);
+        boolean contains2 = b.contains("NONE");
         if (contains || contains2) {
             SharedPreferences.Editor edit = context.getSharedPreferences("UfoSharePreference", 0).edit();
-            String b3 = i.b(System.currentTimeMillis());
-            UfoSDK.startStr = b3 + "-enable";
-            edit.putString("lastStart", b3 + "-enable");
+            String b2 = i.b(System.currentTimeMillis());
+            UfoSDK.startStr = b2 + "-enable";
+            edit.putString("lastStart", b2 + "-enable");
             return;
         }
         com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(context);
@@ -92,13 +92,13 @@ public final class a {
                 edit2.putInt("editFeedbackViewFromRobotUV", 0);
                 edit2.putInt("editFeedbackViewFromFaqUV", 0);
                 edit2.putInt("robotUv", 0);
-                String b4 = i.b(System.currentTimeMillis());
+                String b3 = i.b(System.currentTimeMillis());
                 if (z) {
-                    UfoSDK.startStr = b4 + "-enable";
-                    edit2.putString("lastStart", b4 + "-enable");
+                    UfoSDK.startStr = b3 + "-enable";
+                    edit2.putString("lastStart", b3 + "-enable");
                 } else {
-                    UfoSDK.startStr = b4 + "-disable";
-                    edit2.putString("lastStart", b4 + "-disable");
+                    UfoSDK.startStr = b3 + "-disable";
+                    edit2.putString("lastStart", b3 + "-disable");
                 }
                 edit2.commit();
             } else {
@@ -107,13 +107,13 @@ public final class a {
                 edit3.putInt("editFeedbackViewFromRobotUV", 0);
                 edit3.putInt("editFeedbackViewFromFaqUV", 0);
                 edit3.putInt("robotUv", 0);
-                String b5 = i.b(System.currentTimeMillis());
+                String b4 = i.b(System.currentTimeMillis());
                 if (z) {
-                    UfoSDK.startStr = b5 + "-enable";
-                    edit3.putString("lastStart", b5 + "-enable");
+                    UfoSDK.startStr = b4 + "-enable";
+                    edit3.putString("lastStart", b4 + "-enable");
                 } else {
-                    UfoSDK.startStr = b5 + "-disable";
-                    edit3.putString("lastStart", b5 + "-disable");
+                    UfoSDK.startStr = b4 + "-disable";
+                    edit3.putString("lastStart", b4 + "-disable");
                 }
                 edit3.commit();
             }
@@ -259,9 +259,9 @@ public final class a {
                 c.b("getFeedbackChatBack -> response is empty!");
                 context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
             } else {
-                String b2 = k.b(a2);
-                c.c("-----------getFeedbackChatBack---------response is " + b2);
-                JSONObject jSONObject = new JSONObject(b2);
+                String b = k.b(a2);
+                c.c("-----------getFeedbackChatBack---------response is " + b);
+                JSONObject jSONObject = new JSONObject(b);
                 int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
                 if (intValue == 0) {
                     ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
@@ -397,9 +397,9 @@ public final class a {
         if (TextUtils.isEmpty(a2)) {
             return false;
         }
-        String b2 = k.b(a2);
-        c.c("^^ sendSolvedResult response is: \n" + b2);
-        if (((Integer) new JSONObject(b2).get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
+        String b = k.b(a2);
+        c.c("^^ sendSolvedResult response is: \n" + b);
+        if (((Integer) new JSONObject(b).get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
             c.d("finally");
             return true;
         }
@@ -414,7 +414,7 @@ public final class a {
         hashMap.put("devid", UfoSDK.devid);
         hashMap.put("uid", com.baidu.ufosdk.b.d);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5358b);
+        hashMap.put("username", com.baidu.ufosdk.b.b);
         hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
@@ -424,9 +424,9 @@ public final class a {
                 c.b("getHistoryChat -> response is empty!");
                 context.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
             } else {
-                String b2 = k.b(a2);
-                c.a("decode response is " + b2);
-                JSONObject jSONObject = new JSONObject(b2);
+                String b = k.b(a2);
+                c.a("decode response is " + b);
+                JSONObject jSONObject = new JSONObject(b);
                 int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
                 if (intValue == 0) {
                     c.c(" ############################ errNo == 0");
@@ -511,9 +511,9 @@ public final class a {
         try {
             String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
             if (!TextUtils.isEmpty(a2)) {
-                String b2 = k.b(a2);
-                c.c("---------getFeedbackChat-----------response is " + b2);
-                JSONObject jSONObject = new JSONObject(b2);
+                String b = k.b(a2);
+                c.c("---------getFeedbackChat-----------response is " + b);
+                JSONObject jSONObject = new JSONObject(b);
                 int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
                 if (intValue == 0) {
                     ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
@@ -617,16 +617,16 @@ public final class a {
         hashMap.put("devid", UfoSDK.devid);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
         hashMap.put("uid", com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5358b);
+        hashMap.put("username", com.baidu.ufosdk.b.b);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
         hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ai));
         try {
             String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=newmsgnotice", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
             if (!TextUtils.isEmpty(a2)) {
-                String b2 = k.b(a2);
-                c.a("response is " + b2);
-                JSONObject jSONObject = new JSONObject(b2);
+                String b = k.b(a2);
+                c.a("response is " + b);
+                JSONObject jSONObject = new JSONObject(b);
                 c.a("response is " + jSONObject.toString());
                 if (((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue() == 0) {
                     if (((Integer) jSONObject.get("newmsg")).intValue() > 0) {
@@ -676,15 +676,15 @@ public final class a {
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("uid", com.baidu.ufosdk.b.d);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5358b);
+        hashMap.put("username", com.baidu.ufosdk.b.b);
         hashMap.put("output_style", 1);
         try {
             String a2 = b.a("https://ufosdk.baidu.com/?m=Index&a=getmsgbyclient", "sdk_encrypt=" + URLEncoder.encode(k.a(com.baidu.ufosdk.c.a.a(hashMap)), "UTF-8"));
             if (!TextUtils.isEmpty(a2)) {
-                String b2 = k.b(a2);
-                c.a("response is " + b2);
-                JSONObject jSONObject = new JSONObject(b2);
-                c.c("response is -- >  " + b2);
+                String b = k.b(a2);
+                c.a("response is " + b);
+                JSONObject jSONObject = new JSONObject(b);
+                c.c("response is -- >  " + b);
                 int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
                 if (intValue == 0) {
                     ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
@@ -862,7 +862,7 @@ public final class a {
         hashMap.put("devid", UfoSDK.devid);
         hashMap.put("uid", com.baidu.ufosdk.b.d);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5358b);
+        hashMap.put("username", com.baidu.ufosdk.b.b);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("id", str);
         try {

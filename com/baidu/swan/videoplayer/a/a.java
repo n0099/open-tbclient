@@ -1,7 +1,7 @@
 package com.baidu.swan.videoplayer.a;
 
 import com.baidu.swan.videoplayer.SwanVideoView;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface a {
     void h(SwanVideoView swanVideoView);
 

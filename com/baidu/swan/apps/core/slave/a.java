@@ -2,21 +2,21 @@ package com.baidu.swan.apps.core.slave;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static ExecutorService cWK = Executors.newSingleThreadExecutor();
+    private static ExecutorService cYk = Executors.newSingleThreadExecutor();
 
     /* renamed from: com.baidu.swan.apps.core.slave.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0414a {
-        private static int cWL = -1;
+    /* loaded from: classes8.dex */
+    public static class C0420a {
+        private static int cYl = -1;
 
-        public static boolean arK() {
-            if (cWL == -1) {
-                cWL = com.baidu.swan.apps.t.a.awZ().getSwitch("swan_preload_slave_optimization", 0);
+        public static boolean arN() {
+            if (cYl == -1) {
+                cYl = com.baidu.swan.apps.t.a.axc().getSwitch("swan_preload_slave_optimization", 0);
             }
-            return cWL == 1;
+            return cYl == 1;
         }
     }
 }

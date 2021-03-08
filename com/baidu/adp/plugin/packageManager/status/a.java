@@ -14,29 +14,29 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a Vx;
-    private final LinkedHashMap<String, PluginStatus> Vy = new LinkedHashMap<>(10);
+    private static a WR;
+    private final LinkedHashMap<String, PluginStatus> WT = new LinkedHashMap<>(10);
 
     private a() {
     }
 
     public static a qd() {
-        if (Vx == null) {
+        if (WR == null) {
             synchronized (a.class) {
-                if (Vx == null) {
-                    Vx = new a();
+                if (WR == null) {
+                    WR = new a();
                 }
             }
         }
-        return Vx;
+        return WR;
     }
 
-    public void cO(String str) {
-        PluginStatus cQ = qd().cQ(str);
-        if (cQ != null) {
-            cQ.Vu = PluginPackageManager.PluginStatus.NROMAL;
+    public void cS(String str) {
+        PluginStatus cU = qd().cU(str);
+        if (cU != null) {
+            cU.WO = PluginPackageManager.PluginStatus.NROMAL;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_SUCCESS, cQ));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_SUCCESS, cU));
     }
 
     public void j(String str, String str2, String str3) {
@@ -77,37 +77,37 @@ public class a {
         } else {
             return;
         }
-        PluginStatus cQ = cQ(str);
-        if (cQ == null) {
-            cQ = new PluginStatus();
+        PluginStatus cU = cU(str);
+        if (cU == null) {
+            cU = new PluginStatus();
         }
-        cQ.Vu = PluginPackageManager.PluginStatus.ERROR;
-        cQ.errorMsg = string;
-        cQ.Vv = string2;
-        cQ.errorCode = i;
-        cQ.Vw = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_FAIL, cQ));
+        cU.WO = PluginPackageManager.PluginStatus.ERROR;
+        cU.errorMsg = string;
+        cU.WP = string2;
+        cU.errorCode = i;
+        cU.WQ = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_INSTALL_FAIL, cU));
     }
 
-    public void cP(String str) {
-        PluginStatus cQ = cQ(str);
-        if (cQ == null) {
-            cQ = new PluginStatus();
+    public void cT(String str) {
+        PluginStatus cU = cU(str);
+        if (cU == null) {
+            cU = new PluginStatus();
         }
-        cQ.Vu = PluginPackageManager.PluginStatus.ERROR;
-        cQ.errorCode = 100;
-        cQ.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        cQ.Vv = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_LOAD_FAIL, cQ));
+        cU.WO = PluginPackageManager.PluginStatus.ERROR;
+        cU.errorCode = 100;
+        cU.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+        cU.WP = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(MessageConfig.PLUGIN_LOAD_FAIL, cU));
     }
 
     public List<PluginStatus> qe() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.Vy) {
-            arrayList = new ArrayList(this.Vy.size());
-            for (Map.Entry<String, PluginStatus> entry : this.Vy.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.Vu == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.WT) {
+            arrayList = new ArrayList(this.WT.size());
+            for (Map.Entry<String, PluginStatus> entry : this.WT.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.WO == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -115,17 +115,17 @@ public class a {
         return arrayList;
     }
 
-    public PluginStatus cQ(String str) {
+    public PluginStatus cU(String str) {
         PluginStatus pluginStatus;
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.Vy) {
-            pluginStatus = this.Vy.get(str);
+        synchronized (this.WT) {
+            pluginStatus = this.WT.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
                 pluginStatus.pkgName = str;
-                this.Vy.put(str, pluginStatus);
+                this.WT.put(str, pluginStatus);
             }
         }
         return pluginStatus;

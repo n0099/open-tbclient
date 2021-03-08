@@ -5,19 +5,19 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ck {
-    private az aQV;
-    private az aQW;
-    private az aQX;
-    private az aQY;
-    private az aQZ;
-    private az aRa;
-    private az aRb;
-    private az aRc;
-    private az aRd;
+    private az aSA;
+    private az aSB;
+    private az aSC;
+    private az aSD;
+    private az aSv;
+    private az aSw;
+    private az aSx;
+    private az aSy;
+    private az aSz;
 
-    public static ck fB(String str) {
+    public static ck fH(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -38,32 +38,32 @@ public class ck {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (ckVar.aQV != null) {
-                jSONObject.put("change_mode", ckVar.aQV.toJson());
+            if (ckVar.aSv != null) {
+                jSONObject.put("change_mode", ckVar.aSv.toJson());
             }
-            if (ckVar.aQW != null) {
-                jSONObject.put("match_success", ckVar.aQW.toJson());
+            if (ckVar.aSw != null) {
+                jSONObject.put("match_success", ckVar.aSw.toJson());
             }
-            if (ckVar.aQX != null) {
-                jSONObject.put(SdkStaticKeys.RANK_TYPE_CHARM, ckVar.aQX.toJson());
+            if (ckVar.aSx != null) {
+                jSONObject.put(SdkStaticKeys.RANK_TYPE_CHARM, ckVar.aSx.toJson());
             }
-            if (ckVar.aQY != null) {
-                jSONObject.put("red_package_rain", ckVar.aQY.toJson());
+            if (ckVar.aSy != null) {
+                jSONObject.put("red_package_rain", ckVar.aSy.toJson());
             }
-            if (ckVar.aQZ != null) {
-                jSONObject.put("pk_start", ckVar.aQZ.toJson());
+            if (ckVar.aSz != null) {
+                jSONObject.put("pk_start", ckVar.aSz.toJson());
             }
-            if (ckVar.aRa != null) {
-                jSONObject.put("pk_red_win", ckVar.aRa.toJson());
+            if (ckVar.aSA != null) {
+                jSONObject.put("pk_red_win", ckVar.aSA.toJson());
             }
-            if (ckVar.aRb != null) {
-                jSONObject.put("pk_blue_win", ckVar.aRb.toJson());
+            if (ckVar.aSB != null) {
+                jSONObject.put("pk_blue_win", ckVar.aSB.toJson());
             }
-            if (ckVar.aRc != null) {
-                jSONObject.put(AlaStaticKeys.ALA_STATIC_VALUE_ICON, ckVar.aRc.toJson());
+            if (ckVar.aSC != null) {
+                jSONObject.put(AlaStaticKeys.ALA_STATIC_VALUE_ICON, ckVar.aSC.toJson());
             }
-            if (ckVar.aRd != null) {
-                jSONObject.put("new_frame", ckVar.aRd.toJson());
+            if (ckVar.aSD != null) {
+                jSONObject.put("new_frame", ckVar.aSD.toJson());
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -73,60 +73,60 @@ public class ck {
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aQV = new az();
-            this.aQV.parse(jSONObject.optJSONObject("change_mode"));
-            this.aQW = new az();
-            this.aQW.parse(jSONObject.optJSONObject("match_success"));
-            this.aQX = new az();
-            this.aQX.parse(jSONObject.optJSONObject(SdkStaticKeys.RANK_TYPE_CHARM));
-            this.aQY = new az();
-            this.aQY.parse(jSONObject.optJSONObject("red_package_rain"));
-            this.aQZ = new az();
-            this.aQZ.parse(jSONObject.optJSONObject("pk_start"));
-            this.aRa = new az();
-            this.aRa.parse(jSONObject.optJSONObject("pk_red_win"));
-            this.aRb = new az();
-            this.aRb.parse(jSONObject.optJSONObject("pk_blue_win"));
-            this.aRc = new az();
-            this.aRc.parse(jSONObject.optJSONObject(AlaStaticKeys.ALA_STATIC_VALUE_ICON));
-            this.aRd = new az();
-            this.aRd.parse(jSONObject.optJSONObject("new_frame"));
+            this.aSv = new az();
+            this.aSv.parse(jSONObject.optJSONObject("change_mode"));
+            this.aSw = new az();
+            this.aSw.parse(jSONObject.optJSONObject("match_success"));
+            this.aSx = new az();
+            this.aSx.parse(jSONObject.optJSONObject(SdkStaticKeys.RANK_TYPE_CHARM));
+            this.aSy = new az();
+            this.aSy.parse(jSONObject.optJSONObject("red_package_rain"));
+            this.aSz = new az();
+            this.aSz.parse(jSONObject.optJSONObject("pk_start"));
+            this.aSA = new az();
+            this.aSA.parse(jSONObject.optJSONObject("pk_red_win"));
+            this.aSB = new az();
+            this.aSB.parse(jSONObject.optJSONObject("pk_blue_win"));
+            this.aSC = new az();
+            this.aSC.parse(jSONObject.optJSONObject(AlaStaticKeys.ALA_STATIC_VALUE_ICON));
+            this.aSD = new az();
+            this.aSD.parse(jSONObject.optJSONObject("new_frame"));
         }
     }
 
-    public az CC() {
-        return this.aQV;
-    }
-
-    public az CD() {
-        return this.aQW;
-    }
-
-    public az CE() {
-        return this.aQX;
-    }
-
     public az CF() {
-        return this.aQY;
+        return this.aSv;
     }
 
     public az CG() {
-        return this.aQZ;
+        return this.aSw;
     }
 
     public az CH() {
-        return this.aRa;
+        return this.aSx;
     }
 
     public az CI() {
-        return this.aRb;
+        return this.aSy;
     }
 
     public az CJ() {
-        return this.aRc;
+        return this.aSz;
     }
 
     public az CK() {
-        return this.aRd;
+        return this.aSA;
+    }
+
+    public az CL() {
+        return this.aSB;
+    }
+
+    public az CM() {
+        return this.aSC;
+    }
+
+    public az CN() {
+        return this.aSD;
     }
 }

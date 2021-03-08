@@ -10,17 +10,17 @@ import com.baidu.tieba.R;
 public class ChooseColorLayout extends LinearLayout {
     private int mPadding;
     private int mWidth;
-    private int[] mre;
-    private int mrf;
-    private int mrg;
-    private int mrh;
-    private int mri;
-    private a mrj;
+    private int[] mth;
+    private int mti;
+    private int mtj;
+    private int mtk;
+    private int mtl;
+    private a mtm;
     public View.OnClickListener onClickListener;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void GC(int i);
+        void GF(int i);
     }
 
     public ChooseColorLayout(Context context) {
@@ -37,16 +37,16 @@ public class ChooseColorLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue;
-                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.mri) {
-                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.mri);
+                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.mtl) {
+                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.mtl);
                     if (childAt instanceof ChooseColorView) {
                         ((ChooseColorView) childAt).setIsChooseView(false);
                     }
-                    ChooseColorLayout.this.mri = intValue;
-                    ChooseColorLayout.this.mrh = ((ChooseColorView) view).getChooseColor();
+                    ChooseColorLayout.this.mtl = intValue;
+                    ChooseColorLayout.this.mtk = ((ChooseColorView) view).getChooseColor();
                     ((ChooseColorView) view).setIsChooseView(true);
-                    if (ChooseColorLayout.this.mrj != null) {
-                        ChooseColorLayout.this.mrj.GC(ChooseColorLayout.this.mrh);
+                    if (ChooseColorLayout.this.mtm != null) {
+                        ChooseColorLayout.this.mtm.GF(ChooseColorLayout.this.mtk);
                     }
                 }
             }
@@ -56,21 +56,21 @@ public class ChooseColorLayout extends LinearLayout {
 
     private void init() {
         this.mWidth = l.getEquipmentWidth(getContext());
-        this.mre = getResources().getIntArray(R.array.choose_colors);
+        this.mth = getResources().getIntArray(R.array.choose_colors);
         this.mPadding = getResources().getDimensionPixelSize(R.dimen.ds24);
-        this.mrf = (this.mWidth - (this.mPadding * 2)) / 8;
-        this.mrg = (this.mrf - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mrf, this.mrf);
+        this.mti = (this.mWidth - (this.mPadding * 2)) / 8;
+        this.mtj = (this.mti - (getResources().getDimensionPixelSize(R.dimen.ds16) * 2)) / 2;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mti, this.mti);
         layoutParams.gravity = 17;
-        for (int i = 0; i < this.mre.length; i++) {
+        for (int i = 0; i < this.mth.length; i++) {
             ChooseColorView chooseColorView = new ChooseColorView(getContext());
-            chooseColorView.setChooseColor(this.mre[i]);
+            chooseColorView.setChooseColor(this.mth[i]);
             chooseColorView.setTag(Integer.valueOf(i));
-            chooseColorView.setRadius(this.mrg);
+            chooseColorView.setRadius(this.mtj);
             if (i == 0) {
                 chooseColorView.setIsChooseView(true);
-                this.mrh = this.mre[i];
-                this.mri = i;
+                this.mtk = this.mth[i];
+                this.mtl = i;
             }
             chooseColorView.setOnClickListener(this.onClickListener);
             addView(chooseColorView, layoutParams);
@@ -79,10 +79,10 @@ public class ChooseColorLayout extends LinearLayout {
     }
 
     public int getCurrentChooseColor() {
-        return this.mrh;
+        return this.mtk;
     }
 
     public void setOnChooseColorChangeListener(a aVar) {
-        this.mrj = aVar;
+        this.mtm = aVar;
     }
 }

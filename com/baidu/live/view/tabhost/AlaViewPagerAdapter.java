@@ -6,29 +6,29 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaViewPagerAdapter extends PagerAdapter {
-    private a bVn;
+    private a bWN;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
-    private final List<a> aEm = new ArrayList();
+    private final List<a> aFM = new ArrayList();
 
     public void setData(List<a> list) {
-        this.aEm.clear();
+        this.aFM.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aEm.addAll(list);
+            this.aFM.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.aEm.size();
+        return this.aFM.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        a aVar = (a) ListUtils.getItem(this.aEm, i);
+        a aVar = (a) ListUtils.getItem(this.aFM, i);
         if (aVar != null && aVar.getPanelView() != null) {
             View panelView = aVar.getPanelView();
             if (panelView.getParent() != null) {
@@ -51,12 +51,12 @@ public class AlaViewPagerAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                if (this.bVn != viewGroup) {
-                    if (this.bVn != null) {
-                        this.bVn.enterBackground();
+                if (this.bWN != viewGroup) {
+                    if (this.bWN != null) {
+                        this.bWN.enterBackground();
                     }
                     aVar.enterForeground();
-                    this.bVn = aVar;
+                    this.bWN = aVar;
                 }
             }
         }

@@ -9,10 +9,10 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ab extends c implements p<av>, q {
-    private static final int ahx = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
-    public boolean ahA;
-    public NEGFeedBackView ahy;
-    private Align ahz;
+    private static final int aiQ = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    public NEGFeedBackView aiR;
+    private Align aiS;
+    public boolean aiT;
 
     public ab(TbPageContext tbPageContext, boolean z) {
         this(tbPageContext, z ? Align.ALIGN_RIGHT_BOTTOM : Align.ALIGN_RIGHT_TOP);
@@ -20,14 +20,14 @@ public class ab extends c implements p<av>, q {
 
     public ab(TbPageContext tbPageContext, Align align) {
         setInsertIndex(-1);
-        this.ahy = new NEGFeedBackView(tbPageContext);
-        this.ahy.setId(R.id.decor_item_right_id);
-        H(this.ahy);
+        this.aiR = new NEGFeedBackView(tbPageContext);
+        this.aiR.setId(R.id.decor_item_right_id);
+        H(this.aiR);
         a(align);
     }
 
     public void a(Align align) {
-        if (this.ahz != align) {
+        if (this.aiS != align) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
             if (align == Align.ALIGN_RIGHT_TOP) {
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
@@ -37,9 +37,9 @@ public class ab extends c implements p<av>, q {
                 layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
                 layoutParams.topMargin = dimenPixelSize2;
                 a(layoutParams);
-                this.ahy.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-                this.ahy.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-                this.ahy.setLayoutParams(layoutParams);
+                this.aiR.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+                this.aiR.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+                this.aiR.setLayoutParams(layoutParams);
             } else if (align == Align.ALIGN_RIGHT_CENTER) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
                 layoutParams2.addRule(11);
@@ -47,11 +47,11 @@ public class ab extends c implements p<av>, q {
                 layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
                 layoutParams2.bottomMargin = 0;
                 a(layoutParams2);
-                this.ahy.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-                this.ahy.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-                this.ahy.setLayoutParams(layoutParams2);
+                this.aiR.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+                this.aiR.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+                this.aiR.setLayoutParams(layoutParams2);
             } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-                int i = ahx;
+                int i = aiQ;
                 int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
                 int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
                 int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds20);
@@ -61,16 +61,16 @@ public class ab extends c implements p<av>, q {
                 layoutParams3.rightMargin = dimens2;
                 layoutParams3.bottomMargin = dimens3;
                 a(layoutParams3);
-                this.ahy.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-                this.ahy.setPadding(dimens, dimens, dimens, dimens);
-                this.ahy.setLayoutParams(layoutParams3);
+                this.aiR.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+                this.aiR.setPadding(dimens, dimens, dimens, dimens);
+                this.aiR.setLayoutParams(layoutParams3);
             }
-            this.ahz = align;
+            this.aiS = align;
         }
     }
 
     private void e(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar.blt()) {
+        if (aVar.blv()) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
@@ -79,12 +79,12 @@ public class ab extends c implements p<av>, q {
             layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams.topMargin = dimenPixelSize2;
             a(layoutParams);
-            this.ahy.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.ahy.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.ahy.setLayoutParams(layoutParams);
+            this.aiR.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.aiR.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.aiR.setLayoutParams(layoutParams);
             return;
         }
-        int i = ahx;
+        int i = aiQ;
         int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30);
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds14);
         int dimens3 = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds17);
@@ -94,14 +94,14 @@ public class ab extends c implements p<av>, q {
         layoutParams2.rightMargin = dimens2;
         layoutParams2.topMargin = dimens3;
         a(layoutParams2);
-        this.ahy.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-        this.ahy.setPadding(dimens, dimens, dimens, dimens);
-        this.ahy.setLayoutParams(layoutParams2);
+        this.aiR.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+        this.aiR.setPadding(dimens, dimens, dimens, dimens);
+        this.aiR.setLayoutParams(layoutParams2);
     }
 
-    private void bw(int i) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ahy.getLayoutParams();
-        if (this.ahy.getParent() == null || layoutParams == null || layoutParams.topMargin != i) {
+    private void bx(int i) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aiR.getLayoutParams();
+        if (this.aiR.getParent() == null || layoutParams == null || layoutParams.topMargin != i) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
             layoutParams2.addRule(11);
@@ -109,30 +109,30 @@ public class ab extends c implements p<av>, q {
             layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams2.topMargin = i;
             a(layoutParams2);
-            this.ahy.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.ahy.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.ahy.setLayoutParams(layoutParams2);
+            this.aiR.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.aiR.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.aiR.setLayoutParams(layoutParams2);
         }
     }
 
     private boolean f(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar instanceof com.baidu.tieba.card.data.k) && ((com.baidu.tieba.card.data.k) aVar).eQi;
+        return (aVar instanceof com.baidu.tieba.card.data.k) && ((com.baidu.tieba.card.data.k) aVar).eRJ;
     }
 
     public void g(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.blp() != null) {
-            if (aVar.blp().bmn() > 0 || aVar.bln() == null) {
-                if (this.ahA) {
+        if (aVar != null && aVar.blr() != null) {
+            if (aVar.blr().bmp() > 0 || aVar.blp() == null) {
+                if (this.aiT) {
                     ta();
                 } else {
                     e(aVar);
                 }
-            } else if (aVar.blt() || aVar.blu()) {
+            } else if (aVar.blv() || aVar.blw()) {
                 if (aVar.isSupportTop()) {
-                    bw((!f(aVar) || com.baidu.tbadk.a.d.biX()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : getDimens(R.dimen.tbds64));
+                    bx((!f(aVar) || com.baidu.tbadk.a.d.biZ()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : getDimens(R.dimen.tbds64));
                 } else if (aVar.isSupportBottom()) {
-                    if (this.ago != null) {
-                        this.ago.a(this);
+                    if (this.ahG != null) {
+                        this.ahG.a(this);
                     }
                 } else {
                     a(Align.ALIGN_RIGHT_TOP);
@@ -153,50 +153,50 @@ public class ab extends c implements p<av>, q {
         layoutParams.rightMargin = dimens2;
         layoutParams.topMargin = dimens3;
         a(layoutParams);
-        this.ahy.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-        this.ahy.setPadding(0, 0, 0, 0);
-        this.ahy.setLayoutParams(layoutParams);
+        this.aiR.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+        this.aiR.setPadding(0, 0, 0, 0);
+        this.aiR.setLayoutParams(layoutParams);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.c
     /* renamed from: tb */
     public NEGFeedBackView sT() {
-        return this.ahy;
+        return this.aiR;
     }
 
     public void a(NEGFeedBackView.a aVar) {
-        this.ahy.setEventCallback(aVar);
+        this.aiR.setEventCallback(aVar);
     }
 
     public void setAutoProcess(boolean z) {
-        this.ahy.setAutoProcess(z);
+        this.aiR.setAutoProcess(z);
     }
 
     public void setHeadText(String str) {
-        this.ahy.setHeadText(str);
+        this.aiR.setHeadText(str);
     }
 
     public void aI(boolean z) {
-        this.ahy.aI(z);
+        this.aiR.aI(z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: a */
-    public void C(av avVar) {
+    public void E(av avVar) {
         if (avVar == null) {
-            this.ahy.setVisibility(8);
+            this.aiR.setVisibility(8);
             return;
         }
-        this.ahy.setData(avVar);
-        this.ahy.setFirstRowSingleColumn(true);
-        this.ahy.setVisibility(0);
+        this.aiR.setData(avVar);
+        this.aiR.setFirstRowSingleColumn(true);
+        this.aiR.setVisibility(0);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.ahy.onChangeSkinType();
+        this.aiR.onChangeSkinType();
     }
 
     private int getDimens(int i) {

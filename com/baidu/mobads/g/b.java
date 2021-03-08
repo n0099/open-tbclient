@@ -20,15 +20,13 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends File {
     private static DexClassLoader f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private e f3338a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Class<?> f3339b;
+    private e f2386a;
+    private Class<?> b;
     private Context c;
     private PublicKey d;
     private IXAdLogger e;
@@ -39,11 +37,11 @@ public class b extends File {
 
     public b(String str, Context context, e eVar) {
         super(str);
-        this.f3339b = null;
+        this.b = null;
         this.c = null;
         this.e = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.c = context;
-        this.f3338a = eVar;
+        this.f2386a = eVar;
         if (eVar != null) {
             try {
                 this.d = c("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBcp8gg3O7bjdnz+pSxg+JH/mbcKfm7dEjcRqVNAFwG7bTpLwDQh40bZJzrcBKQWbD6kArR6TPuQUCMQ09/y55Vk1P2Kq7vJGGisFpjlqv2qlg8drLdhXkLQUt/SeZVJgT+CNxVbuzxAF61EEf8M0MHi1I2dm6n6lOA6fomiCD9wIDAQAB");
@@ -55,11 +53,11 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if (this.f3338a != null) {
+        if (this.f2386a != null) {
             String a2 = a(new File(getAbsolutePath()));
-            String b2 = b(this.f3338a.d());
-            if (!b2.equalsIgnoreCase(a2)) {
-                throw new g.a("doCheckApkIntegrity failed, md5sum: " + a2 + ", checksum in json info: " + b2);
+            String b = b(this.f2386a.d());
+            if (!b.equalsIgnoreCase(a2)) {
+                throw new g.a("doCheckApkIntegrity failed, md5sum: " + a2 + ", checksum in json info: " + b);
             }
             return;
         }
@@ -68,15 +66,15 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Class<?> b() {
-        if (this.f3339b == null) {
+        if (this.b == null) {
             File file = new File(getAbsolutePath());
             try {
-                this.f3339b = b(file);
+                this.b = b(file);
             } catch (Exception e) {
                 file.delete();
             }
         }
-        return this.f3339b;
+        return this.b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -86,10 +84,10 @@ public class b extends File {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public double c() {
-        if (this.f3338a == null) {
+        if (this.f2386a == null) {
             return 0.0d;
         }
-        return this.f3338a.b();
+        return this.f2386a.b();
     }
 
     private String b(String str) {

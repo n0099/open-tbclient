@@ -19,19 +19,17 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14383a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f14384b;
+    private String f8621a;
+    private String b;
     private ReentrantLock c;
 
     private a() {
-        this.f14384b = "";
+        this.b = "";
         this.c = new ReentrantLock();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ a(byte b2) {
+    public /* synthetic */ a(byte b) {
         this();
     }
 
@@ -59,7 +57,7 @@ public class a {
             if (!TextUtils.isEmpty(str2) && str2.toLowerCase().contains("redmi") && str2.toLowerCase().contains("note 7")) {
                 z = true;
                 if (!z) {
-                    String c2 = Orange.eJI().c();
+                    String c2 = Orange.eJq().c();
                     if (!TextUtils.isEmpty(c2) && !c2.startsWith("KWE")) {
                         return c2;
                     }
@@ -169,18 +167,18 @@ public class a {
         }
     }
 
-    public static a eJJ() {
-        return b.qmy;
+    public static a eJr() {
+        return b.qna;
     }
 
     public final void a(String str) {
-        this.f14383a = str;
+        this.f8621a = str;
     }
 
     public final String b() {
         try {
-            if (!TextUtils.isEmpty(this.f14383a)) {
-                return this.f14383a;
+            if (!TextUtils.isEmpty(this.f8621a)) {
+                return this.f8621a;
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -195,13 +193,13 @@ public class a {
         } catch (Throwable th) {
             try {
                 com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                this.f14384b = "KWE_PE";
+                this.b = "KWE_PE";
                 this.c.unlock();
             } finally {
                 this.c.unlock();
             }
         }
-        if (TextUtils.isEmpty(this.f14384b)) {
+        if (TextUtils.isEmpty(this.b)) {
             JSONObject jSONObject = new JSONObject();
             String str = Build.MODEL;
             jSONObject.put("k27", com.yxcorp.kuaishou.addfp.android.b.e.b(TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace(ETAG.ITEM_SEPARATOR, "")));
@@ -213,14 +211,14 @@ public class a {
             jSONObject.put("k102", com.yxcorp.kuaishou.addfp.android.b.e.b(com.yxcorp.kuaishou.addfp.android.b.e.a(new String(Base64.decode("Y2F0IC9wcm9jL3N5cy9rZXJuZWwvcmFuZG9tL2Jvb3RfaWQ=", 0)))));
             jSONObject.put("k57", com.yxcorp.kuaishou.addfp.android.b.e.b(d.b(context)));
             jSONObject.put("k68", com.yxcorp.kuaishou.addfp.android.b.e.b(d.a(context)));
-            jSONObject.put("k105", com.yxcorp.kuaishou.addfp.android.b.e.b(Orange.eJI().b()));
+            jSONObject.put("k105", com.yxcorp.kuaishou.addfp.android.b.e.b(Orange.eJq().b()));
             jSONObject.put("k83", com.yxcorp.kuaishou.addfp.android.b.e.b(d.d(context)));
             jSONObject.put("k86", com.yxcorp.kuaishou.addfp.android.b.e.b(d.e(context)));
             jSONObject.put("k3", com.yxcorp.kuaishou.addfp.android.b.e.b(d.c(context)));
             if (z2) {
-                com.yxcorp.kuaishou.addfp.a.a.b.eJD().c();
+                com.yxcorp.kuaishou.addfp.a.a.b.eJl().c();
             }
-            String str2 = com.yxcorp.kuaishou.addfp.a.f14335a;
+            String str2 = com.yxcorp.kuaishou.addfp.a.f8593a;
             if (TextUtils.isEmpty(str2) || str2.startsWith("KWE")) {
                 str2 = new e(context).c();
             }
@@ -236,15 +234,15 @@ public class a {
             }
             jSONObject.put("k14", com.yxcorp.kuaishou.addfp.android.b.e.b(com.yxcorp.kuaishou.addfp.android.b.b.b() + ":" + String.valueOf(crc32.getValue())));
             com.yxcorp.kuaishou.addfp.android.b.b.b("mimi :" + jSONObject.toString() + " " + jSONObject.toString().getBytes().length + " " + (System.currentTimeMillis() - currentTimeMillis));
-            byte[] b2 = Orange.eJI().b(context, jSONObject.toString().getBytes(), 0);
-            com.yxcorp.kuaishou.addfp.android.b.b.a("get mini lenth " + b2.length);
-            this.f14384b = URLEncoder.encode(Base64.encodeToString(b2, 0), "utf-8");
-            if (TextUtils.isEmpty(this.f14384b)) {
-                this.f14384b = "KWE_N";
+            byte[] b = Orange.eJq().b(context, jSONObject.toString().getBytes(), 0);
+            com.yxcorp.kuaishou.addfp.android.b.b.a("get mini lenth " + b.length);
+            this.b = URLEncoder.encode(Base64.encodeToString(b, 0), "utf-8");
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = "KWE_N";
             }
             com.yxcorp.kuaishou.addfp.android.b.b.b("mini cost : " + (System.currentTimeMillis() - currentTimeMillis));
-            return this.f14384b;
+            return this.b;
         }
-        return this.f14384b;
+        return this.b;
     }
 }

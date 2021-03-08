@@ -4,7 +4,7 @@ import android.content.Context;
 import java.net.HttpURLConnection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IXAdSystemUtils {
     public static final String NT_NONE = "none";
     public static final String NT_UNKNOWN = "unknown";

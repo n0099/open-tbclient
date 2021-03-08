@@ -33,8 +33,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private long mLastClickTid;
     private boolean needCache;
     private int netError;
-    private String nvk;
-    private String nvl;
+    private String nxo;
+    private String nxp;
     private int pn;
     private int qType;
     private int refreshCount;
@@ -46,17 +46,17 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int updateType;
     private int withGroup;
     private int rn = 90;
-    private int nvj = 30;
-    private String fky = "";
+    private int nxn = 30;
+    private String flX = "";
     private int mSortType = -1;
-    private int fUt = 1;
-    private int nvm = 0;
+    private int fVT = 1;
+    private int nxq = 0;
     private int callFrom = 0;
     private HashMap<String, String> headers = null;
-    private long nvn = 0;
+    private long nxr = 0;
     private int isDefaultNavTab = 0;
     private String mSchemeUrl = "";
-    private int nvo = -1;
+    private int nxs = -1;
     private String adFloorInfo = "";
 
     public void setLastClickTid(long j) {
@@ -136,11 +136,11 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public int getLoadType() {
-        return this.fUt;
+        return this.fVT;
     }
 
     public void setLoadType(int i) {
-        this.fUt = i;
+        this.fVT = i;
     }
 
     public boolean isNeedCache() {
@@ -160,7 +160,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.fky = str;
+        this.flX = str;
     }
 
     public void setLastId(String str) {
@@ -187,23 +187,23 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void Tg(String str) {
-        this.nvk = str;
+    public void Tm(String str) {
+        this.nxo = str;
     }
 
     public void setObjSource(String str) {
-        this.nvl = str;
+        this.nxp = str;
     }
 
-    public void Jx(int i) {
-        this.nvm = i;
+    public void JB(int i) {
+        this.nxq = i;
     }
 
     public void setCallFrom(int i) {
         this.callFrom = i;
     }
 
-    public void Jy(int i) {
+    public void JC(int i) {
         this.isDefaultNavTab = i;
     }
 
@@ -211,17 +211,17 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.mSchemeUrl = str;
     }
 
-    public void Jz(int i) {
-        this.nvo = i;
+    public void JD(int i) {
+        this.nxs = i;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bDk() {
+    public HashMap<String, Object> bDn() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bDl() {
+    public HashMap<String, String> bDo() {
         return this.headers;
     }
 
@@ -240,7 +240,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.nvj);
+        builder.rn_need = Integer.valueOf(this.nxn);
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -255,26 +255,26 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.fky;
+        builder.yuelaou_locate = this.flX;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.c.a.dEm().dEq();
-        builder.load_type = Integer.valueOf(this.fUt);
-        builder.obj_locate = this.nvk;
-        builder.obj_source = this.nvl;
-        builder.is_selection = Integer.valueOf(this.nvm);
+        builder.app_pos = com.baidu.tieba.recapp.c.a.dEu().dEy();
+        builder.load_type = Integer.valueOf(this.fVT);
+        builder.obj_locate = this.nxo;
+        builder.obj_source = this.nxp;
+        builder.is_selection = Integer.valueOf(this.nxq);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.hot_thread_id = Long.valueOf(this.nvn);
+        builder.hot_thread_id = Long.valueOf(this.nxr);
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.yoga_lib_version = "";
         builder.ad_param = builder2.build(false);
         builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
-        builder.ad_context_list = this.fUt == 1 ? "" : com.baidu.tieba.recapp.report.b.dEt().RR("FRS");
+        builder.ad_context_list = this.fVT == 1 ? "" : com.baidu.tieba.recapp.report.b.dEB().RX("FRS");
         builder.up_schema = this.mSchemeUrl;
-        builder.default_sort_type = Integer.valueOf(this.nvo);
-        builder.ad_ext_params = AdExtParam.a.bEU().DH(this.adFloorInfo).bEV();
+        builder.default_sort_type = Integer.valueOf(this.nxs);
+        builder.ad_ext_params = AdExtParam.a.bEY().DO(this.adFloorInfo).bEZ();
         com.baidu.tbadk.util.v.a(builder, true, false, true);
         FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
         builder3.data = builder.build(false);
@@ -282,16 +282,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String bDh() {
+    public String bDk() {
         return null;
     }
 
     public void hG(long j) {
-        this.nvn = j;
+        this.nxr = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean bDi() {
+    public boolean bDl() {
         return false;
     }
 

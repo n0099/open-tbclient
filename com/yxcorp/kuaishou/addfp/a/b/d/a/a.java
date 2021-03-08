@@ -13,11 +13,9 @@ import android.os.SystemClock;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14354a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f14355b = false;
-    private static volatile a qmi = null;
+    private Context f8604a;
+    private boolean b = false;
+    private static volatile a qmK = null;
     private static Object d = new Object();
     private static HandlerThread e = null;
     private static Handler f = null;
@@ -25,7 +23,7 @@ public class a {
     private static String h = null;
 
     private a(Context context) {
-        this.f14354a = context;
+        this.f8604a = context;
         HandlerThread handlerThread = new HandlerThread("meizu_work");
         e = handlerThread;
         handlerThread.start();
@@ -86,19 +84,19 @@ public class a {
             th = th;
             cursor = null;
         }
-        if (this.f14355b) {
-            return this.f14355b;
+        if (this.b) {
+            return this.b;
         }
-        PackageManager packageManager = this.f14354a.getPackageManager();
+        PackageManager packageManager = this.f8604a.getPackageManager();
         if (packageManager == null) {
-            this.f14355b = false;
+            this.b = false;
         }
         if (packageManager.resolveContentProvider("com.meizu.flyme.openidsdk", 0) != null) {
             com.yxcorp.kuaishou.addfp.android.b.b.b("resolveContentProvider meizu");
-            cursor = this.f14354a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"supported"}, null);
+            cursor = this.f8604a.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"supported"}, null);
             if (cursor == null) {
                 try {
-                    this.f14355b = false;
+                    this.b = false;
                 } catch (Throwable th2) {
                     th = th2;
                     try {
@@ -106,7 +104,7 @@ public class a {
                         if (cursor != null) {
                             cursor.close();
                         }
-                        return this.f14355b;
+                        return this.b;
                     } catch (Throwable th3) {
                         Cursor cursor2 = cursor;
                         if (cursor2 != null) {
@@ -121,27 +119,27 @@ public class a {
             if (columnIndex >= 0) {
                 String string = cursor.getString(columnIndex);
                 com.yxcorp.kuaishou.addfp.android.b.b.b("resolveContentProvider meizu " + string);
-                this.f14355b = "0".equals(string);
+                this.b = "0".equals(string);
             }
         } else {
-            this.f14355b = false;
+            this.b = false;
             cursor = null;
         }
         if (cursor != null) {
             cursor.close();
         }
-        return this.f14355b;
+        return this.b;
     }
 
-    public static a jc(Context context) {
-        if (qmi == null) {
+    public static a iW(Context context) {
+        if (qmK == null) {
             synchronized (a.class) {
-                if (qmi == null) {
-                    qmi = new a(context);
+                if (qmK == null) {
+                    qmK = new a(context);
                 }
             }
         }
-        return qmi;
+        return qmK;
     }
 
     public final boolean a() {

@@ -1,7 +1,7 @@
 package com.baidu.ar.face;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface FaceListener {
     void onFaceResult(Object obj);
 

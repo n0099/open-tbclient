@@ -1,6 +1,7 @@
 package com.qq.e.ads.splash;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
@@ -13,20 +14,28 @@ import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.constants.ErrorCode;
 import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.managers.GDTADManager;
+import com.qq.e.comm.managers.plugin.c;
 import com.qq.e.comm.pi.NSPVI;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public final class SplashAD {
+    public static final int EVENT_TYPE_AD_CLICKED = 4;
+    public static final int EVENT_TYPE_AD_DISMISSED = 1;
+    public static final int EVENT_TYPE_AD_EXPOSURE = 6;
+    public static final int EVENT_TYPE_AD_LOADED = 7;
+    public static final int EVENT_TYPE_AD_PRESENT = 3;
+    public static final int EVENT_TYPE_AD_TICK = 5;
+    public static final int EVENT_TYPE_AD_ZOOM_OUT = 8;
+    public static final int EVENT_TYPE_AD_ZOOM_OUT_PLAY_FINISH = 9;
+    public static final int EVENT_TYPE_NO_AD = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile NSPVI f11523a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private volatile ViewGroup f11524b;
+    private volatile NSPVI f7548a;
+    private volatile ViewGroup b;
     private volatile SplashADListener c;
     private volatile LoadAdParams d;
     private volatile boolean e;
@@ -35,12 +44,12 @@ public final class SplashAD {
     private int h;
     private volatile View i;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     private class ADListenerAdapter implements ADListener {
         private ADListenerAdapter() {
         }
 
-        /* synthetic */ ADListenerAdapter(SplashAD splashAD, byte b2) {
+        /* synthetic */ ADListenerAdapter(SplashAD splashAD, byte b) {
             this();
         }
 
@@ -88,6 +97,18 @@ public final class SplashAD {
                         GDTLogger.e("Splash onADLoaded event get param error.");
                         return;
                     }
+                case 8:
+                    if (SplashAD.this.c instanceof SplashADZoomOutListener) {
+                        ((SplashADZoomOutListener) SplashAD.this.c).onZoomOut();
+                        return;
+                    }
+                    return;
+                case 9:
+                    if (SplashAD.this.c instanceof SplashADZoomOutListener) {
+                        ((SplashADZoomOutListener) SplashAD.this.c).onZoomOutPlayFinish();
+                        return;
+                    }
+                    return;
                 default:
                     return;
             }
@@ -168,31 +189,34 @@ public final class SplashAD {
                                             SplashAD.this.a(splashADListener, 200103);
                                             return;
                                         }
-                                        SplashAD.this.f11523a = pOFactory.getNativeSplashAdView(context, str, str2);
-                                        if (SplashAD.this.f11523a == null) {
+                                        SplashAD.this.f7548a = pOFactory.getNativeSplashAdView(context, str, str2);
+                                        if (SplashAD.this.f7548a == null) {
                                             GDTLogger.e("SplashAdView created by factory return null");
                                             SplashAD.this.a(splashADListener, 200103);
                                             return;
                                         }
                                         if (SplashAD.this.d != null) {
-                                            SplashAD.this.f11523a.setLoadAdParams(SplashAD.this.d);
+                                            SplashAD.this.f7548a.setLoadAdParams(SplashAD.this.d);
                                         }
                                         SplashAD.a(SplashAD.this, map, str2);
-                                        SplashAD.this.f11523a.setFetchDelay(i);
-                                        SplashAD.this.f11523a.setAdListener(new ADListenerAdapter(SplashAD.this, (byte) 0));
-                                        SplashAD.this.f11523a.setSkipView(view);
-                                        SplashAD.this.f11523a.setFloatView(view2);
-                                        SplashAD.this.f11523a.setAdLogoMargin(SplashAD.this.g, SplashAD.this.h);
-                                        SplashAD.this.f11523a.setPreloadView(SplashAD.this.i);
-                                        if (SplashAD.this.f11524b != null) {
-                                            SplashAD.this.fetchAndShowIn(SplashAD.this.f11524b);
+                                        SplashAD.this.f7548a.setFetchDelay(i);
+                                        SplashAD.this.f7548a.setAdListener(new ADListenerAdapter(SplashAD.this, (byte) 0));
+                                        SplashAD.this.f7548a.setSkipView(view);
+                                        SplashAD.this.f7548a.setFloatView(view2);
+                                        SplashAD.this.f7548a.setAdLogoMargin(SplashAD.this.g, SplashAD.this.h);
+                                        SplashAD.this.f7548a.setPreloadView(SplashAD.this.i);
+                                        if ((splashADListener instanceof SplashADZoomOutListener) && ((SplashADZoomOutListener) splashADListener).isSupportZoomOut()) {
+                                            SplashAD.this.f7548a.setSupportZoomOut(true);
+                                        }
+                                        if (SplashAD.this.b != null) {
+                                            SplashAD.this.fetchAndShowIn(SplashAD.this.b);
                                         }
                                         if (SplashAD.this.e) {
-                                            SplashAD.this.f11523a.preload();
+                                            SplashAD.this.f7548a.preload();
                                             SplashAD.this.e = false;
                                         }
                                         if (SplashAD.this.f) {
-                                            SplashAD.this.f11523a.fetchAdOnly();
+                                            SplashAD.this.f7548a.fetchAdOnly();
                                             SplashAD.this.f = false;
                                         }
                                     } catch (Throwable th) {
@@ -201,7 +225,7 @@ public final class SplashAD {
                                     }
                                 }
                             });
-                        } catch (com.qq.e.comm.managers.plugin.a e) {
+                        } catch (c e) {
                             GDTLogger.e("Fail to init splash plugin", e);
                             SplashAD.this.a(splashADListener, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_OPTION);
                         } catch (Throwable th) {
@@ -242,36 +266,36 @@ public final class SplashAD {
     }
 
     public final void fetchAdOnly() {
-        if (this.f11523a == null) {
+        if (this.f7548a == null) {
             this.f = true;
             return;
         }
         GDTLogger.e("splashAD fetchAdOnly");
-        this.f11523a.fetchAdOnly();
+        this.f7548a.fetchAdOnly();
     }
 
     public final void fetchAndShowIn(ViewGroup viewGroup) {
         if (viewGroup == null) {
             GDTLogger.e("SplashAD fetchAndShowIn params null ");
             a(this.c, 2001);
-        } else if (this.f11523a != null) {
-            this.f11523a.fetchAndShowIn(viewGroup);
+        } else if (this.f7548a != null) {
+            this.f7548a.fetchAndShowIn(viewGroup);
         } else {
-            this.f11524b = viewGroup;
+            this.b = viewGroup;
         }
     }
 
     public final String getAdNetWorkName() {
-        if (this.f11523a != null) {
-            return this.f11523a.getAdNetWorkName();
+        if (this.f7548a != null) {
+            return this.f7548a.getAdNetWorkName();
         }
         GDTLogger.e("The ad does not support \"getAdNetWorkName\" or you should call this method after \"onAdPresent\"");
         return null;
     }
 
     public final String getECPMLevel() {
-        if (this.f11523a != null) {
-            return this.f11523a.getECPMLevel();
+        if (this.f7548a != null) {
+            return this.f7548a.getECPMLevel();
         }
         GDTLogger.e("The ad does not support \"getECPMLevel\" or you should call this method after \"onAdPresent\"");
         return null;
@@ -279,7 +303,7 @@ public final class SplashAD {
 
     public final Map getExt() {
         try {
-            NSPVI nspvi = this.f11523a;
+            NSPVI nspvi = this.f7548a;
             return NSPVI.ext;
         } catch (Exception e) {
             GDTLogger.e("splash ad can not get extra");
@@ -288,9 +312,16 @@ public final class SplashAD {
         }
     }
 
+    public final Bitmap getZoomOutBitmap() {
+        if (this.f7548a != null) {
+            return this.f7548a.getZoomOutBitmap();
+        }
+        return null;
+    }
+
     public final void preLoad() {
-        if (this.f11523a != null) {
-            this.f11523a.preload();
+        if (this.f7548a != null) {
+            this.f7548a.preload();
         } else {
             this.e = true;
         }
@@ -302,16 +333,16 @@ public final class SplashAD {
     }
 
     public final void setLoadAdParams(LoadAdParams loadAdParams) {
-        if (this.f11523a != null) {
-            this.f11523a.setLoadAdParams(loadAdParams);
+        if (this.f7548a != null) {
+            this.f7548a.setLoadAdParams(loadAdParams);
         } else {
             this.d = loadAdParams;
         }
     }
 
     public final void setPreloadView(View view) {
-        if (this.f11523a != null) {
-            this.f11523a.setPreloadView(view);
+        if (this.f7548a != null) {
+            this.f7548a.setPreloadView(view);
         } else {
             this.i = view;
         }
@@ -321,10 +352,16 @@ public final class SplashAD {
         if (viewGroup == null) {
             GDTLogger.e("SplashAD showAd params null ");
             a(this.c, 2001);
-        } else if (this.f11523a != null) {
-            this.f11523a.showAd(viewGroup);
+        } else if (this.f7548a != null) {
+            this.f7548a.showAd(viewGroup);
         } else {
-            this.f11524b = viewGroup;
+            this.b = viewGroup;
+        }
+    }
+
+    public final void zoomOutAnimationFinish() {
+        if (this.f7548a != null) {
+            this.f7548a.zoomOutAnimationFinish();
         }
     }
 }

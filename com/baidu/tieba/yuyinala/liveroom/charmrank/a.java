@@ -5,38 +5,38 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
-    private int aKa;
-    private String bdj;
-    private long gpP;
-    private long hNR;
-    private String hNS;
+    private int aLA;
+    private String beL;
+    private long gry;
+    private long hPA;
+    private String hPB;
     private boolean mIsHost;
     private String mPortrait;
     public String otherParams;
-    public CharmRankView oun;
-    public boolean ouo;
+    public CharmRankView owt;
+    public boolean owu;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(int i, long j, String str, boolean z, String str2, String str3, String str4, long j2, boolean z2) {
-        this.aKa = i;
-        this.hNR = j;
-        this.hNS = str;
+        this.aLA = i;
+        this.hPA = j;
+        this.hPB = str;
         this.mIsHost = z;
         this.mPortrait = str2;
-        this.bdj = str4;
-        this.gpP = j2;
+        this.beL = str4;
+        this.gry = j2;
         this.otherParams = str3;
-        this.ouo = z2;
+        this.owu = z2;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        if (this.oun != null) {
-            this.oun.setOnClickListener(onClickListener);
+        if (this.owt != null) {
+            this.owt.setOnClickListener(onClickListener);
         }
     }
 
@@ -47,60 +47,60 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.oun != null && this.oun.getParent() != null) {
-            ((ViewGroup) this.oun.getParent()).removeView(this.oun);
+        if (this.owt != null && this.owt.getParent() != null) {
+            ((ViewGroup) this.owt.getParent()).removeView(this.owt);
         }
-        if (this.oun == null) {
-            this.oun = new CharmRankView(getPageContext().getPageActivity());
+        if (this.owt == null) {
+            this.owt = new CharmRankView(getPageContext().getPageActivity());
         }
-        this.oun.setId(a.f.ala_liveroom_charm_rank);
+        this.owt.setId(a.f.ala_liveroom_charm_rank);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, a.f.ala_liveroom_ranklist);
         layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
         layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds19);
         layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-        eba();
-        viewGroup.addView(this.oun, layoutParams);
+        ebi();
+        viewGroup.addView(this.owt, layoutParams);
     }
 
-    public void zT(boolean z) {
-        this.ouo = z;
-        eba();
+    public void zS(boolean z) {
+        this.owu = z;
+        ebi();
     }
 
-    private void eba() {
-        if (this.oun != null) {
-            if (this.ouo) {
-                this.oun.setTvText(getPageContext().getResources().getString(a.h.yuyin_ala_charm_tab_title));
+    private void ebi() {
+        if (this.owt != null) {
+            if (this.owu) {
+                this.owt.setTvText(getPageContext().getResources().getString(a.h.yuyin_ala_charm_tab_title));
             } else {
-                this.oun.setTvText(getPageContext().getResources().getString(a.h.yuyin_ala_contribute_tab_title));
+                this.owt.setTvText(getPageContext().getResources().getString(a.h.yuyin_ala_contribute_tab_title));
             }
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void Ar() {
-        super.Ar();
-        if (this.oun != null && this.oun.getParent() != null) {
-            ((ViewGroup) this.oun.getParent()).removeView(this.oun);
+    public void Au() {
+        super.Au();
+        if (this.owt != null && this.owt.getParent() != null) {
+            ((ViewGroup) this.owt.getParent()).removeView(this.owt);
         }
-        if (this.oun != null) {
-            this.oun.destory();
-            this.oun = null;
+        if (this.owt != null) {
+            this.owt.destory();
+            this.owt = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.oun != null) {
-            this.oun.destory();
-            this.oun = null;
+        if (this.owt != null) {
+            this.owt.destory();
+            this.owt = null;
         }
     }
 
-    public void cks() {
+    public void cky() {
     }
 
-    public void ckt() {
+    public void ckz() {
     }
 }

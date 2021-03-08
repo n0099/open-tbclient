@@ -6,19 +6,17 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class m implements IOAdEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ double f3351a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ g f3352b;
+    final /* synthetic */ double f2395a;
+    final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(g gVar, double d) {
-        this.f3352b = gVar;
-        this.f3351a = d;
+        this.b = gVar;
+        this.f2395a = d;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0073, code lost:
@@ -41,49 +39,49 @@ public class m implements IOAdEventListener {
         e eVar6;
         e eVar7;
         boolean z3 = true;
-        this.f3352b.n();
+        this.b.n();
         if ("URLLoader.Load.Complete".equals(iOAdEvent.getType())) {
-            this.f3352b.k = new e((String) iOAdEvent.getData().get("message"));
+            this.b.k = new e((String) iOAdEvent.getData().get("message"));
             double version = XAdSDKProxyVersion.getVersion();
-            k = this.f3352b.k();
+            k = this.b.k();
             float f = k.getFloat("__badApkVersion__8.8451", 0.0f);
-            eVar = this.f3352b.k;
+            eVar = this.b.k;
             Boolean valueOf = Boolean.valueOf(((float) eVar.b()) == f);
-            eVar2 = this.f3352b.k;
+            eVar2 = this.b.k;
             if (version <= eVar2.b()) {
                 double floor = Math.floor(version);
-                eVar7 = this.f3352b.k;
+                eVar7 = this.b.k;
             }
             z3 = false;
             Boolean valueOf2 = Boolean.valueOf(z3);
-            iXAdLogger = this.f3352b.m;
+            iXAdLogger = this.b.m;
             iXAdLogger.d("XAdApkLoader", "try to download apk badVer=" + f + ", isBad=" + valueOf + ", compatible=" + valueOf2);
-            double d = this.f3351a;
-            eVar3 = this.f3352b.k;
+            double d = this.f2395a;
+            eVar3 = this.b.k;
             if (d < eVar3.b()) {
-                eVar4 = this.f3352b.k;
+                eVar4 = this.b.k;
                 if (eVar4 != null) {
-                    eVar5 = this.f3352b.k;
+                    eVar5 = this.b.k;
                     if (eVar5.a().booleanValue() && valueOf2.booleanValue() && !valueOf.booleanValue()) {
-                        g gVar = this.f3352b;
-                        eVar6 = this.f3352b.k;
+                        g gVar = this.b;
+                        eVar6 = this.b.k;
                         gVar.a(eVar6);
                         return;
                     }
                 }
             }
-            z2 = this.f3352b.n;
+            z2 = this.b.n;
             if (z2) {
-                this.f3352b.n = false;
-                this.f3352b.a(false, "Refused to download remote for version...");
+                this.b.n = false;
+                this.b.a(false, "Refused to download remote for version...");
                 return;
             }
             return;
         }
-        z = this.f3352b.n;
+        z = this.b.n;
         if (z) {
-            this.f3352b.n = false;
-            this.f3352b.a(false, "remote update Network access failed");
+            this.b.n = false;
+            this.b.a(false, "remote update Network access failed");
         }
     }
 }

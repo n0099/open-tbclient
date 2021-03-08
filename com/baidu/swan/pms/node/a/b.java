@@ -8,34 +8,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private static volatile b evp;
-    private a evq = new a();
+    private static volatile b ewQ;
+    private a ewR = new a();
 
-    public static b bdA() {
-        if (evp == null) {
+    public static b bdC() {
+        if (ewQ == null) {
             synchronized (b.class) {
-                if (evp == null) {
-                    evp = new b();
+                if (ewQ == null) {
+                    ewQ = new b();
                 }
             }
         }
-        return evp;
+        return ewQ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String bdB() {
-        return this.evq.getString("ceres_info", "0");
+    public String bdD() {
+        return this.ewR.getString("ceres_info", "0");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String bdC() {
-        return this.evq.getString("global_info", "0");
+    public String bdE() {
+        return this.ewR.getString("global_info", "0");
     }
 
     private b() {
     }
 
-    public com.baidu.swan.pms.node.a.a cR(JSONObject jSONObject) {
+    public com.baidu.swan.pms.node.a.a cT(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -57,7 +57,7 @@ public class b {
         if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
             return null;
         }
-        this.evq.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+        this.ewR.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
         return new com.baidu.swan.pms.node.a.a(optJSONArray, optJSONObject3);
     }
 

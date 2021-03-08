@@ -108,7 +108,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.brY();
+        this.customToast = e.brZ();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -362,19 +362,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements b 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i, false).bqD();
+        BdToast.b(getActivity(), str, i, false).bqF();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).bqD();
+        BdToast.a(getActivity(), str, i, i2, false).bqF();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).bqD();
+        BdToast.a(getActivity(), str, defaultIcon).bqF();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).bqD();
+        BdToast.a(getActivity(), str, defaultIcon, i).bqF();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity

@@ -20,7 +20,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     private static final String TAG = "CustomViewTarget";
     @IdRes
@@ -29,8 +29,6 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     private View.OnAttachStateChangeListener attachStateListener;
     private boolean isAttachStateListenerAdded;
     private boolean isClearedByUs;
-    @IdRes
-    private int overrideTag;
     private final SizeDeterminer sizeDeterminer;
     protected final T view;
 
@@ -81,11 +79,8 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         return this;
     }
 
+    @Deprecated
     public final CustomViewTarget<T, Z> useTagId(@IdRes int i) {
-        if (this.overrideTag != 0) {
-            throw new IllegalArgumentException("You cannot change the tag id once it has been set.");
-        }
-        this.overrideTag = i;
         return this;
     }
 
@@ -158,12 +153,12 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     }
 
     private void setTag(@Nullable Object obj) {
-        this.view.setTag(this.overrideTag == 0 ? VIEW_TAG_ID : this.overrideTag, obj);
+        this.view.setTag(VIEW_TAG_ID, obj);
     }
 
     @Nullable
     private Object getTag() {
-        return this.view.getTag(this.overrideTag == 0 ? VIEW_TAG_ID : this.overrideTag);
+        return this.view.getTag(VIEW_TAG_ID);
     }
 
     private void maybeAddAttachStateListener() {
@@ -181,7 +176,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static final class SizeDeterminer {
         private static final int PENDING_SIZE = 0;
         @Nullable
@@ -297,7 +292,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             private final WeakReference<SizeDeterminer> sizeDeterminerRef;
 

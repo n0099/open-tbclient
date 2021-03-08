@@ -8,11 +8,11 @@ import com.baidu.mapsdkplatform.comapi.map.ac;
 public class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TextureMapView f2812a;
+    final /* synthetic */ TextureMapView f2080a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(TextureMapView textureMapView) {
-        this.f2812a = textureMapView;
+        this.f2080a = textureMapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,17 +20,17 @@ public class u implements View.OnClickListener {
         ac acVar;
         ac acVar2;
         ac acVar3;
-        acVar = this.f2812a.f2771b;
-        float f = acVar.b().f3050a;
-        acVar2 = this.f2812a.f2771b;
+        acVar = this.f2080a.b;
+        float f = acVar.b().f2221a;
+        acVar2 = this.f2080a.b;
         ab E = acVar2.b().E();
-        E.f3038a += 1.0f;
-        if (E.f3038a <= f) {
-            f = E.f3038a;
+        E.f2214a += 1.0f;
+        if (E.f2214a <= f) {
+            f = E.f2214a;
         }
-        E.f3038a = f;
+        E.f2214a = f;
         BaiduMap.mapStatusReason |= 16;
-        acVar3 = this.f2812a.f2771b;
+        acVar3 = this.f2080a.b;
         acVar3.b().a(E, 300);
     }
 }

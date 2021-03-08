@@ -12,8 +12,8 @@ public class BigEndianDataOutputStream {
         this.mDos = new DataOutputStream(outputStream);
     }
 
-    public final void writeByte(byte b2) throws IOException {
-        this.buff[0] = b2;
+    public final void writeByte(byte b) throws IOException {
+        this.buff[0] = b;
         this.mDos.write(this.buff, 0, 1);
     }
 

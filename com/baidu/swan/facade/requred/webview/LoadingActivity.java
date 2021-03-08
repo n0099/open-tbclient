@@ -13,28 +13,28 @@ import com.baidu.swan.apps.runtime.i;
 import com.baidu.swan.facade.a;
 /* loaded from: classes3.dex */
 public class LoadingActivity extends Activity implements com.baidu.swan.apps.ao.e.b<i.a> {
-    private TextView dRR;
-    private LoadingProgressBar dVW;
-    private TextView dVX;
-    private e dVY = null;
-    private final com.baidu.swan.apps.ao.e.b<e> dVZ = new com.baidu.swan.apps.ao.e.b<e>() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1
+    private TextView dTs;
+    private LoadingProgressBar dXx;
+    private TextView dXy;
+    private e dXz = null;
+    private final com.baidu.swan.apps.ao.e.b<e> dXA = new com.baidu.swan.apps.ao.e.b<e>() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ao.e.b
         /* renamed from: a */
-        public void L(e eVar) {
+        public void N(e eVar) {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    LoadingActivity.this.aQV();
+                    LoadingActivity.this.aQY();
                 }
             });
         }
     };
-    private final com.baidu.swan.apps.ao.e.b<e> dWa = new com.baidu.swan.apps.ao.e.b<e>() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
+    private final com.baidu.swan.apps.ao.e.b<e> dXB = new com.baidu.swan.apps.ao.e.b<e>() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ao.e.b
         /* renamed from: a */
-        public void L(e eVar) {
+        public void N(e eVar) {
             LoadingActivity.this.finish();
         }
     };
@@ -53,24 +53,24 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.ao.
     private void init() {
         Intent intent = getIntent();
         String stringExtra = intent == null ? "" : intent.getStringExtra("so_lib_name");
-        com.baidu.swan.apps.env.b.c cVar = com.baidu.swan.apps.env.b.c.dac;
+        com.baidu.swan.apps.env.b.c cVar = com.baidu.swan.apps.env.b.c.dbF;
         if (TextUtils.isEmpty(stringExtra)) {
             stringExtra = "";
         }
-        this.dVY = cVar.ny(stringExtra);
-        if (this.dVY == null || this.dVY.atZ()) {
+        this.dXz = cVar.nF(stringExtra);
+        if (this.dXz == null || this.dXz.auc()) {
             finish();
             return;
         }
-        this.dVY.k(this.dVZ);
-        this.dVY.j(this.dWa);
+        this.dXz.k(this.dXA);
+        this.dXz.j(this.dXB);
     }
 
     private void initViews() {
-        this.dVW = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
-        this.dRR = (TextView) findViewById(a.c.tv_progress);
-        this.dVX = (TextView) findViewById(a.c.tv_hide);
-        this.dVX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.3
+        this.dXx = (LoadingProgressBar) findViewById(a.c.pb_loading_progressbar);
+        this.dTs = (TextView) findViewById(a.c.tv_progress);
+        this.dXy = (TextView) findViewById(a.c.tv_hide);
+        this.dXy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LoadingActivity.this.finish();
@@ -78,38 +78,38 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.ao.
         });
     }
 
-    void aQV() {
-        d.b atU = this.dVY == null ? null : this.dVY.atU();
-        if (atU != null && atU.valid()) {
-            int min = (int) ((Math.min(Math.max(atU.current, 0L), atU.dam) / atU.dam) * 100.0d);
-            if (this.dVW != null && this.dRR != null && min > 0) {
-                this.dVW.setProgress(min);
-                this.dRR.setText(String.valueOf(min));
+    void aQY() {
+        d.b atX = this.dXz == null ? null : this.dXz.atX();
+        if (atX != null && atX.valid()) {
+            int min = (int) ((Math.min(Math.max(atX.current, 0L), atX.dbP) / atX.dbP) * 100.0d);
+            if (this.dXx != null && this.dTs != null && min > 0) {
+                this.dXx.setProgress(min);
+                this.dTs.setText(String.valueOf(min));
             }
         }
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        if (this.dVY != null) {
-            this.dVY.l(this.dWa).m(this.dVZ);
+        if (this.dXz != null) {
+            this.dXz.l(this.dXB).m(this.dXA);
         }
         unregisterListener();
         super.onDestroy();
     }
 
     private void registerListener() {
-        com.baidu.swan.apps.runtime.d.aIG().v(this);
+        com.baidu.swan.apps.runtime.d.aIJ().v(this);
     }
 
     private void unregisterListener() {
-        com.baidu.swan.apps.runtime.d.aIG().w(this);
+        com.baidu.swan.apps.runtime.d.aIJ().w(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.ao.e.b
     /* renamed from: b */
-    public void L(i.a aVar) {
+    public void N(i.a aVar) {
         if (TextUtils.equals(aVar.id, "loading_hide")) {
             finish();
         }

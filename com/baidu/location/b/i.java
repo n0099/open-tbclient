@@ -29,23 +29,19 @@ public class i {
     private Handler i = new Handler();
     private long j = 0;
     private long k = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static i f2613b = null;
+    private static i b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f2612a = 0;
+    public static long f1957a = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a extends BroadcastReceiver {
-
-        /* renamed from: b  reason: collision with root package name */
-        private long f2615b;
+        private long b;
         private boolean c;
 
         private a() {
-            this.f2615b = 0L;
+            this.b = 0L;
             this.c = false;
         }
 
@@ -56,10 +52,10 @@ public class i {
             }
             String action = intent.getAction();
             if (action.equals("android.net.wifi.SCAN_RESULTS")) {
-                i.f2612a = System.currentTimeMillis() / 1000;
+                i.f1957a = System.currentTimeMillis() / 1000;
                 i.this.i.post(new j(this));
-            } else if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED) && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.f2615b >= 5000) {
-                this.f2615b = System.currentTimeMillis();
+            } else if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED) && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.b >= 5000) {
+                this.b = System.currentTimeMillis();
                 if (this.c) {
                     return;
                 }
@@ -74,10 +70,10 @@ public class i {
     public static synchronized i a() {
         i iVar;
         synchronized (i.class) {
-            if (f2613b == null) {
-                f2613b = new i();
+            if (b == null) {
+                b = new i();
             }
-            iVar = f2613b;
+            iVar = b;
         }
         return iVar;
     }
@@ -108,8 +104,8 @@ public class i {
         if (hVar == null || hVar2 == null) {
             return false;
         }
-        List<ScanResult> list = hVar.f2610a;
-        List<ScanResult> list2 = hVar2.f2610a;
+        List<ScanResult> list = hVar.f1956a;
+        List<ScanResult> list2 = hVar2.f1956a;
         if (list == list2) {
             return true;
         }
@@ -201,7 +197,7 @@ public class i {
         if (this.h) {
             try {
                 com.baidu.location.f.getServiceContext().unregisterReceiver(this.d);
-                f2612a = 0L;
+                f1957a = 0L;
             } catch (Exception e) {
             }
             this.d = null;
@@ -226,7 +222,7 @@ public class i {
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.f > 0) {
-            if (currentTimeMillis - this.f <= this.j + 5000 || currentTimeMillis - (f2612a * 1000) <= this.j + 5000) {
+            if (currentTimeMillis - this.f <= this.j + 5000 || currentTimeMillis - (f1957a * 1000) <= this.j + 5000) {
                 return false;
             }
             if (i() && currentTimeMillis - this.f <= 10000 + this.j) {

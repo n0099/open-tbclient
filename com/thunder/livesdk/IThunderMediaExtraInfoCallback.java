@@ -3,7 +3,7 @@ package com.thunder.livesdk;
 import com.thunder.livesdk.ThunderEventHandler;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IThunderMediaExtraInfoCallback {
     void onRecvMediaExtraInfo(String str, ByteBuffer byteBuffer, int i);
 

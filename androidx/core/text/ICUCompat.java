@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class ICUCompat {
     private static final String TAG = "ICUCompat";
     private static Method sAddLikelySubtagsMethod;

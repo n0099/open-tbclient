@@ -28,63 +28,63 @@ import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
 import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
 import com.baidu.tieba.faceshop.forumpackage.view.a;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ForumEmotionFragment extends BaseFragment implements ForumEmotionModel.a {
-    private a jac;
-    private c jae;
-    private ForumEmotionModel jad = null;
-    private boolean gDp = true;
+    private a jbL;
+    private c jbN;
+    private ForumEmotionModel jbM = null;
+    private boolean gEY = true;
     private boolean isLoading = false;
-    private boolean iYk = false;
+    private boolean iZT = false;
     final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable() && ForumEmotionFragment.this.jad != null && ForumEmotionFragment.this.jac != null && ForumEmotionFragment.this.jac.cAg() != null && ForumEmotionFragment.this.jac.cAg().getVisibility() == 0) {
-                ForumEmotionFragment.this.jad.a(ForumEmotionFragment.this);
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.isNetWorkAvailable() && ForumEmotionFragment.this.jbM != null && ForumEmotionFragment.this.jbL != null && ForumEmotionFragment.this.jbL.cAm() != null && ForumEmotionFragment.this.jbL.cAm().getVisibility() == 0) {
+                ForumEmotionFragment.this.jbM.a(ForumEmotionFragment.this);
             }
         }
     };
-    private CustomMessageListener jaf = new CustomMessageListener(CmdConfigCustom.CMD_NOTIFY_EMOTION_CENTER) { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.2
+    private CustomMessageListener jbO = new CustomMessageListener(CmdConfigCustom.CMD_NOTIFY_EMOTION_CENTER) { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             ForumEmotionPackageData forumEmotionPackageData;
-            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ForumEmotionPackageData) && (forumEmotionPackageData = (ForumEmotionPackageData) customResponsedMessage.getData()) != null && ForumEmotionFragment.this.jae != null) {
-                ForumEmotionFragment.this.jae.a(forumEmotionPackageData);
+            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ForumEmotionPackageData) && (forumEmotionPackageData = (ForumEmotionPackageData) customResponsedMessage.getData()) != null && ForumEmotionFragment.this.jbN != null) {
+                ForumEmotionFragment.this.jbN.a(forumEmotionPackageData);
             }
         }
     };
-    private final com.baidu.tieba.faceshop.forumpackage.adapter.a jag = new com.baidu.tieba.faceshop.forumpackage.adapter.a() { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.3
+    private final com.baidu.tieba.faceshop.forumpackage.adapter.a jbP = new com.baidu.tieba.faceshop.forumpackage.adapter.a() { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.3
         @Override // com.baidu.tieba.faceshop.forumpackage.adapter.a
-        public void ye(int i) {
-            ForumEmotionFragment.this.jae.notifyDataSetChanged();
-            ForumEmotionFragment.this.jad.a(ForumEmotionFragment.this);
+        public void yf(int i) {
+            ForumEmotionFragment.this.jbN.notifyDataSetChanged();
+            ForumEmotionFragment.this.jbM.a(ForumEmotionFragment.this);
         }
 
         @Override // com.baidu.tieba.faceshop.forumpackage.adapter.a
-        public void cAr() {
-            ForumEmotionFragment.this.jae.notifyDataSetChanged();
+        public void cAx() {
+            ForumEmotionFragment.this.jbN.notifyDataSetChanged();
         }
     };
-    private f.c fjz = new f.c() { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.4
+    private f.c fkY = new f.c() { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.4
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
-            if (ForumEmotionFragment.this.jad != null && !ForumEmotionFragment.this.isLoading) {
-                ForumEmotionFragment.this.jad.a(ForumEmotionFragment.this);
+            if (ForumEmotionFragment.this.jbM != null && !ForumEmotionFragment.this.isLoading) {
+                ForumEmotionFragment.this.jbM.a(ForumEmotionFragment.this);
             }
         }
     };
-    private BdListView.e WH = new BdListView.e() { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.5
+    private BdListView.e Yb = new BdListView.e() { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.5
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (ForumEmotionFragment.this.jad != null && !ForumEmotionFragment.this.isLoading) {
-                if (ForumEmotionFragment.this.jad.hasMore()) {
-                    ForumEmotionFragment.this.jac.bRy();
-                    ForumEmotionFragment.this.jad.b(ForumEmotionFragment.this);
+            if (ForumEmotionFragment.this.jbM != null && !ForumEmotionFragment.this.isLoading) {
+                if (ForumEmotionFragment.this.jbM.hasMore()) {
+                    ForumEmotionFragment.this.jbL.bRE();
+                    ForumEmotionFragment.this.jbM.b(ForumEmotionFragment.this);
                     return;
                 }
-                ForumEmotionFragment.this.jac.bRx();
+                ForumEmotionFragment.this.jbL.bRD();
             }
         }
     };
@@ -101,31 +101,31 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.jac = new a(getPageContext(), getUniqueId());
-        this.jac.setListPullRefreshListener(this.fjz);
-        this.jac.b(this.WH);
+        this.jbL = new a(getPageContext(), getUniqueId());
+        this.jbL.setListPullRefreshListener(this.fkY);
+        this.jbL.b(this.Yb);
         registerListener(this.mNetworkChangedMessageListener);
-        registerListener(this.jaf);
-        if (this.jad == null) {
-            this.jad = new ForumEmotionModel(getPageContext());
+        registerListener(this.jbO);
+        if (this.jbM == null) {
+            this.jbM = new ForumEmotionModel(getPageContext());
         }
-        this.jae = new c(getPageContext(), this.jac.getListView(), this.jad);
-        this.jae.a(this.jag);
+        this.jbN = new c(getPageContext(), this.jbL.getListView(), this.jbM);
+        this.jbN.a(this.jbP);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.iYk = arguments.getBoolean("need_check_login");
+            this.iZT = arguments.getBoolean("need_check_login");
         }
-        if (!this.iYk) {
-            if (this.gDp && this.jad != null) {
-                this.jad.a(this);
+        if (!this.iZT) {
+            if (this.gEY && this.jbM != null) {
+                this.jbM.a(this);
                 this.isLoading = true;
-                this.gDp = false;
+                this.gEY = false;
             }
         } else if (bh.checkUpIsLogin(getPageContext().getPageActivity())) {
-            if (this.gDp && this.jad != null) {
-                this.jad.a(this);
+            if (this.gEY && this.jbM != null) {
+                this.jbM.a(this);
                 this.isLoading = true;
-                this.gDp = false;
+                this.gEY = false;
             }
         } else {
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) getPageContext().getPageActivity(), true);
@@ -133,31 +133,31 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, loginActivityConfig));
             getPageContext().getPageActivity().finish();
         }
-        return this.jac.getView();
+        return this.jbL.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jac != null) {
-            this.jac.onChangeSkinType(i);
+        if (this.jbL != null) {
+            this.jbL.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.a
     public void a(final ForumEmotionData forumEmotionData) {
         this.isLoading = false;
-        this.jac.completePullRefresh();
-        this.jac.bSy();
-        this.jac.hideLoadingView();
-        this.jac.hideNoDataView();
+        this.jbL.completePullRefresh();
+        this.jbL.bSE();
+        this.jbL.hideLoadingView();
+        this.jbL.hideNoDataView();
         if (forumEmotionData != null) {
-            this.jac.c(forumEmotionData);
-            this.jac.cAx().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.6
+            this.jbL.c(forumEmotionData);
+            this.jbL.cAD().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (!TextUtils.isEmpty(forumEmotionData.activity_url)) {
-                        bf.bsV().b(ForumEmotionFragment.this.getPageContext(), new String[]{forumEmotionData.activity_url});
+                        bf.bsY().b(ForumEmotionFragment.this.getPageContext(), new String[]{forumEmotionData.activity_url});
                     }
                 }
             });
@@ -165,46 +165,46 @@ public class ForumEmotionFragment extends BaseFragment implements ForumEmotionMo
                 ArrayList arrayList = new ArrayList();
                 for (ForumEmotionPackageData forumEmotionPackageData : forumEmotionData.rank_pkg_list) {
                     com.baidu.tieba.faceshop.forumpackage.data.c cVar = new com.baidu.tieba.faceshop.forumpackage.data.c();
-                    cVar.jaz = forumEmotionPackageData;
+                    cVar.jci = forumEmotionPackageData;
                     arrayList.add(cVar);
                 }
                 if (arrayList.isEmpty()) {
                     arrayList.add(new com.baidu.tieba.faceshop.forumpackage.data.a());
                 }
-                this.jae.setData(arrayList);
+                this.jbN.setData(arrayList);
             }
-            this.jae.notifyDataSetChanged();
+            this.jbN.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.a
     public void b(ForumEmotionData forumEmotionData) {
         this.isLoading = false;
-        this.jac.bSy();
-        this.jac.hideNoDataView();
+        this.jbL.bSE();
+        this.jbL.hideNoDataView();
         if (forumEmotionData != null) {
             if (!y.isEmpty(forumEmotionData.rank_pkg_list)) {
                 ArrayList arrayList = new ArrayList();
                 for (ForumEmotionPackageData forumEmotionPackageData : forumEmotionData.rank_pkg_list) {
                     com.baidu.tieba.faceshop.forumpackage.data.c cVar = new com.baidu.tieba.faceshop.forumpackage.data.c();
-                    cVar.jaz = forumEmotionPackageData;
+                    cVar.jci = forumEmotionPackageData;
                     arrayList.add(cVar);
                 }
-                this.jae.cv(arrayList);
+                this.jbN.cv(arrayList);
             }
-            this.jae.notifyDataSetChanged();
+            this.jbN.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel.a
     public void onFailed(String str) {
         this.isLoading = false;
-        this.jac.completePullRefresh();
-        this.jac.hideLoadingView();
-        if (this.jae != null && this.jae.bDF() > 0) {
+        this.jbL.completePullRefresh();
+        this.jbL.hideLoadingView();
+        if (this.jbN != null && this.jbN.bDI() > 0) {
             l.showToast(getPageContext().getContext(), str);
         } else {
-            this.jac.showNoDataView();
+            this.jbL.showNoDataView();
         }
     }
 }

@@ -9,23 +9,23 @@ import com.baidu.searchbox.config.AppConfig;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static boolean DEBUG = AppConfig.isDebug();
-    private static a anS;
+    private static a aps;
     private SharedPreferences mCache;
     private String mChannel;
     private String mLastChannel;
 
     public static a ub() {
-        if (anS == null) {
+        if (aps == null) {
             synchronized (a.class) {
-                if (anS == null) {
-                    anS = new a();
+                if (aps == null) {
+                    aps = new a();
                 }
             }
         }
-        return anS;
+        return aps;
     }
 
     private a() {

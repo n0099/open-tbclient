@@ -10,10 +10,8 @@ public final class GroundOverlay extends Overlay {
     private static final String j = GroundOverlay.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2711a;
-
-    /* renamed from: b  reason: collision with root package name */
-    BitmapDescriptor f2712b;
+    int f2018a;
+    BitmapDescriptor b;
     LatLng c;
     double d;
     double e;
@@ -31,8 +29,8 @@ public final class GroundOverlay extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        bundle.putBundle("image_info", this.f2712b.b());
-        if (this.f2711a == 1) {
+        bundle.putBundle("image_info", this.b.b());
+        if (this.f2018a == 1) {
             GeoPoint ll2mc = CoordUtil.ll2mc(this.h.southwest);
             double longitudeE6 = ll2mc.getLongitudeE6();
             double latitudeE6 = ll2mc.getLatitudeE6();
@@ -50,7 +48,7 @@ public final class GroundOverlay extends Overlay {
         }
         bundle.putDouble("x_distance", this.d);
         if (this.e == 2.147483647E9d) {
-            this.e = (int) ((this.d * this.f2712b.f2696a.getHeight()) / this.f2712b.f2696a.getWidth());
+            this.e = (int) ((this.d * this.b.f2010a.getHeight()) / this.b.f2010a.getWidth());
         }
         bundle.putDouble("y_distance", this.e);
         GeoPoint ll2mc3 = CoordUtil.ll2mc(this.c);
@@ -79,7 +77,7 @@ public final class GroundOverlay extends Overlay {
     }
 
     public BitmapDescriptor getImage() {
-        return this.f2712b;
+        return this.b;
     }
 
     public LatLng getPosition() {
@@ -119,7 +117,7 @@ public final class GroundOverlay extends Overlay {
         if (bitmapDescriptor == null) {
             throw new IllegalArgumentException("image can not be null");
         }
-        this.f2712b = bitmapDescriptor;
+        this.b = bitmapDescriptor;
         this.listener.b(this);
     }
 
@@ -127,7 +125,7 @@ public final class GroundOverlay extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("position can not be null");
         }
-        this.f2711a = 2;
+        this.f2018a = 2;
         this.c = latLng;
         this.listener.b(this);
     }
@@ -136,7 +134,7 @@ public final class GroundOverlay extends Overlay {
         if (latLngBounds == null) {
             throw new IllegalArgumentException("bounds can not be null");
         }
-        this.f2711a = 1;
+        this.f2018a = 1;
         this.h = latLngBounds;
         this.listener.b(this);
     }

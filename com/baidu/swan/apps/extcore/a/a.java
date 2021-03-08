@@ -11,7 +11,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/publishThread");
@@ -22,12 +22,12 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("ExtCore-PublishThread", "handle: publishThread");
         }
-        JSONObject b2 = b(unitedSchemeEntity, "params");
-        if (b2 == null) {
+        JSONObject b = b(unitedSchemeEntity, "params");
+        if (b == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        final String optString = b2.optString("data", "");
+        final String optString = b.optString("data", "");
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.extcore.a.a.1
             @Override // java.lang.Runnable
             public void run() {

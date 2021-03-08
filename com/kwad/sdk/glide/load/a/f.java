@@ -7,9 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class f {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final e.a<?> f10047b = new e.a<Object>() { // from class: com.kwad.sdk.glide.load.a.f.1
+    private static final e.a<?> b = new e.a<Object>() { // from class: com.kwad.sdk.glide.load.a.f.1
         @Override // com.kwad.sdk.glide.load.a.e.a
         @NonNull
         public e<Object> a(@NonNull Object obj) {
@@ -24,22 +22,22 @@ public class f {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<Class<?>, e.a<?>> f10048a = new HashMap();
+    private final Map<Class<?>, e.a<?>> f6646a = new HashMap();
 
     /* loaded from: classes3.dex */
     private static final class a implements e<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Object f10049a;
+        private final Object f6647a;
 
         a(@NonNull Object obj) {
-            this.f10049a = obj;
+            this.f6647a = obj;
         }
 
         @Override // com.kwad.sdk.glide.load.a.e
         @NonNull
         public Object a() {
-            return this.f10049a;
+            return this.f6647a;
         }
 
         @Override // com.kwad.sdk.glide.load.a.e
@@ -51,9 +49,9 @@ public class f {
     public synchronized <T> e<T> a(@NonNull T t) {
         e.a<?> aVar;
         com.kwad.sdk.glide.g.j.a(t);
-        aVar = this.f10048a.get(t.getClass());
+        aVar = this.f6646a.get(t.getClass());
         if (aVar == null) {
-            Iterator<e.a<?>> it = this.f10048a.values().iterator();
+            Iterator<e.a<?>> it = this.f6646a.values().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -66,12 +64,12 @@ public class f {
             }
         }
         if (aVar == null) {
-            aVar = f10047b;
+            aVar = b;
         }
         return (e<T>) aVar.a(t);
     }
 
     public synchronized void a(@NonNull e.a<?> aVar) {
-        this.f10048a.put(aVar.a(), aVar);
+        this.f6646a.put(aVar.a(), aVar);
     }
 }

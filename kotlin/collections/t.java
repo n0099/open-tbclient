@@ -9,26 +9,26 @@ import java.util.List;
 import java.util.NoSuchElementException;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class t extends s {
 
     @kotlin.e
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable qtx;
+        final /* synthetic */ Iterable qtZ;
 
         public a(Iterable iterable) {
-            this.qtx = iterable;
+            this.qtZ = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.qtx.iterator();
+            return this.qtZ.iterator();
         }
     }
 
     public static final <T> T first(List<? extends T> list) {
-        kotlin.jvm.internal.p.o(list, "$receiver");
+        kotlin.jvm.internal.p.p(list, "$receiver");
         if (list.isEmpty()) {
             throw new NoSuchElementException("List is empty.");
         }
@@ -36,17 +36,17 @@ public class t extends s {
     }
 
     public static final <T> T last(List<? extends T> list) {
-        kotlin.jvm.internal.p.o(list, "$receiver");
+        kotlin.jvm.internal.p.p(list, "$receiver");
         if (list.isEmpty()) {
             throw new NoSuchElementException("List is empty.");
         }
-        return list.get(n.hg(list));
+        return list.get(n.hf(list));
     }
 
     public static final <T> T d(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.o(iterable, "$receiver");
+        kotlin.jvm.internal.p.p(iterable, "$receiver");
         if (iterable instanceof List) {
-            return (T) n.hi((List) iterable);
+            return (T) n.hh((List) iterable);
         }
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
@@ -59,8 +59,8 @@ public class t extends s {
         return next;
     }
 
-    public static final <T> T hi(List<? extends T> list) {
-        kotlin.jvm.internal.p.o(list, "$receiver");
+    public static final <T> T hh(List<? extends T> list) {
+        kotlin.jvm.internal.p.p(list, "$receiver");
         switch (list.size()) {
             case 0:
                 throw new NoSuchElementException("List is empty.");
@@ -71,24 +71,24 @@ public class t extends s {
         }
     }
 
-    public static final <T> void hj(List<T> list) {
-        kotlin.jvm.internal.p.o(list, "$receiver");
+    public static final <T> void hi(List<T> list) {
+        kotlin.jvm.internal.p.p(list, "$receiver");
         Collections.reverse(list);
     }
 
     public static final <T> List<T> e(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.o(iterable, "$receiver");
+        kotlin.jvm.internal.p.p(iterable, "$receiver");
         if (!(iterable instanceof Collection) || ((Collection) iterable).size() > 1) {
             List<T> h = n.h(iterable);
-            n.hj(h);
+            n.hi(h);
             return h;
         }
         return n.g(iterable);
     }
 
     public static final <T, C extends Collection<? super T>> C a(Iterable<? extends T> iterable, C c) {
-        kotlin.jvm.internal.p.o(iterable, "$receiver");
-        kotlin.jvm.internal.p.o(c, "destination");
+        kotlin.jvm.internal.p.p(iterable, "$receiver");
+        kotlin.jvm.internal.p.p(c, "destination");
         for (T t : iterable) {
             c.add(t);
         }
@@ -96,42 +96,42 @@ public class t extends s {
     }
 
     public static final <T> HashSet<T> f(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.o(iterable, "$receiver");
-        return (HashSet) n.a(iterable, new HashSet(aa.St(n.a(iterable, 12))));
+        kotlin.jvm.internal.p.p(iterable, "$receiver");
+        return (HashSet) n.a(iterable, new HashSet(aa.Ss(n.a(iterable, 12))));
     }
 
     public static final <T> List<T> g(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.o(iterable, "$receiver");
+        kotlin.jvm.internal.p.p(iterable, "$receiver");
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return n.eLe();
+                    return n.eKM();
                 case 1:
-                    return n.bS(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
+                    return n.bT(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:
                     return n.q((Collection) iterable);
             }
         }
-        return n.hh(n.h(iterable));
+        return n.hg(n.h(iterable));
     }
 
     public static final <T> List<T> h(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.o(iterable, "$receiver");
+        kotlin.jvm.internal.p.p(iterable, "$receiver");
         return iterable instanceof Collection ? n.q((Collection) iterable) : (List) n.a(iterable, new ArrayList());
     }
 
     public static final <T> List<T> q(Collection<? extends T> collection) {
-        kotlin.jvm.internal.p.o(collection, "$receiver");
+        kotlin.jvm.internal.p.p(collection, "$receiver");
         return new ArrayList(collection);
     }
 
     public static final <T, A extends Appendable> A a(Iterable<? extends T> iterable, A a2, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i, CharSequence charSequence4, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {
-        kotlin.jvm.internal.p.o(iterable, "$receiver");
-        kotlin.jvm.internal.p.o(a2, "buffer");
-        kotlin.jvm.internal.p.o(charSequence, "separator");
-        kotlin.jvm.internal.p.o(charSequence2, "prefix");
-        kotlin.jvm.internal.p.o(charSequence3, "postfix");
-        kotlin.jvm.internal.p.o(charSequence4, "truncated");
+        kotlin.jvm.internal.p.p(iterable, "$receiver");
+        kotlin.jvm.internal.p.p(a2, "buffer");
+        kotlin.jvm.internal.p.p(charSequence, "separator");
+        kotlin.jvm.internal.p.p(charSequence2, "prefix");
+        kotlin.jvm.internal.p.p(charSequence3, "postfix");
+        kotlin.jvm.internal.p.p(charSequence4, "truncated");
         a2.append(charSequence2);
         int i2 = 0;
         for (T t : iterable) {
@@ -152,18 +152,18 @@ public class t extends s {
     }
 
     public static final <T> String a(Iterable<? extends T> iterable, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i, CharSequence charSequence4, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {
-        kotlin.jvm.internal.p.o(iterable, "$receiver");
-        kotlin.jvm.internal.p.o(charSequence, "separator");
-        kotlin.jvm.internal.p.o(charSequence2, "prefix");
-        kotlin.jvm.internal.p.o(charSequence3, "postfix");
-        kotlin.jvm.internal.p.o(charSequence4, "truncated");
+        kotlin.jvm.internal.p.p(iterable, "$receiver");
+        kotlin.jvm.internal.p.p(charSequence, "separator");
+        kotlin.jvm.internal.p.p(charSequence2, "prefix");
+        kotlin.jvm.internal.p.p(charSequence3, "postfix");
+        kotlin.jvm.internal.p.p(charSequence4, "truncated");
         String sb = ((StringBuilder) n.a(iterable, new StringBuilder(), charSequence, charSequence2, charSequence3, i, charSequence4, bVar)).toString();
-        kotlin.jvm.internal.p.n(sb, "joinTo(StringBuilder(), …ed, transform).toString()");
+        kotlin.jvm.internal.p.o(sb, "joinTo(StringBuilder(), …ed, transform).toString()");
         return sb;
     }
 
     public static final <T> kotlin.sequences.c<T> i(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.o(iterable, "$receiver");
+        kotlin.jvm.internal.p.p(iterable, "$receiver");
         return new a(iterable);
     }
 }

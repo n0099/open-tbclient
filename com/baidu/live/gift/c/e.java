@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static void aw(String str, String str2) {
         UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(str, str2, "liveroom", ""));

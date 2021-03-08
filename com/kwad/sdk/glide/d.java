@@ -14,15 +14,13 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public final class d {
-
-    /* renamed from: b  reason: collision with root package name */
-    private i f9962b;
+    private i b;
     private com.kwad.sdk.glide.load.engine.bitmap_recycle.e c;
     private com.kwad.sdk.glide.load.engine.bitmap_recycle.b d;
     private com.kwad.sdk.glide.load.engine.a.h e;
     private com.kwad.sdk.glide.load.engine.b.a f;
     private com.kwad.sdk.glide.load.engine.b.a g;
-    private a.InterfaceC1132a h;
+    private a.InterfaceC1149a h;
     private com.kwad.sdk.glide.load.engine.a.i i;
     private com.kwad.sdk.glide.c.d j;
     @Nullable
@@ -34,7 +32,7 @@ public final class d {
     private boolean q;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<Class<?>, h<?, ?>> f9961a = new ArrayMap();
+    private final Map<Class<?>, h<?, ?>> f6594a = new ArrayMap();
     private int k = 4;
     private com.kwad.sdk.glide.request.f l = new com.kwad.sdk.glide.request.f();
 
@@ -57,9 +55,9 @@ public final class d {
             this.j = new com.kwad.sdk.glide.c.f();
         }
         if (this.c == null) {
-            int b2 = this.i.b();
-            if (b2 > 0) {
-                this.c = new com.kwad.sdk.glide.load.engine.bitmap_recycle.k(b2);
+            int b = this.i.b();
+            if (b > 0) {
+                this.c = new com.kwad.sdk.glide.load.engine.bitmap_recycle.k(b);
             } else {
                 this.c = new com.kwad.sdk.glide.load.engine.bitmap_recycle.f();
             }
@@ -73,15 +71,15 @@ public final class d {
         if (this.h == null) {
             this.h = new com.kwad.sdk.glide.load.engine.a.f(context);
         }
-        if (this.f9962b == null) {
-            this.f9962b = new com.kwad.sdk.glide.load.engine.i(this.e, this.h, this.g, this.f, com.kwad.sdk.glide.load.engine.b.a.c(), com.kwad.sdk.glide.load.engine.b.a.d(), this.o);
+        if (this.b == null) {
+            this.b = new com.kwad.sdk.glide.load.engine.i(this.e, this.h, this.g, this.f, com.kwad.sdk.glide.load.engine.b.a.c(), com.kwad.sdk.glide.load.engine.b.a.d(), this.o);
         }
         if (this.p == null) {
             this.p = Collections.emptyList();
         } else {
             this.p = Collections.unmodifiableList(this.p);
         }
-        return new c(context, this.f9962b, this.e, this.c, this.d, new k(this.m), this.j, this.k, this.l.i(), this.f9961a, this.p, this.q);
+        return new c(context, this.b, this.e, this.c, this.d, new k(this.m), this.j, this.k, this.l.i(), this.f6594a, this.p, this.q);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

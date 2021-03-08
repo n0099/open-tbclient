@@ -55,7 +55,7 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ChipDrawable extends Drawable implements Drawable.Callback, TintAwareDrawable {
     private static final boolean DEBUG = false;
     private static final int[] DEFAULT_STATE = {16842910};
@@ -156,7 +156,7 @@ public class ChipDrawable extends Drawable implements Drawable.Callback, TintAwa
     @Nullable
     private CharSequence rawText = "";
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface Delegate {
         void onChipDrawableSizeChange();
     }

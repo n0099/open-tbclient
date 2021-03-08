@@ -8,20 +8,18 @@ import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c extends d implements com.kwad.sdk.core.b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f9447b;
+    private String b;
     private String c;
     private long d;
     private String e;
     private long f;
 
     public c(String str, String str2) {
-        this.f9416a = UUID.randomUUID().toString();
+        this.f6245a = UUID.randomUUID().toString();
         this.d = System.currentTimeMillis();
         this.e = m.b();
         this.f = m.d();
-        this.f9447b = str;
+        this.b = str;
         this.c = str2;
     }
 
@@ -38,7 +36,7 @@ public class c extends d implements com.kwad.sdk.core.b {
             }
             this.f = jSONObject.optLong("seq");
             if (jSONObject.has("mediaPlayerAction")) {
-                this.f9447b = jSONObject.optString("mediaPlayerAction");
+                this.b = jSONObject.optString("mediaPlayerAction");
             }
             if (jSONObject.has("mediaPlayerMsg")) {
                 this.c = jSONObject.optString("mediaPlayerMsg");
@@ -54,12 +52,12 @@ public class c extends d implements com.kwad.sdk.core.b {
         o.a(json, "timestamp", this.d);
         o.a(json, "sessionId", this.e);
         o.a(json, "seq", this.f);
-        o.a(json, "mediaPlayerAction", this.f9447b);
+        o.a(json, "mediaPlayerAction", this.b);
         o.a(json, "mediaPlayerMsg", this.c);
         return json;
     }
 
     public String toString() {
-        return "MediaPlayerReportAction{actionId='" + this.f9416a + "', timestamp=" + this.d + ", sessionId='" + this.e + "', seq=" + this.f + ", mediaPlayerAction='" + this.f9447b + "', mediaPlayerMsg='" + this.c + "'}";
+        return "MediaPlayerReportAction{actionId='" + this.f6245a + "', timestamp=" + this.d + ", sessionId='" + this.e + "', seq=" + this.f + ", mediaPlayerAction='" + this.b + "', mediaPlayerMsg='" + this.c + "'}";
     }
 }

@@ -2,13 +2,13 @@ package com.yy.videoplayer.stat;
 
 import com.yy.videoplayer.Constant;
 import com.yy.videoplayer.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFPlayerUsrBehaviorStat {
     private static YMFPlayerUsrBehaviorStat mInstance;
     private String tag = "YMFPlay";
     public IYMFBehaviorEventListener mBehaviorListener = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private interface UsrBehaviorStatInfoKey {
         public static final String FirstFrameDecode = "firstFrameDecode";
         public static final String FirstFrameRendered = "firstFrameRendered";

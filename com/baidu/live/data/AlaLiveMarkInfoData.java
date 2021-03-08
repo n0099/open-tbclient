@@ -2,7 +2,7 @@ package com.baidu.live.data;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveMarkInfoData implements Serializable {
     public static final int BADGE_LEVEL_TYPE = 105;
     public static final int ROYAL_LEVEL_TYPE = 1;

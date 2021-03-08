@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.GetGiftListByCategoryId.GetGiftListByCategoryIdResIdl;
 import tbclient.GetGiftListByCategoryId.PresentGiftListByCategoryId1;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     private int categoryId;
     private ArrayList<ai> giftList;
@@ -33,18 +33,18 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
                         aiVar.name = presentGiftListByCategoryId1.gift_name;
                         aiVar.price = presentGiftListByCategoryId1.price.intValue();
                         aiVar.thumbnailUrl = presentGiftListByCategoryId1.thumbnail_url;
-                        aiVar.eNQ = presentGiftListByCategoryId1.ios_price.intValue();
+                        aiVar.ePr = presentGiftListByCategoryId1.ios_price.intValue();
                         aiVar.desc = presentGiftListByCategoryId1.gift_desc;
-                        aiVar.aHS = presentGiftListByCategoryId1.activity_type.intValue();
-                        aiVar.eNR = presentGiftListByCategoryId1.mark_url;
+                        aiVar.aJs = presentGiftListByCategoryId1.activity_type.intValue();
+                        aiVar.ePs = presentGiftListByCategoryId1.mark_url;
                         aiVar.beginTime = presentGiftListByCategoryId1.begin_time.intValue();
                         aiVar.endTime = presentGiftListByCategoryId1.end_time.intValue();
-                        aiVar.eNS = presentGiftListByCategoryId1.discount.intValue();
-                        aiVar.eNT = presentGiftListByCategoryId1.ios_discount.intValue();
-                        aiVar.eNU = presentGiftListByCategoryId1.proportion.intValue();
-                        aiVar.eNV = presentGiftListByCategoryId1.pitch_on.intValue();
-                        aiVar.aXz = presentGiftListByCategoryId1.gift_count.intValue();
-                        aiVar.eNW = presentGiftListByCategoryId1.currency_unit.intValue();
+                        aiVar.ePt = presentGiftListByCategoryId1.discount.intValue();
+                        aiVar.ePu = presentGiftListByCategoryId1.ios_discount.intValue();
+                        aiVar.ePv = presentGiftListByCategoryId1.proportion.intValue();
+                        aiVar.ePw = presentGiftListByCategoryId1.pitch_on.intValue();
+                        aiVar.aYZ = presentGiftListByCategoryId1.gift_count.intValue();
+                        aiVar.ePx = presentGiftListByCategoryId1.currency_unit.intValue();
                         this.giftList.add(aiVar);
                     }
                 }

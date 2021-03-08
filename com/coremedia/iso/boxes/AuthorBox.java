@@ -10,14 +10,14 @@ import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AuthorBox extends AbstractFullBox {
     public static final String TYPE = "auth";
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1310a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_4 = null;
     private String author;
     private String language;
 

@@ -1,5 +1,5 @@
 package com.baidu.ar.vo.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class f extends a implements c {
     private com.baidu.ar.vo.a.b zb;
     private com.baidu.ar.vo.b.a zc;
@@ -24,10 +24,10 @@ public class f extends a implements c {
             String a3 = this.yw.a(this.zb);
             int i = (int) a2[0];
             if (i == 0) {
-                int b2 = b(fArr, this.zb.hg());
-                if (b2 == 0) {
+                int b = b(fArr, this.zb.hg());
+                if (b == 0) {
                     this.yw.hl();
-                } else if (b2 == 1) {
+                } else if (b == 1) {
                     this.yw.hm();
                 }
                 this.yw.r(new float[16]);

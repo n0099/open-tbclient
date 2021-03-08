@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class Closeables {
     private static final String TAG = "Closeables";
 

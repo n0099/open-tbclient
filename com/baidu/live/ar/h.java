@@ -1,12 +1,12 @@
 package com.baidu.live.ar;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
-    private String aCQ;
-    private String aCR;
-    private String aCS;
-    private String aCx;
+    private String aDX;
+    private String aEq;
+    private String aEr;
+    private String aEs;
     private String mFile;
     private String mId;
     private String mName;
@@ -16,20 +16,20 @@ public class h {
         if (jSONObject != null) {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
-            this.aCQ = jSONObject.optString("bgurl");
+            this.aEq = jSONObject.optString("bgurl");
             this.mType = jSONObject.optString("type");
-            this.aCR = jSONObject.optString("current");
+            this.aEr = jSONObject.optString("current");
             this.mFile = jSONObject.optString("feature_file");
-            this.aCS = jSONObject.optString("feature_file_token");
-            this.aCx = jSONObject.optString("thinface_value");
+            this.aEs = jSONObject.optString("feature_file_token");
+            this.aDX = jSONObject.optString("thinface_value");
         }
     }
 
-    public String zw() {
-        return this.aCQ;
+    public String zz() {
+        return this.aEq;
     }
 
-    public String zx() {
+    public String zA() {
         return this.mFile;
     }
 
@@ -41,11 +41,11 @@ public class h {
         return this.mType;
     }
 
-    public String zy() {
-        return this.aCR;
+    public String zB() {
+        return this.aEr;
     }
 
-    public String zz() {
-        return this.aCx;
+    public String zC() {
+        return this.aDX;
     }
 }

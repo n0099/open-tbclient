@@ -10,18 +10,18 @@ import com.baidu.live.adp.widget.listview.BdTypeListView;
 import com.baidu.live.adp.widget.listview.IAdapterData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private boolean bnA;
-    private BdPageContext bnt;
-    private BdTypeListView bnu;
-    private f ccJ;
-    private c ccK;
-    private g ccL;
-    private d ccM;
-    private e ccN;
-    private List<AbsDelegateAdapter> bns = new ArrayList();
-    private CustomMessageListener bnB = new CustomMessageListener(0) { // from class: com.baidu.live.yuyinim.a.a.1
+    private BdPageContext boT;
+    private BdTypeListView boU;
+    private boolean bpa;
+    private f cel;
+    private c cem;
+    private g cen;
+    private d ceo;
+    private e cep;
+    private List<AbsDelegateAdapter> boS = new ArrayList();
+    private CustomMessageListener bpb = new CustomMessageListener(0) { // from class: com.baidu.live.yuyinim.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -30,41 +30,41 @@ public class a {
     };
 
     public a(BdPageContext bdPageContext, BdTypeListView bdTypeListView) {
-        this.bnt = bdPageContext;
-        this.bnu = bdTypeListView;
-        Kw();
+        this.boT = bdPageContext;
+        this.boU = bdTypeListView;
+        Kz();
     }
 
-    public void Jg() {
-        MessageManager.getInstance().registerListener(2913069, this.bnB);
+    public void Jj() {
+        MessageManager.getInstance().registerListener(2913069, this.bpb);
     }
 
-    private void Kw() {
-        this.ccJ = new f(this.bnt.getPageActivity());
-        this.ccK = new c(this.bnt.getPageActivity());
-        this.ccL = new g(this.bnt.getPageActivity());
-        this.ccM = new d(this.bnt.getPageActivity());
-        this.ccN = new e(this.bnt.getPageActivity());
-        this.bns.add(this.ccJ);
-        this.bns.add(this.ccK);
-        this.bns.add(this.ccL);
-        this.bns.add(this.ccM);
-        this.bns.add(this.ccN);
-        this.bnu.addAdapters(this.bns);
+    private void Kz() {
+        this.cel = new f(this.boT.getPageActivity());
+        this.cem = new c(this.boT.getPageActivity());
+        this.cen = new g(this.boT.getPageActivity());
+        this.ceo = new d(this.boT.getPageActivity());
+        this.cep = new e(this.boT.getPageActivity());
+        this.boS.add(this.cel);
+        this.boS.add(this.cem);
+        this.boS.add(this.cen);
+        this.boS.add(this.ceo);
+        this.boS.add(this.cep);
+        this.boU.addAdapters(this.boS);
     }
 
     public void setMode(boolean z) {
-        this.ccJ.setMode(z);
+        this.cel.setMode(z);
     }
 
     public void setDatas(List<IAdapterData> list) {
-        if (this.bnu != null) {
-            this.bnu.setData(list);
+        if (this.boU != null) {
+            this.boU.setData(list);
         }
     }
 
     public void b(String str, String str2, boolean z, String str3) {
-        for (AbsDelegateAdapter absDelegateAdapter : this.bns) {
+        for (AbsDelegateAdapter absDelegateAdapter : this.boS) {
             if (absDelegateAdapter instanceof b) {
                 ((b) absDelegateAdapter).b(str, str2, z, str3);
             }
@@ -72,33 +72,33 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.bnu != null && (this.bnu.getAdapter() instanceof BaseAdapter)) {
-            this.bnu.getAdapter().notifyDataSetChanged();
+        if (this.boU != null && (this.boU.getAdapter() instanceof BaseAdapter)) {
+            this.boU.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void setFromMaster(boolean z) {
-        this.bnA = z;
-        if (this.bnA) {
-            if (this.ccJ != null) {
-                this.ccJ.cm(true);
+        this.bpa = z;
+        if (this.bpa) {
+            if (this.cel != null) {
+                this.cel.cm(true);
             }
-            if (this.ccK != null) {
-                this.ccK.cm(true);
+            if (this.cem != null) {
+                this.cem.cm(true);
             }
-            if (this.ccL != null) {
-                this.ccL.cm(true);
+            if (this.cen != null) {
+                this.cen.cm(true);
             }
-            if (this.ccM != null) {
-                this.ccM.cm(true);
+            if (this.ceo != null) {
+                this.ceo.cm(true);
             }
-            if (this.ccN != null) {
-                this.ccN.cm(true);
+            if (this.cep != null) {
+                this.cep.cm(true);
             }
         }
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.bnB);
+        MessageManager.getInstance().unRegisterListener(this.bpb);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.bubble.all;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SetBubbleResultData extends OrmObject implements Serializable {
     private static final long serialVersionUID = -4612117445868668894L;
     private ResultInfo b_info = new ResultInfo();
@@ -21,7 +21,7 @@ public class SetBubbleResultData extends OrmObject implements Serializable {
         return this.error_msg;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class ResultInfo extends OrmObject implements Serializable {
         private static final long serialVersionUID = 1818506758727291395L;
         private String b_url;

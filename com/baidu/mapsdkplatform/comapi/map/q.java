@@ -5,10 +5,8 @@ import java.util.ArrayList;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f3065a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f3066b;
+    public int f2229a;
+    public String b;
     public int c;
     public int d;
     public ArrayList<q> e;

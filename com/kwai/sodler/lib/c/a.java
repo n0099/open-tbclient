@@ -47,8 +47,8 @@ public final class a {
                 }
                 messageDigest.update(bArr, 0, read);
             }
-            for (byte b2 : messageDigest.digest()) {
-                sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+            for (byte b : messageDigest.digest()) {
+                sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
             }
             return sb.toString();
         } catch (Exception e) {

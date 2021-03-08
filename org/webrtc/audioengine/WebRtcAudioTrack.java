@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.os.Process;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WebRtcAudioTrack {
     private static final int BITS_PER_SAMPLE = 16;
     private static final int BUFFERS_PER_SECOND = 100;
@@ -47,7 +47,7 @@ public class WebRtcAudioTrack {
 
     private native void nativeSetTrackBufferSizeMs(int i);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class AudioTrackThread extends Thread {
         private volatile boolean keepAlive;
 

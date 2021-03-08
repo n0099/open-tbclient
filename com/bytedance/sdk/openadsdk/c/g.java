@@ -17,10 +17,8 @@ import java.util.List;
 public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6227a = "AdEventThread";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f6228b = "ttad_bk";
+    public static String f4200a = "AdEventThread";
+    public static String b = "ttad_bk";
     public final e<T> c;
     public q<T> d;
     public final List<T> e;
@@ -38,7 +36,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     public g(e<T> eVar, q<T> qVar, b bVar, a aVar) {
-        super(f6228b);
+        super("tt_pangle_thread__" + b);
         this.k = bVar;
         this.j = aVar;
         this.c = eVar;
@@ -48,8 +46,8 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     public g(String str, String str2, e<T> eVar, q<T> qVar, b bVar, a aVar) {
-        super(str);
-        f6227a = str2;
+        super("tt_pangle_thread__" + str);
+        f4200a = str2;
         this.k = bVar;
         this.j = aVar;
         this.c = eVar;
@@ -91,8 +89,8 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
 
     private void a() {
         this.c.a(this.k.d, this.k.e);
-        this.g = this.c.b();
-        this.h = this.c.c();
+        this.g = this.c.a();
+        this.h = this.c.b();
         if (this.g) {
             a("onHandleInitEvent serverBusy, retryCount = " + this.h);
             h();
@@ -132,7 +130,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
             a("onHandleServerBusyRetryEvent, no net");
             return;
         }
-        List<T> a2 = this.c.a();
+        List<T> a2 = this.c.a(100, IMConstants.MSG_ROW_ID);
         c(a2);
         if (s.a(a2)) {
             a("onHandleServerBusyRetryEvent, empty list start routine");
@@ -142,7 +140,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         }
         h a3 = a(a2);
         if (a3 != null) {
-            if (a3.f6231a) {
+            if (a3.f4202a) {
                 a("onHandleServerBusyRetryEvent, success");
                 g();
                 f();
@@ -235,7 +233,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
         } else {
             h a2 = a(this.e);
             if (a2 != null) {
-                if (a2.f6231a) {
+                if (a2.f4202a) {
                     a("doRoutineUpload success");
                     g();
                     f();
@@ -278,7 +276,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void j() {
-        a(2, this.k.f6230b);
+        a(2, this.k.b);
     }
 
     private void a(int i, long j) {
@@ -310,7 +308,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private static boolean a(h hVar) {
-        return hVar.f6232b == 509;
+        return hVar.b == 509;
     }
 
     private static boolean b(h hVar) {
@@ -318,7 +316,7 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private boolean n() {
-        return !this.g && (this.e.size() >= this.k.f6229a || System.currentTimeMillis() - this.f >= this.k.f6230b);
+        return !this.g && (this.e.size() >= this.k.f4201a || System.currentTimeMillis() - this.f >= this.k.b);
     }
 
     private void o() {
@@ -330,25 +328,23 @@ public class g<T extends i> extends HandlerThread implements Handler.Callback {
     }
 
     private void a(String str) {
-        u.b(f6227a, str);
+        u.b(f4200a, str);
     }
 
     /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f6229a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final long f6230b;
+        final int f4201a;
+        final long b;
         final long c;
         final int d;
         final long e;
         final long f;
 
         b(int i, long j, long j2, int i2, long j3, long j4) {
-            this.f6229a = i;
-            this.f6230b = j;
+            this.f4201a = i;
+            this.b = j;
             this.c = j2;
             this.d = i2;
             this.e = j3;

@@ -12,10 +12,8 @@ public class MyLocationData {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private double f2748a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private double f2749b;
+        private double f2039a;
+        private double b;
         private float c;
         private float d;
         private float e;
@@ -27,7 +25,7 @@ public class MyLocationData {
         }
 
         public MyLocationData build() {
-            return new MyLocationData(this.f2748a, this.f2749b, this.c, this.d, this.e, this.f);
+            return new MyLocationData(this.f2039a, this.b, this.c, this.d, this.e, this.f);
         }
 
         public Builder direction(float f) {
@@ -36,12 +34,12 @@ public class MyLocationData {
         }
 
         public Builder latitude(double d) {
-            this.f2748a = d;
+            this.f2039a = d;
             return this;
         }
 
         public Builder longitude(double d) {
-            this.f2749b = d;
+            this.b = d;
             return this;
         }
 

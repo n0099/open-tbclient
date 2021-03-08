@@ -9,7 +9,7 @@ import com.kwad.sdk.utils.p;
 public class d<MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<?, MODEL>> extends com.kwad.sdk.lib.a.a.a<MODEL, CallerContext> {
 
     /* renamed from: a  reason: collision with root package name */
-    private RefreshLayout f10413a;
+    private RefreshLayout f6867a;
     private com.kwad.sdk.lib.b.c<?, MODEL> c;
     private com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> d;
     private final RefreshLayout.b e = new RefreshLayout.b() { // from class: com.kwad.sdk.lib.a.b.d.1
@@ -20,14 +20,14 @@ public class d<MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<?, MODEL>> ex
                 return;
             }
             p.a(d.this.o());
-            d.this.f10413a.setRefreshing(false);
+            d.this.f6867a.setRefreshing(false);
         }
     };
     private f f = new g() { // from class: com.kwad.sdk.lib.a.b.d.2
         @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
         public void a(boolean z, int i, String str) {
             if (z) {
-                d.this.f10413a.setRefreshing(false);
+                d.this.f6867a.setRefreshing(false);
             }
         }
 
@@ -36,16 +36,16 @@ public class d<MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<?, MODEL>> ex
             if (!z || d.this.d.i() || z2) {
                 return;
             }
-            d.this.f10413a.setRefreshing(true);
+            d.this.f6867a.setRefreshing(true);
         }
 
         @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
         public void b(boolean z, boolean z2) {
             if (z) {
                 if (!d.this.d.i()) {
-                    d.this.f10413a.setEnabled(true);
+                    d.this.f6867a.setEnabled(true);
                 }
-                d.this.f10413a.setRefreshing(false);
+                d.this.f6867a.setRefreshing(false);
             }
         }
     };
@@ -54,12 +54,12 @@ public class d<MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<?, MODEL>> ex
     @Override // com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f10413a = this.f10407b.j;
-        this.c = (com.kwad.sdk.lib.b.c<?, MODEL>) this.f10407b.g;
-        this.d = this.f10407b.h;
-        this.f10413a.setEnabled(false);
-        this.f10413a.setNestedScrollingEnabled(true);
-        this.f10413a.setOnRefreshListener(this.e);
+        this.f6867a = this.b.j;
+        this.c = (com.kwad.sdk.lib.b.c<?, MODEL>) this.b.g;
+        this.d = this.b.h;
+        this.f6867a.setEnabled(false);
+        this.f6867a.setNestedScrollingEnabled(true);
+        this.f6867a.setOnRefreshListener(this.e);
         this.c.a(this.f);
     }
 
@@ -67,7 +67,7 @@ public class d<MODEL, CallerContext extends com.kwad.sdk.lib.a.a.b<?, MODEL>> ex
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10413a.setOnRefreshListener(null);
+        this.f6867a.setOnRefreshListener(null);
         this.c.b(this.f);
     }
 }

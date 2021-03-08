@@ -3,7 +3,7 @@ package com.baidu.ala.helper;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaSEIMessage {
     public static String buildBackgroundMessage(String str, String str2) {
         JSONObject jSONObject = new JSONObject();

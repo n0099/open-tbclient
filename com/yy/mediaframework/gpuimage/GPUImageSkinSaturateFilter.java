@@ -2,7 +2,7 @@ package com.yy.mediaframework.gpuimage;
 
 import android.opengl.GLES20;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageSkinSaturateFilter extends GPUImageFilter implements IFilterParams {
     float mSaturate;
     private int mSaturateStrengthLocation;

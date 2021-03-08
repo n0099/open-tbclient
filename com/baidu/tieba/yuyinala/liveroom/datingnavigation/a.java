@@ -1,6 +1,6 @@
 package com.baidu.tieba.yuyinala.liveroom.datingnavigation;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public String ouZ;
-    public String ova;
+    public String oxe;
+    public String oxf;
 }

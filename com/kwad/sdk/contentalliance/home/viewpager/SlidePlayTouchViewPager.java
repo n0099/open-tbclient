@@ -13,10 +13,8 @@ import java.util.List;
 public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f8754a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected boolean f8755b;
+    protected boolean f5832a;
+    protected boolean b;
     protected boolean c;
     @Nullable
     protected e d;
@@ -96,14 +94,14 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
     }
 
     protected void a(MotionEvent motionEvent) {
-        if (this.f8755b) {
+        if (this.b) {
             float abs = Math.abs(motionEvent.getX() - this.h);
             float y = motionEvent.getY();
             float abs2 = Math.abs(y - this.i);
             if (abs2 <= this.f || abs2 * 0.5f <= abs) {
                 return;
             }
-            if (!this.f8754a && y > this.i && getCurrentItem() == getFirstValidItemPosition()) {
+            if (!this.f5832a && y > this.i && getCurrentItem() == getFirstValidItemPosition()) {
                 if (!this.c) {
                     e();
                 }
@@ -202,7 +200,7 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
             float abs2 = Math.abs(y - this.i);
             if (getCurrentItem() == getFirstValidItemPosition() && f > this.f && abs2 * 0.5f > abs) {
                 this.j = true;
-                if (this.d == null || !this.f8754a) {
+                if (this.d == null || !this.f5832a) {
                     return true;
                 }
                 this.d.a(motionEvent);
@@ -212,7 +210,7 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
                 return true;
             }
         }
-        if (this.d != null && this.f8754a) {
+        if (this.d != null && this.f5832a) {
             this.d.a(motionEvent);
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -242,7 +240,7 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
                     if (f > this.f && abs2 * 0.5f > abs) {
                         this.j = true;
                     }
-                    if (!this.j && f > 0.0f && this.d != null && this.f8754a) {
+                    if (!this.j && f > 0.0f && this.d != null && this.f5832a) {
                         this.d.b(motionEvent);
                     }
                 }
@@ -279,7 +277,7 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
         if (action == 1 || action == 3) {
             g();
         }
-        if (this.d != null && this.f8754a) {
+        if (this.d != null && this.f5832a) {
             this.d.b(motionEvent);
         }
         return true;

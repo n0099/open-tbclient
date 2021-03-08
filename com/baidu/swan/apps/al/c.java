@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.al;
 
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class c<ValueT> {
-    private a<ValueT> dNX;
+    private a<ValueT> dPy;
     public final String id;
     private ValueT mValue;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a<ValueT> {
-        ValueT aLW() throws IllegalStateException;
+        ValueT aLZ() throws IllegalStateException;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.al.e */
@@ -17,27 +17,27 @@ public final class c<ValueT> {
     /* JADX WARN: Multi-variable type inference failed */
     public c(String str) {
         this.id = str;
-        e.aNj().a(this);
+        e.aNm().a(this);
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, aNi());
+        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, aNl());
     }
 
     public c<ValueT> a(a<ValueT> aVar) {
-        this.dNX = aVar;
+        this.dPy = aVar;
         update();
         return this;
     }
 
     public boolean update() {
-        return b(this.dNX);
+        return b(this.dPy);
     }
 
     public boolean b(a<ValueT> aVar) {
         if (aVar != null) {
             try {
-                return ab(aVar.aLW());
+                return ad(aVar.aLZ());
             } catch (IllegalStateException e) {
                 com.baidu.swan.apps.console.c.w("Tracer", "index update IllegalStateException " + e.getMessage());
                 return false;
@@ -48,13 +48,13 @@ public final class c<ValueT> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.al.e */
     /* JADX WARN: Multi-variable type inference failed */
-    public boolean ab(ValueT valuet) {
+    public boolean ad(ValueT valuet) {
         this.mValue = valuet;
-        e.aNj().b(this);
+        e.aNm().b(this);
         return true;
     }
 
-    public CharSequence aNi() {
+    public CharSequence aNl() {
         return this.mValue == null ? "" : this.mValue.toString();
     }
 }

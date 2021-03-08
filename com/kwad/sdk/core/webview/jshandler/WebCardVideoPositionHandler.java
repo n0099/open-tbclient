@@ -8,10 +8,8 @@ import org.json.JSONObject;
 public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9551a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private VideoPosition f9552b = new VideoPosition();
+    private final com.kwad.sdk.core.webview.a f6327a;
+    private VideoPosition b = new VideoPosition();
     private a c;
 
     /* loaded from: classes3.dex */
@@ -29,7 +27,7 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
     }
 
     public WebCardVideoPositionHandler(com.kwad.sdk.core.webview.a aVar, a aVar2) {
-        this.f9551a = aVar;
+        this.f6327a = aVar;
         this.c = aVar2;
     }
 
@@ -42,9 +40,9 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         try {
-            this.f9552b.parseJson(new JSONObject(str));
+            this.b.parseJson(new JSONObject(str));
             if (this.c != null) {
-                this.c.a(this.f9552b);
+                this.c.a(this.b);
             }
         } catch (JSONException e) {
             e.printStackTrace();

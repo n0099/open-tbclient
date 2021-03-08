@@ -26,17 +26,15 @@ public class g implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11325a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f11326b;
+    private int f7435a;
+    private boolean b;
     private List<String> c;
     private b d;
     private String e;
 
     protected g(Parcel parcel) {
-        this.f11325a = parcel.readInt();
-        this.f11326b = parcel.readByte() != 0;
+        this.f7435a = parcel.readInt();
+        this.b = parcel.readByte() != 0;
         this.c = parcel.createStringArrayList();
         this.d = (b) parcel.readParcelable(b.class.getClassLoader());
         this.e = parcel.readString();
@@ -47,10 +45,10 @@ public class g implements Parcelable {
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (!jSONObject.isNull("max_size")) {
-                this.f11325a = jSONObject.getInt("max_size");
+                this.f7435a = jSONObject.getInt("max_size");
             }
             if (!jSONObject.isNull("wifi_upload")) {
-                this.f11326b = jSONObject.getBoolean("wifi_upload");
+                this.b = jSONObject.getBoolean("wifi_upload");
             }
             if (!jSONObject.isNull("upload_files")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("upload_files");
@@ -66,11 +64,11 @@ public class g implements Parcelable {
     }
 
     public int a() {
-        return this.f11325a;
+        return this.f7435a;
     }
 
     public boolean b() {
-        return this.f11326b;
+        return this.b;
     }
 
     public List<String> c() {
@@ -87,13 +85,13 @@ public class g implements Parcelable {
     }
 
     public String toString() {
-        return "UploadLogMessage{maxSize=" + this.f11325a + ", wifiUpload=" + this.f11326b + ", fileList=" + this.c + ", controlMessage=" + this.d + ", uploadMessage='" + this.e + "'}";
+        return "UploadLogMessage{maxSize=" + this.f7435a + ", wifiUpload=" + this.b + ", fileList=" + this.c + ", controlMessage=" + this.d + ", uploadMessage='" + this.e + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f11325a);
-        parcel.writeByte((byte) (this.f11326b ? 1 : 0));
+        parcel.writeInt(this.f7435a);
+        parcel.writeByte((byte) (this.b ? 1 : 0));
         parcel.writeStringList(this.c);
         parcel.writeParcelable(this.d, i);
         parcel.writeString(this.e);

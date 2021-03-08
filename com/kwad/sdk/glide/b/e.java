@@ -14,14 +14,12 @@ import java.util.Iterator;
 public class e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f9944a = e.class.getSimpleName();
+    private static final String f6584a = e.class.getSimpleName();
     @ColorInt
-
-    /* renamed from: b  reason: collision with root package name */
-    private int[] f9945b;
+    private int[] b;
     @ColorInt
     private final int[] c;
-    private final a.InterfaceC1122a d;
+    private final a.InterfaceC1139a d;
     private ByteBuffer e;
     private byte[] f;
     private short[] g;
@@ -43,15 +41,15 @@ public class e implements a {
     @NonNull
     private Bitmap.Config u;
 
-    public e(@NonNull a.InterfaceC1122a interfaceC1122a) {
+    public e(@NonNull a.InterfaceC1139a interfaceC1139a) {
         this.c = new int[256];
         this.u = Bitmap.Config.ARGB_8888;
-        this.d = interfaceC1122a;
+        this.d = interfaceC1139a;
         this.m = new c();
     }
 
-    public e(@NonNull a.InterfaceC1122a interfaceC1122a, c cVar, ByteBuffer byteBuffer, int i) {
-        this(interfaceC1122a);
+    public e(@NonNull a.InterfaceC1139a interfaceC1139a, c cVar, ByteBuffer byteBuffer, int i) {
+        this(interfaceC1139a);
         a(cVar, byteBuffer, i);
     }
 
@@ -69,7 +67,7 @@ public class e implements a {
         int i7 = 0;
         int i8 = 0;
         for (int i9 = i; i9 < this.q + i && i9 < this.j.length && i9 < i2; i9++) {
-            int i10 = this.f9945b[this.j[i9] & 255];
+            int i10 = this.b[this.j[i9] & 255];
             if (i10 != 0) {
                 i8 += (i10 >> 24) & 255;
                 i7 += (i10 >> 16) & 255;
@@ -79,7 +77,7 @@ public class e implements a {
             }
         }
         for (int i11 = i + i3; i11 < i + i3 + this.q && i11 < this.j.length && i11 < i2; i11++) {
-            int i12 = this.f9945b[this.j[i11] & 255];
+            int i12 = this.b[this.j[i11] & 255];
             if (i12 != 0) {
                 i8 += (i12 >> 24) & 255;
                 i7 += (i12 >> 16) & 255;
@@ -118,9 +116,9 @@ public class e implements a {
                     }
                 }
                 int i2 = bVar2.d / this.q;
-                int i3 = bVar2.f9939b / this.q;
+                int i3 = bVar2.b / this.q;
                 int i4 = bVar2.c / this.q;
-                int i5 = (i3 * this.s) + (bVar2.f9938a / this.q);
+                int i5 = (i3 * this.s) + (bVar2.f6581a / this.q);
                 int i6 = i5 + (i2 * this.s);
                 while (i5 < i6) {
                     int i7 = i5 + i4;
@@ -153,14 +151,14 @@ public class e implements a {
     private void a(b bVar) {
         int[] iArr = this.k;
         int i = bVar.d;
-        int i2 = bVar.f9939b;
+        int i2 = bVar.b;
         int i3 = bVar.c;
-        int i4 = bVar.f9938a;
+        int i4 = bVar.f6581a;
         boolean z = this.l == 0;
         int i5 = this.s;
         byte[] bArr = this.j;
-        int[] iArr2 = this.f9945b;
-        byte b2 = -1;
+        int[] iArr2 = this.b;
+        byte b = -1;
         for (int i6 = 0; i6 < i; i6++) {
             int i7 = (i6 + i2) * i5;
             int i8 = i7 + i4;
@@ -170,21 +168,21 @@ public class e implements a {
             }
             int i10 = bVar.c * i6;
             while (i8 < i9) {
-                byte b3 = bArr[i10];
-                int i11 = b3 & 255;
-                if (i11 != b2) {
+                byte b2 = bArr[i10];
+                int i11 = b2 & 255;
+                if (i11 != b) {
                     int i12 = iArr2[i11];
                     if (i12 != 0) {
                         iArr[i8] = i12;
                     } else {
-                        b2 = b3;
+                        b = b2;
                     }
                 }
                 i8++;
                 i10++;
             }
         }
-        this.t = Boolean.valueOf(this.t == null && z && b2 != -1);
+        this.t = Boolean.valueOf(this.t == null && z && b != -1);
     }
 
     private void b(b bVar) {
@@ -194,9 +192,9 @@ public class e implements a {
         int i4;
         int[] iArr = this.k;
         int i5 = bVar.d / this.q;
-        int i6 = bVar.f9939b / this.q;
+        int i6 = bVar.b / this.q;
         int i7 = bVar.c / this.q;
-        int i8 = bVar.f9938a / this.q;
+        int i8 = bVar.f6581a / this.q;
         int i9 = 1;
         int i10 = 8;
         int i11 = 0;
@@ -205,7 +203,7 @@ public class e implements a {
         int i13 = this.s;
         int i14 = this.r;
         byte[] bArr = this.j;
-        int[] iArr2 = this.f9945b;
+        int[] iArr2 = this.b;
         Boolean bool = this.t;
         int i15 = 0;
         while (i15 < i5) {
@@ -532,14 +530,14 @@ public class e implements a {
     public synchronized Bitmap h() {
         Bitmap bitmap;
         if (this.m.c <= 0 || this.l < 0) {
-            if (Log.isLoggable(f9944a, 3)) {
-                Log.d(f9944a, "Unable to decode frame, frameCount=" + this.m.c + ", framePointer=" + this.l);
+            if (Log.isLoggable(f6584a, 3)) {
+                Log.d(f6584a, "Unable to decode frame, frameCount=" + this.m.c + ", framePointer=" + this.l);
             }
             this.p = 1;
         }
         if (this.p == 1 || this.p == 2) {
-            if (Log.isLoggable(f9944a, 3)) {
-                Log.d(f9944a, "Unable to decode frame, status=" + this.p);
+            if (Log.isLoggable(f6584a, 3)) {
+                Log.d(f6584a, "Unable to decode frame, status=" + this.p);
             }
             bitmap = null;
         } else {
@@ -550,18 +548,18 @@ public class e implements a {
             b bVar = this.m.e.get(this.l);
             int i = this.l - 1;
             b bVar2 = i >= 0 ? this.m.e.get(i) : null;
-            this.f9945b = bVar.k != null ? bVar.k : this.m.f9940a;
-            if (this.f9945b == null) {
-                if (Log.isLoggable(f9944a, 3)) {
-                    Log.d(f9944a, "No valid color table found for frame #" + this.l);
+            this.b = bVar.k != null ? bVar.k : this.m.f6582a;
+            if (this.b == null) {
+                if (Log.isLoggable(f6584a, 3)) {
+                    Log.d(f6584a, "No valid color table found for frame #" + this.l);
                 }
                 this.p = 1;
                 bitmap = null;
             } else {
                 if (bVar.f) {
-                    System.arraycopy(this.f9945b, 0, this.c, 0, this.f9945b.length);
-                    this.f9945b = this.c;
-                    this.f9945b[bVar.h] = 0;
+                    System.arraycopy(this.b, 0, this.c, 0, this.b.length);
+                    this.b = this.c;
+                    this.b[bVar.h] = 0;
                 }
                 bitmap = a(bVar, bVar2);
             }

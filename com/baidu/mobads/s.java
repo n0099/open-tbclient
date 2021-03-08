@@ -1,13 +1,13 @@
 package com.baidu.mobads;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class s implements SplashLpCloseListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SplashAd f3480a;
+    final /* synthetic */ SplashAd f2476a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(SplashAd splashAd) {
-        this.f3480a = splashAd;
+        this.f2476a = splashAd;
     }
 
     @Override // com.baidu.mobads.SplashAdListener

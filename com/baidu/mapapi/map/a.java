@@ -8,11 +8,11 @@ import java.util.List;
 public class a implements Overlay.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2786a;
+    final /* synthetic */ BaiduMap f2061a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BaiduMap baiduMap) {
-        this.f2786a = baiduMap;
+        this.f2061a = baiduMap;
     }
 
     @Override // com.baidu.mapapi.map.Overlay.a
@@ -29,37 +29,37 @@ public class a implements Overlay.a {
         List list7;
         com.baidu.mapsdkplatform.comapi.map.e eVar4;
         if (overlay != null) {
-            list6 = this.f2786a.k;
+            list6 = this.f2061a.k;
             if (list6.contains(overlay)) {
                 Bundle a2 = overlay.a();
-                eVar3 = this.f2786a.i;
+                eVar3 = this.f2061a.i;
                 if (eVar3 != null) {
-                    eVar4 = this.f2786a.i;
+                    eVar4 = this.f2061a.i;
                     eVar4.d(a2);
                 }
-                list7 = this.f2786a.k;
+                list7 = this.f2061a.k;
                 list7.remove(overlay);
             }
         }
         if (overlay != null) {
-            list4 = this.f2786a.m;
+            list4 = this.f2061a.m;
             if (list4.contains(overlay)) {
-                list5 = this.f2786a.m;
+                list5 = this.f2061a.m;
                 list5.remove(overlay);
             }
         }
         if (overlay != null) {
-            list = this.f2786a.l;
+            list = this.f2061a.l;
             if (list.contains(overlay)) {
                 Marker marker = (Marker) overlay;
                 if (marker.o != null) {
-                    list2 = this.f2786a.l;
+                    list2 = this.f2061a.l;
                     list2.remove(marker);
-                    list3 = this.f2786a.l;
+                    list3 = this.f2061a.l;
                     if (list3.size() == 0) {
-                        eVar = this.f2786a.i;
+                        eVar = this.f2061a.i;
                         if (eVar != null) {
-                            eVar2 = this.f2786a.i;
+                            eVar2 = this.f2061a.i;
                             eVar2.b(false);
                         }
                     }
@@ -86,21 +86,21 @@ public class a implements Overlay.a {
         com.baidu.mapsdkplatform.comapi.map.e eVar6;
         List list8;
         if (overlay != null) {
-            list4 = this.f2786a.k;
+            list4 = this.f2061a.k;
             if (list4.contains(overlay)) {
                 boolean z2 = false;
                 if (overlay instanceof Marker) {
                     Marker marker = (Marker) overlay;
-                    if (marker.f2743b != null) {
+                    if (marker.b != null) {
                         if (marker.o != null && marker.o.size() > 1) {
                             Bundle bundle = new Bundle();
-                            eVar5 = this.f2786a.i;
+                            eVar5 = this.f2061a.i;
                             if (eVar5 != null) {
                                 marker.remove();
                                 marker.o.clear();
-                                eVar6 = this.f2786a.i;
+                                eVar6 = this.f2061a.i;
                                 eVar6.b(overlay.a(bundle));
-                                list8 = this.f2786a.k;
+                                list8 = this.f2061a.k;
                                 list8.add(overlay);
                                 z = true;
                             } else {
@@ -109,35 +109,35 @@ public class a implements Overlay.a {
                             z2 = z;
                         }
                     } else if (marker.o != null && marker.o.size() != 0) {
-                        list5 = this.f2786a.l;
+                        list5 = this.f2061a.l;
                         if (list5.contains(marker)) {
-                            list7 = this.f2786a.l;
+                            list7 = this.f2061a.l;
                             list7.remove(marker);
                         }
-                        list6 = this.f2786a.l;
+                        list6 = this.f2061a.l;
                         list6.add(marker);
-                        eVar3 = this.f2786a.i;
+                        eVar3 = this.f2061a.i;
                         if (eVar3 != null) {
-                            eVar4 = this.f2786a.i;
+                            eVar4 = this.f2061a.i;
                             eVar4.b(true);
                         }
                     }
                 }
-                eVar = this.f2786a.i;
+                eVar = this.f2061a.i;
                 if (eVar != null && !z2) {
                     Bundle bundle2 = new Bundle();
-                    eVar2 = this.f2786a.i;
+                    eVar2 = this.f2061a.i;
                     eVar2.c(overlay.a(bundle2));
                 }
             }
         }
-        list = this.f2786a.m;
+        list = this.f2061a.m;
         if (list.contains(overlay)) {
-            list3 = this.f2786a.m;
+            list3 = this.f2061a.m;
             list3.remove(overlay);
         }
         if (overlay instanceof Marker) {
-            list2 = this.f2786a.m;
+            list2 = this.f2061a.m;
             list2.add((Marker) overlay);
         }
     }

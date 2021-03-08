@@ -12,7 +12,7 @@ import android.view.inputmethod.InputConnectionWrapper;
 import android.view.inputmethod.InputContentInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class InputConnectionCompat {
     private static final String COMMIT_CONTENT_ACTION = "androidx.core.view.inputmethod.InputConnectionCompat.COMMIT_CONTENT";
     private static final String COMMIT_CONTENT_CONTENT_URI_KEY = "androidx.core.view.inputmethod.InputConnectionCompat.CONTENT_URI";
@@ -23,7 +23,7 @@ public final class InputConnectionCompat {
     private static final String COMMIT_CONTENT_RESULT_RECEIVER = "androidx.core.view.inputmethod.InputConnectionCompat.CONTENT_RESULT_RECEIVER";
     public static final int INPUT_CONTENT_GRANT_READ_URI_PERMISSION = 1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public interface OnCommitContentListener {
         boolean onCommitContent(InputContentInfoCompat inputContentInfoCompat, int i, Bundle bundle);
     }

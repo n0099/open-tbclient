@@ -1,19 +1,19 @@
 package com.baidu.swan.apps.view.narootview;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private int dSZ;
-    private int dTa;
+    private int dUA;
+    private int dUB;
     private int mFlags = 0;
 
     @NonNull
-    public b kx(int i) {
+    public b ky(int i) {
         this.mFlags |= i;
         return this;
     }
 
-    public void ky(int i) {
+    public void kz(int i) {
         this.mFlags &= i ^ (-1);
     }
 
@@ -21,19 +21,19 @@ public class b {
         return (this.mFlags & 1) == 1;
     }
 
-    public int aPs() {
-        return this.dSZ;
-    }
-
-    public void kz(int i) {
-        this.dSZ = i;
-    }
-
-    public int aPt() {
-        return this.dTa;
+    public int aPv() {
+        return this.dUA;
     }
 
     public void kA(int i) {
-        this.dTa = i;
+        this.dUA = i;
+    }
+
+    public int aPw() {
+        return this.dUB;
+    }
+
+    public void kB(int i) {
+        this.dUB = i;
     }
 }

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.live.adp.base.BdPageContext;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class ILiveMultiBeautyView extends LinearLayout {
     public abstract void b(short s);
 
@@ -19,9 +19,9 @@ public abstract class ILiveMultiBeautyView extends LinearLayout {
 
     public abstract void setViewData();
 
-    public abstract void zC();
+    public abstract void zF();
 
-    public abstract void zD();
+    public abstract void zG();
 
     public ILiveMultiBeautyView(Context context) {
         super(context);

@@ -7,11 +7,11 @@ import tbclient.RecommendForumInfo;
 public class b extends BaseCardInfo {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public String avatar;
-    public boolean ePK;
+    public boolean eRl;
     public String extInfo;
     public long forumId;
     public String forumName;
-    public String iMl;
+    public String iNU;
     public int memberCount;
     public int threadCount;
 
@@ -33,23 +33,23 @@ public class b extends BaseCardInfo {
     }
 
     public boolean isLike() {
-        return this.ePK;
+        return this.eRl;
     }
 
     public void setLike(boolean z) {
-        this.ePK = z;
+        this.eRl = z;
     }
 
     public int getMemberCount() {
         return this.memberCount;
     }
 
-    public int dLN() {
+    public int dLV() {
         return this.threadCount;
     }
 
-    public String blo() {
-        return this.iMl;
+    public String blq() {
+        return this.iNU;
     }
 
     public void c(RecommendForumInfo recommendForumInfo) {
@@ -59,8 +59,8 @@ public class b extends BaseCardInfo {
             this.avatar = recommendForumInfo.avatar;
             this.memberCount = recommendForumInfo.member_count.intValue();
             this.threadCount = recommendForumInfo.thread_count.intValue();
-            this.ePK = recommendForumInfo.is_like.intValue() == 1;
-            this.iMl = recommendForumInfo.recom_reason;
+            this.eRl = recommendForumInfo.is_like.intValue() == 1;
+            this.iNU = recommendForumInfo.recom_reason;
             this.extInfo = recommendForumInfo.extra;
         }
     }

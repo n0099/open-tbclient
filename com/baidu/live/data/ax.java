@@ -12,15 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ax {
-    public String aOm;
-    public String aOo;
-    public String aOp;
-    public int aOq;
-    public String aOr;
-    public int aOs;
-    public String aOt;
+    public String aPM;
+    public String aPO;
+    public String aPP;
+    public int aPQ;
+    public String aPR;
+    public int aPS;
+    public String aPT;
     public long ala_id;
     public long anchor_live;
     public int change_sex;
@@ -74,7 +74,7 @@ public class ax {
     public int verify_status;
     public int verify_type;
     public int verify_video_status;
-    public String aOn = "";
+    public String aPN = "";
     public int gender = 2;
 
     public String getNameShow() {
@@ -89,10 +89,10 @@ public class ax {
             } else {
                 this.user_id = jSONObject.optString("user_id");
             }
-            this.aOm = ExtraParamsManager.getDecryptUserId(jSONObject.optString("pa_uid"));
+            this.aPM = ExtraParamsManager.getDecryptUserId(jSONObject.optString("pa_uid"));
             this.loginType = jSONObject.optString(Constants.KEY_LOGIN_TYPE);
             this.type = jSONObject.optString("type");
-            this.aOn = jSONObject.optString("meta_key");
+            this.aPN = jSONObject.optString("meta_key");
             this.verify_info_status = jSONObject.optInt("verify_info_status");
             this.verify_video_status = jSONObject.optInt("verify_video_status");
             this.verify_type = jSONObject.optInt("verify_type");
@@ -106,9 +106,9 @@ public class ax {
             if (StringUtils.isNull(this.portrait)) {
                 this.portrait = jSONObject.optString("portrait");
             }
-            this.aOo = jSONObject.optString("portrait");
-            this.aOp = jSONObject.optString("bg_img");
-            this.aOr = jSONObject.optString("app_from");
+            this.aPO = jSONObject.optString("portrait");
+            this.aPP = jSONObject.optString("bg_img");
+            this.aPR = jSONObject.optString("app_from");
             this.level_id = jSONObject.optInt("level_id");
             this.level_exp = jSONObject.optInt("level_exp");
             this.next_exp = jSONObject.optInt("next_exp");
@@ -137,7 +137,7 @@ public class ax {
             this.enter_live = jSONObject.optLong("enter_live");
             this.is_live_admin = jSONObject.optInt("is_live_admin");
             this.is_block = jSONObject.optInt("is_block");
-            this.aOq = jSONObject.optInt("is_chat_block");
+            this.aPQ = jSONObject.optInt("is_chat_block");
             this.isBjh = jSONObject.optInt(ImageViewerConfig.IS_BJH);
             this.third_app_id = jSONObject.optString("third_app_id");
             this.stream_id = jSONObject.optLong(BdStatsConstant.StatsKey.STREAM_ID);
@@ -147,7 +147,7 @@ public class ax {
             this.great_anchor_desc_grade = jSONObject.optString("great_anchor_desc_grade");
             this.great_anchor_desc_role = jSONObject.optString("great_anchor_desc_role");
             this.petal_num = jSONObject.optInt("petal_num");
-            this.aOt = jSONObject.optString("bd_personal_page");
+            this.aPT = jSONObject.optString("bd_personal_page");
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 this.live_mark_info_new = new ArrayList(optJSONArray.length());
@@ -158,7 +158,7 @@ public class ax {
                     this.live_mark_info_new.add(alaLiveMarkData);
                 }
             }
-            this.aOs = jSONObject.optInt("live_mark_total");
+            this.aPS = jSONObject.optInt("live_mark_total");
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
                 this.extraUserInfo = jSONObject.optJSONObject(TbConfig.getSubappType() + "_info");
             }

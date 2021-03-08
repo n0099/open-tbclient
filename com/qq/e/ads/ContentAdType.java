@@ -1,5 +1,5 @@
 package com.qq.e.ads;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public enum ContentAdType {
     AD,
     INFORMATION;

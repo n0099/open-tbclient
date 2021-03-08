@@ -7,11 +7,11 @@ import javax.net.ssl.SSLSession;
 class b implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ HttpClient f2687a;
+    final /* synthetic */ HttpClient f2005a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(HttpClient httpClient) {
-        this.f2687a = httpClient;
+        this.f2005a = httpClient;
     }
 
     @Override // javax.net.ssl.HostnameVerifier

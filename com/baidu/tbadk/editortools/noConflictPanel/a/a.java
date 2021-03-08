@@ -3,27 +3,27 @@ package com.baidu.tbadk.editortools.noConflictPanel.a;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a {
-    private final View fDa;
-    private boolean fDb;
-    private View fDc;
+    private boolean fEA;
+    private View fEB;
+    private final View fEz;
 
     public a(View view) {
-        this.fDa = view;
+        this.fEz = view;
     }
 
     public void kT(boolean z) {
-        this.fDb = z;
-        if (!z && this.fDa.getVisibility() == 4) {
-            this.fDa.setVisibility(8);
+        this.fEA = z;
+        if (!z && this.fEz.getVisibility() == 4) {
+            this.fEz.setVisibility(8);
         }
-        if (!z && this.fDc != null) {
-            bBH();
-            this.fDc = null;
+        if (!z && this.fEB != null) {
+            bBK();
+            this.fEB = null;
         }
     }
 
-    private void bBH() {
-        this.fDa.setVisibility(4);
-        com.baidu.tbadk.editortools.noConflictPanel.b.b.bO(this.fDc);
+    private void bBK() {
+        this.fEz.setVisibility(4);
+        com.baidu.tbadk.editortools.noConflictPanel.b.b.bO(this.fEB);
     }
 }

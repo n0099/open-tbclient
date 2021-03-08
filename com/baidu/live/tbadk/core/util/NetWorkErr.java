@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.core.util;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class NetWorkErr {
     public static final int ERROR_CONTENT_WITH_SENSITIVE_WORD = 220015;
     public static final int ERROR_FORBID_POST_LIVE = 220012;

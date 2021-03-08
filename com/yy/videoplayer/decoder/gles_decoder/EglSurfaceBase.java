@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class EglSurfaceBase {
     protected static final String TAG = "Grafika";
     protected EglCore mEglCore;

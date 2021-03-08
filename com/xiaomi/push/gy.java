@@ -5,15 +5,15 @@ import com.xiaomi.push.al;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class gy extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f14075a;
+    final /* synthetic */ Context f8402a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gy(Context context) {
-        this.f14075a = context;
+        this.f8402a = context;
     }
 
     @Override // com.xiaomi.push.al.b
@@ -22,13 +22,13 @@ public final class gy extends al.b {
         ArrayList arrayList;
         List list;
         List list2;
-        obj = gx.f489a;
+        obj = gx.f410a;
         synchronized (obj) {
-            list = gx.f491a;
+            list = gx.f412a;
             arrayList = new ArrayList(list);
-            list2 = gx.f491a;
+            list2 = gx.f412a;
             list2.clear();
         }
-        gx.b(this.f14075a, arrayList);
+        gx.b(this.f8402a, arrayList);
     }
 }

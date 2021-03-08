@@ -16,7 +16,7 @@ import com.baidu.live.tbadk.scheme.SchemeCallback;
 import com.baidu.live.tbadk.scheme.SchemeUtils;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class x extends com.baidu.live.view.web.a {
     private Context context;
     private SchemeCallback schemeCallback;
@@ -32,7 +32,7 @@ public class x extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void is(String str) {
+    public void iy(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl WkBridgeJsInterface params = " + str);
         if (str != null && str.contains("rmb_baiducloud://")) {
             if (this.context instanceof Activity) {

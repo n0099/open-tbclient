@@ -64,7 +64,7 @@ class r {
             i = i2 + 1;
         }
         com.ksad.lottie.e.a<?> aVar = list.get(size - 1);
-        if (aVar.f8003a == 0) {
+        if (aVar.f5351a == 0) {
             list.remove(aVar);
         }
     }

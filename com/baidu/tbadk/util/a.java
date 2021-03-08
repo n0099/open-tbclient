@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 /* loaded from: classes.dex */
 public class a {
-    private static a fMo;
-    private com.baidu.tbadk.coreExtra.data.a ftX;
-    private ABTestExtraData ftY;
+    private static a fNO;
+    private com.baidu.tbadk.coreExtra.data.a fvw;
+    private ABTestExtraData fvx;
 
-    public static a bES() {
-        if (fMo == null) {
+    public static a bEW() {
+        if (fNO == null) {
             synchronized (a.class) {
-                if (fMo == null) {
-                    fMo = new a();
+                if (fNO == null) {
+                    fNO = new a();
                 }
             }
         }
-        return fMo;
+        return fNO;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -26,26 +26,26 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.ftX == null || aVar.bvU() != this.ftX.bvU()) ? true : true;
-        this.ftX = aVar;
+        z = (aVar == null || this.fvw == null || aVar.bvX() != this.fvw.bvX()) ? true : true;
+        this.fvw = aVar;
         if (z) {
-            DD("zan_or_cai_smallflow");
+            DK("zan_or_cai_smallflow");
         }
     }
 
-    private void DD(String str) {
+    private void DK(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 
     public void a(ABTestExtraData aBTestExtraData) {
-        this.ftY = aBTestExtraData;
+        this.fvx = aBTestExtraData;
     }
 
-    public String bET() {
-        if (this.ftY == null) {
-            this.ftY = new ABTestExtraData();
-            this.ftY.parserABTestExtraFormSharedPref();
+    public String bEX() {
+        if (this.fvx == null) {
+            this.fvx = new ABTestExtraData();
+            this.fvx.parserABTestExtraFormSharedPref();
         }
-        return this.ftY.getABTestResult();
+        return this.fvx.getABTestResult();
     }
 }

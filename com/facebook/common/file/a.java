@@ -1,31 +1,31 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
-    public static String pzl = null;
+    public static String pBq = null;
 
     public static void a(File file, b bVar) {
-        File[] b2;
+        File[] b;
         bVar.ao(file);
         try {
-            b2 = file.listFiles();
+            b = file.listFiles();
         } catch (OutOfMemoryError e) {
             System.gc();
-            b2 = b(file, file.list());
+            b = b(file, file.list());
         }
-        if (b2 != null) {
-            for (File file2 : b2) {
+        if (b != null) {
+            for (File file2 : b) {
                 if (file2.isDirectory()) {
                     a(file2, bVar);
                 } else {
                     bVar.ap(file2);
                     String path = file2.getPath();
                     if (path != null) {
-                        if (pzl == null) {
-                            pzl = path;
-                        } else if (path.length() > pzl.length()) {
-                            pzl = path;
+                        if (pBq == null) {
+                            pBq = path;
+                        } else if (path.length() > pBq.length()) {
+                            pBq = path;
                         }
                     }
                 }

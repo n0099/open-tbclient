@@ -1,7 +1,7 @@
 package com.yy.mediaframework.gpuimage.custom;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IGPUProcess {
     void onDestroy();
 

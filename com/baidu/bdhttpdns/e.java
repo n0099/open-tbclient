@@ -12,14 +12,12 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 final class e {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f1574b = a();
+    private static String b = a();
 
     /* renamed from: a  reason: collision with root package name */
-    private static Pattern f1573a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
+    private static Pattern f1310a = Pattern.compile("^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$");
 
     private static String a() {
         try {
@@ -35,7 +33,7 @@ final class e {
     private static String a(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(1, cY(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(1, dc(str), new IvParameterSpec("01020304".getBytes()));
             return Base64.encodeToString(cipher.doFinal(bArr), 0);
         } catch (Exception e) {
             return null;
@@ -59,7 +57,7 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(String str) {
-        return f1573a.matcher(str).matches();
+        return f1310a.matcher(str).matches();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -72,12 +70,12 @@ final class e {
         return Pattern.matches("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$", str);
     }
 
-    private static Key cY(String str) {
-        return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
-    }
-
     public static boolean d(String str) {
         return Pattern.matches("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$", str);
+    }
+
+    private static Key dc(String str) {
+        return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(str.getBytes()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -103,21 +101,21 @@ final class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String f(String str) {
-        return a(f1574b, str.getBytes());
+        return a(b, str.getBytes());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String g(String str) {
-        return g(f1574b, Base64.decode(str, 0));
-    }
-
-    private static String g(String str, byte[] bArr) {
+    private static String f(String str, byte[] bArr) {
         try {
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
-            cipher.init(2, cY(str), new IvParameterSpec("01020304".getBytes()));
+            cipher.init(2, dc(str), new IvParameterSpec("01020304".getBytes()));
             return new String(cipher.doFinal(bArr));
         } catch (Exception e) {
             return null;
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String g(String str) {
+        return f(b, Base64.decode(str, 0));
     }
 }

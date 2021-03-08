@@ -2,12 +2,12 @@ package com.tencent.open.web.security;
 
 import com.tencent.open.a;
 import com.tencent.open.a.f;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class SecureJsInterface extends a.b {
     public static boolean isPWDEdit = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13452a;
+    private String f8000a;
 
     @Override // com.tencent.open.a.b
     public boolean customCallback() {
@@ -27,16 +27,16 @@ public class SecureJsInterface extends a.b {
         }
         if (!a.c) {
         }
-        if (a.f13454b) {
-            if (Boolean.valueOf(JniInterface.BackSpaceChar(a.f13454b, i)).booleanValue()) {
-                a.f13454b = false;
+        if (a.b) {
+            if (Boolean.valueOf(JniInterface.BackSpaceChar(a.b, i)).booleanValue()) {
+                a.b = false;
                 return;
             }
             return;
         }
-        this.f13452a = a.f13453a;
-        JniInterface.insetTextToArray(i, this.f13452a, this.f13452a.length());
-        f.a("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f13452a);
+        this.f8000a = a.f8001a;
+        JniInterface.insetTextToArray(i, this.f8000a, this.f8000a.length());
+        f.a("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f8000a);
     }
 
     public void isPasswordEdit(String str) {

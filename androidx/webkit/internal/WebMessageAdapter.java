@@ -4,7 +4,7 @@ import androidx.webkit.WebMessageCompat;
 import androidx.webkit.WebMessagePortCompat;
 import java.lang.reflect.InvocationHandler;
 import org.chromium.support_lib_boundary.WebMessageBoundaryInterface;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class WebMessageAdapter implements WebMessageBoundaryInterface {
     private WebMessageCompat mWebMessageCompat;
 

@@ -4,14 +4,14 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
-    private CallbackHandler dbO;
-    private UnitedSchemeEntity dhx;
+    private CallbackHandler ddq;
+    private UnitedSchemeEntity djb;
 
     private b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        this.dhx = unitedSchemeEntity;
-        this.dbO = callbackHandler;
+        this.djb = unitedSchemeEntity;
+        this.ddq = callbackHandler;
     }
 
     public static b b(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -19,18 +19,18 @@ public class b {
     }
 
     public void onError(int i) {
-        this.dhx.result = UnitedSchemeUtility.wrapCallbackParams(i);
+        this.djb.result = UnitedSchemeUtility.wrapCallbackParams(i);
     }
 
-    public void aF(JSONObject jSONObject) {
-        this.dhx.result = UnitedSchemeUtility.callCallback(this.dbO, this.dhx, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+    public void aH(JSONObject jSONObject) {
+        this.djb.result = UnitedSchemeUtility.callCallback(this.ddq, this.djb, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
     }
 
     public void j(String str, int i, String str2) {
-        UnitedSchemeUtility.safeCallback(this.dbO, this.dhx, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
+        UnitedSchemeUtility.safeCallback(this.ddq, this.djb, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString(), str);
     }
 
-    public void g(String str, JSONObject jSONObject) {
-        UnitedSchemeUtility.safeCallback(this.dbO, this.dhx, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+    public void h(String str, JSONObject jSONObject) {
+        UnitedSchemeUtility.safeCallback(this.ddq, this.djb, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
     }
 }

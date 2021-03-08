@@ -37,10 +37,8 @@ public abstract class c {
     protected com.meizu.cloud.pushsdk.b.c.a s;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f11264a = 88;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected int f11265b = 22;
+    protected int f7402a = 88;
+    protected int b = 22;
     private final String u = c.class.getSimpleName();
     protected final com.meizu.cloud.pushsdk.b.c.g c = com.meizu.cloud.pushsdk.b.c.g.a(AbstractBceClient.DEFAULT_CONTENT_TYPE);
     protected AtomicBoolean t = new AtomicBoolean(false);
@@ -49,10 +47,8 @@ public abstract class c {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        protected final String f11266a;
-
-        /* renamed from: b  reason: collision with root package name */
-        protected final Context f11267b;
+        protected final String f7403a;
+        protected final Context b;
         protected SSLSocketFactory m;
         protected HostnameVerifier n;
         private Class<? extends c> p;
@@ -69,8 +65,8 @@ public abstract class c {
         protected com.meizu.cloud.pushsdk.b.c.a o = new com.meizu.cloud.pushsdk.b.c.e();
 
         public a(String str, Context context, Class<? extends c> cls) {
-            this.f11266a = str;
-            this.f11267b = context;
+            this.f7403a = str;
+            this.b = context;
             this.p = cls;
         }
 
@@ -111,7 +107,7 @@ public abstract class c {
     public c(a aVar) {
         this.g = aVar.d;
         this.f = aVar.c;
-        this.d = aVar.f11267b;
+        this.d = aVar.b;
         this.h = aVar.e;
         this.i = aVar.f;
         this.j = aVar.m;
@@ -121,7 +117,7 @@ public abstract class c {
         this.o = aVar.h;
         this.p = aVar.j;
         this.q = aVar.k;
-        this.l = aVar.f11266a;
+        this.l = aVar.f7403a;
         this.r = aVar.l;
         this.s = aVar.o;
         c();
@@ -198,14 +194,14 @@ public abstract class c {
     /* JADX INFO: Access modifiers changed from: protected */
     public LinkedList<e> a(b bVar) {
         int size = bVar.a().size();
-        LinkedList<Long> b2 = bVar.b();
+        LinkedList<Long> b = bVar.b();
         LinkedList<e> linkedList = new LinkedList<>();
         if (this.g == d.GET) {
             for (int i = 0; i < size; i++) {
                 LinkedList linkedList2 = new LinkedList();
-                linkedList2.add(b2.get(i));
+                linkedList2.add(b.get(i));
                 com.meizu.cloud.pushsdk.c.a.a aVar = bVar.a().get(i);
-                linkedList.add(new e(aVar.b() + ((long) this.f11265b) > this.p, a(aVar), linkedList2));
+                linkedList.add(new e(aVar.b() + ((long) this.b) > this.p, a(aVar), linkedList2));
             }
         } else {
             int i2 = 0;
@@ -215,24 +211,24 @@ public abstract class c {
                 ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList = new ArrayList<>();
                 for (int i3 = i2; i3 < this.h.a() + i2 && i3 < size; i3++) {
                     com.meizu.cloud.pushsdk.c.a.a aVar2 = bVar.a().get(i3);
-                    long b3 = aVar2.b() + this.f11265b;
-                    if (this.f11264a + b3 > this.q) {
+                    long b2 = aVar2.b() + this.b;
+                    if (this.f7402a + b2 > this.q) {
                         ArrayList<com.meizu.cloud.pushsdk.c.a.a> arrayList2 = new ArrayList<>();
                         LinkedList linkedList4 = new LinkedList();
                         arrayList2.add(aVar2);
-                        linkedList4.add(b2.get(i3));
+                        linkedList4.add(b.get(i3));
                         linkedList.add(new e(true, a(arrayList2), linkedList4));
-                    } else if (j + b3 + this.f11264a + (arrayList.size() - 1) > this.q) {
+                    } else if (j + b2 + this.f7402a + (arrayList.size() - 1) > this.q) {
                         linkedList.add(new e(false, a(arrayList), linkedList3));
                         arrayList = new ArrayList<>();
                         linkedList3 = new LinkedList();
                         arrayList.add(aVar2);
-                        linkedList3.add(b2.get(i3));
-                        j = b3;
+                        linkedList3.add(b.get(i3));
+                        j = b2;
                     } else {
-                        j += b3;
+                        j += b2;
                         arrayList.add(aVar2);
-                        linkedList3.add(b2.get(i3));
+                        linkedList3.add(b.get(i3));
                     }
                 }
                 if (!arrayList.isEmpty()) {

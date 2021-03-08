@@ -11,9 +11,7 @@ import android.widget.Scroller;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class g extends ViewGroup {
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f4379b;
+    private Context b;
     private int d;
     private Scroller e;
     private ArrayList<View> f;
@@ -32,7 +30,7 @@ public class g extends ViewGroup {
     private static String c = "MultiViewGroup";
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4378a = 20;
+    public static int f3033a = 20;
 
     public g(Context context, com.baidu.platform.comapi.walknavi.g.a aVar) {
         super(context);
@@ -50,7 +48,7 @@ public class g extends ViewGroup {
         this.p = 0.0f;
         this.q = null;
         this.r = 0;
-        this.f4379b = context;
+        this.b = context;
         this.l = aVar;
         a();
     }
@@ -135,14 +133,14 @@ public class g extends ViewGroup {
                     velocityTracker.computeCurrentVelocity(1000);
                     int xVelocity = (int) velocityTracker.getXVelocity();
                     com.baidu.platform.comapi.wnplatform.d.a.a(c, "---velocityX---" + xVelocity);
-                    if (xVelocity > f4378a) {
+                    if (xVelocity > f3033a) {
                         com.baidu.platform.comapi.wnplatform.d.a.a(c, "snap left");
                         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.g()) {
                             com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "该点是起点，不能左滑");
                         } else {
                             a(this.d - 1);
                         }
-                    } else if (xVelocity < (-f4378a)) {
+                    } else if (xVelocity < (-f3033a)) {
                         com.baidu.platform.comapi.wnplatform.d.a.a(c, "snap right");
                         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
                             com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "该点是终点，不能右滑");
@@ -196,7 +194,7 @@ public class g extends ViewGroup {
         if (z) {
             if (z2) {
                 if (this.d == 1) {
-                    d dVar = new d(this.f4379b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(this.d + 1), -1);
+                    d dVar = new d(this.b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(this.d + 1), -1);
                     dVar.setTag(Integer.valueOf(this.d + 1));
                     d a2 = a(dVar, com.baidu.platform.comapi.walknavi.segmentbrowse.c.f());
                     addView(a2);
@@ -208,7 +206,7 @@ public class g extends ViewGroup {
                     this.f.remove(0);
                     com.baidu.platform.comapi.wnplatform.d.a.a("curscreen", "curscreen" + this.d);
                     if (this.d < com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-                        d dVar2 = new d(this.f4379b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(this.d + 1), -1);
+                        d dVar2 = new d(this.b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(this.d + 1), -1);
                         dVar2.setTag(Integer.valueOf(this.d + 1));
                         d a3 = a(dVar2, com.baidu.platform.comapi.walknavi.segmentbrowse.c.f());
                         addView(a3);
@@ -221,13 +219,13 @@ public class g extends ViewGroup {
                     if (getChildCount() == 3) {
                         removeView(this.f.get(2));
                         this.f.remove(2);
-                        d dVar3 = new d(this.f4379b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(this.d - 1), -1);
+                        d dVar3 = new d(this.b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(this.d - 1), -1);
                         dVar3.setTag(Integer.valueOf(this.d - 1));
                         d a4 = a(dVar3, com.baidu.platform.comapi.walknavi.segmentbrowse.c.e());
                         addView(a4);
                         this.f.add(0, a4);
                     } else if (getChildCount() == 2) {
-                        d dVar4 = new d(this.f4379b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(this.d - 1), -1);
+                        d dVar4 = new d(this.b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(this.d - 1), -1);
                         dVar4.setTag(Integer.valueOf(this.d - 1));
                         d a5 = a(dVar4, com.baidu.platform.comapi.walknavi.segmentbrowse.c.e());
                         addView(a5);
@@ -257,21 +255,21 @@ public class g extends ViewGroup {
 
     private void a() {
         com.baidu.platform.comapi.walknavi.b.a().Q().l();
-        this.e = new Scroller(this.f4379b);
-        this.k = b.a(this.f4379b, 95.0f);
+        this.e = new Scroller(this.b);
+        this.k = b.a(this.b, 95.0f);
         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() != 0) {
-            d dVar = new d(this.f4379b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() - 1), -1);
+            d dVar = new d(this.b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() - 1), -1);
             dVar.setTag(Integer.valueOf(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() - 1));
             this.f.add(a(dVar, com.baidu.platform.comapi.walknavi.segmentbrowse.c.e()));
             this.i = 0 - com.baidu.platform.comapi.walknavi.segmentbrowse.c.n();
             this.d = com.baidu.platform.comapi.walknavi.segmentbrowse.c.a();
         }
-        d dVar2 = new d(this.f4379b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a()), -1);
+        d dVar2 = new d(this.b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a()), -1);
         dVar2.setTag(Integer.valueOf(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a()));
         this.f.add(a(dVar2, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d()));
         com.baidu.platform.comapi.walknavi.segmentbrowse.c.f(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a());
         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() != com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-            d dVar3 = new d(this.f4379b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() + 1), -1);
+            d dVar3 = new d(this.b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() + 1), -1);
             dVar3.setTag(Integer.valueOf(com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() + 1));
             this.f.add(a(dVar3, com.baidu.platform.comapi.walknavi.segmentbrowse.c.f()));
         }
@@ -349,12 +347,12 @@ public class g extends ViewGroup {
         if (aVar != null && this.l != null) {
             int d = aVar.d();
             if (d >= 0 && d < 30) {
-                if (this.l.f4281a != null) {
-                    dVar.setBackgroundDrawable(new BitmapDrawable(this.l.f4281a));
+                if (this.l.f2961a != null) {
+                    dVar.setBackgroundDrawable(new BitmapDrawable(this.l.f2961a));
                 }
             } else if (d >= 30 && d < 150) {
-                if (this.l.f4282b != null) {
-                    dVar.setBackgroundDrawable(new BitmapDrawable(this.l.f4282b));
+                if (this.l.b != null) {
+                    dVar.setBackgroundDrawable(new BitmapDrawable(this.l.b));
                 }
             } else if (d >= 150 && this.l.c != null) {
                 dVar.setBackgroundDrawable(new BitmapDrawable(this.l.c));

@@ -33,35 +33,35 @@ import com.baidu.swan.apps.v.f;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b> {
-    private e cLR;
-    private int cLT;
-    private SwanAppActivity cMd;
-    private InterfaceC0391a cMe;
-    private int cMf;
-    private ShowConfirmBarLayout cMg;
-    private boolean cMh;
-    private int cMi;
+    private SwanAppActivity cND;
+    private InterfaceC0397a cNE;
+    private int cNF;
+    private ShowConfirmBarLayout cNG;
+    private boolean cNH;
+    private int cNI;
+    private e cNr;
+    private int cNt;
     private String mCallback;
 
     /* renamed from: com.baidu.swan.apps.component.components.textarea.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0391a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0397a {
         void a(String str, String str2, JSONObject jSONObject);
     }
 
-    public a(@Nullable Context context, @NonNull b bVar, @NonNull SwanAppActivity swanAppActivity, @NonNull e eVar, @NonNull InterfaceC0391a interfaceC0391a) {
+    public a(@Nullable Context context, @NonNull b bVar, @NonNull SwanAppActivity swanAppActivity, @NonNull e eVar, @NonNull InterfaceC0397a interfaceC0397a) {
         super(context, bVar);
-        this.cMh = false;
-        this.cMi = 1;
-        this.cMd = swanAppActivity;
-        this.cLR = eVar;
-        this.cMe = interfaceC0391a;
+        this.cNH = false;
+        this.cNI = 1;
+        this.cND = swanAppActivity;
+        this.cNr = eVar;
+        this.cNE = interfaceC0397a;
     }
 
-    public void lN(String str) {
-        if (!TextUtils.equals(((b) ale()).cLq, str)) {
+    public void lU(String str) {
+        if (!TextUtils.equals(((b) alh()).cMQ, str)) {
             com.baidu.swan.apps.component.e.a.bk("Component-TextArea", "sendLineChangeEvent with different id");
         }
         SwanEditText swanEditText = (SwanEditText) getView();
@@ -76,8 +76,8 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: cC */
-    public SwanEditText cv(@NonNull Context context) {
+    /* renamed from: cB */
+    public SwanEditText cu(@NonNull Context context) {
         return new SwanEditText(context);
     }
 
@@ -87,8 +87,8 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
     /* renamed from: a */
     public void as(@NonNull SwanEditText swanEditText) {
         super.as(swanEditText);
-        b bVar = (b) ale();
-        swanEditText.setTag(bVar.cLq);
+        b bVar = (b) alh();
+        swanEditText.setTag(bVar.cMQ);
         swanEditText.setInputType(262144);
         swanEditText.setSingleLine(false);
         swanEditText.setHorizontallyScrolling(false);
@@ -102,19 +102,19 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
     public com.baidu.swan.apps.component.d.b a(@NonNull b bVar, @NonNull b bVar2) {
         com.baidu.swan.apps.component.d.b a2 = super.a(bVar, bVar2);
         if (!TextUtils.equals(bVar.hint, bVar2.hint)) {
-            a2.gv(14);
+            a2.gw(14);
         }
-        if (bVar.cMn != bVar2.cMn) {
-            a2.gv(14);
+        if (bVar.cNN != bVar2.cNN) {
+            a2.gw(14);
         }
-        if (!TextUtils.equals(bVar.cMo, bVar2.cMo)) {
-            a2.gv(14);
+        if (!TextUtils.equals(bVar.cNO, bVar2.cNO)) {
+            a2.gw(14);
         }
-        if (!TextUtils.equals(bVar.cMp, bVar2.cMp)) {
-            a2.gv(14);
+        if (!TextUtils.equals(bVar.cNP, bVar2.cNP)) {
+            a2.gw(14);
         }
-        if (bVar.cMv != bVar2.cMv) {
-            a2.gv(15);
+        if (bVar.cNV != bVar2.cNV) {
+            a2.gw(15);
         }
         return a2;
     }
@@ -124,20 +124,20 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
     @Override // com.baidu.swan.apps.component.a.a.a
     public void a(@NonNull final SwanEditText swanEditText, @NonNull final b bVar, @NonNull com.baidu.swan.apps.component.d.b bVar2) {
         super.a((a) swanEditText, (SwanEditText) bVar, bVar2);
-        if (bVar2.gw(14)) {
+        if (bVar2.gx(14)) {
             f(swanEditText, bVar);
         }
-        boolean z = !ali();
+        boolean z = !all();
         if (z) {
             swanEditText.setMinHeight(bVar.minHeight);
             swanEditText.setMaxHeight(bVar.maxHeight);
         }
-        ak.k(new Runnable() { // from class: com.baidu.swan.apps.component.components.textarea.a.1
+        ak.j(new Runnable() { // from class: com.baidu.swan.apps.component.components.textarea.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cMd != null) {
-                    InputMethodManager inputMethodManager = (InputMethodManager) a.this.cMd.getSystemService("input_method");
-                    if (inputMethodManager != null && bVar.cMq) {
+                if (a.this.cND != null) {
+                    InputMethodManager inputMethodManager = (InputMethodManager) a.this.cND.getSystemService("input_method");
+                    if (inputMethodManager != null && bVar.cNQ) {
                         swanEditText.setFocusable(true);
                         swanEditText.setFocusableInTouchMode(true);
                         swanEditText.requestFocus();
@@ -149,11 +149,11 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
                 com.baidu.swan.apps.component.e.a.bk("Component-TextArea", "activity is null, set textarea attr failed");
             }
         });
-        if (bVar2.gw(15)) {
+        if (bVar2.gx(15)) {
             g(swanEditText, bVar);
         }
         if (z) {
-            a(swanEditText, this.cMd);
+            a(swanEditText, this.cND);
         }
     }
 
@@ -178,9 +178,9 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
         if (text != null) {
             i = text.length();
         }
-        if (bVar.cMq) {
-            if (bVar.cKO <= i && bVar.cKO >= 0) {
-                swanEditText.setSelection(bVar.cKO);
+        if (bVar.cNQ) {
+            if (bVar.cMo <= i && bVar.cMo >= 0) {
+                swanEditText.setSelection(bVar.cMo);
             } else {
                 swanEditText.setSelection(i);
             }
@@ -196,7 +196,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
         if (text != null) {
             i = text.length();
         }
-        if (bVar.selectionEnd <= i && bVar.selectionEnd > 0 && bVar.selectionStart <= bVar.selectionEnd && bVar.selectionStart > 0 && bVar.cMq && !swanEditText.hasFocus()) {
+        if (bVar.selectionEnd <= i && bVar.selectionEnd > 0 && bVar.selectionStart <= bVar.selectionEnd && bVar.selectionStart > 0 && bVar.cNQ && !swanEditText.hasFocus()) {
             swanEditText.setSelection(bVar.selectionStart, bVar.selectionEnd);
         }
     }
@@ -213,7 +213,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
     @Override // com.baidu.swan.apps.component.a.c.a
     /* renamed from: e  reason: avoid collision after fix types in other method */
     public void c(@NonNull SwanEditText swanEditText, @NonNull b bVar) {
-        swanEditText.setLineSpacing(bVar.cKU, 1.0f);
+        swanEditText.setLineSpacing(bVar.cMu, 1.0f);
     }
 
     private void f(@NonNull SwanEditText swanEditText, @NonNull b bVar) {
@@ -222,7 +222,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
             Log.d("Component-TextArea", "renderPlaceHolder");
         }
         SpannableString spannableString = new SpannableString(bVar.hint);
-        String str = bVar.cMo;
+        String str = bVar.cNO;
         char c = 65535;
         switch (str.hashCode()) {
             case -1039745817:
@@ -250,8 +250,8 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
                 break;
         }
         spannableString.setSpan(styleSpan, 0, bVar.hint.length(), 33);
-        spannableString.setSpan(new ForegroundColorSpan(SwanAppConfigData.rM(bVar.cMp)), 0, bVar.hint.length(), 33);
-        spannableString.setSpan(new AbsoluteSizeSpan(bVar.cMn, true), 0, bVar.hint.length(), 33);
+        spannableString.setSpan(new ForegroundColorSpan(SwanAppConfigData.rT(bVar.cNP)), 0, bVar.hint.length(), 33);
+        spannableString.setSpan(new AbsoluteSizeSpan(bVar.cNN, true), 0, bVar.hint.length(), 33);
         swanEditText.setHint(spannableString);
     }
 
@@ -259,7 +259,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
         if (DEBUG) {
             Log.d("Component-TextArea", "renderDisable");
         }
-        swanEditText.setEnabled(!bVar.cMv);
+        swanEditText.setEnabled(!bVar.cNV);
     }
 
     private void a(final SwanEditText swanEditText, @NonNull final SwanAppActivity swanAppActivity) {
@@ -276,7 +276,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (swanEditText.getLineCount() > 0 && a.this.cMi != swanEditText.getLineCount()) {
+                if (swanEditText.getLineCount() > 0 && a.this.cNI != swanEditText.getLineCount()) {
                     c.i("Component-TextArea", "send line change callback");
                     a.this.a(swanEditText, "linechange");
                 }
@@ -297,80 +297,80 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
                     Log.d("Component-TextArea", "onFocusChange:" + z);
                 }
                 if (z) {
-                    if (a.this.cLT != 0) {
+                    if (a.this.cNt != 0) {
                         a.this.a(swanEditText, AddFriendActivityConfig.TYPE_FOCUS);
                     }
-                    a.this.alr();
+                    a.this.alu();
                     return;
                 }
                 a.this.a(swanEditText, "blur");
-                a.this.alq();
+                a.this.alt();
             }
         });
         final View decorView = swanAppActivity.getWindow().getDecorView();
-        com.baidu.swan.apps.textarea.b.a(((b) ale()).cLq, swanAppActivity, new com.baidu.swan.apps.textarea.a() { // from class: com.baidu.swan.apps.component.components.textarea.a.5
+        com.baidu.swan.apps.textarea.b.a(((b) alh()).cMQ, swanAppActivity, new com.baidu.swan.apps.textarea.a() { // from class: com.baidu.swan.apps.component.components.textarea.a.5
             @Override // com.baidu.swan.apps.textarea.a
-            public void Q(String str, int i) {
+            public void R(String str, int i) {
                 int i2;
-                final b bVar = (b) a.this.ale();
-                d azW = f.aAl().azW();
-                if (a.this.cLT != i && swanEditText.hasFocus() && azW != null) {
-                    a.this.cLT = i;
-                    a.this.cMf = swanEditText.getHeight();
+                final b bVar = (b) a.this.alh();
+                d azZ = f.aAo().azZ();
+                if (a.this.cNt != i && swanEditText.hasFocus() && azZ != null) {
+                    a.this.cNt = i;
+                    a.this.cNF = swanEditText.getHeight();
                     a.this.a(swanEditText, AddFriendActivityConfig.TYPE_FOCUS);
-                    boolean z = bVar.cMu;
-                    if (bVar.cMt) {
+                    boolean z = bVar.cNU;
+                    if (bVar.cNT) {
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-                        int P = ah.P(38.0f);
-                        if (a.this.cMg == null) {
-                            a.this.cMg = new ShowConfirmBarLayout(swanAppActivity);
-                            a.this.cMg.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.component.components.textarea.a.5.1
+                        int T = ah.T(38.0f);
+                        if (a.this.cNG == null) {
+                            a.this.cNG = new ShowConfirmBarLayout(swanAppActivity);
+                            a.this.cNG.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.component.components.textarea.a.5.1
                                 @Override // com.baidu.swan.apps.textarea.ShowConfirmBarLayout.a
                                 public void onClick(View view) {
                                     InputMethodManager inputMethodManager;
-                                    if (!bVar.cMb && (inputMethodManager = (InputMethodManager) swanAppActivity.getSystemService("input_method")) != null) {
+                                    if (!bVar.cNB && (inputMethodManager = (InputMethodManager) swanAppActivity.getSystemService("input_method")) != null) {
                                         inputMethodManager.hideSoftInputFromWindow(swanEditText.getWindowToken(), 0);
                                     }
                                     c.i("Component-TextArea", "send confirm change callback");
                                     a.this.a(swanEditText, "confirm");
                                 }
                             });
-                            layoutParams.topMargin = ((decorView.getHeight() - i) - P) - ah.getNavigationBarHeight();
-                            ((FrameLayout) decorView.findViewById(16908290)).addView(a.this.cMg, layoutParams);
+                            layoutParams.topMargin = ((decorView.getHeight() - i) - T) - ah.getNavigationBarHeight();
+                            ((FrameLayout) decorView.findViewById(16908290)).addView(a.this.cNG, layoutParams);
                         }
-                        i2 = P;
+                        i2 = T;
                     } else {
                         i2 = 0;
                     }
                     if (z) {
-                        int webViewScrollY = (!bVar.cMs ? azW.getWebViewScrollY() : 0) + ((a.this.cLR.getWebViewContainer().getHeight() - (bVar.cLu != null ? bVar.cLu.getTop() : 0)) - swanEditText.getHeight());
-                        int i3 = bVar.cKN;
+                        int webViewScrollY = (!bVar.cNS ? azZ.getWebViewScrollY() : 0) + ((a.this.cNr.getWebViewContainer().getHeight() - (bVar.cMU != null ? bVar.cMU.getTop() : 0)) - swanEditText.getHeight());
+                        int i3 = bVar.cMn;
                         if (webViewScrollY - i3 < i) {
-                            a.this.cMh = true;
+                            a.this.cNH = true;
                             if (i3 > webViewScrollY) {
-                                a.this.cLR.getWebViewContainer().setScrollY(i + i2);
+                                a.this.cNr.getWebViewContainer().setScrollY(i + i2);
                                 return;
                             } else {
-                                a.this.cLR.getWebViewContainer().setScrollY(i3 + (i - webViewScrollY) + i2);
+                                a.this.cNr.getWebViewContainer().setScrollY(i3 + (i - webViewScrollY) + i2);
                                 return;
                             }
                         }
-                        a.this.cMh = false;
+                        a.this.cNH = false;
                     }
                 }
             }
 
             @Override // com.baidu.swan.apps.textarea.a
-            public void R(String str, int i) {
-                if (a.this.cLT != 0) {
-                    a.this.cLT = 0;
-                    if (a.this.cLR.getWebViewContainer().getScrollY() > 0) {
-                        a.this.cLR.getWebViewContainer().setScrollY(0);
-                        a.this.cMh = false;
+            public void S(String str, int i) {
+                if (a.this.cNt != 0) {
+                    a.this.cNt = 0;
+                    if (a.this.cNr.getWebViewContainer().getScrollY() > 0) {
+                        a.this.cNr.getWebViewContainer().setScrollY(0);
+                        a.this.cNH = false;
                     }
-                    if (a.this.cMg != null && a.this.cMg.getVisibility() == 0) {
-                        ((FrameLayout) decorView.findViewById(16908290)).removeView(a.this.cMg);
-                        a.this.cMg = null;
+                    if (a.this.cNG != null && a.this.cNG.getVisibility() == 0) {
+                        ((FrameLayout) decorView.findViewById(16908290)).removeView(a.this.cNG);
+                        a.this.cNG = null;
                     }
                 }
                 if (swanEditText.hasFocus()) {
@@ -382,8 +382,8 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
             }
 
             @Override // com.baidu.swan.apps.textarea.a
-            public void lM(String str) {
-                if (a.this.cMi != swanEditText.getLineCount()) {
+            public void lT(String str) {
+                if (a.this.cNI != swanEditText.getLineCount()) {
                     c.i("Component-TextArea", "send line change callback");
                     a.this.a(swanEditText, "linechange");
                     a.this.b(swanEditText, str);
@@ -429,29 +429,29 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
         }
         switch (c) {
             case 0:
-                this.cMi = swanEditText.getLineCount();
-                ((b) ale()).gq(swanEditText.getHeight());
+                this.cNI = swanEditText.getLineCount();
+                ((b) alh()).gr(swanEditText.getHeight());
                 break;
             case 1:
-                ((b) ale()).lK(swanEditText.getText().toString());
+                ((b) alh()).lR(swanEditText.getText().toString());
                 break;
             case 2:
-                ((b) ale()).eV(true);
+                ((b) alh()).eV(true);
                 break;
             case 3:
-                ((b) ale()).eV(false);
+                ((b) alh()).eV(false);
                 break;
             case 4:
-                ((b) ale()).aa(swanEditText.getSelectionStart(), swanEditText.getSelectionEnd());
+                ((b) alh()).aa(swanEditText.getSelectionStart(), swanEditText.getSelectionEnd());
                 break;
         }
-        ak.k(new Runnable() { // from class: com.baidu.swan.apps.component.components.textarea.a.6
+        ak.j(new Runnable() { // from class: com.baidu.swan.apps.component.components.textarea.a.6
             @Override // java.lang.Runnable
             public void run() {
                 if (swanEditText != null) {
                     JSONObject jSONObject = new JSONObject();
                     String obj = swanEditText.getTag().toString();
-                    if (!TextUtils.equals(obj, ((b) a.this.ale()).cLq)) {
+                    if (!TextUtils.equals(obj, ((b) a.this.alh()).cMQ)) {
                         com.baidu.swan.apps.component.e.a.bk("Component-TextArea", "changeTextAreaStatus with different id");
                     }
                     int e = a.this.e(swanEditText);
@@ -462,8 +462,8 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
                         jSONObject.put("selectionStart", swanEditText.getSelectionStart());
                         jSONObject.put("selectionEnd", swanEditText.getSelectionEnd());
                         jSONObject.put("lineCount", swanEditText.getLineCount());
-                        jSONObject.put("height", ah.R(e));
-                        jSONObject.put("keyboardHeight", ah.R(a.this.cLT));
+                        jSONObject.put("height", ah.V(e));
+                        jSONObject.put("keyboardHeight", ah.V(a.this.cNt));
                     } catch (JSONException e2) {
                         if (a.DEBUG) {
                             e2.printStackTrace();
@@ -472,7 +472,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
                     if (a.DEBUG) {
                         Log.d("Component-TextArea", "changeTextAreaStatus:" + jSONObject.toString());
                     }
-                    a.this.cMe.a(obj, a.this.mCallback, jSONObject);
+                    a.this.cNE.a(obj, a.this.mCallback, jSONObject);
                 }
             }
         });
@@ -480,13 +480,13 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
 
     /* JADX INFO: Access modifiers changed from: private */
     public int e(SwanEditText swanEditText) {
-        b bVar = (b) ale();
+        b bVar = (b) alh();
         int lineCount = swanEditText.getLineCount();
         int lineHeight = swanEditText.getLineHeight();
         int i = bVar.minHeight;
         int i2 = bVar.maxHeight;
         int height = swanEditText.getHeight();
-        if (bVar.cMr) {
+        if (bVar.cNR) {
             int paddingBottom = swanEditText.getPaddingBottom() + (lineHeight * lineCount) + swanEditText.getPaddingTop();
             int i3 = i2 < i ? i : i2;
             return paddingBottom <= i ? i : paddingBottom < i3 ? paddingBottom : i3;
@@ -495,48 +495,48 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alq() {
-        SwanAppActivity azV = f.aAl().azV();
-        if (azV == null) {
+    public void alt() {
+        SwanAppActivity azY = f.aAo().azY();
+        if (azY == null) {
             c.w("Component-TextArea", "activity is null when close input");
             return;
         }
         if (DEBUG) {
             Log.d("Component-TextArea", "forceCloseKeyboard");
         }
-        w.forceHiddenSoftInput(azV, azV.getWindow().getDecorView().getWindowToken());
+        w.forceHiddenSoftInput(azY, azY.getWindow().getDecorView().getWindowToken());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alr() {
-        SwanAppActivity azV = f.aAl().azV();
-        if (azV == null) {
+    public void alu() {
+        SwanAppActivity azY = f.aAo().azY();
+        if (azY == null) {
             c.w("Component-TextArea", "activity is null when open input");
             return;
         }
         if (DEBUG) {
             Log.d("Component-TextArea", "forceOpenKeyboard");
         }
-        w.forceToggleSoftInput(azV, true);
+        w.forceToggleSoftInput(azY, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(SwanEditText swanEditText, String str) {
-        b bVar = (b) ale();
-        if (!TextUtils.equals(str, bVar.cLq)) {
+        b bVar = (b) alh();
+        if (!TextUtils.equals(str, bVar.cMQ)) {
             com.baidu.swan.apps.component.e.a.bk("Component-TextArea", "keyBoardShow with different id");
         }
-        boolean z = bVar.cMu;
-        if (swanEditText.hasFocus() && !bVar.cMs) {
-            if (this.cLT > 0 && z && this.cMh) {
-                int height = (swanEditText.getHeight() - this.cMf) + this.cLR.getWebViewContainer().getScrollY();
+        boolean z = bVar.cNU;
+        if (swanEditText.hasFocus() && !bVar.cNS) {
+            if (this.cNt > 0 && z && this.cNH) {
+                int height = (swanEditText.getHeight() - this.cNF) + this.cNr.getWebViewContainer().getScrollY();
                 if (height > 0) {
-                    this.cLR.getWebViewContainer().setScrollY(height);
+                    this.cNr.getWebViewContainer().setScrollY(height);
                 } else {
-                    this.cLR.getWebViewContainer().setScrollY(0);
+                    this.cNr.getWebViewContainer().setScrollY(0);
                 }
             }
-            this.cMf = swanEditText.getHeight();
+            this.cNF = swanEditText.getHeight();
         }
     }
 
@@ -545,7 +545,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
     @Override // com.baidu.swan.apps.component.a.a.a
     /* renamed from: h */
     public boolean e(@NonNull final SwanEditText swanEditText, @NonNull final b bVar) {
-        if (TextUtils.isEmpty(bVar.cKP) || DefaultSharedPrefsWrapper.SP_FILE_DEFAULT.equals(bVar.cKP)) {
+        if (TextUtils.isEmpty(bVar.cMp) || DefaultSharedPrefsWrapper.SP_FILE_DEFAULT.equals(bVar.cMp)) {
             return false;
         }
         boolean e = super.e((a) swanEditText, (SwanEditText) bVar);
@@ -556,7 +556,7 @@ public final class a extends com.baidu.swan.apps.component.a.a.a<SwanEditText, b
                     if (i >= 2 && i <= 7) {
                         a.this.a(swanEditText, "confirm");
                     }
-                    return bVar.cMb;
+                    return bVar.cNB;
                 }
             });
             return e;

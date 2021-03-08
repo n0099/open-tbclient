@@ -1,38 +1,39 @@
 package com.opensource.svgaplayer.entities;
 
 import android.graphics.Path;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Set;
 import java.util.StringTokenizer;
 import kotlin.jvm.internal.p;
 import kotlin.text.l;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class b {
-    private final String qae;
-    private Path qaf;
+    private final String qaS;
+    private Path qaT;
 
     public b(String str) {
-        p.o(str, "originValue");
-        this.qae = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
+        p.p(str, "originValue");
+        this.qaS = l.a((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? l.a(str, ",", " ", false, 4, (Object) null) : str;
     }
 
     public final void a(Path path) {
         Set set;
-        p.o(path, "toPath");
-        Path path2 = this.qaf;
+        p.p(path, "toPath");
+        Path path2 = this.qaT;
         if (path2 != null) {
             path.set(path2);
             return;
         }
         Path path3 = new Path();
-        StringTokenizer stringTokenizer = new StringTokenizer(this.qae, "MLHVCSQRAZmlhvcsqraz", true);
+        StringTokenizer stringTokenizer = new StringTokenizer(this.qaS, "MLHVCSQRAZmlhvcsqraz", true);
         String str = "";
         while (stringTokenizer.hasMoreTokens()) {
             String nextToken = stringTokenizer.nextToken();
-            p.n(nextToken, "segment");
+            p.o(nextToken, "segment");
             if (!(nextToken.length() == 0)) {
-                set = c.qag;
+                set = c.qaU;
                 if (set.contains(nextToken)) {
                     if (p.l(nextToken, "Z") || p.l(nextToken, "z")) {
                         a(path3, nextToken, new StringTokenizer("", ""));
@@ -44,7 +45,7 @@ public final class b {
                 str = nextToken;
             }
         }
-        this.qaf = path3;
+        this.qaT = path3;
         path.set(path3);
     }
 
@@ -60,7 +61,7 @@ public final class b {
         while (stringTokenizer.hasMoreTokens()) {
             try {
                 String nextToken = stringTokenizer.nextToken();
-                p.n(nextToken, "s");
+                p.o(nextToken, "s");
                 if (!(nextToken.length() == 0)) {
                     if (i == 0) {
                         f7 = Float.parseFloat(nextToken);
@@ -115,7 +116,7 @@ public final class b {
         } else if (p.l(str, "h")) {
             path.rLineTo(f, 0.0f);
         }
-        if (p.l(str, "V")) {
+        if (p.l(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
             path.lineTo(aVar.getX(), f);
         } else if (p.l(str, "v")) {
             path.rLineTo(0.0f, f);

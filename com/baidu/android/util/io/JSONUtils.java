@@ -5,7 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class JSONUtils {
     private static final boolean DEBUG = false;
     private static final String TAG = "JSONUtils";

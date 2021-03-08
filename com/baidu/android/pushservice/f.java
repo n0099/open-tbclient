@@ -33,10 +33,8 @@ public class f {
     private static ConnectivityManager.NetworkCallback m;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1295a = -1;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f1296b = null;
+    public static int f1146a = -1;
+    public static String b = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -68,40 +66,40 @@ public class f {
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f1305a;
+        private Context f1152a;
 
         public b(Context context) {
-            this.f1305a = context;
+            this.f1152a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             String str = null;
-            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1305a);
-            if (com.baidu.android.pushservice.b.d.k(this.f1305a)) {
-                str = com.baidu.android.pushservice.i.j.c(this.f1305a);
+            long currentTimeMillis = System.currentTimeMillis() - com.baidu.android.pushservice.i.j.a(this.f1152a);
+            if (com.baidu.android.pushservice.b.d.k(this.f1152a)) {
+                str = com.baidu.android.pushservice.i.j.c(this.f1152a);
                 if (currentTimeMillis > -1702967296) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.l(this.f1305a)) {
-                str = com.baidu.android.pushservice.i.j.b(this.f1305a);
+            } else if (com.baidu.android.pushservice.b.d.l(this.f1152a)) {
+                str = com.baidu.android.pushservice.i.j.b(this.f1152a);
                 if (currentTimeMillis > 86400000) {
                     str = "";
                 }
-            } else if (com.baidu.android.pushservice.b.d.j(this.f1305a)) {
-                str = com.baidu.android.pushservice.i.j.d(this.f1305a);
+            } else if (com.baidu.android.pushservice.b.d.j(this.f1152a)) {
+                str = com.baidu.android.pushservice.i.j.d(this.f1152a);
                 if (currentTimeMillis > 172800000) {
                     str = "";
                 }
             }
             if (!TextUtils.isEmpty(str)) {
-                f.a(this.f1305a, str);
+                f.a(this.f1152a, str);
                 return;
             }
             if (!f.j.isEmpty()) {
                 f.j.poll();
             }
-            f.k(this.f1305a);
+            f.k(this.f1152a);
         }
     }
 
@@ -425,7 +423,7 @@ public class f {
         if (m(context)) {
             return null;
         }
-        int b2 = f1295a != -1 ? f1295a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
+        int b2 = f1146a != -1 ? f1146a : com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
         String q = q(context);
         if (TextUtils.isEmpty(q)) {
             com.baidu.android.pushservice.f.a.b("PushManagerHandler", "Can not acquire loginValue, please check if there is a right loginValue", context);
@@ -667,7 +665,7 @@ public class f {
     }
 
     private static String q(Context context) {
-        return !TextUtils.isEmpty(f1296b) ? f1296b : com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
+        return !TextUtils.isEmpty(b) ? b : com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
     }
 
     private static void r(Context context) {
@@ -684,11 +682,11 @@ public class f {
     }
 
     private static boolean s(Context context) {
-        if (k >= 2 || TextUtils.isEmpty(f1296b)) {
+        if (k >= 2 || TextUtils.isEmpty(b)) {
             return false;
         }
         k++;
-        b(context, true, f1295a);
+        b(context, true, f1146a);
         return true;
     }
 

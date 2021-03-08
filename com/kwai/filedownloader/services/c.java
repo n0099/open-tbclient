@@ -7,16 +7,14 @@ import com.kwai.filedownloader.f.c;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f10985a;
+    private final a f7239a;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        c.InterfaceC1161c f10986a;
-
-        /* renamed from: b  reason: collision with root package name */
-        Integer f10987b;
+        c.InterfaceC1178c f7240a;
+        Integer b;
         c.e c;
         c.b d;
         c.a e;
@@ -24,7 +22,7 @@ public class c {
 
         public a a(int i) {
             if (i > 0) {
-                this.f10987b = Integer.valueOf(i);
+                this.b = Integer.valueOf(i);
             }
             return this;
         }
@@ -35,16 +33,16 @@ public class c {
         }
 
         public String toString() {
-            return com.kwai.filedownloader.f.f.a("component: database[%s], maxNetworkCount[%s], outputStream[%s], connection[%s], connectionCountAdapter[%s]", this.f10986a, this.f10987b, this.c, this.d, this.e);
+            return com.kwai.filedownloader.f.f.a("component: database[%s], maxNetworkCount[%s], outputStream[%s], connection[%s], connectionCountAdapter[%s]", this.f7240a, this.b, this.c, this.d, this.e);
         }
     }
 
     public c() {
-        this.f10985a = null;
+        this.f7239a = null;
     }
 
     public c(a aVar) {
-        this.f10985a = aVar;
+        this.f7239a = aVar;
     }
 
     private c.d g() {
@@ -73,8 +71,8 @@ public class c {
 
     public int a() {
         Integer num;
-        if (this.f10985a != null && (num = this.f10985a.f10987b) != null) {
-            if (com.kwai.filedownloader.f.d.f10930a) {
+        if (this.f7239a != null && (num = this.f7239a.b) != null) {
+            if (com.kwai.filedownloader.f.d.f7212a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize maxNetworkThreadCount: %d", num);
             }
             return com.kwai.filedownloader.f.e.a(num.intValue());
@@ -83,12 +81,12 @@ public class c {
     }
 
     public com.kwai.filedownloader.b.a b() {
-        if (this.f10985a == null || this.f10985a.f10986a == null) {
+        if (this.f7239a == null || this.f7239a.f7240a == null) {
             return i();
         }
-        com.kwai.filedownloader.b.a a2 = this.f10985a.f10986a.a();
+        com.kwai.filedownloader.b.a a2 = this.f7239a.f7240a.a();
         if (a2 != null) {
-            if (com.kwai.filedownloader.f.d.f10930a) {
+            if (com.kwai.filedownloader.f.d.f7212a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize database: %s", a2);
                 return a2;
             }
@@ -99,8 +97,8 @@ public class c {
 
     public c.e c() {
         c.e eVar;
-        if (this.f10985a != null && (eVar = this.f10985a.c) != null) {
-            if (com.kwai.filedownloader.f.d.f10930a) {
+        if (this.f7239a != null && (eVar = this.f7239a.c) != null) {
+            if (com.kwai.filedownloader.f.d.f7212a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize output stream: %s", eVar);
                 return eVar;
             }
@@ -111,8 +109,8 @@ public class c {
 
     public c.b d() {
         c.b bVar;
-        if (this.f10985a != null && (bVar = this.f10985a.d) != null) {
-            if (com.kwai.filedownloader.f.d.f10930a) {
+        if (this.f7239a != null && (bVar = this.f7239a.d) != null) {
+            if (com.kwai.filedownloader.f.d.f7212a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize connection creator: %s", bVar);
                 return bVar;
             }
@@ -123,8 +121,8 @@ public class c {
 
     public c.a e() {
         c.a aVar;
-        if (this.f10985a != null && (aVar = this.f10985a.e) != null) {
-            if (com.kwai.filedownloader.f.d.f10930a) {
+        if (this.f7239a != null && (aVar = this.f7239a.e) != null) {
+            if (com.kwai.filedownloader.f.d.f7212a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize connection count adapter: %s", aVar);
                 return aVar;
             }
@@ -135,8 +133,8 @@ public class c {
 
     public c.d f() {
         c.d dVar;
-        if (this.f10985a != null && (dVar = this.f10985a.f) != null) {
-            if (com.kwai.filedownloader.f.d.f10930a) {
+        if (this.f7239a != null && (dVar = this.f7239a.f) != null) {
+            if (com.kwai.filedownloader.f.d.f7212a) {
                 com.kwai.filedownloader.f.d.c(this, "initial FileDownloader manager with the customize id generator: %s", dVar);
                 return dVar;
             }

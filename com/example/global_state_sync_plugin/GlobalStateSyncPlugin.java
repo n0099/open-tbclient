@@ -265,13 +265,13 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         HashMap hashMap4 = new HashMap();
         HashMap hashMap5 = new HashMap();
         HashMap hashMap6 = new HashMap();
-        hashMap2.put("financeURL", b.brQ().getString("baidu_finance", null));
+        hashMap2.put("financeURL", b.brR().getString("baidu_finance", null));
         hashMap2.put("personalCellText", TbadkCoreApplication.getInst().getActivityPrizeData().getPersonItemText());
         hashMap2.put("loginAwardUrl", TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url());
-        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.brQ().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
+        hashMap2.put("auditPackageSwitch", Integer.valueOf(b.brR().getBoolean("person_center_show_lite_game", true) ? 1 : 0));
         hashMap2.put("isLiteMode", "0");
-        hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.brQ().getInt("key_is_show_shoubai_dynamic_guide", 0)));
-        hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.brQ().getInt("baidu_financial_display", 1)));
+        hashMap2.put("isShowShoubaiDynamicGuide", String.valueOf(b.brR().getInt("key_is_show_shoubai_dynamic_guide", 0)));
+        hashMap2.put("isShowBaiduFinanceEntrance", String.valueOf(b.brR().getInt("baidu_financial_display", 1)));
         hashMap2.put("experimentID", getExperimentID());
         hashMap2.put("userSmallPhotoHost", TbConfig.getPhotoSmallAddress());
         hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
@@ -281,16 +281,16 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         hashMap.put("noticeConfig", hashMap5);
         hashMap.put("adsenseData", hashMap6);
         hashMap.put("switches", readSwitches());
-        hashMap.put("experimentCommonFeedCardID", d.bjh() ? "12_0_B_brand_level_a" : "12_0_B_brand_level");
+        hashMap.put("experimentCommonFeedCardID", d.bjj() ? "12_0_B_brand_level_a" : "12_0_B_brand_level");
         hashMap.put("proxyIp", TbadkCoreApplication.getInst().getProxyIp());
         hashMap.put("proxyPort", TbadkCoreApplication.getInst().getProxyPort());
         return hashMap;
     }
 
     private static String getExperimentID() {
-        e j = d.j(q.eGl);
-        if (j != null && !au.isEmpty(j.eGk)) {
-            String str = j.eGk;
+        e j = d.j(q.eHM);
+        if (j != null && !au.isEmpty(j.eHL)) {
+            String str = j.eHL;
             char c = 65535;
             switch (str.hashCode()) {
                 case 1687628:
@@ -362,12 +362,12 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     /* JADX INFO: Access modifiers changed from: private */
     public static HashMap<String, Object> readNetData() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        String bvT = a.bvQ().bvT();
+        String bvW = a.bvT().bvW();
         hashMap.put("keepAliveWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveWifi()));
         hashMap.put("keepAliveNoWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveNonWifi()));
         hashMap.put("puEnvValue", TbSingleton.getInstance().getPubEnvValue());
         hashMap.put("isVisitPreviewServer", Boolean.valueOf(TbSingleton.getInstance().isVisitPreviewServer()));
-        hashMap.put("sCookie", bvT);
+        hashMap.put("sCookie", bvW);
         return hashMap;
     }
 
@@ -392,14 +392,14 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
         if (from != null && from.length() > 0) {
             hashMap.put("appFrom", from);
         }
-        hashMap.put("isVideoAutoPlay", Boolean.valueOf(ak.bFR()));
+        hashMap.put("isVideoAutoPlay", Boolean.valueOf(ak.bFV()));
         hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
         hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         hashMap.put("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
         hashMap.put("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
         hashMap.put("z_id", TbadkCoreApplication.getInst().getZid());
         hashMap.put("model", Build.MODEL);
-        hashMap.put("teenMode", Boolean.valueOf(c.bJf()));
+        hashMap.put("teenMode", Boolean.valueOf(c.bJj()));
         hashMap.put("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
         hashMap.put("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
         hashMap.put("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
@@ -437,9 +437,9 @@ public class GlobalStateSyncPlugin implements FlutterPlugin, MethodChannel.Metho
     /* JADX INFO: Access modifiers changed from: private */
     public static HashMap<String, Object> readThemeData() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        String bsK = ap.bsK();
+        String bsN = ap.bsN();
         HashMap hashMap2 = new HashMap();
-        hashMap.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, bsK);
+        hashMap.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, bsN);
         hashMap.put("colors", hashMap2);
         HashMap hashMap3 = new HashMap();
         HashMap hashMap4 = new HashMap();

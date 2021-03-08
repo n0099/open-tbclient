@@ -21,15 +21,15 @@ public class a {
 
     public static byte[] wrapHeaderIntoBody(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
         ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + getHeaderLengthInBytes());
-        byte b2 = z ? (byte) (ENCRYPT_FLAG | 0) : (byte) 0;
+        byte b = z ? (byte) (ENCRYPT_FLAG | 0) : (byte) 0;
         if (z2) {
-            b2 = (byte) (b2 | COMPRESS_FLAG);
+            b = (byte) (b | COMPRESS_FLAG);
         }
-        byte b3 = (byte) (b2 | LCS_SWITCH_HTTP_FLAG);
+        byte b2 = (byte) (b | LCS_SWITCH_HTTP_FLAG);
         if (z3) {
-            b3 = (byte) (b3 | EXTRA_DATA_FLAG);
+            b2 = (byte) (b2 | EXTRA_DATA_FLAG);
         }
-        allocate.put(b3);
+        allocate.put(b2);
         allocate.putInt(i);
         allocate.putInt(i2);
         if (bArr != null) {
@@ -42,17 +42,17 @@ public class a {
     public static a j(byte[] bArr) {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderLengthInBytes());
         a aVar = new a();
-        byte b2 = wrap.get();
-        if ((ENCRYPT_FLAG & b2) != 0) {
+        byte b = wrap.get();
+        if ((ENCRYPT_FLAG & b) != 0) {
             aVar.encrypt = true;
         }
-        if ((COMPRESS_FLAG & b2) != 0) {
+        if ((COMPRESS_FLAG & b) != 0) {
             aVar.compress = true;
         }
-        if ((LCS_SWITCH_HTTP_FLAG & b2) != 0) {
+        if ((LCS_SWITCH_HTTP_FLAG & b) != 0) {
             aVar.lcsSwitchHttp = true;
         }
-        if ((b2 & EXTRA_DATA_FLAG) != 0) {
+        if ((b & EXTRA_DATA_FLAG) != 0) {
             aVar.hasExtraData = true;
         }
         aVar.command = wrap.getInt();

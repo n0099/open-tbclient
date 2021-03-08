@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.util.b;
 /* loaded from: classes.dex */
 public class d {
-    public com.baidu.adp.lib.network.http.d fbP = new com.baidu.adp.lib.network.http.d();
+    public com.baidu.adp.lib.network.http.d fdp = new com.baidu.adp.lib.network.http.d();
 }

@@ -25,23 +25,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, com.baidu.tieba.lego.card.view.i {
-    public static final BdUniqueId job = BdUniqueId.gen();
+    public static final BdUniqueId jpK = BdUniqueId.gen();
     public String abtest_tag;
     public long agreeNum;
     public int agreeType;
     public boolean autoPlay;
     public String createTime;
-    public bx eRo;
+    public bx eSP;
     public String extra;
     public String firstPostId;
     public String forumId;
     public boolean hasAgree;
-    public int iAs;
-    public long joc;
-    public List<String> jod;
-    public List<String> joe;
-    public b jof;
-    public c jog;
+    public int iCb;
+    public long jpL;
+    public List<String> jpM;
+    public List<String> jpN;
+    public b jpO;
+    public c jpP;
     public long lastReplyTime;
     public BaijiahaoData mBaijiahao;
     public String nid;
@@ -54,7 +54,7 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
     public String title;
     public String weight;
     public List<p> postList = new ArrayList();
-    public boolean joh = true;
+    public boolean jpQ = true;
     public boolean waitConfirm = false;
     public boolean isTitleExpanded = false;
     private AgreeData agreeData = new AgreeData();
@@ -64,7 +64,7 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
         public boolean hasFocus;
         public boolean isBigV;
         public boolean isGod;
-        public a jop;
+        public a jpY;
         public String portrait;
         public String userId;
         public String userName;
@@ -83,8 +83,8 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
 
     /* loaded from: classes.dex */
     public static class c {
-        public a joq;
-        public List<d> jor;
+        public a jpZ;
+        public List<d> jqa;
         public String mcnLeadPage;
         public String originVideoUrl;
         public String thumbnailHeight;
@@ -109,7 +109,7 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
         public String videoWidth;
     }
 
-    public AgreeData bpJ() {
+    public AgreeData bpL() {
         return this.agreeData;
     }
 
@@ -129,8 +129,8 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
 
     @Override // com.baidu.tbadk.core.util.g.a
     public String getVideoUrl() {
-        if (this.jog != null) {
-            return this.jog.videoUrl;
+        if (this.jpP != null) {
+            return this.jpP.videoUrl;
         }
         return null;
     }
@@ -147,26 +147,26 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
 
     /* loaded from: classes.dex */
     public static class a {
-        public String aaY;
-        public long joi;
-        public long joj;
-        public String jok;
-        public String jol;
-        public String jom;
-        public long jon;
-        public long joo;
+        public String acv;
+        public long jpR;
+        public long jpS;
+        public String jpT;
+        public String jpU;
+        public String jpV;
+        public long jpW;
+        public long jpX;
 
         public boolean isValid() {
-            return (StringUtils.isNull(this.jol) || StringUtils.isNull(this.aaY)) ? false : true;
+            return (StringUtils.isNull(this.jpU) || StringUtils.isNull(this.acv)) ? false : true;
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("startTime = " + this.joi);
-            sb.append(",   ad_end_time = " + this.joj);
-            sb.append(",   pic_url = " + this.jok);
-            sb.append(",   card_title = " + this.jol);
-            sb.append(",   button_title = " + this.jom);
+            sb.append("startTime = " + this.jpR);
+            sb.append(",   ad_end_time = " + this.jpS);
+            sb.append(",   pic_url = " + this.jpT);
+            sb.append(",   card_title = " + this.jpU);
+            sb.append(",   button_title = " + this.jpV);
             return sb.toString();
         }
     }
@@ -185,84 +185,84 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
                 this.postNum = jSONObject.optLong("post_num");
                 this.shareNum = jSONObject.optLong("share_num");
                 this.agreeNum = jSONObject.optLong("agree_num");
-                this.joc = jSONObject.optLong("disagree_num");
+                this.jpL = jSONObject.optLong("disagree_num");
                 this.agreeType = jSONObject.optInt("agree_type");
                 this.hasAgree = jSONObject.optInt("has_agree") == 1;
                 if (this.agreeNum < 0) {
                     this.agreeNum = 0L;
                 }
-                if (this.joc < 0) {
-                    this.joc = 0L;
+                if (this.jpL < 0) {
+                    this.jpL = 0L;
                 }
                 this.agreeData.threadId = this.threadId;
                 this.agreeData.agreeType = this.agreeType;
                 this.agreeData.hasAgree = this.hasAgree;
                 this.agreeData.agreeNum = this.agreeNum;
-                this.agreeData.disAgreeNum = this.joc;
+                this.agreeData.disAgreeNum = this.jpL;
                 this.agreeData.diffAgreeNum = jSONObject.optLong("diff_agree_num", 0L);
                 this.source = jSONObject.optString("source");
                 this.extra = jSONObject.optString("extra");
                 this.abtest_tag = jSONObject.optString("abtest_tag");
                 this.weight = jSONObject.optString("weight");
-                this.jod = new ArrayList();
+                this.jpM = new ArrayList();
                 String optString = jSONObject.optString("forum_id_shared");
                 if (!StringUtils.isNull(optString)) {
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i = 0; i < jSONArray.length(); i++) {
-                        this.jod.add(jSONArray.optString(i));
+                        this.jpM.add(jSONArray.optString(i));
                     }
                 }
-                this.joe = new ArrayList();
+                this.jpN = new ArrayList();
                 String optString2 = jSONObject.optString("forum_name_shared");
                 if (!StringUtils.isNull(optString2)) {
                     JSONArray jSONArray2 = new JSONArray(optString2);
                     for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        this.joe.add(jSONArray2.optString(i2));
+                        this.jpN.add(jSONArray2.optString(i2));
                     }
                 }
                 String optString3 = jSONObject.optString("author");
                 if (!TextUtils.isEmpty(optString3)) {
-                    this.jof = new b();
+                    this.jpO = new b();
                     JSONObject jSONObject2 = new JSONObject(optString3);
-                    this.jof.userId = jSONObject2.optString("user_id");
-                    this.jof.userName = jSONObject2.optString("user_name");
-                    this.jof.userNickname = jSONObject2.optString("user_nickname");
-                    this.jof.portrait = jSONObject2.optString("portrait");
-                    this.jof.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
-                    this.jof.isGod = jSONObject2.optInt("is_god") == 1;
+                    this.jpO.userId = jSONObject2.optString("user_id");
+                    this.jpO.userName = jSONObject2.optString("user_name");
+                    this.jpO.userNickname = jSONObject2.optString("user_nickname");
+                    this.jpO.portrait = jSONObject2.optString("portrait");
+                    this.jpO.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
+                    this.jpO.isGod = jSONObject2.optInt("is_god") == 1;
                     String optString4 = jSONObject2.optString("baijiahao_info");
                     if (!TextUtils.isEmpty(optString4)) {
                         JSONObject jSONObject3 = new JSONObject(optString4);
-                        this.jof.jop = new b.a();
-                        this.jof.jop.name = jSONObject3.optString("name");
-                        this.jof.jop.brief = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
-                        this.jof.jop.avatar = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                        this.jof.jop.avatar_h = jSONObject3.optString("avatar_h");
-                        this.jof.jop.auth_id = Integer.valueOf(jSONObject3.optInt("auth_id"));
-                        this.jof.jop.auth_desc = jSONObject3.optString("auth_desc");
+                        this.jpO.jpY = new b.a();
+                        this.jpO.jpY.name = jSONObject3.optString("name");
+                        this.jpO.jpY.brief = jSONObject3.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+                        this.jpO.jpY.avatar = jSONObject3.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                        this.jpO.jpY.avatar_h = jSONObject3.optString("avatar_h");
+                        this.jpO.jpY.auth_id = Integer.valueOf(jSONObject3.optInt("auth_id"));
+                        this.jpO.jpY.auth_desc = jSONObject3.optString("auth_desc");
                     }
                 }
                 String optString5 = jSONObject.optString("video");
                 if (!TextUtils.isEmpty(optString5)) {
-                    this.jog = new c();
+                    this.jpP = new c();
                     JSONObject jSONObject4 = new JSONObject(optString5);
-                    this.jog.thumbnailWidth = jSONObject4.optString("thumbnail_width");
-                    this.jog.thumbnailHeight = jSONObject4.optString("thumbnail_height");
-                    this.jog.videoMd5 = jSONObject4.optString("video_md5");
-                    this.jog.videoUrl = jSONObject4.optString("video_url");
-                    this.jog.videoDuration = jSONObject4.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION);
-                    this.jog.videoWidth = jSONObject4.optString("video_width");
-                    this.jog.videoHeight = jSONObject4.optString("video_height");
-                    this.jog.videoSize = jSONObject4.optLong("video_size");
-                    this.jog.videoType = jSONObject4.optString(LogConfig.LOG_VIDEO_TYPE);
-                    this.jog.thumbnailUrl = jSONObject4.optString("thumbnail_url");
-                    this.jog.videoFormat = jSONObject4.optString("video_format");
-                    this.jog.thumbnailPicid = jSONObject4.optString("thumbnail_picid");
-                    this.jog.originVideoUrl = jSONObject4.optString("origin_video_url");
-                    this.jog.mcnLeadPage = jSONObject4.optString("mcn_lead_page");
+                    this.jpP.thumbnailWidth = jSONObject4.optString("thumbnail_width");
+                    this.jpP.thumbnailHeight = jSONObject4.optString("thumbnail_height");
+                    this.jpP.videoMd5 = jSONObject4.optString("video_md5");
+                    this.jpP.videoUrl = jSONObject4.optString("video_url");
+                    this.jpP.videoDuration = jSONObject4.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION);
+                    this.jpP.videoWidth = jSONObject4.optString("video_width");
+                    this.jpP.videoHeight = jSONObject4.optString("video_height");
+                    this.jpP.videoSize = jSONObject4.optLong("video_size");
+                    this.jpP.videoType = jSONObject4.optString(LogConfig.LOG_VIDEO_TYPE);
+                    this.jpP.thumbnailUrl = jSONObject4.optString("thumbnail_url");
+                    this.jpP.videoFormat = jSONObject4.optString("video_format");
+                    this.jpP.thumbnailPicid = jSONObject4.optString("thumbnail_picid");
+                    this.jpP.originVideoUrl = jSONObject4.optString("origin_video_url");
+                    this.jpP.mcnLeadPage = jSONObject4.optString("mcn_lead_page");
                     String optString6 = jSONObject4.optString("video_desc");
                     if (!TextUtils.isEmpty(optString6)) {
-                        this.jog.jor = new ArrayList();
+                        this.jpP.jqa = new ArrayList();
                         JSONArray jSONArray3 = new JSONArray(optString6);
                         for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
                             d dVar = new d();
@@ -270,21 +270,21 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
                             dVar.videoUrl = jSONArray3.optJSONObject(i3).optString("video_url");
                             dVar.videoWidth = jSONArray3.optJSONObject(i3).optString("video_width");
                             dVar.videoHeight = jSONArray3.optJSONObject(i3).optString("video_height");
-                            this.jog.jor.add(dVar);
+                            this.jpP.jqa.add(dVar);
                         }
                     }
                     JSONObject optJSONObject = jSONObject4.optJSONObject("mcn_ad_card");
                     if (optJSONObject != null) {
                         a aVar = new a();
-                        aVar.joi = optJSONObject.optLong(SharedPrefConfig.AD_START_TIME);
-                        aVar.joj = optJSONObject.optLong(SharedPrefConfig.AD_END_TIME);
-                        aVar.jok = optJSONObject.optString("pic_url");
-                        aVar.aaY = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                        aVar.jol = optJSONObject.optString("card_title");
-                        aVar.jom = optJSONObject.optString("button_title");
-                        aVar.jon = optJSONObject.optLong("effect_time");
-                        aVar.joo = optJSONObject.optLong("expire_time");
-                        this.jog.joq = aVar;
+                        aVar.jpR = optJSONObject.optLong(SharedPrefConfig.AD_START_TIME);
+                        aVar.jpS = optJSONObject.optLong(SharedPrefConfig.AD_END_TIME);
+                        aVar.jpT = optJSONObject.optString("pic_url");
+                        aVar.acv = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                        aVar.jpU = optJSONObject.optString("card_title");
+                        aVar.jpV = optJSONObject.optString("button_title");
+                        aVar.jpW = optJSONObject.optLong("effect_time");
+                        aVar.jpX = optJSONObject.optLong("expire_time");
+                        this.jpP.jpZ = aVar;
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME);
@@ -294,8 +294,8 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("forum_info");
                 if (optJSONObject3 != null) {
-                    this.eRo = new bx();
-                    this.eRo.parserJson(optJSONObject3);
+                    this.eSP = new bx();
+                    this.eSP.parserJson(optJSONObject3);
                 }
                 this.lastReplyTime = jSONObject.optLong("last_time_int");
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
@@ -313,13 +313,13 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
         }
     }
 
-    public boolean cFC() {
-        if (this.jog == null) {
+    public boolean cFI() {
+        if (this.jpP == null) {
             return false;
         }
         try {
-            int parseInt = Integer.parseInt(this.jog.videoWidth);
-            return parseInt > 0 && ((float) Integer.parseInt(this.jog.videoHeight)) / ((float) parseInt) > 1.0f;
+            int parseInt = Integer.parseInt(this.jpP.videoWidth);
+            return parseInt > 0 && ((float) Integer.parseInt(this.jpP.videoHeight)) / ((float) parseInt) > 1.0f;
         } catch (NumberFormatException e) {
             return false;
         }
@@ -327,7 +327,7 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return job;
+        return jpK;
     }
 
     public static cb f(g gVar) {
@@ -338,20 +338,20 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
         cbVar.setId(gVar.threadId);
         cbVar.tid = gVar.threadId;
         cbVar.setTitle(gVar.title);
-        cbVar.Al(gVar.title);
+        cbVar.As(gVar.title);
         try {
-            cbVar.nk((int) gVar.postNum);
+            cbVar.nl((int) gVar.postNum);
         } catch (Exception e) {
             BdLog.e(e);
         }
         cbVar.dP(gVar.shareNum);
         cbVar.setBaijiahaoData(gVar.mBaijiahao);
-        if (cbVar.bpJ() != null && gVar.agreeData != null) {
-            cbVar.bpJ().threadId = gVar.threadId;
-            cbVar.bpJ().agreeType = gVar.agreeType;
-            cbVar.bpJ().hasAgree = gVar.hasAgree;
-            cbVar.bpJ().agreeNum = gVar.agreeNum;
-            cbVar.bpJ().baijiahaoData = gVar.mBaijiahao;
+        if (cbVar.bpL() != null && gVar.agreeData != null) {
+            cbVar.bpL().threadId = gVar.threadId;
+            cbVar.bpL().agreeType = gVar.agreeType;
+            cbVar.bpL().hasAgree = gVar.hasAgree;
+            cbVar.bpL().agreeNum = gVar.agreeNum;
+            cbVar.bpL().baijiahaoData = gVar.mBaijiahao;
         }
         cbVar.setFid(com.baidu.adp.lib.f.b.toLong(gVar.forumId, 0L));
         cbVar.setThreadType(40);

@@ -2,27 +2,27 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class dt implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f13956a;
+    final /* synthetic */ Context f8329a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f306a;
+    final /* synthetic */ Intent f227a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ ds f307a;
+    final /* synthetic */ ds f228a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dt(ds dsVar, Context context, Intent intent) {
-        this.f307a = dsVar;
-        this.f13956a = context;
-        this.f306a = intent;
+        this.f228a = dsVar;
+        this.f8329a = context;
+        this.f227a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f307a.b(this.f13956a, this.f306a);
+        this.f228a.b(this.f8329a, this.f227a);
     }
 }

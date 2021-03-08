@@ -1,5 +1,5 @@
 package com.yy.videoplayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoPlayerInfo {
     public long mBitrate;
     public int mFramerate;

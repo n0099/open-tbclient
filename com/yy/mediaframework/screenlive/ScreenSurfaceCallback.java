@@ -1,7 +1,7 @@
 package com.yy.mediaframework.screenlive;
 
 import android.view.Surface;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface ScreenSurfaceCallback {
     void attachSurface(Surface surface);
 

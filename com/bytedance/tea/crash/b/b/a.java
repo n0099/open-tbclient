@@ -9,24 +9,22 @@ import java.util.HashMap;
 public abstract class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final String f7624a = IMConstants.MSG_ROW_ID;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected final String f7625b;
+    protected final String f5161a = IMConstants.MSG_ROW_ID;
+    protected final String b;
 
     protected abstract HashMap<String, String> a();
 
-    protected abstract ContentValues aY(T t);
+    protected abstract ContentValues ba(T t);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str) {
-        this.f7625b = str;
+        this.b = str;
     }
 
     public void a(SQLiteDatabase sQLiteDatabase) {
         try {
             StringBuilder sb = new StringBuilder();
-            sb.append("CREATE TABLE ").append(this.f7625b).append(" (_id INTEGER PRIMARY KEY AUTOINCREMENT, ");
+            sb.append("CREATE TABLE ").append(this.b).append(" (_id INTEGER PRIMARY KEY AUTOINCREMENT, ");
             HashMap<String, String> a2 = a();
             if (a2 != null) {
                 for (String str : a2.keySet()) {
@@ -44,7 +42,7 @@ public abstract class a<T> {
     public void a(SQLiteDatabase sQLiteDatabase, T t) {
         if (sQLiteDatabase != null && t != null) {
             try {
-                sQLiteDatabase.insert(this.f7625b, null, aY(t));
+                sQLiteDatabase.insert(this.b, null, ba(t));
             } catch (Exception e) {
                 j.b(e);
             }

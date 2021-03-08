@@ -7,7 +7,7 @@ import android.util.StateSet;
 import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class StateListAnimator {
     private final ArrayList<Tuple> tuples = new ArrayList<>();
     private Tuple lastMatch = null;
@@ -73,7 +73,7 @@ public final class StateListAnimator {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Tuple {
         final ValueAnimator animator;
         final int[] specs;

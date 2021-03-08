@@ -16,9 +16,9 @@ public abstract class a {
     private final long mFileLength;
     private final String mFileMd5;
     protected final String mFileName;
-    private final int nAF;
-    private final int nAG;
-    private e nAH;
+    private final int nCK;
+    private final int nCL;
+    private e nCM;
 
     public abstract void cancel();
 
@@ -28,27 +28,27 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.nAG = i2;
+        this.nCL = i2;
         this.mFileLength = j;
         this.mFileMd5 = str2;
-        this.nAF = i;
+        this.nCK = i;
     }
 
     public void a(e eVar) {
-        this.nAH = eVar;
+        this.nCM = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void JV(int i) {
-        if (this.nAH != null) {
-            this.nAH.ba(i / 100.0f);
+    public void Ka(int i) {
+        if (this.nCM != null) {
+            this.nCM.be(i / 100.0f);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d a(RandomAccessFile randomAccessFile, int i, long j, String str) {
-        byte[] b2 = b(randomAccessFile, i);
-        if (b2 == null) {
+        byte[] b = b(randomAccessFile, i);
+        if (b == null) {
             d dVar = new d();
             dVar.errorNo = -1;
             dVar.errorMessage = "上传文件不存在";
@@ -58,13 +58,13 @@ public abstract class a {
         } else {
             aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             aaVar.addPostData("chunk_no", String.valueOf(i));
-            aaVar.addPostData("chunk_sum", String.valueOf(this.nAG));
-            aaVar.addPostData("chunk_size", String.valueOf(b2.length));
+            aaVar.addPostData("chunk_sum", String.valueOf(this.nCL));
+            aaVar.addPostData("chunk_size", String.valueOf(b.length));
             aaVar.addPostData("video_size", String.valueOf(this.mFileLength));
             aaVar.addPostData("video_md5", this.mFileMd5);
             aaVar.addPostData("video_len", String.valueOf(j));
             aaVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-            aaVar.addPostData("video_chunk", b2);
+            aaVar.addPostData("video_chunk", b);
             aaVar.addPostData("upload_id", str);
             if (isCancelled()) {
                 return null;
@@ -74,16 +74,16 @@ public abstract class a {
                 return null;
             }
             d dVar2 = new d();
-            if (aaVar.bsr().btb().isRequestSuccess()) {
-                dVar2.videoUrl = TQ(postMultiNetData);
+            if (aaVar.bsu().bte().isRequestSuccess()) {
+                dVar2.videoUrl = TX(postMultiNetData);
                 return dVar2;
             }
-            if (aaVar.bsr().btb().isNetSuccess()) {
-                dVar2.errorNo = aaVar.bsr().btb().mServerErrorCode;
+            if (aaVar.bsu().bte().isNetSuccess()) {
+                dVar2.errorNo = aaVar.bsu().bte().mServerErrorCode;
             } else {
-                dVar2.errorNo = aaVar.bsr().btb().mNetErrorCode;
+                dVar2.errorNo = aaVar.bsu().bte().mNetErrorCode;
             }
-            dVar2.errorMessage = aaVar.bsr().btb().mErrorString;
+            dVar2.errorMessage = aaVar.bsu().bte().mErrorString;
             return dVar2;
         }
     }
@@ -93,15 +93,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.nAG) {
-            i2 = (int) (this.mFileLength - ((i - 1) * this.nAF));
+        if (i == this.nCL) {
+            i2 = (int) (this.mFileLength - ((i - 1) * this.nCK));
         } else {
-            i2 = this.nAF;
+            i2 = this.nCK;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.nAF);
+                randomAccessFile.seek((i - 1) * this.nCK);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {
@@ -113,7 +113,7 @@ public abstract class a {
         return null;
     }
 
-    private String TQ(String str) {
+    private String TX(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

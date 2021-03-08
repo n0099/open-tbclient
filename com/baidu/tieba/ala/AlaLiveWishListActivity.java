@@ -31,33 +31,33 @@ import com.baidu.tieba.ala.data.o;
 import com.baidu.tieba.ala.g.i;
 import com.baidu.tieba.ala.g.j;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveWishListActivity extends BaseFragmentActivity implements i.b {
-    public static ArrayList<String> gpB = new ArrayList<>();
-    private long buN;
-    private com.baidu.tieba.ala.g.i goT;
-    private View gog;
-    private TextView gpC;
-    private int gpD;
-    private CommonEmptyView gpE;
-    private boolean gpF;
-    private RelativeLayout gps;
-    private Button gpw;
-    private i gpx;
-    private RelativeLayout gpy;
-    private j gpz;
+    public static ArrayList<String> grk = new ArrayList<>();
+    private long bwn;
+    private View gpP;
+    private com.baidu.tieba.ala.g.i gqC;
+    private RelativeLayout grb;
+    private Button grf;
+    private i grg;
+    private RelativeLayout grh;
+    private j gri;
+    private TextView grl;
+    private int grm;
+    private CommonEmptyView grn;
+    private boolean gro;
     private BdListView mListView;
     private View mRootView;
-    private boolean aWt = false;
-    private boolean baH = false;
-    private boolean baI = false;
-    ArrayList<o> gpA = new ArrayList<>();
-    private j.a gpG = new j.a() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.1
+    private boolean aXT = false;
+    private boolean bch = false;
+    private boolean bci = false;
+    ArrayList<o> grj = new ArrayList<>();
+    private j.a grp = new j.a() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.1
         @Override // com.baidu.tieba.ala.g.j.a
         public void a(ArrayList<com.baidu.tieba.ala.data.d> arrayList, String str, long j) {
             if (arrayList != null && arrayList.size() > 0) {
-                AlaLiveWishListActivity.this.gpA.clear();
-                AlaLiveWishListActivity.gpB.clear();
+                AlaLiveWishListActivity.this.grj.clear();
+                AlaLiveWishListActivity.grk.clear();
                 int i = 0;
                 while (true) {
                     int i2 = i;
@@ -65,48 +65,48 @@ public class AlaLiveWishListActivity extends BaseFragmentActivity implements i.b
                         break;
                     }
                     com.baidu.tieba.ala.data.d dVar = arrayList.get(i2);
-                    o oVar = new o(String.valueOf(dVar.gSG), dVar.gSE, dVar.mGiftName, String.valueOf(dVar.gSL), dVar.mDesc, String.valueOf(dVar.gSB), String.valueOf(dVar.gSC), dVar.mStatus);
+                    o oVar = new o(String.valueOf(dVar.gUp), dVar.gUn, dVar.mGiftName, String.valueOf(dVar.gUu), dVar.mDesc, String.valueOf(dVar.gUk), String.valueOf(dVar.gUl), dVar.mStatus);
                     if (dVar.mStatus == 0) {
-                        AlaLiveWishListActivity.this.gpF = true;
+                        AlaLiveWishListActivity.this.gro = true;
                     }
-                    oVar.ur(1);
-                    AlaLiveWishListActivity.this.gpA.add(oVar);
-                    AlaLiveWishListActivity.gpB.add(String.valueOf(dVar.gSC));
+                    oVar.ut(1);
+                    AlaLiveWishListActivity.this.grj.add(oVar);
+                    AlaLiveWishListActivity.grk.add(String.valueOf(dVar.gUl));
                     i = i2 + 1;
                 }
-                if (arrayList.size() < AlaLiveWishListActivity.this.gpD) {
+                if (arrayList.size() < AlaLiveWishListActivity.this.grm) {
                     o oVar2 = new o();
-                    oVar2.ur(0);
-                    AlaLiveWishListActivity.this.gpA.add(oVar2);
+                    oVar2.ut(0);
+                    AlaLiveWishListActivity.this.grj.add(oVar2);
                 }
-                AlaLiveWishListActivity.this.gpy.setVisibility(8);
+                AlaLiveWishListActivity.this.grh.setVisibility(8);
             } else {
-                AlaLiveWishListActivity.this.gpA.clear();
+                AlaLiveWishListActivity.this.grj.clear();
                 o oVar3 = new o();
-                oVar3.ur(0);
-                AlaLiveWishListActivity.this.gpA.add(oVar3);
-                AlaLiveWishListActivity.this.gpy.setVisibility(0);
+                oVar3.ut(0);
+                AlaLiveWishListActivity.this.grj.add(oVar3);
+                AlaLiveWishListActivity.this.grh.setVisibility(0);
             }
-            AlaLiveWishListActivity.this.gpx = new i(AlaLiveWishListActivity.this.getPageContext());
-            AlaLiveWishListActivity.this.gpx.setData(AlaLiveWishListActivity.this.gpA);
-            AlaLiveWishListActivity.this.mListView.setAdapter((ListAdapter) AlaLiveWishListActivity.this.gpx);
-            AlaLiveWishListActivity.this.bOo();
-            AlaLiveWishListActivity.this.gpw.setVisibility(0);
+            AlaLiveWishListActivity.this.grg = new i(AlaLiveWishListActivity.this.getPageContext());
+            AlaLiveWishListActivity.this.grg.setData(AlaLiveWishListActivity.this.grj);
+            AlaLiveWishListActivity.this.mListView.setAdapter((ListAdapter) AlaLiveWishListActivity.this.grg);
+            AlaLiveWishListActivity.this.bOu();
+            AlaLiveWishListActivity.this.grf.setVisibility(0);
         }
 
         @Override // com.baidu.tieba.ala.g.j.a
         public void aV(int i, String str) {
-            AlaLiveWishListActivity.this.bOp();
+            AlaLiveWishListActivity.this.bOv();
         }
     };
-    private CustomMessageListener aWJ = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.6
+    private CustomMessageListener aYj = new CustomMessageListener(2913054) { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaLiveWishListActivity.this.closeActivity();
         }
     };
-    CustomMessageListener aWK = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.7
+    CustomMessageListener aYk = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -121,20 +121,20 @@ public class AlaLiveWishListActivity extends BaseFragmentActivity implements i.b
         setUseStyleImmersiveSticky(true);
         super.onCreate(bundle);
         if (!isFinishing()) {
-            registerListener(this.aWK);
-            registerListener(this.aWJ);
+            registerListener(this.aYk);
+            registerListener(this.aYj);
             initView();
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            this.baH = false;
+            this.bch = false;
             this.mRootView.setVisibility(4);
             if (getIntent() != null) {
-                this.buN = getIntent().getLongExtra("live_id", 0L);
+                this.bwn = getIntent().getLongExtra("live_id", 0L);
             }
-            if (this.gpz == null) {
-                this.gpz = new j(getPageContext(), this.gpG);
+            if (this.gri == null) {
+                this.gri = new j(getPageContext(), this.grp);
             }
-            this.gpz.cmh();
-            this.goT = new com.baidu.tieba.ala.g.i(getPageContext(), null, null, this);
+            this.gri.cmn();
+            this.gqC = new com.baidu.tieba.ala.g.i(getPageContext(), null, null, this);
         }
     }
 
@@ -142,20 +142,20 @@ public class AlaLiveWishListActivity extends BaseFragmentActivity implements i.b
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aWt) {
+        if (!this.aXT) {
             this.mRootView.setVisibility(0);
-            Gb();
-            this.aWt = true;
+            Ge();
+            this.aXT = true;
         }
     }
 
-    private void Gb() {
+    private void Ge() {
         Animation loadAnimation;
-        this.baH = true;
+        this.bch = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.2
             @Override // android.view.animation.Animation.AnimationListener
@@ -164,7 +164,7 @@ public class AlaLiveWishListActivity extends BaseFragmentActivity implements i.b
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaLiveWishListActivity.this.baH = false;
+                AlaLiveWishListActivity.this.bch = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -174,13 +174,13 @@ public class AlaLiveWishListActivity extends BaseFragmentActivity implements i.b
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void Gc() {
+    private void Gf() {
         Animation loadAnimation;
-        if (!this.baI && !this.baH) {
+        if (!this.bci && !this.bch) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.3
                 @Override // android.view.animation.Animation.AnimationListener
@@ -197,72 +197,72 @@ public class AlaLiveWishListActivity extends BaseFragmentActivity implements i.b
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.baI = true;
+            this.bci = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        Gc();
+        Gf();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(a.g.ala_live_wish_list_layout, (ViewGroup) null);
         setContentView(this.mRootView);
-        this.gps = (RelativeLayout) findViewById(a.f.ala_live_wish_list_content);
+        this.grb = (RelativeLayout) findViewById(a.f.ala_live_wish_list_content);
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gps.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.grb.getLayoutParams();
         layoutParams.height = (int) (screenDimensions[1] * 0.68d);
-        this.gps.setLayoutParams(layoutParams);
-        this.gog = findViewById(a.f.ala_live_wish_list_root_bg);
-        this.gog.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.4
+        this.grb.setLayoutParams(layoutParams);
+        this.gpP = findViewById(a.f.ala_live_wish_list_root_bg);
+        this.gpP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaLiveWishListActivity.this.finish();
             }
         });
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.wish_list);
-        this.gpE = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_live_wish_list_empty_view);
-        this.gpx = new i(getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.gpx);
-        this.gpy = (RelativeLayout) this.mRootView.findViewById(a.f.live_wish_list_empty_view);
-        this.gpC = (TextView) this.mRootView.findViewById(a.f.ala_live_wish_list_limit);
-        bv bvVar = com.baidu.live.ae.a.Qj().bAS;
-        if (bvVar != null && bvVar.aPX != null) {
-            this.gpD = bvVar.aPX.aTc;
+        this.grn = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_live_wish_list_empty_view);
+        this.grg = new i(getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.grg);
+        this.grh = (RelativeLayout) this.mRootView.findViewById(a.f.live_wish_list_empty_view);
+        this.grl = (TextView) this.mRootView.findViewById(a.f.ala_live_wish_list_limit);
+        bv bvVar = com.baidu.live.ae.a.Qm().bCs;
+        if (bvVar != null && bvVar.aRx != null) {
+            this.grm = bvVar.aRx.aUC;
         }
-        if (this.gpD <= 0) {
-            this.gpD = 3;
+        if (this.grm <= 0) {
+            this.grm = 3;
         }
-        if (this.gpD == 1) {
-            this.gpC.setText(String.format(getPageContext().getResources().getString(a.h.wish_list_top_title_one), Integer.valueOf(this.gpD)));
+        if (this.grm == 1) {
+            this.grl.setText(String.format(getPageContext().getResources().getString(a.h.wish_list_top_title_one), Integer.valueOf(this.grm)));
         } else {
-            this.gpC.setText(String.format(getPageContext().getResources().getString(a.h.wish_list_top_title_des), Integer.valueOf(this.gpD)));
+            this.grl.setText(String.format(getPageContext().getResources().getString(a.h.wish_list_top_title_des), Integer.valueOf(this.grm)));
         }
-        this.gpw = (Button) this.mRootView.findViewById(a.f.live_wish_list_create_wish_bt);
-        bOo();
-        this.gpw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.5
+        this.grf = (Button) this.mRootView.findViewById(a.f.live_wish_list_create_wish_bt);
+        bOu();
+        this.grf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaLiveWishListActivity.this.gpx != null && AlaLiveWishListActivity.this.gpx.getCount() < 2 && AlaLiveWishListActivity.this.gpD != 1) {
+                if (AlaLiveWishListActivity.this.grg != null && AlaLiveWishListActivity.this.grg.getCount() < 2 && AlaLiveWishListActivity.this.grm != 1) {
                     AlaLiveWishListActivity.this.getPageContext().showToast(AlaLiveWishListActivity.this.getPageContext().getResources().getString(a.h.create_wish_tips_txt));
                 } else if (!UtilHelper.isFastDoubleClick()) {
-                    AlaLiveWishListActivity.this.goT.fO(AlaLiveWishListActivity.this.buN);
+                    AlaLiveWishListActivity.this.gqC.fO(AlaLiveWishListActivity.this.bwn);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOo() {
-        if (this.gpF) {
-            this.gpw.setBackground(getPageContext().getResources().getDrawable(a.e.ala_live_create_wish_bt_bg));
-            this.gpw.setEnabled(true);
+    public void bOu() {
+        if (this.gro) {
+            this.grf.setBackground(getPageContext().getResources().getDrawable(a.e.ala_live_create_wish_bt_bg));
+            this.grf.setEnabled(true);
             return;
         }
-        this.gpw.setBackground(getPageContext().getResources().getDrawable(a.e.ala_add_wish_edit_next_bt_bg));
-        this.gpw.setEnabled(false);
+        this.grf.setBackground(getPageContext().getResources().getDrawable(a.e.ala_add_wish_edit_next_bt_bg));
+        this.grf.setEnabled(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -277,23 +277,23 @@ public class AlaLiveWishListActivity extends BaseFragmentActivity implements i.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.gpz != null) {
-            this.gpz.onDestroy();
+        if (this.gri != null) {
+            this.gri.onDestroy();
         }
-        if (this.goT != null) {
-            this.goT.onDestroy();
+        if (this.gqC != null) {
+            this.gqC.onDestroy();
         }
-        if (this.goT != null) {
-            this.goT.cmg();
+        if (this.gqC != null) {
+            this.gqC.cmm();
         }
-        MessageManager.getInstance().unRegisterListener(this.aWK);
-        MessageManager.getInstance().unRegisterListener(this.aWJ);
+        MessageManager.getInstance().unRegisterListener(this.aYk);
+        MessageManager.getInstance().unRegisterListener(this.aYj);
         super.onDestroy();
     }
 
     @Override // com.baidu.tieba.ala.g.i.b
     public void c(m mVar) {
-        if (this.gpx == null || this.gpx.getCount() >= 2) {
+        if (this.grg == null || this.grg.getCount() >= 2) {
             getPageContext().showToast(getPageContext().getResources().getString(a.h.live_wish_create_tip_succ));
             finish();
         }
@@ -314,37 +314,37 @@ public class AlaLiveWishListActivity extends BaseFragmentActivity implements i.b
         super.onActivityResult(i, i2, intent);
         if (-1 == i2) {
             if (i == 1001) {
-                if (this.gpz != null) {
-                    this.gpz.cmh();
+                if (this.gri != null) {
+                    this.gri.cmn();
                 }
-            } else if (i == 1002 && this.gpz != null) {
-                this.gpz.cmh();
+            } else if (i == 1002 && this.gri != null) {
+                this.gri.cmn();
             }
         }
     }
 
-    public void bOp() {
-        if (this.gpE != null) {
-            this.gpE.reset();
-            this.gpE.setTitle(a.h.sdk_net_fail_tip_rank);
-            this.gpE.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.8
+    public void bOv() {
+        if (this.grn != null) {
+            this.grn.reset();
+            this.grn.setTitle(a.h.sdk_net_fail_tip_rank);
+            this.grn.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaLiveWishListActivity.8
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    AlaLiveWishListActivity.this.gpE.setVisibility(8);
-                    if (AlaLiveWishListActivity.this.gpz == null) {
-                        AlaLiveWishListActivity.this.gpz = new j(AlaLiveWishListActivity.this.getPageContext(), AlaLiveWishListActivity.this.gpG);
+                    AlaLiveWishListActivity.this.grn.setVisibility(8);
+                    if (AlaLiveWishListActivity.this.gri == null) {
+                        AlaLiveWishListActivity.this.gri = new j(AlaLiveWishListActivity.this.getPageContext(), AlaLiveWishListActivity.this.grp);
                     }
-                    AlaLiveWishListActivity.this.gpz.cmh();
+                    AlaLiveWishListActivity.this.gri.cmn();
                 }
             });
             if (BdNetTypeUtil.isNetWorkAvailable()) {
-                this.gpE.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+                this.grn.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
             } else {
-                this.gpE.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+                this.grn.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
             }
-            this.gpE.setVisibility(0);
-            this.gpy.setVisibility(8);
-            this.gpw.setVisibility(8);
+            this.grn.setVisibility(0);
+            this.grh.setVisibility(8);
+            this.grf.setVisibility(8);
         }
     }
 }

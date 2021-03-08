@@ -1,175 +1,129 @@
 package com.win.opensdk;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
-import java.util.ArrayList;
+import com.win.opensdk.core.Info;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class PBNative {
-    private String java;
-    private Context qjn;
-    private cd qjv;
-    private PBNativeListener qjw;
+
+    /* renamed from: a  reason: collision with root package name */
+    public dv f8103a;
+    public PBNativeListener b;
 
     public PBNative(Context context, String str) {
-        this.qjn = context;
-        this.java = str;
-        this.qjv = new cd(context, str);
-        this.qjv.qjw = new a();
+        this.f8103a = new dv(context, str);
+        this.f8103a.qlX = new cp(this);
     }
 
-    public void setNativeListener(PBNativeListener pBNativeListener) {
-        this.qjw = pBNativeListener;
-    }
-
-    public void load() {
-        if (this.qjv != null) {
-            cd cdVar = this.qjv;
-            if (cdVar.qkw == null) {
-                return;
+    public void destroy() {
+        try {
+            if (this.f8103a != null) {
+                this.f8103a.a();
+                this.f8103a = null;
             }
-            cdVar.qkw.eIX();
+            if (this.b != null) {
+                this.b = null;
+            }
+        } catch (Exception e) {
         }
     }
 
-    public boolean isReady() {
-        return this.qjv != null && this.qjv.m72java();
+    public String getBody() {
+        dv dvVar = this.f8103a;
+        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getDesc();
+    }
+
+    public String getCallToAction() {
+        dv dvVar = this.f8103a;
+        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getBtndesc();
     }
 
     public String getHeadline() {
-        if (this.qjv != null) {
-            cd cdVar = this.qjv;
-            return cdVar.m72java() ? cdVar.qjI.getTitle() : "";
+        dv dvVar = this.f8103a;
+        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getTitle();
+    }
+
+    public String getIM() {
+        dv dvVar = this.f8103a;
+        if (dvVar != null) {
+            String image = dvVar.b() ? dvVar.qkh.getImage() : "";
+            if (TextUtils.isEmpty(image)) {
+                dv dvVar2 = this.f8103a;
+                return dvVar2.b() ? dvVar2.qkh.getIcon() : "";
+            }
+            return image;
         }
         return "";
     }
 
     public String getIcon() {
-        if (this.qjv != null) {
-            cd cdVar = this.qjv;
-            return cdVar.m72java() ? cdVar.qjI.getIcon() : "";
-        }
-        return "";
-    }
-
-    public String getBody() {
-        if (this.qjv != null) {
-            cd cdVar = this.qjv;
-            return cdVar.m72java() ? cdVar.qjI.getDesc() : "";
-        }
-        return "";
-    }
-
-    public String getCallToAction() {
-        if (this.qjv != null) {
-            cd cdVar = this.qjv;
-            return cdVar.m72java() ? cdVar.qjI.getBtndesc() : "";
-        }
-        return "";
+        dv dvVar = this.f8103a;
+        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getIcon();
     }
 
     public int getMediaViewHeight() {
-        if (this.qjv != null) {
-            cd cdVar = this.qjv;
-            if (cdVar.m72java()) {
-                return cdVar.qjI.getH();
-            }
+        dv dvVar = this.f8103a;
+        if (dvVar == null || !dvVar.b()) {
             return 0;
         }
-        return 0;
+        return dvVar.qkh.getH();
     }
 
     public int getMediaViewWidth() {
-        if (this.qjv != null) {
-            cd cdVar = this.qjv;
-            if (cdVar.m72java()) {
-                return cdVar.qjI.getW();
-            }
+        dv dvVar = this.f8103a;
+        if (dvVar == null || !dvVar.b()) {
             return 0;
         }
-        return 0;
+        return dvVar.qkh.getW();
     }
 
     public String getPid() {
-        if (this.qjv != null) {
-            cd cdVar = this.qjv;
-            return cdVar.m72java() ? cdVar.qjI.getPid() : "";
+        dv dvVar = this.f8103a;
+        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getPid();
+    }
+
+    public boolean isD() {
+        dv dvVar = this.f8103a;
+        if (dvVar != null) {
+            Info info = dvVar.qkh;
+            if (info != null && info.getOpent() == 1) {
+                return true;
+            }
         }
-        return "";
+        return false;
+    }
+
+    public boolean isReady() {
+        dv dvVar = this.f8103a;
+        return dvVar != null && dvVar.b();
+    }
+
+    public void load() {
+        dq dqVar;
+        dv dvVar = this.f8103a;
+        if (dvVar == null || (dqVar = dvVar.qlI) == null) {
+            return;
+        }
+        dqVar.b();
     }
 
     public void registerViewForInteraction(View view, PBMediaView pBMediaView) {
-        if (this.qjv != null) {
-            cd cdVar = this.qjv;
-            List<View> arrayList = new ArrayList<>();
-            if (view != null) {
-                arrayList = cdVar.ex(view);
-            }
-            cdVar.a(view, pBMediaView, arrayList);
+        dv dvVar = this.f8103a;
+        if (dvVar != null) {
+            dvVar.a(view, pBMediaView);
         }
     }
 
-    public void registerViewForInteraction(View view, PBMediaView pBMediaView, List<View> list) {
-        if (this.qjv != null) {
-            this.qjv.a(view, pBMediaView, list);
+    public void registerViewForInteraction(View view, PBMediaView pBMediaView, List list) {
+        dv dvVar = this.f8103a;
+        if (dvVar != null) {
+            dvVar.a(view, pBMediaView, list);
         }
     }
 
-    public void destroy() {
-        try {
-            if (this.qjv != null) {
-                cd cdVar = this.qjv;
-                try {
-                    cdVar.eIX();
-                    if (cdVar.qkw != null) {
-                        cdVar.qkw.eIY();
-                        cdVar.qkw = null;
-                    }
-                    if (cdVar.qjw != null) {
-                        cdVar.qjw = null;
-                    }
-                } catch (Exception e) {
-                }
-                this.qjv = null;
-            }
-            if (this.qjw != null) {
-                this.qjw = null;
-            }
-        } catch (Exception e2) {
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    class a implements PBNativeListener {
-        a() {
-        }
-
-        @Override // com.win.opensdk.PBNativeListener
-        public final void onDisplayed() {
-            if (PBNative.this.qjw != null) {
-                PBNative.this.qjw.onDisplayed();
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public final void onFail(PBError pBError) {
-            if (PBNative.this.qjw != null) {
-                PBNative.this.qjw.onFail(pBError);
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public final void onLoaded() {
-            if (PBNative.this.qjw != null) {
-                PBNative.this.qjw.onLoaded();
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public final void onClicked() {
-            if (PBNative.this.qjw != null) {
-                PBNative.this.qjw.onClicked();
-            }
-        }
+    public void setNativeListener(PBNativeListener pBNativeListener) {
+        this.b = pBNativeListener;
     }
 }

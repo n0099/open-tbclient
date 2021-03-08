@@ -17,18 +17,16 @@ import java.util.zip.ZipFile;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final File f11340a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final File f11341b;
+    private final File f7443a;
+    private final File b;
     private String c;
 
     public e(String str, String str2) {
-        this.f11340a = new File(str);
-        this.f11341b = new File(str2);
-        this.c = this.f11341b.getAbsolutePath();
-        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract mInput file = " + this.f11340a.toString());
-        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract mOutput file = " + this.f11341b.toString());
+        this.f7443a = new File(str);
+        this.b = new File(str2);
+        this.c = this.b.getAbsolutePath();
+        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract mInput file = " + this.f7443a.toString());
+        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract mOutput file = " + this.b.toString());
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -77,13 +75,13 @@ public class e {
     }
 
     private void b() {
-        if (this.f11340a == null || !this.f11340a.exists()) {
+        if (this.f7443a == null || !this.f7443a.exists()) {
             return;
         }
-        if (this.f11340a.delete()) {
-            com.meizu.cloud.a.a.i("ZipExtractTask", "Delete file:" + this.f11340a.toString() + " after extracted.");
+        if (this.f7443a.delete()) {
+            com.meizu.cloud.a.a.i("ZipExtractTask", "Delete file:" + this.f7443a.toString() + " after extracted.");
         } else {
-            com.meizu.cloud.a.a.i("ZipExtractTask", "Can't delete file:" + this.f11340a.toString() + " after extracted.");
+            com.meizu.cloud.a.a.i("ZipExtractTask", "Can't delete file:" + this.f7443a.toString() + " after extracted.");
         }
     }
 
@@ -106,7 +104,7 @@ public class e {
         long j = 0;
         try {
             try {
-                zipFile = new ZipFile(this.f11340a);
+                zipFile = new ZipFile(this.f7443a);
                 try {
                     Enumeration<? extends ZipEntry> entries = zipFile.entries();
                     String str3 = null;
@@ -123,7 +121,7 @@ public class e {
                                 } else {
                                     str2 = name.split("/")[0];
                                     try {
-                                        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract temp directory=" + this.f11341b + "/" + str2);
+                                        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract temp directory=" + this.b + "/" + str2);
                                     } catch (ZipException e4) {
                                         e3 = e4;
                                         str = str2;
@@ -135,7 +133,7 @@ public class e {
                                                 com.meizu.cloud.a.a.e("ZipExtractTask", "Extracted IOException:" + e5.toString());
                                             }
                                         }
-                                        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f11340a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
+                                        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f7443a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
                                         if (z) {
                                         }
                                         b();
@@ -151,7 +149,7 @@ public class e {
                                                 com.meizu.cloud.a.a.e("ZipExtractTask", "Extracted IOException:" + e7.toString());
                                             }
                                         }
-                                        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f11340a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
+                                        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f7443a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
                                         if (z) {
                                         }
                                         b();
@@ -167,14 +165,14 @@ public class e {
                                                 com.meizu.cloud.a.a.e("ZipExtractTask", "Extracted IOException:" + e9.toString());
                                             }
                                         }
-                                        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f11340a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
+                                        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f7443a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
                                         if (z) {
                                         }
                                         b();
                                         return j;
                                     }
                                 }
-                                File file = new File(this.f11341b, name);
+                                File file = new File(this.b, name);
                                 if (!file.getParentFile().exists()) {
                                     if (file.getParentFile().mkdirs()) {
                                         com.meizu.cloud.a.a.i("ZipExtractTask", "Make Destination directory=" + file.getParentFile().getAbsolutePath());
@@ -197,7 +195,7 @@ public class e {
                             str = str3;
                         }
                     }
-                    String str4 = this.f11341b + "/" + str3;
+                    String str4 = this.b + "/" + str3;
                     if (!this.c.equals(str4)) {
                         a.a(str4, this.c);
                         z = true;
@@ -250,9 +248,9 @@ public class e {
             }
             throw th;
         }
-        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f11340a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
+        com.meizu.cloud.a.a.i("ZipExtractTask", "Extract file " + this.f7443a + ", UseTime =" + String.valueOf(SystemClock.currentThreadTimeMillis() - currentThreadTimeMillis));
         if (z) {
-            a.b(this.f11341b + "/" + str);
+            a.b(this.b + "/" + str);
         }
         b();
         return j;

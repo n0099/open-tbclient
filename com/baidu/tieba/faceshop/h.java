@@ -29,42 +29,42 @@ import com.baidu.tieba.R;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class h extends ProxyAdkBaseActivity<h> {
-    private TextView gfZ;
-    private List<c> iTB;
-    private d iTD;
-    private a iTE;
-    private LinearLayout iTF;
-    private NavigationBar iTG;
-    private TextView iTH;
-    private TextView iTI;
-    private ImageView iTJ;
-    private BdListView iTK;
-    private TextView iTL;
-    private View iTM;
-    private b iTN;
+    private TextView ghC;
+    private List<c> iVk;
+    private d iVm;
+    private a iVn;
+    private LinearLayout iVo;
+    private NavigationBar iVp;
+    private TextView iVq;
+    private TextView iVr;
+    private ImageView iVs;
+    private BdListView iVt;
+    private TextView iVu;
+    private View iVv;
+    private b iVw;
     private View mBack;
-    private final List<String> iTC = new LinkedList();
-    private boolean iTO = false;
+    private final List<String> iVl = new LinkedList();
+    private boolean iVx = false;
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == h.this.iTH) {
-                h.this.cyE();
-            } else if (view == h.this.gfZ) {
-                if (h.this.iTO) {
-                    h.this.cyC();
-                    h.this.iTC.clear();
+            if (view == h.this.iVq) {
+                h.this.cyK();
+            } else if (view == h.this.ghC) {
+                if (h.this.iVx) {
+                    h.this.cyI();
+                    h.this.iVl.clear();
                 } else {
-                    h.this.cyB();
+                    h.this.cyH();
                 }
-                h.this.iTN.notifyDataSetChanged();
-            } else if (view == h.this.iTL) {
+                h.this.iVw.notifyDataSetChanged();
+            } else if (view == h.this.iVu) {
                 IntentConfig intentConfig = new IntentConfig(h.this.getActivity());
                 intentConfig.getIntent().putExtra("emotion_manage", "emotion_manage");
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_FACEPURCHASERECORDS, intentConfig));
-                h.this.cyC();
+                h.this.cyI();
                 h.this.qg(true);
             }
         }
@@ -73,22 +73,22 @@ public class h extends ProxyAdkBaseActivity<h> {
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             e eVar;
-            if (h.this.iTO) {
-                if (h.this.iTB.get(i) != null && (eVar = (e) view.getTag()) != null) {
-                    Object tag = eVar.iTS.getTag();
+            if (h.this.iVx) {
+                if (h.this.iVk.get(i) != null && (eVar = (e) view.getTag()) != null) {
+                    Object tag = eVar.iVB.getTag();
                     if (tag instanceof String) {
                         String str = (String) tag;
-                        for (c cVar : h.this.iTB) {
+                        for (c cVar : h.this.iVk) {
                             if (cVar.id.equals(str)) {
-                                if (h.this.iTC.contains(str)) {
-                                    ap.setImageResource(eVar.iTS, R.drawable.btn_expression_choose_n);
-                                    h.this.iTC.remove(str);
-                                    h.this.JB(str);
-                                    cVar.iTQ = false;
+                                if (h.this.iVl.contains(str)) {
+                                    ap.setImageResource(eVar.iVB, R.drawable.btn_expression_choose_n);
+                                    h.this.iVl.remove(str);
+                                    h.this.JK(str);
+                                    cVar.iVz = false;
                                 } else {
-                                    ap.setImageResource(eVar.iTS, R.drawable.btn_expression_choose_s);
-                                    h.this.JA(str);
-                                    cVar.iTQ = true;
+                                    ap.setImageResource(eVar.iVB, R.drawable.btn_expression_choose_s);
+                                    h.this.JJ(str);
+                                    cVar.iVz = true;
                                 }
                             }
                         }
@@ -98,16 +98,16 @@ public class h extends ProxyAdkBaseActivity<h> {
                 }
                 return;
             }
-            h.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FacePackageDetailActivityConfig(h.this.getPageContext().getPageActivity(), ((c) h.this.iTB.get(i)).id, false, "emotion_manage")));
+            h.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FacePackageDetailActivityConfig(h.this.getPageContext().getPageActivity(), ((c) h.this.iVk.get(i)).id, false, "emotion_manage")));
         }
     };
-    private final CustomMessageListener eJz = new CustomMessageListener(0) { // from class: com.baidu.tieba.faceshop.h.3
+    private final CustomMessageListener eLa = new CustomMessageListener(0) { // from class: com.baidu.tieba.faceshop.h.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001117) {
-                h.this.iTD = new d();
-                h.this.iTD.execute(new String[0]);
+                h.this.iVm = new d();
+                h.this.iVm.execute(new String[0]);
             }
         }
     };
@@ -126,9 +126,9 @@ public class h extends ProxyAdkBaseActivity<h> {
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iTE != null) {
-            this.iTE.cancel(true);
-            this.iTE = null;
+        if (this.iVn != null) {
+            this.iVn.cancel(true);
+            this.iVn = null;
         }
     }
 
@@ -136,49 +136,49 @@ public class h extends ProxyAdkBaseActivity<h> {
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iTG.onChangeSkinType(getPageContext(), i);
-        ap.setBackgroundResource(this.iTH, R.drawable.btn_delete_groupupdates);
+        this.iVp.onChangeSkinType(getPageContext(), i);
+        ap.setBackgroundResource(this.iVq, R.drawable.btn_delete_groupupdates);
     }
 
     private void initView() {
-        this.iTF = (LinearLayout) findViewById(R.id.emotion_manage_root);
-        this.iTG = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.iTG.setTitleText(R.string.title_activity_emotion_manage);
-        this.mBack = this.iTG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.iTH = this.iTG.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.delete) + "(" + this.iTC.size() + ")", this.mOnClickListener, true);
-        cyD();
-        this.gfZ = this.iTG.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit), this.mOnClickListener);
-        ap.setViewTextColor(this.gfZ, R.color.CAM_X0106, 1);
-        this.iTI = (TextView) findViewById(R.id.emotion_manager_title);
-        this.iTJ = (ImageView) findViewById(R.id.emotion_manage_enter_line_list_up);
-        this.iTK = (BdListView) findViewById(R.id.emotion_manage_list);
-        this.iTK.setOnItemClickListener(this.mOnItemClickListener);
-        this.iTM = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.emotion_manage_list_footer, (ViewGroup) null);
-        this.iTK.addFooterView(this.iTM);
-        this.iTL = (TextView) this.iTM.findViewById(R.id.emotion_manage_enter_record);
-        this.iTL.setOnClickListener(this.mOnClickListener);
+        this.iVo = (LinearLayout) findViewById(R.id.emotion_manage_root);
+        this.iVp = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.iVp.setTitleText(R.string.title_activity_emotion_manage);
+        this.mBack = this.iVp.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.iVq = this.iVp.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.delete) + "(" + this.iVl.size() + ")", this.mOnClickListener, true);
+        cyJ();
+        this.ghC = this.iVp.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit), this.mOnClickListener);
+        ap.setViewTextColor(this.ghC, R.color.CAM_X0106, 1);
+        this.iVr = (TextView) findViewById(R.id.emotion_manager_title);
+        this.iVs = (ImageView) findViewById(R.id.emotion_manage_enter_line_list_up);
+        this.iVt = (BdListView) findViewById(R.id.emotion_manage_list);
+        this.iVt.setOnItemClickListener(this.mOnItemClickListener);
+        this.iVv = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.emotion_manage_list_footer, (ViewGroup) null);
+        this.iVt.addFooterView(this.iVv);
+        this.iVu = (TextView) this.iVv.findViewById(R.id.emotion_manage_enter_record);
+        this.iVu.setOnClickListener(this.mOnClickListener);
         getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        getLayoutMode().onModeChanged(this.iTF);
-        getLayoutMode().onModeChanged(this.iTM);
-        cyC();
+        getLayoutMode().onModeChanged(this.iVo);
+        getLayoutMode().onModeChanged(this.iVv);
+        cyI();
     }
 
     private void initData() {
-        registerListener(CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED, this.eJz);
-        this.iTD = new d();
-        this.iTD.execute(new String[0]);
-        this.iTN = new b();
-        this.iTK.setAdapter((ListAdapter) this.iTN);
+        registerListener(CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED, this.eLa);
+        this.iVm = new d();
+        this.iVm.execute(new String[0]);
+        this.iVw = new b();
+        this.iVt.setAdapter((ListAdapter) this.iVw);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void qg(boolean z) {
         boolean z2;
         if (z) {
-            this.iTC.clear();
+            this.iVl.clear();
         } else {
-            for (String str : this.iTC) {
-                Iterator<c> it = this.iTB.iterator();
+            for (String str : this.iVl) {
+                Iterator<c> it = this.iVk.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z2 = false;
@@ -189,107 +189,107 @@ public class h extends ProxyAdkBaseActivity<h> {
                     }
                 }
                 if (!z2) {
-                    this.iTC.remove(str);
+                    this.iVl.remove(str);
                 }
             }
         }
-        cyD();
-        cyA();
-        this.iTN.notifyDataSetChanged();
+        cyJ();
+        cyG();
+        this.iVw.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cyA() {
-        if (this.iTB != null) {
-            if (this.iTB.size() == 0) {
-                this.iTI.setText(R.string.emotion_manage_title_nodata);
-                this.gfZ.setEnabled(false);
-                this.iTJ.setVisibility(8);
-                cyC();
+    public void cyG() {
+        if (this.iVk != null) {
+            if (this.iVk.size() == 0) {
+                this.iVr.setText(R.string.emotion_manage_title_nodata);
+                this.ghC.setEnabled(false);
+                this.iVs.setVisibility(8);
+                cyI();
                 return;
             }
-            this.iTI.setText(R.string.emotion_manage_title);
-            this.gfZ.setEnabled(true);
-            this.iTJ.setVisibility(0);
+            this.iVr.setText(R.string.emotion_manage_title);
+            this.ghC.setEnabled(true);
+            this.iVs.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JA(String str) {
-        if (!this.iTC.contains(str)) {
-            this.iTC.add(str);
-            cyD();
+    public void JJ(String str) {
+        if (!this.iVl.contains(str)) {
+            this.iVl.add(str);
+            cyJ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JB(String str) {
-        this.iTC.remove(str);
-        cyD();
+    public void JK(String str) {
+        this.iVl.remove(str);
+        cyJ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cyB() {
+    public void cyH() {
         this.mBack.setVisibility(8);
-        this.iTH.setVisibility(0);
-        cyD();
-        this.gfZ.setText(getString(R.string.cancel));
-        this.iTO = true;
-        this.iTM.setVisibility(8);
+        this.iVq.setVisibility(0);
+        cyJ();
+        this.ghC.setText(getString(R.string.cancel));
+        this.iVx = true;
+        this.iVv.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cyC() {
+    public void cyI() {
         this.mBack.setVisibility(0);
-        this.iTH.setVisibility(8);
-        this.gfZ.setText(getString(R.string.edit));
-        this.iTO = false;
-        this.iTM.setVisibility(0);
+        this.iVq.setVisibility(8);
+        this.ghC.setText(getString(R.string.edit));
+        this.iVx = false;
+        this.iVv.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void cyD() {
-        int size = this.iTC.size();
-        this.iTH.setText(getString(R.string.delete) + "(" + size + ")");
+    private void cyJ() {
+        int size = this.iVl.size();
+        this.iVq.setText(getString(R.string.delete) + "(" + size + ")");
         if (size == 0) {
-            this.iTH.setEnabled(false);
+            this.iVq.setEnabled(false);
         } else {
-            this.iTH.setEnabled(true);
+            this.iVq.setEnabled(true);
         }
-        ap.setBackgroundResource(this.iTH, R.drawable.btn_delete_groupupdates);
+        ap.setBackgroundResource(this.iVq, R.drawable.btn_delete_groupupdates);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cyE() {
-        this.iTE = new a();
-        this.iTE.execute(this.iTC);
+    public void cyK() {
+        this.iVn = new a();
+        this.iVn.execute(this.iVl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b extends BaseAdapter {
         private b() {
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (h.this.iTB != null) {
-                return h.this.iTB.size();
+            if (h.this.iVk != null) {
+                return h.this.iVk.size();
             }
             return 0;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            if (h.this.iTB != null && i <= h.this.iTB.size()) {
-                return h.this.iTB.get(i);
+            if (h.this.iVk != null && i <= h.this.iVk.size()) {
+                return h.this.iVk.get(i);
             }
             return null;
         }
 
         @Override // android.widget.Adapter
         public long getItemId(int i) {
-            if (h.this.iTB == null || i > h.this.iTB.size()) {
+            if (h.this.iVk == null || i > h.this.iVk.size()) {
                 return 0L;
             }
             return i;
@@ -301,24 +301,24 @@ public class h extends ProxyAdkBaseActivity<h> {
                 view = createView();
             }
             e eVar = (e) view.getTag();
-            Bitmap bitmap = ((c) h.this.iTB.get(i)).iTR;
+            Bitmap bitmap = ((c) h.this.iVk.get(i)).iVA;
             if (bitmap != null) {
-                eVar.iTT.setImageBitmap(bitmap);
+                eVar.iVC.setImageBitmap(bitmap);
             } else {
-                ap.setImageResource(eVar.iTT, R.drawable.pic_image_h_not);
+                ap.setImageResource(eVar.iVC, R.drawable.pic_image_h_not);
             }
-            if (h.this.iTO) {
-                if (h.this.iTC.contains(((c) h.this.iTB.get(i)).id)) {
-                    ap.setImageResource(eVar.iTS, R.drawable.btn_expression_choose_s);
+            if (h.this.iVx) {
+                if (h.this.iVl.contains(((c) h.this.iVk.get(i)).id)) {
+                    ap.setImageResource(eVar.iVB, R.drawable.btn_expression_choose_s);
                 } else {
-                    ap.setImageResource(eVar.iTS, R.drawable.btn_expression_choose_n);
+                    ap.setImageResource(eVar.iVB, R.drawable.btn_expression_choose_n);
                 }
-                eVar.iTS.setVisibility(0);
-                eVar.iTS.setTag(((c) h.this.iTB.get(i)).id);
+                eVar.iVB.setVisibility(0);
+                eVar.iVB.setTag(((c) h.this.iVk.get(i)).id);
             } else {
-                eVar.iTS.setVisibility(8);
+                eVar.iVB.setVisibility(8);
             }
-            eVar.enq.setText(((c) h.this.iTB.get(i)).name);
+            eVar.eoT.setText(((c) h.this.iVk.get(i)).name);
             h.this.getLayoutMode().onModeChanged(view);
             return view;
         }
@@ -326,29 +326,29 @@ public class h extends ProxyAdkBaseActivity<h> {
         private View createView() {
             View inflate = View.inflate(h.this.getPageContext().getPageActivity(), R.layout.emotion_manage_list_item, null);
             e eVar = new e();
-            eVar.iTS = (ImageView) inflate.findViewById(R.id.emotion_group_select);
-            eVar.iTT = (ImageView) inflate.findViewById(R.id.emotion_group_photo);
-            eVar.enq = (TextView) inflate.findViewById(R.id.emotion_group_name);
+            eVar.iVB = (ImageView) inflate.findViewById(R.id.emotion_group_select);
+            eVar.iVC = (ImageView) inflate.findViewById(R.id.emotion_group_photo);
+            eVar.eoT = (TextView) inflate.findViewById(R.id.emotion_group_name);
             inflate.setTag(eVar);
             return inflate;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c {
-        boolean iTQ;
-        Bitmap iTR;
+        Bitmap iVA;
+        boolean iVz;
         String id;
         String name;
 
         private c() {
-            this.iTQ = false;
+            this.iVz = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class d extends BdAsyncTask<String, Integer, List<c>> {
         private d() {
         }
@@ -358,27 +358,27 @@ public class h extends ProxyAdkBaseActivity<h> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: R */
         public List<c> doInBackground(String... strArr) {
-            List<MyEmotionGroupData> Jx = com.baidu.tieba.faceshop.a.cyv().Jx(TbadkApplication.getCurrentAccount());
-            List<EmotionGroupData> xY = i.cyL().xY(1);
+            List<MyEmotionGroupData> JG = com.baidu.tieba.faceshop.a.cyB().JG(TbadkApplication.getCurrentAccount());
+            List<EmotionGroupData> xZ = i.cyR().xZ(1);
             LinkedList linkedList = new LinkedList();
-            for (MyEmotionGroupData myEmotionGroupData : Jx) {
-                Iterator<EmotionGroupData> it = xY.iterator();
+            for (MyEmotionGroupData myEmotionGroupData : JG) {
+                Iterator<EmotionGroupData> it = xZ.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         EmotionGroupData next = it.next();
-                        if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && com.baidu.tieba.faceshop.b.Jy(next.getGroupId())) {
+                        if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && com.baidu.tieba.faceshop.b.JH(next.getGroupId())) {
                             c cVar = new c();
                             cVar.id = next.getGroupId();
                             cVar.name = next.getGroupName();
-                            cVar.iTR = com.baidu.tieba.faceshop.b.eQ(cVar.id, "list.png");
+                            cVar.iVA = com.baidu.tieba.faceshop.b.eQ(cVar.id, "list.png");
                             linkedList.add(cVar);
                             break;
                         }
                     }
                 }
             }
-            Jx.clear();
-            xY.clear();
+            JG.clear();
+            xZ.clear();
             return linkedList;
         }
 
@@ -398,15 +398,15 @@ public class h extends ProxyAdkBaseActivity<h> {
             if (list == null) {
                 list = new LinkedList<>();
             }
-            h.this.iTB = list;
+            h.this.iVk = list;
             h.this.qg(false);
             h.this.hideProgressBar();
-            h.this.cyA();
+            h.this.cyG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends BdAsyncTask<List<String>, Integer, Boolean> {
         private a() {
         }
@@ -425,7 +425,7 @@ public class h extends ProxyAdkBaseActivity<h> {
                 MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
                 myEmotionGroupData.setGroupId(str);
                 myEmotionGroupData.setUid(TbadkApplication.getCurrentAccount());
-                i = com.baidu.tieba.faceshop.a.cyv().a(myEmotionGroupData) ? i + 1 : i;
+                i = com.baidu.tieba.faceshop.a.cyB().a(myEmotionGroupData) ? i + 1 : i;
             }
             if (i > 0) {
                 return true;
@@ -440,18 +440,18 @@ public class h extends ProxyAdkBaseActivity<h> {
             super.onPostExecute((a) bool);
             if (bool.booleanValue()) {
                 MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_RELOAD_EMOTION_GROUPS, (Class) null);
-                h.this.iTO = true;
+                h.this.iVx = true;
                 h.this.qg(true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class e {
-        TextView enq;
-        ImageView iTS;
-        ImageView iTT;
+        TextView eoT;
+        ImageView iVB;
+        ImageView iVC;
 
         private e() {
         }
@@ -459,11 +459,11 @@ public class h extends ProxyAdkBaseActivity<h> {
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onBackPressed() {
-        if (this.iTO) {
-            cyC();
-            this.iTC.clear();
-            this.iTO = false;
-            this.iTN.notifyDataSetChanged();
+        if (this.iVx) {
+            cyI();
+            this.iVl.clear();
+            this.iVx = false;
+            this.iVw.notifyDataSetChanged();
             return;
         }
         super.onBackPressed();

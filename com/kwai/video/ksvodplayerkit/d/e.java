@@ -14,8 +14,8 @@ public final class e {
             return null;
         }
         d dVar = new d();
-        dVar.f11072a = jSONObject.optInt("maxConcurrentCount", dVar.f11072a);
-        dVar.f11073b = jSONObject.optLong("playerLoadThreshold", dVar.f11073b);
+        dVar.f7289a = jSONObject.optInt("maxConcurrentCount", dVar.f7289a);
+        dVar.b = jSONObject.optLong("playerLoadThreshold", dVar.b);
         dVar.c = jSONObject.optInt("speedKbpsThreshold", dVar.c);
         dVar.d = jSONObject.optLong("preloadBytesWifi", dVar.d);
         dVar.e = jSONObject.optLong("preloadBytes4G", dVar.e);

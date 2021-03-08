@@ -29,7 +29,7 @@ import java.text.DateFormat;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     private static final long APPROXIMATE_START_TIME = System.currentTimeMillis();
     private static final boolean DEBUG = false;
@@ -46,12 +46,12 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     private CrashFilter mFilter;
     private final Thread.UncaughtExceptionHandler mPreviousHandler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public enum ExtraInfo {
         CUID("CUID"),
         EMULATOR("Emulator"),
@@ -80,7 +80,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class ZeusCrashHandlerClient {
         private static final String TAG = "CrashHandlerClientImpl";
         private PackageInfo mAppPackageInfo;

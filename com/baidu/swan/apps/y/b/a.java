@@ -5,11 +5,11 @@ import android.graphics.Rect;
 import android.util.Log;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    double doJ = 1.0d;
-    protected Set<Integer> doK;
+    double dql = 1.0d;
+    protected Set<Integer> dqm;
 
     public abstract boolean a(Bitmap bitmap, Rect rect);
 
@@ -21,22 +21,22 @@ public abstract class a {
         return rect.top < rect.bottom && rect.bottom <= bitmap.getHeight() && rect.left < rect.right && rect.right <= bitmap.getWidth();
     }
 
-    public void io(int i) {
-        if (this.doK == null) {
-            this.doK = new TreeSet();
+    public void ip(int i) {
+        if (this.dqm == null) {
+            this.dqm = new TreeSet();
         } else {
-            this.doK.clear();
+            this.dqm.clear();
         }
         if (DEBUG) {
             Log.d("ErrorPageParser", "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
         }
-        this.doK.add(Integer.valueOf(i));
+        this.dqm.add(Integer.valueOf(i));
     }
 
     /* renamed from: com.baidu.swan.apps.y.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0482a {
-        public static a pY(String str) {
+    /* loaded from: classes8.dex */
+    public static class C0488a {
+        public static a qf(String str) {
             return b(str, 0.5d);
         }
 

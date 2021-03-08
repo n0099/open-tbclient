@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetCardByCategory.DataReq;
 import tbclient.GetCardByCategory.GetCardByCategoryReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PersonalCardCategoryRequest extends NetMessage {
     private int pn;
     private int rn;

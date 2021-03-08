@@ -1,15 +1,9 @@
 package com.win.opensdk;
+/* loaded from: classes14.dex */
+public interface bh {
+    void a();
 
-import com.win.opensdk.core.Info;
-import java.util.List;
-/* loaded from: classes3.dex */
-public final class bh {
+    void a(int i, String str);
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f13728a;
-
-    /* renamed from: case  reason: not valid java name */
-    public String f25case;
-    public String java;
-    public List<Info> qkr;
+    void a(Object obj);
 }

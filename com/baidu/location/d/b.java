@@ -11,10 +11,8 @@ import java.util.Locale;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2623a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f2624b = null;
+    public String f1964a = null;
+    public String b = null;
     public String c = null;
     private boolean j = false;
     private static b i = null;
@@ -80,15 +78,15 @@ public class b {
                 stringBuffer.append(j);
             }
         }
-        if (this.f2624b == null) {
+        if (this.b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(this.f2623a);
+            stringBuffer.append(this.f1964a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(this.f2624b);
-            if (this.f2623a != null && !this.f2623a.equals("NULL") && !this.f2624b.contains(new StringBuffer(this.f2623a).reverse().toString())) {
+            stringBuffer.append(this.b);
+            if (this.f1964a != null && !this.f1964a.equals("NULL") && !this.b.contains(new StringBuffer(this.f1964a).reverse().toString())) {
                 stringBuffer.append("&Aim=");
-                stringBuffer.append(this.f2623a);
+                stringBuffer.append(this.f1964a);
             }
         }
         if (this.c != null) {
@@ -100,10 +98,10 @@ public class b {
         stringBuffer.append("&lt=1");
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
-        String b2 = j.b();
-        if (b2 != null) {
+        String b = j.b();
+        if (b != null) {
             stringBuffer.append("&laip=");
-            stringBuffer.append(b2);
+            stringBuffer.append(b);
         }
         float d2 = n.a().d();
         if (d2 != 0.0f) {
@@ -130,14 +128,14 @@ public class b {
             return;
         }
         try {
-            this.f2623a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            this.f1964a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
         } catch (Exception e2) {
-            this.f2623a = "NULL";
+            this.f1964a = "NULL";
         }
         try {
-            this.f2624b = CommonParam.a(context);
+            this.b = CommonParam.a(context);
         } catch (Exception e3) {
-            this.f2624b = null;
+            this.b = null;
         }
         try {
             this.c = com.baidu.android.bbalbs.common.util.b.c(context);
@@ -149,7 +147,7 @@ public class b {
         } catch (Exception e5) {
             d = null;
         }
-        j.o = "" + this.f2624b;
+        j.o = "" + this.b;
         this.j = true;
     }
 

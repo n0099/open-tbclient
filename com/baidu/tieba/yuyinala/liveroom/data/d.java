@@ -1,16 +1,16 @@
 package com.baidu.tieba.yuyinala.liveroom.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
     public int clarity;
     public String forumId;
     public String forumName;
     public String gameId;
     public String gameName;
-    public boolean hBS;
-    public boolean hBT;
-    public String hBU;
-    public boolean hBV;
-    public boolean hBW;
-    public boolean hBX;
+    public boolean hDB;
+    public boolean hDC;
+    public String hDD;
+    public boolean hDE;
+    public boolean hDF;
+    public boolean hDG;
     public String title;
 }

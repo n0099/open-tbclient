@@ -11,10 +11,8 @@ public final class a {
     public static OnCrashExceedListener Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1689a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f1690b = "alpha";
+    public static String f1374a = "";
+    public static String b = "alpha";
     public static String c = null;
     public static String d = "UNSET";
     public static int e = 10;

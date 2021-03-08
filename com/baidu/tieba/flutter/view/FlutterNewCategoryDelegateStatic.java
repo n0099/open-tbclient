@@ -27,7 +27,7 @@ import com.baidu.tbadk.mainTab.d;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.flutter.util.OpenFlutter;
 import com.idlefish.flutterboost.containers.FlutterFragment;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class FlutterNewCategoryDelegateStatic extends b {
     private Boolean isNew = false;
     private CustomMessageListener mChannelDataGetListener = new CustomMessageListener(2921493) { // from class: com.baidu.tieba.flutter.view.FlutterNewCategoryDelegateStatic.1
@@ -96,13 +96,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.kD().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.fHv = this.mIndicator;
+        aVar.fIU = this.mIndicator;
         aVar.offsetX = com.baidu.adp.lib.util.l.dip2px(context, 10.0f);
         aVar.view = this.tipView;
         this.mIndicator.b("emotion", aVar);
         this.tipView.refresh(0);
         if (this.mFinalData != null) {
-            if (this.mFinalData.bwn() == l.fqE) {
+            if (this.mFinalData.bwq() == l.fsf) {
                 this.tipView.setVisibility(0);
             } else {
                 this.tipView.setVisibility(8);
@@ -115,12 +115,12 @@ public class FlutterNewCategoryDelegateStatic extends b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadStatus() {
-        this.mFinalData = TbSingleton.getInstance().getChannelConfigModel().byD();
+        this.mFinalData = TbSingleton.getInstance().getChannelConfigModel().byG();
         if (this.mFinalData != null) {
-            if (this.mFinalData.bwn() == l.fqF) {
+            if (this.mFinalData.bwq() == l.fsg) {
                 if (!TextUtils.isEmpty(this.mFinalData.getIcon())) {
                     final c cVar = new c();
-                    cVar.fHc = this.mFinalData.getIcon();
+                    cVar.fIB = this.mFinalData.getIcon();
                     cVar.type = 21;
                     if (!TextUtils.isEmpty(this.mFinalData.getPopText())) {
                         cVar.text = this.mFinalData.getPopText();
@@ -132,12 +132,12 @@ public class FlutterNewCategoryDelegateStatic extends b {
                         }
                     }, 2000L);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().qw(l.fqF);
-            } else if (this.mFinalData.bwn() == l.fqE) {
+                TbSingleton.getInstance().getChannelConfigModel().qx(l.fsg);
+            } else if (this.mFinalData.bwq() == l.fsf) {
                 if (this.tipView != null) {
                     this.tipView.setVisibility(0);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().qw(l.fqE);
+                TbSingleton.getInstance().getChannelConfigModel().qx(l.fsf);
             } else if (this.tipView != null) {
                 this.tipView.setVisibility(8);
             }

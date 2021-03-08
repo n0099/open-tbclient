@@ -18,7 +18,7 @@ import com.yy.mediaframework.inteligence.resolution.ResolutionModifyListener;
 import com.yy.mediaframework.model.YYMediaSample;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoLiveQualityFilter extends AbstractVideoLiveQualityFilter {
     protected static final int mCodeRateNotifyInterval = 3000;
     VideoLiveFilterContext mFilterContext;

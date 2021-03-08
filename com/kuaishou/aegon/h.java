@@ -4,12 +4,12 @@ import aegon.chrome.net.RequestFinishedInfo;
 /* loaded from: classes3.dex */
 final /* synthetic */ class h implements Runnable {
     private final String c;
-    private final f pYq;
-    private final RequestFinishedInfo pYr;
+    private final f pZe;
+    private final RequestFinishedInfo pZf;
 
     private h(f fVar, RequestFinishedInfo requestFinishedInfo, String str) {
-        this.pYq = fVar;
-        this.pYr = requestFinishedInfo;
+        this.pZe = fVar;
+        this.pZf = requestFinishedInfo;
         this.c = str;
     }
 
@@ -19,6 +19,6 @@ final /* synthetic */ class h implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.pYq.a(this.pYr, this.c);
+        this.pZe.a(this.pZf, this.c);
     }
 }

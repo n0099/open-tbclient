@@ -1,5 +1,5 @@
 package com.yy.mediaframework.gles;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IEglSurfaceBase {
     void createOffscreenSurface(int i, int i2);
 

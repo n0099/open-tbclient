@@ -4,13 +4,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernEmptyViewHolder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.e, LiveTabConcernEmptyViewHolder> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.gCD);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.gEm);
         this.mPageContext = tbPageContext;
     }
 
@@ -26,10 +26,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.special_forum.data.e eVar, LiveTabConcernEmptyViewHolder liveTabConcernEmptyViewHolder) {
-        if (liveTabConcernEmptyViewHolder == null || liveTabConcernEmptyViewHolder.gDa == null) {
+        if (liveTabConcernEmptyViewHolder == null || liveTabConcernEmptyViewHolder.gEJ == null) {
             return null;
         }
-        liveTabConcernEmptyViewHolder.gDa.a(eVar);
+        liveTabConcernEmptyViewHolder.gEJ.a(eVar);
         return liveTabConcernEmptyViewHolder.getView();
     }
 }

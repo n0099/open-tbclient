@@ -3,7 +3,7 @@ package com.yy.mediaframework.decoder;
 import androidx.annotation.NonNull;
 import com.yy.mediaframework.decoder.OMXDecoderRank;
 import com.yy.mediaframework.model.DecodeVideoSample;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class H264HardwareDecoder extends BaseHardwareDecoder {
     private static final String MIME = "video/avc";
     static String codeName;

@@ -1,6 +1,6 @@
 package com.opensource.svgaplayer.b;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
     private final float value;
     private final float x;

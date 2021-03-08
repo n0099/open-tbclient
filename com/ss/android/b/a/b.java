@@ -11,5 +11,5 @@ public interface b {
 
     boolean a(Context context, long j, String str, d dVar, int i);
 
-    boolean a(Context context, Uri uri, c cVar);
+    boolean a(Context context, Uri uri, c cVar, com.ss.android.a.a.b.b bVar, com.ss.android.a.a.b.a aVar);
 }

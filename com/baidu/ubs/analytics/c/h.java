@@ -6,46 +6,46 @@ import android.os.Bundle;
 import com.baidu.ubs.analytics.c.a;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a oUB;
+    private a oWG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.oUB = aVar;
+        this.oWG = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.oUB.eik()) {
-            for (a.InterfaceC0953a interfaceC0953a : this.oUB.eik()) {
-                interfaceC0953a.T();
+        synchronized (this.oWG.eit()) {
+            for (a.InterfaceC0959a interfaceC0959a : this.oWG.eit()) {
+                interfaceC0959a.T();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.oUB.eik()) {
-            for (a.InterfaceC0953a interfaceC0953a : this.oUB.eik()) {
-                interfaceC0953a.U();
+        synchronized (this.oWG.eit()) {
+            for (a.InterfaceC0959a interfaceC0959a : this.oWG.eit()) {
+                interfaceC0959a.U();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.oUB.eik()) {
-            for (a.InterfaceC0953a interfaceC0953a : this.oUB.eik()) {
-                interfaceC0953a.a(activity);
+        synchronized (this.oWG.eit()) {
+            for (a.InterfaceC0959a interfaceC0959a : this.oWG.eit()) {
+                interfaceC0959a.a(activity);
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.oUB.eik()) {
-            Iterator<a.InterfaceC0953a> it = this.oUB.eik().iterator();
+        synchronized (this.oWG.eit()) {
+            Iterator<a.InterfaceC0959a> it = this.oWG.eit().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.oUB.eik()) {
-            Iterator<a.InterfaceC0953a> it = this.oUB.eik().iterator();
+        synchronized (this.oWG.eit()) {
+            Iterator<a.InterfaceC0959a> it = this.oWG.eit().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.oUB.eik()) {
-            Iterator<a.InterfaceC0953a> it = this.oUB.eik().iterator();
+        synchronized (this.oWG.eit()) {
+            Iterator<a.InterfaceC0959a> it = this.oWG.eit().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,9 +74,9 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.oUB.eik()) {
-            for (a.InterfaceC0953a interfaceC0953a : this.oUB.eik()) {
-                interfaceC0953a.onActivityDestroyed(activity);
+        synchronized (this.oWG.eit()) {
+            for (a.InterfaceC0959a interfaceC0959a : this.oWG.eit()) {
+                interfaceC0959a.onActivityDestroyed(activity);
             }
         }
     }

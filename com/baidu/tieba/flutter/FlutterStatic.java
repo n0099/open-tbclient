@@ -27,7 +27,7 @@ import com.idlefish.flutterboost.interfaces.INativeRouter;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class FlutterStatic {
     static {
         initFlutter();
@@ -99,7 +99,7 @@ public class FlutterStatic {
                 return null;
             }
         }));
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.flutter.FlutterStatic.5
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

@@ -4,48 +4,48 @@ import android.app.Activity;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.live.talentshow.components.b.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private FrameLayout bBH;
-    private a bDp;
+    private FrameLayout bDh;
+    private a bEP;
 
-    public b(Activity activity, a.InterfaceC0201a interfaceC0201a) {
-        this.bDp = new a(activity, interfaceC0201a);
+    public b(Activity activity, a.InterfaceC0207a interfaceC0207a) {
+        this.bEP = new a(activity, interfaceC0207a);
     }
 
     public void a(View view, int i, long j, boolean z, boolean z2) {
         if (i == 0) {
-            this.bDp.aa(view);
+            this.bEP.aa(view);
         } else if (i == 1) {
-            this.bDp.a(view, z, j, z2);
+            this.bEP.a(view, z, j, z2);
         } else if (i == 2) {
-            this.bDp.b(view, z, j, z2);
+            this.bEP.b(view, z, j, z2);
         }
     }
 
-    public void ef(int i) {
+    public void eg(int i) {
         if (i == 0) {
-            this.bDp.RW();
+            this.bEP.RZ();
         } else if (i == 1) {
-            this.bDp.RU();
+            this.bEP.RX();
         } else if (i == 2) {
-            this.bDp.RV();
+            this.bEP.RY();
         }
     }
 
-    public void RX() {
-        this.bDp.release();
+    public void Sa() {
+        this.bEP.release();
     }
 
-    public void RY() {
-        this.bDp.c(this.bBH);
+    public void Sb() {
+        this.bEP.c(this.bDh);
     }
 
     public void a(int i, long j, boolean z, boolean z2) {
-        this.bDp.a(i, j, z, z2);
+        this.bEP.a(i, j, z, z2);
     }
 
     public void d(FrameLayout frameLayout) {
-        this.bBH = frameLayout;
+        this.bDh = frameLayout;
     }
 }

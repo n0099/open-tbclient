@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.data.AlaUserInfoData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public int aOY;
-    public int aOZ;
-    public AlaUserInfoData hlc;
+    public int aQy;
+    public int aQz;
+    public AlaUserInfoData hmL;
     public String intro;
     private int isFriend;
     public String liveId;
@@ -35,12 +35,12 @@ public class a {
             this.liveId = jSONObject.optString("live_id");
             this.intro = jSONObject.optString("intro");
             this.live_status = jSONObject.optInt("live_status");
-            this.aOY = jSONObject.optInt("live_id");
+            this.aQy = jSONObject.optInt("live_id");
             this.isFriend = jSONObject.optInt("is_friend");
-            this.aOZ = jSONObject.optInt("has_concerned");
+            this.aQz = jSONObject.optInt("has_concerned");
             if (jSONObject.optJSONObject("ala_info") != null) {
-                this.hlc = new AlaUserInfoData();
-                this.hlc.parserJson(jSONObject.optJSONObject("ala_info"));
+                this.hmL = new AlaUserInfoData();
+                this.hmL.parserJson(jSONObject.optJSONObject("ala_info"));
             }
         }
     }
@@ -49,7 +49,7 @@ public class a {
         return TextUtils.isEmpty(this.name_show) ? this.userName : this.name_show;
     }
 
-    public boolean bYx() {
-        return this.aOZ != 0;
+    public boolean bYD() {
+        return this.aQz != 0;
     }
 }

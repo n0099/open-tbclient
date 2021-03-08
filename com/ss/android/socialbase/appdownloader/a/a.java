@@ -6,22 +6,20 @@ import android.util.Log;
 public abstract class a implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Context f13009a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected final String f13010b;
+    protected final Context f7743a;
+    protected final String b;
 
     public a(Context context, String str) {
-        this.f13009a = context;
-        this.f13010b = str;
+        this.f7743a = context;
+        this.b = str;
     }
 
     public boolean a() {
-        if (this.f13009a == null) {
+        if (this.f7743a == null) {
             return false;
         }
         try {
-            return b().resolveActivity(this.f13009a.getPackageManager()) != null;
+            return b().resolveActivity(this.f7743a.getPackageManager()) != null;
         } catch (Throwable th) {
             if (com.ss.android.socialbase.downloader.f.a.a()) {
                 Log.e("AbsDevicePlan", "check is valid failed!", th);

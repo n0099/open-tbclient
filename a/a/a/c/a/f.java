@@ -3,7 +3,7 @@ package a.a.a.c.a;
 import android.content.Context;
 import dalvik.system.DexFile;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class f implements b {
     public Class a() {
         try {
@@ -20,23 +20,23 @@ public class f implements b {
 
     @Override // a.a.a.c.a.b
     public void a(Context context, File file) {
-        Object b2 = c.b(context.getClassLoader(), "pathList");
+        Object b = c.b(context.getClassLoader(), "pathList");
         Class a2 = a();
         if (a2 != null) {
-            Object[] objArr = (Object[]) c.b(b2, "nativeLibraryPathElements");
+            Object[] objArr = (Object[]) c.b(b, "nativeLibraryPathElements");
             Object a3 = a(a2, file);
             if (objArr == null || a3 == null) {
                 return;
             }
-            c.a(b2, "nativeLibraryPathElements", c.a(a2, objArr, a3));
+            c.a(b, "nativeLibraryPathElements", c.a(a2, objArr, a3));
         }
     }
 
     @Override // a.a.a.c.a.b
     public boolean d(Context context, File file) {
-        Object b2 = c.b(context.getClassLoader(), "pathList");
+        Object b = c.b(context.getClassLoader(), "pathList");
         if (a() != null) {
-            for (Object obj : (Object[]) c.b(b2, "nativeLibraryPathElements")) {
+            for (Object obj : (Object[]) c.b(b, "nativeLibraryPathElements")) {
                 if (obj.toString().contains(file.toString())) {
                     return true;
                 }

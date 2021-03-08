@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class z {
-    private String aIt;
-    private String aIu;
-    private String aIv;
-    private String aIw;
-    private List<an> aIx;
+    private String aJT;
+    private String aJU;
+    private String aJV;
+    private String aJW;
+    private List<an> aJX;
     private String action;
     private String id;
     private String userId;
 
-    public static z z(JSONObject jSONObject) {
+    public static z B(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -25,58 +25,58 @@ public class z {
         zVar.action = jSONObject.optString("action");
         zVar.id = jSONObject.optString("id");
         zVar.userId = jSONObject.optString("user_id");
-        zVar.aIu = jSONObject.optString("toast_text");
-        zVar.aIv = jSONObject.optString("chosen_color_start", "#7C11FF");
-        zVar.aIw = jSONObject.optString("chosen_color_end", "#FF3656");
-        zVar.aIt = jSONObject.optString(AppActivityImp.EXTRA_LP_THEME);
+        zVar.aJU = jSONObject.optString("toast_text");
+        zVar.aJV = jSONObject.optString("chosen_color_start", "#7C11FF");
+        zVar.aJW = jSONObject.optString("chosen_color_end", "#FF3656");
+        zVar.aJT = jSONObject.optString(AppActivityImp.EXTRA_LP_THEME);
         JSONArray optJSONArray = jSONObject.optJSONArray("session_conf");
         if (optJSONArray != null && optJSONArray.length() > 0) {
-            zVar.aIx = new ArrayList();
+            zVar.aJX = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 an anVar = new an();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 anVar.imageUrl = optJSONObject.optString("img");
-                anVar.aJU = optJSONObject.optString("btn_text");
+                anVar.aLu = optJSONObject.optString("btn_text");
                 anVar.url = optJSONObject.optString("session_info");
-                anVar.startColor = zVar.aIv;
-                anVar.endColor = zVar.aIw;
-                zVar.aIx.add(anVar);
+                anVar.startColor = zVar.aJV;
+                anVar.endColor = zVar.aJW;
+                zVar.aJX.add(anVar);
             }
             return zVar;
         }
         return zVar;
     }
 
-    public boolean BU() {
-        return (this.aIx == null || this.aIx.isEmpty()) ? false : true;
+    public boolean BX() {
+        return (this.aJX == null || this.aJX.isEmpty()) ? false : true;
     }
 
-    public List<an> BV() {
-        return this.aIx;
+    public List<an> BY() {
+        return this.aJX;
     }
 
     public String getAction() {
         return this.action;
     }
 
-    public String BW() {
-        return this.aIw;
+    public String BZ() {
+        return this.aJW;
     }
 
-    public String BX() {
-        return this.aIv;
+    public String Ca() {
+        return this.aJV;
     }
 
-    public String BY() {
-        return this.aIu;
+    public String Cb() {
+        return this.aJU;
     }
 
-    public boolean fw(String str) {
+    public boolean fC(String str) {
         return !TextUtils.isEmpty(this.action) && this.action.equals(str);
     }
 
-    public boolean fx(String str) {
+    public boolean fD(String str) {
         return !TextUtils.isEmpty(this.id) && this.id.equals(str);
     }
 
@@ -85,6 +85,6 @@ public class z {
     }
 
     public String toString() {
-        return "AlaLiveMultiSession{id='" + this.id + "', userId='" + this.userId + "', theme='" + this.aIt + "', action='" + this.action + "', toastText='" + this.aIu + "', choseColorStart='" + this.aIv + "', choseColorEnd='" + this.aIw + "', sessionList=" + this.aIx + '}';
+        return "AlaLiveMultiSession{id='" + this.id + "', userId='" + this.userId + "', theme='" + this.aJT + "', action='" + this.action + "', toastText='" + this.aJU + "', choseColorStart='" + this.aJV + "', choseColorEnd='" + this.aJW + "', sessionList=" + this.aJX + '}';
     }
 }

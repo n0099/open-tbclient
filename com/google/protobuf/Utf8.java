@@ -1,5 +1,5 @@
 package com.google.protobuf;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class Utf8 {
     public static final int COMPLETE = 0;
     public static final int MALFORMED = -1;
@@ -25,61 +25,61 @@ final class Utf8 {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static int partialIsValidUtf8(int i, byte[] bArr, int i2, int i3) {
-        byte b2;
+        byte b;
         int i4;
         int i5;
         int i6;
         if (i != 0) {
             if (i2 < i3) {
-                byte b3 = (byte) i;
-                if (b3 < -32) {
-                    if (b3 >= -62) {
+                byte b2 = (byte) i;
+                if (b2 < -32) {
+                    if (b2 >= -62) {
                         int i7 = i2 + 1;
                         if (bArr[i2] <= -65) {
                             i2 = i7;
                         }
                     }
                     return -1;
-                } else if (b3 < -16) {
-                    byte b4 = (byte) ((i >> 8) ^ (-1));
-                    if (b4 == 0) {
+                } else if (b2 < -16) {
+                    byte b3 = (byte) ((i >> 8) ^ (-1));
+                    if (b3 == 0) {
                         i6 = i2 + 1;
-                        b4 = bArr[i2];
+                        b3 = bArr[i2];
                         if (i6 >= i3) {
-                            return incompleteStateFor(b3, b4);
+                            return incompleteStateFor(b2, b3);
                         }
                     } else {
                         i6 = i2;
                     }
-                    if (b4 <= -65 && ((b3 != -32 || b4 >= -96) && (b3 != -19 || b4 < -96))) {
+                    if (b3 <= -65 && ((b2 != -32 || b3 >= -96) && (b2 != -19 || b3 < -96))) {
                         i2 = i6 + 1;
                     }
                     return -1;
                 } else {
-                    byte b5 = (byte) ((i >> 8) ^ (-1));
-                    byte b6 = 0;
-                    if (b5 == 0) {
+                    byte b4 = (byte) ((i >> 8) ^ (-1));
+                    byte b5 = 0;
+                    if (b4 == 0) {
                         i4 = i2 + 1;
-                        byte b7 = bArr[i2];
+                        byte b6 = bArr[i2];
                         if (i4 >= i3) {
-                            return incompleteStateFor(b3, b7);
+                            return incompleteStateFor(b2, b6);
                         }
-                        b2 = b7;
+                        b = b6;
                     } else {
-                        b6 = (byte) (i >> 16);
-                        b2 = b5;
+                        b5 = (byte) (i >> 16);
+                        b = b4;
                         i4 = i2;
                     }
-                    if (b6 == 0) {
+                    if (b5 == 0) {
                         i5 = i4 + 1;
-                        b6 = bArr[i4];
+                        b5 = bArr[i4];
                         if (i5 >= i3) {
-                            return incompleteStateFor(b3, b2, b6);
+                            return incompleteStateFor(b2, b, b5);
                         }
                     } else {
                         i5 = i4;
                     }
-                    if (b2 <= -65 && (((b3 << 28) + (b2 + 112)) >> 30) == 0 && b6 <= -65) {
+                    if (b <= -65 && (((b2 << 28) + (b + 112)) >> 30) == 0 && b5 <= -65) {
                         i2 = i5 + 1;
                     }
                     return -1;
@@ -104,25 +104,25 @@ final class Utf8 {
         int i3;
         while (i < i2) {
             int i4 = i + 1;
-            byte b2 = bArr[i];
-            if (b2 < 0) {
-                if (b2 < -32) {
+            byte b = bArr[i];
+            if (b < 0) {
+                if (b < -32) {
                     if (i4 < i2) {
-                        if (b2 >= -62) {
+                        if (b >= -62) {
                             i3 = i4 + 1;
                             if (bArr[i4] > -65) {
                             }
                         }
                         return -1;
                     }
-                    return b2;
-                } else if (b2 < -16) {
+                    return b;
+                } else if (b < -16) {
                     if (i4 >= i2 - 1) {
                         return incompleteStateFor(bArr, i4, i2);
                     }
                     int i5 = i4 + 1;
-                    byte b3 = bArr[i4];
-                    if (b3 <= -65 && ((b2 != -32 || b3 >= -96) && (b2 != -19 || b3 < -96))) {
+                    byte b2 = bArr[i4];
+                    if (b2 <= -65 && ((b != -32 || b2 >= -96) && (b != -19 || b2 < -96))) {
                         i3 = i5 + 1;
                         if (bArr[i5] > -65) {
                         }
@@ -132,8 +132,8 @@ final class Utf8 {
                     return incompleteStateFor(bArr, i4, i2);
                 } else {
                     int i6 = i4 + 1;
-                    byte b4 = bArr[i4];
-                    if (b4 <= -65 && (((b2 << 28) + (b4 + 112)) >> 30) == 0) {
+                    byte b3 = bArr[i4];
+                    if (b3 <= -65 && (((b << 28) + (b3 + 112)) >> 30) == 0) {
                         int i7 = i6 + 1;
                         if (bArr[i6] <= -65) {
                             i3 = i7 + 1;
@@ -173,14 +173,14 @@ final class Utf8 {
     }
 
     private static int incompleteStateFor(byte[] bArr, int i, int i2) {
-        byte b2 = bArr[i - 1];
+        byte b = bArr[i - 1];
         switch (i2 - i) {
             case 0:
-                return incompleteStateFor(b2);
+                return incompleteStateFor(b);
             case 1:
-                return incompleteStateFor(b2, bArr[i]);
+                return incompleteStateFor(b, bArr[i]);
             case 2:
-                return incompleteStateFor(b2, bArr[i], bArr[i + 1]);
+                return incompleteStateFor(b, bArr[i], bArr[i + 1]);
             default:
                 throw new AssertionError();
         }

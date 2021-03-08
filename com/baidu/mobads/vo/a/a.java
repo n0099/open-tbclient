@@ -15,14 +15,12 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f3520a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f3521b;
+    public long f2503a;
+    public String b;
     public String c;
     public String d;
     public String e;
@@ -35,32 +33,30 @@ public abstract class a {
     protected Context l;
     protected h m;
     protected IXAdSystemUtils n;
-    private C0267a o;
+    private C0273a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0267a {
+    /* loaded from: classes4.dex */
+    public static class C0273a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3522a;
-
-        /* renamed from: b  reason: collision with root package name */
-        String f3523b;
+        String f2504a;
+        String b;
         String c;
         String d;
         String e;
 
-        public C0267a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
-            this.f3522a = "";
-            this.f3523b = "";
+        public C0273a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+            this.f2504a = "";
+            this.b = "";
             this.c = "";
             this.d = "";
             this.e = "";
             if (iXAdInstanceInfo != null) {
-                this.f3522a = iXAdInstanceInfo.getAdId();
-                this.f3523b = iXAdInstanceInfo.getQueryKey();
+                this.f2504a = iXAdInstanceInfo.getAdId();
+                this.b = iXAdInstanceInfo.getQueryKey();
                 this.d = iXAdInstanceInfo.getCreativeType().getValue();
             }
             if (iXAdProdInfo != null) {
@@ -70,14 +66,14 @@ public abstract class a {
         }
     }
 
-    public a(C0267a c0267a) {
-        this(c0267a.f3522a, c0267a.f3523b, c0267a.c);
-        this.o = c0267a;
+    public a(C0273a c0273a) {
+        this(c0273a.f2504a, c0273a.b, c0273a.c);
+        this.o = c0273a;
     }
 
     @Deprecated
     public a(String str, String str2, String str3) {
-        this.f3521b = "-1";
+        this.b = "-1";
         this.c = "";
         this.d = "";
         this.e = "";
@@ -90,8 +86,8 @@ public abstract class a {
         this.m = XAdSDKFoundationFacade.getInstance().getCommonUtils();
         this.n = XAdSDKFoundationFacade.getInstance().getSystemUtils();
         this.l = XAdSDKFoundationFacade.getInstance().getApplicationContext();
-        this.f3520a = System.currentTimeMillis();
-        this.f3521b = str;
+        this.f2503a = System.currentTimeMillis();
+        this.b = str;
         this.c = str2;
         this.e = this.m.getAppSec(this.l);
         if (this.l != null) {
@@ -107,13 +103,13 @@ public abstract class a {
 
     protected HashMap<String, String> a() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("adid", this.f3521b);
+        hashMap.put("adid", this.b);
         hashMap.put("appsec", this.e);
         hashMap.put("appsid", this.f);
         hashMap.put("pack", this.d);
         hashMap.put("qk", this.c);
         hashMap.put(IXAdRequestInfo.SN, this.h);
-        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, "" + this.f3520a);
+        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, "" + this.f2503a);
         hashMap.put("v", this.g);
         hashMap.put("os", this.i);
         hashMap.put("prod", this.j);
@@ -128,9 +124,9 @@ public abstract class a {
 
     public HashMap<String, String> c() {
         HashMap<String, String> a2 = a();
-        HashMap<String, String> b2 = b();
-        if (b2 != null) {
-            a2.putAll(b2);
+        HashMap<String, String> b = b();
+        if (b != null) {
+            a2.putAll(b);
         }
         return a2;
     }

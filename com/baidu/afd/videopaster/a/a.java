@@ -9,22 +9,22 @@ import com.baidu.afd.videopaster.data.VideoPasterResponseData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0027a abo;
-    private VideoPasterResponseData abp;
+    private InterfaceC0033a acL;
+    private VideoPasterResponseData acM;
     private boolean isLoading;
-    private final HttpMessageListener aaA = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST) { // from class: com.baidu.afd.videopaster.a.a.1
+    private final HttpMessageListener abU = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST) { // from class: com.baidu.afd.videopaster.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             a.this.isLoading = false;
-            a.this.abp = (VideoPasterResponseData) httpResponsedMessage;
+            a.this.acM = (VideoPasterResponseData) httpResponsedMessage;
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003431) {
                 if (httpResponsedMessage instanceof VideoPasterResponseData) {
-                    if (a.this.abo != null) {
-                        a.this.abo.b(((VideoPasterResponseData) httpResponsedMessage).getPasterData());
+                    if (a.this.acL != null) {
+                        a.this.acL.b(((VideoPasterResponseData) httpResponsedMessage).getPasterData());
                     }
-                } else if (a.this.abo != null) {
-                    a.this.abo.e(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (a.this.acL != null) {
+                    a.this.acL.e(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -33,16 +33,16 @@ public class a {
 
     /* renamed from: com.baidu.afd.videopaster.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0027a {
+    public interface InterfaceC0033a {
         void b(com.baidu.afd.videopaster.data.a aVar);
 
         void e(int i, String str);
     }
 
     public a() {
-        this.aaA.setSelfListener(true);
-        this.aaA.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.aaA);
+        this.abU.setSelfListener(true);
+        this.abU.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.abU);
     }
 
     public void a(VideoPasterRequestData videoPasterRequestData) {
@@ -62,7 +62,7 @@ public class a {
     public void reset() {
         cancelRequest();
         this.isLoading = false;
-        this.abp = null;
+        this.acM = null;
     }
 
     public boolean isLoading() {
@@ -70,19 +70,19 @@ public class a {
     }
 
     public VideoPasterResponseData rz() {
-        return this.abp;
+        return this.acM;
     }
 
-    public void a(InterfaceC0027a interfaceC0027a) {
-        this.abo = interfaceC0027a;
+    public void a(InterfaceC0033a interfaceC0033a) {
+        this.acL = interfaceC0033a;
     }
 
     public void onDestroy() {
-        if (this.aaA != null) {
-            MessageManager.getInstance().unRegisterListener(this.aaA);
+        if (this.abU != null) {
+            MessageManager.getInstance().unRegisterListener(this.abU);
         }
-        if (this.abo != null) {
-            this.abo = null;
+        if (this.acL != null) {
+            this.acL = null;
         }
     }
 }

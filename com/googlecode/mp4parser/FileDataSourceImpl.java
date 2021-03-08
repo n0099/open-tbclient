@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FileDataSourceImpl implements DataSource {
     FileChannel fc;
 

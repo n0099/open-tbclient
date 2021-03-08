@@ -1,10 +1,10 @@
 package com.yy.mediaframework.utils;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class H264Helper {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class H264Sps {
         int mHeight;
         int mNFps;

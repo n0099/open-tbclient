@@ -22,10 +22,8 @@ import java.util.TimeZone;
 public class a implements b<String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1907a = "Host";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f1908b = "Accept";
+    public static final String f1513a = "Host";
+    private static final String b = "Accept";
     private static final String c = "Accept-Charset";
     private static final String d = "Accept-Encoding";
     private static final String e = "Accept-Language";
@@ -88,11 +86,11 @@ public class a implements b<String, String> {
     }
 
     public String a() {
-        return c(f1908b);
+        return c(b);
     }
 
     public void a(String str) {
-        a(f1908b, str);
+        a(b, str);
     }
 
     public List<Charset> b() {

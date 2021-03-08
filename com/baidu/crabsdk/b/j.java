@@ -18,12 +18,12 @@ public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
         JSONObject jSONObject;
         try {
-            byte[] dS = com.baidu.crabsdk.sender.i.dS(str);
-            if (dS == null || dS.length == 0) {
+            byte[] dY = com.baidu.crabsdk.sender.i.dY(str);
+            if (dY == null || dY.length == 0) {
                 onUploadFilesCallback.onFailed("Read file error!");
                 jSONObject = null;
             } else {
-                String encodeToString = Base64.encodeToString(dS, 0);
+                String encodeToString = Base64.encodeToString(dY, 0);
                 jSONObject = a(str2, str3, str4);
                 jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, 1);
                 jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
@@ -53,14 +53,14 @@ public final class j {
             jSONObject.put("batVN", "7.5.1");
             jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
             jSONObject.put("isRoot", q.N());
-            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.J());
-            jSONObject.put("appLabel", p.K());
+            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.up());
+            jSONObject.put("appLabel", p.uq());
             if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
                 jSONObject.put("appVN", p.L());
             } else {
                 jSONObject.put("appVN", com.baidu.crabsdk.a.o);
             }
-            jSONObject.put("appVC", p.up());
+            jSONObject.put("appVC", p.ur());
             jSONObject.put("model", Build.MODEL);
             jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject.put("os", "Android");
@@ -70,7 +70,7 @@ public final class j {
             jSONObject.put("curPage", a.r());
             jSONObject.put("locale", i.B());
             jSONObject.put("cuid", h.z());
-            jSONObject.put("channel", com.baidu.crabsdk.a.f1690b);
+            jSONObject.put("channel", com.baidu.crabsdk.a.b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);

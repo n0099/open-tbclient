@@ -17,7 +17,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     private static final String TAG = "UbcPerfFrameRegister";
     private static final int UI_TRACE_MAX_SIZE = 20;
@@ -110,7 +110,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
             }
             ab abVar = (ab) c.a(ab.SERVICE_REFERENCE);
             if (abVar != null) {
-                Log.d(TAG, "ubc isDebug: " + abVar.ehW());
+                Log.d(TAG, "ubc isDebug: " + abVar.eie());
                 Log.d(TAG, "content: " + jSONObject.toString());
                 abVar.onEvent(perfExpInfo.getUbcId(), jSONObject);
             }

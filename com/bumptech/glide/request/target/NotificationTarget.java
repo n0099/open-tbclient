@@ -4,14 +4,15 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.widget.RemoteViews;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.util.io.ActionJsonData;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes15.dex */
-public class NotificationTarget extends SimpleTarget<Bitmap> {
+/* loaded from: classes14.dex */
+public class NotificationTarget extends CustomTarget<Bitmap> {
     private final Context context;
     private final Notification notification;
     private final int notificationId;
@@ -47,6 +48,15 @@ public class NotificationTarget extends SimpleTarget<Bitmap> {
     }
 
     public void onResourceReady(@NonNull Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
+        setBitmap(bitmap);
+    }
+
+    @Override // com.bumptech.glide.request.target.Target
+    public void onLoadCleared(@Nullable Drawable drawable) {
+        setBitmap(null);
+    }
+
+    private void setBitmap(@Nullable Bitmap bitmap) {
         this.remoteViews.setImageViewBitmap(this.viewId, bitmap);
         update();
     }

@@ -32,12 +32,12 @@ public class a {
         if (stackTraceElementArr == null || stackTraceElementArr.length == 0) {
             return false;
         }
-        String[] b2 = d.a().b();
-        if (b2 == null || b2.length == 0) {
+        String[] b = d.a().b();
+        if (b == null || b.length == 0) {
             return true;
         }
         boolean z = false;
-        for (String str : b2) {
+        for (String str : b) {
             z = a(stackTraceElementArr, str);
             if (z) {
                 break;

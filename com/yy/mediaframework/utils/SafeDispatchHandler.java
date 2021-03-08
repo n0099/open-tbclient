@@ -3,7 +3,7 @@ package com.yy.mediaframework.utils;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SafeDispatchHandler extends Handler {
     public SafeDispatchHandler(Looper looper) {
         super(looper);

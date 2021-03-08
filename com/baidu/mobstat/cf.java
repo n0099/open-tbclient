@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import com.tencent.connect.common.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class cf extends ce {
     @Override // com.baidu.mobstat.ce, com.baidu.mobstat.cd
     public ct a(ct ctVar) {

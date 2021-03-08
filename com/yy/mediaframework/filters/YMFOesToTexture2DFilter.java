@@ -7,7 +7,7 @@ import com.yy.mediaframework.model.YYMediaSample;
 import com.yy.mediaframework.opengles.IRender;
 import com.yy.mediaframework.opengles.YMFRender;
 import com.yy.mediaframework.opengles.YMFTexture;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFOesToTexture2DFilter extends AbstractYYMediaFilter {
     private static final String TAG = "YMFOesToTexture2DFilter";
     private VideoLiveFilterContext mFilterContext;

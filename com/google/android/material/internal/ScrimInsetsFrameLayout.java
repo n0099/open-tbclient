@@ -15,7 +15,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ScrimInsetsFrameLayout extends FrameLayout {
     Drawable insetForeground;
     Rect insets;

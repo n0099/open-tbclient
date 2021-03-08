@@ -2,7 +2,7 @@ package androidx.core.util;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class Pair<F, S> {
     @Nullable
     public final F first;
@@ -31,7 +31,7 @@ public class Pair<F, S> {
     }
 
     @NonNull
-    public static <A, B> Pair<A, B> create(@Nullable A a2, @Nullable B b2) {
-        return new Pair<>(a2, b2);
+    public static <A, B> Pair<A, B> create(@Nullable A a2, @Nullable B b) {
+        return new Pair<>(a2, b);
     }
 }

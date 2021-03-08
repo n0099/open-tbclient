@@ -2,7 +2,6 @@ package com.ss.android.downloadlib.b;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.ss.android.a.a.d.b;
 import com.ss.android.downloadlib.a.b.d;
 import com.ss.android.downloadlib.a.b.e;
 import com.ss.android.downloadlib.a.j;
@@ -14,63 +13,63 @@ import org.json.JSONObject;
 public class a {
     public static boolean b(@NonNull d.a aVar) {
         e eVar;
-        b eEd = aVar.qbA.eEd();
-        String a2 = eEd == null ? null : eEd.a();
-        e aaX = f.aaX(a2);
-        if (aaX.a() == 2) {
+        com.ss.android.a.a.d.b eEi = aVar.qco.eEi();
+        String a2 = eEi == null ? null : eEi.a();
+        e abc = f.abc(a2);
+        if (abc.a() == 2) {
             if (!TextUtils.isEmpty(a2)) {
-                com.ss.android.downloadlib.e.a.eFk().a("deeplink_url_open_fail", a(a2), aVar);
+                com.ss.android.downloadlib.e.a.eFo().a("deeplink_url_open_fail", a(a2), aVar);
             }
-            eVar = f.bA(j.a(), aVar.qbA.v());
+            eVar = f.bz(j.a(), aVar.qco.v());
         } else {
-            eVar = aaX;
+            eVar = abc;
         }
-        if (a(aVar.f12940a) && j.i().optInt("link_ad_click_event", 1) == 1) {
-            com.ss.android.downloadlib.e.a.eFk().a(aVar.f12940a, 0);
+        if (a(aVar.f7695a) && j.i().optInt("link_ad_click_event", 1) == 1) {
+            com.ss.android.downloadlib.e.a.eFo().a(aVar.f7695a, 0);
         }
         switch (eVar.a()) {
             case 1:
-                com.ss.android.downloadlib.e.a.eFk().a("deeplink_url_open", aVar);
-                j.eEM().a(j.a(), aVar.qbA, aVar.qbC, aVar.qbB, aVar.qbA.v());
+                com.ss.android.downloadlib.e.a.eFo().a("deeplink_url_open", aVar);
+                j.eEQ().a(j.a(), aVar.qco, aVar.qcq, aVar.qcp, aVar.qco.v());
                 return true;
             case 2:
             default:
                 i.b();
                 return false;
             case 3:
-                com.ss.android.downloadlib.e.a.eFk().a("deeplink_app_open", aVar);
-                j.eEM().a(j.a(), aVar.qbA, aVar.qbC, aVar.qbB, aVar.qbA.v());
+                com.ss.android.downloadlib.e.a.eFo().a("deeplink_app_open", aVar);
+                j.eEQ().a(j.a(), aVar.qco, aVar.qcq, aVar.qcp, aVar.qco.v());
                 return true;
             case 4:
-                com.ss.android.downloadlib.e.a.eFk().a("deeplink_app_open_fail", aVar);
+                com.ss.android.downloadlib.e.a.eFo().a("deeplink_app_open_fail", aVar);
                 return false;
         }
     }
 
     public static void d(@NonNull com.ss.android.b.a.b.a aVar) {
         String A = aVar.A();
-        e aaX = f.aaX(A);
-        if (aaX.a() == 2) {
+        e abc = f.abc(A);
+        if (abc.a() == 2) {
             if (!TextUtils.isEmpty(A)) {
-                com.ss.android.downloadlib.e.a.eFk().a("deeplink_url_open_fail", a(A), aVar);
+                com.ss.android.downloadlib.e.a.eFo().a("deeplink_url_open_fail", a(A), aVar);
             }
-            aaX = f.bA(j.a(), aVar.m());
+            abc = f.bz(j.a(), aVar.m());
         }
-        switch (aaX.a()) {
+        switch (abc.a()) {
             case 1:
-                com.ss.android.downloadlib.e.a.eFk().a("download_notification", "deeplink_url_open", aVar);
-                j.eEM().a(j.a(), aVar.eEt(), aVar.eEv(), aVar.eEu(), aVar.m());
+                com.ss.android.downloadlib.e.a.eFo().a("download_notification", "deeplink_url_open", aVar);
+                j.eEQ().a(j.a(), aVar.eEx(), aVar.eEz(), aVar.eEy(), aVar.m());
                 return;
             case 2:
             default:
                 i.b();
                 return;
             case 3:
-                com.ss.android.downloadlib.e.a.eFk().a("download_notification", "deeplink_app_open", aVar);
-                j.eEM().a(j.a(), aVar.eEt(), aVar.eEv(), aVar.eEu(), aVar.m());
+                com.ss.android.downloadlib.e.a.eFo().a("download_notification", "deeplink_app_open", aVar);
+                j.eEQ().a(j.a(), aVar.eEx(), aVar.eEz(), aVar.eEy(), aVar.m());
                 return;
             case 4:
-                com.ss.android.downloadlib.e.a.eFk().a("deeplink_app_open_fail", aVar);
+                com.ss.android.downloadlib.e.a.eFo().a("deeplink_app_open_fail", aVar);
                 return;
         }
     }
@@ -79,54 +78,54 @@ public class a {
     public static void a(com.ss.android.b.a.b.a aVar) {
         e eVar;
         if (aVar != null) {
-            String A = com.ss.android.socialbase.downloader.k.a.eIF().b("app_link_opt") == 1 ? aVar.A() : null;
-            e aaX = f.aaX(A);
-            if (aaX.a() == 2) {
+            String A = com.ss.android.socialbase.downloader.k.a.eIH().b("app_link_opt") == 1 ? aVar.A() : null;
+            e abc = f.abc(A);
+            if (abc.a() == 2) {
                 if (!TextUtils.isEmpty(A)) {
-                    com.ss.android.downloadlib.e.a.eFk().a("deeplink_url_open_fail", a(A), aVar);
+                    com.ss.android.downloadlib.e.a.eFo().a("deeplink_url_open_fail", a(A), aVar);
                 }
-                eVar = f.bA(j.a(), aVar.m());
+                eVar = f.bz(j.a(), aVar.m());
             } else {
-                eVar = aaX;
+                eVar = abc;
             }
             switch (eVar.a()) {
                 case 1:
                 case 3:
-                    com.ss.android.downloadlib.e.a.eFk().a("market_openapp_success", aVar);
-                    j.eEM().a(j.a(), aVar.eEt(), aVar.eEv(), aVar.eEu(), aVar.m());
+                    com.ss.android.downloadlib.e.a.eFo().a("market_openapp_success", aVar);
+                    j.eEQ().a(j.a(), aVar.eEx(), aVar.eEz(), aVar.eEy(), aVar.m());
                     return;
                 case 4:
-                    com.ss.android.downloadlib.e.a.eFk().a("deeplink_app_open_fail", aVar);
+                    com.ss.android.downloadlib.e.a.eFo().a("deeplink_app_open_fail", aVar);
                     break;
             }
             i.b();
-            j.eEN().a(4, j.a(), aVar.eEt(), "应用打开失败，请检查是否安装", null, 1);
-            com.ss.android.downloadlib.e.a.eFk().a("market_openapp_failed", aVar);
+            j.eER().a(4, j.a(), aVar.eEx(), "应用打开失败，请检查是否安装", null, 1);
+            com.ss.android.downloadlib.e.a.eFo().a("market_openapp_failed", aVar);
         }
     }
 
     public static boolean a(@NonNull d.a aVar, int i) {
-        com.ss.android.downloadlib.e.a.eFk().a("market_click_open", aVar);
-        e by = f.by(j.a(), aVar.qbA.v());
-        switch (by.a()) {
+        com.ss.android.downloadlib.e.a.eFo().a("market_click_open", aVar);
+        e bx = f.bx(j.a(), aVar.qco.v());
+        switch (bx.a()) {
             case 5:
-                com.ss.android.downloadlib.e.a.eFk().a(aVar.f12940a, i);
-                com.ss.android.downloadlib.e.a.eFk().a("market_open_success", aVar);
-                j.eEM().a(j.a(), aVar.qbA, aVar.qbC, aVar.qbB, aVar.qbA.v());
-                com.ss.android.b.a.b.a aVar2 = new com.ss.android.b.a.b.a(aVar.qbA, aVar.qbB, aVar.qbC);
+                com.ss.android.downloadlib.e.a.eFo().a(aVar.f7695a, i);
+                com.ss.android.downloadlib.e.a.eFo().a("market_open_success", aVar);
+                j.eEQ().a(j.a(), aVar.qco, aVar.qcq, aVar.qcp, aVar.qco.v());
+                com.ss.android.b.a.b.a aVar2 = new com.ss.android.b.a.b.a(aVar.qco, aVar.qcp, aVar.qcq);
                 aVar2.e(2);
                 aVar2.f(System.currentTimeMillis());
                 aVar2.h(4);
-                d.eEB().d(aVar2);
+                d.eEF().d(aVar2);
                 return true;
             case 6:
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.putOpt("error_code", Integer.valueOf(by.b()));
+                    jSONObject.putOpt("error_code", Integer.valueOf(bx.b()));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                com.ss.android.downloadlib.e.a.eFk().a("market_open_failed", jSONObject, aVar);
+                com.ss.android.downloadlib.e.a.eFo().a("market_open_failed", jSONObject, aVar);
                 return false;
             default:
                 return false;
@@ -135,17 +134,17 @@ public class a {
 
     public static boolean b(String str, @NonNull com.ss.android.b.a.b.a aVar) {
         if (com.ss.android.downloadlib.a.i.b(aVar.D()) && !TextUtils.isEmpty(aVar.A())) {
-            com.ss.android.socialbase.downloader.notification.b.eIJ().f(aVar.t());
-            com.ss.android.downloadlib.e.a.eFk().a("deeplink_url_app", aVar);
-            switch (f.aaX(aVar.A()).a()) {
+            com.ss.android.socialbase.downloader.notification.b.eIK().f(aVar.t());
+            com.ss.android.downloadlib.e.a.eFo().a("deeplink_url_app", aVar);
+            switch (f.abc(aVar.A()).a()) {
                 case 1:
                 case 3:
-                    com.ss.android.downloadlib.e.a.eFk().a("deeplink_open_success", aVar);
-                    j.eEM().a(j.a(), aVar.eEt(), null, null, str);
+                    com.ss.android.downloadlib.e.a.eFo().a("deeplink_open_success", aVar);
+                    j.eEQ().a(j.a(), aVar.eEx(), null, null, str);
                     return true;
                 case 2:
                 default:
-                    com.ss.android.downloadlib.e.a.eFk().a("deeplink_open_fail", aVar);
+                    com.ss.android.downloadlib.e.a.eFo().a("deeplink_open_fail", aVar);
                     return false;
             }
         }
@@ -153,7 +152,7 @@ public class a {
     }
 
     public static boolean a(long j) {
-        return d.eEB().je(j) == null;
+        return d.eEF().je(j) == null;
     }
 
     private static JSONObject a(String str) {

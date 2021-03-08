@@ -48,6 +48,7 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import com.baidu.tieba.yuyinala.liveroom.wheat.a.f;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.q;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -55,90 +56,90 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static long oEq = 5;
-    private static String oEu = "1127144634";
+    private static long oGv = 5;
+    private static String oGz = "1127144634";
     private Context mContext;
     private String mRoomId;
-    private boolean oEA;
-    private int oEB;
-    private long oEC;
-    private boolean oEE;
-    private boolean oEF;
-    private HandlerThread oEG;
-    private Handler oEH;
-    private boolean oEI;
-    private volatile boolean oEJ;
-    private boolean oEK;
-    private boolean oEL;
-    private boolean oEM;
-    private String oEN;
-    private String oEO;
-    private long oEP;
-    private int oEQ;
-    private boolean oER;
-    private final f oEW;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.a.a oEv;
-    private com.baidu.live.alablmsdk.a oEw;
-    private String oEx;
-    private d oEy;
-    private int oEz;
-    private long oED = 2000;
-    private Runnable oES = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.1
+    private com.baidu.tieba.yuyinala.liveroom.wheat.a.a oGA;
+    private com.baidu.live.alablmsdk.a oGB;
+    private String oGC;
+    private d oGD;
+    private int oGE;
+    private boolean oGF;
+    private int oGG;
+    private long oGH;
+    private boolean oGJ;
+    private boolean oGK;
+    private HandlerThread oGL;
+    private Handler oGM;
+    private boolean oGN;
+    private volatile boolean oGO;
+    private boolean oGP;
+    private boolean oGQ;
+    private boolean oGR;
+    private String oGS;
+    private String oGT;
+    private long oGU;
+    private int oGV;
+    private boolean oGW;
+    private final f oHb;
+    private long oGI = 2000;
+    private Runnable oGX = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.1
         @Override // java.lang.Runnable
         public void run() {
             com.baidu.h.a.b.c cVar;
-            com.baidu.h.b.a bA = com.baidu.h.b.a.bA(b.this.mContext);
-            if (bA == null) {
-                if (b.this.oEv != null) {
+            com.baidu.h.b.a bz = com.baidu.h.b.a.bz(b.this.mContext);
+            if (bz == null) {
+                if (b.this.oGA != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("mIMCastId", b.this.oEO);
+                        jSONObject.put("mIMCastId", b.this.oGT);
                         jSONObject.put("step", "1");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    b.this.oEv.aR("audio_room_manager", jSONObject.toString(), "heartbeaterror");
+                    b.this.oGA.aR("audio_room_manager", jSONObject.toString(), "heartbeaterror");
                 }
-                b.this.oEN = "heartbeaterror1，" + System.currentTimeMillis();
+                b.this.oGS = "heartbeaterror1，" + System.currentTimeMillis();
                 return;
             }
-            com.baidu.h.b.a.a.b bVar = (com.baidu.h.b.a.a.b) bA.ZU();
-            if (bVar != null && !TextUtils.isEmpty(b.this.oEO)) {
+            com.baidu.h.b.a.a.b bVar = (com.baidu.h.b.a.a.b) bz.ZX();
+            if (bVar != null && !TextUtils.isEmpty(b.this.oGT)) {
                 try {
-                    cVar = bVar.iT(b.this.oEO);
+                    cVar = bVar.iZ(b.this.oGT);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     cVar = null;
                 }
                 if (cVar == null) {
-                    if (b.this.oEv != null) {
+                    if (b.this.oGA != null) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put("mIMCastId", b.this.oEO);
+                            jSONObject2.put("mIMCastId", b.this.oGT);
                             jSONObject2.put("step", "3");
                         } catch (JSONException e3) {
                             e3.printStackTrace();
                         }
-                        b.this.oEv.aR("audio_room_manager", jSONObject2.toString(), "heartbeaterror");
+                        b.this.oGA.aR("audio_room_manager", jSONObject2.toString(), "heartbeaterror");
                     }
-                    b.this.oEN = "heartbeaterror3," + System.currentTimeMillis();
+                    b.this.oGS = "heartbeaterror3," + System.currentTimeMillis();
                     return;
                 }
-                ((com.baidu.h.b.a.a) cVar).ZZ().sendQuizOpts(JavaTypesHelper.toLong(b.this.mRoomId, 0L), JavaTypesHelper.toLong(b.this.oEO, 0L), 2001, "", new IMcastSetListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.1.1
+                ((com.baidu.h.b.a.a) cVar).aac().sendQuizOpts(JavaTypesHelper.toLong(b.this.mRoomId, 0L), JavaTypesHelper.toLong(b.this.oGT, 0L), 2001, "", new IMcastSetListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.1.1
                     @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
                     public void onResult(int i, long j, long j2) {
                         b.this.gV("audioroom", "HeartBeat:" + i + "," + j + "," + j2);
                         if (i != 0) {
-                            if (b.this.oEI && b.this.oEJ && b.this.oEH != null) {
-                                b.this.oEH.removeCallbacks(b.this.oES);
-                                b.this.oEH.post(b.this.oES);
-                                if (System.currentTimeMillis() - b.this.oEP > 1000 && b.this.oEv != null) {
-                                    b.this.oEP = System.currentTimeMillis();
+                            if (b.this.oGN && b.this.oGO && b.this.oGM != null) {
+                                b.this.oGM.removeCallbacks(b.this.oGX);
+                                b.this.oGM.post(b.this.oGX);
+                                if (System.currentTimeMillis() - b.this.oGU > 1000 && b.this.oGA != null) {
+                                    b.this.oGU = System.currentTimeMillis();
                                     JSONObject jSONObject3 = new JSONObject();
                                     try {
-                                        jSONObject3.put("mIMCastId", b.this.oEO);
+                                        jSONObject3.put("mIMCastId", b.this.oGT);
                                         jSONObject3.put("step", "4");
                                         jSONObject3.put("errorcode", i);
                                         jSONObject3.put("l", j);
@@ -146,53 +147,53 @@ public class b {
                                     } catch (JSONException e4) {
                                         e4.printStackTrace();
                                     }
-                                    b.this.oEv.aR("audio_room_manager", jSONObject3.toString(), "heartbeaterror");
+                                    b.this.oGA.aR("audio_room_manager", jSONObject3.toString(), "heartbeaterror");
                                 }
                             }
-                            b.this.oEN = "heartbeaterrornum:" + i + "," + j + "," + j2 + "," + System.currentTimeMillis();
+                            b.this.oGS = "heartbeaterrornum:" + i + "," + j + "," + j2 + "," + System.currentTimeMillis();
                             return;
                         }
-                        b.this.oEN = "heartbeatok:" + System.currentTimeMillis();
+                        b.this.oGS = "heartbeatok:" + System.currentTimeMillis();
                     }
                 });
-                if (b.this.oEH != null) {
-                    b.this.oEH.postDelayed(this, 5000L);
+                if (b.this.oGM != null) {
+                    b.this.oGM.postDelayed(this, 5000L);
                     return;
                 }
                 return;
             }
-            b.this.oEN = "heartbeaterror2," + b.this.oEO + "," + System.currentTimeMillis();
-            if (b.this.oEv != null) {
+            b.this.oGS = "heartbeaterror2," + b.this.oGT + "," + System.currentTimeMillis();
+            if (b.this.oGA != null) {
                 JSONObject jSONObject3 = new JSONObject();
                 try {
-                    jSONObject3.put("mIMCastId", b.this.oEO);
+                    jSONObject3.put("mIMCastId", b.this.oGT);
                     jSONObject3.put("step", "2");
                 } catch (JSONException e4) {
                     e4.printStackTrace();
                 }
-                b.this.oEv.aR("audio_room_manager", jSONObject3.toString(), "heartbeaterror");
+                b.this.oGA.aR("audio_room_manager", jSONObject3.toString(), "heartbeaterror");
             }
         }
     };
-    private Runnable oET = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.12
+    private Runnable oGY = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.12
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.oEB != 5) {
-                b.this.oEB = 5;
-                b.this.Mr(5);
+            if (b.this.oGG != 5) {
+                b.this.oGG = 5;
+                b.this.Mv(5);
             }
         }
     };
-    private Runnable oEU = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.22
+    private Runnable oGZ = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.22
         @Override // java.lang.Runnable
         public void run() {
-            b.this.ecO();
-            if (b.this.oEH != null) {
-                b.this.oEH.postDelayed(this, 500L);
+            b.this.ecW();
+            if (b.this.oGM != null) {
+                b.this.oGM.postDelayed(this, 500L);
             }
         }
     };
-    private ILiveMsgReceiveListener oEV = new ILiveMsgReceiveListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.23
+    private ILiveMsgReceiveListener oHa = new ILiveMsgReceiveListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.23
         @Override // com.baidu.android.imsdk.mcast.ILiveMsgReceiveListener
         public void onReceiveMessage(int i, JSONArray jSONArray) {
             b.this.gV("AudioRoomManager", "receiveb2cmsg:" + i + "," + jSONArray.toString());
@@ -224,8 +225,8 @@ public class b {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501027, entry.getValue()));
                     } else if (TextUtils.equals("live_audio_lower_wheat", (CharSequence) entry.getKey())) {
                         b.this.gV("AudioRoomManager", "do live_audio_lower_wheat");
-                        if (b.this.gT(b.this.oEx, "用户被审核下麦")) {
-                            b.this.Mr(7);
+                        if (b.this.gT(b.this.oGC, "用户被审核下麦")) {
+                            b.this.Mv(7);
                         }
                     }
                 }
@@ -234,59 +235,59 @@ public class b {
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void B(int i, long j);
     }
 
     public b(Context context, String str, String str2, int i, boolean z) {
-        this.oER = true;
+        this.oGW = true;
         this.mContext = context;
         this.mRoomId = str;
-        this.oEO = str2;
-        if (this.oEw != null && this.oEQ != i) {
-            if (!TextUtils.isEmpty(this.oEx)) {
-                this.oEw.b(this.oEx, (JSONObject) null, (com.baidu.live.alablmsdk.c.d) null);
+        this.oGT = str2;
+        if (this.oGB != null && this.oGV != i) {
+            if (!TextUtils.isEmpty(this.oGC)) {
+                this.oGB.b(this.oGC, (JSONObject) null, (com.baidu.live.alablmsdk.c.d) null);
             }
-            this.oEw.onRelease();
+            this.oGB.onRelease();
         }
-        this.oEQ = i;
-        if (this.oEG == null) {
-            this.oEG = new HandlerThread("AudioRoomManager_Thread");
-            this.oEG.start();
+        this.oGV = i;
+        if (this.oGL == null) {
+            this.oGL = new HandlerThread("AudioRoomManager_Thread");
+            this.oGL.start();
         }
-        if (this.oEH == null && this.oEG.isAlive()) {
-            this.oEH = new Handler(this.oEG.getLooper());
+        if (this.oGM == null && this.oGL.isAlive()) {
+            this.oGM = new Handler(this.oGL.getLooper());
         }
-        this.oEW = new f(this.oEH);
-        this.oEW.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.24
+        this.oHb = new f(this.oGM);
+        this.oHb.a(new f.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.24
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.f.a
             public void a(f.b bVar) {
             }
         });
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oEa) {
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oGf) {
             BIMRtcClient.setRtcDebugAndLogEnable(context, true, true);
         }
-        BIMManager.registerStudioUsePaReceiveMsg(context, this.oEV);
+        BIMManager.registerStudioUsePaReceiveMsg(context, this.oHa);
         IConnectListener iConnectListener = new IConnectListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.25
             @Override // com.baidu.android.imsdk.account.IConnectListener
             public void onResult(int i2) {
                 b.this.gV("AudioRoomManager", "ConnectListener status:" + i2);
                 if (i2 == 0) {
-                    b.this.oEJ = true;
-                    if (b.this.oEI) {
-                        b.this.ecI();
+                    b.this.oGO = true;
+                    if (b.this.oGN) {
+                        b.this.ecQ();
                         return;
                     }
                     return;
                 }
-                b.this.oEJ = false;
+                b.this.oGO = false;
             }
         };
         gV("AudioRoomManager", "add ConnectListener:" + iConnectListener.hashCode());
         BIMManager.registerConnectListenerToList(iConnectListener);
         if (!z) {
-            this.oEw = new com.baidu.live.alablmsdk.a(context);
+            this.oGB = new com.baidu.live.alablmsdk.a(context);
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("room_mode", BLMRoomMode.BLMROOMMODE_1VN);
             hashMap.put("rtc_room_source_key", "liveshow_room");
@@ -300,11 +301,11 @@ public class b {
             hashMap.put("audio_buffer_packets_key", 100);
             hashMap.put("audio_codec_complex_key", 9);
             hashMap.put("audio_playout_delay_key", 50);
-            ab Yq = c.ecR().Yq();
-            if (Yq != null) {
-                this.oER = Yq.aJk;
+            ab Yt = c.ecZ().Yt();
+            if (Yt != null) {
+                this.oGW = Yt.aKK;
             }
-            if (this.oER) {
+            if (this.oGW) {
                 hashMap.put("audio_source_key", 1);
                 hashMap.put("enable_ans_key", true);
                 hashMap.put("enable_agc_key", true);
@@ -321,7 +322,7 @@ public class b {
             }
             hashMap.put("rtc_re_try_post_delay_time", 5000);
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("yy_rtc_app_id_key", oEu);
+            hashMap2.put("yy_rtc_app_id_key", oGz);
             hashMap2.put("yy_rtc_room_mode_key", 0);
             hashMap2.put("yy_rtc_media_mode_key", 2);
             hashMap2.put("yy_rtc_audio_config_key", 7);
@@ -329,15 +330,15 @@ public class b {
             hashMap2.put("yy_rtc_scenario_mode_key", 2);
             hashMap2.put("yy_rtc_sound_effect_type_key", 4);
             hashMap.put("yy_rtc_private_params_key", hashMap2);
-            this.oEw.v(hashMap);
-            this.oEw.a(new com.baidu.live.alablmsdk.c.b.e() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.26
+            this.oGB.v(hashMap);
+            this.oGB.a(new com.baidu.live.alablmsdk.c.b.e() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.26
                 @Override // com.baidu.live.alablmsdk.c.b.e
                 public void a(String str3, String str4, final com.baidu.live.alablmsdk.c.b.a aVar) {
-                    com.baidu.live.yyrtc.a.ZK().a(str3, str4, new com.baidu.live.yyrtc.b() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.26.1
+                    com.baidu.live.yyrtc.a.ZN().a(str3, str4, new com.baidu.live.yyrtc.b() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.26.1
                         @Override // com.baidu.live.yyrtc.b
                         public void ai(String str5, String str6) {
-                            if (b.this.oEw != null) {
-                                b.this.oEw.ew(str5);
+                            if (b.this.oGB != null) {
+                                b.this.oGB.eD(str5);
                             }
                             if (aVar != null) {
                                 aVar.ai(str5, str6);
@@ -346,7 +347,7 @@ public class b {
                     });
                 }
             });
-            this.oEw.a(new com.baidu.live.alablmsdk.c.b() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27
+            this.oGB.a(new com.baidu.live.alablmsdk.c.b() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void g(int i2, String str3) {
                 }
@@ -357,7 +358,7 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void a(com.baidu.live.alablmsdk.module.rtc.c cVar, int i2) {
-                    if (cVar != null && cVar.ayk == b.this.ecM()) {
+                    if (cVar != null && cVar.azK == b.this.ecU()) {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("sec", i2);
@@ -368,8 +369,8 @@ public class b {
                         if (i2 == 10) {
                             b.this.gV("AudioRoomManager", "leavedForSeconds:" + i2);
                         } else if (i2 >= 15) {
-                            if (b.this.oEw != null) {
-                                b.this.oEw.b(b.this.oEx, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.1
+                            if (b.this.oGB != null) {
+                                b.this.oGB.b(b.this.oGC, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.1
                                     @Override // com.baidu.live.alablmsdk.c.d
                                     public void f(int i3, int i4, String str3) {
                                         if (i4 == 0) {
@@ -380,33 +381,33 @@ public class b {
                                     }
                                 });
                             }
-                            b.this.oEA = false;
-                            if (b.this.oEE) {
-                                b.this.oEF = false;
+                            b.this.oGF = false;
+                            if (b.this.oGJ) {
+                                b.this.oGK = false;
                             }
-                            b.this.q(1, b.this.oEz, "streamleavedForSeconds" + i2);
+                            b.this.q(1, b.this.oGE, "streamleavedForSeconds" + i2);
                         }
                     }
                 }
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void a(String str3, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-                    if (b.this.oEW != null && cVar != null) {
-                        b.this.oEW.hQ(cVar.ayk);
+                    if (b.this.oHb != null && cVar != null) {
+                        b.this.oHb.hQ(cVar.azK);
                     }
                 }
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void b(final String str3, com.baidu.live.alablmsdk.module.c cVar, final JSONObject jSONObject) {
-                    b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.5
+                    b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.5
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.oEy != null) {
+                            if (b.this.oGD != null) {
                                 BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo = new BIMInviteSyncRtcInfo();
                                 bIMInviteSyncRtcInfo.setRtcRoomId(str3);
                                 if (jSONObject != null) {
                                     bIMInviteSyncRtcInfo.setRtcExt(jSONObject.toString());
-                                    b.this.oEy.a(bIMInviteSyncRtcInfo);
+                                    b.this.oGD.a(bIMInviteSyncRtcInfo);
                                 }
                                 com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("receive_invite_anchor_5", false);
                             }
@@ -420,13 +421,13 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void b(final String str3, com.baidu.live.alablmsdk.module.c cVar) {
-                    b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.6
+                    b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.6
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.oEy != null) {
+                            if (b.this.oGD != null) {
                                 BIMRtcInfo bIMRtcInfo = new BIMRtcInfo();
                                 bIMRtcInfo.setRtcRoomId(str3);
-                                b.this.oEy.b(bIMRtcInfo, 3);
+                                b.this.oGD.b(bIMRtcInfo, 3);
                             }
                         }
                     });
@@ -434,16 +435,16 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void d(final String str3, com.baidu.live.alablmsdk.module.c cVar, final JSONObject jSONObject) {
-                    b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.7
+                    b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.7
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.oEy != null) {
+                            if (b.this.oGD != null) {
                                 BIMRtcInfo bIMRtcInfo = new BIMRtcInfo();
                                 bIMRtcInfo.setRtcRoomId(str3);
                                 if (jSONObject != null) {
                                     bIMRtcInfo.setRtcExt(jSONObject.toString());
                                 }
-                                b.this.oEy.b(bIMRtcInfo, 1);
+                                b.this.oGD.b(bIMRtcInfo, 1);
                             }
                         }
                     });
@@ -451,16 +452,16 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void e(final String str3, com.baidu.live.alablmsdk.module.c cVar, final JSONObject jSONObject) {
-                    b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.8
+                    b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.8
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.oEy != null) {
+                            if (b.this.oGD != null) {
                                 BIMRtcInfo bIMRtcInfo = new BIMRtcInfo();
                                 bIMRtcInfo.setRtcRoomId(str3);
                                 if (jSONObject != null) {
                                     bIMRtcInfo.setRtcExt(jSONObject.toString());
                                 }
-                                b.this.oEy.b(bIMRtcInfo, 3);
+                                b.this.oGD.b(bIMRtcInfo, 3);
                             }
                         }
                     });
@@ -468,11 +469,11 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void c(String str3, final com.baidu.live.alablmsdk.module.c cVar) {
-                    b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.9
+                    b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.9
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.oEy != null && cVar != null) {
-                                b.this.oEy.hO(cVar.ayk);
+                            if (b.this.oGD != null && cVar != null) {
+                                b.this.oGD.hO(cVar.azK);
                             }
                         }
                     });
@@ -480,11 +481,11 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void d(String str3, final com.baidu.live.alablmsdk.module.c cVar) {
-                    b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.10
+                    b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.10
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.oEy != null && cVar != null) {
-                                b.this.oEy.hP(cVar.ayk);
+                            if (b.this.oGD != null && cVar != null) {
+                                b.this.oGD.hP(cVar.azK);
                             }
                         }
                     });
@@ -492,14 +493,14 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void e(String str3, final com.baidu.live.alablmsdk.module.c cVar) {
-                    if (cVar != null && cVar.ayk == b.this.ecM()) {
-                        b.this.gT(b.this.oEx, "RTC_ROOM_EVENTS_SOMEBODY_KICKOFFED");
-                        b.this.Mr(1);
-                        b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.11
+                    if (cVar != null && cVar.azK == b.this.ecU()) {
+                        b.this.gT(b.this.oGC, "RTC_ROOM_EVENTS_SOMEBODY_KICKOFFED");
+                        b.this.Mv(1);
+                        b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.11
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.oEy != null) {
-                                    b.this.oEy.bQ(cVar.ayk);
+                                if (b.this.oGD != null) {
+                                    b.this.oGD.bQ(cVar.azK);
                                 }
                             }
                         });
@@ -508,14 +509,14 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void f(String str3, final com.baidu.live.alablmsdk.module.c cVar) {
-                    if (cVar != null && cVar.ayk == b.this.ecM()) {
-                        b.this.Mr(2);
-                        b.this.oEM = false;
-                        b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.12
+                    if (cVar != null && cVar.azK == b.this.ecU()) {
+                        b.this.Mv(2);
+                        b.this.oGR = false;
+                        b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.12
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.oEy != null) {
-                                    b.this.oEy.u(cVar.ayk, true);
+                                if (b.this.oGD != null) {
+                                    b.this.oGD.u(cVar.azK, true);
                                 }
                             }
                         });
@@ -524,14 +525,14 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void g(String str3, final com.baidu.live.alablmsdk.module.c cVar) {
-                    if (cVar != null && cVar.ayk == b.this.ecM()) {
-                        b.this.Mr(3);
-                        b.this.oEM = false;
-                        b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.2
+                    if (cVar != null && cVar.azK == b.this.ecU()) {
+                        b.this.Mv(3);
+                        b.this.oGR = false;
+                        b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (b.this.oEy != null) {
-                                    b.this.oEy.u(cVar.ayk, false);
+                                if (b.this.oGD != null) {
+                                    b.this.oGD.u(cVar.azK, false);
                                 }
                             }
                         });
@@ -540,24 +541,24 @@ public class b {
 
                 @Override // com.baidu.live.alablmsdk.c.b
                 public void a(final com.baidu.live.alablmsdk.module.rtc.a aVar) {
-                    b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.3
+                    b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.3
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.oEy != null && aVar != null) {
-                                b.this.oEy.g(0, aVar.ayk, aVar.message);
+                            if (b.this.oGD != null && aVar != null) {
+                                b.this.oGD.e(0, aVar.azK, aVar.message);
                             }
                         }
                     });
                 }
 
                 @Override // com.baidu.live.alablmsdk.c.b
-                public void ey(String str3) {
-                    b.this.yo();
-                    b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.4
+                public void eE(String str3) {
+                    b.this.yr();
+                    b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.27.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.oEy != null) {
-                                b.this.oEy.Rl();
+                            if (b.this.oGD != null) {
+                                b.this.oGD.Ro();
                             }
                         }
                     });
@@ -575,8 +576,8 @@ public class b {
                         }
                         if (str3.equals("1980") && jSONObject2 != null) {
                             String jSONObject3 = jSONObject2.toString();
-                            if (b.this.oEv != null) {
-                                b.this.oEv.aR("lmsdk", jSONObject3, "debug");
+                            if (b.this.oGA != null) {
+                                b.this.oGA.aR("lmsdk", jSONObject3, ETAG.KEY_DEBUG);
                             }
                         }
                         UbcStatisticManager.getInstance().logLMSdkEvent(str3, jSONObject, jSONObject2);
@@ -584,7 +585,7 @@ public class b {
                 }
 
                 @Override // com.baidu.live.alablmsdk.c.b
-                public String xn() {
+                public String xq() {
                     if (TextUtils.isEmpty(b.this.mRoomId) || TbadkCoreApplication.getCurrentAccountId() <= 0) {
                         return null;
                     }
@@ -592,11 +593,11 @@ public class b {
                 }
             });
         }
-        this.oEv = new com.baidu.tieba.yuyinala.liveroom.wheat.a.a(context);
-        this.oEv.setRtcRoomListener(new RtcRoomListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.28
+        this.oGA = new com.baidu.tieba.yuyinala.liveroom.wheat.a.a(context);
+        this.oGA.setRtcRoomListener(new RtcRoomListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.28
             @Override // com.baidu.ala.rtc.RtcRoomListener
             public void onError(int i2, String str3) {
-                b.this.q(-4, b.this.oEz, "playererror,errorCode:" + i2 + ",errorMsg:" + str3);
+                b.this.q(-4, b.this.oGE, "playererror,errorCode:" + i2 + ",errorMsg:" + str3);
             }
 
             @Override // com.baidu.ala.rtc.RtcRoomListener
@@ -610,21 +611,21 @@ public class b {
     }
 
     public void a(d dVar) {
-        this.oEy = dVar;
+        this.oGD = dVar;
     }
 
-    public void Wj(String str) {
-        if (this.oEv != null) {
-            this.oEv.n(str, false, true);
+    public void Wq(String str) {
+        if (this.oGA != null) {
+            this.oGA.n(str, false, true);
         }
     }
 
-    public void ecH() {
-        gR(c.ecR().ecW(), TbadkCoreApplication.getCurrentAccountName());
+    public void ecP() {
+        gR(c.ecZ().ede(), TbadkCoreApplication.getCurrentAccountName());
     }
 
     public void gR(String str, String str2) {
-        Wi("ownerEnterRoom");
+        Wp("ownerEnterRoom");
         gV("AudioRoomManager", "ownerEnterRoom:" + str + "," + str2);
         if (TextUtils.equals("0", str) || TextUtils.isEmpty(str)) {
             q(1, 1, "imrtcroomid==" + str);
@@ -638,16 +639,16 @@ public class b {
             e.printStackTrace();
         }
         aR("audio_room_debug", jSONObject.toString(), "ownerEnterRoom");
-        if (this.oEw != null) {
+        if (this.oGB != null) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            if (ecN() == 1) {
+            if (ecV() == 1) {
                 hashMap.put("is_auto_publish", true);
-                this.oEw.aY(true);
+                this.oGB.aY(true);
             } else {
                 hashMap.put("is_auto_publish", false);
             }
-            this.oEw.w(hashMap);
-            this.oEw.a(str, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.2
+            this.oGB.w(hashMap);
+            this.oGB.a(str, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.2
                 @Override // com.baidu.live.alablmsdk.c.c
                 public void a(int i, BLMJoinRoomStage bLMJoinRoomStage, com.baidu.live.alablmsdk.module.common.a aVar) {
                     if (i != 0) {
@@ -661,9 +662,9 @@ public class b {
                             e2.printStackTrace();
                         }
                         b.this.aR("audio_room_debug", jSONObject2.toString(), "ownerEnterRoomFailed");
-                        b.this.oEA = false;
-                        if (b.this.oEw != null) {
-                            b.this.oEw.b(b.this.oEx, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.2.1
+                        b.this.oGF = false;
+                        if (b.this.oGB != null) {
+                            b.this.oGB.b(b.this.oGC, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.2.1
                                 @Override // com.baidu.live.alablmsdk.c.d
                                 public void f(int i2, int i3, String str3) {
                                     if (i3 == 0) {
@@ -674,7 +675,7 @@ public class b {
                                 }
                             });
                         }
-                        b.this.Wi("ownerEnterRoomJoinError:" + i + (aVar != null ? aVar.msg : "no error"));
+                        b.this.Wp("ownerEnterRoomJoinError:" + i + (aVar != null ? aVar.msg : "no error"));
                         b.this.q(1, 1, "ownerEnterRoomJoinError:" + i + (aVar != null ? aVar.msg : "no error"));
                         return;
                     }
@@ -689,121 +690,121 @@ public class b {
                     b.this.aR("audio_room_debug", jSONObject3.toString(), "ownerEnterRoomSuccess");
                     if (bLMJoinRoomStage == BLMJoinRoomStage.JOIN) {
                         b.this.gV("AudioRoomManager", "ownerEnterRoomSuccess");
-                        b.this.Wi("ownerEnterRoomSuccess");
-                        b.this.oEA = true;
+                        b.this.Wp("ownerEnterRoomSuccess");
+                        b.this.oGF = true;
                     }
                 }
             });
         }
-        this.oEx = str;
-        this.oEE = true;
-        this.oEF = false;
+        this.oGC = str;
+        this.oGJ = true;
+        this.oGK = false;
     }
 
     public void gS(String str, String str2) {
         gV("AudioRoomManager", "commonUserEnterRoom:," + str + "," + str2);
-        this.oEE = false;
-        this.oEF = false;
-        if (this.oEv != null) {
-            this.oEv.Wh(str2);
+        this.oGJ = false;
+        this.oGK = false;
+        if (this.oGA != null) {
+            this.oGA.Wo(str2);
         }
     }
 
     public void J(String str, String str2, final String str3, final String str4) {
-        Wi("ownerJoinChat:isOwner" + this.oEE);
+        Wp("ownerJoinChat:isOwner" + this.oGJ);
         gV("AudioRoomManager", "ownerJoinChat:," + str2 + "," + str + "," + str3 + "," + str4);
-        this.oEz = this.oEE ? 2 : 3;
+        this.oGE = this.oGJ ? 2 : 3;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(TbEnum.SystemMessage.KEY_USER_NAME, str2);
-            jSONObject.put("joinChatType", this.oEz);
+            jSONObject.put("joinChatType", this.oGE);
         } catch (JSONException e) {
             e.printStackTrace();
         }
         aR("audio_room_debug", jSONObject.toString(), "ownerJoinChat");
         if (TextUtils.equals("0", str) || TextUtils.isEmpty(str)) {
-            q(1, this.oEz, "imrtcroomid==" + str);
-        } else if (this.oEw == null) {
-            q(1, this.oEz, "mBLMRtcEngine==null");
+            q(1, this.oGE, "imrtcroomid==" + str);
+        } else if (this.oGB == null) {
+            q(1, this.oGE, "mBLMRtcEngine==null");
         } else {
-            this.oEx = str;
-            aAJ();
-            if (this.oEE) {
-                if (ecN() == 1) {
-                    this.oEw.aY(false);
+            this.oGC = str;
+            aAM();
+            if (this.oGJ) {
+                if (ecV() == 1) {
+                    this.oGB.aY(false);
                     com.baidu.live.alablmsdk.config.a aVar = new com.baidu.live.alablmsdk.config.a();
-                    aVar.axn = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR;
-                    a.C0161a c0161a = new a.C0161a();
-                    c0161a.axs = true;
-                    c0161a.axr = str3;
-                    c0161a.axx = "pure_audio";
-                    a.C0161a c0161a2 = new a.C0161a();
-                    c0161a2.axs = false;
-                    c0161a2.axr = str4;
-                    c0161a2.axx = "pure_audio";
-                    aVar.axl = c0161a;
-                    aVar.axm = c0161a2;
-                    this.oEw.a(aVar);
-                    this.oEw.a(BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR);
-                    Mt(2);
+                    aVar.ayN = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR;
+                    a.C0167a c0167a = new a.C0167a();
+                    c0167a.ayS = true;
+                    c0167a.ayR = str3;
+                    c0167a.ayX = "pure_audio";
+                    a.C0167a c0167a2 = new a.C0167a();
+                    c0167a2.ayS = false;
+                    c0167a2.ayR = str4;
+                    c0167a2.ayX = "pure_audio";
+                    aVar.ayL = c0167a;
+                    aVar.ayM = c0167a2;
+                    this.oGB.a(aVar);
+                    this.oGB.a(BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR);
+                    Mx(2);
                     return;
                 }
-                this.oEw.a(new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.3
+                this.oGB.a(new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.3
                     @Override // com.baidu.live.alablmsdk.c.d
                     public void f(int i, int i2, String str5) {
                         if (i2 != 0 || i != 10) {
                             b.this.j(i2, str5, 2);
                             return;
                         }
-                        b.this.Mt(2);
+                        b.this.Mx(2);
                         com.baidu.live.alablmsdk.config.a aVar2 = new com.baidu.live.alablmsdk.config.a();
-                        aVar2.axn = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR;
-                        a.C0161a c0161a3 = new a.C0161a();
-                        c0161a3.axs = true;
-                        c0161a3.axr = str3;
-                        c0161a3.axx = "pure_audio";
-                        a.C0161a c0161a4 = new a.C0161a();
-                        c0161a4.axs = false;
-                        c0161a4.axr = str4;
-                        c0161a4.axx = "pure_audio";
-                        aVar2.axl = c0161a3;
-                        aVar2.axm = c0161a4;
-                        b.this.oEw.a(aVar2);
-                        b.this.oEw.a(BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR);
+                        aVar2.ayN = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR;
+                        a.C0167a c0167a3 = new a.C0167a();
+                        c0167a3.ayS = true;
+                        c0167a3.ayR = str3;
+                        c0167a3.ayX = "pure_audio";
+                        a.C0167a c0167a4 = new a.C0167a();
+                        c0167a4.ayS = false;
+                        c0167a4.ayR = str4;
+                        c0167a4.ayX = "pure_audio";
+                        aVar2.ayL = c0167a3;
+                        aVar2.ayM = c0167a4;
+                        b.this.oGB.a(aVar2);
+                        b.this.oGB.a(BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR);
                     }
                 });
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("is_auto_publish", true);
-            this.oEw.w(hashMap);
+            this.oGB.w(hashMap);
             com.baidu.live.alablmsdk.config.a aVar2 = new com.baidu.live.alablmsdk.config.a();
-            aVar2.axn = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR;
-            a.C0161a c0161a3 = new a.C0161a();
-            c0161a3.axs = true;
-            c0161a3.axr = str3;
-            c0161a3.axx = "pure_audio";
-            a.C0161a c0161a4 = new a.C0161a();
-            c0161a4.axs = false;
-            c0161a4.axr = str4;
-            c0161a4.axx = "pure_audio";
-            aVar2.axl = c0161a3;
-            aVar2.axm = c0161a4;
-            this.oEw.a(aVar2);
-            this.oEw.aY(false);
-            this.oEw.a(str, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.4
+            aVar2.ayN = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR;
+            a.C0167a c0167a3 = new a.C0167a();
+            c0167a3.ayS = true;
+            c0167a3.ayR = str3;
+            c0167a3.ayX = "pure_audio";
+            a.C0167a c0167a4 = new a.C0167a();
+            c0167a4.ayS = false;
+            c0167a4.ayR = str4;
+            c0167a4.ayX = "pure_audio";
+            aVar2.ayL = c0167a3;
+            aVar2.ayM = c0167a4;
+            this.oGB.a(aVar2);
+            this.oGB.aY(false);
+            this.oGB.a(str, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.4
                 @Override // com.baidu.live.alablmsdk.c.c
                 public void a(int i, BLMJoinRoomStage bLMJoinRoomStage, com.baidu.live.alablmsdk.module.common.a aVar3) {
                     if (i == 0 && bLMJoinRoomStage == BLMJoinRoomStage.PUBLISH) {
-                        b.this.Mt(3);
+                        b.this.Mx(3);
                         com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("join_and_get_rtc_token_succ_host_3", true);
                     } else if (i != 0) {
                         b.this.j(i, (aVar3 != null ? aVar3.msg : "noerror") + ",stage:" + bLMJoinRoomStage, 3);
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            ab Yq = c.ecR().Yq();
-                            if (Yq != null && Yq.aIU != null) {
-                                jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yq.aIU.live_id);
+                            ab Yt = c.ecZ().Yt();
+                            if (Yt != null && Yt.aKu != null) {
+                                jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yt.aKu.live_id);
                             }
                             jSONObject2.put(AlaRecorderLog.KEY_CURRENT_STAGE, bLMJoinRoomStage);
                             jSONObject2.put("error_code", i);
@@ -812,16 +813,16 @@ public class b {
                             BdLog.e(e2);
                         }
                         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "owner_join_chat_result").setContentExt(jSONObject2));
-                        b.this.Wi("hostJoinChatJoinError:" + i + "errorMsg:" + bLMJoinRoomStage + (aVar3 != null ? aVar3.msg : "no error"));
+                        b.this.Wp("hostJoinChatJoinError:" + i + "errorMsg:" + bLMJoinRoomStage + (aVar3 != null ? aVar3.msg : "no error"));
                     }
                 }
             });
         }
     }
 
-    public void Wi(String str) {
-        if (this.oEv != null) {
-            this.oEv.Wi(str);
+    public void Wp(String str) {
+        if (this.oGA != null) {
+            this.oGA.Wp(str);
         }
     }
 
@@ -830,8 +831,8 @@ public class b {
         b(str4, str, str3, j, str2, z, str5, str6, iStatusListener);
     }
 
-    public boolean Wk(String str) {
-        return c(this.oEx, true, str);
+    public boolean Wr(String str) {
+        return c(this.oGC, true, str);
     }
 
     public boolean gT(String str, String str2) {
@@ -840,10 +841,10 @@ public class b {
 
     public boolean c(String str, boolean z, String str2) {
         gV("AudioRoomManager", "quitChat:" + str);
-        this.oEL = false;
-        this.oEM = false;
-        this.oEK = false;
-        this.oEF = false;
+        this.oGQ = false;
+        this.oGR = false;
+        this.oGP = false;
+        this.oGK = false;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("quitChatext", str2);
@@ -852,31 +853,31 @@ public class b {
         }
         aR("audio_room_debug", jSONObject.toString(), "quitChat");
         if (z) {
-            ecJ();
+            ecR();
         }
-        if (this.oEH != null) {
-            this.oEH.removeCallbacks(this.oET);
-            this.oEH.removeCallbacks(this.oEU);
+        if (this.oGM != null) {
+            this.oGM.removeCallbacks(this.oGY);
+            this.oGM.removeCallbacks(this.oGZ);
         }
-        if (this.oEw != null) {
-            if (this.oEE) {
-                if (ecN() == 1) {
-                    this.oEw.aY(true);
-                    this.oEw.b(BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ANCHOR);
+        if (this.oGB != null) {
+            if (this.oGJ) {
+                if (ecV() == 1) {
+                    this.oGB.aY(true);
+                    this.oGB.b(BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ANCHOR);
                 } else {
-                    this.oEw.b(BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ANCHOR);
+                    this.oGB.b(BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ANCHOR);
                     SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.5
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (b.this.oEw != null) {
-                                b.this.oEw.xk();
+                            if (b.this.oGB != null) {
+                                b.this.oGB.xn();
                             }
                         }
                     }, 500L);
                 }
             } else {
-                Mr(6);
-                this.oEw.b(this.oEx, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.6
+                Mv(6);
+                this.oGB.b(this.oGC, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.6
                     @Override // com.baidu.live.alablmsdk.c.d
                     public void f(int i, int i2, String str3) {
                         if (i2 == 0) {
@@ -886,43 +887,43 @@ public class b {
                         }
                     }
                 });
-                this.oEA = false;
+                this.oGF = false;
             }
         }
         return true;
     }
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.a.b$7  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     class AnonymousClass7 implements a {
-        final /* synthetic */ long oFc;
-        final /* synthetic */ String oFd;
-        final /* synthetic */ String oFe;
+        final /* synthetic */ long oHh;
+        final /* synthetic */ String oHi;
+        final /* synthetic */ String oHj;
         final /* synthetic */ String val$cuid;
 
         AnonymousClass7(long j, String str, String str2, String str3) {
-            this.oFc = j;
-            this.oFd = str;
+            this.oHh = j;
+            this.oHi = str;
             this.val$cuid = str2;
-            this.oFe = str3;
+            this.oHj = str3;
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.b.a
         public void B(int i, final long j) {
             if (i == 0) {
-                b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.7.1
+                b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.7.1
                     @Override // java.lang.Runnable
                     public void run() {
                         ArrayList arrayList = new ArrayList();
                         com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
-                        cVar.ayk = j;
-                        cVar.appId = AnonymousClass7.this.oFc;
-                        cVar.appVersion = AnonymousClass7.this.oFd;
+                        cVar.azK = j;
+                        cVar.appId = AnonymousClass7.this.oHh;
+                        cVar.appVersion = AnonymousClass7.this.oHi;
                         cVar.cuid = AnonymousClass7.this.val$cuid;
-                        cVar.ayq = AnonymousClass7.this.oFe;
+                        cVar.azQ = AnonymousClass7.this.oHj;
                         arrayList.add(cVar);
-                        if (b.this.oEw != null) {
-                            b.this.oEw.a(b.this.oEx, (JSONObject) null, arrayList, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.7.1.1
+                        if (b.this.oGB != null) {
+                            b.this.oGB.a(b.this.oGC, (JSONObject) null, arrayList, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.7.1.1
                                 @Override // com.baidu.live.alablmsdk.c.d
                                 public void f(int i2, int i3, String str) {
                                     if (i3 == 0) {
@@ -946,7 +947,7 @@ public class b {
         a(str, new AnonymousClass7(j, str2, str3, str));
     }
 
-    public void Aa(boolean z) {
+    public void zZ(boolean z) {
         gV("AudioRoomManager", "muteMic:" + z);
         JSONObject jSONObject = new JSONObject();
         try {
@@ -955,13 +956,13 @@ public class b {
             e.printStackTrace();
         }
         aR("audio_room_debug", jSONObject.toString(), "muteMic");
-        this.oEL = z;
-        if (z && 5 != this.oEB) {
-            this.oEB = 5;
-            Mr(5);
+        this.oGQ = z;
+        if (z && 5 != this.oGG) {
+            this.oGG = 5;
+            Mv(5);
         }
-        if (this.oEw != null) {
-            this.oEw.aY(z);
+        if (this.oGB != null) {
+            this.oGB.aY(z);
         }
     }
 
@@ -979,26 +980,26 @@ public class b {
     }
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.a.b$8  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     class AnonymousClass8 implements a {
-        final /* synthetic */ boolean aAt;
+        final /* synthetic */ boolean aBT;
 
         AnonymousClass8(boolean z) {
-            this.aAt = z;
+            this.aBT = z;
         }
 
         @Override // com.baidu.tieba.yuyinala.liveroom.wheat.a.b.a
         public void B(int i, final long j) {
             if (i == 0) {
-                b.this.u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.8.1
+                b.this.t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.8.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (b.this.oEw != null) {
+                        if (b.this.oGB != null) {
                             ArrayList arrayList = new ArrayList();
                             com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
-                            cVar.ayk = j;
+                            cVar.azK = j;
                             arrayList.add(cVar);
-                            b.this.oEw.a(b.this.oEx, AnonymousClass8.this.aAt, arrayList, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.8.1.1
+                            b.this.oGB.a(b.this.oGC, AnonymousClass8.this.aBT, arrayList, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.8.1.1
                                 @Override // com.baidu.live.alablmsdk.c.d
                                 public void f(int i2, int i3, String str) {
                                     if (i3 == 0) {
@@ -1018,7 +1019,7 @@ public class b {
     }
 
     public void a(BIMInviteSyncRtcInfo bIMInviteSyncRtcInfo, int i, String str, String str2, String str3, final boolean z, String str4) {
-        Wi("answerInvite");
+        Wp("answerInvite");
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("answerType", i);
@@ -1030,7 +1031,7 @@ public class b {
             e.printStackTrace();
         }
         aR("audio_room_debug", jSONObject.toString(), "answerInvite");
-        this.oEz = z ? 5 : 4;
+        this.oGE = z ? 5 : 4;
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject2.put("invited_name", str);
@@ -1040,9 +1041,9 @@ public class b {
             e2.printStackTrace();
         }
         if (i != 1) {
-            if (bIMInviteSyncRtcInfo != null && this.oEw != null) {
-                this.oEx = bIMInviteSyncRtcInfo.getRtcRoomId();
-                this.oEw.a(bIMInviteSyncRtcInfo.getRtcRoomId(), jSONObject2, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.9
+            if (bIMInviteSyncRtcInfo != null && this.oGB != null) {
+                this.oGC = bIMInviteSyncRtcInfo.getRtcRoomId();
+                this.oGB.a(bIMInviteSyncRtcInfo.getRtcRoomId(), jSONObject2, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.9
                     @Override // com.baidu.live.alablmsdk.c.d
                     public void f(int i2, int i3, String str5) {
                         if (i3 == 0) {
@@ -1053,39 +1054,39 @@ public class b {
                     }
                 });
             }
-        } else if (bIMInviteSyncRtcInfo == null || this.oEw == null) {
+        } else if (bIMInviteSyncRtcInfo == null || this.oGB == null) {
             gV("AudioRoomManager", "answerInvite error bimRtcInfo null");
-            q(1, this.oEz, "answerInvite error bimRtcInfo or mBLMRtcEngine null");
+            q(1, this.oGE, "answerInvite error bimRtcInfo or mBLMRtcEngine null");
         } else {
             gV("AudioRoomManager", "answerInvite:" + bIMInviteSyncRtcInfo.toRtcInfoString());
-            this.oEx = bIMInviteSyncRtcInfo.getRtcRoomId();
-            if (this.oEE) {
-                this.oEF = true;
-                J(this.oEx, str, str2, str3);
+            this.oGC = bIMInviteSyncRtcInfo.getRtcRoomId();
+            if (this.oGJ) {
+                this.oGK = true;
+                J(this.oGC, str, str2, str3);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("is_auto_publish", true);
-            this.oEw.w(hashMap);
+            this.oGB.w(hashMap);
             com.baidu.live.alablmsdk.config.a aVar = new com.baidu.live.alablmsdk.config.a();
-            aVar.axn = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR;
-            a.C0161a c0161a = new a.C0161a();
-            c0161a.axs = true;
-            c0161a.axr = str2;
-            c0161a.axx = "pure_audio";
-            a.C0161a c0161a2 = new a.C0161a();
-            c0161a2.axs = false;
-            c0161a2.axr = str3;
-            c0161a2.axx = "pure_audio";
-            aVar.axl = c0161a;
-            aVar.axm = c0161a2;
-            this.oEw.a(aVar);
-            this.oEw.aY(false);
-            this.oEw.a(bIMInviteSyncRtcInfo.getRtcRoomId(), jSONObject2, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.10
+            aVar.ayN = BLMLiveTransferMode.BLM_LIVE_TRANSFER_MODE_ROOM_AND_ANCHOR;
+            a.C0167a c0167a = new a.C0167a();
+            c0167a.ayS = true;
+            c0167a.ayR = str2;
+            c0167a.ayX = "pure_audio";
+            a.C0167a c0167a2 = new a.C0167a();
+            c0167a2.ayS = false;
+            c0167a2.ayR = str3;
+            c0167a2.ayX = "pure_audio";
+            aVar.ayL = c0167a;
+            aVar.ayM = c0167a2;
+            this.oGB.a(aVar);
+            this.oGB.aY(false);
+            this.oGB.a(bIMInviteSyncRtcInfo.getRtcRoomId(), jSONObject2, new com.baidu.live.alablmsdk.c.c() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.10
                 @Override // com.baidu.live.alablmsdk.c.c
                 public void a(int i2, BLMJoinRoomStage bLMJoinRoomStage, com.baidu.live.alablmsdk.module.common.a aVar2) {
                     if (i2 == 0 && bLMJoinRoomStage == BLMJoinRoomStage.PUBLISH) {
-                        b.this.Mt(z ? 5 : 4);
+                        b.this.Mx(z ? 5 : 4);
                         com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("answer_invite_anchor_6", false);
                     } else if (i2 != 0) {
                         b.this.j(i2, (aVar2 != null ? aVar2.msg : "noerror") + ",stage:" + bLMJoinRoomStage, z ? 5 : 4);
@@ -1095,24 +1096,24 @@ public class b {
         }
     }
 
-    public void yo() {
+    public void yr() {
         gV("AudioRoomManager", "leaveRoom");
         aR("audio_room_debug", "", "leaveRoom");
-        ecJ();
-        if (this.oEH != null) {
-            this.oEH.removeCallbacksAndMessages(null);
+        ecR();
+        if (this.oGM != null) {
+            this.oGM.removeCallbacksAndMessages(null);
         }
-        if (this.oEG != null) {
-            this.oEG.quit();
-            this.oEH = null;
+        if (this.oGL != null) {
+            this.oGL.quit();
+            this.oGM = null;
         }
-        BIMManager.unregisterStudioUsePaReceiveMsg(this.mContext, this.oEV);
-        if (this.oEv != null) {
-            this.oEv.yo();
-            this.oEv = null;
+        BIMManager.unregisterStudioUsePaReceiveMsg(this.mContext, this.oHa);
+        if (this.oGA != null) {
+            this.oGA.yr();
+            this.oGA = null;
         }
-        if (this.oEw != null) {
-            this.oEw.b(this.oEx, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.11
+        if (this.oGB != null) {
+            this.oGB.b(this.oGC, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.11
                 @Override // com.baidu.live.alablmsdk.c.d
                 public void f(int i, int i2, String str) {
                     if (i2 == 0) {
@@ -1122,23 +1123,23 @@ public class b {
                     }
                 }
             });
-            this.oEw.onRelease();
-            this.oEw = null;
+            this.oGB.onRelease();
+            this.oGB = null;
         }
-        this.oEA = false;
+        this.oGF = false;
     }
 
-    public void aAJ() {
+    public void aAM() {
         gV("AudioRoomManager", "pausePlayer");
-        if (this.oEv != null) {
-            this.oEv.aAJ();
+        if (this.oGA != null) {
+            this.oGA.aAM();
         }
     }
 
-    public void yp() {
+    public void ys() {
         gV("AudioRoomManager", "closeRoom:");
-        if (this.oEw != null) {
-            this.oEw.a(this.oEx, true, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.13
+        if (this.oGB != null) {
+            this.oGB.a(this.oGC, true, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.13
                 @Override // com.baidu.live.alablmsdk.c.d
                 public void f(int i, int i2, String str) {
                     if (i2 == 0) {
@@ -1151,51 +1152,51 @@ public class b {
         }
     }
 
-    public void ecI() {
+    public void ecQ() {
         gV("AudioRoomManager", "startHeartBeatAction");
-        if (this.oEv != null) {
-            this.oEv.aR("audio_room_manager", "", "startHeartBeatAction");
+        if (this.oGA != null) {
+            this.oGA.aR("audio_room_manager", "", "startHeartBeatAction");
         }
-        this.oEI = true;
-        u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.14
+        this.oGN = true;
+        t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.14
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.oEH != null) {
-                    b.this.oEH.removeCallbacks(b.this.oES);
-                    b.this.oEH.post(b.this.oES);
+                if (b.this.oGM != null) {
+                    b.this.oGM.removeCallbacks(b.this.oGX);
+                    b.this.oGM.post(b.this.oGX);
                 }
             }
         });
     }
 
-    public void ecJ() {
+    public void ecR() {
         gV("AudioRoomManager", "stopHeartBeatAction");
-        if (this.oEv != null) {
-            this.oEv.aR("audio_room_manager", "", "startHeartBeatAction");
+        if (this.oGA != null) {
+            this.oGA.aR("audio_room_manager", "", "startHeartBeatAction");
         }
-        this.oEI = false;
-        u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.15
+        this.oGN = false;
+        t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.15
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.oEH != null) {
-                    b.this.oEH.removeCallbacks(b.this.oES);
+                if (b.this.oGM != null) {
+                    b.this.oGM.removeCallbacks(b.this.oGX);
                 }
             }
         });
     }
 
-    public boolean ecK() {
-        return this.oEA;
+    public boolean ecS() {
+        return this.oGF;
     }
 
-    public static boolean Wl(String str) {
+    public static boolean Ws(String str) {
         return TextUtils.equals(AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY, str);
     }
 
     public void a(String str, final a aVar) {
         if (aVar != null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(Long.valueOf(JavaTypesHelper.toLong(com.baidu.tieba.yuyinala.liveroom.wheat.e.b.WO(str), 0L)));
+            arrayList.add(Long.valueOf(JavaTypesHelper.toLong(com.baidu.tieba.yuyinala.liveroom.wheat.e.b.WV(str), 0L)));
             BIMManager.getUsersProfiles(this.mContext, arrayList, true, new IGetUsersProfileBatchListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.16
                 @Override // com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener
                 public void onGetUsersProfileBatchResult(int i, String str2, ArrayList<Long> arrayList2, ArrayList<ChatUser> arrayList3) {
@@ -1209,36 +1210,36 @@ public class b {
         }
     }
 
-    public boolean ecD() {
-        if (this.oEv != null) {
-            return this.oEv.ecD();
+    public boolean ecL() {
+        if (this.oGA != null) {
+            return this.oGA.ecL();
         }
         return true;
     }
 
-    public void ecL() {
+    public void ecT() {
         gV("AudioRoomManager", "reStartPlayer");
-        if (this.oEv != null) {
-            this.oEv.cnL();
+        if (this.oGA != null) {
+            this.oGA.cnR();
         }
     }
 
     public void muteOrUnmuteAudio(boolean z) {
-        if ((this.oEF || (!this.oEE && ecK())) && this.oEw != null) {
-            if (z && !this.oEL && !this.oEM) {
-                this.oEK = true;
-                this.oEw.aY(true);
-            } else if (!z && this.oEK) {
-                this.oEw.aY(false);
-                this.oEK = false;
+        if ((this.oGK || (!this.oGJ && ecS())) && this.oGB != null) {
+            if (z && !this.oGQ && !this.oGR) {
+                this.oGP = true;
+                this.oGB.aY(true);
+            } else if (!z && this.oGP) {
+                this.oGB.aY(false);
+                this.oGP = false;
             }
-            this.oEw.aZ(z);
+            this.oGB.aZ(z);
         }
-        if (this.oEE && this.oEw != null) {
-            this.oEw.aZ(z);
+        if (this.oGJ && this.oGB != null) {
+            this.oGB.aZ(z);
         }
-        if (this.oEv != null) {
-            this.oEv.muteOrUnmuteAudio(z);
+        if (this.oGA != null) {
+            this.oGA.muteOrUnmuteAudio(z);
         }
     }
 
@@ -1256,9 +1257,9 @@ public class b {
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    ab Yq = c.ecR().Yq();
-                    if (Yq != null && Yq.aIU != null) {
-                        jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yq.aIU.live_id);
+                    ab Yt = c.ecZ().Yt();
+                    if (Yt != null && Yt.aKu != null) {
+                        jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yt.aKu.live_id);
                     }
                     jSONObject.put("error_code", 0);
                 } catch (Exception e) {
@@ -1266,26 +1267,26 @@ public class b {
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_IM_EVENT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_IMRTC, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "im_rtc_invite").setContentExt(jSONObject));
                 com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("get_imuk_from_bduk_anchor_3", false);
-                if (b.this.oEw != null) {
+                if (b.this.oGB != null) {
                     ArrayList arrayList = new ArrayList();
                     com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
-                    cVar.ayk = j2;
+                    cVar.azK = j2;
                     cVar.appId = j;
                     cVar.appVersion = str3;
                     cVar.cuid = str4;
-                    cVar.ayq = str2;
+                    cVar.azQ = str2;
                     arrayList.add(cVar);
                     JSONObject jSONObject2 = new JSONObject();
                     try {
                         jSONObject2.put("invite_name", TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow());
-                        jSONObject2.put("invite_uk", q.edM().Yp());
+                        jSONObject2.put("invite_uk", q.edU().Ys());
                         jSONObject2.put("type", z ? AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_APPLY : "invite");
                         jSONObject2.put("pushUrl", str5);
                         jSONObject2.put("pushSingleUrl", str6);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    b.this.oEw.a(str, arrayList, jSONObject2, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.17.1
+                    b.this.oGB.a(str, arrayList, jSONObject2, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.17.1
                         @Override // com.baidu.live.alablmsdk.c.d
                         public void f(int i2, int i3, String str7) {
                             if (iStatusListener != null) {
@@ -1294,29 +1295,29 @@ public class b {
                         }
                     });
                 }
-                if (b.this.oEW != null) {
-                    b.this.oEW.b(new f.b(j, j2, str4, str2));
+                if (b.this.oHb != null) {
+                    b.this.oHb.b(new f.b(j, j2, str4, str2));
                 }
             }
         });
     }
 
-    public long ecM() {
+    public long ecU() {
         return AccountManager.getUK(this.mContext);
     }
 
-    public int ecN() {
-        return this.oEQ;
+    public int ecV() {
+        return this.oGV;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mr(final int i) {
+    public void Mv(final int i) {
         gV("AudioRoomManager", "rtcroom,notifySyncStatus:" + i);
-        u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.18
+        t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.18
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.oEy != null) {
-                    b.this.oEy.Mv(i);
+                if (b.this.oGD != null) {
+                    b.this.oGD.Mz(i);
                 }
             }
         });
@@ -1334,88 +1335,88 @@ public class b {
             e.printStackTrace();
         }
         aR("audio_room_debug", jSONObject.toString(), "notifyError");
-        u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.19
+        t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.19
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.oEy != null) {
-                    b.this.oEy.onError(i, i2, str);
+                if (b.this.oGD != null) {
+                    b.this.oGD.onError(i, i2, str);
                 }
             }
         });
     }
 
-    private void Ms(int i) {
-        if (this.oEB != i) {
+    private void Mw(int i) {
+        if (this.oGG != i) {
             if (i == 4) {
-                if (this.oEH != null) {
-                    this.oEH.removeCallbacks(this.oET);
+                if (this.oGM != null) {
+                    this.oGM.removeCallbacks(this.oGY);
                 }
-                this.oEC = System.currentTimeMillis();
-                this.oEB = i;
-                Mr(4);
+                this.oGH = System.currentTimeMillis();
+                this.oGG = i;
+                Mv(4);
                 return;
             }
-            ab Yq = c.ecR().Yq();
-            if (Yq != null && Yq.aJg > 0.0d) {
-                this.oED = (long) (Yq.aJg * 1000.0d);
+            ab Yt = c.ecZ().Yt();
+            if (Yt != null && Yt.aKG > 0.0d) {
+                this.oGI = (long) (Yt.aKG * 1000.0d);
             }
-            long currentTimeMillis = System.currentTimeMillis() - this.oEC;
-            if (currentTimeMillis > this.oED) {
-                this.oEB = i;
-                Mr(5);
-            } else if (this.oEH != null) {
-                this.oEH.removeCallbacks(this.oET);
-                this.oEH.postDelayed(this.oET, this.oED - currentTimeMillis);
+            long currentTimeMillis = System.currentTimeMillis() - this.oGH;
+            if (currentTimeMillis > this.oGI) {
+                this.oGG = i;
+                Mv(5);
+            } else if (this.oGM != null) {
+                this.oGM.removeCallbacks(this.oGY);
+                this.oGM.postDelayed(this.oGY, this.oGI - currentTimeMillis);
             }
-        } else if (i == 4 && System.currentTimeMillis() - this.oEC > 5000) {
-            if (this.oEH != null) {
-                this.oEH.removeCallbacks(this.oET);
+        } else if (i == 4 && System.currentTimeMillis() - this.oGH > 5000) {
+            if (this.oGM != null) {
+                this.oGM.removeCallbacks(this.oGY);
             }
-            this.oEC = System.currentTimeMillis();
-            this.oEB = i;
-            Mr(4);
+            this.oGH = System.currentTimeMillis();
+            this.oGG = i;
+            Mv(4);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mt(final int i) {
+    public void Mx(final int i) {
         boolean z = false;
-        this.oEA = true;
-        if (this.oEE) {
-            this.oEF = true;
+        this.oGF = true;
+        if (this.oGJ) {
+            this.oGK = true;
         }
-        if (this.oEw != null) {
-            com.baidu.live.alablmsdk.a aVar = this.oEw;
-            if (this.oEL || this.oEM) {
+        if (this.oGB != null) {
+            com.baidu.live.alablmsdk.a aVar = this.oGB;
+            if (this.oGQ || this.oGR) {
                 z = true;
             }
             aVar.aY(z);
         }
-        u(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.20
+        t(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.20
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.oEy != null) {
-                    b.this.ecI();
-                    b.this.ecO();
-                    if (b.this.oEH != null) {
-                        b.this.oEH.removeCallbacks(b.this.oET);
-                        b.this.oEH.post(b.this.oET);
-                        b.this.oEH.removeCallbacks(b.this.oEU);
-                        b.this.oEH.postDelayed(b.this.oEU, 500L);
+                if (b.this.oGD != null) {
+                    b.this.ecQ();
+                    b.this.ecW();
+                    if (b.this.oGM != null) {
+                        b.this.oGM.removeCallbacks(b.this.oGY);
+                        b.this.oGM.post(b.this.oGY);
+                        b.this.oGM.removeCallbacks(b.this.oGZ);
+                        b.this.oGM.postDelayed(b.this.oGZ, 500L);
                     }
-                    b.this.oEy.Mu(i);
+                    b.this.oGD.My(i);
                 }
             }
         });
         JSONObject jSONObject = new JSONObject();
         try {
-            ab Yq = c.ecR().Yq();
-            if (Yq != null && Yq.aIU != null) {
-                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yq.aIU.live_id);
+            ab Yt = c.ecZ().Yt();
+            if (Yt != null && Yt.aKu != null) {
+                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yt.aKu.live_id);
             }
             jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 1);
             jSONObject.put("error_code", 0);
-            jSONObject.put("error_msg", "上麦失败成功joinChatType:" + i + ",rtcType:" + this.oEQ);
+            jSONObject.put("error_msg", "上麦失败成功joinChatType:" + i + ",rtcType:" + this.oGV);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -1440,12 +1441,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(int i, String str, int i2) {
-        this.oEA = false;
-        if (this.oEE) {
-            this.oEF = false;
+        this.oGF = false;
+        if (this.oGJ) {
+            this.oGK = false;
         } else {
-            if (this.oEw != null) {
-                this.oEw.b(this.oEx, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21
+            if (this.oGB != null) {
+                this.oGB.b(this.oGC, (JSONObject) null, new com.baidu.live.alablmsdk.c.d() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.b.21
                     @Override // com.baidu.live.alablmsdk.c.d
                     public void f(int i3, int i4, String str2) {
                         if (i4 == 0) {
@@ -1456,21 +1457,21 @@ public class b {
                     }
                 });
             }
-            ecJ();
+            ecR();
         }
-        if (this.oEH != null) {
-            this.oEH.removeCallbacks(this.oEU);
-            this.oEH.removeCallbacks(this.oET);
+        if (this.oGM != null) {
+            this.oGM.removeCallbacks(this.oGZ);
+            this.oGM.removeCallbacks(this.oGY);
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            ab Yq = c.ecR().Yq();
-            if (Yq != null && Yq.aIU != null) {
-                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yq.aIU.live_id);
+            ab Yt = c.ecZ().Yt();
+            if (Yt != null && Yt.aKu != null) {
+                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yt.aKu.live_id);
             }
             jSONObject.put(AlaRecorderLog.KEY_CURRENT_STAGE, 1);
             jSONObject.put("error_code", i);
-            jSONObject.put("error_msg", "上麦失败msg:" + str + ",joinChatType:" + i2 + ",rtctype:" + this.oEQ + "|" + c.ecR().ecT().ecQ());
+            jSONObject.put("error_msg", "上麦失败msg:" + str + ",joinChatType:" + i2 + ",rtctype:" + this.oGV + "|" + c.ecZ().edb().ecY());
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -1490,28 +1491,28 @@ public class b {
                 break;
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_OWNER_JOIN_CHAT, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_CHAT, UbcStatConstant.Page.AUDIO_LIVE_ROOM, str2).setContentExt(jSONObject));
-        Wi("joinChatErrormsg:" + str + "errorcode:" + i + ",type:" + i2);
+        Wp("joinChatErrormsg:" + str + "errorcode:" + i + ",type:" + i2);
         gU("AudioRoomManager", "joinChatErrormsg:" + str + "errorcode:" + i + ",type:" + i2);
         q(1, i2, "joinchaterrorcode:" + i + "errorMsg:" + str + "userType:" + i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecO() {
-        com.baidu.live.alablmsdk.module.rtc.d yk;
-        if (this.oEw != null && (yk = this.oEw.xm().yk()) != null) {
-            ab Yq = c.ecR().Yq();
-            if (Yq != null) {
-                if (this.oEQ == 1) {
-                    oEq = Yq.aJi;
+    public void ecW() {
+        com.baidu.live.alablmsdk.module.rtc.d yn;
+        if (this.oGB != null && (yn = this.oGB.xp().yn()) != null) {
+            ab Yt = c.ecZ().Yt();
+            if (Yt != null) {
+                if (this.oGV == 1) {
+                    oGv = Yt.aKI;
                 } else {
-                    oEq = Yq.aJj;
+                    oGv = Yt.aKJ;
                 }
             }
-            gV("AudioRoomManager", "currentVolume:" + yk.volume);
-            if (yk.volume > oEq) {
-                Ms(4);
+            gV("AudioRoomManager", "currentVolume:" + yn.volume);
+            if (yn.volume > oGv) {
+                Mw(4);
             } else {
-                Ms(5);
+                Mw(5);
             }
         }
     }
@@ -1521,20 +1522,20 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void u(Runnable runnable) {
+    public void t(Runnable runnable) {
         SafeHandler.getInst().post(runnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gU(String str, String str2) {
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oEa) {
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oGf) {
             Log.e(str, str2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gV(String str, String str2) {
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oEa) {
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oGf) {
             Log.i(str, str2);
         }
     }
@@ -1543,9 +1544,9 @@ public class b {
         JSONObject jSONObject;
         JSONObject jSONObject2 = new JSONObject();
         try {
-            ab Yq = c.ecR().Yq();
-            if (Yq != null && Yq.aIU != null) {
-                jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yq.aIU.live_id);
+            ab Yt = c.ecZ().Yt();
+            if (Yt != null && Yt.aKu != null) {
+                jSONObject2.put(AlaRecorderLog.KEY_CONTENT_EXT_RES_ID, Yt.aKu.live_id);
             }
             jSONObject2.put(AlaRecorderLog.KEY_RES_TYPE, str);
             if (TextUtils.isEmpty(str2)) {
@@ -1553,11 +1554,11 @@ public class b {
             } else {
                 jSONObject = new JSONObject(str2);
             }
-            jSONObject.put("imuk", ecM());
-            jSONObject.put("rtcroomid", this.oEx);
-            jSONObject.put("rtctype", this.oEQ);
+            jSONObject.put("imuk", ecU());
+            jSONObject.put("rtcroomid", this.oGC);
+            jSONObject.put("rtctype", this.oGV);
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_LM_NETWORK, BdNetTypeUtil.isNetWorkAvailable());
-            jSONObject.put("imstatus", this.oEJ);
+            jSONObject.put("imstatus", this.oGO);
             jSONObject.put("opertaionType", str3);
             jSONObject.put("thread", Thread.currentThread().getName());
             jSONObject.put("time", StringHelper.getCurrentTimeZoneSecond() + "," + System.currentTimeMillis());
@@ -1568,19 +1569,19 @@ public class b {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_LIVE_DEBUG, UbcStatConstant.ContentType.UBC_TYPE_AUDIO_LIVE_RTC, UbcStatConstant.Page.AUDIO_LIVE_ROOM, "audio_live_debug").setContentExt(jSONObject2));
     }
 
-    public boolean ecP() {
-        return this.oEF;
+    public boolean ecX() {
+        return this.oGK;
     }
 
     public void sendMessageToUser(String str, long j) {
-        if (this.oEw != null) {
+        if (this.oGB != null) {
             com.baidu.live.alablmsdk.module.c cVar = new com.baidu.live.alablmsdk.module.c();
-            cVar.ayk = j;
-            this.oEw.a(str, cVar);
+            cVar.azK = j;
+            this.oGB.a(str, cVar);
         }
     }
 
-    public String ecQ() {
-        return this.oEv != null ? this.oEv.ecE() + ",rtcroomid:" + this.oEx + ",imuk:" + ecM() + ",rtcType:" + this.oEQ + "netstatus:" + BdNetTypeUtil.isNetWorkAvailable() + "imstatus:" + this.oEJ + "#" + this.oEN + ",isStartHeartBeat:" + this.oEI + ",time:" + System.currentTimeMillis() : "";
+    public String ecY() {
+        return this.oGA != null ? this.oGA.ecM() + ",rtcroomid:" + this.oGC + ",imuk:" + ecU() + ",rtcType:" + this.oGV + "netstatus:" + BdNetTypeUtil.isNetWorkAvailable() + "imstatus:" + this.oGO + "#" + this.oGS + ",isStartHeartBeat:" + this.oGN + ",time:" + System.currentTimeMillis() : "";
     }
 }

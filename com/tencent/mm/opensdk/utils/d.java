@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static boolean a(String str) {
         return str == null || str.length() <= 0;

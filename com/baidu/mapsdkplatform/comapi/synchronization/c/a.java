@@ -7,21 +7,19 @@ import java.util.concurrent.Executors;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3092a = 4000;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f3093b = 4000;
+    private int f2244a = 4000;
+    private int b = 4000;
     private ExecutorService c = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static abstract class AbstractRunnableC0252a implements Runnable {
-        private AbstractRunnableC0252a() {
+    public static abstract class AbstractRunnableC0258a implements Runnable {
+        private AbstractRunnableC0258a() {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ AbstractRunnableC0252a(b bVar) {
+        public /* synthetic */ AbstractRunnableC0258a(b bVar) {
             this();
         }
 

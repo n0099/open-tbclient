@@ -17,7 +17,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/getLaunchAppInfo");
@@ -44,7 +44,7 @@ public class a extends aa {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: A */
-            public void L(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
+            public void N(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
                 if (map != null) {
                     a.this.a(str, callbackHandler, map);
                 } else {
@@ -62,21 +62,21 @@ public class a extends aa {
             return;
         }
         boolean z = eVar.forbidden;
-        int aOg = aj.aOg();
-        long aOh = aj.aOh();
-        List<String> list = eVar.dJf;
+        int aOj = aj.aOj();
+        long aOk = aj.aOk();
+        List<String> list = eVar.dKG;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", aOg);
-            jSONObject.put("visitDuration", aOh);
+            jSONObject.put("launchCount", aOj);
+            jSONObject.put("visitDuration", aOk);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + aOg + " visitDuration:" + aOh + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + aOj + " visitDuration:" + aOk + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

@@ -14,7 +14,7 @@ public class j extends l<com.baidu.tieba.pb.data.e, PbChildTitleViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cs */
+    /* renamed from: cr */
     public PbChildTitleViewHolder e(ViewGroup viewGroup) {
         return new PbChildTitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.pb_child_title, viewGroup, false));
     }

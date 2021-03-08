@@ -2,43 +2,43 @@ package com.baidu.live.videochat.b;
 
 import com.baidu.ala.recorder.video.AlaRecorderLog;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private long bOY;
-    private int bOZ;
-    private long bPa;
-    private long bPb;
-    private long bPc;
-    private long bPd;
+    private long bQA;
+    private long bQB;
+    private long bQC;
+    private long bQD;
+    private long bQy;
+    private int bQz;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bOY = jSONObject.optLong("chat_id");
-            this.bOZ = jSONObject.optInt(AlaRecorderLog.KEY_CHAT_STATUS);
-            this.bPa = jSONObject.optLong("user_id1");
-            this.bPb = jSONObject.optLong("live_id1");
-            this.bPc = jSONObject.optLong("user_id2");
-            this.bPd = jSONObject.optLong("live_id2");
+            this.bQy = jSONObject.optLong("chat_id");
+            this.bQz = jSONObject.optInt(AlaRecorderLog.KEY_CHAT_STATUS);
+            this.bQA = jSONObject.optLong("user_id1");
+            this.bQB = jSONObject.optLong("live_id1");
+            this.bQC = jSONObject.optLong("user_id2");
+            this.bQD = jSONObject.optLong("live_id2");
         }
     }
 
-    public boolean SK() {
-        return this.bOZ == 2;
+    public boolean SN() {
+        return this.bQz == 2;
     }
 
-    public boolean Wr() {
-        return this.bOZ == 3 || this.bOZ == 4;
+    public boolean Wu() {
+        return this.bQz == 3 || this.bQz == 4;
     }
 
-    public long Ws() {
-        return this.bOY;
+    public long Wv() {
+        return this.bQy;
     }
 
-    public int SV() {
-        return this.bOZ;
+    public int SY() {
+        return this.bQz;
     }
 
-    public long Wt() {
-        return this.bPa;
+    public long Ww() {
+        return this.bQA;
     }
 }

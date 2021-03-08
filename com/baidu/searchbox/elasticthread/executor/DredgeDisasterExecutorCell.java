@@ -3,7 +3,7 @@ package com.baidu.searchbox.elasticthread.executor;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DredgeDisasterExecutorCell extends BaseDredgeExecutorCell {
     /* JADX INFO: Access modifiers changed from: protected */
     public DredgeDisasterExecutorCell(int i) {

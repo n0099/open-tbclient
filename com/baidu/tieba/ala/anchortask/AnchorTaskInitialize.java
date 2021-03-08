@@ -6,13 +6,13 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.b.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AnchorTaskInitialize {
     static {
-        bSJ();
+        bSP();
     }
 
-    private static void bSJ() {
+    private static void bSP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913139, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.anchortask.AnchorTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<a> run(CustomMessage<Context> customMessage) {

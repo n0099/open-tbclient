@@ -4,7 +4,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong implements j<T>, d {
     static final long COMPLETE_MASK = Long.MIN_VALUE;
     static final long REQUEST_MASK = Long.MAX_VALUE;

@@ -10,7 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ChannelManager {
     private static boolean DEBUG = AppConfig.isDebug();
     private static final String KEY_CHANNEL = "channel";

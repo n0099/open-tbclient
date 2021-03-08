@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.ae;
 public class j implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
-        if (!ae.bsz() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba")) {
+        if (!ae.bsC() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba")) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(activity, activity.getIntent())));
             activity.finish();
         }
@@ -25,7 +25,7 @@ public class j implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         if (activity != null && !activity.getClass().getSimpleName().equals("LogoActivity")) {
-            com.baidu.tbadk.BdToken.d.bhD().p(activity);
+            com.baidu.tbadk.BdToken.d.bhF().p(activity);
         }
     }
 

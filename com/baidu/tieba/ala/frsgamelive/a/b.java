@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.frsgamelive.view.AlaFrsLiveListGatherRecommendTitleView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.frsgamelive.b.b, AlaFrsLiveListGatherRecommendTitleView.AlaFrsLiveListGatherRecommendTitleViewHolder> {
     private TbPageContext<?> mPageContext;
 

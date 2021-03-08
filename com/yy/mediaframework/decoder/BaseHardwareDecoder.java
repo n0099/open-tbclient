@@ -17,7 +17,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class BaseHardwareDecoder extends BaseDecoder {
     private static final byte[] SYNC_FLAG = new byte[1];
     protected boolean isInited;
@@ -32,12 +32,12 @@ public class BaseHardwareDecoder extends BaseDecoder {
     protected ByteBuffer[] mOutputBuffers;
     private Boolean mSupportFlexible;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface OnDecoderSizeChangeListener {
         void onDecoderSizeChanged(int i, int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface OnDecoderYUVListener {
         void OnDecoderError();
 
@@ -350,8 +350,8 @@ public class BaseHardwareDecoder extends BaseDecoder {
             return "";
         }
         String str = "";
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (hexString.length() == 1) {
                 hexString = "0" + hexString;
             }

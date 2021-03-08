@@ -13,11 +13,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableZip<T, R> extends g<R> {
     final int bufferSize;
     final boolean delayError;
-    final Iterable<? extends org.a.b<? extends T>> qox;
+    final Iterable<? extends org.a.b<? extends T>> qoZ;
     final org.a.b<? extends T>[] sources;
     final h<? super Object[], ? extends R> zipper;
 
@@ -29,7 +29,7 @@ public final class FlowableZip<T, R> extends g<R> {
         if (bVarArr2 == null) {
             int i = 0;
             org.a.b<? extends T>[] bVarArr3 = new org.a.b[8];
-            for (org.a.b<? extends T> bVar : this.qox) {
+            for (org.a.b<? extends T> bVar : this.qoZ) {
                 if (i == bVarArr3.length) {
                     org.a.b<? extends T>[] bVarArr4 = new org.a.b[(i >> 2) + i];
                     System.arraycopy(bVarArr3, 0, bVarArr4, 0, i);
@@ -53,7 +53,7 @@ public final class FlowableZip<T, R> extends g<R> {
         zipCoordinator.subscribe(bVarArr, length);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class ZipCoordinator<T, R> extends AtomicInteger implements d {
         private static final long serialVersionUID = -2434867452883857743L;
         final org.a.c<? super R> actual;
@@ -319,7 +319,7 @@ public final class FlowableZip<T, R> extends g<R> {
                                 break;
                             }
                             try {
-                                cVar.onNext((Object) io.reactivex.internal.functions.a.m(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
+                                cVar.onNext((Object) io.reactivex.internal.functions.a.n(this.zipper.apply(objArr.clone()), "The zipper returned a null value"));
                                 j2 = 1 + j3;
                                 Arrays.fill(objArr, (Object) null);
                             } catch (Throwable th2) {
@@ -339,7 +339,7 @@ public final class FlowableZip<T, R> extends g<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class ZipSubscriber<T, R> extends AtomicReference<d> implements j<T>, d {
         private static final long serialVersionUID = -4627193790118206028L;
         volatile boolean done;

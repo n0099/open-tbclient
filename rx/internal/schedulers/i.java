@@ -1,22 +1,22 @@
 package rx.internal.schedulers;
 
 import rx.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class i implements rx.functions.a {
-    private final rx.functions.a qDn;
-    private final g.a qDo;
-    private final long qrW;
+    private final rx.functions.a qDP;
+    private final g.a qDQ;
+    private final long qsy;
 
     public i(rx.functions.a aVar, g.a aVar2, long j) {
-        this.qDn = aVar;
-        this.qDo = aVar2;
-        this.qrW = j;
+        this.qDP = aVar;
+        this.qDQ = aVar2;
+        this.qsy = j;
     }
 
     @Override // rx.functions.a
     public void call() {
-        if (!this.qDo.isUnsubscribed()) {
-            long now = this.qrW - this.qDo.now();
+        if (!this.qDQ.isUnsubscribed()) {
+            long now = this.qsy - this.qDQ.now();
             if (now > 0) {
                 try {
                     Thread.sleep(now);
@@ -25,8 +25,8 @@ class i implements rx.functions.a {
                     rx.exceptions.a.s(e);
                 }
             }
-            if (!this.qDo.isUnsubscribed()) {
-                this.qDn.call();
+            if (!this.qDQ.isUnsubscribed()) {
+                this.qDP.call();
             }
         }
     }

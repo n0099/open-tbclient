@@ -27,7 +27,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     private static final float HIDE_FRICTION = 0.1f;
     private static final float HIDE_THRESHOLD = 0.5f;
@@ -65,7 +65,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     ViewDragHelper viewDragHelper;
     WeakReference<V> viewRef;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class BottomSheetCallback {
         public abstract void onSlide(@NonNull View view, float f);
 
@@ -74,7 +74,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface State {
     }
 
@@ -709,7 +709,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class SettleRunnable implements Runnable {
         private final int targetState;
         private final View view;
@@ -730,7 +730,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class AppBackgroundMonitor implements Application.ActivityLifecycleCallbacks {
     private static final String TAG = "[NotifyApplicationBackground]";
     private AppBackgroundMonitorListener mAppBackgroundMonitorListener;

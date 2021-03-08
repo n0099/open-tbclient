@@ -16,8 +16,8 @@ public final class StorageUtils {
     }
 
     public static File getIndividualCacheDirectory(Context context, String str) {
-        File b2 = ad.b(context);
-        File file = new File(b2, str);
-        return (file.exists() || file.mkdir()) ? file : b2;
+        File b = ad.b(context);
+        File file = new File(b, str);
+        return (file.exists() || file.mkdir()) ? file : b;
     }
 }

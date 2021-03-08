@@ -6,18 +6,18 @@ import java.io.InputStream;
 public class e implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final InputStream f13208a;
-    private final b qhQ;
+    private final InputStream f7865a;
+    private final b qiG;
 
     public e(InputStream inputStream, int i) {
-        this.f13208a = inputStream;
-        this.qhQ = new b(i);
+        this.f7865a = inputStream;
+        this.qiG = new b(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.j.c
-    public b eIC() throws IOException {
-        this.qhQ.f13207b = this.f13208a.read(this.qhQ.f13206a);
-        return this.qhQ;
+    public b eIE() throws IOException {
+        this.qiG.b = this.f7865a.read(this.qiG.f7864a);
+        return this.qiG;
     }
 
     @Override // com.ss.android.socialbase.downloader.j.c
@@ -26,6 +26,6 @@ public class e implements c {
 
     @Override // com.ss.android.socialbase.downloader.j.c
     public void b() {
-        com.ss.android.socialbase.downloader.m.d.a(this.f13208a);
+        com.ss.android.socialbase.downloader.m.d.a(this.f7865a);
     }
 }

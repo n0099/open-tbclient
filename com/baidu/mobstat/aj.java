@@ -10,17 +10,15 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aj {
     private static final ByteBuffer c = ByteBuffer.allocate(0);
 
     /* renamed from: a  reason: collision with root package name */
-    private a f3658a;
+    private a f2577a;
+    private b b;
 
-    /* renamed from: b  reason: collision with root package name */
-    private b f3659b;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -51,33 +49,33 @@ public class aj {
     }
 
     public aj(URI uri, a aVar) throws c {
-        this.f3658a = aVar;
+        this.f2577a = aVar;
         try {
-            this.f3659b = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.f3659b.c();
+            this.b = new b(uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
+            this.b.c();
         } catch (InterruptedException e) {
             throw new c(e);
         }
     }
 
     public void a() {
-        if (this.f3659b != null) {
-            this.f3659b.d();
+        if (this.b != null) {
+            this.b.d();
         }
     }
 
     public void a(JSONObject jSONObject) throws NotYetConnectedException {
-        if (this.f3659b != null) {
-            this.f3659b.a(jSONObject.toString().getBytes());
+        if (this.b != null) {
+            this.b.a(jSONObject.toString().getBytes());
         }
     }
 
     public boolean b() {
-        return (this.f3659b.f() || this.f3659b.g() || this.f3659b.e()) ? false : true;
+        return (this.b.f() || this.b.g() || this.b.e()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends cc {
         public b(URI uri, int i, Socket socket) throws InterruptedException {
             super(uri, new cf(), null, i);
@@ -89,8 +87,8 @@ public class aj {
             if (bd.c().b()) {
                 bd.c().a("onOpen");
             }
-            if (aj.this.f3658a != null) {
-                aj.this.f3658a.a();
+            if (aj.this.f2577a != null) {
+                aj.this.f2577a.a();
             }
         }
 
@@ -116,7 +114,7 @@ public class aj {
                     if (!TextUtils.isEmpty(str2)) {
                         if (str2.equals("deploy")) {
                             try {
-                                aj.this.f3658a.a(((JSONObject) jSONObject.get("data")).toString());
+                                aj.this.f2577a.a(((JSONObject) jSONObject.get("data")).toString());
                                 return;
                             } catch (Exception e3) {
                                 return;
@@ -143,8 +141,8 @@ public class aj {
                             case 801024:
                                 bc.c().a("autotrace: connect confirm");
                                 am.a().a(3);
-                                if (aj.this.f3658a != null) {
-                                    aj.this.f3658a.b();
+                                if (aj.this.f2577a != null) {
+                                    aj.this.f2577a.b();
                                     return;
                                 }
                                 return;
@@ -161,8 +159,8 @@ public class aj {
             }
             bc.c().a("autotrace: connect closed, server:" + z + " reason:" + str);
             am.a().a(5, "remote:" + z + "|reason:" + str);
-            if (aj.this.f3658a != null) {
-                aj.this.f3658a.a(z);
+            if (aj.this.f2577a != null) {
+                aj.this.f2577a.a(z);
             }
         }
 
@@ -174,7 +172,7 @@ public class aj {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends IOException {
         public c(Throwable th) {
             super(th.getMessage());

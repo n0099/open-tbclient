@@ -28,23 +28,23 @@ import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends BdBaseModel {
-    private HttpMessageListener beP;
-    private a beR;
-    private boolean beS;
-    private BdUniqueId beT;
+    private HttpMessageListener bgr;
+    private a bgu;
+    private boolean bgv;
+    private BdUniqueId bgw;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(int i, String str, boolean z, ArrayList<h> arrayList, ArrayList<i> arrayList2, ArrayList<l> arrayList3, ae aeVar);
     }
 
     public c(BdPageContext bdPageContext) {
         super(bdPageContext);
-        this.beS = false;
-        this.beT = BdUniqueId.gen();
-        this.beP = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.c.1
+        this.bgv = false;
+        this.bgw = BdUniqueId.gen();
+        this.bgr = new HttpMessageListener(1021120) { // from class: com.baidu.live.gift.giftList.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -55,29 +55,29 @@ public class c extends BdBaseModel {
                 }
             }
         };
-        this.beP.setTag(bdPageContext.getUniqueId());
-        registerListener(this.beP);
+        this.bgr.setTag(bdPageContext.getUniqueId());
+        registerListener(this.bgr);
     }
 
     public void a(String str, boolean z, String str2, String str3) {
-        String Fs = ac.Fs();
-        if (Fs == null || Fs.length() == 0) {
-            this.beS = false;
+        String Fv = ac.Fv();
+        if (Fv == null || Fv.length() == 0) {
+            this.bgv = false;
             q(str, str2, str3);
             return;
         }
         AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage = new AlaSdkGetGiftListHttpResponseMessage();
         try {
-            alaSdkGetGiftListHttpResponseMessage.c(new JSONObject(Fs), true);
+            alaSdkGetGiftListHttpResponseMessage.a(new JSONObject(Fv), true);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        if (alaSdkGetGiftListHttpResponseMessage == null || ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.HC())) {
-            this.beS = false;
+        if (alaSdkGetGiftListHttpResponseMessage == null || ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.HF())) {
+            this.bgv = false;
             q(str, str2, str3);
             return;
         }
-        this.beS = true;
+        this.bgv = true;
         a(str, alaSdkGetGiftListHttpResponseMessage, true);
         if (z) {
             q(str, str2, str3);
@@ -92,19 +92,19 @@ public class c extends BdBaseModel {
     public void q(String str, String str2, String str3) {
         String str4;
         Address address;
-        String Fp = StringUtils.isNull(str) ? com.baidu.live.gift.c.b.Hr().Fp() : str;
+        String Fs = StringUtils.isNull(str) ? com.baidu.live.gift.c.b.Hu().Fs() : str;
         String str5 = "";
         String str6 = "";
-        ab Fr = ac.Fr();
-        if (Fr != null) {
-            if (Fr.mLiveInfo != null) {
-                str5 = String.valueOf(Fr.mLiveInfo.live_id);
+        ab Fu = ac.Fu();
+        if (Fu != null) {
+            if (Fu.mLiveInfo != null) {
+                str5 = String.valueOf(Fu.mLiveInfo.live_id);
             }
-            if (Fr.aId != null) {
-                str6 = String.valueOf(Fr.aId.userId);
+            if (Fu.aJD != null) {
+                str6 = String.valueOf(Fu.aJD.userId);
                 str4 = str5;
-                f fVar = new f(Fp, str4, str6, str2, str3);
-                fVar.setTag(this.beT);
+                f fVar = new f(Fs, str4, str6, str2, str3);
+                fVar.setTag(this.bgw);
                 address = BdLocationMananger.getInstance().getAddress(false);
                 if (address == null) {
                     fVar.b(address.getLongitude(), address.getLatitude());
@@ -116,8 +116,8 @@ public class c extends BdBaseModel {
             }
         }
         str4 = str5;
-        f fVar2 = new f(Fp, str4, str6, str2, str3);
-        fVar2.setTag(this.beT);
+        f fVar2 = new f(Fs, str4, str6, str2, str3);
+        fVar2.setTag(this.bgw);
         address = BdLocationMananger.getInstance().getAddress(false);
         if (address == null) {
         }
@@ -139,7 +139,7 @@ public class c extends BdBaseModel {
                 BdLog.e(e);
                 jSONObject2 = jSONObject3;
             }
-        } else if (alaSdkGetGiftListHttpResponseMessage.HC() == null || alaSdkGetGiftListHttpResponseMessage.HC().isEmpty() || alaSdkGetGiftListHttpResponseMessage.getCategoryList() == null || alaSdkGetGiftListHttpResponseMessage.getCategoryList().isEmpty()) {
+        } else if (alaSdkGetGiftListHttpResponseMessage.HF() == null || alaSdkGetGiftListHttpResponseMessage.HF().isEmpty() || alaSdkGetGiftListHttpResponseMessage.getCategoryList() == null || alaSdkGetGiftListHttpResponseMessage.getCategoryList().isEmpty()) {
             JSONObject jSONObject4 = new JSONObject();
             try {
                 jSONObject4.put(PushMessageHelper.ERROR_TYPE, "list_empty");
@@ -151,9 +151,9 @@ public class c extends BdBaseModel {
             }
         }
         if (jSONObject2 != null) {
-            if (!TextUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.HE())) {
+            if (!TextUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.HH())) {
                 try {
-                    jSONObject2.put("req_loc", alaSdkGetGiftListHttpResponseMessage.HE());
+                    jSONObject2.put("req_loc", alaSdkGetGiftListHttpResponseMessage.HH());
                     jSONObject.put("result", jSONObject2);
                 } catch (JSONException e3) {
                     e3.printStackTrace();
@@ -165,9 +165,9 @@ public class c extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage, boolean z) {
-        com.baidu.live.gift.c.b.Hr().e(str, alaSdkGetGiftListHttpResponseMessage.HC());
-        if (this.beR != null) {
-            this.beR.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.HC(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.HD(), alaSdkGetGiftListHttpResponseMessage.Or());
+        com.baidu.live.gift.c.b.Hu().e(str, alaSdkGetGiftListHttpResponseMessage.HF());
+        if (this.bgu != null) {
+            this.bgu.a(alaSdkGetGiftListHttpResponseMessage.getError(), alaSdkGetGiftListHttpResponseMessage.getErrorString(), z, alaSdkGetGiftListHttpResponseMessage.HF(), alaSdkGetGiftListHttpResponseMessage.getCategoryList(), alaSdkGetGiftListHttpResponseMessage.HG(), alaSdkGetGiftListHttpResponseMessage.Ou());
         }
     }
 
@@ -184,10 +184,10 @@ public class c extends BdBaseModel {
 
     public void onDestroy() {
         cancelLoadData();
-        MessageManager.getInstance().unRegisterListener(this.beP);
+        MessageManager.getInstance().unRegisterListener(this.bgr);
     }
 
     public void a(a aVar) {
-        this.beR = aVar;
+        this.bgu = aVar;
     }
 }

@@ -1,5 +1,5 @@
 package org.chromium.support_lib_boundary;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public interface ServiceWorkerWebSettingsBoundaryInterface {
     boolean getAllowContentAccess();
 

@@ -20,14 +20,14 @@ import com.baidu.tieba.pb.b;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes.dex */
 public class e extends b<CustomDialogData> implements View.OnClickListener {
-    private CustomDialogData lMi;
-    private f lMj;
-    private TbImageView lMk;
-    private TextView lMl;
-    private TextView lMm;
-    private View lMn;
-    private View lMo;
-    private LinearLayout lMp;
+    private CustomDialogData lOk;
+    private f lOl;
+    private TbImageView lOm;
+    private TextView lOn;
+    private TextView lOo;
+    private View lOp;
+    private View lOq;
+    private LinearLayout lOr;
     private TextView noButton;
     private TextView yesButton;
 
@@ -36,7 +36,7 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     }
 
     public void a(f fVar) {
-        this.lMj = fVar;
+        this.lOl = fVar;
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.g
@@ -49,16 +49,16 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
     /* renamed from: b */
     public void a(CustomDialogData customDialogData) {
         if (customDialogData != null) {
-            this.lMi = customDialogData;
+            this.lOk = customDialogData;
             CustomDialogData.Head head = customDialogData.head;
             if (!TextUtils.isEmpty(head.imageUrl)) {
-                this.lMk.startLoad(head.imageUrl, 10, false);
+                this.lOm.startLoad(head.imageUrl, 10, false);
             }
             if (!TextUtils.isEmpty(head.text)) {
-                this.lMl.setText(head.text);
+                this.lOn.setText(head.text);
             }
             if (!TextUtils.isEmpty(customDialogData.body)) {
-                this.lMm.setText(customDialogData.body);
+                this.lOo.setText(customDialogData.body);
             }
             if (customDialogData.leftButton != null && !StringUtils.isNull(customDialogData.leftButton.text)) {
                 this.noButton.setText(customDialogData.leftButton.text);
@@ -71,47 +71,47 @@ public class e extends b<CustomDialogData> implements View.OnClickListener {
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.g
     public void initView() {
-        this.lMk = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
-        this.lMl = (TextView) getViewGroup().findViewById(R.id.dialog_title);
-        this.lMm = (TextView) getViewGroup().findViewById(R.id.dialog_body);
+        this.lOm = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
+        this.lOn = (TextView) getViewGroup().findViewById(R.id.dialog_title);
+        this.lOo = (TextView) getViewGroup().findViewById(R.id.dialog_body);
         this.yesButton = (TextView) getViewGroup().findViewById(R.id.yes);
         this.noButton = (TextView) getViewGroup().findViewById(R.id.no);
-        this.lMn = getViewGroup().findViewById(R.id.bdDialog_divider_line);
-        this.lMo = getViewGroup().findViewById(R.id.divider_yes_no_button);
-        this.lMp = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
+        this.lOp = getViewGroup().findViewById(R.id.bdDialog_divider_line);
+        this.lOq = getViewGroup().findViewById(R.id.divider_yes_no_button);
+        this.lOr = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
         this.yesButton.setOnClickListener(this);
         this.noButton.setOnClickListener(this);
         ap.setBackgroundResource(this.yesButton, R.drawable.dialog_single_button_bg_selector);
         ap.setViewTextColor(this.yesButton, R.color.CAM_X0302);
         ap.setViewTextColor(this.noButton, R.color.CAM_X0302);
-        ap.setViewTextColor(this.lMl, R.color.CAM_X0105);
-        ap.setViewTextColor(this.lMm, R.color.common_color_10122);
-        ap.setBackgroundColor(this.lMn, R.color.CAM_X0204);
-        ap.setBackgroundColor(this.lMo, R.color.CAM_X0204);
-        ap.setBackgroundResource(this.lMp, R.drawable.dialog_background);
+        ap.setViewTextColor(this.lOn, R.color.CAM_X0105);
+        ap.setViewTextColor(this.lOo, R.color.common_color_10122);
+        ap.setBackgroundColor(this.lOp, R.color.CAM_X0204);
+        ap.setBackgroundColor(this.lOq, R.color.CAM_X0204);
+        ap.setBackgroundResource(this.lOr, R.drawable.dialog_background);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.yesButton) {
-            if (this.lMi != null && this.lMi.rightButton != null && !StringUtils.isNull(this.lMi.rightButton.action)) {
-                bf.bsV().b(getTbPageContext(), new String[]{this.lMi.rightButton.action});
+            if (this.lOk != null && this.lOk.rightButton != null && !StringUtils.isNull(this.lOk.rightButton.action)) {
+                bf.bsY().b(getTbPageContext(), new String[]{this.lOk.rightButton.action});
             }
-            if (this.lMj != null) {
-                this.lMj.dismiss();
+            if (this.lOl != null) {
+                this.lOl.dismiss();
             }
             ar arVar = new ar(b.a.CLICK);
-            arVar.ap("obj_locate", 2);
+            arVar.aq("obj_locate", 2);
             TiebaStatic.log(arVar);
         } else if (view == this.noButton) {
-            if (this.lMi != null && this.lMi.leftButton != null && !StringUtils.isNull(this.lMi.leftButton.action)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mTbPageContext.getPageActivity(), null, this.lMi.leftButton.action, true)));
+            if (this.lOk != null && this.lOk.leftButton != null && !StringUtils.isNull(this.lOk.leftButton.action)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mTbPageContext.getPageActivity(), null, this.lOk.leftButton.action, true)));
             }
-            if (this.lMj != null) {
-                this.lMj.dismiss();
+            if (this.lOl != null) {
+                this.lOl.dismiss();
             }
             ar arVar2 = new ar(b.a.CLICK);
-            arVar2.ap("obj_locate", 1);
+            arVar2.aq("obj_locate", 1);
             TiebaStatic.log(arVar2);
         }
     }

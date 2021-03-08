@@ -10,20 +10,20 @@ import com.baidu.live.tbadk.pay.channel.interfaces.PayChannelType;
 import com.baidu.tieba.wallet.ITiebaPay;
 import com.baidu.tieba.wallet.ITiebaPayCallback;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a implements IPayChannelBuilder {
-    private ITiebaPay lhz = null;
+    private ITiebaPay ljB = null;
 
     @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayChannelBuilder
     public IPayChannel build() {
-        ddz();
+        ddI();
         return new IPayChannel() { // from class: com.baidu.tieba.livesdk.h.a.1
             @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayChannel
             public void pay(HashMap<String, String> hashMap, final IPayCallback iPayCallback) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    a.this.ddz();
-                    if (a.this.lhz != null) {
-                        a.this.lhz.pay(hashMap.remove("channel"), hashMap, new ITiebaPayCallback() { // from class: com.baidu.tieba.livesdk.h.a.1.1
+                    a.this.ddI();
+                    if (a.this.ljB != null) {
+                        a.this.ljB.pay(hashMap.remove("channel"), hashMap, new ITiebaPayCallback() { // from class: com.baidu.tieba.livesdk.h.a.1.1
                             @Override // com.baidu.tieba.wallet.ITiebaPayCallback
                             public void onPayResult(int i, String str) {
                                 if (iPayCallback != null) {
@@ -53,10 +53,10 @@ public class a implements IPayChannelBuilder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ddz() {
+    public void ddI() {
         CustomResponsedMessage runTask;
-        if (this.lhz == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
-            this.lhz = (ITiebaPay) runTask.getData();
+        if (this.ljB == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
+            this.ljB = (ITiebaPay) runTask.getData();
         }
     }
 }

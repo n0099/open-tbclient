@@ -7,12 +7,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class PagerSnapHelper extends SnapHelper {
     @Nullable
-    private d gKR;
+    private d gMA;
     @Nullable
-    private d gKS;
+    private d gMB;
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     @Nullable
@@ -166,17 +166,17 @@ public class PagerSnapHelper extends SnapHelper {
 
     @NonNull
     private d c(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gKR == null || this.gKR.mLayoutManager != layoutManager) {
-            this.gKR = d.b(layoutManager);
+        if (this.gMA == null || this.gMA.mLayoutManager != layoutManager) {
+            this.gMA = d.b(layoutManager);
         }
-        return this.gKR;
+        return this.gMA;
     }
 
     @NonNull
     private d d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.gKS == null || this.gKS.mLayoutManager != layoutManager) {
-            this.gKS = d.a(layoutManager);
+        if (this.gMB == null || this.gMB.mLayoutManager != layoutManager) {
+            this.gMB = d.a(layoutManager);
         }
-        return this.gKS;
+        return this.gMB;
     }
 }

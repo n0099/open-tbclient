@@ -17,13 +17,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.InvocationHandler;
 import org.chromium.support_lib_boundary.WebViewClientBoundaryInterface;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class WebViewClientCompat extends WebViewClient implements WebViewClientBoundaryInterface {
     private static final String[] sSupportedFeatures = {"VISUAL_STATE_CALLBACK", "RECEIVE_WEB_RESOURCE_ERROR", "RECEIVE_HTTP_ERROR", "SHOULD_OVERRIDE_WITH_REDIRECTS", "SAFE_BROWSING_HIT"};
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public @interface SafeBrowsingThreat {
     }
 

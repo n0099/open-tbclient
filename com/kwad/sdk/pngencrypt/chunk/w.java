@@ -20,7 +20,7 @@ public class w extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f10503a != c()) {
+        if (dVar.f6921a != c()) {
             throw new PngjException("bad chunk length " + dVar);
         }
         if (this.e.f) {

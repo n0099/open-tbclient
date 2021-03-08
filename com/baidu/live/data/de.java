@@ -1,9 +1,9 @@
 package com.baidu.live.data;
 
 import com.baidu.live.adp.BdUniqueId;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class de implements Cloneable {
-    private String aTp;
+    private String aUP;
     private String liveId;
     private boolean mIsAttention;
     private BdUniqueId mPageId;
@@ -17,7 +17,7 @@ public class de implements Cloneable {
         return this.roomId;
     }
 
-    public BdUniqueId CR() {
+    public BdUniqueId CU() {
         return this.mPageId;
     }
 
@@ -29,14 +29,14 @@ public class de implements Cloneable {
     }
 
     public de(String str, String str2, boolean z, BdUniqueId bdUniqueId) {
-        this.aTp = str;
+        this.aUP = str;
         this.liveId = str2;
         this.mIsAttention = z;
         this.mPageId = bdUniqueId;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: CS */
+    /* renamed from: CV */
     public de clone() {
         try {
             return (de) super.clone();
@@ -46,7 +46,7 @@ public class de implements Cloneable {
         }
     }
 
-    public String CT() {
-        return this.aTp;
+    public String CW() {
+        return this.aUP;
     }
 }

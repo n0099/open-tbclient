@@ -15,107 +15,107 @@ import com.baidu.tieba.pb.pb.main.PbLandscapeListView;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
 public class f {
-    private PbFragment lNm;
-    private com.baidu.tieba.pb.video.g mcT;
-    private com.baidu.tieba.pb.video.f mcU;
-    private boolean mcV = false;
+    private PbFragment lPo;
+    private com.baidu.tieba.pb.video.g meW;
+    private com.baidu.tieba.pb.video.f meX;
+    private boolean meY = false;
 
     public f(PbFragment pbFragment) {
-        this.lNm = pbFragment;
+        this.lPo = pbFragment;
     }
 
     public void a(com.baidu.tieba.pb.data.f fVar, PostData postData, BdTypeListView bdTypeListView, e eVar, FrameLayout frameLayout, com.baidu.tieba.pb.pb.main.view.c cVar, String str, long j) {
-        if (fVar != null && fVar.dlG()) {
-            if (this.mcT == null) {
-                this.mcT = new com.baidu.tieba.pb.video.g(this.lNm, cVar, fVar.dlg().boh(), j);
-                this.mcT.a(fVar.dlg().boh(), fVar.dlg(), fVar.getForumId());
-                this.mcT.startPlay();
-            } else if (this.mcV) {
-                this.mcT.a(fVar.dlg().boh(), fVar.dlg(), fVar.getForumId());
-                this.mcT.startPlay();
+        if (fVar != null && fVar.dlP()) {
+            if (this.meW == null) {
+                this.meW = new com.baidu.tieba.pb.video.g(this.lPo, cVar, fVar.dlp().boj(), j);
+                this.meW.a(fVar.dlp().boj(), fVar.dlp(), fVar.getForumId());
+                this.meW.startPlay();
+            } else if (this.meY) {
+                this.meW.a(fVar.dlp().boj(), fVar.dlp(), fVar.getForumId());
+                this.meW.startPlay();
             } else {
-                this.mcT.Qd(fVar.getForumId());
+                this.meW.Qj(fVar.getForumId());
             }
-            com.baidu.tieba.pb.c.a.a(this.lNm.getUniqueId(), fVar, postData, 1, 1);
-            if (fVar.dlh() != null && fVar.dlh().size() >= 1) {
-                cb cbVar = fVar.dlh().get(0);
-                this.mcT.aQ(cbVar);
-                this.mcT.Qe(cbVar.getTitle());
+            com.baidu.tieba.pb.c.a.a(this.lPo.getUniqueId(), fVar, postData, 1, 1);
+            if (fVar.dlq() != null && fVar.dlq().size() >= 1) {
+                cb cbVar = fVar.dlq().get(0);
+                this.meW.aQ(cbVar);
+                this.meW.Qk(cbVar.getTitle());
             }
-            this.mcT.b(postData, fVar.dlg(), fVar.dlF());
-            this.mcV = false;
-            bdTypeListView.removeHeaderView(this.mcT.dtO());
-            bdTypeListView.addHeaderView(this.mcT.dtO(), 0);
-            if (this.mcT.getContainerView() != null && this.mcT.getContainerView().getParent() == null) {
-                frameLayout.addView(this.mcT.getContainerView());
+            this.meW.b(postData, fVar.dlp(), fVar.dlO());
+            this.meY = false;
+            bdTypeListView.removeHeaderView(this.meW.dtX());
+            bdTypeListView.addHeaderView(this.meW.dtX(), 0);
+            if (this.meW.getContainerView() != null && this.meW.getContainerView().getParent() == null) {
+                frameLayout.addView(this.meW.getContainerView());
             }
-            if (this.mcU == null) {
-                this.mcU = new com.baidu.tieba.pb.video.f(this.lNm.getBaseFragmentActivity());
+            if (this.meX == null) {
+                this.meX = new com.baidu.tieba.pb.video.f(this.lPo.getBaseFragmentActivity());
             }
-            this.mcU.b(fVar, str);
-            bdTypeListView.removeHeaderView(this.mcU.dtH());
-            bdTypeListView.addHeaderView(this.mcU.dtH(), 1);
+            this.meX.b(fVar, str);
+            bdTypeListView.removeHeaderView(this.meX.dtQ());
+            bdTypeListView.addHeaderView(this.meX.dtQ(), 1);
             eVar.c(bdTypeListView);
             eVar.a(bdTypeListView, 2);
-            if (this.mcT != null) {
+            if (this.meW != null) {
                 cVar.vY(false);
-                this.mcT.Gf(TbadkCoreApplication.getInst().getSkinType());
+                this.meW.Gi(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            if (this.mcT != null) {
-                bdTypeListView.removeHeaderView(this.mcT.dtO());
+            if (this.meW != null) {
+                bdTypeListView.removeHeaderView(this.meW.dtX());
             }
-            if (this.mcU != null) {
-                this.mcU.e(bdTypeListView);
+            if (this.meX != null) {
+                this.meX.e(bdTypeListView);
             }
         }
     }
 
     public void vN(boolean z) {
-        this.mcV = z;
+        this.meY = z;
     }
 
-    public void X(View.OnClickListener onClickListener) {
-        if (this.mcT != null) {
-            this.mcT.X(onClickListener);
+    public void Y(View.OnClickListener onClickListener) {
+        if (this.meW != null) {
+            this.meW.Y(onClickListener);
         }
     }
 
     public void d(BdTypeListView bdTypeListView) {
-        if (this.mcT != null) {
-            TiebaStatic.log(new ar("c11997").ap("obj_type", 1));
-            this.mcT.dsa();
+        if (this.meW != null) {
+            TiebaStatic.log(new ar("c11997").aq("obj_type", 1));
+            this.meW.dsj();
             bdTypeListView.smoothScrollToPosition(0);
         }
     }
 
-    public boolean Ge(int i) {
-        if (this.mcT != null) {
-            return this.mcT.zf(i);
+    public boolean Gh(int i) {
+        if (this.meW != null) {
+            return this.meW.zg(i);
         }
         return false;
     }
 
     public void a(PbLandscapeListView pbLandscapeListView, TextView textView, int i) {
         if (pbLandscapeListView != null) {
-            if (this.mcT != null && this.mcT.getContainerView() != null) {
+            if (this.meW != null && this.meW.getContainerView() != null) {
                 if (textView != null) {
                     pbLandscapeListView.removeHeaderView(textView);
                     pbLandscapeListView.setTextViewAdded(false);
                 }
                 if (i != 1) {
-                    pbLandscapeListView.removeHeaderView(this.mcT.dtO());
-                    pbLandscapeListView.addHeaderView(this.mcT.dtO(), 0);
+                    pbLandscapeListView.removeHeaderView(this.meW.dtX());
+                    pbLandscapeListView.addHeaderView(this.meW.dtX(), 0);
                     return;
                 }
                 return;
             }
-            if (this.mcT != null) {
-                pbLandscapeListView.removeHeaderView(this.mcT.dtO());
+            if (this.meW != null) {
+                pbLandscapeListView.removeHeaderView(this.meW.dtX());
             }
             if (textView != null) {
                 pbLandscapeListView.removeHeaderView(textView);
@@ -124,84 +124,84 @@ public class f {
         }
     }
 
-    public boolean drC() {
-        return this.mcT != null && this.mcT.drC();
+    public boolean drL() {
+        return this.meW != null && this.meW.drL();
     }
 
-    public void drD() {
-        if (this.mcT != null) {
-            this.mcT.onPause();
+    public void drM() {
+        if (this.meW != null) {
+            this.meW.onPause();
         }
     }
 
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.mcT != null) {
-            this.mcT.c(absListView, i);
+        if (this.meW != null) {
+            this.meW.c(absListView, i);
         }
     }
 
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.mcT != null) {
-            this.mcT.onScrollStateChanged(absListView, i);
+        if (this.meW != null) {
+            this.meW.onScrollStateChanged(absListView, i);
         }
     }
 
     public void vL(boolean z) {
-        if (this.mcT != null) {
-            this.mcT.vL(z);
+        if (this.meW != null) {
+            this.meW.vL(z);
         }
     }
 
-    public void dsa() {
-        if (this.mcT != null) {
-            this.mcT.dsa();
+    public void dsj() {
+        if (this.meW != null) {
+            this.meW.dsj();
         }
     }
 
     public void destroy() {
-        if (this.mcT != null) {
-            this.mcT.destroy();
+        if (this.meW != null) {
+            this.meW.destroy();
         }
     }
 
     public void onPause() {
-        if (this.mcT != null) {
-            this.mcT.onPause();
+        if (this.meW != null) {
+            this.meW.onPause();
         }
     }
 
     public void onResume() {
-        if (this.mcT != null) {
-            this.mcT.onResume();
+        if (this.meW != null) {
+            this.meW.onResume();
         }
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.mcT != null) {
-            this.mcT.onConfigurationChanged(configuration);
+        if (this.meW != null) {
+            this.meW.onConfigurationChanged(configuration);
         }
     }
 
-    public void Gf(int i) {
-        if (this.mcT != null) {
-            this.mcT.Gf(i);
+    public void Gi(int i) {
+        if (this.meW != null) {
+            this.meW.Gi(i);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mcU != null) {
-            this.mcU.onChangeSkinType(i);
+        if (this.meX != null) {
+            this.meX.onChangeSkinType(i);
         }
     }
 
     public View getContainerView() {
-        if (this.mcT != null) {
-            return this.mcT.getContainerView();
+        if (this.meW != null) {
+            return this.meW.getContainerView();
         }
         return null;
     }
 
-    public int dsb() {
+    public int dsk() {
         View containerView = getContainerView();
         if (containerView != null) {
             return containerView.getHeight();
@@ -209,16 +209,16 @@ public class f {
         return 0;
     }
 
-    public int dsc() {
-        if (this.mcT != null) {
-            return this.mcT.dsc();
+    public int dsl() {
+        if (this.meW != null) {
+            return this.meW.dsl();
         }
         return 0;
     }
 
     public boolean isVertical() {
-        if (this.mcT != null) {
-            return this.mcT.isVertical();
+        if (this.meW != null) {
+            return this.meW.isVertical();
         }
         return false;
     }

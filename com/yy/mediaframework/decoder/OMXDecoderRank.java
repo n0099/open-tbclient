@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OMXDecoderRank {
     public static final String CODEC_H264_MIME = "video/avc";
     public static final String CODEC_H265_MIME = "video/hevc";
@@ -25,7 +25,7 @@ public class OMXDecoderRank {
     private boolean mBestDecoderInitialized = false;
     private Map<String, Integer> mKnownCodecList;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class DecoderInfo {
         private String mName;
         private int mRank;

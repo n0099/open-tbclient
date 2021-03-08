@@ -2,7 +2,7 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 
 import android.content.Context;
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a<T extends View> {
-    T cI(Context context);
+    T cH(Context context);
 }

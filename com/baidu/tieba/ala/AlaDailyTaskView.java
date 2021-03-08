@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.live.sdk.a;
 import com.baidu.live.view.web.CommonWebLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaDailyTaskView extends RelativeLayout {
-    private ViewGroup bJA;
-    private CommonWebLayout bVC;
+    private ViewGroup bLa;
+    private CommonWebLayout bXc;
 
     public AlaDailyTaskView(ViewGroup viewGroup) {
         this(viewGroup.getContext(), null);
@@ -26,18 +26,18 @@ public class AlaDailyTaskView extends RelativeLayout {
     }
 
     public CommonWebLayout getWebView() {
-        return this.bVC;
+        return this.bXc;
     }
 
     private void initView() {
-        this.bJA = (ViewGroup) LayoutInflater.from(getContext()).inflate(a.g.sdk_daily_task_layout, (ViewGroup) this, true);
-        x(this.bJA);
+        this.bLa = (ViewGroup) LayoutInflater.from(getContext()).inflate(a.g.sdk_daily_task_layout, (ViewGroup) this, true);
+        x(this.bLa);
     }
 
     private void x(ViewGroup viewGroup) {
-        this.bVC = new CommonWebLayout(getContext());
-        this.bVC.setScrollEnabled(false, false);
-        this.bVC.setRequestDisallowInterceptTouchEvent(false);
-        viewGroup.addView(this.bVC, -1, -1);
+        this.bXc = new CommonWebLayout(getContext());
+        this.bXc.setScrollEnabled(false, false);
+        this.bXc.setRequestDisallowInterceptTouchEvent(false);
+        viewGroup.addView(this.bXc, -1, -1);
     }
 }

@@ -8,34 +8,34 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLoadingToastView extends RelativeLayout {
-    private TextView knI;
+    private TextView kpK;
 
     public AlaLoadingToastView(Context context) {
         super(context);
-        bv(context);
+        bu(context);
     }
 
     public AlaLoadingToastView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        bv(context);
+        bu(context);
     }
 
     public AlaLoadingToastView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        bv(context);
+        bu(context);
     }
 
-    protected void bv(Context context) {
+    protected void bu(Context context) {
         LayoutInflater.from(context).inflate(a.g.yuyin_ala_loading_toast_view, (ViewGroup) this, true);
         setGravity(17);
-        this.knI = (TextView) findViewById(a.f.tv_content);
+        this.kpK = (TextView) findViewById(a.f.tv_content);
     }
 
     public void setContent(String str) {
-        if (this.knI != null && !TextUtils.isEmpty(str)) {
-            this.knI.setText(str);
+        if (this.kpK != null && !TextUtils.isEmpty(str)) {
+            this.kpK.setText(str);
         }
     }
 }

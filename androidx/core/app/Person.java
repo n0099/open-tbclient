@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.IconCompat;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class Person {
     private static final String ICON_KEY = "icon";
     private static final String IS_BOT_KEY = "isBot";
@@ -100,7 +100,7 @@ public class Person {
         return this.mIsImportant;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         @Nullable
         IconCompat mIcon;

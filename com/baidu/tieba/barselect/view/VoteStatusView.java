@@ -11,17 +11,17 @@ import android.view.View;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VoteStatusView extends View {
-    private boolean iuq;
-    public int iur;
-    public int ius;
-    public int iut;
-    private Path iuu;
-    private Path iuv;
-    private Path iuw;
-    private Path iux;
-    private Path iuy;
+    private boolean ivZ;
+    public int iwa;
+    public int iwb;
+    public int iwc;
+    private Path iwd;
+    private Path iwe;
+    private Path iwf;
+    private Path iwg;
+    private Path iwh;
     private Paint mPaint;
     private Shader mShader;
     private int status;
@@ -33,23 +33,23 @@ public class VoteStatusView extends View {
     public VoteStatusView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.status = -1;
-        this.iuq = true;
+        this.ivZ = true;
         initUI();
     }
 
     private void initUI() {
-        this.iut = ap.getColor(R.color.CAM_X0204);
-        this.iur = ap.getColor(R.color.CAM_X0303);
-        this.ius = ap.getColor(R.color.CAM_X0302);
+        this.iwc = ap.getColor(R.color.CAM_X0204);
+        this.iwa = ap.getColor(R.color.CAM_X0303);
+        this.iwb = ap.getColor(R.color.CAM_X0302);
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(this.iut);
-        this.iuu = new Path();
-        this.iuv = new Path();
-        this.iuw = new Path();
-        this.iux = new Path();
-        this.iuy = new Path();
+        this.mPaint.setColor(this.iwc);
+        this.iwd = new Path();
+        this.iwe = new Path();
+        this.iwf = new Path();
+        this.iwg = new Path();
+        this.iwh = new Path();
     }
 
     public void setStatus(int i) {
@@ -62,38 +62,38 @@ public class VoteStatusView extends View {
         int height = (canvas.getHeight() - getPaddingBottom()) - getPaddingTop();
         int width = (canvas.getWidth() - getPaddingLeft()) - getPaddingRight();
         int i = height * 6 >= width ? width / 6 : height;
-        this.iuu.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
-        this.iuv.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
-        this.iuw.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
-        this.iux.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
-        this.iuy.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
-        this.mPaint.setColor(this.iut);
+        this.iwd.addCircle(i / 2, i / 2, i / 2, Path.Direction.CW);
+        this.iwe.addCircle(width / 2, i / 2, i / 2, Path.Direction.CW);
+        this.iwf.addCircle(width - (i / 2), i / 2, i / 2, Path.Direction.CW);
+        this.iwg.addRect(i / 2, (i * 9) / 26, width / 2, (i * 17) / 26, Path.Direction.CW);
+        this.iwh.addRect(width / 2, (i * 9) / 26, width - (i / 2), (i * 17) / 26, Path.Direction.CW);
+        this.mPaint.setColor(this.iwc);
         this.mPaint.setShader(null);
-        if (this.mShader == null || this.iuq) {
-            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.iur, this.ius, Shader.TileMode.CLAMP);
-            this.iuq = false;
+        if (this.mShader == null || this.ivZ) {
+            this.mShader = new LinearGradient(i / 2, 0.0f, width - (i / 2), 0.0f, this.iwa, this.iwb, Shader.TileMode.CLAMP);
+            this.ivZ = false;
         }
-        if (this.status == d.itz) {
+        if (this.status == d.ivi) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.iuy, this.mPaint);
-        canvas.drawPath(this.iuw, this.mPaint);
-        if (this.status == d.ity) {
+        canvas.drawPath(this.iwh, this.mPaint);
+        canvas.drawPath(this.iwf, this.mPaint);
+        if (this.status == d.ivh) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.iux, this.mPaint);
-        canvas.drawPath(this.iuv, this.mPaint);
-        if (this.status == d.itx) {
+        canvas.drawPath(this.iwg, this.mPaint);
+        canvas.drawPath(this.iwe, this.mPaint);
+        if (this.status == d.ivg) {
             this.mPaint.setShader(this.mShader);
         }
-        canvas.drawPath(this.iuu, this.mPaint);
+        canvas.drawPath(this.iwd, this.mPaint);
     }
 
-    public void uu(int i) {
-        this.iur = ap.getColor(i, R.color.CAM_X0303);
-        this.ius = ap.getColor(i, R.color.CAM_X0302);
-        this.iut = ap.getColor(i, R.color.CAM_X0204);
-        this.iuq = true;
+    public void uw(int i) {
+        this.iwa = ap.getColor(i, R.color.CAM_X0303);
+        this.iwb = ap.getColor(i, R.color.CAM_X0302);
+        this.iwc = ap.getColor(i, R.color.CAM_X0204);
+        this.ivZ = true;
         invalidate();
     }
 }

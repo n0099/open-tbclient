@@ -15,17 +15,15 @@ public class g {
     private static final Object c = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private c f6553a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f6554b;
+    private c f4438a;
+    private Context b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(Context context) {
         try {
-            this.f6554b = context == null ? p.a() : context.getApplicationContext();
-            if (this.f6553a == null) {
-                this.f6553a = new c();
+            this.b = context == null ? p.a() : context.getApplicationContext();
+            if (this.f4438a == null) {
+                this.f4438a = new c();
             }
         } catch (Throwable th) {
         }
@@ -33,14 +31,12 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Context c() {
-        return this.f6554b == null ? p.a() : this.f6554b;
+        return this.b == null ? p.a() : this.b;
     }
 
     /* loaded from: classes6.dex */
     public class c {
-
-        /* renamed from: b  reason: collision with root package name */
-        private SQLiteDatabase f6570b = null;
+        private SQLiteDatabase b = null;
 
         public c() {
         }
@@ -50,9 +46,9 @@ public class g {
         private synchronized void d() {
             try {
                 synchronized (g.c) {
-                    if (this.f6570b == null || !this.f6570b.isOpen()) {
-                        this.f6570b = new a(g.this.c()).getWritableDatabase();
-                        this.f6570b.setLockingEnabled(false);
+                    if (this.b == null || !this.b.isOpen()) {
+                        this.b = new a(g.this.c()).getWritableDatabase();
+                        this.b.setLockingEnabled(false);
                     }
                 }
             } finally {
@@ -63,7 +59,7 @@ public class g {
         public synchronized void a(String str) throws SQLException {
             try {
                 d();
-                this.f6570b.execSQL(str);
+                this.b.execSQL(str);
             } catch (Throwable th) {
                 if (e()) {
                     throw th;
@@ -76,7 +72,7 @@ public class g {
             Cursor bVar;
             try {
                 d();
-                bVar = this.f6570b.query(str, strArr, str2, strArr2, str3, str4, str5);
+                bVar = this.b.query(str, strArr, str2, strArr2, str3, str4, str5);
             } catch (Throwable th) {
                 th.printStackTrace();
                 bVar = new b();
@@ -91,7 +87,7 @@ public class g {
             int i;
             try {
                 d();
-                i = this.f6570b.update(str, contentValues, str2, strArr);
+                i = this.b.update(str, contentValues, str2, strArr);
             } catch (Exception e) {
                 e.printStackTrace();
                 i = 0;
@@ -106,7 +102,7 @@ public class g {
             long j;
             try {
                 d();
-                j = this.f6570b.insert(str, str2, contentValues);
+                j = this.b.insert(str, str2, contentValues);
             } catch (Exception e) {
                 e.printStackTrace();
                 j = -1;
@@ -121,7 +117,7 @@ public class g {
             int i;
             try {
                 d();
-                i = this.f6570b.delete(str, str2, strArr);
+                i = this.b.delete(str, str2, strArr);
             } catch (Exception e) {
                 e.printStackTrace();
                 i = 0;
@@ -134,28 +130,28 @@ public class g {
 
         public synchronized void a() {
             d();
-            if (this.f6570b != null) {
-                this.f6570b.beginTransaction();
+            if (this.b != null) {
+                this.b.beginTransaction();
             }
         }
 
         public synchronized void b() {
             d();
-            if (this.f6570b != null) {
-                this.f6570b.setTransactionSuccessful();
+            if (this.b != null) {
+                this.b.setTransactionSuccessful();
             }
         }
 
         public synchronized void c() {
             d();
-            if (this.f6570b != null) {
-                this.f6570b.endTransaction();
+            if (this.b != null) {
+                this.b.endTransaction();
             }
         }
 
         private synchronized boolean e() {
             boolean z;
-            SQLiteDatabase sQLiteDatabase = this.f6570b;
+            SQLiteDatabase sQLiteDatabase = this.b;
             if (sQLiteDatabase != null) {
                 z = sQLiteDatabase.inTransaction();
             }
@@ -168,27 +164,27 @@ public class g {
     public class a extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        final Context f6557a;
+        final Context f4440a;
 
         public a(Context context) {
             super(context, "ttopensdk.db", (SQLiteDatabase.CursorFactory) null, 7);
-            this.f6557a = context;
+            this.f4440a = context;
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                a(sQLiteDatabase, this.f6557a);
+                a(sQLiteDatabase, this.f4440a);
             } catch (Throwable th) {
             }
         }
 
         private void a(SQLiteDatabase sQLiteDatabase, Context context) {
             com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "initDB........");
-            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.f.e());
-            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.n.g());
-            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.l.e());
-            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.l.g.b());
+            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.f.d());
+            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.n.f());
+            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.l.d());
+            sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.k.g.b());
             sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c());
         }
 
@@ -197,10 +193,10 @@ public class g {
             try {
                 com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "onUpgrade....数据库版本升级.....old:" + i + ",new:" + i2);
                 if (i <= i2) {
-                    a(sQLiteDatabase, g.this.f6554b);
+                    a(sQLiteDatabase, g.this.b);
                 } else {
                     a(sQLiteDatabase);
-                    a(sQLiteDatabase, g.this.f6554b);
+                    a(sQLiteDatabase, g.this.b);
                     com.bytedance.sdk.openadsdk.utils.u.b("DBHelper", "onUpgrade...逆向安装.数据库重置-创建表.....");
                 }
                 switch (i) {
@@ -211,13 +207,13 @@ public class g {
                         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS 'ad_video_info';");
                         return;
                     case 3:
-                        sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.n.g());
+                        sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.n.f());
                         return;
                     case 4:
                         sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.core.widget.webview.a.a.c());
                         return;
                     case 5:
-                        sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.l.e());
+                        sQLiteDatabase.execSQL(com.bytedance.sdk.openadsdk.c.l.d());
                         return;
                     default:
                         return;
@@ -227,9 +223,9 @@ public class g {
         }
 
         private void a(SQLiteDatabase sQLiteDatabase) {
-            ArrayList<String> b2 = b(sQLiteDatabase);
-            if (b2 != null && b2.size() > 0) {
-                Iterator<String> it = b2.iterator();
+            ArrayList<String> b = b(sQLiteDatabase);
+            if (b != null && b.size() > 0) {
+                Iterator<String> it = b.iterator();
                 while (it.hasNext()) {
                     sQLiteDatabase.execSQL(String.format("DROP TABLE IF EXISTS %s ;", it.next()));
                 }
@@ -256,7 +252,7 @@ public class g {
     }
 
     public c a() {
-        return this.f6553a;
+        return this.f4438a;
     }
 
     /* loaded from: classes6.dex */

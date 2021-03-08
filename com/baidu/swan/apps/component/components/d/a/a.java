@@ -3,7 +3,7 @@ package com.baidu.swan.apps.component.components.d.a;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     @Nullable
     public static CanvasView a(com.baidu.swan.apps.canvas.b.a aVar) {
@@ -12,6 +12,6 @@ public class a {
             c.e("Component-Canvas-Utils", "get canvas view fail: find a null component");
             return null;
         }
-        return aVar2.cLB;
+        return aVar2.cNb;
     }
 }

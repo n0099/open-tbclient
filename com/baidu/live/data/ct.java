@@ -1,16 +1,16 @@
 package com.baidu.live.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ct {
-    public boolean aSA;
-    public boolean aSB;
-    public boolean aSC;
-    public boolean aSr;
-    public boolean aSs = false;
-    public boolean aSt;
-    public boolean aSu;
-    public boolean aSv;
-    public boolean aSw;
-    public boolean aSx;
-    public boolean aSy;
-    public boolean aSz;
+    public boolean aTR;
+    public boolean aTS = false;
+    public boolean aTT;
+    public boolean aTU;
+    public boolean aTV;
+    public boolean aTW;
+    public boolean aTX;
+    public boolean aTY;
+    public boolean aTZ;
+    public boolean aUa;
+    public boolean aUb;
+    public boolean aUc;
 }

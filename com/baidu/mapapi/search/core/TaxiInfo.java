@@ -7,10 +7,8 @@ public class TaxiInfo implements Parcelable {
     public static final Parcelable.Creator<TaxiInfo> CREATOR = new m();
 
     /* renamed from: a  reason: collision with root package name */
-    private float f2852a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2853b;
+    private float f2104a;
+    private String b;
     private int c;
     private int d;
     private float e;
@@ -21,8 +19,8 @@ public class TaxiInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TaxiInfo(Parcel parcel) {
-        this.f2852a = parcel.readFloat();
-        this.f2853b = parcel.readString();
+        this.f2104a = parcel.readFloat();
+        this.b = parcel.readString();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
         this.e = parcel.readFloat();
@@ -35,7 +33,7 @@ public class TaxiInfo implements Parcelable {
     }
 
     public String getDesc() {
-        return this.f2853b;
+        return this.b;
     }
 
     public int getDistance() {
@@ -55,11 +53,11 @@ public class TaxiInfo implements Parcelable {
     }
 
     public float getTotalPrice() {
-        return this.f2852a;
+        return this.f2104a;
     }
 
     public void setDesc(String str) {
-        this.f2853b = str;
+        this.b = str;
     }
 
     public void setDistance(int i) {
@@ -79,13 +77,13 @@ public class TaxiInfo implements Parcelable {
     }
 
     public void setTotalPrice(float f) {
-        this.f2852a = f;
+        this.f2104a = f;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeFloat(this.f2852a);
-        parcel.writeString(this.f2853b);
+        parcel.writeFloat(this.f2104a);
+        parcel.writeString(this.b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
         parcel.writeFloat(this.e);

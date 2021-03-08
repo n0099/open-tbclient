@@ -3,12 +3,12 @@ package com.baidu.yuyinala.emoticon.message;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaSendEmoticonResponseMessage extends JsonHttpResponsedMessage {
-    private String bxz;
-    public String oWH;
-    public String oWI;
-    public String oWJ;
+    private String byZ;
+    public String oYM;
+    public String oYN;
+    public String oYO;
 
     public AlaSendEmoticonResponseMessage() {
         super(1031025);
@@ -18,15 +18,15 @@ public class AlaSendEmoticonResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
-        this.oWH = jSONObject.optString("prototype_img");
-        this.oWI = jSONObject.optString("compression_img");
-        this.oWJ = jSONObject.optString("result_img");
+        this.oYM = jSONObject.optString("prototype_img");
+        this.oYN = jSONObject.optString("compression_img");
+        this.oYO = jSONObject.optString("result_img");
         if (optJSONObject != null) {
-            this.bxz = optJSONObject.optString("usermsg");
+            this.byZ = optJSONObject.optString("usermsg");
         }
     }
 
     public String getUserMsg() {
-        return this.bxz;
+        return this.byZ;
     }
 }

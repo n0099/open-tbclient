@@ -2,7 +2,7 @@ package com.baidu.ar.arplay.core.renderer;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class SnapShot {
     private static Bitmap mCaptureScreenBmp = null;
 

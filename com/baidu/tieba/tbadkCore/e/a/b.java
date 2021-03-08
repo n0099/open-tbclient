@@ -1,8 +1,8 @@
 package com.baidu.tieba.tbadkCore.e.a;
 /* loaded from: classes.dex */
 public class b {
+    private boolean nBA;
     private String name;
-    private boolean nzv;
 
     public String getName() {
         return this.name;
@@ -12,11 +12,11 @@ public class b {
         this.name = str;
     }
 
-    public boolean dOi() {
-        return this.nzv;
+    public boolean dOr() {
+        return this.nBA;
     }
 
-    public void yx(boolean z) {
-        this.nzv = z;
+    public void yw(boolean z) {
+        this.nBA = z;
     }
 }

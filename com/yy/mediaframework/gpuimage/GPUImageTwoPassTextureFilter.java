@@ -1,7 +1,7 @@
 package com.yy.mediaframework.gpuimage;
 
 import android.opengl.GLES20;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageTwoPassTextureFilter extends GPUImageFilterGroup {
     public GPUImageTwoPassTextureFilter(String str, String str2, String str3, String str4) {
         super(null);

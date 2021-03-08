@@ -7,20 +7,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class b extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f11284a = b.class.getName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static b f11285b;
+    private static final String f7412a = b.class.getName();
+    private static b b;
 
     private b(Context context, String str) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, 1);
     }
 
     public static b a(Context context, String str) {
-        if (f11285b == null) {
-            f11285b = new b(context.getApplicationContext(), str);
+        if (b == null) {
+            b = new b(context.getApplicationContext(), str);
         }
-        return f11285b;
+        return b;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -30,7 +28,7 @@ public class b extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        com.meizu.cloud.pushsdk.c.f.c.b(f11284a, "Upgrading database from version " + i + " to " + i2 + ". Destroying old data now..", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.b(f7412a, "Upgrading database from version " + i + " to " + i2 + ". Destroying old data now..", new Object[0]);
         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS 'events'");
         onCreate(sQLiteDatabase);
     }

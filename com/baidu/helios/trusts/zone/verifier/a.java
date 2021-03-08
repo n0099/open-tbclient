@@ -1,11 +1,10 @@
 package com.baidu.helios.trusts.zone.verifier;
 
 import android.util.Pair;
-import androidx.core.internal.view.SupportMenu;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 abstract class a {
     private static Pair<ByteBuffer, Long> a(RandomAccessFile randomAccessFile, int i) {
         if (i < 0 || i > 65535) {
@@ -71,7 +70,7 @@ abstract class a {
             return null;
         }
         Pair<ByteBuffer, Long> a2 = a(randomAccessFile, 0);
-        return a2 == null ? a(randomAccessFile, SupportMenu.USER_MASK) : a2;
+        return a2 == null ? a(randomAccessFile, 65535) : a2;
     }
 
     private static int i(ByteBuffer byteBuffer) {
@@ -80,7 +79,7 @@ abstract class a {
         if (capacity < 22) {
             return -1;
         }
-        int min = Math.min(capacity - 22, (int) SupportMenu.USER_MASK);
+        int min = Math.min(capacity - 22, 65535);
         int i = capacity - 22;
         for (int i2 = 0; i2 < min; i2++) {
             int i3 = i - i2;

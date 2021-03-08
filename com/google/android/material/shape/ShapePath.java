@@ -7,7 +7,7 @@ import com.google.android.material.internal.Experimental;
 import java.util.ArrayList;
 import java.util.List;
 @Experimental("The shapes API is currently experimental and subject to change")
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ShapePath {
     public float endX;
     public float endY;
@@ -15,7 +15,7 @@ public class ShapePath {
     public float startX;
     public float startY;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class PathOperation {
         protected final Matrix matrix = new Matrix();
 
@@ -74,7 +74,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class PathLineOperation extends PathOperation {
         private float x;
         private float y;
@@ -89,7 +89,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class PathQuadOperation extends PathOperation {
         public float controlX;
         public float controlY;
@@ -106,7 +106,7 @@ public class ShapePath {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class PathArcOperation extends PathOperation {
         private static final RectF rectF = new RectF();
         public float bottom;

@@ -6,12 +6,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private TbPageContext eUY;
+    private TbPageContext eWx;
 
     public a(TbPageContext tbPageContext) {
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
         b bVar = new b(309641);
         bVar.setResponsedClass(CandidateSearchSocketResMsg.class);
         MessageManager.getInstance().registerTask(bVar);
@@ -24,7 +24,7 @@ public class a {
         CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
         candidateSearchReqMsg.applyId = i;
         candidateSearchReqMsg.fid = j;
-        candidateSearchReqMsg.setTag(this.eUY.getUniqueId());
+        candidateSearchReqMsg.setTag(this.eWx.getUniqueId());
         MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
     }
 }

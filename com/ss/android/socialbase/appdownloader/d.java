@@ -22,33 +22,33 @@ public class d {
     private String j;
     private boolean n = false;
     private String p;
-    private com.ss.android.socialbase.appdownloader.c.c qdJ;
-    private com.ss.android.socialbase.appdownloader.c.d qdK;
-    private com.ss.android.socialbase.appdownloader.c.h qdL;
-    private com.ss.android.socialbase.appdownloader.c.g qdM;
-    private l qdN;
-    private com.ss.android.socialbase.appdownloader.c.i qdO;
-    private DownloadReceiver qdP;
-    private com.ss.android.socialbase.appdownloader.c.f qdQ;
-    private n qdR;
-    private o qdS;
+    private l qeA;
+    private com.ss.android.socialbase.appdownloader.c.i qeB;
+    private DownloadReceiver qeC;
+    private com.ss.android.socialbase.appdownloader.c.f qeD;
+    private n qeE;
+    private o qeF;
+    private com.ss.android.socialbase.appdownloader.c.c qew;
+    private com.ss.android.socialbase.appdownloader.c.d qex;
+    private com.ss.android.socialbase.appdownloader.c.h qey;
+    private com.ss.android.socialbase.appdownloader.c.g qez;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13021a = d.class.getSimpleName();
-    private static volatile d qdI = null;
+    private static final String f7749a = d.class.getSimpleName();
+    private static volatile d qev = null;
     private static boolean l = false;
     private static boolean m = false;
 
-    public com.ss.android.socialbase.appdownloader.c.c eFq() {
-        return this.qdJ;
+    public com.ss.android.socialbase.appdownloader.c.c eFu() {
+        return this.qew;
     }
 
-    public com.ss.android.socialbase.appdownloader.c.d eFr() {
-        return this.qdK;
+    public com.ss.android.socialbase.appdownloader.c.d eFv() {
+        return this.qex;
     }
 
-    public com.ss.android.socialbase.appdownloader.c.h eFs() {
-        return this.qdL;
+    public com.ss.android.socialbase.appdownloader.c.h eFw() {
+        return this.qey;
     }
 
     public void a(String str) {
@@ -61,23 +61,23 @@ public class d {
         return this.j;
     }
 
-    public com.ss.android.socialbase.appdownloader.c.f eFt() {
-        return this.qdQ;
+    public com.ss.android.socialbase.appdownloader.c.f eFx() {
+        return this.qeD;
     }
 
     public boolean f() {
         return com.ss.android.socialbase.downloader.k.a.b().optInt("package_flag_config", 1) == 1;
     }
 
-    public n eFu() {
-        return this.qdR;
+    public n eFy() {
+        return this.qeE;
     }
 
     public void a(n nVar) {
-        this.qdR = nVar;
+        this.qeE = nVar;
     }
 
-    public File h() {
+    public File vz() {
         if (TextUtils.isEmpty(this.p)) {
             return null;
         }
@@ -106,27 +106,27 @@ public class d {
     private d() {
     }
 
-    public static d eFv() {
-        if (qdI == null) {
+    public static d eFz() {
+        if (qev == null) {
             synchronized (d.class) {
-                if (qdI == null) {
-                    qdI = new d();
+                if (qev == null) {
+                    qev = new d();
                 }
             }
         }
-        return qdI;
+        return qev;
     }
 
     @Deprecated
     public void a(Context context, String str, com.ss.android.socialbase.appdownloader.c.c cVar, com.ss.android.socialbase.appdownloader.c.d dVar, com.ss.android.socialbase.appdownloader.c.h hVar) {
         if (cVar != null) {
-            this.qdJ = cVar;
+            this.qew = cVar;
         }
         if (dVar != null) {
-            this.qdK = dVar;
+            this.qex = dVar;
         }
         if (hVar != null) {
-            this.qdL = hVar;
+            this.qey = hVar;
         }
         c(context);
     }
@@ -149,8 +149,8 @@ public class d {
 
     private void p() {
         if (!m) {
-            if (this.qdP == null) {
-                this.qdP = new DownloadReceiver();
+            if (this.qeC == null) {
+                this.qeC = new DownloadReceiver();
             }
             try {
                 IntentFilter intentFilter = new IntentFilter();
@@ -164,9 +164,9 @@ public class d {
                 IntentFilter intentFilter3 = new IntentFilter();
                 intentFilter3.addAction("android.intent.action.MEDIA_MOUNTED");
                 intentFilter3.addDataScheme("file");
-                com.ss.android.socialbase.downloader.downloader.b.eGC().registerReceiver(this.qdP, intentFilter);
-                com.ss.android.socialbase.downloader.downloader.b.eGC().registerReceiver(this.qdP, intentFilter2);
-                com.ss.android.socialbase.downloader.downloader.b.eGC().registerReceiver(this.qdP, intentFilter3);
+                com.ss.android.socialbase.downloader.downloader.b.eGG().registerReceiver(this.qeC, intentFilter);
+                com.ss.android.socialbase.downloader.downloader.b.eGG().registerReceiver(this.qeC, intentFilter2);
+                com.ss.android.socialbase.downloader.downloader.b.eGG().registerReceiver(this.qeC, intentFilter3);
                 m = true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -183,13 +183,13 @@ public class d {
             switch (i2) {
                 case -4:
                 case -1:
-                    com.ss.android.socialbase.downloader.downloader.f.iB(context).e(i);
+                    com.ss.android.socialbase.downloader.downloader.f.iC(context).e(i);
                     break;
                 case -3:
                     c.f(context, i, true);
                     break;
                 case -2:
-                    com.ss.android.socialbase.downloader.downloader.f.iB(context).c(i);
+                    com.ss.android.socialbase.downloader.downloader.f.iC(context).c(i);
                     break;
                 case 0:
                 case 6:
@@ -202,7 +202,7 @@ public class d {
                 case 5:
                 case 7:
                 case 8:
-                    com.ss.android.socialbase.downloader.downloader.f.iB(context).a(i);
+                    com.ss.android.socialbase.downloader.downloader.f.iC(context).a(i);
                     break;
             }
         } catch (Exception e) {
@@ -247,35 +247,35 @@ public class d {
                 return 0;
             }
             int a4 = com.ss.android.socialbase.downloader.downloader.b.a(c, e);
-            if (com.ss.android.socialbase.downloader.k.a.fm(fVar.eFV()).a("resume_task_override_settings") && (h = com.ss.android.socialbase.downloader.downloader.f.iB(com.ss.android.socialbase.downloader.downloader.b.eGC()).h(a4)) != null) {
+            if (com.ss.android.socialbase.downloader.k.a.fp(fVar.eFZ()).a("resume_task_override_settings") && (h = com.ss.android.socialbase.downloader.downloader.f.iC(com.ss.android.socialbase.downloader.downloader.b.eGG()).h(a4)) != null) {
                 try {
-                    fVar.fj(new JSONObject(h.R()));
+                    fVar.fm(new JSONObject(h.R()));
                 } catch (Throwable th) {
                 }
             }
-            com.ss.android.socialbase.downloader.k.a.a(a4, fVar.eFV());
+            com.ss.android.socialbase.downloader.k.a.e(a4, fVar.eFZ());
             boolean L = fVar.L();
-            boolean z2 = (!L && com.ss.android.socialbase.downloader.m.d.d(e, M) && com.ss.android.socialbase.downloader.downloader.f.iB(fVar.b()).h(a4) == null) ? true : L;
-            com.ss.android.socialbase.downloader.d.b eFF = fVar.eFF();
-            if (eFF != null || (!fVar.g() && !fVar.h())) {
-                bVar = eFF;
-            } else if (fVar.eFG() != null) {
-                bVar = new com.ss.android.socialbase.appdownloader.e.b(fVar.eFG());
+            boolean z2 = (!L && com.ss.android.socialbase.downloader.m.d.d(e, M) && com.ss.android.socialbase.downloader.downloader.f.iC(fVar.b()).h(a4) == null) ? true : L;
+            com.ss.android.socialbase.downloader.d.b eFJ = fVar.eFJ();
+            if (eFJ != null || (!fVar.g() && !fVar.h())) {
+                bVar = eFJ;
+            } else if (fVar.eFK() != null) {
+                bVar = new com.ss.android.socialbase.appdownloader.e.b(fVar.eFK());
             } else {
                 bVar = new com.ss.android.socialbase.appdownloader.e.b(fVar.b(), a4, d, e, M, fVar.m());
             }
-            ad eFM = fVar.eFM();
-            ad adVar = eFM == null ? new ad() { // from class: com.ss.android.socialbase.appdownloader.d.1
+            ad eFQ = fVar.eFQ();
+            ad adVar = eFQ == null ? new ad() { // from class: com.ss.android.socialbase.appdownloader.d.1
                 @Override // com.ss.android.socialbase.downloader.d.ad
                 public void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.e.a aVar, int i) {
-                    if (d.this.qdL != null) {
-                        d.this.qdL.a(cVar, aVar, i);
+                    if (d.this.qey != null) {
+                        d.this.qey.a(cVar, aVar, i);
                     }
                 }
-            } : eFM;
-            ab eGv = com.ss.android.socialbase.downloader.downloader.b.eGv();
-            if (eGv != null && fVar.eFQ() == null) {
-                fVar.a(eGv);
+            } : eFQ;
+            ab eGz = com.ss.android.socialbase.downloader.downloader.b.eGz();
+            if (eGz != null && fVar.eFU() == null) {
+                fVar.a(eGz);
             }
             String m2 = fVar.m();
             try {
@@ -291,45 +291,45 @@ public class d {
                 str2 = str;
             }
             boolean z3 = fVar.g() || fVar.h();
-            if (z3 && com.ss.android.socialbase.downloader.k.a.RW(a4).b("enable_notification_ui") == 1) {
-                com.ss.android.socialbase.appdownloader.e.c.eFD().a(a4, fVar.W());
+            if (z3 && com.ss.android.socialbase.downloader.k.a.Sa(a4).b("enable_notification_ui") == 1) {
+                com.ss.android.socialbase.appdownloader.e.c.eFH().a(a4, fVar.W());
             }
-            final com.ss.android.socialbase.downloader.g.d js = com.ss.android.socialbase.downloader.downloader.f.iC(fVar.b()).aby(c).ha(fVar.eFT()).abw(M).abx(d).abz(e).CB(fVar.j()).gZ(a2).a(adVar).RJ(fVar.x()).RK(fVar.y()).CD(z3).abA(str2).abB(n).RM(fVar.E()).RL(fVar.F()).b(fVar.eFE()).c(bVar).a(a(fVar.eFN())).CC(z2).CF(fVar.s()).CG(fVar.t()).c(fVar.eFH()).d(fVar.eFI()).CE(fVar.o()).abC(fVar.u()).abD(fVar.v()).jr(fVar.w()).CH(fVar.z()).abE(fVar.A()).CI(fVar.B()).CJ(fVar.C()).CL(fVar.G()).CM(fVar.H()).c(fVar.eFK()).a(fVar.eFL()).a(fVar.eFJ()).CN(fVar.I()).b(fVar.eFO()).b(fVar.eFU()).CK(fVar.J()).c(fVar.eFP()).fl(fVar.eFV()).abF(fVar.W()).d(fVar.eFQ()).RN(fVar.eFR()).js(fVar.eFS());
+            final com.ss.android.socialbase.downloader.g.d js = com.ss.android.socialbase.downloader.downloader.f.iD(fVar.b()).abD(c).ha(fVar.eFX()).abB(M).abC(d).abE(e).Cz(fVar.j()).gZ(a2).a(adVar).RN(fVar.x()).RO(fVar.y()).CB(z3).abF(str2).abG(n).RQ(fVar.E()).RP(fVar.F()).b(fVar.eFI()).c(bVar).a(a(fVar.eFR())).CA(z2).CD(fVar.s()).CE(fVar.t()).c(fVar.eFL()).d(fVar.eFM()).CC(fVar.o()).abH(fVar.u()).abI(fVar.v()).jr(fVar.w()).CF(fVar.z()).abJ(fVar.A()).CG(fVar.B()).CH(fVar.C()).CJ(fVar.G()).CK(fVar.H()).c(fVar.eFO()).a(fVar.eFP()).a(fVar.eFN()).CL(fVar.I()).b(fVar.eFS()).b(fVar.eFY()).CI(fVar.J()).c(fVar.eFT()).fo(fVar.eFZ()).abK(fVar.W()).d(fVar.eFU()).RR(fVar.eFV()).js(fVar.eFW());
             if (js != null) {
-                if (z3 && fVar.T() && fVar.eDJ() != null && !fVar.eDJ().isFinishing() && !com.ss.android.socialbase.appdownloader.e.d.a()) {
+                if (z3 && fVar.T() && fVar.eDP() != null && !fVar.eDP().isFinishing() && !com.ss.android.socialbase.appdownloader.e.d.a()) {
                     final String str3 = d;
-                    com.ss.android.socialbase.appdownloader.e.d.a(fVar.eDJ(), new com.ss.android.socialbase.appdownloader.c.o() { // from class: com.ss.android.socialbase.appdownloader.d.2
+                    com.ss.android.socialbase.appdownloader.e.d.a(fVar.eDP(), new com.ss.android.socialbase.appdownloader.c.o() { // from class: com.ss.android.socialbase.appdownloader.d.2
                         @Override // com.ss.android.socialbase.appdownloader.c.o
                         public void a() {
-                            com.ss.android.socialbase.downloader.f.a.b(d.f13021a, "notification permission granted, start download :" + str3);
+                            com.ss.android.socialbase.downloader.f.a.b(d.f7749a, "notification permission granted, start download :" + str3);
                             d.this.a(js, a3, z);
                         }
 
                         @Override // com.ss.android.socialbase.appdownloader.c.o
                         public void b() {
-                            com.ss.android.socialbase.downloader.f.a.b(d.f13021a, "notification permission denied, start download :" + str3);
+                            com.ss.android.socialbase.downloader.f.a.b(d.f7749a, "notification permission denied, start download :" + str3);
                             d.this.a(js, a3, z);
                         }
                     });
                     return a4;
                 }
-                com.ss.android.socialbase.downloader.f.a.b(f13021a, "notification permission need not request, start download :" + d);
+                com.ss.android.socialbase.downloader.f.a.b(f7749a, "notification permission need not request, start download :" + d);
                 a(js, a3, z);
                 js.a();
                 return a4;
             }
             return a4;
         } catch (Throwable th3) {
-            com.ss.android.socialbase.downloader.h.a.a(fVar.eFL(), (com.ss.android.socialbase.downloader.g.c) null, new com.ss.android.socialbase.downloader.e.a(1003, com.ss.android.socialbase.downloader.m.d.c(th3, "addDownloadTask")), 0);
-            com.ss.android.socialbase.downloader.f.a.e(f13021a, String.format("add download task error:%s", th3));
+            com.ss.android.socialbase.downloader.h.a.a(fVar.eFP(), (com.ss.android.socialbase.downloader.g.c) null, new com.ss.android.socialbase.downloader.e.a(1003, com.ss.android.socialbase.downloader.m.d.c(th3, "addDownloadTask")), 0);
+            com.ss.android.socialbase.downloader.f.a.e(f7749a, String.format("add download task error:%s", th3));
             return 0;
         }
     }
 
     private int a(f fVar, String str) {
-        com.ss.android.socialbase.downloader.k.a fm = com.ss.android.socialbase.downloader.k.a.fm(fVar.eFV());
-        JSONObject abH = fm.abH("anti_hijack_dir");
-        if (abH == null || TextUtils.isEmpty(abH.optString("dir_name"))) {
+        com.ss.android.socialbase.downloader.k.a fp = com.ss.android.socialbase.downloader.k.a.fp(fVar.eFZ());
+        JSONObject abM = fp.abM("anti_hijack_dir");
+        if (abM == null || TextUtils.isEmpty(abM.optString("dir_name"))) {
             return -1;
         }
         String d = fVar.d();
@@ -347,24 +347,24 @@ public class d {
         if (TextUtils.isEmpty(e)) {
             e = c.b();
         }
-        String str2 = e + File.separator + c.a(d, fm);
-        com.ss.android.socialbase.downloader.g.c bF = bF(fVar.b(), str);
-        if (bF != null && bF.eIc()) {
-            fVar.abf(bF.k());
+        String str2 = e + File.separator + c.a(d, fp);
+        com.ss.android.socialbase.downloader.g.c bE = bE(fVar.b(), str);
+        if (bE != null && bE.eIe()) {
+            fVar.abk(bE.k());
             try {
-                fVar.fj(new JSONObject(bF.R()));
+                fVar.fm(new JSONObject(bE.R()));
                 return 0;
             } catch (Throwable th) {
                 return 0;
             }
-        } else if (bF == null && "application/vnd.android.package-archive".equalsIgnoreCase(a(M, fVar.n()))) {
-            int d2 = b.d(fm);
+        } else if (bE == null && "application/vnd.android.package-archive".equalsIgnoreCase(a(M, fVar.n()))) {
+            int d2 = b.d(fp);
             if (d2 == 0) {
-                fVar.abf(str2);
+                fVar.abk(str2);
                 return d2;
             }
             return d2;
-        } else if (bF != null) {
+        } else if (bE != null) {
             return 8;
         } else {
             return 9;
@@ -408,7 +408,7 @@ public class d {
             z2 = z;
         }
         if (!z2) {
-            arrayList.add(new com.ss.android.socialbase.downloader.g.e("User-Agent", com.ss.android.socialbase.appdownloader.b.a.f13015a));
+            arrayList.add(new com.ss.android.socialbase.downloader.g.e("User-Agent", com.ss.android.socialbase.appdownloader.b.a.f7745a));
         }
         return arrayList;
     }
@@ -433,7 +433,7 @@ public class d {
                     case 5:
                     case 6:
                     case 7:
-                        eVar.a(i, str, cVar.q(), cVar.eHB());
+                        eVar.a(i, str, cVar.q(), cVar.eHD());
                         return;
                     case 2:
                     case 4:
@@ -443,7 +443,7 @@ public class d {
                         eVar.g(i, cVar.D(), str, str2);
                         return;
                     case 9:
-                        eVar.a(com.ss.android.socialbase.downloader.downloader.b.eGC(), str);
+                        eVar.a(com.ss.android.socialbase.downloader.downloader.b.eGG(), str);
                         return;
                     case 10:
                         eVar.a(cVar);
@@ -463,12 +463,12 @@ public class d {
         };
     }
 
-    public com.ss.android.socialbase.downloader.g.c bF(Context context, String str) {
+    public com.ss.android.socialbase.downloader.g.c bE(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
         try {
-            com.ss.android.socialbase.downloader.g.c g = g(context, str, h());
+            com.ss.android.socialbase.downloader.g.c g = g(context, str, vz());
             if (g == null) {
                 g = g(context, str, context.getFilesDir());
             }
@@ -478,13 +478,13 @@ public class d {
             if (g == null) {
                 g = g(context, str, context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
             }
-            boolean a2 = com.ss.android.socialbase.downloader.k.a.eIF().a("get_download_info_by_list");
+            boolean a2 = com.ss.android.socialbase.downloader.k.a.eIH().a("get_download_info_by_list");
             if (g == null && a2) {
-                return bG(context, str);
+                return bF(context, str);
             }
             return g;
         } catch (Throwable th) {
-            com.ss.android.socialbase.downloader.f.a.b(f13021a, String.format("getAppDownloadInfo error:%s", th.getMessage()));
+            com.ss.android.socialbase.downloader.f.a.b(f7749a, String.format("getAppDownloadInfo error:%s", th.getMessage()));
             return null;
         }
     }
@@ -493,14 +493,14 @@ public class d {
         if (context == null || TextUtils.isEmpty(str) || file == null) {
             return null;
         }
-        return com.ss.android.socialbase.downloader.downloader.f.iB(context).hB(str, file.getAbsolutePath());
+        return com.ss.android.socialbase.downloader.downloader.f.iC(context).hC(str, file.getAbsolutePath());
     }
 
-    private com.ss.android.socialbase.downloader.g.c bG(Context context, String str) {
-        List<com.ss.android.socialbase.downloader.g.c> a2 = com.ss.android.socialbase.downloader.downloader.f.iB(context).a(str);
+    private com.ss.android.socialbase.downloader.g.c bF(Context context, String str) {
+        List<com.ss.android.socialbase.downloader.g.c> a2 = com.ss.android.socialbase.downloader.downloader.f.iC(context).a(str);
         if (a2 != null) {
             for (com.ss.android.socialbase.downloader.g.c cVar : a2) {
-                if (cVar != null && cVar.eIc()) {
+                if (cVar != null && cVar.eIe()) {
                     return cVar;
                 }
             }
@@ -509,42 +509,42 @@ public class d {
     }
 
     public List<com.ss.android.socialbase.downloader.g.c> a(Context context) {
-        return com.ss.android.socialbase.downloader.downloader.f.iB(context).c("application/vnd.android.package-archive");
+        return com.ss.android.socialbase.downloader.downloader.f.iC(context).c("application/vnd.android.package-archive");
     }
 
     public List<com.ss.android.socialbase.downloader.g.c> b(Context context) {
-        return com.ss.android.socialbase.downloader.downloader.f.iB(context).d("application/vnd.android.package-archive");
+        return com.ss.android.socialbase.downloader.downloader.f.iC(context).d("application/vnd.android.package-archive");
     }
 
-    public l eFw() {
-        return this.qdN;
+    public l eFA() {
+        return this.qeA;
     }
 
-    public com.ss.android.socialbase.appdownloader.c.g eFx() {
-        return this.qdM;
+    public com.ss.android.socialbase.appdownloader.c.g eFB() {
+        return this.qez;
     }
 
     public void a(com.ss.android.socialbase.appdownloader.c.g gVar) {
-        this.qdM = gVar;
+        this.qez = gVar;
     }
 
     public void a(com.ss.android.socialbase.appdownloader.c.i iVar) {
-        this.qdO = iVar;
+        this.qeB = iVar;
     }
 
-    public r eFy() {
-        return com.ss.android.socialbase.downloader.downloader.f.iB(com.ss.android.socialbase.downloader.downloader.b.eGC()).eGH();
+    public r eFC() {
+        return com.ss.android.socialbase.downloader.downloader.f.iC(com.ss.android.socialbase.downloader.downloader.b.eGG()).eGL();
     }
 
     public void a(r rVar) {
-        com.ss.android.socialbase.downloader.downloader.f.iB(com.ss.android.socialbase.downloader.downloader.b.eGC()).a(rVar);
+        com.ss.android.socialbase.downloader.downloader.f.iC(com.ss.android.socialbase.downloader.downloader.b.eGG()).a(rVar);
     }
 
     public void a(o oVar) {
-        this.qdS = oVar;
+        this.qeF = oVar;
     }
 
-    public o eFz() {
-        return this.qdS;
+    public o eFD() {
+        return this.qeF;
     }
 }

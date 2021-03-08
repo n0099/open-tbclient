@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ab extends aa {
     public ab(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/checkAppInstalled");
@@ -17,13 +17,13 @@ public class ab extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        JSONObject b2 = b(unitedSchemeEntity, "params");
-        if (b2 == null) {
+        JSONObject b = b(unitedSchemeEntity, "params");
+        if (b == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
             com.baidu.swan.apps.console.c.i("SwanCheckAppInstalledAction", "params parse error");
             return false;
         }
-        String optString = b2.optString("name");
+        String optString = b.optString("name");
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parameter error");
             com.baidu.swan.apps.console.c.i("SwanCheckAppInstalledAction", "packageName empty");

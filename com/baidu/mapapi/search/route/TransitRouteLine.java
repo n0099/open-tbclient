@@ -13,9 +13,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public final class TransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static final Parcelable.Creator<TransitRouteLine> CREATOR = new o();
-
-    /* renamed from: b  reason: collision with root package name */
-    private TaxiInfo f2922b;
+    private TaxiInfo b;
 
     /* loaded from: classes4.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
@@ -124,7 +122,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
     /* JADX INFO: Access modifiers changed from: protected */
     public TransitRouteLine(Parcel parcel) {
         super(parcel);
-        this.f2922b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
@@ -134,17 +132,17 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
 
     @Deprecated
     public TaxiInfo getTaxitInfo() {
-        return this.f2922b;
+        return this.b;
     }
 
     public void setTaxitInfo(TaxiInfo taxiInfo) {
-        this.f2922b = taxiInfo;
+        this.b = taxiInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.setType(RouteLine.TYPE.TRANSITSTEP);
         super.writeToParcel(parcel, i);
-        parcel.writeParcelable(this.f2922b, 1);
+        parcel.writeParcelable(this.b, 1);
     }
 }

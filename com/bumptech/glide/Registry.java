@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class Registry {
     private static final String BUCKET_APPEND_ALL = "legacy_append";
     public static final String BUCKET_BITMAP = "Bitmap";
@@ -94,7 +94,8 @@ public class Registry {
 
     @NonNull
     public final Registry setResourceDecoderBucketPriorityList(@NonNull List<String> list) {
-        ArrayList arrayList = new ArrayList(list);
+        ArrayList arrayList = new ArrayList(list.size());
+        arrayList.addAll(list);
         arrayList.add(0, BUCKET_PREPEND_ALL);
         arrayList.add(BUCKET_APPEND_ALL);
         this.decoderRegistry.setBucketPriorityList(arrayList);
@@ -183,7 +184,7 @@ public class Registry {
 
     @NonNull
     public <Model, TResource, Transcode> List<Class<?>> getRegisteredResourceClasses(@NonNull Class<Model> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
-        List<Class<?>> list = this.modelToResourceClassCache.get(cls, cls2);
+        List<Class<?>> list = this.modelToResourceClassCache.get(cls, cls2, cls3);
         if (list == null) {
             ArrayList arrayList = new ArrayList();
             for (Class<?> cls4 : this.modelLoaderRegistry.getDataClasses(cls)) {
@@ -193,7 +194,7 @@ public class Registry {
                     }
                 }
             }
-            this.modelToResourceClassCache.put(cls, cls2, Collections.unmodifiableList(arrayList));
+            this.modelToResourceClassCache.put(cls, cls2, cls3, Collections.unmodifiableList(arrayList));
             return arrayList;
         }
         return list;
@@ -228,11 +229,7 @@ public class Registry {
 
     @NonNull
     public <Model> List<ModelLoader<Model, ?>> getModelLoaders(@NonNull Model model) {
-        List<ModelLoader<Model, ?>> modelLoaders = this.modelLoaderRegistry.getModelLoaders(model);
-        if (modelLoaders.isEmpty()) {
-            throw new NoModelLoaderAvailableException(model);
-        }
-        return modelLoaders;
+        return this.modelLoaderRegistry.getModelLoaders(model);
     }
 
     @NonNull
@@ -244,10 +241,14 @@ public class Registry {
         return parsers;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class NoModelLoaderAvailableException extends MissingComponentException {
         public NoModelLoaderAvailableException(@NonNull Object obj) {
-            super("Failed to find any ModelLoaders for model: " + obj);
+            super("Failed to find any ModelLoaders registered for model class: " + obj.getClass());
+        }
+
+        public <M> NoModelLoaderAvailableException(@NonNull M m, @NonNull List<ModelLoader<M, ?>> list) {
+            super("Found ModelLoaders for model class: " + list + ", but none that handle this specific model instance: " + m);
         }
 
         public NoModelLoaderAvailableException(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
@@ -255,28 +256,28 @@ public class Registry {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class NoResultEncoderAvailableException extends MissingComponentException {
         public NoResultEncoderAvailableException(@NonNull Class<?> cls) {
             super("Failed to find result encoder for resource class: " + cls + ", you may need to consider registering a new Encoder for the requested type or DiskCacheStrategy.DATA/DiskCacheStrategy.NONE if caching your transformed resource is unnecessary.");
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class NoSourceEncoderAvailableException extends MissingComponentException {
         public NoSourceEncoderAvailableException(@NonNull Class<?> cls) {
             super("Failed to find source encoder for data class: " + cls);
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class MissingComponentException extends RuntimeException {
         public MissingComponentException(@NonNull String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class NoImageHeaderParserException extends MissingComponentException {
         public NoImageHeaderParserException() {
             super("Failed to find image header parser.");

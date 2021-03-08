@@ -16,7 +16,7 @@ import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.tbadk.b.a {
     @Override // com.baidu.tbadk.b.a
     public String key() {
@@ -30,10 +30,10 @@ public class b extends com.baidu.tbadk.b.a {
         Map.Entry<String, String> next;
         Context context = TbadkCoreApplication.getInst().getContext();
         h hVar = new h();
-        hVar.eGz = str;
+        hVar.eIa = str;
         if (obj instanceof com.baidu.tieba.lego.card.model.a) {
             com.baidu.tieba.lego.card.model.a aVar = (com.baidu.tieba.lego.card.model.a) obj;
-            boolean dbJ = aVar.dbJ();
+            boolean dbS = aVar.dbS();
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent(context, AlarmReceiver.class);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -60,11 +60,11 @@ public class b extends com.baidu.tbadk.b.a {
                 j2 = j;
                 i2 = i;
             }
-            ar arVar = new ar(aVar.dbL());
+            ar arVar = new ar(aVar.dbU());
             arVar.dR("obj_id", "");
-            if (dbJ) {
+            if (dbS) {
                 arVar.dR("obj_type", "2");
-                BdToast.b(context, context.getString(R.string.interview_close_tip)).bqD();
+                BdToast.b(context, context.getString(R.string.interview_close_tip)).bqF();
                 PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, 536870912);
                 if (broadcast != null) {
                     alarmManager.cancel(broadcast);
@@ -73,7 +73,7 @@ public class b extends com.baidu.tbadk.b.a {
                 hVar.result = false;
             } else {
                 arVar.dR("obj_type", "1");
-                BdToast.b(context, context.getString(R.string.interview_open_tip)).bqD();
+                BdToast.b(context, context.getString(R.string.interview_open_tip)).bqF();
                 alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, 134217728));
                 hVar.result = true;
             }

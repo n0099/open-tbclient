@@ -11,10 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class CyberTaskExcutor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static CyberTaskExcutor f1704a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f1705b = 0;
+    private static CyberTaskExcutor f1383a;
+    private final int b = 0;
     private final int c = 5;
     private final int d = 180;
     private ExecutorService e = new ThreadPoolExecutor(0, 5, 180, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
@@ -24,21 +22,19 @@ public final class CyberTaskExcutor {
     public static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private final AtomicInteger f1706a = new AtomicInteger(1);
-
-        /* renamed from: b  reason: collision with root package name */
-        private final String f1707b;
+        private final AtomicInteger f1384a = new AtomicInteger(1);
+        private final String b;
         private int c;
 
         a(String str, int i) {
             this.c = 5;
-            this.f1707b = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
+            this.b = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             this.c = i;
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(runnable, this.f1707b + this.f1706a.getAndIncrement());
+            Thread thread = new Thread(runnable, this.b + this.f1384a.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(true);
             }
@@ -54,10 +50,10 @@ public final class CyberTaskExcutor {
     public static synchronized CyberTaskExcutor getInstance() {
         CyberTaskExcutor cyberTaskExcutor;
         synchronized (CyberTaskExcutor.class) {
-            if (f1704a == null) {
-                f1704a = new CyberTaskExcutor();
+            if (f1383a == null) {
+                f1383a = new CyberTaskExcutor();
             }
-            cyberTaskExcutor = f1704a;
+            cyberTaskExcutor = f1383a;
         }
         return cyberTaskExcutor;
     }

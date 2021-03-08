@@ -4,28 +4,24 @@ import android.content.Context;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.pi.CustomLandingPageListener;
 import com.qq.e.comm.util.SystemUtil;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class StubVisitor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile StubVisitor f11537a;
+    private static volatile StubVisitor f7556a;
 
     private StubVisitor() {
     }
 
     public static StubVisitor getInstance() {
-        if (f11537a == null) {
+        if (f7556a == null) {
             synchronized (StubVisitor.class) {
-                try {
-                    if (f11537a == null) {
-                        f11537a = new StubVisitor();
-                    }
-                } catch (Throwable th) {
-                    throw th;
+                if (f7556a == null) {
+                    f7556a = new StubVisitor();
                 }
             }
         }
-        return f11537a;
+        return f7556a;
     }
 
     public String appendPathName(String str) {

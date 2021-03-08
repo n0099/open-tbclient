@@ -14,10 +14,10 @@ import com.baidu.tieba.R;
 public class HeadImageView extends TbClipImageView {
     private AlaInfoData alaInfo;
     private String fName;
-    private int ffN;
-    private int ffO;
-    private int ffP;
-    private int ffQ;
+    private int fhm;
+    private int fhn;
+    private int fho;
+    private int fhp;
     private String fid;
     private int floor;
     private int height;
@@ -54,8 +54,8 @@ public class HeadImageView extends TbClipImageView {
         this.fName = null;
         this.mDefaultId = R.drawable.transparent_bg;
         this.mDefaultBgId = R.color.CAM_X0209;
-        this.ffN = R.drawable.ic_icon_mask_shen20_n;
-        this.ffO = 0;
+        this.fhm = R.drawable.ic_icon_mask_shen20_n;
+        this.fhn = 0;
         this.liveStatus = -1;
         init();
     }
@@ -160,19 +160,19 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setBjhAuthIconRes(int i) {
-        this.ffP = i;
+        this.fho = i;
     }
 
     public void setBazhuIconRes(int i) {
-        this.ffO = i;
+        this.fhn = i;
     }
 
     public void setOfficialIconResId(int i) {
-        this.ffQ = i;
+        this.fhp = i;
     }
 
     public void setGodIconResId(int i) {
-        this.ffN = i;
+        this.fhm = i;
     }
 
     public void setGodIconWidth(int i) {
@@ -211,26 +211,26 @@ public class HeadImageView extends TbClipImageView {
 
     public void updateVIcon(Canvas canvas) {
         if (this.isShowV && this.mIconWidth > 0) {
-            if (this.ffQ != 0) {
-                Drawable drawable = ap.getDrawable(this.ffQ);
+            if (this.fhp != 0) {
+                Drawable drawable = ap.getDrawable(this.fhp);
                 if (drawable != null) {
                     drawable.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     drawable.draw(canvas);
                 }
-            } else if (this.ffP != 0) {
-                Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.ffP);
+            } else if (this.fho != 0) {
+                Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.fho);
                 if (bjhBigVIconDrawable != null) {
                     bjhBigVIconDrawable.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     bjhBigVIconDrawable.draw(canvas);
                 }
-            } else if (this.ffO != 0) {
-                Drawable drawable2 = ap.getDrawable(this.ffO);
+            } else if (this.fhn != 0) {
+                Drawable drawable2 = ap.getDrawable(this.fhn);
                 if (drawable2 != null) {
                     drawable2.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     drawable2.draw(canvas);
                 }
             } else {
-                Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.ffN);
+                Drawable bjhBigVIconDrawable2 = UtilHelper.getBjhBigVIconDrawable(this.fhm);
                 if (bjhBigVIconDrawable2 != null) {
                     bjhBigVIconDrawable2.setBounds((this.width - this.mIconWidth) - this.iconMargin, (this.height - this.mIconWidth) - this.iconMargin, this.width - this.iconMargin, this.height - this.iconMargin);
                     bjhBigVIconDrawable2.draw(canvas);

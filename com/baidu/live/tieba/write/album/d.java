@@ -11,53 +11,53 @@ import android.provider.MediaStore;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static d bLO;
-    private BroadcastReceiver bLP;
-    private ContentObserver bLQ;
+    private static d bNo;
+    private BroadcastReceiver bNp;
+    private ContentObserver bNq;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<a> mListeners = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable bLR = new Runnable() { // from class: com.baidu.live.tieba.write.album.d.1
+    private Runnable bNr = new Runnable() { // from class: com.baidu.live.tieba.write.album.d.1
         @Override // java.lang.Runnable
         public void run() {
             d.this.m21do(false);
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void dp(boolean z);
     }
 
-    public static d UL() {
-        if (bLO == null) {
+    public static d UO() {
+        if (bNo == null) {
             synchronized (d.class) {
-                if (bLO == null) {
-                    bLO = new d();
-                    bLO.init(TbadkCoreApplication.getInst());
+                if (bNo == null) {
+                    bNo = new d();
+                    bNo.init(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return bLO;
+        return bNo;
     }
 
     private d() {
     }
 
     private void init(Context context) {
-        this.bLP = new BroadcastReceiver() { // from class: com.baidu.live.tieba.write.album.d.2
+        this.bNp = new BroadcastReceiver() { // from class: com.baidu.live.tieba.write.album.d.2
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
                 d.this.p(intent);
             }
         };
-        this.bLQ = new ContentObserver(this.mHandler) { // from class: com.baidu.live.tieba.write.album.d.3
+        this.bNq = new ContentObserver(this.mHandler) { // from class: com.baidu.live.tieba.write.album.d.3
             @Override // android.database.ContentObserver
             public void onChange(boolean z) {
-                d.this.handler.removeCallbacks(d.this.bLR);
-                d.this.handler.postDelayed(d.this.bLR, 2000L);
+                d.this.handler.removeCallbacks(d.this.bNr);
+                d.this.handler.postDelayed(d.this.bNr, 2000L);
             }
         };
         IntentFilter intentFilter = new IntentFilter();
@@ -67,8 +67,8 @@ public class d {
         intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
-        context.registerReceiver(this.bLP, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.bLQ);
+        context.registerReceiver(this.bNp, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.bNq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -77,8 +77,8 @@ public class d {
             m21do(true);
             return;
         }
-        this.handler.removeCallbacks(this.bLR);
-        this.handler.postDelayed(this.bLR, 2000L);
+        this.handler.removeCallbacks(this.bNr);
+        this.handler.postDelayed(this.bNr, 2000L);
     }
 
     /* renamed from: do  reason: not valid java name */
@@ -108,9 +108,9 @@ public class d {
     public void destory() {
         removeAllListeners();
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        inst.unregisterReceiver(this.bLP);
-        inst.getContentResolver().unregisterContentObserver(this.bLQ);
-        this.handler.removeCallbacks(this.bLR);
-        bLO = null;
+        inst.unregisterReceiver(this.bNp);
+        inst.getContentResolver().unregisterContentObserver(this.bNq);
+        this.handler.removeCallbacks(this.bNr);
+        bNo = null;
     }
 }

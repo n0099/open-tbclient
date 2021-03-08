@@ -8,11 +8,11 @@ import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import javax.crypto.Cipher;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f5768a = "#PART#".getBytes();
+    public static final byte[] f3894a = "#PART#".getBytes();
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -37,13 +37,13 @@ public class d {
             if (i3 == 117 || i4 == length - 1) {
                 i2++;
                 if (i2 != 1) {
-                    for (byte b2 : f5768a) {
-                        arrayList.add(Byte.valueOf(b2));
+                    for (byte b : f3894a) {
+                        arrayList.add(Byte.valueOf(b));
                     }
                 }
-                byte[] b3 = b(bArr3, bArr2);
-                for (byte b4 : b3) {
-                    arrayList.add(Byte.valueOf(b4));
+                byte[] b2 = b(bArr3, bArr2);
+                for (byte b3 : b2) {
+                    arrayList.add(Byte.valueOf(b3));
                 }
                 if (i4 == length - 1) {
                     bArr3 = null;
@@ -55,8 +55,8 @@ public class d {
             }
         }
         byte[] bArr4 = new byte[arrayList.size()];
-        for (Byte b5 : arrayList) {
-            bArr4[i] = b5.byteValue();
+        for (Byte b4 : arrayList) {
+            bArr4[i] = b4.byteValue();
             i++;
         }
         return bArr4;

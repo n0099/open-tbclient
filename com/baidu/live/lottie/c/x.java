@@ -3,9 +3,9 @@ package com.baidu.live.lottie.c;
 import android.graphics.PointF;
 import android.util.JsonReader;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class x implements aj<PointF> {
-    public static final x buC = new x();
+    public static final x bwc = new x();
 
     private x() {
     }

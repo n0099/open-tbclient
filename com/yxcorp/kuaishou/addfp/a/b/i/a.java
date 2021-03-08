@@ -6,16 +6,14 @@ import android.text.TextUtils;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f14375a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Class f14376b;
+    private static Object f8616a;
+    private static Class b;
 
     static {
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f14376b = cls;
-            f14375a = cls.newInstance();
+            b = cls;
+            f8616a = cls.newInstance();
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
         }
@@ -26,9 +24,9 @@ public final class a {
     }
 
     private static String a(Context context, String str) {
-        if (f14375a != null && !TextUtils.isEmpty(str)) {
+        if (f8616a != null && !TextUtils.isEmpty(str)) {
             try {
-                Object invoke = f14376b.getMethod(str, Context.class).invoke(f14375a, context);
+                Object invoke = b.getMethod(str, Context.class).invoke(f8616a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -40,6 +38,6 @@ public final class a {
     }
 
     public static boolean a() {
-        return (f14376b == null || f14375a == null) ? false : true;
+        return (b == null || f8616a == null) ? false : true;
     }
 }

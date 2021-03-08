@@ -9,7 +9,7 @@ import kotlin.jvm.internal.p;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class f {
     private final List<g> frames;
     private final String imageKey;
@@ -18,12 +18,12 @@ public final class f {
         return this.imageKey;
     }
 
-    public final List<g> eDy() {
+    public final List<g> eDE() {
         return this.frames;
     }
 
     public f(JSONObject jSONObject) {
-        p.o(jSONObject, "obj");
+        p.p(jSONObject, "obj");
         this.imageKey = jSONObject.optString("imageKey");
         ArrayList arrayList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("frames");
@@ -33,7 +33,7 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.iX().isEmpty()) && ((SVGAVideoShapeEntity) n.first(gVar.iX())).eDo() && arrayList.size() > 0) {
+                    if ((!gVar.iX().isEmpty()) && ((SVGAVideoShapeEntity) n.first(gVar.iX())).eDu() && arrayList.size() > 0) {
                         gVar.gQ(((g) n.last(arrayList)).iX());
                     }
                     arrayList.add(gVar);
@@ -44,8 +44,8 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList eLe;
-        p.o(spriteEntity, "obj");
+        ArrayList eKM;
+        p.p(spriteEntity, "obj");
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
         List<FrameEntity> list = spriteEntity.frames;
@@ -54,18 +54,18 @@ public final class f {
             ArrayList arrayList = new ArrayList(n.a(list2, 10));
             g gVar2 = gVar;
             for (FrameEntity frameEntity : list2) {
-                p.n(frameEntity, "it");
+                p.o(frameEntity, "it");
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.iX().isEmpty()) && ((SVGAVideoShapeEntity) n.first(gVar3.iX())).eDo() && gVar2 != null) {
+                if ((!gVar3.iX().isEmpty()) && ((SVGAVideoShapeEntity) n.first(gVar3.iX())).eDu() && gVar2 != null) {
                     gVar3.gQ(gVar2.iX());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            eLe = arrayList;
+            eKM = arrayList;
         } else {
-            eLe = n.eLe();
+            eKM = n.eKM();
         }
-        this.frames = eLe;
+        this.frames = eKM;
     }
 }

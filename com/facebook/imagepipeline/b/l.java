@@ -8,7 +8,7 @@ public class l {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.imagepipeline.b.v
             /* renamed from: a */
-            public int bq(PooledByteBuffer pooledByteBuffer) {
+            public int bs(PooledByteBuffer pooledByteBuffer) {
                 return pooledByteBuffer.size();
             }
         }, new s(), jVar);

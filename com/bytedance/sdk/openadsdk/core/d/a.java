@@ -9,29 +9,27 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6485a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f6486b;
+    private String f4385a;
+    private int b;
     private String c;
     private List<l> d = new ArrayList();
     private String e;
     private long f;
 
     public String a() {
-        return this.f6485a;
+        return this.f4385a;
     }
 
     public void a(String str) {
-        this.f6485a = str;
+        this.f4385a = str;
     }
 
     public int b() {
-        return this.f6486b;
+        return this.b;
     }
 
     public void a(int i) {
-        this.f6486b = i;
+        this.b = i;
     }
 
     public void b(String str) {
@@ -64,8 +62,8 @@ public class a {
         }
         HashMap hashMap = new HashMap();
         for (l lVar : aVar.c()) {
-            if (!TextUtils.isEmpty(lVar.L())) {
-                hashMap.put(lVar.L(), lVar);
+            if (!TextUtils.isEmpty(lVar.Y())) {
+                hashMap.put(lVar.Y(), lVar);
             }
         }
         if (hashMap.size() != 0) {

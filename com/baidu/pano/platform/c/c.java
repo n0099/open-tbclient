@@ -10,25 +10,23 @@ import java.util.concurrent.ExecutionException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile c f3910a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Context f3911b;
-    private p c = n.a(f3911b);
+    private static volatile c f2722a = null;
+    private static Context b;
+    private p c = n.a(b);
 
     private c() {
     }
 
     public static c a(Context context) {
-        if (f3910a == null) {
+        if (f2722a == null) {
             synchronized (c.class) {
-                if (f3910a == null) {
-                    f3911b = context;
-                    f3910a = new c();
+                if (f2722a == null) {
+                    b = context;
+                    f2722a = new c();
                 }
             }
         }
-        return f3910a;
+        return f2722a;
     }
 
     public byte[] a(String str) {

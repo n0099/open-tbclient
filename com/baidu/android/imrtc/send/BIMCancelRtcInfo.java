@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BIMCancelRtcInfo extends BIMRtcInfo {
     private static final String TAG = "BIMCancelRtcInfo";
     private List<BIMCancelUser> mCancelUsers = new ArrayList();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class BIMCancelUser {
         public long appId;
         public String cuid;

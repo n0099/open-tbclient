@@ -5,17 +5,17 @@ import com.baidu.swan.pms.e.b;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class c implements com.baidu.swan.pms.e.b {
-    private static boolean eBL = false;
-    private static final Set<b.a> eBM = new HashSet();
+    private static boolean eDm = false;
+    private static final Set<b.a> eDn = new HashSet();
 
     @Override // com.baidu.swan.pms.e.b
     public void a(String str, b.a aVar) {
-        synchronized (eBM) {
-            eBM.add(aVar);
-            if (!eBL) {
-                eBL = true;
+        synchronized (eDn) {
+            eDn.add(aVar);
+            if (!eDm) {
+                eDm = true;
                 WebKitFactory.installAsync("file://" + str, new WebKitFactory.WebkitInstallListener() { // from class: com.baidu.swan.d.c.1
                     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
                     public void onInstallStart() {
@@ -23,10 +23,10 @@ public final class c implements com.baidu.swan.pms.e.b {
 
                     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
                     public void onInstallFinish(int i, String str2) {
-                        synchronized (c.eBM) {
+                        synchronized (c.eDn) {
                             a.iS(true);
-                            c.this.iT(new b(AppRuntime.getAppContext()).bgA());
-                            boolean unused = c.eBL = false;
+                            c.this.iT(new b(AppRuntime.getAppContext()).bgC());
+                            boolean unused = c.eDm = false;
                         }
                     }
                 });
@@ -36,13 +36,13 @@ public final class c implements com.baidu.swan.pms.e.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void iT(boolean z) {
-        synchronized (eBM) {
-            for (b.a aVar : eBM) {
+        synchronized (eDn) {
+            for (b.a aVar : eDn) {
                 if (aVar != null) {
                     aVar.fC(z);
                 }
             }
-            eBM.clear();
+            eDn.clear();
         }
     }
 }

@@ -13,10 +13,8 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2738a;
-
-    /* renamed from: b  reason: collision with root package name */
-    Point f2739b;
+    LatLng f2033a;
+    Point b;
     ELayoutMode c;
     float d;
     float e;
@@ -26,10 +24,8 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2740a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private int f2741b;
+        private int f2034a;
+        private int b;
         private LatLng c;
         private Point d;
         private ELayoutMode e = ELayoutMode.absoluteMode;
@@ -55,11 +51,11 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
             if (z) {
                 throw new IllegalStateException("if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
             }
-            return new MapViewLayoutParams(this.f2740a, this.f2741b, this.c, this.d, this.e, this.f, this.g, this.h);
+            return new MapViewLayoutParams(this.f2034a, this.b, this.c, this.d, this.e, this.f, this.g, this.h);
         }
 
         public Builder height(int i) {
-            this.f2741b = i;
+            this.b = i;
             return this;
         }
 
@@ -79,7 +75,7 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
         }
 
         public Builder width(int i) {
-            this.f2740a = i;
+            this.f2034a = i;
             return this;
         }
 
@@ -97,8 +93,8 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
 
     MapViewLayoutParams(int i, int i2, LatLng latLng, Point point, ELayoutMode eLayoutMode, int i3, int i4, int i5) {
         super(i, i2);
-        this.f2738a = latLng;
-        this.f2739b = point;
+        this.f2033a = latLng;
+        this.b = point;
         this.c = eLayoutMode;
         switch (i3) {
             case 1:

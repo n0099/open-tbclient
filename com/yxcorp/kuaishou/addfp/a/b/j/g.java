@@ -7,26 +7,24 @@ import android.os.IInterface;
 public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14380a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.yxcorp.kuaishou.addfp.a.a.a f14381b;
+    private Context f8619a;
+    private com.yxcorp.kuaishou.addfp.a.a.a b;
 
     public g(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f14380a = context;
-        this.f14381b = aVar;
+        this.f8619a = context;
+        this.b = aVar;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
-        if (this.f14381b != null) {
-            this.f14381b.a(d.eJG().c(), this);
+        if (this.b != null) {
+            this.b.a(d.eJo().c(), this);
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        d.eJG().a(this.f14380a, this);
+        d.eJo().a(this.f8619a, this);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -42,24 +40,24 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final String b() {
         String a2;
-        return (d.eJG().c() && (a2 = d.eJG().a()) != null) ? a2 : "";
+        return (d.eJo().c() && (a2 = d.eJo().a()) != null) ? a2 : "";
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
-        return d.eJG().c();
+        return d.eJo().c();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void d() {
-        d.eJG().a(this.f14380a);
+        d.eJo().a(this.f8619a);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f14381b != null) {
+        if (this.b != null) {
             com.yxcorp.kuaishou.addfp.android.b.b.b("failed here");
-            this.f14381b.a(false, this);
+            this.b.a(false, this);
         }
     }
 }

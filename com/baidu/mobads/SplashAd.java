@@ -14,14 +14,12 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SplashAd {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mobads.production.f.a f3285a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f3286b;
+    private com.baidu.mobads.production.f.a f2354a;
+    private int b;
     private volatile String c;
     private Context d;
     private XAdView e;
@@ -58,7 +56,7 @@ public class SplashAd {
     }
 
     public SplashAd(Context context, ViewGroup viewGroup, SplashAdListener splashAdListener, String str, boolean z, RequestParameters requestParameters, int i, boolean z2, boolean z3) {
-        this.f3286b = 4;
+        this.b = 4;
         this.c = OneKeyLoginSdkCall.l;
         this.i = new HashMap<>();
         this.j = new s(this);
@@ -102,9 +100,9 @@ public class SplashAd {
         int i;
         this.e = new XAdView(this.d);
         this.e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        if (this.f3285a != null) {
-            this.f3285a.removeAllListeners();
-            this.f3285a = null;
+        if (this.f2354a != null) {
+            this.f2354a.removeAllListeners();
+            this.f2354a = null;
         }
         float screenDensity = XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenDensity(this.d);
         Rect screenRect = XAdSDKFoundationFacade.getInstance().getCommonUtils().getScreenRect(this.d);
@@ -121,18 +119,18 @@ public class SplashAd {
                     XAdSDKFoundationFacade.getInstance().getAdLogger().e(XAdSDKFoundationFacade.getInstance().getErrorCode().genCompleteErrorMessage(XAdErrorCode.SHOW_STANDARD_UNFIT, "开屏显示区域太小,宽度至少200dp,高度至少150dp"));
                     this.j.onAdDismissed();
                 }
-                this.f3285a = new com.baidu.mobads.production.f.a(this.d, this.e, this.f, true, i, height, this.f3286b, this.mTimeout);
-                this.f3285a.a(this.i);
-                this.f3285a.A = true;
+                this.f2354a = new com.baidu.mobads.production.f.a(this.d, this.e, this.f, true, i, height, this.b, this.mTimeout);
+                this.f2354a.a(this.i);
+                this.f2354a.A = true;
                 if (this.g != null) {
-                    this.f3285a.a(this.g);
+                    this.f2354a.a(this.g);
                 }
-                this.f3285a.addEventListener("AdUserClick", this.k);
-                this.f3285a.addEventListener(IXAdEvent.AD_LOADED, this.k);
-                this.f3285a.addEventListener(IXAdEvent.AD_STARTED, this.k);
-                this.f3285a.addEventListener(IXAdEvent.AD_STOPPED, this.k);
-                this.f3285a.addEventListener(IXAdEvent.AD_ERROR, this.k);
-                this.f3285a.request();
+                this.f2354a.addEventListener("AdUserClick", this.k);
+                this.f2354a.addEventListener(IXAdEvent.AD_LOADED, this.k);
+                this.f2354a.addEventListener(IXAdEvent.AD_STARTED, this.k);
+                this.f2354a.addEventListener(IXAdEvent.AD_STOPPED, this.k);
+                this.f2354a.addEventListener(IXAdEvent.AD_ERROR, this.k);
+                this.f2354a.request();
                 return;
             }
         }
@@ -144,9 +142,9 @@ public class SplashAd {
     }
 
     public final void show() {
-        if (this.h != null && this.e != null && this.f3285a != null) {
+        if (this.h != null && this.e != null && this.f2354a != null) {
             if (this.e.getParent() != null) {
-                this.f3285a.removeAllListeners();
+                this.f2354a.removeAllListeners();
                 a("展现失败，请重新load");
                 return;
             }
@@ -154,8 +152,8 @@ public class SplashAd {
             this.h.addView(this.e);
             return;
         }
-        if (this.f3285a != null) {
-            this.f3285a.removeAllListeners();
+        if (this.f2354a != null) {
+            this.f2354a.removeAllListeners();
         }
         a("展现失败，请检查splashAd参数是否正确");
     }
@@ -176,8 +174,8 @@ public class SplashAd {
     }
 
     public void destroy() {
-        if (this.f3285a != null) {
-            this.f3285a.p();
+        if (this.f2354a != null) {
+            this.f2354a.p();
         }
         this.j = null;
     }
@@ -193,7 +191,7 @@ public class SplashAd {
 
     public HashMap getExtData() {
         HashMap hashMap = new HashMap();
-        HashMap r = this.f3285a.r();
+        HashMap r = this.f2354a.r();
         return r != null ? r : hashMap;
     }
 

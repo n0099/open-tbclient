@@ -12,9 +12,9 @@ import com.baidu.live.gift.z;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f implements af {
-    private com.baidu.live.yuyingift.c.d cay;
+    private com.baidu.live.yuyingift.c.d cbZ;
     private Context mContext;
 
     public f(Context context) {
@@ -23,28 +23,28 @@ public class f implements af {
     }
 
     @Override // com.baidu.live.gift.af
-    public void gw(String str) {
-        this.cay.gN(str);
+    public void gC(String str) {
+        this.cbZ.gT(str);
     }
 
     @Override // com.baidu.live.gift.af
-    public void Fy() {
+    public void FB() {
     }
 
     @Override // com.baidu.live.gift.af
     public void release() {
-        if (this.cay != null) {
-            this.cay.release();
+        if (this.cbZ != null) {
+            this.cbZ.release();
         }
     }
 
     private void initModel() {
-        this.cay = new com.baidu.live.yuyingift.c.d();
-        this.cay.a(new com.baidu.live.yuyingift.c.a() { // from class: com.baidu.live.yuyingift.panel.f.1
+        this.cbZ = new com.baidu.live.yuyingift.c.d();
+        this.cbZ.a(new com.baidu.live.yuyingift.c.a() { // from class: com.baidu.live.yuyingift.panel.f.1
             @Override // com.baidu.live.yuyingift.c.a, com.baidu.live.yuyingift.c.b.a
             public void a(boolean z, int i, String str, ArrayList<h> arrayList, ArrayList<i> arrayList2, ArrayList<l> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
-                f.this.e(z, arrayList);
+                f.this.f(z, arrayList);
             }
 
             @Override // com.baidu.live.yuyingift.c.a, com.baidu.live.yuyingift.c.b.a
@@ -56,9 +56,9 @@ public class f implements af {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(boolean z, List<h> list) {
+    public void f(boolean z, List<h> list) {
         if (z) {
-            z.Fe().H(list);
+            z.Fh().H(list);
         }
     }
 
@@ -72,37 +72,37 @@ public class f implements af {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.cay == null) {
-                this.cay = new com.baidu.live.yuyingift.c.d();
+            if (this.cbZ == null) {
+                this.cbZ = new com.baidu.live.yuyingift.c.d();
             }
-            this.cay.gN("gift_send_101");
+            this.cbZ.gT("gift_send_101");
         }
     }
 
     private void F(String str, int i) {
         List<h> datas;
-        if (!TextUtils.isEmpty(str) && (datas = z.Fe().getDatas()) != null) {
+        if (!TextUtils.isEmpty(str) && (datas = z.Fh().getDatas()) != null) {
             ArrayList<h> arrayList = new ArrayList(datas);
             for (h hVar : arrayList) {
-                List<g> Ew = hVar.Ew();
-                if (Ew != null) {
+                List<g> Ez = hVar.Ez();
+                if (Ez != null) {
                     if (i == 0) {
-                        Iterator<g> it = Ew.iterator();
+                        Iterator<g> it = Ez.iterator();
                         while (it.hasNext()) {
-                            if (it.next().DR().equals(str)) {
+                            if (it.next().DU().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (g gVar : Ew) {
-                            if (gVar.DR().equals(str)) {
-                                gVar.aVX.aWm = i;
+                        for (g gVar : Ez) {
+                            if (gVar.DU().equals(str)) {
+                                gVar.aXx.aXM = i;
                             }
                         }
                     }
                 }
             }
-            z.Fe().H(arrayList);
+            z.Fh().H(arrayList);
         }
     }
 }

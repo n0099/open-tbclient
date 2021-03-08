@@ -11,7 +11,7 @@ import com.baidu.live.tbadk.core.util.ViewHelper;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.q;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BaseJsonHttpResponsedMessage extends JsonHttpResponsedMessage {
     private String errmsg;
     private int errno;
@@ -24,7 +24,7 @@ public class BaseJsonHttpResponsedMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oEa) {
+        if (com.baidu.tieba.yuyinala.liveroom.wheat.a.a.oGf) {
             Log.i("ymcrequest", "cmd:" + i + "BaseJsonHttpResponsedMessage:" + jSONObject.toString());
         }
         if (jSONObject != null) {
@@ -52,11 +52,11 @@ public class BaseJsonHttpResponsedMessage extends JsonHttpResponsedMessage {
                         }
                     });
                 }
-            } else if (this.errno == 110000 && q.edM().edS() != null && q.edM().edS().getPageActivity() != null) {
+            } else if (this.errno == 110000 && q.edU().eea() != null && q.edU().eea().getPageActivity() != null) {
                 SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.message.BaseJsonHttpResponsedMessage.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        ViewHelper.skipToLoginActivity(q.edM().edS().getPageActivity());
+                        ViewHelper.skipToLoginActivity(q.edU().eea().getPageActivity());
                     }
                 });
             }

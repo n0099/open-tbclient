@@ -14,10 +14,8 @@ import java.util.concurrent.ScheduledExecutorService;
 public class d extends c<SubAliasStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11363a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f11364b;
+    private String f7459a;
+    private int b;
     private String c;
     private Map<String, Boolean> m;
 
@@ -37,11 +35,11 @@ public class d extends c<SubAliasStatus> {
 
     public d(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, str, str2, aVar, scheduledExecutorService);
-        this.f11363a = str3;
+        this.f7459a = str3;
     }
 
     private void b(boolean z) {
-        this.m.put(this.h + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.f11364b, Boolean.valueOf(z));
+        this.m.put(this.h + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b, Boolean.valueOf(z));
     }
 
     private void f(String str) {
@@ -53,7 +51,7 @@ public class d extends c<SubAliasStatus> {
     }
 
     private boolean q() {
-        Boolean bool = this.m.get(this.h + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.f11364b);
+        Boolean bool = this.m.get(this.h + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.b);
         if (bool != null) {
             return bool.booleanValue();
         }
@@ -65,7 +63,7 @@ public class d extends c<SubAliasStatus> {
     }
 
     public void a(int i) {
-        this.f11364b = i;
+        this.b = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,19 +79,19 @@ public class d extends c<SubAliasStatus> {
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected boolean a() {
-        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.f11363a)) ? false : true;
+        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.f7459a)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected Intent c() {
-        if (this.f11364b != 2) {
+        if (this.b != 2) {
             Intent intent = new Intent();
             intent.putExtra("app_id", this.f);
             intent.putExtra("app_key", this.g);
             intent.putExtra("strategy_package_name", this.e.getPackageName());
-            intent.putExtra("push_id", this.f11363a);
+            intent.putExtra("push_id", this.f7459a);
             intent.putExtra("strategy_type", g());
-            intent.putExtra("strategy_child_type", this.f11364b);
+            intent.putExtra("strategy_child_type", this.b);
             intent.putExtra("strategy_params", this.c);
             return intent;
         }
@@ -101,7 +99,7 @@ public class d extends c<SubAliasStatus> {
     }
 
     public void e(String str) {
-        this.f11363a = str;
+        this.f7459a = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -120,7 +118,7 @@ public class d extends c<SubAliasStatus> {
             subAliasStatus.setMessage("appId not empty");
         } else if (TextUtils.isEmpty(this.g)) {
             subAliasStatus.setMessage("appKey not empty");
-        } else if (TextUtils.isEmpty(this.f11363a)) {
+        } else if (TextUtils.isEmpty(this.f7459a)) {
             subAliasStatus.setMessage("pushId not empty");
         }
         return subAliasStatus;
@@ -133,9 +131,9 @@ public class d extends c<SubAliasStatus> {
     public SubAliasStatus e() {
         com.meizu.cloud.pushsdk.b.a.c d;
         SubAliasStatus subAliasStatus = new SubAliasStatus();
-        subAliasStatus.setPushId(this.f11363a);
+        subAliasStatus.setPushId(this.f7459a);
         subAliasStatus.setMessage("");
-        switch (this.f11364b) {
+        switch (this.b) {
             case 0:
                 if (this.c.equals(p()) && !q()) {
                     subAliasStatus.setCode(BasicPushStatus.SUCCESS_CODE);
@@ -147,7 +145,7 @@ public class d extends c<SubAliasStatus> {
                     if (r()) {
                         f(this.c);
                     }
-                    d = this.j.c(this.f, this.g, this.f11363a, this.c);
+                    d = this.j.c(this.f, this.g, this.f7459a, this.c);
                     break;
                 }
                 break;
@@ -162,7 +160,7 @@ public class d extends c<SubAliasStatus> {
                     if (r()) {
                         f("");
                     }
-                    d = this.j.d(this.f, this.g, this.f11363a, this.c);
+                    d = this.j.d(this.f, this.g, this.f7459a, this.c);
                     break;
                 }
             case 2:
@@ -199,11 +197,11 @@ public class d extends c<SubAliasStatus> {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     /* renamed from: j */
     public SubAliasStatus f() {
-        switch (this.f11364b) {
+        switch (this.b) {
             case 2:
                 SubAliasStatus subAliasStatus = new SubAliasStatus();
                 subAliasStatus.setCode(BasicPushStatus.SUCCESS_CODE);
-                subAliasStatus.setPushId(this.f11363a);
+                subAliasStatus.setPushId(this.f7459a);
                 subAliasStatus.setAlias(p());
                 subAliasStatus.setMessage("check alias success");
                 return subAliasStatus;

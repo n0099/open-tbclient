@@ -4,12 +4,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements com.baidu.adp.widget.ListView.n {
-    public static final BdUniqueId kup = BdUniqueId.gen();
-    private long kum;
-    private String kun;
-    private String kuo;
+    public static final BdUniqueId kwr = BdUniqueId.gen();
+    private long kwo;
+    private String kwp;
+    private String kwq;
     private long mId;
     private String mName;
     private int mTag;
@@ -17,12 +17,12 @@ public class b implements com.baidu.adp.widget.ListView.n {
     String rule_jump_url;
     String tips;
 
-    public String cTi() {
-        return this.kuo;
+    public String cTp() {
+        return this.kwq;
     }
 
-    public String cTj() {
-        return this.kun;
+    public String cTq() {
+        return this.kwp;
     }
 
     public long getId() {
@@ -33,7 +33,7 @@ public class b implements com.baidu.adp.widget.ListView.n {
         return this.mName;
     }
 
-    public String cTk() {
+    public String cTr() {
         return this.module_title;
     }
 
@@ -42,9 +42,9 @@ public class b implements com.baidu.adp.widget.ListView.n {
             this.mId = topicList.topic_id.longValue();
             this.mName = topicList.topic_name;
             this.mTag = topicList.tag.intValue();
-            this.kum = topicList.discuss_num.longValue();
-            this.kun = topicList.topic_desc;
-            this.kuo = topicList.topic_pic;
+            this.kwo = topicList.discuss_num.longValue();
+            this.kwp = topicList.topic_desc;
+            this.kwq = topicList.topic_pic;
         }
     }
 
@@ -60,6 +60,6 @@ public class b implements com.baidu.adp.widget.ListView.n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return kup;
+        return kwr;
     }
 }

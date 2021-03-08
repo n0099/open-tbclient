@@ -17,17 +17,15 @@ import java.util.List;
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a f10041a = new a();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final a f10042b;
+    private static final a f6643a = new a();
+    private final a b;
     private final d c;
     private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b d;
     private final ContentResolver e;
     private final List<ImageHeaderParser> f;
 
     e(List<ImageHeaderParser> list, a aVar, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this.f10042b = aVar;
+        this.b = aVar;
         this.c = dVar;
         this.d = bVar;
         this.e = contentResolver;
@@ -36,11 +34,11 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(List<ImageHeaderParser> list, d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, ContentResolver contentResolver) {
-        this(list, f10041a, dVar, bVar, contentResolver);
+        this(list, f6643a, dVar, bVar, contentResolver);
     }
 
     private boolean a(File file) {
-        return this.f10042b.a(file) && 0 < this.f10042b.b(file);
+        return this.b.a(file) && 0 < this.b.b(file);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -73,16 +71,16 @@ class e {
         try {
             try {
                 inputStream = this.e.openInputStream(uri);
-                int b2 = com.kwad.sdk.glide.load.b.b(this.f, inputStream, this.d);
+                int b = com.kwad.sdk.glide.load.b.b(this.f, inputStream, this.d);
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                        return b2;
+                        return b;
                     } catch (IOException e) {
-                        return b2;
+                        return b;
                     }
                 }
-                return b2;
+                return b;
             } finally {
                 if (0 != 0) {
                     try {
@@ -104,7 +102,7 @@ class e {
         if (TextUtils.isEmpty(c)) {
             return null;
         }
-        File a2 = this.f10042b.a(c);
+        File a2 = this.b.a(c);
         if (a(a2)) {
             Uri fromFile = Uri.fromFile(a2);
             try {

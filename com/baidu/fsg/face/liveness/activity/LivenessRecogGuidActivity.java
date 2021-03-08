@@ -28,10 +28,8 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     public static final String EXTRA_PARAM_SWITCH_RECORD_VIDEO = "extra_switch_record_video";
 
     /* renamed from: a  reason: collision with root package name */
-    private Button f2196a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ImageView f2197b;
+    private Button f1702a;
+    private ImageView b;
     private TextView c;
     private ImageView d;
     private LivenessRecogCallback e;
@@ -62,8 +60,8 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
     }
 
     private void a() {
-        this.f2196a = (Button) findViewById(R.id.btn_start_photo);
-        this.f2196a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.1
+        this.f1702a = (Button) findViewById(R.id.btn_start_photo);
+        this.f1702a.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 RimStatisticsUtil.onEventWithValue(d.c, LivenessRecogGuidActivity.this.livenessRecogDTO != null ? LivenessRecogGuidActivity.this.livenessRecogDTO.getSpno() : "");
@@ -71,8 +69,8 @@ public class LivenessRecogGuidActivity extends LivenessBaseActivity {
                 LivenessRecogGuidActivity.this.d();
             }
         });
-        this.f2197b = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
-        this.f2197b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.2
+        this.b = (ImageView) findViewById(R.id.sapi_bio_title_btn_left);
+        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.activity.LivenessRecogGuidActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LivenessRecogGuidActivity.this.c();

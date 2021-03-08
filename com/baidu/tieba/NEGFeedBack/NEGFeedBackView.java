@@ -18,11 +18,11 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class NEGFeedBackView extends AppCompatImageView {
-    private long aZy;
-    private int amq;
-    private int amr;
-    c gdJ;
-    private View.OnClickListener gdK;
+    private int anI;
+    private int anJ;
+    private long baZ;
+    c gfn;
+    private View.OnClickListener gfo;
     private Context mContext;
     private int mPaddingLeft;
     private int mPaddingRight;
@@ -39,18 +39,18 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.aZy = 0L;
-        this.amq = R.drawable.icon_pure_card_more22;
-        this.amr = R.color.CAM_X0111;
-        this.gdK = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.baZ = 0L;
+        this.anI = R.drawable.icon_pure_card_more22;
+        this.anJ = R.color.CAM_X0111;
+        this.gfo = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.bKq();
+                NEGFeedBackView.this.bKu();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.aZy > 500) {
+                if (currentTimeMillis - NEGFeedBackView.this.baZ > 500) {
                     NEGFeedBackView.this.O(view);
                 }
-                NEGFeedBackView.this.aZy = currentTimeMillis;
+                NEGFeedBackView.this.baZ = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -58,14 +58,14 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     private void l(TbPageContext tbPageContext) {
-        this.gdJ = new c(tbPageContext, this);
-        setOnClickListener(this.gdK);
+        this.gfn = new c(tbPageContext, this);
+        setOnClickListener(this.gfo);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         onChangeSkinType();
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.gdJ.setUniqueId(bdUniqueId);
+        this.gfn.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -89,11 +89,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void O(View view) {
-        this.gdJ.O(view);
+        this.gfn.O(view);
     }
 
-    public void bKq() {
-        this.gdJ.bKq();
+    public void bKu() {
+        this.gfn.bKu();
     }
 
     public void setCWRotateAnimation() {
@@ -105,39 +105,39 @@ public class NEGFeedBackView extends AppCompatImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.gdJ.onDetachedFromWindow();
+        this.gfn.onDetachedFromWindow();
     }
 
     public void setData(av avVar) {
-        this.gdJ.setData(avVar);
+        this.gfn.setData(avVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.gdJ.setFirstRowSingleColumn(z);
+        this.gfn.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        setImageDrawable(WebPManager.a(this.amq, ap.getColor(this.amr), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.a(this.anI, ap.getColor(this.anJ), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     public void setEventCallback(a aVar) {
-        this.gdJ.setEventCallback(aVar);
+        this.gfn.setEventCallback(aVar);
     }
 
     public void setAutoProcess(boolean z) {
-        this.gdJ.setAutoProcess(z);
+        this.gfn.setAutoProcess(z);
     }
 
     public void setHeadText(String str) {
-        this.gdJ.setHeadText(str);
+        this.gfn.setHeadText(str);
     }
 
     public void aI(boolean z) {
-        this.gdJ.aI(z);
+        this.gfn.aI(z);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.gdJ.setDefaultReasonArray(strArr);
+        this.gfn.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {
@@ -171,8 +171,8 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     public void setWebPResId(int i, int i2) {
-        this.amq = i;
-        this.amr = i2;
-        setImageDrawable(WebPManager.a(this.amq, ap.getColor(this.amr), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.anI = i;
+        this.anJ = i2;
+        setImageDrawable(WebPManager.a(this.anI, ap.getColor(this.anJ), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

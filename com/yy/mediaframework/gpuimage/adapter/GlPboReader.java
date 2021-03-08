@@ -9,7 +9,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
 @TargetApi(18)
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlPboReader {
     private static final int DEFUALT_NUMBER_PBOS = 2;
     private static final String TAG = "GlPboReader";

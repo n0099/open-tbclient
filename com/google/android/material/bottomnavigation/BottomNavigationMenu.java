@@ -7,7 +7,7 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuItemImpl;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class BottomNavigationMenu extends MenuBuilder {
     public static final int MAX_ITEM_COUNT = 5;
 

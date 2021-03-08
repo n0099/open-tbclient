@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import org.apache.http.HttpHost;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class HttpUriLoader implements ModelLoader<Uri, InputStream> {
     private static final Set<String> SCHEMES = Collections.unmodifiableSet(new HashSet(Arrays.asList(HttpHost.DEFAULT_SCHEME_NAME, "https")));
     private final ModelLoader<GlideUrl, InputStream> urlLoader;
@@ -34,7 +34,7 @@ public class HttpUriLoader implements ModelLoader<Uri, InputStream> {
         return SCHEMES.contains(uri.getScheme());
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Factory implements ModelLoaderFactory<Uri, InputStream> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull

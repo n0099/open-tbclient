@@ -8,28 +8,26 @@ public class PlanNode implements Parcelable {
     public static final Parcelable.Creator<PlanNode> CREATOR = new m();
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2916a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2917b;
+    private LatLng f2140a;
+    private String b;
     private String c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PlanNode(Parcel parcel) {
-        this.f2916a = null;
-        this.f2917b = null;
+        this.f2140a = null;
+        this.b = null;
         this.c = null;
-        this.f2916a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f2917b = parcel.readString();
+        this.f2140a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.b = parcel.readString();
         this.c = parcel.readString();
     }
 
     PlanNode(LatLng latLng, String str, String str2) {
-        this.f2916a = null;
-        this.f2917b = null;
+        this.f2140a = null;
+        this.b = null;
         this.c = null;
-        this.f2916a = latLng;
-        this.f2917b = str;
+        this.f2140a = latLng;
+        this.b = str;
         this.c = str2;
     }
 
@@ -51,11 +49,11 @@ public class PlanNode implements Parcelable {
     }
 
     public String getCity() {
-        return this.f2917b;
+        return this.b;
     }
 
     public LatLng getLocation() {
-        return this.f2916a;
+        return this.f2140a;
     }
 
     public String getName() {
@@ -64,8 +62,8 @@ public class PlanNode implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeValue(this.f2916a);
-        parcel.writeString(this.f2917b);
+        parcel.writeValue(this.f2140a);
+        parcel.writeString(this.b);
         parcel.writeString(this.c);
     }
 }

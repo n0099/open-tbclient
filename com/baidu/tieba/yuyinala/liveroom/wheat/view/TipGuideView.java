@@ -10,10 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TipGuideView extends LinearLayout implements View.OnClickListener {
-    private TextView oMg;
-    private View oMh;
+    private TextView oOl;
+    private View oOm;
 
     public TipGuideView(Context context) {
         this(context, null);
@@ -32,8 +32,8 @@ public class TipGuideView extends LinearLayout implements View.OnClickListener {
     private void initView() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.layout_tip_guide_view, (ViewGroup) this, false);
         inflate.findViewById(a.f.rl_root).setOnClickListener(this);
-        this.oMh = inflate.findViewById(a.f.iv_top_arrows);
-        this.oMg = (TextView) inflate.findViewById(a.f.tv_guide_text);
+        this.oOm = inflate.findViewById(a.f.iv_top_arrows);
+        this.oOl = (TextView) inflate.findViewById(a.f.tv_guide_text);
         addView(inflate);
     }
 
@@ -45,8 +45,8 @@ public class TipGuideView extends LinearLayout implements View.OnClickListener {
     }
 
     public void setText(String str) {
-        if (this.oMg != null && !TextUtils.isEmpty(str)) {
-            this.oMg.setText(str);
+        if (this.oOl != null && !TextUtils.isEmpty(str)) {
+            this.oOl.setText(str);
         }
     }
 }

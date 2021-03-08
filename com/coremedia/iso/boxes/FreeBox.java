@@ -10,7 +10,7 @@ import java.nio.channels.WritableByteChannel;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FreeBox implements Box {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "free";

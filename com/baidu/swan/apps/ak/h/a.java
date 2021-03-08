@@ -17,7 +17,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -27,28 +27,28 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.adaptation.a.e axb = com.baidu.swan.apps.t.a.axb();
+        com.baidu.swan.apps.adaptation.a.e axe = com.baidu.swan.apps.t.a.axe();
         JSONObject jSONObject = new JSONObject();
         if (context == null) {
             try {
-                context = com.baidu.swan.apps.t.a.awW();
+                context = com.baidu.swan.apps.t.a.awZ();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        jSONObject.put(DpStatConstants.KEY_USER_ID, axb == null ? "" : axb.ca(context));
-        jSONObject.put("zid", axb == null ? "" : com.baidu.swan.apps.t.a.axO().cS(context));
+        jSONObject.put(DpStatConstants.KEY_USER_ID, axe == null ? "" : axe.bZ(context));
+        jSONObject.put("zid", axe == null ? "" : com.baidu.swan.apps.t.a.axR().cR(context));
         jSONObject.put("idfa", "");
-        jSONObject.put("imei", ak.aOo());
+        jSONObject.put("imei", ak.aOr());
         jSONObject.put("appkey", eVar == null ? "" : eVar.getAppKey());
         jSONObject.put("os", HttpConstants.OS_TYPE_VALUE);
         jSONObject.put("osVersion", Build.VERSION.RELEASE);
         jSONObject.put("hostName", context.getPackageName());
         jSONObject.put("hostVersion", ak.getVersionName());
         jSONObject.put("model", Build.MODEL);
-        jSONObject.put("uuid", com.baidu.swan.uuid.b.eK(context).getUUID());
+        jSONObject.put("uuid", com.baidu.swan.uuid.b.eJ(context).getUUID());
         jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        jSONObject.put("cuid", axb == null ? "" : axb.cb(context));
+        jSONObject.put("cuid", axe == null ? "" : axe.ca(context));
         if (DEBUG) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }

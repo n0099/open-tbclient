@@ -14,69 +14,69 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends PopupWindow implements View.OnClickListener {
-    private TextView bYe;
-    private TextView iYA;
-    private TextView iYB;
-    private View iYC;
-    private View iYD;
-    private View iYE;
-    private LinearLayout iYF;
-    private c iYG;
+    private TextView bZE;
+    private TextView jaj;
+    private TextView jak;
+    private View jal;
+    private View jam;
+    private View jan;
+    private LinearLayout jao;
+    private c jap;
     private Context mContext;
 
     public a(Context context, int i) {
         super(context);
         w(context, i);
         this.mContext = context;
-        cAc();
+        cAi();
         onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-        this.iYA.setOnClickListener(this);
-        this.iYB.setOnClickListener(this);
-        this.bYe.setOnClickListener(this);
+        this.jaj.setOnClickListener(this);
+        this.jak.setOnClickListener(this);
+        this.bZE.setOnClickListener(this);
     }
 
     public void a(c cVar) {
-        this.iYG = cVar;
+        this.jap = cVar;
     }
 
     private void w(Context context, int i) {
-        this.iYC = LayoutInflater.from(context).inflate(R.layout.emotion_add_popupwindow, (ViewGroup) null);
-        this.iYA = (TextView) this.iYC.findViewById(R.id.tv_single_bar);
-        this.iYB = (TextView) this.iYC.findViewById(R.id.tv_my_emotion);
-        this.bYe = (TextView) this.iYC.findViewById(R.id.tv_cancel);
-        this.iYF = (LinearLayout) this.iYC.findViewById(R.id.id_pop_layout);
-        this.iYD = this.iYC.findViewById(R.id.line1);
-        this.iYE = this.iYC.findViewById(R.id.line2);
+        this.jal = LayoutInflater.from(context).inflate(R.layout.emotion_add_popupwindow, (ViewGroup) null);
+        this.jaj = (TextView) this.jal.findViewById(R.id.tv_single_bar);
+        this.jak = (TextView) this.jal.findViewById(R.id.tv_my_emotion);
+        this.bZE = (TextView) this.jal.findViewById(R.id.tv_cancel);
+        this.jao = (LinearLayout) this.jal.findViewById(R.id.id_pop_layout);
+        this.jam = this.jal.findViewById(R.id.line1);
+        this.jan = this.jal.findViewById(R.id.line2);
         if (i == 1) {
-            ap.setViewTextColor(this.iYA, R.color.CAM_X0105);
+            ap.setViewTextColor(this.jaj, R.color.CAM_X0105);
         } else {
-            ap.setViewTextColor(this.iYA, R.color.CAM_X0204);
+            ap.setViewTextColor(this.jaj, R.color.CAM_X0204);
         }
     }
 
     public void onChangeSkin(int i) {
-        ap.setBackgroundResource(this.iYF, R.color.CAM_X0201);
-        ap.setBackgroundResource(this.iYD, R.color.CAM_X0204);
-        ap.setBackgroundResource(this.iYE, R.color.CAM_X0204);
-        ap.setViewTextColor(this.iYB, R.color.CAM_X0105);
-        ap.setViewTextColor(this.bYe, R.color.CAM_X0107);
+        ap.setBackgroundResource(this.jao, R.color.CAM_X0201);
+        ap.setBackgroundResource(this.jam, R.color.CAM_X0204);
+        ap.setBackgroundResource(this.jan, R.color.CAM_X0204);
+        ap.setViewTextColor(this.jak, R.color.CAM_X0105);
+        ap.setViewTextColor(this.bZE, R.color.CAM_X0107);
     }
 
-    private void cAc() {
+    private void cAi() {
         if (Build.VERSION.SDK_INT >= 22) {
             setAttachedInDecor(false);
         }
-        setContentView(this.iYC);
+        setContentView(this.jal);
         setWidth(-1);
         setHeight(l.getEquipmentHeight(this.mContext));
         setFocusable(true);
         setBackgroundDrawable(new ColorDrawable(getContentView().getResources().getColor(R.color.black_alpha50)));
-        this.iYC.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.faceshop.emotioncenter.a.a.1
+        this.jal.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.faceshop.emotioncenter.a.a.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                int top = a.this.iYC.findViewById(R.id.id_pop_layout).getTop();
+                int top = a.this.jal.findViewById(R.id.id_pop_layout).getTop();
                 int y = (int) motionEvent.getY();
                 if (motionEvent.getAction() == 1 && y < top) {
                     a.this.dismiss();
@@ -89,11 +89,11 @@ public class a extends PopupWindow implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         dismiss();
-        if (this.iYG != null) {
-            if (view == this.iYA) {
-                this.iYG.czX();
-            } else if (view == this.iYB) {
-                this.iYG.czY();
+        if (this.jap != null) {
+            if (view == this.jaj) {
+                this.jap.cAd();
+            } else if (view == this.jak) {
+                this.jap.cAe();
             }
         }
     }

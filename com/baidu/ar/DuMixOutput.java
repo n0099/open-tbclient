@@ -8,7 +8,7 @@ import com.baidu.ar.bean.MirriorType;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.ScaleType;
 import com.baidu.ar.bean.Watermark;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class DuMixOutput {
     private MirriorType bl;
     private Object bo;

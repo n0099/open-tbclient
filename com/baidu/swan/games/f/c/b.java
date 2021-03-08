@@ -8,25 +8,25 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b efv;
-    private HashMap<String, c> ecI = new HashMap<>();
+    private static volatile b egX;
+    private HashMap<String, c> eej = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b ecK = com.baidu.swan.games.network.b.aXA();
-    private String ecJ = f.aTX();
+    private com.baidu.swan.games.network.b eel = com.baidu.swan.games.network.b.aXD();
+    private String eek = f.aUa();
 
-    public static b aWk() {
-        if (efv == null) {
+    public static b aWn() {
+        if (egX == null) {
             synchronized (b.class) {
-                if (efv == null) {
-                    efv = new b();
+                if (egX == null) {
+                    egX = new b();
                 }
             }
         }
-        return efv;
+        return egX;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -35,18 +35,18 @@ public class b implements a {
             return;
         }
         try {
-            String vY = vY(str);
-            File file = new File(vY(str));
+            String wf = wf(str);
+            File file = new File(wf(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(vY);
+                    valueCallback.onReceiveValue(wf);
                     return;
                 }
                 return;
             }
             synchronized (this.mObject) {
-                if (!vW(str)) {
-                    vX(str);
+                if (!wd(str)) {
+                    we(str);
                 }
                 b(str, valueCallback);
             }
@@ -57,16 +57,16 @@ public class b implements a {
         }
     }
 
-    private boolean vW(String str) {
-        return this.ecI.containsKey(str);
+    private boolean wd(String str) {
+        return this.eej.containsKey(str);
     }
 
-    private void vX(String str) {
+    private void we(String str) {
         if (DEBUG) {
             Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.ecK, this.ecJ, str, this);
-        this.ecI.put(str, cVar);
+        c cVar = new c(this.eel, this.eek, str, this);
+        this.eej.put(str, cVar);
         cVar.load();
     }
 
@@ -84,7 +84,7 @@ public class b implements a {
     public void cK(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (vW(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (wd(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -92,7 +92,7 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.ecI.remove(str);
+                this.eej.remove(str);
             }
         }
     }
@@ -101,17 +101,17 @@ public class b implements a {
     public void aB(int i, String str) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.mObject) {
-            if (vW(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (wd(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).onReceiveValue("");
                 }
-                this.ecI.remove(str);
+                this.eej.remove(str);
             }
         }
     }
 
-    private String vY(String str) throws MalformedURLException {
-        return this.ecJ + f.vT(str);
+    private String wf(String str) throws MalformedURLException {
+        return this.eek + f.wa(str);
     }
 }

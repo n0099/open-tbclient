@@ -2,37 +2,37 @@ package com.baidu.swan.apps.setting.oauth;
 
 import android.os.AsyncTask;
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class d {
-    private Exception RE;
-    private b dIZ;
+    private Exception Td;
+    private b dKA;
 
-    protected abstract boolean aKE() throws Exception;
+    protected abstract boolean aKH() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
-        return this.RE;
+        return this.Td;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.dIZ = bVar;
+        this.dKA = bVar;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isOk() {
-        return this.RE == null;
+        return this.Td == null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d aKF() {
+    public d aKI() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.aKE()) {
-                        d.this.aKG();
+                    if (d.this.aKH()) {
+                        d.this.aKJ();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -43,16 +43,16 @@ public abstract class d {
         return this;
     }
 
-    public void aKG() {
+    public void aKJ() {
         x(null);
     }
 
     public void x(@Nullable Exception exc) {
-        this.RE = exc;
-        c.f(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
+        this.Td = exc;
+        c.e(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.dIZ.b(d.this);
+                d.this.dKA.b(d.this);
             }
         });
     }

@@ -9,16 +9,16 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ListRecommendDivider extends RecyclerView.ItemDecoration {
-    private int enA;
+    private int epc;
     private int mDividerHeight;
     private Paint mDividerPaint;
 
     public ListRecommendDivider(@NonNull Context context) {
         Resources resources = context.getResources();
         this.mDividerHeight = resources.getDimensionPixelSize(a.d.swangame_recommend_dialog_list_divider_height);
-        this.enA = resources.getDimensionPixelSize(a.d.swangame_recommend_dialog_list_divider_margin);
+        this.epc = resources.getDimensionPixelSize(a.d.swangame_recommend_dialog_list_divider_margin);
         this.mDividerPaint = new Paint();
         this.mDividerPaint.setColor(resources.getColor(a.c.swangame_recommend_dialog_list_divider));
     }
@@ -34,7 +34,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
         for (int i = 0; i < itemCount; i++) {
             View childAt = recyclerView.getChildAt(i);
             if (childAt != null && recyclerView.getChildAdapterPosition(childAt) != itemCount - 1) {
-                canvas.drawRect(this.enA, childAt.getBottom(), childAt.getWidth() - this.enA, childAt.getBottom() + this.mDividerHeight, this.mDividerPaint);
+                canvas.drawRect(this.epc, childAt.getBottom(), childAt.getWidth() - this.epc, childAt.getBottom() + this.mDividerHeight, this.mDividerPaint);
             }
         }
     }

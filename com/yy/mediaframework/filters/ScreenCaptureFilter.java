@@ -5,7 +5,7 @@ import android.content.Context;
 import android.view.Surface;
 import com.yy.mediaframework.screenlive.ScreenSurfaceCallback;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ScreenCaptureFilter extends AbstractSurfaceTextureCaptureFilter {
     protected Surface mScreenSurface;
     private ScreenSurfaceCallback mScreenSurfaceCallback;

@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RankScoreCard extends BaseCardInfo {
     private final String btnDone;
     private final String btnText;
@@ -91,14 +91,14 @@ public class RankScoreCard extends BaseCardInfo {
         this.rank = jSONObject.optInt("rank");
         this.desc = jSONObject.optString("desc");
         this.desc2 = jSONObject.optString("desc2");
-        this.d2Color = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("d2Color", ""));
-        this.d2ColorN = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("d2ColorN", ""));
+        this.d2Color = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("d2Color", ""));
+        this.d2ColorN = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("d2ColorN", ""));
         this.d2Scheme = jSONObject.optString("d2Scheme");
         this.ratio = jSONObject.optDouble("ratio");
         this.picUrl = jSONObject.optString("picUrl");
         this.subTitle = jSONObject.optString("subTitle");
-        this.sColor = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("sColor", ""));
-        this.sColorNight = com.baidu.tieba.lego.card.c.b.rM(jSONObject.optString("sColorN", ""));
+        this.sColor = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("sColor", ""));
+        this.sColorNight = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("sColorN", ""));
         this.postUrl = jSONObject.optString("postUrl");
         this.isDone = jSONObject.optInt("isDone") == 1;
         this.btnText = jSONObject.optString("btnText");

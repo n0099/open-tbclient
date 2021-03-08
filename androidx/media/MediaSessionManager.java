@@ -10,7 +10,7 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.media.MediaSessionManagerImplApi28;
 import androidx.media.MediaSessionManagerImplBase;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public final class MediaSessionManager {
     private static volatile MediaSessionManager sSessionManager;
     MediaSessionManagerImpl mImpl;
@@ -18,7 +18,7 @@ public final class MediaSessionManager {
     static final boolean DEBUG = Log.isLoggable(TAG, 3);
     private static final Object sLock = new Object();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     interface MediaSessionManagerImpl {
         Context getContext();
 
@@ -26,7 +26,7 @@ public final class MediaSessionManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public interface RemoteUserInfoImpl {
         String getPackageName();
 
@@ -71,7 +71,7 @@ public final class MediaSessionManager {
         return this.mImpl.getContext();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static final class RemoteUserInfo {
         public static final String LEGACY_CONTROLLER = "android.media.session.MediaController";
         RemoteUserInfoImpl mImpl;

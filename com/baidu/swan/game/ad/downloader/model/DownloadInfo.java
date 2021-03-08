@@ -123,33 +123,33 @@ public class DownloadInfo implements Serializable {
 
     /* loaded from: classes5.dex */
     public static final class a {
-        private long dYq = -1;
+        private long dZR = -1;
         private String id;
         private String packageName;
         private String path;
         private String url;
 
         public a dj(long j) {
-            this.dYq = j;
+            this.dZR = j;
             return this;
         }
 
-        public a vd(String str) {
+        public a vk(String str) {
             this.url = str;
             return this;
         }
 
-        public a ve(String str) {
+        public a vl(String str) {
             this.path = str;
             return this;
         }
 
-        public a vf(String str) {
+        public a vm(String str) {
             this.packageName = str;
             return this;
         }
 
-        public DownloadInfo aRI() {
+        public DownloadInfo aRL() {
             DownloadInfo downloadInfo = new DownloadInfo();
             if (TextUtils.isEmpty(this.url)) {
                 throw new DownloadException(0, "uri cannot be null.");
@@ -162,7 +162,7 @@ public class DownloadInfo implements Serializable {
             if (TextUtils.isEmpty(this.packageName)) {
                 downloadInfo.setPackageName(this.packageName);
             }
-            if (this.dYq == -1) {
+            if (this.dZR == -1) {
                 dj(System.currentTimeMillis());
             }
             if (TextUtils.isEmpty(this.id)) {

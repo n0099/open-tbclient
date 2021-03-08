@@ -13,13 +13,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public final class b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile b f1175b;
+    private static volatile b b;
     private Context c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<e> f1176a = new ArrayList<>();
+    public ArrayList<e> f1079a = new ArrayList<>();
     private HashMap<String, f> d = new HashMap<>();
 
     private b(Context context) {
@@ -31,7 +29,7 @@ public final class b {
         try {
             ArrayList<e> c = c(m.b(d));
             if (c != null) {
-                this.f1176a.addAll(c);
+                this.f1079a.addAll(c);
             }
         } catch (Throwable th) {
             new b.c(this.c).a(Log.getStackTraceString(th)).a();
@@ -41,10 +39,10 @@ public final class b {
     public static synchronized b a(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (f1175b == null) {
-                f1175b = new b(context);
+            if (b == null) {
+                b = new b(context);
             }
-            bVar = f1175b;
+            bVar = b;
         }
         return bVar;
     }
@@ -70,9 +68,9 @@ public final class b {
                     }
                     e eVar = list.get(i2);
                     if (eVar != null) {
-                        stringBuffer.append(eVar.f1174b);
+                        stringBuffer.append(eVar.b);
                         stringBuffer.append(",");
-                        stringBuffer.append(eVar.f1173a);
+                        stringBuffer.append(eVar.f1078a);
                         stringBuffer.append(",");
                         stringBuffer.append(eVar.d);
                         stringBuffer.append(",");
@@ -97,11 +95,11 @@ public final class b {
     }
 
     public e a(String str) {
-        if (this.f1176a != null && !TextUtils.isEmpty(str)) {
-            Iterator<e> it = this.f1176a.iterator();
+        if (this.f1079a != null && !TextUtils.isEmpty(str)) {
+            Iterator<e> it = this.f1079a.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (str.equals(next.f1174b)) {
+                if (str.equals(next.b)) {
                     return next;
                 }
             }
@@ -110,7 +108,7 @@ public final class b {
     }
 
     public String a(e eVar, boolean z) {
-        return a(eVar, z, this.f1176a);
+        return a(eVar, z, this.f1079a);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:7:0x000c A[Catch: all -> 0x0045, TryCatch #0 {, blocks: (B:4:0x0002, B:5:0x0006, B:7:0x000c, B:9:0x001c, B:11:0x0026, B:13:0x002b, B:17:0x0033, B:18:0x0036), top: B:25:0x0002 }] */
@@ -123,7 +121,7 @@ public final class b {
         Iterator<e> it = arrayList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next.f1174b.equals(eVar.f1174b) || next.f1173a.equals(eVar.f1173a)) {
+            if (next.b.equals(eVar.b) || next.f1078a.equals(eVar.f1078a)) {
                 arrayList.remove(next);
                 if (z) {
                     arrayList.add(eVar);
@@ -156,26 +154,26 @@ public final class b {
         if (!TextUtils.isEmpty(str2)) {
             ArrayList<e> c = c(m.b(str2));
             String str3 = "";
-            if (f1175b != null && c != null) {
+            if (b != null && c != null) {
                 try {
                     if (str.equals("r_v2")) {
                         ArrayList arrayList = new ArrayList();
                         Iterator<e> it = c.iterator();
                         while (it.hasNext()) {
-                            arrayList.add(it.next().f1174b);
+                            arrayList.add(it.next().b);
                         }
                         int i2 = 0;
-                        while (i2 < f1175b.f1176a.size()) {
-                            if (arrayList.contains(f1175b.f1176a.get(i2).f1174b)) {
-                                f1175b.f1176a.remove(i2);
+                        while (i2 < b.f1079a.size()) {
+                            if (arrayList.contains(b.f1079a.get(i2).b)) {
+                                b.f1079a.remove(i2);
                                 i = i2 - 1;
                             } else {
                                 i = i2;
                             }
                             i2 = i + 1;
                         }
-                        f1175b.f1176a.addAll(c);
-                        str3 = a(f1175b.f1176a);
+                        b.f1079a.addAll(c);
+                        str3 = a(b.f1079a);
                     }
                     com.baidu.android.pushservice.c.c.b(this.c, m.c(str3));
                 } catch (Exception e) {
@@ -187,10 +185,10 @@ public final class b {
 
     public e b(String str) {
         if (!TextUtils.isEmpty(str)) {
-            Iterator<e> it = this.f1176a.iterator();
+            Iterator<e> it = this.f1079a.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (!TextUtils.isEmpty(next.f1173a) && next.f1173a.equals(str)) {
+                if (!TextUtils.isEmpty(next.f1078a) && next.f1078a.equals(str)) {
                     return next;
                 }
             }
@@ -210,24 +208,24 @@ public final class b {
             m.a("ClientManager*BBind* clients=" + b2, context);
             arrayList = c(b2);
         }
-        if (f1175b != null && arrayList != null) {
+        if (b != null && arrayList != null) {
             ArrayList arrayList2 = new ArrayList();
             Iterator<e> it = arrayList.iterator();
             while (it.hasNext()) {
-                arrayList2.add(it.next().f1174b);
+                arrayList2.add(it.next().b);
             }
             int i2 = 0;
-            while (i2 < f1175b.f1176a.size()) {
-                if (arrayList2.contains(f1175b.f1176a.get(i2).f1174b)) {
-                    f1175b.f1176a.remove(i2);
+            while (i2 < b.f1079a.size()) {
+                if (arrayList2.contains(b.f1079a.get(i2).b)) {
+                    b.f1079a.remove(i2);
                     i = i2 - 1;
                 } else {
                     i = i2;
                 }
                 i2 = i + 1;
             }
-            f1175b.f1176a.addAll(arrayList);
-            m.a("ClientManager*BBind* sInstance.mClientsV2.size=" + f1175b.f1176a.size(), context);
+            b.f1079a.addAll(arrayList);
+            m.a("ClientManager*BBind* sInstance.mClientsV2.size=" + b.f1079a.size(), context);
         }
     }
 
@@ -248,8 +246,8 @@ public final class b {
                 String[] split = str2.trim().split(",");
                 if (split.length >= 3) {
                     e eVar = new e();
-                    eVar.f1174b = split[0].trim();
-                    eVar.f1173a = split[1].trim();
+                    eVar.b = split[0].trim();
+                    eVar.f1078a = split[1].trim();
                     eVar.d = split[2].trim();
                     if (split.length > 3) {
                         eVar.c = Integer.parseInt(split[split.length - 1].trim());

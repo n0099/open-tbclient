@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaInviteConnectionWheatHttpResponseMessage;
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.i;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class l {
     public void a(final r rVar, int i) {
         new com.baidu.tieba.yuyinala.liveroom.wheat.model.i(null, new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.l.1
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
             public void a(AlaInviteConnectionWheatHttpResponseMessage alaInviteConnectionWheatHttpResponseMessage) {
-                if (alaInviteConnectionWheatHttpResponseMessage.eeI()) {
-                    a.edl().a(rVar.uk, rVar.cuid, rVar.aGi, rVar.aGk, alaInviteConnectionWheatHttpResponseMessage.getPushUrl(), alaInviteConnectionWheatHttpResponseMessage.eez());
+                if (alaInviteConnectionWheatHttpResponseMessage.eeQ()) {
+                    a.edt().a(rVar.uk, rVar.cuid, rVar.aHI, rVar.aHK, alaInviteConnectionWheatHttpResponseMessage.getPushUrl(), alaInviteConnectionWheatHttpResponseMessage.eeH());
                     return;
                 }
                 com.baidu.tieba.yuyinala.liveroom.wheat.e.d.bj("auth_success_anchor_2", false);
@@ -25,12 +25,12 @@ public class l {
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.i.a
             public void b(AlaInviteConnectionWheatHttpResponseMessage alaInviteConnectionWheatHttpResponseMessage) {
             }
-        }).aU(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().ym(), rVar.uk, String.valueOf(i));
+        }).aU(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecZ().yp(), rVar.uk, String.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(r rVar, AlaInviteConnectionWheatHttpResponseMessage alaInviteConnectionWheatHttpResponseMessage) {
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().ecT().a(rVar.uk, rVar.cuid, rVar.aGi, rVar.aGk, com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().ecW(), false, alaInviteConnectionWheatHttpResponseMessage.getPushUrl(), alaInviteConnectionWheatHttpResponseMessage.eez(), new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.l.2
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecZ().edb().a(rVar.uk, rVar.cuid, rVar.aHI, rVar.aHK, com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecZ().ede(), false, alaInviteConnectionWheatHttpResponseMessage.getPushUrl(), alaInviteConnectionWheatHttpResponseMessage.eeH(), new IStatusListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.l.2
             @Override // com.baidu.android.imrtc.utils.IStatusListener
             public void onResult(int i, String str) {
                 if (i == 0) {

@@ -16,8 +16,8 @@ final class VideoMiddlePageLightCardView$getPostContent$1 extends Lambda impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(AbstractData abstractData) {
-        p.o(abstractData, "abstractData");
-        switch (com.baidu.tbadk.widget.richText.e.sl(abstractData.type)) {
+        p.p(abstractData, "abstractData");
+        switch (com.baidu.tbadk.widget.richText.e.sn(abstractData.type)) {
             case 4:
             case 17:
             case 20:

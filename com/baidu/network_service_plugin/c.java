@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class c {
     private static HashMap<String, Integer> platformImageNameMap = new HashMap<>();
 
@@ -38,7 +38,7 @@ public class c {
         platformImageNameMap.put(TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS, 1002002);
     }
 
-    public static int jk(String str) {
+    public static int jq(String str) {
         if (platformImageNameMap.containsKey(str)) {
             return platformImageNameMap.get(str).intValue();
         }
@@ -74,7 +74,7 @@ public class c {
 
     public static FlutterNetModelAuto M(String str, int i) {
         FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
-        flutterNetModelAuto.fB(i);
+        flutterNetModelAuto.fC(i);
         return flutterNetModelAuto;
     }
 
@@ -82,7 +82,7 @@ public class c {
         if (i == 104102) {
             FlutterNetModelAuto flutterNetModelAuto = new FlutterNetModelAuto(str, FlutterNetModelAuto.NetModelType.TYPE_SOCKET);
             flutterNetModelAuto.a(e(i, hashMap));
-            flutterNetModelAuto.fC(i);
+            flutterNetModelAuto.fD(i);
             flutterNetModelAuto.i(RequestUpdateMaskInfoMessage.class);
             flutterNetModelAuto.setResponseDataClass(ResponseUpdateMaskInfoMessage.class);
             return flutterNetModelAuto;
@@ -91,7 +91,7 @@ public class c {
             flutterNetModelAuto2.a(e(i, hashMap));
             flutterNetModelAuto2.setNeedCompress(false);
             flutterNetModelAuto2.el(true);
-            flutterNetModelAuto2.fC(i);
+            flutterNetModelAuto2.fD(i);
             flutterNetModelAuto2.i(RequestGetLivableForumList.class);
             flutterNetModelAuto2.setResponseDataClass(ResponseGetLivableForumList.class);
             return flutterNetModelAuto2;
@@ -100,7 +100,7 @@ public class c {
             flutterNetModelAuto3.a(e(i, hashMap));
             flutterNetModelAuto3.setNeedCompress(false);
             flutterNetModelAuto3.el(true);
-            flutterNetModelAuto3.fC(i);
+            flutterNetModelAuto3.fD(i);
             flutterNetModelAuto3.i(RequestDeleteFriendMessage.class);
             flutterNetModelAuto3.setResponseDataClass(ResponseDeleteFriendMessage.class);
             return flutterNetModelAuto3;

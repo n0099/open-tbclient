@@ -12,39 +12,39 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.index.a.r;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private View.OnClickListener aEh;
-    private List<r> lok = new ArrayList();
-    private MemberTaskCenterActivity lol;
+    private View.OnClickListener aFH;
+    private List<r> lqo = new ArrayList();
+    private MemberTaskCenterActivity lqp;
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.lok != null) {
-            return this.lok.size();
+        if (this.lqo != null) {
+            return this.lqo.size();
         }
         return 0;
     }
 
     public b(MemberTaskCenterActivity memberTaskCenterActivity) {
-        this.lol = memberTaskCenterActivity;
+        this.lqp = memberTaskCenterActivity;
     }
 
     public void setData(List<r> list) {
-        this.lok.clear();
+        this.lqo.clear();
         if (list != null) {
-            this.lok.addAll(list);
+            this.lqo.addAll(list);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Ev */
+    /* renamed from: Ey */
     public r getItem(int i) {
-        if (this.lok == null || this.lok.size() <= i) {
+        if (this.lqo == null || this.lqo.size() <= i) {
             return null;
         }
-        return this.lok.get(i);
+        return this.lqo.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,35 +56,35 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.lol.getActivity()).inflate(R.layout.member_task_center_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.lqp.getActivity()).inflate(R.layout.member_task_center_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.loo = (TextView) view.findViewById(R.id.task_intro);
-            aVar2.lom = (TextView) view.findViewById(R.id.task_name);
-            aVar2.lop = (TextView) view.findViewById(R.id.task_status);
-            aVar2.loq = view.findViewById(R.id.divider_line);
+            aVar2.lqr = (TextView) view.findViewById(R.id.task_intro);
+            aVar2.lqq = (TextView) view.findViewById(R.id.task_name);
+            aVar2.lqs = (TextView) view.findViewById(R.id.task_status);
+            aVar2.lqt = view.findViewById(R.id.divider_line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         r item = getItem(i);
         if (item != null) {
-            aVar.lom.setText(item.getTitle());
-            aVar.loo.setText(fM(String.valueOf(item.dfn()), item.getDesc()));
+            aVar.lqq.setText(item.getTitle());
+            aVar.lqr.setText(fM(String.valueOf(item.dfw()), item.getDesc()));
             if (item.getIsFinish()) {
-                aVar.lop.setText(this.lol.getPageContext().getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
-                aVar.lop.setTextColor(ap.getColor(R.color.CAM_X0110));
-                aVar.lop.setBackgroundDrawable(null);
-                aVar.lop.setOnClickListener(null);
+                aVar.lqs.setText(this.lqp.getPageContext().getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
+                aVar.lqs.setTextColor(ap.getColor(R.color.CAM_X0110));
+                aVar.lqs.setBackgroundDrawable(null);
+                aVar.lqs.setOnClickListener(null);
             } else {
-                aVar.lop.setText(this.lol.getPageContext().getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
-                ap.setViewTextColor(aVar.lop, R.color.member_center_task_btn_textcolor);
-                aVar.lop.setBackgroundDrawable(ap.getDrawable(R.drawable.item_blue_btn_selector));
-                aVar.lop.setTag(item);
-                aVar.lop.setOnClickListener(this.aEh);
+                aVar.lqs.setText(this.lqp.getPageContext().getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+                ap.setViewTextColor(aVar.lqs, R.color.member_center_task_btn_textcolor);
+                aVar.lqs.setBackgroundDrawable(ap.getDrawable(R.drawable.item_blue_btn_selector));
+                aVar.lqs.setTag(item);
+                aVar.lqs.setOnClickListener(this.aFH);
             }
-            ap.setViewTextColor(aVar.loo, R.color.CAM_X0109);
-            ap.setViewTextColor(aVar.lom, R.color.CAM_X0105);
-            ap.setBackgroundColor(aVar.loq, R.color.CAM_X0204);
+            ap.setViewTextColor(aVar.lqr, R.color.CAM_X0109);
+            ap.setViewTextColor(aVar.lqq, R.color.CAM_X0105);
+            ap.setBackgroundColor(aVar.lqt, R.color.CAM_X0204);
         }
         view.setTag(aVar);
         return view;
@@ -97,18 +97,18 @@ public class b extends BaseAdapter {
         return spannableString;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        TextView lom;
-        TextView loo;
-        TextView lop;
-        View loq;
+        TextView lqq;
+        TextView lqr;
+        TextView lqs;
+        View lqt;
 
         public a() {
         }
     }
 
-    public void H(View.OnClickListener onClickListener) {
-        this.aEh = onClickListener;
+    public void I(View.OnClickListener onClickListener) {
+        this.aFH = onClickListener;
     }
 }

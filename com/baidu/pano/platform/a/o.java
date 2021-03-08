@@ -6,26 +6,24 @@ import com.baidu.pano.platform.a.w;
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3889a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ long f3890b;
+    final /* synthetic */ String f2711a;
+    final /* synthetic */ long b;
     final /* synthetic */ n c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, String str, long j) {
         this.c = nVar;
-        this.f3889a = str;
-        this.f3890b = j;
+        this.f2711a = str;
+        this.b = j;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         w.a aVar;
         w.a aVar2;
-        aVar = this.c.f3885a;
-        aVar.a(this.f3889a, this.f3890b);
-        aVar2 = this.c.f3885a;
+        aVar = this.c.f2709a;
+        aVar.a(this.f2711a, this.b);
+        aVar2 = this.c.f2709a;
         aVar2.a(toString());
     }
 }

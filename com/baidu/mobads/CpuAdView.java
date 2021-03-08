@@ -9,11 +9,11 @@ import android.widget.RelativeLayout;
 import com.baidu.mobads.CpuInfoManager;
 import com.baidu.mobads.component.XAdView;
 import com.baidu.mobads.production.cpu.CPUWebAdRequestParam;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class CpuAdView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mobads.production.cpu.c f3277a;
+    private com.baidu.mobads.production.cpu.c f2349a;
 
     public CpuAdView(Context context) {
         super(context);
@@ -26,8 +26,8 @@ public final class CpuAdView extends RelativeLayout {
     public CpuAdView(Context context, String str, String str2, CpuInfoManager.UrlListener urlListener, CPUWebAdRequestParam cPUWebAdRequestParam) {
         super(context);
         XAdView xAdView = new XAdView(context);
-        this.f3277a = new com.baidu.mobads.production.cpu.c(context, xAdView, str, str2, cPUWebAdRequestParam);
-        this.f3277a.request();
+        this.f2349a = new com.baidu.mobads.production.cpu.c(context, xAdView, str, str2, cPUWebAdRequestParam);
+        this.f2349a.request();
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }
 
@@ -38,14 +38,14 @@ public final class CpuAdView extends RelativeLayout {
     public CpuAdView(Context context, String str, int i, CPUWebAdRequestParam cPUWebAdRequestParam) {
         super(context);
         XAdView xAdView = new XAdView(context);
-        this.f3277a = new com.baidu.mobads.production.cpu.c(context, xAdView, str, i, cPUWebAdRequestParam);
-        this.f3277a.request();
+        this.f2349a = new com.baidu.mobads.production.cpu.c(context, xAdView, str, i, cPUWebAdRequestParam);
+        this.f2349a.request();
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }
 
     public void onResume() {
         try {
-            View adView = this.f3277a.h.getAdView();
+            View adView = this.f2349a.h.getAdView();
             if (adView instanceof WebView) {
                 ((WebView) adView).onResume();
             }
@@ -55,7 +55,7 @@ public final class CpuAdView extends RelativeLayout {
 
     public void onPause() {
         try {
-            View adView = this.f3277a.h.getAdView();
+            View adView = this.f2349a.h.getAdView();
             if (adView instanceof WebView) {
                 ((WebView) adView).onPause();
             }
@@ -65,7 +65,7 @@ public final class CpuAdView extends RelativeLayout {
 
     public void onDestroy() {
         try {
-            View adView = this.f3277a.h.getAdView();
+            View adView = this.f2349a.h.getAdView();
             if (adView instanceof WebView) {
                 ((WebView) adView).destroy();
             }
@@ -83,7 +83,7 @@ public final class CpuAdView extends RelativeLayout {
 
     protected boolean canGoBack() {
         try {
-            return ((WebView) this.f3277a.h.getAdView()).canGoBack();
+            return ((WebView) this.f2349a.h.getAdView()).canGoBack();
         } catch (Throwable th) {
             return false;
         }
@@ -91,7 +91,7 @@ public final class CpuAdView extends RelativeLayout {
 
     protected void goBack() {
         try {
-            ((WebView) this.f3277a.h.getAdView()).goBack();
+            ((WebView) this.f2349a.h.getAdView()).goBack();
         } catch (Throwable th) {
         }
     }

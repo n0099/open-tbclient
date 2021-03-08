@@ -18,14 +18,12 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f13664a = new Object();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile p f13665b;
+    private static final Object f8063a = new Object();
+    private static volatile p b;
     private Context i;
     private com.vivo.push.util.a k;
     private String l;
@@ -49,14 +47,14 @@ public final class p {
     }
 
     public static p a() {
-        if (f13665b == null) {
-            synchronized (f13664a) {
-                if (f13665b == null) {
-                    f13665b = new p();
+        if (b == null) {
+            synchronized (f8063a) {
+                if (b == null) {
+                    b = new p();
                 }
             }
         }
-        return f13665b;
+        return b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -779,21 +777,19 @@ public final class p {
         return this.p.booleanValue();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private IPushActionListener f13666a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private com.vivo.push.b.c f13667b;
+        private IPushActionListener f8064a;
+        private com.vivo.push.b.c b;
         private IPushActionListener c;
         private Runnable d;
         private Object[] e;
 
         public a(com.vivo.push.b.c cVar, IPushActionListener iPushActionListener) {
-            this.f13667b = cVar;
-            this.f13666a = iPushActionListener;
+            this.b = cVar;
+            this.f8064a = iPushActionListener;
         }
 
         public final void a(int i, Object... objArr) {
@@ -801,8 +797,8 @@ public final class p {
             if (this.c != null) {
                 this.c.onStateChanged(i);
             }
-            if (this.f13666a != null) {
-                this.f13666a.onStateChanged(i);
+            if (this.f8064a != null) {
+                this.f8064a.onStateChanged(i);
             }
         }
 

@@ -13,15 +13,15 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.util.bh;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernOfflineViewHolder;
 import com.baidu.tieba.card.ab;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b, LiveTabConcernOfflineViewHolder> {
-    private ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> gCz;
+    private ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> gEi;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.gCE);
-        this.gCz = new ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.gEn);
+        this.gEi = new ab<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar) {
@@ -37,7 +37,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* renamed from: aa */
     public LiveTabConcernOfflineViewHolder e(ViewGroup viewGroup) {
         com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.f fVar = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.f(this.mPageContext, viewGroup);
-        fVar.c(this.gCz);
+        fVar.c(this.gEi);
         return new LiveTabConcernOfflineViewHolder(fVar);
     }
 
@@ -45,10 +45,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
-        if (liveTabConcernOfflineViewHolder == null || liveTabConcernOfflineViewHolder.gDF == null) {
+        if (liveTabConcernOfflineViewHolder == null || liveTabConcernOfflineViewHolder.gFo == null) {
             return null;
         }
-        liveTabConcernOfflineViewHolder.gDF.a(bVar);
+        liveTabConcernOfflineViewHolder.gFo.a(bVar);
         return liveTabConcernOfflineViewHolder.getView();
     }
 

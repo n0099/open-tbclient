@@ -4,78 +4,78 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 /* loaded from: classes2.dex */
 public class i {
-    private static i lOX;
-    private com.baidu.adp.lib.cache.l<byte[]> lOY = null;
-    private com.baidu.adp.lib.cache.l<byte[]> lOZ = null;
+    private static i lQZ;
+    private com.baidu.adp.lib.cache.l<byte[]> lRa = null;
+    private com.baidu.adp.lib.cache.l<byte[]> lRb = null;
 
-    public static synchronized i dnd() {
+    public static synchronized i dnm() {
         i iVar;
         synchronized (i.class) {
-            if (lOX == null) {
-                lOX = new i();
+            if (lQZ == null) {
+                lQZ = new i();
             }
-            iVar = lOX;
+            iVar = lQZ;
         }
         return iVar;
     }
 
     private i() {
-        bes();
+        beu();
     }
 
-    private void bes() {
-        if (this.lOY == null) {
-            this.lOY = com.baidu.tbadk.core.c.a.bqr().Ar("tb.pb_mark");
+    private void beu() {
+        if (this.lRa == null) {
+            this.lRa = com.baidu.tbadk.core.c.a.bqt().Ay("tb.pb_mark");
         }
-        if (this.lOZ == null) {
-            this.lOZ = com.baidu.tbadk.core.c.a.bqr().Ar("tb.pb_normal");
+        if (this.lRb == null) {
+            this.lRb = com.baidu.tbadk.core.c.a.bqt().Ay("tb.pb_normal");
         }
     }
 
     public void aU(String str, boolean z) {
         if (z) {
-            if (this.lOY != null && str != null) {
-                this.lOY.asyncSet(str, new byte[0], 0L);
+            if (this.lRa != null && str != null) {
+                this.lRa.asyncSet(str, new byte[0], 0L);
             }
-        } else if (this.lOZ != null && str != null) {
-            this.lOZ.asyncSet(str, new byte[0], 0L);
+        } else if (this.lRb != null && str != null) {
+            this.lRb.asyncSet(str, new byte[0], 0L);
         }
     }
 
     public byte[] aV(String str, boolean z) {
-        l.b<byte[]> by;
+        l.b<byte[]> bC;
         if (z) {
-            if (this.lOY != null && str != null) {
-                by = this.lOY.by(str);
+            if (this.lRa != null && str != null) {
+                bC = this.lRa.bC(str);
             }
-            by = null;
+            bC = null;
         } else {
-            if (this.lOZ != null && str != null) {
-                by = this.lOZ.by(str);
+            if (this.lRb != null && str != null) {
+                bC = this.lRb.bC(str);
             }
-            by = null;
+            bC = null;
         }
-        if (by == null || by.value == null) {
+        if (bC == null || bC.value == null) {
             return null;
         }
-        return by.value;
+        return bC.value;
     }
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
-            bes();
+            beu();
             if (z) {
-                this.lOY.set(str, bArr, 604800000L);
+                this.lRa.set(str, bArr, 604800000L);
             } else {
-                this.lOZ.set(str, bArr, 86400000L);
+                this.lRb.set(str, bArr, 86400000L);
             }
         }
     }
 
-    public void o(String str, byte[] bArr) {
+    public void n(String str, byte[] bArr) {
         if (bArr != null && str != null) {
-            bes();
-            this.lOY.set(str, bArr, BdKVCache.MILLS_30Days);
+            beu();
+            this.lRa.set(str, bArr, BdKVCache.MILLS_30Days);
         }
     }
 }

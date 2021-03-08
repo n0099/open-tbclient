@@ -3,35 +3,35 @@ package com.cmic.sso.sdk.a;
 import android.annotation.SuppressLint;
 import android.os.Build;
 @SuppressLint({"NewApi"})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public enum EnumC1037a {
+    /* loaded from: classes14.dex */
+    public enum EnumC1052a {
         UNKNOWN,
         SAMSUNG,
         HUAWEI
     }
 
-    private static EnumC1037a ers() {
+    private static EnumC1052a erB() {
         String str = Build.BRAND;
         if (str.equalsIgnoreCase("samsung")) {
-            return EnumC1037a.SAMSUNG;
+            return EnumC1052a.SAMSUNG;
         }
         if (str.equalsIgnoreCase("Huawei")) {
-            return EnumC1037a.HUAWEI;
+            return EnumC1052a.HUAWEI;
         }
-        return EnumC1037a.UNKNOWN;
+        return EnumC1052a.UNKNOWN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a() {
-        return a(ers());
+        return a(erB());
     }
 
-    private static int a(EnumC1037a enumC1037a) {
-        switch (enumC1037a) {
+    private static int a(EnumC1052a enumC1052a) {
+        switch (enumC1052a) {
             case HUAWEI:
                 return 0;
             case SAMSUNG:

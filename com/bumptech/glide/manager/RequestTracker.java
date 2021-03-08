@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class RequestTracker {
     private static final String TAG = "RequestTracker";
     private boolean isPaused;
@@ -36,25 +36,18 @@ public class RequestTracker {
         this.requests.add(request);
     }
 
-    public boolean clearRemoveAndRecycle(@Nullable Request request) {
-        return clearRemoveAndMaybeRecycle(request, true);
-    }
-
-    private boolean clearRemoveAndMaybeRecycle(@Nullable Request request, boolean z) {
-        boolean z2 = true;
+    public boolean clearAndRemove(@Nullable Request request) {
+        boolean z = true;
         if (request != null) {
             boolean remove = this.requests.remove(request);
             if (!this.pendingRequests.remove(request) && !remove) {
-                z2 = false;
+                z = false;
             }
-            if (z2) {
+            if (z) {
                 request.clear();
-                if (z) {
-                    request.recycle();
-                }
             }
         }
-        return z2;
+        return z;
     }
 
     public boolean isPaused() {
@@ -65,7 +58,7 @@ public class RequestTracker {
         this.isPaused = true;
         for (Request request : Util.getSnapshot(this.requests)) {
             if (request.isRunning()) {
-                request.clear();
+                request.pause();
                 this.pendingRequests.add(request);
             }
         }
@@ -93,7 +86,7 @@ public class RequestTracker {
 
     public void clearRequests() {
         for (Request request : Util.getSnapshot(this.requests)) {
-            clearRemoveAndMaybeRecycle(request, false);
+            clearAndRemove(request);
         }
         this.pendingRequests.clear();
     }

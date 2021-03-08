@@ -6,13 +6,11 @@ import com.baidu.platform.comapi.walknavi.d.g;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class e {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Handler f4252b = new Handler();
+    private static Handler b = new Handler();
     private static final String c = e.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    final Runnable f4253a;
+    final Runnable f2941a;
     private g d;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -20,7 +18,7 @@ public class e {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final e f4254a = new e(null);
+        static final e f2942a = new e(null);
     }
 
     /* synthetic */ e(f fVar) {
@@ -40,12 +38,12 @@ public class e {
     }
 
     private e() {
-        this.f4253a = new f(this);
+        this.f2941a = new f(this);
         this.d = new g();
     }
 
     public static e c() {
-        return a.f4254a;
+        return a.f2942a;
     }
 
     public void a(b bVar) {
@@ -103,18 +101,18 @@ public class e {
     }
 
     public void a(String str, String str2) {
-        if (f4252b != null && this.f4253a != null) {
-            f4252b.removeCallbacks(this.f4253a);
+        if (b != null && this.f2941a != null) {
+            b.removeCallbacks(this.f2941a);
         }
         this.d.a(str, str2);
     }
 
     public void b(String str, String str2) {
-        if (f4252b != null && this.f4253a != null) {
-            f4252b.removeCallbacks(this.f4253a);
+        if (b != null && this.f2941a != null) {
+            b.removeCallbacks(this.f2941a);
         }
         this.d.a(str, str2);
-        f4252b.postDelayed(this.f4253a, 30000L);
+        b.postDelayed(this.f2941a, 30000L);
     }
 
     public boolean b(String str) {

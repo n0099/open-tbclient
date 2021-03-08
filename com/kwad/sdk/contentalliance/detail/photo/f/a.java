@@ -5,9 +5,7 @@ import android.widget.LinearLayout;
 import com.kwad.sdk.R;
 /* loaded from: classes3.dex */
 public abstract class a<T extends View> extends com.kwad.sdk.contentalliance.detail.b implements d<T> {
-
-    /* renamed from: b  reason: collision with root package name */
-    protected T f8516b = null;
+    protected T b = null;
     protected LinearLayout c;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,9 +25,9 @@ public abstract class a<T extends View> extends com.kwad.sdk.contentalliance.det
 
     /* JADX INFO: Access modifiers changed from: protected */
     public T f() {
-        if (this.f8516b == null) {
-            this.f8516b = g();
+        if (this.b == null) {
+            this.b = g();
         }
-        return this.f8516b;
+        return this.b;
     }
 }

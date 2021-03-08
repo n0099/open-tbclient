@@ -9,7 +9,7 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d extends AsyncTask<Void, Void, a> {
     private static final String h = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tencent/MicroMsg/oauth_qrcode.png";
     private static String i;
@@ -21,7 +21,7 @@ public final class d extends AsyncTask<Void, Void, a> {
     private String scope;
     private String signature;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static class a {
         public OAuthErrCode n;
         public String o;

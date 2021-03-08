@@ -4,7 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import com.baidu.ala.adp.lib.util.BdLog;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaLivePlayerUtil {
     private static final String LOG_TAG = "liveplayer";
     public static final int MAX_LOG_DECODEYUV_COUNT = 5;

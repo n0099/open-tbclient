@@ -1,5 +1,5 @@
 package com.baidu.searchbox.config;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class QuickPersistConfigConst {
     public static final String CRASH_LOGGER_SYNC_SWITCHER = "crash_upload_sync_switcher";
     public static final String CRASH_NATIVE_LOGGER_SYNC_SWITCHER = "crash_native_upload_sync_switcher";

@@ -5,40 +5,40 @@ import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.tbadk.TbPageContext;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d {
-    private final List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
-    private com.baidu.adp.base.f eVB;
-    private BdTypeMultiColumnListView gVm;
-    private e gVn;
-    private h gVo;
+    private final List<com.baidu.adp.widget.ListView.a> boS = new ArrayList();
+    private com.baidu.adp.base.f eXa;
+    private BdTypeMultiColumnListView gWV;
+    private e gWW;
+    private h gWX;
 
     public d(com.baidu.adp.base.f fVar, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
-        this.eVB = fVar;
-        this.gVm = bdTypeMultiColumnListView;
-        Kw();
+        this.eXa = fVar;
+        this.gWV = bdTypeMultiColumnListView;
+        Kz();
     }
 
-    private void Kw() {
-        this.gVn = new e((TbPageContext) this.eVB, com.baidu.tieba.ala.frsgamelive.b.c.gVw);
-        this.gVo = new h((TbPageContext) this.eVB, com.baidu.tieba.ala.frsgamelive.b.c.gVx);
-        this.bns.add(this.gVn);
-        this.bns.add(this.gVo);
-        this.gVm.addAdapters(this.bns);
+    private void Kz() {
+        this.gWW = new e((TbPageContext) this.eXa, com.baidu.tieba.ala.frsgamelive.b.c.gXf);
+        this.gWX = new h((TbPageContext) this.eXa, com.baidu.tieba.ala.frsgamelive.b.c.gXg);
+        this.boS.add(this.gWW);
+        this.boS.add(this.gWX);
+        this.gWV.addAdapters(this.boS);
     }
 
     public void setDatas(List<n> list) {
-        if (this.gVm != null) {
-            this.gVm.setData(list);
+        if (this.gWV != null) {
+            this.gWV.setData(list);
         }
     }
 
     public void b(com.baidu.tieba.ala.h hVar) {
-        if (this.gVn != null) {
-            this.gVn.a(hVar);
+        if (this.gWW != null) {
+            this.gWW.a(hVar);
         }
-        if (this.gVo != null) {
-            this.gVo.a(hVar);
+        if (this.gWX != null) {
+            this.gWX.a(hVar);
         }
     }
 }

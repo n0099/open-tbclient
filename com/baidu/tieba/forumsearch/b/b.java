@@ -5,53 +5,53 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.SearchPostForum.SearchForum;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId jeK = BdUniqueId.gen();
-    private String ePk;
-    private String jeF;
-    private String jeG;
-    private String jeH;
-    private boolean jeI;
-    private List<FrsTabInfo> jeJ;
-    private String jel;
+    public static final BdUniqueId jgt = BdUniqueId.gen();
+    private String eQL;
+    private String jfU;
+    private String jgo;
+    private String jgp;
+    private String jgq;
+    private boolean jgr;
+    private List<FrsTabInfo> jgs;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.jel = str;
+        this.jfU = str;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jeK;
+        return jgt;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.ePk = searchForum.avatar;
-            this.jeF = searchForum.post_num;
-            this.jeG = searchForum.concern_num;
-            this.jeH = searchForum.slogan;
+            this.eQL = searchForum.avatar;
+            this.jgo = searchForum.post_num;
+            this.jgp = searchForum.concern_num;
+            this.jgq = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.jeI = searchForum.has_concerned.intValue() != 0;
-            this.jeJ = searchForum.tab_info;
+            this.jgr = searchForum.has_concerned.intValue() != 0;
+            this.jgs = searchForum.tab_info;
         }
     }
 
     public String getAvatar() {
-        return this.ePk;
+        return this.eQL;
     }
 
-    public String cBl() {
-        return this.jeG;
+    public String cBr() {
+        return this.jgp;
     }
 
-    public String cBm() {
-        return this.jeF;
+    public String cBs() {
+        return this.jgo;
     }
 
     public String getForumName() {
@@ -62,11 +62,11 @@ public class b extends BaseCardInfo {
         return this.mForumId;
     }
 
-    public String cBn() {
-        return this.jel;
+    public String cBt() {
+        return this.jfU;
     }
 
-    public List<FrsTabInfo> cBo() {
-        return this.jeJ;
+    public List<FrsTabInfo> cBu() {
+        return this.jgs;
     }
 }

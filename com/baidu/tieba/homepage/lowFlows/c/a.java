@@ -6,34 +6,34 @@ import com.baidu.tieba.homepage.lowFlows.a;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a implements a.b {
-    private a.c khD;
-    private a.InterfaceC0747a khE = new com.baidu.tieba.homepage.lowFlows.b.a(this);
+    private a.c kjG;
+    private a.InterfaceC0753a kjH = new com.baidu.tieba.homepage.lowFlows.b.a(this);
 
     public a(a.c cVar) {
-        this.khD = cVar;
+        this.kjG = cVar;
     }
 
     @Override // com.baidu.tieba.homepage.lowFlows.a.b
     public boolean b(BdUniqueId bdUniqueId, String str, String str2, String str3) {
-        if (this.khE != null) {
-            return this.khE.a(bdUniqueId, str, str2, str3);
+        if (this.kjH != null) {
+            return this.kjH.a(bdUniqueId, str, str2, str3);
         }
         return false;
     }
 
     @Override // com.baidu.tieba.homepage.lowFlows.a.b
     public boolean a(int i, com.baidu.tieba.homepage.lowFlows.message.a aVar) {
-        if (aVar == null || this.khD == null) {
+        if (aVar == null || this.kjG == null) {
             return false;
         }
-        this.khD.setData(aVar.getDataList());
+        this.kjG.setData(aVar.getDataList());
         return true;
     }
 
     @Override // com.baidu.tieba.homepage.lowFlows.a.b
-    public boolean BT(int i) {
-        if (this.khD != null) {
-            this.khD.BU(i);
+    public boolean BW(int i) {
+        if (this.kjG != null) {
+            this.kjG.BX(i);
             return true;
         }
         return false;
@@ -41,8 +41,8 @@ public class a implements a.b {
 
     @Override // com.baidu.tieba.homepage.lowFlows.a.b
     public void setData(List<n> list) {
-        if (this.khD != null) {
-            this.khD.setData(list);
+        if (this.kjG != null) {
+            this.kjG.setData(list);
         }
     }
 }

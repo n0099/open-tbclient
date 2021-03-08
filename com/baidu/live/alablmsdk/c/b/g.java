@@ -3,7 +3,7 @@ package com.baidu.live.alablmsdk.c.b;
 import com.baidu.live.alablmsdk.config.enums.BLMLiveTransferMode;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface g {
     void a(f fVar);
 
@@ -21,7 +21,7 @@ public interface g {
 
     void b(String str, List<com.baidu.live.alablmsdk.module.c> list, boolean z);
 
-    void eN(String str);
+    void eT(String str);
 
     boolean h(String str, com.baidu.live.alablmsdk.module.c cVar);
 
@@ -33,21 +33,21 @@ public interface g {
 
     int w(HashMap<String, Object> hashMap);
 
-    void xk();
+    void xn();
 
-    int yi();
+    int yl();
 
-    void yj();
+    void ym();
 
-    com.baidu.live.alablmsdk.module.rtc.d yk();
+    com.baidu.live.alablmsdk.module.rtc.d yn();
 
-    boolean yl();
+    boolean yo();
 
-    String ym();
+    String yp();
 
-    com.baidu.live.alablmsdk.c.a.a yn();
+    com.baidu.live.alablmsdk.c.a.a yq();
 
-    void yo();
+    void yr();
 
-    void yp();
+    void ys();
 }

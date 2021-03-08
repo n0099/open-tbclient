@@ -37,9 +37,9 @@ public class f extends b<com.baidu.swan.pms.model.f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: g */
-    public ContentValues al(com.baidu.swan.pms.model.f fVar) {
+    public ContentValues an(com.baidu.swan.pms.model.f fVar) {
         ContentValues e = super.e(fVar);
-        e.put("pkg_type", Integer.valueOf(fVar.eug));
+        e.put("pkg_type", Integer.valueOf(fVar.evH));
         return e;
     }
 }

@@ -1,21 +1,26 @@
 package com.win.opensdk;
-/* loaded from: classes3.dex */
-public interface h {
-    void Q(int i, int i2, int i3, int i4);
 
-    void a();
+import android.view.View;
+import com.win.opensdk.core.Info;
+/* loaded from: classes14.dex */
+public class h implements View.OnClickListener {
+    public final /* synthetic */ Info qkd;
+    public final /* synthetic */ l qke;
 
-    void a(y yVar);
+    public h(l lVar, Info info) {
+        this.qke = lVar;
+        this.qkd = info;
+    }
 
-    boolean abQ(String str);
-
-    void abR(String str);
-
-    void b();
-
-    void eIX();
-
-    void eIY();
-
-    boolean java();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        try {
+            ca.iT(this.qke.c).b(new cd(this.qkd)).a();
+            if (this.qke.qkl != null) {
+                this.qke.qkl.onClosed();
+            }
+        } catch (Exception e) {
+        }
+        this.qke.qkj.destroy();
+    }
 }

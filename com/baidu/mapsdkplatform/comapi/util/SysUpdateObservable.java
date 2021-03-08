@@ -7,33 +7,31 @@ import java.util.List;
 public class SysUpdateObservable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile SysUpdateObservable f3154a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private List<SysUpdateObserver> f3155b;
+    private static volatile SysUpdateObservable f2282a;
+    private List<SysUpdateObserver> b;
 
     private SysUpdateObservable() {
-        this.f3155b = null;
-        this.f3155b = new ArrayList();
+        this.b = null;
+        this.b = new ArrayList();
     }
 
     public static SysUpdateObservable getInstance() {
-        if (f3154a == null) {
+        if (f2282a == null) {
             synchronized (SysUpdateObservable.class) {
-                if (f3154a == null) {
-                    f3154a = new SysUpdateObservable();
+                if (f2282a == null) {
+                    f2282a = new SysUpdateObservable();
                 }
             }
         }
-        return f3154a;
+        return f2282a;
     }
 
     public void addObserver(SysUpdateObserver sysUpdateObserver) {
-        this.f3155b.add(sysUpdateObserver);
+        this.b.add(sysUpdateObserver);
     }
 
     public void init() {
-        for (SysUpdateObserver sysUpdateObserver : this.f3155b) {
+        for (SysUpdateObserver sysUpdateObserver : this.b) {
             if (sysUpdateObserver != null) {
                 sysUpdateObserver.init();
             }
@@ -41,7 +39,7 @@ public class SysUpdateObservable {
     }
 
     public void updateNetworkInfo(Context context) {
-        for (SysUpdateObserver sysUpdateObserver : this.f3155b) {
+        for (SysUpdateObserver sysUpdateObserver : this.b) {
             if (sysUpdateObserver != null) {
                 sysUpdateObserver.updateNetworkInfo(context);
             }
@@ -49,7 +47,7 @@ public class SysUpdateObservable {
     }
 
     public void updateNetworkProxy(Context context) {
-        for (SysUpdateObserver sysUpdateObserver : this.f3155b) {
+        for (SysUpdateObserver sysUpdateObserver : this.b) {
             if (sysUpdateObserver != null) {
                 sysUpdateObserver.updateNetworkProxy(context);
             }
@@ -57,7 +55,7 @@ public class SysUpdateObservable {
     }
 
     public void updatePhoneInfo() {
-        for (SysUpdateObserver sysUpdateObserver : this.f3155b) {
+        for (SysUpdateObserver sysUpdateObserver : this.b) {
             if (sysUpdateObserver != null) {
                 sysUpdateObserver.updatePhoneInfo();
             }

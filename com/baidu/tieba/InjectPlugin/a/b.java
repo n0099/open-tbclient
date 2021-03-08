@@ -5,5 +5,5 @@ public interface b {
 
     void a(com.baidu.tieba.InjectPlugin.b bVar);
 
-    a sM(int i);
+    a sO(int i);
 }

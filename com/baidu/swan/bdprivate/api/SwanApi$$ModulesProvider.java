@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanApi$$ModulesProvider {
     public static Map<String, Object> getV8ApiModules(final com.baidu.swan.apps.api.a.b bVar) {
         HashMap hashMap = new HashMap();
@@ -46,8 +46,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ut = aVar.ut(str);
-                    String jsonString = ut == null ? "" : ut.toJsonString();
+                    com.baidu.swan.apps.api.c.b uA = aVar.uA(str);
+                    String jsonString = uA == null ? "" : uA.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateAccount.getBDUSS[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -97,8 +97,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b uu = bVar2.uu(str);
-                    String jsonString = uu == null ? "" : uu.toJsonString();
+                    com.baidu.swan.apps.api.c.b uB = bVar2.uB(str);
+                    String jsonString = uB == null ? "" : uB.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateBusiness.getOpenBDUSS[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -138,8 +138,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ux = cVar.ux(str);
-                    String jsonString = ux == null ? "" : ux.toJsonString();
+                    com.baidu.swan.apps.api.c.b uE = cVar.uE(str);
+                    String jsonString = uE == null ? "" : uE.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateBusiness.queryQuickLoginInfo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -179,8 +179,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b uv = cVar.uv(str);
-                    String jsonString = uv == null ? "" : uv.toJsonString();
+                    com.baidu.swan.apps.api.c.b uC = cVar.uC(str);
+                    String jsonString = uC == null ? "" : uC.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateBusiness.quickLogin[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -230,8 +230,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b uE = aVar.uE(str);
-                    String jsonString = uE == null ? "" : uE.toJsonString();
+                    com.baidu.swan.apps.api.c.b uL = aVar.uL(str);
+                    String jsonString = uL == null ? "" : uL.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateUtils.getCommonSysInfo[type:V8, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -286,8 +286,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ut = aVar.ut(str);
-                    String jsonString = ut == null ? "" : ut.toJsonString();
+                    com.baidu.swan.apps.api.c.b uA = aVar.uA(str);
+                    String jsonString = uA == null ? "" : uA.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateAccount.getBDUSS[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -337,8 +337,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b uu = bVar2.uu(str);
-                    String jsonString = uu == null ? "" : uu.toJsonString();
+                    com.baidu.swan.apps.api.c.b uB = bVar2.uB(str);
+                    String jsonString = uB == null ? "" : uB.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateBusiness.getOpenBDUSS[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -378,8 +378,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b ux = cVar.ux(str);
-                    String jsonString = ux == null ? "" : ux.toJsonString();
+                    com.baidu.swan.apps.api.c.b uE = cVar.uE(str);
+                    String jsonString = uE == null ? "" : uE.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateBusiness.queryQuickLoginInfo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -419,8 +419,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b uv = cVar.uv(str);
-                    String jsonString = uv == null ? "" : uv.toJsonString();
+                    com.baidu.swan.apps.api.c.b uC = cVar.uC(str);
+                    String jsonString = uC == null ? "" : uC.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateBusiness.quickLogin[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;
@@ -470,8 +470,8 @@ public class SwanApi$$ModulesProvider {
                     if (((Boolean) a2.first).booleanValue()) {
                         return ((com.baidu.swan.apps.api.c.a) a2.second).toJsonString();
                     }
-                    com.baidu.swan.apps.api.c.b uE = aVar.uE(str);
-                    String jsonString = uE == null ? "" : uE.toJsonString();
+                    com.baidu.swan.apps.api.c.b uL = aVar.uL(str);
+                    String jsonString = uL == null ? "" : uL.toJsonString();
                     if (DEBUG) {
                         Log.d(TAG, "====================[[PrivateUtils.getCommonSysInfo[type:Webview, v8 binding:false] result]]" + jsonString);
                         return jsonString;

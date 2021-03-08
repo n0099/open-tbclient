@@ -1,5 +1,5 @@
 package com.yy.audioengine;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AudioUtils {
     private static native byte[] nativeAdtsHeader(int i, int i2, int i3);
 

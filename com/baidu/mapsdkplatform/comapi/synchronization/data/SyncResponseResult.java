@@ -7,10 +7,8 @@ public final class SyncResponseResult implements Parcelable {
     public static final Parcelable.Creator<SyncResponseResult> CREATOR = new j();
 
     /* renamed from: a  reason: collision with root package name */
-    private RouteLineInfo f3110a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TrafficInfo f3111b;
+    private RouteLineInfo f2255a;
+    private TrafficInfo b;
     private DriverPosition c;
     private float d;
     private long e;
@@ -21,8 +19,8 @@ public final class SyncResponseResult implements Parcelable {
     private String j;
 
     public SyncResponseResult() {
-        this.f3110a = new RouteLineInfo();
-        this.f3111b = new TrafficInfo();
+        this.f2255a = new RouteLineInfo();
+        this.b = new TrafficInfo();
         this.c = new DriverPosition();
         this.d = 0.0f;
         this.e = 0L;
@@ -35,8 +33,8 @@ public final class SyncResponseResult implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public SyncResponseResult(Parcel parcel) {
-        this.f3110a = (RouteLineInfo) parcel.readParcelable(RouteLineInfo.class.getClassLoader());
-        this.f3111b = (TrafficInfo) parcel.readParcelable(TrafficInfo.class.getClassLoader());
+        this.f2255a = (RouteLineInfo) parcel.readParcelable(RouteLineInfo.class.getClassLoader());
+        this.b = (TrafficInfo) parcel.readParcelable(TrafficInfo.class.getClassLoader());
         this.c = (DriverPosition) parcel.readParcelable(DriverPosition.class.getClassLoader());
         this.d = (float) parcel.readLong();
         this.e = parcel.readLong();
@@ -48,7 +46,7 @@ public final class SyncResponseResult implements Parcelable {
     }
 
     public RouteLineInfo a() {
-        return this.f3110a;
+        return this.f2255a;
     }
 
     public void a(float f) {
@@ -68,7 +66,7 @@ public final class SyncResponseResult implements Parcelable {
     }
 
     public TrafficInfo b() {
-        return this.f3111b;
+        return this.b;
     }
 
     public void b(float f) {
@@ -102,8 +100,8 @@ public final class SyncResponseResult implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f3110a, 1);
-        parcel.writeParcelable(this.f3111b, 1);
+        parcel.writeParcelable(this.f2255a, 1);
+        parcel.writeParcelable(this.b, 1);
         parcel.writeParcelable(this.c, 1);
         parcel.writeFloat(this.d);
         parcel.writeLong(this.e);

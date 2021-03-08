@@ -24,14 +24,12 @@ import java.util.TimerTask;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LogSender {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LogSender f3608a = new LogSender();
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f3609b = false;
+    private static LogSender f2550a = new LogSender();
+    private boolean b = false;
     private int c = 0;
     private int d = 1;
     private SendStrategyEnum e = SendStrategyEnum.APP_START;
@@ -39,7 +37,7 @@ public class LogSender {
     private Handler g;
 
     public static LogSender instance() {
-        return f3608a;
+        return f2550a;
     }
 
     private LogSender() {
@@ -69,8 +67,8 @@ public class LogSender {
                 bq.a().b(context, 24);
             }
         }
-        this.f3609b = z;
-        bq.a().a(context, this.f3609b);
+        this.b = z;
+        bq.a().a(context, this.b);
     }
 
     public void onSend(final Context context) {
@@ -87,7 +85,7 @@ public class LogSender {
                     }
                     LogSender.this.e = SendStrategyEnum.values()[bq.a().b(context)];
                     LogSender.this.d = bq.a().c(context);
-                    LogSender.this.f3609b = bq.a().d(context);
+                    LogSender.this.b = bq.a().d(context);
                     if (!LogSender.this.e.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
                         if (LogSender.this.e.equals(SendStrategyEnum.ONCE_A_DAY)) {
                             LogSender.this.setSendingLogTimer(context);
@@ -235,7 +233,7 @@ public class LogSender {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context) {
-        if (!this.f3609b || bw.q(context)) {
+        if (!this.b || bw.q(context)) {
             this.g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.5
                 @Override // java.lang.Runnable
                 public void run() {
@@ -340,7 +338,7 @@ public class LogSender {
         if (!z) {
             bc.c().a("Start send log \n" + str);
         }
-        if (this.f3609b && !bw.q(context)) {
+        if (this.b && !bw.q(context)) {
             bc.c().a("[WARNING] wifi not available, log will be cached, next time will try to resend");
             return false;
         }
@@ -409,10 +407,10 @@ public class LogSender {
         d.setUseCaches(false);
         d.setRequestProperty("Content-Type", "gzip");
         byte[] a2 = bm.a.a();
-        byte[] b2 = bm.a.b();
+        byte[] b = bm.a.b();
         d.setRequestProperty("key", bv.a(a2));
-        d.setRequestProperty("iv", bv.a(b2));
-        byte[] a3 = bm.a.a(a2, b2, str2.getBytes("utf-8"));
+        d.setRequestProperty("iv", bv.a(b));
+        byte[] a3 = bm.a.a(a2, b, str2.getBytes("utf-8"));
         d.connect();
         try {
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(d.getOutputStream());

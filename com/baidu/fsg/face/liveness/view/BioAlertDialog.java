@@ -13,10 +13,8 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class BioAlertDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f2316a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f2317b;
+    private ViewSwitcher f1775a;
+    private TextView b;
     private TextView c;
     private TextView d;
     private Button e;
@@ -44,8 +42,8 @@ public class BioAlertDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_alert_dialog);
         setCanceledOnTouchOutside(false);
-        this.f2316a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f2317b = (TextView) findViewById(R.id.dialog_title);
+        this.f1775a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.dialog_msg);
         this.d = (TextView) findViewById(R.id.msg_text);
         this.e = (Button) findViewById(R.id.positive_btn);
@@ -57,7 +55,7 @@ public class BioAlertDialog extends Dialog {
     }
 
     public void setTitleMsg(String str) {
-        this.f2317b.setText(str);
+        this.b.setText(str);
     }
 
     public void setDialogMsg(String str) {
@@ -71,9 +69,9 @@ public class BioAlertDialog extends Dialog {
 
     public void setTitleVisible(boolean z) {
         if (z) {
-            this.f2317b.setVisibility(0);
+            this.b.setVisibility(0);
         } else {
-            this.f2317b.setVisibility(8);
+            this.b.setVisibility(8);
         }
     }
 
@@ -84,9 +82,9 @@ public class BioAlertDialog extends Dialog {
             i = 2;
         }
         if (i == 2) {
-            this.f2316a.setDisplayedChild(0);
+            this.f1775a.setDisplayedChild(0);
         } else {
-            this.f2316a.setDisplayedChild(1);
+            this.f1775a.setDisplayedChild(1);
         }
     }
 

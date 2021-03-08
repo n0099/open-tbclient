@@ -9,11 +9,11 @@ import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationTargetException;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(24)
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class MediaSessionCompatApi24 {
     private static final String TAG = "MediaSessionCompatApi24";
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public interface Callback extends MediaSessionCompatApi23.Callback {
         void onPrepare();
 
@@ -39,7 +39,7 @@ public class MediaSessionCompatApi24 {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     public static class CallbackProxy<T extends Callback> extends MediaSessionCompatApi23.CallbackProxy<T> {
         public CallbackProxy(T t) {
             super(t);

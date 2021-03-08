@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class bv extends bx {
     public bv(String str, String str2, String[] strArr, String str3) {
         super(str, str2, strArr, str3);
@@ -10,23 +10,23 @@ public class bv extends bx {
 
     public static bv a(Context context, String str, int i) {
         com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
-        String m222a = cb.a(context).m222a(str);
-        if (TextUtils.isEmpty(m222a)) {
+        String m201a = cb.a(context).m201a(str);
+        if (TextUtils.isEmpty(m201a)) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("rowDataId in (select ");
-        sb.append("rowDataId from " + m222a);
+        sb.append("rowDataId from " + m201a);
         sb.append(" order by createTimeStamp asc");
         sb.append(" limit ?)");
         return new bv(str, sb.toString(), new String[]{String.valueOf(i)}, "a job build to delete history message");
     }
 
     private void a(long j) {
-        if (this.f239a == null || this.f239a.length <= 0) {
+        if (this.f160a == null || this.f160a.length <= 0) {
             return;
         }
-        this.f239a[0] = String.valueOf(j);
+        this.f160a[0] = String.valueOf(j);
     }
 
     @Override // com.xiaomi.push.cb.a
@@ -34,7 +34,7 @@ public class bv extends bx {
         if (obj instanceof Long) {
             long longValue = ((Long) obj).longValue();
             long a2 = ch.a(a());
-            long j = bt.f220a;
+            long j = bt.f141a;
             if (a2 <= j) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
                 return;

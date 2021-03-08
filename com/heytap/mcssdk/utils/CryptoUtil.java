@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CryptoUtil {
     private static final int DEFAULT_RADIX = 16;
     public static final String DES_KEY = "com.nearme.mcs";
@@ -51,8 +51,8 @@ public class CryptoUtil {
 
     public static String parseByte2HexStr(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (hexString.length() == 1) {
                 hexString = "0" + hexString;
             }
@@ -75,9 +75,9 @@ public class CryptoUtil {
     public static byte[] swapBytes(byte[] bArr) {
         int length = bArr.length % 2 == 0 ? bArr.length : bArr.length - 1;
         for (int i = 0; i < length; i += 2) {
-            byte b2 = bArr[i];
+            byte b = bArr[i];
             bArr[i] = bArr[i + 1];
-            bArr[i + 1] = b2;
+            bArr[i + 1] = b;
         }
         return bArr;
     }

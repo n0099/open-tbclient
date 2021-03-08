@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 @NotProguard
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class WebGLImage {
     private static final boolean DEBUG = false;
     private static final String TAG = "WebGLImage";
@@ -291,7 +291,7 @@ public class WebGLImage {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class CanvasResult {
         @V8JavascriptField
         public String errMsg;

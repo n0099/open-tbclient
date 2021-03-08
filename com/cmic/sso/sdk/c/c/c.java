@@ -8,14 +8,12 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f7715a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f7716b;
+    String f5213a;
+    private String b;
     private Map<String, String> c;
     private String d;
     private boolean e;
@@ -23,15 +21,15 @@ public class c {
     private long h;
     private String i;
     private int j;
-    private Network pxt;
-    private g pxu;
+    private Network pzy;
+    private g pzz;
 
     private c(String str, Map<String, String> map, g gVar, String str2, String str3) {
         this.e = false;
-        this.f7716b = str;
-        this.pxu = gVar;
+        this.b = str;
+        this.pzz = gVar;
         this.c = map == null ? new HashMap<>() : map;
-        this.f7715a = gVar == null ? "" : gVar.b().toString();
+        this.f5213a = gVar == null ? "" : gVar.b().toString();
         this.d = str2;
         this.f = str3;
         this.i = gVar == null ? "" : gVar.a();
@@ -55,7 +53,7 @@ public class c {
     }
 
     public String a() {
-        return this.f7716b;
+        return this.b;
     }
 
     public boolean b() {
@@ -72,7 +70,7 @@ public class c {
     }
 
     public String d() {
-        return this.f7715a;
+        return this.f5213a;
     }
 
     public String e() {
@@ -84,15 +82,15 @@ public class c {
     }
 
     public boolean g() {
-        return !e.a(this.f) || this.f7716b.contains("logReport") || this.f7716b.contains("uniConfig");
+        return !e.a(this.f) || this.b.contains("logReport") || this.b.contains("uniConfig");
     }
 
-    public Network ery() {
-        return this.pxt;
+    public Network erH() {
+        return this.pzy;
     }
 
     public void d(Network network) {
-        this.pxt = network;
+        this.pzy = network;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -111,7 +109,7 @@ public class c {
         return i < 2;
     }
 
-    public g erz() {
-        return this.pxu;
+    public g erI() {
+        return this.pzz;
     }
 }

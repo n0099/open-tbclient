@@ -1,72 +1,76 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
-import com.bytedance.sdk.openadsdk.preload.a.i;
+import java.lang.reflect.Type;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class g<T> extends d<List<T>, T> {
-    private Executor d;
+public final class g {
+    private String h;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d
-    /* renamed from: a */
-    public final Object a_(final b<T> bVar, List<T> list) throws Throwable {
-        final CountDownLatch countDownLatch = new CountDownLatch(list.size());
-        final CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
-        final CopyOnWriteArrayList copyOnWriteArrayList2 = new CopyOnWriteArrayList();
-        for (final T t : list) {
-            this.d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.a.g.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    try {
-                        try {
-                            copyOnWriteArrayList.add(bVar.a((b) t));
-                            countDownLatch.countDown();
-                        } catch (i.a e) {
-                            Throwable cause = e.getCause();
-                            copyOnWriteArrayList2.add(cause);
-                            g.this.d(cause);
-                            countDownLatch.countDown();
-                        } catch (Throwable th) {
-                            copyOnWriteArrayList2.add(th);
-                            g.this.d(th);
-                            countDownLatch.countDown();
-                        }
-                    } catch (Throwable th2) {
-                        countDownLatch.countDown();
-                        throw th2;
-                    }
-                }
-            });
+    /* renamed from: a  reason: collision with root package name */
+    private com.bytedance.sdk.openadsdk.preload.a.b.d f5032a = com.bytedance.sdk.openadsdk.preload.a.b.d.f5005a;
+    private u b = u.DEFAULT;
+    private e c = d.IDENTITY;
+    private final Map<Type, h<?>> d = new HashMap();
+    private final List<w> e = new ArrayList();
+    private final List<w> f = new ArrayList();
+    private boolean g = false;
+    private int i = 2;
+    private int j = 2;
+    private boolean k = false;
+    private boolean l = false;
+    private boolean m = true;
+    private boolean n = false;
+    private boolean o = false;
+    private boolean p = false;
+
+    public g a(Type type, Object obj) {
+        com.bytedance.sdk.openadsdk.preload.a.b.a.a((obj instanceof s) || (obj instanceof k) || (obj instanceof h) || (obj instanceof v));
+        if (obj instanceof h) {
+            this.d.put(type, (h) obj);
         }
-        countDownLatch.await();
-        if (copyOnWriteArrayList2.isEmpty()) {
-            return copyOnWriteArrayList;
+        if ((obj instanceof s) || (obj instanceof k)) {
+            this.e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.l.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), obj));
         }
-        throw new com.bytedance.sdk.openadsdk.preload.a.a.a(copyOnWriteArrayList2);
+        if (obj instanceof v) {
+            this.e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), (v) obj));
+        }
+        return this;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d
-    public void a(Object... objArr) {
-        super.a(objArr);
-        if (objArr != null) {
-            if (objArr.length != 1) {
-                throw new IllegalArgumentException("ParallelInterceptor only need one param");
-            }
-            if (!(objArr[0] instanceof Executor)) {
-                throw new IllegalArgumentException("ParallelInterceptor args must be instance of Executor");
-            }
-            this.d = (Executor) objArr[0];
+    public f a() {
+        List<w> arrayList = new ArrayList<>(this.e.size() + this.f.size() + 3);
+        arrayList.addAll(this.e);
+        Collections.reverse(arrayList);
+        ArrayList arrayList2 = new ArrayList(this.f);
+        Collections.reverse(arrayList2);
+        arrayList.addAll(arrayList2);
+        a(this.h, this.i, this.j, arrayList);
+        return new f(this.f5032a, this.c, this.d, this.g, this.k, this.o, this.m, this.n, this.p, this.l, this.b, this.h, this.i, this.j, this.e, this.f, arrayList);
+    }
+
+    private void a(String str, int i, int i2, List<w> list) {
+        a aVar;
+        a aVar2;
+        a aVar3;
+        if (str != null && !"".equals(str.trim())) {
+            aVar = new a(Date.class, str);
+            aVar2 = new a(Timestamp.class, str);
+            aVar3 = new a(java.sql.Date.class, str);
+        } else if (i != 2 && i2 != 2) {
+            aVar = new a(Date.class, i, i2);
+            aVar2 = new a(Timestamp.class, i, i2);
+            aVar3 = new a(java.sql.Date.class, i, i2);
+        } else {
             return;
         }
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 3, 10L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
-        this.d = threadPoolExecutor;
+        list.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Date.class, aVar));
+        list.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(Timestamp.class, aVar2));
+        list.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(java.sql.Date.class, aVar3));
     }
 }

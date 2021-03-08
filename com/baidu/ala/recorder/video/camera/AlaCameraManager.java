@@ -21,7 +21,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaCameraManager implements ICameraStatusHandler {
     private static final int CAMERA_FLUSHLIGHT_OFF = 2;
     private static final int CAMERA_FLUSHLIGHT_ON = 1;

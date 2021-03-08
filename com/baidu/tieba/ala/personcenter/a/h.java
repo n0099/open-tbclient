@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.k, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a>> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.k.hZZ);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.k.ibI);
         this.mPageContext = tbPageContext;
     }
 
@@ -32,22 +32,22 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.k kVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.a> cardViewHolder) {
-        if (cardViewHolder.cti() == null) {
+        if (cardViewHolder.cto() == null) {
             return null;
         }
-        a(kVar, cardViewHolder.cti());
-        cardViewHolder.cti().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.h.1
+        a(kVar, cardViewHolder.cto());
+        cardViewHolder.cto().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.h.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 h.this.a(kVar);
             }
         });
-        return cardViewHolder.cti().getView();
+        return cardViewHolder.cto().getView();
     }
 
     private void a(com.baidu.tieba.ala.personcenter.c.k kVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
         if (kVar.getPersonCenterData() != null) {
-            aVar.wv(8);
+            aVar.ww(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_my_love_family));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -56,7 +56,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.personcenter.c.k kVar) {
         if (kVar != null && kVar.getPersonCenterData() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLoveFamilyActivityConfig(this.mContext, kVar.getPersonCenterData().cmW().user_id)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLoveFamilyActivityConfig(this.mContext, kVar.getPersonCenterData().cnc().user_id)));
         }
     }
 }

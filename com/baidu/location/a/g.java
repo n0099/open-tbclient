@@ -8,11 +8,9 @@ import java.io.RandomAccessFile;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f2547a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f2548b = "Temp_in.dat";
-    private static File c = new File(com.baidu.location.d.i.f2640a, f2548b);
+    private static g f1913a = null;
+    private static String b = "Temp_in.dat";
+    private static File c = new File(com.baidu.location.d.i.f1973a, b);
     private static StringBuffer d = null;
     private static boolean e = true;
     private static int f = 0;

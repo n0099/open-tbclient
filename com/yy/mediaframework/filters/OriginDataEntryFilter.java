@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OriginDataEntryFilter extends AbstractYYMediaFilter implements SurfaceTexture.OnFrameAvailableListener {
     public static final int ORIGIN_PIC_FORMAT_I420 = 1;
     public static final int ORIGIN_PIC_FORMAT_NV21 = 2;

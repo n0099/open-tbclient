@@ -12,15 +12,15 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class r {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Pattern dOZ = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-    private static HashMap<String, Integer> dPa = new HashMap<>();
-    private static HashMap<String, Integer> dPb = new HashMap<>();
-    private static HashMap<String, String> dPc = new HashMap<>();
-    private static HashMap<String, String> dPd = new HashMap<>();
-    private static final Pattern dPe;
+    private static final Pattern dQA = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    private static HashMap<String, Integer> dQB = new HashMap<>();
+    private static HashMap<String, Integer> dQC = new HashMap<>();
+    private static HashMap<String, String> dQD = new HashMap<>();
+    private static HashMap<String, String> dQE = new HashMap<>();
+    private static final Pattern dQF;
 
     static {
         k("application/andrew-inset", "ez", 5);
@@ -341,19 +341,19 @@ public final class r {
         k("audio/aac", "aac", 1);
         k("application/vnd.rn-realmedia", "rm", 0);
         k("message/rfc822", "mht", 11);
-        dPe = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        dQF = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void k(String str, String str2, int i) {
-        dPa.put(str2, Integer.valueOf(i));
-        dPb.put(str, Integer.valueOf(i));
-        dPc.put(str2, str);
-        if (!dPd.containsKey(str)) {
-            dPd.put(str, str2);
+        dQB.put(str2, Integer.valueOf(i));
+        dQC.put(str, Integer.valueOf(i));
+        dQD.put(str2, str);
+        if (!dQE.containsKey(str)) {
+            dQE.put(str, str2);
         }
     }
 
-    public static String tR(String str) {
+    public static String tY(String str) {
         int lastIndexOf;
         if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -362,23 +362,23 @@ public final class r {
     }
 
     @Nullable
-    public static String tS(String str) {
+    public static String tZ(String str) {
         if (str == null) {
             return null;
         }
-        return dPd.get(str);
+        return dQE.get(str);
     }
 
-    public static String tT(String str) {
+    public static String ua(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return dPc.get(str);
+        return dQD.get(str);
     }
 
-    public static String tU(String str) {
+    public static String ub(String str) {
         try {
-            Matcher matcher = dOZ.matcher(str);
+            Matcher matcher = dQA.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

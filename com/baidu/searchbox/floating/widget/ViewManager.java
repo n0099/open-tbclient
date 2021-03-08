@@ -31,7 +31,7 @@ import kotlin.jvm.internal.p;
 import kotlin.jvm.internal.s;
 import kotlin.reflect.j;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ViewManager {
     static final /* synthetic */ j[] $$delegatedProperties = {s.a(new PropertyReference1Impl(s.G(ViewManager.class), "mContainer", "getMContainer()Lcom/baidu/searchbox/floating/widget/FloatContainer;")), s.a(new PropertyReference1Impl(s.G(ViewManager.class), "mTouchHelper", "getMTouchHelper()Lcom/baidu/searchbox/floating/utils/TouchHelper;"))};
     private Config config;
@@ -56,8 +56,8 @@ public final class ViewManager {
     }
 
     public ViewManager(Context context, Config config) {
-        p.o(context, "context");
-        p.o(config, "config");
+        p.p(context, "context");
+        p.p(config, "config");
         this.context = context;
         this.config = config;
         this.mContainer$delegate = d.b(new ViewManager$mContainer$2(this));
@@ -67,7 +67,7 @@ public final class ViewManager {
     public static final /* synthetic */ WindowManager.LayoutParams access$getMParam$p(ViewManager viewManager) {
         WindowManager.LayoutParams layoutParams = viewManager.mParam;
         if (layoutParams == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         return layoutParams;
     }
@@ -75,7 +75,7 @@ public final class ViewManager {
     public static final /* synthetic */ WindowManager access$getMWindowManager$p(ViewManager viewManager) {
         WindowManager windowManager = viewManager.mWindowManager;
         if (windowManager == null) {
-            p.acs("mWindowManager");
+            p.acr("mWindowManager");
         }
         return windowManager;
     }
@@ -89,7 +89,7 @@ public final class ViewManager {
     }
 
     public final void setConfig(Config config) {
-        p.o(config, "<set-?>");
+        p.p(config, "<set-?>");
         this.config = config;
     }
 
@@ -126,12 +126,12 @@ public final class ViewManager {
         Pair<Integer, Integer> location = getLocation();
         WindowManager.LayoutParams layoutParams2 = this.mParam;
         if (layoutParams2 == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         layoutParams2.x = location.getFirst().intValue();
         WindowManager.LayoutParams layoutParams3 = this.mParam;
         if (layoutParams3 == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         layoutParams3.y = location.getSecond().intValue();
     }
@@ -144,7 +144,7 @@ public final class ViewManager {
         FloatContainer mContainer = getMContainer();
         View floatingView2 = this.config.getFloatingView();
         if (floatingView2 == null) {
-            p.eLu();
+            p.eLc();
         }
         mContainer.addView(floatingView2);
         getMContainer().setTouchListener(new FloatContainer.TouchListener() { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$1
@@ -152,7 +152,7 @@ public final class ViewManager {
             public void onTouch(MotionEvent motionEvent) {
                 TouchHelper mTouchHelper;
                 FloatContainer mContainer2;
-                p.o(motionEvent, "event");
+                p.p(motionEvent, "event");
                 mTouchHelper = ViewManager.this.getMTouchHelper();
                 mContainer2 = ViewManager.this.getMContainer();
                 mTouchHelper.onTouch(mContainer2, motionEvent, ViewManager.access$getMWindowManager$p(ViewManager.this), ViewManager.access$getMParam$p(ViewManager.this));
@@ -166,12 +166,12 @@ public final class ViewManager {
         });
         WindowManager windowManager = this.mWindowManager;
         if (windowManager == null) {
-            p.acs("mWindowManager");
+            p.acr("mWindowManager");
         }
         FloatContainer mContainer2 = getMContainer();
         WindowManager.LayoutParams layoutParams = this.mParam;
         if (layoutParams == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         windowManager.addView(mContainer2, layoutParams);
         Point position = getPosition();
@@ -208,17 +208,17 @@ public final class ViewManager {
         WeakReference<View> weakReference = new WeakReference<>(getMContainer());
         WindowManager.LayoutParams layoutParams = this.mParam;
         if (layoutParams == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         WindowManager windowManager = this.mWindowManager;
         if (windowManager == null) {
-            p.acs("mWindowManager");
+            p.acr("mWindowManager");
         }
         Animator enterAnim = animator.enterAnim(weakReference, layoutParams, windowManager);
         if (enterAnim != null) {
             WindowManager.LayoutParams layoutParams2 = this.mParam;
             if (layoutParams2 == null) {
-                p.acs("mParam");
+                p.acr("mParam");
             }
             layoutParams2.flags = 552;
             enterAnim.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.floating.widget.ViewManager$enterAnim$$inlined$apply$lambda$1
@@ -250,17 +250,17 @@ public final class ViewManager {
                     WeakReference<View> weakReference = new WeakReference<>(getMContainer());
                     WindowManager.LayoutParams layoutParams = this.mParam;
                     if (layoutParams == null) {
-                        p.acs("mParam");
+                        p.acr("mParam");
                     }
                     WindowManager windowManager = this.mWindowManager;
                     if (windowManager == null) {
-                        p.acs("mWindowManager");
+                        p.acr("mWindowManager");
                     }
                     Animator exitAnim = animator.exitAnim(weakReference, layoutParams, windowManager);
                     if (exitAnim != null) {
                         WindowManager.LayoutParams layoutParams2 = this.mParam;
                         if (layoutParams2 == null) {
-                            p.acs("mParam");
+                            p.acr("mParam");
                         }
                         layoutParams2.flags = 552;
                         exitAnim.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.searchbox.floating.widget.ViewManager$exitAnim$$inlined$apply$lambda$1
@@ -294,12 +294,12 @@ public final class ViewManager {
         Pair<Integer, Integer> size = getSize();
         WindowManager.LayoutParams layoutParams = this.mParam;
         if (layoutParams == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         int i = layoutParams.width;
         WindowManager.LayoutParams layoutParams2 = this.mParam;
         if (layoutParams2 == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         if (this.config.getReverse()) {
             layoutParams2.width = size.getSecond().intValue();
@@ -311,18 +311,18 @@ public final class ViewManager {
         if (getMContainer().getParent() != null) {
             WindowManager windowManager = this.mWindowManager;
             if (windowManager == null) {
-                p.acs("mWindowManager");
+                p.acr("mWindowManager");
             }
             FloatContainer mContainer = getMContainer();
             WindowManager.LayoutParams layoutParams3 = this.mParam;
             if (layoutParams3 == null) {
-                p.acs("mParam");
+                p.acr("mParam");
             }
             windowManager.updateViewLayout(mContainer, layoutParams3);
         }
         WindowManager.LayoutParams layoutParams4 = this.mParam;
         if (layoutParams4 == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         int i2 = layoutParams4.width;
         Point position = getPosition();
@@ -384,19 +384,19 @@ public final class ViewManager {
             FloatPrefs.Companion companion = FloatPrefs.Companion;
             WindowManager.LayoutParams layoutParams = this.mParam;
             if (layoutParams == null) {
-                p.acs("mParam");
+                p.acr("mParam");
             }
             Integer valueOf = Integer.valueOf(layoutParams.x);
             WindowManager.LayoutParams layoutParams2 = this.mParam;
             if (layoutParams2 == null) {
-                p.acs("mParam");
+                p.acr("mParam");
             }
             companion.setLocation(new Pair<>(valueOf, Integer.valueOf(layoutParams2.y)));
             FloatPrefs.Companion.setScaleMode(this.config.getScaleMode());
             getMContainer().removeAllViews();
             WindowManager windowManager = this.mWindowManager;
             if (windowManager == null) {
-                p.acs("mWindowManager");
+                p.acr("mWindowManager");
             }
             windowManager.removeView(getMContainer());
         }
@@ -405,7 +405,7 @@ public final class ViewManager {
     private final View getContentView() {
         View floatingView = this.config.getFloatingView();
         if (floatingView == null) {
-            p.eLu();
+            p.eLc();
         }
         return floatingView;
     }
@@ -420,7 +420,7 @@ public final class ViewManager {
                 int screenHeight = UtilsKt.getScreenHeight(this.context) - UtilsKt.getStatusBarHeight(this.context);
                 WindowManager.LayoutParams layoutParams = this.mParam;
                 if (layoutParams == null) {
-                    p.acs("mParam");
+                    p.acr("mParam");
                 }
                 dpToPxByScale2 = (screenHeight - layoutParams.height) - UtilsKt.dpToPxByScale(this.context, this.config.getLocation().getSecond().intValue());
             } else {
@@ -428,7 +428,7 @@ public final class ViewManager {
                 int screenHeight2 = UtilsKt.getScreenHeight(this.context);
                 WindowManager.LayoutParams layoutParams2 = this.mParam;
                 if (layoutParams2 == null) {
-                    p.acs("mParam");
+                    p.acr("mParam");
                 }
                 dpToPxByScale2 = (screenHeight2 - layoutParams2.height) - UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().bottom);
             }
@@ -447,12 +447,12 @@ public final class ViewManager {
     public final Point getPosition() {
         WindowManager.LayoutParams layoutParams = this.mParam;
         if (layoutParams == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         int i = layoutParams.x;
         WindowManager.LayoutParams layoutParams2 = this.mParam;
         if (layoutParams2 == null) {
-            p.acs("mParam");
+            p.acr("mParam");
         }
         return new Point(i, layoutParams2.y);
     }

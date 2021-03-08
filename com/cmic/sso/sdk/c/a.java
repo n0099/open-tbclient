@@ -9,57 +9,55 @@ import com.cmic.sso.sdk.c.d.b;
 import com.cmic.sso.sdk.e.s;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7698a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f7699b;
+    private String f5204a;
+    private String b;
 
     public c a(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
         List<String> list;
-        Map<String, List<String>> b2 = bVar.b();
-        if (TextUtils.isEmpty(this.f7698a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
-            this.f7698a = list.get(0);
+        Map<String, List<String>> b = bVar.b();
+        if (TextUtils.isEmpty(this.f5204a) && (list = b.get("pplocation")) != null && list.size() > 0) {
+            this.f5204a = list.get(0);
         }
         s.b(aVar, String.valueOf(bVar.a()));
-        List<String> list2 = b2.get(Headers.LOCATION);
+        List<String> list2 = b.get(Headers.LOCATION);
         if (list2 == null || list2.isEmpty()) {
-            list2 = b2.get(Headers.LOCATION.toLowerCase());
+            list2 = b.get(Headers.LOCATION.toLowerCase());
         }
         if (list2 != null && list2.size() > 0) {
-            this.f7699b = list2.get(0);
-            if (!TextUtils.isEmpty(this.f7699b)) {
-                String b3 = aVar.b("operatortype", "0");
-                if ("2".equals(b3)) {
+            this.b = list2.get(0);
+            if (!TextUtils.isEmpty(this.b)) {
+                String b2 = aVar.b("operatortype", "0");
+                if ("2".equals(b2)) {
                     s.a(aVar, "getUnicomMobile");
-                } else if ("3".equals(b3)) {
+                } else if ("3".equals(b2)) {
                     s.a(aVar, "getTelecomMobile");
                 } else {
                     s.a(aVar, "NONE");
                 }
             }
         }
-        c a2 = a(this.f7699b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.erz().a()));
-        a2.d(cVar.ery());
+        c a2 = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.erI().a()));
+        a2.d(cVar.erH());
         return a2;
     }
 
     public c b(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
-        String b2 = aVar.b("operatortype", "0");
-        if ("2".equals(b2)) {
+        String b = aVar.b("operatortype", "0");
+        if ("2".equals(b)) {
             s.a(aVar, "getNewUnicomPhoneNumberNotify");
-        } else if ("3".equals(b2)) {
+        } else if ("3".equals(b)) {
             s.a(aVar, "getNewTelecomPhoneNumberNotify");
         } else {
             s.a(aVar, "NONE");
         }
         s.b(aVar, String.valueOf(bVar.a()));
-        c a2 = a("http://www.cmpassport.com/unisdk" + this.f7698a, cVar.f(), "POST", new d(cVar.erz().a(), "1.0", bVar.c()));
-        a2.d(cVar.ery());
-        this.f7698a = null;
+        c a2 = a("http://www.cmpassport.com/unisdk" + this.f5204a, cVar.f(), "POST", new d(cVar.erI().a(), "1.0", bVar.c()));
+        a2.d(cVar.erH());
+        this.f5204a = null;
         return a2;
     }
 
@@ -72,6 +70,6 @@ public class a {
     }
 
     public String a() {
-        return this.f7698a;
+        return this.f5204a;
     }
 }

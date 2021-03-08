@@ -2,7 +2,7 @@ package com.yy.mediaframework.utils;
 
 import com.yy.mediaframework.Constant;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoSizeUtils {
     private static final String TAG = "VideoSizeUtils";
 
@@ -63,7 +63,7 @@ public class VideoSizeUtils {
         return size;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Size {
         public int height;
         public int width;

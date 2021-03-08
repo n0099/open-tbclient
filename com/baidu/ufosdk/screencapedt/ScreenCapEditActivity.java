@@ -40,14 +40,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ScreenCapEditActivity extends Activity implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5395a = b() + "/ufo/ufo_screen.jpeg";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f5396b = SupportMenu.CATEGORY_MASK;
+    public static String f3629a = b() + "/ufo/ufo_screen.jpeg";
+    public static int b = SupportMenu.CATEGORY_MASK;
     public static int d = 0;
     private float A;
     private float B;
@@ -97,7 +95,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
 
     private void a() {
         this.m = new Canvas(this.g);
-        this.n.setColor(f5396b);
+        this.n.setColor(b);
         this.n.setStyle(Paint.Style.STROKE);
         if (this.n.getStrokeWidth() < d) {
             this.n.setStrokeWidth(d);
@@ -383,9 +381,9 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
         String str = b() + "/ufo";
         try {
             File file = new File(str);
-            f5395a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
-            com.baidu.ufosdk.f.c.b("--savePic--" + f5395a);
-            File file2 = new File(f5395a);
+            f3629a = str + "/ufo_" + System.currentTimeMillis() + ".jpeg";
+            com.baidu.ufosdk.f.c.b("--savePic--" + f3629a);
+            File file2 = new File(f3629a);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -634,7 +632,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.e.setScaleType(ImageView.ScaleType.FIT_CENTER);
             this.e.setImageBitmap(this.f);
         }
-        this.n.setColor(f5396b);
+        this.n.setColor(b);
         this.n.setStyle(Paint.Style.STROKE);
         this.n.setStrokeCap(Paint.Cap.ROUND);
         this.n.setStrokeJoin(Paint.Join.ROUND);

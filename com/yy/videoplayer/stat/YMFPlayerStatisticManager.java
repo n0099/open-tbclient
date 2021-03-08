@@ -5,7 +5,7 @@ import com.yy.videoplayer.stat.VideoStatisticTool;
 import com.yy.videoplayer.utils.YMFLog;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFPlayerStatisticManager {
     protected static final int RESET_DATA_COUNT = 10;
     protected static final int RESET_DATA_TIME = 5000;

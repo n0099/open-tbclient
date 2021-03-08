@@ -3,7 +3,7 @@ package com.baidu.searchbox.floating.config;
 import kotlin.Pair;
 import kotlin.e;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public enum ScaleMode {
     S { // from class: com.baidu.searchbox.floating.config.ScaleMode.S
         @Override // com.baidu.searchbox.floating.config.ScaleMode

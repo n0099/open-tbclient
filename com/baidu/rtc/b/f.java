@@ -2,53 +2,53 @@ package com.baidu.rtc.b;
 
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class f {
-    private int czO;
-    private Handler czQ;
-    private long czN = 0;
-    private e ctO = null;
-    private Runnable czP = new Runnable() { // from class: com.baidu.rtc.b.f.1
+    private int cBo;
+    private Handler cBq;
+    private long cBn = 0;
+    private e cvq = null;
+    private Runnable cBp = new Runnable() { // from class: com.baidu.rtc.b.f.1
         @Override // java.lang.Runnable
         public void run() {
-            f.this.aft();
-            f.this.czQ.postDelayed(f.this.czP, 5000L);
+            f.this.afw();
+            f.this.cBq.postDelayed(f.this.cBp, 5000L);
         }
     };
 
     public f(int i) {
-        this.czQ = null;
-        this.czO = 600;
-        this.czQ = new Handler(Looper.getMainLooper());
-        this.czO = i;
+        this.cBq = null;
+        this.cBo = 600;
+        this.cBq = new Handler(Looper.getMainLooper());
+        this.cBo = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aft() {
+    public void afw() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.czN > this.czO && this.ctO != null) {
-            this.ctO.m(this.czN, currentTimeMillis);
+        if (currentTimeMillis - this.cBn > this.cBo && this.cvq != null) {
+            this.cvq.m(this.cBn, currentTimeMillis);
         }
-        this.czN = System.currentTimeMillis();
+        this.cBn = System.currentTimeMillis();
     }
 
-    public void afu() {
-        if (this.czN <= 0) {
-            this.czQ.postDelayed(this.czP, 5000L);
-            this.czN = System.currentTimeMillis();
+    public void afx() {
+        if (this.cBn <= 0) {
+            this.cBq.postDelayed(this.cBp, 5000L);
+            this.cBn = System.currentTimeMillis();
             return;
         }
-        this.czQ.removeCallbacks(this.czP);
-        aft();
-        this.czQ.postDelayed(this.czP, 5000L);
+        this.cBq.removeCallbacks(this.cBp);
+        afw();
+        this.cBq.postDelayed(this.cBp, 5000L);
     }
 
     public void reset() {
-        this.czN = 0L;
-        this.czQ.removeCallbacks(this.czP);
+        this.cBn = 0L;
+        this.cBq.removeCallbacks(this.cBp);
     }
 
     public void setStuckEventListener(e eVar) {
-        this.ctO = eVar;
+        this.cvq = eVar;
     }
 }

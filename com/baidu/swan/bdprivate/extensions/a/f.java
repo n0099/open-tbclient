@@ -12,7 +12,7 @@ import com.baidu.swan.apps.setting.oauth.a.a;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f extends aa {
     public f(j jVar) {
         super(jVar, "/swanAPI/getPhoneNumberByLogin");
@@ -34,19 +34,19 @@ public class f extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        com.baidu.swan.apps.a.b aIX = com.baidu.swan.apps.runtime.d.aIG().aIC().aIX();
-        if (aIX == null) {
+        com.baidu.swan.apps.a.b aJa = com.baidu.swan.apps.runtime.d.aIJ().aIF().aJa();
+        if (aJa == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty account");
             return false;
         }
-        if (aIX.isLogin(context)) {
+        if (aJa.isLogin(context)) {
             a(true, null, callbackHandler, optString, 20050001, "user already login");
         } else {
-            eVar.aIW().e("login_with_mobile", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.bdprivate.extensions.a.f.1
+            eVar.aIZ().e("login_with_mobile", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.bdprivate.extensions.a.f.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: c */
-                public void L(com.baidu.swan.apps.setting.oauth.e eVar2) {
+                public void N(com.baidu.swan.apps.setting.oauth.e eVar2) {
                     if (eVar2 == null || eVar2.forbidden) {
                         f.this.a(false, null, callbackHandler, optString, 10005, "system deny");
                         com.baidu.swan.apps.statistic.h.b(10005, eVar2);
@@ -77,7 +77,7 @@ public class f extends aa {
                         f.this.a(false, null, callbackHandler, str, 20050003, "user fail to login");
                         return;
                     case 0:
-                        f.this.a(eVar.dJc, com.baidu.swan.apps.v.f.aAl().azV(), callbackHandler, str);
+                        f.this.a(eVar.dKD, com.baidu.swan.apps.v.f.aAo().azY(), callbackHandler, str);
                         return;
                 }
             }
@@ -87,24 +87,24 @@ public class f extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, FragmentActivity fragmentActivity, final CallbackHandler callbackHandler, final String str) {
         if (z) {
-            com.baidu.swan.apps.runtime.d.aIG().aII().ags().ail().a(fragmentActivity, z, "login_with_mobile", null).A(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<a.C0466a>>() { // from class: com.baidu.swan.bdprivate.extensions.a.f.3
+            com.baidu.swan.apps.runtime.d.aIJ().aIL().agv().aio().a(fragmentActivity, z, "login_with_mobile", null).A(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<a.C0472a>>() { // from class: com.baidu.swan.bdprivate.extensions.a.f.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
-                public void L(com.baidu.swan.apps.setting.oauth.h<a.C0466a> hVar) {
-                    if (hVar == null || !hVar.isOk() || hVar.mData == null || hVar.mData.dJN == null) {
+                public void N(com.baidu.swan.apps.setting.oauth.h<a.C0472a> hVar) {
+                    if (hVar == null || !hVar.isOk() || hVar.mData == null || hVar.mData.dLo == null) {
                         f.this.a(true, null, callbackHandler, str, 20050004, "user fail to get mobile information");
                         return;
                     }
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("data", hVar.mData.dJN.optString("data"));
-                        jSONObject.put("iv", hVar.mData.dJN.optString("iv"));
+                        jSONObject.put("data", hVar.mData.dLo.optString("data"));
+                        jSONObject.put("iv", hVar.mData.dLo.optString("iv"));
                         f.this.a(true, jSONObject, callbackHandler, str, 0, "success");
                     } catch (JSONException e) {
                     }
                 }
-            }).aKB();
+            }).aKE();
         } else {
             a(true, null, callbackHandler, str, 20050004, "user fail to get mobile information");
         }

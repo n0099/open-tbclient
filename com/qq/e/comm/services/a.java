@@ -10,6 +10,7 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.plugin.PM;
+import com.qq.e.comm.managers.plugin.c;
 import com.qq.e.comm.managers.setting.SM;
 import com.qq.e.comm.managers.status.APPStatus;
 import com.qq.e.comm.managers.status.DeviceStatus;
@@ -29,17 +30,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a f12751a = new a();
-
-    /* renamed from: b  reason: collision with root package name */
-    private volatile Boolean f12752b = Boolean.FALSE;
+    private static final a f7592a = new a();
+    private volatile Boolean b = Boolean.FALSE;
 
     public static a a() {
-        return f12751a;
+        return f7592a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0005 */
@@ -113,66 +112,62 @@ public class a {
     }
 
     public final void a(Context context, SM sm, final PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
-        if (this.f12752b.booleanValue()) {
+        if (this.b.booleanValue()) {
             return;
         }
         synchronized (a.class) {
-            try {
-                if (!this.f12752b.booleanValue()) {
-                    String a2 = a(sm, pm, deviceStatus, aPPStatus, j);
-                    GDTLogger.d("launch request: " + a2);
-                    String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/activate" : "http://sdk.e.qq.com/launch";
-                    final long currentTimeMillis = System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(str, a2.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new NetworkCallBack() { // from class: com.qq.e.comm.services.a.1
-                        @Override // com.qq.e.comm.net.NetworkCallBack
-                        public final void onException(Exception exc) {
-                            GDTLogger.e("ActivateError", exc);
-                            RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", -1, (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1));
-                        }
+            if (!this.b.booleanValue()) {
+                String a2 = a(sm, pm, deviceStatus, aPPStatus, j);
+                GDTLogger.d("launch request: " + a2);
+                String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/activate" : "http://sdk.e.qq.com/launch";
+                final long currentTimeMillis = System.currentTimeMillis();
+                NetworkClientImpl.getInstance().submit(new S2SSRequest(str, a2.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new NetworkCallBack() { // from class: com.qq.e.comm.services.a.1
+                    @Override // com.qq.e.comm.net.NetworkCallBack
+                    public final void onException(Exception exc) {
+                        GDTLogger.e("ActivateError", exc);
+                        RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", -1, (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1));
+                    }
 
-                        @Override // com.qq.e.comm.net.NetworkCallBack
-                        public final void onResponse(Request request, Response response) {
-                            try {
-                                if (response.getStatusCode() == 200) {
-                                    String stringContent = response.getStringContent();
-                                    GDTLogger.d("ACTIVERESPONSE:" + stringContent);
-                                    if (StringUtil.isEmpty(stringContent)) {
-                                        GDTLogger.report("SDK Server response empty string,maybe zip or tea format error");
-                                        return;
-                                    }
-                                    JSONObject jSONObject = new JSONObject(stringContent);
-                                    int i = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
-                                    if (i != 0) {
-                                        GDTLogger.e("Response Error,retCode=" + i);
-                                    } else if (pm != null) {
-                                        try {
-                                            pm.getPOFactory().config(1, stringContent);
-                                        } catch (com.qq.e.comm.managers.plugin.a e) {
-                                            e.printStackTrace();
-                                        }
-                                        if (jSONObject.has("sig")) {
-                                            JSONObject jSONObject2 = jSONObject.getJSONObject("sig");
-                                            if (jSONObject2.has("jar") && jSONObject2.has("url")) {
-                                                pm.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
-                                            }
-                                        }
-                                    }
-                                } else {
-                                    GDTLogger.e("SDK server response code error while launch or activate,code:" + response.getStatusCode());
+                    @Override // com.qq.e.comm.net.NetworkCallBack
+                    public final void onResponse(Request request, Response response) {
+                        try {
+                            if (response.getStatusCode() == 200) {
+                                String stringContent = response.getStringContent();
+                                GDTLogger.d("ACTIVERESPONSE:" + stringContent);
+                                if (StringUtil.isEmpty(stringContent)) {
+                                    GDTLogger.report("SDK Server response empty string,maybe zip or tea format error");
+                                    return;
                                 }
-                            } catch (IOException e2) {
-                                GDTLogger.e("ActivateError", e2);
-                            } catch (JSONException e3) {
-                                GDTLogger.e("Parse Active or launch response exception", e3);
-                            } finally {
-                                RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1));
+                                JSONObject jSONObject = new JSONObject(stringContent);
+                                int i = jSONObject.has(Constants.KEYS.RET) ? jSONObject.getInt(Constants.KEYS.RET) : -1;
+                                if (i != 0) {
+                                    GDTLogger.e("Response Error,retCode=" + i);
+                                } else if (pm != null) {
+                                    try {
+                                        pm.getPOFactory().config(1, stringContent);
+                                    } catch (c e) {
+                                        e.printStackTrace();
+                                    }
+                                    if (jSONObject.has("sig")) {
+                                        JSONObject jSONObject2 = jSONObject.getJSONObject("sig");
+                                        if (jSONObject2.has("jar") && jSONObject2.has("url")) {
+                                            pm.update(jSONObject2.getString("jar"), jSONObject2.getString("url"));
+                                        }
+                                    }
+                                }
+                            } else {
+                                GDTLogger.e("SDK server response code error while launch or activate,code:" + response.getStatusCode());
                             }
+                        } catch (IOException e2) {
+                            GDTLogger.e("ActivateError", e2);
+                        } catch (JSONException e3) {
+                            GDTLogger.e("Parse Active or launch response exception", e3);
+                        } finally {
+                            RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", Config.LAUNCH, "", response.getStatusCode(), (int) (System.currentTimeMillis() - currentTimeMillis), 0, 0, 1));
                         }
-                    });
-                    this.f12752b = Boolean.TRUE;
-                }
-            } catch (Throwable th) {
-                throw th;
+                    }
+                });
+                this.b = Boolean.TRUE;
             }
         }
     }

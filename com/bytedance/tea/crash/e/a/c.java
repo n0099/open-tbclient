@@ -14,20 +14,18 @@ import org.json.JSONObject;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.bytedance.tea.crash.c f7638a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected Context f7639b;
-    protected com.bytedance.tea.crash.d pwn = h.erl().erf();
-    protected b pwo;
-    protected d pwp;
+    protected com.bytedance.tea.crash.c f5169a;
+    protected Context b;
+    protected com.bytedance.tea.crash.d pyq = h.erv().ero();
+    protected b pyr;
+    protected d pys;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.bytedance.tea.crash.c cVar, Context context, b bVar, d dVar) {
-        this.f7638a = cVar;
-        this.f7639b = context;
-        this.pwo = bVar;
-        this.pwp = dVar;
+        this.f5169a = cVar;
+        this.b = context;
+        this.pyr = bVar;
+        this.pys = dVar;
     }
 
     public com.bytedance.tea.crash.c.a a(com.bytedance.tea.crash.c.a aVar) {
@@ -40,22 +38,22 @@ public abstract class c {
     }
 
     void b(com.bytedance.tea.crash.c.a aVar) {
-        if (b() && this.pwo != null) {
-            aVar.a(this.pwo);
+        if (b() && this.pyr != null) {
+            aVar.a(this.pyr);
         }
         aVar.iy(h.f());
-        aVar.a("is_background", Boolean.valueOf(!com.bytedance.tea.crash.g.a.a(this.f7639b)));
+        aVar.a("is_background", Boolean.valueOf(!com.bytedance.tea.crash.g.a.a(this.b)));
         aVar.a("pid", Integer.valueOf(Process.myPid()));
-        aVar.a("battery", Integer.valueOf(this.pwp.a()));
-        aVar.L(this.pwn.e());
-        aVar.M(h.erp());
+        aVar.a("battery", Integer.valueOf(this.pys.a()));
+        aVar.L(this.pyq.e());
+        aVar.M(h.erz());
         aVar.ci(h.j(), h.k());
-        aVar.gG(this.pwn.f());
-        aVar.eT(n.a(this.f7639b));
+        aVar.gG(this.pyq.f());
+        aVar.eW(n.a(this.b));
         if (a()) {
             e(aVar);
         }
-        aVar.Ze(this.pwn.d());
+        aVar.Zl(this.pyq.d());
         String g = h.g();
         if (g != null) {
             aVar.a(Constant.KEY_BUSINESS, g);
@@ -63,13 +61,13 @@ public abstract class c {
         if (h.h()) {
             aVar.a("is_mp", 1);
         }
-        aVar.N(h.erm().a());
+        aVar.N(h.erw().a());
         aVar.a("crash_uuid", UUID.randomUUID().toString());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(com.bytedance.tea.crash.c.a aVar) {
-        Map<String, Object> a2 = h.erl().a();
+        Map<String, Object> a2 = h.erv().a();
         if (a2 != null) {
             if (a2.containsKey("app_version")) {
                 aVar.a("crash_version", a2.get("app_version"));
@@ -95,11 +93,11 @@ public abstract class c {
     }
 
     private void d(com.bytedance.tea.crash.c.a aVar) {
-        List<com.bytedance.tea.crash.a> b2 = h.erm().b(this.f7638a);
-        if (b2 != null) {
+        List<com.bytedance.tea.crash.a> b = h.erw().b(this.f5169a);
+        if (b != null) {
             JSONObject jSONObject = new JSONObject();
-            for (com.bytedance.tea.crash.a aVar2 : b2) {
-                Map<? extends String, ? extends String> a2 = aVar2.a(this.f7638a);
+            for (com.bytedance.tea.crash.a aVar2 : b) {
+                Map<? extends String, ? extends String> a2 = aVar2.a(this.f5169a);
                 if (a2 != null) {
                     try {
                         for (String str : a2.keySet()) {
@@ -114,7 +112,7 @@ public abstract class c {
     }
 
     protected void e(com.bytedance.tea.crash.c.a aVar) {
-        aVar.gH(com.bytedance.tea.crash.e.e.a(h.ero().b(), h.ero().c()));
+        aVar.gH(com.bytedance.tea.crash.e.e.a(h.ery().b(), h.ery().c()));
     }
 
     protected boolean a() {

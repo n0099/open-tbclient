@@ -2,58 +2,58 @@ package com.baidu.live.lottie.model.content;
 
 import android.graphics.Path;
 import androidx.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d implements b {
-    private final Path.FillType FH;
-    private final GradientType btD;
-    private final com.baidu.live.lottie.model.a.c btE;
-    private final com.baidu.live.lottie.model.a.f btF;
-    private final com.baidu.live.lottie.model.a.f btG;
+    private final Path.FillType He;
+    private final com.baidu.live.lottie.model.a.d bva;
+    private final GradientType bve;
+    private final com.baidu.live.lottie.model.a.c bvf;
+    private final com.baidu.live.lottie.model.a.f bvg;
+    private final com.baidu.live.lottie.model.a.f bvh;
     @Nullable
-    private final com.baidu.live.lottie.model.a.b btH;
+    private final com.baidu.live.lottie.model.a.b bvi;
     @Nullable
-    private final com.baidu.live.lottie.model.a.b btI;
-    private final com.baidu.live.lottie.model.a.d btz;
+    private final com.baidu.live.lottie.model.a.b bvj;
     private final String name;
 
     public d(String str, GradientType gradientType, Path.FillType fillType, com.baidu.live.lottie.model.a.c cVar, com.baidu.live.lottie.model.a.d dVar, com.baidu.live.lottie.model.a.f fVar, com.baidu.live.lottie.model.a.f fVar2, com.baidu.live.lottie.model.a.b bVar, com.baidu.live.lottie.model.a.b bVar2) {
-        this.btD = gradientType;
-        this.FH = fillType;
-        this.btE = cVar;
-        this.btz = dVar;
-        this.btF = fVar;
-        this.btG = fVar2;
+        this.bve = gradientType;
+        this.He = fillType;
+        this.bvf = cVar;
+        this.bva = dVar;
+        this.bvg = fVar;
+        this.bvh = fVar2;
         this.name = str;
-        this.btH = bVar;
-        this.btI = bVar2;
+        this.bvi = bVar;
+        this.bvj = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType ND() {
-        return this.btD;
+    public GradientType NG() {
+        return this.bve;
     }
 
     public Path.FillType jo() {
-        return this.FH;
+        return this.He;
     }
 
-    public com.baidu.live.lottie.model.a.c NE() {
-        return this.btE;
+    public com.baidu.live.lottie.model.a.c NH() {
+        return this.bvf;
     }
 
-    public com.baidu.live.lottie.model.a.d Ny() {
-        return this.btz;
+    public com.baidu.live.lottie.model.a.d NB() {
+        return this.bva;
     }
 
-    public com.baidu.live.lottie.model.a.f NF() {
-        return this.btF;
+    public com.baidu.live.lottie.model.a.f NI() {
+        return this.bvg;
     }
 
-    public com.baidu.live.lottie.model.a.f NG() {
-        return this.btG;
+    public com.baidu.live.lottie.model.a.f NJ() {
+        return this.bvh;
     }
 
     @Override // com.baidu.live.lottie.model.content.b

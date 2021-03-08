@@ -32,7 +32,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderNative {
     private static final int THUNDER_ADAPT_TO_SYSTEM_KARAOKE = 132;
     private static final int THUNDER_APP_ENTER_BACKGROUND = 98;
@@ -220,7 +220,7 @@ public class ThunderNative {
     private static int s_publishRuntimeNotificationCount = 0;
     private static int s_audioExtraInfoNotificationCount = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface NotificationDispatcher {
         Object[] collectNotificationHandlers();
 
@@ -256,7 +256,7 @@ public class ThunderNative {
 
     private static native long YYLiveSdkProcess(int i, byte[] bArr);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESdkInit extends YLEBase {
         long appId;
         int areaType;
@@ -607,7 +607,7 @@ public class ThunderNative {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class YLEBase extends HPMarshaller {
         int event;
 
@@ -626,7 +626,7 @@ public class ThunderNative {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class YLELogText extends YLEBase {
         private int level;
         private int module;
@@ -652,7 +652,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLELeaveRoom extends YLEBase {
         private int reverse;
 
@@ -669,7 +669,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetPlayVolumeInterval extends YLEBase {
         private int interval;
         private int lessThanThd;
@@ -692,7 +692,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCaptureVolumeInterval extends YLEBase {
         private int interval;
         private int lessThanThd;
@@ -715,7 +715,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetBeautifyLevel extends YLEBase {
         YLEGetBeautifyLevel() {
             super();
@@ -728,7 +728,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetAbroadNetWorkStrategy extends YLEBase {
         YLEGetAbroadNetWorkStrategy() {
             super();
@@ -741,7 +741,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEInitMultiPlayerViewLayout extends YLEBase {
         private Object multiParam;
         private Object view;
@@ -764,7 +764,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetVideoPlayType extends YLEBase {
         private boolean checkJoined;
         private int remotePlayType;
@@ -784,7 +784,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCrashEvent extends YLEBase {
         YLESetCrashEvent() {
             super();
@@ -797,7 +797,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetParameters extends YLEBase {
         private String options;
 
@@ -814,7 +814,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableVideoPublishBufferProcess extends YLEBase {
         private boolean bBufferMode;
 
@@ -831,7 +831,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetVideoCommonConfigMode extends YLEBase {
         private int mode;
 
@@ -848,7 +848,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetHardwareDecodeStatus extends YLEBase {
         private int mHardwareDecodeStatus;
 
@@ -865,7 +865,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableWebSdkCompatibility extends YLEBase {
         private boolean enable;
 
@@ -882,7 +882,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetLocalVideoMirrorMode extends YLEBase {
         private int mode;
 
@@ -899,7 +899,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetRemoteAudioStreamVolume extends YLEBase {
         private String uid;
         private int volume;
@@ -919,7 +919,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetRemoteUidVoicePosition extends YLEBase {
         private int azimuth;
         private int gain;
@@ -942,7 +942,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetSpeakerVolume extends YLEBase {
         private int volume;
 
@@ -959,7 +959,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetH265SupportMode extends YLEBase {
         YLEGetH265SupportMode() {
             super();
@@ -972,7 +972,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetH264SupportMode extends YLEBase {
         YLEGetH264SupportMode() {
             super();
@@ -985,7 +985,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetHardDecodeRenderMode extends YLEBase {
         YLEGetHardDecodeRenderMode() {
             super();
@@ -998,7 +998,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetAppCpuSupportMode extends YLEBase {
         YLEGetAppCpuSupportMode() {
             super();
@@ -1011,7 +1011,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetMicVolume extends YLEBase {
         private int volume;
 
@@ -1028,7 +1028,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetOrientation extends YLEBase {
         private int orientation;
 
@@ -1045,7 +1045,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetOrientation extends YLEBase {
         YLEGetOrientation() {
             super();
@@ -1058,7 +1058,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetThunderboltPublishGroup extends YLEBase {
         private boolean isPublishGroup;
 
@@ -1075,7 +1075,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class YLEChangeScreenLiveMode extends YLEBase {
         private boolean bPicMode;
         private Object bitmap;
@@ -1095,7 +1095,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnterBackground extends YLEBase {
         private int reverse;
 
@@ -1112,7 +1112,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnterForeground extends YLEBase {
         private int reverse;
 
@@ -1129,7 +1129,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLECreateAudioFilePlayer extends YLEBase {
         private Object obj;
 
@@ -1146,7 +1146,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileOpen extends YLEBase {
         private long ctx;
         private String path;
@@ -1166,7 +1166,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileEventCommon extends YLEBase {
         private long ctx;
 
@@ -1183,7 +1183,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESendAudioFilePlayerInfo extends YLEBase {
         private int currentMs;
         private int totalMs;
@@ -1206,7 +1206,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileSeek extends YLEBase {
         private long ctx;
         private long timeMS;
@@ -1226,7 +1226,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileSetPlayVolume extends YLEBase {
         private long ctx;
         private int volume;
@@ -1246,7 +1246,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileSetPlayerLocalVolume extends YLEBase {
         private long ctx;
         private int volume;
@@ -1266,7 +1266,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileSetPlayerPublishVolume extends YLEBase {
         private long ctx;
         private int volume;
@@ -1286,7 +1286,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileSelectAudioTrack extends YLEBase {
         private int audioTrack;
         private long ctx;
@@ -1306,7 +1306,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileSetLooping extends YLEBase {
         private long ctx;
         private int cycle;
@@ -1326,7 +1326,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileSetSemitone extends YLEBase {
         private long ctx;
         private float val;
@@ -1346,7 +1346,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileSetTempo extends YLEBase {
         private long ctx;
         private float val;
@@ -1366,7 +1366,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileSetPosition extends YLEBase {
         private int azimuth;
         private long ctx;
@@ -1389,7 +1389,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioFileEnablePublish extends YLEBase {
         private long ctx;
         private boolean enable;
@@ -1409,7 +1409,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableAudioFileVolumeCallback extends YLEBase {
         private long ctx;
         private boolean enable;
@@ -1432,7 +1432,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAudioSetExternalProcessor extends YLEBase {
         private long eap;
 
@@ -1449,7 +1449,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableCapturePcmDataCallBack extends YLEBase {
         private boolean enable;
         private int room;
@@ -1472,7 +1472,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableRenderPcmDataCallBack extends YLEBase {
         private boolean enable;
         private int room;
@@ -1495,7 +1495,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESendUserAppMsgData extends YLEBase {
         private byte[] msgData;
 
@@ -1512,7 +1512,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESendMediaExtraInfo extends YLEBase {
         private byte[] extraInfo;
 
@@ -1529,7 +1529,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableMixVideoExtraInfo extends YLEBase {
         private boolean enable;
 
@@ -1546,7 +1546,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableAudioDataIndication extends YLEBase {
         private boolean enable;
 
@@ -1563,7 +1563,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetHttpsBinaryResponse extends YLEBase {
         private int errCode;
         private String reqUrl;
@@ -1592,7 +1592,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetHttpsTextResponse extends YLEBase {
         private int errCode;
         private String reqUrl;
@@ -1621,7 +1621,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetPlaybackAudioFrameParameters extends YLEBase {
         private int mode;
         private int room;
@@ -1647,7 +1647,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEUpdatePublishOriginStreamUrl extends YLEBase {
         private boolean bAdd;
         private String srcUrl;
@@ -1667,7 +1667,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEUpdatePublishTranscodingStreamUrl extends YLEBase {
         private boolean bAdd;
         private String taskId;
@@ -1690,7 +1690,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetLiveTranscodingTask extends YLEBase {
         private String taskId;
         private LiveTranscoding transcoding;
@@ -1831,7 +1831,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLERemoveLiveTranscodingTask extends YLEBase {
         private String taskId;
 
@@ -1848,7 +1848,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetSidAndSubsid extends YLEBase {
         private int sid;
         private int subsid;
@@ -1868,7 +1868,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEPrefetchStreams extends YLEBase {
         private LinkedList<String> roomIds;
         private String uid;
@@ -1892,7 +1892,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEQueryStreams extends YLEBase {
         private LinkedList<String> roomIds;
 
@@ -1913,7 +1913,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEMakeBehaviorEvent extends YLEBase {
         private int level;
         private String name;
@@ -2406,7 +2406,7 @@ public class ThunderNative {
         return (int) YLEProcess(new YLEQueryStreams(linkedList));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetLogLevel extends YLEBase {
         private int logLevel;
 
@@ -2423,7 +2423,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetLogFilePath extends YLEBase {
         private String filePath;
 
@@ -2440,7 +2440,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableLogCallback extends YLEBase {
         private boolean bCallback;
 
@@ -2457,7 +2457,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetSceneId extends YLEBase {
         private long sceneId;
 
@@ -2474,7 +2474,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEUpdateToken extends YLEBase {
         byte[] token;
 
@@ -2491,7 +2491,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetMediaMode extends YLEBase {
         private int mediaMode;
 
@@ -2508,7 +2508,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetRoomMode extends YLEBase {
         private int roomMode;
 
@@ -2525,7 +2525,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEJoinLiveEngineRoom extends YLEBase {
         private String roomId;
         private byte[] token;
@@ -2548,7 +2548,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetRemoteVideoCanvas extends YLEBase {
         private int renderMode;
         private int seatIndex;
@@ -2574,7 +2574,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetRemoteVideoCanvasMode extends YLEBase {
         private int mirrorMode;
         private int renderMode;
@@ -2597,7 +2597,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetLocalVideoCanvas extends YLEBase {
         private int scaleMode;
         private Object view;
@@ -2617,7 +2617,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetLocalVideoCanvasMode extends YLEBase {
         private int mode;
 
@@ -2634,7 +2634,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESubscribeUser extends YLEBase {
         private boolean bSubscribe;
         private String roomId;
@@ -2657,7 +2657,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESubscribeRoom extends YLEBase {
         private boolean bSubscribe;
         private String roomId;
@@ -2677,7 +2677,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetUserRole extends YLEBase {
         public YLEGetUserRole() {
             super();
@@ -2690,7 +2690,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetThunderboltSubscribeGroup extends YLEBase {
         private boolean bSubscribe;
 
@@ -2707,7 +2707,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStopAllRemoteStreams extends YLEBase {
         private boolean bStop;
         private boolean bVideo;
@@ -2727,7 +2727,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableLocalDualStreamMode extends YLEBase {
         private boolean enbaled;
 
@@ -2744,7 +2744,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetDefaultRemoteVideoStreamType extends YLEBase {
         private int type;
 
@@ -2761,7 +2761,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEChangeRemoteVideoStreamType extends YLEBase {
         private int type;
         private String uid;
@@ -2781,7 +2781,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESwitchUserRole extends YLEBase {
         private int role;
 
@@ -2798,7 +2798,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStopRemoteAudioStream extends YLEBase {
         private boolean bStop;
         private String uid;
@@ -2818,7 +2818,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStopRemoteVideoStream extends YLEBase {
         private boolean bStop;
         private String uid;
@@ -2838,7 +2838,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetAreaType extends YLEBase {
         private int areaType;
 
@@ -2855,7 +2855,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetUse64bitUid extends YLEBase {
         private boolean bUser64bitUid;
 
@@ -2872,7 +2872,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartVideoCapture extends YLEBase {
         private boolean bStart;
 
@@ -2889,7 +2889,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartLocalVideoPreview extends YLEBase {
         private boolean bStart;
 
@@ -2906,7 +2906,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESwitchFrontCamera extends YLEBase {
         private boolean bFront;
 
@@ -2923,7 +2923,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsCameraOpen extends YLEBase {
         public YLEIsCameraOpen() {
             super();
@@ -2936,7 +2936,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsFrontCamera extends YLEBase {
         public YLEIsFrontCamera() {
             super();
@@ -2949,7 +2949,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsCameraManualFocusPositionSupported extends YLEBase {
         public YLEIsCameraManualFocusPositionSupported() {
             super();
@@ -2962,7 +2962,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsCameraManualExposurePositionSupported extends YLEBase {
         public YLEIsCameraManualExposurePositionSupported() {
             super();
@@ -2975,7 +2975,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsCameraZoomSupported extends YLEBase {
         public YLEIsCameraZoomSupported() {
             super();
@@ -2988,7 +2988,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsCameraTorchSupported extends YLEBase {
         public YLEIsCameraTorchSupported() {
             super();
@@ -3001,7 +3001,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetCameraMaxZoomFactor extends YLEBase {
         public YLEGetCameraMaxZoomFactor() {
             super();
@@ -3014,7 +3014,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCameraZoomFactor extends YLEBase {
         private float zoomFactor;
 
@@ -3031,7 +3031,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCameraTorchOn extends YLEBase {
         private boolean isOn;
 
@@ -3048,7 +3048,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCameraFocusPosition extends YLEBase {
         private float posX;
         private float posY;
@@ -3068,7 +3068,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCameraExposurePosition extends YLEBase {
         private float posX;
         private float posY;
@@ -3088,7 +3088,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsCameraAutoFocusFaceModeSupported extends YLEBase {
         public YLEIsCameraAutoFocusFaceModeSupported() {
             super();
@@ -3101,7 +3101,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCameraAutoFocusFaceModeEnabled extends YLEBase {
         private boolean enable;
 
@@ -3118,7 +3118,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESendPrivateMediaExtraData extends YLEBase {
         private String extraData;
 
@@ -3135,7 +3135,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartPublishAudio extends YLEBase {
         private boolean bStart;
 
@@ -3152,7 +3152,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartAudioCapture extends YLEBase {
         private boolean bStart;
 
@@ -3169,7 +3169,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartAudioEncode extends YLEBase {
         private boolean bStart;
 
@@ -3186,7 +3186,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartPushAudioStream extends YLEBase {
         private boolean bStart;
 
@@ -3203,7 +3203,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetAudioPublishMode extends YLEBase {
         private int sourceType;
 
@@ -3220,7 +3220,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetAudioConfig extends YLEBase {
         private int commutMode;
         private int profile;
@@ -3243,7 +3243,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCustomAudioSource extends YLEBase {
         private boolean bEnable;
         private int channel;
@@ -3266,7 +3266,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetPubWatermark extends YLEBase {
         private int height;
         private String imageUrl;
@@ -3302,7 +3302,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEPushCustomAudioFrame extends YLEBase {
         private byte[] data;
         private long timeStamp;
@@ -3322,7 +3322,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartVideoEncode extends YLEBase {
         private boolean bEnable;
 
@@ -3339,7 +3339,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartPushVideoStream extends YLEBase {
         private boolean bEnable;
 
@@ -3356,7 +3356,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartPreview extends YLEBase {
         private boolean bEnable;
 
@@ -3373,7 +3373,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEAttachVideoCapture extends YLEBase {
         private int capType;
         private Object capture;
@@ -3393,7 +3393,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetVideoEncoderConfig extends YLEBase {
         private int playType;
         private int publishMode;
@@ -3413,7 +3413,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCustomVideoPublishConfig extends YLEBase {
         private int bitrate;
         private int fps;
@@ -3457,7 +3457,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCameraZoomConfig extends YLEBase {
         private float zoomFactor;
 
@@ -3474,7 +3474,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCustomStreamName extends YLEBase {
         private String streamName;
         private int streamType;
@@ -3494,7 +3494,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetSubscribeGroupInThunder extends YLEBase {
         private boolean bSubscribe;
 
@@ -3511,7 +3511,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCustomPublishAppid extends YLEBase {
         private int pubAppid;
 
@@ -3528,7 +3528,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLENotifyNetworkState extends YLEBase {
         private int state;
 
@@ -3545,7 +3545,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetConnectionStatus extends YLEBase {
         YLEGetConnectionStatus() {
             super();
@@ -3558,7 +3558,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableLoudSpeaker extends YLEBase {
         private boolean bEnable;
 
@@ -3575,7 +3575,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEGetLoudSpeakerEnabled extends YLEBase {
         private int reverse;
 
@@ -3592,7 +3592,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEadaptToSystemKaraoke extends YLEBase {
         private boolean enable;
 
@@ -3609,7 +3609,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEenableInEarMonitor extends YLEBase {
         private boolean enable;
 
@@ -3626,7 +3626,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEsetEarMonitoringVolume extends YLEBase {
         private int volume;
 
@@ -3643,7 +3643,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableEqualizer extends YLEBase {
         private boolean enable;
 
@@ -3660,7 +3660,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetEqGains extends YLEBase {
         private float mBand0;
         private float mBand1;
@@ -3707,7 +3707,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableCompressor extends YLEBase {
         private boolean enable;
 
@@ -3724,7 +3724,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetVoicePitch extends YLEBase {
         private float pitch;
 
@@ -3741,7 +3741,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableHowlingDetector extends YLEBase {
         private boolean enable;
 
@@ -3758,7 +3758,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableEchoDetector extends YLEBase {
         private boolean enable;
 
@@ -3775,7 +3775,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartInputDeviceTest extends YLEBase {
         YLEStartInputDeviceTest() {
             super();
@@ -3788,7 +3788,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStopInputDeviceTest extends YLEBase {
         YLEStopInputDeviceTest() {
             super();
@@ -3801,7 +3801,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartOutputDeviceTest extends YLEBase {
         private String filePath;
 
@@ -3818,7 +3818,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStopOutputDeviceTest extends YLEBase {
         YLEStopOutputDeviceTest() {
             super();
@@ -3831,7 +3831,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsAudioCaptureEnabled extends YLEBase {
         YLEIsAudioCaptureEnabled() {
             super();
@@ -3844,7 +3844,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsAudioEncoderEnabled extends YLEBase {
         YLEIsAudioEncoderEnabled() {
             super();
@@ -3857,7 +3857,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsAudioPublisherEnabled extends YLEBase {
         YLEIsAudioPublisherEnabled() {
             super();
@@ -3870,7 +3870,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableMicDenoise extends YLEBase {
         private boolean enable;
 
@@ -3887,7 +3887,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableAudioAGC extends YLEBase {
         private boolean enable;
 
@@ -3904,7 +3904,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableAIDenoise extends YLEBase {
         private boolean enable;
 
@@ -3921,7 +3921,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEIsMicDenoiseEnable extends YLEBase {
         YLEIsMicDenoiseEnable() {
             super();
@@ -3934,7 +3934,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetCompressorParam extends YLEBase {
         private int mattackTime;
         private int mknee;
@@ -3966,7 +3966,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableReverb extends YLEBase {
         private boolean enable;
 
@@ -3983,7 +3983,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetReverbExParameter extends YLEBase {
         private float mDryGain;
         private float mHfDamping;
@@ -4024,7 +4024,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetLimiterParameter extends YLEBase {
         private float m_fAttack;
         private float m_fCeiling;
@@ -4065,7 +4065,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableLimiter extends YLEBase {
         private boolean enable;
 
@@ -4082,7 +4082,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartAudioSaver extends YLEBase {
         private int fileMode;
         private String fileName;
@@ -4105,7 +4105,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStopAudioSaver extends YLEBase {
         YLEStopAudioSaver() {
             super();
@@ -4113,7 +4113,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStartAudioRecord extends YLEBase {
         private String fileName;
         private int quality;
@@ -4139,7 +4139,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEStopAudioRecord extends YLEBase {
         YLEStopAudioRecord() {
             super();
@@ -4147,7 +4147,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableAudioPlaySpectrum extends YLEBase {
         private boolean enable;
 
@@ -4164,7 +4164,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetAudioPlaySpectrumInfo extends YLEBase {
         private int notifyIntervalMS;
         private int spectrumLen;
@@ -4184,7 +4184,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEEnableVoicePosition extends YLEBase {
         private boolean enable;
 
@@ -4201,7 +4201,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetSoundEffect extends YLEBase {
         private int soundEffectMode;
 
@@ -4218,7 +4218,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetVoiceChanger extends YLEBase {
         private int voiceChangerMode;
 
@@ -4235,7 +4235,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLEVideoFrameObserverStringUid extends YLEBase {
         private Object observer;
         private String uid;
@@ -4255,7 +4255,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetRecordingAudioFrameParameters extends YLEBase {
         private int mode;
         private int room;
@@ -4281,7 +4281,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLESetMixedAudioFrameParameters extends YLEBase {
         private int channel;
         private int sampleRate;
@@ -4304,7 +4304,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNBase extends Marshallable {
         Object notification;
 
@@ -4316,7 +4316,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNFirstVideoFrameSend extends YLNBase {
         private YLNFirstVideoFrameSend() {
             super();
@@ -4329,7 +4329,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNFirstAudioFrameSend extends YLNBase {
         private YLNFirstAudioFrameSend() {
             super();
@@ -4342,7 +4342,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNJoinRoomSuccess extends YLNBase {
         private YLNJoinRoomSuccess() {
             super();
@@ -4355,7 +4355,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNLeaveRoom extends YLNBase {
         private YLNLeaveRoom() {
             super();
@@ -4368,7 +4368,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNRemoteVideoPlay extends YLNBase {
         private YLNRemoteVideoPlay() {
             super();
@@ -4381,7 +4381,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNBizAuthRes extends YLNBase {
         private YLNBizAuthRes() {
             super();
@@ -4394,7 +4394,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNSdkAuthRes extends YLNBase {
         private YLNSdkAuthRes() {
             super();
@@ -4407,7 +4407,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNUserBanned extends YLNBase {
         private YLNUserBanned() {
             super();
@@ -4420,7 +4420,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNTokenRequest extends YLNBase {
         private YLNTokenRequest() {
             super();
@@ -4433,7 +4433,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNTokenWillExpire extends YLNBase {
         private YLNTokenWillExpire() {
             super();
@@ -4446,7 +4446,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioCaptureVolume extends YLNBase {
         private YLNAudioCaptureVolume() {
             super();
@@ -4459,7 +4459,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioPlayVolume extends YLNBase {
         private YLNAudioPlayVolume() {
             super();
@@ -4484,7 +4484,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioPlayData extends YLNBase {
         private YLNAudioPlayData() {
             super();
@@ -4497,7 +4497,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioPlaySpectrumData extends YLNBase {
         private YLNAudioPlaySpectrumData() {
             super();
@@ -4510,7 +4510,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioCapturePcmData extends YLNBase {
         private YLNAudioCapturePcmData() {
             super();
@@ -4523,7 +4523,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNUserAppMsgData extends YLNBase {
         private YLNUserAppMsgData() {
             super();
@@ -4536,7 +4536,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAppMsgDataFailStatus extends YLNBase {
         private YLNAppMsgDataFailStatus() {
             super();
@@ -4549,7 +4549,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioRenderPcmData extends YLNBase {
         private YLNAudioRenderPcmData() {
             super();
@@ -4562,7 +4562,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNHttpsRequest extends YLNBase {
         private YLNHttpsRequest() {
             super();
@@ -4575,7 +4575,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNRemoteVideoStopped extends YLNBase {
         private YLNRemoteVideoStopped() {
             super();
@@ -4588,7 +4588,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNRemoteAudioStopped extends YLNBase {
         private YLNRemoteAudioStopped() {
             super();
@@ -4601,7 +4601,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNVideoSizeChange extends YLNBase {
         private YLNVideoSizeChange() {
             super();
@@ -4614,7 +4614,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNVideoCaptureExposureChanged extends YLNBase {
         private YLNVideoCaptureExposureChanged() {
             super();
@@ -4627,7 +4627,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNVideoCaptureFocusChanged extends YLNBase {
         private YLNVideoCaptureFocusChanged() {
             super();
@@ -4640,7 +4640,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNConnectionStatus extends YLNBase {
         private YLNConnectionStatus() {
             super();
@@ -4653,7 +4653,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNConnectionLost extends YLNBase {
         private YLNConnectionLost() {
             super();
@@ -4666,7 +4666,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNRoomStats extends YLNBase {
         private YLNRoomStats() {
             super();
@@ -4679,7 +4679,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNNetworkStateChange extends YLNBase {
         private YLNNetworkStateChange() {
             super();
@@ -4692,7 +4692,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNPublishStreamToCdnStatus extends YLNBase {
         private YLNPublishStreamToCdnStatus() {
             super();
@@ -4705,7 +4705,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNUserJoined extends YLNBase {
         private YLNUserJoined() {
             super();
@@ -4718,7 +4718,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNUserOffline extends YLNBase {
         private YLNUserOffline() {
             super();
@@ -4731,7 +4731,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNNetworkQuality extends YLNBase {
         private YLNNetworkQuality() {
             super();
@@ -4744,7 +4744,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioExtraInfo extends YLNBase {
         private YLNAudioExtraInfo() {
             super();
@@ -4757,7 +4757,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioExtraFailStatus extends YLNBase {
         private YLNAudioExtraFailStatus() {
             super();
@@ -4770,7 +4770,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNVideoExtraInfo extends YLNBase {
         private YLNVideoExtraInfo() {
             super();
@@ -4783,7 +4783,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNMixVideoExtraInfo extends YLNBase {
         private YLNMixVideoExtraInfo() {
             super();
@@ -4818,7 +4818,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNMixAudioExtraInfo extends YLNBase {
         private YLNMixAudioExtraInfo() {
             super();
@@ -4842,7 +4842,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioCaptureStatus extends YLNBase {
         private YLNAudioCaptureStatus() {
             super();
@@ -4855,7 +4855,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNVideoCaptureStatus extends YLNBase {
         private YLNVideoCaptureStatus() {
             super();
@@ -4868,7 +4868,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNOnVideoConfig extends YLNBase {
         private YLNOnVideoConfig() {
             super();
@@ -4932,7 +4932,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNOnBlackCodecConfig extends YLNBase {
         private YLNOnBlackCodecConfig() {
             super();
@@ -4945,7 +4945,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNLocalVideoStats extends YLNBase {
         private YLNLocalVideoStats() {
             super();
@@ -4958,7 +4958,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNLocalAudioStats extends YLNBase {
         private YLNLocalAudioStats() {
             super();
@@ -4971,7 +4971,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNRemoteVideoStats extends YLNBase {
         private YLNRemoteVideoStats() {
             super();
@@ -4984,7 +4984,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNRemoteAudioStats extends YLNBase {
         private YLNRemoteAudioStats() {
             super();
@@ -4997,7 +4997,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNRemoteAudioStateChanged extends YLNBase {
         private YLNRemoteAudioStateChanged() {
             super();
@@ -5010,7 +5010,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNRemoteVideoStateChanged extends YLNBase {
         private YLNRemoteVideoStateChanged() {
             super();
@@ -5023,7 +5023,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNPrivateCallBack extends YLNBase {
         private YLNPrivateCallBack() {
             super();
@@ -5036,7 +5036,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNRemoteAudioPlay extends YLNBase {
         private YLNRemoteAudioPlay() {
             super();
@@ -5049,7 +5049,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNLocalAudioStatusChanged extends YLNBase {
         private YLNLocalAudioStatusChanged() {
             super();
@@ -5062,7 +5062,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNLocalVideoStatusChanged extends YLNBase {
         private YLNLocalVideoStatusChanged() {
             super();
@@ -5075,7 +5075,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNDeviceStats extends YLNBase {
         private YLNDeviceStats() {
             super();
@@ -5096,7 +5096,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNUserRoleChanged extends YLNBase {
         private YLNUserRoleChanged() {
             super();
@@ -5109,7 +5109,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioRouteChanged extends YLNBase {
         private YLNAudioRouteChanged() {
             super();
@@ -5122,7 +5122,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNHowlingDetectResult extends YLNBase {
         private YLNHowlingDetectResult() {
             super();
@@ -5135,7 +5135,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNEchoDetectResult extends YLNBase {
         private YLNEchoDetectResult() {
             super();
@@ -5148,7 +5148,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioInputDeviceTestVolume extends YLNBase {
         private YLNAudioInputDeviceTestVolume() {
             super();
@@ -5161,7 +5161,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioOutputDeviceTestVolume extends YLNBase {
         private YLNAudioOutputDeviceTestVolume() {
             super();
@@ -5174,7 +5174,7 @@ public class ThunderNative {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class YLNAudioRecordState extends YLNBase {
         private YLNAudioRecordState() {
             super();

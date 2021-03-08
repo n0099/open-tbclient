@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.l.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class BdPermissionActivity extends Activity {
-    private int afF;
-    private String[] afG;
+    private int agY;
+    private String[] agZ;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -17,8 +17,8 @@ public class BdPermissionActivity extends Activity {
 
     private void sG() {
         Intent intent = getIntent();
-        this.afF = intent.getIntExtra("request_code", 0);
-        this.afG = intent.getStringArrayExtra("permissions");
+        this.agY = intent.getIntExtra("request_code", 0);
+        this.agZ = intent.getStringArrayExtra("permissions");
     }
 
     @Override // android.app.Activity
@@ -28,26 +28,26 @@ public class BdPermissionActivity extends Activity {
     }
 
     private void sH() {
-        if (this.afG != null && this.afG.length != 0) {
+        if (this.agZ != null && this.agZ.length != 0) {
             boolean z = false;
-            for (String str : this.afG) {
+            for (String str : this.agZ) {
                 z = z || com.baidu.l.a.a.shouldShowRequestPermissionRationale(this, str);
             }
             if (z) {
-                com.baidu.l.a.a.requestPermissions(this, this.afG, this.afF);
-            } else if (b.f(this, this.afF)) {
-                com.baidu.l.a.a.requestPermissions(this, this.afG, this.afF);
+                com.baidu.l.a.a.requestPermissions(this, this.agZ, this.agY);
+            } else if (b.f(this, this.agY)) {
+                com.baidu.l.a.a.requestPermissions(this, this.agZ, this.agY);
             } else {
-                onRequestPermissionsResult(this.afF, this.afG, new int[0]);
+                onRequestPermissionsResult(this.agY, this.agZ, new int[0]);
             }
         }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        a.InterfaceC0148a bp = a.sI().bp(this.afF);
-        if (bp != null) {
-            bp.onRequestPermissionsResult(i, strArr, iArr);
+        a.InterfaceC0154a bq = a.sI().bq(this.agY);
+        if (bq != null) {
+            bq.onRequestPermissionsResult(i, strArr, iArr);
         }
         finish();
     }

@@ -11,22 +11,20 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f3753a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f3754b;
+    private static volatile boolean f2633a;
+    private static volatile boolean b;
     private static volatile boolean c;
 
     private static boolean a(int i) {
         switch (i) {
             case 0:
-                return f3753a;
+                return f2633a;
             case 1:
-                return f3754b;
+                return b;
             case 2:
                 return c;
             default:
@@ -37,10 +35,10 @@ public class bg {
     private static void a(int i, boolean z) {
         switch (i) {
             case 0:
-                f3753a = z;
+                f2633a = z;
                 return;
             case 1:
-                f3754b = z;
+                b = z;
                 return;
             case 2:
                 c = z;

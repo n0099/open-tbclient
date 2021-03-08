@@ -7,20 +7,20 @@ import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
 public class al {
     private String class_name = null;
-    private int eNZ = 0;
+    private int ePA = 0;
 
-    public String bmb() {
+    public String bmd() {
         return this.class_name;
     }
 
-    public int bmc() {
-        return this.eNZ;
+    public int bme() {
+        return this.ePA;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.eNZ = jSONObject.optInt("class_id", 0);
+                this.ePA = jSONObject.optInt("class_id", 0);
                 this.class_name = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -30,7 +30,7 @@ public class al {
 
     public void a(Classify classify) {
         if (classify != null) {
-            this.eNZ = classify.class_id.intValue();
+            this.ePA = classify.class_id.intValue();
             this.class_name = classify.class_name;
         }
     }

@@ -1,32 +1,32 @@
 package com.cmic.sso.sdk;
 
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ConcurrentHashMap<String, Object> f7685a;
+    private ConcurrentHashMap<String, Object> f5199a;
 
     public a(int i) {
-        this.f7685a = new ConcurrentHashMap<>(i);
+        this.f5199a = new ConcurrentHashMap<>(i);
     }
 
     public void a(String str, byte[] bArr) {
         if (str != null && bArr != null) {
-            this.f7685a.put(str, bArr);
+            this.f5199a.put(str, bArr);
         }
     }
 
     public byte[] a(String str) {
         if (str != null) {
-            return (byte[]) this.f7685a.get(str);
+            return (byte[]) this.f5199a.get(str);
         }
         return null;
     }
 
     public void a(String str, String str2) {
         if (str != null && str2 != null) {
-            this.f7685a.put(str, str2);
+            this.f5199a.put(str, str2);
         }
     }
 
@@ -35,25 +35,25 @@ public class a {
     }
 
     public String b(String str, String str2) {
-        return (str == null || !this.f7685a.containsKey(str)) ? str2 : (String) this.f7685a.get(str);
+        return (str == null || !this.f5199a.containsKey(str)) ? str2 : (String) this.f5199a.get(str);
     }
 
     public void a(String str, boolean z) {
         if (str != null) {
-            this.f7685a.put(str, Boolean.valueOf(z));
+            this.f5199a.put(str, Boolean.valueOf(z));
         }
     }
 
     public boolean b(String str, boolean z) {
-        if (str != null && this.f7685a.containsKey(str)) {
-            return ((Boolean) this.f7685a.get(str)).booleanValue();
+        if (str != null && this.f5199a.containsKey(str)) {
+            return ((Boolean) this.f5199a.get(str)).booleanValue();
         }
         return z;
     }
 
     public void a(String str, int i) {
         if (str != null) {
-            this.f7685a.put(str, Integer.valueOf(i));
+            this.f5199a.put(str, Integer.valueOf(i));
         }
     }
 
@@ -62,21 +62,21 @@ public class a {
     }
 
     public int b(String str, int i) {
-        if (str != null && this.f7685a.containsKey(str)) {
-            return ((Integer) this.f7685a.get(str)).intValue();
+        if (str != null && this.f5199a.containsKey(str)) {
+            return ((Integer) this.f5199a.get(str)).intValue();
         }
         return i;
     }
 
     public void a(String str, long j) {
         if (str != null) {
-            this.f7685a.put(str, Long.valueOf(j));
+            this.f5199a.put(str, Long.valueOf(j));
         }
     }
 
     public long b(String str, long j) {
-        if (str != null && this.f7685a.containsKey(str)) {
-            return ((Long) this.f7685a.get(str)).longValue();
+        if (str != null && this.f5199a.containsKey(str)) {
+            return ((Long) this.f5199a.get(str)).longValue();
         }
         return j;
     }

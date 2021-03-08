@@ -6,11 +6,11 @@ import android.view.View;
 public class w implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f4326a;
+    final /* synthetic */ c f2993a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(c cVar) {
-        this.f4326a = cVar;
+        this.f2993a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,7 +19,7 @@ public class w implements View.OnClickListener {
         com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG.turnDire");
         com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "loc click:" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.s());
         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE) {
-            i = this.f4326a.v;
+            i = this.f2993a.v;
             switch (i) {
                 case 1:
                     com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
@@ -36,6 +36,6 @@ public class w implements View.OnClickListener {
         }
         com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
         com.baidu.platform.comapi.walknavi.b.a().D().j();
-        this.f4326a.a(true);
+        this.f2993a.a(true);
     }
 }

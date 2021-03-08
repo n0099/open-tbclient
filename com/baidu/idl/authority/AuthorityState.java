@@ -1,7 +1,7 @@
 package com.baidu.idl.authority;
 
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AuthorityState {
     public static final int STATE_ERROR_AUTHORIZED = 51;
     public static final int STATE_ERROR_BEGIN = 48;

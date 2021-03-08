@@ -1,8 +1,8 @@
 package com.baidu.live.h;
 
 import com.baidu.live.tbadk.download.DownloadData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public int aUb;
-    public DownloadData aUc;
+    public int aVB;
+    public DownloadData aVC;
 }

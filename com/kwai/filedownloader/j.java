@@ -11,10 +11,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    static int f10938a = 10;
-
-    /* renamed from: b  reason: collision with root package name */
-    static int f10939b = 5;
+    static int f7218a = 10;
+    static int b = 5;
     private final Executor c;
     private final Handler d;
     private final LinkedBlockingQueue<s> e;
@@ -26,7 +24,7 @@ public class j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final j f10942a = new j();
+        private static final j f7220a = new j();
     }
 
     /* loaded from: classes3.dex */
@@ -63,7 +61,7 @@ public class j {
     }
 
     public static j a() {
-        return a.f10942a;
+        return a.f7220a;
     }
 
     private void b(s sVar) {
@@ -71,7 +69,7 @@ public class j {
     }
 
     public static boolean b() {
-        return f10938a > 0;
+        return f7218a > 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -83,8 +81,8 @@ public class j {
                     return;
                 }
                 if (b()) {
-                    int i2 = f10938a;
-                    int min = Math.min(this.e.size(), f10939b);
+                    int i2 = f7218a;
+                    int min = Math.min(this.e.size(), b);
                     while (i < min) {
                         this.g.add(this.e.remove());
                         i++;

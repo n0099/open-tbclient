@@ -7,12 +7,12 @@ import java.util.List;
 import tbclient.BannerImage;
 /* loaded from: classes.dex */
 public class m extends BaseCardInfo implements com.baidu.adp.widget.ListView.n {
-    public static BdUniqueId eMu = BdUniqueId.gen();
+    public static BdUniqueId eNV = BdUniqueId.gen();
     public List<l> dataList = new ArrayList();
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return eMu;
+        return eNV;
     }
 
     public void parserProtobuf(List<BannerImage> list) {

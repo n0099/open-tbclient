@@ -9,41 +9,41 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import androidx.collection.LongSparseArray;
 import com.baidu.live.lottie.model.content.GradientType;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class h extends a {
-    private final LongSparseArray<LinearGradient> DM;
-    private final LongSparseArray<RadialGradient> DN;
-    private final RectF DQ;
-    private final int DU;
-    private final com.baidu.live.lottie.a.b.a<PointF, PointF> bsA;
-    private final com.baidu.live.lottie.a.b.a<PointF, PointF> bsB;
-    private final com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.c, com.baidu.live.lottie.model.content.c> bsy;
-    private final GradientType bsz;
+    private final LongSparseArray<LinearGradient> Fg;
+    private final LongSparseArray<RadialGradient> Fh;
+    private final RectF Fj;
+    private final int Fn;
+    private final com.baidu.live.lottie.a.b.a<com.baidu.live.lottie.model.content.c, com.baidu.live.lottie.model.content.c> btZ;
+    private final GradientType bua;
+    private final com.baidu.live.lottie.a.b.a<PointF, PointF> bub;
+    private final com.baidu.live.lottie.a.b.a<PointF, PointF> buc;
     private final String name;
 
     public h(com.baidu.live.lottie.h hVar, com.baidu.live.lottie.model.layer.a aVar, com.baidu.live.lottie.model.content.e eVar) {
-        super(hVar, aVar, eVar.NI().toPaintCap(), eVar.NJ().toPaintJoin(), eVar.jx(), eVar.Ny(), eVar.NH(), eVar.jv(), eVar.NK());
-        this.DM = new LongSparseArray<>();
-        this.DN = new LongSparseArray<>();
-        this.DQ = new RectF();
+        super(hVar, aVar, eVar.NL().toPaintCap(), eVar.NM().toPaintJoin(), eVar.jx(), eVar.NB(), eVar.NK(), eVar.jv(), eVar.NN());
+        this.Fg = new LongSparseArray<>();
+        this.Fh = new LongSparseArray<>();
+        this.Fj = new RectF();
         this.name = eVar.getName();
-        this.bsz = eVar.ND();
-        this.DU = (int) (hVar.getComposition().hR() / 32.0f);
-        this.bsy = eVar.NE().Ns();
-        this.bsy.b(this);
-        aVar.a(this.bsy);
-        this.bsA = eVar.NF().Ns();
-        this.bsA.b(this);
-        aVar.a(this.bsA);
-        this.bsB = eVar.NG().Ns();
-        this.bsB.b(this);
-        aVar.a(this.bsB);
+        this.bua = eVar.NG();
+        this.Fn = (int) (hVar.getComposition().hR() / 32.0f);
+        this.btZ = eVar.NH().Nv();
+        this.btZ.b(this);
+        aVar.a(this.btZ);
+        this.bub = eVar.NI().Nv();
+        this.bub.b(this);
+        aVar.a(this.bub);
+        this.buc = eVar.NJ().Nv();
+        this.buc.b(this);
+        aVar.a(this.buc);
     }
 
     @Override // com.baidu.live.lottie.a.a.a, com.baidu.live.lottie.a.a.d
     public void c(Canvas canvas, Matrix matrix, int i) {
-        d(this.DQ, matrix);
-        if (this.bsz == GradientType.Linear) {
+        d(this.Fj, matrix);
+        if (this.bua == GradientType.Linear) {
             this.paint.setShader(iv());
         } else {
             this.paint.setShader(iw());
@@ -58,13 +58,13 @@ public class h extends a {
 
     private LinearGradient iv() {
         int ix = ix();
-        LinearGradient linearGradient = this.DM.get(ix);
+        LinearGradient linearGradient = this.Fg.get(ix);
         if (linearGradient == null) {
-            PointF value = this.bsA.getValue();
-            PointF value2 = this.bsB.getValue();
-            com.baidu.live.lottie.model.content.c value3 = this.bsy.getValue();
-            LinearGradient linearGradient2 = new LinearGradient((int) (this.DQ.left + (this.DQ.width() / 2.0f) + value.x), (int) (value.y + this.DQ.top + (this.DQ.height() / 2.0f)), (int) (this.DQ.left + (this.DQ.width() / 2.0f) + value2.x), (int) (this.DQ.top + (this.DQ.height() / 2.0f) + value2.y), value3.getColors(), value3.jm(), Shader.TileMode.CLAMP);
-            this.DM.put(ix, linearGradient2);
+            PointF value = this.bub.getValue();
+            PointF value2 = this.buc.getValue();
+            com.baidu.live.lottie.model.content.c value3 = this.btZ.getValue();
+            LinearGradient linearGradient2 = new LinearGradient((int) (this.Fj.left + (this.Fj.width() / 2.0f) + value.x), (int) (value.y + this.Fj.top + (this.Fj.height() / 2.0f)), (int) (this.Fj.left + (this.Fj.width() / 2.0f) + value2.x), (int) (this.Fj.top + (this.Fj.height() / 2.0f) + value2.y), value3.getColors(), value3.jm(), Shader.TileMode.CLAMP);
+            this.Fg.put(ix, linearGradient2);
             return linearGradient2;
         }
         return linearGradient;
@@ -72,27 +72,27 @@ public class h extends a {
 
     private RadialGradient iw() {
         int ix = ix();
-        RadialGradient radialGradient = this.DN.get(ix);
+        RadialGradient radialGradient = this.Fh.get(ix);
         if (radialGradient == null) {
-            PointF value = this.bsA.getValue();
-            PointF value2 = this.bsB.getValue();
-            com.baidu.live.lottie.model.content.c value3 = this.bsy.getValue();
+            PointF value = this.bub.getValue();
+            PointF value2 = this.buc.getValue();
+            com.baidu.live.lottie.model.content.c value3 = this.btZ.getValue();
             int[] colors = value3.getColors();
             float[] jm = value3.jm();
-            int width = (int) (this.DQ.left + (this.DQ.width() / 2.0f) + value.x);
-            int height = (int) (value.y + this.DQ.top + (this.DQ.height() / 2.0f));
+            int width = (int) (this.Fj.left + (this.Fj.width() / 2.0f) + value.x);
+            int height = (int) (value.y + this.Fj.top + (this.Fj.height() / 2.0f));
             float f = value2.y;
-            RadialGradient radialGradient2 = new RadialGradient(width, height, (float) Math.hypot(((int) ((this.DQ.left + (this.DQ.width() / 2.0f)) + value2.x)) - width, ((int) (f + (this.DQ.top + (this.DQ.height() / 2.0f)))) - height), colors, jm, Shader.TileMode.CLAMP);
-            this.DN.put(ix, radialGradient2);
+            RadialGradient radialGradient2 = new RadialGradient(width, height, (float) Math.hypot(((int) ((this.Fj.left + (this.Fj.width() / 2.0f)) + value2.x)) - width, ((int) (f + (this.Fj.top + (this.Fj.height() / 2.0f)))) - height), colors, jm, Shader.TileMode.CLAMP);
+            this.Fh.put(ix, radialGradient2);
             return radialGradient2;
         }
         return radialGradient;
     }
 
     private int ix() {
-        int round = Math.round(this.bsA.getProgress() * this.DU);
-        int round2 = Math.round(this.bsB.getProgress() * this.DU);
-        int round3 = Math.round(this.bsy.getProgress() * this.DU);
+        int round = Math.round(this.bub.getProgress() * this.Fn);
+        int round2 = Math.round(this.buc.getProgress() * this.Fn);
+        int round3 = Math.round(this.btZ.getProgress() * this.Fn);
         int i = 17;
         if (round != 0) {
             i = round * 527;

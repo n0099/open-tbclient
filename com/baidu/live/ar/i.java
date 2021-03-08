@@ -2,10 +2,10 @@ package com.baidu.live.ar;
 
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i {
-    private String aCQ;
-    private int aCq;
+    private int aDQ;
+    private String aEq;
     private String mFile;
     private String mId;
     private String mName;
@@ -15,8 +15,8 @@ public class i {
             this.mId = jSONObject.optString("id");
             this.mName = jSONObject.optString("name");
             this.mFile = jSONObject.optString("file");
-            this.aCQ = jSONObject.optString("bgurl");
-            this.aCq = jSONObject.optInt(UbcStatConstant.ContentType.UBC_TYPE_ENTER_EFFECT);
+            this.aEq = jSONObject.optString("bgurl");
+            this.aDQ = jSONObject.optInt(UbcStatConstant.ContentType.UBC_TYPE_ENTER_EFFECT);
         }
     }
 
@@ -28,15 +28,15 @@ public class i {
         return this.mName;
     }
 
-    public String zx() {
+    public String zA() {
         return this.mFile;
     }
 
-    public String zw() {
-        return this.aCQ;
+    public String zz() {
+        return this.aEq;
     }
 
-    public int zA() {
-        return this.aCq;
+    public int zD() {
+        return this.aDQ;
     }
 }

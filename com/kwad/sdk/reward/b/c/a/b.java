@@ -9,14 +9,12 @@ import com.kwad.sdk.core.webview.jshandler.a;
 import com.kwad.sdk.reward.d;
 /* loaded from: classes3.dex */
 public class b extends d {
-
-    /* renamed from: b  reason: collision with root package name */
-    private FrameLayout f10625b;
+    private FrameLayout b;
     private c c;
     private a.b d = new a.b() { // from class: com.kwad.sdk.reward.b.c.a.b.2
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            b.this.f10652a.f10527b.a();
+            b.this.f7028a.b.a();
         }
     };
 
@@ -24,21 +22,21 @@ public class b extends d {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = this.f10652a.f;
-        this.c = this.f10652a.l;
+        AdTemplate adTemplate = this.f7028a.f;
+        this.c = this.f7028a.l;
         if (this.c == null) {
             return;
         }
         this.c.a(this.d);
-        this.c.a(this.f10625b, this.f10652a.h, adTemplate, this.f10652a.j, this.f10652a.e);
-        this.c.a(this.f10652a.g);
+        this.c.a(this.b, this.f7028a.h, adTemplate, this.f7028a.j, this.f7028a.e);
+        this.c.a(this.f7028a.g);
         this.c.g();
         if (this.c instanceof com.kwad.sdk.c.a) {
-            ((com.kwad.sdk.c.a) this.c).a(new a.InterfaceC1073a() { // from class: com.kwad.sdk.reward.b.c.a.b.1
-                @Override // com.kwad.sdk.c.a.InterfaceC1073a
+            ((com.kwad.sdk.c.a) this.c).a(new a.InterfaceC1090a() { // from class: com.kwad.sdk.reward.b.c.a.b.1
+                @Override // com.kwad.sdk.c.a.InterfaceC1090a
                 public void a() {
-                    if (b.this.f10652a.f10527b != null) {
-                        b.this.f10652a.f10527b.e();
+                    if (b.this.f7028a.b != null) {
+                        b.this.f7028a.b.e();
                     }
                 }
             });
@@ -58,6 +56,6 @@ public class b extends d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10625b = (FrameLayout) b(R.id.ksad_web_card_container);
+        this.b = (FrameLayout) b(R.id.ksad_web_card_container);
     }
 }

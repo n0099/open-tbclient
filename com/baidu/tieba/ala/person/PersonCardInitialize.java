@@ -17,12 +17,12 @@ import com.baidu.live.tbadk.core.atomdata.AlaPersonCardActivityConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.person.a;
 import com.baidu.tieba.ala.person.messages.PlaybacksResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PersonCardInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(AlaPersonCardActivityConfig.class, PersonCardActivity.class);
         registerTask();
-        cmA();
+        cmG();
     }
 
     private static void registerTask() {
@@ -32,13 +32,13 @@ public class PersonCardInitialize {
                 final ag data = customMessage.getData();
                 if (data != null && data.pageContext != null && !StringUtils.isNull(data.userId)) {
                     a aVar = new a(data.pageContext.getPageActivity());
-                    aVar.a(new a.InterfaceC0681a() { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.1.1
-                        @Override // com.baidu.tieba.ala.person.a.InterfaceC0681a
-                        public void cmB() {
+                    aVar.a(new a.InterfaceC0687a() { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.1.1
+                        @Override // com.baidu.tieba.ala.person.a.InterfaceC0687a
+                        public void cmH() {
                             final e eVar = new e(data.pageContext);
                             eVar.a(new e.a() { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.1.1.1
                                 @Override // com.baidu.live.personmanager.e.a
-                                public void Pg() {
+                                public void Pj() {
                                     data.pageContext.showToast(a.h.ala_person_report_online_success);
                                     eVar.a((e.a) null);
                                 }
@@ -65,15 +65,15 @@ public class PersonCardInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void cmA() {
+    private static void cmG() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913040) { // from class: com.baidu.tieba.ala.person.PersonCardInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.live.liveroom.d.a)) {
                     com.baidu.live.liveroom.d.a aVar = (com.baidu.live.liveroom.d.a) customResponsedMessage.getData();
-                    if (aVar.brA != null && aVar.brA.context != null) {
-                        aVar.a((com.baidu.live.liveroom.d.e) new com.baidu.tieba.ala.person.b.a((TbPageContext) IScrollableHelper.getBbPageContext(aVar.brA.context)));
+                    if (aVar.bta != null && aVar.bta.context != null) {
+                        aVar.a((com.baidu.live.liveroom.d.e) new com.baidu.tieba.ala.person.b.a((TbPageContext) IScrollableHelper.getBbPageContext(aVar.bta.context)));
                     }
                 }
             }

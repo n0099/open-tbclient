@@ -6,7 +6,7 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static void L(String str, @Nullable String str2, String str3) {
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
@@ -16,9 +16,9 @@ public class d {
             str2 = "";
         }
         eVar.mValue = str2;
-        eVar.r("appid", com.baidu.swan.apps.runtime.d.aIG().getAppId());
-        eVar.r(DpStatConstants.KEY_NETWORK_STATUS, str3);
-        eVar.r("isShow", c.anj() ? "1" : "0");
+        eVar.s("appid", com.baidu.swan.apps.runtime.d.aIJ().getAppId());
+        eVar.s(DpStatConstants.KEY_NETWORK_STATUS, str3);
+        eVar.s("isShow", c.anm() ? "1" : "0");
         h.a("1619", eVar);
     }
 

@@ -15,7 +15,7 @@ public class z {
         }
     }
 
-    public static boolean at(Activity activity) {
+    public static boolean au(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }

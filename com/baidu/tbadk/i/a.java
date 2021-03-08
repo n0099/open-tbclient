@@ -4,43 +4,43 @@ import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public int eJf = 300;
-    public int eJg = 5000;
-    public int eJh = 10000;
-    public int eJi = 1500;
-    public int eJj = 2000;
-    public int eJk = 3000;
-    public int eJl = SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME;
-    public boolean eJm = true;
+    public int eKG = 300;
+    public int eKH = 5000;
+    public int eKI = 10000;
+    public int eKJ = 1500;
+    public int eKK = 2000;
+    public int eKL = 3000;
+    public int eKM = SyncStrategy.DEFAULT_LOGIN_FETCH_SLEEP_TIME;
+    public boolean eKN = true;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 int optInt = jSONObject.optInt("wifiSlow", -1);
                 if (optInt > 0) {
-                    this.eJf = optInt;
+                    this.eKG = optInt;
                 }
                 int optInt2 = jSONObject.optInt("threeGSlow", -1);
                 if (optInt2 > 0) {
-                    this.eJg = optInt2;
+                    this.eKH = optInt2;
                 }
                 int optInt3 = jSONObject.optInt("twoGSlow", -1);
                 if (optInt3 > 0) {
-                    this.eJh = optInt3;
+                    this.eKI = optInt3;
                 }
                 int optInt4 = jSONObject.optInt("wifiLog", -1);
                 if (optInt4 > 0) {
-                    this.eJi = optInt4;
+                    this.eKJ = optInt4;
                 }
                 int optInt5 = jSONObject.optInt("threeGLog", -1);
                 if (optInt5 > 0) {
-                    this.eJk = optInt5;
+                    this.eKL = optInt5;
                 }
                 int optInt6 = jSONObject.optInt("twoGLog", -1);
                 if (optInt6 > 0) {
-                    this.eJl = optInt6;
+                    this.eKM = optInt6;
                 }
-                this.eJm = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
+                this.eKN = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
             } catch (Exception e) {
             }
         }

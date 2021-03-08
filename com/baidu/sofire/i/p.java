@@ -6,11 +6,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f5276a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", com.baidu.pass.biometrics.face.liveness.d.b.f4046a, "c", "d", "e", "f"};
+    private static final String[] f3546a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", com.baidu.pass.biometrics.face.liveness.d.b.f2804a, "c", "d", "e", "f"};
 
     private static String c(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
@@ -18,7 +18,7 @@ public final class p {
             if (i < 0) {
                 i += 256;
             }
-            stringBuffer.append(f5276a[i / 16] + f5276a[i % 16]);
+            stringBuffer.append(f3546a[i / 16] + f3546a[i % 16]);
         }
         return stringBuffer.toString();
     }
@@ -110,9 +110,9 @@ public final class p {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         char[] cArr2 = new char[bArr.length * 2];
         for (int i = 0; i < bArr.length; i++) {
-            byte b2 = bArr[i];
-            cArr2[i * 2] = cArr[(b2 >>> 4) & 15];
-            cArr2[(i * 2) + 1] = cArr[b2 & 15];
+            byte b = bArr[i];
+            cArr2[i * 2] = cArr[(b >>> 4) & 15];
+            cArr2[(i * 2) + 1] = cArr[b & 15];
         }
         return new String(cArr2);
     }

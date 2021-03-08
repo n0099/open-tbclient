@@ -2,8 +2,9 @@ package com.bytedance.sdk.openadsdk.preload.geckox;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
-import com.bytedance.sdk.openadsdk.preload.a.d;
+import com.bytedance.sdk.openadsdk.preload.b.d;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.CheckRequestBodyModel;
+import com.bytedance.sdk.openadsdk.preload.geckox.statistic.c;
 import com.bytedance.sdk.openadsdk.preload.geckox.utils.g;
 import java.io.File;
 import java.util.ArrayList;
@@ -15,10 +16,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<String> f7436a = new ArrayList();
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.preload.geckox.e.b f7437b = new com.bytedance.sdk.openadsdk.preload.geckox.e.b();
+    private final List<String> f5050a = new ArrayList();
+    private com.bytedance.sdk.openadsdk.preload.geckox.e.b b = new com.bytedance.sdk.openadsdk.preload.geckox.e.b();
     private Queue<String> c = new LinkedBlockingQueue();
     private b d;
     private File e;
@@ -27,7 +26,7 @@ public final class a {
         this.d = bVar;
         this.e = bVar.m();
         this.e.mkdirs();
-        com.bytedance.sdk.openadsdk.preload.geckox.statistic.c.a(this, this.d);
+        c.a(this, this.d);
     }
 
     public static a a(b bVar) {
@@ -70,7 +69,7 @@ public final class a {
                 }
                 try {
                     try {
-                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "update finished", com.bytedance.sdk.openadsdk.preload.geckox.j.a.a(aVar, a.this.e, a.this.d, a.this.f7437b, map, map2, str).a((com.bytedance.sdk.openadsdk.preload.a.b<Object>) str));
+                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "update finished", com.bytedance.sdk.openadsdk.preload.geckox.j.a.a(aVar, a.this.e, a.this.d, a.this.b, map, map2, str).a((com.bytedance.sdk.openadsdk.preload.b.b<Object>) str));
                         if (aVar != null) {
                             aVar.a();
                         }
@@ -138,8 +137,8 @@ public final class a {
         return true;
     }
 
-    public void a(Class<? extends d<?, ?>> cls, com.bytedance.sdk.openadsdk.preload.a.b.a aVar) {
-        this.f7437b.a(cls, aVar);
+    public void a(Class<? extends d<?, ?>> cls, com.bytedance.sdk.openadsdk.preload.b.b.a aVar) {
+        this.b.a(cls, aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

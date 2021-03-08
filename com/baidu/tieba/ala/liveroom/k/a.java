@@ -11,10 +11,10 @@ import com.baidu.live.pendantview.PendantParentView;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.ala.liveroom.a {
-    private ViewGroup bRb;
-    private b hDT;
+    private ViewGroup bSB;
+    private b hFC;
     private String otherParams;
 
     public a(TbPageContext tbPageContext, com.baidu.live.liveroom.a.a aVar) {
@@ -29,86 +29,86 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
 
     public void a(ViewGroup viewGroup, LinearLayout.LayoutParams layoutParams) {
         CustomResponsedMessage runTask;
-        if (com.baidu.live.ae.a.Qj().buX.Ck() && (viewGroup instanceof PendantParentView)) {
-            if (this.hDT == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
-                this.hDT = (b) runTask.getData();
+        if (com.baidu.live.ae.a.Qm().bwx.Cn() && (viewGroup instanceof PendantParentView)) {
+            if (this.hFC == null && (runTask = MessageManager.getInstance().runTask(2913034, b.class, getPageContext().getPageActivity())) != null && runTask.getData() != null) {
+                this.hFC = (b) runTask.getData();
             }
-            if (this.hDT != null) {
-                this.hDT.setOtherParams(Lo());
-                this.hDT.Tw();
+            if (this.hFC != null) {
+                this.hFC.setOtherParams(Lr());
+                this.hFC.Tz();
             }
             a((PendantParentView) viewGroup, layoutParams);
         }
     }
 
     private void a(PendantParentView pendantParentView, LinearLayout.LayoutParams layoutParams) {
-        PendantChildView Tv;
+        PendantChildView Ty;
         if (pendantParentView != null) {
-            this.bRb = pendantParentView;
-            if (this.hDT != null && (Tv = this.hDT.Tv()) != null && pendantParentView.indexOfChild(Tv) < 0) {
+            this.bSB = pendantParentView;
+            if (this.hFC != null && (Ty = this.hFC.Ty()) != null && pendantParentView.indexOfChild(Ty) < 0) {
                 if (layoutParams == null) {
-                    layoutParams = cfv();
+                    layoutParams = cfB();
                 }
-                pendantParentView.a(Tv, layoutParams);
+                pendantParentView.a(Ty, layoutParams);
             }
         }
     }
 
-    private LinearLayout.LayoutParams cfv() {
+    private LinearLayout.LayoutParams cfB() {
         return new LinearLayout.LayoutParams(-2, -2);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void Ar() {
-        super.Ar();
-        if (this.hDT != null) {
-            PendantChildView Tv = this.hDT.Tv();
-            if (Tv != null && Tv.getParent() != null) {
-                ((ViewGroup) Tv.getParent()).removeView(Tv);
+    public void Au() {
+        super.Au();
+        if (this.hFC != null) {
+            PendantChildView Ty = this.hFC.Ty();
+            if (Ty != null && Ty.getParent() != null) {
+                ((ViewGroup) Ty.getParent()).removeView(Ty);
             }
-            this.hDT.Tx();
+            this.hFC.TA();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.hDT != null) {
-            PendantChildView Tv = this.hDT.Tv();
-            if (Tv != null && Tv.getParent() != null) {
-                ((ViewGroup) Tv.getParent()).removeView(Tv);
+        if (this.hFC != null) {
+            PendantChildView Ty = this.hFC.Ty();
+            if (Ty != null && Ty.getParent() != null) {
+                ((ViewGroup) Ty.getParent()).removeView(Ty);
             }
-            this.hDT.onDestroy();
+            this.hFC.onDestroy();
         }
     }
 
-    public void Q(JSONObject jSONObject) {
-        if (this.hDT != null) {
-            this.hDT.ab(jSONObject);
+    public void S(JSONObject jSONObject) {
+        if (this.hFC != null) {
+            this.hFC.ad(jSONObject);
         }
     }
 
     public void M(ab abVar) {
         if (!TbadkCoreApplication.isLogin()) {
-            cfw();
+            cfC();
         }
-        if (this.hDT != null && this.hDT.Tv() != null && abVar != null) {
-            this.hDT.j(abVar);
+        if (this.hFC != null && this.hFC.Ty() != null && abVar != null) {
+            this.hFC.j(abVar);
         }
     }
 
     public void setCanVisible(boolean z) {
-        if (this.hDT != null) {
-            this.hDT.setCanVisible(z);
+        if (this.hFC != null) {
+            this.hFC.setCanVisible(z);
         }
     }
 
-    public void cfw() {
-        if (this.hDT != null && this.hDT.Tv() != null) {
-            this.hDT.Tv().setVisibility(8);
+    public void cfC() {
+        if (this.hFC != null && this.hFC.Ty() != null) {
+            this.hFC.Ty().setVisibility(8);
         }
     }
 
-    public String Lo() {
+    public String Lr() {
         return this.otherParams;
     }
 

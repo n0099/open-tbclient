@@ -16,7 +16,7 @@ import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.f.f;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a<V extends SimpleDraweeView, M extends b> extends com.baidu.swan.apps.component.a.d.a<V, M> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.component.a.b.a<V extends com.facebook.drawee.view.SimpleDraweeView, M extends com.baidu.swan.apps.component.a.b.b> */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,8 +44,8 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
     @NonNull
     public com.baidu.swan.apps.component.d.b a(@NonNull M m, @NonNull M m2) {
         com.baidu.swan.apps.component.d.b a2 = super.a(m, m2);
-        if (!TextUtils.equals(m.cKS, m2.cKS)) {
-            a2.gv(9);
+        if (!TextUtils.equals(m.cMs, m2.cMs)) {
+            a2.gw(9);
         }
         return a2;
     }
@@ -53,7 +53,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(@NonNull V v, @NonNull M m, @NonNull com.baidu.swan.apps.component.d.b bVar) {
         super.a((a<V, M>) v, (V) m, bVar);
-        if (bVar.gw(9)) {
+        if (bVar.gx(9)) {
             a((a<V, M>) v, (V) m);
         }
     }
@@ -64,39 +64,39 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(@NonNull V v, @NonNull M m, @Nullable com.facebook.drawee.controller.b<f> bVar) {
-        Uri lJ;
-        if (m.cLb != null) {
+        Uri lQ;
+        if (m.cMB != null) {
             if (DEBUG) {
                 Log.d("Component-SimpleDrawee", "renderImageStyle");
             }
-            String str = m.cKS;
-            if (!TextUtils.isEmpty(str) && (lJ = lJ(str)) != null) {
-                c.i("Component-SimpleDrawee", "Image Uri:" + lJ);
-                e b2 = com.facebook.drawee.a.a.c.etw().c(v.getController());
+            String str = m.cMs;
+            if (!TextUtils.isEmpty(str) && (lQ = lQ(str)) != null) {
+                c.i("Component-SimpleDrawee", "Image Uri:" + lQ);
+                e b = com.facebook.drawee.a.a.c.etF().c(v.getController());
                 if (bVar != null) {
-                    b2.c(bVar);
+                    b.c(bVar);
                 }
-                b2.V(lJ);
-                com.facebook.drawee.controller.a euj = b2.eun();
+                b.V(lQ);
+                com.facebook.drawee.controller.a eus = b.euw();
                 RoundingParams roundingParams = new RoundingParams();
-                roundingParams.bK(m.cLc);
-                com.facebook.drawee.generic.a euY = new com.facebook.drawee.generic.b(v.getResources()).euY();
-                euY.a(roundingParams);
-                euY.b(p.b.pDQ);
-                v.setHierarchy(euY);
-                v.setController(euj);
+                roundingParams.bO(m.cMC);
+                com.facebook.drawee.generic.a evh = new com.facebook.drawee.generic.b(v.getResources()).evh();
+                evh.a(roundingParams);
+                evh.b(p.b.pFV);
+                v.setHierarchy(evh);
+                v.setController(eus);
             }
         }
     }
 
-    public static Uri lJ(@NonNull String str) {
+    public static Uri lQ(@NonNull String str) {
         String str2;
         String str3;
-        PathType te = com.baidu.swan.apps.storage.b.te(str);
-        com.baidu.swan.apps.runtime.e aIK = com.baidu.swan.apps.runtime.e.aIK();
-        if (aIK != null) {
-            str3 = aIK.id;
-            str2 = aIK.getVersion();
+        PathType tl = com.baidu.swan.apps.storage.b.tl(str);
+        com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
+        if (aIN != null) {
+            str3 = aIN.id;
+            str2 = aIN.getVersion();
         } else {
             str2 = null;
             str3 = null;
@@ -104,7 +104,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
         if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        switch (te) {
+        switch (tl) {
             case BD_FILE:
                 String cx = com.baidu.swan.apps.storage.b.cx(str, str3);
                 if (TextUtils.isEmpty(cx)) {
@@ -116,7 +116,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
                 if (file.exists()) {
                     return Uri.fromFile(file);
                 }
-                String a2 = com.baidu.swan.apps.storage.b.a(str, aIK, str2);
+                String a2 = com.baidu.swan.apps.storage.b.a(str, aIN, str2);
                 if (TextUtils.isEmpty(a2)) {
                     return null;
                 }

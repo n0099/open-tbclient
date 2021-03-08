@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HistoryItemView extends LinearLayout {
-    TbRichTextView kBT;
-    TextView kBU;
-    ChatImageWithTailView kBV;
+    TbRichTextView kDV;
+    TextView kDW;
+    ChatImageWithTailView kDX;
     LinearLayout mContainer;
     Context mContext;
 
@@ -37,25 +37,25 @@ public class HistoryItemView extends LinearLayout {
         setClickable(false);
         setFocusable(false);
         this.mContainer = (LinearLayout) findViewById(R.id.history_container);
-        this.kBU = (TextView) findViewById(R.id.history_send_time);
-        this.kBT = (TbRichTextView) findViewById(R.id.history_txt);
-        this.kBV = (ChatImageWithTailView) findViewById(R.id.history_pic);
+        this.kDW = (TextView) findViewById(R.id.history_send_time);
+        this.kDV = (TbRichTextView) findViewById(R.id.history_txt);
+        this.kDX = (ChatImageWithTailView) findViewById(R.id.history_pic);
         ap.setBackgroundResource(this.mContainer, R.drawable.selector_history_multi_single_bg);
-        ap.setViewTextColor(this.kBU, R.color.common_color_10067, 1);
-        this.kBT.setTextColor(ap.getColor(R.color.CAM_X0108));
-        this.kBV.setIsSupportNight(true);
+        ap.setViewTextColor(this.kDW, R.color.common_color_10067, 1);
+        this.kDV.setTextColor(ap.getColor(R.color.CAM_X0108));
+        this.kDX.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.kBU.setText(str);
+        this.kDW.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.kBT;
+        return this.kDV;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.kBV;
+        return this.kDX;
     }
 
     public void dl(View view) {

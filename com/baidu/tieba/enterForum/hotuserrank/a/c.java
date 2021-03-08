@@ -15,47 +15,47 @@ import tbclient.GetInfluenceRank.DataRes;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class c {
-    public String hcY;
-    public String iLA;
-    public long iLq;
-    public a iLx;
-    public b iLz;
-    public List<b> iLy = new ArrayList();
+    public String heH;
+    public long iMZ;
+    public a iNg;
+    public b iNi;
+    public String iNj;
+    public List<b> iNh = new ArrayList();
     public boolean hasMore = true;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.iLx = new a();
+            this.iNg = new a();
             if (!y.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-                this.iLx.iLo = b(dataRes.user_rank.get(0));
+                this.iNg.iMX = b(dataRes.user_rank.get(0));
                 MetaData metaData = new MetaData();
                 metaData.parserProtobuf(dataRes.user_rank.get(0));
-                this.iLx.iLp = metaData;
+                this.iNg.iMY = metaData;
                 String avatarH = metaData.getAvatarH();
                 if (TextUtils.isEmpty(avatarH)) {
                     avatarH = metaData.getAvater();
                 }
                 if (avatarH != null && avatarH.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                    this.iLx.iLr = avatarH;
+                    this.iNg.iNa = avatarH;
                 } else {
-                    this.iLx.iLr = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
+                    this.iNg.iNa = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
                 }
             }
-            this.iLx.iLq = dataRes.timestamp == null ? 0L : dataRes.timestamp.longValue();
-            this.iLx.iLs = dataRes.field_info;
+            this.iNg.iMZ = dataRes.timestamp == null ? 0L : dataRes.timestamp.longValue();
+            this.iNg.iNb = dataRes.field_info;
             if (!y.isEmpty(dataRes.user_rank)) {
                 for (User user : dataRes.user_rank) {
                     if (user != null) {
-                        this.iLy.add(a(user));
+                        this.iNh.add(a(user));
                     }
                 }
             }
-            this.iLz = a(dataRes.current_user);
+            this.iNi = a(dataRes.current_user);
             if (dataRes.rank_description != null) {
-                this.hcY = dataRes.rank_description.top_link;
-                this.iLA = dataRes.rank_description.bottom_link;
+                this.heH = dataRes.rank_description.top_link;
+                this.iNj = dataRes.rank_description.bottom_link;
             }
-            this.iLq = dataRes.timestamp != null ? dataRes.timestamp.longValue() : 0L;
+            this.iMZ = dataRes.timestamp != null ? dataRes.timestamp.longValue() : 0L;
             this.hasMore = dataRes.has_more == null ? false : dataRes.has_more.booleanValue();
         }
     }
@@ -69,18 +69,18 @@ public class c {
         bVar.rankNum = user.level_influence;
         bVar.userName = b(user);
         if (user.baijiahao_info != null) {
-            bVar.iLt = user.baijiahao_info.auth_desc;
+            bVar.iNc = user.baijiahao_info.auth_desc;
             Integer num = user.baijiahao_info.auth_id;
-            bVar.iLw = (num == null || num.intValue() == 0) ? false : true;
+            bVar.iNf = (num == null || num.intValue() == 0) ? false : true;
         }
-        if (!bVar.iLw && user.new_god_data != null && user.new_god_data.status.intValue() == 3) {
-            bVar.iLt = user.new_god_data.field_name + aj.a(user.new_god_data);
-            bVar.iLl = true;
+        if (!bVar.iNf && user.new_god_data != null && user.new_god_data.status.intValue() == 3) {
+            bVar.iNc = user.new_god_data.field_name + aj.a(user.new_god_data);
+            bVar.iMU = true;
         }
         if (user.influence == null) {
-            bVar.iLu = "";
+            bVar.iNd = "";
         } else {
-            bVar.iLu = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), au.numFormatOverWanNa(user.influence.intValue()));
+            bVar.iNd = String.format(TbadkCoreApplication.getInst().getString(R.string.influence), au.numFormatOverWanNa(user.influence.intValue()));
         }
         MetaData metaData = new MetaData();
         metaData.parserProtobuf(user);
@@ -88,7 +88,7 @@ public class c {
             z = false;
         }
         metaData.setIsLike(z);
-        bVar.iLv = metaData;
+        bVar.iNe = metaData;
         if (metaData.getAvater() != null && metaData.getAvater().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
             bVar.headUrl = metaData.getAvater();
         } else {

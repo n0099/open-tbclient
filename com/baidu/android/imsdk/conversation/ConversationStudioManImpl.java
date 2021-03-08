@@ -291,7 +291,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra("mcast_id", j);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
             try {
-                a.ao(mContext).e(mContext, createMcastMethodIntent);
+                a.an(mContext).e(mContext, createMcastMethodIntent);
                 new IMTrack.RequestBuilder(mContext).requestId("" + j).requestTime(System.currentTimeMillis()).ext("service enqueue join").aliasId(501112L).build();
                 return;
             } catch (Exception e) {
@@ -378,7 +378,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             try {
-                a.ao(mContext).e(mContext, createMcastMethodIntent);
+                a.an(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -400,7 +400,7 @@ public class ConversationStudioManImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
             try {
-                a.ao(mContext).e(mContext, createMcastMethodIntent);
+                a.an(mContext).e(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -423,7 +423,7 @@ public class ConversationStudioManImpl {
     }
 
     public void handleMessage(JSONObject jSONObject) {
-        if (!a.aug || jSONObject != null) {
+        if (!a.avG || jSONObject != null) {
         }
         JSONArray jSONArray = new JSONArray();
         try {
@@ -516,8 +516,8 @@ public class ConversationStudioManImpl {
     }
 
     public boolean getConnectState() {
-        if (a.aug) {
-            if (com.baidu.lcp.sdk.client.a.vz() != 0) {
+        if (a.avG) {
+            if (com.baidu.lcp.sdk.client.a.vC() != 0) {
                 return false;
             }
             return true;
@@ -557,7 +557,7 @@ public class ConversationStudioManImpl {
     }
 
     public static void resetHeartBeat(int i) {
-        if (!a.aug) {
+        if (!a.avG) {
             Heartbeat.ALARM_TIMEOUT = i;
             LogUtils.d(TAG, "reset heartbeat time to = " + Heartbeat.ALARM_TIMEOUT);
             IMSDK.getInstance(mContext).mHeartbeatOperator.cancelHearbeat();
@@ -566,7 +566,7 @@ public class ConversationStudioManImpl {
     }
 
     public void setMcastQuickHeartBeat() {
-        if (a.aug && !mOpenPingRequest.get()) {
+        if (a.avG && !mOpenPingRequest.get()) {
             mOpenPingRequest.set(true);
             pingRequest(true, mCastHeartBeatTime);
             return;
@@ -580,7 +580,7 @@ public class ConversationStudioManImpl {
     }
 
     public void cancelMcastQuickHeartBeat() {
-        if (a.aug && mOpenPingRequest.get()) {
+        if (a.avG && mOpenPingRequest.get()) {
             mOpenPingRequest.set(false);
             pingRequest(false, 0L);
             return;
@@ -599,11 +599,11 @@ public class ConversationStudioManImpl {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (!a.aug) {
+                    if (!a.avG) {
                         Intent intent = new Intent(ConversationStudioManImpl.mContext, a.class);
                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                         intent.setPackage(ConversationStudioManImpl.mContext.getPackageName());
-                        a.ao(ConversationStudioManImpl.mContext).e(ConversationStudioManImpl.mContext, intent);
+                        a.an(ConversationStudioManImpl.mContext).e(ConversationStudioManImpl.mContext, intent);
                     }
                 } catch (Exception e) {
                     if (e instanceof SecurityException) {
@@ -676,7 +676,7 @@ public class ConversationStudioManImpl {
     }
 
     private void registerNetChangedReceiver() {
-        if (!a.aug) {
+        if (!a.avG) {
             try {
                 if (mNetChangedReceiver == null && mContext != null) {
                     mNetChangedReceiver = new IMReceiver();
@@ -695,7 +695,7 @@ public class ConversationStudioManImpl {
     }
 
     private void unRegisterNetChangedReceiver() {
-        if (!a.aug) {
+        if (!a.avG) {
             try {
                 if (this.isRegisterNetReceiver && mContext != null) {
                     mContext.unregisterReceiver(mNetChangedReceiver);

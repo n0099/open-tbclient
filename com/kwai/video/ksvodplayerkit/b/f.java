@@ -5,10 +5,8 @@ import java.util.List;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11048a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<String> f11049b;
+    public String f7276a;
+    public List<String> b;
     public String c;
     public String d;
     public double e;

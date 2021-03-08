@@ -13,22 +13,22 @@ import com.bytedance.sdk.openadsdk.preload.geckox.utils.i;
 /* loaded from: classes6.dex */
 class d {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a a(final com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.1
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar2, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a a(final com.bytedance.sdk.openadsdk.preload.geckox.b bVar) {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.1
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar2, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.a(bVar2, dVar);
                 e.a(com.bytedance.sdk.openadsdk.preload.geckox.b.this, b.a(dVar.c()));
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar2, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar2, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar2, dVar, th);
                 e.a(com.bytedance.sdk.openadsdk.preload.geckox.b.this, b.a(dVar.c()));
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar2, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar2, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.b(bVar2, dVar, th);
                 e.a(com.bytedance.sdk.openadsdk.preload.geckox.b.this, b.a(dVar.c()));
             }
@@ -36,10 +36,10 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a a(final Context context) {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.4
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void c(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a a(final Context context) {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.4
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void c(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.c(bVar, dVar);
                 Pair pair = (Pair) bVar.b(g.class);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) pair.second).getChannel());
@@ -49,23 +49,23 @@ class d {
                 a2.r = Long.valueOf(((UpdatePackage) pair.second).getFullPackage().getId());
                 a2.c = ((UpdatePackage) pair.second).getChannel();
                 if (!TextUtils.isEmpty(((UpdatePackage) pair.second).getAccessKey())) {
-                    a2.f7517a = ((UpdatePackage) pair.second).getAccessKey();
+                    a2.f5101a = ((UpdatePackage) pair.second).getAccessKey();
                 }
                 if (!TextUtils.isEmpty(((UpdatePackage) pair.second).getGroupName())) {
-                    a2.f7518b = ((UpdatePackage) pair.second).getGroupName();
+                    a2.b = ((UpdatePackage) pair.second).getGroupName();
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(g.class)).second).getChannel());
                 a2.B = true;
                 a2.y = SystemClock.uptimeMillis();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 Pair pair = (Pair) bVar.b(g.class);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) pair.second).getChannel());
@@ -78,10 +78,10 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a b(final Context context) {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.5
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void c(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a b(final Context context) {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.5
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void c(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.c(bVar, dVar);
                 Pair pair = (Pair) bVar.b(h.class);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) pair.second).getChannel());
@@ -93,16 +93,16 @@ class d {
                 a2.c = ((UpdatePackage) pair.second).getChannel();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.h = true;
                 a2.g = SystemClock.uptimeMillis();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 Pair pair = (Pair) bVar.b(h.class);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) pair.second).getChannel());
@@ -115,16 +115,16 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a a() {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.6
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a a() {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.6
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
                 b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel()).i = true;
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.i = false;
@@ -135,18 +135,18 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a b() {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.7
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a b() {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.7
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.j = true;
                 a2.m = SystemClock.uptimeMillis();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.j = false;
@@ -157,18 +157,18 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a c() {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.8
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a c() {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.8
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.j = true;
                 a2.n = SystemClock.uptimeMillis();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.j = false;
@@ -179,18 +179,18 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a d() {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.9
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a d() {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.9
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(g.class)).second).getChannel());
                 a2.C = true;
                 a2.z = SystemClock.uptimeMillis();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(g.class)).second).getChannel());
                 a2.C = false;
@@ -201,18 +201,18 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a e() {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.10
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a e() {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.10
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(g.class)).second).getChannel());
                 a2.D = true;
                 a2.A = SystemClock.uptimeMillis();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(g.class)).second).getChannel());
                 a2.D = false;
@@ -223,18 +223,18 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a f() {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.11
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a f() {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.11
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.k = true;
                 a2.o = SystemClock.uptimeMillis();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.k = false;
@@ -245,10 +245,10 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a g() {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.2
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a g() {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.2
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(g.class)).second).getChannel());
                 a2.D = false;
@@ -256,8 +256,8 @@ class d {
                 a2.F = th.getMessage();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.b(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(g.class)).second).getChannel());
                 a2.D = false;
@@ -265,8 +265,8 @@ class d {
                 a2.F = th.getMessage();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.a(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(g.class)).second).getChannel());
                 a2.D = true;
@@ -276,15 +276,15 @@ class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.bytedance.sdk.openadsdk.preload.a.b.a h() {
-        return new com.bytedance.sdk.openadsdk.preload.a.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.3
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+    public static com.bytedance.sdk.openadsdk.preload.b.b.a h() {
+        return new com.bytedance.sdk.openadsdk.preload.b.b.a() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.statistic.d.3
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.b(bVar, dVar);
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.a(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.k = false;
@@ -292,8 +292,8 @@ class d {
                 a2.u = th.getMessage();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void b(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar, Throwable th) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void b(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar, Throwable th) {
                 super.b(bVar, dVar, th);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.k = false;
@@ -301,8 +301,8 @@ class d {
                 a2.F = th.getMessage();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.preload.a.b.a
-            public <T> void a(com.bytedance.sdk.openadsdk.preload.a.b<T> bVar, com.bytedance.sdk.openadsdk.preload.a.d dVar) {
+            @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
+            public <T> void a(com.bytedance.sdk.openadsdk.preload.b.b<T> bVar, com.bytedance.sdk.openadsdk.preload.b.d dVar) {
                 super.a(bVar, dVar);
                 com.bytedance.sdk.openadsdk.preload.geckox.statistic.model.a a2 = b.a(dVar.c()).a(((UpdatePackage) ((Pair) bVar.b(h.class)).second).getChannel());
                 a2.k = true;

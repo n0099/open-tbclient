@@ -2,7 +2,7 @@ package com.tencent.mm.opensdk.utils;
 
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static final String c(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
@@ -15,10 +15,10 @@ public final class b {
             int i = 0;
             int i2 = 0;
             while (i < length) {
-                byte b2 = digest[i];
+                byte b = digest[i];
                 int i3 = i2 + 1;
-                cArr2[i2] = cArr[(b2 >>> 4) & 15];
-                cArr2[i3] = cArr[b2 & 15];
+                cArr2[i2] = cArr[(b >>> 4) & 15];
+                cArr2[i3] = cArr[b & 15];
                 i++;
                 i2 = i3 + 1;
             }

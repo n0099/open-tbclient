@@ -41,7 +41,7 @@ public class NativeCrashCapture implements NoProGuard {
                 }
                 nativeInit(Build.VERSION.SDK_INT);
                 if (z) {
-                    com.baidu.disasterrecovery.jnicrash.a.uw();
+                    com.baidu.disasterrecovery.jnicrash.a.uz();
                 }
                 file.delete();
                 if (DEBUG) {
@@ -98,7 +98,7 @@ public class NativeCrashCapture implements NoProGuard {
     public static void beginNativeCrash() {
         if (Build.VERSION.SDK_INT > 19) {
             if (sNativeCrashHandler != null) {
-                sNativeCrashHandler.uz();
+                sNativeCrashHandler.uC();
                 return;
             }
             return;
@@ -107,7 +107,7 @@ public class NativeCrashCapture implements NoProGuard {
             Log.d(TAG, "beginNativeCrash");
         }
         if (sNativeCrashHandler != null) {
-            sNativeCrashHandler.uz();
+            sNativeCrashHandler.uC();
         }
     }
 
@@ -133,13 +133,13 @@ public class NativeCrashCapture implements NoProGuard {
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            NativeCrashCapture.sNativeCrashHandler.uz();
+            NativeCrashCapture.sNativeCrashHandler.uC();
         }
     }
 
     /* loaded from: classes6.dex */
     private static class b extends Thread {
-        String aqV;
+        String asv;
         int pid;
         int tid;
 
@@ -149,7 +149,7 @@ public class NativeCrashCapture implements NoProGuard {
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             if (NativeCrashCapture.sNativeCrashHandler != null) {
-                NativeCrashCapture.sNativeCrashHandler.uncaughtNativeCrash(this.aqV, this.pid, this.tid);
+                NativeCrashCapture.sNativeCrashHandler.uncaughtNativeCrash(this.asv, this.pid, this.tid);
             }
         }
     }

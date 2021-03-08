@@ -54,7 +54,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            com.baidu.tieba.recapp.c.a.dEm().RP(threadListResIdl.data.asp_shown_info);
+            com.baidu.tieba.recapp.c.a.dEu().RV(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -74,11 +74,11 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     aq.a(j, cbVar);
                     cbVar.setUserMap(this.userMap);
                     cbVar.a(threadInfo);
-                    cbVar.boP();
-                    cbVar.eTo = z;
-                    if (!TextUtils.isEmpty(cbVar.bpb())) {
+                    cbVar.boR();
+                    cbVar.eUP = z;
+                    if (!TextUtils.isEmpty(cbVar.bpd())) {
                         an anVar = new an();
-                        anVar.zV(cbVar.bpb());
+                        anVar.Ac(cbVar.bpd());
                         this.threadList.add(anVar);
                     } else {
                         this.threadList.add(cbVar);
@@ -88,7 +88,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                         }
                     }
                 }
-                b.dEt().q("FRS", arrayList);
+                b.dEB().q("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

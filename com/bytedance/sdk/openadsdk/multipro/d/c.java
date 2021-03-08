@@ -13,11 +13,11 @@ import java.util.Map;
 public class c implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7413a;
+    private Context f4927a;
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f7413a = context;
+        this.f4927a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -31,20 +31,20 @@ public class c implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     private Context c() {
-        return this.f7413a == null ? p.a() : this.f7413a;
+        return this.f4927a == null ? p.a() : this.f4927a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public Cursor a(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        Map<String, ?> b2;
-        if (!uri.getPath().split("/")[2].equals("get_all") || (b2 = b.b(c(), uri.getQueryParameter("sp_file_name"))) == null) {
+        Map<String, ?> b;
+        if (!uri.getPath().split("/")[2].equals("get_all") || (b = b.b(c(), uri.getQueryParameter("sp_file_name"))) == null) {
             return null;
         }
         MatrixCursor matrixCursor = new MatrixCursor(new String[]{"cursor_name", "cursor_type", "cursor_value"});
-        for (String str3 : b2.keySet()) {
+        for (String str3 : b.keySet()) {
             Object[] objArr = new Object[3];
             objArr[0] = str3;
-            objArr[2] = b2.get(str3);
+            objArr[2] = b.get(str3);
             if (objArr[2] instanceof Boolean) {
                 objArr[1] = "boolean";
             } else if (objArr[2] instanceof String) {

@@ -46,52 +46,52 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends BdBaseModel {
-    private ab aJZ;
-    private Dialog biA;
-    public aq bvg;
+    private ab aLz;
+    private Dialog bka;
+    public aq bwG;
     private Context context;
-    private AnimatorSet hDM;
+    private AnimatorSet hFv;
     private View mContentView;
-    private boolean hDN = false;
+    private boolean hFw = false;
     private Handler handler = new Handler();
-    private boolean hDO = false;
-    private boolean hDP = false;
-    public boolean hOv = false;
-    public boolean hOw = false;
-    private HttpMessageListener bBe = new HttpMessageListener(1031064) { // from class: com.baidu.tieba.yuyinala.liveroom.p.c.1
+    private boolean hFx = false;
+    private boolean hFy = false;
+    public boolean hQe = false;
+    public boolean hQf = false;
+    private HttpMessageListener bCE = new HttpMessageListener(1031064) { // from class: com.baidu.tieba.yuyinala.liveroom.p.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031064 && (httpResponsedMessage instanceof GetYuyinSuperCustomerInfoHttpResponseMessage) && c.this.context != null) {
                 if (httpResponsedMessage.getError() == 0) {
                     GetYuyinSuperCustomerInfoHttpResponseMessage getYuyinSuperCustomerInfoHttpResponseMessage = (GetYuyinSuperCustomerInfoHttpResponseMessage) httpResponsedMessage;
-                    if (getYuyinSuperCustomerInfoHttpResponseMessage.Ox() != null) {
-                        c.this.bvg = getYuyinSuperCustomerInfoHttpResponseMessage.Ox();
-                        b.ebT().bvg = c.this.bvg;
-                        c.this.xg();
+                    if (getYuyinSuperCustomerInfoHttpResponseMessage.OA() != null) {
+                        c.this.bwG = getYuyinSuperCustomerInfoHttpResponseMessage.OA();
+                        b.ecb().bwG = c.this.bwG;
+                        c.this.xj();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913189, "refreshInfo"));
                     }
                 }
             }
         }
     };
-    private CustomMessageListener bnB = new CustomMessageListener(2913189) { // from class: com.baidu.tieba.yuyinala.liveroom.p.c.2
+    private CustomMessageListener bpb = new CustomMessageListener(2913189) { // from class: com.baidu.tieba.yuyinala.liveroom.p.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage.getData() instanceof String) && c.this.context != null) {
                 String str = (String) customResponsedMessage.getData();
-                if ("consumeSuc".equals(str) && !c.this.hOw) {
-                    c.this.hOw = true;
+                if ("consumeSuc".equals(str) && !c.this.hQf) {
+                    c.this.hQf = true;
                     BdLog.d("consumeSuc");
-                    c.this.a(c.this.aJZ, c.this.aJZ.aIz.userId);
+                    c.this.a(c.this.aLz, c.this.aLz.aJZ.userId);
                 }
-                if ("chargeSuc".equals(str) && !c.this.hOv) {
+                if ("chargeSuc".equals(str) && !c.this.hQe) {
                     BdLog.d("chargeSuc");
-                    c.this.hOv = true;
-                    c.this.a(c.this.aJZ, c.this.aJZ.aIz.userId);
+                    c.this.hQe = true;
+                    c.this.a(c.this.aLz, c.this.aLz.aJZ.userId);
                 }
             }
         }
@@ -99,23 +99,23 @@ public class c extends BdBaseModel {
 
     public c(TbPageContext tbPageContext) {
         this.context = tbPageContext.getPageActivity();
-        this.bBe.setTag(tbPageContext.getUniqueId());
-        this.bnB.setTag(tbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.bBe);
-        MessageManager.getInstance().registerListener(this.bnB);
+        this.bCE.setTag(tbPageContext.getUniqueId());
+        this.bpb.setTag(tbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.bCE);
+        MessageManager.getInstance().registerListener(this.bpb);
     }
 
     public void a(ab abVar, long j) {
-        this.aJZ = abVar;
+        this.aLz = abVar;
         HttpMessage httpMessage = new HttpMessage(1031064);
         httpMessage.addParam("user_id", j);
         MessageManager.getInstance().sendMessage(httpMessage);
         BdLog.d("requestSuperCustomerInfoMessage user_id:" + j);
     }
 
-    public void FA() {
-        if (this.biA != null && this.biA.isShowing()) {
-            Context context = this.biA.getContext();
+    public void FD() {
+        if (this.bka != null && this.bka.isShowing()) {
+            Context context = this.bka.getContext();
             if (context != null) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
@@ -127,12 +127,12 @@ public class c extends BdBaseModel {
                         return;
                     }
                 }
-                this.biA.dismiss();
+                this.bka.dismiss();
             } else {
                 return;
             }
         }
-        this.biA = null;
+        this.bka = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -141,15 +141,15 @@ public class c extends BdBaseModel {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void xg() {
+    public void xj() {
         JSONArray jSONArray;
-        if (!TbadkCoreApplication.getInst().isMobileBaidu() && this.aJZ != null && this.aJZ.aIz != null) {
-            if (this.aJZ.mLiveInfo == null || this.aJZ.mLiveInfo.screen_direction != 2) {
-                BdLog.d("deal--isTiming:" + this.hDN);
-                if (!this.hDN && TbadkCoreApplication.isLogin() && this.bvg != null && this.bvg.aKc != 1 && !TextUtils.isEmpty(this.bvg.aKd)) {
-                    if (this.bvg == null || this.bvg.aKf) {
-                        int i = this.bvg.limit;
-                        String string = d.xc().getString("super_constomer_show_trace_monthly", "");
+        if (!TbadkCoreApplication.getInst().isMobileBaidu() && this.aLz != null && this.aLz.aJZ != null) {
+            if (this.aLz.mLiveInfo == null || this.aLz.mLiveInfo.screen_direction != 2) {
+                BdLog.d("deal--isTiming:" + this.hFw);
+                if (!this.hFw && TbadkCoreApplication.isLogin() && this.bwG != null && this.bwG.aLC != 1 && !TextUtils.isEmpty(this.bwG.aLD)) {
+                    if (this.bwG == null || this.bwG.aLF) {
+                        int i = this.bwG.limit;
+                        String string = d.xf().getString("super_constomer_show_trace_monthly", "");
                         BdLog.d("deal-- trace:" + string);
                         if (!TextUtils.isEmpty(string)) {
                             try {
@@ -162,16 +162,16 @@ public class c extends BdBaseModel {
                                 final ArrayList<a> arrayList = new ArrayList();
                                 if (jSONArray2 != null) {
                                     for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                                        arrayList.add(new a().eO(jSONArray2.optJSONObject(i2)));
+                                        arrayList.add(new a().eR(jSONArray2.optJSONObject(i2)));
                                     }
                                 }
                                 for (a aVar : arrayList) {
                                     if (aVar != null && TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(aVar.uid)) {
-                                        Date ib = k.ib(aVar.date);
-                                        if (ib == null) {
+                                        Date ih = k.ih(aVar.date);
+                                        if (ih == null) {
                                             break;
-                                        } else if (!k.d(ib)) {
-                                            if (k.c(ib) && aVar.brp >= i) {
+                                        } else if (!k.d(ih)) {
+                                            if (k.c(ih) && aVar.bsP >= i) {
                                                 return;
                                             }
                                         } else {
@@ -179,7 +179,7 @@ public class c extends BdBaseModel {
                                         }
                                     }
                                 }
-                                int i3 = this.bvg.interval;
+                                int i3 = this.bwG.interval;
                                 if (i3 <= 0) {
                                     i3 = 20;
                                 }
@@ -198,13 +198,13 @@ public class c extends BdBaseModel {
                                                 return;
                                             }
                                         }
-                                        if (c.this.aJZ != null && c.this.aJZ.aIz != null) {
-                                            c.this.a(c.this.context, c.this.bvg);
-                                            c.this.a(arrayList, c.this.bvg);
+                                        if (c.this.aLz != null && c.this.aLz.aJZ != null) {
+                                            c.this.a(c.this.context, c.this.bwG);
+                                            c.this.a(arrayList, c.this.bwG);
                                         }
                                     }
                                 }, i3 * 1000);
-                                this.hDN = true;
+                                this.hFw = true;
                                 return;
                             }
                             return;
@@ -221,7 +221,7 @@ public class c extends BdBaseModel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final aq aqVar) {
-        FA();
+        FD();
         View inflate = LayoutInflater.from(context).inflate(a.g.dialog_super_customer, (ViewGroup) null);
         final Dialog dialog = new Dialog(context, a.i.FlowerGuideDialogStyle);
         dialog.requestWindowFeature(1);
@@ -229,20 +229,20 @@ public class c extends BdBaseModel {
         dialog.setContentView(inflate);
         dialog.setCanceledOnTouchOutside(false);
         this.mContentView = inflate;
-        this.biA = dialog;
+        this.bka = dialog;
         inflate.findViewById(a.f.main_layout).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.p.c.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
                 try {
-                    c.this.FA();
-                    if (c.this.aJZ != null && c.this.aJZ.mLiveInfo != null) {
-                        String str2 = aqVar.aKd;
+                    c.this.FD();
+                    if (c.this.aLz != null && c.this.aLz.mLiveInfo != null) {
+                        String str2 = aqVar.aLD;
                         if (!TextUtils.isEmpty(str2)) {
                             if (str2.contains("?")) {
-                                str = str2 + "&live_id=" + c.this.aJZ.mLiveInfo.live_id + "&client_type=2&subapp_type=" + TbConfig.getSubappType();
+                                str = str2 + "&live_id=" + c.this.aLz.mLiveInfo.live_id + "&client_type=2&subapp_type=" + TbConfig.getSubappType();
                             } else {
-                                str = str2 + "?live_id=" + c.this.aJZ.mLiveInfo.live_id + "&client_type=2&subapp_type=" + TbConfig.getSubappType();
+                                str = str2 + "?live_id=" + c.this.aLz.mLiveInfo.live_id + "&client_type=2&subapp_type=" + TbConfig.getSubappType();
                             }
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CommonWebViewActivityConfig(context, str)));
                             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "largebag_clk").setContentExt(null, UbcStatConstant.SubPage.POPUP, null));
@@ -257,7 +257,7 @@ public class c extends BdBaseModel {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    c.this.FA();
+                    c.this.FD();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -267,8 +267,8 @@ public class c extends BdBaseModel {
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
                 BdLog.d("dialog onShow 播放动画");
-                if (c.this.hDM != null) {
-                    c.this.hDM.start();
+                if (c.this.hFv != null) {
+                    c.this.hFv.start();
                 }
             }
         });
@@ -277,10 +277,10 @@ public class c extends BdBaseModel {
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 BdLog.d("dialog 停止动画");
-                if (c.this.hDM != null) {
-                    c.this.hDM.cancel();
+                if (c.this.hFv != null) {
+                    c.this.hFv.cancel();
                 }
-                c.this.hDN = false;
+                c.this.hFw = false;
             }
         });
         TbImageView tbImageView = (TbImageView) inflate.findViewById(a.f.super_bg);
@@ -300,7 +300,7 @@ public class c extends BdBaseModel {
                         } else if (activity.isFinishing()) {
                             return;
                         }
-                        if (c.this.aJZ != null && dialog != null && !dialog.isShowing()) {
+                        if (c.this.aLz != null && dialog != null && !dialog.isShowing()) {
                             BdLog.d("dialog.show()");
                             dialog.show();
                             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", UbcStatConstant.Page.VOICE_ROOM, "largebag_show").setContentExt(null, UbcStatConstant.SubPage.POPUP, null));
@@ -321,18 +321,18 @@ public class c extends BdBaseModel {
         }
         TbImageView tbImageView2 = (TbImageView) inflate.findViewById(a.f.super_entry);
         tbImageView2.setDefaultBgResource(a.e.sdk_shape_transparent);
-        if (!TextUtils.isEmpty(aqVar.aKe)) {
-            tbImageView2.startLoad(aqVar.aKe, 10, false);
+        if (!TextUtils.isEmpty(aqVar.aLE)) {
+            tbImageView2.startLoad(aqVar.aLE, 10, false);
         }
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(tbImageView2, "scaleX", 1.0f, 1.2f, 1.0f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(tbImageView2, "scaleY", 1.0f, 1.2f, 1.0f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
-        this.hDM = new AnimatorSet();
-        this.hDM.play(ofFloat).with(ofFloat2);
-        this.hDM.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.hDM.setDuration(2000L);
-        this.hDM.setStartDelay(0L);
+        this.hFv = new AnimatorSet();
+        this.hFv.play(ofFloat).with(ofFloat2);
+        this.hFv.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.hFv.setDuration(2000L);
+        this.hFv.setStartDelay(0L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -362,13 +362,13 @@ public class c extends BdBaseModel {
                 }
                 a next = it.next();
                 if (next != null && TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(next.uid)) {
-                    if (k.c(k.ib(next.date))) {
-                        i2 = next.brp + 1;
-                        next.brp = i2;
+                    if (k.c(k.ih(next.date))) {
+                        i2 = next.bsP + 1;
+                        next.bsP = i2;
                     } else {
                         i2 = 1;
                     }
-                    next.brp = i2;
+                    next.bsP = i2;
                     next.date = k.b(new Date());
                     z = true;
                 }
@@ -377,34 +377,34 @@ public class c extends BdBaseModel {
                 a aVar = new a();
                 aVar.uid = TbadkCoreApplication.getCurrentAccount();
                 aVar.date = k.b(new Date());
-                aVar.brp = 1;
+                aVar.bsP = 1;
                 list.add(aVar);
             }
             JSONArray jSONArray = new JSONArray();
             for (a aVar2 : list) {
                 jSONArray.put(new JSONObject(aVar2.toJsonString()));
             }
-            d.xc().putString("super_constomer_show_trace_monthly", jSONArray.toString());
+            d.xf().putString("super_constomer_show_trace_monthly", jSONArray.toString());
         }
     }
 
     public void onResume() {
-        if (this.hDP || !this.hDO || this.context == null || this.aJZ == null || this.aJZ.aIz == null) {
+        if (this.hFy || !this.hFx || this.context == null || this.aLz == null || this.aLz.aJZ == null) {
         }
     }
 
     public void release() {
-        this.hDN = false;
-        this.aJZ = null;
-        this.hOv = false;
-        this.hOw = false;
+        this.hFw = false;
+        this.aLz = null;
+        this.hQe = false;
+        this.hQf = false;
         this.handler.removeCallbacksAndMessages(null);
-        FA();
-        this.bvg = null;
-        b.ebT().bvg = null;
-        if (this.hDM != null) {
-            this.hDM.cancel();
-            this.hDM = null;
+        FD();
+        this.bwG = null;
+        b.ecb().bwG = null;
+        if (this.hFv != null) {
+            this.hFv.cancel();
+            this.hFv = null;
         }
         this.context = null;
     }

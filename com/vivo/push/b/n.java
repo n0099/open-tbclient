@@ -1,9 +1,9 @@
 package com.vivo.push.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class n extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13583a;
+    private int f8019a;
 
     public n() {
         super(2016);
@@ -13,17 +13,17 @@ public final class n extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("key_dispatch_environment", this.f13583a);
+        aVar.a("key_dispatch_environment", this.f8019a);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f13583a = aVar.b("key_dispatch_environment", 0);
+        this.f8019a = aVar.b("key_dispatch_environment", 0);
     }
 
     public final int d() {
-        return this.f13583a;
+        return this.f8019a;
     }
 }

@@ -73,10 +73,10 @@ public final class HighLevelEncoder {
         Collection<State> singletonList = Collections.singletonList(State.INITIAL_STATE);
         int i2 = 0;
         while (i2 < this.text.length) {
-            byte b2 = i2 + 1 < this.text.length ? this.text[i2 + 1] : (byte) 0;
+            byte b = i2 + 1 < this.text.length ? this.text[i2 + 1] : (byte) 0;
             switch (this.text[i2]) {
                 case 13:
-                    if (b2 != 10) {
+                    if (b != 10) {
                         i = 0;
                         break;
                     } else {
@@ -84,7 +84,7 @@ public final class HighLevelEncoder {
                         break;
                     }
                 case 44:
-                    if (b2 != 32) {
+                    if (b != 32) {
                         i = 0;
                         break;
                     } else {
@@ -92,7 +92,7 @@ public final class HighLevelEncoder {
                         break;
                     }
                 case 46:
-                    if (b2 != 32) {
+                    if (b != 32) {
                         i = 0;
                         break;
                     } else {
@@ -100,7 +100,7 @@ public final class HighLevelEncoder {
                         break;
                     }
                 case 58:
-                    if (b2 != 32) {
+                    if (b != 32) {
                         i = 0;
                         break;
                     } else {

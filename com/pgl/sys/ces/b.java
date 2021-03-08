@@ -1,12 +1,10 @@
 package com.pgl.sys.ces;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.util.Log;
-import com.kwad.sdk.collector.AppStatusRules;
 import com.pgl.a.b.e;
 import com.pgl.sys.ces.a.f;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,9 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b extends Thread implements com.pgl.sys.ces.d.b {
     private static Map<String, Object> n;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f11399b;
+    public Context b;
     private String g;
     private com.pgl.sys.ces.d.a l;
     private static volatile b e = null;
@@ -26,18 +22,18 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     private static boolean m = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11398a = false;
+    public boolean f7479a = false;
     private String h = "";
     private String i = "";
     private String j = "";
     private boolean k = false;
 
     private b(Context context, String str, com.pgl.sys.ces.d.a aVar) {
-        this.f11399b = null;
+        this.b = null;
         this.g = "";
         this.l = null;
         setName("CZL-00");
-        this.f11399b = context;
+        this.b = context;
         this.g = str;
         this.l = aVar;
     }
@@ -51,7 +47,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
             synchronized (b.class) {
                 if (e == null) {
                     if (context == null) {
-                        context = com.pgl.sys.ces.a.a.eDK().getApplicationContext();
+                        context = com.pgl.sys.ces.a.a.eDQ().getApplicationContext();
                     }
                     if (context == null) {
                         return null;
@@ -92,8 +88,8 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
         new Thread("CZL-" + str) { // from class: com.pgl.sys.ces.b.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                d.f11408a = 0;
-                d.a(b.this.f11399b);
+                d.f7485a = 0;
+                d.a(b.this.b);
             }
         }.start();
     }
@@ -116,7 +112,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
 
     public static int f() {
         try {
-            return com.pgl.sys.ces.a.a.eDJ() != null ? 1 : 0;
+            return com.pgl.sys.ces.a.a.eDP() != null ? 1 : 0;
         } catch (Throwable th) {
             return -1;
         }
@@ -127,28 +123,12 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     }
 
     private void h() {
-        com.pgl.sys.a.a.a(this.f11399b, b(), new com.pgl.sys.a.a.a() { // from class: com.pgl.sys.ces.b.2
+        com.pgl.sys.a.a.a(this.b, b(), new com.pgl.sys.a.a.a() { // from class: com.pgl.sys.ces.b.2
             @Override // com.pgl.sys.a.a.a
             public void a(String str) {
                 boolean unused = b.m = true;
             }
         });
-    }
-
-    private boolean i() {
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) this.f11399b.getSystemService("connectivity");
-            if (connectivityManager != null) {
-                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-                if (activeNetworkInfo == null) {
-                    if (activeNetworkInfo.isConnected()) {
-                    }
-                }
-                return true;
-            }
-        } catch (Throwable th) {
-        }
-        return false;
     }
 
     public void SetRegionType(int i) {
@@ -158,37 +138,37 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     public Object a(int i, Object obj) {
         String str;
         if (i == 123) {
-            return com.pgl.sys.ces.a.e.a(this.f11399b);
+            return com.pgl.sys.ces.a.e.a(this.b);
         }
         if (i == 121) {
-            return com.pgl.sys.ces.a.c.c(this.f11399b);
+            return com.pgl.sys.ces.a.c.c(this.b);
         }
         if (i == 122) {
             return com.pgl.sys.ces.a.c.a();
         }
         if (i == 126) {
-            return com.pgl.sys.ces.a.c.e(this.f11399b);
+            return com.pgl.sys.ces.a.c.e(this.b);
         }
         if (i == 127) {
-            return com.pgl.sys.ces.a.c.a(this.f11399b);
+            return com.pgl.sys.ces.a.c.a(this.b);
         }
         if (i == 128) {
-            return com.pgl.sys.ces.a.c.b(this.f11399b);
+            return com.pgl.sys.ces.a.c.b(this.b);
         }
         if (i == 120) {
             return com.pgl.sys.ces.a.b.a();
         }
         if (i == 124) {
-            return f.b(this.f11399b);
+            return f.b(this.b);
         }
         if (i == 130) {
-            return f.a(this.f11399b);
+            return f.a(this.b);
         }
         if (i == 125) {
-            return f.c(this.f11399b);
+            return f.c(this.b);
         }
         if (i == 129) {
-            return com.pgl.sys.ces.a.d.a(this.f11399b);
+            return com.pgl.sys.ces.a.d.a(this.b);
         }
         if (i == 131) {
             return com.pgl.sys.a.a.a();
@@ -197,8 +177,11 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
             reportNow((String) obj);
             return null;
         } else if (i == 134) {
-            return com.pgl.sys.ces.b.a.iv(this.f11399b).a();
+            return com.pgl.sys.ces.b.b.iw(this.b).c();
         } else {
+            if (i == 140) {
+                return com.pgl.sys.ces.b.a.iv(this.b).e();
+            }
             if (i == 133) {
                 try {
                     JSONObject jSONObject = new JSONObject();
@@ -219,16 +202,23 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
                 return a2 == null ? "0000000000000000000000000000000000000000" : a2.trim();
             } else if (i == 136) {
                 try {
-                    return this.f11399b.getPackageManager().getPackageInfo(this.f11399b.getPackageName(), 64).signatures[0].toByteArray();
+                    return this.b.getPackageManager().getPackageInfo(this.b.getPackageName(), 64).signatures[0].toByteArray();
                 } catch (Throwable th2) {
                     th2.printStackTrace();
                     return null;
                 }
             } else if (i == 201) {
-                return com.pgl.sys.ces.a.c.d(this.f11399b);
+                return com.pgl.sys.ces.a.c.d(this.b);
             } else {
                 if (i == 202) {
                     return com.pgl.sys.ces.a.c.b();
+                }
+                if (i == 236) {
+                    try {
+                        return Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class).invoke(null, (String) obj);
+                    } catch (Throwable th3) {
+                        return null;
+                    }
                 }
                 return null;
             }
@@ -239,6 +229,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
         return (String) a.meta(1024768, null, null);
     }
 
+    @Override // com.pgl.sys.ces.d.b
     public String onEvent() {
         return com.pgl.sys.a.a.a();
     }
@@ -261,16 +252,16 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     try {
-                        long timeInMillis = b.a().f11398a ? Calendar.getInstance().getTimeInMillis() : 0L;
-                        byte[] bArr = (byte[]) a.meta(222, b.this.f11399b, str);
-                        long timeInMillis2 = b.a().f11398a ? Calendar.getInstance().getTimeInMillis() : 0L;
-                        if (b.a().f11398a) {
+                        long timeInMillis = b.a().f7479a ? Calendar.getInstance().getTimeInMillis() : 0L;
+                        byte[] bArr = (byte[]) a.meta(222, b.this.b, str);
+                        long timeInMillis2 = b.a().f7479a ? Calendar.getInstance().getTimeInMillis() : 0L;
+                        if (b.a().f7479a) {
                             Log.d("CZL_Efficient", "[Efficient] report : " + (timeInMillis2 - timeInMillis));
                         }
                         if (bArr == null || bArr.length <= 0) {
                             throw new NullPointerException("NullPointerException");
                         }
-                        new com.pgl.sys.ces.c.a(b.this.f11399b, b.this.h).d(1, 2, bArr);
+                        new com.pgl.sys.ces.c.a(b.this.b, b.this.h).d(1, 2, bArr);
                     } catch (Throwable th) {
                     }
                 }
@@ -283,18 +274,24 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         this.k = true;
-        com.pgl.a.b.f.a(10000L);
+        long j = 1800000 / 180000;
         a("SP1");
         com.pgl.a.b.f.a(10000L);
         h();
-        com.pgl.a.b.f.a(40000L);
+        com.pgl.a.b.f.a(10000L);
         reportNow("CZL-L1st");
+        int i = 0;
         while (true) {
-            com.pgl.a.b.f.a(7200000L);
-            if (i()) {
+            com.pgl.sys.ces.b.b.iw(this.b).b();
+            com.pgl.sys.ces.b.a.iv(this.b).d();
+            if (i == j) {
                 reportNow("CZL-LLP");
-                com.pgl.a.b.f.a(AppStatusRules.DEFAULT_GRANULARITY);
-                a("CZL-LSP");
+            }
+            i++;
+            a.meta(1213, null, Thread.currentThread().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + i);
+            com.pgl.a.b.f.a(180000L);
+            if (i > j) {
+                i = 0;
             }
         }
     }
@@ -307,7 +304,7 @@ public class b extends Thread implements com.pgl.sys.ces.d.b {
     }
 
     public void setEfficientDebug(boolean z) {
-        this.f11398a = z;
+        this.f7479a = z;
     }
 
     @Override // com.pgl.sys.ces.d.b

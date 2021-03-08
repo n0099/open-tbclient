@@ -6,7 +6,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.util.ObjectsCompat;
 import androidx.media.MediaSessionManager;
 @RequiresApi(28)
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
     android.media.session.MediaSessionManager mObject;
 
@@ -24,7 +24,7 @@ class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
         return false;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static final class RemoteUserInfoImplApi28 implements MediaSessionManager.RemoteUserInfoImpl {
         final MediaSessionManager.RemoteUserInfo mObject;
 

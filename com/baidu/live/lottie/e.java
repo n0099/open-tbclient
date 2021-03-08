@@ -11,51 +11,51 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class e {
-    private Map<String, List<Layer>> BO;
-    private Map<String, com.baidu.live.lottie.model.c> BP;
-    private SparseArrayCompat<com.baidu.live.lottie.model.d> BQ;
-    private LongSparseArray<Layer> BR;
-    private List<Layer> BS;
-    private float BT;
-    private float BU;
-    private float BV;
+    private Map<String, List<Layer>> Dm;
+    private Map<String, com.baidu.live.lottie.model.c> Dn;
+    private SparseArrayCompat<com.baidu.live.lottie.model.d> Do;
+    private LongSparseArray<Layer> Dp;
+    private List<Layer> Dq;
+    private float Dr;
+    private float Ds;
+    private float Dt;
     private Rect bounds;
     private Map<String, i> images;
-    private final p brW = new p();
-    private final HashSet<String> BN = new HashSet<>();
+    private final p btx = new p();
+    private final HashSet<String> Dl = new HashSet<>();
 
     public void b(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, i> map2, SparseArrayCompat<com.baidu.live.lottie.model.d> sparseArrayCompat, Map<String, com.baidu.live.lottie.model.c> map3) {
         this.bounds = rect;
-        this.BT = f;
-        this.BU = f2;
-        this.BV = f3;
-        this.BS = list;
-        this.BR = longSparseArray;
-        this.BO = map;
+        this.Dr = f;
+        this.Ds = f2;
+        this.Dt = f3;
+        this.Dq = list;
+        this.Dp = longSparseArray;
+        this.Dm = map;
         this.images = map2;
-        this.BQ = sparseArrayCompat;
-        this.BP = map3;
+        this.Do = sparseArrayCompat;
+        this.Dn = map3;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void bc(String str) {
+    public void bg(String str) {
         Log.w("LOTTIE", str);
-        this.BN.add(str);
+        this.Dl.add(str);
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.brW.setEnabled(z);
+        this.btx.setEnabled(z);
     }
 
     public p getPerformanceTracker() {
-        return this.brW;
+        return this.btx;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Layer bc(long j) {
-        return this.BR.get(j);
+        return this.Dp.get(j);
     }
 
     public Rect hQ() {
@@ -63,39 +63,39 @@ public class e {
     }
 
     public float hR() {
-        return (hZ() / this.BV) * 1000.0f;
+        return (hZ() / this.Dt) * 1000.0f;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float hS() {
-        return this.BT;
+        return this.Dr;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float hT() {
-        return this.BU;
+        return this.Ds;
     }
 
     public float hU() {
-        return this.BV;
+        return this.Dt;
     }
 
     public List<Layer> hV() {
-        return this.BS;
+        return this.Dq;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public List<Layer> bd(String str) {
-        return this.BO.get(str);
+    public List<Layer> bh(String str) {
+        return this.Dm.get(str);
     }
 
     public SparseArrayCompat<com.baidu.live.lottie.model.d> hW() {
-        return this.BQ;
+        return this.Do;
     }
 
     public Map<String, com.baidu.live.lottie.model.c> hX() {
-        return this.BP;
+        return this.Dn;
     }
 
     public Map<String, i> hY() {
@@ -103,43 +103,43 @@ public class e {
     }
 
     public float hZ() {
-        return this.BU - this.BT;
+        return this.Ds - this.Dr;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.BS) {
+        for (Layer layer : this.Dq) {
             sb.append(layer.toString("\t"));
         }
         return sb.toString();
     }
 
     @Deprecated
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         @Deprecated
         public static com.baidu.live.lottie.a a(InputStream inputStream, o oVar) {
-            C0187a c0187a = new C0187a(oVar);
-            f.e(inputStream, (String) null).a(c0187a);
-            return c0187a;
+            C0193a c0193a = new C0193a(oVar);
+            f.e(inputStream, (String) null).a(c0193a);
+            return c0193a;
         }
 
         /* renamed from: com.baidu.live.lottie.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        private static final class C0187a implements com.baidu.live.lottie.a, j<e> {
-            private final o brX;
+        /* loaded from: classes9.dex */
+        private static final class C0193a implements com.baidu.live.lottie.a, j<e> {
+            private final o bty;
             private boolean cancelled;
 
-            private C0187a(o oVar) {
+            private C0193a(o oVar) {
                 this.cancelled = false;
-                this.brX = oVar;
+                this.bty = oVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.lottie.j
             public void onResult(e eVar) {
                 if (!this.cancelled) {
-                    this.brX.c(eVar);
+                    this.bty.c(eVar);
                 }
             }
         }

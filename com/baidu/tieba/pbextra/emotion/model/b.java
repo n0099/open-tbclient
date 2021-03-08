@@ -1,93 +1,92 @@
 package com.baidu.tieba.pbextra.emotion.model;
 
-import androidx.core.internal.view.SupportMenu;
 import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes2.dex */
 class b {
-    private byte[] mqA;
-    private int mqB;
-    private int mqC;
-    private int mqD;
-    int mqE;
-    int mqG;
-    int mqN;
-    int mqO;
-    int mqP;
-    int mqT;
-    private int mqy;
-    private int mqz;
-    int mqF = 12;
-    int mqH = 4096;
-    int[] mqI = new int[5003];
-    int[] mqJ = new int[5003];
-    int mqK = 5003;
-    int mqL = 0;
-    boolean mqM = false;
-    int mqQ = 0;
-    int mqR = 0;
-    int[] mqS = {0, 1, 3, 7, 15, 31, 63, ThunderNetStateService.NetState.SYSNET_UNKNOWN, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] mqU = new byte[256];
+    private int msB;
+    private int msC;
+    private byte[] msD;
+    private int msE;
+    private int msF;
+    private int msG;
+    int msH;
+    int msJ;
+    int msQ;
+    int msR;
+    int msS;
+    int msW;
+    int msI = 12;
+    int msK = 4096;
+    int[] msL = new int[5003];
+    int[] msM = new int[5003];
+    int msN = 5003;
+    int msO = 0;
+    boolean msP = false;
+    int msT = 0;
+    int msU = 0;
+    int[] msV = {0, 1, 3, 7, 15, 31, 63, ThunderNetStateService.NetState.SYSNET_UNKNOWN, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535};
+    byte[] msX = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.mqy = i;
-        this.mqz = i2;
-        this.mqA = bArr;
-        this.mqB = Math.max(2, i3);
+        this.msB = i;
+        this.msC = i2;
+        this.msD = bArr;
+        this.msE = Math.max(2, i3);
     }
 
-    void a(byte b2, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.mqU;
-        int i = this.mqT;
-        this.mqT = i + 1;
-        bArr[i] = b2;
-        if (this.mqT >= 254) {
+    void a(byte b, OutputStream outputStream) throws IOException {
+        byte[] bArr = this.msX;
+        int i = this.msW;
+        this.msW = i + 1;
+        bArr[i] = b;
+        if (this.msW >= 254) {
             d(outputStream);
         }
     }
 
     void c(OutputStream outputStream) throws IOException {
-        GF(this.mqK);
-        this.mqL = this.mqO + 2;
-        this.mqM = true;
-        b(this.mqO, outputStream);
+        GI(this.msN);
+        this.msO = this.msR + 2;
+        this.msP = true;
+        b(this.msR, outputStream);
     }
 
-    void GF(int i) {
+    void GI(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.mqI[i2] = -1;
+            this.msL[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.mqN = i;
-        this.mqM = false;
-        this.mqE = this.mqN;
-        this.mqG = GG(this.mqE);
-        this.mqO = 1 << (i - 1);
-        this.mqP = this.mqO + 1;
-        this.mqL = this.mqO + 2;
-        this.mqT = 0;
-        int dvZ = dvZ();
-        for (int i3 = this.mqK; i3 < 65536; i3 *= 2) {
+        this.msQ = i;
+        this.msP = false;
+        this.msH = this.msQ;
+        this.msJ = GJ(this.msH);
+        this.msR = 1 << (i - 1);
+        this.msS = this.msR + 1;
+        this.msO = this.msR + 2;
+        this.msW = 0;
+        int dwi = dwi();
+        for (int i3 = this.msN; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.mqK;
-        GF(i5);
-        b(this.mqO, outputStream);
+        int i5 = this.msN;
+        GI(i5);
+        b(this.msR, outputStream);
         while (true) {
-            int dvZ2 = dvZ();
-            if (dvZ2 != -1) {
-                int i6 = (dvZ2 << this.mqF) + dvZ;
-                int i7 = (dvZ2 << i4) ^ dvZ;
-                if (this.mqI[i7] == i6) {
-                    dvZ = this.mqJ[i7];
+            int dwi2 = dwi();
+            if (dwi2 != -1) {
+                int i6 = (dwi2 << this.msI) + dwi;
+                int i7 = (dwi2 << i4) ^ dwi;
+                if (this.msL[i7] == i6) {
+                    dwi = this.msM[i7];
                 } else {
-                    if (this.mqI[i7] >= 0) {
+                    if (this.msL[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -97,28 +96,28 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.mqI[i7] == i6) {
-                                dvZ = this.mqJ[i7];
+                            if (this.msL[i7] == i6) {
+                                dwi = this.msM[i7];
                                 break;
                             }
-                        } while (this.mqI[i7] >= 0);
+                        } while (this.msL[i7] >= 0);
                     }
-                    b(dvZ, outputStream);
-                    if (this.mqL < this.mqH) {
-                        int[] iArr = this.mqJ;
-                        int i9 = this.mqL;
-                        this.mqL = i9 + 1;
+                    b(dwi, outputStream);
+                    if (this.msO < this.msK) {
+                        int[] iArr = this.msM;
+                        int i9 = this.msO;
+                        this.msO = i9 + 1;
                         iArr[i7] = i9;
-                        this.mqI[i7] = i6;
-                        dvZ = dvZ2;
+                        this.msL[i7] = i6;
+                        dwi = dwi2;
                     } else {
                         c(outputStream);
-                        dvZ = dvZ2;
+                        dwi = dwi2;
                     }
                 }
             } else {
-                b(dvZ, outputStream);
-                b(this.mqP, outputStream);
+                b(dwi, outputStream);
+                b(this.msS, outputStream);
                 return;
             }
         }
@@ -126,69 +125,69 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.mqB);
-        this.mqC = this.mqy * this.mqz;
-        this.mqD = 0;
-        a(this.mqB + 1, outputStream);
+        outputStream.write(this.msE);
+        this.msF = this.msB * this.msC;
+        this.msG = 0;
+        a(this.msE + 1, outputStream);
         outputStream.write(0);
     }
 
     void d(OutputStream outputStream) throws IOException {
-        if (this.mqT > 0) {
-            outputStream.write(this.mqT);
-            outputStream.write(this.mqU, 0, this.mqT);
-            this.mqT = 0;
+        if (this.msW > 0) {
+            outputStream.write(this.msW);
+            outputStream.write(this.msX, 0, this.msW);
+            this.msW = 0;
         }
     }
 
-    final int GG(int i) {
+    final int GJ(int i) {
         return (1 << i) - 1;
     }
 
-    private int dvZ() {
-        if (this.mqC == 0) {
+    private int dwi() {
+        if (this.msF == 0) {
             return -1;
         }
-        this.mqC--;
-        byte[] bArr = this.mqA;
-        int i = this.mqD;
-        this.mqD = i + 1;
+        this.msF--;
+        byte[] bArr = this.msD;
+        int i = this.msG;
+        this.msG = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.mqQ &= this.mqS[this.mqR];
-        if (this.mqR > 0) {
-            this.mqQ |= i << this.mqR;
+        this.msT &= this.msV[this.msU];
+        if (this.msU > 0) {
+            this.msT |= i << this.msU;
         } else {
-            this.mqQ = i;
+            this.msT = i;
         }
-        this.mqR += this.mqE;
-        while (this.mqR >= 8) {
-            a((byte) (this.mqQ & 255), outputStream);
-            this.mqQ >>= 8;
-            this.mqR -= 8;
+        this.msU += this.msH;
+        while (this.msU >= 8) {
+            a((byte) (this.msT & 255), outputStream);
+            this.msT >>= 8;
+            this.msU -= 8;
         }
-        if (this.mqL > this.mqG || this.mqM) {
-            if (this.mqM) {
-                int i2 = this.mqN;
-                this.mqE = i2;
-                this.mqG = GG(i2);
-                this.mqM = false;
+        if (this.msO > this.msJ || this.msP) {
+            if (this.msP) {
+                int i2 = this.msQ;
+                this.msH = i2;
+                this.msJ = GJ(i2);
+                this.msP = false;
             } else {
-                this.mqE++;
-                if (this.mqE == this.mqF) {
-                    this.mqG = this.mqH;
+                this.msH++;
+                if (this.msH == this.msI) {
+                    this.msJ = this.msK;
                 } else {
-                    this.mqG = GG(this.mqE);
+                    this.msJ = GJ(this.msH);
                 }
             }
         }
-        if (i == this.mqP) {
-            while (this.mqR > 0) {
-                a((byte) (this.mqQ & 255), outputStream);
-                this.mqQ >>= 8;
-                this.mqR -= 8;
+        if (i == this.msS) {
+            while (this.msU > 0) {
+                a((byte) (this.msT & 255), outputStream);
+                this.msT >>= 8;
+                this.msU -= 8;
             }
             d(outputStream);
         }

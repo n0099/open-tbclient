@@ -15,7 +15,7 @@ public final class an extends ax<e> {
     }
 
     @Override // com.bytedance.embedapplog.ax
-    protected bp.b<e, String> eoa() {
+    protected bp.b<e, String> eol() {
         return new bp.b<e, String>() { // from class: com.bytedance.embedapplog.an.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.bytedance.embedapplog.bp.b

@@ -8,7 +8,7 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/hideToast");

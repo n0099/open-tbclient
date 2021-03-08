@@ -3,7 +3,7 @@ package io.flutter.embedding.android;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract /* synthetic */ class SplashScreen$$CC {
     @SuppressLint({"NewApi"})
     public static boolean doesSplashViewRememberItsTransition(SplashScreen splashScreen) {

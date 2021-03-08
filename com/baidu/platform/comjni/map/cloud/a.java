@@ -16,14 +16,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements ICloudCenter {
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f4480b;
+    private int b;
     private CloudListener c;
     private String h;
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Lock f4479a = new ReentrantLock();
+    protected final Lock f3096a = new ReentrantLock();
     private boolean d = true;
     private boolean e = true;
     private AsyncHttpClient f = new AsyncHttpClient();
@@ -31,10 +29,10 @@ public class a implements ICloudCenter {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        switch (this.f4480b) {
+        switch (this.b) {
             case 10001:
                 CloudSearchResult cloudSearchResult = new CloudSearchResult();
-                this.f4479a.lock();
+                this.f3096a.lock();
                 try {
                     this.c.onGetSearchResult(cloudSearchResult, i);
                     return;
@@ -42,7 +40,7 @@ public class a implements ICloudCenter {
                 }
             case 10002:
                 DetailSearchResult detailSearchResult = new DetailSearchResult();
-                this.f4479a.lock();
+                this.f3096a.lock();
                 try {
                     this.c.onGetDetailSearchResult(detailSearchResult, i);
                     return;
@@ -50,7 +48,7 @@ public class a implements ICloudCenter {
                 }
             case 10003:
                 CloudRgcResult cloudRgcResult = new CloudRgcResult();
-                this.f4479a.lock();
+                this.f3096a.lock();
                 try {
                     this.c.onGetCloudRgcResult(cloudRgcResult, i);
                     return;
@@ -97,7 +95,7 @@ public class a implements ICloudCenter {
     public void f(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            switch (this.f4480b) {
+            switch (this.b) {
                 case 10001:
                     CloudSearchResult cloudSearchResult = new CloudSearchResult();
                     try {
@@ -105,7 +103,7 @@ public class a implements ICloudCenter {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    this.f4479a.lock();
+                    this.f3096a.lock();
                     try {
                         this.c.onGetSearchResult(cloudSearchResult, cloudSearchResult.status);
                         return;
@@ -118,7 +116,7 @@ public class a implements ICloudCenter {
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    this.f4479a.lock();
+                    this.f3096a.lock();
                     try {
                         this.c.onGetDetailSearchResult(detailSearchResult, detailSearchResult.status);
                         return;
@@ -131,7 +129,7 @@ public class a implements ICloudCenter {
                     } catch (JSONException e3) {
                         e3.printStackTrace();
                     }
-                    this.f4479a.lock();
+                    this.f3096a.lock();
                     try {
                         this.c.onGetCloudRgcResult(cloudRgcResult, cloudRgcResult.status);
                         return;
@@ -147,28 +145,28 @@ public class a implements ICloudCenter {
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public void a(CloudListener cloudListener) {
-        this.f4479a.lock();
+        this.f3096a.lock();
         this.c = cloudListener;
-        this.f4479a.unlock();
+        this.f3096a.unlock();
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public boolean a(String str) {
-        this.f4480b = 10001;
+        this.b = 10001;
         this.d = false;
         return d(e(str));
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public boolean b(String str) {
-        this.f4480b = 10002;
+        this.b = 10002;
         this.d = false;
         return d(e(str));
     }
 
     @Override // com.baidu.platform.comjni.map.cloud.ICloudCenter
     public boolean c(String str) {
-        this.f4480b = 10003;
+        this.b = 10003;
         this.d = true;
         return d(e(str));
     }

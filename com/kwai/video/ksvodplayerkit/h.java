@@ -15,10 +15,8 @@ import java.io.File;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile n f11095a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static boolean f11096b = true;
+    private static volatile n f7304a;
+    private static boolean b = true;
 
     public static String a(Context context) {
         File externalCacheDir = context.getExternalCacheDir();
@@ -30,15 +28,15 @@ public class h {
             Aegon.a(context, str, context.getFilesDir().getAbsolutePath(), new Aegon.a() { // from class: com.kwai.video.ksvodplayerkit.h.3
                 @Override // com.kuaishou.aegon.Aegon.a
                 public void loadLibrary(String str2) {
-                    if (h.f11095a != null) {
-                        h.f11095a.a(str2);
+                    if (h.f7304a != null) {
+                        h.f7304a.a(str2);
                         return;
                     }
                     com.kwai.video.ksvodplayerkit.a.b.d("KSVodPlayerCommonInitConfig", "WARNING! Aegon is using System.loadLibrary");
                     System.loadLibrary(str2);
                 }
             });
-            Aegon.eCx();
+            Aegon.eCD();
             Aegon.setDebug(false);
         }
     }
@@ -47,8 +45,8 @@ public class h {
         AwesomeCacheInitConfig.setSoLoader(new AwesomeCacheSoLoader() { // from class: com.kwai.video.ksvodplayerkit.h.1
             @Override // com.kwai.video.cache.AwesomeCacheSoLoader
             public void loadLibrary(String str3) {
-                if (h.f11095a != null) {
-                    h.f11095a.a(str3);
+                if (h.f7304a != null) {
+                    h.f7304a.a(str3);
                     return;
                 }
                 com.kwai.video.ksvodplayerkit.a.b.d("KSVodPlayerCommonInitConfig", "WARNING! AwesomeCacheSoLoader is using System.loadLibrary");
@@ -62,8 +60,8 @@ public class h {
         KsMediaPlayerInitConfig.setSoLoader(new KsSoLoader() { // from class: com.kwai.video.ksvodplayerkit.h.2
             @Override // com.kwai.video.player.KsSoLoader
             public void loadLibrary(String str3) {
-                if (h.f11095a != null) {
-                    h.f11095a.a(str3);
+                if (h.f7304a != null) {
+                    h.f7304a.a(str3);
                     return;
                 }
                 com.kwai.video.ksvodplayerkit.a.b.d("KSVodPlayerCommonInitConfig", "WARNING! AwesomeCacheSoLoader is using System.loadLibrary");

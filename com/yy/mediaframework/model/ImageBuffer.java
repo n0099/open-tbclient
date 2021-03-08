@@ -2,7 +2,7 @@ package com.yy.mediaframework.model;
 
 import android.graphics.ImageFormat;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImageBuffer {
     public int mWidth = 0;
     public int mHeight = 0;

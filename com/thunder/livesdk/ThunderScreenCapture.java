@@ -4,7 +4,7 @@ import android.media.projection.MediaProjection;
 import com.thunder.livesdk.ThunderPublisher;
 import com.thunder.livesdk.helper.ThunderNative;
 import com.thunder.livesdk.log.ThunderLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderScreenCapture extends ThunderDefaultCamera {
     private boolean islandScape;
     private MediaProjection mediaProjection;

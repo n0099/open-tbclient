@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaWheatInfoData implements Serializable, Cloneable {
     public String bg_img;
     public String bigPortrait;

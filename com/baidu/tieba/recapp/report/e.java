@@ -9,43 +9,43 @@ import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.tbadk.switchs.AdUploadSwitch;
 /* loaded from: classes.dex */
 public class e {
-    private static e mXN;
-    private CustomMessageListener mXP = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.e.1
+    private static e mZX;
+    private CustomMessageListener mZZ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.recapp.report.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && e.this.mXO != null) {
-                e.this.mXO.dEw();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.isNetWorkAvailable() && e.this.mZY != null) {
+                e.this.mZY.dEE();
             }
         }
     };
-    private f mXO = new i();
+    private f mZY = new i();
 
-    public static e dEu() {
-        if (mXN == null) {
+    public static e dEC() {
+        if (mZX == null) {
             synchronized (e.class) {
-                if (mXN == null) {
-                    mXN = new e();
+                if (mZX == null) {
+                    mZX = new e();
                 }
             }
         }
-        return mXN;
+        return mZX;
     }
 
-    private boolean dEv() {
+    private boolean dED() {
         return SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0;
     }
 
     private e() {
-        MessageManager.getInstance().registerListener(this.mXP);
+        MessageManager.getInstance().registerListener(this.mZZ);
     }
 
     public void a(c cVar) {
-        if (dEv() && this.mXO != null) {
+        if (dED() && this.mZY != null) {
             if (j.isNetWorkAvailable()) {
-                this.mXO.b(cVar);
+                this.mZY.b(cVar);
             } else {
-                this.mXO.c(cVar);
+                this.mZY.c(cVar);
             }
         }
     }

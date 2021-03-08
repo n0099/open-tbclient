@@ -7,10 +7,8 @@ import android.util.DisplayMetrics;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4447a = -1;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f4448b = -1;
+    private int f3076a = -1;
+    private int b = -1;
     private float c = -1.0f;
     private int d = -1;
     private int e = -1;
@@ -19,8 +17,8 @@ public class a {
 
     public void a(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.f4447a = displayMetrics.widthPixels;
-        this.f4448b = displayMetrics.heightPixels;
+        this.f3076a = displayMetrics.widthPixels;
+        this.b = displayMetrics.heightPixels;
         this.c = displayMetrics.density;
         this.d = (int) displayMetrics.xdpi;
         this.e = (int) displayMetrics.ydpi;
@@ -42,17 +40,17 @@ public class a {
     }
 
     public int a() {
-        if (this.f4447a == -1) {
+        if (this.f3076a == -1) {
             a(com.baidu.platform.comapi.wnplatform.o.b.a.a());
         }
-        return this.f4447a;
+        return this.f3076a;
     }
 
     public int b() {
-        if (this.f4448b == -1) {
+        if (this.b == -1) {
             a(com.baidu.platform.comapi.wnplatform.o.b.a.a());
         }
-        return this.f4448b;
+        return this.b;
     }
 
     public float c() {

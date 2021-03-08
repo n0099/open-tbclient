@@ -5,7 +5,6 @@ import android.graphics.Rect;
 import android.os.PowerManager;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.utils.ak;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class y {
     private static boolean a(View view, int i) {
@@ -23,8 +22,10 @@ public class y {
 
     private static boolean a(Context context) throws Throwable {
         PowerManager powerManager = (PowerManager) context.getSystemService("power");
-        Method method = powerManager != null ? powerManager.getClass().getMethod("isScreenOn", new Class[0]) : null;
-        return ((Boolean) (method != null ? method.invoke(powerManager, new Object[0]) : false)).booleanValue();
+        if (powerManager != null) {
+            return powerManager.isScreenOn();
+        }
+        return false;
     }
 
     private static boolean a(View view) {

@@ -20,10 +20,8 @@ import java.util.List;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f6607a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f6608b;
+    private static String f4463a;
+    private static String b;
     private static String c;
     private static String d;
     private static String e;
@@ -39,7 +37,7 @@ public class k {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f6607a) && !k) {
+        if (TextUtils.isEmpty(f4463a) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
@@ -47,12 +45,12 @@ public class k {
             }
         }
         try {
-            if (TextUtils.isEmpty(f6607a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                f6607a = d.a(k(context)).b(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, (String) null);
+            if (TextUtils.isEmpty(f4463a) && com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                f4463a = d.a(k(context)).b(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, (String) null);
             }
         } catch (Exception e2) {
         }
-        return f6607a;
+        return f4463a;
     }
 
     public static String b(Context context) {
@@ -67,20 +65,20 @@ public class k {
     }
 
     public static String c(Context context) {
-        if (TextUtils.isEmpty(f6608b) && !k) {
+        if (TextUtils.isEmpty(b) && !k) {
             synchronized (k.class) {
                 if (!k) {
                     l(context);
                 }
             }
         }
-        return f6608b;
+        return b;
     }
 
     public static String d(Context context) {
-        TTCustomController d2 = i.c().d();
-        if (d2 != null && !d2.isCanUsePhoneState()) {
-            return d2.getDevImei();
+        TTCustomController e2 = i.d().e();
+        if (e2 != null && !e2.isCanUsePhoneState()) {
+            return e2.getDevImei();
         }
         if (TextUtils.isEmpty(c) && !k) {
             synchronized (k.class) {
@@ -104,8 +102,8 @@ public class k {
     }
 
     public static String f(Context context) {
-        TTCustomController d2 = i.c().d();
-        if (d2 != null && !d2.isCanUsePhoneState()) {
+        TTCustomController e2 = i.d().e();
+        if (e2 != null && !e2.isCanUsePhoneState()) {
             return null;
         }
         if (TextUtils.isEmpty(f) && !k) {
@@ -119,8 +117,8 @@ public class k {
     }
 
     public static String g(Context context) {
-        TTCustomController d2 = i.c().d();
-        if (d2 != null && !d2.isCanUseWifiState()) {
+        TTCustomController e2 = i.d().e();
+        if (e2 != null && !e2.isCanUseWifiState()) {
             return null;
         }
         if (TextUtils.isEmpty(d) && !k) {
@@ -134,8 +132,8 @@ public class k {
     }
 
     public static String h(Context context) {
-        TTCustomController d2 = i.c().d();
-        if (d2 != null && !d2.isCanUseWifiState()) {
+        TTCustomController e2 = i.d().e();
+        if (e2 != null && !e2.isCanUseWifiState()) {
             return null;
         }
         if (TextUtils.isEmpty(e) && !k) {
@@ -149,8 +147,8 @@ public class k {
     }
 
     public static String i(Context context) {
-        TTCustomController d2;
-        if (Build.VERSION.SDK_INT >= 28 && (d2 = i.c().d()) != null && !d2.isCanUsePhoneState()) {
+        TTCustomController e2;
+        if (Build.VERSION.SDK_INT >= 28 && (e2 = i.d().e()) != null && !e2.isCanUsePhoneState()) {
             return null;
         }
         if (TextUtils.isEmpty(j) && !k) {
@@ -164,12 +162,12 @@ public class k {
     }
 
     public static void a(Context context, String str) {
-        if (!TextUtils.isEmpty(str) && !str.equals(f6607a)) {
+        if (!TextUtils.isEmpty(str) && !str.equals(f4463a)) {
             d.a(context).a(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, str);
-            f6607a = str;
+            f4463a = str;
         }
-        if (!TextUtils.isEmpty(f6607a)) {
-            s.b(f6607a).a(f6607a);
+        if (!TextUtils.isEmpty(f4463a)) {
+            s.b(f4463a).a(f4463a);
         }
     }
 
@@ -183,8 +181,8 @@ public class k {
             } catch (Exception e2) {
             }
             try {
-                TTCustomController d2 = i.c().d();
-                if (d2 != null && d2.isCanUseWifiState() && d2.isCanUseLocation()) {
+                TTCustomController e3 = i.d().e();
+                if (e3 != null && e3.isCanUseWifiState() && e3.isCanUseLocation()) {
                     try {
                         WifiManager wifiManager = (WifiManager) k2.getSystemService("wifi");
                         WifiInfo connectionInfo = wifiManager != null ? wifiManager.getConnectionInfo() : null;
@@ -200,10 +198,10 @@ public class k {
                 } else {
                     j = Build.SERIAL;
                 }
-            } catch (Exception e3) {
+            } catch (Exception e4) {
             }
-            f6608b = a(k2, true);
-            f6607a = d.a(k2).b(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, (String) null);
+            b = a(k2, true);
+            f4463a = d.a(k2).b(VideoPlayerStatistic.AudienceHiidoCoreStatisticKey.DecodeId, (String) null);
             g = a();
             h = String.valueOf(Build.TIME);
             i = d.a(k2).b("uuid", (String) null);
@@ -244,8 +242,8 @@ public class k {
     @SuppressLint({"HardwareIds"})
     private static void m(Context context) {
         TelephonyManager telephonyManager;
-        TTCustomController d2 = i.c().d();
-        if ((d2 == null || d2.isCanUsePhoneState()) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
+        TTCustomController e2 = i.d().e();
+        if ((e2 == null || e2.isCanUsePhoneState()) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
             c = telephonyManager.getDeviceId();
             f = telephonyManager.getSubscriberId();
         }

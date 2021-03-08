@@ -12,14 +12,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NativeCPUManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3403a = NativeCPUManager.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private CPUAdListener f3404b;
+    private static final String f2426a = NativeCPUManager.class.getSimpleName();
+    private CPUAdListener b;
     private Context c;
     private a e;
     private com.baidu.mobads.nativecpu.a.a f;
@@ -27,7 +25,7 @@ public class NativeCPUManager {
     private Map<String, Object> g = new HashMap();
     private Map<String, Object> h = new HashMap();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface CPUAdListener {
         void onAdClick();
 
@@ -47,14 +45,14 @@ public class NativeCPUManager {
     public NativeCPUManager(Context context, String str, CPUAdListener cPUAdListener) {
         this.f = null;
         if (context != null && !TextUtils.isEmpty(str)) {
-            this.f3404b = cPUAdListener;
+            this.b = cPUAdListener;
             this.c = context;
             this.e = new a();
             this.f = new com.baidu.mobads.nativecpu.a.a(context, str);
             this.f.a(this.e);
             return;
         }
-        q.a().e(f3403a, "Init params error!");
+        q.a().e(f2426a, "Init params error!");
         if (cPUAdListener != null) {
             cPUAdListener.onAdError("Input params error.", XAdErrorCode.INTERFACE_USE_PROBLEM.getCode());
         }
@@ -72,7 +70,7 @@ public class NativeCPUManager {
             }
             return;
         }
-        q.a().e(f3403a, "LoadAd with terrible params!");
+        q.a().e(f2426a, "LoadAd with terrible params!");
     }
 
     public void setRequestTimeoutMillis(int i) {
@@ -114,11 +112,11 @@ public class NativeCPUManager {
         if (i > 0 && i <= 20) {
             this.d = i;
         } else {
-            q.a().e(f3403a, "Input page size is wrong which should be in (0,20]!");
+            q.a().e(f2426a, "Input page size is wrong which should be in (0,20]!");
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     class a implements IOAdEventListener {
         public a() {
         }
@@ -126,7 +124,7 @@ public class NativeCPUManager {
         @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener
         public void run(IOAdEvent iOAdEvent) {
             if (IXAdEvent.AD_LOADED.equals(iOAdEvent.getType())) {
-                if (NativeCPUManager.this.f3404b != null) {
+                if (NativeCPUManager.this.b != null) {
                     ArrayList arrayList = new ArrayList();
                     for (Object obj : NativeCPUManager.this.f.b()) {
                         arrayList.add(new com.baidu.mobads.nativecpu.a.b(NativeCPUManager.this.c, obj, NativeCPUManager.this));
@@ -137,29 +135,29 @@ public class NativeCPUManager {
                 NativeCPUManager.this.f.a();
                 String a2 = a(iOAdEvent);
                 int code = iOAdEvent.getCode();
-                if (NativeCPUManager.this.f3404b != null) {
+                if (NativeCPUManager.this.b != null) {
                     XAdSDKFoundationFacade.getInstance().getCommonUtils().a((Runnable) new c(this, a2, code));
                 }
             } else if ("AdEmptyList".equals(iOAdEvent.getType())) {
                 String str = (String) iOAdEvent.getData().get("message");
                 int code2 = iOAdEvent.getCode();
-                if (NativeCPUManager.this.f3404b != null) {
-                    NativeCPUManager.this.f3404b.onNoAd(str, code2);
+                if (NativeCPUManager.this.b != null) {
+                    NativeCPUManager.this.b.onNoAd(str, code2);
                 }
             } else if ("AdUserClick".equals(iOAdEvent.getType())) {
-                if (NativeCPUManager.this.f3404b != null) {
-                    NativeCPUManager.this.f3404b.onAdClick();
+                if (NativeCPUManager.this.b != null) {
+                    NativeCPUManager.this.b.onAdClick();
                 }
             } else if ("AdStatusChange".equals(iOAdEvent.getType())) {
-                if (NativeCPUManager.this.f3404b != null) {
-                    NativeCPUManager.this.f3404b.onAdStatusChanged(iOAdEvent.getMessage());
+                if (NativeCPUManager.this.b != null) {
+                    NativeCPUManager.this.b.onAdStatusChanged(iOAdEvent.getMessage());
                 }
             } else if ("vdieoCacheSucc".equals(iOAdEvent.getType())) {
-                if (NativeCPUManager.this.f3404b != null) {
-                    NativeCPUManager.this.f3404b.onVideoDownloadSuccess();
+                if (NativeCPUManager.this.b != null) {
+                    NativeCPUManager.this.b.onVideoDownloadSuccess();
                 }
-            } else if ("vdieoCacheFailed".equals(iOAdEvent.getType()) && NativeCPUManager.this.f3404b != null) {
-                NativeCPUManager.this.f3404b.onVideoDownloadFailed();
+            } else if ("vdieoCacheFailed".equals(iOAdEvent.getType()) && NativeCPUManager.this.b != null) {
+                NativeCPUManager.this.b.onVideoDownloadFailed();
             }
         }
 

@@ -8,10 +8,8 @@ import java.util.Map;
 public class c<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final LinkedHashMap<K, V> f12769a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f12770b;
+    private final LinkedHashMap<K, V> f7603a;
+    private int b;
     private int c;
     private b<K, Long> d;
 
@@ -20,7 +18,7 @@ public class c<K, V> {
             throw new IllegalArgumentException("maxSize <= 0");
         }
         this.c = i;
-        this.f12769a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f7603a = new LinkedHashMap<>(0, 0.75f, true);
         this.d = new b<>(0, 0.75f);
     }
 
@@ -60,15 +58,15 @@ public class c<K, V> {
     private void a(int i) {
         while (true) {
             synchronized (this) {
-                if (this.f12770b <= i || this.f12769a.isEmpty()) {
+                if (this.b <= i || this.f7603a.isEmpty()) {
                     break;
                 }
-                Map.Entry<K, V> next = this.f12769a.entrySet().iterator().next();
+                Map.Entry<K, V> next = this.f7603a.entrySet().iterator().next();
                 K key = next.getKey();
                 V value = next.getValue();
-                this.f12769a.remove(key);
+                this.f7603a.remove(key);
                 this.d.remove(key);
-                this.f12770b -= b(key, value);
+                this.b -= b(key, value);
             }
         }
     }
@@ -86,9 +84,9 @@ public class c<K, V> {
     private int b(K k, V v) {
         int a2 = a((c<K, V>) k, (K) v);
         if (a2 <= 0) {
-            this.f12770b = 0;
-            for (Map.Entry<K, V> entry : this.f12769a.entrySet()) {
-                this.f12770b = a((c<K, V>) entry.getKey(), (K) entry.getValue()) + this.f12770b;
+            this.b = 0;
+            for (Map.Entry<K, V> entry : this.f7603a.entrySet()) {
+                this.b = a((c<K, V>) entry.getKey(), (K) entry.getValue()) + this.b;
             }
         }
         return a2;
@@ -114,10 +112,10 @@ public class c<K, V> {
             throw new NullPointerException("key == null");
         }
         synchronized (this) {
-            remove = this.f12769a.remove(k);
+            remove = this.f7603a.remove(k);
             this.d.remove(k);
             if (remove != null) {
-                this.f12770b -= b(k, remove);
+                this.b -= b(k, remove);
             }
         }
         return remove;
@@ -146,7 +144,7 @@ public class c<K, V> {
                 b((c<K, V>) k);
                 return null;
             }
-            V v = this.f12769a.get(k);
+            V v = this.f7603a.get(k);
             if (v != null) {
                 return v;
             }
@@ -160,11 +158,11 @@ public class c<K, V> {
             throw new NullPointerException("key == null || value == null");
         }
         synchronized (this) {
-            this.f12770b += b(k, v);
-            put = this.f12769a.put(k, v);
+            this.b += b(k, v);
+            put = this.f7603a.put(k, v);
             this.d.put(k, Long.valueOf(j));
             if (put != null) {
-                this.f12770b -= b(k, put);
+                this.b -= b(k, put);
             }
         }
         a(this.c);

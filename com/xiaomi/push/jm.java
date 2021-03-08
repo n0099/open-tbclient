@@ -1,19 +1,19 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class jm {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f14180a;
+    public final byte f8469a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f860a;
+    public final int f781a;
 
     public jm() {
         this((byte) 0, 0);
     }
 
-    public jm(byte b2, int i) {
-        this.f14180a = b2;
-        this.f860a = i;
+    public jm(byte b, int i) {
+        this.f8469a = b;
+        this.f781a = i;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.core.util.o;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SplashHttpResponse extends JsonHttpResponsedMessage {
     private AdInfo adInfo;
     private int errno;
@@ -36,36 +36,36 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
                 return;
             }
             this.adInfo.videoLocalPath = "";
-            com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
+            com.baidu.tieba.advert.sdk.d.a.c(this.adInfo);
         }
     }
 
     private void dealVideoAd() {
         if (o.checkSD()) {
-            b Fk = b.Fk(com.baidu.tieba.advert.sdk.c.a.bMJ());
+            b Fr = b.Fr(com.baidu.tieba.advert.sdk.d.a.bMP());
             if (!this.adInfo.shouldDownloadVideo()) {
-                this.adInfo.videoLocalPath = Fk.videoLocalPath;
-                com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
+                this.adInfo.videoLocalPath = Fr.videoLocalPath;
+                com.baidu.tieba.advert.sdk.d.a.c(this.adInfo);
             } else if (j.isNetWorkAvailable() && j.isWifiNet()) {
-                com.baidu.tieba.advert.sdk.b.a searchTask = searchTask(this.adInfo.adVideoUrl);
+                com.baidu.tieba.advert.sdk.c.a searchTask = searchTask(this.adInfo.adVideoUrl);
                 if (searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-                    com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
-                    com.baidu.tieba.advert.sdk.b.a aVar = new com.baidu.tieba.advert.sdk.b.a();
+                    com.baidu.tieba.advert.sdk.d.a.c(this.adInfo);
+                    com.baidu.tieba.advert.sdk.c.a aVar = new com.baidu.tieba.advert.sdk.c.a();
                     aVar.b(this.adInfo);
                     aVar.setKey(this.adInfo.adVideoUrl);
                     aVar.execute(new Void[0]);
                 }
             } else {
-                com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
+                com.baidu.tieba.advert.sdk.d.a.c(this.adInfo);
             }
         }
     }
 
-    private com.baidu.tieba.advert.sdk.b.a searchTask(String str) {
+    private com.baidu.tieba.advert.sdk.c.a searchTask(String str) {
         BdAsyncTask<?, ?, ?> searchTask;
-        if (!TextUtils.isEmpty(str) && (searchTask = BdAsyncTask.searchTask(str)) != null && (searchTask instanceof com.baidu.tieba.advert.sdk.b.a)) {
+        if (!TextUtils.isEmpty(str) && (searchTask = BdAsyncTask.searchTask(str)) != null && (searchTask instanceof com.baidu.tieba.advert.sdk.c.a)) {
             try {
-                return (com.baidu.tieba.advert.sdk.b.a) searchTask;
+                return (com.baidu.tieba.advert.sdk.c.a) searchTask;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;

@@ -1,9 +1,9 @@
 package rx.internal.operators;
 
 import rx.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class n<T> implements d.b<T, T> {
-    final rx.functions.g<? super T, ? super Integer, Boolean> qBH;
+    final rx.functions.g<? super T, ? super Integer, Boolean> qCj;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -22,7 +22,7 @@ public final class n<T> implements d.b<T, T> {
     }
 
     public n(rx.functions.g<? super T, ? super Integer, Boolean> gVar) {
-        this.qBH = gVar;
+        this.qCj = gVar;
     }
 
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
@@ -33,7 +33,7 @@ public final class n<T> implements d.b<T, T> {
             @Override // rx.e
             public void onNext(T t) {
                 try {
-                    rx.functions.g<? super T, ? super Integer, Boolean> gVar = n.this.qBH;
+                    rx.functions.g<? super T, ? super Integer, Boolean> gVar = n.this.qCj;
                     int i = this.counter;
                     this.counter = i + 1;
                     if (gVar.n(t, Integer.valueOf(i)).booleanValue()) {

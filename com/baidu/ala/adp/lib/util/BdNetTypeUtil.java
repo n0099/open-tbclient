@@ -13,7 +13,7 @@ import com.baidu.ala.tbadk.core.TbadkCoreApplicationProxy;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BdNetTypeUtil {
     public static final String NATION_CODE = "460";
     public static final int NETWORK_CLASS_2_G = 1;
@@ -300,7 +300,7 @@ public class BdNetTypeUtil {
         return bdNetTypeUtil;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static class NetChangeReceiver extends BroadcastReceiver {
         private NetChangeReceiver() {
         }

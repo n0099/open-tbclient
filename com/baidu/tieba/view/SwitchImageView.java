@@ -6,77 +6,77 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 /* loaded from: classes.dex */
 public class SwitchImageView extends AppCompatImageView {
-    private int ezR;
-    private int obh;
-    private int obi;
-    private boolean obk;
-    private com.baidu.tbadk.core.util.e.a obl;
-    private com.baidu.tbadk.core.util.e.a obm;
+    private int eBs;
+    private int odo;
+    private int odp;
+    private boolean odq;
+    private com.baidu.tbadk.core.util.e.a odr;
+    private com.baidu.tbadk.core.util.e.a ods;
 
     public SwitchImageView(Context context) {
         super(context);
-        this.obk = false;
+        this.odq = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.obk = false;
+        this.odq = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.obk = false;
+        this.odq = false;
         init();
     }
 
     private void init() {
-        this.ezR = 0;
-        this.obh = 0;
-        this.obi = 0;
+        this.eBs = 0;
+        this.odo = 0;
+        this.odp = 0;
     }
 
     public void setStateImage(int i, int i2) {
-        this.obh = i;
-        this.obi = i2;
+        this.odo = i;
+        this.odp = i2;
     }
 
     public void setSvgStateImage(com.baidu.tbadk.core.util.e.a aVar, com.baidu.tbadk.core.util.e.a aVar2) {
-        this.obl = aVar;
-        this.obm = aVar2;
-        this.obk = true;
+        this.odr = aVar;
+        this.ods = aVar2;
+        this.odq = true;
     }
 
     public void setState(int i) {
         if (i == 0) {
-            this.ezR = 0;
-            if (this.obk) {
-                setImageDrawable(this.obl.getDrawable());
+            this.eBs = 0;
+            if (this.odq) {
+                setImageDrawable(this.odr.getDrawable());
             } else {
-                setImageResource(this.obh);
+                setImageResource(this.odo);
             }
         } else if (i == 1) {
-            this.ezR = 1;
-            if (this.obk) {
-                setImageDrawable(this.obm.getDrawable());
+            this.eBs = 1;
+            if (this.odq) {
+                setImageDrawable(this.ods.getDrawable());
             } else {
-                setImageResource(this.obi);
+                setImageResource(this.odp);
             }
         }
     }
 
-    public void dWp() {
-        if (this.ezR == 0) {
-            this.ezR = 1;
+    public void dWx() {
+        if (this.eBs == 0) {
+            this.eBs = 1;
             setState(1);
             return;
         }
-        this.ezR = 0;
+        this.eBs = 0;
         setState(0);
     }
 
     public int getCurrentState() {
-        return this.ezR;
+        return this.eBs;
     }
 }

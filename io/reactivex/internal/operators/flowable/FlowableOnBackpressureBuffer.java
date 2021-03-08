@@ -8,7 +8,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
     final int bufferSize;
     final boolean delayError;
@@ -17,10 +17,10 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qow.a((j) new BackpressureBufferSubscriber(cVar, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));
+        this.qoY.a((j) new BackpressureBufferSubscriber(cVar, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class BackpressureBufferSubscriber<T> extends BasicIntQueueSubscription<T> implements j<T> {
         private static final long serialVersionUID = -2514538129242366402L;
         final org.a.c<? super T> actual;

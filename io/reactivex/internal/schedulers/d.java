@@ -12,87 +12,87 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class d extends v {
-    static final RxThreadFactory qrp;
-    static final RxThreadFactory qrq;
-    private static final TimeUnit qrr = TimeUnit.SECONDS;
-    static final c qrs = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
-    static final a qrt;
-    final ThreadFactory qqW;
-    final AtomicReference<a> qqX;
+    static final RxThreadFactory qrR;
+    static final RxThreadFactory qrS;
+    private static final TimeUnit qrT = TimeUnit.SECONDS;
+    static final c qrU = new c(new RxThreadFactory("RxCachedThreadSchedulerShutdown"));
+    static final a qrV;
+    final ThreadFactory qry;
+    final AtomicReference<a> qrz;
 
     static {
-        qrs.dispose();
+        qrU.dispose();
         int max = Math.max(1, Math.min(10, Integer.getInteger("rx2.io-priority", 5).intValue()));
-        qrp = new RxThreadFactory("RxCachedThreadScheduler", max);
-        qrq = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
-        qrt = new a(0L, null, qrp);
-        qrt.shutdown();
+        qrR = new RxThreadFactory("RxCachedThreadScheduler", max);
+        qrS = new RxThreadFactory("RxCachedWorkerPoolEvictor", max);
+        qrV = new a(0L, null, qrR);
+        qrV.shutdown();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements Runnable {
-        private final ThreadFactory qqW;
-        private final long qru;
-        private final ConcurrentLinkedQueue<c> qrv;
-        final io.reactivex.disposables.a qrw;
-        private final ScheduledExecutorService qrx;
-        private final Future<?> qry;
+        private final long qrW;
+        private final ConcurrentLinkedQueue<c> qrX;
+        final io.reactivex.disposables.a qrY;
+        private final ScheduledExecutorService qrZ;
+        private final ThreadFactory qry;
+        private final Future<?> qsa;
 
         a(long j, TimeUnit timeUnit, ThreadFactory threadFactory) {
             ScheduledFuture<?> scheduledFuture;
             ScheduledExecutorService scheduledExecutorService;
-            this.qru = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.qrv = new ConcurrentLinkedQueue<>();
-            this.qrw = new io.reactivex.disposables.a();
-            this.qqW = threadFactory;
+            this.qrW = timeUnit != null ? timeUnit.toNanos(j) : 0L;
+            this.qrX = new ConcurrentLinkedQueue<>();
+            this.qrY = new io.reactivex.disposables.a();
+            this.qry = threadFactory;
             if (timeUnit != null) {
-                scheduledExecutorService = Executors.newScheduledThreadPool(1, d.qrq);
-                scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(this, this.qru, this.qru, TimeUnit.NANOSECONDS);
+                scheduledExecutorService = Executors.newScheduledThreadPool(1, d.qrS);
+                scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(this, this.qrW, this.qrW, TimeUnit.NANOSECONDS);
             } else {
                 scheduledFuture = null;
                 scheduledExecutorService = null;
             }
-            this.qrx = scheduledExecutorService;
-            this.qry = scheduledFuture;
+            this.qrZ = scheduledExecutorService;
+            this.qsa = scheduledFuture;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            eKI();
+            eKq();
         }
 
-        c eKH() {
-            if (this.qrw.isDisposed()) {
-                return d.qrs;
+        c eKp() {
+            if (this.qrY.isDisposed()) {
+                return d.qrU;
             }
-            while (!this.qrv.isEmpty()) {
-                c poll = this.qrv.poll();
+            while (!this.qrX.isEmpty()) {
+                c poll = this.qrX.poll();
                 if (poll != null) {
                     return poll;
                 }
             }
-            c cVar = new c(this.qqW);
-            this.qrw.a(cVar);
+            c cVar = new c(this.qry);
+            this.qrY.a(cVar);
             return cVar;
         }
 
         void a(c cVar) {
-            cVar.jx(now() + this.qru);
-            this.qrv.offer(cVar);
+            cVar.jw(now() + this.qrW);
+            this.qrX.offer(cVar);
         }
 
-        void eKI() {
-            if (!this.qrv.isEmpty()) {
+        void eKq() {
+            if (!this.qrX.isEmpty()) {
                 long now = now();
-                Iterator<c> it = this.qrv.iterator();
+                Iterator<c> it = this.qrX.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
-                    if (next.eKJ() <= now) {
-                        if (this.qrv.remove(next)) {
-                            this.qrw.b(next);
+                    if (next.eKr() <= now) {
+                        if (this.qrX.remove(next)) {
+                            this.qrY.b(next);
                         }
                     } else {
                         return;
@@ -106,56 +106,56 @@ public final class d extends v {
         }
 
         void shutdown() {
-            this.qrw.dispose();
-            if (this.qry != null) {
-                this.qry.cancel(true);
+            this.qrY.dispose();
+            if (this.qsa != null) {
+                this.qsa.cancel(true);
             }
-            if (this.qrx != null) {
-                this.qrx.shutdownNow();
+            if (this.qrZ != null) {
+                this.qrZ.shutdownNow();
             }
         }
     }
 
     public d() {
-        this(qrp);
+        this(qrR);
     }
 
     public d(ThreadFactory threadFactory) {
-        this.qqW = threadFactory;
-        this.qqX = new AtomicReference<>(qrt);
+        this.qry = threadFactory;
+        this.qrz = new AtomicReference<>(qrV);
         start();
     }
 
     @Override // io.reactivex.v
     public void start() {
-        a aVar = new a(60L, qrr, this.qqW);
-        if (!this.qqX.compareAndSet(qrt, aVar)) {
+        a aVar = new a(60L, qrT, this.qry);
+        if (!this.qrz.compareAndSet(qrV, aVar)) {
             aVar.shutdown();
         }
     }
 
     @Override // io.reactivex.v
-    public v.c eKq() {
-        return new b(this.qqX.get());
+    public v.c eJY() {
+        return new b(this.qrz.get());
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class b extends v.c {
-        private final c qrA;
-        private final a qrz;
         final AtomicBoolean once = new AtomicBoolean();
-        private final io.reactivex.disposables.a qri = new io.reactivex.disposables.a();
+        private final io.reactivex.disposables.a qrK = new io.reactivex.disposables.a();
+        private final a qsb;
+        private final c qsc;
 
         b(a aVar) {
-            this.qrz = aVar;
-            this.qrA = aVar.eKH();
+            this.qsb = aVar;
+            this.qsc = aVar.eKp();
         }
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
             if (this.once.compareAndSet(false, true)) {
-                this.qri.dispose();
-                this.qrz.a(this.qrA);
+                this.qrK.dispose();
+                this.qsb.a(this.qsc);
             }
         }
 
@@ -166,26 +166,26 @@ public final class d extends v {
 
         @Override // io.reactivex.v.c
         public io.reactivex.disposables.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-            return this.qri.isDisposed() ? EmptyDisposable.INSTANCE : this.qrA.a(runnable, j, timeUnit, this.qri);
+            return this.qrK.isDisposed() ? EmptyDisposable.INSTANCE : this.qsc.a(runnable, j, timeUnit, this.qrK);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class c extends f {
-        private long qrB;
+        private long qsd;
 
         c(ThreadFactory threadFactory) {
             super(threadFactory);
-            this.qrB = 0L;
+            this.qsd = 0L;
         }
 
-        public long eKJ() {
-            return this.qrB;
+        public long eKr() {
+            return this.qsd;
         }
 
-        public void jx(long j) {
-            this.qrB = j;
+        public void jw(long j) {
+            this.qsd = j;
         }
     }
 }

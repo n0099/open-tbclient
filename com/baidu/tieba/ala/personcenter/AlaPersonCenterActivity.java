@@ -5,35 +5,35 @@ import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivity> {
-    private TbPageContext eUY;
-    private com.baidu.tieba.ala.personcenter.b.a hZf;
+    private TbPageContext eWx;
+    private com.baidu.tieba.ala.personcenter.b.a iaO;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eUY = getPageContext();
-        this.hZf = new com.baidu.tieba.ala.personcenter.b.a(this.eUY, false);
-        setContentView(this.hZf.getView());
+        this.eWx = getPageContext();
+        this.iaO = new com.baidu.tieba.ala.personcenter.b.a(this.eWx, false);
+        setContentView(this.iaO.getView());
         Intent intent = getIntent();
         if (intent != null) {
-            this.hZf.h(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
+            this.iaO.h(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
         }
-        this.hZf.loadData();
+        this.iaO.loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.hZf.onChangeSkinType(i);
+        this.iaO.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        this.hZf.onDestory();
+        this.iaO.onDestory();
         super.onDestroy();
     }
 
@@ -41,9 +41,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         if (intent != null) {
-            this.hZf.h(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
+            this.iaO.h(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
         }
-        this.hZf.loadData();
+        this.iaO.loadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -56,14 +56,14 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.hZf != null) {
-            this.hZf.onResume();
+        if (this.iaO != null) {
+            this.iaO.onResume();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        this.hZf.onChangeSkinType(i);
+        this.iaO.onChangeSkinType(i);
     }
 }

@@ -5,20 +5,20 @@ import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3438a;
+    private int f2447a;
     private int l;
     private int m;
 
     public d(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.f3438a = 1;
+        this.f2447a = 1;
         this.l = 1;
         this.m = 1;
-        this.f3529b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         a("androidfeed");
     }
 
@@ -32,12 +32,12 @@ public class d extends com.baidu.mobads.vo.d {
         }
         hashMap.put("pos", "" + this.l);
         hashMap.put("seq", "" + this.m);
-        hashMap.put("viewid", "" + this.f3438a);
+        hashMap.put("viewid", "" + this.f2447a);
         return hashMap;
     }
 
     public void a(int i) {
-        this.f3438a = i;
+        this.f2447a = i;
     }
 
     public void b(int i) {

@@ -2,19 +2,19 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class w extends com.baidu.tbadk.editortools.emotiontool.c {
     private final String groupId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(w wVar);
     }
 
     public w(com.baidu.tieba.face.data.b bVar) {
         this.groupId = bVar.getGroupId();
-        qZ(1);
-        qY(4);
+        ra(1);
+        qZ(4);
     }
 
     public boolean a(com.baidu.tieba.face.data.b bVar, final a aVar) {
@@ -44,36 +44,36 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a bBD() {
-        return super.bBC();
+    public com.baidu.adp.widget.ImageView.a bBG() {
+        return super.bBF();
     }
 
     public boolean isReady() {
-        return bBC() != null;
+        return bBF() != null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String qX(int i) {
+    public String qY(int i) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean CN(String str) {
+    public boolean CU(String str) {
         return false;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType bBB() {
+    public EmotionGroupType bBE() {
         return EmotionGroupType.SINGLE_FORUM;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CO(String str) {
+    public com.baidu.adp.widget.ImageView.a CV(String str) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CP(String str) {
+    public com.baidu.adp.widget.ImageView.a CW(String str) {
         return null;
     }
 
@@ -103,7 +103,7 @@ public class w extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean bBA() {
+    public boolean bBD() {
         return false;
     }
 }

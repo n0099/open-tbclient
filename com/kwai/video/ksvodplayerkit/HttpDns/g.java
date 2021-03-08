@@ -8,32 +8,30 @@ public class g<T> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<T> f11036a = new ArrayList();
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f11037b;
+    public final List<T> f7269a = new ArrayList();
+    private int b;
 
     public void a() {
-        this.f11037b = (this.f11037b + 1) % this.f11036a.size();
+        this.b = (this.b + 1) % this.f7269a.size();
     }
 
     public void a(@NonNull List<T> list) {
         if (list.isEmpty()) {
             throw new IllegalArgumentException("elements can not be empty");
         }
-        this.f11036a.addAll(list);
+        this.f7269a.addAll(list);
     }
 
     public int b() {
-        return this.f11036a.size();
+        return this.f7269a.size();
     }
 
     @NonNull
     public T c() {
-        return this.f11036a.get(this.f11037b);
+        return this.f7269a.get(this.b);
     }
 
     public int d() {
-        return this.f11037b;
+        return this.b;
     }
 }

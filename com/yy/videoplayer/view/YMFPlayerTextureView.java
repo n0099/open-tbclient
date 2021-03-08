@@ -30,7 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFPlayerTextureView extends GLTextureView implements Choreographer.FrameCallback, TextureView.SurfaceTextureListener, GLTextureView.Renderer {
     private static final int RENDER_DURATION_LIMIT_10 = 100;
     private static final int RENDER_DURATION_LIMIT_15 = 66;

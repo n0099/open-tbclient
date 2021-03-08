@@ -9,12 +9,12 @@ import com.facebook.imagepipeline.memory.i;
 import com.facebook.imagepipeline.memory.q;
 /* loaded from: classes5.dex */
 public class d implements com.facebook.common.g.a {
-    private final b pHl;
-    private final i pHm;
+    private final b pJq;
+    private final i pJr;
 
     public d(q qVar) {
-        this.pHm = qVar.ezg();
-        this.pHl = new b(qVar.ezj());
+        this.pJr = qVar.ezp();
+        this.pJq = new b(qVar.ezs());
     }
 
     @Override // com.facebook.common.g.a
@@ -25,36 +25,36 @@ public class d implements com.facebook.common.g.a {
         BitmapFactory.Options c;
         int size;
         PooledByteBuffer pooledByteBuffer;
-        com.facebook.common.references.a<byte[]> PB;
-        com.facebook.common.references.a<PooledByteBuffer> b2 = this.pHl.b((short) i, (short) i2);
+        com.facebook.common.references.a<byte[]> PF;
+        com.facebook.common.references.a<PooledByteBuffer> b = this.pJq.b((short) i, (short) i2);
         try {
-            eVar = new com.facebook.imagepipeline.f.e(b2);
+            eVar = new com.facebook.imagepipeline.f.e(b);
             try {
-                eVar.c(com.facebook.c.b.pGo);
+                eVar.c(com.facebook.c.b.pIt);
                 c = c(eVar.getSampleSize(), config);
-                size = b2.get().size();
-                pooledByteBuffer = b2.get();
-                PB = this.pHm.PB(size + 2);
+                size = b.get().size();
+                pooledByteBuffer = b.get();
+                PF = this.pJr.PF(size + 2);
             } catch (Throwable th) {
                 th = th;
                 aVar = null;
             }
             try {
-                byte[] bArr = PB.get();
+                byte[] bArr = PF.get();
                 pooledByteBuffer.c(0, bArr, 0, size);
                 Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, size, c);
                 decodeByteArray.setHasAlpha(true);
                 decodeByteArray.eraseColor(0);
-                com.facebook.common.references.a.c(PB);
+                com.facebook.common.references.a.c(PF);
                 com.facebook.imagepipeline.f.e.e(eVar);
-                com.facebook.common.references.a.c(b2);
+                com.facebook.common.references.a.c(b);
                 return decodeByteArray;
             } catch (Throwable th2) {
                 th = th2;
-                aVar = PB;
+                aVar = PF;
                 com.facebook.common.references.a.c(aVar);
                 com.facebook.imagepipeline.f.e.e(eVar);
-                com.facebook.common.references.a.c(b2);
+                com.facebook.common.references.a.c(b);
                 throw th;
             }
         } catch (Throwable th3) {

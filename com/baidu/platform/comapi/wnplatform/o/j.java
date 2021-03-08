@@ -6,11 +6,11 @@ import android.media.MediaPlayer;
 public class j implements MediaPlayer.OnCompletionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f4463a;
+    final /* synthetic */ i f3085a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.f4463a = iVar;
+        this.f3085a = iVar;
     }
 
     @Override // android.media.MediaPlayer.OnCompletionListener

@@ -13,12 +13,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import org.a.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MaybeMergeArray<T> extends g<T> {
     final o<? extends T>[] sources;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a<T> extends f<T> {
         int consumerIndex();
 
@@ -37,7 +37,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         a clqSimpleQueue;
         o[] oVarArr = this.sources;
         int length = oVarArr.length;
-        if (length <= eKm()) {
+        if (length <= eJU()) {
             clqSimpleQueue = new MpscFillOnceSimpleQueue(length);
         } else {
             clqSimpleQueue = new ClqSimpleQueue();
@@ -54,7 +54,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class MergeMaybeObserver<T> extends BasicIntQueueSubscription<T> implements m<T> {
         private static final long serialVersionUID = -660395290758764731L;
         final c<? super T> actual;
@@ -243,7 +243,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class MpscFillOnceSimpleQueue<T> extends AtomicReferenceArray<T> implements a<T> {
         private static final long serialVersionUID = -7969063454040569579L;
         int consumerIndex;
@@ -256,7 +256,7 @@ public final class MaybeMergeArray<T> extends g<T> {
 
         @Override // io.reactivex.internal.a.f
         public boolean offer(T t) {
-            io.reactivex.internal.functions.a.m(t, "value is null");
+            io.reactivex.internal.functions.a.n(t, "value is null");
             int andIncrement = this.producerIndex.getAndIncrement();
             if (andIncrement < length()) {
                 lazySet(andIncrement, t);
@@ -325,7 +325,7 @@ public final class MaybeMergeArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class ClqSimpleQueue<T> extends ConcurrentLinkedQueue<T> implements a<T> {
         private static final long serialVersionUID = -4025173261791142821L;
         int consumerIndex;

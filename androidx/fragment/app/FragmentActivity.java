@@ -24,7 +24,6 @@ import androidx.collection.SparseArrayCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ComponentActivity;
 import androidx.core.app.SharedElementCallback;
-import androidx.core.internal.view.SupportMenu;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
@@ -496,7 +495,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     @Override // android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.mFragments.noteStateNotSaved();
-        int i2 = (i >> 16) & SupportMenu.USER_MASK;
+        int i2 = (i >> 16) & 65535;
         if (i2 != 0) {
             int i3 = i2 - 1;
             String str = this.mPendingFragmentActivityResults.get(i3);
@@ -509,7 +508,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
             if (findFragmentByWho == null) {
                 Log.w(TAG, "Activity result no fragment exists for who: " + str);
             } else {
-                findFragmentByWho.onRequestPermissionsResult(i & SupportMenu.USER_MASK, strArr, iArr);
+                findFragmentByWho.onRequestPermissionsResult(i & 65535, strArr, iArr);
             }
         }
     }

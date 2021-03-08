@@ -7,10 +7,8 @@ import com.kwad.sdk.lib.widget.viewpager.tabstrip.PagerSlidingTabStrip;
 public class b<T extends KsFragment> {
 
     /* renamed from: a  reason: collision with root package name */
-    private Class<T> f10477a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Bundle f10478b;
+    private Class<T> f6907a;
+    private Bundle b;
     private PagerSlidingTabStrip.c c;
 
     public b() {
@@ -18,8 +16,8 @@ public class b<T extends KsFragment> {
 
     public b(PagerSlidingTabStrip.c cVar, Class<T> cls, Bundle bundle) {
         this.c = cVar;
-        this.f10477a = cls;
-        this.f10478b = bundle;
+        this.f6907a = cls;
+        this.b = bundle;
     }
 
     public PagerSlidingTabStrip.c a() {
@@ -30,10 +28,10 @@ public class b<T extends KsFragment> {
     }
 
     public Class<T> b() {
-        return this.f10477a;
+        return this.f6907a;
     }
 
     public Bundle c() {
-        return this.f10478b;
+        return this.b;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.asynctask;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class BdAsyncTaskFuture<V> extends FutureTask<V> {
     private BdAsyncTask<?, ?, ?> mTask;
 

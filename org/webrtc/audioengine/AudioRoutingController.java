@@ -16,7 +16,7 @@ import android.os.Process;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import com.yy.audioengine.MainHandler;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AudioRoutingController {
     public static final int AudioOutputRoutingDefault = -1;
     public static final int AudioOutputRoutingEarpiece = 1;
@@ -319,7 +319,7 @@ public class AudioRoutingController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class MediaPhoneStateListener extends PhoneStateListener {
         private boolean mInCall;
 
@@ -388,7 +388,7 @@ public class AudioRoutingController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class EventHandler extends Handler {
         public EventHandler(Looper looper) {
             super(looper);

@@ -4,90 +4,90 @@ import android.util.SparseArray;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class v {
-    private boolean ezw = false;
-    private JSONArray duV = new JSONArray();
-    private SparseArray<Integer> ezs = new SparseArray<>();
-    private ArrayList<String> ezt = new ArrayList<>();
-    private long ezu = 0;
-    private long ezv = 0;
-    private String eyy = "0";
+    private boolean eAX = false;
+    private JSONArray dww = new JSONArray();
+    private SparseArray<Integer> eAT = new SparseArray<>();
+    private ArrayList<String> eAU = new ArrayList<>();
+    private long eAV = 0;
+    private long eAW = 0;
+    private String ezZ = "0";
 
-    public final void dk(JSONObject jSONObject) {
-        this.duV.put(jSONObject);
+    public final void dm(JSONObject jSONObject) {
+        this.dww.put(jSONObject);
     }
 
-    public final SparseArray<Integer> bfr() {
-        return this.ezs;
+    public final SparseArray<Integer> bft() {
+        return this.eAT;
     }
 
     public final void aB(int i, int i2) {
-        this.ezs.put(i, Integer.valueOf(i2));
+        this.eAT.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList bfs() {
-        return this.ezt;
+    public final ArrayList bfu() {
+        return this.eAU;
     }
 
-    public final void yM(String str) {
-        if (!this.ezt.contains(str)) {
-            this.ezt.add(str);
+    public final void yT(String str) {
+        if (!this.eAU.contains(str)) {
+            this.eAU.add(str);
         }
     }
 
     public final void y(long j, long j2) {
-        if ((j < this.ezu || this.ezu == 0) && j != 0) {
-            this.ezu = j;
+        if ((j < this.eAV || this.eAV == 0) && j != 0) {
+            this.eAV = j;
         }
-        if (j2 > this.ezv) {
-            this.ezv = j2;
+        if (j2 > this.eAW) {
+            this.eAW = j2;
         }
     }
 
-    public boolean mp(int i) {
-        return this.duV.toString().getBytes().length >= i;
+    public boolean mq(int i) {
+        return this.dww.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.duV.length() == 0;
+        return this.dww.length() == 0;
     }
 
-    public JSONArray bft() {
-        return this.duV;
+    public JSONArray bfv() {
+        return this.dww;
     }
 
     public void clearData() {
-        this.ezs.clear();
-        this.ezt.clear();
-        this.duV = null;
+        this.eAT.clear();
+        this.eAU.clear();
+        this.dww = null;
     }
 
-    public void yN(String str) {
-        this.eyy = str;
+    public void yU(String str) {
+        this.ezZ = str;
     }
 
-    public String bfu() {
-        return this.eyy;
+    public String bfw() {
+        return this.ezZ;
     }
 
-    public long bfv() {
-        return this.ezu;
+    public long bfx() {
+        return this.eAV;
     }
 
     public long getMaxTime() {
-        return this.ezv;
+        return this.eAW;
     }
 
-    public JSONArray bfw() {
-        return this.duV;
+    public JSONArray bfy() {
+        return this.dww;
     }
 
-    public boolean bfx() {
-        return this.ezw;
+    public boolean bfz() {
+        return this.eAX;
     }
 
     public void iL(boolean z) {
-        this.ezw = z;
+        this.eAX = z;
     }
 }

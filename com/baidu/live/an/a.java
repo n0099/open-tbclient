@@ -25,32 +25,32 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.apache.http.HttpHost;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public ab alaLiveShowData;
     public String anchorPortrait;
-    private CustomMessageListener bWl;
-    private CustomMessageListener bWm;
-    public long bWn;
-    public String bWo;
+    private CustomMessageListener bXL;
+    private CustomMessageListener bXM;
+    public long bXN;
+    public String bXO;
     public long liveId;
     private Activity mContext;
     public boolean isHost = false;
-    private h bWa = new h() { // from class: com.baidu.live.an.a.2
+    private h bXA = new h() { // from class: com.baidu.live.an.a.2
         @Override // com.baidu.live.view.web.h
-        public boolean iz(String str) {
+        public boolean iF(String str) {
             if (!TextUtils.isEmpty(str)) {
-                return a.this.iD(str);
+                return a.this.iJ(str);
             }
             return false;
         }
     };
-    private List<d> bWk = new ArrayList();
+    private List<d> bXK = new ArrayList();
 
     public a(Activity activity) {
         this.mContext = activity;
-        XZ();
-        Ya();
+        Yc();
+        Yd();
     }
 
     public void a(c cVar) {
@@ -61,28 +61,28 @@ public class a {
         if (this.mContext != null && !this.mContext.isFinishing()) {
             if ((Build.VERSION.SDK_INT < 17 || !this.mContext.isDestroyed()) && cVar != null && !TextUtils.isEmpty(cVar.url)) {
                 String str = cVar.url;
-                iC(str);
+                iI(str);
                 final d dVar = new d(this.mContext);
-                dVar.getWebView().setBackgroundColor(iE(str));
-                dVar.bWy = iF(str);
+                dVar.getWebView().setBackgroundColor(iK(str));
+                dVar.bXY = iL(str);
                 g gVar = new g();
-                gVar.t(this.mContext).a(dVar).a(dVar.getWebView().getSchemeCallback()).b(this.bWa);
-                gVar.a(cVar.bWu);
+                gVar.t(this.mContext).a(dVar).a(dVar.getWebView().getSchemeCallback()).b(this.bXA);
+                gVar.a(cVar.bXU);
                 gVar.bF(this.liveId);
-                gVar.bE(this.bWn);
-                gVar.iy(this.bWo);
+                gVar.bE(this.bXN);
+                gVar.iE(this.bXO);
                 gVar.dH(this.isHost);
-                com.baidu.live.view.web.a[] XY = gVar.XY();
-                for (com.baidu.live.view.web.a aVar : XY) {
+                com.baidu.live.view.web.a[] Yb = gVar.Yb();
+                for (com.baidu.live.view.web.a aVar : Yb) {
                     dVar.getWebView().addJavascriptInterface(aVar, aVar.getName());
                 }
-                this.bWk.add(dVar);
+                this.bXK.add(dVar);
                 dVar.b(cVar, bVar);
                 dVar.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.live.an.a.1
                     @Override // android.widget.PopupWindow.OnDismissListener
                     public void onDismiss() {
                         if (dVar != null) {
-                            a.this.bWk.remove(dVar);
+                            a.this.bXK.remove(dVar);
                         }
                         if (bVar != null) {
                             bVar.onDismiss();
@@ -93,18 +93,18 @@ public class a {
         }
     }
 
-    private boolean iB(String str) {
+    private boolean iH(String str) {
         return str != null && str.contains("show_last_live_room_btn=1");
     }
 
-    private void iC(String str) {
+    private void iI(String str) {
         if (str != null && str.contains("close_last_pop=1")) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913123));
         }
     }
 
     public void resume() {
-        for (d dVar : this.bWk) {
+        for (d dVar : this.bXK) {
             if (dVar != null && dVar.isShowing() && dVar.getWebView() != null) {
                 dVar.getWebView().onResume();
             }
@@ -112,7 +112,7 @@ public class a {
     }
 
     public void pause() {
-        for (d dVar : this.bWk) {
+        for (d dVar : this.bXK) {
             if (dVar != null && dVar.isShowing() && dVar.getWebView() != null) {
                 dVar.getWebView().onPause();
             }
@@ -120,35 +120,35 @@ public class a {
     }
 
     public void dismiss() {
-        for (d dVar : this.bWk) {
+        for (d dVar : this.bXK) {
             if (dVar != null) {
-                dVar.Yc();
+                dVar.Yf();
             }
         }
     }
 
-    public void cr(int i) {
-        for (d dVar : this.bWk) {
+    public void cs(int i) {
+        for (d dVar : this.bXK) {
             if (dVar != null && dVar.isShowing()) {
-                dVar.cr(i);
+                dVar.cs(i);
             }
         }
     }
 
-    public void Fy() {
+    public void FB() {
         dismiss();
     }
 
     public void release() {
-        Fy();
-        MessageManager.getInstance().unRegisterListener(this.bWl);
-        this.bWl = null;
-        MessageManager.getInstance().unRegisterListener(this.bWm);
-        this.bWm = null;
+        FB();
+        MessageManager.getInstance().unRegisterListener(this.bXL);
+        this.bXL = null;
+        MessageManager.getInstance().unRegisterListener(this.bXM);
+        this.bXM = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean iD(String str) {
+    public boolean iJ(String str) {
         Map<String, String> map;
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -161,12 +161,12 @@ public class a {
                 if (queryParameterNames != null && !queryParameterNames.isEmpty()) {
                     map = null;
                 } else {
-                    Map<String, String> iG = iG(str);
-                    if (iG.isEmpty()) {
-                        map = iG;
+                    Map<String, String> iM = iM(str);
+                    if (iM.isEmpty()) {
+                        map = iM;
                     } else {
-                        queryParameterNames = iG.keySet();
-                        map = iG;
+                        queryParameterNames = iM.keySet();
+                        map = iM;
                     }
                 }
                 c cVar = new c();
@@ -190,15 +190,15 @@ public class a {
                         }
                     }
                 }
-                if (iB(str) && this.alaLiveShowData != null && this.alaLiveShowData != null && this.alaLiveShowData.mLiveInfo != null) {
+                if (iH(str) && this.alaLiveShowData != null && this.alaLiveShowData != null && this.alaLiveShowData.mLiveInfo != null) {
                     AlaLastLiveroomInfo alaLastLiveroomInfo = new AlaLastLiveroomInfo();
                     alaLastLiveroomInfo.setLastLiveId(this.alaLiveShowData.mLiveInfo.live_id);
                     alaLastLiveroomInfo.setLastAnchorUname(this.alaLiveShowData.mLiveInfo.getNameShow());
                     alaLastLiveroomInfo.setLastAnchorUid(String.valueOf(this.alaLiveShowData.mLiveInfo.user_id));
-                    alaLastLiveroomInfo.setLastAnchorPortrait(this.alaLiveShowData.aIU.cover);
+                    alaLastLiveroomInfo.setLastAnchorPortrait(this.alaLiveShowData.aKu.cover);
                     alaLastLiveroomInfo.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HALF_WEBVIEW);
                     alaLastLiveroomInfo.setIsAudio(1);
-                    cVar.bWu = alaLastLiveroomInfo;
+                    cVar.bXU = alaLastLiveroomInfo;
                 }
                 cVar.url = str;
                 a(cVar);
@@ -211,37 +211,37 @@ public class a {
         }
     }
 
-    private void XZ() {
-        if (this.bWl == null) {
-            this.bWl = new CustomMessageListener(2913123) { // from class: com.baidu.live.an.a.3
+    private void Yc() {
+        if (this.bXL == null) {
+            this.bXL = new CustomMessageListener(2913123) { // from class: com.baidu.live.an.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    for (d dVar : a.this.bWk) {
+                    for (d dVar : a.this.bXK) {
                         if (dVar != null && dVar.isShowing()) {
                             dVar.dismiss();
                         }
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.bWl);
+            MessageManager.getInstance().registerListener(this.bXL);
         }
     }
 
-    private void Ya() {
-        if (this.bWm == null) {
-            this.bWm = new CustomMessageListener(2913303) { // from class: com.baidu.live.an.a.4
+    private void Yd() {
+        if (this.bXM == null) {
+            this.bXM = new CustomMessageListener(2913303) { // from class: com.baidu.live.an.a.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
-                        if (a.this.bWk != null && a.this.bWk.size() != 0) {
+                        if (a.this.bXK != null && a.this.bXK.size() != 0) {
                             String str = (String) customResponsedMessage.getData();
                             if (!TextUtils.isEmpty(str)) {
-                                for (d dVar : a.this.bWk) {
-                                    if (dVar != null && dVar.Yd() != null) {
+                                for (d dVar : a.this.bXK) {
+                                    if (dVar != null && dVar.Yg() != null) {
                                         if (!(!dVar.isShowing())) {
-                                            String str2 = dVar.Yd().url;
+                                            String str2 = dVar.Yg().url;
                                             if ((!TextUtils.isEmpty(str2)) && str.contains(str2)) {
                                                 dVar.dismiss();
                                             }
@@ -257,20 +257,20 @@ public class a {
                     BdLog.d("StandardWebController close target webview error");
                 }
             };
-            MessageManager.getInstance().registerListener(this.bWm);
+            MessageManager.getInstance().registerListener(this.bXM);
         }
     }
 
-    private int iE(String str) {
-        Map<String, String> iG;
+    private int iK(String str) {
+        Map<String, String> iM;
         String str2 = null;
         try {
             str2 = Uri.parse(str).getQueryParameter("background");
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        if ((TextUtils.isEmpty(str2) || str2.length() != 8) && (iG = iG(str)) != null && iG.containsKey("background")) {
-            str2 = iG.get("background");
+        if ((TextUtils.isEmpty(str2) || str2.length() != 8) && (iM = iM(str)) != null && iM.containsKey("background")) {
+            str2 = iM.get("background");
         }
         if (TextUtils.isEmpty(str2) || str2.length() != 8) {
             return 0;
@@ -283,21 +283,21 @@ public class a {
         }
     }
 
-    private boolean iF(String str) {
-        Map<String, String> iG;
+    private boolean iL(String str) {
+        Map<String, String> iM;
         String str2 = null;
         try {
             str2 = Uri.parse(str).getQueryParameter("noloading");
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        if (TextUtils.isEmpty(str2) && (iG = iG(str)) != null && iG.containsKey("noloading")) {
-            str2 = iG.get("noloading");
+        if (TextUtils.isEmpty(str2) && (iM = iM(str)) != null && iM.containsKey("noloading")) {
+            str2 = iM.get("noloading");
         }
         return TextUtils.equals(str2, "1");
     }
 
-    private Map<String, String> iG(String str) {
+    private Map<String, String> iM(String str) {
         HashMap hashMap = new HashMap();
         try {
             if (str.indexOf("?") > 0) {

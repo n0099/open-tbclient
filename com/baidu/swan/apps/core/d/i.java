@@ -15,20 +15,20 @@ import com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i extends c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected com.baidu.swan.apps.adaptation.b.d cCq;
-    protected com.baidu.swan.apps.adaptation.b.f cSQ;
-    private String cSR;
-    boolean cSS = true;
+    protected com.baidu.swan.apps.adaptation.b.d cDQ;
+    protected com.baidu.swan.apps.adaptation.b.f cUq;
+    private String cUr;
+    boolean cUs = true;
     protected String mParams;
     public String mUrl;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        apa();
+        apd();
         if (DEBUG) {
             Log.d("SwanAppWebViewFragment", "onCreate() : " + this);
         }
@@ -39,48 +39,48 @@ public class i extends c {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         aq(inflate);
-        this.cSQ = aiP();
-        this.cSQ.a(ajq());
-        this.cCq = this.cSQ.aiW();
-        this.cSQ.loadUrl(this.mUrl);
+        this.cUq = aiS();
+        this.cUq.a(ajt());
+        this.cDQ = this.cUq.aiZ();
+        this.cUq.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.cSQ.b(frameLayout, this.cCq.covertToView());
+        this.cUq.b(frameLayout, this.cDQ.covertToView());
         e(frameLayout);
-        return a(aoI() ? av(inflate) : inflate, this);
+        return a(aoL() ? av(inflate) : inflate, this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e(FrameLayout frameLayout) {
     }
 
-    public com.baidu.swan.apps.adaptation.b.f aiP() {
+    public com.baidu.swan.apps.adaptation.b.f aiS() {
         return new SwanAppWebViewWidget(getContext()) { // from class: com.baidu.swan.apps.core.d.i.1
             @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
-            protected boolean apM() {
-                return i.this.cSS;
+            protected boolean apP() {
+                return i.this.cUs;
             }
         };
     }
 
-    protected com.baidu.swan.apps.core.f.d ajq() {
+    protected com.baidu.swan.apps.core.f.d ajt() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.core.d.i.2
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public void iv(String str) {
-                if (i.this.mE(str) && i.this.cSR != null) {
-                    i.this.cRH.setTitle(i.this.cSR);
+            public void iB(String str) {
+                if (i.this.mL(str) && i.this.cUr != null) {
+                    i.this.cTh.setTitle(i.this.cUr);
                 } else {
-                    i.this.cRH.setTitle(str);
+                    i.this.cTh.setTitle(str);
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean mE(String str) {
+    public boolean mL(String str) {
         return TextUtils.equals(this.mUrl, str) || TextUtils.equals(this.mUrl.replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, ""), str);
     }
 
-    private void apa() {
+    private void apd() {
         Bundle arguments = getArguments();
         if (arguments != null) {
             this.mUrl = arguments.getString("url");
@@ -88,8 +88,8 @@ public class i extends c {
             if (!TextUtils.isEmpty(this.mParams)) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mParams);
-                    this.cSR = jSONObject.optString("fallback_title", null);
-                    this.cSS = jSONObject.optBoolean("should_check_domain", true);
+                    this.cUr = jSONObject.optString("fallback_title", null);
+                    this.cUs = jSONObject.optBoolean("should_check_domain", true);
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -182,32 +182,32 @@ public class i extends c {
     }
 
     public static boolean b(String str, com.baidu.swan.apps.model.b bVar) {
-        f afX = com.baidu.swan.apps.v.f.aAl().afX();
-        if (afX == null) {
+        f aga = com.baidu.swan.apps.v.f.aAo().aga();
+        if (aga == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "open page url=" + bVar.mBaseUrl);
-        afX.apB().af(f.cSz, f.cSB).a(str, bVar).apI();
+        aga.apE().af(f.cTZ, f.cUb).a(str, bVar).apL();
         return true;
     }
 
-    public static a mF(String str) {
+    public static a mM(String str) {
         return new a(str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     static final class a {
-        private com.baidu.swan.apps.model.b cSU;
-        JSONObject cSV = new JSONObject();
+        private com.baidu.swan.apps.model.b cUu;
+        JSONObject cUv = new JSONObject();
 
         a(String str) {
-            this.cSU = com.baidu.swan.apps.model.b.bZ(str, str);
+            this.cUu = com.baidu.swan.apps.model.b.bZ(str, str);
         }
 
-        public a mG(String str) {
+        public a mN(String str) {
             try {
-                this.cSV.put("fallback_title", str);
+                this.cUv.put("fallback_title", str);
             } catch (JSONException e) {
                 if (i.DEBUG) {
                     e.printStackTrace();
@@ -218,7 +218,7 @@ public class i extends c {
 
         public a fq(boolean z) {
             try {
-                this.cSV.put("should_check_domain", z);
+                this.cUv.put("should_check_domain", z);
             } catch (JSONException e) {
                 if (i.DEBUG) {
                     e.printStackTrace();
@@ -227,87 +227,87 @@ public class i extends c {
             return this;
         }
 
-        public void apN() {
-            this.cSU.mParams = this.cSV.toString();
-            i.b("default_webview", this.cSU);
+        public void apQ() {
+            this.cUu.mParams = this.cUv.toString();
+            i.b("default_webview", this.cUu);
         }
     }
 
-    public static boolean apL() {
-        f afX = com.baidu.swan.apps.v.f.aAl().afX();
-        if (afX == null) {
+    public static boolean apO() {
+        f aga = com.baidu.swan.apps.v.f.aAo().aga();
+        if (aga == null) {
             com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "close page failed");
             return false;
         }
         com.baidu.swan.apps.console.c.i("SwanAppWebViewFragment", "page closed! ");
-        afX.apB().af(f.cSB, f.cSA).apE().commit();
+        aga.apE().af(f.cUb, f.cUa).apH().commit();
         return true;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.cSQ != null) {
-            this.cSQ.destroy();
-            this.cSQ = null;
+        if (this.cUq != null) {
+            this.cUq.destroy();
+            this.cUq = null;
         }
         super.onDestroy();
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void aof() {
-        this.cSQ.aiR();
-        ajx();
-        this.cRI.n(com.baidu.swan.apps.t.a.axs().aii(), aoT());
+    protected void aoi() {
+        this.cUq.aiU();
+        ajA();
+        this.cTi.n(com.baidu.swan.apps.t.a.axv().ail(), aoW());
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean ajr() {
+    protected boolean aju() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c, com.baidu.searchbox.widget.SlideInterceptor
     public boolean isSlidable(MotionEvent motionEvent) {
-        if (this.cSQ != null) {
-            return this.cSQ.isSlidable(motionEvent);
+        if (this.cUq != null) {
+            return this.cUq.isSlidable(motionEvent);
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean aog() {
+    public boolean aoj() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean aiQ() {
-        if (this.cCq == null || !this.cCq.canGoBack()) {
+    public boolean aiT() {
+        if (this.cDQ == null || !this.cDQ.canGoBack()) {
             return false;
         }
-        this.cCq.goBack();
+        this.cDQ.goBack();
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void ajx() {
+    protected void ajA() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
     public void aq(View view) {
         super.aq(view);
-        gH(-1);
-        gI(ViewCompat.MEASURED_STATE_MASK);
-        this.cRH.setTitle(this.cSR == null ? "" : this.cSR);
-        this.cRH.setRightZoneVisibility(false);
+        gI(-1);
+        gJ(ViewCompat.MEASURED_STATE_MASK);
+        this.cTh.setTitle(this.cUr == null ? "" : this.cUr);
+        this.cTh.setRightZoneVisibility(false);
         fl(true);
-        this.cRH.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.i.3
+        this.cTh.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.i.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (i.this.cCq.canGoBack()) {
-                    i.this.cCq.goBack();
+                if (i.this.cDQ.canGoBack()) {
+                    i.this.cDQ.goBack();
                 } else {
-                    i.this.aoD();
+                    i.this.aoG();
                 }
             }
         });

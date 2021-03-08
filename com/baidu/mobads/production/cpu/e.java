@@ -6,12 +6,12 @@ import android.net.Uri;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e extends com.baidu.mobads.vo.d {
     public e(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, String str, String str2, CPUWebAdRequestParam cPUWebAdRequestParam) {
         super(context, activity, slotType);
         d dVar = new d(context.getApplicationContext(), str2, str);
-        this.f3529b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
+        this.b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
     }
 
     private Uri.Builder a(Map<String, Object> map, String str) {
@@ -42,7 +42,7 @@ public class e extends com.baidu.mobads.vo.d {
         if (i != 1080) {
             cPUWebAdRequestParam.getParameters().remove("city");
         }
-        this.f3529b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
+        this.b = a(a(dVar, cPUWebAdRequestParam), dVar.a()).build().toString();
     }
 
     @Override // com.baidu.mobads.vo.d
@@ -51,7 +51,7 @@ public class e extends com.baidu.mobads.vo.d {
     }
 
     public String c() {
-        return this.f3529b;
+        return this.b;
     }
 
     @Override // com.baidu.mobads.vo.d

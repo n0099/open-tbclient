@@ -2,51 +2,52 @@ package com.baidu.swan.games.c;
 
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i {
-    private static volatile boolean cMN = false;
-    private static volatile boolean eeX = false;
-    private static volatile List<com.baidu.swan.apps.event.a.b> eeY = new ArrayList();
+    private static volatile boolean cOn = false;
+    private static volatile boolean egz = false;
+    private static volatile List<com.baidu.swan.apps.event.a.b> egA = new ArrayList();
 
     private i() {
     }
 
     public static void eY(boolean z) {
-        cMN = z;
+        cOn = z;
         com.baidu.swan.apps.console.c.eY(z);
     }
 
-    public static void aVP() {
+    public static void aVS() {
         synchronized (i.class) {
-            eeY = new ArrayList();
+            egA = new ArrayList();
         }
-        eeX = false;
+        egz = false;
     }
 
-    public static void aVQ() {
-        if (cMN && !eeX) {
+    public static void aVT() {
+        if (cOn && !egz) {
             synchronized (i.class) {
-                if (eeY != null) {
-                    for (int i = 0; i < eeY.size(); i++) {
-                        com.baidu.swan.apps.v.f.aAl().a("console", eeY.get(i));
+                if (egA != null) {
+                    for (int i = 0; i < egA.size(); i++) {
+                        com.baidu.swan.apps.v.f.aAo().a("console", egA.get(i));
                     }
-                    eeY.clear();
-                    eeY = null;
+                    egA.clear();
+                    egA = null;
                 }
             }
-            eeX = true;
+            egz = true;
         }
     }
 
-    private static String lc(int i) {
+    private static String ld(int i) {
         switch (i) {
             case 1:
                 return TbConfig.TMP_LOG_DIR_NAME;
             case 2:
             case 6:
-                return "debug";
+                return ETAG.KEY_DEBUG;
             case 3:
                 return "info";
             case 4:
@@ -59,30 +60,30 @@ public class i {
     }
 
     public static void aC(int i, String str) {
-        cR(lc(i), str);
+        cR(ld(i), str);
     }
 
     public static void cR(String str, String str2) {
-        if (cMN) {
+        if (cOn) {
             a(c.cP(str, str2));
         }
     }
 
     public static void cS(String str, String str2) {
-        if (cMN) {
+        if (cOn) {
             a(c.cQ(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.event.a.b bVar) {
-        if (!eeX) {
+        if (!egz) {
             synchronized (i.class) {
-                if (eeY != null) {
-                    eeY.add(bVar);
+                if (egA != null) {
+                    egA.add(bVar);
                     return;
                 }
             }
         }
-        com.baidu.swan.apps.v.f.aAl().a("console", bVar);
+        com.baidu.swan.apps.v.f.aAo().a("console", bVar);
     }
 }

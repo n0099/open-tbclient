@@ -33,16 +33,16 @@ final class PDF417HighLevelEncoder {
     static {
         Arrays.fill(MIXED, (byte) -1);
         for (int i = 0; i < TEXT_MIXED_RAW.length; i++) {
-            byte b2 = TEXT_MIXED_RAW[i];
-            if (b2 > 0) {
-                MIXED[b2] = (byte) i;
+            byte b = TEXT_MIXED_RAW[i];
+            if (b > 0) {
+                MIXED[b] = (byte) i;
             }
         }
         Arrays.fill(PUNCTUATION, (byte) -1);
         for (int i2 = 0; i2 < TEXT_PUNCTUATION_RAW.length; i2++) {
-            byte b3 = TEXT_PUNCTUATION_RAW[i2];
-            if (b3 > 0) {
-                PUNCTUATION[b3] = (byte) i2;
+            byte b2 = TEXT_PUNCTUATION_RAW[i2];
+            if (b2 > 0) {
+                PUNCTUATION[b2] = (byte) i2;
             }
         }
     }

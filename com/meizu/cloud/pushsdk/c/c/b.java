@@ -18,13 +18,11 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     private int l;
 
     /* loaded from: classes4.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC1171a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC1188a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f11280a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f11281b;
+        private String f7410a;
+        private String b;
         private String c;
         private String d;
         private String e;
@@ -39,12 +37,12 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
         }
 
         public T a(String str) {
-            this.f11280a = str;
+            this.f7410a = str;
             return (T) a();
         }
 
         public T b(String str) {
-            this.f11281b = str;
+            this.b = str;
             return (T) a();
         }
 
@@ -85,24 +83,24 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C1172b extends a<C1172b> {
-        private C1172b() {
+    private static class C1189b extends a<C1189b> {
+        private C1189b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC1171a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC1188a
         /* renamed from: c */
-        public C1172b a() {
+        public C1189b a() {
             return this;
         }
     }
 
     protected b(a<?> aVar) {
         super(aVar);
-        this.e = ((a) aVar).f11281b;
+        this.e = ((a) aVar).b;
         this.f = ((a) aVar).c;
-        this.d = ((a) aVar).f11280a;
+        this.d = ((a) aVar).f7410a;
         this.g = ((a) aVar).d;
         this.h = ((a) aVar).e;
         this.i = ((a) aVar).f;
@@ -112,12 +110,12 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     public static a<?> d() {
-        return new C1172b();
+        return new C1189b();
     }
 
     public c e() {
         c cVar = new c();
-        cVar.a(h.f1945a, this.d);
+        cVar.a(h.f1535a, this.d);
         cVar.a(Config.FEED_LIST_PART, this.e);
         cVar.a(AppIconSetting.DEFAULT_LARGE_ICON, this.f);
         cVar.a("pv", this.g);

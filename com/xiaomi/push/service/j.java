@@ -10,29 +10,27 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class j extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f14306a;
+    final /* synthetic */ i f8570a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f992a;
+    final /* synthetic */ String f913a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ List f993a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f14307b;
+    final /* synthetic */ List f914a;
+    final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(i iVar, int i, String str, List list, String str2) {
         super(i);
-        this.f14306a = iVar;
-        this.f992a = str;
-        this.f993a = list;
-        this.f14307b = str2;
+        this.f8570a = iVar;
+        this.f913a = str;
+        this.f914a = list;
+        this.b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -44,8 +42,8 @@ class j extends XMPushService.i {
     public void a() {
         String a2;
         XMPushService xMPushService;
-        a2 = this.f14306a.a(this.f992a);
-        ArrayList<il> a3 = bi.a(this.f993a, this.f992a, a2, 32768);
+        a2 = this.f8570a.a(this.f913a);
+        ArrayList<il> a3 = bi.a(this.f914a, this.f913a, a2, 32768);
         if (a3 == null) {
             com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
             return;
@@ -54,18 +52,18 @@ class j extends XMPushService.i {
         while (it.hasNext()) {
             il next = it.next();
             next.a("uploadWay", "longXMPushService");
-            ii a4 = w.a(this.f992a, a2, next, hm.Notification);
-            if (!TextUtils.isEmpty(this.f14307b) && !TextUtils.equals(this.f992a, this.f14307b)) {
-                if (a4.m443a() == null) {
+            ii a4 = w.a(this.f913a, a2, next, hm.Notification);
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f913a, this.b)) {
+                if (a4.m422a() == null) {
                     hz hzVar = new hz();
                     hzVar.a("-1");
                     a4.a(hzVar);
                 }
-                a4.m443a().b("ext_traffic_source_pkg", this.f14307b);
+                a4.m422a().b("ext_traffic_source_pkg", this.b);
             }
             byte[] a5 = iw.a(a4);
-            xMPushService = this.f14306a.f14305a;
-            xMPushService.a(this.f992a, a5, true);
+            xMPushService = this.f8570a.f8569a;
+            xMPushService.a(this.f913a, a5, true);
         }
     }
 }

@@ -27,7 +27,7 @@ import androidx.transition.TransitionSet;
 import com.google.android.material.R;
 import com.google.android.material.internal.TextScale;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     private static final long ACTIVE_ANIMATION_DURATION_MS = 115;
     private static final int[] CHECKED_STATE_SET = {16842912};

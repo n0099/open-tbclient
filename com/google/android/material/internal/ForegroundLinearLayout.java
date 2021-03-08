@@ -14,7 +14,7 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
     private Drawable foreground;
     boolean foregroundBoundsChanged;

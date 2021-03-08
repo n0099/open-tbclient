@@ -5,15 +5,13 @@ import android.os.IBinder;
 import com.asus.msa.sdid.SupplementaryDIDManager;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private SupplierListener f5741a;
+    private SupplierListener f3875a;
     private SupplementaryDIDManager f;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f5742b = "";
+    private String b = "";
     private String c = "";
     private String d = "";
     private String e = "";
@@ -21,23 +19,23 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
     private boolean h = false;
 
     public a(Context context, SupplierListener supplierListener) {
-        this.f5741a = supplierListener;
+        this.f3875a = supplierListener;
         this.f = new SupplementaryDIDManager(context);
     }
 
     @Override // com.asus.msa.sdid.a
     public void a() {
-        if (this.f5741a != null) {
-            this.f5741a.OnSupport(false, this);
+        if (this.f3875a != null) {
+            this.f3875a.OnSupport(false, this);
         }
     }
 
     @Override // com.asus.msa.sdid.a
     public void a(com.asus.msa.a.a aVar) {
         try {
-            this.f5742b = aVar.b();
-            if (this.f5742b == null) {
-                this.f5742b = "";
+            this.b = aVar.b();
+            if (this.b == null) {
+                this.b = "";
             }
         } catch (Exception e) {
         }
@@ -67,8 +65,8 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
         } catch (Exception e5) {
         }
         this.g = true;
-        if (this.f5741a != null) {
-            this.f5741a.OnSupport(this.h, this);
+        if (this.f3875a != null) {
+            this.f3875a.OnSupport(this.h, this);
         }
     }
 
@@ -99,7 +97,7 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
-        return this.f5742b;
+        return this.b;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier

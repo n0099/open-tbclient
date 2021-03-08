@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoDataStatUtil {
     private static final int DIS_TIME = 3000;
     public static final int ENCODE_STREAM_ID = 1001;

@@ -19,58 +19,58 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private TbPageContext<?> eUY;
-    private com.baidu.tieba.memberCenter.tail.a.a<Void> lsV;
-    private com.baidu.tieba.memberCenter.tail.a.a<Integer> lsW;
-    private boolean ltc = false;
-    private com.baidu.adp.framework.listener.a ltd = new com.baidu.adp.framework.listener.a(1003021, CmdConfigSocket.CMD_TAIL_GET) { // from class: com.baidu.tieba.memberCenter.tail.management.d.1
+    private TbPageContext<?> eWx;
+    private com.baidu.tieba.memberCenter.tail.a.a<Void> luY;
+    private com.baidu.tieba.memberCenter.tail.a.a<Integer> luZ;
+    private boolean lvf = false;
+    private com.baidu.adp.framework.listener.a lvg = new com.baidu.adp.framework.listener.a(1003021, CmdConfigSocket.CMD_TAIL_GET) { // from class: com.baidu.tieba.memberCenter.tail.management.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            com.baidu.tieba.memberCenter.tail.data.d m41getResultData;
-            if (d.this.lsV != null) {
+            com.baidu.tieba.memberCenter.tail.data.d m42getResultData;
+            if (d.this.luY != null) {
                 if (responsedMessage instanceof GetTailsHttpResponseMessage) {
-                    m41getResultData = ((GetTailsHttpResponseMessage) responsedMessage).m40getResultData();
+                    m42getResultData = ((GetTailsHttpResponseMessage) responsedMessage).m41getResultData();
                 } else {
-                    m41getResultData = responsedMessage instanceof GetTailsSocketResponseMessage ? ((GetTailsSocketResponseMessage) responsedMessage).m41getResultData() : null;
+                    m42getResultData = responsedMessage instanceof GetTailsSocketResponseMessage ? ((GetTailsSocketResponseMessage) responsedMessage).m42getResultData() : null;
                 }
-                if (m41getResultData != null) {
-                    d.this.mTails = m41getResultData.getTails();
+                if (m42getResultData != null) {
+                    d.this.mTails = m42getResultData.getTails();
                 }
-                d.this.lsV.b(responsedMessage.hasError(), responsedMessage.getErrorString(), null);
+                d.this.luY.b(responsedMessage.hasError(), responsedMessage.getErrorString(), null);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a lte = new com.baidu.adp.framework.listener.a(1003020, CmdConfigSocket.CMD_TAIL_DELETE) { // from class: com.baidu.tieba.memberCenter.tail.management.d.2
+    private com.baidu.adp.framework.listener.a lvh = new com.baidu.adp.framework.listener.a(1003020, CmdConfigSocket.CMD_TAIL_DELETE) { // from class: com.baidu.tieba.memberCenter.tail.management.d.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            com.baidu.tieba.memberCenter.tail.data.c m39getResultData;
-            if (d.this.lsW != null) {
+            com.baidu.tieba.memberCenter.tail.data.c m40getResultData;
+            if (d.this.luZ != null) {
                 if (responsedMessage instanceof DeleteTailHttpResponseMessage) {
-                    m39getResultData = ((DeleteTailHttpResponseMessage) responsedMessage).m38getResultData();
+                    m40getResultData = ((DeleteTailHttpResponseMessage) responsedMessage).m39getResultData();
                 } else {
-                    m39getResultData = responsedMessage instanceof DeleteTailSocketResponseMessage ? ((DeleteTailSocketResponseMessage) responsedMessage).m39getResultData() : null;
+                    m40getResultData = responsedMessage instanceof DeleteTailSocketResponseMessage ? ((DeleteTailSocketResponseMessage) responsedMessage).m40getResultData() : null;
                 }
-                d.this.lsW.b(responsedMessage.hasError(), responsedMessage.getErrorString(), m39getResultData != null ? Integer.valueOf(m39getResultData.dfT()) : null);
+                d.this.luZ.b(responsedMessage.hasError(), responsedMessage.getErrorString(), m40getResultData != null ? Integer.valueOf(m40getResultData.dgc()) : null);
             }
         }
     };
-    private CustomMessageListener ltf = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_REFRESH) { // from class: com.baidu.tieba.memberCenter.tail.management.d.3
+    private CustomMessageListener lvi = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_REFRESH) { // from class: com.baidu.tieba.memberCenter.tail.management.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.memberCenter.tail.data.e) && d.this.lsV != null) {
+            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.memberCenter.tail.data.e) && d.this.luY != null) {
                 com.baidu.tieba.memberCenter.tail.data.e eVar = (com.baidu.tieba.memberCenter.tail.data.e) customResponsedMessage.getData();
-                if (eVar.lsg != null && d.this.mTails != null) {
-                    if (eVar.lsf == 1) {
+                if (eVar.luj != null && d.this.mTails != null) {
+                    if (eVar.lui == 1) {
                         c(eVar);
-                    } else if (eVar.lsf == 3) {
+                    } else if (eVar.lui == 3) {
                         b(eVar);
-                    } else if (eVar.lsf == 2) {
+                    } else if (eVar.lui == 2) {
                         a(eVar);
                     }
-                    d.this.lsV.b(customResponsedMessage.hasError(), customResponsedMessage.getErrorString(), null);
+                    d.this.luY.b(customResponsedMessage.hasError(), customResponsedMessage.getErrorString(), null);
                 }
             }
         }
@@ -80,10 +80,10 @@ public class d {
             while (true) {
                 int i2 = i;
                 if (i2 < d.this.mTails.size()) {
-                    if (((TailData) d.this.mTails.get(i2)).getId() == eVar.lsg.getId()) {
-                        ((TailData) d.this.mTails.get(i2)).setContent(eVar.lsg.getContent());
-                        ((TailData) d.this.mTails.get(i2)).setFontColor(eVar.lsg.getFontColor());
-                        ((TailData) d.this.mTails.get(i2)).setSelected(eVar.lsg.isSelected());
+                    if (((TailData) d.this.mTails.get(i2)).getId() == eVar.luj.getId()) {
+                        ((TailData) d.this.mTails.get(i2)).setContent(eVar.luj.getContent());
+                        ((TailData) d.this.mTails.get(i2)).setFontColor(eVar.luj.getFontColor());
+                        ((TailData) d.this.mTails.get(i2)).setSelected(eVar.luj.isSelected());
                         return;
                     }
                     i = i2 + 1;
@@ -96,7 +96,7 @@ public class d {
         private void b(com.baidu.tieba.memberCenter.tail.data.e eVar) {
             boolean z = false;
             for (int i = 0; i < d.this.mTails.size(); i++) {
-                if (((TailData) d.this.mTails.get(i)).getId() == eVar.lsg.getId()) {
+                if (((TailData) d.this.mTails.get(i)).getId() == eVar.luj.getId()) {
                     d.this.mTails.remove(i);
                     if (d.this.mTails.size() != 0) {
                         Iterator it = d.this.mTails.iterator();
@@ -123,7 +123,7 @@ public class d {
             while (true) {
                 if (i >= d.this.mTails.size()) {
                     break;
-                } else if (((TailData) d.this.mTails.get(i)).getId() != eVar.lsg.getId()) {
+                } else if (((TailData) d.this.mTails.get(i)).getId() != eVar.luj.getId()) {
                     i++;
                 } else {
                     z = true;
@@ -131,41 +131,41 @@ public class d {
                 }
             }
             if (!z) {
-                d.this.mTails.add(eVar.lsg);
+                d.this.mTails.add(eVar.luj);
             }
         }
     };
     private List<TailData> mTails = new ArrayList();
 
     public d(TbPageContext<?> tbPageContext) {
-        this.eUY = tbPageContext;
-        this.eUY.registerListener(this.ltd);
-        this.eUY.registerListener(this.lte);
-        this.eUY.registerListener(this.ltf);
+        this.eWx = tbPageContext;
+        this.eWx.registerListener(this.lvg);
+        this.eWx.registerListener(this.lvh);
+        this.eWx.registerListener(this.lvi);
     }
 
-    public void dgl() {
-        this.eUY.sendMessage(new GetTailsNetMessage("stat"));
+    public void dgu() {
+        this.eWx.sendMessage(new GetTailsNetMessage("stat"));
     }
 
-    public void EH(int i) {
-        this.eUY.sendMessage(new DeleteTailNetMessage(i));
+    public void EK(int i) {
+        this.eWx.sendMessage(new DeleteTailNetMessage(i));
     }
 
-    public int dgm() {
+    public int dgv() {
         return 3 - this.mTails.size();
     }
 
     public void c(com.baidu.tieba.memberCenter.tail.a.a<Void> aVar) {
-        this.lsV = aVar;
+        this.luY = aVar;
     }
 
     public void d(com.baidu.tieba.memberCenter.tail.a.a<Integer> aVar) {
-        this.lsW = aVar;
+        this.luZ = aVar;
     }
 
-    public boolean dgn() {
-        return this.ltc;
+    public boolean dgw() {
+        return this.lvf;
     }
 
     public List<TailData> getTails() {
@@ -181,12 +181,12 @@ public class d {
     }
 
     public void tX(boolean z) {
-        this.ltc = z;
+        this.lvf = z;
     }
 
     public boolean b(Serializable serializable) {
         if (serializable == null || !(serializable instanceof TailDataList)) {
-            dgl();
+            dgu();
             return false;
         }
         this.mTails = ((TailDataList) serializable).getTails();

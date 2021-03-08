@@ -8,40 +8,40 @@ import java.util.Date;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ad {
-    private static final Pattern fNv = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
-    private static final Pattern fNw = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
+    private static final Pattern fOV = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
+    private static final Pattern fOW = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
 
-    public static boolean DR(String str) {
-        return DS(str) || DT(str) || DU(str);
+    public static boolean DY(String str) {
+        return DZ(str) || Ea(str) || Eb(str);
     }
 
-    private static boolean DS(String str) {
+    private static boolean DZ(String str) {
         if (au.isEmpty(str)) {
             return false;
         }
-        return fNv.matcher(str.toLowerCase()).find();
+        return fOV.matcher(str.toLowerCase()).find();
     }
 
-    private static boolean DT(String str) {
+    private static boolean Ea(String str) {
         if (au.isEmpty(str)) {
             return false;
         }
-        return fNw.matcher(str.toLowerCase()).find();
+        return fOW.matcher(str.toLowerCase()).find();
     }
 
-    private static boolean DU(String str) {
+    private static boolean Eb(String str) {
         if (au.isEmpty(str)) {
             return false;
         }
         return AlbumActivityConfig.FROM_PERSON.equalsIgnoreCase(Uri.parse(str).getAuthority());
     }
 
-    public static boolean bFL() {
-        if (com.baidu.tbadk.a.d.bjC()) {
-            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.brQ().getLong("show_login_dialog_strategy_key", 0L));
+    public static boolean bFP() {
+        if (com.baidu.tbadk.a.d.bjE()) {
+            Date date = new Date(com.baidu.tbadk.core.sharedPref.b.brR().getLong("show_login_dialog_strategy_key", 0L));
             long currentTimeMillis = System.currentTimeMillis();
             Date date2 = new Date(currentTimeMillis);
-            com.baidu.tbadk.core.sharedPref.b.brQ().putLong("show_login_dialog_strategy_key", currentTimeMillis);
+            com.baidu.tbadk.core.sharedPref.b.brR().putLong("show_login_dialog_strategy_key", currentTimeMillis);
             return !be.c(date, date2);
         }
         return false;

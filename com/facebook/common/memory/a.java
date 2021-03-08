@@ -1,4 +1,4 @@
 package com.facebook.common.memory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface a extends e<byte[]> {
 }

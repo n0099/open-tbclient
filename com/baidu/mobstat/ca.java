@@ -13,14 +13,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ca implements by {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<cd> f3783a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f3784b;
+    public static final List<cd> f2649a;
+    public static int b;
     public static boolean c;
     static final /* synthetic */ boolean h;
     public final BlockingQueue<ByteBuffer> d;
@@ -42,11 +40,11 @@ public class ca implements by {
 
     static {
         h = !ca.class.desiredAssertionStatus();
-        f3783a = new ArrayList(4);
-        f3784b = 16384;
+        f2649a = new ArrayList(4);
+        b = 16384;
         c = false;
-        f3783a.add(new cf());
-        f3783a.add(new ce());
+        f2649a.add(new cf());
+        f2649a.add(new ce());
     }
 
     public ca(cb cbVar, cd cdVar) {

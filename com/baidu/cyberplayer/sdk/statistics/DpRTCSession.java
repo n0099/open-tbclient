@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class DpRTCSession {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f1823a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
+    private c f1465a = new c(DpStatConstants.SESSION_TYPE_RTC_COMMON);
 
     private synchronized JSONObject a(JSONObject jSONObject) throws JSONException {
-        this.f1823a.a(jSONObject);
+        this.f1465a.a(jSONObject);
         return jSONObject;
     }
 
@@ -33,7 +33,7 @@ public class DpRTCSession {
 
     public synchronized void add(int i, String str, String str2) {
         if (20488 == i) {
-            this.f1823a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
+            this.f1465a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
         }
     }
 

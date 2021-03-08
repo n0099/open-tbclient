@@ -4,7 +4,7 @@ import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.MessageLite;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class AbstractParser<MessageType extends MessageLite> implements Parser<MessageType> {
     private static final ExtensionRegistryLite EMPTY_REGISTRY = ExtensionRegistryLite.getEmptyRegistry();
 

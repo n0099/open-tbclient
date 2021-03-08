@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes2.dex */
 public class r {
-    private TbPageContext eUY;
+    private TbPageContext eWx;
 
     public r(TbPageContext tbPageContext) {
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
         SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
         socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
         MessageManager.getInstance().registerTask(socketMessageTask);
@@ -24,7 +24,7 @@ public class r {
         ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
         threadPublishReqMessage.tid = j;
         threadPublishReqMessage.fid = j2;
-        threadPublishReqMessage.setTag(this.eUY.getUniqueId());
+        threadPublishReqMessage.setTag(this.eWx.getUniqueId());
         MessageManager.getInstance().sendMessage(threadPublishReqMessage);
     }
 }

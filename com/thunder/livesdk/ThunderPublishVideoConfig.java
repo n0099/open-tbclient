@@ -2,7 +2,7 @@ package com.thunder.livesdk;
 
 import com.thunder.livesdk.video.ThunderPublishLowStreamVideoConfig;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderPublishVideoConfig {
     public static final int YYPUBLISH_PLAYTYPE_ACROSS = 3;
     public static final int YYPUBLISH_PLAYTYPE_ARENA_CROSS = 4;

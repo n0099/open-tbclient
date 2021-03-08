@@ -5,53 +5,53 @@ import android.text.TextUtils;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
-    private a oFF;
-    private Handler oFG;
-    private ConcurrentHashMap<Long, b> oFE = new ConcurrentHashMap<>();
-    boolean oFH = false;
+    private a oHK;
+    private Handler oHL;
+    private ConcurrentHashMap<Long, b> oHJ = new ConcurrentHashMap<>();
+    boolean oHM = false;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.a.f.1
         @Override // java.lang.Runnable
         public void run() {
-            f.this.oFH = true;
-            f.this.ecZ();
-            if (f.this.oFE != null && f.this.oFE.size() > 0) {
-                f.this.oFG.postDelayed(f.this.mRunnable, 1000L);
+            f.this.oHM = true;
+            f.this.edh();
+            if (f.this.oHJ != null && f.this.oHJ.size() > 0) {
+                f.this.oHL.postDelayed(f.this.mRunnable, 1000L);
             } else {
-                f.this.oFH = false;
+                f.this.oHM = false;
             }
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(b bVar);
     }
 
     public f(Handler handler) {
-        this.oFG = handler;
+        this.oHL = handler;
     }
 
     public void b(b bVar) {
         if (bVar != null && !TextUtils.isEmpty(bVar.thirdUserId)) {
-            bVar.oFJ = System.currentTimeMillis();
-            this.oFE.put(Long.valueOf(bVar.imUK), bVar);
+            bVar.oHO = System.currentTimeMillis();
+            this.oHJ.put(Long.valueOf(bVar.imUK), bVar);
             sz();
         }
     }
 
     public void hQ(long j) {
-        this.oFE.remove(Long.valueOf(j));
+        this.oHJ.remove(Long.valueOf(j));
     }
 
-    public void ecZ() {
-        Iterator<Map.Entry<Long, b>> it = this.oFE.entrySet().iterator();
+    public void edh() {
+        Iterator<Map.Entry<Long, b>> it = this.oHJ.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<Long, b> next = it.next();
-            if (System.currentTimeMillis() - next.getValue().oFJ > 10000) {
-                if (this.oFF != null) {
-                    this.oFF.a(next.getValue());
+            if (System.currentTimeMillis() - next.getValue().oHO > 10000) {
+                if (this.oHK != null) {
+                    this.oHK.a(next.getValue());
                 }
                 it.remove();
             }
@@ -59,25 +59,25 @@ public class f {
     }
 
     public void a(a aVar) {
-        this.oFF = aVar;
+        this.oHK = aVar;
     }
 
     private void sz() {
-        if (this.oFG == null) {
-            this.oFH = false;
-        } else if (this.oFE == null || this.oFE.size() == 0) {
-            this.oFH = false;
+        if (this.oHL == null) {
+            this.oHM = false;
+        } else if (this.oHJ == null || this.oHJ.size() == 0) {
+            this.oHM = false;
         } else {
-            this.oFG.postDelayed(this.mRunnable, 0L);
+            this.oHL.postDelayed(this.mRunnable, 0L);
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public long appId;
         public String cuid;
         public long imUK;
-        public long oFJ;
+        public long oHO;
         public String thirdUserId;
 
         public b(long j, long j2, String str, String str2) {

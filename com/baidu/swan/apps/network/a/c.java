@@ -11,15 +11,15 @@ import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements Interceptor {
-    private static boolean dps = true;
+    private static boolean dqT = true;
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         HttpUrl resolve;
         Request request = chain.request();
-        if (!dps) {
+        if (!dqT) {
             return chain.proceed(request);
         }
         if (!b(request)) {
@@ -67,7 +67,7 @@ public class c implements Interceptor {
     }
 
     public static Request a(Request request, String str, String str2) {
-        if (dps && request != null) {
+        if (dqT && request != null) {
             if (str == null) {
                 str = "";
             }
@@ -80,7 +80,7 @@ public class c implements Interceptor {
     }
 
     public static HttpRequest a(HttpRequest httpRequest, String str, String str2) {
-        if (dps && httpRequest != null) {
+        if (dqT && httpRequest != null) {
             if (str == null) {
                 str = "";
             }
@@ -94,7 +94,7 @@ public class c implements Interceptor {
 
     public static Map<String, String> cb(String str, String str2) {
         HashMap hashMap = new HashMap();
-        if (dps) {
+        if (dqT) {
             if (str == null) {
                 str = "";
             }

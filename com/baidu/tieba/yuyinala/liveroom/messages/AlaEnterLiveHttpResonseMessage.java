@@ -6,16 +6,16 @@ import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
-    private ab aDd;
+    private ab aED;
 
     public AlaEnterLiveHttpResonseMessage() {
         super(1031023);
     }
 
-    public ab Fm() {
-        return this.aDd;
+    public ab Fp() {
+        return this.aED;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -28,16 +28,16 @@ public class AlaEnterLiveHttpResonseMessage extends JsonHttpResponsedMessage {
                 setErrorString(optJSONObject2.optString("usermsg"));
             }
             if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.aDd = new ab();
-                this.aDd.bx(true);
-                this.aDd.parserJson(optJSONObject);
-                com.baidu.live.ae.b.Qv().cU(this.aDd.aJd);
-                this.aDd.logId = jSONObject.optLong("logid");
-                if (this.aDd.mLiveInfo != null && this.aDd.mLiveInfo.live_id > 0) {
-                    com.baidu.live.d.xc().putLong("ala_live_room_last_live_id", this.aDd.mLiveInfo.live_id);
+                this.aED = new ab();
+                this.aED.bx(true);
+                this.aED.parserJson(optJSONObject);
+                com.baidu.live.ae.b.Qy().cU(this.aED.aKD);
+                this.aED.logId = jSONObject.optLong("logid");
+                if (this.aED.mLiveInfo != null && this.aED.mLiveInfo.live_id > 0) {
+                    com.baidu.live.d.xf().putLong("ala_live_room_last_live_id", this.aED.mLiveInfo.live_id);
                 }
-                if (this.aDd.mLiveInfo != null && this.aDd.mLiveInfo.broadGiftMsgId > 0) {
-                    com.baidu.live.gift.a.broadGiftMsgId = this.aDd.mLiveInfo.broadGiftMsgId;
+                if (this.aED.mLiveInfo != null && this.aED.mLiveInfo.broadGiftMsgId > 0) {
+                    com.baidu.live.gift.a.broadGiftMsgId = this.aED.mLiveInfo.broadGiftMsgId;
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("live_info");
                 if (optJSONObject3 != null) {

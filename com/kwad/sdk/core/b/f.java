@@ -13,9 +13,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class f {
     public static String a(String str) {
-        String b2;
+        String b;
         Context context = KsAdSDKImpl.get().getContext();
-        return (context == null || (b2 = com.yxcorp.kuaishou.addfp.a.b(context, str)) == null) ? "" : b2;
+        return (context == null || (b = com.yxcorp.kuaishou.addfp.a.b(context, str)) == null) ? "" : b;
     }
 
     private static List<String> a(Map<String, String> map) {

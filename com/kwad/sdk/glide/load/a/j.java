@@ -20,10 +20,8 @@ public class j implements d<InputStream> {
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    static final b f10052a = new a();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.b.g f10053b;
+    static final b f6649a = new a();
+    private final com.kwad.sdk.glide.load.b.g b;
     private final int c;
     private final b d;
     private HttpURLConnection e;
@@ -48,12 +46,12 @@ public class j implements d<InputStream> {
     }
 
     public j(com.kwad.sdk.glide.load.b.g gVar, int i) {
-        this(gVar, i, f10052a);
+        this(gVar, i, f6649a);
     }
 
     @VisibleForTesting
     j(com.kwad.sdk.glide.load.b.g gVar, int i, b bVar) {
-        this.f10053b = gVar;
+        this.b = gVar;
         this.c = i;
         this.d = bVar;
     }
@@ -135,7 +133,7 @@ public class j implements d<InputStream> {
         long a2 = com.kwad.sdk.glide.g.f.a();
         try {
             try {
-                aVar.a((d.a<? super InputStream>) a(this.f10053b.a(), 0, null, this.f10053b.b()));
+                aVar.a((d.a<? super InputStream>) a(this.b.a(), 0, null, this.b.b()));
                 if (Log.isLoggable("HttpUrlFetcher", 2)) {
                     Log.v("HttpUrlFetcher", "Finished http url fetcher fetch in " + com.kwad.sdk.glide.g.f.a(a2));
                 }

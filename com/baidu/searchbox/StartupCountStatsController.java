@@ -2,7 +2,7 @@ package com.baidu.searchbox;
 
 import com.baidu.searchbox.appframework.BdBoxActivityManager;
 import com.baidu.searchbox.appframework.GlobalActivityLifecycle;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class StartupCountStatsController {
     private static volatile boolean hasInit = false;
 

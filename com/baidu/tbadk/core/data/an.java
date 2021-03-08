@@ -6,21 +6,21 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public class an extends BaseCardInfo {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ICardInfo aaD;
+    private ICardInfo abX;
     private String card;
     private boolean isValid;
 
-    public void zV(String str) {
+    public void Ac(String str) {
         this.card = str;
     }
 
-    public void bmd() {
-        this.aaD = com.baidu.tieba.lego.card.b.ND(this.card);
-        this.isValid = this.aaD != null;
+    public void bmf() {
+        this.abX = com.baidu.tieba.lego.card.b.NJ(this.card);
+        this.isValid = this.abX != null;
     }
 
-    public ICardInfo bme() {
-        return this.aaD;
+    public ICardInfo bmg() {
+        return this.abX;
     }
 
     public boolean isValid() {

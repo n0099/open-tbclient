@@ -9,7 +9,7 @@ import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
     public static final boolean a(com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c cVar, com.baidu.adp.lib.OrmObject.toolsystem.orm.object.g gVar) {
-        Object b2;
+        Object b;
         if (gVar == null || cVar == null) {
             return false;
         }
@@ -20,17 +20,17 @@ public class e {
                 String name = field.getName();
                 if (!TextUtils.isEmpty(name)) {
                     if (keys.contains(name)) {
-                        Object b3 = cVar.b(name, field.getGenericType());
+                        Object b2 = cVar.b(name, field.getGenericType());
+                        if (b2 != null) {
+                            com.baidu.adp.lib.OrmObject.a.a.setValueForField(gVar, name, b2);
+                        }
+                    } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
+                        Object b3 = cVar.b(name.toLowerCase(Locale.getDefault()), field.getGenericType());
                         if (b3 != null) {
                             com.baidu.adp.lib.OrmObject.a.a.setValueForField(gVar, name, b3);
                         }
-                    } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
-                        Object b4 = cVar.b(name.toLowerCase(Locale.getDefault()), field.getGenericType());
-                        if (b4 != null) {
-                            com.baidu.adp.lib.OrmObject.a.a.setValueForField(gVar, name, b4);
-                        }
-                    } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (b2 = cVar.b(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
-                        com.baidu.adp.lib.OrmObject.a.a.setValueForField(gVar, name, b2);
+                    } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (b = cVar.b(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
+                        com.baidu.adp.lib.OrmObject.a.a.setValueForField(gVar, name, b);
                     }
                 }
             }

@@ -17,10 +17,8 @@ import com.kwad.sdk.utils.v;
 public class KSProfilePageLoadingView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f9017a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f9018b;
+    private TextView f5997a;
+    private TextView b;
     private LottieAnimationView c;
     private KSPageLoadingView.a d;
 
@@ -39,9 +37,9 @@ public class KSProfilePageLoadingView extends FrameLayout implements View.OnClic
 
     private void a(AttributeSet attributeSet) {
         inflate(getContext(), R.layout.ksad_profile_page_loading, this);
-        this.f9017a = (TextView) findViewById(R.id.ksad_error_title);
-        this.f9017a.setOnClickListener(this);
-        this.f9018b = (TextView) findViewById(R.id.ksad_error_sub_title);
+        this.f5997a = (TextView) findViewById(R.id.ksad_error_title);
+        this.f5997a.setOnClickListener(this);
+        this.b = (TextView) findViewById(R.id.ksad_error_sub_title);
         int i = R.raw.ksad_detail_loading_amin_new;
         this.c = (LottieAnimationView) findViewById(R.id.ksad_loading_anim);
         this.c.setRepeatMode(1);
@@ -58,8 +56,8 @@ public class KSProfilePageLoadingView extends FrameLayout implements View.OnClic
     }
 
     private void f() {
-        this.f9017a.setVisibility(8);
-        this.f9018b.setVisibility(8);
+        this.f5997a.setVisibility(8);
+        this.b.setVisibility(8);
     }
 
     public void a() {
@@ -77,20 +75,20 @@ public class KSProfilePageLoadingView extends FrameLayout implements View.OnClic
 
     public void c() {
         e();
-        this.f9017a.setText(q.d(getContext()));
-        this.f9017a.setVisibility(0);
-        this.f9018b.setText(q.e(getContext()));
-        this.f9018b.setVisibility(0);
+        this.f5997a.setText(q.d(getContext()));
+        this.f5997a.setVisibility(0);
+        this.b.setText(q.e(getContext()));
+        this.b.setVisibility(0);
         p.a(getContext());
         setVisibility(0);
     }
 
     public void d() {
         e();
-        this.f9017a.setText(q.g(getContext()));
-        this.f9017a.setVisibility(0);
-        this.f9018b.setText(q.h(getContext()));
-        this.f9018b.setVisibility(0);
+        this.f5997a.setText(q.g(getContext()));
+        this.f5997a.setVisibility(0);
+        this.b.setText(q.h(getContext()));
+        this.b.setVisibility(0);
         p.b(getContext());
         setVisibility(0);
     }

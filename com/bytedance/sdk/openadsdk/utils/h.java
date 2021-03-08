@@ -10,10 +10,8 @@ import java.util.Map;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, a> f7587a = Collections.synchronizedMap(new HashMap());
-
-    /* renamed from: b  reason: collision with root package name */
-    private static IListenerManager f7588b;
+    private static final Map<String, a> f5139a = Collections.synchronizedMap(new HashMap());
+    private static IListenerManager b;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -32,7 +30,7 @@ public class h {
     public static void a(final String str) {
         if (!TextUtils.isEmpty(str)) {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.k.a.a().a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.h.1
+                com.bytedance.sdk.openadsdk.j.e.b().execute(new com.bytedance.sdk.openadsdk.j.g(5) { // from class: com.bytedance.sdk.openadsdk.utils.h.1
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
@@ -41,7 +39,7 @@ public class h {
                         } catch (Throwable th) {
                         }
                     }
-                }, 5);
+                });
                 return;
             }
             a b2 = b(str);
@@ -54,7 +52,7 @@ public class h {
     public static void a(final String str, final String str2) {
         if (!TextUtils.isEmpty(str)) {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.k.a.a().a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.h.2
+                com.bytedance.sdk.openadsdk.j.e.b().execute(new com.bytedance.sdk.openadsdk.j.g(5) { // from class: com.bytedance.sdk.openadsdk.utils.h.2
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
@@ -63,7 +61,7 @@ public class h {
                         } catch (Throwable th) {
                         }
                     }
-                }, 5);
+                });
                 return;
             }
             a b2 = b(str);
@@ -76,7 +74,7 @@ public class h {
     private static void a(final String str, final a aVar) {
         if (!TextUtils.isEmpty(str) && aVar != null) {
             if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                com.bytedance.sdk.openadsdk.k.a.a().a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.h.3
+                com.bytedance.sdk.openadsdk.j.e.b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.h.3
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
@@ -89,7 +87,7 @@ public class h {
                     }
                 }, 5);
             } else {
-                f7587a.put(str, aVar);
+                f5139a.put(str, aVar);
             }
         }
     }
@@ -98,14 +96,14 @@ public class h {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return f7587a.remove(str);
+        return f5139a.remove(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static IListenerManager b() {
-        if (f7588b == null) {
-            f7588b = com.bytedance.sdk.openadsdk.multipro.aidl.a.d.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(4));
+        if (b == null) {
+            b = com.bytedance.sdk.openadsdk.multipro.aidl.a.d.asInterface(com.bytedance.sdk.openadsdk.multipro.aidl.a.a(com.bytedance.sdk.openadsdk.core.p.a()).a(4));
         }
-        return f7588b;
+        return b;
     }
 }

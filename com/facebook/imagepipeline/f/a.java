@@ -1,28 +1,28 @@
 package com.facebook.imagepipeline.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class a extends c {
-    private com.facebook.imagepipeline.animated.base.d pKB;
+    private com.facebook.imagepipeline.animated.base.d pMG;
 
     public a(com.facebook.imagepipeline.animated.base.d dVar) {
-        this.pKB = dVar;
+        this.pMG = dVar;
     }
 
     @Override // com.facebook.imagepipeline.f.f
     public synchronized int getWidth() {
-        return isClosed() ? 0 : this.pKB.evF().getWidth();
+        return isClosed() ? 0 : this.pMG.evO().getWidth();
     }
 
     @Override // com.facebook.imagepipeline.f.f
     public synchronized int getHeight() {
-        return isClosed() ? 0 : this.pKB.evF().getHeight();
+        return isClosed() ? 0 : this.pMG.evO().getHeight();
     }
 
     @Override // com.facebook.imagepipeline.f.c, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         synchronized (this) {
-            if (this.pKB != null) {
-                com.facebook.imagepipeline.animated.base.d dVar = this.pKB;
-                this.pKB = null;
+            if (this.pMG != null) {
+                com.facebook.imagepipeline.animated.base.d dVar = this.pMG;
+                this.pMG = null;
                 dVar.dispose();
             }
         }
@@ -30,12 +30,12 @@ public class a extends c {
 
     @Override // com.facebook.imagepipeline.f.c
     public synchronized boolean isClosed() {
-        return this.pKB == null;
+        return this.pMG == null;
     }
 
     @Override // com.facebook.imagepipeline.f.c
     public synchronized int getSizeInBytes() {
-        return isClosed() ? 0 : this.pKB.evF().getSizeInBytes();
+        return isClosed() ? 0 : this.pMG.evO().getSizeInBytes();
     }
 
     @Override // com.facebook.imagepipeline.f.c
@@ -43,7 +43,7 @@ public class a extends c {
         return true;
     }
 
-    public synchronized com.facebook.imagepipeline.animated.base.d eyn() {
-        return this.pKB;
+    public synchronized com.facebook.imagepipeline.animated.base.d eyw() {
+        return this.pMG;
     }
 }

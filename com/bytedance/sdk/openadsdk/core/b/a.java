@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.core.b;
 
 import android.os.Handler;
 import android.os.Looper;
-import com.bytedance.sdk.openadsdk.core.h.l;
+import com.bytedance.sdk.openadsdk.core.h.h;
 import com.bytedance.sdk.openadsdk.core.p;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -11,45 +11,43 @@ import java.util.Queue;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f6451a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f6452b;
+    private static volatile a f4359a;
+    private static volatile boolean b;
     private static volatile long c;
     private Handler e;
-    private final Queue<C1008a> d = new LinkedList();
-    private final l f = p.h();
+    private final Queue<C1017a> d = new LinkedList();
+    private final h f = p.h();
 
     private a() {
     }
 
     public static a a() {
-        if (f6451a == null) {
+        if (f4359a == null) {
             synchronized (a.class) {
-                if (f6451a == null) {
-                    f6451a = new a();
+                if (f4359a == null) {
+                    f4359a = new a();
                 }
             }
         }
-        return f6451a;
+        return f4359a;
     }
 
     private synchronized boolean b(String str) {
         boolean z;
         long currentTimeMillis = System.currentTimeMillis();
-        int l = this.f.l();
-        long k = this.f.k();
-        if (this.d.size() > 0 && this.d.size() >= l) {
-            long abs = Math.abs(currentTimeMillis - this.d.peek().f6454a);
-            if (abs <= k) {
-                b(k - abs);
+        int k = this.f.k();
+        long j = this.f.j();
+        if (this.d.size() > 0 && this.d.size() >= k) {
+            long abs = Math.abs(currentTimeMillis - this.d.peek().f4361a);
+            if (abs <= j) {
+                b(j - abs);
                 z = true;
             } else {
                 this.d.poll();
-                this.d.offer(new C1008a(currentTimeMillis, str));
+                this.d.offer(new C1017a(currentTimeMillis, str));
             }
         } else {
-            this.d.offer(new C1008a(currentTimeMillis, str));
+            this.d.offer(new C1017a(currentTimeMillis, str));
         }
         z = false;
         return z;
@@ -62,7 +60,7 @@ public class a {
         } else {
             a(false);
         }
-        return f6452b;
+        return b;
     }
 
     private synchronized void a(long j) {
@@ -79,11 +77,11 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a(boolean z) {
-        f6452b = z;
+        b = z;
     }
 
     public synchronized boolean b() {
-        return f6452b;
+        return b;
     }
 
     private synchronized void b(long j) {
@@ -93,11 +91,11 @@ public class a {
     public synchronized String c() {
         String str;
         HashMap hashMap = new HashMap();
-        for (C1008a c1008a : this.d) {
-            if (hashMap.containsKey(c1008a.f6455b)) {
-                hashMap.put(c1008a.f6455b, Integer.valueOf(((Integer) hashMap.get(c1008a.f6455b)).intValue() + 1));
+        for (C1017a c1017a : this.d) {
+            if (hashMap.containsKey(c1017a.b)) {
+                hashMap.put(c1017a.b, Integer.valueOf(((Integer) hashMap.get(c1017a.b)).intValue() + 1));
             } else {
-                hashMap.put(c1008a.f6455b, 1);
+                hashMap.put(c1017a.b, 1);
             }
         }
         str = "";
@@ -115,17 +113,15 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.core.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C1008a {
+    public static class C1017a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final long f6454a;
+        private final long f4361a;
+        private final String b;
 
-        /* renamed from: b  reason: collision with root package name */
-        private final String f6455b;
-
-        private C1008a(long j, String str) {
-            this.f6454a = j;
-            this.f6455b = str;
+        private C1017a(long j, String str) {
+            this.f4361a = j;
+            this.b = str;
         }
     }
 }

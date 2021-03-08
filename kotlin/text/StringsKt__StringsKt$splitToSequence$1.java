@@ -3,7 +3,7 @@ package kotlin.text;
 import kotlin.jvm.internal.Lambda;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class StringsKt__StringsKt$splitToSequence$1 extends Lambda implements kotlin.jvm.a.b<kotlin.b.h, String> {
     final /* synthetic */ CharSequence receiver$0;
 
@@ -17,7 +17,7 @@ public final class StringsKt__StringsKt$splitToSequence$1 extends Lambda impleme
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(kotlin.b.h hVar) {
-        kotlin.jvm.internal.p.o(hVar, "it");
+        kotlin.jvm.internal.p.p(hVar, "it");
         return l.a(this.receiver$0, hVar);
     }
 }

@@ -12,13 +12,13 @@ import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
 import com.tencent.open.utils.j;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AuthActivity extends Activity {
     public static final String ACTION_KEY = "action";
     public static final String ACTION_SHARE_PRIZE = "sharePrize";
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f13455a = 0;
+    private static int f8002a = 0;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -58,9 +58,9 @@ public class AuthActivity extends Activity {
             finish();
         } else if (string.equals("shareToQQ") || string.equals("shareToQzone") || string.equals("sendToMyComputer") || string.equals("shareToTroopBar")) {
             if (string.equals("shareToQzone") && h.a(this, "com.tencent.mobileqq") != null && h.c(this, "5.2.0") < 0) {
-                f13455a++;
-                if (f13455a == 2) {
-                    f13455a = 0;
+                f8002a++;
+                if (f8002a == 2) {
+                    f8002a = 0;
                     finish();
                     return;
                 }

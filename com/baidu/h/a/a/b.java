@@ -1,8 +1,8 @@
 package com.baidu.h.a.a;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
     private String bduss;
-    private String ces;
+    private String cfS;
     private String displayname;
     private String uid;
 
@@ -30,11 +30,11 @@ public class b {
         this.bduss = str;
     }
 
-    public String ZO() {
-        return this.ces;
+    public String ZR() {
+        return this.cfS;
     }
 
-    public void iP(String str) {
-        this.ces = str;
+    public void iV(String str) {
+        this.cfS = str;
     }
 }

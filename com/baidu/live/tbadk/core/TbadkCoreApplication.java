@@ -104,7 +104,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbadkCoreApplication extends BdBaseApplication implements BdActivityStack.OnAllActivityClosed {
     public static final String ACCOUNT_CHANGE_ACTION = "com.baidu.tieba.action.accountChange";
     private static final String ACTIVE_CLEAR_TAG = "active_clear";
@@ -1241,7 +1241,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class MyPhoneStateListener extends PhoneStateListener {
         private MyPhoneStateListener() {
         }

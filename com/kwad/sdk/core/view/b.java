@@ -10,27 +10,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class b extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicBoolean f9527a;
+    private final AtomicBoolean f6314a;
 
     public b(@NonNull Context context) {
         super(context);
-        this.f9527a = new AtomicBoolean(true);
+        this.f6314a = new AtomicBoolean(true);
     }
 
     public b(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f9527a = new AtomicBoolean(true);
+        this.f6314a = new AtomicBoolean(true);
     }
 
     private void c() {
-        if (this.f9527a.getAndSet(false)) {
+        if (this.f6314a.getAndSet(false)) {
             com.kwad.sdk.core.d.a.b("BasePvView", "onViewAttached");
             a();
         }
     }
 
     private void d() {
-        if (this.f9527a.getAndSet(true)) {
+        if (this.f6314a.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.b("BasePvView", "onViewDetached");

@@ -11,10 +11,8 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f8744a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public KsContentPage.PageListener f8745b;
+    public com.kwad.sdk.core.i.a f5826a;
+    public KsContentPage.PageListener b;
     public KsContentPage.VideoListener c;
     @Nullable
     public LiveSlidHomeParam d;
@@ -28,9 +26,9 @@ public class h {
     public boolean j = false;
 
     public void a() {
-        if (this.f8744a != null) {
-            this.f8744a.b();
-            this.f8744a.f();
+        if (this.f5826a != null) {
+            this.f5826a.b();
+            this.f5826a.f();
         }
         if (this.e != null) {
             this.e.clear();

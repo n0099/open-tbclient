@@ -8,61 +8,61 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class s extends FileObserver {
-    private String aqT;
-    private JSONObject aqU;
+    private String ast;
+    private JSONObject asu;
     private Context mContext;
 
     public s(Context context, String str) {
         super(str, 8);
-        this.aqU = null;
+        this.asu = null;
         this.mContext = context;
-        this.aqT = str;
+        this.ast = str;
     }
 
     @Override // android.os.FileObserver
     public final void onEvent(int i, String str) {
         String str2;
-        String dx;
-        Thread dr;
+        String dB;
+        Thread dv;
         if (str == null) {
             com.baidu.crabsdk.c.a.w("file path is null!");
             return;
         }
-        com.baidu.crabsdk.c.a.ds("File name is: " + (this.aqT + "/" + str));
+        com.baidu.crabsdk.c.a.dw("File name is: " + (this.ast + "/" + str));
         if (str.endsWith(".ydg")) {
-            com.baidu.crabsdk.c.a.ds("Delete .ydg file: " + i.deleteFile(str2));
+            com.baidu.crabsdk.c.a.dw("Delete .ydg file: " + i.deleteFile(str2));
             str = str.substring(4);
             String substring = str.substring(str.indexOf(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + 1, str.lastIndexOf("."));
-            com.baidu.crabsdk.c.a.ds("ThreadName is:" + substring);
-            com.baidu.crabsdk.c.a.ds("ProcName is:" + CrabSDK.CURRENT_PNAME);
+            com.baidu.crabsdk.c.a.dw("ThreadName is:" + substring);
+            com.baidu.crabsdk.c.a.dw("ProcName is:" + CrabSDK.CURRENT_PNAME);
             if (CrabSDK.CURRENT_PNAME.endsWith(substring)) {
-                com.baidu.crabsdk.c.a.ds("Crashed thread is main thread.");
-                dr = Looper.getMainLooper().getThread();
+                com.baidu.crabsdk.c.a.dw("Crashed thread is main thread.");
+                dv = Looper.getMainLooper().getThread();
             } else {
-                dr = com.baidu.crabsdk.b.s.dr(substring);
+                dv = com.baidu.crabsdk.b.s.dv(substring);
             }
-            String b2 = com.baidu.crabsdk.b.s.b(dr);
-            com.baidu.crabsdk.c.a.ds("Stacktrace is:\n " + b2);
+            String b = com.baidu.crabsdk.b.s.b(dv);
+            com.baidu.crabsdk.c.a.dw("Stacktrace is:\n " + b);
             if (com.baidu.crabsdk.a.P != null) {
-                com.baidu.crabsdk.a.P.onNativeCrashStarted(b2);
+                com.baidu.crabsdk.a.P.onNativeCrashStarted(b);
             }
-            String c = com.baidu.crabsdk.b.s.c(dr);
-            com.baidu.crabsdk.c.a.ds("Key stack is:\n" + c);
+            String c = com.baidu.crabsdk.b.s.c(dv);
+            com.baidu.crabsdk.c.a.dw("Key stack is:\n" + c);
             try {
-                this.aqU = g.c(System.currentTimeMillis(), true);
-                this.aqU.put("javaLine", c);
-                this.aqU.put("errorTrace", b2);
+                this.asu = g.c(System.currentTimeMillis(), true);
+                this.asu.put("javaLine", c);
+                this.asu.put("errorTrace", b);
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.a("Wrap java stack info error!", e);
             }
         }
         if (str.endsWith(".dmp")) {
-            com.baidu.crabsdk.c.a.ds("Dump file is created!");
-            if (this.aqU == null || (dx = com.baidu.crabsdk.c.d.dx(this.aqU.toString())) == null) {
+            com.baidu.crabsdk.c.a.dw("Dump file is created!");
+            if (this.asu == null || (dB = com.baidu.crabsdk.c.d.dB(this.asu.toString())) == null) {
                 return;
             }
-            com.baidu.crabsdk.c.a.ds("Write .ldg file here!");
-            i.a(this.mContext, str + ".ldg", dx.getBytes());
+            com.baidu.crabsdk.c.a.dw("Write .ldg file here!");
+            i.a(this.mContext, str + ".ldg", dB.getBytes());
         }
     }
 }

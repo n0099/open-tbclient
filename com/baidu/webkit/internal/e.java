@@ -12,14 +12,12 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final String f5671a = "BdboxApp:".toLowerCase();
-
-    /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Object> f5672b;
+    protected static final String f3833a = "BdboxApp:".toLowerCase();
+    public HashMap<String, Object> b;
     public WebView c;
     public String d;
     private String g;
@@ -57,7 +55,7 @@ public final class e {
                     if (method.getReturnType() != Void.TYPE) {
                         sb.append("return ");
                     }
-                    sb.append("prompt('").append(f5671a).append("'+");
+                    sb.append("prompt('").append(f3833a).append("'+");
                     sb.append("JSON.stringify({");
                     sb.append("obj:'").append(str).append("',");
                     sb.append("func:'").append(name).append("',");
@@ -114,8 +112,8 @@ public final class e {
         for (String str : d().keySet()) {
             this.c.addJavascriptInterface(d().get(str), str, false);
         }
-        if (this.f5672b != null) {
-            this.f5672b.clear();
+        if (this.b != null) {
+            this.b.clear();
         }
         this.d = null;
     }
@@ -159,10 +157,10 @@ public final class e {
     }
 
     public final HashMap<String, Object> d() {
-        if (this.f5672b == null) {
-            this.f5672b = new HashMap<>();
+        if (this.b == null) {
+            this.b = new HashMap<>();
         }
-        return this.f5672b;
+        return this.b;
     }
 
     public final boolean e() {

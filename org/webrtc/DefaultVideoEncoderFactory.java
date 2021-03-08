@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class DefaultVideoEncoderFactory implements VideoEncoderFactory {
     private final VideoEncoderFactory hardwareVideoEncoderFactory;
     private final VideoEncoderFactory softwareVideoEncoderFactory = new SoftwareVideoEncoderFactory();

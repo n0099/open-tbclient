@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SkinProgressView extends View {
-    private Paint bhE;
+    private Paint bjg;
     private float height;
     private int mBgColor;
     private Context mContext;
@@ -23,32 +23,32 @@ public class SkinProgressView extends View {
     private Paint mPaint;
     private String mText;
     private int mTextColor;
-    private Paint nFS;
-    private int nFT;
-    private float nFU;
-    private boolean nFV;
-    private DressItemData nFW;
+    private Paint nHY;
+    private int nHZ;
+    private float nIa;
+    private boolean nIb;
+    private DressItemData nIc;
     private float progress;
     private int radius;
     private float width;
 
     public SkinProgressView(Context context) {
         super(context);
-        this.nFV = false;
+        this.nIb = false;
         this.mContext = context;
         initView();
     }
 
     public SkinProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nFV = false;
+        this.nIb = false;
         this.mContext = context;
         initView();
     }
 
     public SkinProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nFV = false;
+        this.nIb = false;
         this.mContext = context;
         initView();
     }
@@ -56,16 +56,16 @@ public class SkinProgressView extends View {
     private void initView() {
         this.radius = l.getDimens(this.mContext, R.dimen.ds6);
         this.mFontSize = l.getDimens(this.mContext, R.dimen.fontsize24);
-        this.nFT = R.color.CAM_X0302;
+        this.nHZ = R.color.CAM_X0302;
         this.mTextColor = R.color.CAM_X0108;
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.bhE = new Paint();
-        this.bhE.setAntiAlias(true);
-        this.nFS = new Paint();
-        this.nFS.setAntiAlias(true);
-        this.nFS.setTextSize(this.mFontSize);
-        this.nFS.setTextAlign(Paint.Align.CENTER);
+        this.bjg = new Paint();
+        this.bjg.setAntiAlias(true);
+        this.nHY = new Paint();
+        this.nHY.setAntiAlias(true);
+        this.nHY.setTextSize(this.mFontSize);
+        this.nHY.setTextAlign(Paint.Align.CENTER);
     }
 
     @Override // android.view.View
@@ -78,19 +78,19 @@ public class SkinProgressView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.nFV) {
+        if (this.nIb) {
             RectF rectF = new RectF(0.0f, 0.0f, this.width, this.height);
-            this.bhE.setColor(ap.getColor(this.mBgColor));
-            canvas.drawRoundRect(rectF, this.radius, this.radius, this.bhE);
+            this.bjg.setColor(ap.getColor(this.mBgColor));
+            canvas.drawRoundRect(rectF, this.radius, this.radius, this.bjg);
         }
         RectF rectF2 = new RectF(0.0f, 0.0f, this.width * this.progress, this.height);
-        this.mPaint.setColor(ap.getColor(this.nFT));
+        this.mPaint.setColor(ap.getColor(this.nHZ));
         canvas.drawRoundRect(rectF2, this.radius, this.radius, this.mPaint);
         if (!StringUtils.isNull(this.mText)) {
-            this.nFS.setColor(ap.getColor(this.mTextColor));
-            this.nFS.setTextSize(this.mFontSize);
-            this.nFU = this.nFS.getFontMetrics().bottom - this.nFS.getFontMetrics().top;
-            canvas.drawText(this.mText, this.width / 2.0f, (this.height - ((this.height - this.nFU) / 2.0f)) - this.nFS.getFontMetrics().bottom, this.nFS);
+            this.nHY.setColor(ap.getColor(this.mTextColor));
+            this.nHY.setTextSize(this.mFontSize);
+            this.nIa = this.nHY.getFontMetrics().bottom - this.nHY.getFontMetrics().top;
+            canvas.drawText(this.mText, this.width / 2.0f, (this.height - ((this.height - this.nIa) / 2.0f)) - this.nHY.getFontMetrics().bottom, this.nHY);
         }
     }
 
@@ -139,7 +139,7 @@ public class SkinProgressView extends View {
 
     @SuppressLint({"ResourceAsColor"})
     public void b(int i, float f, int i2, int i3, int i4) {
-        this.nFV = false;
+        this.nIb = false;
         setEnabled(true);
         switch (i) {
             case 0:
@@ -161,7 +161,7 @@ public class SkinProgressView extends View {
                 } else {
                     setTextColor(R.color.CAM_X0101);
                     setBgColor(R.color.CAM_X0312);
-                    this.nFV = true;
+                    this.nIb = true;
                     if (i2 == 100) {
                         if (i3 == 0) {
                             setText(R.string.btn_activity_skin_free);
@@ -201,7 +201,7 @@ public class SkinProgressView extends View {
                     setText(R.string.become_member_download_free);
                     setTextColor(R.color.CAM_X0101);
                     setBgColor(R.color.CAM_X0312);
-                    this.nFV = true;
+                    this.nIb = true;
                     break;
                 }
             case 4:
@@ -216,10 +216,10 @@ public class SkinProgressView extends View {
                 setText(R.string.activity_free_use);
                 setTextColor(R.color.CAM_X0105);
                 setBgColor(R.color.CAM_X0302);
-                this.nFV = true;
+                this.nIb = true;
                 break;
             case 9:
-                if (i4 == 2 && this.nFW.getDailyPrevilegeStatus() == 1) {
+                if (i4 == 2 && this.nIc.getDailyPrevilegeStatus() == 1) {
                     setText(R.string.use_immediately);
                     setTextColor(R.color.CAM_X0105);
                 } else if (i2 == 0) {
@@ -228,7 +228,7 @@ public class SkinProgressView extends View {
                 } else {
                     setTextColor(R.color.CAM_X0101);
                     setBgColor(R.color.CAM_X0312);
-                    this.nFV = true;
+                    this.nIb = true;
                     if (i2 == 100) {
                         if (i3 == 0) {
                             setText(R.string.activity_free_use);
@@ -253,7 +253,7 @@ public class SkinProgressView extends View {
     }
 
     public void setDressData(DressItemData dressItemData) {
-        this.nFW = dressItemData;
+        this.nIc = dressItemData;
     }
 
     public void setProgress(float f) {

@@ -3,9 +3,9 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class e {
-    private HashMap<String, a> kOy = new HashMap<>();
+    private HashMap<String, a> kQA = new HashMap<>();
 
     public void a(String str, a aVar) {
-        this.kOy.put(str, aVar);
+        this.kQA.put(str, aVar);
     }
 }

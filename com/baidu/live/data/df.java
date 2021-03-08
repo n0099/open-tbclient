@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class df {
-    public String aTq;
-    public String aTr;
-    public int aTs;
-    public String aTt;
+    public String aUQ;
+    public String aUR;
+    public int aUS;
+    public String aUT;
     public int level_id = -1;
     public List<AlaLiveMarkData> live_mark_info_new;
     public String uk;
@@ -17,10 +17,10 @@ public class df {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.uk = jSONObject.optString("uk");
-            this.aTq = jSONObject.optString("head_img");
-            this.aTr = jSONObject.optString("nick_name");
-            this.aTs = jSONObject.optInt("noble_role_id");
-            this.aTt = jSONObject.optString("noble_role_name");
+            this.aUQ = jSONObject.optString("head_img");
+            this.aUR = jSONObject.optString("nick_name");
+            this.aUS = jSONObject.optInt("noble_role_id");
+            this.aUT = jSONObject.optString("noble_role_name");
             this.level_id = jSONObject.optInt("level_id");
             if (jSONObject.has("identity_icon")) {
                 if (this.live_mark_info_new == null) {

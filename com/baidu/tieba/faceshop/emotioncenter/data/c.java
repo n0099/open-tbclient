@@ -5,41 +5,41 @@ import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private List<com.baidu.tbadk.core.flow.a.a> iYw = new ArrayList();
+    private List<com.baidu.tbadk.core.flow.a.a> jaf = new ArrayList();
 
     public c(List<EmotionCenterData.BannerData> list) {
         if (list != null && !y.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {
                 EmotionCenterData.BannerData bannerData = list.get(i);
                 if (bannerData != null) {
-                    this.iYw.add(new a(null, bannerData.url, bannerData.action, null, null, 0));
+                    this.jaf.add(new a(null, bannerData.url, bannerData.action, null, null, 0));
                 }
             }
         }
     }
 
-    public List<com.baidu.tbadk.core.flow.a.a> cAb() {
-        return this.iYw;
+    public List<com.baidu.tbadk.core.flow.a.a> cAh() {
+        return this.jaf;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements com.baidu.tbadk.core.flow.a.a {
         private String desc;
-        private cb iYx;
-        private int iYy;
+        private cb jag;
+        private int jah;
         private String linkUrl;
         private String name;
         private String picUrl;
 
         public a(cb cbVar, String str, String str2, String str3, String str4, int i) {
-            this.iYx = cbVar;
+            this.jag = cbVar;
             this.picUrl = str;
             this.linkUrl = str2;
             this.name = str3;
             this.desc = str4;
-            this.iYy = i;
+            this.jah = i;
         }
 
         @Override // com.baidu.tbadk.core.flow.a.a
@@ -48,7 +48,7 @@ public class c {
         }
 
         @Override // com.baidu.tbadk.core.flow.a.a
-        public String blL() {
+        public String blN() {
             return this.linkUrl;
         }
     }

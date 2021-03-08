@@ -16,10 +16,8 @@ import java.util.List;
 public class f implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile f f7416a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static WeakReference<Context> f7417b;
+    private static volatile f f4929a;
+    private static WeakReference<Context> b;
     private static List<a> c = Collections.synchronizedList(new ArrayList());
 
     static {
@@ -34,16 +32,16 @@ public class f implements a {
 
     public static f b(Context context) {
         if (context != null) {
-            f7417b = new WeakReference<>(context.getApplicationContext());
+            b = new WeakReference<>(context.getApplicationContext());
         }
-        if (f7416a == null) {
+        if (f4929a == null) {
             synchronized (f.class) {
-                if (f7416a == null) {
-                    f7416a = new f();
+                if (f4929a == null) {
+                    f4929a = new f();
                 }
             }
         }
-        return f7416a;
+        return f4929a;
     }
 
     private f() {

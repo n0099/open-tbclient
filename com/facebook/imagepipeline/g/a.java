@@ -19,7 +19,7 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.g.c
-    public void ZD(String str) {
+    public void ZJ(String str) {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
@@ -51,7 +51,7 @@ public class a implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public boolean ZG(String str) {
+    public boolean ZM(String str) {
         return false;
     }
 }

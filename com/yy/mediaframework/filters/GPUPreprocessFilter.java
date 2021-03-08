@@ -16,7 +16,7 @@ import com.yy.mediaframework.stat.YMFLiveStatisticManager;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUPreprocessFilter extends AbstractYYMediaFilter {
     private VideoLiveFilterContext mFilterContext;
     private GPUImageFiltersManager mGPUImageFiltersManager;

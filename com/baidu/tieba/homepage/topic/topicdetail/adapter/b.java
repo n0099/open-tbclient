@@ -7,37 +7,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> bns;
-    private s iLY;
-    private c koD;
-    private a koE;
-    private com.baidu.tieba.homepage.topic.topictab.a.b koF;
+    private List<com.baidu.adp.widget.ListView.a> boS;
+    private s iNH;
+    private c kqF;
+    private a kqG;
+    private com.baidu.tieba.homepage.topic.topictab.a.b kqH;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, s sVar) {
         this.mPageContext = tbPageContext;
-        this.iLY = sVar;
-        Kw();
-        this.iLY.addAdapters(this.bns);
+        this.iNH = sVar;
+        Kz();
+        this.iNH.addAdapters(this.boS);
     }
 
-    private void Kw() {
-        this.bns = new ArrayList();
-        this.koD = new c(this.mPageContext);
-        this.koE = new a(this.mPageContext);
-        this.koF = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
-        this.bns.add(this.koD);
-        this.bns.add(this.koE);
-        this.bns.add(this.koF);
+    private void Kz() {
+        this.boS = new ArrayList();
+        this.kqF = new c(this.mPageContext);
+        this.kqG = new a(this.mPageContext);
+        this.kqH = new com.baidu.tieba.homepage.topic.topictab.a.b(this.mPageContext);
+        this.boS.add(this.kqF);
+        this.boS.add(this.kqG);
+        this.boS.add(this.kqH);
     }
 
     public void notifyDataSetChanged() {
-        if (this.iLY != null) {
-            this.iLY.getListAdapter().notifyDataSetChanged();
+        if (this.iNH != null) {
+            this.iNH.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<n> list) {
-        this.iLY.setData(list);
+        this.iNH.setData(list);
     }
 }

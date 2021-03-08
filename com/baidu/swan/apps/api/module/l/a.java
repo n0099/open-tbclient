@@ -8,13 +8,13 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends com.baidu.swan.apps.api.a.d {
     public a(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b lt(String str) {
+    public com.baidu.swan.apps.api.c.b lA(String str) {
         if (DEBUG) {
             Log.d("Api-CheckAppInstall", "start check app install");
         }

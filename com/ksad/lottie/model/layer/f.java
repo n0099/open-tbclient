@@ -35,7 +35,7 @@ public class f extends a {
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
         this.e.set(0.0f, 0.0f, this.i.r(), this.i.q());
-        this.f8095a.mapRect(this.e);
+        this.f5400a.mapRect(this.e);
         rectF.set(this.e);
     }
 

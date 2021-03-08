@@ -4,26 +4,26 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c implements a<JSONObject> {
-    private JSONArray dKJ;
+    private JSONArray dMk;
 
-    public void cg(JSONObject jSONObject) {
+    public void ci(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dKJ == null) {
-                this.dKJ = new JSONArray();
+            if (this.dMk == null) {
+                this.dMk = new JSONArray();
             }
-            this.dKJ.put(jSONObject);
+            this.dMk.put(jSONObject);
             if (DEBUG) {
                 Log.d("WhiteCollector", "FEStage: " + jSONObject);
             }
         }
     }
 
-    public JSONObject aLp() {
+    public JSONObject aLs() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("stageError", this.dKJ);
+            jSONObject.put("stageError", this.dMk);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("WhiteCollector", Log.getStackTraceString(e));
@@ -33,6 +33,6 @@ public class c implements a<JSONObject> {
     }
 
     public void clear() {
-        this.dKJ = null;
+        this.dMk = null;
     }
 }

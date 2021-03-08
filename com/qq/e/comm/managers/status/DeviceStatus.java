@@ -27,14 +27,12 @@ import com.qq.e.comm.util.StringUtil;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class DeviceStatus {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11565a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f11566b;
+    private String f7576a;
+    private String b;
     private int c;
     private int d;
     private int e;
@@ -178,7 +176,7 @@ public class DeviceStatus {
         return StringUtil.isEmpty(plainDid) ? "" : Md5Util.encode(plainDid.toLowerCase());
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r1v11 int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r1v12 int)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v12 int)] */
     public Map<String, String> getLacAndCeilId() {
         int i;
@@ -186,7 +184,10 @@ public class DeviceStatus {
         GsmCellLocation gsmCellLocation;
         String operator = getOperator();
         HashMap hashMap = new HashMap();
-        if (this.n.checkCallingOrSelfPermission("android.permission.ACCESS_COARSE_LOCATION") == 0 && !StringUtil.isEmpty(operator) && !"null".equalsIgnoreCase(operator)) {
+        if (this.n.checkCallingOrSelfPermission("android.permission.ACCESS_COARSE_LOCATION") != 0) {
+            return hashMap;
+        }
+        if (!StringUtil.isEmpty(operator) && !"null".equalsIgnoreCase(operator)) {
             try {
                 if (Integer.parseInt(operator.substring(0, 3)) == 460) {
                     TelephonyManager telephonyManager = (TelephonyManager) this.n.getSystemService("phone");
@@ -215,13 +216,13 @@ public class DeviceStatus {
     }
 
     public String getLanguage() {
-        if (this.f11566b == null) {
-            this.f11566b = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
-            if (this.f11566b.length() == 0) {
-                this.f11566b = h.f1945a;
+        if (this.b == null) {
+            this.b = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
+            if (this.b.length() == 0) {
+                this.b = h.f1535a;
             }
         }
-        return this.f11566b;
+        return this.b;
     }
 
     public String getLat() {
@@ -331,11 +332,11 @@ public class DeviceStatus {
 
     public String getUid() {
         if (GDTADManager.getInstance().getSM().getInteger("adidon", 1) == 1) {
-            if (this.f11565a == null) {
+            if (this.f7576a == null) {
                 String string = Settings.Secure.getString(this.n.getContentResolver(), "android_id");
-                this.f11565a = string == null ? "" : Md5Util.encode(string);
+                this.f7576a = string == null ? "" : Md5Util.encode(string);
             }
-            return this.f11565a;
+            return this.f7576a;
         }
         return "";
     }

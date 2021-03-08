@@ -237,7 +237,7 @@ public class AccountManagerImpl {
         Utility.writeLoginFlag(mContext, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
         if (z) {
             LogUtils.d(TAG, "need logout before login");
-            if (a.aug) {
+            if (a.avG) {
                 BIMManager.imLogoutByLcp(mContext);
                 startLoginService(i, str, str2, str3, str4, iLoginListener);
                 return;
@@ -297,7 +297,7 @@ public class AccountManagerImpl {
             this.mToken = str2;
             Utility.writeAccessToken(mContext, str2);
             try {
-                a.ao(mContext).e(mContext, creatMethodIntent);
+                a.an(mContext).e(mContext, creatMethodIntent);
                 Utility.writeLoginFlag(mContext, "6Y", "startLoginService");
             } catch (Exception e) {
                 Utility.writeLoginFlag(mContext, "6N_1", "startLoginService exception");
@@ -319,7 +319,7 @@ public class AccountManagerImpl {
             Utility.clearCache(mContext);
             this.mToken = null;
         }
-        if (!a.aug) {
+        if (!a.avG) {
             clearLoginParam(mContext);
             clearUid(mContext);
             disconnect(str);
@@ -390,7 +390,7 @@ public class AccountManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, i);
             try {
-                a.ao(mContext).e(mContext, creatMethodIntent);
+                a.an(mContext).e(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
@@ -409,7 +409,7 @@ public class AccountManagerImpl {
             ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
             noticeStateChanged(3);
             BIMManager.connectStatusNotify(0);
-            if (!a.aug) {
+            if (!a.avG) {
                 Utility.sendConnectionStateBroadCast(mContext, 0);
             }
         } else {
@@ -476,7 +476,7 @@ public class AccountManagerImpl {
             intent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             intent.putExtra(Constants.EXTRA_DISCONNECT, "1");
             intent.setPackage(mContext.getPackageName());
-            a.ao(mContext).e(mContext, intent);
+            a.an(mContext).e(mContext, intent);
         } catch (Exception e) {
             LogUtils.e(TAG, LogConfig.DISCONNECT, e);
             IMListener removeListener = ListenerManager.getInstance().removeListener(str);
@@ -589,7 +589,7 @@ public class AccountManagerImpl {
             Intent intent = new Intent(mContext, a.class);
             intent.setPackage(mContext.getPackageName());
             intent.setAction(Constants.ACTION_STOP);
-            a.ao(mContext).e(mContext, intent);
+            a.an(mContext).e(mContext, intent);
             return true;
         } catch (Exception e) {
             LogUtils.e(TAG, "Stop Service SecurityException");
@@ -639,7 +639,7 @@ public class AccountManagerImpl {
             Intent intent = new Intent(mContext, a.class);
             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
             intent.setPackage(mContext.getPackageName());
-            a.ao(context).e(mContext, intent);
+            a.an(context).e(mContext, intent);
         } catch (Exception e) {
             LogUtils.e(TAG, "tryConnection failed......");
         }

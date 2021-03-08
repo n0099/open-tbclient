@@ -6,7 +6,7 @@ import android.opengl.GLUtils;
 import android.opengl.Matrix;
 import com.yy.mediaframework.PictureInPictureDisplayInfo;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GLUtil {
     private static final String TAG = "GLUtil";
 

@@ -3,12 +3,12 @@ package com.thunder.livesdk;
 import android.view.MotionEvent;
 import com.thunder.livesdk.ThunderPublisher;
 import com.thunder.livesdk.log.ThunderLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderDefaultCamera extends ThunderVideoCapture {
     private ThunderPreviewConfig mCaptureConfig = new ThunderPreviewConfig(0);
     private IYYLiveDefaultCameraDataCallback mCameraDataCallback = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IYYLiveDefaultCameraDataCallback {
         int onTextureCallback(int i, int i2, int i3);
     }

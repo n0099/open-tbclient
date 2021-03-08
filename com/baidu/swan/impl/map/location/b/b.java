@@ -9,20 +9,20 @@ import com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener;
 import com.baidu.mapapi.walknavi.model.WalkRoutePlanError;
 import com.baidu.mapapi.walknavi.params.WalkNaviLaunchParam;
 import com.baidu.swan.apps.console.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void bbh();
+        void bbj();
 
-        void bbi();
+        void bbk();
 
-        void xP(String str);
+        void xW(String str);
     }
 
     public static void a(Activity activity, LatLng latLng, LatLng latLng2, a aVar) {
-        com.baidu.swan.impl.map.a.bam();
+        com.baidu.swan.impl.map.a.bap();
         b(activity, latLng, latLng2, aVar);
     }
 
@@ -30,12 +30,12 @@ public class b {
         final WalkNavigateHelper walkNavigateHelper = WalkNavigateHelper.getInstance();
         if (aVar != null) {
             try {
-                aVar.bbh();
+                aVar.bbj();
             } catch (Exception e) {
                 c.e("map", "initNaviEngine fail");
                 walkNavigateHelper.quit();
                 if (aVar != null) {
-                    aVar.xP(e.getMessage());
+                    aVar.xW(e.getMessage());
                     return;
                 }
                 return;
@@ -51,7 +51,7 @@ public class b {
             public void engineInitFail() {
                 walkNavigateHelper.quit();
                 if (aVar != null) {
-                    aVar.xP("engineInitFail");
+                    aVar.xW("engineInitFail");
                 }
             }
         });
@@ -81,7 +81,7 @@ public class b {
                 @Override // com.baidu.mapapi.walknavi.adapter.IWRoutePlanListener
                 public void onRoutePlanSuccess() {
                     if (a.this != null) {
-                        a.this.bbi();
+                        a.this.bbk();
                     }
                 }
 
@@ -89,7 +89,7 @@ public class b {
                 public void onRoutePlanFail(WalkRoutePlanError walkRoutePlanError) {
                     walkNavigateHelper.quit();
                     if (a.this != null) {
-                        a.this.xP(walkRoutePlanError.toString());
+                        a.this.xW(walkRoutePlanError.toString());
                     }
                 }
             });
@@ -97,7 +97,7 @@ public class b {
             c.e("map", "routePlanWithParams fail");
             walkNavigateHelper.quit();
             if (aVar != null) {
-                aVar.xP(e.getMessage());
+                aVar.xW(e.getMessage());
             }
         }
     }

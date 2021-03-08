@@ -1,14 +1,14 @@
 package com.baidu.tieba.yuyinala.liveroom.alaaudiopk;
 
 import android.widget.TextView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static float a(c cVar) {
         if (cVar == null) {
             return 0.5f;
         }
-        int parseInt = Integer.parseInt(cVar.otp.f5351a);
-        int parseInt2 = Integer.parseInt(cVar.otp.f5352b);
+        int parseInt = Integer.parseInt(cVar.ovv.f3603a);
+        int parseInt2 = Integer.parseInt(cVar.ovv.b);
         if (parseInt == 0 && parseInt2 == 0) {
             return 0.5f;
         }

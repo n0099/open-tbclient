@@ -5,10 +5,10 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SingleAmb<T> extends w<T> {
-    private final Iterable<? extends aa<? extends T>> qox;
-    private final aa<? extends T>[] qqB;
+    private final Iterable<? extends aa<? extends T>> qoZ;
+    private final aa<? extends T>[] qrd;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.lang.Object[] */
     /* JADX WARN: Multi-variable type inference failed */
@@ -16,13 +16,13 @@ public final class SingleAmb<T> extends w<T> {
     protected void b(y<? super T> yVar) {
         int length;
         Object[] objArr;
-        aa<? extends T>[] aaVarArr = this.qqB;
+        aa<? extends T>[] aaVarArr = this.qrd;
         if (aaVarArr == null) {
             aa<? extends T>[] aaVarArr2 = new aa[8];
             try {
                 int i = 0;
                 aa<? extends T>[] aaVarArr3 = aaVarArr2;
-                for (aa<? extends T> aaVar : this.qox) {
+                for (aa<? extends T> aaVar : this.qoZ) {
                     if (aaVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), yVar);
                         return;
@@ -74,7 +74,7 @@ public final class SingleAmb<T> extends w<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class AmbSingleObserver<T> extends AtomicBoolean implements y<T> {
         private static final long serialVersionUID = -1944085461036028108L;
         final y<? super T> s;

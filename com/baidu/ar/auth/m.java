@@ -1,5 +1,5 @@
 package com.baidu.ar.auth;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class m {
     public static long[] a(int i, long j) {
         if (j < 50) {

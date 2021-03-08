@@ -6,25 +6,23 @@ import java.util.List;
 public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    private final e f10499a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final boolean f10500b;
+    private final e f6919a;
+    private final boolean b;
 
     public ah(e eVar) {
-        this.f10499a = eVar;
+        this.f6919a = eVar;
         if (eVar instanceof f) {
-            this.f10500b = false;
+            this.b = false;
         } else {
-            this.f10500b = true;
+            this.b = true;
         }
     }
 
     public List<? extends ae> a(String str) {
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(this.f10499a.a("tEXt", str));
-        arrayList.addAll(this.f10499a.a("zTXt", str));
-        arrayList.addAll(this.f10499a.a("iTXt", str));
+        arrayList.addAll(this.f6919a.a("tEXt", str));
+        arrayList.addAll(this.f6919a.a("zTXt", str));
+        arrayList.addAll(this.f6919a.a("iTXt", str));
         return arrayList;
     }
 

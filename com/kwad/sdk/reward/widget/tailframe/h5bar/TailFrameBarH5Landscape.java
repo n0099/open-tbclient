@@ -16,10 +16,8 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class TailFrameBarH5Landscape extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f10707a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f10708b;
+    private TextView f7069a;
+    private TextView b;
     private ValueAnimator c;
 
     public TailFrameBarH5Landscape(Context context) {
@@ -37,8 +35,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
 
     private void a(Context context) {
         inflate(context, R.layout.ksad_video_tf_bar_h5_landscape, this);
-        this.f10707a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-        this.f10708b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+        this.f7069a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+        this.b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
     }
 
     private void b() {
@@ -54,8 +52,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TailFrameBarH5Landscape.this.f10708b.setScaleY(floatValue);
-                TailFrameBarH5Landscape.this.f10708b.setScaleX(floatValue);
+                TailFrameBarH5Landscape.this.b.setScaleY(floatValue);
+                TailFrameBarH5Landscape.this.b.setScaleX(floatValue);
             }
         });
         this.c.start();
@@ -71,8 +69,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        this.f10707a.setText(a.n(j));
-        this.f10708b.setText(a.w(j));
+        this.f7069a.setText(a.n(j));
+        this.b.setText(a.w(j));
         b();
     }
 }

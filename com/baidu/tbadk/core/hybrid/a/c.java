@@ -20,21 +20,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends n {
-    private l eYo;
+    private l eZN;
 
     public c(l lVar) {
         super(lVar);
-        this.eYo = lVar;
+        this.eZN = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String bku() {
+    public String bkw() {
         return "TBHY_COMMON_Image";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @o(brB = false, value = "scanBigImages")
+    @o(brC = false, value = "scanBigImages")
     public void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
@@ -59,8 +59,8 @@ public class c extends n {
                 }
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.s(arrayList).mQ(optInt).jg(true).zM(arrayList.size() > 0 ? arrayList.get(0) : "").jh(true).d(concurrentHashMap).ji(true);
-            sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eP(this.eYo.getContext())));
+            aVar.s(arrayList).mR(optInt).jg(true).zT(arrayList.size() > 0 ? arrayList.get(0) : "").jh(true).d(concurrentHashMap).ji(true);
+            sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eO(this.eZN.getContext())));
         }
     }
 

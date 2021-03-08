@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.IntRange;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface a extends d {
     boolean a(Drawable drawable, Canvas canvas, int i);
 

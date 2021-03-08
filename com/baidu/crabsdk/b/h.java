@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes5.dex */
 public final class h {
-    public static String aoX = null;
+    public static String aqy = null;
     private static Context mContext = null;
 
     public static String a(String str) {
@@ -54,15 +54,15 @@ public final class h {
     }
 
     public static String z() {
-        if (aoX != null) {
-            return aoX;
+        if (aqy != null) {
+            return aqy;
         }
         try {
-            aoX = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
+            aqy = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("getCUID failed!", e);
-            aoX = "N/A";
+            aqy = "N/A";
         }
-        return aoX;
+        return aqy;
     }
 }

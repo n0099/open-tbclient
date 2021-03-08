@@ -1,7 +1,7 @@
 package com.bumptech.glide.request;
 
 import android.graphics.drawable.Drawable;
-import android.os.Handler;
+import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
@@ -15,30 +15,34 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes15.dex */
-public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R>, Runnable {
+/* loaded from: classes14.dex */
+public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<R> {
     private static final Waiter DEFAULT_WAITER = new Waiter();
     private final boolean assertBackgroundThread;
     @Nullable
+    @GuardedBy("this")
     private GlideException exception;
     private final int height;
+    @GuardedBy("this")
     private boolean isCancelled;
+    @GuardedBy("this")
     private boolean loadFailed;
-    private final Handler mainHandler;
     @Nullable
+    @GuardedBy("this")
     private Request request;
     @Nullable
+    @GuardedBy("this")
     private R resource;
+    @GuardedBy("this")
     private boolean resultReceived;
     private final Waiter waiter;
     private final int width;
 
-    public RequestFutureTarget(Handler handler, int i, int i2) {
-        this(handler, i, i2, true, DEFAULT_WAITER);
+    public RequestFutureTarget(int i, int i2) {
+        this(i, i2, true, DEFAULT_WAITER);
     }
 
-    RequestFutureTarget(Handler handler, int i, int i2, boolean z, Waiter waiter) {
-        this.mainHandler = handler;
+    RequestFutureTarget(int i, int i2, boolean z, Waiter waiter) {
         this.width = i;
         this.height = i2;
         this.assertBackgroundThread = z;
@@ -46,7 +50,8 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     }
 
     @Override // java.util.concurrent.Future
-    public synchronized boolean cancel(boolean z) {
+    public boolean cancel(boolean z) {
+        Request request = null;
         boolean z2 = true;
         synchronized (this) {
             if (isDone()) {
@@ -55,7 +60,11 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
                 this.isCancelled = true;
                 this.waiter.notifyAll(this);
                 if (z) {
-                    clearOnMainThread();
+                    request = this.request;
+                    this.request = null;
+                }
+                if (request != null) {
+                    request.clear();
                 }
             }
         }
@@ -100,13 +109,13 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
     }
 
     @Override // com.bumptech.glide.request.target.Target
-    public void setRequest(@Nullable Request request) {
+    public synchronized void setRequest(@Nullable Request request) {
         this.request = request;
     }
 
     @Override // com.bumptech.glide.request.target.Target
     @Nullable
-    public Request getRequest() {
+    public synchronized Request getRequest() {
         return this.request;
     }
 
@@ -167,18 +176,6 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
         return r;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (this.request != null) {
-            this.request.clear();
-            this.request = null;
-        }
-    }
-
-    private void clearOnMainThread() {
-        this.mainHandler.post(this);
-    }
-
     @Override // com.bumptech.glide.manager.LifecycleListener
     public void onStart() {
     }
@@ -209,7 +206,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>, RequestListener<
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Waiter {
         Waiter() {
         }

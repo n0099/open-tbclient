@@ -1,5 +1,5 @@
 package com.thunder.livesdk.helper;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HPMarshaller extends Marshallable {
     public IMshBuffer mMshBuffer;
 

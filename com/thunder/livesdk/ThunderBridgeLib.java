@@ -5,13 +5,13 @@ import com.yy.mediaframework.YMFLiveAPI;
 import com.yy.mediaframework.YYCamera;
 import com.yy.mediaframework.facedetection.PreviewFrameCallback;
 import com.yy.mediaframework.gpuimage.custom.IGPUProcess;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderBridgeLib {
     private ThunderBridgeLib() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class SingletonHolder {
         private static final ThunderBridgeLib INSTANCE = new ThunderBridgeLib();
 

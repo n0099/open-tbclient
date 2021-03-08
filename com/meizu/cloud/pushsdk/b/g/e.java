@@ -15,10 +15,8 @@ import java.util.Arrays;
 public class e implements Serializable, Comparable<e> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f11197a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final e f11198b = a(new byte[0]);
+    static final char[] f7363a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final e b = a(new byte[0]);
     private static final long serialVersionUID = 1;
     final byte[] c;
     transient int d;
@@ -52,7 +50,7 @@ public class e implements Serializable, Comparable<e> {
         if (str == null) {
             throw new IllegalArgumentException("s == null");
         }
-        e eVar = new e(str.getBytes(o.f11216a));
+        e eVar = new e(str.getBytes(o.f7374a));
         eVar.e = str;
         return eVar;
     }
@@ -119,7 +117,7 @@ public class e implements Serializable, Comparable<e> {
         if (str != null) {
             return str;
         }
-        String str2 = new String(this.c, o.f11216a);
+        String str2 = new String(this.c, o.f7374a);
         this.e = str2;
         return str2;
     }
@@ -146,8 +144,8 @@ public class e implements Serializable, Comparable<e> {
         while (i < length) {
             byte b2 = bArr[i];
             int i3 = i2 + 1;
-            cArr[i2] = f11197a[(b2 >> 4) & 15];
-            cArr[i3] = f11197a[b2 & 15];
+            cArr[i2] = f7363a[(b2 >> 4) & 15];
+            cArr[i3] = f7363a[b2 & 15];
             i++;
             i2 = i3 + 1;
         }

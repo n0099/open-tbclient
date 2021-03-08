@@ -14,19 +14,19 @@ import com.baidu.live.alablmsdk.module.rtc.BLMJoinRoomStage;
 import com.baidu.live.alablmsdk.module.rtc.d;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c implements g {
-    private g ayO;
-    private boolean ayP;
-    private f ayQ;
-    private com.baidu.live.alablmsdk.c.a.a ayR;
+    private g aAo;
+    private boolean aAp;
+    private f aAq;
+    private com.baidu.live.alablmsdk.c.a.a aAr;
     private Context mContext;
     private boolean hasInit = false;
-    private com.baidu.live.alablmsdk.c.a.a ayS = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.c.1
+    private com.baidu.live.alablmsdk.c.a.a aAs = new com.baidu.live.alablmsdk.c.a.a() { // from class: com.baidu.live.alablmsdk.d.c.1
         @Override // com.baidu.live.alablmsdk.c.a.a
         public void onPixelRead(byte[] bArr, int i, int i2) {
-            if (c.this.ayR != null) {
-                c.this.ayR.onPixelRead(bArr, i, i2);
+            if (c.this.aAr != null) {
+                c.this.aAr.onPixelRead(bArr, i, i2);
             }
         }
 
@@ -41,36 +41,36 @@ public class c implements g {
 
     private void a(RtcForceType rtcForceType, boolean z) {
         if (!this.hasInit) {
-            this.ayP = z;
+            this.aAp = z;
             if (rtcForceType == RtcForceType.BAIDU_RTC) {
-                this.ayP = true;
+                this.aAp = true;
             } else if (rtcForceType == RtcForceType.YY_RTC) {
-                this.ayP = false;
+                this.aAp = false;
             }
-            if (this.ayP) {
+            if (this.aAp) {
                 com.baidu.live.alablmsdk.a.b.a.ag(" RtcServiceProxy init new BdRtcRoom ", "");
-                this.ayO = new com.baidu.live.alablmsdk.d.a.c(this.mContext);
-                com.baidu.live.alablmsdk.a.b.c.xu().eG("bdcloud");
-                Log.d("blmsdk", com.baidu.pass.biometrics.face.liveness.d.b.f4046a);
+                this.aAo = new com.baidu.live.alablmsdk.d.a.c(this.mContext);
+                com.baidu.live.alablmsdk.a.b.c.xx().eM("bdcloud");
+                Log.d("blmsdk", com.baidu.pass.biometrics.face.liveness.d.b.f2804a);
             } else {
                 com.baidu.live.alablmsdk.a.b.a.ag(" RtcServiceProxy init new YYRtcRoom ", "");
-                this.ayO = new e(this.mContext);
-                com.baidu.live.alablmsdk.a.b.c.xu().eG("yy");
+                this.aAo = new e(this.mContext);
+                com.baidu.live.alablmsdk.a.b.c.xx().eM("yy");
                 Log.d("blmsdk", "y");
             }
-            this.ayR = this.ayO.yn();
-            this.ayO.a(this.ayQ);
+            this.aAr = this.aAo.yq();
+            this.aAo.a(this.aAq);
             this.hasInit = true;
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void a(f fVar) {
-        this.ayQ = fVar;
+        this.aAq = fVar;
     }
 
-    public boolean yK() {
-        return this.ayP;
+    public boolean yN() {
+        return this.aAp;
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
@@ -78,11 +78,11 @@ public class c implements g {
         RtcForceType rtcForceType;
         Object obj;
         Object obj2;
-        com.baidu.live.alablmsdk.config.b.xN().xO();
+        com.baidu.live.alablmsdk.config.b.xQ().xR();
         BLMRtcType bLMRtcType = BLMRtcType.BDRTC;
         if (hashMap != null && hashMap.containsKey("rtc_business_source_key") && (obj2 = hashMap.get("rtc_business_source_key")) != null) {
-            BLMRtcType eJ = com.baidu.live.alablmsdk.config.b.xN().eJ((String) obj2);
-            bLMRtcType = eJ == BLMRtcType.NONE ? BLMRtcType.BDRTC : eJ;
+            BLMRtcType eP = com.baidu.live.alablmsdk.config.b.xQ().eP((String) obj2);
+            bLMRtcType = eP == BLMRtcType.NONE ? BLMRtcType.BDRTC : eP;
         }
         RtcForceType rtcForceType2 = RtcForceType.DEFAULT;
         if (hashMap == null || !hashMap.containsKey("rtc_force_type_key") || (obj = hashMap.get("rtc_force_type_key")) == null || !(obj instanceof RtcForceType)) {
@@ -92,148 +92,148 @@ public class c implements g {
             com.baidu.live.alablmsdk.a.b.a.ag(" config mIsForceYY " + rtcForceType, "");
         }
         a(rtcForceType, BLMRtcType.BDRTC == bLMRtcType);
-        if (this.ayO != null) {
-            this.ayO.v(hashMap);
+        if (this.aAo != null) {
+            this.aAo.v(hashMap);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public int w(HashMap<String, Object> hashMap) {
-        if (this.ayO == null) {
+        if (this.aAo == null) {
             return 1000;
         }
-        return this.ayO.w(hashMap);
+        return this.aAo.w(hashMap);
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void a(com.baidu.live.alablmsdk.config.a aVar) {
-        if (this.ayO != null) {
-            this.ayO.a(aVar);
+        if (this.aAo != null) {
+            this.aAo.a(aVar);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void a(BLMLiveTransferMode bLMLiveTransferMode) {
-        if (this.ayO != null) {
-            this.ayO.a(bLMLiveTransferMode);
+        if (this.aAo != null) {
+            this.aAo.a(bLMLiveTransferMode);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void b(BLMLiveTransferMode bLMLiveTransferMode) {
-        if (this.ayO != null) {
-            this.ayO.b(bLMLiveTransferMode);
+        if (this.aAo != null) {
+            this.aAo.b(bLMLiveTransferMode);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public int yi() {
-        if (this.ayO != null) {
-            return this.ayO.yi();
+    public int yl() {
+        if (this.aAo != null) {
+            return this.aAo.yl();
         }
         return 1000;
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public void xk() {
-        if (this.ayO != null) {
-            this.ayO.xk();
+    public void xn() {
+        if (this.aAo != null) {
+            this.aAo.xn();
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public void eN(String str) {
-        if (this.ayO != null) {
-            this.ayO.eN(str);
+    public void eT(String str) {
+        if (this.aAo != null) {
+            this.aAo.eT(str);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void aY(boolean z) {
-        if (this.ayO != null) {
-            this.ayO.aY(z);
+        if (this.aAo != null) {
+            this.aAo.aY(z);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void aZ(boolean z) {
-        if (this.ayO != null) {
-            this.ayO.aZ(z);
+        if (this.aAo != null) {
+            this.aAo.aZ(z);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void setUserAttribute(String str) {
-        if (this.ayO != null) {
-            this.ayO.setUserAttribute(str);
+        if (this.aAo != null) {
+            this.aAo.setUserAttribute(str);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void b(String str, List<com.baidu.live.alablmsdk.module.c> list, boolean z) {
-        if (this.ayO != null) {
-            this.ayO.b(str, list, z);
+        if (this.aAo != null) {
+            this.aAo.b(str, list, z);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public void yj() {
-        if (this.ayO != null) {
-            this.ayO.yj();
+    public void ym() {
+        if (this.aAo != null) {
+            this.aAo.ym();
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public d yk() {
-        if (this.ayO != null) {
-            return this.ayO.yk();
+    public d yn() {
+        if (this.aAo != null) {
+            return this.aAo.yn();
         }
         return null;
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public boolean h(String str, com.baidu.live.alablmsdk.module.c cVar) {
-        if (this.ayO != null) {
-            return this.ayO.h(str, cVar);
+        if (this.aAo != null) {
+            return this.aAo.h(str, cVar);
         }
         return false;
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public boolean yl() {
-        if (this.ayO != null) {
-            return this.ayO.yl();
+    public boolean yo() {
+        if (this.aAo != null) {
+            return this.aAo.yo();
         }
         return false;
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public String ym() {
-        if (this.ayO != null) {
-            return this.ayO.ym();
+    public String yp() {
+        if (this.aAo != null) {
+            return this.aAo.yp();
         }
         return null;
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public com.baidu.live.alablmsdk.c.a.a yn() {
-        return this.ayS;
+    public com.baidu.live.alablmsdk.c.a.a yq() {
+        return this.aAs;
     }
 
     public void a(com.baidu.live.alablmsdk.module.rtc.b bVar, com.baidu.live.alablmsdk.c.c cVar) {
         if (bVar != null) {
-            if (yK()) {
-                if (!TextUtils.isEmpty(bVar.axH) && !TextUtils.isEmpty(bVar.ayF) && !TextUtils.isEmpty(bVar.ayE) && bVar.ayG != 0) {
-                    if (this.ayO != null && (this.ayO instanceof com.baidu.live.alablmsdk.d.a.c)) {
-                        ((com.baidu.live.alablmsdk.d.a.c) this.ayO).c(bVar.axH, bVar.ayE, bVar.ayF, bVar.ayG);
+            if (yN()) {
+                if (!TextUtils.isEmpty(bVar.azh) && !TextUtils.isEmpty(bVar.aAf) && !TextUtils.isEmpty(bVar.aAe) && bVar.aAg != 0) {
+                    if (this.aAo != null && (this.aAo instanceof com.baidu.live.alablmsdk.d.a.c)) {
+                        ((com.baidu.live.alablmsdk.d.a.c) this.aAo).c(bVar.azh, bVar.aAe, bVar.aAf, bVar.aAg);
                     }
                 } else if (cVar != null) {
                     com.baidu.live.alablmsdk.module.common.a aVar = new com.baidu.live.alablmsdk.module.common.a();
                     aVar.msg = "bd rtc joinRoom baseInfo check error";
                     cVar.a(-1, BLMJoinRoomStage.JOIN, aVar);
                 }
-            } else if (this.ayO != null && (this.ayO instanceof e)) {
-                ((e) this.ayO).eY(bVar.axH);
+            } else if (this.aAo != null && (this.aAo instanceof e)) {
+                ((e) this.aAo).fe(bVar.azh);
             } else if (cVar != null) {
                 com.baidu.live.alablmsdk.module.common.a aVar2 = new com.baidu.live.alablmsdk.module.common.a();
                 aVar2.msg = " yy rtc joinRoom mRtcRoom check error";
@@ -248,53 +248,53 @@ public class c implements g {
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void az(long j) {
-        if (this.ayO != null) {
-            this.ayO.az(j);
+        if (this.aAo != null) {
+            this.aAo.az(j);
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public void yo() {
-        if (this.ayO != null) {
-            this.ayO.yo();
+    public void yr() {
+        if (this.aAo != null) {
+            this.aAo.yr();
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
-    public void yp() {
-        if (this.ayO != null) {
-            this.ayO.yp();
+    public void ys() {
+        if (this.aAo != null) {
+            this.aAo.ys();
         }
     }
 
     @Override // com.baidu.live.alablmsdk.c.b.g
     public void release() {
-        if (this.ayO != null) {
-            this.ayO.release();
-            com.baidu.live.alablmsdk.config.b.xN().xP();
+        if (this.aAo != null) {
+            this.aAo.release();
+            com.baidu.live.alablmsdk.config.b.xQ().xS();
         }
     }
 
     public void setExternalSurface(long j, Surface surface) {
-        if (this.ayO != null && (this.ayO instanceof com.baidu.live.alablmsdk.d.a.c)) {
-            ((com.baidu.live.alablmsdk.d.a.c) this.ayO).setExternalSurface(j, surface);
+        if (this.aAo != null && (this.aAo instanceof com.baidu.live.alablmsdk.d.a.c)) {
+            ((com.baidu.live.alablmsdk.d.a.c) this.aAo).setExternalSurface(j, surface);
         }
     }
 
     public void changeSurfaceSize(long j, int i, int i2) {
-        if (this.ayO != null && (this.ayO instanceof com.baidu.live.alablmsdk.d.a.c)) {
-            ((com.baidu.live.alablmsdk.d.a.c) this.ayO).changeSurfaceSize(j, i, i2);
+        if (this.aAo != null && (this.aAo instanceof com.baidu.live.alablmsdk.d.a.c)) {
+            ((com.baidu.live.alablmsdk.d.a.c) this.aAo).changeSurfaceSize(j, i, i2);
         }
     }
 
     public void destroyExternalSurface(long j, Surface surface) {
-        if (this.ayO != null && (this.ayO instanceof com.baidu.live.alablmsdk.d.a.c)) {
-            ((com.baidu.live.alablmsdk.d.a.c) this.ayO).destroyExternalSurface(j, surface);
+        if (this.aAo != null && (this.aAo instanceof com.baidu.live.alablmsdk.d.a.c)) {
+            ((com.baidu.live.alablmsdk.d.a.c) this.aAo).destroyExternalSurface(j, surface);
         }
     }
 
     public com.baidu.live.alablmsdk.c.b.c a(long j, com.baidu.live.alablmsdk.c.b.d dVar) {
-        if (yK()) {
+        if (yN()) {
             com.baidu.live.alablmsdk.a.b.a.ag(" create external texture info ", " bd rtc ");
             com.baidu.live.alablmsdk.d.a.b bVar = new com.baidu.live.alablmsdk.d.a.b(this.mContext, this, j);
             bVar.a(dVar);
@@ -304,8 +304,8 @@ public class c implements g {
         com.baidu.live.alablmsdk.a.b.a.ag(" create external texture info ", " yy rtc ");
         com.baidu.live.alablmsdk.d.b.c cVar = new com.baidu.live.alablmsdk.d.b.c(this.mContext);
         cVar.a(dVar);
-        if (this.ayO instanceof e) {
-            ((e) this.ayO).d(cVar.yh(), j + "");
+        if (this.aAo instanceof e) {
+            ((e) this.aAo).d(cVar.yk(), j + "");
         }
         com.baidu.live.alablmsdk.a.b.a.d(" create external texture info return. yy ");
         return cVar;
@@ -313,14 +313,14 @@ public class c implements g {
 
     public void a(com.baidu.live.alablmsdk.c.b.c cVar, final long j) {
         if (cVar != null && j != 0) {
-            if (yK()) {
+            if (yN()) {
                 if (cVar instanceof com.baidu.live.alablmsdk.d.a.b) {
                     final com.baidu.live.alablmsdk.d.a.b bVar = (com.baidu.live.alablmsdk.d.a.b) cVar;
                     final int i = bVar.mWidth;
                     final int i2 = bVar.mHeight;
                     com.baidu.live.alablmsdk.a.b.a.ag(" bd rtc: map contains , remoteId=" + j + " , info=" + bVar, "");
                     if (bVar.mSurface != null) {
-                        com.baidu.live.alablmsdk.a.c.xo().post(new Runnable() { // from class: com.baidu.live.alablmsdk.d.c.2
+                        com.baidu.live.alablmsdk.a.c.xr().post(new Runnable() { // from class: com.baidu.live.alablmsdk.d.c.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.live.alablmsdk.a.b.a.ag(" bd rtc: re destroy set ExternalSurface , width=" + i + " , height=" + i2, "");
@@ -335,8 +335,8 @@ public class c implements g {
                 }
                 com.baidu.live.alablmsdk.a.b.a.ag(" note: error , isBdRtc , textureInfo not instanceof BdRemoteTextureInfo", "");
                 return;
-            } else if (this.ayO instanceof e) {
-                ((e) this.ayO).d(cVar.yh(), j + "");
+            } else if (this.aAo instanceof e) {
+                ((e) this.aAo).d(cVar.yk(), j + "");
                 return;
             } else {
                 com.baidu.live.alablmsdk.a.b.a.ag(" note: error , is not BdRtc, but mRtcRoom not instanceof YYRtcRoom", "");
@@ -346,21 +346,21 @@ public class c implements g {
         com.baidu.live.alablmsdk.a.b.a.ag(" note: error , updateExternalTextureInfo textureInfo==null or remoteId==0", "");
     }
 
-    public void ev(String str) {
-        com.baidu.live.alablmsdk.config.b.xN().ev(str);
-        com.baidu.live.alablmsdk.a.b.a.eA(" setCloudRtcConfig =" + str);
+    public void eC(String str) {
+        com.baidu.live.alablmsdk.config.b.xQ().eC(str);
+        com.baidu.live.alablmsdk.a.b.a.eG(" setCloudRtcConfig =" + str);
     }
 
     public void a(com.baidu.live.alablmsdk.c.b.e eVar) {
-        if (this.ayO != null && (this.ayO instanceof e)) {
-            ((e) this.ayO).a(eVar);
+        if (this.aAo != null && (this.aAo instanceof e)) {
+            ((e) this.aAo).a(eVar);
         }
     }
 
-    public void ew(String str) {
-        if (this.ayO != null && (this.ayO instanceof e)) {
-            ((e) this.ayO).ew(str);
-            com.baidu.live.alablmsdk.a.b.a.eA(" updateYYRtcToken =" + str);
+    public void eD(String str) {
+        if (this.aAo != null && (this.aAo instanceof e)) {
+            ((e) this.aAo).eD(str);
+            com.baidu.live.alablmsdk.a.b.a.eG(" updateYYRtcToken =" + str);
         }
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes2.dex */
 public class d extends a {
-    public TextView fjs;
+    public TextView fkR;
     private LinearLayout mRootView;
 
     public d(TbPageContext tbPageContext, int i) {
@@ -22,15 +22,15 @@ public class d extends a {
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
-        this.mRootView = (LinearLayout) this.eUY.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
-        this.fjs = (TextView) this.mRootView.findViewById(R.id.text);
+        this.mRootView = (LinearLayout) this.eWx.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
+        this.fkR = (TextView) this.mRootView.findViewById(R.id.text);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.fjs.setText(new SpannableString(originalThreadInfo.title));
-        ap.setViewTextColor(this.fjs, R.color.CAM_X0105);
+        this.fkR.setText(new SpannableString(originalThreadInfo.title));
+        ap.setViewTextColor(this.fkR, R.color.CAM_X0105);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
@@ -39,8 +39,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
-    public void a(a.InterfaceC0088a interfaceC0088a) {
-        super.a(interfaceC0088a);
+    public void a(a.InterfaceC0094a interfaceC0094a) {
+        super.a(interfaceC0094a);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
@@ -48,7 +48,7 @@ public class d extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.CAM_X0204);
-            ap.setViewTextColor(this.fjs, R.color.CAM_X0105);
+            ap.setViewTextColor(this.fkR, R.color.CAM_X0105);
         }
     }
 }

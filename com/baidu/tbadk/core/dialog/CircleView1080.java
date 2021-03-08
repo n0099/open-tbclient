@@ -10,13 +10,13 @@ import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CircleView1080 extends View {
-    private static int eVa = EncoderTextureDrawer.X264_WIDTH;
-    private static int eVb = 100;
-    private int bJU;
-    private Paint eVd;
-    private RectF eVf;
+    private int bLu;
+    private Paint eWC;
+    private RectF eWE;
     private int mValue;
     private int mWidth;
+    private static int eWz = EncoderTextureDrawer.X264_WIDTH;
+    private static int eWA = 100;
 
     public CircleView1080(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -43,18 +43,18 @@ public class CircleView1080 extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.tbds122);
-        this.bJU = getResources().getDimensionPixelSize(R.dimen.tbds6);
-        this.eVd = new Paint();
-        this.eVd.setStrokeWidth(this.bJU);
-        this.eVd.setColor(getResources().getColor(R.color.CAM_X0111));
-        this.eVd.setStyle(Paint.Style.STROKE);
-        this.eVd.setAntiAlias(true);
-        this.eVd.setStrokeCap(Paint.Cap.ROUND);
-        this.eVf = new RectF(this.bJU / 2, this.bJU / 2, this.mWidth + (this.bJU / 2), this.mWidth + (this.bJU / 2));
+        this.bLu = getResources().getDimensionPixelSize(R.dimen.tbds6);
+        this.eWC = new Paint();
+        this.eWC.setStrokeWidth(this.bLu);
+        this.eWC.setColor(getResources().getColor(R.color.CAM_X0111));
+        this.eWC.setStyle(Paint.Style.STROKE);
+        this.eWC.setAntiAlias(true);
+        this.eWC.setStrokeCap(Paint.Cap.ROUND);
+        this.eWE = new RectF(this.bLu / 2, this.bLu / 2, this.mWidth + (this.bLu / 2), this.mWidth + (this.bLu / 2));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.eVf, 270.0f, (eVa * this.mValue) / eVb, false, this.eVd);
+        canvas.drawArc(this.eWE, 270.0f, (eWz * this.mValue) / eWA, false, this.eWC);
     }
 }

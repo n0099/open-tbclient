@@ -3,7 +3,7 @@ package com.baidu.ar.recorder.b;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 abstract class b {
     private static final String TAG = b.class.getSimpleName();
     protected d uP;

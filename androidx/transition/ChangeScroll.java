@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class ChangeScroll extends Transition {
     private static final String PROPNAME_SCROLL_X = "android:changeScroll:x";
     private static final String PROPNAME_SCROLL_Y = "android:changeScroll:y";

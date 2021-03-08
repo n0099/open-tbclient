@@ -18,7 +18,7 @@ import com.yy.mediaframework.utils.VideoSizeUtils;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.FloatBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PreviewFilter extends AbstractYYMediaFilter {
     private static final String TAG = "PreviewFilter";
     private VideoLiveFilterContext mFilterContext;

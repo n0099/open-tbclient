@@ -6,7 +6,7 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import com.thunder.livesdk.log.ThunderLog;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderDeviceInfo {
     public String appInfo;
     public String osVersion = Build.VERSION.SDK_INT + "";

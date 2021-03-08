@@ -9,40 +9,40 @@ import java.util.List;
 import tbclient.RecomTopicList;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tbadk.core.data.a {
-    private List<c> kgU;
+    private List<c> kiX;
 
     public d() {
     }
 
     public d(@NonNull List<RecomTopicList> list) {
-        this.kgU = new ArrayList();
+        this.kiX = new ArrayList();
         int size = list.size();
         for (int i = 0; i < size; i++) {
-            this.kgU.add(new c(list.get(i), i));
+            this.kiX.add(new c(list.get(i), i));
         }
-        this.kgU.add(new c());
+        this.kiX.add(new c());
     }
 
-    public List<c> cQQ() {
-        return this.kgU;
+    public List<c> cQX() {
+        return this.kiX;
     }
 
     public void dZ(List<c> list) {
-        this.kgU = list;
+        this.kiX = list;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return a.kgO;
+        return a.kiR;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public cb bln() {
+    public cb blp() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public av blp() {
+    public av blr() {
         return null;
     }
 }

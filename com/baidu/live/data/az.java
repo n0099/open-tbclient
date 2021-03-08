@@ -2,15 +2,15 @@ package com.baidu.live.data;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class az {
-    private String aOu;
+    private String aPU;
     private String mDownloadUrl;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mDownloadUrl = jSONObject.optString("url");
-            this.aOu = jSONObject.optString("md5");
+            this.aPU = jSONObject.optString("md5");
         }
     }
 
@@ -18,15 +18,15 @@ public class az {
         return this.mDownloadUrl;
     }
 
-    public String Cv() {
-        return this.aOu;
+    public String Cy() {
+        return this.aPU;
     }
 
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("url", this.mDownloadUrl);
-            jSONObject.put("md5", this.aOu);
+            jSONObject.put("md5", this.aPU);
         } catch (JSONException e) {
             e.printStackTrace();
         }

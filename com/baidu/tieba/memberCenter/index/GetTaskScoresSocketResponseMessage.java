@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.AddTaskScores.AddTaskScoresResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GetTaskScoresSocketResponseMessage extends SocketResponsedMessage {
     private int isFinished;
     private int scores;

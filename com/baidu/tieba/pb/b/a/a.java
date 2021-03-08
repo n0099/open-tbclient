@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.imageManager.a;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements c {
-    private ExcContent miF;
-    private SpannableString miG;
+    private ExcContent mkH;
+    private SpannableString mkI;
 
     public a(ExcContent excContent) {
-        this.miF = excContent;
+        this.mkH = excContent;
     }
 
     @Override // com.baidu.tieba.pb.b.a.d
@@ -22,31 +22,31 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence dtD() {
-        return b(this.miF);
+    public CharSequence dtM() {
+        return b(this.mkH);
     }
 
     private SpannableString b(ExcContent excContent) {
         String str;
-        int CK;
-        a.C0576a Df;
-        if (this.miG == null && (CK = TbFaceManager.bCO().CK((str = excContent.text))) != 0) {
-            String str2 = "#(" + TbFaceManager.bCO().CM(str) + ")";
-            this.miG = new SpannableString(str2 + " ");
-            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst().getContext(), CK);
-            if (TbFaceManager.bCO().Df(str) != null) {
-                int width = (int) (Df.getWidth() * 0.6d);
+        int CR;
+        a.C0582a Dm;
+        if (this.mkI == null && (CR = TbFaceManager.bCR().CR((str = excContent.text))) != 0) {
+            String str2 = "#(" + TbFaceManager.bCR().CT(str) + ")";
+            this.mkI = new SpannableString(str2 + " ");
+            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst().getContext(), CR);
+            if (TbFaceManager.bCR().Dm(str) != null) {
+                int width = (int) (Dm.getWidth() * 0.6d);
                 dVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 dVar.setBounds(new Rect(0, 0, 0, 0));
             }
-            this.miG.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
+            this.mkI.setSpan(new ImageSpan(dVar, 0), 0, str2.length(), 33);
         }
-        return this.miG;
+        return this.mkI;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean dtE() {
+    public boolean dtN() {
         return false;
     }
 }

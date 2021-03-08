@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class aa {
     private static final String TAG = aa.class.getSimpleName();
 
-    public static void ehV() {
+    public static void eid() {
         IPCServiceManager.addService(UBC.UBC_REMOTE_SERVICE_NAME, new IRemoteUBCService.Stub() { // from class: com.baidu.ubc.UBCIPCManager$1
             @Override // com.baidu.ubc.IRemoteUBCService
             public void ubcOnEvent(String str, String str2, int i) throws RemoteException {

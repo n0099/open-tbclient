@@ -19,11 +19,11 @@ import java.io.OutputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f10997a = false;
+    private static boolean f7246a = false;
 
     public static synchronized void a(Context context) {
         synchronized (b.class) {
-            if (!f10997a) {
+            if (!f7246a) {
                 j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
                 j.a().d().a(new g.a() { // from class: com.kwai.sodler.a.b.1
                     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -54,7 +54,7 @@ public class b {
                         }
                     }
                 });
-                f10997a = true;
+                f7246a = true;
             }
         }
     }

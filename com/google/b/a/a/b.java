@@ -15,15 +15,13 @@ import java.util.Iterator;
 public class b implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7885a = b.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f7886b;
+    private static final String f5279a = b.class.getSimpleName();
+    private boolean b;
     private SensorManager c;
+    private SensorEventListener e;
     private final ArrayList<SensorEventListener> f = new ArrayList<>();
     private int g;
-    private Looper pWR;
-    private SensorEventListener pWS;
+    private Looper pXG;
 
     public b(SensorManager sensorManager, int i) {
         this.c = sensorManager;
@@ -31,7 +29,7 @@ public class b implements d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Sensor eCi() {
+    public Sensor eCo() {
         if (Build.MANUFACTURER.equals("HTC")) {
             return null;
         }
@@ -40,10 +38,10 @@ public class b implements d {
 
     @Override // com.google.b.a.a.d
     public void a() {
-        if (this.f7886b) {
+        if (this.b) {
             return;
         }
-        this.pWS = new SensorEventListener() { // from class: com.google.b.a.a.b.1
+        this.e = new SensorEventListener() { // from class: com.google.b.a.a.b.1
             @Override // android.hardware.SensorEventListener
             public void onAccuracyChanged(Sensor sensor, int i) {
                 synchronized (b.this.f) {
@@ -68,18 +66,18 @@ public class b implements d {
             @Override // android.os.HandlerThread
             protected void onLooperPrepared() {
                 Handler handler = new Handler(Looper.myLooper());
-                b.this.c.registerListener(b.this.pWS, b.this.c.getDefaultSensor(1), b.this.g, handler);
-                Sensor eCi = b.this.eCi();
-                if (eCi == null) {
-                    Log.i(b.f7885a, "Uncalibrated gyroscope unavailable, default to regular gyroscope.");
-                    eCi = b.this.c.getDefaultSensor(4);
+                b.this.c.registerListener(b.this.e, b.this.c.getDefaultSensor(1), b.this.g, handler);
+                Sensor eCo = b.this.eCo();
+                if (eCo == null) {
+                    Log.i(b.f5279a, "Uncalibrated gyroscope unavailable, default to regular gyroscope.");
+                    eCo = b.this.c.getDefaultSensor(4);
                 }
-                b.this.c.registerListener(b.this.pWS, eCi, b.this.g, handler);
+                b.this.c.registerListener(b.this.e, eCo, b.this.g, handler);
             }
         };
         handlerThread.start();
-        this.pWR = handlerThread.getLooper();
-        this.f7886b = true;
+        this.pXG = handlerThread.getLooper();
+        this.b = true;
     }
 
     @Override // com.google.b.a.a.d
@@ -92,12 +90,12 @@ public class b implements d {
 
     @Override // com.google.b.a.a.d
     public void b() {
-        if (this.f7886b) {
-            this.c.unregisterListener(this.pWS);
-            this.pWS = null;
-            this.pWR.quit();
-            this.pWR = null;
-            this.f7886b = false;
+        if (this.b) {
+            this.c.unregisterListener(this.e);
+            this.e = null;
+            this.pXG.quit();
+            this.pXG = null;
+            this.b = false;
         }
     }
 

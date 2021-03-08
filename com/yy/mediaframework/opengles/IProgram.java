@@ -1,5 +1,5 @@
 package com.yy.mediaframework.opengles;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IProgram {
     void clip(int i, int i2, int i3, int i4);
 

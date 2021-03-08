@@ -15,10 +15,8 @@ import java.util.Set;
 public class k implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Bitmap.Config f10202a = Bitmap.Config.ARGB_8888;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final l f10203b;
+    private static final Bitmap.Config f6747a = Bitmap.Config.ARGB_8888;
+    private final l b;
     private final Set<Bitmap.Config> c;
     private final long d;
     private final a e;
@@ -58,7 +56,7 @@ public class k implements e {
     k(long j, l lVar, Set<Bitmap.Config> set) {
         this.d = j;
         this.f = j;
-        this.f10203b = lVar;
+        this.b = lVar;
         this.c = set;
         this.e = new b();
     }
@@ -81,15 +79,15 @@ public class k implements e {
             if (this.g <= j) {
                 break;
             }
-            Bitmap a2 = this.f10203b.a();
+            Bitmap a2 = this.b.a();
             if (a2 == null) {
                 break;
             }
             this.e.b(a2);
-            this.g -= this.f10203b.c(a2);
+            this.g -= this.b.c(a2);
             this.k++;
             if (Log.isLoggable("LruBitmapPool", 3)) {
-                Log.d("LruBitmapPool", "Evicting bitmap=" + this.f10203b.b(a2));
+                Log.d("LruBitmapPool", "Evicting bitmap=" + this.b.b(a2));
             }
             d();
             a2.recycle();
@@ -111,7 +109,7 @@ public class k implements e {
     @NonNull
     private static Bitmap c(int i, int i2, @Nullable Bitmap.Config config) {
         if (config == null) {
-            config = f10202a;
+            config = f6747a;
         }
         return Bitmap.createBitmap(i, i2, config);
     }
@@ -131,20 +129,20 @@ public class k implements e {
     private synchronized Bitmap d(int i, int i2, @Nullable Bitmap.Config config) {
         Bitmap a2;
         a(config);
-        a2 = this.f10203b.a(i, i2, config != null ? config : f10202a);
+        a2 = this.b.a(i, i2, config != null ? config : f6747a);
         if (a2 == null) {
             if (Log.isLoggable("LruBitmapPool", 3)) {
-                Log.d("LruBitmapPool", "Missing bitmap=" + this.f10203b.b(i, i2, config));
+                Log.d("LruBitmapPool", "Missing bitmap=" + this.b.b(i, i2, config));
             }
             this.i++;
         } else {
             this.h++;
-            this.g -= this.f10203b.c(a2);
+            this.g -= this.b.c(a2);
             this.e.b(a2);
             b(a2);
         }
         if (Log.isLoggable("LruBitmapPool", 2)) {
-            Log.v("LruBitmapPool", "Get bitmap=" + this.f10203b.b(i, i2, config));
+            Log.v("LruBitmapPool", "Get bitmap=" + this.b.b(i, i2, config));
         }
         d();
         return a2;
@@ -157,7 +155,7 @@ public class k implements e {
     }
 
     private void e() {
-        Log.v("LruBitmapPool", "Hits=" + this.h + ", misses=" + this.i + ", puts=" + this.j + ", evictions=" + this.k + ", currentSize=" + this.g + ", maxSize=" + this.f + "\nStrategy=" + this.f10203b);
+        Log.v("LruBitmapPool", "Hits=" + this.h + ", misses=" + this.i + ", puts=" + this.j + ", evictions=" + this.k + ", currentSize=" + this.g + ", maxSize=" + this.f + "\nStrategy=" + this.b);
     }
 
     private static l f() {
@@ -216,20 +214,20 @@ public class k implements e {
         if (bitmap.isRecycled()) {
             throw new IllegalStateException("Cannot pool recycled bitmap");
         }
-        if (bitmap.isMutable() && this.f10203b.c(bitmap) <= this.f && this.c.contains(bitmap.getConfig())) {
-            int c = this.f10203b.c(bitmap);
-            this.f10203b.a(bitmap);
+        if (bitmap.isMutable() && this.b.c(bitmap) <= this.f && this.c.contains(bitmap.getConfig())) {
+            int c = this.b.c(bitmap);
+            this.b.a(bitmap);
             this.e.a(bitmap);
             this.j++;
             this.g = c + this.g;
             if (Log.isLoggable("LruBitmapPool", 2)) {
-                Log.v("LruBitmapPool", "Put bitmap in pool=" + this.f10203b.b(bitmap));
+                Log.v("LruBitmapPool", "Put bitmap in pool=" + this.b.b(bitmap));
             }
             d();
             c();
         } else {
             if (Log.isLoggable("LruBitmapPool", 2)) {
-                Log.v("LruBitmapPool", "Reject bitmap from pool, bitmap: " + this.f10203b.b(bitmap) + ", is mutable: " + bitmap.isMutable() + ", is allowed config: " + this.c.contains(bitmap.getConfig()));
+                Log.v("LruBitmapPool", "Reject bitmap from pool, bitmap: " + this.b.b(bitmap) + ", is mutable: " + bitmap.isMutable() + ", is allowed config: " + this.c.contains(bitmap.getConfig()));
             }
             bitmap.recycle();
         }

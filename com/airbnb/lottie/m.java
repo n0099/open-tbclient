@@ -6,12 +6,12 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class m {
     private boolean enabled = false;
-    private final Set<a> Dk = new ArraySet();
-    private final Map<String, com.airbnb.lottie.d.d> Dl = new HashMap();
-    private final Comparator<Pair<String, Float>> Dm = new Comparator<Pair<String, Float>>() { // from class: com.airbnb.lottie.m.1
+    private final Set<a> EG = new ArraySet();
+    private final Map<String, com.airbnb.lottie.d.d> EH = new HashMap();
+    private final Comparator<Pair<String, Float>> EI = new Comparator<Pair<String, Float>>() { // from class: com.airbnb.lottie.m.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: b */
@@ -28,9 +28,9 @@ public class m {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        void g(float f);
+        void k(float f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -40,15 +40,15 @@ public class m {
 
     public void c(String str, float f) {
         if (this.enabled) {
-            com.airbnb.lottie.d.d dVar = this.Dl.get(str);
+            com.airbnb.lottie.d.d dVar = this.EH.get(str);
             if (dVar == null) {
                 dVar = new com.airbnb.lottie.d.d();
-                this.Dl.put(str, dVar);
+                this.EH.put(str, dVar);
             }
             dVar.add(f);
             if (str.equals("__container")) {
-                for (a aVar : this.Dk) {
-                    aVar.g(f);
+                for (a aVar : this.EG) {
+                    aVar.k(f);
                 }
             }
         }

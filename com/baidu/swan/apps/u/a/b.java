@@ -3,29 +3,29 @@ package com.baidu.swan.apps.u.a;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.LruCache;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final LruCache<String, Object> dfN;
+    private final LruCache<String, Object> dho;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        static final b dfO = new b();
+        static final b dhp = new b();
     }
 
     private b() {
-        this.dfN = new LruCache<>(10);
+        this.dho = new LruCache<>(10);
     }
 
-    public static b ayH() {
-        return a.dfO;
+    public static b ayK() {
+        return a.dhp;
     }
 
-    public synchronized <RESULT> RESULT oB(String str) {
+    public synchronized <RESULT> RESULT oI(String str) {
         RESULT result = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                Object obj = this.dfN.get(str);
+                Object obj = this.dho.get(str);
                 if (obj == null) {
                     if (DEBUG) {
                         Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
@@ -47,27 +47,27 @@ public final class b {
         return result;
     }
 
-    public synchronized <RESULT> void m(String str, RESULT result) {
+    public synchronized <RESULT> void n(String str, RESULT result) {
         if (!TextUtils.isEmpty(str) && result != null) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "putConfig key: " + str);
             }
-            this.dfN.put(str, result);
+            this.dho.put(str, result);
         }
     }
 
-    public synchronized void oC(String str) {
+    public synchronized void oJ(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
             }
-            this.dfN.remove(str);
+            this.dho.remove(str);
         }
     }
 
     public synchronized void clear() {
-        if (this.dfN != null) {
-            this.dfN.evictAll();
+        if (this.dho != null) {
+            this.dho.evictAll();
         }
     }
 }

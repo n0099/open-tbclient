@@ -13,22 +13,20 @@ import java.io.IOException;
 public abstract class l<T> implements d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Uri f10056a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final ContentResolver f10057b;
+    private final Uri f6652a;
+    private final ContentResolver b;
     private T c;
 
     public l(ContentResolver contentResolver, Uri uri) {
-        this.f10057b = contentResolver;
-        this.f10056a = uri;
+        this.b = contentResolver;
+        this.f6652a = uri;
     }
 
     /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     @Override // com.kwad.sdk.glide.load.a.d
     public final void a(@NonNull Priority priority, @NonNull d.a<? super T> aVar) {
         try {
-            this.c = b(this.f10056a, this.f10057b);
+            this.c = b(this.f6652a, this.b);
             aVar.a((d.a<? super T>) ((T) this.c));
         } catch (FileNotFoundException e) {
             if (Log.isLoggable("LocalUriFetcher", 3)) {

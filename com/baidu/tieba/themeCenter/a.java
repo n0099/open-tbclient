@@ -1,19 +1,19 @@
 package com.baidu.tieba.themeCenter;
 
 import tbclient.ThemeCardPropMain;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static long nFO = 1350000;
+    public static long nHU = 1350000;
     private String activityUrl;
     private long cardId;
     private int dailyPrevilegeStatus = 0;
     private String description;
     private int freeUserLevel;
     private int inUse;
-    private String lmZ;
-    private String nFP;
-    private String nFQ;
-    private int nFR;
+    private String lpg;
+    private String nHV;
+    private String nHW;
+    private int nHX;
     private String title;
 
     public void a(ThemeCardPropMain themeCardPropMain) {
@@ -21,13 +21,13 @@ public class a {
             this.cardId = themeCardPropMain.props_id.longValue();
             this.title = themeCardPropMain.title;
             this.description = themeCardPropMain.description;
-            this.nFP = themeCardPropMain.example_url;
-            this.lmZ = themeCardPropMain.permission;
-            this.nFQ = themeCardPropMain.props_state_img;
+            this.nHV = themeCardPropMain.example_url;
+            this.lpg = themeCardPropMain.permission;
+            this.nHW = themeCardPropMain.props_state_img;
             this.inUse = themeCardPropMain.in_use.intValue();
             this.freeUserLevel = themeCardPropMain.free_user_level.intValue();
             this.activityUrl = themeCardPropMain.activity_url;
-            this.nFR = themeCardPropMain.is_finished.intValue();
+            this.nHX = themeCardPropMain.is_finished.intValue();
         }
     }
 
@@ -55,35 +55,35 @@ public class a {
         this.description = str;
     }
 
-    public String dQW() {
-        return this.nFP;
+    public String dRf() {
+        return this.nHV;
     }
 
-    public void Ud(String str) {
-        this.nFP = str;
+    public void Uk(String str) {
+        this.nHV = str;
     }
 
-    public String dQX() {
-        return this.lmZ;
+    public String dRg() {
+        return this.lpg;
     }
 
-    public void Ue(String str) {
-        this.lmZ = str;
+    public void Ul(String str) {
+        this.lpg = str;
     }
 
-    public String dQY() {
-        return this.nFQ;
+    public String dRh() {
+        return this.nHW;
     }
 
-    public void Uf(String str) {
-        this.nFQ = str;
+    public void Um(String str) {
+        this.nHW = str;
     }
 
-    public int dQZ() {
+    public int dRi() {
         return this.inUse;
     }
 
-    public void Kd(int i) {
+    public void Ki(int i) {
         this.inUse = i;
     }
 
@@ -99,12 +99,12 @@ public class a {
         this.activityUrl = str;
     }
 
-    public int dRa() {
-        return this.nFR;
+    public int dRj() {
+        return this.nHX;
     }
 
-    public void Ke(int i) {
-        this.nFR = i;
+    public void Kj(int i) {
+        this.nHX = i;
     }
 
     public void setDailyPrevilegeStatus(int i) {

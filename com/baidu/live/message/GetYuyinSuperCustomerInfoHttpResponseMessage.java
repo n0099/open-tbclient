@@ -4,16 +4,16 @@ import android.util.Log;
 import com.baidu.live.data.aq;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GetYuyinSuperCustomerInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private aq bvg;
+    private aq bwG;
 
     public GetYuyinSuperCustomerInfoHttpResponseMessage() {
         super(1031064);
     }
 
-    public aq Ox() {
-        return this.bvg;
+    public aq OA() {
+        return this.bwG;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,8 +21,8 @@ public class GetYuyinSuperCustomerInfoHttpResponseMessage extends JsonHttpRespon
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             Log.d("SuperCustomerHelper", "GetSuperCustomerInfoHttpResponseMessage retJson:" + jSONObject.toString());
-            this.bvg = new aq();
-            this.bvg.parseJson(jSONObject);
+            this.bwG = new aq();
+            this.bwG.parseJson(jSONObject);
         }
     }
 }

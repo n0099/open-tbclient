@@ -6,24 +6,24 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public class e {
-    private boolean pKz;
-    private final com.facebook.common.memory.a pzE;
-    private int pKv = 0;
-    private int pKu = 0;
-    private int pKw = 0;
-    private int pKy = 0;
-    private int pKx = 0;
-    private int pKt = 0;
+    private final com.facebook.common.memory.a pBJ;
+    private boolean pME;
+    private int pMA = 0;
+    private int pMz = 0;
+    private int pMB = 0;
+    private int pMD = 0;
+    private int pMC = 0;
+    private int pMy = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.pzE = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.pBJ = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.e eVar) {
-        if (this.pKt != 6 && eVar.getSize() > this.pKv) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.pzE.get(16384), this.pzE);
+        if (this.pMy != 6 && eVar.getSize() > this.pMA) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.pBJ.get(16384), this.pBJ);
             try {
-                com.facebook.common.util.c.b(fVar, this.pKv);
+                com.facebook.common.util.c.b(fVar, this.pMA);
                 return w(fVar);
             } catch (IOException e) {
                 l.s(e);
@@ -38,88 +38,88 @@ public class e {
     private boolean w(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.pKx;
-        while (this.pKt != 6 && (read = inputStream.read()) != -1) {
+        int i = this.pMC;
+        while (this.pMy != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.pKv++;
-                if (this.pKz) {
-                    this.pKt = 6;
-                    this.pKz = false;
+                this.pMA++;
+                if (this.pME) {
+                    this.pMy = 6;
+                    this.pME = false;
                     return false;
                 }
-                switch (this.pKt) {
+                switch (this.pMy) {
                     case 0:
                         if (read == 255) {
-                            this.pKt = 1;
+                            this.pMy = 1;
                             break;
                         } else {
-                            this.pKt = 6;
+                            this.pMy = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.pKt = 2;
+                            this.pMy = 2;
                             break;
                         } else {
-                            this.pKt = 6;
+                            this.pMy = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.pKt = 3;
+                            this.pMy = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.pKt = 3;
+                            this.pMy = 3;
                             break;
                         } else if (read == 0) {
-                            this.pKt = 2;
+                            this.pMy = 2;
                             break;
                         } else if (read == 217) {
-                            this.pKz = true;
-                            PL(this.pKv - 2);
-                            this.pKt = 2;
+                            this.pME = true;
+                            PP(this.pMA - 2);
+                            this.pMy = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                PL(this.pKv - 2);
+                                PP(this.pMA - 2);
                             }
-                            if (PK(read)) {
-                                this.pKt = 4;
+                            if (PO(read)) {
+                                this.pMy = 4;
                                 break;
                             } else {
-                                this.pKt = 2;
+                                this.pMy = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.pKt = 5;
+                        this.pMy = 5;
                         break;
                     case 5:
-                        int i2 = ((this.pKu << 8) + read) - 2;
+                        int i2 = ((this.pMz << 8) + read) - 2;
                         com.facebook.common.util.c.b(inputStream, i2);
-                        this.pKv = i2 + this.pKv;
-                        this.pKt = 2;
+                        this.pMA = i2 + this.pMA;
+                        this.pMy = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.pKu = read;
+                this.pMz = read;
             } catch (IOException e) {
                 l.s(e);
             }
         }
-        if (this.pKt == 6 || this.pKx == i) {
+        if (this.pMy == 6 || this.pMC == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean PK(int i) {
+    private static boolean PO(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void PL(int i) {
-        if (this.pKw > 0) {
-            this.pKy = i;
+    private void PP(int i) {
+        if (this.pMB > 0) {
+            this.pMD = i;
         }
-        int i2 = this.pKw;
-        this.pKw = i2 + 1;
-        this.pKx = i2;
+        int i2 = this.pMB;
+        this.pMB = i2 + 1;
+        this.pMC = i2;
     }
 
-    public int eyi() {
-        return this.pKy;
+    public int eyr() {
+        return this.pMD;
     }
 
-    public int eyj() {
-        return this.pKx;
+    public int eys() {
+        return this.pMC;
     }
 
-    public boolean eyk() {
-        return this.pKz;
+    public boolean eyt() {
+        return this.pME;
     }
 }

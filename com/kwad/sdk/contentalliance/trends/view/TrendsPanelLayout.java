@@ -22,10 +22,8 @@ import com.kwad.sdk.utils.ao;
 public class TrendsPanelLayout extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private RecyclerView f8884a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.trends.view.a f8885b;
+    private RecyclerView f5920a;
+    private com.kwad.sdk.contentalliance.trends.view.a b;
     private a c;
     private b d;
     private ImageView e;
@@ -71,7 +69,7 @@ public class TrendsPanelLayout extends LinearLayout {
             }
         });
         this.g = (RelativeLayout) findViewById(R.id.ksad_trend_list_panel_layout);
-        this.f8884a = (RecyclerView) findViewById(R.id.ksad_trend_list_recycler_view);
+        this.f5920a = (RecyclerView) findViewById(R.id.ksad_trend_list_recycler_view);
         this.e = (ImageView) findViewById(R.id.ksad_trend_list_panel_close_button);
         this.h = (TextView) findViewById(R.id.ksad_trend_panel_title);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -83,7 +81,7 @@ public class TrendsPanelLayout extends LinearLayout {
                 TrendsPanelLayout.this.a(1);
             }
         });
-        this.f8884a.setVisibility(8);
+        this.f5920a.setVisibility(8);
         setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.view.TrendsPanelLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -122,7 +120,7 @@ public class TrendsPanelLayout extends LinearLayout {
     }
 
     public void a() {
-        this.f8884a.setVisibility(0);
+        this.f5920a.setVisibility(0);
         this.g.setVisibility(0);
         this.f.setVisibility(0);
         setVisibility(0);
@@ -137,10 +135,10 @@ public class TrendsPanelLayout extends LinearLayout {
     }
 
     public void a(@NonNull com.kwad.sdk.contentalliance.trends.view.b bVar) {
-        this.f8884a.setItemAnimator(null);
-        this.f8884a.setLayoutManager(b());
-        this.f8885b = b(bVar);
-        this.f8884a.setAdapter(this.f8885b);
+        this.f5920a.setItemAnimator(null);
+        this.f5920a.setLayoutManager(b());
+        this.b = b(bVar);
+        this.f5920a.setAdapter(this.b);
     }
 
     @NonNull

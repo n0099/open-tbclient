@@ -31,30 +31,26 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5104a = "d";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f5105b = "file:///android_asset/";
+    public static final String f3446a = "d";
+    private static final String b = "file:///android_asset/";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class a extends WebViewClient {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ WebView f5106a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ String f5107b;
+        final /* synthetic */ WebView f3447a;
+        final /* synthetic */ String b;
         final /* synthetic */ com.baidu.sapi2.callback.a.a c;
 
         /* renamed from: com.baidu.sapi2.utils.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes15.dex */
-        class C0331a implements ValueCallback<String> {
-            C0331a() {
+        /* loaded from: classes3.dex */
+        class C0337a implements ValueCallback<String> {
+            C0337a() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -62,13 +58,13 @@ public class d {
             /* renamed from: a */
             public void onReceiveValue(String str) {
                 a.this.c.a(str);
-                a.this.f5106a.destroy();
+                a.this.f3447a.destroy();
             }
         }
 
         a(WebView webView, String str, com.baidu.sapi2.callback.a.a aVar) {
-            this.f5106a = webView;
-            this.f5107b = str;
+            this.f3447a = webView;
+            this.b = str;
             this.c = aVar;
         }
 
@@ -76,19 +72,19 @@ public class d {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (Build.VERSION.SDK_INT >= 19) {
-                this.f5106a.evaluateJavascript(this.f5107b, new C0331a());
+                this.f3447a.evaluateJavascript(this.b, new C0337a());
                 return;
             }
             this.c.a(null);
-            this.f5106a.destroy();
+            this.f3447a.destroy();
         }
     }
 
     public static InputStream a(Context context, String str) {
         InputStream fileInputStream;
         try {
-            if (str.startsWith(f5105b)) {
-                fileInputStream = context.getAssets().open(str.replace(f5105b, ""));
+            if (str.startsWith(b)) {
+                fileInputStream = context.getAssets().open(str.replace(b, ""));
             } else {
                 fileInputStream = new FileInputStream(str);
             }
@@ -195,7 +191,7 @@ public class d {
                 str2 = "chmod " + b2.substring(0, 2) + "1 " + file;
             } else {
                 str = b2;
-                Log.e(f5104a, "chmodFile", "command", str3, "originPer", str);
+                Log.e(f3446a, "chmodFile", "command", str3, "originPer", str);
                 if (str3 == null) {
                     process2 = runtime.exec(str3);
                     try {
@@ -230,7 +226,7 @@ public class d {
             }
             str3 = str2;
             str = b2;
-            Log.e(f5104a, "chmodFile", "command", str3, "originPer", str);
+            Log.e(f3446a, "chmodFile", "command", str3, "originPer", str);
             if (str3 == null) {
             }
             if (process2 == null) {

@@ -9,41 +9,41 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.view.ALALevelView;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> hkO = new ArrayList<>();
-    private AlaPersonCenterExpActivity hkP;
+    private ArrayList<b> hmx = new ArrayList<>();
+    private AlaPersonCenterExpActivity hmy;
     private Context mContext;
     private int mSkinType;
 
     public a(AlaPersonCenterExpActivity alaPersonCenterExpActivity) {
-        this.hkP = alaPersonCenterExpActivity;
+        this.hmy = alaPersonCenterExpActivity;
         this.mContext = alaPersonCenterExpActivity.getPageContext().getPageActivity();
     }
 
-    public void uR(int i) {
+    public void uT(int i) {
         this.mSkinType = i;
     }
 
     public void Z(ArrayList<b> arrayList) {
-        this.hkO.clear();
-        this.hkO.addAll(arrayList);
+        this.hmx.clear();
+        this.hmx.addAll(arrayList);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hkO == null) {
+        if (this.hmx == null) {
             return 1;
         }
-        return this.hkO.size() + 1;
+        return this.hmx.size() + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.hkO.size())) {
+        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.hmx.size())) {
             return null;
         }
-        return this.hkO.get(i - 1);
+        return this.hmx.get(i - 1);
     }
 
     @Override // android.widget.Adapter
@@ -77,45 +77,45 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_exp_header, viewGroup, false);
         }
-        this.hkP.getLayoutMode().onModeChanged(view);
+        this.hmy.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     private View b(int i, View view, ViewGroup viewGroup) {
-        C0650a c0650a;
+        C0656a c0656a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.sdk_prc_person_center_exp_item, viewGroup, false);
-            C0650a c0650a2 = new C0650a(view);
-            view.setTag(c0650a2);
-            c0650a = c0650a2;
+            C0656a c0656a2 = new C0656a(view);
+            view.setTag(c0656a2);
+            c0656a = c0656a2;
         } else {
-            c0650a = (C0650a) view.getTag();
+            c0656a = (C0656a) view.getTag();
         }
         b bVar = (b) getItem(i);
         if (bVar != null) {
-            c0650a.bd(bVar.level, bVar.hkS);
+            c0656a.bd(bVar.level, bVar.hmB);
         }
-        this.hkP.getLayoutMode().onModeChanged(view);
+        this.hmy.getLayoutMode().onModeChanged(view);
         if (this.mSkinType == 1) {
-            c0650a.gPJ.b(a.c.sdk_cp_cont_g, 0.7f);
+            c0656a.gRs.b(a.c.sdk_cp_cont_g, 0.7f);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.live.personcenter.exp.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public class C0650a {
-        private ALALevelView gPJ;
-        private TextView hkQ;
+    /* loaded from: classes10.dex */
+    public class C0656a {
+        private ALALevelView gRs;
+        private TextView hmz;
 
-        public C0650a(View view) {
-            this.gPJ = (ALALevelView) view.findViewById(a.f.ala_person_center_exp_level);
-            this.hkQ = (TextView) view.findViewById(a.f.ala_person_center_exp_level_range);
+        public C0656a(View view) {
+            this.gRs = (ALALevelView) view.findViewById(a.f.ala_person_center_exp_level);
+            this.hmz = (TextView) view.findViewById(a.f.ala_person_center_exp_level_range);
         }
 
         public void bd(int i, String str) {
-            this.gPJ.setupLevelIcon(i);
-            this.hkQ.setText(str);
+            this.gRs.setupLevelIcon(i);
+            this.hmz.setText(str);
         }
     }
 

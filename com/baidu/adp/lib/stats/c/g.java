@@ -20,20 +20,20 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static volatile g Qc;
-    private i Qe;
-    private a Qf;
+    private static volatile g Rw;
+    private i Ry;
+    private a Rz;
     private com.baidu.adp.lib.stats.b mBdLogSetting;
     private com.baidu.adp.lib.stats.c mCommonData;
     private String uid;
-    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> Qd = new ConcurrentHashMap<>();
-    private final int Qg = 6;
+    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> Rx = new ConcurrentHashMap<>();
+    private final int RA = 6;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.c.g.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 6:
-                    for (Map.Entry entry : g.this.Qd.entrySet()) {
+                    for (Map.Entry entry : g.this.Rx.entrySet()) {
                         com.baidu.adp.lib.stats.base.a aVar = (com.baidu.adp.lib.stats.base.a) entry.getValue();
                         if (aVar.na() > 0) {
                             g.this.a(aVar, true, true);
@@ -48,7 +48,7 @@ public class g {
             }
         }
     };
-    private j Pq = new j() { // from class: com.baidu.adp.lib.stats.c.g.5
+    private j QR = new j() { // from class: com.baidu.adp.lib.stats.c.g.5
         @Override // com.baidu.adp.lib.stats.c.j
         public void o(com.baidu.adp.lib.stats.base.a aVar) {
             if (g.this.i(aVar)) {
@@ -64,22 +64,22 @@ public class g {
     };
 
     public static g nz() {
-        if (Qc == null) {
+        if (Rw == null) {
             synchronized (g.class) {
-                if (Qc == null) {
-                    Qc = new g();
+                if (Rw == null) {
+                    Rw = new g();
                 }
             }
         }
-        return Qc;
+        return Rw;
     }
 
     public void d(com.baidu.adp.lib.stats.c cVar) {
-        if (this.Qf == null) {
-            this.Qf = new a();
+        if (this.Rz == null) {
+            this.Rz = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(BdStatsConstant.BROADCAST_ACCOUNT_CHANGED);
-            BdBaseApplication.getInst().registerReceiver(this.Qf, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.Rz, intentFilter);
         }
         this.mBdLogSetting = BdStatisticsManager.getInstance().getBdLogSetting();
         this.mCommonData = cVar;
@@ -100,35 +100,35 @@ public class g {
         }
     }
 
-    public synchronized com.baidu.adp.lib.stats.base.a cd(String str) {
-        String bY;
+    public synchronized com.baidu.adp.lib.stats.base.a ch(String str) {
+        String cc;
         com.baidu.adp.lib.stats.base.a aVar = null;
         synchronized (this) {
-            if (!TextUtils.isEmpty(str) && (aVar = this.Qd.get((bY = com.baidu.adp.lib.stats.base.a.bY(str)))) == null) {
-                if ("alert".equals(bY)) {
+            if (!TextUtils.isEmpty(str) && (aVar = this.Rx.get((cc = com.baidu.adp.lib.stats.base.a.cc(str)))) == null) {
+                if ("alert".equals(cc)) {
                     aVar = new com.baidu.adp.lib.stats.c.a(null);
-                } else if (BdStatsConstant.StatsType.ERROR.equals(bY)) {
-                    aVar = new c(this.Pq);
-                } else if ("dbg".equals(bY)) {
-                    aVar = new b(this.Pq);
-                } else if ("stat".equals(bY)) {
-                    aVar = new f(this.Pq);
-                } else if (BdStatsConstant.StatsType.PERFORMANCE.equals(bY)) {
-                    aVar = new e(this.Pq);
+                } else if (BdStatsConstant.StatsType.ERROR.equals(cc)) {
+                    aVar = new c(this.QR);
+                } else if ("dbg".equals(cc)) {
+                    aVar = new b(this.QR);
+                } else if ("stat".equals(cc)) {
+                    aVar = new f(this.QR);
+                } else if (BdStatsConstant.StatsType.PERFORMANCE.equals(cc)) {
+                    aVar = new e(this.QR);
                 } else {
-                    aVar = new c(this.Pq);
+                    aVar = new c(this.QR);
                 }
-                aVar.bX(bY);
-                this.Qd.put(bY, aVar);
+                aVar.cb(cc);
+                this.Rx.put(cc, aVar);
             }
         }
         return aVar;
     }
 
     public void a(String str, String str2, String str3, String str4, com.baidu.adp.lib.stats.a aVar, Object... objArr) {
-        com.baidu.adp.lib.stats.base.a cd;
+        com.baidu.adp.lib.stats.base.a ch;
         if (str != null || str2 != null) {
-            if ((aVar != null || (objArr != null && objArr.length != 0)) && (cd = cd(str)) != null && com.baidu.adp.lib.stats.switchs.a.ns().isWrite(str, str2)) {
+            if ((aVar != null || (objArr != null && objArr.length != 0)) && (ch = ch(str)) != null && com.baidu.adp.lib.stats.switchs.a.ns().isWrite(str, str2)) {
                 if (aVar == null) {
                     aVar = new com.baidu.adp.lib.stats.a(str);
                 }
@@ -158,14 +158,14 @@ public class g {
                         aVar.append(BdStatsConstant.StatsKey.IS_MAIN_PROC, "0");
                     }
                 }
-                if (com.baidu.adp.lib.stats.f.mN() && com.baidu.adp.lib.stats.f.a(cd)) {
+                if (com.baidu.adp.lib.stats.f.mN() && com.baidu.adp.lib.stats.f.a(ch)) {
                     aVar.a(this.mCommonData);
-                    cd.c(aVar);
+                    ch.c(aVar);
                 }
                 if (com.baidu.adp.lib.stats.switchs.a.ns().isUpload(str, str2)) {
-                    cd.a(aVar);
+                    ch.a(aVar);
                 } else {
-                    cd.b(aVar);
+                    ch.b(aVar);
                 }
             }
         }
@@ -216,7 +216,7 @@ public class g {
     }
 
     public void nA() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qd.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Rx.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             n(value);
             l(value);
@@ -224,7 +224,7 @@ public class g {
     }
 
     public void nB() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qd.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Rx.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             k(value);
             j(value);
@@ -232,7 +232,7 @@ public class g {
     }
 
     public void nC() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qd.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Rx.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             k(value);
             a(value, false, false);
@@ -240,15 +240,15 @@ public class g {
         }
     }
 
-    public void ce(String str) {
-        com.baidu.adp.lib.stats.base.a cd = nz().cd(str);
-        k(cd);
-        a(cd, false, true);
-        j(cd);
+    public void ci(String str) {
+        com.baidu.adp.lib.stats.base.a ch = nz().ch(str);
+        k(ch);
+        a(ch, false, true);
+        j(ch);
     }
 
     public void nD() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qd.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Rx.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             n(value);
             l(value);
@@ -303,15 +303,15 @@ public class g {
     }
 
     public void nF() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Qd.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Rx.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             if (this.mBdLogSetting != null) {
-                long bS = this.mBdLogSetting.bS(value.nf());
-                if (bS <= 0) {
-                    bS = System.currentTimeMillis();
-                    this.mBdLogSetting.c(value.nf(), bS);
+                long bW = this.mBdLogSetting.bW(value.nf());
+                if (bW <= 0) {
+                    bW = System.currentTimeMillis();
+                    this.mBdLogSetting.c(value.nf(), bW);
                 }
-                value.H(bS);
+                value.H(bW);
             }
             if (value != null) {
                 if (value.mS() > 0) {
@@ -398,9 +398,9 @@ public class g {
     }
 
     public void nG() {
-        if (this.Qe == null) {
-            this.Qe = new i();
+        if (this.Ry == null) {
+            this.Ry = new i();
         }
-        this.Qe.nG();
+        this.Ry.nG();
     }
 }

@@ -1,9 +1,11 @@
 package com.bumptech.glide.request;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface Request {
     void begin();
 
     void clear();
+
+    boolean isAnyResourceSet();
 
     boolean isCleared();
 
@@ -11,11 +13,7 @@ public interface Request {
 
     boolean isEquivalentTo(Request request);
 
-    boolean isFailed();
-
-    boolean isResourceSet();
-
     boolean isRunning();
 
-    void recycle();
+    void pause();
 }

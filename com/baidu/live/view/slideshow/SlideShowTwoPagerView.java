@@ -7,25 +7,25 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class SlideShowTwoPagerView extends ViewGroup {
-    private View bVc;
-    private View bVd;
-    private float bVe;
-    private int bVf;
-    private Scroller bVg;
-    private boolean bVh;
-    private boolean bVi;
-    private boolean bVj;
-    private int bVk;
-    protected boolean bVl;
-    private a bVm;
+    private View bWC;
+    private View bWD;
+    private float bWE;
+    private int bWF;
+    private Scroller bWG;
+    private boolean bWH;
+    private boolean bWI;
+    private boolean bWJ;
+    private int bWK;
+    protected boolean bWL;
+    private a bWM;
     private int maxHeight;
     private int maxWidth;
     private boolean scrolling;
     private float startX;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onPageSelected(int i);
     }
@@ -41,31 +41,31 @@ public class SlideShowTwoPagerView extends ViewGroup {
     }
 
     public void setOnPageChangeListener(a aVar) {
-        this.bVm = aVar;
+        this.bWM = aVar;
     }
 
     public void setChildView(View view, View view2) {
-        this.bVc = view;
-        this.bVd = view2;
-        this.bVk = 0;
+        this.bWC = view;
+        this.bWD = view2;
+        this.bWK = 0;
         removeAllViews();
         addView(view, 0);
     }
 
-    public void XU() {
-        if (!this.bVl && !this.scrolling && this.bVd != null) {
-            this.bVj = true;
+    public void XX() {
+        if (!this.bWL && !this.scrolling && this.bWD != null) {
+            this.bWJ = true;
             this.scrolling = true;
-            removeView(this.bVd);
-            this.bVf = 1;
-            addView(this.bVd, 0);
-            this.bVg.startScroll(0, 0, this.maxWidth, 0, 0);
+            removeView(this.bWD);
+            this.bWF = 1;
+            addView(this.bWD, 0);
+            this.bWG.startScroll(0, 0, this.maxWidth, 0, 0);
             invalidate();
         }
     }
 
     public void release() {
-        this.bVm = null;
+        this.bWM = null;
         removeAllViews();
     }
 
@@ -81,19 +81,19 @@ public class SlideShowTwoPagerView extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.bVh) {
+        if (this.bWH) {
             setScrollX(0);
-            this.bVh = false;
+            this.bWH = false;
         }
         int childCount = getChildCount();
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
-            if (childAt == this.bVc) {
+            if (childAt == this.bWC) {
                 childAt.layout(0, 0, this.maxWidth, this.maxHeight);
-            } else if (childAt == this.bVd) {
-                if (this.bVf > 0) {
+            } else if (childAt == this.bWD) {
+                if (this.bWF > 0) {
                     childAt.layout(this.maxWidth, 0, this.maxWidth * 2, this.maxHeight);
-                } else if (this.bVf < 0) {
+                } else if (this.bWF < 0) {
                     childAt.layout(-this.maxWidth, 0, 0, this.maxHeight);
                 } else {
                     removeView(childAt);
@@ -111,20 +111,20 @@ public class SlideShowTwoPagerView extends ViewGroup {
         if (motionEvent.getAction() == 0) {
             requestDisallowInterceptTouchEvent(true);
             setScrollX(0);
-            this.bVl = true;
+            this.bWL = true;
         }
         float x = motionEvent.getX();
-        float f = x - this.bVe;
+        float f = x - this.bWE;
         switch (motionEvent.getAction()) {
             case 0:
                 this.startX = motionEvent.getX();
-                this.bVe = motionEvent.getX();
+                this.bWE = motionEvent.getX();
                 break;
             case 1:
-                this.bVl = false;
+                this.bWL = false;
                 int i = -getScrollX();
                 if (Math.abs(getScrollX()) > this.maxWidth / 4) {
-                    this.bVi = true;
+                    this.bWI = true;
                     if (getScrollX() < 0) {
                         abs = -(this.maxWidth - Math.abs(getScrollX()));
                     } else {
@@ -132,9 +132,9 @@ public class SlideShowTwoPagerView extends ViewGroup {
                     }
                     i = abs;
                 } else {
-                    this.bVi = false;
+                    this.bWI = false;
                 }
-                this.bVg.startScroll(getScrollX(), 0, i, 0, 100);
+                this.bWG.startScroll(getScrollX(), 0, i, 0, 100);
                 this.scrolling = true;
                 invalidate();
                 break;
@@ -147,10 +147,10 @@ public class SlideShowTwoPagerView extends ViewGroup {
                     f = this.maxWidth + getScrollX();
                 }
                 scrollBy((int) (-f), 0);
-                this.bVe = x;
+                this.bWE = x;
                 break;
             case 3:
-                this.bVl = false;
+                this.bWL = false;
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -172,55 +172,55 @@ public class SlideShowTwoPagerView extends ViewGroup {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.bVd != null) {
+        if (this.bWD != null) {
             if (i > 0) {
-                if (this.bVf <= 0) {
-                    removeView(this.bVd);
-                    this.bVf = 1;
-                    addView(this.bVd, 0);
+                if (this.bWF <= 0) {
+                    removeView(this.bWD);
+                    this.bWF = 1;
+                    addView(this.bWD, 0);
                 }
             } else if (i < 0) {
-                if (this.bVf >= 0) {
-                    removeView(this.bVd);
-                    this.bVf = -1;
-                    addView(this.bVd, 0);
+                if (this.bWF >= 0) {
+                    removeView(this.bWD);
+                    this.bWF = -1;
+                    addView(this.bWD, 0);
                 }
             } else {
-                this.bVf = 0;
-                removeView(this.bVd);
+                this.bWF = 0;
+                removeView(this.bWD);
             }
         }
     }
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.bVg.computeScrollOffset()) {
+        if (this.bWG.computeScrollOffset()) {
             this.scrolling = true;
-            scrollTo(this.bVg.getCurrX(), this.bVg.getCurrY());
+            scrollTo(this.bWG.getCurrX(), this.bWG.getCurrY());
             invalidate();
         } else if (this.scrolling) {
-            if (this.bVj) {
-                this.bVi = true;
-                this.bVj = false;
+            if (this.bWJ) {
+                this.bWI = true;
+                this.bWJ = false;
             }
-            if (this.bVi) {
-                View view = this.bVc;
-                this.bVc = this.bVd;
-                this.bVd = view;
-                this.bVk = this.bVk == 0 ? 1 : 0;
+            if (this.bWI) {
+                View view = this.bWC;
+                this.bWC = this.bWD;
+                this.bWD = view;
+                this.bWK = this.bWK == 0 ? 1 : 0;
             }
-            this.bVi = false;
+            this.bWI = false;
             this.scrolling = false;
-            this.bVf = 0;
-            this.bVh = true;
-            removeView(this.bVd);
-            if (this.bVm != null) {
-                this.bVm.onPageSelected(this.bVk);
+            this.bWF = 0;
+            this.bWH = true;
+            removeView(this.bWD);
+            if (this.bWM != null) {
+                this.bWM.onPageSelected(this.bWK);
             }
         }
     }
 
     private void init() {
-        this.bVg = new Scroller(getContext());
+        this.bWG = new Scroller(getContext());
     }
 }

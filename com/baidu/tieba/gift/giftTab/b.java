@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private List<ai> aZE;
+    private List<ai> bbf;
     private Context mContext;
     private int mSelectedPosition = -1;
 
@@ -22,34 +22,34 @@ public class b extends BaseAdapter {
     }
 
     public void setGiftItems(List<ai> list) {
-        this.aZE = list;
+        this.bbf = list;
         notifyDataSetChanged();
     }
 
-    public void cQ(int i) {
+    public void cR(int i) {
         this.mSelectedPosition = i;
     }
 
-    public int FV() {
+    public int FY() {
         return this.mSelectedPosition;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aZE == null) {
+        if (this.bbf == null) {
             return 0;
         }
-        return this.aZE.size();
+        return this.bbf.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Bj */
+    /* renamed from: Bm */
     public ai getItem(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return this.aZE.get(i);
+        return this.bbf.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,50 +63,50 @@ public class b extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.gift_list_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.jUY = (TbImageView) view.findViewById(R.id.image);
-            aVar2.jUY.setDefaultBgResource(R.drawable.transparent_bg);
-            aVar2.jVj = (TbImageView) view.findViewById(R.id.mark_icon_iamge);
-            aVar2.jVj.setDefaultBgResource(R.drawable.transparent_bg);
-            aVar2.jVj.setDefaultResource(R.drawable.transparent_bg);
-            aVar2.jUZ = view.findViewById(R.id.mask);
-            aVar2.enq = (TextView) view.findViewById(R.id.name);
-            aVar2.jVa = (TextView) view.findViewById(R.id.price);
+            aVar2.jXa = (TbImageView) view.findViewById(R.id.image);
+            aVar2.jXa.setDefaultBgResource(R.drawable.transparent_bg);
+            aVar2.jXl = (TbImageView) view.findViewById(R.id.mark_icon_iamge);
+            aVar2.jXl.setDefaultBgResource(R.drawable.transparent_bg);
+            aVar2.jXl.setDefaultResource(R.drawable.transparent_bg);
+            aVar2.jXb = view.findViewById(R.id.mask);
+            aVar2.eoT = (TextView) view.findViewById(R.id.name);
+            aVar2.jXc = (TextView) view.findViewById(R.id.price);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        ap.setViewTextColor(aVar.enq, R.color.CAM_X0105, 1);
+        ap.setViewTextColor(aVar.eoT, R.color.CAM_X0105, 1);
         if (i == this.mSelectedPosition) {
-            ap.setBackgroundResource(aVar.jUZ, R.drawable.chx_box_gift_s);
+            ap.setBackgroundResource(aVar.jXb, R.drawable.chx_box_gift_s);
         } else {
-            aVar.jUZ.setBackgroundResource(R.color.common_color_10022);
+            aVar.jXb.setBackgroundResource(R.color.common_color_10022);
         }
         ai item = getItem(i);
         if (item != null) {
-            aVar.enq.setText(item.name);
-            aVar.jUY.startLoad(item.thumbnailUrl, 10, false);
-            aVar.jVj.startLoad(item.eNR, 10, false);
-            if (item.aHS == 5) {
-                aVar.jVa.setVisibility(8);
-            } else if (item.aHS == 3) {
-                aVar.jVa.setVisibility(0);
-                aVar.jVa.setText(g.m(item.eNS, false));
+            aVar.eoT.setText(item.name);
+            aVar.jXa.startLoad(item.thumbnailUrl, 10, false);
+            aVar.jXl.startLoad(item.ePs, 10, false);
+            if (item.aJs == 5) {
+                aVar.jXc.setVisibility(8);
+            } else if (item.aJs == 3) {
+                aVar.jXc.setVisibility(0);
+                aVar.jXc.setText(g.m(item.ePt, false));
             } else {
-                aVar.jVa.setVisibility(0);
-                aVar.jVa.setText(g.m(item.price, false));
+                aVar.jXc.setVisibility(0);
+                aVar.jXc.setText(g.m(item.price, false));
             }
         }
         return view;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class a {
-        public TextView enq;
-        public TbImageView jUY;
-        public View jUZ;
-        public TextView jVa;
-        public TbImageView jVj;
+        public TextView eoT;
+        public TbImageView jXa;
+        public View jXb;
+        public TextView jXc;
+        public TbImageView jXl;
 
         private a() {
         }

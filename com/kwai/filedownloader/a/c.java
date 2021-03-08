@@ -12,16 +12,14 @@ import java.util.Map;
 public class c implements com.kwai.filedownloader.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected URLConnection f10861a;
+    protected URLConnection f7170a;
 
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Proxy f10862a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private Integer f10863b;
+        private Proxy f7171a;
+        private Integer b;
         private Integer c;
     }
 
@@ -29,19 +27,19 @@ public class c implements com.kwai.filedownloader.a.b {
     public static class b implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final a f10864a;
+        private final a f7172a;
 
         public b() {
             this(null);
         }
 
         public b(a aVar) {
-            this.f10864a = aVar;
+            this.f7172a = aVar;
         }
 
         @Override // com.kwai.filedownloader.f.c.b
         public com.kwai.filedownloader.a.b a(String str) {
-            return new c(str, this.f10864a);
+            return new c(str, this.f7172a);
         }
     }
 
@@ -50,34 +48,34 @@ public class c implements com.kwai.filedownloader.a.b {
     }
 
     public c(URL url, a aVar) {
-        if (aVar == null || aVar.f10862a == null) {
-            this.f10861a = url.openConnection();
+        if (aVar == null || aVar.f7171a == null) {
+            this.f7170a = url.openConnection();
         } else {
-            this.f10861a = url.openConnection(aVar.f10862a);
+            this.f7170a = url.openConnection(aVar.f7171a);
         }
         if (aVar != null) {
-            if (aVar.f10863b != null) {
-                this.f10861a.setReadTimeout(aVar.f10863b.intValue());
+            if (aVar.b != null) {
+                this.f7170a.setReadTimeout(aVar.b.intValue());
             }
             if (aVar.c != null) {
-                this.f10861a.setConnectTimeout(aVar.c.intValue());
+                this.f7170a.setConnectTimeout(aVar.c.intValue());
             }
         }
     }
 
     @Override // com.kwai.filedownloader.a.b
     public InputStream a() {
-        return com.kwad.sdk.core.h.b.a().b(this.f10861a.getInputStream());
+        return com.kwad.sdk.core.h.b.a().b(this.f7170a.getInputStream());
     }
 
     @Override // com.kwai.filedownloader.a.b
     public String a(String str) {
-        return this.f10861a.getHeaderField(str);
+        return this.f7170a.getHeaderField(str);
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void a(String str, String str2) {
-        this.f10861a.addRequestProperty(str, str2);
+        this.f7170a.addRequestProperty(str, str2);
     }
 
     @Override // com.kwai.filedownloader.a.b
@@ -87,23 +85,23 @@ public class c implements com.kwai.filedownloader.a.b {
 
     @Override // com.kwai.filedownloader.a.b
     public Map<String, List<String>> b() {
-        return this.f10861a.getRequestProperties();
+        return this.f7170a.getRequestProperties();
     }
 
     @Override // com.kwai.filedownloader.a.b
     public Map<String, List<String>> c() {
-        return this.f10861a.getHeaderFields();
+        return this.f7170a.getHeaderFields();
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void d() {
-        this.f10861a.connect();
+        this.f7170a.connect();
     }
 
     @Override // com.kwai.filedownloader.a.b
     public int e() {
-        if (this.f10861a instanceof HttpURLConnection) {
-            return ((HttpURLConnection) this.f10861a).getResponseCode();
+        if (this.f7170a instanceof HttpURLConnection) {
+            return ((HttpURLConnection) this.f7170a).getResponseCode();
         }
         return 0;
     }

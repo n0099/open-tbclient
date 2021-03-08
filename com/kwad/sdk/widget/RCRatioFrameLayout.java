@@ -10,7 +10,7 @@ import com.kwad.sdk.feed.widget.base.RatioFrameLayout;
 public class RCRatioFrameLayout extends RatioFrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f10847a;
+    private d f7161a;
 
     public RCRatioFrameLayout(@NonNull Context context) {
         this(context, null);
@@ -22,32 +22,32 @@ public class RCRatioFrameLayout extends RatioFrameLayout {
 
     public RCRatioFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f10847a = new d();
-        this.f10847a.a(context, attributeSet);
+        this.f7161a = new d();
+        this.f7161a.a(context, attributeSet);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        this.f10847a.c(canvas);
+        this.f7161a.c(canvas);
         super.dispatchDraw(canvas);
-        this.f10847a.d(canvas);
+        this.f7161a.d(canvas);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        this.f10847a.a(canvas);
+        this.f7161a.a(canvas);
         super.draw(canvas);
-        this.f10847a.b(canvas);
+        this.f7161a.b(canvas);
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.f10847a.a(i, i2);
+        this.f7161a.a(i, i2);
     }
 
     public void setRadius(float f) {
-        this.f10847a.a(f);
+        this.f7161a.a(f);
         postInvalidate();
     }
 }

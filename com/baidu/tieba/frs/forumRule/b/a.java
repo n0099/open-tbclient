@@ -5,7 +5,7 @@ import com.baidu.adp.widget.ListView.n;
 import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes2.dex */
 public class a implements n {
-    public static BdUniqueId jvw = BdUniqueId.gen();
+    public static BdUniqueId jxf = BdUniqueId.gen();
     private String avatar;
     private String forum_name;
     private String name_show;
@@ -40,15 +40,15 @@ public class a implements n {
         this.avatar = str;
     }
 
-    public String cHe() {
+    public String cHk() {
         return this.publish_time;
     }
 
-    public String bnU() {
+    public String bnW() {
         return this.forum_name;
     }
 
-    public void Ai(String str) {
+    public void Ap(String str) {
         this.forum_name = str;
     }
 
@@ -62,6 +62,6 @@ public class a implements n {
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return jvw;
+        return jxf;
     }
 }

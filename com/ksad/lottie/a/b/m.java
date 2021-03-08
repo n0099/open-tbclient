@@ -24,10 +24,10 @@ public class m extends a<PointF, PointF> {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f7959a.size()) {
+            if (i2 >= this.f5322a.size()) {
                 return;
             }
-            this.f7959a.get(i2).a();
+            this.f5322a.get(i2).a();
             i = i2 + 1;
         }
     }

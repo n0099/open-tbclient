@@ -14,14 +14,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class l extends AsyncTask<String, Void, List<Bitmap>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13694a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private InsideNotificationItem f13695b;
+    private Context f8079a;
+    private InsideNotificationItem b;
     private long c;
     private boolean d;
     private int e = 0;
@@ -32,16 +30,16 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         List<Bitmap> list2 = list;
         super.onPostExecute(list2);
         p.c("ImageDownTask", "onPostExecute");
-        if (this.f13695b == null) {
+        if (this.b == null) {
             return;
         }
         w.b().a("com.vivo.push.notify_key", this.c);
-        NotifyAdapterUtil.pushNotification(this.f13694a, list2, this.f13695b, this.c, this.e);
+        NotifyAdapterUtil.pushNotification(this.f8079a, list2, this.b, this.c, this.e);
     }
 
     public l(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z) {
-        this.f13694a = context;
-        this.f13695b = insideNotificationItem;
+        this.f8079a = context;
+        this.b = insideNotificationItem;
         this.c = j;
         this.d = z;
     }
@@ -61,7 +59,7 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
         InputStream inputStream2;
         Bitmap bitmap;
         int i = 0;
-        this.e = ClientConfigManagerImpl.getInstance(this.f13694a).getNotifyStyle();
+        this.e = ClientConfigManagerImpl.getInstance(this.f8079a).getNotifyStyle();
         if (!this.d) {
             p.d("ImageDownTask", "bitmap is not display by forbid net");
             return null;

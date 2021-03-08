@@ -17,22 +17,22 @@ public abstract class a extends BaseCardInfo implements com.baidu.tbadk.a.a.i {
     private Map<BdUniqueId, com.baidu.tbadk.a.e> mABTestMap = new HashMap();
     public SparseArray<String> feedBackReasonMap = null;
 
-    public abstract cb bln();
+    public abstract cb blp();
 
-    public abstract av blp();
+    public abstract av blr();
 
-    public String blo() {
-        if (bln() == null) {
+    public String blq() {
+        if (blp() == null) {
             return null;
         }
-        return bln().blo();
+        return blp().blq();
     }
 
     public boolean isSelf() {
-        return com.baidu.tbadk.core.util.az.x(bln());
+        return com.baidu.tbadk.core.util.az.x(blp());
     }
 
-    public String blq() {
+    public String bls() {
         return null;
     }
 
@@ -43,55 +43,55 @@ public abstract class a extends BaseCardInfo implements com.baidu.tbadk.a.a.i {
         }
     }
 
-    public boolean blr() {
-        cb bln = bln();
-        if (bln == null) {
-            return false;
-        }
-        return bln.eTF || bln.eTH;
-    }
-
-    public boolean bls() {
-        cb bln = bln();
-        if (bln == null) {
-            return false;
-        }
-        return bln.eTF || bln.eTH || bln.eTE;
-    }
-
     public boolean blt() {
-        cb bln = bln();
-        if (bln == null) {
+        cb blp = blp();
+        if (blp == null) {
             return false;
         }
-        return bln.eTE || bln.eTF || bln.eTH || bln.eTG || bln.eTI;
+        return blp.eVg || blp.eVi;
     }
 
     public boolean blu() {
-        cb bln = bln();
-        if (bln == null) {
+        cb blp = blp();
+        if (blp == null) {
             return false;
         }
-        return bln.blu();
+        return blp.eVg || blp.eVi || blp.eVf;
     }
 
     public boolean blv() {
-        return false;
+        cb blp = blp();
+        if (blp == null) {
+            return false;
+        }
+        return blp.eVf || blp.eVg || blp.eVi || blp.eVh || blp.eVj;
     }
 
     public boolean blw() {
-        return true;
+        cb blp = blp();
+        if (blp == null) {
+            return false;
+        }
+        return blp.blw();
     }
 
     public boolean blx() {
-        cb bln = bln();
-        if (bln == null || bln.bnQ() == null || com.baidu.tbadk.core.util.az.x(bln)) {
+        return false;
+    }
+
+    public boolean bly() {
+        return true;
+    }
+
+    public boolean blz() {
+        cb blp = blp();
+        if (blp == null || blp.bnS() == null || com.baidu.tbadk.core.util.az.x(blp)) {
             return false;
         }
-        boolean z = bln.bpM() || bln.bmx() || bln.bmy();
-        if (bln.eTE && z) {
+        boolean z = blp.bpO() || blp.bmz() || blp.bmA();
+        if (blp.eVf && z) {
             return true;
         }
-        return bln.eTG && z && !bln.bnQ().hadConcerned();
+        return blp.eVh && z && !blp.bnS().hadConcerned();
     }
 }

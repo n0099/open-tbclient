@@ -18,7 +18,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
 @Keep
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DuXRSessionFace {
     private static final boolean DEBUG = false;
     private static final int FACE_INPUT_IMAGE_BGR = 0;
@@ -80,8 +80,8 @@ public class DuXRSessionFace {
             return;
         }
         this.mTextureId = i3;
-        if (com.baidu.smallgame.sdk.a.czS != null) {
-            com.baidu.smallgame.sdk.a.czS.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.arface.DuXRSessionFace.1
+        if (com.baidu.smallgame.sdk.a.cBs != null) {
+            com.baidu.smallgame.sdk.a.cBs.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener() { // from class: com.baidu.arface.DuXRSessionFace.1
                 @Override // com.baidu.smallgame.sdk.permission.PermissionListener
                 public void onPermissionResult(String str, int i4) {
                     if (i4 == 0) {
@@ -215,7 +215,7 @@ public class DuXRSessionFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);

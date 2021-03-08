@@ -12,16 +12,14 @@ import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.u;
 /* loaded from: classes6.dex */
 public class b implements com.bytedance.sdk.openadsdk.multipro.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Object f7343b = new Object();
+    private static final Object b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7344a;
+    private Context f4879a;
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f7344a = context;
+        this.f4879a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -43,14 +41,14 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     private Context c() {
-        return this.f7344a == null ? p.a() : this.f7344a;
+        return this.f4879a == null ? p.a() : this.f4879a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public Cursor a(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         Cursor cursor = null;
         u.b("DBMultiProviderImpl", "query: " + String.valueOf(uri));
-        synchronized (f7343b) {
+        synchronized (b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 4) {
@@ -68,7 +66,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public String a(@NonNull Uri uri) {
         u.b("DBMultiProviderImpl", "getType: " + String.valueOf(uri));
-        synchronized (f7343b) {
+        synchronized (b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 5) {
@@ -77,7 +75,10 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
                     String str3 = split[4];
                     if ("ttopensdk.db".equals(str)) {
                         if ("execSQL".equals(str3)) {
-                            f.a(c()).a().a(uri.getQueryParameter("sql"));
+                            String queryParameter = uri.getQueryParameter("sql");
+                            if (!TextUtils.isEmpty(queryParameter)) {
+                                f.a(c()).a().a(Uri.decode(queryParameter));
+                            }
                         } else if ("transactionBegin".equals(str3)) {
                             f.a(c()).a().a();
                         } else if ("transactionSetSuccess".equals(str3)) {
@@ -95,7 +96,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public Uri a(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         u.b("DBMultiProviderImpl", "insert: " + String.valueOf(uri));
-        synchronized (f7343b) {
+        synchronized (b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 4) {
@@ -114,7 +115,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public int a(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         int i = 0;
         u.b("DBMultiProviderImpl", "delete: " + String.valueOf(uri));
-        synchronized (f7343b) {
+        synchronized (b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 4) {
@@ -133,7 +134,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public int a(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         int i = 0;
         u.b("DBMultiProviderImpl", "update: " + String.valueOf(uri));
-        synchronized (f7343b) {
+        synchronized (b) {
             if (!b(uri)) {
                 String[] split = uri.getPath().split("/");
                 if (split != null && split.length >= 4) {

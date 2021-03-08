@@ -7,22 +7,20 @@ import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
 public class a extends com.baidu.platform.comapi.wnplatform.m.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4271a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private c f4272b = null;
+    private boolean f2954a = false;
+    private c b = null;
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         c();
         WNaviTTSPlayer.setTTSPlayerListener(null);
-        this.f4271a = false;
-        this.f4272b = null;
+        this.f2954a = false;
+        this.b = null;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public boolean ready() {
-        this.f4271a = false;
+        this.f2954a = false;
         if (com.baidu.platform.comapi.walknavi.b.a().J() != 4) {
             a();
             WNaviTTSPlayer.setTTSPlayerListener(new b(this));
@@ -33,10 +31,10 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str, int i) {
         com.baidu.platform.comapi.wnplatform.d.a.a("yang12", "playTTSText--->" + str + "type:" + i);
-        if (com.baidu.platform.comapi.walknavi.b.f4188a == com.baidu.platform.comapi.walknavi.b.a().r()) {
+        if (com.baidu.platform.comapi.walknavi.b.f2901a == com.baidu.platform.comapi.walknavi.b.a().r()) {
             return a(str, false);
         }
-        if (com.baidu.platform.comapi.walknavi.b.f4189b == com.baidu.platform.comapi.walknavi.b.a().r()) {
+        if (com.baidu.platform.comapi.walknavi.b.b == com.baidu.platform.comapi.walknavi.b.a().r()) {
             if (i == 1) {
                 i.a().b(com.baidu.platform.comapi.wnplatform.e.a.a().b());
                 return 1;
@@ -54,33 +52,33 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
 
     @Override // com.baidu.platform.comapi.wnplatform.m.a
     public void a(c cVar) {
-        this.f4272b = cVar;
-        this.f4271a = true;
+        this.b = cVar;
+        this.f2954a = true;
     }
 
     public void a() {
-        if (this.f4272b != null) {
-            this.f4272b.a();
+        if (this.b != null) {
+            this.b.a();
         }
     }
 
     public int b() {
-        if (this.f4272b != null) {
-            return this.f4272b.b();
+        if (this.b != null) {
+            return this.b.b();
         }
         return 0;
     }
 
     public int a(String str, boolean z) {
-        if (this.f4272b == null || this.f4271a) {
+        if (this.b == null || this.f2954a) {
             return 0;
         }
-        return this.f4272b.a(str, z);
+        return this.b.a(str, z);
     }
 
     public void c() {
-        if (this.f4272b != null) {
-            this.f4272b.c();
+        if (this.b != null) {
+            this.b.c();
         }
     }
 }

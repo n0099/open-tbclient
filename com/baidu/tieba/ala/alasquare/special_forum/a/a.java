@@ -4,12 +4,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabEmptyView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.e, ConcernTabEmptyView.ViewHolder> {
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.gCD);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.e.gEm);
         this.mPageContext = tbPageContext;
     }
 

@@ -7,14 +7,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a extends i implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f13369a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private FileWriter f13370b;
+    private b f7949a;
+    private FileWriter b;
     private File c;
     private char[] d;
     private volatile g e;
@@ -26,7 +24,7 @@ public class a extends i implements Handler.Callback {
     private Handler k;
 
     public a(b bVar) {
-        this(c.f13376b, true, h.f13384a, bVar);
+        this(c.b, true, h.f7957a, bVar);
     }
 
     public a(int i, boolean z, h hVar, b bVar) {
@@ -99,23 +97,23 @@ public class a extends i implements Handler.Callback {
 
     private Writer g() {
         File a2 = c().a();
-        if ((a2 != null && !a2.equals(this.c)) || (this.f13370b == null && a2 != null)) {
+        if ((a2 != null && !a2.equals(this.c)) || (this.b == null && a2 != null)) {
             this.c = a2;
             h();
             try {
-                this.f13370b = new FileWriter(this.c, true);
+                this.b = new FileWriter(this.c, true);
             } catch (IOException e) {
                 return null;
             }
         }
-        return this.f13370b;
+        return this.b;
     }
 
     private void h() {
         try {
-            if (this.f13370b != null) {
-                this.f13370b.flush();
-                this.f13370b.close();
+            if (this.b != null) {
+                this.b.flush();
+                this.b.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -135,10 +133,10 @@ public class a extends i implements Handler.Callback {
     }
 
     public b c() {
-        return this.f13369a;
+        return this.f7949a;
     }
 
     public void a(b bVar) {
-        this.f13369a = bVar;
+        this.f7949a = bVar;
     }
 }

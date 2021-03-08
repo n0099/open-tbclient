@@ -1,7 +1,7 @@
 package com.yy.mediaframework.filters;
 
 import com.yy.mediaframework.model.YYMediaSample;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFEmptyFilter extends AbstractYYMediaFilter {
     private VideoLiveFilterContext mFilterContext;
 

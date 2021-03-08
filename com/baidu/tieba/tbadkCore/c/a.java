@@ -42,47 +42,47 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static final String nyn = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS;
-    private static final String nyo = TbConfig.SERVER_ADDRESS + TbConfig.REPLY_THREAD_ADDRESS;
-    public static final String nyp = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
-    private f fGh;
+    private static final String nAs = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS;
+    private static final String nAt = TbConfig.SERVER_ADDRESS + TbConfig.REPLY_THREAD_ADDRESS;
+    public static final String nAu = TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_FOR_SHARE_ADDRESS;
+    private f fHG;
     private SpanGroupManager mSpanGroupManager;
-    private ErrorData nyq;
-    private AntiData nyr;
-    private com.baidu.tieba.tbadkCore.videoupload.a nys;
-    private InterfaceC0873a nyt;
-    private g nyu;
-    private String nyv;
+    private String nAA;
+    private ErrorData nAv;
+    private AntiData nAw;
+    private com.baidu.tieba.tbadkCore.videoupload.a nAx;
+    private InterfaceC0879a nAy;
+    private g nAz;
     private aa mNetwork = null;
     private boolean isCancelled = false;
 
     /* renamed from: com.baidu.tieba.tbadkCore.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0873a {
-        void JH(int i);
+    public interface InterfaceC0879a {
+        void JM(int i);
     }
 
     public a() {
-        this.nyq = null;
-        this.nyq = new ErrorData();
+        this.nAv = null;
+        this.nAv = new ErrorData();
     }
 
     public void a(g gVar) {
-        this.nyu = gVar;
+        this.nAz = gVar;
     }
 
-    public void a(InterfaceC0873a interfaceC0873a) {
-        this.nyt = interfaceC0873a;
+    public void a(InterfaceC0879a interfaceC0879a) {
+        this.nAy = interfaceC0879a;
     }
 
     public ImageUploadResult e(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.fGh == null) {
-            this.fGh = new f("HTTPWriteService.postImageData");
+        if (this.fHG == null) {
+            this.fHG = new f("HTTPWriteService.postImageData");
         }
-        return this.fGh.d(imageFileInfo, z);
+        return this.fHG.d(imageFileInfo, z);
     }
 
     public String a(final WriteData writeData, boolean z) {
@@ -96,14 +96,14 @@ public class a {
         }
         b.d("发帖：postWriteData 开始");
         this.mNetwork = new aa();
-        this.mNetwork.bsr().bta().mIsNeedTbs = true;
+        this.mNetwork.bsu().btd().mIsNeedTbs = true;
         this.mNetwork.jL(true);
         this.mNetwork.addPostData("authsid", writeData.getAuthSid());
-        if (!TextUtils.isEmpty(this.nyv)) {
-            content = this.nyv;
+        if (!TextUtils.isEmpty(this.nAA)) {
+            content = this.nAA;
             writeData.setSpanGroupString(content);
         } else if (this.mSpanGroupManager != null) {
-            content = this.mSpanGroupManager.bvc();
+            content = this.mSpanGroupManager.bvf();
             writeData.setSpanGroupString(content);
         } else if (!TextUtils.isEmpty(writeData.getSpanGroupString())) {
             content = writeData.getSpanGroupString();
@@ -125,7 +125,7 @@ public class a {
             }
             this.mNetwork.addPostData("newVcode", "1");
             this.mNetwork.addPostData("content", str3);
-            this.mNetwork.setUrl(nyp);
+            this.mNetwork.setUrl(nAu);
             this.mNetwork.addPostData("fname", writeData.getForumName());
             if (!TextUtils.isEmpty(writeData.getTitle())) {
                 this.mNetwork.addPostData("title", writeData.getTitle());
@@ -148,9 +148,9 @@ public class a {
             b.d("发帖：开始分段数据发送");
             if (z && writeData.isHasImages()) {
                 b.d("发帖：发送图片 开始");
-                if (this.fGh == null) {
-                    this.fGh = new f("HTTPWriteService.postWriteData");
-                    this.fGh.a(new f.b() { // from class: com.baidu.tieba.tbadkCore.c.a.1
+                if (this.fHG == null) {
+                    this.fHG = new f("HTTPWriteService.postWriteData");
+                    this.fHG.a(new f.b() { // from class: com.baidu.tieba.tbadkCore.c.a.1
                         @Override // com.baidu.tbadk.img.f.b
                         public void a(String str4, Object obj, long j, long j2, int i, int i2) {
                             b.d("发帖：发送图片 进度 = " + i + "/" + i2 + " :" + j + "/" + j2 + "   ，" + str4);
@@ -165,20 +165,20 @@ public class a {
                 }
                 if (writeData.getType() == 6) {
                     b.d("发帖：发送图片 上传图片 开始 1");
-                    if (this.fGh.b(writeData.getWriteImagesInfo(), true) != null) {
-                        this.nyq.setError_code(-53);
-                        this.nyq.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
+                    if (this.fHG.b(writeData.getWriteImagesInfo(), true) != null) {
+                        this.nAv.setError_code(-53);
+                        this.nAv.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
                         b.d("发帖：发送图片 上传图片 错误 1");
                         return null;
                     }
                     b.d("发帖：发送图片 上传图片 完成 1");
                 } else {
                     b.d("发帖：发送图片 上传图片 开始 2");
-                    this.fGh.fGH = writeData.isBJHPost();
-                    ErrorData b2 = this.fGh.b(writeData.getWriteImagesInfo(), true);
-                    if (b2 != null) {
-                        this.nyq.setError_code(-53);
-                        this.nyq.setError_msg(b2.getError_msg());
+                    this.fHG.fIg = writeData.isBJHPost();
+                    ErrorData b = this.fHG.b(writeData.getWriteImagesInfo(), true);
+                    if (b != null) {
+                        this.nAv.setError_code(-53);
+                        this.nAv.setError_msg(b.getError_msg());
                         b.d("发帖：发送图片 上传图片 错误 2");
                         return null;
                     }
@@ -203,21 +203,21 @@ public class a {
                 com.baidu.tbadk.core.voice.service.b bVar = new com.baidu.tbadk.core.voice.service.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
                 bVar.addPostParam("type", 1);
                 String storeFile = o.getStoreFile(voice, 1);
-                q BP = bVar.BP(storeFile);
-                if (BP != null && BP.isSuccess()) {
-                    p bwr = BP.bwr();
-                    if (bwr != null) {
-                        str4 = bwr.getMd5();
+                q BW = bVar.BW(storeFile);
+                if (BW != null && BW.isSuccess()) {
+                    p bwu = BW.bwu();
+                    if (bwu != null) {
+                        str4 = bwu.getMd5();
                         com.baidu.tbadk.core.voice.a.b.renameFile(writeData.getVoice(), str4);
                         writeData.setReturnVoiceMd5(str4);
                         b.d("发帖：发送声音 完成 1");
                     } else {
                         n nVar = new n();
-                        nVar.append("ErrCode", Integer.valueOf(BP.getErrorCode()));
-                        nVar.append("ErrMsg", BP.getErrorString());
+                        nVar.append("ErrCode", Integer.valueOf(BW.getErrorCode()));
+                        nVar.append("ErrMsg", BW.getErrorString());
                         TiebaStatic.voiceError(-1113, "audioUploadData is null", nVar.toString());
-                        this.nyq.setError_code(BP.getErrorCode());
-                        this.nyq.setError_msg(BP.getErrorString());
+                        this.nAv.setError_code(BW.getErrorCode());
+                        this.nAv.setError_msg(BW.getErrorString());
                         b.d("发帖：发送声音 失败 1");
                         return null;
                     }
@@ -225,9 +225,9 @@ public class a {
                     n nVar2 = new n();
                     nVar2.append("audioFile", storeFile);
                     TiebaStatic.voiceError(-1113, "uploadService.upload null or fail", nVar2.toString());
-                    if (BP != null) {
-                        this.nyq.setError_code(BP.getErrorCode());
-                        this.nyq.setError_msg(BP.getErrorString());
+                    if (BW != null) {
+                        this.nAv.setError_code(BW.getErrorCode());
+                        this.nAv.setError_msg(BW.getErrorString());
                     }
                     b.d("发帖：发送声音 失败 2");
                     return null;
@@ -239,25 +239,25 @@ public class a {
             VideoInfo videoInfo = writeData.getVideoInfo();
             if (videoInfo != null) {
                 if (videoInfo.needUploadVideo()) {
-                    this.nys = new com.baidu.tieba.tbadkCore.videoupload.a(this.nyu);
+                    this.nAx = new com.baidu.tieba.tbadkCore.videoupload.a(this.nAz);
                     b.d("发帖：开始上传视频");
-                    VideoFinishResult a2 = this.nys.a(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new e() { // from class: com.baidu.tieba.tbadkCore.c.a.2
-                        int nyx = 0;
+                    VideoFinishResult a2 = this.nAx.a(writeData.getForumId(), videoInfo.getVideoPath(), videoInfo.getVideoDuration(), new e() { // from class: com.baidu.tieba.tbadkCore.c.a.2
+                        int nAC = 0;
 
                         @Override // com.baidu.tieba.tbadkCore.videoupload.a.e
-                        public void ba(float f) {
+                        public void be(float f) {
                             b.d("发帖：开始上传视频 percent = " + f);
                             int i = (int) (90.0f * f);
                             bi.a(writeData, i).ju(true);
-                            if (i != this.nyx) {
-                                this.nyx = i;
-                                a.this.JG(i);
+                            if (i != this.nAC) {
+                                this.nAC = i;
+                                a.this.JL(i);
                             }
                         }
                     });
                     if (a2 == null) {
-                        this.nyq.setError_code(-53);
-                        this.nyq.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
+                        this.nAv.setError_code(-53);
+                        this.nAv.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
                         b.d("发帖：开始上传视频 失败 1");
                         return null;
                     } else if (a2.isSuccess()) {
@@ -265,22 +265,22 @@ public class a {
                         videoInfo.setVideoUrl(a2.getVideoUrl());
                         b.d("发帖：开始上传视频 成功 ");
                     } else {
-                        this.nyq.setError_code(a2.getErrorNo());
-                        this.nyq.setError_msg(a2.getUserMessage());
+                        this.nAv.setError_code(a2.getErrorNo());
+                        this.nAv.setError_msg(a2.getUserMessage());
                         b.d("发帖：开始上传视频 失败 2");
                         return null;
                     }
                 }
                 if (videoInfo.needUploadThunmb()) {
                     b.d("发帖：开始上传首帧图 开始 ");
-                    if (this.fGh == null) {
-                        this.fGh = new f("HTTPWriteService.postWriteData");
+                    if (this.fHG == null) {
+                        this.fHG = new f("HTTPWriteService.postWriteData");
                     }
-                    ImageUploadResult ax = this.fGh.ax(videoInfo.getThumbPath(), false);
+                    ImageUploadResult ax = this.fHG.ax(videoInfo.getThumbPath(), false);
                     if (ax != null) {
                         videoInfo.setThumbId(ax.picId);
                         if (ax.picInfo != null && ax.picInfo.bigPic != null && !StringUtils.isNull(ax.picInfo.bigPic.picUrl)) {
-                            com.baidu.tieba.tbadkCore.writeModel.a.dPc().TT(ax.picInfo.bigPic.picUrl);
+                            com.baidu.tieba.tbadkCore.writeModel.a.dPl().Ua(ax.picInfo.bigPic.picUrl);
                         }
                     }
                     b.d("发帖：开始上传首帧图 完成 ");
@@ -337,13 +337,13 @@ public class a {
             String imagesCodeForPost = writeData.getImagesCodeForPost();
             if (writeData.getType() != 6) {
                 if (writeData.getType() == 7 && TextUtils.isEmpty(writeData.getTitle()) && TextUtils.isEmpty(str4) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(str3) && writeData.getVideoInfo() == null) {
-                    this.nyq.setError_code(-53);
-                    this.nyq.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
+                    this.nAv.setError_code(-53);
+                    this.nAv.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
                     return null;
                 }
                 if ((!(writeData.getType() == 0 || writeData.getType() == 9) || TextUtils.isEmpty(writeData.getTitle())) && TextUtils.isEmpty(str4) && TextUtils.isEmpty(imagesCodeForPost) && TextUtils.isEmpty(str3) && writeData.getVideoInfo() == null && writeData.getType() != 7 && !writeData.isLinkThread() && writeData.getWriteVoteData() == null) {
-                    this.nyq.setError_code(-53);
-                    this.nyq.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
+                    this.nAv.setError_code(-53);
+                    this.nAv.setError_msg(TbadkCoreApplication.getInst().getString(R.string.sand_fail));
                     return null;
                 }
             }
@@ -379,12 +379,12 @@ public class a {
             if (!StringUtils.isNull(voteContentForPost)) {
                 str = str + voteContentForPost;
             }
-            k.AO(str);
-            String Js = com.baidu.tieba.face.a.Js(str);
+            k.AV(str);
+            String JB = com.baidu.tieba.face.a.JB(str);
             if (!TextUtils.isEmpty(str9)) {
-                str9 = com.baidu.tieba.face.a.Js(str9);
+                str9 = com.baidu.tieba.face.a.JB(str9);
             }
-            this.mNetwork.addPostData("content", Js);
+            this.mNetwork.addPostData("content", JB);
             this.mNetwork.addPostData("reply_uid", writeData.getReplyId());
             if (!TextUtils.isEmpty(writeData.getMemeText())) {
                 this.mNetwork.addPostData("meme_text", writeData.getMemeText());
@@ -403,7 +403,7 @@ public class a {
                 case 0:
                 case 7:
                 case 9:
-                    this.mNetwork.setUrl(nyn);
+                    this.mNetwork.setUrl(nAs);
                     if (writeData.isCanNoForum()) {
                         this.mNetwork.addPostData("fid", "0");
                         this.mNetwork.addPostData("kw", "");
@@ -487,7 +487,7 @@ public class a {
                     str2 = imagesCodeForPost;
                     break;
                 case 1:
-                    this.mNetwork.setUrl(nyo);
+                    this.mNetwork.setUrl(nAt);
                     this.mNetwork.addPostData("fid", writeData.getForumId());
                     this.mNetwork.addPostData("from_fourm_id", writeData.getFromForumId());
                     this.mNetwork.addPostData("v_fid", writeData.getVForumId());
@@ -500,7 +500,7 @@ public class a {
                     if (writeData.isFrsReply()) {
                         this.mNetwork.addPostData("st_param", "frs");
                     }
-                    if (com.baidu.tbadk.editortools.pb.a.bBK().getStatus() == 1) {
+                    if (com.baidu.tbadk.editortools.pb.a.bBN().getStatus() == 1) {
                         this.mNetwork.addPostData("ptype", "4");
                     }
                     if (!StringUtils.isNull(writeData.sourceFrom)) {
@@ -516,7 +516,7 @@ public class a {
                     str2 = imagesCodeForPost;
                     break;
                 case 2:
-                    this.mNetwork.setUrl(nyo);
+                    this.mNetwork.setUrl(nAt);
                     this.mNetwork.addPostData("fid", writeData.getForumId());
                     this.mNetwork.addPostData("from_fourm_id", writeData.getFromForumId());
                     this.mNetwork.addPostData("v_fid", writeData.getVForumId());
@@ -565,7 +565,7 @@ public class a {
                         break;
                     }
                 case 4:
-                    this.mNetwork.setUrl(nyn);
+                    this.mNetwork.setUrl(nAs);
                     this.mNetwork.addPostData("fid", writeData.getForumId());
                     this.mNetwork.addPostData("kw", writeData.getForumName());
                     if (!TextUtils.isEmpty(writeData.getTitle())) {
@@ -579,7 +579,7 @@ public class a {
                     str2 = imagesCodeForPost;
                     break;
                 case 5:
-                    this.mNetwork.setUrl(nyo);
+                    this.mNetwork.setUrl(nAt);
                     this.mNetwork.addPostData("fid", writeData.getForumId());
                     this.mNetwork.addPostData("tid", writeData.getThreadId());
                     this.mNetwork.addPostData("kw", writeData.getForumName());
@@ -594,7 +594,7 @@ public class a {
                     str2 = imagesCodeForPost;
                     break;
                 case 6:
-                    this.mNetwork.setUrl(nyn);
+                    this.mNetwork.setUrl(nAs);
                     this.mNetwork.addPostData("fid", writeData.getForumId());
                     this.mNetwork.addPostData("kw", writeData.getForumName());
                     this.mNetwork.addPostData("thread_type", String.valueOf(36));
@@ -627,35 +627,35 @@ public class a {
         String postNetData = this.mNetwork.postNetData();
         b.d("发帖：其他数据设置开始 结束 进度到 95");
         bi.a(writeData, 95).ju(true);
-        JG(95);
-        if (this.mNetwork.bsr().btb().isRequestSuccess()) {
-            this.nyq.parserJson(postNetData);
+        JL(95);
+        if (this.mNetwork.bsu().bte().isRequestSuccess()) {
+            this.nAv.parserJson(postNetData);
         } else {
-            this.nyq.setError_code(this.mNetwork.isNetSuccess() ? this.mNetwork.getServerErrorCode() : this.mNetwork.getNetErrorCode());
-            this.nyq.setError_msg(this.mNetwork.getErrorString());
+            this.nAv.setError_code(this.mNetwork.isNetSuccess() ? this.mNetwork.getServerErrorCode() : this.mNetwork.getNetErrorCode());
+            this.nAv.setError_msg(this.mNetwork.getErrorString());
         }
-        if (this.nyq.error_code != 0 && !j.isNetWorkAvailable()) {
-            this.nyq.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
-        } else if (this.nyq.error_code != 0 && writeData.isHasImages() && com.baidu.adp.lib.util.k.isEmpty(str3 + str2)) {
-            this.nyq.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.img_upload_error));
+        if (this.nAv.error_code != 0 && !j.isNetWorkAvailable()) {
+            this.nAv.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
+        } else if (this.nAv.error_code != 0 && writeData.isHasImages() && com.baidu.adp.lib.util.k.isEmpty(str3 + str2)) {
+            this.nAv.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.img_upload_error));
         }
         try {
-            this.nyr = new AntiData();
-            this.nyr.parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
+            this.nAw = new AntiData();
+            this.nAw.parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
         } catch (Exception e2) {
         }
-        if (this.nyr.getBlock_stat() == 0 && this.nyq.error_code == 0 && this.mNetwork.bsr() != null && this.mNetwork.bsr().bta() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO, this.mNetwork.bsr().bta().bte()));
+        if (this.nAw.getBlock_stat() == 0 && this.nAv.error_code == 0 && this.mNetwork.bsu() != null && this.mNetwork.bsu().btd() != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FORCE_UPDATE_PREPARE_LOCATION_INFO, this.mNetwork.bsu().btd().bth()));
         }
-        JG(100);
+        JL(100);
         b.d("发帖：处理整个 发帖过程 结束数据 完成 进度到 100");
         return postNetData;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void JG(int i) {
-        if (this.nyt != null) {
-            this.nyt.JH(i);
+    public void JL(int i) {
+        if (this.nAy != null) {
+            this.nAy.JM(i);
         }
     }
 
@@ -663,7 +663,7 @@ public class a {
         if (this.mNetwork == null) {
             return false;
         }
-        return this.mNetwork.bsr().btb().isRequestSuccess();
+        return this.mNetwork.bsu().bte().isRequestSuccess();
     }
 
     public void cancel() {
@@ -671,27 +671,27 @@ public class a {
         if (this.mNetwork != null) {
             this.mNetwork.cancelNetConnect();
         }
-        if (this.fGh != null) {
-            this.fGh.cancel();
+        if (this.fHG != null) {
+            this.fHG.cancel();
         }
-        if (this.nys != null) {
-            this.nys.cancelUpload();
+        if (this.nAx != null) {
+            this.nAx.cancelUpload();
         }
     }
 
-    public AntiData dNU() {
-        return this.nyr;
+    public AntiData dOd() {
+        return this.nAw;
     }
 
-    public ErrorData dNV() {
-        return this.nyq;
+    public ErrorData dOe() {
+        return this.nAv;
     }
 
     public void setSpanGroupManager(SpanGroupManager spanGroupManager) {
         this.mSpanGroupManager = spanGroupManager;
     }
 
-    public void Ts(String str) {
-        this.nyv = str;
+    public void Tz(String str) {
+        this.nAA = str;
     }
 }

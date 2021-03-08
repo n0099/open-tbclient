@@ -1,7 +1,7 @@
 package com.qq.e.comm.pi;
 
 import android.app.Activity;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public interface RVADI2 {
     void destroy();
 

@@ -6,18 +6,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class f {
-    private final SharedPreferences gbO = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
+    private final SharedPreferences gdp = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
 
     public boolean fg(String str, String str2) {
         if (ee(str, str2)) {
-            return this.gbO.getBoolean(str + '_' + str2 + "_show", false);
+            return this.gdp.getBoolean(str + '_' + str2 + "_show", false);
         }
         return false;
     }
 
     public long fh(String str, String str2) {
         if (ee(str, str2)) {
-            return this.gbO.getLong(str + '_' + str2 + "_show_time", 0L);
+            return this.gdp.getLong(str + '_' + str2 + "_show_time", 0L);
         }
         return 0L;
     }
@@ -26,8 +26,8 @@ public class f {
         if (ee(str, str2)) {
             String str3 = str + '_' + str2 + "_show_time";
             String str4 = str + '_' + str2 + "_show_cnt";
-            int i = this.gbO.getInt(str4, 0);
-            SharedPreferences.Editor edit = this.gbO.edit();
+            int i = this.gdp.getInt(str4, 0);
+            SharedPreferences.Editor edit = this.gdp.edit();
             if (i > 3) {
                 edit.putInt(str4, i + 1);
             }
@@ -41,14 +41,14 @@ public class f {
 
     public int fi(String str, String str2) {
         if (ee(str, str2)) {
-            return this.gbO.getInt(str + '_' + str2 + "_show_cnt", 0);
+            return this.gdp.getInt(str + '_' + str2 + "_show_cnt", 0);
         }
         return 0;
     }
 
     public void k(String str, String str2, long j) {
         if (ee(str, str2)) {
-            SharedPreferences.Editor edit = this.gbO.edit();
+            SharedPreferences.Editor edit = this.gdp.edit();
             edit.putLong(str + '_' + str2 + "_visit_time", j);
             edit.apply();
         }
@@ -56,7 +56,7 @@ public class f {
 
     public long fj(String str, String str2) {
         if (ee(str, str2)) {
-            return this.gbO.getLong(str + '_' + str2 + "_visit_time", 0L);
+            return this.gdp.getLong(str + '_' + str2 + "_visit_time", 0L);
         }
         return 0L;
     }
@@ -64,8 +64,8 @@ public class f {
     public void fk(String str, String str2) {
         if (ee(str, str2)) {
             String str3 = str + '_' + str2;
-            Set<String> keySet = this.gbO.getAll().keySet();
-            SharedPreferences.Editor edit = this.gbO.edit();
+            Set<String> keySet = this.gdp.getAll().keySet();
+            SharedPreferences.Editor edit = this.gdp.edit();
             for (String str4 : keySet) {
                 if (str4.startsWith(str3)) {
                     edit.remove(str4);

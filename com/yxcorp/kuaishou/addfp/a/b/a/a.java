@@ -7,18 +7,16 @@ import android.os.IInterface;
 public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.yxcorp.kuaishou.addfp.a.a.a f14341a;
+    private com.yxcorp.kuaishou.addfp.a.a.a f8596a;
     private e f;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f14342b = "";
+    private String b = "";
     private String c = "";
     private String d = "";
     private String e = "";
     private boolean g = false;
 
     public a(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f14341a = aVar;
+        this.f8596a = aVar;
         this.f = new e(context);
     }
 
@@ -26,9 +24,9 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final void a(IInterface iInterface) {
         b bVar = (b) iInterface;
         try {
-            this.f14342b = bVar.b();
-            if (this.f14342b == null) {
-                this.f14342b = "";
+            this.b = bVar.b();
+            if (this.b == null) {
+                this.b = "";
             }
         } catch (Throwable th) {
         }
@@ -60,8 +58,8 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         if (this.f != null) {
             this.f.a();
         }
-        if (this.f14341a != null) {
-            this.f14341a.a(this.g, this);
+        if (this.f8596a != null) {
+            this.f8596a.a(this.g, this);
         }
     }
 
@@ -99,8 +97,8 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f14341a != null) {
-            this.f14341a.a(false, this);
+        if (this.f8596a != null) {
+            this.f8596a.a(false, this);
         }
     }
 }

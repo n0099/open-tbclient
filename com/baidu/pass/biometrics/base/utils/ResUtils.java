@@ -5,19 +5,19 @@ import android.content.Context;
 public final class ResUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f3983a;
+    private static Context f2765a;
 
     private ResUtils() {
     }
 
     public static String getString(int i) {
-        Context context = f3983a;
+        Context context = f2765a;
         return context != null ? context.getString(i) : "";
     }
 
     public static void setApplicationContext(Context context) {
         if (context != null) {
-            f3983a = context.getApplicationContext();
+            f2765a = context.getApplicationContext();
         }
     }
 }

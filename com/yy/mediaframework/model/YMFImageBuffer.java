@@ -3,7 +3,7 @@ package com.yy.mediaframework.model;
 import android.graphics.ImageFormat;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFImageBuffer {
     private static int mDirectoryBufferOffset;
     public int mBufSize;

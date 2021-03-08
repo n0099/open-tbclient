@@ -12,17 +12,15 @@ import java.util.WeakHashMap;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Set<com.kwad.sdk.glide.request.c> f9955a = Collections.newSetFromMap(new WeakHashMap());
-
-    /* renamed from: b  reason: collision with root package name */
-    private final List<com.kwad.sdk.glide.request.c> f9956b = new ArrayList();
+    private final Set<com.kwad.sdk.glide.request.c> f6590a = Collections.newSetFromMap(new WeakHashMap());
+    private final List<com.kwad.sdk.glide.request.c> b = new ArrayList();
     private boolean c;
 
     private boolean a(@Nullable com.kwad.sdk.glide.request.c cVar, boolean z) {
         boolean z2 = true;
         if (cVar != null) {
-            boolean remove = this.f9955a.remove(cVar);
-            if (!this.f9956b.remove(cVar) && !remove) {
+            boolean remove = this.f6590a.remove(cVar);
+            if (!this.b.remove(cVar) && !remove) {
                 z2 = false;
             }
             if (z2) {
@@ -37,16 +35,16 @@ public class m {
 
     public void a() {
         this.c = true;
-        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f9955a)) {
+        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f6590a)) {
             if (cVar.c()) {
                 cVar.b();
-                this.f9956b.add(cVar);
+                this.b.add(cVar);
             }
         }
     }
 
     public void a(@NonNull com.kwad.sdk.glide.request.c cVar) {
-        this.f9955a.add(cVar);
+        this.f6590a.add(cVar);
         if (!this.c) {
             cVar.a();
             return;
@@ -55,17 +53,17 @@ public class m {
         if (Log.isLoggable("RequestTracker", 2)) {
             Log.v("RequestTracker", "Paused, delaying request");
         }
-        this.f9956b.add(cVar);
+        this.b.add(cVar);
     }
 
     public void b() {
         this.c = false;
-        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f9955a)) {
+        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f6590a)) {
             if (!cVar.e_() && !cVar.c()) {
                 cVar.a();
             }
         }
-        this.f9956b.clear();
+        this.b.clear();
     }
 
     public boolean b(@Nullable com.kwad.sdk.glide.request.c cVar) {
@@ -73,18 +71,18 @@ public class m {
     }
 
     public void c() {
-        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f9955a)) {
+        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f6590a)) {
             a(cVar, false);
         }
-        this.f9956b.clear();
+        this.b.clear();
     }
 
     public void d() {
-        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f9955a)) {
+        for (com.kwad.sdk.glide.request.c cVar : com.kwad.sdk.glide.g.k.a(this.f6590a)) {
             if (!cVar.e_() && !cVar.f()) {
                 cVar.b();
                 if (this.c) {
-                    this.f9956b.add(cVar);
+                    this.b.add(cVar);
                 } else {
                     cVar.a();
                 }
@@ -93,6 +91,6 @@ public class m {
     }
 
     public String toString() {
-        return super.toString() + "{numRequests=" + this.f9955a.size() + ", isPaused=" + this.c + "}";
+        return super.toString() + "{numRequests=" + this.f6590a.size() + ", isPaused=" + this.c + "}";
     }
 }

@@ -4,38 +4,38 @@ import android.view.View;
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
-    private com.baidu.tieba.ala.guardclub.view.d gZg;
-    private e.a gZi = new e.a() { // from class: com.baidu.tieba.ala.guardclub.h.1
+    private com.baidu.tieba.ala.guardclub.view.d haP;
+    private e.a haR = new e.a() { // from class: com.baidu.tieba.ala.guardclub.h.1
     };
-    private BdUniqueId aCW = BdUniqueId.gen();
-    private com.baidu.tieba.ala.guardclub.model.e gZh = new com.baidu.tieba.ala.guardclub.model.e(this.aCW, this.gZi);
+    private BdUniqueId aEw = BdUniqueId.gen();
+    private com.baidu.tieba.ala.guardclub.model.e haQ = new com.baidu.tieba.ala.guardclub.model.e(this.aEw, this.haR);
 
     public h(BaseActivity baseActivity, String str, BdUniqueId bdUniqueId) {
-        this.gZg = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
-        this.gZg.setOtherParams(str);
-        this.gZh.a(this.gZg);
-        this.gZg.f(this.gZh);
+        this.haP = new com.baidu.tieba.ala.guardclub.view.d(baseActivity, bdUniqueId);
+        this.haP.setOtherParams(str);
+        this.haQ.a(this.haP);
+        this.haP.f(this.haQ);
     }
 
     public View getView() {
-        return this.gZg.getView();
+        return this.haP.getView();
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.gZg != null) {
-            this.gZg.notifyDataSetInvalidated();
+        if (this.haP != null) {
+            this.haP.notifyDataSetInvalidated();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void onPageDestroy() {
-        if (this.gZh != null) {
-            this.gZh.onDestory();
+        if (this.haQ != null) {
+            this.haQ.onDestory();
         }
-        if (this.gZg != null) {
-            this.gZg.bVJ();
+        if (this.haP != null) {
+            this.haP.bVP();
         }
     }
 }

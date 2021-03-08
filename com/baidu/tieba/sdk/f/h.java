@@ -7,12 +7,12 @@ import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import com.baidu.live.tbadk.scheme.ILiveScheme;
 import com.baidu.live.tbadk.scheme.SchemeCallback;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
         try {
-            com.baidu.tieba.sdk.a.dFx().bi(TbadkCoreApplication.getInst(), EncryptionHelper.getDecryptUserId(map.get(TbEnum.SystemMessage.KEY_USER_ID)));
+            com.baidu.tieba.sdk.a.dFF().bi(TbadkCoreApplication.getInst(), EncryptionHelper.getDecryptUserId(map.get(TbEnum.SystemMessage.KEY_USER_ID)));
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheFactory;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ExternalPreferredCacheDiskCacheFactory extends DiskLruCacheFactory {
     public ExternalPreferredCacheDiskCacheFactory(Context context) {
         this(context, DiskCache.Factory.DEFAULT_DISK_CACHE_DIR, 262144000L);

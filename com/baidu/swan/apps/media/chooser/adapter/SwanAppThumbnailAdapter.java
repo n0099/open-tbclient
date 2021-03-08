@@ -15,47 +15,47 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
-    private MediaModel dkP;
-    private int dkQ;
-    private ArrayList<MediaModel> dkh;
+    private ArrayList<MediaModel> dlI;
+    private MediaModel dmq;
+    private int dmr;
 
     public SwanAppThumbnailAdapter(Context context) {
-        this.dkQ = context.getResources().getDimensionPixelSize(a.d.swanapp_preview_thumbnail);
+        this.dmr = context.getResources().getDimensionPixelSize(a.d.swanapp_preview_thumbnail);
     }
 
-    public ArrayList<MediaModel> aBq() {
-        return this.dkh;
+    public ArrayList<MediaModel> aBt() {
+        return this.dlI;
     }
 
     public void n(ArrayList<MediaModel> arrayList) {
-        this.dkh = arrayList;
+        this.dlI = arrayList;
         if (arrayList != null && arrayList.size() == 1) {
-            this.dkP = arrayList.get(0);
+            this.dmq = arrayList.get(0);
         }
         notifyDataSetChanged();
     }
 
     public int b(MediaModel mediaModel) {
         int i;
-        if (this.dkh == null) {
+        if (this.dlI == null) {
             return 0;
         }
-        MediaModel mediaModel2 = this.dkP;
-        this.dkP = mediaModel;
+        MediaModel mediaModel2 = this.dmq;
+        this.dmq = mediaModel;
         int i2 = -1;
-        int size = this.dkh.size();
+        int size = this.dlI.size();
         int i3 = 0;
         int i4 = 0;
         while (i3 < size) {
-            if (mediaModel2 == null || !mediaModel2.equals(this.dkh.get(i3))) {
+            if (mediaModel2 == null || !mediaModel2.equals(this.dlI.get(i3))) {
                 i = i4;
             } else {
                 notifyItemChanged(i3);
                 i = i4 + 1;
             }
-            if (mediaModel != null && mediaModel.equals(this.dkh.get(i3))) {
+            if (mediaModel != null && mediaModel.equals(this.dlI.get(i3))) {
                 notifyItemChanged(i3);
                 i++;
                 i2 = i3;
@@ -70,11 +70,11 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         return i2;
     }
 
-    public MediaModel ib(int i) {
-        if (this.dkh == null || i < 0 || i >= this.dkh.size()) {
+    public MediaModel ic(int i) {
+        if (this.dlI == null || i < 0 || i >= this.dlI.size()) {
             return null;
         }
-        return this.dkh.get(i);
+        return this.dlI.get(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -88,38 +88,38 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        if (this.dkh != null) {
-            MediaModel mediaModel = this.dkh.get(i);
-            aVar.dkR.setImageURI(Uri.fromFile(new File(mediaModel.getPath())));
-            aVar.dkS.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
-            aVar.dkT.setVisibility(mediaModel.equals(this.dkP) ? 0 : 8);
+        if (this.dlI != null) {
+            MediaModel mediaModel = this.dlI.get(i);
+            aVar.dms.setImageURI(Uri.fromFile(new File(mediaModel.getPath())));
+            aVar.dmt.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
+            aVar.dmu.setVisibility(mediaModel.equals(this.dmq) ? 0 : 8);
             ImageRequestBuilder ag = ImageRequestBuilder.ag(Uri.fromFile(new File(mediaModel.getPath())));
-            ag.c(new d(this.dkQ, this.dkQ));
-            ag.By(true);
-            aVar.dkR.setController(c.etw().c(aVar.dkR.getController()).Bm(false).bo(ag.eAq()).eun());
+            ag.c(new d(this.dmr, this.dmr));
+            ag.Bw(true);
+            aVar.dms.setController(c.etF().c(aVar.dms.getController()).Bk(false).bq(ag.eAz()).euw());
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.dkh == null) {
+        if (this.dlI == null) {
             return 0;
         }
-        return this.dkh.size();
+        return this.dlI.size();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends RecyclerView.ViewHolder {
-        private SimpleDraweeView dkR;
-        private View dkS;
-        private View dkT;
+        private SimpleDraweeView dms;
+        private View dmt;
+        private View dmu;
 
         a(View view) {
             super(view);
-            this.dkR = (SimpleDraweeView) view.findViewById(a.f.drag_photo_view);
-            this.dkS = view.findViewById(a.f.album_thumbnail_video);
-            this.dkT = view.findViewById(a.f.album_thumbnail_selected);
+            this.dms = (SimpleDraweeView) view.findViewById(a.f.drag_photo_view);
+            this.dmt = view.findViewById(a.f.album_thumbnail_video);
+            this.dmu = view.findViewById(a.f.album_thumbnail_selected);
         }
     }
 }

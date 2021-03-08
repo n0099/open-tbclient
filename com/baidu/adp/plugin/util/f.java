@@ -3,54 +3,54 @@ package com.baidu.adp.plugin.util;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class f implements Comparable<f> {
-    int VH;
-    int VI;
-    int VJ;
-    int VK;
-    int VL;
-    int VM;
+    int Xc;
+    int Xe;
+    int Xf;
+    int Xg;
+    int Xh;
+    int Xi;
 
     public final void d(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.VH = i;
-        this.VI = i2;
-        this.VJ = i3;
-        this.VK = i4;
-        this.VL = i5;
-        this.VM = i6;
+        this.Xc = i;
+        this.Xe = i2;
+        this.Xf = i3;
+        this.Xg = i4;
+        this.Xh = i5;
+        this.Xi = i6;
     }
 
     public String toString() {
-        return this.VH + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.VI + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.VJ + " " + this.VK + ":" + this.VL + ":" + this.VM;
+        return this.Xc + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Xe + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Xf + " " + this.Xg + ":" + this.Xh + ":" + this.Xi;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(f fVar) {
-        if (this.VH - fVar.VH > 0) {
+        if (this.Xc - fVar.Xc > 0) {
             return 1;
         }
-        if (this.VH - fVar.VH < 0) {
+        if (this.Xc - fVar.Xc < 0) {
             return -1;
         }
-        if (this.VI - fVar.VI <= 0) {
-            if (this.VI - fVar.VI < 0) {
+        if (this.Xe - fVar.Xe <= 0) {
+            if (this.Xe - fVar.Xe < 0) {
                 return -1;
             }
-            if (this.VJ - fVar.VJ <= 0) {
-                if (this.VJ - fVar.VJ < 0) {
+            if (this.Xf - fVar.Xf <= 0) {
+                if (this.Xf - fVar.Xf < 0) {
                     return -1;
                 }
-                if (this.VK - fVar.VK <= 0) {
-                    if (this.VK - fVar.VK < 0) {
+                if (this.Xg - fVar.Xg <= 0) {
+                    if (this.Xg - fVar.Xg < 0) {
                         return -1;
                     }
-                    if (this.VL - fVar.VL <= 0) {
-                        if (this.VL - fVar.VL < 0) {
+                    if (this.Xh - fVar.Xh <= 0) {
+                        if (this.Xh - fVar.Xh < 0) {
                             return -1;
                         }
-                        if (this.VM - fVar.VM <= 0) {
-                            return this.VM - fVar.VM < 0 ? -1 : 0;
+                        if (this.Xi - fVar.Xi <= 0) {
+                            return this.Xi - fVar.Xi < 0 ? -1 : 0;
                         }
                         return 1;
                     }

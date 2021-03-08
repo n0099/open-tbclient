@@ -1,5 +1,5 @@
 package com.baidu.ala.recorder.video.gles;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface Renderer {
     void create();
 

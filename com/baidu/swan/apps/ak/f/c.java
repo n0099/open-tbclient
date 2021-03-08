@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.ak.f;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface c {
     @Nullable
-    b agb();
+    b age();
 }

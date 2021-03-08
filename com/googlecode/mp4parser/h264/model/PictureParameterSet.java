@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PictureParameterSet extends BitstreamElement {
     public int[] bottom_right;
     public int chroma_qp_index_offset;
@@ -33,7 +33,7 @@ public class PictureParameterSet extends BitstreamElement {
     public int weighted_bipred_idc;
     public boolean weighted_pred_flag;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PPSExt {
         public boolean[] pic_scaling_list_present_flag;
         public ScalingMatrix scalindMatrix = new ScalingMatrix();

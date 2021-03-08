@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.view.spanGroup.a;
 /* loaded from: classes.dex */
 public abstract class a<T extends a> {
-    private static int fnU = 1;
-    protected Editable fnV;
-    private InterfaceC0565a fnW;
+    private static int fpv = 1;
+    protected Editable fpw;
+    private InterfaceC0571a fpx;
     private int mEnd;
     private int mFontSize;
     private final int mId;
@@ -17,7 +17,7 @@ public abstract class a<T extends a> {
 
     /* renamed from: com.baidu.tbadk.core.view.spanGroup.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0565a {
+    public interface InterfaceC0571a {
         void G(int i, boolean z);
     }
 
@@ -26,13 +26,13 @@ public abstract class a<T extends a> {
     public abstract void b(Editable editable);
 
     public a() {
-        int i = fnU;
-        fnU = i + 1;
+        int i = fpv;
+        fpv = i + 1;
         this.mId = i;
     }
 
     public void a(Editable editable, int i, int i2, int i3) {
-        this.fnV = editable;
+        this.fpw = editable;
         this.mStart = i;
         this.mEnd = i2;
         this.mFontSize = i3;
@@ -49,24 +49,24 @@ public abstract class a<T extends a> {
     public void setValid(boolean z) {
         boolean z2 = this.mIsValid;
         this.mIsValid = z;
-        if (z2 != z && this.fnW != null) {
-            this.fnW.G(this.mId, z);
+        if (z2 != z && this.fpx != null) {
+            this.fpx.G(this.mId, z);
         }
     }
 
     public Editable getText() {
-        return this.fnV;
+        return this.fpw;
     }
 
     public void c(Editable editable) {
-        this.fnV = editable;
+        this.fpw = editable;
     }
 
     public int getStart() {
         return this.mStart;
     }
 
-    public void pW(int i) {
+    public void pX(int i) {
         this.mStart = i;
     }
 
@@ -74,7 +74,7 @@ public abstract class a<T extends a> {
         return this.mEnd;
     }
 
-    public void pX(int i) {
+    public void pY(int i) {
         this.mEnd = i;
     }
 
@@ -85,7 +85,7 @@ public abstract class a<T extends a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(T t) {
         this.mIsValid = t.isValid();
-        this.fnV = t.getText();
+        this.fpw = t.getText();
         this.mStart = t.getStart();
         this.mEnd = t.getEnd();
         this.mFontSize = t.getFontSize();
@@ -93,16 +93,16 @@ public abstract class a<T extends a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setSpan(Object obj, int i, int i2, int i3) {
-        if (this.fnV != null) {
-            this.fnV.setSpan(obj, i, i2, i3);
+        if (this.fpw != null) {
+            this.fpw.setSpan(obj, i, i2, i3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void n(@NonNull CharSequence charSequence) {
-        if (this.fnV != null && charSequence != null) {
+        if (this.fpw != null && charSequence != null) {
             try {
-                this.fnV.replace(this.mStart, this.mEnd, charSequence);
+                this.fpw.replace(this.mStart, this.mEnd, charSequence);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -110,7 +110,7 @@ public abstract class a<T extends a> {
         }
     }
 
-    public void a(InterfaceC0565a interfaceC0565a) {
-        this.fnW = interfaceC0565a;
+    public void a(InterfaceC0571a interfaceC0571a) {
+        this.fpx = interfaceC0571a;
     }
 }

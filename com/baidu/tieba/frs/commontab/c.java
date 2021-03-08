@@ -27,19 +27,19 @@ import tbclient.App;
 public class c implements NetModel.b {
     private com.baidu.tieba.funad.a funAdController;
     private boolean isDynamic;
-    private d jpD;
-    private FrsCommonTabRequestData jpK;
-    private FrsCommonTabNetModel jpL;
-    private FrsDynamicRequestData jpM;
-    private FrsDynamicModel jpN;
-    private boolean jpO;
-    private String jpR;
-    private FrsCommonTabFragment jpe;
+    private FrsCommonTabFragment jqN;
+    private String jrA;
+    private d jrm;
+    private FrsCommonTabRequestData jrt;
+    private FrsCommonTabNetModel jru;
+    private FrsDynamicRequestData jrv;
+    private FrsDynamicModel jrw;
+    private boolean jrx;
     private int mErrorCode;
     private String mErrorString;
-    private HashSet<String> jpP = new HashSet<>();
+    private HashSet<String> jry = new HashSet<>();
     private int mPn = 1;
-    private long jpQ = -1;
+    private long jrz = -1;
 
     public void setFunAdController(com.baidu.tieba.funad.a aVar) {
         this.funAdController = aVar;
@@ -47,85 +47,85 @@ public class c implements NetModel.b {
 
     public c(FrsCommonTabFragment frsCommonTabFragment, int i, int i2, String str, int i3) {
         if (frsCommonTabFragment != null) {
-            this.jpe = frsCommonTabFragment;
-            this.jpR = "FRS_GENERAL_TAB" + i2;
+            this.jqN = frsCommonTabFragment;
+            this.jrA = "FRS_GENERAL_TAB" + i2;
             if (i2 == 89) {
                 this.isDynamic = true;
-                this.jpM = new FrsDynamicRequestData();
-                this.jpM.forumId = i;
-                this.jpM.scrH = l.getEquipmentHeight(TbadkCoreApplication.getInst());
-                this.jpM.scrW = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-                this.jpM.scrDip = l.getEquipmentDensity(TbadkCoreApplication.getInst());
-                this.jpN = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.jpM);
-                this.jpN.a(this);
-                this.jpN.setUniqueId(frsCommonTabFragment.getUniqueId());
+                this.jrv = new FrsDynamicRequestData();
+                this.jrv.forumId = i;
+                this.jrv.scrH = l.getEquipmentHeight(TbadkCoreApplication.getInst());
+                this.jrv.scrW = l.getEquipmentWidth(TbadkCoreApplication.getInst());
+                this.jrv.scrDip = l.getEquipmentDensity(TbadkCoreApplication.getInst());
+                this.jrw = new FrsDynamicModel(frsCommonTabFragment.getPageContext(), this.jrv);
+                this.jrw.a(this);
+                this.jrw.setUniqueId(frsCommonTabFragment.getUniqueId());
                 return;
             }
             this.isDynamic = false;
-            this.jpK = new FrsCommonTabRequestData();
-            this.jpK.fid = i;
-            this.jpK.tabId = i2;
-            this.jpK.isDefaultNavTab = zi(i2) ? 1 : 0;
-            this.jpK.tabName = str;
-            this.jpK.isGeneralTab = i3;
-            this.jpL = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.jpK);
-            this.jpL.a(this);
-            this.jpL.setUniqueId(frsCommonTabFragment.getUniqueId());
+            this.jrt = new FrsCommonTabRequestData();
+            this.jrt.fid = i;
+            this.jrt.tabId = i2;
+            this.jrt.isDefaultNavTab = zj(i2) ? 1 : 0;
+            this.jrt.tabName = str;
+            this.jrt.isGeneralTab = i3;
+            this.jru = new FrsCommonTabNetModel(frsCommonTabFragment.getPageContext(), this.jrt);
+            this.jru.a(this);
+            this.jru.setUniqueId(frsCommonTabFragment.getUniqueId());
         }
     }
 
     public void setTabType(int i) {
-        if (this.jpK != null) {
-            this.jpK.tabType = i;
+        if (this.jrt != null) {
+            this.jrt.tabType = i;
         }
     }
 
-    private boolean zi(int i) {
-        return (this.jpe == null || this.jpe.jpt == null || this.jpe.jpt.mHeadLineDefaultNavTabId != i) ? false : true;
-    }
-
-    public void zj(int i) {
-        this.jpO = true;
-        if (!this.isDynamic) {
-            if (!this.jpL.isLoading()) {
-                this.mPn = 1;
-                this.jpK.pn = this.mPn;
-                this.jpK.sortType = i;
-                if (this.jpQ >= 0) {
-                    this.jpK.lastThreadId = this.jpQ;
-                }
-                this.jpK.adExtParams = cFW();
-                this.jpL.loadData();
-            }
-        } else if (!this.jpN.isLoading()) {
-            if (av.bsS().bsT()) {
-                this.jpM.qType = 2;
-            } else {
-                this.jpM.qType = 1;
-            }
-            this.jpM.lastThreadId = 0L;
-            this.jpN.loadData();
-        }
+    private boolean zj(int i) {
+        return (this.jqN == null || this.jqN.jrc == null || this.jqN.jrc.mHeadLineDefaultNavTabId != i) ? false : true;
     }
 
     public void zk(int i) {
-        this.jpO = false;
+        this.jrx = true;
         if (!this.isDynamic) {
-            if (!this.jpL.isLoading()) {
-                this.mPn++;
-                this.jpK.pn = this.mPn;
-                this.jpK.sortType = i;
-                this.jpK.lastThreadId = -1L;
-                this.jpK.adExtParams = cFW();
-                this.jpL.loadData();
+            if (!this.jru.isLoading()) {
+                this.mPn = 1;
+                this.jrt.pn = this.mPn;
+                this.jrt.sortType = i;
+                if (this.jrz >= 0) {
+                    this.jrt.lastThreadId = this.jrz;
+                }
+                this.jrt.adExtParams = cGc();
+                this.jru.loadData();
             }
-        } else if (!this.jpN.isLoading()) {
-            if (av.bsS().bsT()) {
-                this.jpM.qType = 2;
+        } else if (!this.jrw.isLoading()) {
+            if (av.bsV().bsW()) {
+                this.jrv.qType = 2;
             } else {
-                this.jpM.qType = 1;
+                this.jrv.qType = 1;
             }
-            this.jpN.loadData();
+            this.jrv.lastThreadId = 0L;
+            this.jrw.loadData();
+        }
+    }
+
+    public void zl(int i) {
+        this.jrx = false;
+        if (!this.isDynamic) {
+            if (!this.jru.isLoading()) {
+                this.mPn++;
+                this.jrt.pn = this.mPn;
+                this.jrt.sortType = i;
+                this.jrt.lastThreadId = -1L;
+                this.jrt.adExtParams = cGc();
+                this.jru.loadData();
+            }
+        } else if (!this.jrw.isLoading()) {
+            if (av.bsV().bsW()) {
+                this.jrv.qType = 2;
+            } else {
+                this.jrv.qType = 1;
+            }
+            this.jrw.loadData();
         }
     }
 
@@ -133,66 +133,66 @@ public class c implements NetModel.b {
         if (dVar == null) {
             return false;
         }
-        if (this.jpO) {
-            this.jpD = dVar;
-            this.jpP.clear();
+        if (this.jrx) {
+            this.jrm = dVar;
+            this.jry.clear();
             Iterator<n> it = dVar.threadList.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (next instanceof cb) {
                     String tid = ((cb) next).getTid();
-                    if (!this.jpP.contains(tid)) {
-                        this.jpP.add(tid);
+                    if (!this.jry.contains(tid)) {
+                        this.jry.add(tid);
                     }
                 }
             }
-            if (com.baidu.tieba.funad.a.cNu()) {
+            if (com.baidu.tieba.funad.a.cNC()) {
                 if (this.funAdController != null) {
-                    this.funAdController.r(this.jpD.threadList, this.jpO);
+                    this.funAdController.r(this.jrm.threadList, this.jrx);
                 }
             } else {
-                v(dVar.gcA, this.jpD.threadList);
+                u(dVar.gea, this.jrm.threadList);
             }
         } else {
-            this.jpD.hasMore = dVar.hasMore;
-            this.jpD.userMap.putAll(dVar.userMap);
+            this.jrm.hasMore = dVar.hasMore;
+            this.jrm.userMap.putAll(dVar.userMap);
             ArrayList arrayList = new ArrayList();
             Iterator<n> it2 = dVar.threadList.iterator();
             while (it2.hasNext()) {
                 n next2 = it2.next();
                 if (next2 instanceof cb) {
                     String tid2 = ((cb) next2).getTid();
-                    if (!this.jpP.contains(tid2)) {
-                        ((cb) next2).eTo = this.jpe.isBrandForum;
+                    if (!this.jry.contains(tid2)) {
+                        ((cb) next2).eUP = this.jqN.isBrandForum;
                         arrayList.add(next2);
-                        this.jpP.add(tid2);
+                        this.jry.add(tid2);
                     }
                 }
             }
-            if (com.baidu.tieba.funad.a.cNu()) {
+            if (com.baidu.tieba.funad.a.cNC()) {
                 if (this.funAdController != null) {
-                    this.funAdController.r(arrayList, this.jpO);
+                    this.funAdController.r(arrayList, this.jrx);
                 }
             } else {
-                v(dVar.gcA, arrayList);
+                u(dVar.gea, arrayList);
             }
-            this.jpD.threadList.addAll(arrayList);
+            this.jrm.threadList.addAll(arrayList);
         }
-        this.jpe.a(this.jpD);
+        this.jqN.a(this.jrm);
         return true;
     }
 
     public void aq(cb cbVar) {
-        if (cbVar != null && this.jpD != null && this.jpD.threadList != null) {
-            if (y.isEmpty(this.jpD.threadList)) {
-                this.jpD.threadList.add(cbVar);
+        if (cbVar != null && this.jrm != null && this.jrm.threadList != null) {
+            if (y.isEmpty(this.jrm.threadList)) {
+                this.jrm.threadList.add(cbVar);
             } else {
-                if (this.jpD.threadList.size() == 1 && (this.jpD.threadList.get(0) instanceof s)) {
-                    this.jpD.threadList.remove(0);
+                if (this.jrm.threadList.size() == 1 && (this.jrm.threadList.get(0) instanceof s)) {
+                    this.jrm.threadList.remove(0);
                 }
-                this.jpD.threadList.add(0, cbVar);
+                this.jrm.threadList.add(0, cbVar);
             }
-            this.jpe.a(this.jpD);
+            this.jqN.a(this.jrm);
         }
     }
 
@@ -212,7 +212,7 @@ public class c implements NetModel.b {
                     if (!y.isEmpty(dVar2.threadList)) {
                         n nVar = (n) y.getItem(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (nVar instanceof cb) {
-                            this.jpM.lastThreadId = com.baidu.adp.lib.f.b.toLong(((cb) nVar).getId(), 0L);
+                            this.jrv.lastThreadId = com.baidu.adp.lib.f.b.toLong(((cb) nVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -225,7 +225,7 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.jpe.a(errorData);
+                    this.jqN.a(errorData);
                 }
             }
         }
@@ -247,7 +247,7 @@ public class c implements NetModel.b {
                     if (!y.isEmpty(dVar2.threadList)) {
                         n nVar = (n) y.getItem(dVar2.threadList, dVar2.threadList.size() - 1);
                         if (nVar instanceof cb) {
-                            this.jpM.lastThreadId = com.baidu.adp.lib.f.b.toLong(((cb) nVar).getId(), 0L);
+                            this.jrv.lastThreadId = com.baidu.adp.lib.f.b.toLong(((cb) nVar).getId(), 0L);
                         }
                     }
                     dVar = dVar2;
@@ -260,17 +260,17 @@ public class c implements NetModel.b {
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
                 if (this.mErrorCode != 0) {
-                    this.jpe.a(errorData);
+                    this.jqN.a(errorData);
                 }
             }
         }
     }
 
-    private String cFW() {
-        return AdExtParam.a.bEU().rC(this.jpO ? 0 : com.baidu.tieba.recapp.a.fJ(this.jpD.threadList)).DH(com.baidu.tieba.recapp.a.y(this.jpD == null ? null : this.jpD.threadList, this.jpO)).DF(this.jpO ? "" : com.baidu.tieba.recapp.report.b.dEt().RR(this.jpR)).DG(this.jpe.forumName).bEV();
+    private String cGc() {
+        return AdExtParam.a.bEY().rE(this.jrx ? 0 : com.baidu.tieba.recapp.a.fJ(this.jrm.threadList)).DO(com.baidu.tieba.recapp.a.y(this.jrm == null ? null : this.jrm.threadList, this.jrx)).DM(this.jrx ? "" : com.baidu.tieba.recapp.report.b.dEB().RX(this.jrA)).DN(this.jqN.forumName).bEZ();
     }
 
-    private void v(List<App> list, List<n> list2) {
+    private void u(List<App> list, List<n> list2) {
         dl(list2);
         com.baidu.tieba.recapp.a.b(com.baidu.tieba.recapp.a.p(list, "FRS_GENERAL_TAB"), list2, 0);
         com.baidu.tieba.recapp.a.a(list2, this.mPn, "FRS_GENERAL_TAB");
@@ -281,38 +281,38 @@ public class c implements NetModel.b {
         if (!com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
             ArrayList arrayList = new ArrayList();
             for (n nVar : list) {
-                if ((nVar instanceof cb) && (f = com.baidu.tieba.recapp.report.b.f(((cb) nVar).bpT())) != null) {
+                if ((nVar instanceof cb) && (f = com.baidu.tieba.recapp.report.b.f(((cb) nVar).bpV())) != null) {
                     arrayList.add(f);
                 }
             }
-            com.baidu.tieba.recapp.report.b.dEt().q(this.jpR, arrayList);
+            com.baidu.tieba.recapp.report.b.dEB().q(this.jrA, arrayList);
         }
     }
 
     public boolean hasData() {
-        return (this.jpD == null || y.isEmpty(this.jpD.threadList)) ? false : true;
+        return (this.jrm == null || y.isEmpty(this.jrm.threadList)) ? false : true;
     }
 
-    public d cFX() {
-        return this.jpD;
+    public d cGd() {
+        return this.jrm;
     }
 
     public void gs(long j) {
-        this.jpQ = j;
+        this.jrz = j;
     }
 
-    public boolean cFY() {
-        return this.jpO;
+    public boolean cGe() {
+        return this.jrx;
     }
 
     public int getPn() {
         return this.mPn;
     }
 
-    public void Ks(String str) {
-        if (this.jpD != null && !com.baidu.tieba.lego.card.c.a.isEmpty(this.jpD.threadList)) {
-            com.baidu.tieba.recapp.a.i(str, this.jpD.threadList);
-            this.jpe.a(this.jpD);
+    public void KB(String str) {
+        if (this.jrm != null && !com.baidu.tieba.lego.card.c.a.isEmpty(this.jrm.threadList)) {
+            com.baidu.tieba.recapp.a.i(str, this.jrm.threadList);
+            this.jqN.a(this.jrm);
         }
     }
 }

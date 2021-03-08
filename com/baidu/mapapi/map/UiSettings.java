@@ -3,31 +3,31 @@ package com.baidu.mapapi.map;
 public final class UiSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mapsdkplatform.comapi.map.e f2778a;
+    private com.baidu.mapsdkplatform.comapi.map.e f2055a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public UiSettings(com.baidu.mapsdkplatform.comapi.map.e eVar) {
-        this.f2778a = eVar;
+        this.f2055a = eVar;
     }
 
     public boolean isCompassEnabled() {
-        return this.f2778a.r();
+        return this.f2055a.r();
     }
 
     public boolean isOverlookingGesturesEnabled() {
-        return this.f2778a.z();
+        return this.f2055a.z();
     }
 
     public boolean isRotateGesturesEnabled() {
-        return this.f2778a.y();
+        return this.f2055a.y();
     }
 
     public boolean isScrollGesturesEnabled() {
-        return this.f2778a.w();
+        return this.f2055a.w();
     }
 
     public boolean isZoomGesturesEnabled() {
-        return this.f2778a.x();
+        return this.f2055a.x();
     }
 
     public void setAllGesturesEnabled(boolean z) {
@@ -38,26 +38,26 @@ public final class UiSettings {
     }
 
     public void setCompassEnabled(boolean z) {
-        this.f2778a.j(z);
+        this.f2055a.j(z);
     }
 
     public void setEnlargeCenterWithDoubleClickEnable(boolean z) {
-        this.f2778a.q(z);
+        this.f2055a.q(z);
     }
 
     public void setOverlookingGesturesEnabled(boolean z) {
-        this.f2778a.s(z);
+        this.f2055a.s(z);
     }
 
     public void setRotateGesturesEnabled(boolean z) {
-        this.f2778a.r(z);
+        this.f2055a.r(z);
     }
 
     public void setScrollGesturesEnabled(boolean z) {
-        this.f2778a.o(z);
+        this.f2055a.o(z);
     }
 
     public void setZoomGesturesEnabled(boolean z) {
-        this.f2778a.p(z);
+        this.f2055a.p(z);
     }
 }

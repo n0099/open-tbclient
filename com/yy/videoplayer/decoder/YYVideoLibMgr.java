@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYVideoLibMgr {
     private static final String TAG = "YYVideoLibMgr";
     private static YYVideoLibMgr mInstance = null;
@@ -32,7 +32,7 @@ public class YYVideoLibMgr {
     private int mHardDirectRenderConfig = 0;
     private ReentrantReadWriteLock syncLock = new ReentrantReadWriteLock();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class MediaDecodeConfigKey {
         public static final int CCK_H265_HARDWARE_DECODE = 316;
         public static final int CCK_HARDWARE_DECODE = 302;

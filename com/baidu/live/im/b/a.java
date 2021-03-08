@@ -2,28 +2,28 @@ package com.baidu.live.im.b;
 
 import android.view.View;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.im.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0179a {
-        void KM();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0185a {
+        void KP();
     }
 
     void a(ab abVar);
 
     void a(ab abVar, boolean z);
 
-    void a(InterfaceC0179a interfaceC0179a);
+    void a(InterfaceC0185a interfaceC0185a);
 
     void release();
 
     void setOtherParams(String str);
 
-    View zP();
+    View zS();
 
-    void zQ();
+    void zT();
 
-    void zR();
+    void zU();
 }

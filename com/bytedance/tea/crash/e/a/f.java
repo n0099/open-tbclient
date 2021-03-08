@@ -14,11 +14,11 @@ public class f extends c {
     @Override // com.bytedance.tea.crash.e.a.c
     public com.bytedance.tea.crash.c.a a(com.bytedance.tea.crash.c.a aVar) {
         com.bytedance.tea.crash.c.a a2 = super.a(aVar);
-        com.bytedance.tea.crash.c.b ia = com.bytedance.tea.crash.c.b.ia(this.f7639b);
-        ia.a(h.erl().a());
-        ia.a(h.ern().a());
-        ia.b(this.pwn.c());
-        a2.a(ia);
+        com.bytedance.tea.crash.c.b hZ = com.bytedance.tea.crash.c.b.hZ(this.b);
+        hZ.a(h.erv().a());
+        hZ.a(h.erx().a());
+        hZ.b(this.pyq.c());
+        a2.a(hZ);
         return a2;
     }
 }

@@ -26,13 +26,11 @@ public class LivenessXfordView extends FrameLayout {
     public static final String PROGRESS_PROPERTY = "progress";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2360a = 12;
+    private static final int f1804a = 12;
     private AnimatorSet A;
     private float B;
     private float C;
-
-    /* renamed from: b  reason: collision with root package name */
-    private float f2361b;
+    private float b;
     private Xfermode c;
     private RectF d;
     private RectF e;
@@ -61,7 +59,7 @@ public class LivenessXfordView extends FrameLayout {
 
     public LivenessXfordView(@NonNull Context context) {
         super(context);
-        this.f2361b = -90.0f;
+        this.b = -90.0f;
         this.m = true;
         this.z = true;
         a();
@@ -69,7 +67,7 @@ public class LivenessXfordView extends FrameLayout {
 
     public LivenessXfordView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2361b = -90.0f;
+        this.b = -90.0f;
         this.m = true;
         this.z = true;
         a();
@@ -154,7 +152,7 @@ public class LivenessXfordView extends FrameLayout {
             canvas.drawCircle(this.h, this.i, this.f, this.w);
             canvas.restoreToCount(saveLayer);
             canvas.drawCircle(this.h, this.i, this.g, this.s);
-            canvas.drawArc(this.e, this.f2361b, this.progress, false, this.r);
+            canvas.drawArc(this.e, this.b, this.progress, false, this.r);
             if (this.n != null) {
                 this.x.setColor(-16776961);
                 canvas.drawRect(this.n, this.x);

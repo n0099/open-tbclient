@@ -3,22 +3,20 @@ package com.bytedance.sdk.openadsdk.multipro;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7400a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f7401b;
+    public static boolean f4917a;
+    public static boolean b;
 
     public static void a() {
         com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_info", "is_support_multi_process", (Boolean) true);
-        f7400a = true;
-        f7401b = true;
+        f4917a = true;
+        b = true;
     }
 
     public static boolean b() {
-        if (!f7401b) {
-            f7400a = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_info", "is_support_multi_process", false);
-            f7401b = true;
+        if (!b) {
+            f4917a = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_info", "is_support_multi_process", false);
+            b = true;
         }
-        return f7400a;
+        return f4917a;
     }
 }

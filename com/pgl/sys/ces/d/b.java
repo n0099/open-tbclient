@@ -3,6 +3,8 @@ package com.pgl.sys.ces.d;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
 public interface b {
+    String onEvent();
+
     String pullSg();
 
     String pullVer(String str);

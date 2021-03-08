@@ -4,14 +4,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f3330a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static LinkedBlockingQueue<Runnable> f3331b;
+    private static d f2381a;
+    private static LinkedBlockingQueue<Runnable> b;
     private static final ThreadFactory c = new f();
     private static final b d = new h();
 

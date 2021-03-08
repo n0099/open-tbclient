@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.log.IGuardClubLogger;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class HaokanGuardClubLogger implements IGuardClubLogger {
     @Override // com.baidu.live.tbadk.log.IGuardClubLogger
     public void doAccessLiveGuardMemberLog(String str, String str2, String str3, String str4) {

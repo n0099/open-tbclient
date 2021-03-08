@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.core.view.ViewCompat;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class ViewDragHelper {
     private static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
@@ -67,7 +67,7 @@ public class ViewDragHelper {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static abstract class Callback {
         public abstract boolean tryCaptureView(@NonNull View view, int i);
 

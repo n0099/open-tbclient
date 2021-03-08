@@ -8,7 +8,7 @@ import com.kwad.sdk.glide.Registry;
 public final class a extends com.kwad.sdk.glide.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final f f10363a = new f();
+    private final f f6837a = new f();
 
     public a() {
         if (Log.isLoggable("Glide", 3)) {
@@ -22,12 +22,12 @@ public final class a extends com.kwad.sdk.glide.a {
     public void a(@NonNull Context context, @NonNull com.kwad.sdk.glide.c cVar, @NonNull Registry registry) {
         new com.kwad.sdk.glide.framesequence.f().a(context, cVar, registry);
         new d().a(context, cVar, registry);
-        this.f10363a.a(context, cVar, registry);
+        this.f6837a.a(context, cVar, registry);
     }
 
     @Override // com.kwad.sdk.glide.d.a
     public void a(@NonNull Context context, @NonNull com.kwad.sdk.glide.d dVar) {
-        this.f10363a.a(context, dVar);
+        this.f6837a.a(context, dVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

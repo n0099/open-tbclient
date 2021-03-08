@@ -6,27 +6,27 @@ import org.json.JSONObject;
 public class n implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.kwad.sdk.core.webview.a.c f9605a;
+    private com.kwad.sdk.core.webview.a.c f6360a;
 
     /* loaded from: classes3.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f9606a;
+        private String f6361a;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "lifeStatus", this.f9606a);
+            com.kwad.sdk.utils.o.a(jSONObject, "lifeStatus", this.f6361a);
             return jSONObject;
         }
     }
 
     private void a(String str) {
-        if (this.f9605a != null) {
+        if (this.f6360a != null) {
             a aVar = new a();
-            aVar.f9606a = str;
-            this.f9605a.a(aVar);
+            aVar.f6361a = str;
+            this.f6360a.a(aVar);
         }
     }
 
@@ -38,12 +38,12 @@ public class n implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.f9605a = cVar;
+        this.f6360a = cVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f9605a = null;
+        this.f6360a = null;
     }
 
     public void c() {

@@ -1,11 +1,11 @@
 package com.baidu.live.al;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    boolean VD();
+    boolean VG();
 
-    void VE();
+    void VH();
 
-    void VF();
+    void VI();
 
-    void VG();
+    void VJ();
 }

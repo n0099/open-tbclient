@@ -16,34 +16,34 @@ import com.facebook.imagepipeline.common.d;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private String deD;
-    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> dkw;
-    private int dkx;
+    private String dge;
+    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> dlX;
+    private int dlY;
     private Activity mContext;
 
     public b(Activity activity, String str, ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {
         this.mContext = activity;
-        this.deD = str;
-        this.dkw = arrayList;
-        this.dkx = (int) (ah.dip2px(this.mContext, 50.0f) / 2.0f);
+        this.dge = str;
+        this.dlX = arrayList;
+        this.dlY = (int) (ah.dip2px(this.mContext, 50.0f) / 2.0f);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dkw == null) {
+        if (this.dlX == null) {
             return 0;
         }
-        return this.dkw.size();
+        return this.dlX.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i < 0 || i > this.dkw.size()) {
+        if (i < 0 || i > this.dlX.size()) {
             return null;
         }
-        return this.dkw.get(i);
+        return this.dlX.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,36 +63,36 @@ public class b extends BaseAdapter {
             aVar = (a) view.getTag();
         }
         view.setBackground(this.mContext.getResources().getDrawable(a.e.swanapp_album_name_item_selector));
-        com.baidu.swan.apps.media.chooser.model.a aVar3 = this.dkw.get(i);
+        com.baidu.swan.apps.media.chooser.model.a aVar3 = this.dlX.get(i);
         if (aVar3 != null) {
             aVar.titleTv.setText(aVar3.ik());
-            if (aVar3.dlr != null) {
-                aVar.dkz.setText(ia(aVar3.dlr.size()));
-                if (aVar3.dlr.get(0) != null && !TextUtils.isEmpty(aVar3.dlr.get(0).getPath())) {
-                    ImageRequestBuilder ag = ImageRequestBuilder.ag(Uri.fromFile(new File(aVar3.dlr.get(0).getPath())));
-                    ag.c(new d(this.dkx, this.dkx));
-                    ag.By(true);
-                    aVar.dky.setController(c.etw().Bm(false).bo(ag.eAq()).c(aVar.dky.getController()).eun());
+            if (aVar3.dmS != null) {
+                aVar.dma.setText(ib(aVar3.dmS.size()));
+                if (aVar3.dmS.get(0) != null && !TextUtils.isEmpty(aVar3.dmS.get(0).getPath())) {
+                    ImageRequestBuilder ag = ImageRequestBuilder.ag(Uri.fromFile(new File(aVar3.dmS.get(0).getPath())));
+                    ag.c(new d(this.dlY, this.dlY));
+                    ag.Bw(true);
+                    aVar.dlZ.setController(c.etF().Bk(false).bq(ag.eAz()).c(aVar.dlZ.getController()).euw());
                 }
             }
         }
         return view;
     }
 
-    private String ia(int i) {
-        return TextUtils.equals(this.deD, "Image") ? this.mContext.getString(a.h.swanapp_image_pages, new Object[]{Integer.valueOf(i)}) : this.mContext.getString(a.h.swanapp_album_pages, new Object[]{Integer.valueOf(i)});
+    private String ib(int i) {
+        return TextUtils.equals(this.dge, "Image") ? this.mContext.getString(a.h.swanapp_image_pages, new Object[]{Integer.valueOf(i)}) : this.mContext.getString(a.h.swanapp_album_pages, new Object[]{Integer.valueOf(i)});
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        SimpleDraweeView dky;
-        TextView dkz;
+        SimpleDraweeView dlZ;
+        TextView dma;
         TextView titleTv;
 
         public a(View view) {
-            this.dky = (SimpleDraweeView) view.findViewById(a.f.album_name_item_img);
+            this.dlZ = (SimpleDraweeView) view.findViewById(a.f.album_name_item_img);
             this.titleTv = (TextView) view.findViewById(a.f.album_name_item_title);
-            this.dkz = (TextView) view.findViewById(a.f.album_name_item_number);
+            this.dma = (TextView) view.findViewById(a.f.album_name_item_number);
         }
     }
 }

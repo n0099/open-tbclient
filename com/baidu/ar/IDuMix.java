@@ -3,7 +3,7 @@ package com.baidu.ar;
 import android.graphics.SurfaceTexture;
 import android.view.View;
 import com.baidu.ar.arrender.FrameRenderListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface IDuMix extends View.OnTouchListener {
     void addFrameRenderListener(FrameRenderListener frameRenderListener);
 

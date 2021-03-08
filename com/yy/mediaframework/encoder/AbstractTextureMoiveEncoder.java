@@ -26,7 +26,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.nio.FloatBuffer;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AbstractTextureMoiveEncoder {
     private static final String TAG = "AbstractTextureMoiveEncoder";
     protected static AtomicLong sEncodeIds = new AtomicLong(1);

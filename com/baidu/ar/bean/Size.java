@@ -1,7 +1,7 @@
 package com.baidu.ar.bean;
 
 import com.baidu.mobstat.Config;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class Size {
     private int mHeight;
     private int mWidth;

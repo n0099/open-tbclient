@@ -4,13 +4,13 @@ import com.baidu.pyramid.a.a.b;
 import com.baidu.pyramid.a.a.d;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister_PerfFrameRuntime_ListProvider;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PerfFrameRuntime {
     private static PerfFrameRuntime sInstance;
     private d<IPerfFrameRegister> mIPerfFrameMonitorList;
 
     public void initmIPerfFrameMonitorList() {
-        this.mIPerfFrameMonitorList = b.adY();
+        this.mIPerfFrameMonitorList = b.aeb();
         this.mIPerfFrameMonitorList.b(new IPerfFrameRegister_PerfFrameRuntime_ListProvider());
     }
 

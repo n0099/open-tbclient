@@ -8,74 +8,74 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BdBaseModel<Context> {
-    private InterfaceC0193a bxe;
-    private InterfaceC0193a bxf;
-    private HttpMessageListener bxg = new HttpMessageListener(1031045) { // from class: com.baidu.live.personmanager.a.1
+    private InterfaceC0199a byE;
+    private InterfaceC0199a byF;
+    private HttpMessageListener byG = new HttpMessageListener(1031045) { // from class: com.baidu.live.personmanager.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof FollowHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId()) {
                 FollowHttpResponseMessage followHttpResponseMessage = (FollowHttpResponseMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    if (a.this.bxe != null) {
-                        a.this.bxe.Pf();
+                    if (a.this.byE != null) {
+                        a.this.byE.Pi();
                     }
-                } else if (a.this.bxe != null) {
-                    a.this.bxe.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (a.this.byE != null) {
+                    a.this.byE.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
-    private HttpMessageListener bxh = new HttpMessageListener(1031046) { // from class: com.baidu.live.personmanager.a.2
+    private HttpMessageListener byH = new HttpMessageListener(1031046) { // from class: com.baidu.live.personmanager.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof UnFollowHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.getUniqueId()) {
                 UnFollowHttpResponseMessage unFollowHttpResponseMessage = (UnFollowHttpResponseMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    if (a.this.bxf != null) {
-                        a.this.bxf.Pf();
+                    if (a.this.byF != null) {
+                        a.this.byF.Pi();
                     }
-                } else if (a.this.bxf != null) {
-                    a.this.bxf.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (a.this.byF != null) {
+                    a.this.byF.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
-    private BdUniqueId aCW = BdUniqueId.gen();
+    private BdUniqueId aEw = BdUniqueId.gen();
 
     /* renamed from: com.baidu.live.personmanager.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0193a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0199a {
         void A(int i, String str);
 
-        void Pf();
+        void Pi();
     }
 
     public a(Context context) {
-        setUniqueId(this.aCW);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031045, com.baidu.live.a.avJ + "ala/audio/user/follow");
+        setUniqueId(this.aEw);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031045, com.baidu.live.a.axj + "ala/audio/user/follow");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(FollowHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.bxg);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1031046, com.baidu.live.a.avJ + "ala/audio/user/unfollow");
+        MessageManager.getInstance().registerListener(this.byG);
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(1031046, com.baidu.live.a.axj + "ala/audio/user/unfollow");
         tbHttpMessageTask2.setIsNeedLogin(false);
         tbHttpMessageTask2.setIsNeedTbs(true);
         tbHttpMessageTask2.setIsNeedAddCommenParam(true);
         tbHttpMessageTask2.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask2.setResponsedClass(UnFollowHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-        MessageManager.getInstance().registerListener(this.bxh);
+        MessageManager.getInstance().registerListener(this.byH);
     }
 
-    public void a(InterfaceC0193a interfaceC0193a) {
-        this.bxe = interfaceC0193a;
+    public void a(InterfaceC0199a interfaceC0199a) {
+        this.byE = interfaceC0199a;
     }
 
     public void u(String str, String str2, String str3) {
@@ -83,7 +83,7 @@ public class a extends BdBaseModel<Context> {
         httpMessage.addParam("follow_user_uk", str);
         httpMessage.addParam("room_id", str2);
         httpMessage.addParam("live_id", str3);
-        httpMessage.setTag(this.aCW);
+        httpMessage.setTag(this.aEw);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 

@@ -15,19 +15,19 @@ public class a extends com.baidu.platform.base.e {
         if (districtSearchOption == null) {
             return;
         }
-        this.f4143a.a("qt", "con");
-        this.f4143a.a("rp_format", "json");
-        this.f4143a.a("rp_filter", "mobile");
-        this.f4143a.a("area_res", "true");
-        this.f4143a.a("addr_identify", "1");
-        this.f4143a.a("ie", "utf-8");
-        this.f4143a.a(Config.PACKAGE_NAME, "0");
-        this.f4143a.a("rn", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
-        this.f4143a.a("c", districtSearchOption.mCityName);
+        this.f2867a.a("qt", "con");
+        this.f2867a.a("rp_format", "json");
+        this.f2867a.a("rp_filter", "mobile");
+        this.f2867a.a("area_res", "true");
+        this.f2867a.a("addr_identify", "1");
+        this.f2867a.a("ie", "utf-8");
+        this.f2867a.a(Config.PACKAGE_NAME, "0");
+        this.f2867a.a("rn", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+        this.f2867a.a("c", districtSearchOption.mCityName);
         if (districtSearchOption.mDistrictName == null || districtSearchOption.mDistrictName.equals("")) {
-            this.f4143a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mCityName);
+            this.f2867a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mCityName);
         } else {
-            this.f4143a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mDistrictName);
+            this.f2867a.a(ActVideoSetting.WIFI_DISPLAY, districtSearchOption.mDistrictName);
         }
     }
 

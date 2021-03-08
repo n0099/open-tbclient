@@ -4,7 +4,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a extends com.google.a.a.a implements ILoadedInstanceCreator {
     a(IBinder iBinder) {
         super(iBinder, "com.google.vr.dynamite.client.ILoadedInstanceCreator");

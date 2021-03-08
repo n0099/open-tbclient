@@ -14,10 +14,8 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class CustomAlertDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f2327a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f2328b;
+    private ViewSwitcher f1782a;
+    private TextView b;
     private TextView c;
     private Button d;
     private Button e;
@@ -43,8 +41,8 @@ public class CustomAlertDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_dialog_alert);
         setCanceledOnTouchOutside(false);
-        this.f2327a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f2328b = (TextView) findViewById(R.id.dialog_title);
+        this.f1782a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.msg_text);
         this.d = (Button) findViewById(R.id.positive_btn);
         this.e = (Button) findViewById(R.id.negative_btn);
@@ -52,14 +50,14 @@ public class CustomAlertDialog extends Dialog {
     }
 
     public void setTitleMsg(String str) {
-        this.f2328b.setText(str);
+        this.b.setText(str);
     }
 
     public void setTitleVisible(boolean z) {
         if (z) {
-            this.f2328b.setVisibility(0);
+            this.b.setVisibility(0);
         } else {
-            this.f2328b.setVisibility(8);
+            this.b.setVisibility(8);
         }
     }
 
@@ -70,9 +68,9 @@ public class CustomAlertDialog extends Dialog {
             i = 2;
         }
         if (i == 2) {
-            this.f2327a.setDisplayedChild(0);
+            this.f1782a.setDisplayedChild(0);
         } else {
-            this.f2327a.setDisplayedChild(1);
+            this.f1782a.setDisplayedChild(1);
         }
     }
 

@@ -3,7 +3,7 @@ package androidx.recyclerview.widget;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ScrollbarHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int computeScrollOffset(RecyclerView.State state, OrientationHelper orientationHelper, View view, View view2, RecyclerView.LayoutManager layoutManager, boolean z, boolean z2) {

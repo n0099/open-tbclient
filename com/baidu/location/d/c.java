@@ -9,10 +9,8 @@ public class c {
     static c c;
 
     /* renamed from: a  reason: collision with root package name */
-    String f2625a = "firll.dat";
-
-    /* renamed from: b  reason: collision with root package name */
-    int f2626b = 3164;
+    String f1965a = "firll.dat";
+    int b = 3164;
     int d = 0;
     int e = 20;
     int f = 40;
@@ -26,7 +24,7 @@ public class c {
         if (h == null) {
             return -1L;
         }
-        String str = h + File.separator + this.f2625a;
+        String str = h + File.separator + this.f1965a;
         RandomAccessFile randomAccessFile2 = null;
         try {
             randomAccessFile = new RandomAccessFile(str, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
@@ -93,11 +91,11 @@ public class c {
             return;
         }
         try {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(h + File.separator + this.f2625a, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(h + File.separator + this.f1965a, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             randomAccessFile.seek(i);
-            randomAccessFile.writeInt(this.f2626b);
+            randomAccessFile.writeInt(this.b);
             randomAccessFile.writeLong(j);
-            randomAccessFile.writeInt(this.f2626b);
+            randomAccessFile.writeInt(this.b);
             randomAccessFile.close();
         } catch (Exception e) {
         }

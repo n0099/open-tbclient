@@ -3,7 +3,7 @@ package com.baidu.browser.sailor;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class BdSailorWebBackForwardList implements INoProGuard {
     private WebBackForwardList mBackForwardList;
 

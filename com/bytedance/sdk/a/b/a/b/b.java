@@ -16,40 +16,38 @@ import javax.net.ssl.SSLSocket;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<n> f5862a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f5863b = 0;
+    private final List<n> f3950a;
+    private int b = 0;
     private boolean c;
     private boolean d;
 
     public b(List<n> list) {
-        this.f5862a = list;
+        this.f3950a = list;
     }
 
     public n a(SSLSocket sSLSocket) throws IOException {
         n nVar;
-        int i = this.f5863b;
-        int size = this.f5862a.size();
+        int i = this.b;
+        int size = this.f3950a.size();
         int i2 = i;
         while (true) {
             if (i2 >= size) {
                 nVar = null;
                 break;
             }
-            nVar = this.f5862a.get(i2);
+            nVar = this.f3950a.get(i2);
             if (!nVar.e(sSLSocket)) {
                 i2++;
             } else {
-                this.f5863b = i2 + 1;
+                this.b = i2 + 1;
                 break;
             }
         }
         if (nVar == null) {
-            throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.d + ", modes=" + this.f5862a + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
+            throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.d + ", modes=" + this.f3950a + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
         }
         this.c = b(sSLSocket);
-        com.bytedance.sdk.a.b.a.a.poD.a(nVar, sSLSocket, this.d);
+        com.bytedance.sdk.a.b.a.a.pqK.a(nVar, sSLSocket, this.d);
         return nVar;
     }
 
@@ -65,11 +63,11 @@ public final class b {
     }
 
     private boolean b(SSLSocket sSLSocket) {
-        int i = this.f5863b;
+        int i = this.b;
         while (true) {
             int i2 = i;
-            if (i2 < this.f5862a.size()) {
-                if (!this.f5862a.get(i2).e(sSLSocket)) {
+            if (i2 < this.f3950a.size()) {
+                if (!this.f3950a.get(i2).e(sSLSocket)) {
                     i = i2 + 1;
                 } else {
                     return true;

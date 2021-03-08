@@ -5,7 +5,7 @@ import android.util.Log;
 import com.yy.videoplayer.utils.YMFLog;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Texture2dProgram {
     public static final String FRAGMENT_SHADER_2D = "precision highp float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
     private static final String FRAGMENT_SHADER_EXT = "#extension GL_OES_EGL_image_external : require\nprecision highp float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
@@ -27,7 +27,7 @@ public class Texture2dProgram {
     private int muMVPMatrixLoc;
     private int muTexMatrixLoc;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum ProgramType {
         TEXTURE_2D,
         TEXTURE_EXT,

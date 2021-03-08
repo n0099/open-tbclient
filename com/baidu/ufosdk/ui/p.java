@@ -4,15 +4,15 @@ import android.view.View;
 import java.util.HashMap;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class p implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackEditActivity f5609a;
+    final /* synthetic */ FeedbackEditActivity f3791a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FeedbackEditActivity feedbackEditActivity) {
-        this.f5609a = feedbackEditActivity;
+        this.f3791a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,27 +22,27 @@ public final class p implements View.OnClickListener {
         List list2;
         HashMap hashMap;
         List list3;
-        z = this.f5609a.v;
+        z = this.f3791a.v;
         if (z) {
             return;
         }
-        list = this.f5609a.q;
+        list = this.f3791a.q;
         if (list.size() < 2) {
-            FeedbackEditActivity feedbackEditActivity = this.f5609a;
-            list2 = this.f5609a.q;
+            FeedbackEditActivity feedbackEditActivity = this.f3791a;
+            list2 = this.f3791a.q;
             list2.size();
             FeedbackEditActivity.s(feedbackEditActivity);
             return;
         }
         com.baidu.ufosdk.f.c.a("picShotLayout2 --> to browse picture!");
-        hashMap = this.f5609a.r;
+        hashMap = this.f3791a.r;
         String str = (String) hashMap.get("1");
         if (str != null && str.length() != 0) {
-            FeedbackEditActivity.a(this.f5609a, str, 1);
+            FeedbackEditActivity.a(this.f3791a, str, 1);
             return;
         }
-        FeedbackEditActivity feedbackEditActivity2 = this.f5609a;
-        list3 = this.f5609a.q;
+        FeedbackEditActivity feedbackEditActivity2 = this.f3791a;
+        list3 = this.f3791a.q;
         feedbackEditActivity2.a((byte[]) list3.get(1), false, 1);
     }
 }

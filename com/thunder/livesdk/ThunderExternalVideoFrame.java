@@ -1,5 +1,5 @@
 package com.thunder.livesdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderExternalVideoFrame {
     public byte[] data;
     public int format;

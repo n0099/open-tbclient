@@ -16,10 +16,10 @@ public class h extends a<List<com.kwad.sdk.core.response.model.b>> {
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences.Editor editor) {
-        List<com.kwad.sdk.core.response.model.b> b2 = b();
-        if (w.a(b2)) {
+        List<com.kwad.sdk.core.response.model.b> b = b();
+        if (w.a(b)) {
             JSONArray jSONArray = new JSONArray();
-            for (com.kwad.sdk.core.response.model.b bVar : b2) {
+            for (com.kwad.sdk.core.response.model.b bVar : b) {
                 jSONArray.put(bVar.toJson());
             }
             editor.putString("posContentInfoList", jSONArray.toString());

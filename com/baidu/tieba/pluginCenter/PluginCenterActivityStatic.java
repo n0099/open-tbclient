@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PluginCenterActivityStatic {
     public static String Tag = "tag";
 

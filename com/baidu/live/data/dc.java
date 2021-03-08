@@ -1,26 +1,26 @@
 package com.baidu.live.data;
 
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class dc {
-    public int aSY;
-    public int aSZ;
-    public int aTa;
-    public int aTb;
-    public int aTc;
-    public String aTd;
+    public int aUA;
+    public int aUB;
+    public int aUC;
+    public String aUD;
+    public int aUy;
+    public int aUz;
 
     public void fromJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("category_id");
             if (optJSONObject != null) {
-                this.aSY = optJSONObject.optInt("android_tieba_type");
-                this.aSZ = optJSONObject.optInt("android_haokan_type");
-                this.aTa = optJSONObject.optInt("android_quanmin_type");
-                this.aTb = optJSONObject.optInt("android_yinbo_type");
+                this.aUy = optJSONObject.optInt("android_tieba_type");
+                this.aUz = optJSONObject.optInt("android_haokan_type");
+                this.aUA = optJSONObject.optInt("android_quanmin_type");
+                this.aUB = optJSONObject.optInt("android_yinbo_type");
             }
-            this.aTc = jSONObject.optInt("display_limit", 3);
-            this.aTd = jSONObject.optString("client_wishlist_tips");
+            this.aUC = jSONObject.optInt("display_limit", 3);
+            this.aUD = jSONObject.optString("client_wishlist_tips");
         }
     }
 }

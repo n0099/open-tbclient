@@ -4,34 +4,34 @@ import android.view.View;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.yuyinala.charm.audiencelist.d;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f implements com.baidu.live.liveroom.d.d {
     private String mLiveId;
-    private YuyinALaAudiencesActivity opB;
-    private e opO;
-    private d opP;
-    d.a opQ = new d.a() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.f.1
+    private YuyinALaAudiencesActivity orH;
+    private e orU;
+    private d orV;
+    d.a orW = new d.a() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.f.1
         @Override // com.baidu.tieba.yuyinala.charm.audiencelist.d.a
         public void a(long j, b bVar) {
-            if (f.this.opO != null) {
-                f.this.opO.dR(false);
+            if (f.this.orU != null) {
+                f.this.orU.dR(false);
                 if (bVar == null) {
-                    f.this.opO.dQ(true);
+                    f.this.orU.dQ(true);
                     return;
                 }
-                f.this.opO.WZ();
-                f.this.opO.gn(bVar.getList());
+                f.this.orU.Xc();
+                f.this.orU.gn(bVar.getList());
                 final int size = bVar.getList().size();
                 if (size <= 0) {
-                    f.this.opO.dQ(true);
+                    f.this.orU.dQ(true);
                 } else if (size < 100) {
-                    if (f.this.opO != null && f.this.opO.getListView() != null) {
-                        f.this.opO.getListView().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.f.1.1
+                    if (f.this.orU != null && f.this.orU.getListView() != null) {
+                        f.this.orU.getListView().post(new Runnable() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.f.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 try {
-                                    if (f.this.opO.getListView().getHeight() < f.this.opB.getResources().getDimensionPixelSize(a.d.sdk_ds144) * size) {
-                                        f.this.opO.GA(f.this.opB.getPageContext().getResources().getString(a.h.yuyin_charm_list_no_more));
+                                    if (f.this.orU.getListView().getHeight() < f.this.orH.getResources().getDimensionPixelSize(a.d.sdk_ds144) * size) {
+                                        f.this.orU.GJ(f.this.orH.getPageContext().getResources().getString(a.h.yuyin_charm_list_no_more));
                                     }
                                 } catch (Exception e) {
                                 }
@@ -39,27 +39,27 @@ public class f implements com.baidu.live.liveroom.d.d {
                         });
                     }
                 } else {
-                    f.this.opO.GA(f.this.opB.getPageContext().getResources().getString(a.h.yuyin_online_show_100));
+                    f.this.orU.GJ(f.this.orH.getPageContext().getResources().getString(a.h.yuyin_online_show_100));
                 }
             }
         }
 
         @Override // com.baidu.tieba.yuyinala.charm.audiencelist.d.a
         public void A(int i, String str) {
-            if (f.this.opO != null) {
-                f.this.opO.dQ(false);
-                f.this.opO.dR(false);
-                f.this.opO.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.f.1.2
+            if (f.this.orU != null) {
+                f.this.orU.dQ(false);
+                f.this.orU.dR(false);
+                f.this.orU.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.audiencelist.f.1.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
-                            if (f.this.opP != null) {
-                                f.this.opP.VJ(f.this.mLiveId);
+                            if (f.this.orV != null) {
+                                f.this.orV.VQ(f.this.mLiveId);
                                 return;
                             }
                             return;
                         }
-                        f.this.opB.getPageContext().showToast(f.this.opB.getResources().getString(a.h.sdk_no_network_guide));
+                        f.this.orH.getPageContext().showToast(f.this.orH.getResources().getString(a.h.sdk_no_network_guide));
                     }
                 });
             }
@@ -67,49 +67,49 @@ public class f implements com.baidu.live.liveroom.d.d {
     };
 
     public f(YuyinALaAudiencesActivity yuyinALaAudiencesActivity) {
-        this.opB = yuyinALaAudiencesActivity;
+        this.orH = yuyinALaAudiencesActivity;
     }
 
     public void createView() {
-        this.opO = new e(this.opB, this.mLiveId);
+        this.orU = new e(this.orH, this.mLiveId);
         mH(true);
     }
 
     public void mH(boolean z) {
-        if (this.opP == null) {
-            this.opP = new d(this.opB.getPageContext(), this.opQ);
+        if (this.orV == null) {
+            this.orV = new d(this.orH.getPageContext(), this.orW);
         }
-        this.opP.VJ(this.mLiveId);
-        if (this.opO != null) {
-            this.opO.dR(z);
+        this.orV.VQ(this.mLiveId);
+        if (this.orU != null) {
+            this.orU.dR(z);
         }
     }
 
-    public f VK(String str) {
+    public f VR(String str) {
         this.mLiveId = str;
         return this;
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.opO == null) {
+        if (this.orU == null) {
             return null;
         }
-        return this.opO.getRootView();
+        return this.orU.getRootView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public String getTitle() {
-        return this.opB.getResources().getString(a.h.yuyin_audience_list_title);
+        return this.orH.getResources().getString(a.h.yuyin_audience_list_title);
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String JK() {
+    public String JN() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short JL() {
+    public short JO() {
         return (short) 0;
     }
 
@@ -123,8 +123,8 @@ public class f implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.opP != null) {
-            this.opP.onDestroy();
+        if (this.orV != null) {
+            this.orV.onDestroy();
         }
     }
 

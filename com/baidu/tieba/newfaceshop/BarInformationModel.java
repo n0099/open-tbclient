@@ -12,18 +12,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.message.BazhuInfoResponseMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BarInformationModel extends BdBaseModel {
-    private final HttpMessageListener lzV;
+    private final HttpMessageListener lBX;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(BazhuInfoData bazhuInfoData);
     }
 
     public BarInformationModel(TbPageContext<BaseActivity> tbPageContext) {
         super(tbPageContext);
-        this.lzV = new HttpMessageListener(1003357) { // from class: com.baidu.tieba.newfaceshop.BarInformationModel.1
+        this.lBX = new HttpMessageListener(1003357) { // from class: com.baidu.tieba.newfaceshop.BarInformationModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -43,9 +43,9 @@ public class BarInformationModel extends BdBaseModel {
             }
         };
         registerTask();
-        this.lzV.setTag(getUniqueId());
-        this.lzV.setSelfListener(true);
-        registerListener(this.lzV);
+        this.lBX.setTag(getUniqueId());
+        this.lBX.setSelfListener(true);
+        registerListener(this.lBX);
     }
 
     private void registerTask() {

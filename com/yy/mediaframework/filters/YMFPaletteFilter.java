@@ -11,7 +11,7 @@ import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.yy.mediaframework.model.YYMediaSample;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFPaletteFilter extends AbstractYYMediaFilter {
     VideoLiveFilterContext mFilterContext;
     private boolean mColorPaletteInited = false;

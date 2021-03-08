@@ -20,46 +20,46 @@ import com.baidu.live.yuyingift.widget.wheatlist.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
-    private FrameLayout cbd;
-    private FrameLayout cbe;
-    private a cbf;
-    private b cbg;
-    private c cbh;
-    private com.baidu.live.yuyingift.widget.wheatlist.b cbi;
-    private List<AlaWheatInfoData> cbj;
-    private TextView cbk;
-    private TextView cbl;
-    private String[] cbm;
+    private FrameLayout ccF;
+    private FrameLayout ccG;
+    private a ccH;
+    private b ccI;
+    private c ccJ;
+    private com.baidu.live.yuyingift.widget.wheatlist.b ccK;
+    private List<AlaWheatInfoData> ccL;
+    private TextView ccM;
+    private TextView ccN;
+    private String[] ccO;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(AlaWheatInfoData alaWheatInfoData);
 
         void b(AlaWheatInfoData alaWheatInfoData);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void onChange();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void c(AlaWheatInfoData alaWheatInfoData);
     }
 
     public void setOnSetDataListener(c cVar) {
-        this.cbh = cVar;
+        this.ccJ = cVar;
     }
 
     public void setCallback(a aVar) {
-        this.cbf = aVar;
+        this.ccH = aVar;
     }
 
     public void setOnSelectWheatChangeListener(b bVar) {
-        this.cbg = bVar;
+        this.ccI = bVar;
     }
 
     public GiftPanelSelectMicrophoneSendView(Context context, @Nullable AttributeSet attributeSet) {
@@ -79,18 +79,18 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
     }
 
     private void initView() {
-        this.cbk = (TextView) findViewById(a.f.ala_gift_microphone_title);
-        this.cbl = (TextView) findViewById(a.f.yuyin_ala_gift_microphone_empty);
-        this.cbd = (FrameLayout) findViewById(a.f.yuyin_ala_gift_microphone_person_content);
-        this.cbe = (FrameLayout) findViewById(a.f.yuyin_ala_gift_microphone_op_content);
+        this.ccM = (TextView) findViewById(a.f.ala_gift_microphone_title);
+        this.ccN = (TextView) findViewById(a.f.yuyin_ala_gift_microphone_empty);
+        this.ccF = (FrameLayout) findViewById(a.f.yuyin_ala_gift_microphone_person_content);
+        this.ccG = (FrameLayout) findViewById(a.f.yuyin_ala_gift_microphone_op_content);
     }
 
     private boolean at(List<com.baidu.live.yuyingift.widget.wheatlist.d> list) {
-        if (list == null || this.cbj == null || list.size() != this.cbj.size() || list.size() == 0) {
+        if (list == null || this.ccL == null || list.size() != this.ccL.size() || list.size() == 0) {
             return false;
         }
         for (int i = 0; i < list.size(); i++) {
-            if (!TextUtils.equals(list.get(i).cbu.uk, this.cbj.get(i).uk) || list.get(i).cbu.realWheatPosition != this.cbj.get(i).realWheatPosition) {
+            if (!TextUtils.equals(list.get(i).ccV.uk, this.ccL.get(i).uk) || list.get(i).ccV.realWheatPosition != this.ccL.get(i).realWheatPosition) {
                 return false;
             }
         }
@@ -101,33 +101,33 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
         boolean z;
         ArrayList arrayList;
         com.baidu.live.yuyingift.widget.wheatlist.d dVar;
-        AlaWheatInfoData iK;
-        this.cbm = strArr;
-        if (com.baidu.live.ao.a.Yj().Yq() == null || com.baidu.live.ao.a.Yj().Yq().aIY == null) {
+        AlaWheatInfoData iQ;
+        this.ccO = strArr;
+        if (com.baidu.live.ao.a.Ym().Yt() == null || com.baidu.live.ao.a.Ym().Yt().aKy == null) {
             z = false;
         } else {
-            z = com.baidu.live.ao.a.Yj().Yq().aIY.getRoomMode() == 100;
+            z = com.baidu.live.ao.a.Ym().Yt().aKy.getRoomMode() == 100;
         }
         if (strArr == null || strArr.length == 0) {
             arrayList = null;
         } else {
             arrayList = new ArrayList();
             for (String str : strArr) {
-                if (!StringUtils.isNull(str) && (iK = com.baidu.live.ao.a.Yj().iK(str)) != null) {
-                    arrayList.add(iK);
+                if (!StringUtils.isNull(str) && (iQ = com.baidu.live.ao.a.Ym().iQ(str)) != null) {
+                    arrayList.add(iQ);
                 }
             }
             if (ListUtils.isEmpty(arrayList)) {
-                this.cbj = null;
-                Qc();
+                this.ccL = null;
+                Qf();
                 return;
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            if (!h(this.cbj, arrayList)) {
-                this.cbj = arrayList;
+            if (!g(this.ccL, arrayList)) {
+                this.ccL = arrayList;
                 ArrayList arrayList2 = new ArrayList();
-                for (AlaWheatInfoData alaWheatInfoData : this.cbj) {
+                for (AlaWheatInfoData alaWheatInfoData : this.ccL) {
                     AlaWheatInfoData alaWheatInfoData2 = (AlaWheatInfoData) alaWheatInfoData.clone();
                     alaWheatInfoData2.isSelected = true;
                     if (alaWheatInfoData2.isHost) {
@@ -137,8 +137,8 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
                             dVar = new com.baidu.live.yuyingift.widget.wheatlist.d(alaWheatInfoData2, "主持");
                         }
                     } else {
-                        ab Yq = com.baidu.live.ao.a.Yj().Yq();
-                        if (Yq != null && Yq.aIY != null && Yq.aIY.isSweetStage()) {
+                        ab Yt = com.baidu.live.ao.a.Ym().Yt();
+                        if (Yt != null && Yt.aKy != null && Yt.aKy.isSweetStage()) {
                             dVar = new com.baidu.live.yuyingift.widget.wheatlist.d(alaWheatInfoData2, alaWheatInfoData2.phoneOrder + "麦");
                         } else if (z) {
                             dVar = new com.baidu.live.yuyingift.widget.wheatlist.d(alaWheatInfoData2, "");
@@ -147,17 +147,17 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
                         }
                     }
                     com.baidu.live.yuyingift.widget.wheatlist.d dVar2 = dVar;
-                    k(dVar2.cbu.uk, dVar2.posName, true);
+                    k(dVar2.ccV.uk, dVar2.posName, true);
                     arrayList2.add(dVar2);
                 }
                 if (ListUtils.getCount(arrayList2) > 1) {
-                    h((List<com.baidu.live.yuyingift.widget.wheatlist.d>) arrayList2, true);
+                    h(arrayList2, true);
                     return;
                 } else if (ListUtils.getCount(arrayList2) == 1) {
                     a((com.baidu.live.yuyingift.widget.wheatlist.d) ListUtils.getItem(arrayList2, 0));
                     return;
                 } else {
-                    Qc();
+                    Qf();
                     return;
                 }
             }
@@ -165,12 +165,12 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
         }
         List<com.baidu.live.yuyingift.widget.wheatlist.d> a2 = a(list, list2, z);
         if (!at(a2)) {
-            if (this.cbj == null) {
-                this.cbj = new ArrayList();
+            if (this.ccL == null) {
+                this.ccL = new ArrayList();
             }
-            this.cbj.clear();
+            this.ccL.clear();
             for (com.baidu.live.yuyingift.widget.wheatlist.d dVar3 : a2) {
-                this.cbj.add(dVar3.cbu);
+                this.ccL.add(dVar3.ccV);
             }
             int count = ListUtils.getCount(a2);
             if (count > 0) {
@@ -182,63 +182,63 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
                     return;
                 }
             }
-            Qc();
+            Qf();
         }
     }
 
-    private void Qc() {
-        this.cbd.removeAllViews();
-        this.cbe.removeAllViews();
-        this.cbk.setVisibility(8);
-        this.cbl.setVisibility(0);
-        if (this.cbg != null) {
-            this.cbg.onChange();
+    private void Qf() {
+        this.ccF.removeAllViews();
+        this.ccG.removeAllViews();
+        this.ccM.setVisibility(8);
+        this.ccN.setVisibility(0);
+        if (this.ccI != null) {
+            this.ccI.onChange();
         }
     }
 
     private void a(final com.baidu.live.yuyingift.widget.wheatlist.d dVar) {
-        this.cbl.setVisibility(8);
-        this.cbk.setVisibility(0);
-        this.cbd.removeAllViews();
-        this.cbe.removeAllViews();
-        this.cbi = new e(getContext());
+        this.ccN.setVisibility(8);
+        this.ccM.setVisibility(0);
+        this.ccF.removeAllViews();
+        this.ccG.removeAllViews();
+        this.ccK = new e(getContext());
         if (dVar != null) {
-            final e eVar = (e) this.cbi;
+            final e eVar = (e) this.ccK;
             eVar.b(dVar);
-            eVar.cbx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView.1
+            eVar.ccY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (GiftPanelSelectMicrophoneSendView.this.cbf != null) {
-                        GiftPanelSelectMicrophoneSendView.this.cbf.a(dVar.cbu);
-                        eVar.cbx.setStatus(3);
+                    if (GiftPanelSelectMicrophoneSendView.this.ccH != null) {
+                        GiftPanelSelectMicrophoneSendView.this.ccH.a(dVar.ccV);
+                        eVar.ccY.setStatus(3);
                     }
                 }
             });
-            eVar.cby.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView.2
+            eVar.ccZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (GiftPanelSelectMicrophoneSendView.this.cbf != null) {
-                        GiftPanelSelectMicrophoneSendView.this.cbf.b(dVar.cbu);
+                    if (GiftPanelSelectMicrophoneSendView.this.ccH != null) {
+                        GiftPanelSelectMicrophoneSendView.this.ccH.b(dVar.ccV);
                     }
-                    com.baidu.live.yuyingift.b.a.u(GiftPanelSelectMicrophoneSendView.this.cbm);
+                    com.baidu.live.yuyingift.b.a.u(GiftPanelSelectMicrophoneSendView.this.ccO);
                 }
             });
-            if (this.cbh != null) {
-                this.cbh.c(dVar.cbu);
+            if (this.ccJ != null) {
+                this.ccJ.c(dVar.ccV);
             }
-            this.cbd.addView(this.cbi.contentView);
-            this.cbe.addView(this.cbi.caU);
+            this.ccF.addView(this.ccK.contentView);
+            this.ccG.addView(this.ccK.ccw);
         }
     }
 
-    private void g(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2) {
+    private void f(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2) {
         boolean z;
         if (list != null) {
             for (int i = 0; i < list.size(); i++) {
                 String str = list.get(i).uk;
-                if (com.baidu.live.ao.a.Yj().iL(str)) {
-                    if (ListUtils.isEmpty(list2) && this.cbg != null) {
-                        this.cbg.onChange();
+                if (com.baidu.live.ao.a.Ym().iR(str)) {
+                    if (ListUtils.isEmpty(list2) && this.ccI != null) {
+                        this.ccI.onChange();
                         return;
                     }
                     int i2 = 0;
@@ -255,8 +255,8 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
                             break;
                         }
                     }
-                    if (!z && this.cbg != null) {
-                        this.cbg.onChange();
+                    if (!z && this.ccI != null) {
+                        this.ccI.onChange();
                         return;
                     }
                 }
@@ -264,8 +264,8 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
         }
     }
 
-    private boolean h(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2) {
-        g(list, list2);
+    private boolean g(List<AlaWheatInfoData> list, List<AlaWheatInfoData> list2) {
+        f(list, list2);
         int count = ListUtils.getCount(list);
         if (count != ListUtils.getCount(list2)) {
             return false;
@@ -281,63 +281,63 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
     }
 
     private void h(List<com.baidu.live.yuyingift.widget.wheatlist.d> list, boolean z) {
-        this.cbl.setVisibility(8);
-        this.cbk.setVisibility(0);
-        this.cbd.removeAllViews();
-        this.cbe.removeAllViews();
-        this.cbi = new com.baidu.live.yuyingift.widget.wheatlist.a(getContext());
-        final com.baidu.live.yuyingift.widget.wheatlist.a aVar = (com.baidu.live.yuyingift.widget.wheatlist.a) this.cbi;
+        this.ccN.setVisibility(8);
+        this.ccM.setVisibility(0);
+        this.ccF.removeAllViews();
+        this.ccG.removeAllViews();
+        this.ccK = new com.baidu.live.yuyingift.widget.wheatlist.a(getContext());
+        final com.baidu.live.yuyingift.widget.wheatlist.a aVar = (com.baidu.live.yuyingift.widget.wheatlist.a) this.ccK;
         aVar.setData(list);
-        aVar.caR.setSelected(aVar.caT.Zn());
-        aVar.caR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView.3
+        aVar.cct.setSelected(aVar.ccv.Zq());
+        aVar.cct.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                aVar.caT.dL(!aVar.caT.Zn());
-                ((com.baidu.live.yuyingift.widget.wheatlist.a) GiftPanelSelectMicrophoneSendView.this.cbi).caR.setSelected(aVar.caT.Zn());
-                if (GiftPanelSelectMicrophoneSendView.this.cbg != null) {
-                    GiftPanelSelectMicrophoneSendView.this.cbg.onChange();
+                aVar.ccv.dL(!aVar.ccv.Zq());
+                ((com.baidu.live.yuyingift.widget.wheatlist.a) GiftPanelSelectMicrophoneSendView.this.ccK).cct.setSelected(aVar.ccv.Zq());
+                if (GiftPanelSelectMicrophoneSendView.this.ccI != null) {
+                    GiftPanelSelectMicrophoneSendView.this.ccI.onChange();
                 }
-                com.baidu.live.yuyingift.b.a.q(GiftPanelSelectMicrophoneSendView.this.cbm);
+                com.baidu.live.yuyingift.b.a.q(GiftPanelSelectMicrophoneSendView.this.ccO);
             }
         });
-        com.baidu.live.yuyingift.widget.wheatlist.c cVar = aVar.caT;
-        com.baidu.live.yuyingift.widget.wheatlist.c cVar2 = aVar.caT;
+        com.baidu.live.yuyingift.widget.wheatlist.c cVar = aVar.ccv;
+        com.baidu.live.yuyingift.widget.wheatlist.c cVar2 = aVar.ccv;
         cVar2.getClass();
         cVar.a(new c.a(cVar2, aVar) { // from class: com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView.4
-            final /* synthetic */ com.baidu.live.yuyingift.widget.wheatlist.a cbq;
+            final /* synthetic */ com.baidu.live.yuyingift.widget.wheatlist.a ccS;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
-                this.cbq = aVar;
+                this.ccS = aVar;
                 cVar2.getClass();
             }
 
             @Override // com.baidu.live.yuyingift.widget.wheatlist.c.a
-            void dV(int i) {
-                ((com.baidu.live.yuyingift.widget.wheatlist.a) GiftPanelSelectMicrophoneSendView.this.cbi).caR.setSelected(this.cbq.caT.Zn());
-                if (GiftPanelSelectMicrophoneSendView.this.cbg != null) {
-                    GiftPanelSelectMicrophoneSendView.this.cbg.onChange();
+            void dW(int i) {
+                ((com.baidu.live.yuyingift.widget.wheatlist.a) GiftPanelSelectMicrophoneSendView.this.ccK).cct.setSelected(this.ccS.ccv.Zq());
+                if (GiftPanelSelectMicrophoneSendView.this.ccI != null) {
+                    GiftPanelSelectMicrophoneSendView.this.ccI.onChange();
                 }
-                com.baidu.live.yuyingift.b.a.r(GiftPanelSelectMicrophoneSendView.this.cbm);
+                com.baidu.live.yuyingift.b.a.r(GiftPanelSelectMicrophoneSendView.this.ccO);
             }
         });
-        this.cbd.addView(this.cbi.contentView);
+        this.ccF.addView(this.ccK.contentView);
         if (z) {
-            this.cbe.addView(this.cbi.caU);
+            this.ccG.addView(this.ccK.ccw);
         }
     }
 
     public void setAttentionAndInfo(PersonUserData personUserData) {
-        if (personUserData != null && personUserData.user_info != null && personUserData.relation_info != null && this.cbi != null && (this.cbi instanceof e)) {
-            ((e) this.cbi).dO(!TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), personUserData.user_info.user_id) && personUserData.relation_info.follow_status == 0);
-            ((e) this.cbi).dN(true);
+        if (personUserData != null && personUserData.user_info != null && personUserData.relation_info != null && this.ccK != null && (this.ccK instanceof e)) {
+            ((e) this.ccK).dO(!TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), personUserData.user_info.user_id) && personUserData.relation_info.follow_status == 0);
+            ((e) this.ccK).dN(true);
         }
     }
 
-    public void YD() {
-        if (this.cbi != null && (this.cbi instanceof e)) {
-            ((e) this.cbi).dO(false);
+    public void YG() {
+        if (this.ccK != null && (this.ccK instanceof e)) {
+            ((e) this.ccK).dO(false);
         }
     }
 
@@ -356,9 +356,9 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
                 } else {
                     com.baidu.live.yuyingift.widget.wheatlist.d dVar5 = new com.baidu.live.yuyingift.widget.wheatlist.d(alaWheatInfoData, "主持");
                     arrayList.add(dVar5);
-                    if (com.baidu.live.ao.a.Yj().iI(alaWheatInfoData.uk)) {
+                    if (com.baidu.live.ao.a.Ym().iO(alaWheatInfoData.uk)) {
                         dVar3 = dVar5.clone();
-                        dVar3.cbu.userName = "房主";
+                        dVar3.ccV.userName = "房主";
                         dVar3.posName = "房主";
                     } else {
                         dVar3 = dVar4;
@@ -378,9 +378,9 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
                 AlaWheatInfoData next = it.next();
                 com.baidu.live.yuyingift.widget.wheatlist.d dVar6 = new com.baidu.live.yuyingift.widget.wheatlist.d(next, String.valueOf(next.realWheatPosition));
                 arrayList.add(dVar6);
-                if (com.baidu.live.ao.a.Yj().iI(next.uk)) {
+                if (com.baidu.live.ao.a.Ym().iO(next.uk)) {
                     dVar = dVar6.clone();
-                    dVar.cbu.userName = "房主";
+                    dVar.ccV.userName = "房主";
                     dVar.posName = "房主";
                 } else {
                     dVar = dVar2;
@@ -389,9 +389,9 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
             dVar = dVar2;
         }
         if (dVar == null) {
-            AlaWheatInfoData Yl = com.baidu.live.ao.a.Yj().Yl();
-            if (Yl != null) {
-                AlaWheatInfoData alaWheatInfoData2 = (AlaWheatInfoData) Yl.clone();
+            AlaWheatInfoData Yo = com.baidu.live.ao.a.Ym().Yo();
+            if (Yo != null) {
+                AlaWheatInfoData alaWheatInfoData2 = (AlaWheatInfoData) Yo.clone();
                 if (z) {
                     arrayList.add(new com.baidu.live.yuyingift.widget.wheatlist.d(alaWheatInfoData2, ""));
                 } else {
@@ -405,7 +405,7 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
         if (TbadkCoreApplication.isLogin() && arrayList.size() > 0) {
             Iterator it2 = arrayList.iterator();
             while (it2.hasNext()) {
-                if (TextUtils.equals(String.valueOf(ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount())), ((com.baidu.live.yuyingift.widget.wheatlist.d) it2.next()).cbu.uk)) {
+                if (TextUtils.equals(String.valueOf(ExtraParamsManager.getEncryptionUserId(TbadkCoreApplication.getCurrentAccount())), ((com.baidu.live.yuyingift.widget.wheatlist.d) it2.next()).ccV.uk)) {
                     it2.remove();
                 }
             }
@@ -414,61 +414,61 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
         if (arrayList != null) {
             for (com.baidu.live.yuyingift.widget.wheatlist.d dVar7 : arrayList) {
                 if (TextUtils.equals("房主", dVar7.posName)) {
-                    dVar7.cbu.isSelected = com.baidu.live.ao.a.Yj().iL(dVar7.posName);
+                    dVar7.ccV.isSelected = com.baidu.live.ao.a.Ym().iR(dVar7.posName);
                 } else {
-                    dVar7.cbu.isSelected = com.baidu.live.ao.a.Yj().iL(dVar7.cbu.uk);
+                    dVar7.ccV.isSelected = com.baidu.live.ao.a.Ym().iR(dVar7.ccV.uk);
                 }
-                arrayList2.add(dVar7.cbu);
+                arrayList2.add(dVar7.ccV);
             }
         }
-        g(this.cbj, arrayList2);
+        f(this.ccL, arrayList2);
         return arrayList;
     }
 
     public d getSelectMicrophoneList() {
         d dVar = new d();
         ArrayList arrayList = new ArrayList();
-        dVar.cbr = this.cbm;
-        if (this.cbd != null && this.cbd.getChildCount() > 0) {
-            View childAt = this.cbd.getChildAt(0);
-            if (this.cbi != null && childAt == this.cbi.contentView) {
-                if (this.cbi instanceof e) {
-                    if (((e) this.cbi).cbv != null) {
-                        arrayList.add(((e) this.cbi).cbv);
+        dVar.ccT = this.ccO;
+        if (this.ccF != null && this.ccF.getChildCount() > 0) {
+            View childAt = this.ccF.getChildAt(0);
+            if (this.ccK != null && childAt == this.ccK.contentView) {
+                if (this.ccK instanceof e) {
+                    if (((e) this.ccK).ccW != null) {
+                        arrayList.add(((e) this.ccK).ccW);
                     }
-                } else if (this.cbi instanceof com.baidu.live.yuyingift.widget.wheatlist.a) {
-                    for (AlaWheatInfoData alaWheatInfoData : ((com.baidu.live.yuyingift.widget.wheatlist.a) this.cbi).getData()) {
+                } else if (this.ccK instanceof com.baidu.live.yuyingift.widget.wheatlist.a) {
+                    for (AlaWheatInfoData alaWheatInfoData : ((com.baidu.live.yuyingift.widget.wheatlist.a) this.ccK).getData()) {
                         if (alaWheatInfoData.isSelected) {
                             arrayList.add(alaWheatInfoData);
                         }
                     }
                 }
             }
-            dVar.cbt = arrayList;
+            dVar.ccU = arrayList;
         }
         return dVar;
     }
 
-    public void Zo() {
-        com.baidu.live.yuyingift.b.a.s(this.cbm);
+    public void Zr() {
+        com.baidu.live.yuyingift.b.a.s(this.ccO);
     }
 
-    public void Zp() {
-        com.baidu.live.yuyingift.b.a.t(this.cbm);
+    public void Zs() {
+        com.baidu.live.yuyingift.b.a.t(this.ccO);
     }
 
-    public void Zq() {
-        com.baidu.live.yuyingift.b.a.v(this.cbm);
+    public void Zt() {
+        com.baidu.live.yuyingift.b.a.v(this.ccO);
     }
 
     public void aV(String str, String str2) {
-        com.baidu.live.yuyingift.b.a.a(this.cbm, str, str2);
+        com.baidu.live.yuyingift.b.a.a(this.ccO, str, str2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public class d {
-        public String[] cbr;
-        public List<AlaWheatInfoData> cbt;
+        public String[] ccT;
+        public List<AlaWheatInfoData> ccU;
 
         public d() {
         }
@@ -476,9 +476,9 @@ public class GiftPanelSelectMicrophoneSendView extends RelativeLayout {
 
     public static void k(String str, String str2, boolean z) {
         if (TextUtils.equals("房主", str2)) {
-            com.baidu.live.ao.a.Yj().G("房主", z);
+            com.baidu.live.ao.a.Ym().G("房主", z);
         } else {
-            com.baidu.live.ao.a.Yj().G(str, z);
+            com.baidu.live.ao.a.Ym().G(str, z);
         }
     }
 }

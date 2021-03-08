@@ -5,16 +5,16 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class EmojiconEditText extends EditText {
-    private int bUJ;
-    private int bUK;
-    private int bUL;
+    private int bWj;
+    private int bWk;
+    private int bWl;
 
     public EmojiconEditText(Context context) {
         super(context);
-        this.bUJ = (int) getTextSize();
-        this.bUL = (int) getTextSize();
+        this.bWj = (int) getTextSize();
+        this.bWl = (int) getTextSize();
     }
 
     public EmojiconEditText(Context context, AttributeSet attributeSet) {
@@ -29,24 +29,24 @@ public class EmojiconEditText extends EditText {
 
     private void init(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.Expression);
-        this.bUJ = (int) obtainStyledAttributes.getDimension(a.j.Expression_expressionSize, getTextSize());
-        this.bUK = obtainStyledAttributes.getInt(a.j.Expression_expressionAlignment, 1);
+        this.bWj = (int) obtainStyledAttributes.getDimension(a.j.Expression_expressionSize, getTextSize());
+        this.bWk = obtainStyledAttributes.getInt(a.j.Expression_expressionAlignment, 1);
         obtainStyledAttributes.recycle();
-        this.bUL = (int) getTextSize();
+        this.bWl = (int) getTextSize();
         setText(getText());
     }
 
     @Override // android.widget.TextView
     protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        XN();
+        XQ();
     }
 
     public void setExpressionSize(int i) {
-        this.bUJ = i;
-        XN();
+        this.bWj = i;
+        XQ();
     }
 
-    private void XN() {
-        d.a(getContext(), getText(), this.bUJ, this.bUK, this.bUL);
+    private void XQ() {
+        d.a(getContext(), getText(), this.bWj, this.bWk, this.bWl);
     }
 }

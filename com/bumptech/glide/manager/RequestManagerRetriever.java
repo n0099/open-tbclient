@@ -26,7 +26,7 @@ import com.bumptech.glide.util.Util;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class RequestManagerRetriever implements Handler.Callback {
     private static final RequestManagerFactory DEFAULT_FACTORY = new RequestManagerFactory() { // from class: com.bumptech.glide.manager.RequestManagerRetriever.1
         @Override // com.bumptech.glide.manager.RequestManagerRetriever.RequestManagerFactory
@@ -52,7 +52,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     private final ArrayMap<View, android.app.Fragment> tempViewToFragment = new ArrayMap<>();
     private final Bundle tempBundle = new Bundle();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface RequestManagerFactory {
         @NonNull
         RequestManager build(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context);
@@ -87,7 +87,7 @@ public class RequestManagerRetriever implements Handler.Callback {
             if (context instanceof Activity) {
                 return get((Activity) context);
             }
-            if (context instanceof ContextWrapper) {
+            if ((context instanceof ContextWrapper) && ((ContextWrapper) context).getBaseContext().getApplicationContext() != null) {
                 return get(((ContextWrapper) context).getBaseContext());
             }
         }
@@ -105,11 +105,11 @@ public class RequestManagerRetriever implements Handler.Callback {
 
     @NonNull
     public RequestManager get(@NonNull Fragment fragment) {
-        Preconditions.checkNotNull(fragment.getActivity(), "You cannot start a load on a fragment before it is attached or after it is destroyed");
+        Preconditions.checkNotNull(fragment.getContext(), "You cannot start a load on a fragment before it is attached or after it is destroyed");
         if (Util.isOnBackgroundThread()) {
-            return get(fragment.getActivity().getApplicationContext());
+            return get(fragment.getContext().getApplicationContext());
         }
-        return supportFragmentGet(fragment.getActivity(), fragment.getChildFragmentManager(), fragment, fragment.isVisible());
+        return supportFragmentGet(fragment.getContext(), fragment.getChildFragmentManager(), fragment, fragment.isVisible());
     }
 
     @NonNull
@@ -134,7 +134,7 @@ public class RequestManagerRetriever implements Handler.Callback {
         }
         if (findActivity instanceof FragmentActivity) {
             Fragment findSupportFragment = findSupportFragment(view, (FragmentActivity) findActivity);
-            return findSupportFragment != null ? get(findSupportFragment) : get(findActivity);
+            return findSupportFragment != null ? get(findSupportFragment) : get((FragmentActivity) findActivity);
         }
         android.app.Fragment findFragment = findFragment(view, findActivity);
         if (findFragment == null) {
@@ -222,7 +222,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     }
 
     @Nullable
-    private Activity findActivity(@NonNull Context context) {
+    private static Activity findActivity(@NonNull Context context) {
         if (context instanceof Activity) {
             return (Activity) context;
         }
@@ -290,12 +290,13 @@ public class RequestManagerRetriever implements Handler.Callback {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
-    public SupportRequestManagerFragment getSupportRequestManagerFragment(FragmentActivity fragmentActivity) {
-        return getSupportRequestManagerFragment(fragmentActivity.getSupportFragmentManager(), null, isActivityVisible(fragmentActivity));
+    public SupportRequestManagerFragment getSupportRequestManagerFragment(Context context, androidx.fragment.app.FragmentManager fragmentManager) {
+        return getSupportRequestManagerFragment(fragmentManager, null, isActivityVisible(context));
     }
 
-    private static boolean isActivityVisible(Activity activity) {
-        return !activity.isFinishing();
+    private static boolean isActivityVisible(Context context) {
+        Activity findActivity = findActivity(context);
+        return findActivity == null || !findActivity.isFinishing();
     }
 
     @NonNull

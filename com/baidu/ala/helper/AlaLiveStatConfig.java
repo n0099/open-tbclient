@@ -1,5 +1,5 @@
 package com.baidu.ala.helper;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaLiveStatConfig {
     public String mUploadUrl = "";
     public String mSavePath = "";

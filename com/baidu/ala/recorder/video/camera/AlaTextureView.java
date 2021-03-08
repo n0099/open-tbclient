@@ -12,7 +12,7 @@ import com.baidu.ala.recorder.video.listener.TextureViewListener;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaTextureView extends TextureView implements TextureView.SurfaceTextureListener {
     private static final boolean IS_OPEN_TAG = false;
     private static final String TAG = "LIVE_SDK_JNI";

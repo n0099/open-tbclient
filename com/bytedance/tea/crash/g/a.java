@@ -20,13 +20,11 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7664a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f7665b = null;
+    private static String f5186a = null;
+    private static String b = null;
     private static Class<?> c = null;
-    private static Field pww = null;
-    private static Field pwx = null;
+    private static Field pyz = null;
+    private static Field pyA = null;
     private static boolean f = false;
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:31:0x0068 -> B:32:0x0005). Please submit an issue!!! */
@@ -99,21 +97,21 @@ public final class a {
 
     public static boolean c(Context context) {
         String d = d(context);
-        if (f7665b == null) {
+        if (b == null) {
             try {
-                f7665b = context.getPackageManager().getServiceInfo(new ComponentName(context, CrashUploadService.class), 65536).processName;
-                f7665b = f7665b.substring(f7665b.lastIndexOf(":"));
+                b = context.getPackageManager().getServiceInfo(new ComponentName(context, CrashUploadService.class), 65536).processName;
+                b = b.substring(b.lastIndexOf(":"));
             } catch (Throwable th) {
                 th.printStackTrace();
-                f7665b = ":npth";
+                b = ":npth";
             }
         }
-        return d != null && d.endsWith(f7665b);
+        return d != null && d.endsWith(b);
     }
 
     @Nullable
     public static String d(Context context) {
-        String str = f7664a;
+        String str = f5186a;
         if (TextUtils.isEmpty(str)) {
             try {
                 int myPid = Process.myPid();
@@ -121,19 +119,19 @@ public final class a {
                 if (activityManager != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
                         if (runningAppProcessInfo.pid == myPid) {
-                            f7664a = runningAppProcessInfo.processName;
-                            return f7664a;
+                            f5186a = runningAppProcessInfo.processName;
+                            return f5186a;
                         }
                     }
                 }
             } catch (Throwable th) {
                 j.b(th);
             }
-            f7664a = a();
-            if (f7664a == null) {
+            f5186a = a();
+            if (f5186a == null) {
                 return "";
             }
-            return f7664a;
+            return f5186a;
         }
         return str;
     }
@@ -274,16 +272,16 @@ public final class a {
 
     @NonNull
     public static String e(Context context) {
-        Class<?> ib = ib(context);
-        if (pww == null && ib != null) {
+        Class<?> ia = ia(context);
+        if (pyz == null && ia != null) {
             try {
-                pww = ib.getDeclaredField("VERSION_NAME");
+                pyz = ia.getDeclaredField("VERSION_NAME");
             } catch (NoSuchFieldException e) {
             }
         }
-        if (pww != null) {
+        if (pyz != null) {
             try {
-                return (String) pww.get(null);
+                return (String) pyz.get(null);
             } catch (Throwable th) {
             }
         }
@@ -291,16 +289,16 @@ public final class a {
     }
 
     public static int f(Context context) {
-        Class<?> ib = ib(context);
-        if (pwx == null && ib != null) {
+        Class<?> ia = ia(context);
+        if (pyA == null && ia != null) {
             try {
-                pwx = ib.getDeclaredField("VERSION_CODE");
+                pyA = ia.getDeclaredField("VERSION_CODE");
             } catch (NoSuchFieldException e) {
             }
         }
-        if (pwx != null) {
+        if (pyA != null) {
             try {
-                return ((Integer) pwx.get(null)).intValue();
+                return ((Integer) pyA.get(null)).intValue();
             } catch (Throwable th) {
             }
         }
@@ -308,7 +306,7 @@ public final class a {
     }
 
     @Nullable
-    private static Class<?> ib(Context context) {
+    private static Class<?> ia(Context context) {
         if (c == null && !f) {
             try {
                 c = Class.forName(context.getPackageName() + ".BuildConfig");

@@ -22,7 +22,7 @@ public class AlaJumpStatStatic {
             public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                 Object data;
                 if (customMessage != null && customMessageTask == null && (data = customMessage.getData()) != null) {
-                    AlaJumpStatStatic.i(data, data.getClass().getSimpleName());
+                    AlaJumpStatStatic.j(data, data.getClass().getSimpleName());
                 }
                 return customMessage;
             }
@@ -35,7 +35,7 @@ public class AlaJumpStatStatic {
                 if (customMessage != null && (data = customMessage.getData()) != null) {
                     String simpleName = data.getClass().getSimpleName();
                     if (("AlaLiveRoomActivityConfig".equals(simpleName) || "AlaMasterLiveRoomActivityConfig".equals(simpleName) || "AlaWriteShareInBarActivityConfig".equals(simpleName) || "AlaLiveFloatWindowActivityConfig".equals(simpleName) || "AlaPersonCenterActivityConfig".equals(simpleName)) && TbadkCoreApplication.getInst().getIntentClass(data.getClass()) == null) {
-                        AlaJumpStatStatic.i(data, simpleName);
+                        AlaJumpStatStatic.j(data, simpleName);
                     }
                 }
                 return customMessage;
@@ -44,11 +44,11 @@ public class AlaJumpStatStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void i(Object obj, String str) {
+    public static final void j(Object obj, String str) {
         com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.append("workflow", "ala_jump_fail");
         statsItem.append("config", str);
-        statsItem.append("startTime", Long.valueOf(System.currentTimeMillis() - l.bEl().bEk()));
+        statsItem.append("startTime", Long.valueOf(System.currentTimeMillis() - l.bEp().bEo()));
         if (obj instanceof AlaLiveRoomActivityConfig) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
             statsItem.append("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra("live_from_type"));

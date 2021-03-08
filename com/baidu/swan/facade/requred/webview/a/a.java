@@ -47,7 +47,7 @@ public class a implements b.a {
     }
 
     @Override // com.baidu.swan.facade.requred.webview.b.a
-    public com.baidu.swan.pms.e.b aiK() {
+    public com.baidu.swan.pms.e.b aiN() {
         return new com.baidu.swan.d.c();
     }
 
@@ -57,11 +57,11 @@ public class a implements b.a {
         if (DEBUG) {
             Log.i("SailorSoDownloadAdapter", "startDownload: ");
         }
-        com.baidu.swan.apps.env.b.c.dac.a(new d().a("zeus", new com.baidu.swan.apps.ao.e.b<Boolean>() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
+        com.baidu.swan.apps.env.b.c.dbF.a(new d().a("zeus", new com.baidu.swan.apps.ao.e.b<Boolean>() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: g */
-            public void L(Boolean bool) {
+            public void N(Boolean bool) {
                 if (a.DEBUG) {
                     Log.i("SailorSoDownloadAdapter", "startDownload onCallback: " + bool);
                 }
@@ -77,7 +77,7 @@ public class a implements b.a {
     }
 
     private void a(DialogInterface.OnClickListener onClickListener) {
-        SwanAppErrorDialog.aOX().iO(a.e.aiapps_t7_download_tip_title).iP(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
+        SwanAppErrorDialog.aPa().iP(a.e.aiapps_t7_download_tip_title).iQ(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -99,7 +99,7 @@ public class a implements b.a {
         com.baidu.swan.apps.runtime.d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.a.a.4
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.runtime.d.aIG().rz("loading_hide");
+                com.baidu.swan.apps.runtime.d.aIJ().rG("loading_hide");
             }
         });
     }

@@ -1,20 +1,20 @@
 package com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.a;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
     private Drawable icon;
-    private int pgw;
-    private boolean pgx;
+    private int piE;
+    private boolean piF;
     private String title;
     private int titleColor;
 
     public a(int i, String str, Drawable drawable) {
         this.titleColor = -1;
-        this.pgw = -1;
+        this.piE = -1;
         this.title = str;
         this.icon = drawable;
-        this.pgw = i;
+        this.piE = i;
     }
 
     public a() {
@@ -33,11 +33,11 @@ public class a {
         return this.icon;
     }
 
-    public int elR() {
-        return this.pgw;
+    public int emb() {
+        return this.piE;
     }
 
     public boolean isSticky() {
-        return this.pgx;
+        return this.piF;
     }
 }

@@ -14,7 +14,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaRecorderLog {
     public static final String BEAUTY_INFO_LOG_ID = "2449";
     public static final String BEAUTY_PERFORMANCE_LOG_ID = "2448";
@@ -104,33 +104,33 @@ public class AlaRecorderLog {
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ErrCodeSeg {
         public static final int ERROR_BASE_RECORDER = 300000;
         public static final int ERROR_BASE_RTC = 110000;
         public static final int ERROR_BASE_RTMP = 200000;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ErrorCode {
         public static final int ERROR_RECORDER_NOT_DEFINE_ERROR = 9999;
         public static final int ERROR_STREAM_INTERRUPT = 1;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Protocol {
         public static final String RTC = "rtc";
         public static final String RTMP = "rtmp";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class RtcSource {
         public static final String AUDIO_CHAT_1V1 = "1v1";
         public static final String VIDEO_CHAT_1V1 = "1v1";
         public static final String VIDEO_CHAT_1V2 = "1v2";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Stage {
         public static final int CONN_SUCC = 20;
         public static final int ENTER_BACKGROUND = 50;
@@ -143,7 +143,7 @@ public class AlaRecorderLog {
         public static final int STREAM_ERROR = 80;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class Value {
         public static final String CLOSE_ROOM_CLK = "close_room_clk";
         public static final String HANGOFF_CLK = "hangoff_clk";
@@ -157,7 +157,7 @@ public class AlaRecorderLog {
         public static final String USER_REJECT_REMOTE = "user_reject_remote";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class CameraInfo {
         public int cameraApi = 1;
         public int cameraCount;

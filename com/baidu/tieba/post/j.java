@@ -3,19 +3,19 @@ package com.baidu.tieba.post;
 import com.baidu.adp.lib.util.StringUtils;
 import java.util.HashMap;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j implements com.baidu.tieba.l.g {
-    private String luJ;
+    private String lwL;
     private HashMap<String, com.baidu.tieba.l.e> mMap;
     private String mUuid;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     private static class a {
-        private static final com.baidu.tieba.l.g mMy = new j();
+        private static final com.baidu.tieba.l.g mOA = new j();
     }
 
-    public static com.baidu.tieba.l.g dBp() {
-        return a.mMy;
+    public static com.baidu.tieba.l.g dBx() {
+        return a.mOA;
     }
 
     private j() {
@@ -23,84 +23,84 @@ public class j implements com.baidu.tieba.l.g {
     }
 
     @Override // com.baidu.tieba.l.g
-    public void dgO() {
+    public void dgX() {
         this.mUuid = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.l.g
     public void bK(int i, String str) {
-        dBq().p(this.mUuid, i, str);
+        dBy().q(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.l.g
     public void bL(int i, String str) {
-        dBq().q(this.mUuid, i, str);
+        dBy().r(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.l.g
     public void bM(int i, String str) {
-        dBq().r(this.mUuid, i, str);
+        dBy().s(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.l.g
-    public void dgP() {
-        dBq().Oz(this.mUuid);
+    public void dgY() {
+        dBy().OF(this.mUuid);
     }
 
     @Override // com.baidu.tieba.l.g
     public void o(int i, int i2, String str) {
-        dBq().e(this.mUuid, i, i2, str);
+        dBy().e(this.mUuid, i, i2, str);
     }
 
     @Override // com.baidu.tieba.l.g
-    public void dgQ() {
-        dBq().OA(this.mUuid);
+    public void dgZ() {
+        dBy().OG(this.mUuid);
         report(this.mUuid);
     }
 
     @Override // com.baidu.tieba.l.g
     public void bN(int i, String str) {
-        dBq().s(this.mUuid, i, str);
+        dBy().t(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.l.g
-    public void OD(String str) {
-        if (!StringUtils.isNull(this.luJ)) {
-            if (OB(this.luJ) || OC(this.luJ)) {
-                report(this.luJ);
+    public void OJ(String str) {
+        if (!StringUtils.isNull(this.lwL)) {
+            if (OH(this.lwL) || OI(this.lwL)) {
+                report(this.lwL);
             } else {
-                com.baidu.tieba.l.d.Oy(this.luJ);
+                com.baidu.tieba.l.d.OE(this.lwL);
                 this.mMap.remove(this.mUuid);
             }
-            dgO();
-            dBq().fN(this.luJ, str);
-            this.luJ = null;
+            dgX();
+            dBy().fN(this.lwL, str);
+            this.lwL = null;
         }
     }
 
     @Override // com.baidu.tieba.l.g
-    public void dgR() {
-        this.luJ = this.mUuid;
+    public void dha() {
+        this.lwL = this.mUuid;
     }
 
     @Override // com.baidu.tieba.l.g
-    public void OE(String str) {
-        dBq().fO(this.mUuid, str);
-        if (OB(this.mUuid) || OC(this.mUuid)) {
+    public void OK(String str) {
+        dBy().fO(this.mUuid, str);
+        if (OH(this.mUuid) || OI(this.mUuid)) {
             report(this.mUuid);
         } else {
-            com.baidu.tieba.l.d.Oy(this.mUuid);
+            com.baidu.tieba.l.d.OE(this.mUuid);
             this.mMap.remove(this.mUuid);
         }
         this.mUuid = null;
     }
 
-    public boolean OB(String str) {
-        return dBq().OB(str);
+    public boolean OH(String str) {
+        return dBy().OH(str);
     }
 
-    public boolean OC(String str) {
-        return dBq().OC(str);
+    public boolean OI(String str) {
+        return dBy().OI(str);
     }
 
     public void report(String str) {
@@ -111,15 +111,15 @@ public class j implements com.baidu.tieba.l.g {
         }
     }
 
-    private com.baidu.tieba.l.e dBq() {
+    private com.baidu.tieba.l.e dBy() {
         com.baidu.tieba.l.e eVar = this.mMap.get(this.mUuid);
         if (eVar == null) {
-            return dBr();
+            return dBz();
         }
         return eVar;
     }
 
-    private com.baidu.tieba.l.e dBr() {
+    private com.baidu.tieba.l.e dBz() {
         i iVar = new i(this.mUuid);
         this.mMap.put(this.mUuid, iVar);
         return iVar;

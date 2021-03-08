@@ -16,16 +16,16 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.avatarPendant.c;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AvatarPendantPerItemView extends LinearLayout {
-    private TextView joX;
-    private TbImageView lmf;
+    private TextView jqG;
+    private TbImageView lok;
     private Context mContext;
     private View mRootView;
-    private DressItemData nFW;
-    private HeadPendantView nGt;
-    private ImageView nGu;
-    private c.a nGv;
+    private ImageView nIA;
+    private c.a nIB;
+    private DressItemData nIc;
+    private HeadPendantView nIz;
 
     public AvatarPendantPerItemView(Context context) {
         super(context);
@@ -47,54 +47,54 @@ public class AvatarPendantPerItemView extends LinearLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.avatar_pendant_per_item, this);
-        this.nGt = (HeadPendantView) this.mRootView.findViewById(R.id.avatar_image);
-        this.lmf = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
-        this.lmf.setDefaultResource(R.drawable.transparent_bg);
-        this.lmf.setDefaultBgResource(R.drawable.transparent_bg);
-        this.nGu = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
-        this.joX = (TextView) this.mRootView.findViewById(R.id.text_pendant_name);
-        this.nGt.setHasPendantStyle();
-        if (this.nGt.getHeadView() != null) {
-            this.nGt.getHeadView().setIsRound(true);
-            this.nGt.getHeadView().setDrawBorder(false);
+        this.nIz = (HeadPendantView) this.mRootView.findViewById(R.id.avatar_image);
+        this.lok = (TbImageView) this.mRootView.findViewById(R.id.permission_icon);
+        this.lok.setDefaultResource(R.drawable.transparent_bg);
+        this.lok.setDefaultBgResource(R.drawable.transparent_bg);
+        this.nIA = (ImageView) this.mRootView.findViewById(R.id.choosed_icon);
+        this.jqG = (TextView) this.mRootView.findViewById(R.id.text_pendant_name);
+        this.nIz.setHasPendantStyle();
+        if (this.nIz.getHeadView() != null) {
+            this.nIz.getHeadView().setIsRound(true);
+            this.nIz.getHeadView().setDrawBorder(false);
         }
-        if (this.nGt.getPendantView() != null) {
-            this.nGt.getPendantView().setIsRound(true);
-            this.nGt.getPendantView().setDrawBorder(false);
+        if (this.nIz.getPendantView() != null) {
+            this.nIz.getPendantView().setIsRound(true);
+            this.nIz.getPendantView().setDrawBorder(false);
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void d(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.nFW = dressItemData;
+            this.nIc = dressItemData;
             boolean inUse = dressItemData.getInUse();
             if (dressItemData.isPropIdEven()) {
-                if (this.nGt.getHeadView() != null) {
-                    this.nGt.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
+                if (this.nIz.getHeadView() != null) {
+                    this.nIz.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_woman), 24, false);
                 }
-            } else if (this.nGt.getHeadView() != null) {
-                this.nGt.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
+            } else if (this.nIz.getHeadView() != null) {
+                this.nIz.getHeadView().startLoad(String.valueOf(R.drawable.pic_shop_man), 24, false);
             }
             if (au.byteLength(dressItemData.getTitle()) > 8) {
-                this.joX.setText(au.cutString(dressItemData.getTitle(), 8));
+                this.jqG.setText(au.cutString(dressItemData.getTitle(), 8));
             } else {
-                this.joX.setText(dressItemData.getTitle());
+                this.jqG.setText(dressItemData.getTitle());
             }
             if (inUse) {
-                this.nGu.setVisibility(0);
-                ap.setImageResource(this.nGu, R.drawable.icon_shop_selected);
+                this.nIA.setVisibility(0);
+                ap.setImageResource(this.nIA, R.drawable.icon_shop_selected);
             } else {
-                this.nGu.setVisibility(8);
+                this.nIA.setVisibility(8);
             }
-            this.lmf.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-            this.nGt.Bz(dressItemData.getExampleImgUrl());
-            this.nGt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView.1
+            this.lok.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+            this.nIz.BG(dressItemData.getExampleImgUrl());
+            this.nIz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (view != null && AvatarPendantPerItemView.this.nGv != null) {
-                        if (AvatarPendantPerItemView.this.nFW == null || !AvatarPendantPerItemView.this.nFW.getInUse() || !TbadkCoreApplication.isLogin()) {
-                            AvatarPendantPerItemView.this.nGv.b(AvatarPendantPerItemView.this.nFW);
+                    if (view != null && AvatarPendantPerItemView.this.nIB != null) {
+                        if (AvatarPendantPerItemView.this.nIc == null || !AvatarPendantPerItemView.this.nIc.getInUse() || !TbadkCoreApplication.isLogin()) {
+                            AvatarPendantPerItemView.this.nIB.b(AvatarPendantPerItemView.this.nIc);
                         }
                     }
                 }
@@ -104,6 +104,6 @@ public class AvatarPendantPerItemView extends LinearLayout {
     }
 
     public void setAvatarPendantItemClickListener(c.a aVar) {
-        this.nGv = aVar;
+        this.nIB = aVar;
     }
 }

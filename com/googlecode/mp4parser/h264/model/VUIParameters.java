@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.h264.model;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VUIParameters {
     public AspectRatio aspect_ratio;
     public boolean aspect_ratio_info_present_flag;
@@ -27,7 +27,7 @@ public class VUIParameters {
     public boolean video_full_range_flag;
     public boolean video_signal_type_present_flag;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class BitstreamRestriction {
         public int log2_max_mv_length_horizontal;
         public int log2_max_mv_length_vertical;

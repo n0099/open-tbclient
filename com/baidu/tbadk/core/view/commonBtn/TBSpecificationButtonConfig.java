@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class TBSpecificationButtonConfig {
-    WebpType fna;
-    protected int fnb;
-    int fnc;
-    int fnd;
-    IconType fnf;
-    private int fng;
-    boolean fnh;
-    protected a fno;
-    boolean fnm = true;
-    int ajU = 0;
-    GradientDrawable.Orientation fnn = GradientDrawable.Orientation.LEFT_RIGHT;
-    final int[] fne = new int[2];
-    int fni = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int fnj = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int fnk = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    int fnl = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+    WebpType foA;
+    protected int foB;
+    int foC;
+    int foD;
+    IconType foF;
+    private int foG;
+    boolean foH;
+    protected a foO;
+    boolean foM = true;
+    int aln = 0;
+    GradientDrawable.Orientation foN = GradientDrawable.Orientation.LEFT_RIGHT;
+    final int[] foE = new int[2];
+    int foI = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int foJ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int foK = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    int foL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
     int minWidth = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
     int minHeight = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
     int iconSize = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
@@ -47,38 +47,38 @@ public abstract class TBSpecificationButtonConfig {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void buS();
+        void buV();
 
-        void buT();
+        void buW();
 
-        void buU();
+        void buX();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract Drawable ak(float f);
+    public abstract Drawable ao(float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable buV() {
-        return pM(this.fne[0]);
+    public Drawable buY() {
+        return pN(this.foE[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable buW() {
-        return pM(this.fne[1]);
+    public Drawable buZ() {
+        return pN(this.foE[1]);
     }
 
-    private Drawable pM(int i) {
+    private Drawable pN(int i) {
         Drawable drawable;
-        if (this.fnf == IconType.SVG) {
-            drawable = SvgManager.bsR().c(i, ap.getColor(this.ajU, this.fng > 0 ? this.fng : this.fnb), SvgManager.SvgResourceStateType.NORMAL);
-        } else if (this.fnf == IconType.WEBP) {
-            if (this.fna == WebpType.MASK) {
+        if (this.foF == IconType.SVG) {
+            drawable = SvgManager.bsU().c(i, ap.getColor(this.aln, this.foG > 0 ? this.foG : this.foB), SvgManager.SvgResourceStateType.NORMAL);
+        } else if (this.foF == IconType.WEBP) {
+            if (this.foA == WebpType.MASK) {
                 drawable = WebPManager.a(i, null);
             } else {
-                drawable = WebPManager.a(i, ap.getColor(this.ajU, this.fng > 0 ? this.fng : this.fnb), (WebPManager.ResourceStateType) null);
+                drawable = WebPManager.a(i, ap.getColor(this.aln, this.foG > 0 ? this.foG : this.foB), (WebPManager.ResourceStateType) null);
             }
         } else {
-            drawable = ap.getDrawable(this.ajU, i);
+            drawable = ap.getDrawable(this.aln, i);
         }
         if (drawable != null) {
             drawable.setBounds(0, 0, this.iconSize, this.iconSize);
@@ -87,34 +87,34 @@ public abstract class TBSpecificationButtonConfig {
     }
 
     public void a(int i, int i2, IconType iconType) {
-        if (this.fne[0] != i || this.fne[1] != i2 || this.fnf != iconType) {
-            this.fne[0] = i;
-            this.fne[1] = i2;
-            this.fnf = iconType;
-            if (this.fno != null) {
-                this.fno.buT();
+        if (this.foE[0] != i || this.foE[1] != i2 || this.foF != iconType) {
+            this.foE[0] = i;
+            this.foE[1] = i2;
+            this.foF = iconType;
+            if (this.foO != null) {
+                this.foO.buW();
             }
         }
     }
 
     public void a(WebpType webpType) {
-        this.fna = webpType;
+        this.foA = webpType;
     }
 
     public void setIconSize(int i) {
         if (i > 0 && this.iconSize != i) {
             this.iconSize = i;
-            if (this.fno != null) {
-                this.fno.buS();
+            if (this.foO != null) {
+                this.foO.buV();
             }
         }
     }
 
-    public void pN(@ColorRes int i) {
-        if (this.fng != i) {
-            this.fng = i;
-            if (this.fno != null) {
-                this.fno.buT();
+    public void pO(@ColorRes int i) {
+        if (this.foG != i) {
+            this.foG = i;
+            if (this.foO != null) {
+                this.foO.buW();
             }
         }
     }
@@ -128,25 +128,25 @@ public abstract class TBSpecificationButtonConfig {
         }
     }
 
-    public void pO(int i) {
-        this.fni = i;
-        this.fnj = i;
+    public void pP(int i) {
+        this.foI = i;
+        this.foJ = i;
     }
 
     public void aX(int i, int i2) {
-        this.fni = i;
-        this.fnj = i2;
-    }
-
-    public void pP(int i) {
-        this.fnk = i;
-    }
-
-    public void a(GradientDrawable.Orientation orientation) {
-        this.fnn = orientation;
+        this.foI = i;
+        this.foJ = i2;
     }
 
     public void pQ(int i) {
-        this.fnl = i;
+        this.foK = i;
+    }
+
+    public void a(GradientDrawable.Orientation orientation) {
+        this.foN = orientation;
+    }
+
+    public void pR(int i) {
+        this.foL = i;
     }
 }

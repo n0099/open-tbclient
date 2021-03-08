@@ -14,7 +14,7 @@ public class c extends GestureDetector implements ap.a {
     private VelocityTracker B;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9024a;
+    private int f6000a;
     private int c;
     private int d;
     private int e;
@@ -39,9 +39,7 @@ public class c extends GestureDetector implements ap.a {
     private boolean z;
     private static final int g = ViewConfiguration.getLongPressTimeout();
     private static final int h = ViewConfiguration.getTapTimeout();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f9023b = ViewConfiguration.getDoubleTapTimeout();
+    public static final int b = ViewConfiguration.getDoubleTapTimeout();
 
     public c(Context context, GestureDetector.OnGestureListener onGestureListener) {
         this(context, onGestureListener, null);
@@ -49,7 +47,7 @@ public class c extends GestureDetector implements ap.a {
 
     public c(Context context, GestureDetector.OnGestureListener onGestureListener, Handler handler) {
         super(context, onGestureListener, handler);
-        this.A = f9023b;
+        this.A = b;
         if (handler != null) {
             this.i = new ap(this, handler.getLooper());
         } else {
@@ -102,7 +100,7 @@ public class c extends GestureDetector implements ap.a {
             i = 300;
             i2 = scaledDoubleTapSlop;
         }
-        this.f9024a = scaledTouchSlop * scaledTouchSlop;
+        this.f6000a = scaledTouchSlop * scaledTouchSlop;
         this.c = i * i;
         this.d = i2 * i2;
     }
@@ -315,7 +313,7 @@ public class c extends GestureDetector implements ap.a {
                 int i3 = (int) (f3 - this.x);
                 int i4 = (int) (f4 - this.y);
                 int i5 = (i4 * i4) + (i3 * i3);
-                if (i5 > (z5 ? 0 : this.f9024a)) {
+                if (i5 > (z5 ? 0 : this.f6000a)) {
                     z2 = this.j.onScroll(this.s, motionEvent, f5, f6);
                     this.v = f3;
                     this.w = f4;

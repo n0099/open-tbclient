@@ -1,5 +1,5 @@
 package com.yy.audioengine;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Karaoke {
     private static String TAG = "[Karaoke]";
     private long mCtx;
@@ -264,15 +264,15 @@ public class Karaoke {
         }
     }
 
-    private void onCalcKaraokeScore(byte b2, long j) {
+    private void onCalcKaraokeScore(byte b, long j) {
         if (this.mNotify != null) {
-            this.mNotify.onKaraokeScore(b2, j);
+            this.mNotify.onKaraokeScore(b, j);
         }
     }
 
-    private void onSingerPitchVisual(byte b2, long j, long j2, long j3) {
+    private void onSingerPitchVisual(byte b, long j, long j2, long j3) {
         if (this.mNotify != null) {
-            this.mNotify.onKaraokePitch(b2, j, j2, j3);
+            this.mNotify.onKaraokePitch(b, j, j2, j3);
         }
     }
 

@@ -14,10 +14,8 @@ import com.sdk.base.framework.f.h.g;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12875a = a.class.getName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Boolean f12876b = Boolean.valueOf(f.f12821b);
+    private static final String f7661a = a.class.getName();
+    private static Boolean b = Boolean.valueOf(f.b);
     private a<T>.d c;
     private Context d;
     private com.sdk.base.framework.a.f e;
@@ -28,27 +26,25 @@ public class a<T> {
     public final class d implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Handler f12881a = new Handler(Looper.getMainLooper());
-
-        /* renamed from: b  reason: collision with root package name */
-        private long f12882b;
+        private Handler f7664a = new Handler(Looper.getMainLooper());
+        private long b;
 
         d(long j) {
-            this.f12882b = j;
+            this.b = j;
         }
 
         public final void a() {
-            this.f12881a.postDelayed(this, this.f12882b);
+            this.f7664a.postDelayed(this, this.b);
         }
 
         public final void b() {
-            this.f12881a.removeCallbacks(this);
+            this.f7664a.removeCallbacks(this);
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             if (a.this.e != null) {
-                com.sdk.base.framework.a.a.c.c(a.f12875a, "超时，已取消请求", a.f12876b);
+                com.sdk.base.framework.a.a.c.c(a.f7661a, "超时，已取消请求", a.b);
                 a.this.e.a();
             }
             a.this.a(1, PayHelper.STATUS_TIMEOUT_DESC, 101005, null, com.sdk.base.framework.f.g.a.b().a());
@@ -105,7 +101,7 @@ public class a<T> {
             com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.d, new b(this, i));
             DataInfo dataInfo = new DataInfo();
             dataInfo.putData("serviceType", Integer.valueOf(i));
-            this.e = aVar.a(aVar.f12825b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, i.f12804b);
+            this.e = aVar.a(aVar.b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, i.b);
         }
     }
 
@@ -116,6 +112,6 @@ public class a<T> {
         DataInfo dataInfo = new DataInfo();
         dataInfo.putData("accessCode", str);
         dataInfo.putData("mobile", str2);
-        this.e = aVar.a(aVar.f12825b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, i.f12804b);
+        this.e = aVar.a(aVar.b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, i.b);
     }
 }

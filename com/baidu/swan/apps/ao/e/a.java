@@ -2,7 +2,7 @@ package com.baidu.swan.apps.ao.e;
 
 import android.os.Handler;
 import java.util.Collection;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static <T> void a(b<T> bVar, T... tArr) {
         a((Handler) null, (b) bVar, (Object[]) tArr);
@@ -30,12 +30,12 @@ public final class a {
 
     public static <T> void a(Handler handler, final b<T> bVar, final T t) {
         if (handler == null) {
-            bVar.L(t);
+            bVar.N(t);
         } else {
             handler.post(new Runnable() { // from class: com.baidu.swan.apps.ao.e.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.L(t);
+                    b.this.N(t);
                 }
             });
         }

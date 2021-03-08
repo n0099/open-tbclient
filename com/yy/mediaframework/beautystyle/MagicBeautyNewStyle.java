@@ -1,5 +1,5 @@
 package com.yy.mediaframework.beautystyle;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MagicBeautyNewStyle extends AbstractStyle {
     public MagicBeautyNewStyle() {
         this.sMinParams = new float[]{0.0f, 0.0f, 0.0f, 0.0f};

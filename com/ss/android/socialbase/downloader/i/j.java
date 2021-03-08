@@ -6,17 +6,17 @@ import java.util.concurrent.atomic.AtomicReference;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13176a = j.class.getSimpleName();
+    private static final String f7845a = j.class.getSimpleName();
     private volatile boolean c;
     private final AtomicReference<k> d;
-    private AtomicReference<k> e;
     private final ArrayList<b> f;
     private int g;
-    private final c qgQ;
+    private final c qhF;
+    private AtomicReference<k> qhG;
 
     /* loaded from: classes6.dex */
     private static class a {
-        public static final j qgR = new j();
+        public static final j qhH = new j();
     }
 
     /* loaded from: classes6.dex */
@@ -24,12 +24,12 @@ public class j {
         void a(k kVar);
     }
 
-    public static j eIw() {
-        return a.qgR;
+    public static j eIy() {
+        return a.qhH;
     }
 
     private j() {
-        this.qgQ = new c(0.05d);
+        this.qhF = new c(0.05d);
         this.c = false;
         this.d = new AtomicReference<>(k.UNKNOWN);
         this.f = new ArrayList<>();
@@ -39,23 +39,23 @@ public class j {
         double d = ((j * 1.0d) / j2) * 8.0d;
         if (j2 != 0 && d >= 3.0d) {
             try {
-                this.qgQ.a(d);
-                k eIx = eIx();
+                this.qhF.a(d);
+                k eIz = eIz();
                 if (this.c) {
                     this.g++;
-                    if (eIx != this.e.get()) {
+                    if (eIz != this.qhG.get()) {
                         this.c = false;
                         this.g = 1;
                     }
                     if (this.g >= 5.0d && c()) {
                         this.c = false;
                         this.g = 1;
-                        this.d.set(this.e.get());
+                        this.d.set(this.qhG.get());
                         d();
                     }
-                } else if (this.d.get() != eIx) {
+                } else if (this.d.get() != eIz) {
                     this.c = true;
-                    this.e = new AtomicReference<>(eIx);
+                    this.qhG = new AtomicReference<>(eIz);
                 }
             } catch (Throwable th) {
             }
@@ -65,7 +65,7 @@ public class j {
     private boolean c() {
         double d;
         double d2;
-        if (this.qgQ == null) {
+        if (this.qhF == null) {
             return false;
         }
         try {
@@ -89,7 +89,7 @@ public class j {
                 default:
                     return true;
             }
-            double a2 = this.qgQ.a();
+            double a2 = this.qhF.a();
             if (a2 > d) {
                 if (a2 > d * 1.25d) {
                     return true;
@@ -103,12 +103,12 @@ public class j {
         return false;
     }
 
-    public synchronized k eIx() {
+    public synchronized k eIz() {
         k L;
-        if (this.qgQ == null) {
+        if (this.qhF == null) {
             L = k.UNKNOWN;
         } else {
-            L = L(this.qgQ.a());
+            L = L(this.qhF.a());
         }
         return L;
     }

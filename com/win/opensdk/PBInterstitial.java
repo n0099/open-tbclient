@@ -1,136 +1,97 @@
 package com.win.opensdk;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.win.opensdk.core.Info;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class PBInterstitial {
-    private String java;
-    private cf qjr;
-    private PBInterstitialListener qjs;
 
-    public PBInterstitial(@NonNull Context context, String str) {
+    /* renamed from: a  reason: collision with root package name */
+    public String f8101a;
+    public fa b;
+    public PBInterstitialListener c;
+
+    public PBInterstitial(Context context, String str) {
         Context applicationContext = context.getApplicationContext();
-        this.java = str;
-        this.qjr = new cf(applicationContext, str);
-        this.qjr.qjs = new PBInterstitialListener() { // from class: com.win.opensdk.PBInterstitial.1
-            @Override // com.win.opensdk.PBInterstitialListener
-            public final void onInterstitialDismissed() {
-                if (PBInterstitial.this.qjs != null) {
-                    PBInterstitial.this.qjs.onInterstitialDismissed();
-                }
-            }
-
-            @Override // com.win.opensdk.PBInterstitialListener
-            public final void onInterstitialDisplayed() {
-                if (PBInterstitial.this.qjs != null) {
-                    PBInterstitial.this.qjs.onInterstitialDisplayed();
-                }
-            }
-
-            @Override // com.win.opensdk.PBInterstitialListener
-            public final void onInterstitialShowFail(String str2) {
-                if (PBInterstitial.this.qjs != null) {
-                    PBInterstitial.this.qjs.onInterstitialShowFail(str2);
-                }
-            }
-
-            @Override // com.win.opensdk.PBListener
-            public final void onFail(PBError pBError) {
-                if (PBInterstitial.this.qjs != null) {
-                    PBInterstitial.this.qjs.onFail(pBError);
-                }
-            }
-
-            @Override // com.win.opensdk.PBListener
-            public final void onLoaded() {
-                if (PBInterstitial.this.qjs != null) {
-                    PBInterstitial.this.qjs.onLoaded();
-                }
-            }
-
-            @Override // com.win.opensdk.PBListener
-            public final void onClicked() {
-                if (PBInterstitial.this.qjs != null) {
-                    PBInterstitial.this.qjs.onClicked();
-                }
-            }
-        };
-    }
-
-    public String getPid() {
-        return this.java;
-    }
-
-    public void load() {
-        final cf cfVar = this.qjr;
-        if (cfVar.java() && cfVar.qjI.isEffective() && !cfVar.qjI.isShown()) {
-            cfVar.a(cfVar.qjI);
-            return;
-        }
-        if (cfVar.qkw == null) {
-            cfVar.qkw = new ad(cfVar.qjn, cfVar.java, e.f54case);
-        }
-        cfVar.qkw.qkt = new ae<Info>() { // from class: com.win.opensdk.cf.2
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.win.opensdk.ae
-            public final /* synthetic */ void bH(Info info) {
-                cf.this.a(info);
-            }
-
-            @Override // com.win.opensdk.ae
-            public final void b(PBError pBError) {
-                cf.this.qjs.onFail(pBError);
-            }
-        };
-        cfVar.qkw.eIX();
-    }
-
-    public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
-        this.qjs = pBInterstitialListener;
-    }
-
-    public boolean isReady() {
-        cf cfVar = this.qjr;
-        return cfVar.m73a() || cfVar.c();
-    }
-
-    public void show() {
-        cf cfVar = this.qjr;
-        if (!av.iM(cfVar.qjn)) {
-            if (cfVar.qjs != null) {
-                cfVar.qjs.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
-            }
-        } else if (az.iU(cfVar.qjn) == 1 && cfVar.qjI != null && !TextUtils.isEmpty(cfVar.qjI.getLoad()) && !TextUtils.isEmpty(az.m64c(cfVar.qjn)) && cfVar.qjI.getPid().equals(az.m64c(cfVar.qjn))) {
-            aw.bH(cfVar.qjn, cfVar.qjI.getLoad());
-            w.iN(cfVar.qjn).a(new x(cfVar.qjI)).eIX();
-            if (cfVar.qjI != null) {
-                az.l(cfVar.qjn, cfVar.qjI.getId() + ":" + System.currentTimeMillis(), false);
-            }
-            z.b(cfVar.qjI);
-        } else if (cfVar.eJv()) {
-            if (!cfVar.m73a() || !cfVar.java()) {
-                return;
-            }
-            cfVar.qjq = false;
-            bp.eJw().a(bp.aX(cfVar.qjI.getTraceid(), cfVar.qjI.getId(), cfVar.qjI.getPid()), cfVar.qju);
-            cfVar.eIX();
-        } else if (!cfVar.m74b() || !cfVar.c() || !cfVar.java()) {
-        } else {
-            cfVar.qjQ = false;
-            cfVar.eIX();
-        }
+        this.f8101a = str;
+        this.b = new fa(applicationContext, str);
+        this.b.qmx = new cl(this);
     }
 
     public void destroy() {
-        cf cfVar = this.qjr;
-        cfVar.f13745a = false;
-        cfVar.qjq = false;
-        cfVar.qjQ = false;
-        if (cfVar.qkw == null) {
+        fa faVar = this.b;
+        faVar.e = false;
+        faVar.c = false;
+        faVar.d = false;
+        dq dqVar = faVar.qlQ;
+        if (dqVar != null) {
+            dqVar.a();
+        }
+    }
+
+    public String getPid() {
+        return this.f8101a;
+    }
+
+    public boolean isReady() {
+        fa faVar = this.b;
+        return faVar.a() || faVar.e();
+    }
+
+    public void load() {
+        fa faVar = this.b;
+        if (!faVar.b() || !faVar.qlN.isEffective() || faVar.qlN.isShown()) {
+            if (faVar.qlQ == null) {
+                faVar.qlQ = new dq(faVar.b, faVar.f8166a, F.INTERSTITIAL);
+            }
+            faVar.qlQ.qlS = new er(faVar);
+            faVar.qlQ.b();
             return;
         }
-        cfVar.qkw.eIY();
+        faVar.d(faVar.qlN);
+    }
+
+    public void setInterstitialListener(PBInterstitialListener pBInterstitialListener) {
+        this.c = pBInterstitialListener;
+    }
+
+    public void show() {
+        Info info;
+        fa faVar = this.b;
+        if (!v.g(faVar.b)) {
+            PBInterstitialListener pBInterstitialListener = faVar.qmx;
+            if (pBInterstitialListener != null) {
+                pBInterstitialListener.onInterstitialShowFail(PBError.NO_NETWORK.getMsg());
+            }
+        } else if (bp.l(faVar.b) == 1 && (info = faVar.qlN) != null && !TextUtils.isEmpty(info.getLoad()) && !TextUtils.isEmpty(bp.m(faVar.b)) && faVar.qlN.getPid().equals(bp.m(faVar.b))) {
+            Context context = faVar.b;
+            String load = faVar.qlN.getLoad();
+            try {
+                if (!TextUtils.isEmpty(load)) {
+                    Uri parse = Uri.parse(load);
+                    if (!bf.a(context, parse, null)) {
+                        cb.i(context, parse);
+                    }
+                }
+            } catch (Exception e) {
+            }
+            ca.iT(faVar.b).a(new cd(faVar.qlN)).a();
+            if (faVar.qlN != null) {
+                bp.a(faVar.b, faVar.qlN.getId() + ":" + System.currentTimeMillis(), false);
+            }
+            v.d(faVar.qlN);
+        } else if (faVar.c()) {
+            if (!faVar.a() || !faVar.b()) {
+                return;
+            }
+            faVar.c = false;
+            j.eIX().a(j.a(faVar.qlN.getTraceid(), faVar.qlN.getId(), faVar.qlN.getPid()), faVar.qlO);
+            faVar.f();
+        } else if (!faVar.d() || !faVar.e() || !faVar.b()) {
+        } else {
+            faVar.d = false;
+            faVar.f();
+        }
     }
 }

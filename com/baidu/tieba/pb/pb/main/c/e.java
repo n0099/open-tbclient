@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class e extends a {
-    private ItemCardView agZ;
+    private ItemCardView ais;
     private LinearLayout mRootView;
-    private com.baidu.tbadk.core.data.a meI;
-    private cb meL;
-    private af meP;
+    private com.baidu.tbadk.core.data.a mgK;
+    private cb mgN;
+    private af mgR;
 
     public e(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -27,7 +27,7 @@ public class e extends a {
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
         if (this.mRootView == null) {
-            this.mRootView = new LinearLayout(this.eUY.getPageActivity());
+            this.mRootView = new LinearLayout(this.eWx.getPageActivity());
             this.mRootView.setClipChildren(false);
             this.mRootView.setClipToPadding(false);
             ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
@@ -35,40 +35,40 @@ public class e extends a {
             this.mRootView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         }
         this.mRootView.removeAllViews();
-        if (this.meP == null) {
-            this.meP = new af(this.eUY);
-            this.meP.c(true);
+        if (this.mgR == null) {
+            this.mgR = new af(this.eWx);
+            this.mgR.c(true);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-        layoutParams.leftMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        layoutParams.rightMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        this.mRootView.addView(this.meP.getView(), layoutParams);
-        if (this.agZ == null) {
-            this.agZ = new ItemCardView(this.eUY.getPageActivity());
+        layoutParams.topMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+        layoutParams.leftMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+        layoutParams.rightMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+        this.mRootView.addView(this.mgR.getView(), layoutParams);
+        if (this.ais == null) {
+            this.ais = new ItemCardView(this.eWx.getPageActivity());
         }
-        this.agZ.setBackGroundColor(R.color.CAM_X0205);
+        this.ais.setBackGroundColor(R.color.CAM_X0205);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams2.topMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-        layoutParams2.leftMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        layoutParams2.rightMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-        layoutParams2.bottomMargin = this.eUY.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-        this.mRootView.addView(this.agZ, layoutParams2);
+        layoutParams2.topMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+        layoutParams2.leftMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+        layoutParams2.rightMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+        layoutParams2.bottomMargin = this.eWx.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+        this.mRootView.addView(this.ais, layoutParams2);
         return this.mRootView;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.meH = originalThreadInfo;
-        this.meL = originalThreadInfo == null ? null : originalThreadInfo.bmq();
-        this.meI = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
+        this.mgJ = originalThreadInfo;
+        this.mgN = originalThreadInfo == null ? null : originalThreadInfo.bms();
+        this.mgK = new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.e.1
             @Override // com.baidu.tbadk.core.data.a
-            public cb bln() {
-                return e.this.meL;
+            public cb blp() {
+                return e.this.mgN;
             }
 
             @Override // com.baidu.tbadk.core.data.a
-            public av blp() {
+            public av blr() {
                 return null;
             }
 
@@ -77,26 +77,26 @@ public class e extends a {
                 return null;
             }
         };
-        if (this.agZ != null && originalThreadInfo != null) {
-            this.agZ.setData(originalThreadInfo.item, 17);
+        if (this.ais != null && originalThreadInfo != null) {
+            this.ais.setData(originalThreadInfo.item, 17);
         }
-        if (this.meP != null) {
-            this.meP.C(this.meI);
+        if (this.mgR != null) {
+            this.mgR.E(this.mgK);
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
-    public void a(a.InterfaceC0088a interfaceC0088a) {
-        super.a(interfaceC0088a);
-        if (this.meP != null) {
-            this.meP.a(interfaceC0088a);
+    public void a(a.InterfaceC0094a interfaceC0094a) {
+        super.a(interfaceC0094a);
+        if (this.mgR != null) {
+            this.mgR.a(interfaceC0094a);
         }
         if (this.mRootView != null) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.c.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.agh != null) {
-                        e.this.agh.a(e.this.meI);
+                    if (e.this.ahz != null) {
+                        e.this.ahz.a(e.this.mgK);
                     }
                 }
             });
@@ -108,11 +108,11 @@ public class e extends a {
         if (this.mSkinType != i) {
             this.mSkinType = i;
             ap.setBackgroundColor(this.mRootView, R.color.CAM_X0206);
-            if (this.meP != null) {
-                this.meP.onChangeSkinType(tbPageContext, i);
+            if (this.mgR != null) {
+                this.mgR.onChangeSkinType(tbPageContext, i);
             }
-            if (this.agZ != null) {
-                this.agZ.onChangeSkinType();
+            if (this.ais != null) {
+                this.ais.onChangeSkinType();
             }
         }
     }

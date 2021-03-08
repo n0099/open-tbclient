@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.ao.ak;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class w extends aa {
     public w(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/preloadSwanCore");
@@ -24,8 +24,8 @@ public class w extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
             return false;
         }
-        JSONObject b2 = b(unitedSchemeEntity, "params");
-        int optInt = b2 == null ? 0 : b2.optInt("delay", 0);
+        JSONObject b = b(unitedSchemeEntity, "params");
+        int optInt = b == null ? 0 : b.optInt("delay", 0);
         if (optInt < 0) {
             optInt = 0;
         }

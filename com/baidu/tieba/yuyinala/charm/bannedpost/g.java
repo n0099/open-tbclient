@@ -13,16 +13,16 @@ import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.util.ScreenHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g extends Dialog implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private View bYd;
-    private TextView bYe;
-    private TextView bYf;
+    private View bZD;
+    private TextView bZE;
+    private TextView bZF;
     private Context mContext;
     private TextView mTitle;
-    private a oqx;
+    private a osD;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onCancel();
 
@@ -38,12 +38,12 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(a.g.yuyin_layout_dialog_connnection_wheat_remind);
-        YB();
+        YE();
         initView();
         initListener();
     }
 
-    private void YB() {
+    private void YE() {
         Window window = getWindow();
         if (window != null) {
             window.setBackgroundDrawable(new ColorDrawable(getContext().getResources().getColor(a.c.sdk_black_alpha30)));
@@ -63,16 +63,16 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     }
 
     private void initView() {
-        this.bYd = findViewById(a.f.view);
+        this.bZD = findViewById(a.f.view);
         this.mTitle = (TextView) findViewById(a.f.tv_title);
-        this.bYe = (TextView) findViewById(a.f.tv_cancel);
-        this.bYf = (TextView) findViewById(a.f.tv_confirm);
+        this.bZE = (TextView) findViewById(a.f.tv_cancel);
+        this.bZF = (TextView) findViewById(a.f.tv_confirm);
     }
 
     private void initListener() {
-        this.bYd.setOnClickListener(this);
-        this.bYe.setOnClickListener(this);
-        this.bYf.setOnClickListener(this);
+        this.bZD.setOnClickListener(this);
+        this.bZE.setOnClickListener(this);
+        this.bZF.setOnClickListener(this);
         setOnDismissListener(this);
     }
 
@@ -82,9 +82,9 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
         }
     }
 
-    public void VP(String str) {
-        if (this.bYe != null && !TextUtils.isEmpty(str)) {
-            this.bYe.setText(str);
+    public void VW(String str) {
+        if (this.bZE != null && !TextUtils.isEmpty(str)) {
+            this.bZE.setText(str);
         }
     }
 
@@ -108,15 +108,15 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bYd || view == this.bYe) {
+        if (view == this.bZD || view == this.bZE) {
             dismiss();
-            if (this.oqx != null) {
-                this.oqx.onCancel();
+            if (this.osD != null) {
+                this.osD.onCancel();
             }
-        } else if (view == this.bYf) {
+        } else if (view == this.bZF) {
             dismiss();
-            if (this.oqx != null) {
-                this.oqx.onConfirm();
+            if (this.osD != null) {
+                this.osD.onConfirm();
             }
         }
     }
@@ -126,6 +126,6 @@ public class g extends Dialog implements DialogInterface.OnDismissListener, View
     }
 
     public void a(a aVar) {
-        this.oqx = aVar;
+        this.osD = aVar;
     }
 }

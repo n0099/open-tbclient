@@ -12,13 +12,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public abstract class ac implements Cloneable {
-    private static final SimpleDateFormat pmZ = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    private static final SimpleDateFormat pph = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
 
     /* renamed from: a  reason: collision with root package name */
-    public long f5776a = System.currentTimeMillis();
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f5777b;
+    public long f3899a = System.currentTimeMillis();
+    public long b;
     public String c;
     public String d;
     public String e;
@@ -40,10 +38,10 @@ public abstract class ac implements Cloneable {
 
     protected abstract void d(@NonNull ContentValues contentValues);
 
-    protected abstract ac eR(@NonNull JSONObject jSONObject);
+    protected abstract ac eU(@NonNull JSONObject jSONObject);
 
     public static String a(long j) {
-        return pmZ.format(new Date(j));
+        return pph.format(new Date(j));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -89,7 +87,7 @@ public abstract class ac implements Cloneable {
     @NonNull
     public final JSONObject f() {
         try {
-            this.g = a(this.f5776a);
+            this.g = a(this.f3899a);
             return b();
         } catch (JSONException e) {
             au.a(e);
@@ -97,10 +95,10 @@ public abstract class ac implements Cloneable {
         }
     }
 
-    public static ac YI(String str) {
+    public static ac YP(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            return ad.f5778a.get(jSONObject.optString("k_cls", "")).clone().eR(jSONObject);
+            return ad.f3900a.get(jSONObject.optString("k_cls", "")).clone().eU(jSONObject);
         } catch (Throwable th) {
             au.a(th);
             return null;
@@ -108,7 +106,7 @@ public abstract class ac implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: enZ */
+    /* renamed from: eok */
     public ac clone() {
         try {
             return (ac) super.clone();
@@ -120,7 +118,7 @@ public abstract class ac implements Cloneable {
 
     @NonNull
     public String toString() {
-        if (au.f5788b) {
+        if (au.b) {
             String d = d();
             if (!getClass().getSimpleName().equalsIgnoreCase(d)) {
                 d = d + ", " + getClass().getSimpleName();
@@ -134,7 +132,7 @@ public abstract class ac implements Cloneable {
             } else {
                 str = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return "{" + d + ", " + h() + ", " + str + ", " + this.f5776a + "}";
+            return "{" + d + ", " + h() + ", " + str + ", " + this.f3899a + "}";
         }
         return super.toString();
     }

@@ -1,50 +1,50 @@
 package com.baidu.swan.apps.database;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class b {
     private String appTitle;
-    private String cYI;
-    private String cYJ;
-    private String cYK;
-    public String cYL;
-    public int cYM;
+    private String dai;
+    private String daj;
+    private String dak;
+    public String dal;
+    public int dam;
 
     public b(String str) {
-        this.cYI = str;
+        this.dai = str;
     }
 
     public String getAppID() {
-        return this.cYI;
+        return this.dai;
     }
 
     public void setAppID(String str) {
-        this.cYI = str;
+        this.dai = str;
     }
 
-    public String atc() {
+    public String atf() {
         return this.appTitle;
     }
 
-    public void nm(String str) {
+    public void nt(String str) {
         this.appTitle = str;
     }
 
-    public String atd() {
-        return this.cYK;
+    public String atg() {
+        return this.dak;
     }
 
-    public void nn(String str) {
-        this.cYK = str;
+    public void nu(String str) {
+        this.dak = str;
     }
 
-    public void hR(String str) {
-        this.cYL = str;
+    public void hX(String str) {
+        this.dal = str;
     }
 
-    public void no(String str) {
-        this.cYJ = str;
+    public void nv(String str) {
+        this.daj = str;
     }
 
     public void setAppFrameType(int i) {
-        this.cYM = i;
+        this.dam = i;
     }
 }

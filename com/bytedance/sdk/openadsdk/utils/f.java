@@ -5,9 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
 import androidx.annotation.Nullable;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes6.dex */
 public class f {
@@ -100,53 +98,6 @@ public class f {
     }
 
     public static Bitmap a(Bitmap bitmap, int i, int i2) {
-        Bitmap bitmap2;
-        if (bitmap == null) {
-            return null;
-        }
-        if (!bitmap.isRecycled()) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            Log.i("BitmapUtils", width + " originWidth");
-            Log.i("BitmapUtils", height + " originHeight");
-            if (width >= i || height >= i2) {
-                if (width > i) {
-                    height = (int) Math.floor(height / ((width * 1.0d) / i));
-                    bitmap2 = (i <= 0 || height <= 0 || bitmap.isRecycled()) ? bitmap : Bitmap.createScaledBitmap(bitmap, i, height, false);
-                } else {
-                    i = width;
-                    bitmap2 = bitmap;
-                }
-                if (height <= i2) {
-                    i2 = height;
-                } else if (i > 0 && i2 > 0 && !bitmap2.isRecycled()) {
-                    bitmap2 = Bitmap.createBitmap(bitmap2, 0, 0, i, i2);
-                }
-                Log.i("BitmapUtils", i + " width");
-                Log.i("BitmapUtils", i2 + " height");
-                return bitmap2;
-            }
-            return bitmap;
-        }
-        return bitmap;
-    }
-
-    public static Bitmap a(Bitmap bitmap, int i) {
-        if (bitmap != null && bitmap.getRowBytes() * bitmap.getHeight() >= i) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-            int i2 = 90;
-            while (byteArrayOutputStream.toByteArray().length > i) {
-                byteArrayOutputStream.reset();
-                bitmap.compress(Bitmap.CompressFormat.PNG, i2, byteArrayOutputStream);
-                i2 -= 10;
-            }
-            return BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()), null, null);
-        }
-        return bitmap;
-    }
-
-    public static Bitmap b(Bitmap bitmap, int i, int i2) {
         if (bitmap == null) {
             return null;
         }

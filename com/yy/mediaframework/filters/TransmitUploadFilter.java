@@ -13,7 +13,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TransmitUploadFilter implements IMediaFilter {
     private ByteVector mBytesVector;
     private long mDeltaPtsDts;
@@ -25,7 +25,7 @@ public class TransmitUploadFilter implements IMediaFilter {
     private YMFVideoEncodeFrame mVideoEncodeFrame = new YMFVideoEncodeFrame();
     private HashMap<Integer, TransmitUploadInfo> mTransmitUploadInfoMap = new HashMap<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class TransmitUploadInfo {
         public int bitRate;
         public int count;

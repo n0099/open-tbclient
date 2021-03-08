@@ -5,13 +5,13 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLivePkPanelInitialize {
     static {
-        bYQ();
+        bYW();
     }
 
-    private static void bYQ() {
+    private static void bYW() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913256, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.live.pkpanel.AlaLivePkPanelInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.s.a> run(CustomMessage<Context> customMessage) {

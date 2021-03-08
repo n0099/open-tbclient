@@ -9,7 +9,7 @@ import androidx.appcompat.widget.TintTypedArray;
 import com.google.android.material.R;
 /* loaded from: classes.dex */
 public final class TbTabItem extends View {
-    final int YE;
+    final int ZX;
     final Drawable mIcon;
     final CharSequence mText;
 
@@ -23,7 +23,7 @@ public final class TbTabItem extends View {
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TabItem);
         this.mText = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
         this.mIcon = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
-        this.YE = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
+        this.ZX = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
         obtainStyledAttributes.recycle();
     }
 }

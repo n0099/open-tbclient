@@ -7,26 +7,26 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.b.e;
 import com.baidu.tieba.ala.alasquare.subtablist.view.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.tieba.card.b<e> {
-    private a gIw;
-    private a gIx;
+    private a gKf;
+    private a gKg;
 
     public c(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.gIw = new a(getTbPageContext());
-        this.gIx = new a(getTbPageContext());
+        this.gKf = new a(getTbPageContext());
+        this.gKg = new a(getTbPageContext());
         ViewGroup viewGroup2 = (ViewGroup) getView();
         View view = new View(getContext());
-        viewGroup2.addView(this.gIw.getView());
+        viewGroup2.addView(this.gKf.getView());
         viewGroup2.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds6), -1));
-        viewGroup2.addView(this.gIx.getView());
+        viewGroup2.addView(this.gKg.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gIw.onChangeSkinType(tbPageContext, i);
-        this.gIx.onChangeSkinType(tbPageContext, i);
+        this.gKf.onChangeSkinType(tbPageContext, i);
+        this.gKg.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -38,21 +38,21 @@ public class c extends com.baidu.tieba.card.b<e> {
     @Override // com.baidu.tieba.card.b
     public void a(e eVar) {
         if (eVar != null) {
-            this.gIw.a(eVar.gBa);
-            this.gIx.a(eVar.gBb);
+            this.gKf.a(eVar.gCJ);
+            this.gKg.a(eVar.gCK);
         }
     }
 
     public void a(e eVar, String str) {
         if (eVar != null) {
-            this.gIw.a(eVar.gBa, str);
-            this.gIx.a(eVar.gBb, str);
+            this.gKf.a(eVar.gCJ, str);
+            this.gKg.a(eVar.gCK, str);
         }
     }
 
     public void c(f fVar) {
-        this.gIw.b(fVar);
-        this.gIx.b(fVar);
+        this.gKf.b(fVar);
+        this.gKg.b(fVar);
     }
 
     @Override // android.view.View.OnClickListener

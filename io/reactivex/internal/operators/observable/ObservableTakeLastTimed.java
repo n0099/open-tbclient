@@ -5,7 +5,7 @@ import io.reactivex.u;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ObservableTakeLastTimed<T> extends a<T, T> {
     final int bufferSize;
     final long count;
@@ -19,7 +19,7 @@ public final class ObservableTakeLastTimed<T> extends a<T, T> {
         this.source.subscribe(new TakeLastTimedObserver(uVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class TakeLastTimedObserver<T> extends AtomicBoolean implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -5677354903406201275L;
         final u<? super T> actual;
@@ -54,13 +54,13 @@ public final class ObservableTakeLastTimed<T> extends a<T, T> {
         @Override // io.reactivex.u
         public void onNext(T t) {
             io.reactivex.internal.queue.a<Object> aVar = this.queue;
-            long a2 = this.scheduler.a(this.unit);
+            long b = this.scheduler.b(this.unit);
             long j = this.time;
             long j2 = this.count;
             boolean z = j2 == Long.MAX_VALUE;
-            aVar.offer(Long.valueOf(a2), t);
+            aVar.offer(Long.valueOf(b), t);
             while (!aVar.isEmpty()) {
-                if (((Long) aVar.peek()).longValue() <= a2 - j || (!z && (aVar.size() >> 1) > j2)) {
+                if (((Long) aVar.peek()).longValue() <= b - j || (!z && (aVar.size() >> 1) > j2)) {
                     aVar.poll();
                     aVar.poll();
                 } else {
@@ -120,7 +120,7 @@ public final class ObservableTakeLastTimed<T> extends a<T, T> {
                         }
                     }
                     Object poll2 = aVar.poll();
-                    if (((Long) poll).longValue() >= this.scheduler.a(this.unit) - this.time) {
+                    if (((Long) poll).longValue() >= this.scheduler.b(this.unit) - this.time) {
                         uVar.onNext(poll2);
                     }
                 }

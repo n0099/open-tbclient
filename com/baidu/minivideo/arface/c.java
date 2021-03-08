@@ -3,31 +3,31 @@ package com.baidu.minivideo.arface;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private static String cjK;
-    private static String cjL;
-    private static String cjM;
-    private static String cjN;
-    private static String cjO;
-    private static String cjP;
-    private static String cjR;
-    private static String cjS;
-    private static String cjT;
-    private static String cjU;
-    private static String cjV;
-    private static String cjW;
-    private static String cjX;
-    private static String cjY;
-    private static String cjZ;
-    private static String cka;
-    private static String ckb;
-    private static String ckc;
-    private static String ckd;
-    public static String cjH = "arface_main_res_version";
-    public static int cjI = 0;
-    public static boolean cjJ = true;
-    public static String cjQ = "global/res/filter";
+    private static String clA;
+    private static String clB;
+    private static String clC;
+    private static String clD;
+    private static String clk;
+    private static String cll;
+    private static String clm;
+    private static String cln;
+    private static String clo;
+    private static String clp;
+    private static String clr;
+    private static String cls;
+    private static String clt;
+    private static String clu;
+    private static String clv;
+    private static String clw;
+    private static String clx;
+    private static String cly;
+    private static String clz;
+    public static String clh = "arface_main_res_version";
+    public static int cli = 0;
+    public static boolean clj = true;
+    public static String clq = "global/res/filter";
 
     public c(String str) {
         setPath(str);
@@ -37,82 +37,82 @@ public class c {
         if (b.isDebug()) {
             Log.d("DuAr_DuArResConfig", "setPath: " + str);
         }
-        cjK = str + "/";
-        cjL = cjK;
-        cjM = cjK + "ext/";
-        cjN = cjL + "faceModels/";
+        clk = str + "/";
+        cll = clk;
+        clm = clk + "ext/";
+        cln = cll + "faceModels/";
         if (TextUtils.isEmpty(str)) {
-            cjW = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
-            cjU = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
-            cjV = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
-            cjN = "file:///android_asset/arsource/faceModels/";
+            clw = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
+            clu = "file:///android_asset/arsource/filter/beauty_skin_stream.png";
+            clv = "file:///android_asset/arsource/filter/beauty_skin_small_video.png";
+            cln = "file:///android_asset/arsource/faceModels/";
             String str2 = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo/arsource";
-            cjX = str2 + "/makeup";
-            cjY = str2 + "/beauty";
-            cjZ = str2 + "/arFilterInit";
-            cka = str2 + "/arFilterEditInit";
-            ckb = cjY + "/liveVideoFace/live_face_knead.json";
-            ckc = cjY + "/liveVideoFace/goddess_face_knead.json";
-            ckd = cjY + "/liveVideoFace/baby_face_knead.json";
+            clx = str2 + "/makeup";
+            cly = str2 + "/beauty";
+            clz = str2 + "/arFilterInit";
+            clA = str2 + "/arFilterEditInit";
+            clB = cly + "/liveVideoFace/live_face_knead.json";
+            clC = cly + "/liveVideoFace/goddess_face_knead.json";
+            clD = cly + "/liveVideoFace/baby_face_knead.json";
         } else {
-            cjW = cjL + "filters/yuantu/yuantu.png";
-            cjU = cjL + "filter/beauty_skin_stream.png";
-            cjV = cjL + "filter/beauty_skin_small_video.png";
-            cjX = cjK + "makeup/";
-            cjY = cjK + "beauty/";
-            cjZ = cjK + "arFilterInit/";
-            cka = cjK + "arFilterEditInit/";
-            ckb = cjY + "liveVideoFace/live_face_knead.json";
-            ckc = cjY + "liveVideoFace/goddess_face_knead.json";
-            ckd = cjY + "liveVideoFace/baby_face_knead.json";
+            clw = cll + "filters/yuantu/yuantu.png";
+            clu = cll + "filter/beauty_skin_stream.png";
+            clv = cll + "filter/beauty_skin_small_video.png";
+            clx = clk + "makeup/";
+            cly = clk + "beauty/";
+            clz = clk + "arFilterInit/";
+            clA = clk + "arFilterEditInit/";
+            clB = cly + "liveVideoFace/live_face_knead.json";
+            clC = cly + "liveVideoFace/goddess_face_knead.json";
+            clD = cly + "liveVideoFace/baby_face_knead.json";
         }
-        cjP = cjL + "global";
-        cjT = cjL + "vip_list.json";
-        cjS = cjL + "filters";
-        cjO = cjL + "dlModels/";
-        cjR = cjS + "/all";
-        cjQ = cjL + "global/res/filter";
-    }
-
-    public static String abP() {
-        return cjW;
-    }
-
-    public static String abQ() {
-        return cjK;
-    }
-
-    public static String abR() {
-        return cjL;
+        clp = cll + "global";
+        clt = cll + "vip_list.json";
+        cls = cll + "filters";
+        clo = cll + "dlModels/";
+        clr = cls + "/all";
+        clq = cll + "global/res/filter";
     }
 
     public static String abS() {
-        return cjN;
+        return clw;
     }
 
     public static String abT() {
-        return cjP;
+        return clk;
     }
 
     public static String abU() {
-        return "/filter_config.json";
+        return cll;
     }
 
     public static String abV() {
-        return fA(0);
+        return cln;
     }
 
-    public static String fA(int i) {
+    public static String abW() {
+        return clp;
+    }
+
+    public static String abX() {
+        return "/filter_config.json";
+    }
+
+    public static String abY() {
+        return fB(0);
+    }
+
+    public static String fB(int i) {
         if (i == 1) {
-            return ckc;
+            return clC;
         }
         if (i == 2) {
-            return ckd;
+            return clD;
         }
-        return ckb;
+        return clB;
     }
 
     public static String ed(boolean z) {
-        return z ? cjZ : cka;
+        return z ? clz : clA;
     }
 }

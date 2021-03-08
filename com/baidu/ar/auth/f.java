@@ -3,7 +3,7 @@ package com.baidu.ar.auth;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class f {
     public int jH;
     public boolean jI;

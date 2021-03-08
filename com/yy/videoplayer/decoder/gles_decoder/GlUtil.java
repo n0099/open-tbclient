@@ -6,7 +6,7 @@ import com.yy.videoplayer.utils.YMFLog;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlUtil {
     public static final float[] IDENTITY_MATRIX = new float[16];
     private static final int SIZEOF_FLOAT = 4;

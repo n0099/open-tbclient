@@ -15,16 +15,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     private static final String TAG;
-    private static final boolean phO;
-    public static double phP;
+    private static final boolean pjW;
+    public static double pjX;
 
     static {
-        phO = Build.VERSION.SDK_INT >= 11;
+        pjW = Build.VERSION.SDK_INT >= 11;
         TAG = b.class.getSimpleName();
-        phP = 1.778d;
+        pjX = 1.778d;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [106=5, 108=4, 109=4, 110=4] */
@@ -129,7 +129,7 @@ public class b {
                 if (Math.max(options.outWidth, options.outHeight) > 0) {
                     float max = f / Math.max(options.outWidth, options.outHeight);
                     float f2 = max <= 1.0f ? max : 1.0f;
-                    options.inSampleSize = bD(f2);
+                    options.inSampleSize = bH(f2);
                     options.inJustDecodeBounds = false;
                     options.inPreferredConfig = Bitmap.Config.ARGB_4444;
                     e(options);
@@ -187,14 +187,14 @@ public class b {
 
     @TargetApi(11)
     private static void e(BitmapFactory.Options options) {
-        if (phO) {
+        if (pjW) {
             options.inMutable = true;
         }
     }
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
+            switch (new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1)) {
                 case 3:
                     return 180;
                 case 4:
@@ -213,15 +213,15 @@ public class b {
         }
     }
 
-    private static int bD(float f) {
+    private static int bH(float f) {
         int floor = (int) Math.floor(1.0f / f);
         if (floor <= 1) {
             return 1;
         }
-        return floor <= 8 ? Ob(floor) : (floor / 8) * 8;
+        return floor <= 8 ? Of(floor) : (floor / 8) * 8;
     }
 
-    private static int Ob(int i) throws IllegalArgumentException {
+    private static int Of(int i) throws IllegalArgumentException {
         if (i <= 0) {
             throw new IllegalArgumentException();
         }

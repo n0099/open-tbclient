@@ -8,7 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PlayNotify {
     long mStreamId;
     long mUserGroupId;
@@ -21,7 +21,7 @@ public class PlayNotify {
     long lastDraw = System.currentTimeMillis();
     BlockingQueue<ViewNotifyEvent> eveq = new LinkedBlockingQueue(10);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface PlayListner {
         void OnNoFrameCnt(int i);
 
@@ -106,7 +106,7 @@ public class PlayNotify {
         return this.mStreamId;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class PlayCheckingTask extends TimerTask {
         private PlayCheckingTask() {
         }
@@ -128,7 +128,7 @@ public class PlayNotify {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class NotifyTask implements Runnable {
         private NotifyTask() {
         }
@@ -187,7 +187,7 @@ public class PlayNotify {
         this.mWpl = new WeakReference<>(playListner);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     static class ViewNotifyEvent {
         public static final int END = 1;
         private static final int EXIT = -1;

@@ -6,15 +6,15 @@ import java.io.File;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
-    public String aCb;
-    public BdUniqueId aCj;
-    private boolean eMD;
-    private boolean gsA;
-    private boolean gsB;
-    protected b gsC;
-    protected boolean gsq;
+    public String aDB;
+    public BdUniqueId aDJ;
+    private boolean eOe;
+    protected boolean gtZ;
+    private boolean guj;
+    private boolean guk;
+    protected b gul;
     private File mFolder;
 
     public c() {
@@ -25,71 +25,71 @@ public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
     }
 
     public String getSign() {
-        return this.gsC.getSign();
+        return this.gul.getSign();
     }
 
     public int getPosition() {
-        return this.gsC.getPosition();
+        return this.gul.getPosition();
     }
 
     public void setPosition(int i) {
-        this.gsC.setPosition(i);
+        this.gul.setPosition(i);
     }
 
     public void setData(List<d> list) {
-        this.gsC.setData(list);
+        this.gul.setData(list);
     }
 
-    public b bPB() {
-        return this.gsC;
+    public b bPH() {
+        return this.gul;
     }
 
-    public boolean bPC() {
-        return this.gsA;
+    public boolean bPI() {
+        return this.guj;
     }
 
-    public boolean zv() {
-        return this.eMD;
+    public boolean zy() {
+        return this.eOe;
     }
 
     public int size() {
-        if (this.gsC == null) {
+        if (this.gul == null) {
             return 0;
         }
-        return this.gsC.size();
+        return this.gul.size();
     }
 
-    public boolean bPD() {
-        return this.gsB;
+    public boolean bPJ() {
+        return this.guk;
     }
 
     public void ml(boolean z) {
-        this.gsB = z;
+        this.guk = z;
     }
 
     @Override // com.baidu.tieba.ala.alaar.makeup.b.b
-    public boolean dE(JSONObject jSONObject) {
+    public boolean dG(JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() == 0) {
             return false;
         }
-        this.eMD = jSONObject.optInt("switch", 0) == 1;
-        this.gsA = jSONObject.optInt("red_dot_switch", 0) == 1;
-        this.gsB = jSONObject.optInt("is_user_clicked", 0) == 1;
-        this.gsq = jSONObject.optInt("is_male", 0) == 1;
+        this.eOe = jSONObject.optInt("switch", 0) == 1;
+        this.guj = jSONObject.optInt("red_dot_switch", 0) == 1;
+        this.guk = jSONObject.optInt("is_user_clicked", 0) == 1;
+        this.gtZ = jSONObject.optInt("is_male", 0) == 1;
         JSONObject optJSONObject = jSONObject.optJSONObject("beauty_conf");
-        this.gsC = new b();
-        this.gsC.V(this.mFolder);
-        return optJSONObject != null && this.gsC.dE(optJSONObject);
+        this.gul = new b();
+        this.gul.V(this.mFolder);
+        return optJSONObject != null && this.gul.dG(optJSONObject);
     }
 
     public JSONObject toJson() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("switch", this.eMD ? 1 : 0);
-            jSONObject.put("red_dot_switch", this.gsA ? 1 : 0);
-            jSONObject.put("is_user_clicked", this.gsB ? 1 : 0);
-            jSONObject.put("is_male", this.gsq ? 1 : 0);
-            jSONObject.put("beauty_conf", this.gsC != null ? this.gsC.toJson() : null);
+            jSONObject.put("switch", this.eOe ? 1 : 0);
+            jSONObject.put("red_dot_switch", this.guj ? 1 : 0);
+            jSONObject.put("is_user_clicked", this.guk ? 1 : 0);
+            jSONObject.put("is_male", this.gtZ ? 1 : 0);
+            jSONObject.put("beauty_conf", this.gul != null ? this.gul.toJson() : null);
             return jSONObject;
         } catch (JSONException e) {
             e.printStackTrace();

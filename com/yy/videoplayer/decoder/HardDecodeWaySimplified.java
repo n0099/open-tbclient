@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HardDecodeWaySimplified implements HardDecodeWay, Runnable {
     private static final int MSG_END_OF_STREAM = 7;
     private static final int MSG_GET_SCREENSHOT = 4;
@@ -132,7 +132,7 @@ public class HardDecodeWaySimplified implements HardDecodeWay, Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RawH264Data {
         public byte[] data;
         public long pts;
@@ -142,7 +142,7 @@ public class HardDecodeWaySimplified implements HardDecodeWay, Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoHeaderInfo {
         public byte[] header;
         public int height;
@@ -154,7 +154,7 @@ public class HardDecodeWaySimplified implements HardDecodeWay, Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ScreenShotInfo {
         public int height;
         public boolean isSuccess;
@@ -166,7 +166,7 @@ public class HardDecodeWaySimplified implements HardDecodeWay, Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class SurfaceScaleInfo {
         public int height;
         public VideoConstant.OrientationType orientationType;
@@ -725,7 +725,7 @@ public class HardDecodeWaySimplified implements HardDecodeWay, Runnable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class RenderHandler extends Handler {
         private WeakReference<HardDecodeWaySimplified> mWeakWay;
 

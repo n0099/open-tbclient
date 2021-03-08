@@ -9,11 +9,11 @@ import androidx.annotation.Nullable;
 import com.baidu.live.data.o;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGuessSingleBottomCenterView extends FrameLayout {
-    private HeadImageView hht;
-    private TextView hhu;
-    private TextView hhv;
+    private HeadImageView hjd;
+    private TextView hje;
+    private TextView hjf;
 
     public AlaGuessSingleBottomCenterView(Context context) {
         super(context);
@@ -32,10 +32,10 @@ public class AlaGuessSingleBottomCenterView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.ala_guess_single_bottom_center_view, this);
-        this.hht = (HeadImageView) findViewById(a.f.img_second_icon);
-        c(this.hht);
-        this.hhu = (TextView) findViewById(a.f.txt_second_center_content);
-        this.hhv = (TextView) findViewById(a.f.txt_second_last_money);
+        this.hjd = (HeadImageView) findViewById(a.f.img_second_icon);
+        c(this.hjd);
+        this.hje = (TextView) findViewById(a.f.txt_second_center_content);
+        this.hjf = (TextView) findViewById(a.f.txt_second_last_money);
     }
 
     private void c(HeadImageView headImageView) {
@@ -45,14 +45,14 @@ public class AlaGuessSingleBottomCenterView extends FrameLayout {
     }
 
     public void setData(o.c cVar) {
-        this.hhu.setText(cVar.getTips());
-        this.hht.startLoad(cVar.getIcon(), 10, false);
-        this.hhv.setText(" " + cVar.BR() + "元");
+        this.hje.setText(cVar.getTips());
+        this.hjd.startLoad(cVar.getIcon(), 10, false);
+        this.hjf.setText(" " + cVar.BU() + "元");
     }
 
     public void setSpecialUI() {
-        this.hht.setVisibility(8);
-        this.hhv.setVisibility(8);
-        this.hhu.setText(getResources().getString(a.h.ala_guess_result_single_bottomview_empty_tips));
+        this.hjd.setVisibility(8);
+        this.hjf.setVisibility(8);
+        this.hje.setText(getResources().getString(a.h.ala_guess_result_single_bottomview_empty_tips));
     }
 }

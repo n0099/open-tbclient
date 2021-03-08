@@ -9,7 +9,7 @@ import tbclient.GetMemberInfo.ManagerApplyInfo;
 import tbclient.GetMemberInfo.MemberGodInfo;
 import tbclient.MemberGroupInfo;
 import tbclient.PriManagerApplyInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
     private boolean isNeedUpdateCache;
     private boolean mIsBawuShow;
@@ -67,7 +67,7 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
                 forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
             }
             if (forumMemberRequestMessage != null) {
-                new c().m(forumMemberRequestMessage.getForumName() + "", bArr);
+                new c().l(forumMemberRequestMessage.getForumName() + "", bArr);
             }
         }
     }

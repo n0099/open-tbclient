@@ -10,18 +10,18 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static com.baidu.poly.a cmF = null;
-    private static com.baidu.poly.d.a.a cmG = null;
-    private static int cmH = 1;
+    private static com.baidu.poly.a cog = null;
+    private static com.baidu.poly.d.a.a coh = null;
+    private static int coi = 1;
 
     public boolean a(Activity activity, String str, com.baidu.k.a.a aVar) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.add().e(activity, str, aVar);
+        b.adg().e(activity, str, aVar);
         return true;
     }
 
@@ -29,7 +29,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.add().f(activity, str, aVar);
+        b.adg().f(activity, str, aVar);
         return true;
     }
 
@@ -190,8 +190,8 @@ public class a {
                 }
                 bundle.putString("chosenChannel", string);
             }
-            bundle.putString("zid", b.add().getZid(activity));
-            bJ(activity).a(activity, bundle, adb(), new a.b() { // from class: com.baidu.k.a.1
+            bundle.putString("zid", b.adg().getZid(activity));
+            bI(activity).a(activity, bundle, ade(), new a.b() { // from class: com.baidu.k.a.1
                 @Override // com.baidu.poly.a.b
                 public void onResult(int i2, String str2) {
                     if (i2 == 3) {
@@ -212,11 +212,11 @@ public class a {
         }
     }
 
-    private static com.baidu.poly.d.a.c adb() {
+    private static com.baidu.poly.d.a.c ade() {
         return new com.baidu.poly.d.a.c() { // from class: com.baidu.k.a.2
             @Override // com.baidu.poly.d.a.c
             public void a(Activity activity, com.baidu.poly.d.a.b bVar, final com.baidu.poly.d.a.a aVar) {
-                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.cpc == null) {
+                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.cqE == null) {
                     a.a(aVar, 6, "支付信息不能为空");
                     return;
                 }
@@ -263,7 +263,7 @@ public class a {
                 switch (c) {
                     case 0:
                     case 1:
-                        c.ade().d(activity, bVar.cpc.optString("orderInfo"), new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.1
+                        c.adh().d(activity, bVar.cqE.optString("orderInfo"), new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.1
                             @Override // com.baidu.k.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -271,7 +271,7 @@ public class a {
                         });
                         break;
                     case 2:
-                        c.ade().a((Context) activity, bVar.cpc, new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.2
+                        c.adh().a((Context) activity, bVar.cqE, new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.2
                             @Override // com.baidu.k.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -279,7 +279,7 @@ public class a {
                         });
                         break;
                     case 3:
-                        c.ade().c(activity, bVar.cpc.optString("orderInfo"), new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.3
+                        c.adh().c(activity, bVar.cqE.optString("orderInfo"), new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.3
                             @Override // com.baidu.k.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -287,12 +287,12 @@ public class a {
                         });
                         break;
                     case 4:
-                        com.baidu.poly.d.a.a unused = a.cmG = aVar;
-                        d.adf();
-                        c.ade().e(activity, bVar.cpc);
+                        com.baidu.poly.d.a.a unused = a.coh = aVar;
+                        d.adi();
+                        c.adh().e(activity, bVar.cqE);
                         break;
                     case 5:
-                        c.ade().a(activity, bVar.cpc, new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.4
+                        c.adh().a(activity, bVar.cqE, new com.baidu.k.a.a() { // from class: com.baidu.k.a.2.4
                             @Override // com.baidu.k.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -309,26 +309,26 @@ public class a {
     }
 
     public void a(JSONObject jSONObject, com.baidu.poly.b.a aVar) {
-        bJ(AppRuntime.getAppContext()).a(1, jSONObject, aVar);
+        bI(AppRuntime.getAppContext()).a(1, jSONObject, aVar);
     }
 
     public void a(com.baidu.poly.b.a aVar) {
-        bJ(AppRuntime.getAppContext()).a(2, null, aVar);
+        bI(AppRuntime.getAppContext()).a(2, null, aVar);
     }
 
-    private static com.baidu.poly.a bJ(Context context) {
-        if (cmF != null) {
-            return cmF;
+    private static com.baidu.poly.a bI(Context context) {
+        if (cog != null) {
+            return cog;
         }
-        cmH = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
-        cmF = new a.C0294a().fD(cmH).bL(context.getApplicationContext()).em(false).adi();
-        return cmF;
+        coi = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
+        cog = new a.C0300a().fE(coi).bK(context.getApplicationContext()).em(false).adl();
+        return cog;
     }
 
     public static void aj(int i, String str) {
-        if (cmG != null) {
-            cmG.onResult(i, str);
-            cmG = null;
+        if (coh != null) {
+            coh.onResult(i, str);
+            coh = null;
         }
     }
 
@@ -354,7 +354,7 @@ public class a {
         }
     }
 
-    public static boolean adc() {
+    public static boolean adf() {
         return false;
     }
 }

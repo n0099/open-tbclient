@@ -16,39 +16,39 @@ import com.baidu.tieba.forumMember.member.m;
 import com.baidu.tieba.frs.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bns = new ArrayList();
-    private BdTypeListView gzp;
-    private k jdy;
-    private m jdz;
+    private List<com.baidu.adp.widget.ListView.a> boS = new ArrayList();
+    private BdTypeListView gAY;
+    private k jfh;
+    private m jfi;
 
-    public List<com.baidu.adp.widget.ListView.a> bRK() {
-        return this.bns;
+    public List<com.baidu.adp.widget.ListView.a> bRQ() {
+        return this.boS;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
-        this.gzp = bdTypeListView;
-        this.bns.add(new g(baseActivity.getPageContext(), h.jcJ));
-        this.bns.add(new i(baseActivity.getPageContext(), j.jcU));
-        this.bns.add(new f(baseActivity.getPageContext(), n.jge));
-        this.bns.add(new com.baidu.tieba.forumMember.manito.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.manito.b.jcm));
-        this.bns.add(new c(baseActivity.getPageContext(), d.jcp));
-        this.bns.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.jdy = new k(baseActivity.getPageContext(), l.jdl);
-        this.bns.add(this.jdy);
-        this.jdz = new m(baseActivity.getPageContext(), com.baidu.tieba.forumMember.member.n.jdw);
-        this.bns.add(this.jdz);
+        this.gAY = bdTypeListView;
+        this.boS.add(new g(baseActivity.getPageContext(), h.jes));
+        this.boS.add(new i(baseActivity.getPageContext(), j.jeD));
+        this.boS.add(new f(baseActivity.getPageContext(), n.jhN));
+        this.boS.add(new com.baidu.tieba.forumMember.manito.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.manito.b.jdV));
+        this.boS.add(new c(baseActivity.getPageContext(), d.jdY));
+        this.boS.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
+        this.jfh = new k(baseActivity.getPageContext(), l.jeU);
+        this.boS.add(this.jfh);
+        this.jfi = new m(baseActivity.getPageContext(), com.baidu.tieba.forumMember.member.n.jff);
+        this.boS.add(this.jfi);
     }
 
     public void notifyDataSetChanged() {
-        if (this.gzp != null && (this.gzp.getAdapter() instanceof e)) {
-            this.gzp.getAdapter().notifyDataSetChanged();
+        if (this.gAY != null && (this.gAY.getAdapter() instanceof e)) {
+            this.gAY.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.jdy.onDestroy();
-        this.jdz.onDestroy();
+        this.jfh.onDestroy();
+        this.jfi.onDestroy();
     }
 }

@@ -13,10 +13,8 @@ import java.util.regex.Pattern;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f11182a = new byte[0];
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f11183b = new String[0];
+    public static final byte[] f7354a = new byte[0];
+    public static final String[] b = new String[0];
     public static final Charset c = Charset.forName("UTF-8");
     public static final TimeZone d = TimeZone.getTimeZone("GMT");
     private static final Pattern e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");

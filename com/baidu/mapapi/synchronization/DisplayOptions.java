@@ -9,7 +9,7 @@ import java.util.List;
 public final class DisplayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2937a = DisplayOptions.class.getSimpleName();
+    private static final String f2150a = DisplayOptions.class.getSimpleName();
     private View A;
     private View B;
     private View C;
@@ -33,9 +33,7 @@ public final class DisplayOptions {
     private int N = 50;
     private int O = 50;
     private int P = 50;
-
-    /* renamed from: b  reason: collision with root package name */
-    private BitmapDescriptor f2938b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+    private BitmapDescriptor b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
     private boolean c = true;
     private boolean d = true;
     private BitmapDescriptor f = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
@@ -126,7 +124,7 @@ public final class DisplayOptions {
     }
 
     public BitmapDescriptor getStartPositionIcon() {
-        return this.f2938b;
+        return this.b;
     }
 
     public View getStartPositionInfoWindowView() {
@@ -271,7 +269,7 @@ public final class DisplayOptions {
 
     public DisplayOptions setMapViewPadding(int i, int i2, int i3, int i4) {
         if (i < 0 || i3 < 0 || i2 < 0 || i4 < 0) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2937a, "Padding param is invalid. paddingLeft = " + i + "; paddingRight = " + i3 + "; paddingTop = " + i2 + "; paddingBottom = " + i4);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2150a, "Padding param is invalid. paddingLeft = " + i + "; paddingRight = " + i3 + "; paddingTop = " + i2 + "; paddingBottom = " + i4);
         }
         if (i < 0) {
             i = 30;
@@ -352,7 +350,7 @@ public final class DisplayOptions {
         if (bitmapDescriptor == null) {
             throw new IllegalArgumentException("StartPositionIcon descriptor is null");
         }
-        this.f2938b = bitmapDescriptor;
+        this.b = bitmapDescriptor;
         return this;
     }
 

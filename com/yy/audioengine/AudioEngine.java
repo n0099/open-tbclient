@@ -2,7 +2,7 @@ package com.yy.audioengine;
 
 import com.yy.audioengine.Constant;
 import com.yy.audioengine.SpeechMsgRecorder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AudioEngine implements IAudioEngine {
     private static final String TAG = "AudioEngine";
     private IKaraokeScoreNotify mKaraokeScoreNotify;
@@ -456,15 +456,15 @@ public class AudioEngine implements IAudioEngine {
         }
     }
 
-    private void onCalcKaraokeScore(byte b2, long j) {
+    private void onCalcKaraokeScore(byte b, long j) {
         if (this.mKaraokeScoreNotify != null) {
-            this.mKaraokeScoreNotify.onCalcKaraokeScore(b2, j);
+            this.mKaraokeScoreNotify.onCalcKaraokeScore(b, j);
         }
     }
 
-    private void onSingerPitchVisual(byte b2, long j, long j2, long j3) {
+    private void onSingerPitchVisual(byte b, long j, long j2, long j3) {
         if (this.mKaraokeScoreNotify != null) {
-            this.mKaraokeScoreNotify.onSingerPitchVisual(b2, j, j2, j3);
+            this.mKaraokeScoreNotify.onSingerPitchVisual(b, j, j2, j3);
         }
     }
 }

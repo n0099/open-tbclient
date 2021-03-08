@@ -9,7 +9,7 @@ import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.model.InsideNotificationItem;
 import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class r extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(com.vivo.push.y yVar) {
@@ -19,51 +19,51 @@ public final class r extends ab {
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
         NotificationManager notificationManager;
-        boolean isEnablePush = ClientConfigManagerImpl.getInstance(this.f13711a).isEnablePush();
+        boolean isEnablePush = ClientConfigManagerImpl.getInstance(this.f8089a).isEnablePush();
         com.vivo.push.b.s sVar = (com.vivo.push.b.s) yVar;
-        if (!com.vivo.push.util.s.c(this.f13711a, this.f13711a.getPackageName())) {
+        if (!com.vivo.push.util.s.c(this.f8089a, this.f8089a.getPackageName())) {
             com.vivo.push.b.aa aaVar = new com.vivo.push.b.aa(2101L);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put(Message.MESSAGE_ID, String.valueOf(sVar.f()));
-            String b2 = com.vivo.push.util.z.b(this.f13711a, this.f13711a.getPackageName());
-            if (!TextUtils.isEmpty(b2)) {
-                hashMap.put("remoteAppId", b2);
+            String b = com.vivo.push.util.z.b(this.f8089a, this.f8089a.getPackageName());
+            if (!TextUtils.isEmpty(b)) {
+                hashMap.put("remoteAppId", b);
             }
             aaVar.a(hashMap);
             com.vivo.push.p.a().a(aaVar);
             return;
         }
         com.vivo.push.p.a().a(new com.vivo.push.b.j(String.valueOf(sVar.f())));
-        com.vivo.push.util.p.d("OnNotificationArrivedTask", "PushMessageReceiver " + this.f13711a.getPackageName() + " isEnablePush :" + isEnablePush);
+        com.vivo.push.util.p.d("OnNotificationArrivedTask", "PushMessageReceiver " + this.f8089a.getPackageName() + " isEnablePush :" + isEnablePush);
         if (!isEnablePush) {
             com.vivo.push.b.aa aaVar2 = new com.vivo.push.b.aa(1020L);
             HashMap<String, String> hashMap2 = new HashMap<>();
             hashMap2.put(Message.MESSAGE_ID, String.valueOf(sVar.f()));
-            String b3 = com.vivo.push.util.z.b(this.f13711a, this.f13711a.getPackageName());
-            if (!TextUtils.isEmpty(b3)) {
-                hashMap2.put("remoteAppId", b3);
+            String b2 = com.vivo.push.util.z.b(this.f8089a, this.f8089a.getPackageName());
+            if (!TextUtils.isEmpty(b2)) {
+                hashMap2.put("remoteAppId", b2);
             }
             aaVar2.a(hashMap2);
             com.vivo.push.p.a().a(aaVar2);
-        } else if (com.vivo.push.p.a().g() && !a(com.vivo.push.util.z.d(this.f13711a), sVar.e(), sVar.i())) {
+        } else if (com.vivo.push.p.a().g() && !a(com.vivo.push.util.z.d(this.f8089a), sVar.e(), sVar.i())) {
             com.vivo.push.b.aa aaVar3 = new com.vivo.push.b.aa(1021L);
             HashMap<String, String> hashMap3 = new HashMap<>();
             hashMap3.put(Message.MESSAGE_ID, String.valueOf(sVar.f()));
-            String b4 = com.vivo.push.util.z.b(this.f13711a, this.f13711a.getPackageName());
-            if (!TextUtils.isEmpty(b4)) {
-                hashMap3.put("remoteAppId", b4);
+            String b3 = com.vivo.push.util.z.b(this.f8089a, this.f8089a.getPackageName());
+            if (!TextUtils.isEmpty(b3)) {
+                hashMap3.put("remoteAppId", b3);
             }
             aaVar3.a(hashMap3);
             com.vivo.push.p.a().a(aaVar3);
-        } else if (Build.VERSION.SDK_INT >= 24 && (notificationManager = (NotificationManager) this.f13711a.getSystemService(ActionJsonData.TAG_NOTIFICATION)) != null && !notificationManager.areNotificationsEnabled()) {
-            com.vivo.push.util.p.b("OnNotificationArrivedTask", "pkg name : " + this.f13711a.getPackageName() + " notify switch is false");
-            com.vivo.push.util.p.b(this.f13711a, "通知开关关闭，导致通知无法展示，请到设置页打开应用通知开关");
+        } else if (Build.VERSION.SDK_INT >= 24 && (notificationManager = (NotificationManager) this.f8089a.getSystemService(ActionJsonData.TAG_NOTIFICATION)) != null && !notificationManager.areNotificationsEnabled()) {
+            com.vivo.push.util.p.b("OnNotificationArrivedTask", "pkg name : " + this.f8089a.getPackageName() + " notify switch is false");
+            com.vivo.push.util.p.b(this.f8089a, "通知开关关闭，导致通知无法展示，请到设置页打开应用通知开关");
             com.vivo.push.b.aa aaVar4 = new com.vivo.push.b.aa(2104L);
             HashMap<String, String> hashMap4 = new HashMap<>();
             hashMap4.put(Message.MESSAGE_ID, String.valueOf(sVar.f()));
-            String b5 = com.vivo.push.util.z.b(this.f13711a, this.f13711a.getPackageName());
-            if (!TextUtils.isEmpty(b5)) {
-                hashMap4.put("remoteAppId", b5);
+            String b4 = com.vivo.push.util.z.b(this.f8089a, this.f8089a.getPackageName());
+            if (!TextUtils.isEmpty(b4)) {
+                hashMap4.put("remoteAppId", b4);
             }
             aaVar4.a(hashMap4);
             com.vivo.push.p.a().a(aaVar4);
@@ -75,8 +75,8 @@ public final class r extends ab {
                 return;
             }
             com.vivo.push.util.p.a("OnNotificationArrivedTask", "notify is null");
-            com.vivo.push.util.p.c(this.f13711a, "通知内容为空，" + sVar.f());
-            com.vivo.push.util.d.a(this.f13711a, sVar.f(), 1027L);
+            com.vivo.push.util.p.c(this.f8089a, "通知内容为空，" + sVar.f());
+            com.vivo.push.util.d.a(this.f8089a, sVar.f(), 1027L);
         }
     }
 }

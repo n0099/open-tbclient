@@ -6,7 +6,7 @@ import android.util.Log;
 import com.yy.mediaframework.gles.Drawable2d;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FullFrameRect {
     public static final int EXTRA_TEXTURE_SLAVE_PICTURE = 3;
     public static final int EXTRA_TEXTURE_STICKER = 2;

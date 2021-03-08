@@ -13,7 +13,7 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class b implements com.baidu.swan.game.ad.a.b {
-    private boolean eae;
+    private boolean ebG;
     private Context mContext;
 
     public b(Context context) {
@@ -22,16 +22,16 @@ public class b implements com.baidu.swan.game.ad.a.b {
 
     @Override // com.baidu.swan.game.ad.a.b
     public void a(String str, ResponseCallback<AdResponseInfo> responseCallback) {
-        this.eae = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.eae) {
-            com.baidu.swan.a.c.a.bbY().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.axv().aiy()).build().executeAsync(responseCallback);
+        this.ebG = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.ebG) {
+            com.baidu.swan.a.c.a.bca().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.axy().aiB()).build().executeAsync(responseCallback);
             return;
         }
-        com.baidu.swan.a.c.a.bbY().getRequest().url(str).build().executeAsync(responseCallback);
+        com.baidu.swan.a.c.a.bca().getRequest().url(str).build().executeAsync(responseCallback);
     }
 
     @Override // com.baidu.swan.game.ad.a.b
-    public void vm(String str) {
+    public void vt(String str) {
         ResponseCallback<String> responseCallback = new ResponseCallback<String>() { // from class: com.baidu.swan.game.ad.e.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -45,7 +45,7 @@ public class b implements com.baidu.swan.game.ad.a.b {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: U */
+            /* renamed from: V */
             public void onSuccess(String str2, int i) {
             }
 
@@ -53,42 +53,42 @@ public class b implements com.baidu.swan.game.ad.a.b {
             public void onFail(Exception exc) {
             }
         };
-        this.eae = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.eae) {
-            com.baidu.swan.a.c.a.bbY().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.axv().aiy()).build().executeAsync(responseCallback);
+        this.ebG = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.ebG) {
+            com.baidu.swan.a.c.a.bca().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.axy().aiB()).build().executeAsync(responseCallback);
             return;
         }
-        com.baidu.swan.a.c.a.bbY().getRequest().url(str).build().executeAsync(responseCallback);
+        com.baidu.swan.a.c.a.bca().getRequest().url(str).build().executeAsync(responseCallback);
     }
 
     @Override // com.baidu.swan.game.ad.a.b
-    public void vn(String str) {
+    public void vu(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a();
             aVar.method = "POST";
             aVar.url = "https://pimlog.baidu.com/mapp/advlog";
             aVar.requestBody = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
-            com.baidu.swan.a.c.a.bbY().b(aVar);
+            com.baidu.swan.a.c.a.bca().b(aVar);
         }
     }
 
     @Override // com.baidu.swan.game.ad.a.b
     public void b(String str, ResponseCallback<com.baidu.swan.game.ad.c.a> responseCallback) {
-        this.eae = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.eae) {
-            com.baidu.swan.a.c.a.bbY().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.axv().aiy()).build().executeAsync(responseCallback);
+        this.ebG = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.ebG) {
+            com.baidu.swan.a.c.a.bca().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.axy().aiB()).build().executeAsync(responseCallback);
             return;
         }
-        com.baidu.swan.a.c.a.bbY().getRequest().url(str).build().executeAsync(responseCallback);
+        com.baidu.swan.a.c.a.bca().getRequest().url(str).build().executeAsync(responseCallback);
     }
 
     @Override // com.baidu.swan.game.ad.a.b
     public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
-        this.eae = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-        if (this.eae) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bbY().postRequest().url(str)).cookieManager(com.baidu.swan.apps.t.a.axv().aiy())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+        this.ebG = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if (this.ebG) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bca().postRequest().url(str)).cookieManager(com.baidu.swan.apps.t.a.axy().aiB())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
             return;
         }
-        ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bbY().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+        ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bca().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
     }
 }

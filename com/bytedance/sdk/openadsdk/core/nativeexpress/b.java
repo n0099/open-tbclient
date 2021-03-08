@@ -11,7 +11,7 @@ import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.q;
-import com.bytedance.sdk.openadsdk.i.a.b;
+import com.bytedance.sdk.openadsdk.h.a.b;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class b {
     private static Set<b> j = Collections.synchronizedSet(new HashSet());
 
     /* renamed from: a  reason: collision with root package name */
-    private AdSlot f6632a;
+    private AdSlot f4482a;
     private Context c;
     private TTAdNative.NativeExpressAdListener d;
     private List<com.bytedance.sdk.openadsdk.core.d.l> f;
@@ -37,9 +37,7 @@ public class b {
     private ScheduledFuture<?> k = null;
     private ScheduledFuture<?> l = null;
     private ScheduledFuture<?> m = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final q f6633b = p.f();
+    private final q b = p.f();
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -72,17 +70,17 @@ public class b {
         }
         this.i = i;
         this.e.set(true);
-        this.f6632a = adSlot;
+        this.f4482a = adSlot;
         this.d = nativeExpressAdListener;
         this.h = aVar;
-        a(this.f6632a, this.d);
+        a(this.f4482a, this.d);
     }
 
     private void a(AdSlot adSlot, TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
         if (adSlot != null) {
             com.bytedance.sdk.openadsdk.core.d.m mVar = new com.bytedance.sdk.openadsdk.core.d.m();
             mVar.e = 2;
-            this.f6633b.a(adSlot, mVar, this.i, new q.b() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
+            this.b.a(adSlot, mVar, this.i, new q.b() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
                 @Override // com.bytedance.sdk.openadsdk.core.q.b
                 public void a(int i, String str) {
                     b.this.a(i, str);
@@ -107,19 +105,17 @@ public class b {
     public void a() {
         if (this.f != null) {
             for (com.bytedance.sdk.openadsdk.core.d.l lVar : this.f) {
-                if (lVar.ai() && lVar.M() != null && !lVar.M().isEmpty()) {
-                    for (com.bytedance.sdk.openadsdk.core.d.k kVar : lVar.M()) {
+                if (lVar.aA() && lVar.Z() != null && !lVar.Z().isEmpty()) {
+                    for (com.bytedance.sdk.openadsdk.core.d.k kVar : lVar.Z()) {
                         if (!TextUtils.isEmpty(kVar.a())) {
-                            com.bytedance.sdk.openadsdk.i.e.a(this.c).f().a(kVar.a(), (b.InterfaceC1022b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), false);
+                            com.bytedance.sdk.openadsdk.h.d.a(this.c).f().a(kVar.a(), (b.InterfaceC1033b) com.bytedance.sdk.openadsdk.h.a.b.a(), kVar.b(), kVar.c(), false);
                         }
                     }
                 }
-                if (lVar.X() == 5 || lVar.X() == 15) {
-                    if (lVar.F() != null && lVar.F().h() != null) {
-                        int d = aj.d(lVar.W());
-                        if (p.h().a(String.valueOf(d)) && p.h().q(String.valueOf(d))) {
-                            com.bytedance.sdk.openadsdk.j.f.a.a().a(new com.bytedance.sdk.openadsdk.j.f.b().a(lVar.F().h()).a(com.baidu.fsg.base.statistics.b.f1933b).b(lVar.F().k()));
-                        }
+                if (com.bytedance.sdk.openadsdk.core.d.l.c(lVar) && lVar.R() != null && lVar.R().i() != null) {
+                    int d = aj.d(lVar.aj());
+                    if (p.h().a(String.valueOf(d)) && p.h().q(String.valueOf(d))) {
+                        com.bytedance.sdk.openadsdk.core.video.e.c.a(new com.bytedance.sdk.openadsdk.i.f.b().a(lVar.R().i()).a(com.baidu.fsg.base.statistics.b.b).b(lVar.R().l()));
                     }
                 }
             }
@@ -167,11 +163,11 @@ public class b {
     public void a(int i) {
         String str = "";
         if (this.f != null && this.f.size() > 0) {
-            str = aj.h(this.f.get(0).W());
+            str = aj.h(this.f.get(0).aj());
         }
-        com.bytedance.sdk.openadsdk.h.a.d f = com.bytedance.sdk.openadsdk.h.a.d.b().a(this.i).c(this.f6632a.getCodeId()).f(str);
+        com.bytedance.sdk.openadsdk.g.a.c f = com.bytedance.sdk.openadsdk.g.a.c.b().a(this.i).c(this.f4482a.getCodeId()).f(str);
         f.b(i).g(com.bytedance.sdk.openadsdk.core.h.a(i));
-        com.bytedance.sdk.openadsdk.h.a.a().h(f);
+        com.bytedance.sdk.openadsdk.g.a.a().h(f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -191,9 +187,15 @@ public class b {
     public TTNativeExpressAd a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
         switch (this.i) {
             case 1:
-                return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.c, lVar, this.f6632a);
+                if (lVar.R() != null) {
+                    return new com.bytedance.sdk.openadsdk.core.bannerexpress.c(this.c, lVar, this.f4482a);
+                }
+                return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.c, lVar, this.f4482a);
             case 2:
-                return new com.bytedance.sdk.openadsdk.core.c.b(this.c, lVar, this.f6632a);
+                if (lVar.R() != null) {
+                    return new com.bytedance.sdk.openadsdk.core.c.c(this.c, lVar, this.f4482a);
+                }
+                return new com.bytedance.sdk.openadsdk.core.c.b(this.c, lVar, this.f4482a);
             case 3:
             case 4:
             case 6:
@@ -202,12 +204,12 @@ public class b {
             default:
                 return null;
             case 5:
-                if (lVar.F() != null) {
-                    return new n(this.c, lVar, this.f6632a);
+                if (lVar.R() != null) {
+                    return new o(this.c, lVar, this.f4482a);
                 }
-                return new k(this.c, lVar, this.f6632a);
+                return new k(this.c, lVar, this.f4482a);
             case 9:
-                return new m(this.c, lVar, this.f6632a);
+                return new m(this.c, lVar, this.f4482a);
         }
     }
 

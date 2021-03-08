@@ -9,37 +9,37 @@ import com.baidu.android.imsdk.internal.IMConnection;
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class aj implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Activity f7857a;
-    final /* synthetic */ y pSe;
-    final /* synthetic */ w pSq;
+    final /* synthetic */ Activity f5261a;
+    final /* synthetic */ y pST;
+    final /* synthetic */ w pTf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(w wVar, Activity activity, y yVar) {
-        this.pSq = wVar;
-        this.f7857a = activity;
-        this.pSe = yVar;
+        this.pTf = wVar;
+        this.f5261a = activity;
+        this.pST = yVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         com.google.a.b.a.a.a.a aVar;
-        Bundle b2;
+        Bundle b;
         try {
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            aVar = this.pSq.pSl;
-            String str = this.f7857a.getApplicationInfo().packageName;
-            w wVar = this.pSq;
-            b2 = w.b();
-            aVar.a(str, Collections.singletonList(b2), new Bundle(), new x(this, atomicBoolean));
+            aVar = this.pTf.pTa;
+            String str = this.f5261a.getApplicationInfo().packageName;
+            w wVar = this.pTf;
+            b = w.b();
+            aVar.a(str, Collections.singletonList(b), new Bundle(), new x(this, atomicBoolean));
             new Handler().postDelayed(new ak(this, atomicBoolean), IMConnection.RETRY_DELAY_TIMES);
         } catch (RemoteException e) {
             Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-            w wVar2 = this.pSq;
-            w.b(this.f7857a, this.pSe);
+            w wVar2 = this.pTf;
+            w.b(this.f5261a, this.pST);
         }
     }
 }

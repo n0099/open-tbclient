@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.MailTo;
 import android.net.Uri;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class i extends j {
     @Override // com.baidu.webkit.internal.b.j
     public final boolean a(Context context, String str) {

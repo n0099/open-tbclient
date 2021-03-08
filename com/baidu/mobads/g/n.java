@@ -6,18 +6,18 @@ import android.os.Handler;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class n extends com.baidu.mobads.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g.c f3353a;
+    final /* synthetic */ g.c f2396a;
     final /* synthetic */ Handler c;
     final /* synthetic */ g d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(g gVar, g.c cVar, Handler handler) {
         this.d = gVar;
-        this.f3353a = cVar;
+        this.f2396a = cVar;
         this.c = handler;
     }
 
@@ -31,7 +31,7 @@ public class n extends com.baidu.mobads.f.a {
         SharedPreferences k2;
         try {
             synchronized (g.class) {
-                this.d.b(this.f3353a, this.c);
+                this.d.b(this.f2396a, this.c);
             }
             try {
                 return null;

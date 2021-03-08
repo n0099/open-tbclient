@@ -9,7 +9,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class GifDrawableEncoder implements ResourceEncoder<GifDrawable> {
     private static final String TAG = "GifEncoder";
 

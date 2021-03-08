@@ -1,21 +1,19 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.c;
 
-import com.bytedance.sdk.openadsdk.d.f;
-import com.bytedance.sdk.openadsdk.d.g;
+import com.bytedance.sdk.openadsdk.preload.a.f;
+import com.bytedance.sdk.openadsdk.preload.a.g;
 /* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f7474a = new b();
-
-    /* renamed from: b  reason: collision with root package name */
-    private f f7475b = c();
+    private static b f5070a = new b();
+    private f b = c();
 
     private b() {
     }
 
     public static b a() {
-        return f7474a;
+        return f5070a;
     }
 
     private static f c() {
@@ -26,6 +24,6 @@ public class b {
     }
 
     public f b() {
-        return this.f7475b;
+        return this.b;
     }
 }

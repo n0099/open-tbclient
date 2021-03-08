@@ -14,13 +14,13 @@ public interface IComOpenClient extends IInterface {
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C0247a implements IComOpenClient {
+        private static class C0253a implements IComOpenClient {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f2989a;
+            private IBinder f2181a;
 
-            C0247a(IBinder iBinder) {
-                this.f2989a = iBinder;
+            C0253a(IBinder iBinder) {
+                this.f2181a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.IComOpenClient
@@ -30,7 +30,7 @@ public interface IComOpenClient extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IComOpenClient");
                     obtain.writeString(str);
-                    this.f2989a.transact(1, obtain, obtain2, 0);
+                    this.f2181a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -53,7 +53,7 @@ public interface IComOpenClient extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f2989a.transact(2, obtain, obtain2, 0);
+                    this.f2181a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -64,7 +64,7 @@ public interface IComOpenClient extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f2989a;
+                return this.f2181a;
             }
         }
 
@@ -73,7 +73,7 @@ public interface IComOpenClient extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C0247a(iBinder) : (IComOpenClient) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C0253a(iBinder) : (IComOpenClient) queryLocalInterface;
         }
 
         @Override // android.os.Binder

@@ -11,7 +11,7 @@ public class b {
         this.goods_url = goodsWin.goods_url;
     }
 
-    public boolean cOy() {
+    public boolean cOF() {
         return this.show.intValue() == 1;
     }
 }

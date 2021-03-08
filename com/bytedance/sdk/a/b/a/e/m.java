@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface m {
-    public static final m pre = new m() { // from class: com.bytedance.sdk.a.b.a.e.m.1
+    public static final m ptj = new m() { // from class: com.bytedance.sdk.a.b.a.e.m.1
         @Override // com.bytedance.sdk.a.b.a.e.m
         public boolean r(int i, List<c> list) {
             return true;

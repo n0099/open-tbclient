@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetBgByCategory.DataReq;
 import tbclient.GetBgByCategory.GetBgByCategoryReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BackgroundGroupRequestMessage extends NetMessage {
     public BackgroundGroupRequestMessage() {
         super(1003033, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_GROUP);

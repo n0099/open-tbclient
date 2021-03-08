@@ -5,39 +5,39 @@ import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.bf;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BrowseSettingActivity extends BaseActivity {
-    private c ngr = null;
+    private c niw = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ngr = new c(this);
+        this.niw = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ngr.onChangeSkinType(i);
+        this.niw.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ngr.dGO()) {
-            this.ngr.dGS();
+        if (view == this.niw.dGW()) {
+            this.niw.dHa();
             TiebaStatic.log("c10649");
         }
-        if (view == this.ngr.dGP()) {
-            this.ngr.dGT();
+        if (view == this.niw.dGX()) {
+            this.niw.dHb();
             TiebaStatic.log("c10653");
-        } else if (view == this.ngr.dGQ()) {
-            this.ngr.dGU();
-        } else if (view == this.ngr.dGR()) {
-            this.ngr.dGV();
-        } else if (view == this.ngr.dGW()) {
-            bf.bsV().b(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
+        } else if (view == this.niw.dGY()) {
+            this.niw.dHc();
+        } else if (view == this.niw.dGZ()) {
+            this.niw.dHd();
+        } else if (view == this.niw.dHe()) {
+            bf.bsY().b(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
         }
     }
 }

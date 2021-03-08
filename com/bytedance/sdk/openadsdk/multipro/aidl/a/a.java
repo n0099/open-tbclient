@@ -14,7 +14,7 @@ public abstract class a extends IListenerManager.Stub {
     }
 
     @Override // com.bytedance.sdk.openadsdk.IListenerManager
-    public void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3) throws RemoteException {
+    public void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3, int i2, String str4) throws RemoteException {
     }
 
     @Override // com.bytedance.sdk.openadsdk.IListenerManager

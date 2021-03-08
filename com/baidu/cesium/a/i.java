@@ -1,10 +1,10 @@
 package com.baidu.cesium.a;
 
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends Exception {
         public a(String str) {
             super(str);

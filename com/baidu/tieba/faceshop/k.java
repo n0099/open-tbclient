@@ -24,12 +24,12 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class k extends ProxyAdkBaseActivity<k> implements BaseWebView.b, BaseWebView.c, BaseWebView.d {
-    private static final Pattern iUZ = Pattern.compile("[?|&]order_id=(\\w+)&+");
-    private NavigationBar iUW;
-    private String iUX;
-    private com.baidu.tbadk.core.dialog.a iUY;
+    private static final Pattern iWI = Pattern.compile("[?|&]order_id=(\\w+)&+");
+    private NavigationBar iWF;
+    private String iWG;
+    private com.baidu.tbadk.core.dialog.a iWH;
     private int mPosition;
     private String mTitle;
     private String mUrl;
@@ -58,14 +58,14 @@ public class k extends ProxyAdkBaseActivity<k> implements BaseWebView.b, BaseWeb
         setContentView(R.layout.face_buy_webview_activity);
         ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.top_view)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + com.baidu.adp.lib.util.l.getDimens(getActivity(), R.dimen.ds98);
         this.mWebView = (BaseWebView) findViewById(R.id.webview);
-        this.iUW = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.iUW.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.k.2
+        this.iWF = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.iWF.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.faceshop.k.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                k.this.cyP();
+                k.this.cyV();
             }
         });
-        this.iUW.setTitleText("");
+        this.iWF.setTitleText("");
         this.mWebView.setOnLoadUrlListener(this);
         this.mWebView.setOnPageFinishedListener(this);
         this.mWebView.setOnPageStartedListener(this);
@@ -75,16 +75,16 @@ public class k extends ProxyAdkBaseActivity<k> implements BaseWebView.b, BaseWeb
     private void initData(Bundle bundle) {
         if (bundle != null) {
             this.mUrl = bundle.getString("tag_url");
-            this.iUX = bundle.getString("tag_hook_url");
+            this.iWG = bundle.getString("tag_hook_url");
             this.mTitle = bundle.getString("tag_title");
             this.mPosition = bundle.getInt("tag_position");
         } else {
             this.mUrl = getIntent().getStringExtra("tag_url");
-            this.iUX = getIntent().getStringExtra("tag_hook_url");
+            this.iWG = getIntent().getStringExtra("tag_hook_url");
             this.mTitle = getIntent().getStringExtra("tag_title");
             this.mPosition = getIntent().getIntExtra("tag_position", -1);
         }
-        this.iUW.setTitleText(this.mTitle);
+        this.iWF.setTitleText(this.mTitle);
         this.mHandler.postDelayed(this.mRunnable, 150L);
     }
 
@@ -93,7 +93,7 @@ public class k extends ProxyAdkBaseActivity<k> implements BaseWebView.b, BaseWeb
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("tag_url", this.mUrl);
-        bundle.putString("tag_hook_url", this.iUX);
+        bundle.putString("tag_hook_url", this.iWG);
         bundle.putString("tag_title", this.mTitle);
         bundle.putInt("tag_position", this.mPosition);
     }
@@ -121,8 +121,8 @@ public class k extends ProxyAdkBaseActivity<k> implements BaseWebView.b, BaseWeb
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iUW != null) {
-            this.iUW.onChangeSkinType(getPageContext(), i);
+        if (this.iWF != null) {
+            this.iWF.onChangeSkinType(getPageContext(), i);
         }
         if (this.mWebView != null) {
             ap.setBgColor(this.mWebView, i);
@@ -132,7 +132,7 @@ public class k extends ProxyAdkBaseActivity<k> implements BaseWebView.b, BaseWeb
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            cyP();
+            cyV();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -140,7 +140,7 @@ public class k extends ProxyAdkBaseActivity<k> implements BaseWebView.b, BaseWeb
 
     public void initCookie() {
         try {
-            com.baidu.tbadk.core.a.a.bkU().zH(TbadkApplication.getCurrentBduss());
+            com.baidu.tbadk.core.a.a.bkW().zO(TbadkApplication.getCurrentBduss());
             CookieSyncManager.createInstance(getPageContext().getContext());
             CookieManager.getInstance().setAcceptCookie(true);
             CookieSyncManager.getInstance().sync();
@@ -150,39 +150,39 @@ public class k extends ProxyAdkBaseActivity<k> implements BaseWebView.b, BaseWeb
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cyP() {
-        if (this.iUY == null) {
-            this.iUY = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            this.iUY.nw(R.string.inform);
-            this.iUY.jF(false);
-            this.iUY.nx(R.string.quit_buy_confirm);
-            this.iUY.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.faceshop.k.3
+    public void cyV() {
+        if (this.iWH == null) {
+            this.iWH = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+            this.iWH.nx(R.string.inform);
+            this.iWH.jF(false);
+            this.iWH.ny(R.string.quit_buy_confirm);
+            this.iWH.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.faceshop.k.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                     k.this.closeActivity();
                 }
             });
-            this.iUY.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.faceshop.k.4
+            this.iWH.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.faceshop.k.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.iUY.b(getPageContext());
+            this.iWH.b(getPageContext());
         }
-        this.iUY.bqx();
+        this.iWH.bqz();
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         if (str != null) {
-            if (au.isEmpty(str) || au.isEmpty(this.iUX)) {
+            if (au.isEmpty(str) || au.isEmpty(this.iWG)) {
                 return false;
             }
             String lowerCase = str.toLowerCase();
-            if (lowerCase.contains(this.iUX.toLowerCase())) {
-                Matcher matcher = iUZ.matcher(str);
+            if (lowerCase.contains(this.iWG.toLowerCase())) {
+                Matcher matcher = iWI.matcher(str);
                 if (matcher.find()) {
                     try {
                         String group = matcher.group(1);

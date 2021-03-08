@@ -9,7 +9,7 @@ import android.graphics.Paint;
 import android.text.TextUtils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static Bitmap a(Bitmap bitmap, int i) {
         Matrix matrix = new Matrix();

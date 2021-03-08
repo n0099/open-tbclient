@@ -12,12 +12,12 @@ class e extends b {
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.a.a.b
     public void a() {
         for (String str : this.f) {
-            List<File> b2 = com.bytedance.sdk.openadsdk.preload.geckox.utils.d.b(new File(this.e, str));
-            if (b2 != null && b2.size() > this.d.b()) {
-                for (File file : b2.subList(0, b2.size() - this.d.b())) {
-                    boolean b3 = com.bytedance.sdk.openadsdk.preload.geckox.a.c.b(file.getAbsolutePath());
+            List<File> b = com.bytedance.sdk.openadsdk.preload.geckox.utils.d.b(new File(this.e, str));
+            if (b != null && b.size() > this.d.b()) {
+                for (File file : b.subList(0, b.size() - this.d.b())) {
+                    boolean b2 = com.bytedance.sdk.openadsdk.preload.geckox.a.c.b(file.getAbsolutePath());
                     if (this.d.c() != null) {
-                        this.d.c().a(file.getName(), b3);
+                        this.d.c().a(file.getName(), b2);
                     }
                 }
             }

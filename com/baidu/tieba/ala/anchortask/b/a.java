@@ -2,24 +2,24 @@ package com.baidu.tieba.ala.anchortask.b;
 
 import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public String gLs;
-    public String gLt;
-    public int gLw;
-    public String gLx;
-    public int gLy;
-    public int gLz;
+    public String gNb;
+    public String gNc;
+    public int gNf;
+    public String gNg;
+    public int gNh;
+    public int gNi;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gLw = 0;
-                this.gLs = jSONObject.optString("task_url");
-                this.gLt = jSONObject.optString("rule_h5");
-                this.gLx = jSONObject.optString("pre_page_url");
-                this.gLy = jSONObject.optInt("total_task_num");
-                this.gLz = jSONObject.optInt("finish_task_num");
+                this.gNf = 0;
+                this.gNb = jSONObject.optString("task_url");
+                this.gNc = jSONObject.optString("rule_h5");
+                this.gNg = jSONObject.optString("pre_page_url");
+                this.gNh = jSONObject.optInt("total_task_num");
+                this.gNi = jSONObject.optInt("finish_task_num");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -9,27 +9,27 @@ import tbclient.RecommendForumInfo;
 public class bo extends w {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public String className;
-    public int ePm;
-    private ArrayList<bn> ePn;
+    public int eQN;
+    private ArrayList<bn> eQO;
     public String title;
 
     public bo() {
-        mU(9);
-        this.ePn = new ArrayList<>();
+        mV(9);
+        this.eQO = new ArrayList<>();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return eMV;
+        return eOw;
     }
 
     @Override // com.baidu.tbadk.core.data.w, com.baidu.tbadk.core.data.a
-    public cb bln() {
+    public cb blp() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.w, com.baidu.tbadk.core.data.a
-    public av blp() {
+    public av blr() {
         return new av();
     }
 
@@ -45,12 +45,12 @@ public class bo extends w {
                     arrayList.add(bnVar);
                 }
             }
-            this.ePn.clear();
-            this.ePn.addAll(com.baidu.tbadk.core.util.y.trimToSize(arrayList, 15));
+            this.eQO.clear();
+            this.eQO.addAll(com.baidu.tbadk.core.util.y.trimToSize(arrayList, 15));
         }
     }
 
-    public ArrayList<bn> bmW() {
-        return this.ePn;
+    public ArrayList<bn> bmY() {
+        return this.eQO;
     }
 }

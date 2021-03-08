@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class DecodeHelper<Transcode> {
     private DecodeJob.DiskCacheProvider diskCacheProvider;
     private DiskCacheStrategy diskCacheStrategy;
@@ -123,7 +123,8 @@ public final class DecodeHelper<Transcode> {
         return (Class<Transcode>) this.transcodeClass;
     }
 
-    Class<?> getModelClass() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Class<?> getModelClass() {
         return this.model.getClass();
     }
 

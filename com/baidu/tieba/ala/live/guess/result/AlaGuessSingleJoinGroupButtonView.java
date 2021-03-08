@@ -12,14 +12,14 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.ViewHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGuessSingleJoinGroupButtonView extends FrameLayout {
-    private Button hhw;
-    private a hhx;
+    private Button hjg;
+    private a hjh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void abu();
+        void abx();
     }
 
     public AlaGuessSingleJoinGroupButtonView(Context context) {
@@ -39,15 +39,15 @@ public class AlaGuessSingleJoinGroupButtonView extends FrameLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.ala_guess_single_bottom_join_group_view, this);
-        this.hhw = (Button) findViewById(a.f.btn_guess_single_join_groups);
+        this.hjg = (Button) findViewById(a.f.btn_guess_single_join_groups);
     }
 
     public void setData(final boolean z, final String str) {
-        this.hhw.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.guess.result.AlaGuessSingleJoinGroupButtonView.1
+        this.hjg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.guess.result.AlaGuessSingleJoinGroupButtonView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (AlaGuessSingleJoinGroupButtonView.this.hhx != null) {
-                    AlaGuessSingleJoinGroupButtonView.this.hhx.abu();
+                if (AlaGuessSingleJoinGroupButtonView.this.hjh != null) {
+                    AlaGuessSingleJoinGroupButtonView.this.hjh.abx();
                 }
                 AlaGuessSingleJoinGroupButtonView.this.t(z, str);
             }
@@ -67,6 +67,6 @@ public class AlaGuessSingleJoinGroupButtonView extends FrameLayout {
     }
 
     public void setOnClickJoinButtonListener(a aVar) {
-        this.hhx = aVar;
+        this.hjh = aVar;
     }
 }

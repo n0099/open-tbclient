@@ -16,20 +16,18 @@ public final class j implements h {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f10091a = b();
-
-        /* renamed from: b  reason: collision with root package name */
-        private static final Map<String, List<i>> f10092b;
+        private static final String f6678a = b();
+        private static final Map<String, List<i>> b;
         private boolean c = true;
-        private Map<String, List<i>> d = f10092b;
+        private Map<String, List<i>> d = b;
         private boolean e = true;
 
         static {
             HashMap hashMap = new HashMap(2);
-            if (!TextUtils.isEmpty(f10091a)) {
-                hashMap.put("User-Agent", Collections.singletonList(new b(f10091a)));
+            if (!TextUtils.isEmpty(f6678a)) {
+                hashMap.put("User-Agent", Collections.singletonList(new b(f6678a)));
             }
-            f10092b = Collections.unmodifiableMap(hashMap);
+            b = Collections.unmodifiableMap(hashMap);
         }
 
         @VisibleForTesting
@@ -62,30 +60,30 @@ public final class j implements h {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f10093a;
+        private final String f6679a;
 
         b(@NonNull String str) {
-            this.f10093a = str;
+            this.f6679a = str;
         }
 
         @Override // com.kwad.sdk.glide.load.b.i
         public String a() {
-            return this.f10093a;
+            return this.f6679a;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
-                return this.f10093a.equals(((b) obj).f10093a);
+                return this.f6679a.equals(((b) obj).f6679a);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f10093a.hashCode();
+            return this.f6679a.hashCode();
         }
 
         public String toString() {
-            return "StringHeaderFactory{value='" + this.f10093a + "'}";
+            return "StringHeaderFactory{value='" + this.f6679a + "'}";
         }
     }
 

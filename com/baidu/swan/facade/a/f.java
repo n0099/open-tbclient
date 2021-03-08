@@ -1,15 +1,15 @@
 package com.baidu.swan.facade.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f {
-    private static volatile e dVB;
+    private static volatile e dXc;
 
-    public static synchronized e aQm() {
+    public static synchronized e aQp() {
         e eVar;
         synchronized (f.class) {
-            if (dVB == null) {
-                dVB = new e();
+            if (dXc == null) {
+                dXc = new e();
             }
-            eVar = dVB;
+            eVar = dXc;
         }
         return eVar;
     }

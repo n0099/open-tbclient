@@ -6,18 +6,18 @@ import io.reactivex.internal.operators.flowable.FlowableRepeatWhen;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.processors.UnicastProcessor;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableRetryWhen<T> extends a<T, T> {
-    final h<? super g<Throwable>, ? extends org.a.b<?>> qpd;
+    final h<? super g<Throwable>, ? extends org.a.b<?>> qpF;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> eKQ = UnicastProcessor.Sr(8).eKQ();
+        io.reactivex.processors.a<T> eKy = UnicastProcessor.Sq(8).eKy();
         try {
-            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.m(this.qpd.apply(eKQ), "handler returned a null Publisher");
-            FlowableRepeatWhen.WhenReceiver whenReceiver = new FlowableRepeatWhen.WhenReceiver(this.qow);
-            RetryWhenSubscriber retryWhenSubscriber = new RetryWhenSubscriber(bVar, eKQ, whenReceiver);
+            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.n(this.qpF.apply(eKy), "handler returned a null Publisher");
+            FlowableRepeatWhen.WhenReceiver whenReceiver = new FlowableRepeatWhen.WhenReceiver(this.qoY);
+            RetryWhenSubscriber retryWhenSubscriber = new RetryWhenSubscriber(bVar, eKy, whenReceiver);
             whenReceiver.subscriber = retryWhenSubscriber;
             cVar.onSubscribe(retryWhenSubscriber);
             bVar2.subscribe(whenReceiver);
@@ -28,7 +28,7 @@ public final class FlowableRetryWhen<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class RetryWhenSubscriber<T> extends FlowableRepeatWhen.WhenSourceSubscriber<T, Throwable> {
         private static final long serialVersionUID = -2680129890138081029L;
 

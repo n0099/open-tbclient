@@ -2,14 +2,14 @@ package com.baidu.live.im.message;
 
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.util.TbEnum;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends HttpMessage {
     private String appId;
     private com.baidu.live.im.data.d barrageCardInfo;
     private String barrageId;
     private int barrageType;
-    private int bpB;
-    private boolean bpC;
+    private int brb;
+    private boolean brc;
     private String content;
     private String customRoomId;
     private int groupId;
@@ -26,7 +26,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.bpC = false;
+        this.brc = false;
         this.isOut = false;
         this.isQuickBarrage = false;
         this.text = "";
@@ -45,7 +45,7 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short Ln() {
+    public short Lq() {
         return this.msgType;
     }
 
@@ -57,7 +57,7 @@ public class a extends HttpMessage {
         this.roomId = str;
     }
 
-    public String Lo() {
+    public String Lr() {
         return this.otherParams;
     }
 
@@ -65,7 +65,7 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long Lp() {
+    public long Ls() {
         return this.price;
     }
 
@@ -73,23 +73,23 @@ public class a extends HttpMessage {
         this.price = j;
     }
 
-    public int Ld() {
+    public int Lg() {
         return this.barrageType;
     }
 
-    public void dC(int i) {
+    public void dD(int i) {
         this.barrageType = i;
     }
 
-    public String Le() {
+    public String Lh() {
         return this.barrageId;
     }
 
-    public void hh(String str) {
+    public void hn(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.d Lf() {
+    public com.baidu.live.im.data.d Li() {
         return this.barrageCardInfo;
     }
 
@@ -97,7 +97,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = dVar;
     }
 
-    public String[] Lg() {
+    public String[] Lj() {
         return this.imEffect;
     }
 
@@ -106,18 +106,18 @@ public class a extends HttpMessage {
     }
 
     public void cq(boolean z) {
-        this.bpC = z;
+        this.brc = z;
     }
 
-    public boolean Lq() {
-        return this.bpC;
+    public boolean Lt() {
+        return this.brc;
     }
 
     public void cr(boolean z) {
         this.isOut = z;
     }
 
-    public boolean Lr() {
+    public boolean Lu() {
         return this.isUseCard;
     }
 
@@ -125,7 +125,7 @@ public class a extends HttpMessage {
         this.isUseCard = z;
     }
 
-    public boolean Ls() {
+    public boolean Lv() {
         return this.isOut;
     }
 
@@ -133,7 +133,7 @@ public class a extends HttpMessage {
         this.isQuickBarrage = z;
     }
 
-    public boolean Lt() {
+    public boolean Lw() {
         return this.isQuickBarrage;
     }
 
@@ -145,12 +145,12 @@ public class a extends HttpMessage {
         return this.text;
     }
 
-    public void dD(int i) {
-        this.bpB = i;
+    public void dE(int i) {
+        this.brb = i;
     }
 
-    public boolean Lu() {
-        return this.bpB == 1;
+    public boolean Lx() {
+        return this.brb == 1;
     }
 
     public String getCustomRoomId() {

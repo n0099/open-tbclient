@@ -7,9 +7,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.TouchHandleFrameLayout;
 /* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private TouchHandleFrameLayout f8396b;
+    private TouchHandleFrameLayout b;
     private GestureDetector.OnGestureListener c;
     private AdTemplate d;
     private int e;
@@ -18,9 +16,9 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8396b = (TouchHandleFrameLayout) l();
-        this.e = this.f8395a.i;
-        this.d = this.f8395a.j;
+        this.b = (TouchHandleFrameLayout) l();
+        this.e = this.f5594a.i;
+        this.d = this.f5594a.j;
         this.c = new GestureDetector.OnGestureListener() { // from class: com.kwad.sdk.contentalliance.detail.b.a.a.1
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
@@ -51,13 +49,13 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
                 return false;
             }
         };
-        this.f8396b.setOnGestureListener(this.c);
+        this.b.setOnGestureListener(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8396b.setOnGestureListener(null);
+        this.b.setOnGestureListener(null);
     }
 }

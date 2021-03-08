@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.util;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
@@ -533,7 +534,7 @@ public class TypeUtils {
             if ("false".equalsIgnoreCase(str) || "0".equals(str)) {
                 return Boolean.FALSE;
             }
-            if ("Y".equalsIgnoreCase(str) || "T".equals(str)) {
+            if ("Y".equalsIgnoreCase(str) || ExifInterface.GPS_DIRECTION_TRUE.equals(str)) {
                 return Boolean.TRUE;
             }
             if ("F".equalsIgnoreCase(str) || "N".equals(str)) {
@@ -1890,7 +1891,7 @@ public class TypeUtils {
                     } else if (cls == Byte.TYPE) {
                         genericArrayType = Class.forName(str + "B");
                     } else if (cls == Short.TYPE) {
-                        genericArrayType = Class.forName(str + "S");
+                        genericArrayType = Class.forName(str + ExifInterface.LATITUDE_SOUTH);
                     } else if (cls == Integer.TYPE) {
                         genericArrayType = Class.forName(str + "I");
                     } else if (cls == Long.TYPE) {

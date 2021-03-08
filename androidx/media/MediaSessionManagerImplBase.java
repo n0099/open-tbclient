@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.core.util.ObjectsCompat;
 import androidx.media.MediaSessionManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSessionManagerImpl {
     private static final boolean DEBUG = MediaSessionManager.DEBUG;
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
@@ -71,7 +71,7 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
         return false;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes14.dex */
     static class RemoteUserInfoImplBase implements MediaSessionManager.RemoteUserInfoImpl {
         private String mPackageName;
         private int mPid;

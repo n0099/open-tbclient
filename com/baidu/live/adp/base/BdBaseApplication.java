@@ -6,7 +6,7 @@ import android.content.ContextWrapper;
 import android.content.res.Resources;
 import com.baidu.live.adp.lib.util.BdBitmapHelper;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdBaseApplication extends ContextWrapper {
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
     private static BdBaseApplication sApp = null;

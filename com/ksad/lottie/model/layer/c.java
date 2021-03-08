@@ -27,7 +27,7 @@ public class c extends a {
 
     @Nullable
     private Bitmap e() {
-        return this.f8096b.b(this.c.g());
+        return this.b.b(this.c.g());
     }
 
     @Override // com.ksad.lottie.model.layer.a, com.ksad.lottie.a.a.d
@@ -36,7 +36,7 @@ public class c extends a {
         Bitmap e = e();
         if (e != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, e.getWidth()), Math.min(rectF.bottom, e.getHeight()));
-            this.f8095a.mapRect(rectF);
+            this.f5400a.mapRect(rectF);
         }
     }
 

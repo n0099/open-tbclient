@@ -17,37 +17,37 @@ import java.util.NoSuchElementException;
 /* loaded from: classes6.dex */
 public final class f {
     private int f;
-    private final com.bytedance.sdk.a.b.a ppg;
-    private final d pph;
-    private final h ppj;
-    private final t ppk;
+    private final com.bytedance.sdk.a.b.a prn;
+    private final d pro;
+    private final h prp;
+    private final t prq;
     private List<Proxy> e = Collections.emptyList();
     private List<InetSocketAddress> g = Collections.emptyList();
     private final List<com.bytedance.sdk.a.b.d> h = new ArrayList();
 
     public f(com.bytedance.sdk.a.b.a aVar, d dVar, h hVar, t tVar) {
-        this.ppg = aVar;
-        this.pph = dVar;
-        this.ppj = hVar;
-        this.ppk = tVar;
-        a(aVar.eoR(), aVar.eoW());
+        this.prn = aVar;
+        this.pro = dVar;
+        this.prp = hVar;
+        this.prq = tVar;
+        a(aVar.eoY(), aVar.epd());
     }
 
     public boolean a() {
         return c() || !this.h.isEmpty();
     }
 
-    public a eph() throws IOException {
+    public a epo() throws IOException {
         if (!a()) {
             throw new NoSuchElementException();
         }
         ArrayList arrayList = new ArrayList();
         while (c()) {
-            Proxy epi = epi();
+            Proxy epp = epp();
             int size = this.g.size();
             for (int i = 0; i < size; i++) {
-                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.ppg, epi, this.g.get(i));
-                if (this.pph.c(dVar)) {
+                com.bytedance.sdk.a.b.d dVar = new com.bytedance.sdk.a.b.d(this.prn, epp, this.g.get(i));
+                if (this.pro.c(dVar)) {
                     this.h.add(dVar);
                 } else {
                     arrayList.add(dVar);
@@ -65,24 +65,24 @@ public final class f {
     }
 
     public void a(com.bytedance.sdk.a.b.d dVar, IOException iOException) {
-        if (dVar.epU().type() != Proxy.Type.DIRECT && this.ppg.eoV() != null) {
-            this.ppg.eoV().connectFailed(this.ppg.eoR().eqe(), dVar.epU().address(), iOException);
+        if (dVar.eqb().type() != Proxy.Type.DIRECT && this.prn.epc() != null) {
+            this.prn.epc().connectFailed(this.prn.eoY().eql(), dVar.eqb().address(), iOException);
         }
-        this.pph.a(dVar);
+        this.pro.a(dVar);
     }
 
     private void a(s sVar, Proxy proxy) {
-        List<Proxy> P;
+        List<Proxy> O;
         if (proxy != null) {
             this.e = Collections.singletonList(proxy);
         } else {
-            List<Proxy> select = this.ppg.eoV().select(sVar.eqe());
+            List<Proxy> select = this.prn.epc().select(sVar.eql());
             if (select != null && !select.isEmpty()) {
-                P = com.bytedance.sdk.a.b.a.c.a(select);
+                O = com.bytedance.sdk.a.b.a.c.a(select);
             } else {
-                P = com.bytedance.sdk.a.b.a.c.P(Proxy.NO_PROXY);
+                O = com.bytedance.sdk.a.b.a.c.O(Proxy.NO_PROXY);
             }
-            this.e = P;
+            this.e = O;
         }
         this.f = 0;
     }
@@ -91,9 +91,9 @@ public final class f {
         return this.f < this.e.size();
     }
 
-    private Proxy epi() throws IOException {
+    private Proxy epp() throws IOException {
         if (!c()) {
-            throw new SocketException("No route to " + this.ppg.eoR().f() + "; exhausted proxy configurations: " + this.e);
+            throw new SocketException("No route to " + this.prn.eoY().f() + "; exhausted proxy configurations: " + this.e);
         }
         List<Proxy> list = this.e;
         int i = this.f;
@@ -108,8 +108,8 @@ public final class f {
         int g;
         this.g = new ArrayList();
         if (proxy.type() == Proxy.Type.DIRECT || proxy.type() == Proxy.Type.SOCKS) {
-            f = this.ppg.eoR().f();
-            g = this.ppg.eoR().g();
+            f = this.prn.eoY().f();
+            g = this.prn.eoY().g();
         } else {
             SocketAddress address = proxy.address();
             if (!(address instanceof InetSocketAddress)) {
@@ -126,12 +126,12 @@ public final class f {
             this.g.add(InetSocketAddress.createUnresolved(f, g));
             return;
         }
-        this.ppk.a(this.ppj, f);
-        List<InetAddress> a2 = this.ppg.eoS().a(f);
+        this.prq.a(this.prp, f);
+        List<InetAddress> a2 = this.prn.eoZ().a(f);
         if (a2.isEmpty()) {
-            throw new UnknownHostException(this.ppg.eoS() + " returned no addresses for " + f);
+            throw new UnknownHostException(this.prn.eoZ() + " returned no addresses for " + f);
         }
-        this.ppk.a(this.ppj, f, a2);
+        this.prq.a(this.prp, f, a2);
         int size = a2.size();
         for (int i = 0; i < size; i++) {
             this.g.add(new InetSocketAddress(a2.get(i), g));
@@ -147,31 +147,29 @@ public final class f {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final List<com.bytedance.sdk.a.b.d> f5869a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private int f5870b = 0;
+        private final List<com.bytedance.sdk.a.b.d> f3954a;
+        private int b = 0;
 
         a(List<com.bytedance.sdk.a.b.d> list) {
-            this.f5869a = list;
+            this.f3954a = list;
         }
 
         public boolean a() {
-            return this.f5870b < this.f5869a.size();
+            return this.b < this.f3954a.size();
         }
 
-        public com.bytedance.sdk.a.b.d epj() {
+        public com.bytedance.sdk.a.b.d epq() {
             if (!a()) {
                 throw new NoSuchElementException();
             }
-            List<com.bytedance.sdk.a.b.d> list = this.f5869a;
-            int i = this.f5870b;
-            this.f5870b = i + 1;
+            List<com.bytedance.sdk.a.b.d> list = this.f3954a;
+            int i = this.b;
+            this.b = i + 1;
             return list.get(i);
         }
 
         public List<com.bytedance.sdk.a.b.d> c() {
-            return new ArrayList(this.f5869a);
+            return new ArrayList(this.f3954a);
         }
     }
 }

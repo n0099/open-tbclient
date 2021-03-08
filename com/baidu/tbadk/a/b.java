@@ -11,42 +11,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b eGf;
+    private static b eHG;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> biH = biH();
+        HashMap<String, a> biJ = biJ();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(biH);
+        this.mSwitchs.putAll(biJ);
     }
 
-    public static b biF() {
-        if (eGf == null) {
+    public static b biH() {
+        if (eHG == null) {
             synchronized (b.class) {
-                if (eGf == null) {
-                    eGf = new b();
+                if (eHG == null) {
+                    eHG = new b();
                 }
             }
         }
-        return eGf;
+        return eHG;
     }
 
-    private static String biG() {
+    private static String biI() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(biG(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(biI(), 0);
     }
 
-    public synchronized a zo(String str) {
+    public synchronized a zv(String str) {
         return this.mSwitchs.get(str);
     }
 
     private String dA(String str, String str2) {
-        a zo = zo(str);
-        if (zo != null && !TextUtils.isEmpty(zo.eGd)) {
-            return zo.eGd;
+        a zv = zv(str);
+        if (zv != null && !TextUtils.isEmpty(zv.eHE)) {
+            return zv.eHE;
         }
         return str2;
     }
@@ -87,13 +87,13 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            com.baidu.tbadk.core.sharedPref.b.brQ().putInt("perf_start_open", zp("performance_start_small_flow") ? 1 : 0);
+            com.baidu.tbadk.core.sharedPref.b.brR().putInt("perf_start_open", zw("performance_start_small_flow") ? 1 : 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private HashMap<String, a> biH() {
+    private HashMap<String, a> biJ() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -110,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean zp(String str) {
-        return "a".equalsIgnoreCase(biF().dA(str, ""));
+    public static boolean zw(String str) {
+        return "a".equalsIgnoreCase(biH().dA(str, ""));
     }
 }

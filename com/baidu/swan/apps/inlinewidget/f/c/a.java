@@ -4,23 +4,19 @@ import android.content.Context;
 import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.inlinewidget.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a extends d {
 
     /* renamed from: com.baidu.swan.apps.inlinewidget.f.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0429a {
-        void awt();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0435a {
+        void aww();
 
-        void gy(String str);
-
-        void hH(int i);
+        void gE(String str);
 
         void hI(int i);
 
-        void ol(String str);
-
-        void om(String str);
+        void hJ(int i);
 
         void onEnded();
 
@@ -28,22 +24,26 @@ public interface a extends d {
 
         void onPrepared();
 
-        void oo(@NonNull String str);
+        void ot(String str);
+
+        void ou(String str);
+
+        void ov(@NonNull String str);
     }
 
-    void a(@NonNull InterfaceC0429a interfaceC0429a);
+    void a(@NonNull InterfaceC0435a interfaceC0435a);
 
-    String awC();
+    String awF();
 
-    void awD();
+    void awG();
 
-    void awE();
+    void awH();
 
-    InterfaceC0429a awF();
+    InterfaceC0435a awI();
 
-    boolean awG();
+    boolean awJ();
 
-    int awH();
+    int awK();
 
     boolean e(String str, String str2, String str3, boolean z);
 
@@ -59,15 +59,15 @@ public interface a extends d {
 
     int getVideoWidth();
 
-    void hJ(int i);
-
     void hK(int i);
+
+    void hL(int i);
 
     boolean isPlaying();
 
     void o(int i, int i2, int i3, int i4);
 
-    void ot(String str);
+    void oA(String str);
 
     void pause();
 

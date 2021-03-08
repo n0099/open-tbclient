@@ -1,154 +1,62 @@
 package com.win.opensdk;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Build;
+import android.os.Looper;
+import android.os.Process;
 import android.text.TextUtils;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.zip.GZIPInputStream;
-import javax.net.ssl.HttpsURLConnection;
-import org.apache.http.HttpHost;
-/* loaded from: classes3.dex */
-public class s {
-    private static final String java = s.class.getSimpleName();
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+/* loaded from: classes14.dex */
+public class s implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13758a;
+    public final /* synthetic */ Context f8172a;
 
-    /* renamed from: case  reason: not valid java name */
-    private int f68case;
-
-    /* renamed from: case  reason: not valid java name and collision with other field name */
-    private String f69case;
-
-    /* renamed from: java  reason: collision with other field name */
-    private int f70java;
-    private long qjJ;
-    private boolean qjQ;
-    private boolean qjq;
-    private URL qkc;
-    public byte[] qkd;
-    private Map<String, List<String>> qke;
-    private Map<String, List<String>> qkf;
-
-    public s(String str, String str2, Map<String, List<String>> map) {
-        this(str, str2, map, (byte) 0);
+    public s(u uVar, Context context) {
+        this.f8172a = context;
     }
 
-    private s(String str, String str2, Map<String, List<String>> map, byte b2) {
-        this.f69case = "GET";
-        this.f70java = -1;
-        this.qjJ = -1L;
-        this.qjq = false;
-        this.qjQ = true;
-        this.qkc = new URL(str);
-        this.f69case = str2;
-        this.qke = map;
-        this.f68case = 20000;
-        this.f13758a = 20000;
-    }
-
-    public final t eJb() {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        e(byteArrayOutputStream);
-        return new t(this.f70java, byteArrayOutputStream.toByteArray(), this.qkf);
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v45, types: [java.net.HttpURLConnection] */
-    private void e(OutputStream outputStream) {
-        HttpsURLConnection httpsURLConnection;
-        InputStream errorStream;
-        PrintWriter printWriter;
-        String url = this.qkc.toString();
-        if (!TextUtils.isEmpty(url) ? url.startsWith(HttpHost.DEFAULT_SCHEME_NAME) : false) {
-            httpsURLConnection = (HttpURLConnection) this.qkc.openConnection();
-        } else {
-            httpsURLConnection = (HttpsURLConnection) this.qkc.openConnection();
-        }
-        httpsURLConnection.setRequestMethod(this.f69case);
-        httpsURLConnection.setInstanceFollowRedirects(this.qjQ);
-        httpsURLConnection.setReadTimeout(this.f13758a);
-        httpsURLConnection.setConnectTimeout(this.f68case);
-        httpsURLConnection.setDoInput(true);
-        Map<String, List<String>> map = this.qke;
-        if (map != null && map.size() > 0) {
-            for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-                String key = entry.getKey();
-                for (String str : entry.getValue()) {
-                    new StringBuilder("header:").append(key).append("=").append(str);
-                    httpsURLConnection.setRequestProperty(key, str);
-                }
-            }
-        }
-        if (this.f69case.equals("POST")) {
-            httpsURLConnection.setDoInput(true);
-            httpsURLConnection.setDoOutput(true);
-            try {
-                OutputStream outputStream2 = httpsURLConnection.getOutputStream();
-                byte[] bArr = this.qkd;
-                if (bArr == null) {
-                    printWriter = new PrintWriter((Writer) new OutputStreamWriter(outputStream2, "UTF-8"), true);
-                    try {
-                        printWriter.print(this.qkc != null ? this.qkc.getQuery() : null);
-                        printWriter.flush();
-                    } catch (Throwable th) {
-                        th = th;
-                        if (printWriter != null) {
-                            printWriter.close();
-                        }
-                        throw th;
-                    }
-                } else {
-                    outputStream2.write(bArr);
-                    outputStream2.flush();
-                    printWriter = null;
-                }
-                if (printWriter != null) {
-                    printWriter.close();
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                printWriter = null;
-            }
-        }
-        this.f70java = httpsURLConnection.getResponseCode();
-        this.qjJ = httpsURLConnection.getContentLength();
-        if (httpsURLConnection.getHeaderFields() != null) {
-            this.qkf = httpsURLConnection.getHeaderFields();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        String userAgentString;
+        Context context = this.f8172a;
         try {
-            String contentEncoding = httpsURLConnection.getContentEncoding();
-            if (contentEncoding != null && contentEncoding.contains("gzip")) {
-                errorStream = new GZIPInputStream(httpsURLConnection.getInputStream());
+            if (Build.VERSION.SDK_INT >= 28) {
+                try {
+                    Process.myPid();
+                    if (context != null) {
+                        try {
+                            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
+                                if (runningAppProcessInfo.pid == Process.myPid()) {
+                                    str = runningAppProcessInfo.processName;
+                                    break;
+                                }
+                            }
+                        } catch (Exception e) {
+                        }
+                    }
+                    str = null;
+                    if (!TextUtils.equals(context.getPackageName(), str)) {
+                        WebView.setDataDirectorySuffix(str);
+                    }
+                } catch (Exception e2) {
+                }
+            }
+            cb.f8139a = System.getProperty("http.agent");
+            if (Build.VERSION.SDK_INT >= 17) {
+                userAgentString = WebSettings.getDefaultUserAgent(context);
+            } else if (Looper.myLooper() != Looper.getMainLooper()) {
+                bv.f8133a.post(new by(context));
+                return;
             } else {
-                errorStream = httpsURLConnection.getInputStream();
+                userAgentString = new WebView(context).getSettings().getUserAgentString();
             }
-        } catch (IOException e) {
-            errorStream = httpsURLConnection.getErrorStream();
-            if (errorStream == null) {
-                throw new RuntimeException("InputStream is error: " + e.getMessage());
-            }
+            cb.f8139a = userAgentString;
+        } catch (Exception e3) {
         }
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
-        byte[] bArr2 = new byte[4096];
-        int i = 0;
-        while (!this.qjq && i != -1) {
-            i = bufferedInputStream.read(bArr2);
-            if (i > 0) {
-                outputStream.write(bArr2, 0, i);
-            }
-        }
-        httpsURLConnection.disconnect();
-        outputStream.flush();
-        errorStream.close();
     }
 }

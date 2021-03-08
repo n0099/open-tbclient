@@ -28,50 +28,50 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout;
 /* loaded from: classes2.dex */
 public class b {
-    private View jZK;
-    private LinearLayout jZL;
-    private FrameLayout jZM;
-    private FrameLayout jZN;
-    private TBSpecificationBtn jZO;
-    private TBSpecificationBtn jZP;
-    private com.baidu.tbadk.core.view.commonBtn.c jZQ;
-    private com.baidu.tbadk.core.view.commonBtn.c jZR;
-    private PopupWindow jZT;
+    private View kbM;
+    private LinearLayout kbN;
+    private FrameLayout kbO;
+    private FrameLayout kbP;
+    private TBSpecificationBtn kbQ;
+    private TBSpecificationBtn kbR;
+    private com.baidu.tbadk.core.view.commonBtn.c kbS;
+    private com.baidu.tbadk.core.view.commonBtn.c kbT;
+    private PopupWindow kbV;
     private Context mContext;
     private LinearLayout mRootView;
     private View rootView;
-    private boolean jZS = true;
-    private float jZU = 1.0f;
-    public View.OnClickListener jZV = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.1
+    private boolean kbU = true;
+    private float kbW = 1.0f;
+    public View.OnClickListener kbX = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.UX();
+            b.this.Va();
         }
     };
-    public View.OnClickListener jZW = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.3
+    public View.OnClickListener kbY = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.UX();
-            if (!b.this.jZS) {
+            b.this.Va();
+            if (!b.this.kbU) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921502, 0));
-                b.this.jZS = true;
-                b.this.cOM();
+                b.this.kbU = true;
+                b.this.cOT();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
-            b.this.Bu(1);
+            b.this.Bx(1);
         }
     };
-    public View.OnClickListener jZX = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.4
+    public View.OnClickListener kbZ = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.UX();
-            if (b.this.jZS) {
+            b.this.Va();
+            if (b.this.kbU) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921502, 1));
-                b.this.jZS = false;
-                b.this.cOM();
+                b.this.kbU = false;
+                b.this.cOT();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
-            b.this.Bu(2);
+            b.this.Bx(2);
         }
     };
 
@@ -83,25 +83,25 @@ public class b {
     private void init() {
         this.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.home_page_concern_dialog_thread, (ViewGroup) null);
         this.mRootView = (LinearLayout) this.rootView.findViewById(R.id.root_main);
-        this.jZM = (FrameLayout) this.rootView.findViewById(R.id.type_container);
-        this.jZL = (LinearLayout) this.rootView.findViewById(R.id.ll_btn);
-        this.jZK = this.rootView.findViewById(R.id.mask_view);
-        this.jZN = (FrameLayout) this.rootView.findViewById(R.id.bottom_background_view);
-        this.jZO = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_all_concern);
-        this.jZP = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_person_concern);
-        this.jZO.setTextSize(R.dimen.tbds34);
-        this.jZO.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
-        this.jZP.setTextSize(R.dimen.tbds34);
-        this.jZP.setText(TbadkCoreApplication.getInst().getString(R.string.attention_person));
-        this.jZP.setOnClickListener(this.jZX);
-        this.jZO.setOnClickListener(this.jZW);
-        this.jZM.setOnClickListener(this.jZV);
-        this.jZQ = new com.baidu.tbadk.core.view.commonBtn.c();
-        this.jZQ.pR(R.color.CAM_X0304);
-        this.jZR = new com.baidu.tbadk.core.view.commonBtn.c();
-        this.jZR.pT(R.color.CAM_X0108);
-        this.jZS = com.baidu.tbadk.core.sharedPref.b.brQ().getInt("key_home_concern_all_status", 0) != 1;
-        cOM();
+        this.kbO = (FrameLayout) this.rootView.findViewById(R.id.type_container);
+        this.kbN = (LinearLayout) this.rootView.findViewById(R.id.ll_btn);
+        this.kbM = this.rootView.findViewById(R.id.mask_view);
+        this.kbP = (FrameLayout) this.rootView.findViewById(R.id.bottom_background_view);
+        this.kbQ = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_all_concern);
+        this.kbR = (TBSpecificationBtn) this.rootView.findViewById(R.id.btn_person_concern);
+        this.kbQ.setTextSize(R.dimen.tbds34);
+        this.kbQ.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
+        this.kbR.setTextSize(R.dimen.tbds34);
+        this.kbR.setText(TbadkCoreApplication.getInst().getString(R.string.attention_person));
+        this.kbR.setOnClickListener(this.kbZ);
+        this.kbQ.setOnClickListener(this.kbY);
+        this.kbO.setOnClickListener(this.kbX);
+        this.kbS = new com.baidu.tbadk.core.view.commonBtn.c();
+        this.kbS.pS(R.color.CAM_X0304);
+        this.kbT = new com.baidu.tbadk.core.view.commonBtn.c();
+        this.kbT.pU(R.color.CAM_X0108);
+        this.kbU = com.baidu.tbadk.core.sharedPref.b.brR().getInt("key_home_concern_all_status", 0) != 1;
+        cOT();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -111,29 +111,29 @@ public class b {
 
     private void b(StickyAppBarLayout stickyAppBarLayout) {
         int i;
-        if (this.jZT == null) {
-            this.jZT = new PopupWindow(this.rootView, -1, -1, true);
-            this.jZT.setContentView(this.rootView);
-            this.jZT.setOutsideTouchable(true);
-            this.jZT.setBackgroundDrawable(new ColorDrawable(0));
-            this.jZT.setFocusable(true);
-            this.jZT.setTouchInterceptor(new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.b.5
+        if (this.kbV == null) {
+            this.kbV = new PopupWindow(this.rootView, -1, -1, true);
+            this.kbV.setContentView(this.rootView);
+            this.kbV.setOutsideTouchable(true);
+            this.kbV.setBackgroundDrawable(new ColorDrawable(0));
+            this.kbV.setFocusable(true);
+            this.kbV.setTouchInterceptor(new View.OnTouchListener() { // from class: com.baidu.tieba.homepage.concern.b.5
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if (motionEvent != null && motionEvent.getAction() == 0) {
-                        b.this.UX();
+                        b.this.Va();
                         return false;
                     }
                     return false;
                 }
             });
-            this.jZT.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.homepage.concern.b.6
+            this.kbV.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.homepage.concern.b.6
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921501, 0));
                 }
             });
-            this.jZT.setAnimationStyle(0);
+            this.kbV.setAnimationStyle(0);
         }
         int[] iArr = new int[2];
         stickyAppBarLayout.getLocationInWindow(iArr);
@@ -147,25 +147,25 @@ public class b {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.UX();
+                b.this.Va();
             }
         });
-        this.jZL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.8
+        this.kbN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.b.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jZM.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kbO.getLayoutParams();
         if (!"Meizu".equalsIgnoreCase(Build.BRAND) || Build.VERSION.SDK_INT > 24) {
             layoutParams.topMargin = i;
         }
-        this.jZM.setLayoutParams(layoutParams);
-        if (g.showPopupWindowAtLocation(this.jZT, stickyAppBarLayout, 0, dimensionPixelOffset, i)) {
-            aCu();
+        this.kbO.setLayoutParams(layoutParams);
+        if (g.showPopupWindowAtLocation(this.kbV, stickyAppBarLayout, 0, dimensionPixelOffset, i)) {
+            aCx();
         }
     }
 
-    private void aCu() {
+    private void aCx() {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.setDuration(200L);
         ofFloat.setInterpolator(new DecelerateInterpolator());
@@ -173,18 +173,18 @@ public class b {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                b.this.jZN.setAlpha(floatValue);
-                if (b.this.jZN.getMeasuredHeight() > 0) {
-                    b.this.jZN.setTranslationY(b.this.jZN.getMeasuredHeight() * (floatValue - 1.0f));
+                b.this.kbP.setAlpha(floatValue);
+                if (b.this.kbP.getMeasuredHeight() > 0) {
+                    b.this.kbP.setTranslationY(b.this.kbP.getMeasuredHeight() * (floatValue - 1.0f));
                 }
-                b.this.jZK.setAlpha(floatValue);
+                b.this.kbM.setAlpha(floatValue);
             }
         });
         ofFloat.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void UX() {
+    public void Va() {
         if (!l.isFastDoubleClick()) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
             ofFloat.setDuration(200L);
@@ -193,11 +193,11 @@ public class b {
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                    b.this.jZN.setAlpha(floatValue);
-                    if (b.this.jZN.getMeasuredHeight() > 0) {
-                        b.this.jZN.setTranslationY(b.this.jZN.getMeasuredHeight() * (floatValue - 1.0f));
+                    b.this.kbP.setAlpha(floatValue);
+                    if (b.this.kbP.getMeasuredHeight() > 0) {
+                        b.this.kbP.setTranslationY(b.this.kbP.getMeasuredHeight() * (floatValue - 1.0f));
                     }
-                    b.this.jZK.setAlpha(floatValue);
+                    b.this.kbM.setAlpha(floatValue);
                 }
             });
             ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.homepage.concern.b.2
@@ -208,15 +208,15 @@ public class b {
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (b.this.jZT != null && b.this.jZT.isShowing()) {
-                        b.this.jZT.dismiss();
+                    if (b.this.kbV != null && b.this.kbV.isShowing()) {
+                        b.this.kbV.dismiss();
                     }
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    if (b.this.jZT != null && b.this.jZT.isShowing()) {
-                        b.this.jZT.dismiss();
+                    if (b.this.kbV != null && b.this.kbV.isShowing()) {
+                        b.this.kbV.dismiss();
                     }
                 }
 
@@ -229,36 +229,36 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cOM() {
-        if (this.jZO != null && this.jZP != null) {
-            if (this.jZS) {
-                this.jZO.setConfig(this.jZQ);
-                this.jZP.setConfig(this.jZR);
+    public void cOT() {
+        if (this.kbQ != null && this.kbR != null) {
+            if (this.kbU) {
+                this.kbQ.setConfig(this.kbS);
+                this.kbR.setConfig(this.kbT);
                 return;
             }
-            this.jZO.setConfig(this.jZR);
-            this.jZP.setConfig(this.jZQ);
+            this.kbQ.setConfig(this.kbT);
+            this.kbR.setConfig(this.kbS);
         }
     }
 
     public void setBackgroundAlpha(float f) {
-        this.jZU = f;
+        this.kbW = f;
     }
 
     public void onChangeSkinType(int i) {
         if (this.rootView != null) {
-            this.jZO.changeSkinType(i);
-            this.jZP.changeSkinType(i);
-            ap.a(this.jZL, R.color.CAM_X0208, this.jZU, i);
-            ap.setBackgroundColor(this.jZN, R.color.CAM_X0202);
-            ap.setBackgroundColor(this.jZK, R.color.CAM_X0605);
+            this.kbQ.changeSkinType(i);
+            this.kbR.changeSkinType(i);
+            ap.a(this.kbN, R.color.CAM_X0208, this.kbW, i);
+            ap.setBackgroundColor(this.kbP, R.color.CAM_X0202);
+            ap.setBackgroundColor(this.kbM, R.color.CAM_X0605);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bu(int i) {
+    public void Bx(int i) {
         ar arVar = new ar("c14054");
-        arVar.ap("obj_type", i);
+        arVar.aq("obj_type", i);
         TiebaStatic.log(arVar);
     }
 }

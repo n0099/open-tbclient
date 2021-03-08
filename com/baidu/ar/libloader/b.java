@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.ar.ARType;
 import com.baidu.ar.libloader.ILibLoader;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b implements ILibLoader {
     private boolean sM = false;
     private d sN = new d();

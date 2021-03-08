@@ -5,63 +5,63 @@ import androidx.fragment.app.Fragment;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
-    private String bLx;
-    private String bLy;
-    private Fragment[] bgH;
-    private TbPageContext iVp;
-    private e oem;
-    private String[] oen;
-    private ImageListFragment oeo;
-    private AlbumImageBrowseFragment oep;
+    private String bMX;
+    private String bMY;
+    private Fragment[] bij;
+    private TbPageContext iWY;
+    private e ogs;
+    private String[] ogt;
+    private ImageListFragment ogu;
+    private AlbumImageBrowseFragment ogv;
 
     public a(TbPageContext tbPageContext, e eVar) {
         super(tbPageContext);
-        this.bLx = "tag_image";
-        this.bLy = "tag_b_image";
-        this.iVp = tbPageContext;
-        this.oem = eVar;
+        this.bMX = "tag_image";
+        this.bMY = "tag_b_image";
+        this.iWY = tbPageContext;
+        this.ogs = eVar;
     }
 
-    public void Uu() {
-        this.bgH = new Fragment[2];
-        this.oen = new String[2];
-        this.oeo = new ImageListFragment();
-        this.oeo.a(this.oem);
-        this.bgH[0] = this.oeo;
-        this.oen[0] = this.bLx;
-        this.oep = new AlbumImageBrowseFragment();
-        this.oep.a(this.oem);
-        this.bgH[1] = this.oep;
-        this.oen[1] = this.bLy;
+    public void Ux() {
+        this.bij = new Fragment[2];
+        this.ogt = new String[2];
+        this.ogu = new ImageListFragment();
+        this.ogu.a(this.ogs);
+        this.bij[0] = this.ogu;
+        this.ogt[0] = this.bMX;
+        this.ogv = new AlbumImageBrowseFragment();
+        this.ogv.a(this.ogs);
+        this.bij[1] = this.ogv;
+        this.ogt[1] = this.bMY;
     }
 
-    public Fragment Lj(int i) {
+    public Fragment Ln(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.bgH[i];
+        return this.bij[i];
     }
 
-    public String Lk(int i) {
+    public String Lo(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.oen[i];
+        return this.ogt[i];
     }
 
     public void b(NavigationBar navigationBar) {
-        this.oeo.b(navigationBar);
+        this.ogu.b(navigationBar);
     }
 
     public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.bgH.length) {
-                if (this.bgH[i3] != null && (this.bgH[i3] instanceof ImageListFragment)) {
-                    ((ImageListFragment) this.bgH[i3]).onChangeSkinType(i);
+            if (i3 < this.bij.length) {
+                if (this.bij[i3] != null && (this.bij[i3] instanceof ImageListFragment)) {
+                    ((ImageListFragment) this.bij[i3]).onChangeSkinType(i);
                 }
                 i2 = i3 + 1;
             } else {
@@ -70,99 +70,99 @@ public class a extends com.baidu.adp.base.d<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView dWS() {
-        if (this.oeo == null) {
+    public TbCameraView dXa() {
+        if (this.ogu == null) {
             return null;
         }
-        return this.oeo.dWS();
+        return this.ogu.dXa();
     }
 
     public void stopCamera() {
-        TbCameraView dWS = dWS();
-        if (dWS != null) {
-            dWS.stopCamera();
-            dWS.setVisibility(4);
+        TbCameraView dXa = dXa();
+        if (dXa != null) {
+            dXa.stopCamera();
+            dXa.setVisibility(4);
         }
     }
 
     public void openCamera() {
-        TbCameraView dWS = dWS();
-        if (dWS != null) {
-            dWS.setVisibility(0);
-            dWS.zC(false);
+        TbCameraView dXa = dXa();
+        if (dXa != null) {
+            dXa.setVisibility(0);
+            dXa.zB(false);
         }
-        if (this.oeo != null && this.oeo.dXd() != null) {
-            this.oeo.dXd().UR();
-        }
-    }
-
-    public void dWT() {
-        if (this.oeo != null) {
-            this.oeo.UP();
+        if (this.ogu != null && this.ogu.dXl() != null) {
+            this.ogu.dXl().UU();
         }
     }
 
-    public View Uv() {
-        if (this.oeo == null) {
-            return null;
+    public void dXb() {
+        if (this.ogu != null) {
+            this.ogu.US();
         }
-        return this.oeo.UM();
-    }
-
-    public View Uw() {
-        if (this.oeo == null) {
-            return null;
-        }
-        return this.oeo.UQ();
-    }
-
-    public View Ux() {
-        if (this.oep == null) {
-            return null;
-        }
-        return this.oep.UM();
     }
 
     public View Uy() {
-        if (this.oep == null) {
+        if (this.ogu == null) {
             return null;
         }
-        return this.oep.UN();
+        return this.ogu.UP();
     }
 
     public View Uz() {
-        if (this.oep == null) {
+        if (this.ogu == null) {
             return null;
         }
-        return this.oep.Uz();
+        return this.ogu.UT();
     }
 
     public View UA() {
-        if (this.oeo == null) {
+        if (this.ogv == null) {
             return null;
         }
-        return this.oeo.Uz();
+        return this.ogv.UP();
+    }
+
+    public View UB() {
+        if (this.ogv == null) {
+            return null;
+        }
+        return this.ogv.UQ();
+    }
+
+    public View UC() {
+        if (this.ogv == null) {
+            return null;
+        }
+        return this.ogv.UC();
+    }
+
+    public View UD() {
+        if (this.ogu == null) {
+            return null;
+        }
+        return this.ogu.UC();
     }
 
     public void onDestroy() {
     }
 
-    public ImageListFragment dWU() {
-        return this.oeo;
+    public ImageListFragment dXc() {
+        return this.ogu;
     }
 
     public void dn(boolean z) {
-        if (this.oep != null) {
-            this.oep.dn(z);
+        if (this.ogv != null) {
+            this.ogv.dn(z);
         }
-        if (this.oeo != null) {
-            this.oeo.dn(z);
+        if (this.ogu != null) {
+            this.ogu.dn(z);
         }
     }
 
     public void a(j jVar) {
-        if (this.oeo != null) {
-            this.oeo.a(jVar);
+        if (this.ogu != null) {
+            this.ogu.a(jVar);
         }
     }
 }

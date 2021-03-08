@@ -12,27 +12,25 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.util.LogUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1684a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f1685b;
+    private static a f1373a = null;
+    private Context b;
 
     public a(Context context) {
         super(context, "lcupdatedown.db", (SQLiteDatabase.CursorFactory) null, 3);
-        this.f1685b = context;
+        this.b = context;
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1684a == null) {
-                f1684a = new a(context);
+            if (f1373a == null) {
+                f1373a = new a(context);
             }
-            aVar = f1684a;
+            aVar = f1373a;
         }
         return aVar;
     }
@@ -71,8 +69,8 @@ public class a extends SQLiteOpenHelper {
 
     private ContentValues c(com.baidu.clientupdate.a.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("ug", aVar.f1655b);
-        contentValues.put("sessioninfo", aVar.f1654a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
+        contentValues.put("ug", aVar.b);
+        contentValues.put("sessioninfo", aVar.f1354a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
         contentValues.put("nm", aVar.c);
         contentValues.put("stm", aVar.e.toString());
         contentValues.put(Config.STAT_SDK_CHANNEL, aVar.f.toString());
@@ -113,7 +111,7 @@ public class a extends SQLiteOpenHelper {
             return 0;
         }
         try {
-            SQLiteDatabase writableDatabase = a(this.f1685b).getWritableDatabase();
+            SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
             writableDatabase.beginTransaction();
             i = writableDatabase.delete("downloads", b(jArr), c(jArr));
             writableDatabase.setTransactionSuccessful();
@@ -128,11 +126,11 @@ public class a extends SQLiteOpenHelper {
     public long a(com.baidu.clientupdate.a.a aVar) {
         long j = -1;
         try {
-            SQLiteDatabase writableDatabase = a(this.f1685b).getWritableDatabase();
+            SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
             ContentValues c = c(aVar);
             writableDatabase.beginTransaction();
             j = writableDatabase.insert("logs", null, c);
-            com.baidu.util.a.a(this.f1685b).b("lcsdk_xml", "time", System.currentTimeMillis());
+            com.baidu.util.a.a(this.b).b("lcsdk_xml", "time", System.currentTimeMillis());
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
             return j;
@@ -145,7 +143,7 @@ public class a extends SQLiteOpenHelper {
     public long a(Download download) {
         long j = -1;
         try {
-            SQLiteDatabase writableDatabase = a(this.f1685b).getWritableDatabase();
+            SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
             ContentValues c = c(download);
             writableDatabase.beginTransaction();
             j = writableDatabase.insert("downloads", null, c);
@@ -163,7 +161,7 @@ public class a extends SQLiteOpenHelper {
         Exception e;
         Cursor cursor;
         try {
-            SQLiteDatabase readableDatabase = a(this.f1685b).getReadableDatabase();
+            SQLiteDatabase readableDatabase = a(this.b).getReadableDatabase();
             readableDatabase.beginTransaction();
             Cursor query = readableDatabase.query("downloads", null, null, null, null, null, null);
             try {
@@ -194,7 +192,7 @@ public class a extends SQLiteOpenHelper {
         SQLiteDatabase readableDatabase;
         Cursor query;
         try {
-            readableDatabase = a(this.f1685b).getReadableDatabase();
+            readableDatabase = a(this.b).getReadableDatabase();
             readableDatabase.beginTransaction();
             query = readableDatabase.query("logs", null, "nm=?", new String[]{str}, null, null, null);
         } catch (IllegalStateException e3) {
@@ -231,7 +229,7 @@ public class a extends SQLiteOpenHelper {
     public int b() {
         int i = 0;
         try {
-            SQLiteDatabase writableDatabase = a(this.f1685b).getWritableDatabase();
+            SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
             writableDatabase.beginTransaction();
             i = writableDatabase.delete("logs", null, null);
             writableDatabase.setTransactionSuccessful();
@@ -245,10 +243,10 @@ public class a extends SQLiteOpenHelper {
 
     public void b(com.baidu.clientupdate.a.a aVar) {
         try {
-            SQLiteDatabase writableDatabase = a(this.f1685b).getWritableDatabase();
+            SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
             writableDatabase.beginTransaction();
             writableDatabase.update("logs", c(aVar), "nm = ?", new String[]{aVar.c});
-            com.baidu.util.a.a(this.f1685b).b("lcsdk_xml", "time", System.currentTimeMillis());
+            com.baidu.util.a.a(this.b).b("lcsdk_xml", "time", System.currentTimeMillis());
             writableDatabase.setTransactionSuccessful();
             writableDatabase.endTransaction();
         } catch (IllegalStateException e) {
@@ -261,7 +259,7 @@ public class a extends SQLiteOpenHelper {
 
     public void b(Download download) {
         try {
-            SQLiteDatabase writableDatabase = a(this.f1685b).getWritableDatabase();
+            SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
             writableDatabase.beginTransaction();
             writableDatabase.update("downloads", c(download), "_id = ?", new String[]{Long.toString(download.mId)});
             writableDatabase.setTransactionSuccessful();
@@ -274,7 +272,7 @@ public class a extends SQLiteOpenHelper {
     public int c() {
         int i = 0;
         try {
-            SQLiteDatabase writableDatabase = a(this.f1685b).getWritableDatabase();
+            SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
             writableDatabase.beginTransaction();
             i = writableDatabase.delete("logs", "flag=?", new String[]{"1"});
             writableDatabase.setTransactionSuccessful();
@@ -288,7 +286,7 @@ public class a extends SQLiteOpenHelper {
 
     public void d() {
         try {
-            SQLiteDatabase writableDatabase = a(this.f1685b).getWritableDatabase();
+            SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
             writableDatabase.beginTransaction();
             ContentValues contentValues = new ContentValues();
             contentValues.put(FrsActivityConfig.FLAG, "1");
@@ -305,7 +303,7 @@ public class a extends SQLiteOpenHelper {
 
     public void e() {
         try {
-            SQLiteDatabase writableDatabase = a(this.f1685b).getWritableDatabase();
+            SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
             writableDatabase.beginTransaction();
             ContentValues contentValues = new ContentValues();
             contentValues.put(FrsActivityConfig.FLAG, "0");
@@ -326,7 +324,7 @@ public class a extends SQLiteOpenHelper {
         IllegalStateException e2;
         Cursor cursor2;
         try {
-            SQLiteDatabase readableDatabase = a(this.f1685b).getReadableDatabase();
+            SQLiteDatabase readableDatabase = a(this.b).getReadableDatabase();
             readableDatabase.beginTransaction();
             Cursor query = readableDatabase.query("logs", null, null, null, null, null, null);
             try {
@@ -374,7 +372,7 @@ public class a extends SQLiteOpenHelper {
         try {
             try {
                 try {
-                    SQLiteDatabase readableDatabase = a(this.f1685b).getReadableDatabase();
+                    SQLiteDatabase readableDatabase = a(this.b).getReadableDatabase();
                     readableDatabase.beginTransaction();
                     cursor2 = readableDatabase.query("logs", null, "nm=?", new String[]{"a6"}, null, null, null);
                     try {
@@ -447,7 +445,7 @@ public class a extends SQLiteOpenHelper {
         try {
             try {
                 try {
-                    SQLiteDatabase readableDatabase = a(this.f1685b).getReadableDatabase();
+                    SQLiteDatabase readableDatabase = a(this.b).getReadableDatabase();
                     readableDatabase.beginTransaction();
                     cursor2 = readableDatabase.query("logs", null, "nm=?", new String[]{"a9"}, null, null, null);
                     try {

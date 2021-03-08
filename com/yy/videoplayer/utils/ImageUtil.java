@@ -1,5 +1,5 @@
 package com.yy.videoplayer.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImageUtil {
     public static native int I420ToARGB(byte[] bArr, int i, int i2, byte[] bArr2, boolean z);
 

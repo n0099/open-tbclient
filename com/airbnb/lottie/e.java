@@ -18,9 +18,9 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class e {
-    private static final Map<String, l<d>> BW = new HashMap();
+    private static final Map<String, l<d>> Du = new HashMap();
 
     public static l<d> s(Context context, String str) {
         return com.airbnb.lottie.network.b.v(context, str);
@@ -193,8 +193,8 @@ public class e {
     }
 
     private static l<d> b(@Nullable final String str, Callable<k<d>> callable) {
-        final d bm = com.airbnb.lottie.model.g.ja().bm(str);
-        if (bm != null) {
+        final d bq = com.airbnb.lottie.model.g.ja().bq(str);
+        if (bq != null) {
             return new l<>(new Callable<k<d>>() { // from class: com.airbnb.lottie.e.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
@@ -205,8 +205,8 @@ public class e {
                 }
             });
         }
-        if (BW.containsKey(str)) {
-            return BW.get(str);
+        if (Du.containsKey(str)) {
+            return Du.get(str);
         }
         l<d> lVar = new l<>(callable);
         lVar.a(new h<d>() { // from class: com.airbnb.lottie.e.7
@@ -217,7 +217,7 @@ public class e {
                 if (str != null) {
                     com.airbnb.lottie.model.g.ja().a(str, dVar);
                 }
-                e.BW.remove(str);
+                e.Du.remove(str);
             }
         });
         lVar.c(new h<Throwable>() { // from class: com.airbnb.lottie.e.2
@@ -225,10 +225,10 @@ public class e {
             @Override // com.airbnb.lottie.h
             /* renamed from: f */
             public void onResult(Throwable th) {
-                e.BW.remove(str);
+                e.Du.remove(str);
             }
         });
-        BW.put(str, lVar);
+        Du.put(str, lVar);
         return lVar;
     }
 }

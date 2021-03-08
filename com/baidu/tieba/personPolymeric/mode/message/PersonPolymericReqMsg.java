@@ -9,7 +9,7 @@ import com.baidu.tbadk.util.v;
 import com.baidu.tieba.person.b;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonPolymericReqMsg extends NetMessage {
     private int pn;
     private long uid;
@@ -45,7 +45,7 @@ public class PersonPolymericReqMsg extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
         builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
-        builder.q_type = Integer.valueOf(k.bkT().getViewImageQuality());
+        builder.q_type = Integer.valueOf(k.bkV().getViewImageQuality());
         builder.scr_dip = Double.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp()));
         if (z) {
             v.b(builder, true);

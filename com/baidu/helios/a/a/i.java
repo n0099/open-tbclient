@@ -2,7 +2,7 @@ package com.baidu.helios.a.a;
 
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public interface i {
     boolean a();
 
@@ -10,5 +10,5 @@ public interface i {
 
     void b(JSONObject jSONObject);
 
-    i s(JSONObject jSONObject);
+    i u(JSONObject jSONObject);
 }

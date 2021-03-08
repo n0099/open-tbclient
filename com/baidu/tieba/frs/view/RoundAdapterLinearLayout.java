@@ -14,8 +14,8 @@ import com.baidu.tieba.view.AdapterLinearLayout;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class RoundAdapterLinearLayout extends AdapterLinearLayout {
-    private static final int gaM = R.color.black_alpha4;
-    private Shape eVY;
+    private static final int gcm = R.color.black_alpha4;
+    private Shape eXx;
     private Paint mPaint;
     private float mRadius;
     private RectF mRectF;
@@ -40,9 +40,9 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         this.mStrokePaint = new Paint();
         this.mStrokePaint.setAntiAlias(true);
-        this.mStrokePaint.setColor(getResources().getColor(gaM));
+        this.mStrokePaint.setColor(getResources().getColor(gcm));
         this.mStrokePaint.setStyle(Paint.Style.FILL);
-        this.mStrokePaint.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(gaM));
+        this.mStrokePaint.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds4), getResources().getColor(gcm));
         this.mStrokePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
         this.mRectF = new RectF();
     }
@@ -55,7 +55,7 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.eVY == null) {
+            if (this.eXx == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds5) ? getResources().getDimension(R.dimen.tbds5) : getPaddingLeft();
@@ -65,10 +65,10 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
                 RectF rectF = new RectF(dimension, paddingTop, dimension2, paddingBottom);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr2, this.mRadius);
-                this.eVY = new RoundRectShape(fArr, rectF, fArr2);
+                this.eXx = new RoundRectShape(fArr, rectF, fArr2);
                 this.mRectF.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - paddingBottom);
             }
-            this.eVY.resize(getWidth(), getHeight());
+            this.eXx.resize(getWidth(), getHeight());
         }
     }
 
@@ -77,8 +77,8 @@ public class RoundAdapterLinearLayout extends AdapterLinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        if (this.eVY != null) {
-            this.eVY.draw(canvas, this.mPaint);
+        if (this.eXx != null) {
+            this.eXx.draw(canvas, this.mPaint);
         }
         canvas.drawRoundRect(this.mRectF, this.mRadius, this.mRadius, this.mStrokePaint);
         if (saveCount >= 1 && saveCount <= canvas.getSaveCount()) {

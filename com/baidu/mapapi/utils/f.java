@@ -7,15 +7,13 @@ import com.baidu.android.imsdk.internal.IMConnection;
 public final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2963a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ int f2964b;
+    final /* synthetic */ Context f2166a;
+    final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(Context context, int i) {
-        this.f2963a = context;
-        this.f2964b = i;
+        this.f2166a = context;
+        this.b = i;
     }
 
     @Override // java.lang.Runnable
@@ -24,8 +22,8 @@ public final class f implements Runnable {
         long currentTimeMillis = System.currentTimeMillis();
         do {
             if (System.currentTimeMillis() - currentTimeMillis > IMConnection.RETRY_DELAY_TIMES) {
-                b.a(this.f2963a);
-                b.a(this.f2964b, this.f2963a);
+                b.a(this.f2166a);
+                b.a(this.b, this.f2166a);
             }
             thread = b.v;
         } while (!thread.isInterrupted());

@@ -10,10 +10,8 @@ import java.util.Map;
 public final class PoiFilter implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2875a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2876b;
+    private String f2116a;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -24,10 +22,8 @@ public final class PoiFilter implements Parcelable {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2877a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f2878b;
+        private String f2117a;
+        private String b;
         private String c;
         private String d;
         private String e;
@@ -53,22 +49,22 @@ public final class PoiFilter implements Parcelable {
         }
 
         public PoiFilter build() {
-            return new PoiFilter(this.f2877a, this.f2878b, this.c, this.e, this.d);
+            return new PoiFilter(this.f2117a, this.b, this.c, this.e, this.d);
         }
 
         public Builder industryType(IndustryType industryType) {
             switch (industryType) {
                 case HOTEL:
-                    this.f2877a = "hotel";
+                    this.f2117a = "hotel";
                     break;
                 case CATER:
-                    this.f2877a = "cater";
+                    this.f2117a = "cater";
                     break;
                 case LIFE:
-                    this.f2877a = "life";
+                    this.f2117a = "life";
                     break;
                 default:
-                    this.f2877a = "";
+                    this.f2117a = "";
                     break;
             }
             return this;
@@ -93,8 +89,8 @@ public final class PoiFilter implements Parcelable {
         }
 
         public Builder sortName(SortName sortName) {
-            if (!TextUtils.isEmpty(this.f2877a) && sortName != null) {
-                this.f2878b = (String) PoiFilter.f.get(sortName);
+            if (!TextUtils.isEmpty(this.f2117a) && sortName != null) {
+                this.b = (String) PoiFilter.f.get(sortName);
             }
             return this;
         }
@@ -147,26 +143,26 @@ public final class PoiFilter implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PoiFilter(Parcel parcel) {
-        this.f2875a = "";
-        this.f2876b = "";
+        this.f2116a = "";
+        this.b = "";
         this.c = "";
         this.d = "";
         this.e = "";
-        this.f2875a = parcel.readString();
-        this.f2876b = parcel.readString();
+        this.f2116a = parcel.readString();
+        this.b = parcel.readString();
         this.c = parcel.readString();
         this.e = parcel.readString();
         this.d = parcel.readString();
     }
 
     PoiFilter(String str, String str2, String str3, String str4, String str5) {
-        this.f2875a = "";
-        this.f2876b = "";
+        this.f2116a = "";
+        this.b = "";
         this.c = "";
         this.d = "";
         this.e = "";
-        this.f2875a = str;
-        this.f2876b = str2;
+        this.f2116a = str;
+        this.b = str2;
         this.c = str3;
         this.e = str4;
         this.d = str5;
@@ -179,14 +175,14 @@ public final class PoiFilter implements Parcelable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (!TextUtils.isEmpty(this.f2875a)) {
+        if (!TextUtils.isEmpty(this.f2116a)) {
             sb.append("industry_type:");
-            sb.append(this.f2875a);
+            sb.append(this.f2116a);
             sb.append("|");
         }
-        if (!TextUtils.isEmpty(this.f2876b)) {
+        if (!TextUtils.isEmpty(this.b)) {
             sb.append("sort_name:");
-            sb.append(this.f2876b);
+            sb.append(this.b);
             sb.append("|");
         }
         if (!TextUtils.isEmpty(this.c)) {
@@ -212,8 +208,8 @@ public final class PoiFilter implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2875a);
-        parcel.writeString(this.f2876b);
+        parcel.writeString(this.f2116a);
+        parcel.writeString(this.b);
         parcel.writeString(this.c);
         parcel.writeString(this.e);
         parcel.writeString(this.d);

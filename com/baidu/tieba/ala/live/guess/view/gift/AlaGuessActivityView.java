@@ -8,11 +8,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.tieba.ala.live.guess.widget.TimeCountTextView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGuessActivityView extends LinearLayout {
-    public TextView bCG;
-    public ImageView hiU;
-    public TimeCountTextView hiV;
+    public TextView bEg;
+    public ImageView hkD;
+    public TimeCountTextView hkE;
 
     public AlaGuessActivityView(Context context) {
         super(context);
@@ -22,8 +22,8 @@ public class AlaGuessActivityView extends LinearLayout {
     private void init() {
         setId(a.f.ala_liveguess_activity_layout);
         LayoutInflater.from(getContext()).inflate(a.g.ala_guess_activity_view, (ViewGroup) this, true);
-        this.bCG = (TextView) findViewById(a.f.tv_countdown_format);
-        this.hiU = (ImageView) findViewById(a.f.img_activity);
-        this.hiV = (TimeCountTextView) findViewById(a.f.time_countdown);
+        this.bEg = (TextView) findViewById(a.f.tv_countdown_format);
+        this.hkD = (ImageView) findViewById(a.f.img_activity);
+        this.hkE = (TimeCountTextView) findViewById(a.f.time_countdown);
     }
 }

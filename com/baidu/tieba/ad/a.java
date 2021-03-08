@@ -18,16 +18,16 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class a implements j {
     private static final Pattern pattern = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a ggM = new a();
+    private static a giq = new a();
     private final List<j.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, j.b> mHandlers = new ConcurrentHashMap<>();
-    private j.c ggN = null;
+    private j.c gir = null;
 
     private a() {
     }
 
-    public static a bLn() {
-        return ggM;
+    public static a bLr() {
+        return giq;
     }
 
     public void a(final j.a aVar) {
@@ -51,7 +51,7 @@ public final class a implements j {
     }
 
     public void a(j.c cVar) {
-        this.ggN = cVar;
+        this.gir = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, j.d dVar, boolean z2, Bundle bundle) {
@@ -79,7 +79,7 @@ public final class a implements j {
         String str2 = strArr[0];
         j.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.l(context, getInnerParamPair(Ez(str2)));
+            bVar.l(context, getInnerParamPair(EG(str2)));
             return true;
         }
         Iterator<j.a> it = this.mListeners.iterator();
@@ -93,7 +93,7 @@ public final class a implements j {
                 break;
             }
         }
-        if (!z3 && this.ggN != null) {
+        if (!z3 && this.gir != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 return true;
             }
@@ -102,7 +102,7 @@ public final class a implements j {
         return z3;
     }
 
-    private String Ez(String str) {
+    private String EG(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -151,12 +151,12 @@ public final class a implements j {
 
     private void a(Context context, String str, String str2, boolean z, j.d dVar, boolean z2, Bundle bundle) {
         if (pattern.matcher(str2).find()) {
-            this.ggN.b(context, str, str2, z, dVar, z2, bundle);
+            this.gir.b(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
     @Override // com.baidu.tieba.recapp.j
-    public boolean EA(String str) {
+    public boolean EH(String str) {
         return pattern.matcher(str).find();
     }
 }

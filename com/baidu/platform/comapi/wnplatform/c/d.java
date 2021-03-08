@@ -26,10 +26,8 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     private static GeoPoint g = new GeoPoint(0.0d, 0.0d);
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4399a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    private WLocData f4400b = null;
+    public static int f3046a = 0;
+    private WLocData b = null;
     private WLocData c = new WLocData();
     private LocationManager d = null;
     private ArrayList<b> e = new ArrayList<>();
@@ -79,7 +77,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         if (this.f != null) {
             this.f.clear();
         }
-        this.f4400b = null;
+        this.b = null;
         this.c = null;
     }
 
@@ -89,7 +87,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
 
     public void a(c cVar) {
         this.i = cVar;
-        f4399a = 0;
+        f3046a = 0;
     }
 
     public void a(com.baidu.platform.comapi.wnplatform.c.a aVar) {
@@ -210,24 +208,24 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         if (com.baidu.platform.comapi.wnplatform.a.a().d() || this.h) {
         }
         if (wLocData.accuracy < 80.0f) {
-            this.c = wLocData.m24clone();
+            this.c = wLocData.m25clone();
             a(this.c, CashierData.SDK);
             if (wLocData.isIndoorMode) {
-                f4399a++;
-                if (f4399a > 3 && this.i != null) {
+                f3046a++;
+                if (f3046a > 3 && this.i != null) {
                     this.i.a();
                     return;
                 }
                 return;
             }
-            f4399a = 0;
+            f3046a = 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(WLocData wLocData, String str) {
         ArrayList arrayList;
-        this.f4400b = wLocData.m24clone();
+        this.b = wLocData.m25clone();
         GeoPoint a2 = com.baidu.platform.comapi.wnplatform.o.b.a(wLocData.longitude, wLocData.latitude);
         g.setLongitudeE6(a2.getLongitudeE6());
         g.setLatitudeE6(a2.getLatitudeE6());
@@ -239,7 +237,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
             while (it.hasNext()) {
                 b bVar = (b) it.next();
                 if (bVar != null) {
-                    bVar.a(this.f4400b);
+                    bVar.a(this.b);
                 }
             }
         }

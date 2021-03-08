@@ -12,10 +12,8 @@ import java.io.Closeable;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final PathMeasure f7991a = new PathMeasure();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Path f7992b = new Path();
+    private static final PathMeasure f5343a = new PathMeasure();
+    private static final Path b = new Path();
     private static final Path c = new Path();
     private static final float[] d = new float[4];
     private static final float e = (float) Math.sqrt(2.0d);
@@ -61,8 +59,8 @@ public final class f {
 
     public static void a(Path path, float f2, float f3, float f4) {
         com.ksad.lottie.c.c("applyTrimPathIfNeeded");
-        f7991a.setPath(path, false);
-        float length = f7991a.getLength();
+        f5343a.setPath(path, false);
+        float length = f5343a.getLength();
         if (f2 == 1.0f && f3 == 0.0f) {
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f3 - f2) - 1.0f) < 0.01d) {
@@ -93,18 +91,18 @@ public final class f {
             if (f8 >= f9) {
                 f8 -= length;
             }
-            f7992b.reset();
-            f7991a.getSegment(f8, f9, f7992b, true);
+            b.reset();
+            f5343a.getSegment(f8, f9, b, true);
             if (f9 > length) {
                 c.reset();
-                f7991a.getSegment(0.0f, f9 % length, c, true);
-                f7992b.addPath(c);
+                f5343a.getSegment(0.0f, f9 % length, c, true);
+                b.addPath(c);
             } else if (f8 < 0.0f) {
                 c.reset();
-                f7991a.getSegment(f8 + length, length, c, true);
-                f7992b.addPath(c);
+                f5343a.getSegment(f8 + length, length, c, true);
+                b.addPath(c);
             }
-            path.set(f7992b);
+            path.set(b);
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         }
     }

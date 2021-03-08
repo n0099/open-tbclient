@@ -6,38 +6,36 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class a extends SQLiteOpenHelper {
-    private static volatile a qeK;
+    private static volatile a qfz;
+    private boolean b;
 
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f13084b;
-
-    public static a eGa() {
-        if (qeK == null) {
+    public static a eGe() {
+        if (qfz == null) {
             synchronized (a.class) {
-                if (qeK == null) {
-                    qeK = new a();
+                if (qfz == null) {
+                    qfz = new a();
                 }
             }
         }
-        return qeK;
+        return qfz;
     }
 
     private a() {
-        super(com.ss.android.socialbase.downloader.downloader.b.eGC(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 13);
-        this.f13084b = false;
+        super(com.ss.android.socialbase.downloader.downloader.b.eGG(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 13);
+        this.b = false;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public SQLiteDatabase getReadableDatabase() {
-        Context eGC = com.ss.android.socialbase.downloader.downloader.b.eGC();
-        if (!this.f13084b && eGC != null) {
+        Context eGG = com.ss.android.socialbase.downloader.downloader.b.eGG();
+        if (!this.b && eGG != null) {
             try {
-                File file = new File("/data/data/" + eGC.getPackageName() + "/database/main/");
+                File file = new File("/data/data/" + eGG.getPackageName() + "/database/main/");
                 if (!file.exists()) {
                     file.mkdir();
                 }
                 super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                this.f13084b = true;
+                this.b = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }

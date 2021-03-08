@@ -4,7 +4,7 @@ import android.util.JsonReader;
 import com.baidu.live.lottie.model.content.ShapeTrimPath;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 class ai {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static ShapeTrimPath A(JsonReader jsonReader, com.baidu.live.lottie.e eVar) throws IOException {

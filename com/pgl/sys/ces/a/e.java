@@ -14,26 +14,28 @@ import java.io.RandomAccessFile;
 /* loaded from: classes6.dex */
 public class e {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 0, expect 1 */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0070, code lost:
-        if (r0.length() == 0) goto L23;
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x009e, code lost:
+        if (r0.length() == 0) goto L24;
      */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x006c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0069, code lost:
+        if (r0.length() > 0) goto L10;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x009a A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static synchronized String a(Context context) {
         String str;
-        String str2;
         synchronized (e.class) {
             try {
-                str2 = context.getFilesDir().getAbsolutePath() + "/" + IXAdRequestInfo.CELL_ID;
-            } finally {
-                if (str != null) {
+                String str2 = context.getFilesDir().getAbsolutePath() + "/" + IXAdRequestInfo.CELL_ID;
+                if (new File(str2).exists()) {
+                    a("chmod 777 " + str2);
+                    str = a(str2);
+                    a("chmod 600 " + str2);
+                    if (str != null) {
+                    }
                 }
-                str = "0[<!>]ERROR[<!>]";
-                return str;
-            }
-            if (!new File(str2).exists() || (str = a(str2)) == null || str.length() <= 0) {
                 InputStream open = context.getResources().getAssets().open(IXAdRequestInfo.CELL_ID);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 byte[] bArr = new byte[4096];
@@ -56,10 +58,16 @@ public class e {
                     randomAccessFile.close();
                     str = a(str2);
                 }
+                a("chmod 600 " + str2);
+            } finally {
                 if (str != null) {
                 }
                 str = "0[<!>]ERROR[<!>]";
+                return str;
             }
+            if (str != null) {
+            }
+            str = "0[<!>]ERROR[<!>]";
         }
         return str;
     }

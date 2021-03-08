@@ -1,5 +1,5 @@
 package com.yy.videoplayer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Constant {
     public static final String DEFAULT_LOG_NAME = "yyvideoplayer.txt";
     public static final String DEFAULT_LOG_PATH = "/yyvideoplayer";
@@ -20,7 +20,7 @@ public final class Constant {
     public static final String MEDIACODE_VR = "[Vr      ]";
     public static float[] mtxIdentity = {1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class AlignmentMask {
         public static final int ALIGN_16 = 15;
         public static final int ALIGN_2 = 1;
@@ -29,7 +29,7 @@ public final class Constant {
         public static final int ALIGN_8 = 7;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class CaptureVideoOrientation {
         public static final int LandscapeLeft = 4;
         public static final int LandscapeRight = 3;
@@ -37,7 +37,7 @@ public final class Constant {
         public static final int PortraitUpsideDown = 2;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ClipMode {
         public static final int CLIP_MODE_BOTTOM = 8;
         public static final int CLIP_MODE_LEFT = 1;
@@ -48,7 +48,7 @@ public final class Constant {
         public static final int CLIP_MOD_UDEF = 16;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class DecCodecID {
         public static final int DEC_TYPE_H264_HW_OFFSCREEEN = 0;
         public static final int DEC_TYPE_H264_SW_FFMPEG = 2;
@@ -56,14 +56,14 @@ public final class Constant {
         public static final int DEC_TYPE_H265_SW_ITTIAM = 3;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum EncoderFilterType {
         ENCODER_FILTER_UNKNONWN,
         ENCODER_HARDWARE_H264,
         ENCODER_SOFTWARE_H264
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class HiidoDecCodecID {
         public static final int DEC_CODEC_H264_HARD = 3;
         public static final int DEC_CODEC_H264_SOFT = 1;
@@ -76,7 +76,7 @@ public final class Constant {
         public static final int DEC_CODEC_VP9_SOFT = 7;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class MediaLibraryPictureFormat {
         public static final int kMediaLibraryPictureFmtI410 = 1;
         public static final int kMediaLibraryPictureFmtI411 = 2;
@@ -100,7 +100,7 @@ public final class Constant {
         public static final int kMediaLibraryPictureFmtYVYU = 12;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class MediaLibraryVideoCodec {
         public static final int kMediaLibraryVideoCodecH264 = 2;
         public static final int kMediaLibraryVideoCodecH265 = 5;
@@ -109,19 +109,19 @@ public final class Constant {
         public static final int kMediaLibraryVideoCodecVP8 = 4;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum OrientationType {
         Normal,
         Auto,
         Forace
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class PICFormat {
         public static final int BITMAP = 68;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ProgramType {
         public static final int PROGRAM_TYPE_I420 = 3;
         public static final int PROGRAM_TYPE_NV12 = 2;
@@ -131,14 +131,14 @@ public final class Constant {
         public static final int PROGRAM_TYPE_UDEF = 4;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RGBFormat {
         public static final int RGB = 20;
         public static final int RGB565 = 52;
         public static final int RGBA = 36;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RotateAngle {
         public static final int ROTATION_0 = 0;
         public static final int ROTATION_180 = 180;
@@ -146,14 +146,14 @@ public final class Constant {
         public static final int ROTATION_90 = 90;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum ScaleMode {
         AspectFill,
         AspectFit,
         ScacleToFill
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoEncodePreset {
         public static final long VIDEO_ENCODE_PRESET_DEFAULT = 0;
         public static final long VIDEO_ENCODE_PRESET_FAST = 5;
@@ -165,7 +165,7 @@ public final class Constant {
         public static final long VIDEO_ENCODE_PRESET_VERYFAST = 3;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class VideoFrameType {
         public static final int kVideoBFrame = 2;
         public static final int kVideoEncodedDataFrame = 8;
@@ -183,7 +183,7 @@ public final class Constant {
         public static final int kVideoUnknowFrame = 255;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface ViewType {
         public static final int YCustomGL_VideoView_High_EGLMultiVideo = 2;
         public static final int YCustomGL_VideoView_Low_EGLMultiVideo = 1;
@@ -192,7 +192,7 @@ public final class Constant {
         public static final int Y_VideoView_MultiVideo = 4;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum WaterMarkOrigin {
         LeftTop,
         LeftBottom,
@@ -200,7 +200,7 @@ public final class Constant {
         RightBottom
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class EncoderState {
         public static final int EncoderStateError = 4;
         public static final int EncoderStateInit = 0;
@@ -221,7 +221,7 @@ public final class Constant {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class YUVFormat {
         public static final int I420 = 2;
         public static final int NV12 = 1;

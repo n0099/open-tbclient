@@ -2,7 +2,7 @@ package com.baidu.swan.bdprivate.extensions.quicklogin;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
@@ -10,9 +10,9 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: B */
-            public void L(Bundle bundle2) {
+            public void N(Bundle bundle2) {
                 if (bundle2 != null) {
-                    b.this.dsX.putParcelable("quick_login_info", bundle2.getParcelable("quick_login_info_result"));
+                    b.this.duz.putParcelable("quick_login_info", bundle2.getParcelable("quick_login_info_result"));
                 }
                 b.this.finish();
             }
@@ -24,11 +24,11 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
             @Override // com.baidu.swan.bdprivate.extensions.quicklogin.c
             public void a(QuickLoginInfo quickLoginInfo) {
                 if (quickLoginInfo == null) {
-                    bVar.L(null);
+                    bVar.N(null);
                     return;
                 }
-                b.this.dsX.putParcelable("quick_login_info_result", quickLoginInfo);
-                bVar.L(b.this.dsX);
+                b.this.duz.putParcelable("quick_login_info_result", quickLoginInfo);
+                bVar.N(b.this.duz);
             }
         });
     }

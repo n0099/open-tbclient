@@ -16,7 +16,7 @@ import kotlin.jvm.internal.p;
 import kotlin.text.l;
 import org.json.JSONObject;
 @e
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/setTplBdussSync");
@@ -25,44 +25,44 @@ public final class a extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         boolean z;
-        p.o(unitedSchemeEntity, "entity");
+        p.p(unitedSchemeEntity, "entity");
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        f.cEs.eQ(true);
+        f.cFS.eQ(true);
         if (optParamsAsJo == null) {
-            com.baidu.swan.apps.a.a ajA = f.cEs.ajA();
-            if (ajA != null) {
-                ajA.onResult(-1);
+            com.baidu.swan.apps.a.a ajD = f.cFS.ajD();
+            if (ajD != null) {
+                ajD.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
         int optInt = optParamsAsJo.optInt(BaseJsonData.TAG_ERRNO);
         JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-        ak.k(RunnableC0417a.cEw);
+        ak.j(RunnableC0423a.cFW);
         if (optInt != 0) {
-            com.baidu.swan.apps.a.a ajA2 = f.cEs.ajA();
-            if (ajA2 != null) {
-                ajA2.onResult(-1);
+            com.baidu.swan.apps.a.a ajD2 = f.cFS.ajD();
+            if (ajD2 != null) {
+                ajD2.onResult(-1);
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
             return false;
         } else if (optJSONObject != null) {
-            String str = h.xE(CookieManager.getInstance().getCookie(".baidu.com")).get("OPENBDUSS");
+            String str = h.xL(CookieManager.getInstance().getCookie(".baidu.com")).get("OPENBDUSS");
             String str2 = str;
             if (!(str2 == null || l.isBlank(str2))) {
-                com.baidu.swan.apps.d.a.h.cEv.d(optInt, optJSONObject);
+                com.baidu.swan.apps.d.a.h.cFV.d(optInt, optJSONObject);
                 com.baidu.swan.apps.d.a.a.ab(context, str);
-                f.cEs.eG(true);
-                com.baidu.swan.apps.a.a ajA3 = f.cEs.ajA();
-                if (ajA3 != null) {
-                    ajA3.onResult(0);
+                f.cFS.eG(true);
+                com.baidu.swan.apps.a.a ajD3 = f.cFS.ajD();
+                if (ajD3 != null) {
+                    ajD3.onResult(0);
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 z = true;
             } else {
-                com.baidu.swan.apps.a.a ajA4 = f.cEs.ajA();
-                if (ajA4 != null) {
-                    ajA4.onResult(-1);
+                com.baidu.swan.apps.a.a ajD4 = f.cFS.ajD();
+                if (ajD4 != null) {
+                    ajD4.onResult(-1);
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
                 z = false;
@@ -76,16 +76,16 @@ public final class a extends aa {
 
     @e
     /* renamed from: com.baidu.swan.apps.d.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    static final class RunnableC0417a implements Runnable {
-        public static final RunnableC0417a cEw = new RunnableC0417a();
+    /* loaded from: classes8.dex */
+    static final class RunnableC0423a implements Runnable {
+        public static final RunnableC0423a cFW = new RunnableC0423a();
 
-        RunnableC0417a() {
+        RunnableC0423a() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            com.baidu.swan.apps.d.a.e.apL();
+            com.baidu.swan.apps.d.a.e.apO();
         }
     }
 }

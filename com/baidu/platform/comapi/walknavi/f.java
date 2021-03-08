@@ -6,11 +6,11 @@ import com.baidu.platform.comapi.walknavi.g.a;
 public class f implements a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4270a;
+    final /* synthetic */ b f2953a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar) {
-        this.f4270a = bVar;
+        this.f2953a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.a.b
@@ -22,6 +22,6 @@ public class f implements a.b {
             }
             return;
         }
-        this.f4270a.s();
+        this.f2953a.s();
     }
 }

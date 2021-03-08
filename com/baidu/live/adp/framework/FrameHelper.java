@@ -2,10 +2,10 @@ package com.baidu.live.adp.framework;
 
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class FrameHelper {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum TYPE {
         HTTP,
         SOCKET,

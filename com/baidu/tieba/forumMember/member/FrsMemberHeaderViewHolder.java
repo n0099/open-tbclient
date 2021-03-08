@@ -7,36 +7,36 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
-    public View dBb;
-    public TextView fgx;
-    public ImageView jbK;
-    public TextView jbL;
-    public TextView jcL;
-    public TextView jcM;
-    public LinearLayout jcN;
-    public NoPressedLinearLayout jcO;
-    public View jcP;
-    public TextView jcQ;
-    public ImageView jcR;
-    public ImageView jcS;
+    public View dCC;
+    public TextView fhW;
+    public ImageView jdt;
+    public TextView jdu;
+    public ImageView jeA;
+    public ImageView jeB;
+    public TextView jeu;
+    public TextView jev;
+    public LinearLayout jew;
+    public NoPressedLinearLayout jex;
+    public View jey;
+    public TextView jez;
 
     public FrsMemberHeaderViewHolder(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.jcL = (TextView) view.findViewById(R.id.like_btn);
-        this.jcM = (TextView) view.findViewById(R.id.lever_tip_view);
-        this.jbK = (ImageView) view.findViewById(R.id.header_level_img);
-        this.jbL = (TextView) view.findViewById(R.id.user_level_name);
-        this.dBb = view.findViewById(R.id.header_divider_line2);
-        this.jcN = (LinearLayout) view.findViewById(R.id.view_experience_score);
-        this.fgx = (TextView) view.findViewById(R.id.tip_experience_score);
-        this.jcO = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
-        this.jcP = view.findViewById(R.id.header_divider_line3);
-        this.jcQ = (TextView) view.findViewById(R.id.tip_experience);
-        this.jcR = (ImageView) view.findViewById(R.id.love_level_top);
-        this.jcS = (ImageView) view.findViewById(R.id.love_level_bg);
-        this.jcL.setOnClickListener(onClickListener);
-        this.jbL.setOnClickListener(onClickListener);
+        this.jeu = (TextView) view.findViewById(R.id.like_btn);
+        this.jev = (TextView) view.findViewById(R.id.lever_tip_view);
+        this.jdt = (ImageView) view.findViewById(R.id.header_level_img);
+        this.jdu = (TextView) view.findViewById(R.id.user_level_name);
+        this.dCC = view.findViewById(R.id.header_divider_line2);
+        this.jew = (LinearLayout) view.findViewById(R.id.view_experience_score);
+        this.fhW = (TextView) view.findViewById(R.id.tip_experience_score);
+        this.jex = (NoPressedLinearLayout) view.findViewById(R.id.root_forum_member_header);
+        this.jey = view.findViewById(R.id.header_divider_line3);
+        this.jez = (TextView) view.findViewById(R.id.tip_experience);
+        this.jeA = (ImageView) view.findViewById(R.id.love_level_top);
+        this.jeB = (ImageView) view.findViewById(R.id.love_level_bg);
+        this.jeu.setOnClickListener(onClickListener);
+        this.jdu.setOnClickListener(onClickListener);
     }
 }

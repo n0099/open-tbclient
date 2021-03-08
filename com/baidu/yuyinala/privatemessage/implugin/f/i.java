@@ -9,16 +9,16 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class i extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
         if (!AccountManager.isCuidLogin(this.mContext)) {
-            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().getBduss(this.mContext));
+            hashMap.put(SM.COOKIE, "BDUSS=" + com.baidu.yuyinala.privatemessage.implugin.d.b.eke().getBduss(this.mContext));
         } else {
             try {
-                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().getCuid(this.mContext).getBytes())), "UTF-8"));
+                hashMap.put(SM.COOKIE, "BAIDUCUID=" + URLEncoder.encode(new String(Base64Encoder.b64Encode(com.baidu.yuyinala.privatemessage.implugin.d.b.eke().getCuid(this.mContext).getBytes())), "UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -31,8 +31,8 @@ public abstract class i extends BaseHttpRequest {
         return "GET";
     }
 
-    public String Ys(String str) {
-        switch (com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().hy(this.mContext)) {
+    public String Yz(String str) {
+        switch (com.baidu.yuyinala.privatemessage.implugin.d.b.eke().hx(this.mContext)) {
             case 0:
                 return "https://ext.baidu.com/";
             case 1:

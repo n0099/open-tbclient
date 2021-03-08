@@ -16,7 +16,7 @@ public class ag extends l<com.baidu.tieba.pb.data.m, PbNoDataItemViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cy */
+    /* renamed from: cx */
     public PbNoDataItemViewHolder e(ViewGroup viewGroup) {
         return new PbNoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
@@ -27,25 +27,25 @@ public class ag extends l<com.baidu.tieba.pb.data.m, PbNoDataItemViewHolder> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.m mVar, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) mVar, (com.baidu.tieba.pb.data.m) pbNoDataItemViewHolder);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        pbNoDataItemViewHolder.mTextView.setText(mVar.lLy);
-        if (mVar.lLx != 0) {
-            com.baidu.tbadk.core.util.ap.setImageResource(pbNoDataItemViewHolder.mImageView, mVar.lLx);
+        pbNoDataItemViewHolder.mTextView.setText(mVar.lNA);
+        if (mVar.lNz != 0) {
+            com.baidu.tbadk.core.util.ap.setImageResource(pbNoDataItemViewHolder.mImageView, mVar.lNz);
         } else {
             com.baidu.tbadk.core.util.ap.setImageResource(pbNoDataItemViewHolder.mImageView, R.drawable.new_pic_emotion_06);
         }
         com.baidu.tbadk.core.util.ap.setViewTextColor(pbNoDataItemViewHolder.mTextView, R.color.CAM_X0109);
-        if (mVar.gAL != 0 && view.getLayoutParams() != null) {
-            view.getLayoutParams().height = mVar.gAL;
+        if (mVar.gCu != 0 && view.getLayoutParams() != null) {
+            view.getLayoutParams().height = mVar.gCu;
         }
-        if (mVar.lLz != 0) {
+        if (mVar.lNB != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.mImageView.getLayoutParams();
-            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, mVar.lLz, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
+            marginLayoutParams.setMargins(marginLayoutParams.leftMargin, mVar.lNB, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
         }
-        if (mVar.lLA != 0) {
+        if (mVar.lNC != 0) {
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.mTextView.getLayoutParams();
-            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, mVar.lLA);
+            marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.leftMargin, marginLayoutParams2.rightMargin, mVar.lNC);
         }
-        pbNoDataItemViewHolder.mImageView.setVisibility(mVar.lLB);
+        pbNoDataItemViewHolder.mImageView.setVisibility(mVar.lND);
         return view;
     }
 }

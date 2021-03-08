@@ -14,13 +14,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile d f9740a;
+    private static volatile d f6447a;
     private static com.kwad.sdk.emotion.model.a e;
     private static com.kwad.sdk.emotion.model.b f;
     private int d;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f9741b = false;
+    private boolean b = false;
     private final Map<Integer, f> c = new ConcurrentHashMap();
     private String g = "0";
 
@@ -28,14 +26,14 @@ public class d {
     }
 
     public static d a() {
-        if (f9740a == null) {
+        if (f6447a == null) {
             synchronized (d.class) {
-                if (f9740a == null) {
-                    f9740a = new d();
+                if (f6447a == null) {
+                    f6447a = new d();
                 }
             }
         }
-        return f9740a;
+        return f6447a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,7 +69,7 @@ public class d {
         e.a(new e.a() { // from class: com.kwad.sdk.emotion.a.d.2
             @Override // com.kwad.sdk.emotion.a.e.a
             public void a(int i, String str) {
-                d.this.f9741b = false;
+                d.this.b = false;
                 if (bVar != null) {
                     bVar.a(null);
                 }
@@ -79,7 +77,7 @@ public class d {
 
             @Override // com.kwad.sdk.emotion.a.e.a
             public void a(EmotionResponse emotionResponse) {
-                d.this.f9741b = true;
+                d.this.b = true;
                 d.this.a(d.this.a(emotionResponse));
                 if (bVar != null) {
                     bVar.a();
@@ -111,7 +109,7 @@ public class d {
 
     public void b() {
         com.kwad.sdk.emotion.b.b.a().a(e.b());
-        if (this.f9741b) {
+        if (this.b) {
             c.a().a(this.c.get(1), f.b());
         } else {
             f.b().a(null, new IllegalStateException("not available: invoke `#fetchEmotionInfo()` or check `#isAvailable()`"));

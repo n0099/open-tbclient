@@ -6,13 +6,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 /* loaded from: classes5.dex */
 public class a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f1909b = a.class.getSimpleName();
+    private static final String b = a.class.getSimpleName();
     private static final boolean c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1910a;
+    public String f1514a;
     private String d;
     private String e;
     private String f;
@@ -55,6 +53,6 @@ public class a {
     }
 
     public String e() {
-        return this.f1910a;
+        return this.f1514a;
     }
 }

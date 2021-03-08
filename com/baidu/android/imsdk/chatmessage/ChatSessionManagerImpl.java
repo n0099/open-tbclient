@@ -462,7 +462,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                a.ao(mContext).e(mContext, creatMethodIntent);
+                a.an(mContext).e(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);

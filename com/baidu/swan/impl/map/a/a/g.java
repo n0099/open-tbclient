@@ -6,44 +6,44 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.swan.impl.map.item.b;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.f> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = g.class.getSimpleName();
 
-    public static g baE() {
+    public static g baH() {
         return new g();
     }
 
     private boolean a(Context context, com.baidu.swan.apps.w.a.f fVar, com.baidu.swan.apps.w.b bVar, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction start");
-        com.baidu.swan.apps.adaptation.b.e ni = com.baidu.swan.apps.v.f.aAl().ni(fVar.cLr);
-        if (!(ni instanceof com.baidu.swan.apps.adaptation.b.c)) {
+        com.baidu.swan.apps.adaptation.b.e np = com.baidu.swan.apps.v.f.aAo().np(fVar.cMR);
+        if (!(np instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.c xN = com.baidu.swan.impl.map.c.bat().h((com.baidu.swan.apps.adaptation.b.c) ni).xN(fVar.cLq);
-        if (xN == null) {
-            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.cLq);
+        com.baidu.swan.impl.map.item.c xU = com.baidu.swan.impl.map.c.baw().h((com.baidu.swan.apps.adaptation.b.c) np).xU(fVar.cMQ);
+        if (xU == null) {
+            com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.cMQ);
             return false;
         }
-        return a(fVar, xN, bVar);
+        return a(fVar, xU, bVar);
     }
 
     private boolean a(final com.baidu.swan.apps.w.a.f fVar, com.baidu.swan.impl.map.item.c cVar, final com.baidu.swan.apps.w.b bVar) {
         if (!fVar.isValid()) {
             return false;
         }
-        LatLng latLng = new LatLng(fVar.dhA.latitude, fVar.dhA.longitude);
-        List<com.baidu.swan.impl.map.item.b> xO = cVar.xO(fVar.dhT);
+        LatLng latLng = new LatLng(fVar.dje.latitude, fVar.dje.longitude);
+        List<com.baidu.swan.impl.map.item.b> xV = cVar.xV(fVar.djx);
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction animation start");
-        if (xO != null) {
-            for (com.baidu.swan.impl.map.item.b bVar2 : xO) {
+        if (xV != null) {
+            for (com.baidu.swan.impl.map.item.b bVar2 : xV) {
                 bVar2.a(cVar, latLng, fVar.duration, new b.a() { // from class: com.baidu.swan.impl.map.a.a.g.1
                     @Override // com.baidu.swan.impl.map.item.b.a
                     public void onAnimationEnd() {
                         if (!TextUtils.isEmpty(fVar.callback)) {
-                            bVar.g(fVar.callback, null);
+                            bVar.h(fVar.callback, null);
                         }
                         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction animation end");
                     }

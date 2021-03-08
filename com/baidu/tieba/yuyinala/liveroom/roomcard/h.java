@@ -7,14 +7,14 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h extends BdBaseModel {
-    private BdUniqueId aCW = BdUniqueId.gen();
-    private final HttpMessageListener bBe;
-    private Context bNw;
-    private a ozH;
+    private BdUniqueId aEw = BdUniqueId.gen();
+    private final HttpMessageListener bCE;
+    private Context bOW;
+    private a oBM;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage);
 
@@ -22,37 +22,37 @@ public class h extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.ozH = aVar;
+        this.oBM = aVar;
     }
 
     public h(Context context) {
-        this.bNw = context;
-        setUniqueId(this.aCW);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031018, com.baidu.live.a.avJ + "ala/audio/room/follow");
+        this.bOW = context;
+        setUniqueId(this.aEw);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031018, com.baidu.live.a.axj + "ala/audio/room/follow");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaGetCollectRoomHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.bBe = new HttpMessageListener(1031018) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.h.1
+        this.bCE = new HttpMessageListener(1031018) { // from class: com.baidu.tieba.yuyinala.liveroom.roomcard.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetCollectRoomHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.getUniqueId() && h.this.ozH != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetCollectRoomHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == h.this.getUniqueId() && h.this.oBM != null) {
                     AlaGetCollectRoomHttpResponseMessage alaGetCollectRoomHttpResponseMessage = (AlaGetCollectRoomHttpResponseMessage) httpResponsedMessage;
                     if (alaGetCollectRoomHttpResponseMessage.getError() != 0 || !alaGetCollectRoomHttpResponseMessage.isSuccess()) {
-                        h.this.ozH.onFail(alaGetCollectRoomHttpResponseMessage.getError(), alaGetCollectRoomHttpResponseMessage.getErrorString());
+                        h.this.oBM.onFail(alaGetCollectRoomHttpResponseMessage.getError(), alaGetCollectRoomHttpResponseMessage.getErrorString());
                     } else {
-                        h.this.ozH.a(alaGetCollectRoomHttpResponseMessage);
+                        h.this.oBM.a(alaGetCollectRoomHttpResponseMessage);
                     }
                 }
             }
         };
-        registerListener(this.bBe);
+        registerListener(this.bCE);
     }
 
     public void y(String str, String str2, int i) {
         b bVar = new b(str, str2, i);
-        bVar.setTag(this.aCW);
+        bVar.setTag(this.aEw);
         sendMessage(bVar);
     }
 
@@ -63,7 +63,7 @@ public class h extends BdBaseModel {
 
     public void onDestroy() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.bBe);
+        MessageManager.getInstance().unRegisterListener(this.bCE);
         MessageManager.getInstance().unRegisterTask(1031018);
     }
 

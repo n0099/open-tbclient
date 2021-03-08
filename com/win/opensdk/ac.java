@@ -1,41 +1,17 @@
 package com.win.opensdk;
 
-import com.win.opensdk.core.Info;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-/* loaded from: classes3.dex */
-public final class ac {
-    private List<Info> qkr = Collections.synchronizedList(new ArrayList());
+import android.os.Handler;
+import android.os.Message;
+/* loaded from: classes14.dex */
+public class ac extends Handler {
+    public final /* synthetic */ af qkG;
 
-    public final void he(List<Info> list) {
-        synchronized (this.qkr) {
-            this.qkr.clear();
-            this.qkr.addAll(list);
-        }
+    public ac(af afVar, aj ajVar) {
+        this.qkG = afVar;
     }
 
-    public final Info eJi() {
-        Info info = null;
-        synchronized (this.qkr) {
-            while (this.qkr.size() > 0 && ((info = this.qkr.remove(0)) == null || !info.isEffective())) {
-            }
-        }
-        return info;
-    }
-
-    public final boolean java() {
-        boolean isEmpty;
-        synchronized (this.qkr) {
-            isEmpty = this.qkr.isEmpty();
-        }
-        return isEmpty;
-    }
-
-    public final void eIX() {
-        try {
-            this.qkr.clear();
-        } catch (Exception e) {
-        }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        this.qkG.a(message);
     }
 }

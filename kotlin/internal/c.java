@@ -5,16 +5,16 @@ import kotlin.e;
 import kotlin.jvm.internal.p;
 import kotlin.text.l;
 @e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class c {
-    public static final b qtH;
+    public static final b quj;
 
     static {
         b bVar;
         Object newInstance;
         Object newInstance2;
-        int eLr = eLr();
-        if (eLr >= 65544) {
+        int eKZ = eKZ();
+        if (eKZ >= 65544) {
             try {
                 newInstance = Class.forName("kotlin.internal.jdk8.JDK8PlatformImplementations").newInstance();
             } catch (ClassNotFoundException e) {
@@ -31,9 +31,9 @@ public final class c {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             bVar = (b) newInstance;
-            qtH = bVar;
+            quj = bVar;
         }
-        if (eLr >= 65543) {
+        if (eKZ >= 65543) {
             try {
                 newInstance2 = Class.forName("kotlin.internal.a.a").newInstance();
             } catch (ClassNotFoundException e3) {
@@ -50,13 +50,13 @@ public final class c {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
             }
             bVar = (b) newInstance2;
-            qtH = bVar;
+            quj = bVar;
         }
         bVar = new b();
-        qtH = bVar;
+        quj = bVar;
     }
 
-    private static final int eLr() {
+    private static final int eKZ() {
         int i;
         String property = System.getProperty("java.specification.version");
         if (property == null) {
@@ -79,13 +79,13 @@ public final class c {
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
         }
         String substring = property.substring(0, a2);
-        p.n(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+        p.o(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
         int i2 = a2 + 1;
         if (property == null) {
             throw new TypeCastException("null cannot be cast to non-null type java.lang.String");
         }
         String substring2 = property.substring(i2, a3);
-        p.n(substring2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+        p.o(substring2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
         try {
             return (Integer.parseInt(substring) * 65536) + Integer.parseInt(substring2);
         } catch (NumberFormatException e2) {

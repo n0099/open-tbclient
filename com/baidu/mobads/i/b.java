@@ -12,14 +12,12 @@ import dalvik.system.DexClassLoader;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3367a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.baidu.mobads.i.a f3368b;
+    private Context f2405a;
+    private com.baidu.mobads.i.a b;
     private View c;
     private String d;
     private DexClassLoader e;
@@ -32,12 +30,12 @@ public class b extends RelativeLayout {
     }
 
     private void a(Context context) {
-        this.f3367a = context;
+        this.f2405a = context;
         Class[] clsArr = {Context.class};
-        Object[] objArr = {this.f3367a};
+        Object[] objArr = {this.f2405a};
         this.e = com.baidu.mobads.g.b.d();
         if (this.e == null) {
-            this.e = r.a(this.f3367a);
+            this.e = r.a(this.f2405a);
         }
         this.c = (View) r.a(d.a(this.d), this.e, clsArr, objArr);
         if (this.c != null) {
@@ -52,7 +50,7 @@ public class b extends RelativeLayout {
     }
 
     public void a(com.baidu.mobads.i.a aVar) {
-        this.f3368b = aVar;
+        this.b = aVar;
         try {
             Class<?> a2 = r.a("com.component.patchad.IPatchAdListener", this.e);
             Object newProxyInstance = Proxy.newProxyInstance(a2.getClassLoader(), new Class[]{a2}, new a());
@@ -83,7 +81,7 @@ public class b extends RelativeLayout {
         return 0L;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     class a implements InvocationHandler {
         a() {
         }
@@ -93,15 +91,15 @@ public class b extends RelativeLayout {
             String name = method.getName();
             if (!TextUtils.isEmpty(name)) {
                 if (name.equals("playCompletion")) {
-                    if (b.this.f3368b != null) {
-                        b.this.f3368b.a();
+                    if (b.this.b != null) {
+                        b.this.b.a();
                     }
                 } else if (name.equals("playFailure")) {
-                    if (b.this.f3368b != null) {
-                        b.this.f3368b.b();
+                    if (b.this.b != null) {
+                        b.this.b.b();
                     }
-                } else if (name.equals("onAdShow") && b.this.f3368b != null) {
-                    b.this.f3368b.c();
+                } else if (name.equals("onAdShow") && b.this.b != null) {
+                    b.this.b.c();
                 }
             }
             return null;

@@ -5,53 +5,53 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
-    public TbPageContext eUY;
+    public TbPageContext eWx;
     protected final View mRootView;
-    protected final String mYj;
-    protected com.baidu.tieba.recapp.report.c mYk;
-    protected AdvertAppInfo mYl;
-    protected com.baidu.tieba.lego.card.a.b mYm;
+    protected final String nau;
+    protected com.baidu.tieba.recapp.report.c nav;
+    protected AdvertAppInfo naw;
+    protected com.baidu.tieba.lego.card.a.b nax;
 
     public e(View view, String str) {
         this.mRootView = view;
-        this.mYj = str;
+        this.nau = str;
     }
 
-    public void a(AdCard.f fVar) {
+    public void a(AdCard.g gVar) {
     }
 
     public void onChangeSkinType() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T Id(int i) {
+    public final <T> T Ih(int i) {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void dEB() {
+    public void dEJ() {
         this.mRootView.setVisibility(0);
-        if (this.mYk != null) {
-            this.mYk.HW(303);
-            com.baidu.tieba.recapp.report.e.dEu().a(this.mYk);
+        if (this.nav != null) {
+            this.nav.Ia(303);
+            com.baidu.tieba.recapp.report.e.dEC().a(this.nav);
         }
     }
 
-    public void dEC() {
+    public void dEK() {
         this.mRootView.setVisibility(8);
     }
 
     public void e(com.baidu.tieba.recapp.report.c cVar) {
-        this.mYk = cVar;
+        this.nav = cVar;
     }
 
     public void c(com.baidu.tieba.lego.card.a.b bVar) {
-        this.mYm = bVar;
+        this.nax = bVar;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
     }
 
     public void setDownloadAppCallback(com.baidu.tieba.lego.card.c cVar) {
@@ -64,6 +64,6 @@ public class e {
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.mYl = advertAppInfo;
+        this.naw = advertAppInfo;
     }
 }

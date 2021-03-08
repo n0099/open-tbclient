@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class BdLogNetRequest implements INetListener {
     private static final int TIMEOUT = 30000;
     d mCallback;

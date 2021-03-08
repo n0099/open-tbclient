@@ -2,7 +2,7 @@ package com.baidu.ar.e;
 
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.callback.IError;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class a<InT, OutT> implements b<InT, OutT> {
     private boolean qH;
     private a<OutT, ?> tD;

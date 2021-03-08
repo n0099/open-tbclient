@@ -3,7 +3,7 @@ package com.baidu.yuyinala.privatemessage.session.view.smrlistview;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
     private Context mContext;
     private List<e> mItems = new ArrayList();
@@ -21,7 +21,7 @@ public class c {
         this.mItems.add(eVar);
     }
 
-    public List<e> enm() {
+    public List<e> enw() {
         return this.mItems;
     }
 

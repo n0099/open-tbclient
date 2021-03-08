@@ -10,32 +10,32 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.message.AlaLootRedPacketResultResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BdBaseModel {
-    private HttpMessageListener hUe;
-    private f opi;
+    private HttpMessageListener hVN;
+    private f orp;
 
     public a(BdPageContext<?> bdPageContext, f fVar) {
         super(bdPageContext);
-        this.hUe = new HttpMessageListener(1031075) { // from class: com.baidu.tieba.yuyinala.c.a.1
+        this.hVN = new HttpMessageListener(1031075) { // from class: com.baidu.tieba.yuyinala.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1031075 && (httpResponsedMessage instanceof AlaLootRedPacketResultResponseMessage)) {
                     AlaLootRedPacketResultResponseMessage alaLootRedPacketResultResponseMessage = (AlaLootRedPacketResultResponseMessage) httpResponsedMessage;
-                    if (a.this.opi != null) {
+                    if (a.this.orp != null) {
                         if (alaLootRedPacketResultResponseMessage.getError() != 0 || !alaLootRedPacketResultResponseMessage.isSuccess()) {
-                            a.this.opi.A(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
+                            a.this.orp.A(alaLootRedPacketResultResponseMessage.getError(), alaLootRedPacketResultResponseMessage.getErrorString());
                         } else {
-                            a.this.opi.b(alaLootRedPacketResultResponseMessage.efG());
+                            a.this.orp.b(alaLootRedPacketResultResponseMessage.efO());
                         }
                     }
                 }
             }
         };
-        this.opi = fVar;
+        this.orp = fVar;
         initTasks();
-        registerListener(this.hUe);
+        registerListener(this.hVN);
     }
 
     private void initTasks() {
@@ -67,7 +67,7 @@ public class a extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hUe);
+        MessageManager.getInstance().unRegisterListener(this.hVN);
         MessageManager.getInstance().unRegisterTask(1031075);
     }
 }

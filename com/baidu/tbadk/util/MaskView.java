@@ -32,10 +32,10 @@ public class MaskView extends View {
             }
         });
         setVisibility(8);
-        bzn();
+        bzq();
     }
 
-    public void bzn() {
+    public void bzq() {
         ap.setBackgroundColor(this, R.color.CAM_X0201);
         setAlpha(0.67f);
     }

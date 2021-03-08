@@ -19,12 +19,12 @@ import com.baidu.android.app.event.EventBusWrapper;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.ao.ah;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g extends com.baidu.swan.apps.res.widget.dialog.c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a dCh;
+    private a dDI;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a(g gVar, b bVar);
     }
@@ -35,7 +35,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         init();
     }
 
-    public void iM(int i) {
+    public void iN(int i) {
     }
 
     protected void init() {
@@ -43,12 +43,12 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         getWindow().setLayout(-1, -1);
     }
 
-    public a aHR() {
-        return this.dCh;
+    public a aHU() {
+        return this.dDI;
     }
 
     void a(a aVar) {
-        this.dCh = aVar;
+        this.dDI = aVar;
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
@@ -57,44 +57,44 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         EventBusWrapper.post(new com.baidu.swan.apps.res.widget.dialog.a("hide"));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public static final int dBB = a.h.aiapps_dialog_negative_title_cancel;
-        public static final int dBC = a.h.aiapps_dialog_positive_title_ok;
-        protected final g cTr;
-        protected int dBz;
-        protected final b dCi;
-        private boolean dCj = false;
+        public static final int dDc = a.h.aiapps_dialog_negative_title_cancel;
+        public static final int dDd = a.h.aiapps_dialog_positive_title_ok;
+        protected final g cUR;
+        protected final b dDJ;
+        private boolean dDK = false;
+        protected int dDa;
         private Context mContext;
 
         public a(Context context) {
-            this.cTr = cJ(context);
-            this.cTr.a(this);
-            this.dCi = new b((ViewGroup) this.cTr.getWindow().getDecorView());
+            this.cUR = cI(context);
+            this.cUR.a(this);
+            this.dDJ = new b((ViewGroup) this.cUR.getWindow().getDecorView());
             this.mContext = context;
-            this.dBz = this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
+            this.dDa = this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
         }
 
-        public a aHS() {
+        public a aHV() {
             if (ah.isScreenLand()) {
-                iT(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_default_width));
-                iQ(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_content_default_height));
+                iU(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_default_width));
+                iR(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_content_default_height));
             }
             return this;
         }
 
-        protected g cJ(Context context) {
+        protected g cI(Context context) {
             return new g(context, a.i.NoTitleDialog);
         }
 
-        public a gR(int i) {
-            this.dCi.mTitle.setText(this.mContext.getText(i));
+        public a gS(int i) {
+            this.dDJ.mTitle.setText(this.mContext.getText(i));
             return this;
         }
 
         public a f(CharSequence charSequence) {
             if (!TextUtils.isEmpty(charSequence)) {
-                this.dCi.mTitle.setText(charSequence);
+                this.dDJ.mTitle.setText(charSequence);
             } else {
                 gR(true);
             }
@@ -102,55 +102,55 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a gR(boolean z) {
-            this.dCi.dCm.setVisibility(z ? 8 : 0);
+            this.dDJ.dDN.setVisibility(z ? 8 : 0);
             return this;
         }
 
-        public a gQ(int i) {
-            if (this.dCi.dBo.getVisibility() != 0) {
-                this.dCi.dBo.setVisibility(0);
+        public a gR(int i) {
+            if (this.dDJ.dCP.getVisibility() != 0) {
+                this.dDJ.dCP.setVisibility(0);
             }
-            this.dCi.dBn.setText(this.mContext.getText(i));
-            aHU();
+            this.dDJ.dCO.setText(this.mContext.getText(i));
+            aHX();
             return this;
         }
 
-        public a rx(String str) {
-            if (this.dCi.dBo.getVisibility() != 0) {
-                this.dCi.dBo.setVisibility(0);
+        public a rE(String str) {
+            if (this.dDJ.dCP.getVisibility() != 0) {
+                this.dDJ.dCP.setVisibility(0);
             }
             if (str != null) {
-                this.dCi.dBn.setText(str);
-                aHU();
+                this.dDJ.dCO.setText(str);
+                aHX();
             }
             return this;
         }
 
         public a a(Spanned spanned) {
-            if (this.dCi.dBo.getVisibility() != 0) {
-                this.dCi.dBo.setVisibility(0);
+            if (this.dDJ.dCP.getVisibility() != 0) {
+                this.dDJ.dCP.setVisibility(0);
             }
             if (spanned != null) {
-                this.dCi.dBn.setMovementMethod(LinkMovementMethod.getInstance());
-                this.dCi.dBn.setText(spanned);
-                aHU();
+                this.dDJ.dCO.setMovementMethod(LinkMovementMethod.getInstance());
+                this.dDJ.dCO.setText(spanned);
+                aHX();
             }
             return this;
         }
 
-        public a aHT() {
-            this.dCi.dBn.setGravity(3);
+        public a aHW() {
+            this.dDJ.dCO.setGravity(3);
             return this;
         }
 
-        private void aHU() {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.dBz);
+        private void aHX() {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.dDa);
             layoutParams.addRule(3, a.f.dialog_message_content);
-            this.dCi.dBy.setLayoutParams(layoutParams);
+            this.dDJ.dCZ.setLayoutParams(layoutParams);
         }
 
-        public a iQ(int i) {
-            this.dCi.jc(i);
+        public a iR(int i) {
+            this.dDJ.jd(i);
             return this;
         }
 
@@ -160,23 +160,23 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
 
         public a a(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.dCi.dBp.setVisibility(8);
-                if (this.dCi.dBq.getVisibility() == 0) {
-                    this.dCi.dBt.setVisibility(8);
+                this.dDJ.dCQ.setVisibility(8);
+                if (this.dDJ.dCR.getVisibility() == 0) {
+                    this.dDJ.dCU.setVisibility(8);
                 }
             } else {
-                this.dCi.dBp.setVisibility(0);
-                if (this.dCi.dBq.getVisibility() == 0) {
-                    this.dCi.dBt.setVisibility(0);
+                this.dDJ.dCQ.setVisibility(0);
+                if (this.dDJ.dCR.getVisibility() == 0) {
+                    this.dDJ.dCU.setVisibility(0);
                 }
-                this.dCi.dBp.setText(charSequence);
-                this.dCi.dBp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.1
+                this.dDJ.dCQ.setText(charSequence);
+                this.dDJ.dCQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.cTr.iM(-1);
-                        a.this.cTr.dismiss();
+                        a.this.cUR.iN(-1);
+                        a.this.cUR.dismiss();
                         if (onClickListener != null) {
-                            onClickListener.onClick(a.this.cTr, -1);
+                            onClickListener.onClick(a.this.cUR, -1);
                         }
                     }
                 });
@@ -189,30 +189,30 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
                 view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        a.this.cTr.iM(i);
-                        a.this.cTr.dismiss();
-                        onClickListener.onClick(a.this.cTr, i);
+                        a.this.cUR.iN(i);
+                        a.this.cUR.dismiss();
+                        onClickListener.onClick(a.this.cUR, i);
                     }
                 });
             }
         }
 
-        public TextView aHM() {
+        public TextView aHP() {
             TextView textView;
             int i = 0;
-            if (this.dCi.dBp == null || this.dCi.dBp.getVisibility() != 0) {
+            if (this.dDJ.dCQ == null || this.dDJ.dCQ.getVisibility() != 0) {
                 textView = null;
             } else {
-                textView = this.dCi.dBp;
+                textView = this.dDJ.dCQ;
                 i = 1;
             }
-            if (this.dCi.dBq != null && this.dCi.dBq.getVisibility() == 0) {
+            if (this.dDJ.dCR != null && this.dDJ.dCR.getVisibility() == 0) {
                 i++;
-                textView = this.dCi.dBq;
+                textView = this.dDJ.dCR;
             }
-            if (this.dCi.dBr != null && this.dCi.dBr.getVisibility() == 0) {
+            if (this.dDJ.dCS != null && this.dDJ.dCS.getVisibility() == 0) {
                 i++;
-                textView = this.dCi.dBr;
+                textView = this.dDJ.dCS;
             }
             if (i != 1) {
                 return null;
@@ -226,23 +226,23 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
 
         public a b(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.dCi.dBq.setVisibility(8);
-                if (this.dCi.dBp.getVisibility() == 0) {
-                    this.dCi.dBt.setVisibility(8);
+                this.dDJ.dCR.setVisibility(8);
+                if (this.dDJ.dCQ.getVisibility() == 0) {
+                    this.dDJ.dCU.setVisibility(8);
                 }
             } else {
-                this.dCi.dBq.setVisibility(0);
-                if (this.dCi.dBp.getVisibility() == 0) {
-                    this.dCi.dBt.setVisibility(0);
+                this.dDJ.dCR.setVisibility(0);
+                if (this.dDJ.dCQ.getVisibility() == 0) {
+                    this.dDJ.dCU.setVisibility(0);
                 }
-                this.dCi.dBq.setText(charSequence);
-                this.dCi.dBq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.3
+                this.dDJ.dCR.setText(charSequence);
+                this.dDJ.dCR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.cTr.iM(-2);
-                        a.this.cTr.dismiss();
+                        a.this.cUR.iN(-2);
+                        a.this.cUR.dismiss();
                         if (onClickListener != null) {
-                            onClickListener.onClick(a.this.cTr, -2);
+                            onClickListener.onClick(a.this.cUR, -2);
                         }
                     }
                 });
@@ -252,28 +252,28 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
 
         public a gS(boolean z) {
             if (z) {
-                this.dCi.dBs.setVisibility(0);
+                this.dDJ.dCT.setVisibility(0);
             } else {
-                this.dCi.dBs.setVisibility(8);
+                this.dDJ.dCT.setVisibility(8);
             }
             return this;
         }
 
-        public a iR(int i) {
+        public a iS(int i) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, i);
             layoutParams.addRule(2, a.f.btn_panel);
-            this.dCi.dBs.setLayoutParams(layoutParams);
+            this.dDJ.dCT.setLayoutParams(layoutParams);
             return this;
         }
 
-        public void iS(int i) {
-            this.dCi.dBw.getLayoutParams().height = i;
-            this.dCi.dBw.requestLayout();
+        public void iT(int i) {
+            this.dDJ.dCX.getLayoutParams().height = i;
+            this.dDJ.dCX.requestLayout();
         }
 
-        public void iT(int i) {
-            this.dCi.dBw.getLayoutParams().width = i;
-            this.dCi.dBw.requestLayout();
+        public void iU(int i) {
+            this.dDJ.dCX.getLayoutParams().width = i;
+            this.dDJ.dCX.requestLayout();
         }
 
         public a e(int i, DialogInterface.OnClickListener onClickListener) {
@@ -281,211 +281,179 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a c(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
-            this.dCi.dBr.setVisibility(0);
-            if (this.dCi.dBp.getVisibility() == 0) {
-                this.dCi.dBu.setVisibility(0);
+            this.dDJ.dCS.setVisibility(0);
+            if (this.dDJ.dCQ.getVisibility() == 0) {
+                this.dDJ.dCV.setVisibility(0);
             }
-            this.dCi.dBr.setText(charSequence);
-            this.dCi.dBr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.4
+            this.dDJ.dCS.setText(charSequence);
+            this.dDJ.dCS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.g.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.cTr.iM(-3);
-                    a.this.cTr.dismiss();
+                    a.this.cUR.iN(-3);
+                    a.this.cUR.dismiss();
                     if (onClickListener != null) {
-                        onClickListener.onClick(a.this.cTr, -3);
+                        onClickListener.onClick(a.this.cUR, -3);
                     }
                 }
             });
             return this;
         }
 
-        public a iU(int i) {
-            this.dCi.dvq.setImageResource(i);
+        public a iV(int i) {
+            this.dDJ.dwR.setImageResource(i);
             return this;
         }
 
         public a aG(View view) {
-            this.dCi.dBv.removeAllViews();
-            this.dCi.dBv.addView(view);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.dBz);
+            this.dDJ.dCW.removeAllViews();
+            this.dDJ.dCW.addView(view);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.dDa);
             layoutParams.addRule(3, a.f.dialog_customPanel);
-            this.dCi.dBy.setLayoutParams(layoutParams);
+            this.dDJ.dCZ.setLayoutParams(layoutParams);
             return this;
         }
 
-        public a aHV() {
-            this.dCi.dCv.setPadding(0, 0, 0, 0);
+        public a aHY() {
+            this.dDJ.dDW.setPadding(0, 0, 0, 0);
             return this;
         }
 
-        public a aHW() {
-            ((ViewGroup.MarginLayoutParams) this.dCi.dCp.getLayoutParams()).setMargins(0, 0, 0, 0);
+        public a aHZ() {
+            ((ViewGroup.MarginLayoutParams) this.dDJ.dDQ.getLayoutParams()).setMargins(0, 0, 0, 0);
             return this;
         }
 
         public a gT(boolean z) {
-            this.dCi.dCn = Boolean.valueOf(z);
+            this.dDJ.dDO = Boolean.valueOf(z);
             return this;
         }
 
         public a b(DialogInterface.OnCancelListener onCancelListener) {
-            this.dCi.mOnCancelListener = onCancelListener;
+            this.dDJ.mOnCancelListener = onCancelListener;
             return this;
         }
 
         public a c(DialogInterface.OnDismissListener onDismissListener) {
-            this.dCi.mOnDismissListener = onDismissListener;
+            this.dDJ.mOnDismissListener = onDismissListener;
             return this;
         }
 
         public a a(DialogInterface.OnShowListener onShowListener) {
-            this.dCi.dCo = onShowListener;
+            this.dDJ.dDP = onShowListener;
             return this;
         }
 
         public a a(c cVar) {
-            this.dCi.dCu = cVar;
+            this.dDJ.dDV = cVar;
             return this;
         }
 
         public a gU(boolean z) {
-            this.dCi.dCx.setVisibility(z ? 0 : 8);
+            this.dDJ.dDY.setVisibility(z ? 0 : 8);
             return this;
         }
 
-        public g aqk() {
-            this.cTr.setCancelable(this.dCi.dCn.booleanValue());
-            if (this.dCi.dCn.booleanValue()) {
-                this.cTr.setCanceledOnTouchOutside(false);
+        public g aqn() {
+            this.cUR.setCancelable(this.dDJ.dDO.booleanValue());
+            if (this.dDJ.dDO.booleanValue()) {
+                this.cUR.setCanceledOnTouchOutside(false);
             }
-            this.cTr.setOnCancelListener(this.dCi.mOnCancelListener);
-            this.cTr.setOnDismissListener(this.dCi.mOnDismissListener);
-            this.cTr.setOnShowListener(this.dCi.dCo);
-            if (this.dCi.mOnKeyListener != null) {
-                this.cTr.setOnKeyListener(this.dCi.mOnKeyListener);
+            this.cUR.setOnCancelListener(this.dDJ.mOnCancelListener);
+            this.cUR.setOnDismissListener(this.dDJ.mOnDismissListener);
+            this.cUR.setOnShowListener(this.dDJ.dDP);
+            if (this.dDJ.mOnKeyListener != null) {
+                this.cUR.setOnKeyListener(this.dDJ.mOnKeyListener);
             }
-            aHZ();
-            if (this.dCi.dCu != null) {
-                this.dCi.dCu.a(this.cTr, this.dCi);
+            aIc();
+            if (this.dDJ.dDV != null) {
+                this.dDJ.dDV.a(this.cUR, this.dDJ);
             }
-            this.cTr.a(this);
-            return this.cTr;
+            this.cUR.a(this);
+            return this.cUR;
         }
 
         @Deprecated
         public g gV(boolean z) {
-            return aHX();
+            return aIa();
         }
 
-        public g aHX() {
-            g aqk = aqk();
-            if (this.dCj) {
-                aqk.getWindow().setType(2003);
+        public g aIa() {
+            g aqn = aqn();
+            if (this.dDK) {
+                aqn.getWindow().setType(2003);
             }
             try {
-                aqk.show();
+                aqn.show();
             } catch (WindowManager.BadTokenException e) {
                 if (g.DEBUG) {
                     e.printStackTrace();
                 }
             }
             EventBusWrapper.post(new com.baidu.swan.apps.res.widget.dialog.a("show"));
-            return aqk;
+            return aqn;
         }
 
-        protected Resources aHY() {
+        protected Resources aIb() {
             return this.mContext.getResources();
         }
 
-        private void aHZ() {
-            int color = aHY().getColor(a.c.aiapps_dialog_title_text_color);
-            int color2 = aHY().getColor(a.c.aiapps_dialog_btn_text_color);
-            int color3 = aHY().getColor(a.c.aiapps_dialog_btn_text_color);
-            int color4 = aHY().getColor(a.c.aiapps_box_dialog_message_text_color);
-            int color5 = aHY().getColor(a.c.aiapps_dialog_gray);
-            this.dCi.dBw.setBackground(aHY().getDrawable(this.dCi.dCy != -1 ? this.dCi.dCy : a.e.aiapps_dialog_bg_white));
-            this.dCi.mTitle.setTextColor(color);
-            this.dCi.dBn.setTextColor(color4);
-            this.dCi.dBp.setTextColor(this.dCi.dCr != color3 ? this.dCi.dCr : color3);
-            if (this.dCi.dCs != color2) {
-                this.dCi.dBq.setTextColor(this.dCi.dCs);
-            } else if (this.dCi.dCt != -1) {
-                this.dCi.dBq.setTextColor(aHY().getColorStateList(this.dCi.dCt));
+        private void aIc() {
+            int color = aIb().getColor(a.c.aiapps_dialog_title_text_color);
+            int color2 = aIb().getColor(a.c.aiapps_dialog_btn_text_color);
+            int color3 = aIb().getColor(a.c.aiapps_dialog_btn_text_color);
+            int color4 = aIb().getColor(a.c.aiapps_box_dialog_message_text_color);
+            int color5 = aIb().getColor(a.c.aiapps_dialog_gray);
+            this.dDJ.dCX.setBackground(aIb().getDrawable(this.dDJ.dDZ != -1 ? this.dDJ.dDZ : a.e.aiapps_dialog_bg_white));
+            this.dDJ.mTitle.setTextColor(color);
+            this.dDJ.dCO.setTextColor(color4);
+            this.dDJ.dCQ.setTextColor(this.dDJ.dDS != color3 ? this.dDJ.dDS : color3);
+            if (this.dDJ.dDT != color2) {
+                this.dDJ.dCR.setTextColor(this.dDJ.dDT);
+            } else if (this.dDJ.dDU != -1) {
+                this.dDJ.dCR.setTextColor(aIb().getColorStateList(this.dDJ.dDU));
             } else {
-                this.dCi.dBq.setTextColor(color2);
+                this.dDJ.dCR.setTextColor(color2);
             }
-            this.dCi.dBr.setTextColor(color2);
-            int color6 = this.dCi.dCz != -1 ? aHY().getColor(this.dCi.dCz) : color5;
-            this.dCi.dBs.setBackgroundColor(color6);
-            this.dCi.dBt.setBackgroundColor(color6);
-            this.dCi.dBu.setBackgroundColor(color6);
-            this.dCi.dBp.setBackground(aHY().getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
-            this.dCi.dBq.setBackground(aHY().getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
-            this.dCi.dBr.setBackground(aHY().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
-            TextView aHM = aHM();
-            if (aHM != null) {
-                aHM.setBackground(this.dCi.dCA ? aHY().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector) : null);
+            this.dDJ.dCS.setTextColor(color2);
+            int color6 = this.dDJ.dEa != -1 ? aIb().getColor(this.dDJ.dEa) : color5;
+            this.dDJ.dCT.setBackgroundColor(color6);
+            this.dDJ.dCU.setBackgroundColor(color6);
+            this.dDJ.dCV.setBackgroundColor(color6);
+            this.dDJ.dCQ.setBackground(aIb().getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
+            this.dDJ.dCR.setBackground(aIb().getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
+            this.dDJ.dCS.setBackground(aIb().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
+            TextView aHP = aHP();
+            if (aHP != null) {
+                aHP.setBackground(this.dDJ.dEb ? aIb().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector) : null);
             }
         }
 
         public a gW(boolean z) {
-            this.dCi.dBy.setVisibility(z ? 0 : 8);
+            this.dDJ.dCZ.setVisibility(z ? 0 : 8);
             return this;
         }
 
         public a gX(boolean z) {
-            this.dCi.dCA = z;
+            this.dDJ.dEb = z;
             return this;
         }
 
         public a gY(boolean z) {
-            ViewGroup.LayoutParams layoutParams = this.dCi.dCq.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.dDJ.dDR.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ((ViewGroup.MarginLayoutParams) layoutParams).setMargins(0, z ? 0 : this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_content_margin_top), 0, 0);
             }
             return this;
         }
 
-        public a iV(int i) {
-            return iW(aHY().getColor(i));
-        }
-
-        public a Z(String str, int i) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    iW(Color.parseColor(str));
-                } catch (IllegalArgumentException e) {
-                    if (g.DEBUG) {
-                        e.printStackTrace();
-                    }
-                }
-                return this;
-            }
-            if (i > 0) {
-                iV(i);
-            }
-            return this;
-        }
-
         public a iW(int i) {
-            this.dCi.dCr = i;
-            this.dCi.dBp.setTextColor(i);
-            return this;
-        }
-
-        public a iX(int i) {
-            return iZ(this.mContext.getResources().getColor(i));
-        }
-
-        public a iY(int i) {
-            this.dCi.dCt = i;
-            return this;
+            return iX(aIb().getColor(i));
         }
 
         public a aa(String str, int i) {
             if (!TextUtils.isEmpty(str)) {
                 try {
-                    iZ(Color.parseColor(str));
+                    iX(Color.parseColor(str));
                 } catch (IllegalArgumentException e) {
                     if (g.DEBUG) {
                         e.printStackTrace();
@@ -494,106 +462,138 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
                 return this;
             }
             if (i > 0) {
-                iX(i);
+                iW(i);
             }
             return this;
         }
 
-        public a iZ(int i) {
-            this.dCi.dCs = i;
+        public a iX(int i) {
+            this.dDJ.dDS = i;
+            this.dDJ.dCQ.setTextColor(i);
             return this;
         }
 
-        public ViewGroup aIa() {
-            return this.dCi.dBv;
+        public a iY(int i) {
+            return ja(this.mContext.getResources().getColor(i));
         }
 
-        public a r(int i, int i2, int i3, int i4) {
-            this.dCi.dCw.setPadding(i, i2, i3, i4);
+        public a iZ(int i) {
+            this.dDJ.dDU = i;
+            return this;
+        }
+
+        public a ab(String str, int i) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    ja(Color.parseColor(str));
+                } catch (IllegalArgumentException e) {
+                    if (g.DEBUG) {
+                        e.printStackTrace();
+                    }
+                }
+                return this;
+            }
+            if (i > 0) {
+                iY(i);
+            }
             return this;
         }
 
         public a ja(int i) {
-            this.dCi.dCy = i;
-            this.dCi.dBw.setBackgroundResource(i);
+            this.dDJ.dDT = i;
+            return this;
+        }
+
+        public ViewGroup aId() {
+            return this.dDJ.dCW;
+        }
+
+        public a r(int i, int i2, int i3, int i4) {
+            this.dDJ.dDX.setPadding(i, i2, i3, i4);
             return this;
         }
 
         public a jb(int i) {
-            this.dCi.dCz = i;
+            this.dDJ.dDZ = i;
+            this.dDJ.dCX.setBackgroundResource(i);
+            return this;
+        }
+
+        public a jc(int i) {
+            this.dDJ.dEa = i;
             return this;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
-        public ViewGroup bbd;
-        public TextView dBn;
-        public LinearLayout dBo;
-        public TextView dBp;
-        public TextView dBq;
-        public TextView dBr;
-        public View dBs;
-        public View dBt;
-        public View dBu;
-        public FrameLayout dBv;
-        public RelativeLayout dBw;
-        public LinearLayout dBy;
-        public LinearLayout dCm;
-        public DialogInterface.OnShowListener dCo;
-        public View dCp;
-        public View dCq;
-        public int dCr;
-        public int dCs;
-        public c dCu;
-        public FrameLayout dCv;
-        public FrameLayout dCw;
-        public View dCx;
-        public SwanAppScrollView dvH;
-        public ImageView dvq;
+        public ViewGroup bcD;
+        public TextView dCO;
+        public LinearLayout dCP;
+        public TextView dCQ;
+        public TextView dCR;
+        public TextView dCS;
+        public View dCT;
+        public View dCU;
+        public View dCV;
+        public FrameLayout dCW;
+        public RelativeLayout dCX;
+        public LinearLayout dCZ;
+        public LinearLayout dDN;
+        public DialogInterface.OnShowListener dDP;
+        public View dDQ;
+        public View dDR;
+        public int dDS;
+        public int dDT;
+        public c dDV;
+        public FrameLayout dDW;
+        public FrameLayout dDX;
+        public View dDY;
+        public ImageView dwR;
+        public SwanAppScrollView dxi;
         public DialogInterface.OnCancelListener mOnCancelListener;
         public DialogInterface.OnDismissListener mOnDismissListener;
         public DialogInterface.OnKeyListener mOnKeyListener;
         public TextView mTitle;
-        public Boolean dCn = true;
-        public int dCt = -1;
-        public int dCy = -1;
-        public int dCz = -1;
-        public boolean dCA = true;
+        public Boolean dDO = true;
+        public int dDU = -1;
+        public int dDZ = -1;
+        public int dEa = -1;
+        public boolean dEb = true;
 
         public b(ViewGroup viewGroup) {
-            this.bbd = viewGroup;
-            this.dCw = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
-            this.dCm = (LinearLayout) viewGroup.findViewById(a.f.title_panel);
+            this.bcD = viewGroup;
+            this.dDX = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.dDN = (LinearLayout) viewGroup.findViewById(a.f.title_panel);
             this.mTitle = (TextView) viewGroup.findViewById(a.f.dialog_title);
-            this.dBn = (TextView) viewGroup.findViewById(a.f.dialog_message);
-            this.dBo = (LinearLayout) viewGroup.findViewById(a.f.dialog_message_content);
-            this.dBp = (TextView) viewGroup.findViewById(a.f.positive_button);
-            this.dBq = (TextView) viewGroup.findViewById(a.f.negative_button);
-            this.dBr = (TextView) viewGroup.findViewById(a.f.neutral_button);
-            this.dBt = viewGroup.findViewById(a.f.divider3);
-            this.dBu = viewGroup.findViewById(a.f.divider4);
-            this.dCp = viewGroup.findViewById(a.f.dialog_customPanel);
-            this.dBv = (FrameLayout) viewGroup.findViewById(a.f.dialog_custom_content);
-            this.dvq = (ImageView) viewGroup.findViewById(a.f.dialog_icon);
-            this.dBw = (RelativeLayout) viewGroup.findViewById(a.f.searchbox_alert_dialog);
-            this.dBs = viewGroup.findViewById(a.f.divider2);
-            this.dvH = (SwanAppScrollView) viewGroup.findViewById(a.f.message_scrollview);
-            this.dBy = (LinearLayout) viewGroup.findViewById(a.f.btn_panel);
-            this.dCq = viewGroup.findViewById(a.f.dialog_customPanel);
-            this.dCv = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
-            this.dCx = viewGroup.findViewById(a.f.nightmode_mask);
+            this.dCO = (TextView) viewGroup.findViewById(a.f.dialog_message);
+            this.dCP = (LinearLayout) viewGroup.findViewById(a.f.dialog_message_content);
+            this.dCQ = (TextView) viewGroup.findViewById(a.f.positive_button);
+            this.dCR = (TextView) viewGroup.findViewById(a.f.negative_button);
+            this.dCS = (TextView) viewGroup.findViewById(a.f.neutral_button);
+            this.dCU = viewGroup.findViewById(a.f.divider3);
+            this.dCV = viewGroup.findViewById(a.f.divider4);
+            this.dDQ = viewGroup.findViewById(a.f.dialog_customPanel);
+            this.dCW = (FrameLayout) viewGroup.findViewById(a.f.dialog_custom_content);
+            this.dwR = (ImageView) viewGroup.findViewById(a.f.dialog_icon);
+            this.dCX = (RelativeLayout) viewGroup.findViewById(a.f.searchbox_alert_dialog);
+            this.dCT = viewGroup.findViewById(a.f.divider2);
+            this.dxi = (SwanAppScrollView) viewGroup.findViewById(a.f.message_scrollview);
+            this.dCZ = (LinearLayout) viewGroup.findViewById(a.f.btn_panel);
+            this.dDR = viewGroup.findViewById(a.f.dialog_customPanel);
+            this.dDW = (FrameLayout) viewGroup.findViewById(a.f.dialog_root);
+            this.dDY = viewGroup.findViewById(a.f.nightmode_mask);
             if (com.baidu.swan.apps.ao.c.isGingerbread() || com.baidu.swan.apps.ao.c.isGingerbreadmr1()) {
-                int dimensionPixelSize = this.dBn.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
-                this.dBn.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+                int dimensionPixelSize = this.dCO.getResources().getDimensionPixelSize(a.d.aiapps_dialog_text_padding);
+                this.dCO.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
-            int color = this.bbd.getResources().getColor(a.c.aiapps_dialog_btn_text_color);
-            this.dCr = color;
-            this.dCs = color;
+            int color = this.bcD.getResources().getColor(a.c.aiapps_dialog_btn_text_color);
+            this.dDS = color;
+            this.dDT = color;
         }
 
-        public void jc(int i) {
-            this.dvH.setMaxHeight(i);
+        public void jd(int i) {
+            this.dxi.setMaxHeight(i);
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.live.adp;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class R {
     private R() {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class attr {
         public static final int adjustViewBounds = 0x7f040032;
         public static final int autoHide = 0x7f040065;
@@ -61,7 +61,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class color {
         public static final int sdk_swipe_layout_night_bg = 0x7f060b39;
         public static final int sdk_swipe_layout_normal_bg = 0x7f060b3a;
@@ -71,7 +71,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class dimen {
         public static final int sdk_adp_list_view_pull_maxoffset = 0x7f070524;
 
@@ -79,35 +79,35 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class drawable {
-        public static final int sdk_bg_switch_close = 0x7f081c79;
-        public static final int sdk_bg_switch_open = 0x7f081c7a;
-        public static final int sdk_btn_handle = 0x7f081c8d;
-        public static final int sdk_listview_pull_refresh01 = 0x7f081d44;
-        public static final int sdk_listview_pull_refresh02 = 0x7f081d45;
+        public static final int sdk_bg_switch_close = 0x7f081c7f;
+        public static final int sdk_bg_switch_open = 0x7f081c80;
+        public static final int sdk_btn_handle = 0x7f081c93;
+        public static final int sdk_listview_pull_refresh01 = 0x7f081d4a;
+        public static final int sdk_listview_pull_refresh02 = 0x7f081d4b;
 
         private drawable() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class id {
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f2513common = 0x7f090b65;
-        public static final int pull_content = 0x7f092209;
-        public static final int pull_image = 0x7f09220b;
-        public static final int pull_root = 0x7f09220d;
-        public static final int pull_text = 0x7f09220e;
-        public static final int pull_time = 0x7f09220f;
-        public static final int shader = 0x7f0925b5;
+        public static final int f1892common = 0x7f090b66;
+        public static final int pull_content = 0x7f09220f;
+        public static final int pull_image = 0x7f092211;
+        public static final int pull_root = 0x7f092213;
+        public static final int pull_text = 0x7f092214;
+        public static final int pull_time = 0x7f092215;
+        public static final int shader = 0x7f0925bb;
 
         private id() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class layout {
         public static final int sdk_pull_view = 0x7f0c0879;
 
@@ -115,35 +115,35 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class string {
-        public static final int sdk_adp_label_name = 0x7f0f14b8;
-        public static final int sdk_adp_loading = 0x7f0f14b9;
-        public static final int sdk_adp_pull_to_refresh = 0x7f0f14ba;
-        public static final int sdk_adp_pull_view_date_tip = 0x7f0f14bb;
-        public static final int sdk_adp_release_to_refresh = 0x7f0f14bc;
-        public static final int sdk_dialog_cancel = 0x7f0f14e5;
-        public static final int sdk_dialog_ok = 0x7f0f14e6;
-        public static final int sdk_error_unkown_try_again = 0x7f0f14f0;
-        public static final int sdk_im_error_codec = 0x7f0f1511;
-        public static final int sdk_im_error_default = 0x7f0f1512;
-        public static final int sdk_load_res_failed = 0x7f0f1539;
-        public static final int sdk_location_all_offline = 0x7f0f153d;
-        public static final int sdk_location_gps_offline = 0x7f0f153f;
-        public static final int sdk_location_net_offline = 0x7f0f1540;
-        public static final int sdk_location_out_time = 0x7f0f1541;
-        public static final int sdk_neterror = 0x7f0f1549;
-        public static final int sdk_prompt = 0x7f0f15db;
-        public static final int sdk_send_error = 0x7f0f15f5;
-        public static final int sdk_share_to = 0x7f0f15fc;
-        public static final int sdk_voice_err_other = 0x7f0f164d;
-        public static final int sdk_waiting = 0x7f0f164e;
+        public static final int sdk_adp_label_name = 0x7f0f14b9;
+        public static final int sdk_adp_loading = 0x7f0f14ba;
+        public static final int sdk_adp_pull_to_refresh = 0x7f0f14bb;
+        public static final int sdk_adp_pull_view_date_tip = 0x7f0f14bc;
+        public static final int sdk_adp_release_to_refresh = 0x7f0f14bd;
+        public static final int sdk_dialog_cancel = 0x7f0f14e6;
+        public static final int sdk_dialog_ok = 0x7f0f14e7;
+        public static final int sdk_error_unkown_try_again = 0x7f0f14f1;
+        public static final int sdk_im_error_codec = 0x7f0f1512;
+        public static final int sdk_im_error_default = 0x7f0f1513;
+        public static final int sdk_load_res_failed = 0x7f0f153a;
+        public static final int sdk_location_all_offline = 0x7f0f153e;
+        public static final int sdk_location_gps_offline = 0x7f0f1540;
+        public static final int sdk_location_net_offline = 0x7f0f1541;
+        public static final int sdk_location_out_time = 0x7f0f1542;
+        public static final int sdk_neterror = 0x7f0f154a;
+        public static final int sdk_prompt = 0x7f0f15dc;
+        public static final int sdk_send_error = 0x7f0f15f6;
+        public static final int sdk_share_to = 0x7f0f15fd;
+        public static final int sdk_voice_err_other = 0x7f0f164e;
+        public static final int sdk_waiting = 0x7f0f164f;
 
         private string() {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class style {
         public static final int sdk_AppBaseTheme = 0x7f100332;
         public static final int sdk_AppTheme = 0x7f100333;
@@ -155,7 +155,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static final class styleable {
         public static final int sdk_BDImageView_adjustViewBounds = 0x00000000;
         public static final int sdk_BDImageView_borderSurroundContent = 0x00000001;

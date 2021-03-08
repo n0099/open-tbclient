@@ -5,35 +5,35 @@ import android.text.TextUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile s f13840a;
+    private static volatile s f8241a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Object f158a = new Object();
+    private static final Object f79a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f159a;
+    private Context f80a;
 
     private s(Context context) {
-        this.f159a = context;
+        this.f80a = context;
     }
 
     public static s a(Context context) {
-        if (f13840a == null) {
+        if (f8241a == null) {
             synchronized (s.class) {
-                if (f13840a == null) {
-                    f13840a = new s(context);
+                if (f8241a == null) {
+                    f8241a = new s(context);
                 }
             }
         }
-        return f13840a;
+        return f8241a;
     }
 
     private File a(String str) {
-        File file = new File(this.f159a.getFilesDir() + "/crash");
+        File file = new File(this.f80a.getFilesDir() + "/crash");
         if (!file.exists()) {
             file.mkdirs();
             return null;
@@ -57,7 +57,7 @@ public class s {
 
     public ArrayList<File> a() {
         ArrayList<File> arrayList = new ArrayList<>();
-        File file = new File(this.f159a.getFilesDir() + "/crash");
+        File file = new File(this.f80a.getFilesDir() + "/crash");
         if (!file.exists()) {
             file.mkdirs();
             return arrayList;
@@ -78,17 +78,17 @@ public class s {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
             return;
         }
-        synchronized (f158a) {
+        synchronized (f79a) {
             File a2 = a(str2);
             if (a2 != null) {
                 if (a2.getName().split(":").length < 2) {
                     return;
                 }
-                a2.renameTo(new File(this.f159a.getFilesDir() + "/crash/" + str2 + ":" + String.valueOf(Integer.parseInt(split[1]) + 1)));
+                a2.renameTo(new File(this.f80a.getFilesDir() + "/crash/" + str2 + ":" + String.valueOf(Integer.parseInt(split[1]) + 1)));
             } else {
                 FileOutputStream fileOutputStream2 = null;
                 try {
-                    fileOutputStream = new FileOutputStream(new File(this.f159a.getFilesDir() + "/crash/" + str2 + ":1"));
+                    fileOutputStream = new FileOutputStream(new File(this.f80a.getFilesDir() + "/crash/" + str2 + ":1"));
                     try {
                         try {
                             fileOutputStream.write(str.getBytes());

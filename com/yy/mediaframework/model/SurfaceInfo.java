@@ -1,7 +1,7 @@
 package com.yy.mediaframework.model;
 
 import android.view.Surface;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SurfaceInfo extends AbstractSurfaceInfo {
     public Surface mSurface;
 

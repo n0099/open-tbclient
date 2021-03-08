@@ -2,7 +2,7 @@ package com.yy.mediaframework.inteligence.coderate;
 
 import android.os.Handler;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DefaultCodeRateByFrame implements ICodeRateByFrame {
     static final int MAX_CODE_RATE = 2000000;
     static final int MIN_CODE_RATE = 800000;

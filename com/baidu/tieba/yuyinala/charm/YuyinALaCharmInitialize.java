@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.core.atomdata.YuyinBannedPostActivityConfig;
 import com.baidu.tieba.yuyinala.charm.audiencelist.YuyinALaAudiencesActivity;
 import com.baidu.tieba.yuyinala.charm.bannedpost.YuyinBannedPostListActivity;
 import com.baidu.tieba.yuyinala.charm.charmrank.YuyinCharmRankTotalActivity;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinALaCharmInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(YuyinAlaCharmCardActivityConfig.class, YuyinALaAudiencesActivity.class);

@@ -1,16 +1,16 @@
 package com.baidu.live.message;
 
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinModifyRoomMessage extends CustomResponsedMessage<ModifyRoomCover> {
-    private ModifyRoomCover bvj;
+    private ModifyRoomCover bwJ;
 
     public YuyinModifyRoomMessage(ModifyRoomCover modifyRoomCover) {
         super(2501030);
-        this.bvj = modifyRoomCover;
+        this.bwJ = modifyRoomCover;
     }
 
-    public ModifyRoomCover OA() {
-        return this.bvj;
+    public ModifyRoomCover OD() {
+        return this.bwJ;
     }
 }

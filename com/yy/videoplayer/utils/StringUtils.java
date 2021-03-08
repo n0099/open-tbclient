@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Vector;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class StringUtils {
     public static final boolean IGNORE_CASE = true;
     public static final boolean IGNORE_WIDTH = true;
@@ -160,8 +160,8 @@ public class StringUtils {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            int i = b2 & 255;
+        for (byte b : bArr) {
+            int i = b & 255;
             if (i < 16) {
                 sb.append("0");
             }

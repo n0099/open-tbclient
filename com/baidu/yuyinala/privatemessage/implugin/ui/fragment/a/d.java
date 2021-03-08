@@ -2,69 +2,69 @@ package com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    private static d pdQ;
-    private b pdR;
-    private b pdS;
-    private a pdT;
-    private String pdU = "";
-    private ConcurrentHashMap<String, c> pdV = new ConcurrentHashMap<>(4);
+    private static d pfV;
+    private b pfW;
+    private b pfX;
+    private a pfY;
+    private String pfZ = "";
+    private ConcurrentHashMap<String, c> pga = new ConcurrentHashMap<>(4);
     private AtomicInteger mOpenCounter = new AtomicInteger();
 
-    public static d ell() {
-        if (pdQ == null) {
+    public static d elv() {
+        if (pfV == null) {
             synchronized (d.class) {
-                if (pdQ == null) {
-                    pdQ = new d();
+                if (pfV == null) {
+                    pfV = new d();
                 }
             }
         }
-        return pdQ;
+        return pfV;
     }
 
-    public c Yz(String str) {
-        return this.pdV.get(str);
+    public c YG(String str) {
+        return this.pga.get(str);
     }
 
-    public String elm() {
-        return this.pdU;
+    public String elw() {
+        return this.pfZ;
     }
 
     public void a(String str, c cVar) {
-        this.pdU = str;
+        this.pfZ = str;
         if (cVar != null) {
-            this.pdV.put(str, cVar);
+            this.pga.put(str, cVar);
         }
     }
 
-    public void YA(String str) {
-        if (this.pdV.containsKey(str)) {
-            this.pdV.remove(str);
+    public void YH(String str) {
+        if (this.pga.containsKey(str)) {
+            this.pga.remove(str);
         }
     }
 
-    public b eln() {
-        return this.pdR;
+    public b elx() {
+        return this.pfW;
     }
 
     public void a(b bVar) {
-        this.pdR = bVar;
+        this.pfW = bVar;
     }
 
-    public b elo() {
-        return this.pdS;
+    public b ely() {
+        return this.pfX;
     }
 
     public void b(b bVar) {
-        this.pdS = bVar;
+        this.pfX = bVar;
     }
 
-    public static void elp() {
-        pdQ = null;
+    public static void elz() {
+        pfV = null;
     }
 
-    public a elq() {
-        return this.pdT;
+    public a elA() {
+        return this.pfY;
     }
 }

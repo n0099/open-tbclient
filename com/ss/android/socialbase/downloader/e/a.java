@@ -14,29 +14,27 @@ public class a extends Exception implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: RA */
+        /* renamed from: RE */
         public a[] newArray(int i) {
             return new a[i];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13141a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f13142b;
+    private int f7824a;
+    private String b;
 
     public a() {
     }
 
     public a(int i, String str) {
         super("[d-ex]:" + str);
-        this.f13142b = "[d-ex]:" + str;
-        this.f13141a = i;
+        this.b = "[d-ex]:" + str;
+        this.f7824a = i;
     }
 
     public void a(String str) {
-        this.f13142b = str;
+        this.b = str;
     }
 
     public a(int i, Throwable th) {
@@ -48,16 +46,16 @@ public class a extends Exception implements Parcelable {
     }
 
     public void a(Parcel parcel) {
-        this.f13141a = parcel.readInt();
-        this.f13142b = parcel.readString();
+        this.f7824a = parcel.readInt();
+        this.b = parcel.readString();
     }
 
     public int a() {
-        return this.f13141a;
+        return this.f7824a;
     }
 
     public String b() {
-        return this.f13142b;
+        return this.b;
     }
 
     @Override // android.os.Parcelable
@@ -67,12 +65,12 @@ public class a extends Exception implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f13141a);
-        parcel.writeString(this.f13142b);
+        parcel.writeInt(this.f7824a);
+        parcel.writeString(this.b);
     }
 
     @Override // java.lang.Throwable
     public String toString() {
-        return "BaseException{errorCode=" + this.f13141a + ", errorMsg='" + this.f13142b + "'}";
+        return "BaseException{errorCode=" + this.f7824a + ", errorMsg='" + this.b + "'}";
     }
 }

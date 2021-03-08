@@ -14,17 +14,17 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.collector.AppStatusRules;
 /* loaded from: classes.dex */
 public class VoteCountDownView extends LinearLayout {
-    private CountDownTimer gQI;
+    private CountDownTimer gSr;
     private Context mContext;
-    private a mfo;
-    private View nZX;
-    private View nZY;
-    private TextView oaa;
-    private TextView oab;
+    private a mhq;
+    private View ocd;
+    private View oce;
+    private TextView ocg;
+    private TextView och;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ciA();
+        void ciG();
     }
 
     public VoteCountDownView(Context context) {
@@ -47,8 +47,8 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     private void fh(long j) {
-        if (this.gQI == null) {
-            this.gQI = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
+        if (this.gSr == null) {
+            this.gSr = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.view.VoteCountDownView.1
                 @Override // android.os.CountDownTimer
                 public void onTick(long j2) {
                     long j3 = j2 + AppStatusRules.DEFAULT_GRANULARITY;
@@ -58,37 +58,37 @@ public class VoteCountDownView extends LinearLayout {
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     VoteCountDownView.this.setContent(0L, 0L);
-                    VoteCountDownView.this.bOH();
+                    VoteCountDownView.this.bON();
                 }
             };
-            this.gQI.start();
+            this.gSr.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bOH() {
-        if (this.mfo != null) {
-            this.mfo.ciA();
+    public void bON() {
+        if (this.mhq != null) {
+            this.mhq.ciG();
         }
     }
 
     private void tz() {
-        this.nZX = findViewById(R.id.hour_num_container);
-        this.nZY = findViewById(R.id.minute_num_container);
-        this.oaa = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.oab = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.ocd = findViewById(R.id.hour_num_container);
+        this.oce = findViewById(R.id.minute_num_container);
+        this.ocg = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.och = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2) {
-        this.oab.setText(String.valueOf(j2));
-        this.oaa.setText(String.valueOf(j));
+        this.och.setText(String.valueOf(j2));
+        this.ocg.setText(String.valueOf(j));
     }
 
-    public void uu(int i) {
-        ap.setBackgroundResource(this.nZX, R.drawable.bg_gradient_round, i);
-        ap.setBackgroundResource(this.nZY, R.drawable.bg_gradient_round, i);
-        ap.setViewTextColor(this.oaa, R.color.CAM_X0101, 1, i);
-        ap.setViewTextColor(this.oaa, R.color.CAM_X0101, 1, i);
+    public void uw(int i) {
+        ap.setBackgroundResource(this.ocd, R.drawable.bg_gradient_round, i);
+        ap.setBackgroundResource(this.oce, R.drawable.bg_gradient_round, i);
+        ap.setViewTextColor(this.ocg, R.color.CAM_X0101, 1, i);
+        ap.setViewTextColor(this.ocg, R.color.CAM_X0101, 1, i);
     }
 
     public void setData(long j) {
@@ -98,6 +98,6 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     public void setOnCountDownFinished(a aVar) {
-        this.mfo = aVar;
+        this.mhq = aVar;
     }
 }

@@ -12,21 +12,19 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1569a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f1570b = true;
+    private boolean f1309a = false;
+    private boolean b = true;
     private boolean c = true;
     private String d = "";
     private boolean e = true;
     private boolean f = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Callable<Object> {
         a() {
         }
@@ -50,29 +48,29 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     }
 
     private void a(Context context) {
-        l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.f1570b), Boolean.valueOf(this.c));
+        l.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
         i sq = i.sq();
         sq.b();
-        BDHttpDns P = BDHttpDns.P(context);
+        BDHttpDns O = BDHttpDns.O(context);
         refreshIpReachable();
-        ArrayList<String> b2 = P.sh().b();
-        if (this.f1570b) {
-            P.sh().a();
-            P.si().a();
+        ArrayList<String> b = O.sh().b();
+        if (this.b) {
+            O.sh().a();
+            O.si().a();
         }
         if (this.c) {
             if (isIPv6Only()) {
                 l.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
-            } else if (b2 == null || b2.isEmpty()) {
+            } else if (b == null || b.isEmpty()) {
             } else {
-                sq.a(b2, new k(context));
+                sq.a(b, new k(context));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(boolean z) {
-        this.f1570b = z;
+        this.b = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -88,8 +86,8 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String str;
         ConnectivityManager connectivityManager;
-        if (!this.f1569a) {
-            this.f1569a = true;
+        if (!this.f1309a) {
+            this.f1309a = true;
             return;
         }
         try {

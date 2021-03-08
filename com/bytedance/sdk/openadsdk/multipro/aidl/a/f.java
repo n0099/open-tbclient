@@ -11,47 +11,45 @@ import java.util.Map;
 public class f extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f7358a = Collections.synchronizedMap(new HashMap());
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile f f7359b;
+    private static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f4888a = Collections.synchronizedMap(new HashMap());
+    private static volatile f b;
 
     public static f a() {
-        if (f7359b == null) {
+        if (b == null) {
             synchronized (f.class) {
-                if (f7359b == null) {
-                    f7359b = new f();
+                if (b == null) {
+                    b = new f();
                 }
             }
         }
-        return f7359b;
+        return b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public synchronized void registerRewardVideoListener(String str, IRewardAdInteractionListener iRewardAdInteractionListener) throws RemoteException {
         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iRewardAdInteractionListener);
-        f7358a.put(str, remoteCallbackList);
+        f4888a.put(str, remoteCallbackList);
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
-    public void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3) throws RemoteException {
-        a(str, str2, z, i, str3);
+    public void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3, int i2, String str4) throws RemoteException {
+        a(str, str2, z, i, str3, i2, str4);
     }
 
-    private synchronized void a(String str, String str2, boolean z, int i, String str3) {
+    private synchronized void a(String str, String str2, boolean z, int i, String str3, int i2, String str4) {
         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList;
         try {
-            if (f7358a != null) {
+            if (f4888a != null) {
                 if ("recycleRes".equals(str2)) {
-                    remoteCallbackList = f7358a.remove(str);
+                    remoteCallbackList = f4888a.remove(str);
                 } else {
-                    remoteCallbackList = f7358a.get(str);
+                    remoteCallbackList = f4888a.get(str);
                 }
                 if (remoteCallbackList != null) {
                     int beginBroadcast = remoteCallbackList.beginBroadcast();
-                    for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                        IRewardAdInteractionListener broadcastItem = remoteCallbackList.getBroadcastItem(i2);
+                    for (int i3 = 0; i3 < beginBroadcast; i3++) {
+                        IRewardAdInteractionListener broadcastItem = remoteCallbackList.getBroadcastItem(i3);
                         if (broadcastItem != null) {
                             if ("onAdShow".equals(str2)) {
                                 broadcastItem.onAdShow();
@@ -64,7 +62,7 @@ public class f extends a {
                             } else if ("onAdVideoBarClick".equals(str2)) {
                                 broadcastItem.onAdVideoBarClick();
                             } else if ("onRewardVerify".equals(str2)) {
-                                broadcastItem.onRewardVerify(z, i, str3);
+                                broadcastItem.onRewardVerify(z, i, str3, i2, str4);
                             } else if ("onSkippedVideo".equals(str2)) {
                                 broadcastItem.onSkippedVideo();
                             } else if ("recycleRes".equals(str2)) {

@@ -9,20 +9,18 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public final class d {
     private Context d;
-    private com.yxcorp.kuaishou.addfp.a.b.b qmc;
-    public a qmo = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f14365b = null;
+    private com.yxcorp.kuaishou.addfp.a.b.b qmD;
+    public a qmQ = null;
+    private String b = null;
     private CountDownLatch e = new CountDownLatch(1);
-    private ServiceConnection f = new e(this);
+    private ServiceConnection qmH = new e(this);
 
     private void a(boolean z) {
         try {
             if (z) {
-                this.qmc.a(this.qmo);
+                this.qmD.a(this.qmQ);
             } else {
-                this.qmc.e();
+                this.qmD.e();
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -31,8 +29,8 @@ public final class d {
 
     public final String a() {
         try {
-            if (this.qmo != null) {
-                return this.qmo.a();
+            if (this.qmQ != null) {
+                return this.qmQ.a();
             }
         } catch (RemoteException e) {
         }
@@ -40,21 +38,21 @@ public final class d {
     }
 
     public final void a(Context context) {
-        if (this.f == null || context == null) {
+        if (this.qmH == null || context == null) {
             return;
         }
-        context.unbindService(this.f);
+        context.unbindService(this.qmH);
     }
 
     public final void a(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         try {
-            this.qmc = bVar;
+            this.qmD = bVar;
             this.d = context;
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (context.bindService(intent, this.f, 1)) {
+            if (context.bindService(intent, this.qmH, 1)) {
                 this.e.await(2000L, TimeUnit.MILLISECONDS);
-                if (this.qmo != null) {
+                if (this.qmQ != null) {
                     a(true);
                 } else {
                     a(false);
@@ -70,6 +68,6 @@ public final class d {
     }
 
     public final boolean b() {
-        return this.qmo != null;
+        return this.qmQ != null;
     }
 }

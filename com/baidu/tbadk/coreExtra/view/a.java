@@ -13,15 +13,15 @@ import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private ImageViewerBottomLayout fwN;
-    private AbsFloorImageTextView fwO;
-    private LinearLayout fwP;
-    private boolean fwQ = true;
-    private final ImageViewerBottomLayout.a fwR = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
+    private ImageViewerBottomLayout fym;
+    private AbsFloorImageTextView fyn;
+    private LinearLayout fyo;
+    private boolean fyp = true;
+    private final ImageViewerBottomLayout.a fyq = new ImageViewerBottomLayout.a() { // from class: com.baidu.tbadk.coreExtra.view.a.1
         @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
         public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
-            a.this.fwQ = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.fwQ)));
+            a.this.fyp = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(a.this.fyp)));
             a.this.kz(z);
         }
     };
@@ -29,54 +29,54 @@ public class a {
 
     public a(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
         this.mContext = context;
-        this.fwP = new LinearLayout(context);
-        this.fwP.setOrientation(1);
-        this.fwP.setVisibility(8);
-        ap.a(this.fwP, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
+        this.fyo = new LinearLayout(context);
+        this.fyo.setOrientation(1);
+        this.fyo.setVisibility(8);
+        ap.a(this.fyo, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
-        relativeLayout.addView(this.fwP, layoutParams);
-        bzs();
-        bzr();
+        relativeLayout.addView(this.fyo, layoutParams);
+        bzv();
+        bzu();
     }
 
-    private void bzr() {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.fwT);
-        this.fwN = new ImageViewerBottomLayout(this.mContext);
-        this.fwP.addView(this.fwN, layoutParams);
-        this.fwN.setExpandButtonListener(this.fwR);
+    private void bzu() {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.fys);
+        this.fym = new ImageViewerBottomLayout(this.mContext);
+        this.fyo.addView(this.fym, layoutParams);
+        this.fym.setExpandButtonListener(this.fyq);
     }
 
-    private void bzs() {
+    private void bzv() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.fwO = new FloorImageTextViewNew(this.mContext);
-        this.fwP.addView(this.fwO, layoutParams);
+        this.fyn = new FloorImageTextViewNew(this.mContext);
+        this.fyo.addView(this.fyn, layoutParams);
     }
 
     public void kz(boolean z) {
-        if (this.fwO != null) {
-            this.fwO.kz(z);
+        if (this.fyn != null) {
+            this.fyn.kz(z);
         }
-        if (this.fwN != null) {
-            this.fwN.kA(!z);
+        if (this.fym != null) {
+            this.fym.kA(!z);
         }
     }
 
     public void setUserId(String str) {
-        if (this.fwO != null) {
-            this.fwO.setUserId(str);
+        if (this.fyn != null) {
+            this.fyn.setUserId(str);
         }
-        if (this.fwN != null) {
-            this.fwN.setUserId(str);
+        if (this.fym != null) {
+            this.fym.setUserId(str);
         }
     }
 
     public void setAssistUrl(ImageUrlData imageUrlData) {
-        if (this.fwO != null) {
-            this.fwO.a(imageUrlData);
+        if (this.fyn != null) {
+            this.fyn.a(imageUrlData);
         }
-        if (this.fwN != null) {
-            this.fwN.b(imageUrlData);
+        if (this.fym != null) {
+            this.fym.b(imageUrlData);
         }
     }
 
@@ -85,50 +85,50 @@ public class a {
     }
 
     public boolean isShown() {
-        return bJ(this.fwP);
+        return bJ(this.fyo);
     }
 
-    public boolean bzt() {
-        return this.fwQ;
+    public boolean bzw() {
+        return this.fyp;
     }
 
     public void setVisibility(int i) {
-        if (this.fwP != null) {
-            this.fwP.clearAnimation();
-            this.fwP.setVisibility(i);
+        if (this.fyo != null) {
+            this.fyo.clearAnimation();
+            this.fyo.setVisibility(i);
         }
     }
 
     public void bb(int i, int i2) {
         if (i == 0) {
-            com.baidu.tieba.v.a.G(this.fwP, i2);
+            com.baidu.tieba.v.a.G(this.fyo, i2);
         } else {
-            com.baidu.tieba.v.a.F(this.fwP, i2);
+            com.baidu.tieba.v.a.F(this.fyo, i2);
         }
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        if (this.fwN != null) {
-            this.fwN.setOnShareImageListener(cVar);
+        if (this.fym != null) {
+            this.fym.setOnShareImageListener(cVar);
         }
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        if (this.fwN != null) {
-            this.fwN.setOnDownloadImageListener(bVar);
+        if (this.fym != null) {
+            this.fym.setOnDownloadImageListener(bVar);
         }
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        if (this.fwN != null) {
-            this.fwN.setOnReplyClickListener(onClickListener);
+        if (this.fym != null) {
+            this.fym.setOnReplyClickListener(onClickListener);
         }
     }
 
     public int getBottomHeight() {
-        if (this.fwN == null || this.fwO == null) {
+        if (this.fym == null || this.fyn == null) {
             return 0;
         }
-        return this.fwN.getHeight() + AbsFloorImageTextView.fvH;
+        return this.fym.getHeight() + AbsFloorImageTextView.fxg;
     }
 }

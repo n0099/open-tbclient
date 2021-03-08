@@ -12,9 +12,7 @@ import com.kwad.sdk.reward.a.e;
 import com.kwad.sdk.reward.d;
 /* loaded from: classes3.dex */
 public class a extends d implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f10628b;
+    private TextView b;
     private TextView c;
     @NonNull
     private com.kwad.sdk.reward.a.b d;
@@ -35,13 +33,13 @@ public class a extends d implements View.OnClickListener {
         if (TextUtils.isEmpty(k)) {
             return;
         }
-        if (this.f10652a.e == 1 || (this.f10652a.p && this.f10652a.q)) {
+        if (this.f7028a.e == 1 || (this.f7028a.p && this.f7028a.q)) {
             this.c.setVisibility(8);
-            this.f10628b.setText(k);
-            this.f10628b.setVisibility(0);
-            this.f10628b.setOnClickListener(this);
+            this.b.setText(k);
+            this.b.setVisibility(0);
+            this.b.setOnClickListener(this);
         } else {
-            this.f10628b.setVisibility(8);
+            this.b.setVisibility(8);
             this.c.setText(k);
             this.c.setVisibility(0);
             this.c.setOnClickListener(this);
@@ -50,12 +48,12 @@ public class a extends d implements View.OnClickListener {
     }
 
     private void f() {
-        com.kwad.sdk.core.report.b.c(this.e, 17, this.f10652a.d);
+        com.kwad.sdk.core.report.b.c(this.e, 17, this.f7028a.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        com.kwad.sdk.core.report.b.a(this.e, 39, this.f10652a.h.getTouchCoords(), this.f10652a.d);
+        com.kwad.sdk.core.report.b.a(this.e, 39, this.f7028a.h.getTouchCoords(), this.f7028a.d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -67,32 +65,32 @@ public class a extends d implements View.OnClickListener {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f10652a.f10527b;
-        this.e = this.f10652a.f;
-        this.f = this.f10652a.j;
-        this.f10652a.n.add(this.g);
+        this.d = this.f7028a.b;
+        this.e = this.f7028a.f;
+        this.f = this.f7028a.j;
+        this.f7028a.n.add(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10652a.n.remove(this.g);
+        this.f7028a.n.remove(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10628b = (TextView) b(R.id.ksad_end_left_call_btn);
+        this.b = (TextView) b(R.id.ksad_end_left_call_btn);
         this.c = (TextView) b(R.id.ksad_end_right_call_btn);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f10628b || view == this.c) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1094a() { // from class: com.kwad.sdk.reward.b.c.b.a.2
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+        if (view == this.b || view == this.c) {
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1111a() { // from class: com.kwad.sdk.reward.b.c.b.a.2
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
                 public void a() {
                     a.this.g();
                     a.this.h();

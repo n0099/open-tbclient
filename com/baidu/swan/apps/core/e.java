@@ -24,12 +24,12 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.nio.channels.FileChannel;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean ahq() {
-        return com.baidu.swan.apps.t.a.axi().ahq();
+    public static boolean aht() {
+        return com.baidu.swan.apps.t.a.axl().aht();
     }
 
     public static void d(File file, File file2) throws IOException {
@@ -62,7 +62,7 @@ public class e {
         }
     }
 
-    public static void mg(String str) {
+    public static void mn(String str) {
         d(str, null, null, true);
     }
 
@@ -167,7 +167,7 @@ public class e {
         }
     }
 
-    public static void cG(@NonNull Context context) {
+    public static void cF(@NonNull Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             Class<?> cls = Class.forName("android.content.res.AssetManager");
@@ -224,7 +224,7 @@ public class e {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new c.a(10006).sE(jSONObject2).sD(com.baidu.swan.apps.runtime.e.aIM()).auo();
+        new c.a(10006).sL(jSONObject2).sK(com.baidu.swan.apps.runtime.e.aIP()).aur();
     }
 
     public static void N(String str, String str2, String str3) {
@@ -235,7 +235,7 @@ public class e {
             jSONObject.put(Constant.KEY_PROCESS_NAME, ProcessUtils.getCurProcessName());
             jSONObject.put("appId", str2);
             jSONObject.put("errMessage", str3);
-            jSONObject.put("isMainThread", ak.aOs());
+            jSONObject.put("isMainThread", ak.aOv());
             String jSONObject2 = jSONObject.toString();
             if (DEBUG && TextUtils.isEmpty(jSONObject2)) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: empty");
@@ -244,7 +244,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new c.a(10008).sE(jSONObject2).sD(com.baidu.swan.apps.runtime.e.aIM()).auo();
+            new c.a(10008).sL(jSONObject2).sK(com.baidu.swan.apps.runtime.e.aIP()).aur();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

@@ -2,25 +2,25 @@ package com.baidu.tieba.godSquare.model;
 
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
-    private l<byte[]> jbT;
+    private l<byte[]> jdC;
 
     public a() {
-        bes();
+        beu();
     }
 
-    private void bes() {
-        if (this.jbT == null) {
-            this.jbT = com.baidu.tbadk.core.c.a.bqr().Ar("tb.god_square");
+    private void beu() {
+        if (this.jdC == null) {
+            this.jdC = com.baidu.tbadk.core.c.a.bqt().Ay("tb.god_square");
         }
     }
 
-    public byte[] JV(String str) {
+    public byte[] Ke(String str) {
         l.b<byte[]> bVar;
         if (str != null) {
-            bes();
-            bVar = this.jbT.by(str);
+            beu();
+            bVar = this.jdC.bC(str);
         } else {
             bVar = null;
         }
@@ -30,10 +30,10 @@ public class a {
         return bVar.value;
     }
 
-    public void m(String str, byte[] bArr) {
+    public void l(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            bes();
-            this.jbT.set(str, bArr, 604800000L);
+            beu();
+            this.jdC.set(str, bArr, 604800000L);
         }
     }
 }

@@ -5,17 +5,15 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f3883a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final byte[] f3884b;
+    public final int f2708a;
+    public final byte[] b;
     public final Map<String, String> c;
     public final boolean d;
     public final long e;
 
     public l(int i, byte[] bArr, Map<String, String> map, boolean z, long j) {
-        this.f3883a = i;
-        this.f3884b = bArr;
+        this.f2708a = i;
+        this.b = bArr;
         this.c = map;
         this.d = z;
         this.e = j;

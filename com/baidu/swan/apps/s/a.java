@@ -16,7 +16,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static final boolean DEBUG = b.DEBUG;
 
@@ -139,7 +139,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized String ox(String str) {
+    public static synchronized String oE(String str) {
         FileLock fileLock;
         BufferedReader bufferedReader;
         String str2 = null;

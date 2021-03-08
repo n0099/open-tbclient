@@ -14,9 +14,9 @@ import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i extends BaseAdapter {
-    private static int lCG = 3;
+    private static int lEI = 3;
     private Context mContext;
     private List<BazhuInfoData.BaInfo> mDataList = new ArrayList();
 
@@ -54,43 +54,43 @@ public class i extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.bup();
+            aVar.bus();
             aVar.b(this.mDataList.get(i));
         }
         return view;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public TextView fkQ;
-        public CheckBox lCH;
-        public BarImageView lCI;
-        private Drawable lCJ;
+        public TextView fmq;
+        public CheckBox lEJ;
+        public BarImageView lEK;
+        private Drawable lEL;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.fkQ = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.lCH = (CheckBox) view.findViewById(R.id.transmit_check_box);
-                this.lCI = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.fmq = (TextView) view.findViewById(R.id.transmit_forum_name);
+                this.lEJ = (CheckBox) view.findViewById(R.id.transmit_check_box);
+                this.lEK = (BarImageView) view.findViewById(R.id.forum_avatar);
             }
         }
 
         public void b(BazhuInfoData.BaInfo baInfo) {
             if (baInfo != null) {
-                this.fkQ.setText(baInfo.forum_name);
-                this.lCH.setChecked(baInfo.isChecked);
-                this.lCI.startLoad(baInfo.forum_Avatar, 10, false);
-                this.lCH.setButtonDrawable(this.lCJ);
+                this.fmq.setText(baInfo.forum_name);
+                this.lEJ.setChecked(baInfo.isChecked);
+                this.lEK.startLoad(baInfo.forum_Avatar, 10, false);
+                this.lEJ.setButtonDrawable(this.lEL);
             }
         }
 
-        public void bup() {
-            if (i.lCG != this.mSkinType) {
-                ap.setViewTextColor(this.fkQ, R.color.CAM_X0105);
-                this.lCJ = ap.getDrawable(R.drawable.transmit_check_box);
+        public void bus() {
+            if (i.lEI != this.mSkinType) {
+                ap.setViewTextColor(this.fmq, R.color.CAM_X0105);
+                this.lEL = ap.getDrawable(R.drawable.transmit_check_box);
             }
-            this.mSkinType = i.lCG;
+            this.mSkinType = i.lEI;
         }
     }
 
@@ -100,10 +100,10 @@ public class i extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void Fi(int i) {
-        if (lCG != i) {
+    public void Fl(int i) {
+        if (lEI != i) {
             notifyDataSetChanged();
         }
-        lCG = i;
+        lEI = i;
     }
 }

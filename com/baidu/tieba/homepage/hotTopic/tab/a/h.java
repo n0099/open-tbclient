@@ -9,74 +9,74 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class h {
-    private List<com.baidu.adp.widget.ListView.a> bns;
-    private s iLY;
-    private g kgD;
-    private k kgE;
-    private b kgF;
-    private d kgG;
-    private c kgH;
-    private e kgI;
-    private f kgJ;
+    private List<com.baidu.adp.widget.ListView.a> boS;
+    private s iNH;
+    private g kiG;
+    private k kiH;
+    private b kiI;
+    private d kiJ;
+    private c kiK;
+    private e kiL;
+    private f kiM;
     private TbPageContext mPageContext;
 
     public h(TbPageContext tbPageContext, s sVar) {
         this.mPageContext = tbPageContext;
-        this.iLY = sVar;
-        Kw();
+        this.iNH = sVar;
+        Kz();
     }
 
-    private void Kw() {
-        this.bns = new ArrayList();
-        this.bns.add(new j(this.mPageContext));
-        this.bns.add(new i(this.mPageContext));
-        this.bns.add(new LoadingViewAdapter(this.mPageContext));
-        this.kgD = new g(this.mPageContext);
-        this.kgD.a(this.iLY);
-        this.bns.add(this.kgD);
-        this.kgE = new k(this.mPageContext);
-        this.kgE.a(this.iLY);
-        this.bns.add(this.kgE);
-        this.kgF = new b(this.mPageContext);
-        this.kgF.a(this.iLY);
-        this.bns.add(this.kgF);
-        this.kgG = new d(this.mPageContext);
-        this.kgG.a(this.iLY);
-        this.bns.add(this.kgG);
-        this.kgH = new c(this.mPageContext);
-        this.kgH.a(this.iLY);
-        this.bns.add(this.kgH);
-        this.kgI = new e(this.mPageContext);
-        this.kgI.a(this.iLY);
-        this.bns.add(this.kgI);
-        this.kgJ = new f(this.mPageContext);
-        this.kgJ.a(this.iLY);
-        this.bns.add(this.kgJ);
-        this.iLY.addAdapters(this.bns);
+    private void Kz() {
+        this.boS = new ArrayList();
+        this.boS.add(new j(this.mPageContext));
+        this.boS.add(new i(this.mPageContext));
+        this.boS.add(new LoadingViewAdapter(this.mPageContext));
+        this.kiG = new g(this.mPageContext);
+        this.kiG.a(this.iNH);
+        this.boS.add(this.kiG);
+        this.kiH = new k(this.mPageContext);
+        this.kiH.a(this.iNH);
+        this.boS.add(this.kiH);
+        this.kiI = new b(this.mPageContext);
+        this.kiI.a(this.iNH);
+        this.boS.add(this.kiI);
+        this.kiJ = new d(this.mPageContext);
+        this.kiJ.a(this.iNH);
+        this.boS.add(this.kiJ);
+        this.kiK = new c(this.mPageContext);
+        this.kiK.a(this.iNH);
+        this.boS.add(this.kiK);
+        this.kiL = new e(this.mPageContext);
+        this.kiL.a(this.iNH);
+        this.boS.add(this.kiL);
+        this.kiM = new f(this.mPageContext);
+        this.kiM.a(this.iNH);
+        this.boS.add(this.kiM);
+        this.iNH.addAdapters(this.boS);
     }
 
     public void notifyDataSetChanged() {
-        if (this.iLY != null) {
-            this.iLY.getListAdapter().notifyDataSetChanged();
+        if (this.iNH != null) {
+            this.iNH.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<n> list) {
-        this.iLY.setData(list);
+        this.iNH.setData(list);
     }
 
     public List<n> getData() {
-        return this.iLY.getData();
+        return this.iNH.getData();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bns) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.boS) {
             aVar.setPageId(bdUniqueId);
         }
     }
 
     public void setOnItemCoverListener(com.baidu.tbadk.h.f fVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.bns) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.boS) {
             if (aVar instanceof a) {
                 ((a) aVar).setOnItemCoverListener(fVar);
             }

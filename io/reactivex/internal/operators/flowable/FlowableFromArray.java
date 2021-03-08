@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.g;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableFromArray<T> extends g<T> {
     final T[] array;
 
@@ -16,7 +16,7 @@ public final class FlowableFromArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static abstract class BaseArraySubscription<T> extends BasicQueueSubscription<T> {
         private static final long serialVersionUID = -2252972430506210021L;
         final T[] array;
@@ -44,7 +44,7 @@ public final class FlowableFromArray<T> extends g<T> {
                 return null;
             }
             this.index = i + 1;
-            return (T) io.reactivex.internal.functions.a.m(tArr[i], "array element is null");
+            return (T) io.reactivex.internal.functions.a.n(tArr[i], "array element is null");
         }
 
         @Override // io.reactivex.internal.a.f
@@ -74,7 +74,7 @@ public final class FlowableFromArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class ArraySubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
         final org.a.c<? super T> actual;
@@ -150,7 +150,7 @@ public final class FlowableFromArray<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class ArrayConditionalSubscription<T> extends BaseArraySubscription<T> {
         private static final long serialVersionUID = 2587302975077663557L;
         final io.reactivex.internal.a.a<? super T> actual;

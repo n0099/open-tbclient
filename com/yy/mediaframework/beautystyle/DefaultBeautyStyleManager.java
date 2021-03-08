@@ -3,7 +3,7 @@ package com.yy.mediaframework.beautystyle;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DefaultBeautyStyleManager implements IBeautyStyleManager {
     protected IBeautyStyle mCurrentStyle;
     protected Map<Class<? extends IBeautyStyle>, IBeautyStyle> mMap = new HashMap();

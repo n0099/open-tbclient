@@ -11,10 +11,8 @@ import java.nio.charset.Charset;
 class b implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    private final InputStream f9933a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Charset f9934b;
+    private final InputStream f6578a;
+    private final Charset b;
     private byte[] c;
     private int d;
     private int e;
@@ -26,11 +24,11 @@ class b implements Closeable {
         if (i < 0) {
             throw new IllegalArgumentException("capacity <= 0");
         }
-        if (!charset.equals(c.f9936a)) {
+        if (!charset.equals(c.f6580a)) {
             throw new IllegalArgumentException("Unsupported encoding");
         }
-        this.f9933a = inputStream;
-        this.f9934b = charset;
+        this.f6578a = inputStream;
+        this.b = charset;
         this.c = new byte[i];
     }
 
@@ -39,7 +37,7 @@ class b implements Closeable {
     }
 
     private void c() {
-        int read = this.f9933a.read(this.c, 0, this.c.length);
+        int read = this.f6578a.read(this.c, 0, this.c.length);
         if (read == -1) {
             throw new EOFException();
         }
@@ -50,7 +48,7 @@ class b implements Closeable {
     public String a() {
         int i;
         String byteArrayOutputStream;
-        synchronized (this.f9933a) {
+        synchronized (this.f6578a) {
             if (this.c == null) {
                 throw new IOException("LineReader is closed");
             }
@@ -64,7 +62,7 @@ class b implements Closeable {
                         @Override // java.io.ByteArrayOutputStream
                         public String toString() {
                             try {
-                                return new String(this.buf, 0, (this.count <= 0 || this.buf[this.count + (-1)] != 13) ? this.count : this.count - 1, b.this.f9934b.name());
+                                return new String(this.buf, 0, (this.count <= 0 || this.buf[this.count + (-1)] != 13) ? this.count : this.count - 1, b.this.b.name());
                             } catch (UnsupportedEncodingException e) {
                                 throw new AssertionError(e);
                             }
@@ -88,7 +86,7 @@ class b implements Closeable {
                     this.d = i + 1;
                     byteArrayOutputStream = byteArrayOutputStream2.toString();
                 } else if (this.c[i2] == 10) {
-                    byteArrayOutputStream = new String(this.c, this.d, ((i2 == this.d || this.c[i2 + (-1)] != 13) ? i2 : i2 - 1) - this.d, this.f9934b.name());
+                    byteArrayOutputStream = new String(this.c, this.d, ((i2 == this.d || this.c[i2 + (-1)] != 13) ? i2 : i2 - 1) - this.d, this.b.name());
                     this.d = i2 + 1;
                 } else {
                     i2++;
@@ -104,10 +102,10 @@ class b implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        synchronized (this.f9933a) {
+        synchronized (this.f6578a) {
             if (this.c != null) {
                 this.c = null;
-                this.f9933a.close();
+                this.f6578a.close();
             }
         }
     }

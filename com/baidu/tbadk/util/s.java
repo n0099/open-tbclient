@@ -21,14 +21,14 @@ public class s {
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
             if (z) {
-                videoItemData.buildWithOriginThreadData(cbVar.eTc);
+                videoItemData.buildWithOriginThreadData(cbVar.eUD);
             } else {
                 videoItemData.buildWithThreadData(cbVar);
             }
             arrayList.add(videoItemData);
             VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, arrayList, i, rect, str, str2, str3, str4, str5);
-            if (cbVar.eTc != null && cbVar.eTc.oriUgcInfo != null) {
-                videoPlayActivityConfig.setNid(cbVar.eTc.oriUgcInfo.oriUgcNid);
+            if (cbVar.eUD != null && cbVar.eUD.oriUgcInfo != null) {
+                videoPlayActivityConfig.setNid(cbVar.eUD.oriUgcInfo.oriUgcNid);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoPlayActivityConfig));
         }
@@ -42,7 +42,7 @@ public class s {
             } else {
                 videoSerializeVideoThreadInfo.copyFromThreadInfo(cbVar);
             }
-            VideoMiddlePageLightActivityConfig videoMiddlePageLightActivityConfig = new VideoMiddlePageLightActivityConfig(context, str, videoSerializeVideoThreadInfo.threadId, com.baidu.tieba.card.m.bnC(), cbVar.blq(), videoSerializeVideoThreadInfo);
+            VideoMiddlePageLightActivityConfig videoMiddlePageLightActivityConfig = new VideoMiddlePageLightActivityConfig(context, str, videoSerializeVideoThreadInfo.threadId, com.baidu.tieba.card.m.bnE(), cbVar.bls(), videoSerializeVideoThreadInfo);
             if (videoSerializeVideoThreadInfo.mBaijiahaoData != null && !TextUtils.isEmpty(videoSerializeVideoThreadInfo.mBaijiahaoData.oriUgcNid)) {
                 videoMiddlePageLightActivityConfig.setNid(videoSerializeVideoThreadInfo.mBaijiahaoData.oriUgcNid);
             }
@@ -54,7 +54,7 @@ public class s {
         if (cbVar != null) {
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
             videoSerializeVideoThreadInfo.copyFromTransmitThreadData(cbVar);
-            a(context, cbVar, str, videoSerializeVideoThreadInfo.threadId, com.baidu.tieba.card.m.bnC(), cbVar.blq(), videoSerializeVideoThreadInfo);
+            a(context, cbVar, str, videoSerializeVideoThreadInfo.threadId, com.baidu.tieba.card.m.bnE(), cbVar.bls(), videoSerializeVideoThreadInfo);
         }
     }
 
@@ -68,26 +68,26 @@ public class s {
 
     public static void a(int i, Context context, cb cbVar, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
         if (cbVar != null) {
-            if (com.baidu.tbadk.a.d.bju()) {
+            if (com.baidu.tbadk.a.d.bjw()) {
                 a(true, context, cbVar, str4);
-            } else if (com.baidu.tbadk.a.d.bjv()) {
-                a(true, context, cbVar.bln(), i2, rect, str, str2, str3, str4, str5);
+            } else if (com.baidu.tbadk.a.d.bjx()) {
+                a(true, context, cbVar.blp(), i2, rect, str, str2, str3, str4, str5);
             } else {
-                az.a(cbVar.eTc, context, i);
+                az.a(cbVar.eUD, context, i);
             }
         }
     }
 
     public static void a(int i, boolean z, Context context, cb cbVar, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
         if (cbVar != null) {
-            if (com.baidu.tbadk.a.d.bjA()) {
+            if (com.baidu.tbadk.a.d.bjC()) {
                 a(true, context, cbVar, str4);
-            } else if (com.baidu.tbadk.a.d.bjB()) {
-                a(true, context, cbVar.bln(), i2, rect, str, str2, str3, str4, str5);
-            } else if (com.baidu.tbadk.a.d.bjy()) {
-                az.a(cbVar.eTc, context, i);
+            } else if (com.baidu.tbadk.a.d.bjD()) {
+                a(true, context, cbVar.blp(), i2, rect, str, str2, str3, str4, str5);
+            } else if (com.baidu.tbadk.a.d.bjA()) {
+                az.a(cbVar.eUD, context, i);
             } else if (z) {
-                a(true, context, cbVar.bln(), i2, rect, str, str2, str3, str4, str5);
+                a(true, context, cbVar.blp(), i2, rect, str, str2, str3, str4, str5);
             } else {
                 b(context, cbVar, str4);
             }

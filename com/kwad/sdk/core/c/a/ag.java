@@ -8,7 +8,7 @@ public class ag implements com.kwad.sdk.core.c<p.a> {
     @Override // com.kwad.sdk.core.c
     public JSONObject a(p.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f9614a);
+        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f6366a);
         return jSONObject;
     }
 
@@ -18,6 +18,6 @@ public class ag implements com.kwad.sdk.core.c<p.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f9614a = jSONObject.optInt("status");
+        aVar.f6366a = jSONObject.optInt("status");
     }
 }

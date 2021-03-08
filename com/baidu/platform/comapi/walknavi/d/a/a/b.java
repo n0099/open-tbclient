@@ -3,9 +3,7 @@ package com.baidu.platform.comapi.walknavi.d.a.a;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class b implements Serializable {
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f4208b;
+    private String b;
     private String c;
     private String d;
     private String[] e;
@@ -17,24 +15,24 @@ public class b implements Serializable {
     private String m;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4207a = Integer.MIN_VALUE;
+    private int f2912a = Integer.MIN_VALUE;
     private boolean j = false;
     private boolean k = true;
 
     public void a(int i) {
-        this.f4207a = i;
+        this.f2912a = i;
     }
 
     public int a() {
-        return this.f4207a;
+        return this.f2912a;
     }
 
     public void a(String str) {
-        this.f4208b = str;
+        this.b = str;
     }
 
     public String b() {
-        return this.f4208b;
+        return this.b;
     }
 
     public void b(String str) {
@@ -106,6 +104,6 @@ public class b implements Serializable {
     }
 
     public String toString() {
-        return "ARResource [ err_code = " + this.f4207a + ", err_msg = " + this.f4208b + ", , version_code = " + this.g + ", ar_resource = " + this.d + " ]";
+        return "ARResource [ err_code = " + this.f2912a + ", err_msg = " + this.b + ", , version_code = " + this.g + ", ar_resource = " + this.d + " ]";
     }
 }

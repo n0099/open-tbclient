@@ -2,7 +2,7 @@ package com.thunder.livesdk.video;
 
 import com.thunder.livesdk.video.ThunderVideoPublishEngineImp;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoPublishConfig {
     public int codecid;
     public int encodeCodeRate;

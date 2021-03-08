@@ -41,12 +41,12 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
             public void a(@NonNull List<AdTemplate> list) {
                 if (z) {
                     a.this.d = 0;
-                    a.this.f8624a.clear();
+                    a.this.f5755a.clear();
                 }
-                if (a.this.f8624a.isEmpty()) {
+                if (a.this.f5755a.isEmpty()) {
                     m.e();
                 }
-                a.this.f8624a.addAll(list);
+                a.this.f5755a.addAll(list);
                 a.this.a(z, a.this.d);
                 a.this.e = false;
                 a.e(a.this);
@@ -136,9 +136,9 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
         a(z, z2, i, this.d);
         h.a aVar = new h.a();
         com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.c);
-        fVar.f9168b = this.c.getPageScene();
+        fVar.b = this.c.getPageScene();
         fVar.c = 100L;
-        aVar.f9263a.add(fVar);
+        aVar.f6152a.add(fVar);
         com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
         switch (i) {
             case 0:
@@ -157,7 +157,7 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
         }
         cVar.c = i2;
         cVar.d = this.h;
-        aVar.f9264b = cVar;
+        aVar.b = cVar;
         if (this.f != null && this.g.size() > 0) {
             if (this.d < this.g.size() && this.i != null) {
                 this.j = c(this.i);
@@ -177,7 +177,7 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
         } else {
             this.e = false;
             a(z, this.d);
-            a(f.f9323a.k, f.f9323a.l);
+            a(f.f6187a.k, f.f6187a.l);
         }
     }
 
@@ -191,13 +191,13 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
         a(true, false, 1, this.d);
         h.a aVar = new h.a();
         com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.c);
-        fVar.f9168b = this.c.getPageScene();
+        fVar.b = this.c.getPageScene();
         fVar.c = 100L;
-        aVar.f9263a.add(fVar);
+        aVar.f6152a.add(fVar);
         com.kwad.sdk.core.g.a.c cVar = new com.kwad.sdk.core.g.a.c();
         cVar.c = 1;
         cVar.d = this.h;
-        aVar.f9264b = cVar;
+        aVar.b = cVar;
         a(true, aVar, trendInfo);
         return true;
     }

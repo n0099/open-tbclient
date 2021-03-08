@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends d {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void ur(String str);
+        void uy(String str);
     }
 
     public b(@NonNull com.baidu.swan.apps.api.a.b bVar) {
@@ -26,9 +26,9 @@ public class b extends d {
     }
 
     @SuppressLint({"SwanBindApiNote"})
-    public com.baidu.swan.apps.api.c.b uu(String str) {
-        e aIL = e.aIL();
-        if (aIL == null) {
+    public com.baidu.swan.apps.api.c.b uB(String str) {
+        e aIO = e.aIO();
+        if (aIO == null) {
             if (DEBUG) {
                 Log.e("getOpenBduss", "getOpenBduss failed: null swan runtime");
             }
@@ -48,18 +48,18 @@ public class b extends d {
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         }
-        aIL.aIW().b(com.baidu.swan.apps.runtime.d.aIG(), "scope_get_open_bduss", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.b.1
+        aIO.aIZ().b(com.baidu.swan.apps.runtime.d.aIJ(), "scope_get_open_bduss", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void L(h<b.d> hVar) {
+            public void N(h<b.d> hVar) {
                 if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     int errorCode = hVar.getErrorCode();
-                    String gn = com.baidu.swan.apps.setting.oauth.c.gn(errorCode);
+                    String gp = com.baidu.swan.apps.setting.oauth.c.gp(errorCode);
                     if (d.DEBUG) {
-                        Log.e("getOpenBduss", "getOpenBduss failed: auth fail(" + errorCode + ", " + gn + ")");
+                        Log.e("getOpenBduss", "getOpenBduss failed: auth fail(" + errorCode + ", " + gp + ")");
                     }
-                    b.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gn(errorCode)));
+                    b.this.a(optString, new com.baidu.swan.apps.api.c.b(errorCode, com.baidu.swan.apps.setting.oauth.c.gp(errorCode)));
                     return;
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("tpls");
@@ -76,12 +76,12 @@ public class b extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, ArrayList<String> arrayList, final String str2) {
-        if (!com.baidu.swan.bdprivate.a.a.dU(com.baidu.swan.apps.runtime.d.aIG())) {
+        if (!com.baidu.swan.bdprivate.a.a.dT(com.baidu.swan.apps.runtime.d.aIJ())) {
             a(str2, new com.baidu.swan.apps.api.c.b(202, "user is not logged in or the params are invalid"));
         } else {
-            com.baidu.swan.bdprivate.a.a.a(com.baidu.swan.apps.runtime.d.aIG(), str, arrayList, new a() { // from class: com.baidu.swan.bdprivate.api.b.2
+            com.baidu.swan.bdprivate.a.a.a(com.baidu.swan.apps.runtime.d.aIJ(), str, arrayList, new a() { // from class: com.baidu.swan.bdprivate.api.b.2
                 @Override // com.baidu.swan.bdprivate.api.b.a
-                public void ur(String str3) {
+                public void uy(String str3) {
                     try {
                         b.this.a(str2, new com.baidu.swan.apps.api.c.b(0, new JSONObject(str3)));
                     } catch (JSONException e) {

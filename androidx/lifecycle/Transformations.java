@@ -4,7 +4,7 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.arch.core.util.Function;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Transformations {
     private Transformations() {
     }

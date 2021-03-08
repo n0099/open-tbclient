@@ -36,10 +36,8 @@ public class ScaleAnimSeekBar extends View {
     private boolean P;
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f9519a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f9520b;
+    private Paint f6308a;
+    private int b;
     private int c;
     private int d;
     private int e;
@@ -146,12 +144,12 @@ public class ScaleAnimSeekBar extends View {
         if (attributeSet != null) {
             a(context);
         }
-        this.f9519a = new Paint();
-        this.f9519a.setStyle(Paint.Style.FILL);
-        this.f9519a.setAntiAlias(true);
+        this.f6308a = new Paint();
+        this.f6308a.setStyle(Paint.Style.FILL);
+        this.f6308a.setAntiAlias(true);
         this.r = new GradientDrawable();
         this.r.setShape(0);
-        this.r.setColor(this.f9520b);
+        this.r.setColor(this.b);
         this.s = new GradientDrawable();
         this.s.setShape(0);
         this.s.setColor(this.c);
@@ -171,8 +169,8 @@ public class ScaleAnimSeekBar extends View {
             this.y.setBounds(this.x);
             this.y.draw(canvas);
         } else {
-            this.f9519a.setColor(this.c);
-            canvas.drawCircle(this.x.centerX(), this.x.centerY(), (this.x.width() * this.K) / 2.0f, this.f9519a);
+            this.f6308a.setColor(this.c);
+            canvas.drawCircle(this.x.centerX(), this.x.centerY(), (this.x.width() * this.K) / 2.0f, this.f6308a);
         }
         canvas.restore();
     }
@@ -196,8 +194,8 @@ public class ScaleAnimSeekBar extends View {
             a(b(a(i)));
             return;
         }
-        float b2 = b(a(this.m));
-        float b3 = b(a(i));
+        float b = b(a(this.m));
+        float b2 = b(a(i));
         if (this.J == null) {
             this.J = new ValueAnimator();
             this.J.setDuration(300L);
@@ -219,7 +217,7 @@ public class ScaleAnimSeekBar extends View {
         } else {
             this.J.cancel();
         }
-        this.J.setFloatValues(b2, b3);
+        this.J.setFloatValues(b, b2);
         this.J.start();
     }
 
@@ -327,7 +325,7 @@ public class ScaleAnimSeekBar extends View {
         this.G = false;
         this.i = ao.a(context, 0.3f);
         this.h = ao.a(context, 1.0f);
-        this.f9520b = 654311423;
+        this.b = 654311423;
         this.c = -1;
         this.d = 1090519039;
         this.f = 0;
@@ -481,8 +479,8 @@ public class ScaleAnimSeekBar extends View {
     }
 
     public void setProgressBackgroundColor(@ColorInt int i) {
-        this.f9520b = i;
-        this.r.setColor(this.f9520b);
+        this.b = i;
+        this.r.setColor(this.b);
     }
 
     public void setProgressColor(@ColorInt int i) {

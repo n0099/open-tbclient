@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class XPlatformPlugin {
     private Activity activity;
     private PlatformChannel.SystemChromeStyle currentTheme;

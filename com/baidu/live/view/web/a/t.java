@@ -13,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class t extends com.baidu.live.view.web.a {
     private SchemeCallback schemeCallback;
 
@@ -27,7 +27,7 @@ public class t extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void is(String str) {
+    public void iy(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl sendTagGiftBridge params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -45,12 +45,12 @@ public class t extends com.baidu.live.view.web.a {
                 e.printStackTrace();
             }
             com.baidu.live.gift.g gVar = new com.baidu.live.gift.g();
-            gVar.fQ(optString);
+            gVar.fW(optString);
             gVar.setGiftName(optString3);
             gVar.setPrice(optString2);
-            gVar.fP(String.valueOf(optInt));
-            gVar.setSceneFrom(com.baidu.live.utils.q.Vu());
-            gVar.cG(optInt2);
+            gVar.fV(String.valueOf(optInt));
+            gVar.setSceneFrom(com.baidu.live.utils.q.Vx());
+            gVar.cH(optInt2);
             gVar.setThumbnailUrl(optString4);
             BdUniqueId gen = BdUniqueId.gen();
             final int id = gen.getId();
@@ -77,7 +77,7 @@ public class t extends com.baidu.live.view.web.a {
     }
 
     private void a(BdUniqueId bdUniqueId, com.baidu.live.gift.g gVar, int i) {
-        ab Fr = ac.Fr();
-        ac.b(gVar, i, Fr.aId.userId + "", Fr.aId.userName, Fr.mLiveInfo.live_id + "", Fr.mLiveInfo.room_id + "", Fr.mLiveInfo.appId + "", Fr.mLiveInfo.feed_id + "", "", 0L, bdUniqueId);
+        ab Fu = ac.Fu();
+        ac.b(gVar, i, Fu.aJD.userId + "", Fu.aJD.userName, Fu.mLiveInfo.live_id + "", Fu.mLiveInfo.room_id + "", Fu.mLiveInfo.appId + "", Fu.mLiveInfo.feed_id + "", "", 0L, bdUniqueId);
     }
 }

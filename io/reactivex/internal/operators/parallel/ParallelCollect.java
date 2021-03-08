@@ -8,11 +8,11 @@ import io.reactivex.parallel.a;
 import java.util.concurrent.Callable;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ParallelCollect<T, C> extends a<C> {
     final b<? super C, ? super T> collector;
-    final a<? extends T> qqv;
-    final Callable<? extends C> qqw;
+    final a<? extends T> qqX;
+    final Callable<? extends C> qqY;
 
     @Override // io.reactivex.parallel.a
     public void a(c<? super C>[] cVarArr) {
@@ -21,14 +21,14 @@ public final class ParallelCollect<T, C> extends a<C> {
             c<? super Object>[] cVarArr2 = new c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.m(this.qqw.call(), "The initialSupplier returned a null value"), this.collector);
+                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.n(this.qqY.call(), "The initialSupplier returned a null value"), this.collector);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.N(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.qqv.a(cVarArr2);
+            this.qqX.a(cVarArr2);
         }
     }
 
@@ -39,11 +39,11 @@ public final class ParallelCollect<T, C> extends a<C> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int eKy() {
-        return this.qqv.eKy();
+    public int eKg() {
+        return this.qqX.eKg();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class ParallelCollectSubscriber<T, C> extends DeferredScalarSubscriber<T, C> {
         private static final long serialVersionUID = -4767392946044436228L;
         C collection;

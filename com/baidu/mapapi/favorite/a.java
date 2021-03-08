@@ -9,12 +9,12 @@ import org.json.JSONObject;
 class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static FavoritePoiInfo a(FavSyncPoi favSyncPoi) {
-        if (favSyncPoi == null || favSyncPoi.c == null || favSyncPoi.f3026b.equals("")) {
+        if (favSyncPoi == null || favSyncPoi.c == null || favSyncPoi.b.equals("")) {
             return null;
         }
         FavoritePoiInfo favoritePoiInfo = new FavoritePoiInfo();
-        favoritePoiInfo.f2679a = favSyncPoi.f3025a;
-        favoritePoiInfo.f2680b = favSyncPoi.f3026b;
+        favoritePoiInfo.f2001a = favSyncPoi.f2207a;
+        favoritePoiInfo.b = favSyncPoi.b;
         favoritePoiInfo.c = new LatLng(favSyncPoi.c.y / 1000000.0d, favSyncPoi.c.x / 1000000.0d);
         favoritePoiInfo.e = favSyncPoi.e;
         favoritePoiInfo.f = favSyncPoi.f;
@@ -33,22 +33,22 @@ class a {
         if (optJSONObject != null) {
             favoritePoiInfo.c = new LatLng(optJSONObject.optInt("y") / 1000000.0d, optJSONObject.optInt(Config.EVENT_HEAT_X) / 1000000.0d);
         }
-        favoritePoiInfo.f2680b = jSONObject.optString("uspoiname");
+        favoritePoiInfo.b = jSONObject.optString("uspoiname");
         favoritePoiInfo.g = Long.parseLong(jSONObject.optString("addtimesec"));
         favoritePoiInfo.d = jSONObject.optString("addr");
         favoritePoiInfo.f = jSONObject.optString("uspoiuid");
         favoritePoiInfo.e = jSONObject.optString("ncityid");
-        favoritePoiInfo.f2679a = jSONObject.optString("key");
+        favoritePoiInfo.f2001a = jSONObject.optString("key");
         return favoritePoiInfo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static FavSyncPoi a(FavoritePoiInfo favoritePoiInfo) {
-        if (favoritePoiInfo == null || favoritePoiInfo.c == null || favoritePoiInfo.f2680b == null || favoritePoiInfo.f2680b.equals("")) {
+        if (favoritePoiInfo == null || favoritePoiInfo.c == null || favoritePoiInfo.b == null || favoritePoiInfo.b.equals("")) {
             return null;
         }
         FavSyncPoi favSyncPoi = new FavSyncPoi();
-        favSyncPoi.f3026b = favoritePoiInfo.f2680b;
+        favSyncPoi.b = favoritePoiInfo.b;
         favSyncPoi.c = new Point((int) (favoritePoiInfo.c.longitude * 1000000.0d), (int) (favoritePoiInfo.c.latitude * 1000000.0d));
         favSyncPoi.d = favoritePoiInfo.d;
         favSyncPoi.e = favoritePoiInfo.e;

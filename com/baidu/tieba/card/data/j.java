@@ -6,15 +6,15 @@ import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class j extends k {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId iAH = BdUniqueId.gen();
+    public static final BdUniqueId iCq = BdUniqueId.gen();
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return (this.eJQ == null || this.eJQ.getThreadType() != 67) ? TYPE : iAH;
+        return (this.eLr == null || this.eLr.getThreadType() != 67) ? TYPE : iCq;
     }
 
     public j(cb cbVar) {
-        this.eJQ = cbVar;
+        this.eLr = cbVar;
     }
 
     public static boolean ae(cb cbVar) {
@@ -24,19 +24,19 @@ public class j extends k {
         if (cbVar.getThreadType() == 49) {
             return true;
         }
-        return cbVar.getThreadType() == 67 && cbVar.boj() != null && cbVar.boj().friendRoomStatus == 2;
+        return cbVar.getThreadType() == 67 && cbVar.bol() != null && cbVar.bol().friendRoomStatus == 2;
     }
 
-    public ar IU(String str) {
-        ar IT = IT(str);
-        IT.delete("obj_type");
-        IT.delete("obj_type");
-        IT.ap("obj_type", 3);
-        return IT;
+    public ar Jd(String str) {
+        ar Jc = Jc(str);
+        Jc.delete("obj_type");
+        Jc.delete("obj_type");
+        Jc.aq("obj_type", 3);
+        return Jc;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a
-    public cb bln() {
-        return this.eJQ;
+    public cb blp() {
+        return this.eLr;
     }
 }

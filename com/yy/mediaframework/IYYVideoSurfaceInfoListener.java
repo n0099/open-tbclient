@@ -1,7 +1,7 @@
 package com.yy.mediaframework;
 
 import com.yy.mediaframework.model.AbstractSurfaceInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IYYVideoSurfaceInfoListener {
     public static final int EVENT_SURFACE_AVAIBLE = 1;
     public static final int EVENT_SURFACE_DESTROYED = 3;

@@ -3,6 +3,21 @@ package com.bytedance.sdk.openadsdk;
 public interface TTFeedAd extends TTNativeAd {
 
     /* loaded from: classes6.dex */
+    public interface CustomizeVideo {
+        String getVideoUrl();
+
+        void reportVideoBreak(long j);
+
+        void reportVideoContinue(long j);
+
+        void reportVideoFinish();
+
+        void reportVideoPause(long j);
+
+        void reportVideoStart();
+    }
+
+    /* loaded from: classes6.dex */
     public interface VideoAdListener {
         void onProgressUpdate(long j, long j2);
 
@@ -18,6 +33,12 @@ public interface TTFeedAd extends TTNativeAd {
 
         void onVideoLoad(TTFeedAd tTFeedAd);
     }
+
+    int getAdViewHeight();
+
+    int getAdViewWidth();
+
+    CustomizeVideo getCustomVideo();
 
     double getVideoDuration();
 

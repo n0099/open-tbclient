@@ -32,7 +32,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
                 String string = context.getString(R.string.sign_notification_content);
                 String string2 = context.getString(R.string.app_name);
-                b.bxB().s(b.bxB().qt(12), 12);
+                b.bxE().s(b.bxE().qu(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
                 ar arVar = new ar("c13252");
                 arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
@@ -43,7 +43,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    d.bye().updateSignAlarm();
+                    d.byh().updateSignAlarm();
                 }
             }
         }

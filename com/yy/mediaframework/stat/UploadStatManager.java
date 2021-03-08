@@ -4,7 +4,7 @@ import android.util.SparseArray;
 import com.yy.mediaframework.GetAnchorStatInfoInterface;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UploadStatManager {
     private static final byte[] SYNC_FLAG = new byte[1];
     public static final String TAG = "UploadStatManager ";

@@ -13,24 +13,22 @@ import org.json.JSONObject;
 public final class bk {
 
     /* renamed from: a  reason: collision with root package name */
-    final String f5804a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final String f5805b;
+    final String f3916a;
+    final String b;
     final Boolean c;
     final Long d;
     final Long e;
     final Long g;
-    final Integer pns;
+    final Integer ppC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(String str, String str2, Boolean bool, Long l, Long l2, Integer num, Long l3) {
-        this.f5804a = str;
-        this.f5805b = str2;
+        this.f3916a = str;
+        this.b = str2;
         this.c = bool;
         this.d = l;
         this.e = l2;
-        this.pns = num;
+        this.ppC = num;
         this.g = l3;
     }
 
@@ -42,12 +40,12 @@ public final class bk {
     @NonNull
     public Map<String, String> a() {
         HashMap hashMap = new HashMap();
-        bh.a(hashMap, "id", this.f5804a);
-        bh.a(hashMap, "req_id", this.f5805b);
+        bh.a(hashMap, "id", this.f3916a);
+        bh.a(hashMap, "req_id", this.b);
         bh.a(hashMap, "is_track_limited", String.valueOf(this.c));
         bh.a(hashMap, "take_ms", String.valueOf(this.d));
         bh.a(hashMap, "time", String.valueOf(this.e));
-        bh.a(hashMap, "query_times", String.valueOf(this.pns));
+        bh.a(hashMap, "query_times", String.valueOf(this.ppC));
         bh.a(hashMap, "hw_id_version_code", String.valueOf(this.g));
         return hashMap;
     }
@@ -56,12 +54,12 @@ public final class bk {
     @NonNull
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
-        bh.a(jSONObject, "id", this.f5804a);
-        bh.a(jSONObject, "req_id", this.f5805b);
+        bh.a(jSONObject, "id", this.f3916a);
+        bh.a(jSONObject, "req_id", this.b);
         bh.a(jSONObject, "is_track_limited", this.c);
         bh.a(jSONObject, "take_ms", this.d);
         bh.a(jSONObject, "time", this.e);
-        bh.a(jSONObject, "query_times", this.pns);
+        bh.a(jSONObject, "query_times", this.ppC);
         bh.a(jSONObject, "hw_id_version_code", this.g);
         return jSONObject;
     }
@@ -69,7 +67,7 @@ public final class bk {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     @AnyThread
-    public static bk YK(@Nullable String str) {
+    public static bk YR(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

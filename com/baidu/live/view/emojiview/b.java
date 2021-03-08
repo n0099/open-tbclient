@@ -14,59 +14,59 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class b {
-    public static List<String> bUT = new ArrayList();
+    public static List<String> bWt = new ArrayList();
     private static final HashMap<String, Integer> mMap = new HashMap<>();
-    private static final HashMap<String, String> bUU = new HashMap<>();
-    private static final HashMap<String, String> bUV = new HashMap<>();
+    private static final HashMap<String, String> bWu = new HashMap<>();
+    private static final HashMap<String, String> bWv = new HashMap<>();
 
     public static String O(Context context, String str) {
-        return bUV.get(str);
+        return bWv.get(str);
     }
 
-    public static void bw(Context context) {
-        if (bUU != null && bUU.size() == 0) {
-            bx(context);
+    public static void bv(Context context) {
+        if (bWu != null && bWu.size() == 0) {
+            bw(context);
         }
     }
 
-    public static HashMap<String, Integer> XP() {
+    public static HashMap<String, Integer> XS() {
         return mMap;
     }
 
-    public static HashMap<String, String> XQ() {
-        return bUU;
+    public static HashMap<String, String> XT() {
+        return bWu;
     }
 
-    private static void bx(Context context) {
-        List<com.baidu.live.view.emojiview.a.a> XR = XR();
-        if (XR == null || XR.size() == 0) {
-            List<com.baidu.live.view.emojiview.a.a> by = by(context);
-            bUT.clear();
-            for (int i = 0; i < by.size(); i++) {
-                com.baidu.live.view.emojiview.a.a aVar = by.get(i);
+    private static void bw(Context context) {
+        List<com.baidu.live.view.emojiview.a.a> XU = XU();
+        if (XU == null || XU.size() == 0) {
+            List<com.baidu.live.view.emojiview.a.a> bx = bx(context);
+            bWt.clear();
+            for (int i = 0; i < bx.size(); i++) {
+                com.baidu.live.view.emojiview.a.a aVar = bx.get(i);
                 mMap.put(aVar.text, Integer.valueOf(P(context, aVar.icon.split("\\.")[0])));
-                bUV.put(aVar.text, aVar.id);
-                bUT.add(aVar.text);
+                bWv.put(aVar.text, aVar.id);
+                bWt.add(aVar.text);
             }
             return;
         }
-        bUT.clear();
+        bWt.clear();
         mMap.clear();
-        for (int i2 = 0; i2 < XR.size(); i2++) {
-            com.baidu.live.view.emojiview.a.a aVar2 = XR.get(i2);
-            bUV.put(aVar2.text, aVar2.id);
-            bUU.put(aVar2.text, aVar2.localPath);
-            bUT.add(aVar2.text);
+        for (int i2 = 0; i2 < XU.size(); i2++) {
+            com.baidu.live.view.emojiview.a.a aVar2 = XU.get(i2);
+            bWv.put(aVar2.text, aVar2.id);
+            bWu.put(aVar2.text, aVar2.localPath);
+            bWt.add(aVar2.text);
         }
     }
 
-    private static List<com.baidu.live.view.emojiview.a.a> XR() {
+    private static List<com.baidu.live.view.emojiview.a.a> XU() {
         String str;
-        String in = in(com.baidu.live.storage.b.hG(com.baidu.live.ae.a.Qj().buX.aNt.aRi.CJ().Cv()));
-        if (com.baidu.live.h.a.isDirectory(in)) {
-            String str2 = in + "/info.json";
+        String it = it(com.baidu.live.storage.b.hM(com.baidu.live.ae.a.Qm().bwx.aOT.aSI.CM().Cy()));
+        if (com.baidu.live.h.a.isDirectory(it)) {
+            String str2 = it + "/info.json";
             if (com.baidu.live.h.a.existFile(str2)) {
                 try {
                     FileInputStream fileInputStream = new FileInputStream(new File(str2));
@@ -77,18 +77,18 @@ public final class b {
                     e.printStackTrace();
                     str = "";
                 }
-                List<com.baidu.live.view.emojiview.a.a> io2 = io(str);
-                for (com.baidu.live.view.emojiview.a.a aVar : io2) {
-                    aVar.localPath = in + "/" + aVar.icon;
+                List<com.baidu.live.view.emojiview.a.a> iu = iu(str);
+                for (com.baidu.live.view.emojiview.a.a aVar : iu) {
+                    aVar.localPath = it + "/" + aVar.icon;
                 }
-                return io2;
+                return iu;
             }
             return null;
         }
         return null;
     }
 
-    public static String in(String str) {
+    public static String it(String str) {
         if (com.baidu.live.h.a.existFile(str)) {
             if (!com.baidu.live.h.a.isDirectory(str)) {
                 FileHelper.deleteFileOrDir(new File(str));
@@ -99,7 +99,7 @@ public final class b {
                 return null;
             }
             if (listFiles.length == 1 && listFiles[0] != null && listFiles[0].isDirectory()) {
-                return in(listFiles[0].getAbsolutePath());
+                return it(listFiles[0].getAbsolutePath());
             }
             return str;
         }
@@ -107,18 +107,18 @@ public final class b {
     }
 
     private static int P(Context context, String str) {
-        return d.iq(str);
+        return d.iw(str);
     }
 
-    public static List<com.baidu.live.view.emojiview.a.a> by(Context context) {
-        List<com.baidu.live.view.emojiview.a.a> io2 = io(Q(context, "audio_emotion_info.json"));
-        if (io2 != null) {
-            return io2;
+    public static List<com.baidu.live.view.emojiview.a.a> bx(Context context) {
+        List<com.baidu.live.view.emojiview.a.a> iu = iu(Q(context, "audio_emotion_info.json"));
+        if (iu != null) {
+            return iu;
         }
         return null;
     }
 
-    private static List<com.baidu.live.view.emojiview.a.a> io(String str) {
+    private static List<com.baidu.live.view.emojiview.a.a> iu(String str) {
         int i = 0;
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("packages").getJSONObject(0).optJSONArray("emoticons");

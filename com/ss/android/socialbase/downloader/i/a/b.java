@@ -12,10 +12,8 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static long f13166a;
-
-    /* renamed from: b  reason: collision with root package name */
-    static long f13167b;
+    static long f7839a;
+    static long b;
     private static final HandlerThread c = new HandlerThread("Downloader-preconnecter");
     private static final Handler d;
 
@@ -43,13 +41,13 @@ public class b {
                     try {
                         try {
                             List<e> a2 = b.a(0L, null, null);
-                            c w = a.eIu().a(str) ? a.eIu().w(str, a2) : null;
+                            c w = a.eIw().a(str) ? a.eIw().w(str, a2) : null;
                             if (w == null) {
                                 try {
                                     cVar = new c(str, a2, 0L);
                                     cVar.a();
                                     if (cVar.e()) {
-                                        a.eIu().a(str, cVar);
+                                        a.eIw().a(str, cVar);
                                     }
                                 } catch (Exception e) {
                                     e = e;
@@ -95,13 +93,13 @@ public class b {
     }
 
     private static void a() {
-        f13166a = com.ss.android.socialbase.downloader.k.a.eIF().a("preconnect_connection_outdate_time", 300000L);
-        f13167b = com.ss.android.socialbase.downloader.k.a.eIF().a("preconnect_head_info_outdate_time", 300000L);
-        a.eIu().a(com.ss.android.socialbase.downloader.k.a.eIF().a("preconnect_max_cache_size", 3));
+        f7839a = com.ss.android.socialbase.downloader.k.a.eIH().a("preconnect_connection_outdate_time", 300000L);
+        b = com.ss.android.socialbase.downloader.k.a.eIH().a("preconnect_head_info_outdate_time", 300000L);
+        a.eIw().a(com.ss.android.socialbase.downloader.k.a.eIH().a("preconnect_max_cache_size", 3));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static List<e> a(long j, com.ss.android.socialbase.downloader.g.c cVar, List<e> list) {
-        return com.ss.android.socialbase.downloader.m.d.a(list, cVar == null ? null : cVar.an(), j, 0L);
+        return com.ss.android.socialbase.downloader.m.d.a(list, cVar == null ? null : cVar.eHo(), j, 0L);
     }
 }

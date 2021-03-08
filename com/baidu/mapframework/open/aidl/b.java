@@ -13,13 +13,13 @@ public interface b extends IInterface {
 
         /* renamed from: com.baidu.mapframework.open.aidl.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C0250a implements b {
+        private static class C0256a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f2991a;
+            private IBinder f2183a;
 
-            C0250a(IBinder iBinder) {
-                this.f2991a = iBinder;
+            C0256a(IBinder iBinder) {
+                this.f2183a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.b
@@ -29,7 +29,7 @@ public interface b extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IOpenClientCallback");
                     obtain.writeStrongBinder(iBinder);
-                    this.f2991a.transact(1, obtain, obtain2, 0);
+                    this.f2183a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -39,7 +39,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f2991a;
+                return this.f2183a;
             }
         }
 
@@ -52,7 +52,7 @@ public interface b extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IOpenClientCallback");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0250a(iBinder) : (b) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0256a(iBinder) : (b) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

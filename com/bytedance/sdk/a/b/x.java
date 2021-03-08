@@ -14,7 +14,7 @@ public interface x {
 
         int d();
 
-        ab epu();
+        ab epB();
     }
 
     b a(a aVar) throws IOException;

@@ -25,17 +25,17 @@ public class EBusinessProtocolView extends Dialog {
     private View mRootView;
     private int mSkinType;
     private String mTitle;
-    private TextView nXA;
-    private TBSpecificationBtn nXB;
-    private boolean nXC;
-    private CharSequence nXD;
-    private String nXE;
-    private final WindowType nXF;
-    private a nXG;
-    private TextView nXw;
-    private WebView nXx;
-    private TBSpecificationBtn nXy;
-    private TBSpecificationBtn nXz;
+    private TextView nZB;
+    private WebView nZC;
+    private TBSpecificationBtn nZD;
+    private TBSpecificationBtn nZE;
+    private TextView nZF;
+    private TBSpecificationBtn nZG;
+    private boolean nZH;
+    private CharSequence nZI;
+    private String nZJ;
+    private final WindowType nZK;
+    private a nZL;
     private WebViewClient webViewClient;
 
     /* loaded from: classes.dex */
@@ -46,24 +46,24 @@ public class EBusinessProtocolView extends Dialog {
 
     /* loaded from: classes.dex */
     public interface a {
-        void zo(boolean z);
+        void zn(boolean z);
     }
 
     public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
         super(context, R.style.e_business_protocol_dialog);
-        this.nXC = false;
+        this.nZH = false;
         this.mSkinType = 0;
         this.webViewClient = new WebViewClient() { // from class: com.baidu.tieba.view.EBusinessProtocolView.1
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 String str2 = "javascript:setContentTextColor(" + EBusinessProtocolView.this.mSkinType + ")";
-                if (EBusinessProtocolView.this.nXx != null) {
-                    EBusinessProtocolView.this.nXx.loadUrl(str2);
+                if (EBusinessProtocolView.this.nZC != null) {
+                    EBusinessProtocolView.this.nZC.loadUrl(str2);
                 }
             }
         };
         this.mContext = context;
-        this.nXF = windowType;
+        this.nZK = windowType;
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = -1;
         attributes.height = -2;
@@ -84,17 +84,17 @@ public class EBusinessProtocolView extends Dialog {
     }
 
     public void onChangeSkinType(int i) {
-        KW(i);
+        La(i);
         this.mSkinType = i;
-        ap.setViewTextColor(this.nXw, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.nXx, R.color.CAM_X0211);
-        ap.setViewTextColor(this.nXy, R.color.CAM_X0108);
-        ap.setViewTextColor(this.nXz, R.color.CAM_X0303);
-        ap.setViewTextColor(this.nXA, R.color.CAM_X0105);
+        ap.setViewTextColor(this.nZB, R.color.CAM_X0105);
+        ap.setBackgroundColor(this.nZC, R.color.CAM_X0211);
+        ap.setViewTextColor(this.nZD, R.color.CAM_X0108);
+        ap.setViewTextColor(this.nZE, R.color.CAM_X0303);
+        ap.setViewTextColor(this.nZF, R.color.CAM_X0105);
     }
 
     public void a(a aVar) {
-        this.nXG = aVar;
+        this.nZL = aVar;
     }
 
     public void setTitle(String str) {
@@ -102,62 +102,62 @@ public class EBusinessProtocolView extends Dialog {
     }
 
     public void v(CharSequence charSequence) {
-        this.nXD = charSequence;
+        this.nZI = charSequence;
     }
 
-    public void Va(String str) {
-        this.nXE = str;
+    public void Vh(String str) {
+        this.nZJ = str;
     }
 
     private void initView() {
-        this.nXw = (TextView) this.mRootView.findViewById(R.id.protocol_title);
-        this.nXx = (WebView) this.mRootView.findViewById(R.id.protocol_content);
-        this.nXz = (TBSpecificationBtn) this.mRootView.findViewById(R.id.agree_protocol);
-        this.nXy = (TBSpecificationBtn) this.mRootView.findViewById(R.id.cancel_protocol);
-        this.nXA = (TextView) this.mRootView.findViewById(R.id.tip_content);
-        this.nXB = (TBSpecificationBtn) findViewById(R.id.tip_known);
-        dWa();
+        this.nZB = (TextView) this.mRootView.findViewById(R.id.protocol_title);
+        this.nZC = (WebView) this.mRootView.findViewById(R.id.protocol_content);
+        this.nZE = (TBSpecificationBtn) this.mRootView.findViewById(R.id.agree_protocol);
+        this.nZD = (TBSpecificationBtn) this.mRootView.findViewById(R.id.cancel_protocol);
+        this.nZF = (TextView) this.mRootView.findViewById(R.id.tip_content);
+        this.nZG = (TBSpecificationBtn) findViewById(R.id.tip_known);
+        dWi();
         initListener();
     }
 
-    private void dWa() {
-        this.nXw.setText(this.mTitle);
-        switch (this.nXF) {
+    private void dWi() {
+        this.nZB.setText(this.mTitle);
+        switch (this.nZK) {
             case TIP:
-                this.nXA.setVisibility(0);
-                this.nXB.setVisibility(0);
+                this.nZF.setVisibility(0);
+                this.nZG.setVisibility(0);
                 setCanceledOnTouchOutside(true);
-                this.nXA.setText(this.nXD);
-                this.nXB.setText(this.mContext.getResources().getString(R.string.tip_known));
+                this.nZF.setText(this.nZI);
+                this.nZG.setText(this.mContext.getResources().getString(R.string.tip_known));
                 com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-                cVar.pR(R.color.CAM_X0302);
-                this.nXB.setTextSize(R.dimen.T_X08);
-                this.nXB.setConfig(cVar);
+                cVar.pS(R.color.CAM_X0302);
+                this.nZG.setTextSize(R.dimen.T_X08);
+                this.nZG.setConfig(cVar);
                 return;
             case PROTOCOL:
-                dWb();
-                this.nXx.setVisibility(0);
-                this.nXz.setVisibility(0);
-                this.nXy.setVisibility(0);
-                this.nXx.loadUrl(this.nXE);
+                dWj();
+                this.nZC.setVisibility(0);
+                this.nZE.setVisibility(0);
+                this.nZD.setVisibility(0);
+                this.nZC.loadUrl(this.nZJ);
                 com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-                cVar2.pR(R.color.CAM_X0107);
-                this.nXy.setConfig(cVar2);
-                this.nXy.setTextSize(R.dimen.tbds42);
-                this.nXy.setText(this.mContext.getResources().getString(R.string.protocol_cancel));
-                this.nXz.setTextSize(R.dimen.tbds42);
+                cVar2.pS(R.color.CAM_X0107);
+                this.nZD.setConfig(cVar2);
+                this.nZD.setTextSize(R.dimen.tbds42);
+                this.nZD.setText(this.mContext.getResources().getString(R.string.protocol_cancel));
+                this.nZE.setTextSize(R.dimen.tbds42);
                 com.baidu.tbadk.core.view.commonBtn.c cVar3 = new com.baidu.tbadk.core.view.commonBtn.c();
-                cVar3.pR(R.color.CAM_X0302);
-                this.nXz.setConfig(cVar3);
-                this.nXz.setTextSize(R.dimen.tbds42);
-                this.nXz.setText(this.mContext.getResources().getString(R.string.protocol_agree));
+                cVar3.pS(R.color.CAM_X0302);
+                this.nZE.setConfig(cVar3);
+                this.nZE.setTextSize(R.dimen.tbds42);
+                this.nZE.setText(this.mContext.getResources().getString(R.string.protocol_agree));
                 return;
             default:
                 return;
         }
     }
 
-    private void KW(int i) {
+    private void La(int i) {
         int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds30);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(dimensionPixelSize);
@@ -165,37 +165,37 @@ public class EBusinessProtocolView extends Dialog {
         this.mRootView.setBackgroundDrawable(gradientDrawable);
     }
 
-    private void dWb() {
-        WebSettings settings = this.nXx.getSettings();
+    private void dWj() {
+        WebSettings settings = this.nZC.getSettings();
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         settings.setJavaScriptEnabled(true);
-        this.nXx.setWebViewClient(this.webViewClient);
+        this.nZC.setWebViewClient(this.webViewClient);
         settings.setTextZoom(115);
     }
 
     private void initListener() {
-        this.nXz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.EBusinessProtocolView.2
+        this.nZE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.EBusinessProtocolView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EBusinessProtocolView.this.nXC = true;
-                if (EBusinessProtocolView.this.nXG != null) {
-                    EBusinessProtocolView.this.nXG.zo(EBusinessProtocolView.this.nXC);
+                EBusinessProtocolView.this.nZH = true;
+                if (EBusinessProtocolView.this.nZL != null) {
+                    EBusinessProtocolView.this.nZL.zn(EBusinessProtocolView.this.nZH);
                 }
                 EBusinessProtocolView.this.dismiss();
             }
         });
-        this.nXy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.EBusinessProtocolView.3
+        this.nZD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.EBusinessProtocolView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EBusinessProtocolView.this.nXC = false;
-                if (EBusinessProtocolView.this.nXG != null) {
-                    EBusinessProtocolView.this.nXG.zo(EBusinessProtocolView.this.nXC);
+                EBusinessProtocolView.this.nZH = false;
+                if (EBusinessProtocolView.this.nZL != null) {
+                    EBusinessProtocolView.this.nZL.zn(EBusinessProtocolView.this.nZH);
                 }
                 EBusinessProtocolView.this.dismiss();
             }
         });
-        this.nXB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.EBusinessProtocolView.4
+        this.nZG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.EBusinessProtocolView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EBusinessProtocolView.this.dismiss();

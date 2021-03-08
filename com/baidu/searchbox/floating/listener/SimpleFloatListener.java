@@ -6,51 +6,51 @@ import com.baidu.searchbox.floating.config.ScaleMode;
 import kotlin.e;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class SimpleFloatListener implements FloatViewListener {
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewCreate(boolean z, View view, ScaleMode scaleMode, Point point) {
-        p.o(scaleMode, "scaleLevel");
-        p.o(point, "position");
+        p.p(scaleMode, "scaleLevel");
+        p.p(point, "position");
         onViewCreate(z, view);
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewDismiss(View view, ScaleMode scaleMode, Point point) {
-        p.o(view, "view");
-        p.o(scaleMode, "scaleLevel");
-        p.o(point, "position");
+        p.p(view, "view");
+        p.p(scaleMode, "scaleLevel");
+        p.p(point, "position");
         onViewDismiss(view);
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewShow(View view, ScaleMode scaleMode, Point point) {
-        p.o(view, "view");
-        p.o(scaleMode, "scaleLevel");
-        p.o(point, "position");
+        p.p(view, "view");
+        p.p(scaleMode, "scaleLevel");
+        p.p(point, "position");
         onViewShow(view);
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewHide(View view, ScaleMode scaleMode, Point point) {
-        p.o(view, "view");
-        p.o(scaleMode, "scaleLevel");
-        p.o(point, "position");
+        p.p(view, "view");
+        p.p(scaleMode, "scaleLevel");
+        p.p(point, "position");
         onViewHide(view);
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onClick(View view, ScaleMode scaleMode, Point point) {
-        p.o(view, "view");
-        p.o(scaleMode, "scaleLevel");
-        p.o(point, "position");
+        p.p(view, "view");
+        p.p(scaleMode, "scaleLevel");
+        p.p(point, "position");
         onClick(view);
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onScale(boolean z, ScaleMode scaleMode, Point point) {
-        p.o(scaleMode, "scaleLevel");
-        p.o(point, "position");
+        p.p(scaleMode, "scaleLevel");
+        p.p(point, "position");
         onScale(z);
     }
 
@@ -60,17 +60,17 @@ public class SimpleFloatListener implements FloatViewListener {
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewDismiss(View view) {
-        p.o(view, "view");
+        p.p(view, "view");
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewShow(View view) {
-        p.o(view, "view");
+        p.p(view, "view");
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onViewHide(View view) {
-        p.o(view, "view");
+        p.p(view, "view");
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
@@ -79,7 +79,7 @@ public class SimpleFloatListener implements FloatViewListener {
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener
     public void onClick(View view) {
-        p.o(view, "view");
+        p.p(view, "view");
     }
 
     @Override // com.baidu.searchbox.floating.listener.FloatViewListener

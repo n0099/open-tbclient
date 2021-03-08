@@ -21,101 +21,101 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes2.dex */
 public class a {
-    private String fNd;
-    private BaseFragment jle;
-    private View jso;
-    private TextView jsp;
-    private FrsTabSortSwitchButton jsq;
-    private int jsr;
-    private FrsTabSortSwitchButton.a jss = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
+    private String fOD;
+    private BaseFragment jmO;
+    private View jtX;
+    private TextView jtY;
+    private FrsTabSortSwitchButton jtZ;
+    private int jua;
+    private FrsTabSortSwitchButton.a jub = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
-        public boolean zp(int i) {
-            if (com.baidu.tieba.frs.b.cBy().cBs() || com.baidu.tieba.frs.a.cBr().cBs()) {
+        public boolean zq(int i) {
+            if (com.baidu.tieba.frs.b.cBE().cBy() || com.baidu.tieba.frs.a.cBx().cBy()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
-                a.this.jle.showToast(R.string.neterror);
+                a.this.jmO.showToast(R.string.neterror);
                 return false;
             }
-            if (a.this.jle instanceof FrsNewAreaFragment) {
-                if (((FrsNewAreaFragment) a.this.jle).cJY() == null || ((FrsNewAreaFragment) a.this.jle).cJZ() == null) {
+            if (a.this.jmO instanceof FrsNewAreaFragment) {
+                if (((FrsNewAreaFragment) a.this.jmO).cKe() == null || ((FrsNewAreaFragment) a.this.jmO).cKf() == null) {
                     return false;
                 }
-            } else if (!(a.this.jle instanceof FrsCommonTabFragment)) {
+            } else if (!(a.this.jmO instanceof FrsCommonTabFragment)) {
                 return false;
             } else {
-                if (((FrsCommonTabFragment) a.this.jle).cFR() == null || ((FrsCommonTabFragment) a.this.jle).cFS() == null) {
+                if (((FrsCommonTabFragment) a.this.jmO).cFX() == null || ((FrsCommonTabFragment) a.this.jmO).cFY() == null) {
                     return false;
                 }
             }
-            if (a.this.jsr == i) {
+            if (a.this.jua == i) {
                 return true;
             }
-            a.this.jsr = i;
-            if (a.this.jsr != 7) {
-                ab.bFI();
-                e.dOU();
+            a.this.jua = i;
+            if (a.this.jua != 7) {
+                ab.bFM();
+                e.dPd();
             } else {
-                e.dOT();
+                e.dPc();
             }
-            if (a.this.jle instanceof FrsNewAreaFragment) {
-                ((FrsNewAreaFragment) a.this.jle).cJY().Ac(a.this.jsq.zs(a.this.jsr));
-                if (d.bjr()) {
-                    com.baidu.tbadk.a.b.a.mJ(a.this.jsq.zs(a.this.jsr));
+            if (a.this.jmO instanceof FrsNewAreaFragment) {
+                ((FrsNewAreaFragment) a.this.jmO).cKe().Ad(a.this.jtZ.zt(a.this.jua));
+                if (d.bjt()) {
+                    com.baidu.tbadk.a.b.a.mK(a.this.jtZ.zt(a.this.jua));
                 }
-                ((FrsNewAreaFragment) a.this.jle).cJZ().startPullRefresh();
+                ((FrsNewAreaFragment) a.this.jmO).cKf().startPullRefresh();
             } else {
-                ((FrsCommonTabFragment) a.this.jle).setSortType(com.baidu.tieba.frs.d.j.At(a.this.jsq.zs(a.this.jsr)));
-                ((FrsCommonTabFragment) a.this.jle).cFS().lU(true);
+                ((FrsCommonTabFragment) a.this.jmO).setSortType(com.baidu.tieba.frs.d.j.Au(a.this.jtZ.zt(a.this.jua)));
+                ((FrsCommonTabFragment) a.this.jmO).cFY().lU(true);
             }
-            a.this.cGK();
+            a.this.cGQ();
             return true;
         }
     };
 
     public void setFid(String str) {
-        this.fNd = str;
+        this.fOD = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cGK() {
+    public void cGQ() {
         ar arVar = new ar("c11437");
-        arVar.ap("obj_type", this.jsq.zs(this.jsr));
-        arVar.dR("fid", this.fNd);
+        arVar.aq("obj_type", this.jtZ.zt(this.jua));
+        arVar.dR("fid", this.fOD);
         TiebaStatic.log(arVar);
     }
 
     public a(BaseFragment baseFragment, RelativeLayout relativeLayout) {
-        this.jsr = -1;
+        this.jua = -1;
         if (baseFragment != null && relativeLayout != null) {
-            this.jle = baseFragment;
-            this.jso = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-            this.jso.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-            this.jsp = (TextView) this.jso.findViewById(R.id.sort_tab_sort_name);
-            this.jsq = (FrsTabSortSwitchButton) this.jso.findViewById(R.id.sort_tab_switch_btn);
-            this.jsq.setOnSwitchChangeListener(this.jss);
-            this.jsr = this.jsq.getState();
+            this.jmO = baseFragment;
+            this.jtX = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
+            this.jtX.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
+            this.jtY = (TextView) this.jtX.findViewById(R.id.sort_tab_sort_name);
+            this.jtZ = (FrsTabSortSwitchButton) this.jtX.findViewById(R.id.sort_tab_switch_btn);
+            this.jtZ.setOnSwitchChangeListener(this.jub);
+            this.jua = this.jtZ.getState();
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.jsq != null) {
-            this.jsq.onChangeSkinType();
+        if (this.jtZ != null) {
+            this.jtZ.onChangeSkinType();
         }
-        ap.setViewTextColor(this.jsp, R.color.CAM_X0105);
+        ap.setViewTextColor(this.jtY, R.color.CAM_X0105);
     }
 
     public void setData(List<FrsTabInfo> list) {
-        if (this.jsq != null) {
-            this.jsq.setData(list);
+        if (this.jtZ != null) {
+            this.jtZ.setData(list);
         }
     }
 
-    public void iF(int i) {
-        if (this.jsq != null) {
-            this.jsq.iF(com.baidu.tieba.frs.d.j.Au(i));
-            this.jsr = this.jsq.getState();
+    public void iG(int i) {
+        if (this.jtZ != null) {
+            this.jtZ.iG(com.baidu.tieba.frs.d.j.Av(i));
+            this.jua = this.jtZ.getState();
         }
     }
 }

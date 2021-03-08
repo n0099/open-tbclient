@@ -48,7 +48,7 @@ public class c {
         return chatMessage.getUserId();
     }
 
-    public static String g(JSONObject jSONObject, boolean z) {
+    public static String e(JSONObject jSONObject, boolean z) {
         return jSONObject.optString(z ? "big_src" : UserAccountActionItem.KEY_SRC);
     }
 
@@ -129,7 +129,7 @@ public class c {
         }
     }
 
-    private static final String Ng(String str) {
+    private static final String Nm(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -158,7 +158,7 @@ public class c {
         return sb.toString();
     }
 
-    private static final String Nh(String str) {
+    private static final String Nn(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -190,19 +190,19 @@ public class c {
             return null;
         }
         if (i == 1) {
-            String Ng = (str.length() <= 1 || str.charAt(0) != '[') ? null : Ng(str);
-            if (TextUtils.isEmpty(Ng)) {
-                Ng = str;
+            String Nm = (str.length() <= 1 || str.charAt(0) != '[') ? null : Nm(str);
+            if (TextUtils.isEmpty(Nm)) {
+                Nm = str;
             }
-            if (Ng == null) {
+            if (Nm == null) {
                 return null;
             }
-            Matcher matcher = pattern.matcher(Ng);
+            Matcher matcher = pattern.matcher(Nm);
             while (matcher.find()) {
                 String group = matcher.group();
-                Ng = Ng.replace(group, group.replace("#(", "[").replace(")", "]"));
+                Nm = Nm.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return Ng;
+            return Nm;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic);
         } else {
@@ -210,7 +210,7 @@ public class c {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_voice);
             }
             if (i == 11) {
-                return Ni(str);
+                return No(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_reply_card);
@@ -299,7 +299,7 @@ public class c {
                         return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return Nh(str);
+                    return Nn(str);
                 } else {
                     return null;
                 }
@@ -331,7 +331,7 @@ public class c {
         return v(chatMessage);
     }
 
-    private static String Ni(String str) {
+    private static String No(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -445,19 +445,19 @@ public class c {
 
     public static d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return Nj(commonMsgPojo.getContent());
+            return Np(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static d Nj(String str) {
+    public static d Np(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return Nk(jSONArray.getJSONObject(0).optString("msg_src"));
+                return Nq(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -466,13 +466,13 @@ public class c {
         }
     }
 
-    public static d Nk(String str) {
+    public static d Nq(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) == null || split.length != 2) {
             return null;
         }
         d dVar = new d();
-        dVar.kEQ = split[0];
+        dVar.kGS = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

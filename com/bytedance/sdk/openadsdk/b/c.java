@@ -9,43 +9,41 @@ import java.util.TreeMap;
 public class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6214a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f6215b;
+    private int f4192a;
+    private int b;
     private volatile boolean c;
 
     public c(int i, int i2) {
-        this.f6214a = 15;
-        this.f6215b = 3;
+        this.f4192a = 15;
+        this.b = 3;
         if (i <= 0) {
             throw new IllegalArgumentException("Max count must be positive number!");
         }
-        this.f6214a = i;
-        this.f6215b = i2;
+        this.f4192a = i;
+        this.b = i2;
     }
 
     public c(int i, int i2, boolean z) {
-        this.f6214a = 15;
-        this.f6215b = 3;
+        this.f4192a = 15;
+        this.b = 3;
         if (i <= 0) {
             throw new IllegalArgumentException("Max count must be positive number!");
         }
-        this.f6214a = i;
-        this.f6215b = i2;
+        this.f4192a = i;
+        this.b = i2;
         this.c = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(long j, int i) {
-        return i <= this.f6214a;
+        return i <= this.f4192a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(File file, long j, int i) {
-        return i <= this.f6215b;
+        return i <= this.b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
@@ -59,20 +57,20 @@ public class c extends b {
     }
 
     private void c(List<File> list) {
-        long b2 = b(list);
+        long b = b(list);
         int size = list.size();
-        if (!a(b2, size)) {
+        if (!a(b, size)) {
             int i = size;
             for (File file : list) {
                 long length = file.length();
                 if (file.delete()) {
                     i--;
-                    b2 -= length;
+                    b -= length;
                     u.c("TotalCountLruDiskFile", "Cache file " + file + " is deleted because it exceeds cache limit");
                 } else {
                     u.c("TotalCountLruDiskFile", "Error deleting file " + file + " for trimming cache");
                 }
-                if (a(file, b2, i)) {
+                if (a(file, b, i)) {
                     return;
                 }
             }
@@ -85,9 +83,9 @@ public class c extends b {
         if (list != null) {
             try {
                 if (list.size() != 0) {
-                    long b2 = b(list);
+                    long b = b(list);
                     int size = list.size();
-                    boolean a2 = a(b2, size);
+                    boolean a2 = a(b, size);
                     if (a2) {
                         u.c("splashLoadAd", "不满足删除条件，不执行删除操作(true)" + a2);
                         return;
@@ -106,14 +104,14 @@ public class c extends b {
                                 long length = file2.length();
                                 if (file2.delete()) {
                                     i2 = size - 1;
-                                    b2 -= length;
+                                    b -= length;
                                     u.c("splashLoadAd", "删除 一个 Cache file 当前总个数：" + i2);
                                 } else {
                                     u.f("splashLoadAd", "Error deleting file " + file2 + " for trimming cache");
                                     i2 = size;
                                 }
-                                if (a(file2, b2, i2)) {
-                                    u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + i2 + " 最大值存储上限个数 maxCount " + this.f6214a + " 最小个数 " + this.f6215b);
+                                if (a(file2, b, i2)) {
+                                    u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + i2 + " 最大值存储上限个数 maxCount " + this.f4192a + " 最小个数 " + this.b);
                                     return;
                                 }
                                 i = i2;

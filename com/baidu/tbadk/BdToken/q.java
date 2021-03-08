@@ -21,78 +21,78 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    private ActiveCenterData eEA;
-    private boolean eEB;
-    private boolean eEC;
-    private boolean eED;
-    private final e eEE;
-    private final f eEF;
-    private final h eEG;
-    private final a eEH;
-    private final g eEI;
-    private final c eEJ;
-    private final b eEK;
+    private ActiveCenterData eGb;
+    private boolean eGc;
+    private boolean eGd;
+    private boolean eGe;
+    private final e eGf;
+    private final f eGg;
+    private final h eGh;
+    private final a eGi;
+    private final g eGj;
+    private final c eGk;
+    private final b eGl;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class i {
-        private static q eES = new q();
+        private static q eGt = new q();
     }
 
-    public static q bhU() {
-        return i.eES;
+    public static q bhW() {
+        return i.eGt;
     }
 
     private q() {
-        this.eEB = false;
-        this.eEC = true;
-        this.eED = false;
-        this.eEE = new e(12);
-        this.eEF = new f(6);
-        this.eEG = new h(10);
-        this.eEH = new a(7);
-        this.eEI = new g(5);
-        this.eEJ = new c(9);
-        this.eEK = new b(13);
-        if (com.baidu.tbadk.BdToken.c.bhn().bhu()) {
-            this.eEC = com.baidu.tbadk.core.sharedPref.b.brQ().getBoolean("key_delete_mission_home_entrance", true);
+        this.eGc = false;
+        this.eGd = true;
+        this.eGe = false;
+        this.eGf = new e(12);
+        this.eGg = new f(6);
+        this.eGh = new h(10);
+        this.eGi = new a(7);
+        this.eGj = new g(5);
+        this.eGk = new c(9);
+        this.eGl = new b(13);
+        if (com.baidu.tbadk.BdToken.c.bhp().bhw()) {
+            this.eGd = com.baidu.tbadk.core.sharedPref.b.brR().getBoolean("key_delete_mission_home_entrance", true);
             return;
         }
-        this.eEC = true;
-        com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean("key_delete_mission_home_entrance", true);
+        this.eGd = true;
+        com.baidu.tbadk.core.sharedPref.b.brR().putBoolean("key_delete_mission_home_entrance", true);
     }
 
-    public void bhV() {
-        if (!this.eED && com.baidu.tbadk.BdToken.c.bhn().bhq()) {
-            this.eED = true;
+    public void bhX() {
+        if (!this.eGe && com.baidu.tbadk.BdToken.c.bhp().bhs()) {
+            this.eGe = true;
         }
     }
 
     public void a(ActiveCenterData activeCenterData) {
         if (activeCenterData != null) {
-            this.eEA = activeCenterData;
+            this.eGb = activeCenterData;
             Activity currentActivity = com.baidu.adp.base.b.kB().currentActivity();
             if (currentActivity != null && "MainTabActivity".equals(currentActivity.getClass().getSimpleName())) {
-                eN(currentActivity);
+                eM(currentActivity);
             }
         }
     }
 
     public void iY(boolean z) {
-        this.eEB = z;
+        this.eGc = z;
     }
 
-    public boolean bhW() {
-        return this.eEC;
+    public boolean bhY() {
+        return this.eGd;
     }
 
-    public ActiveCenterData bhX() {
-        return this.eEA;
+    public ActiveCenterData bhZ() {
+        return this.eGb;
     }
 
-    public void bhY() {
-        if (this.eEA != null && this.eEA.mission != null) {
-            ActiveCenterData.ActiveCenterMissionData activeCenterMissionData = this.eEA.mission;
+    public void bia() {
+        if (this.eGb != null && this.eGb.mission != null) {
+            ActiveCenterData.ActiveCenterMissionData activeCenterMissionData = this.eGb.mission;
             int i2 = activeCenterMissionData.active_id;
             int i3 = activeCenterMissionData.mission_id;
             JSONObject jSONObject = new JSONObject();
@@ -108,121 +108,121 @@ public class q {
         }
     }
 
-    public boolean bhZ() {
-        return this.eEA != null && this.eEA.is_new_window;
+    public boolean bib() {
+        return this.eGb != null && this.eGb.is_new_window;
     }
 
-    public void eN(Context context) {
+    public void eM(Context context) {
         if (isValid()) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MissionCustomDialogActivityConfig(context)));
-            bib();
-            com.baidu.tbadk.core.sharedPref.b.brQ().putLong("pref_key_last_popup_time", System.currentTimeMillis());
-            TiebaStatic.log(new ar("c13742").ap("obj_source", com.baidu.tbadk.BdToken.c.bhn().bhs() ? 2 : 1).ap("obj_type", 1));
+            bid();
+            com.baidu.tbadk.core.sharedPref.b.brR().putLong("pref_key_last_popup_time", System.currentTimeMillis());
+            TiebaStatic.log(new ar("c13742").aq("obj_source", com.baidu.tbadk.BdToken.c.bhp().bhu() ? 2 : 1).aq("obj_type", 1));
         }
     }
 
     private boolean isValid() {
-        return (this.eEA == null || this.eEA.mission == null || !bhZ() || bia() || this.eEB) ? false : true;
+        return (this.eGb == null || this.eGb.mission == null || !bib() || bic() || this.eGc) ? false : true;
     }
 
-    private boolean bia() {
+    private boolean bic() {
         int i2;
-        if (bhX() != null && (i2 = bhX().win_jump_time) > 0) {
-            if (com.baidu.tbadk.BdToken.c.bhn().bhv()) {
-                return com.baidu.tbadk.core.sharedPref.b.brQ().getLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L) >= ((long) i2);
+        if (bhZ() != null && (i2 = bhZ().win_jump_time) > 0) {
+            if (com.baidu.tbadk.BdToken.c.bhp().bhx()) {
+                return com.baidu.tbadk.core.sharedPref.b.brR().getLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L) >= ((long) i2);
             }
-            com.baidu.tbadk.core.sharedPref.b.brQ().putLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L);
+            com.baidu.tbadk.core.sharedPref.b.brR().putLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L);
             return false;
         }
         return true;
     }
 
-    private void bib() {
-        com.baidu.tbadk.core.sharedPref.b.brQ().putLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, com.baidu.tbadk.core.sharedPref.b.brQ().getLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L) + 1);
+    private void bid() {
+        com.baidu.tbadk.core.sharedPref.b.brR().putLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, com.baidu.tbadk.core.sharedPref.b.brR().getLong(ActiveCenterData.PREF_KEY_ACTIVE_DIALOG_DAY_NUM, 0L) + 1);
     }
 
-    public e bic() {
-        return this.eEE;
+    public e bie() {
+        return this.eGf;
     }
 
-    public f bid() {
-        return this.eEF;
+    public f bif() {
+        return this.eGg;
     }
 
-    public h bie() {
-        return this.eEG;
+    public h big() {
+        return this.eGh;
     }
 
-    public a bif() {
-        return this.eEH;
+    public a bih() {
+        return this.eGi;
     }
 
-    public g big() {
-        return this.eEI;
+    public g bii() {
+        return this.eGj;
     }
 
-    public c bih() {
-        return this.eEJ;
+    public c bij() {
+        return this.eGk;
     }
 
-    public b bii() {
-        return this.eEK;
+    public b bik() {
+        return this.eGl;
     }
 
     public void c(TbPageContext<?> tbPageContext) {
-        if (this.eEA != null) {
-            int curTaskType = this.eEA.getCurTaskType();
+        if (this.eGb != null) {
+            int curTaskType = this.eGb.getCurTaskType();
             if (curTaskType == 12) {
-                bic().e(tbPageContext);
-                bic().bij();
-            } else if (curTaskType == 6) {
-                bid().e(tbPageContext);
-            } else if (curTaskType == 10) {
                 bie().e(tbPageContext);
-                bie().bij();
-            } else if (curTaskType == 7) {
+                bie().bil();
+            } else if (curTaskType == 6) {
                 bif().e(tbPageContext);
-            } else if (curTaskType == 5) {
+            } else if (curTaskType == 10) {
                 big().e(tbPageContext);
-            } else if (curTaskType == 9) {
+                big().bil();
+            } else if (curTaskType == 7) {
                 bih().e(tbPageContext);
-            } else if (curTaskType == 13) {
+            } else if (curTaskType == 5) {
                 bii().e(tbPageContext);
+            } else if (curTaskType == 9) {
+                bij().e(tbPageContext);
+            } else if (curTaskType == 13) {
+                bik().e(tbPageContext);
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class e extends d {
-        private s eEP;
+        private s eGq;
 
         public e(int i) {
             super(i);
-            this.eEP = new s();
+            this.eGq = new s();
         }
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (this.eEP != null && q.this.eEA != null) {
-                bf.bsV().b(tbPageContext, new String[]{q.this.eEA.mission.final_reward_url});
+            if (this.eGq != null && q.this.eGb != null) {
+                bf.bsY().b(tbPageContext, new String[]{q.this.eGb.mission.final_reward_url});
             }
         }
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void complete() {
-            if (this.eEP != null && q.this.eEA != null) {
-                this.eEP.bin();
+            if (this.eGq != null && q.this.eGb != null) {
+                this.eGq.bip();
             }
         }
     }
 
     /* loaded from: classes.dex */
     public class f extends d {
-        private boolean eEQ;
+        private boolean eGr;
 
         public f(int i) {
             super(i);
-            this.eEQ = false;
+            this.eGr = false;
         }
 
         public boolean areNotificationsEnabled() {
@@ -246,9 +246,9 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         public void complete() {
-            if (areNotificationsEnabled() && !this.eEQ) {
-                q.this.bhY();
-                this.eEQ = true;
+            if (areNotificationsEnabled() && !this.eGr) {
+                q.this.bia();
+                this.eGr = true;
             }
         }
     }
@@ -271,7 +271,7 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void complete() {
-            q.this.bhY();
+            q.this.bia();
         }
     }
 
@@ -283,8 +283,8 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (q.this.eEA != null && q.this.eEA.mission != null) {
-                bf.bsV().b(tbPageContext, new String[]{q.this.eEA.mission.final_reward_url});
+            if (q.this.eGb != null && q.this.eGb.mission != null) {
+                bf.bsY().b(tbPageContext, new String[]{q.this.eGb.mission.final_reward_url});
             }
         }
 
@@ -301,8 +301,8 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (q.this.eEA != null && q.this.eEA.mission != null) {
-                bf.bsV().b(tbPageContext, new String[]{q.this.eEA.mission.final_reward_url});
+            if (q.this.eGb != null && q.this.eGb.mission != null) {
+                bf.bsY().b(tbPageContext, new String[]{q.this.eGb.mission.final_reward_url});
             }
         }
 
@@ -340,8 +340,8 @@ public class q {
 
         @Override // com.baidu.tbadk.BdToken.q.d
         protected void d(TbPageContext<?> tbPageContext) {
-            if (q.this.eEA != null && q.this.eEA.mission != null) {
-                bf.bsV().b(tbPageContext, new String[]{q.this.eEA.mission.final_reward_url});
+            if (q.this.eGb != null && q.this.eGb.mission != null) {
+                bf.bsY().b(tbPageContext, new String[]{q.this.eGb.mission.final_reward_url});
             }
         }
 
@@ -352,30 +352,30 @@ public class q {
 
     /* loaded from: classes.dex */
     public abstract class d {
-        private int eEO;
+        private int eGp;
 
         protected abstract void complete();
 
         protected abstract void d(TbPageContext<?> tbPageContext);
 
         public d(int i) {
-            this.eEO = i;
+            this.eGp = i;
         }
 
         public void e(TbPageContext<?> tbPageContext) {
-            if (bik()) {
+            if (bim()) {
                 d(tbPageContext);
             }
         }
 
-        public void bij() {
-            if (bik()) {
+        public void bil() {
+            if (bim()) {
                 complete();
             }
         }
 
-        protected boolean bik() {
-            return (q.this.eEA == null || q.this.eEA.mission == null || q.this.eEA.getCurTaskType() != this.eEO) ? false : true;
+        protected boolean bim() {
+            return (q.this.eGb == null || q.this.eGb.mission == null || q.this.eGb.getCurTaskType() != this.eGp) ? false : true;
         }
     }
 }

@@ -10,10 +10,8 @@ import com.baidu.mapapi.map.Marker;
 public class j extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f3010a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f3011b = 0;
+    private Animator f2195a = null;
+    private long b = 0;
     private Interpolator c = null;
     private Animation.AnimationListener d = null;
     private int e = 1;
@@ -39,7 +37,7 @@ public class j extends c {
         if (objectAnimator != null) {
             objectAnimator.setRepeatCount(this.f);
             objectAnimator.setRepeatMode(c());
-            objectAnimator.setDuration(this.f3011b);
+            objectAnimator.setDuration(this.b);
             if (this.c != null) {
                 objectAnimator.setInterpolator(this.c);
             }
@@ -50,10 +48,10 @@ public class j extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f3010a == null) {
+        if (this.f2195a == null) {
             return;
         }
-        this.f3010a.start();
+        this.f2195a.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -66,7 +64,7 @@ public class j extends c {
         if (j < 0) {
             j = 0;
         }
-        this.f3011b = j;
+        this.b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -91,16 +89,16 @@ public class j extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        this.f3010a = a(marker);
-        a(this.f3010a);
+        this.f2195a = a(marker);
+        a(this.f2195a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f3010a != null) {
-            this.f3010a.cancel();
-            this.f3010a = null;
+        if (this.f2195a != null) {
+            this.f2195a.cancel();
+            this.f2195a = null;
         }
     }
 

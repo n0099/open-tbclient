@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.liveroom.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public long bpn;
+    public long bqN;
     public long liveId;
 }

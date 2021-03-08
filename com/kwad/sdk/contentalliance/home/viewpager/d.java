@@ -8,10 +8,8 @@ import com.kwad.sdk.contentalliance.refreshview.e;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public i f8769a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public KsFragment f8770b;
+    public i f5843a;
+    public KsFragment b;
     public SlidePlayViewPager c;
     @Nullable
     public e d;

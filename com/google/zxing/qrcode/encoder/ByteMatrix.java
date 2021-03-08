@@ -29,8 +29,8 @@ public final class ByteMatrix {
         return this.bytes;
     }
 
-    public void set(int i, int i2, byte b2) {
-        this.bytes[i2][i] = b2;
+    public void set(int i, int i2, byte b) {
+        this.bytes[i2][i] = b;
     }
 
     public void set(int i, int i2, int i3) {
@@ -41,10 +41,10 @@ public final class ByteMatrix {
         this.bytes[i2][i] = (byte) (z ? 1 : 0);
     }
 
-    public void clear(byte b2) {
+    public void clear(byte b) {
         for (int i = 0; i < this.height; i++) {
             for (int i2 = 0; i2 < this.width; i2++) {
-                this.bytes[i][i2] = b2;
+                this.bytes[i][i2] = b;
             }
         }
     }

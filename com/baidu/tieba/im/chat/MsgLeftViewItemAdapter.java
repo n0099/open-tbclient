@@ -22,7 +22,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ci */
+    /* renamed from: ch */
     public MsgCommonItemAdapter.MsgViewHolder<MsgleftView> e(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.mPageContext);
         return new a(msgleftView.getConvertView(), msgleftView);
@@ -33,17 +33,17 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgleftView> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgleftView cUM = msgViewHolder.cUM();
-        cUM.CH(this.kAC);
-        cUM.sD(this.mNeedShowName);
+        MsgleftView cUT = msgViewHolder.cUT();
+        cUT.CK(this.kCE);
+        cUT.sD(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        cUM.a(this.kAt);
-        cUM.setOnItemViewLongClickListener(this.kAu);
-        cUM.setPosition(i);
-        cUM.gM(this.mCurrentTime);
-        cUM.gL(chatMessage.getCacheData().getLastMsgTime());
-        cUM.a(viewGroup, chatMessage);
-        cUM.b(viewGroup, chatMessage);
+        cUT.a(this.kCv);
+        cUT.setOnItemViewLongClickListener(this.kCw);
+        cUT.setPosition(i);
+        cUT.gM(this.mCurrentTime);
+        cUT.gL(chatMessage.getCacheData().getLastMsgTime());
+        cUT.a(viewGroup, chatMessage);
+        cUT.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

@@ -10,7 +10,7 @@ import tbclient.GetMemberInfo.ManagerApplyInfo;
 import tbclient.GetMemberInfo.MemberGodInfo;
 import tbclient.MemberGroupInfo;
 import tbclient.PriManagerApplyInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<Object> {
     private boolean mIsBawuShow;
     private boolean mIsPrivateForum;

@@ -10,37 +10,37 @@ import java.util.RandomAccess;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class i extends h {
-    public static final boolean a(byte[] bArr, byte b2) {
-        kotlin.jvm.internal.p.o(bArr, "$receiver");
-        return f.b(bArr, b2) >= 0;
+    public static final boolean a(byte[] bArr, byte b) {
+        kotlin.jvm.internal.p.p(bArr, "$receiver");
+        return f.b(bArr, b) >= 0;
     }
 
-    public static final int b(byte[] bArr, byte b2) {
-        kotlin.jvm.internal.p.o(bArr, "$receiver");
+    public static final int b(byte[] bArr, byte b) {
+        kotlin.jvm.internal.p.p(bArr, "$receiver");
         int length = bArr.length;
         for (int i = 0; i < length; i++) {
-            if (b2 == bArr[i]) {
+            if (b == bArr[i]) {
                 return i;
             }
         }
         return -1;
     }
 
-    public static final int c(byte[] bArr, byte b2) {
-        kotlin.jvm.internal.p.o(bArr, "$receiver");
-        for (Number number : n.e(f.at(bArr))) {
+    public static final int c(byte[] bArr, byte b) {
+        kotlin.jvm.internal.p.p(bArr, "$receiver");
+        for (Number number : n.e(f.au(bArr))) {
             int intValue = number.intValue();
-            if (b2 == bArr[intValue]) {
+            if (b == bArr[intValue]) {
                 return intValue;
             }
         }
         return -1;
     }
 
-    public static final char c(char[] cArr) {
-        kotlin.jvm.internal.p.o(cArr, "$receiver");
+    public static final char b(char[] cArr) {
+        kotlin.jvm.internal.p.p(cArr, "$receiver");
         switch (cArr.length) {
             case 0:
                 throw new NoSuchElementException("Array is empty.");
@@ -52,61 +52,61 @@ public class i extends h {
     }
 
     public static final List<Byte> a(byte[] bArr, kotlin.b.h hVar) {
-        kotlin.jvm.internal.p.o(bArr, "$receiver");
-        kotlin.jvm.internal.p.o(hVar, "indices");
+        kotlin.jvm.internal.p.p(bArr, "$receiver");
+        kotlin.jvm.internal.p.p(hVar, "indices");
         if (hVar.isEmpty()) {
-            return n.eLe();
+            return n.eKM();
         }
-        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eLD().intValue(), hVar.eLE().intValue() + 1);
-        kotlin.jvm.internal.p.n(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
-        return f.av(copyOfRange);
+        byte[] copyOfRange = Arrays.copyOfRange(bArr, hVar.eLl().intValue(), hVar.eLm().intValue() + 1);
+        kotlin.jvm.internal.p.o(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
+        return f.aw(copyOfRange);
     }
 
-    public static final kotlin.b.h at(byte[] bArr) {
-        kotlin.jvm.internal.p.o(bArr, "$receiver");
-        return new kotlin.b.h(0, f.au(bArr));
+    public static final kotlin.b.h au(byte[] bArr) {
+        kotlin.jvm.internal.p.p(bArr, "$receiver");
+        return new kotlin.b.h(0, f.av(bArr));
     }
 
-    public static final int au(byte[] bArr) {
-        kotlin.jvm.internal.p.o(bArr, "$receiver");
+    public static final int av(byte[] bArr) {
+        kotlin.jvm.internal.p.p(bArr, "$receiver");
         return bArr.length - 1;
     }
 
     public static final <T, C extends Collection<? super T>> C a(T[] tArr, C c) {
-        kotlin.jvm.internal.p.o(tArr, "$receiver");
-        kotlin.jvm.internal.p.o(c, "destination");
+        kotlin.jvm.internal.p.p(tArr, "$receiver");
+        kotlin.jvm.internal.p.p(c, "destination");
         for (T t : tArr) {
             c.add(t);
         }
         return c;
     }
 
-    public static final <T> HashSet<T> S(T[] tArr) {
-        kotlin.jvm.internal.p.o(tArr, "$receiver");
-        return (HashSet) f.a(tArr, new HashSet(aa.St(tArr.length)));
+    public static final <T> HashSet<T> R(T[] tArr) {
+        kotlin.jvm.internal.p.p(tArr, "$receiver");
+        return (HashSet) f.a(tArr, new HashSet(aa.Ss(tArr.length)));
     }
 
-    public static final <T> Set<T> T(T[] tArr) {
-        kotlin.jvm.internal.p.o(tArr, "$receiver");
+    public static final <T> Set<T> S(T[] tArr) {
+        kotlin.jvm.internal.p.p(tArr, "$receiver");
         switch (tArr.length) {
             case 0:
-                return ag.eLm();
+                return ag.eKU();
             case 1:
-                return ag.bT(tArr[0]);
+                return ag.bU(tArr[0]);
             default:
-                return (Set) f.a(tArr, new LinkedHashSet(aa.St(tArr.length)));
+                return (Set) f.a(tArr, new LinkedHashSet(aa.Ss(tArr.length)));
         }
     }
 
     public static final <T> List<T> asList(T[] tArr) {
-        kotlin.jvm.internal.p.o(tArr, "$receiver");
+        kotlin.jvm.internal.p.p(tArr, "$receiver");
         List<T> asList = j.asList(tArr);
-        kotlin.jvm.internal.p.n(asList, "ArraysUtilJVM.asList(this)");
+        kotlin.jvm.internal.p.o(asList, "ArraysUtilJVM.asList(this)");
         return asList;
     }
 
     @kotlin.e
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static final class a extends d<Byte> implements RandomAccess {
         final /* synthetic */ byte[] receiver$0;
 
@@ -148,28 +148,28 @@ public class i extends h {
             return this.receiver$0.length == 0;
         }
 
-        public boolean f(byte b2) {
-            return f.a(this.receiver$0, b2);
+        public boolean f(byte b) {
+            return f.a(this.receiver$0, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: Ss */
+        /* renamed from: Sr */
         public Byte get(int i) {
             return Byte.valueOf(this.receiver$0[i]);
         }
 
-        public int g(byte b2) {
-            return f.b(this.receiver$0, b2);
+        public int g(byte b) {
+            return f.b(this.receiver$0, b);
         }
 
-        public int h(byte b2) {
-            return f.c(this.receiver$0, b2);
+        public int h(byte b) {
+            return f.c(this.receiver$0, b);
         }
     }
 
-    public static final List<Byte> av(byte[] bArr) {
-        kotlin.jvm.internal.p.o(bArr, "$receiver");
+    public static final List<Byte> aw(byte[] bArr) {
+        kotlin.jvm.internal.p.p(bArr, "$receiver");
         return new a(bArr);
     }
 }

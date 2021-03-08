@@ -4,22 +4,22 @@ import android.graphics.Path;
 import com.baidu.live.lottie.model.content.Mask;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class g {
-    private final List<a<com.baidu.live.lottie.model.content.h, Path>> Ew;
-    private final List<a<Integer, Integer>> Ex;
-    private final List<Mask> Ey;
+    private final List<a<com.baidu.live.lottie.model.content.h, Path>> FP;
+    private final List<a<Integer, Integer>> FQ;
+    private final List<Mask> FR;
 
     public g(List<Mask> list) {
-        this.Ey = list;
-        this.Ew = new ArrayList(list.size());
-        this.Ex = new ArrayList(list.size());
+        this.FR = list;
+        this.FP = new ArrayList(list.size());
+        this.FQ = new ArrayList(list.size());
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.Ew.add(list.get(i2).NM().Ns());
-                this.Ex.add(list.get(i2).Ny().Ns());
+                this.FP.add(list.get(i2).NP().Nv());
+                this.FQ.add(list.get(i2).NB().Nv());
                 i = i2 + 1;
             } else {
                 return;
@@ -28,14 +28,14 @@ public class g {
     }
 
     public List<Mask> iL() {
-        return this.Ey;
+        return this.FR;
     }
 
     public List<a<com.baidu.live.lottie.model.content.h, Path>> iM() {
-        return this.Ew;
+        return this.FP;
     }
 
     public List<a<Integer, Integer>> iN() {
-        return this.Ex;
+        return this.FQ;
     }
 }

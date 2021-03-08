@@ -13,10 +13,8 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
     private static int d = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private List<a> f4416a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private List<b> f4417b;
+    private List<a> f3057a;
+    private List<b> b;
     private Handler c = new g(this);
     private com.baidu.platform.comapi.wnplatform.j.b e = new h(this);
     private com.baidu.platform.comapi.wnplatform.c.b f = new i(this);
@@ -30,8 +28,8 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
 
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
-        this.f4416a = null;
-        this.f4417b = null;
+        this.f3057a = null;
+        this.b = null;
         MessageCenter.unregistMessage(4098, this.c);
         MessageCenter.unregistMessage(4100, this.c);
         MessageCenter.unregistMessage(4101, this.c);
@@ -57,7 +55,7 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
         MessageCenter.registMessage(4111, this.c);
         MessageCenter.registMessage(4110, this.c);
         MessageCenter.registMessage(4108, this.c);
-        switch (com.baidu.platform.comapi.walknavi.g.a.b.f4285a) {
+        switch (com.baidu.platform.comapi.walknavi.g.a.b.f2963a) {
             case 1:
                 com.baidu.platform.comapi.walknavi.b.a().P().a(this.f);
                 com.baidu.platform.comapi.walknavi.b.a().D().c(1);
@@ -75,28 +73,28 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(a aVar) {
-        if (this.f4416a == null) {
-            this.f4416a = new LinkedList();
+        if (this.f3057a == null) {
+            this.f3057a = new LinkedList();
         }
-        this.f4416a.add(aVar);
+        this.f3057a.add(aVar);
     }
 
     public void b(a aVar) {
-        if (this.f4416a != null && aVar != null) {
-            this.f4416a.remove(aVar);
+        if (this.f3057a != null && aVar != null) {
+            this.f3057a.remove(aVar);
         }
     }
 
     public void a(b bVar) {
-        if (this.f4417b == null) {
-            this.f4417b = new LinkedList();
+        if (this.b == null) {
+            this.b = new LinkedList();
         }
-        this.f4417b.add(bVar);
+        this.b.add(bVar);
     }
 
     public void b(b bVar) {
-        if (this.f4417b != null && bVar != null) {
-            this.f4417b.remove(bVar);
+        if (this.b != null && bVar != null) {
+            this.b.remove(bVar);
         }
     }
 
@@ -113,11 +111,11 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message) {
-        if (this.f4417b != null) {
+        if (this.b != null) {
             switch (message.arg1) {
                 case 2:
-                    if (this.f4417b != null) {
-                        for (b bVar : this.f4417b) {
+                    if (this.b != null) {
+                        for (b bVar : this.b) {
                             if (bVar != null) {
                                 bVar.b(message);
                             }
@@ -126,8 +124,8 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
                     j.a().f();
                     return;
                 case 3:
-                    if (this.f4417b != null) {
-                        for (b bVar2 : this.f4417b) {
+                    if (this.b != null) {
+                        for (b bVar2 : this.b) {
                             if (bVar2 != null) {
                                 bVar2.c(message);
                             }
@@ -137,8 +135,8 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
                     return;
                 case 4:
                     com.baidu.platform.comapi.walknavi.b.a().R().a(a(1), 1);
-                    if (this.f4417b != null) {
-                        for (b bVar3 : this.f4417b) {
+                    if (this.b != null) {
+                        for (b bVar3 : this.b) {
                             if (bVar3 != null) {
                                 bVar3.d(message);
                             }
@@ -147,8 +145,8 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
                     }
                     return;
                 case 5:
-                    if (this.f4417b != null) {
-                        for (b bVar4 : this.f4417b) {
+                    if (this.b != null) {
+                        for (b bVar4 : this.b) {
                             if (bVar4 != null) {
                                 bVar4.e(message);
                             }
@@ -163,8 +161,8 @@ public class f extends com.baidu.platform.comapi.walknavi.a {
                     if (com.baidu.platform.comapi.walknavi.d.e.c().d()) {
                         j.a().e();
                         return;
-                    } else if (this.f4417b != null) {
-                        for (b bVar5 : this.f4417b) {
+                    } else if (this.b != null) {
+                        for (b bVar5 : this.b) {
                             if (bVar5 != null) {
                                 bVar5.f(message);
                             }

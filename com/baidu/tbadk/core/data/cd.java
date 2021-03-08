@@ -6,12 +6,12 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class cd {
-    private String eUm;
-    private String eUn;
-    private int eUo;
-    private String eUp;
-    private long eUq;
-    private String eUr;
+    private String eVL;
+    private String eVM;
+    private int eVN;
+    private String eVO;
+    private long eVP;
+    private String eVQ;
     private String imgUrl;
     private String subTitle;
     private String summary;
@@ -24,36 +24,36 @@ public class cd {
         return this.summary;
     }
 
-    public String bqd() {
-        return this.eUn;
-    }
-
-    public int bqe() {
-        return this.eUo;
-    }
-
     public String bqf() {
-        return this.eUp;
+        return this.eVM;
     }
 
-    public long bqg() {
-        return this.eUq;
+    public int bqg() {
+        return this.eVN;
+    }
+
+    public String bqh() {
+        return this.eVO;
+    }
+
+    public long bqi() {
+        return this.eVP;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
             this.imgUrl = topCode.img_url;
-            this.eUm = topCode.game_link;
+            this.eVL = topCode.game_link;
             this.summary = topCode.summary;
-            this.eUn = topCode.code_link;
-            this.eUo = topCode.get_type.intValue();
-            this.eUp = topCode.surplusgift;
+            this.eVM = topCode.code_link;
+            this.eVN = topCode.get_type.intValue();
+            this.eVO = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.eUq = 0L;
+                this.eVP = 0L;
             } else {
-                this.eUq = topCode.giftworth.longValue();
+                this.eVP = topCode.giftworth.longValue();
             }
-            this.eUr = topCode.type_text;
+            this.eVQ = topCode.type_text;
             this.subTitle = topCode.subtitle;
         }
     }
@@ -62,13 +62,13 @@ public class cd {
         if (jSONObject != null) {
             try {
                 this.imgUrl = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-                this.eUm = jSONObject.optString("game_link");
+                this.eVL = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.eUn = jSONObject.optString("code_link");
-                this.eUo = jSONObject.optInt("get_type", 1);
-                this.eUp = jSONObject.optString("surplusgift");
-                this.eUq = jSONObject.optLong("giftworth", 0L);
-                this.eUr = jSONObject.optString("type_text");
+                this.eVM = jSONObject.optString("code_link");
+                this.eVN = jSONObject.optInt("get_type", 1);
+                this.eVO = jSONObject.optString("surplusgift");
+                this.eVP = jSONObject.optLong("giftworth", 0L);
+                this.eVQ = jSONObject.optString("type_text");
                 this.subTitle = jSONObject.optString("subtitle");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -76,8 +76,8 @@ public class cd {
         }
     }
 
-    public String bqh() {
-        return this.eUr;
+    public String bqj() {
+        return this.eVQ;
     }
 
     public String getSubTitle() {

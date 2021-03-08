@@ -3,32 +3,32 @@ package com.baidu.tieba.personCenter.c;
 import tbclient.SmartApp;
 /* loaded from: classes2.dex */
 public class m implements c {
-    private String OV;
-    private String aGR;
-    private String ePk;
+    private String Qu;
+    private String aIr;
+    private String eQL;
     private String mAppKey;
     private String mLink;
     private String mName;
     private int mType;
-    private Long muA;
-    private String muB;
-    private Integer muC;
+    private Long mwC;
+    private String mwD;
+    private Integer mwE;
 
     public m(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.muA = smartApp.swan_app_id;
+            this.mwC = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
-            this.ePk = smartApp.avatar;
+            this.eQL = smartApp.avatar;
             this.mName = smartApp.name;
-            this.OV = smartApp._abstract;
-            this.muB = smartApp.pic;
-            this.aGR = smartApp.h5_url;
+            this.Qu = smartApp._abstract;
+            this.mwD = smartApp.pic;
+            this.aIr = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.muC = smartApp.is_game;
+            this.mwE = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class m implements c {
         return this.mType;
     }
 
-    public Long dwO() {
-        return this.muA;
+    public Long dwX() {
+        return this.mwC;
     }
 
     public String getAppKey() {
@@ -46,7 +46,7 @@ public class m implements c {
     }
 
     public String getAvatar() {
-        return this.ePk;
+        return this.eQL;
     }
 
     public String getName() {
@@ -54,14 +54,14 @@ public class m implements c {
     }
 
     public String getH5Url() {
-        return this.aGR;
+        return this.aIr;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer dwP() {
-        return this.muC;
+    public Integer dwY() {
+        return this.mwE;
     }
 }

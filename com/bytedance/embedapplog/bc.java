@@ -1,7 +1,6 @@
 package com.bytedance.embedapplog;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Nullable;
@@ -11,7 +10,7 @@ final class bc {
     public static boolean a(Context context, String str) {
         try {
             return context.getPackageManager().getPackageInfo(str, 128) != null;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (Throwable th) {
             return false;
         }
     }
@@ -30,24 +29,22 @@ final class bc {
     static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Runnable f5798a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private final String f5799b;
+        private final Runnable f3913a;
+        private final String b;
         private final String c = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
 
         a(Runnable runnable, String str) {
-            this.f5798a = runnable;
-            this.f5799b = str;
+            this.f3913a = runnable;
+            this.b = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f5798a.run();
+                this.f3913a.run();
             } catch (Exception e) {
                 e.printStackTrace();
-                bb.b("TrackerDr", "Thread:" + this.f5799b + " exception\n" + this.c, e);
+                bb.b("TrackerDr", "Thread:" + this.b + " exception\n" + this.c, e);
             }
         }
     }

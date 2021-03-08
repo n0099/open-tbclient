@@ -1,7 +1,7 @@
 package com.baidu.live.videochat.e;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    int AL();
+    int AO();
 
-    int Wa();
+    int Wd();
 }

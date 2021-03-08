@@ -11,7 +11,7 @@ import android.os.Build;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdCircleImageView extends ImageView {
     private static final int FILL_SHADOW_COLOR = 1023410176;
     private static final int KEY_SHADOW_COLOR = 503316480;
@@ -87,7 +87,7 @@ public class BdCircleImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private class OvalShadow extends OvalShape {
         private RadialGradient mRadialGradient;
         private Paint mShadowPaint = new Paint();

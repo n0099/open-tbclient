@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.data;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ShareEntity {
     public static final int ALA_PREPARE_SHARE_QQ = 4;
     public static final int ALA_PREPARE_SHARE_SINA_WEIBO = 1;

@@ -9,25 +9,23 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class fy {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f14034a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static int f14035b;
+    private static int f8377a;
+    private static int b;
     private static int c = UnitedSchemeMainDispatcher.SCHEME_TIME_LIMIT;
     private static int d = 330000;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Vector<String> f456a = new Vector<>();
+    private static Vector<String> f377a = new Vector<>();
 
     static {
-        f14034a = 5000;
-        f14035b = 330000;
+        f8377a = 5000;
+        b = 330000;
         try {
-            for (ClassLoader classLoader : m330a()) {
+            for (ClassLoader classLoader : m309a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -42,11 +40,11 @@ public final class fy {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f14034a = a(newPullParser, f14034a);
+                                    f8377a = a(newPullParser, f8377a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f14035b = a(newPullParser, f14035b);
+                                    b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f456a.add(newPullParser.nextText());
+                                    f377a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -73,7 +71,7 @@ public final class fy {
     }
 
     public static int a() {
-        return f14035b;
+        return b;
     }
 
     private static int a(XmlPullParser xmlPullParser, int i) {
@@ -86,7 +84,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m329a() {
+    public static String m308a() {
         return "3.1.0";
     }
 
@@ -100,7 +98,7 @@ public final class fy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static ClassLoader[] m330a() {
+    private static ClassLoader[] m309a() {
         ClassLoader[] classLoaderArr = {fy.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {

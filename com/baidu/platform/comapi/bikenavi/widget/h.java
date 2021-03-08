@@ -7,11 +7,11 @@ import android.view.animation.Animation;
 public class h implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f4179a;
+    final /* synthetic */ g f2895a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f4179a = gVar;
+        this.f2895a = gVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,7 +21,7 @@ public class h implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         View view;
-        view = this.f4179a.e;
+        view = this.f2895a.e;
         view.setVisibility(0);
     }
 

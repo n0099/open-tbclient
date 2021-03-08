@@ -8,10 +8,8 @@ import com.baidu.pano.platform.c.b;
 public class BMapManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f2475a = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f2476b;
+    private static boolean f1871a = true;
+    private Context b;
 
     static {
         System.loadLibrary("app_BaiduPanoramaAppLib");
@@ -21,16 +19,16 @@ public class BMapManager {
         if (!(context instanceof Application)) {
             throw new IllegalArgumentException("BMapManager is a Globle project, context should be a Application Context");
         }
-        this.f2476b = context;
+        this.b = context;
     }
 
     public boolean init(MKGeneralListener mKGeneralListener) {
-        LBSAuthManager.getInstance(this.f2476b).authenticate(true, "lbs_panosdk", null, new a(this, mKGeneralListener));
-        b.a().a(this.f2476b);
+        LBSAuthManager.getInstance(this.b).authenticate(true, "lbs_panosdk", null, new a(this, mKGeneralListener));
+        b.a().a(this.b);
         return true;
     }
 
     public static boolean isIllegalPanoSDKUser() {
-        return f2475a;
+        return f1871a;
     }
 }

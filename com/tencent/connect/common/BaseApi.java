@@ -29,22 +29,20 @@ import java.net.SocketTimeoutException;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class BaseApi {
 
     /* renamed from: a  reason: collision with root package name */
-    protected c f13327a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected QQToken f13328b;
+    protected c f7925a;
+    protected QQToken b;
     public static String registerChannel = null;
     public static String installChannel = null;
     public static String businessId = null;
     public static boolean isOEM = false;
 
     public BaseApi(c cVar, QQToken qQToken) {
-        this.f13327a = cVar;
-        this.f13328b = qQToken;
+        this.f7925a = cVar;
+        this.b = qQToken;
     }
 
     public BaseApi(QQToken qQToken) {
@@ -60,11 +58,11 @@ public abstract class BaseApi {
         bundle.putString("status_version", Build.VERSION.SDK);
         bundle.putString("sdkv", Constants.SDK_VERSION);
         bundle.putString("sdkp", "a");
-        if (this.f13328b != null && this.f13328b.isSessionValid()) {
-            bundle.putString("access_token", this.f13328b.getAccessToken());
-            bundle.putString("oauth_consumer_key", this.f13328b.getAppId());
-            bundle.putString("openid", this.f13328b.getOpenId());
-            bundle.putString("appid_for_getting_config", this.f13328b.getAppId());
+        if (this.b != null && this.b.isSessionValid()) {
+            bundle.putString("access_token", this.b.getAccessToken());
+            bundle.putString("oauth_consumer_key", this.b.getAppId());
+            bundle.putString("openid", this.b.getOpenId());
+            bundle.putString("appid_for_getting_config", this.b.getAppId());
         }
         SharedPreferences sharedPreferences = e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
         if (isOEM) {
@@ -90,12 +88,12 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public Bundle b() {
         Bundle bundle = new Bundle();
-        bundle.putString("appid", this.f13328b.getAppId());
-        if (this.f13328b.isSessionValid()) {
-            bundle.putString(Constants.PARAM_KEY_STR, this.f13328b.getAccessToken());
+        bundle.putString("appid", this.b.getAppId());
+        if (this.b.isSessionValid()) {
+            bundle.putString(Constants.PARAM_KEY_STR, this.b.getAccessToken());
             bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
         }
-        String openId = this.f13328b.getOpenId();
+        String openId = this.b.getOpenId();
         if (openId != null) {
             bundle.putString("hopenid", openId);
         }
@@ -172,39 +170,37 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Activity activity, Bundle bundle, IUiListener iUiListener) {
         f.c("openSDK_LOG.BaseApi", "--handleDownloadLastestQQ");
-        new TDialog(activity, "", "http://qzs.qq.com/open/mobile/login/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.f13328b).show();
+        new TDialog(activity, "", "http://qzs.qq.com/open/mobile/login/qzsjump.html?" + HttpUtils.encodeUrl(bundle), null, this.b).show();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Intent c(String str) {
         Intent intent = new Intent();
-        Intent b2 = b(str);
-        if (b2 == null || b2.getComponent() == null) {
+        Intent b = b(str);
+        if (b == null || b.getComponent() == null) {
             return null;
         }
-        intent.setClassName(b2.getComponent().getPackageName(), "com.tencent.open.agent.AgentActivity");
+        intent.setClassName(b.getComponent().getPackageName(), "com.tencent.open.agent.AgentActivity");
         return intent;
     }
 
     public void releaseResource() {
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class TempRequestListener implements IRequestListener {
-
-        /* renamed from: b  reason: collision with root package name */
-        private final IUiListener f13330b;
+        private final IUiListener b;
         private final Handler c;
 
         public TempRequestListener(IUiListener iUiListener) {
-            this.f13330b = iUiListener;
+            this.b = iUiListener;
             this.c = new Handler(e.a().getMainLooper()) { // from class: com.tencent.connect.common.BaseApi.TempRequestListener.1
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
                     if (message.what == 0) {
-                        TempRequestListener.this.f13330b.onComplete(message.obj);
+                        TempRequestListener.this.b.onComplete(message.obj);
                     } else {
-                        TempRequestListener.this.f13330b.onError(new UiError(message.what, (String) message.obj, null));
+                        TempRequestListener.this.b.onError(new UiError(message.what, (String) message.obj, null));
                     }
                 }
             };

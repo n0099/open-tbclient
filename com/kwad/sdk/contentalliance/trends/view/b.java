@@ -7,15 +7,13 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<TrendInfo> f8903a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f8904b;
+    public List<TrendInfo> f5934a;
+    public long b;
     public SceneImpl c;
 
     public b(List<TrendInfo> list, long j, SceneImpl sceneImpl) {
-        this.f8903a = list;
-        this.f8904b = j;
+        this.f5934a = list;
+        this.b = j;
         this.c = sceneImpl;
     }
 }

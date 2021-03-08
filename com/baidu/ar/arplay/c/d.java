@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.util.Log;
 import com.baidu.ar.arplay.c.e;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class d extends BroadcastReceiver {
     private static e.a fR;
     private static volatile BroadcastReceiver fT;

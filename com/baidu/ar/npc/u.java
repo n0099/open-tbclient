@@ -5,19 +5,17 @@ import java.util.HashMap;
 class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ HashMap f1559a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ ArBridge f1560b;
+    final /* synthetic */ HashMap f1302a;
+    final /* synthetic */ ArBridge b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(ArBridge arBridge, HashMap hashMap) {
-        this.f1560b = arBridge;
-        this.f1559a = hashMap;
+        this.b = arBridge;
+        this.f1302a = hashMap;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1560b.nativeSetTargetInfo(this.f1559a);
+        this.b.nativeSetTargetInfo(this.f1302a);
     }
 }

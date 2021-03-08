@@ -3,6 +3,7 @@ package com.baidu.live.adp.lib.util;
 import android.os.Environment;
 import android.os.StatFs;
 import com.baidu.live.adp.lib.safe.BdCloseHelper;
+import com.fun.ad.sdk.FunAdSdk;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -13,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.channels.FileChannel;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BdFileHelper {
     public static final int ERR_FILE_IO_SD = 3;
     public static final int ERR_FILE_NO_SD = 1;
@@ -26,7 +27,7 @@ public class BdFileHelper {
     public static final int SD_MIN_AVAILAALE_SIZE = 2;
     private static final char UNIX_SEPARATOR = '/';
     private static final char WINDOWS_SEPARATOR = '\\';
-    private static String APP_DIR = "baidu";
+    private static String APP_DIR = FunAdSdk.PLATFORM_BAIDU;
     public static final File EXTERNAL_STORAGE_DIRECTORY = Environment.getExternalStorageDirectory();
     private static final char SYSTEM_SEPARATOR = File.separatorChar;
 

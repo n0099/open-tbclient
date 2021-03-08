@@ -51,7 +51,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BIMRtcManager {
     private static final String TAG = "BIMRtcManager";
     private static Context mContext;
@@ -230,7 +230,7 @@ public class BIMRtcManager {
             creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_INFO, bIMRtcInfo.toRtcInfoString());
             creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i);
             creatMethodIntent.putExtra("rtc_room_id", bIMRtcInfo.getRtcRoomId());
-            a.ao(mContext).e(mContext, creatMethodIntent);
+            a.an(mContext).e(mContext, creatMethodIntent);
             trackRequest(bIMRtcInfo, RtcConstants.METHOD_IM_RTC_MSG, i, "c_send_request", -1);
             mBIMRtcEvent.sdkAction = i;
             mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();

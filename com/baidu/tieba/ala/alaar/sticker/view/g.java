@@ -8,14 +8,14 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import com.baidu.tieba.ala.alaar.sticker.model.PicStickerItem;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g extends i {
-    private TbImageView gvX;
+    private TbImageView gxG;
 
     public g(View view) {
         this.mRootView = view;
-        this.gvX = (TbImageView) this.mRootView.findViewById(a.f.sticker_img);
-        this.gwd = (MaskStrokeView) this.mRootView.findViewById(a.f.sticker_bg);
+        this.gxG = (TbImageView) this.mRootView.findViewById(a.f.sticker_img);
+        this.gxM = (MaskStrokeView) this.mRootView.findViewById(a.f.sticker_bg);
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.view.i
@@ -30,7 +30,7 @@ public class g extends i {
                     super.onLoaded((AnonymousClass1) bdImage, str, i);
                     if (bdImage != null && bdImage.getRawBitmap() != null && str != null && str.equals(((PicStickerItem) fuFaceItem).url)) {
                         ((PicStickerItem) fuFaceItem).bitmap = bdImage.getRawBitmap();
-                        g.this.gvX.setImageBitmap(bdImage.getRawBitmap());
+                        g.this.gxG.setImageBitmap(bdImage.getRawBitmap());
                     }
                 }
             }, null);

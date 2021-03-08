@@ -8,56 +8,56 @@ import io.reactivex.subjects.PublishSubject;
 import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ObservablePublishSelector<T, R> extends io.reactivex.internal.operators.observable.a<T, R> {
-    final h<? super q<T>, ? extends t<R>> qoT;
+    final h<? super q<T>, ? extends t<R>> qpv;
 
     @Override // io.reactivex.q
     protected void a(u<? super R> uVar) {
-        PublishSubject eKV = PublishSubject.eKV();
+        PublishSubject eKD = PublishSubject.eKD();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.m(this.qoT.apply(eKV), "The selector returned a null ObservableSource");
+            t tVar = (t) io.reactivex.internal.functions.a.n(this.qpv.apply(eKD), "The selector returned a null ObservableSource");
             TargetObserver targetObserver = new TargetObserver(uVar);
             tVar.subscribe(targetObserver);
-            this.source.subscribe(new a(eKV, targetObserver));
+            this.source.subscribe(new a(eKD, targetObserver));
         } catch (Throwable th) {
             io.reactivex.exceptions.a.N(th);
             EmptyDisposable.error(th, uVar);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class a<T, R> implements u<T> {
-        final PublishSubject<T> qpZ;
-        final AtomicReference<io.reactivex.disposables.b> qqa;
+        final PublishSubject<T> qqB;
+        final AtomicReference<io.reactivex.disposables.b> qqC;
 
         a(PublishSubject<T> publishSubject, AtomicReference<io.reactivex.disposables.b> atomicReference) {
-            this.qpZ = publishSubject;
-            this.qqa = atomicReference;
+            this.qqB = publishSubject;
+            this.qqC = atomicReference;
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.setOnce(this.qqa, bVar);
+            DisposableHelper.setOnce(this.qqC, bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(T t) {
-            this.qpZ.onNext(t);
+            this.qqB.onNext(t);
         }
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            this.qpZ.onError(th);
+            this.qqB.onError(th);
         }
 
         @Override // io.reactivex.u
         public void onComplete() {
-            this.qpZ.onComplete();
+            this.qqB.onComplete();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class TargetObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<R> {
         private static final long serialVersionUID = 854110278590336484L;
         final u<? super R> actual;

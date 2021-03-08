@@ -20,20 +20,20 @@ import com.baidu.tbadk.pay.PayConfigModel;
 import com.baidu.tieba.R;
 import com.baidu.tieba.live.tbean.TbeanStatisticKey;
 import com.baidu.tieba.tbean.BuyTBeanModel;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements BuyTBeanModel.a {
-    private PayConfigModel loZ;
+    private PayConfigModel lrb;
     private String mClickZone;
     private long mGiftBbean;
     private String mReferPage;
-    private BuyTBeanModel nCa;
-    private a nCb;
+    private BuyTBeanModel nEf;
+    private a nEg;
     private boolean mIsPayDialog = true;
     private String SCENE_ID = "4001001000";
-    private boolean nCc = false;
+    private boolean nEh = false;
     private int isFromDecreaseGiftStepStrategy = 0;
-    private long nCd = 0;
-    private CustomMessageListener nCe = new CustomMessageListener(2921407) { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.4
+    private long nEi = 0;
+    private CustomMessageListener nEj = new CustomMessageListener(2921407) { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,10 +51,10 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
         this.mReferPage = getIntent().getStringExtra("refer_page");
         this.mClickZone = getIntent().getStringExtra("click_zone");
-        this.nCc = getIntent().getBooleanExtra(BuyTBeanActivityConfig.IS_FROM_ALA, false);
+        this.nEh = getIntent().getBooleanExtra(BuyTBeanActivityConfig.IS_FROM_ALA, false);
         this.isFromDecreaseGiftStepStrategy = getIntent().getIntExtra(BuyTBeanActivityConfig.IS_FROM_ALA_GIFT_PANEL, 0);
-        this.nCd = getIntent().getLongExtra(BuyTBeanActivityConfig.TBEAN_LEFT_TO_BUY_ALA_GIFT, 0L);
-        this.nCc = false;
+        this.nEi = getIntent().getLongExtra(BuyTBeanActivityConfig.TBEAN_LEFT_TO_BUY_ALA_GIFT, 0L);
+        this.nEh = false;
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(false);
         addGlobalLayoutListener();
@@ -65,38 +65,38 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         }
         getGiftTBean(getIntent());
         showLoadingDialog(getPageContext().getString(R.string.flist_loading));
-        this.nCb = new a(this);
-        setContentView(this.nCb.getRootView());
-        if (this.isFromDecreaseGiftStepStrategy != 0 && this.nCd > 0) {
-            this.nCb.hH(this.nCd);
+        this.nEg = new a(this);
+        setContentView(this.nEg.getRootView());
+        if (this.isFromDecreaseGiftStepStrategy != 0 && this.nEi > 0) {
+            this.nEg.hH(this.nEi);
         }
-        this.nCb.hideRootView();
-        this.nCa = new BuyTBeanModel(this, this);
-        this.nCa.dPM();
-        this.nCa.registerYinJiHttpListener();
-        this.nCa.dPO();
-        this.nCa.dPN();
-        this.loZ = new PayConfigModel(this, new com.baidu.tbadk.pay.a() { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.1
+        this.nEg.hideRootView();
+        this.nEf = new BuyTBeanModel(this, this);
+        this.nEf.dPV();
+        this.nEf.registerYinJiHttpListener();
+        this.nEf.dPX();
+        this.nEf.dPW();
+        this.lrb = new PayConfigModel(this, new com.baidu.tbadk.pay.a() { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.1
             @Override // com.baidu.tbadk.pay.a
             public void onError(String str2) {
-                BuyTBeanActivity.this.nCa.requestYinJiInfo();
+                BuyTBeanActivity.this.nEf.requestYinJiInfo();
             }
 
             @Override // com.baidu.tbadk.pay.a
             public void onPayNative() {
-                BuyTBeanActivity.this.nCa.requestYinJiInfo();
+                BuyTBeanActivity.this.nEf.requestYinJiInfo();
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.tbean.BuyTBeanActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tbadk.pay.a
             public void onPayH5() {
-                com.baidu.tbadk.pay.c.bDV().a(String.format(PayConst.PAY_H5_TBEAN, String.valueOf(BuyTBeanActivity.this.mGiftBbean), com.baidu.tbadk.pay.b.PAY_H5_TBEAN_RETURN_URL) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
+                com.baidu.tbadk.pay.c.bDZ().a(String.format(PayConst.PAY_H5_TBEAN, String.valueOf(BuyTBeanActivity.this.mGiftBbean), com.baidu.tbadk.pay.b.PAY_H5_TBEAN_RETURN_URL) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
                 BuyTBeanActivity.this.finish();
             }
         });
-        this.loZ.bDU();
-        registerListener(this.nCe);
+        this.lrb.bDY();
+        registerListener(this.nEj);
         TiebaStatic.log(TbeanStatisticKey.BUY_TBEAN_ACTIVITY);
     }
 
@@ -117,8 +117,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.nCb != null) {
-            this.nCb.onChangeSkinType(i);
+        if (this.nEg != null) {
+            this.nEg.onChangeSkinType(i);
         }
     }
 
@@ -131,10 +131,10 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.buy_tbean_use_rule || view.getId() == R.id.t_dou_introduce_activity_right_button) {
-            bf.bsV().b(getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
-        } else if ((view.getId() == R.id.buy_tbean_close_image || view.getId() == R.id.buy_tbean_root_view) && this.nCb != null) {
-            if (this.nCb.dPT()) {
-                this.nCb.hideSoftKeyPad();
+            bf.bsY().b(getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
+        } else if ((view.getId() == R.id.buy_tbean_close_image || view.getId() == R.id.buy_tbean_root_view) && this.nEg != null) {
+            if (this.nEg.dQc()) {
+                this.nEg.hideSoftKeyPad();
             } else {
                 processClose();
             }
@@ -156,8 +156,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         aVar.jF(true);
         aVar.setTitleShowCenter(true);
         aVar.setMessageShowCenter(true);
-        aVar.At(getString(R.string.buy_tbean_exit_dialog_title));
-        aVar.Au(getString(R.string.buy_tbean_exit_dialog_sub_title));
+        aVar.AA(getString(R.string.buy_tbean_exit_dialog_title));
+        aVar.AB(getString(R.string.buy_tbean_exit_dialog_sub_title));
         aVar.a(getString(R.string.go_on), new a.b() { // from class: com.baidu.tieba.tbean.BuyTBeanActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -170,7 +170,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
                 BuyTBeanActivity.this.finish();
             }
         });
-        aVar.b(getPageContext()).bqx();
+        aVar.b(getPageContext()).bqz();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -190,19 +190,19 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public void onFailed(String str) {
         showToast(str);
         closeLoadingDialog();
-        if (this.nCb != null) {
-            this.nCb.showRootView();
-            this.nCb.cHM();
+        if (this.nEg != null) {
+            this.nEg.showRootView();
+            this.nEg.cHS();
         }
     }
 
     @Override // com.baidu.tieba.tbean.BuyTBeanModel.a
     public void onSuccess() {
         closeLoadingDialog();
-        if (this.nCb != null) {
-            this.nCb.showRootView();
-            this.nCb.cHN();
-            this.nCb.a(this.nCa.dPP(), this.nCa.dPR(), this.nCa.dPQ(), this.nCa.getUserInfo());
+        if (this.nEg != null) {
+            this.nEg.showRootView();
+            this.nEg.cHT();
+            this.nEg.a(this.nEf.dPY(), this.nEf.dQa(), this.nEf.dPZ(), this.nEf.getUserInfo());
         }
     }
 
@@ -214,10 +214,10 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     public void refresh() {
-        if (this.nCa != null && this.nCb != null) {
+        if (this.nEf != null && this.nEg != null) {
             showLoadingDialog(getPageContext().getString(R.string.flist_loading));
-            this.nCb.hideRootView();
-            this.nCa.requestYinJiInfo();
+            this.nEg.hideRootView();
+            this.nEf.requestYinJiInfo();
         }
     }
 
@@ -233,8 +233,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         clearAnimatable();
         clearAnimation();
         super.onDestroy();
-        if (this.nCb != null) {
-            this.nCb.onDestroy();
+        if (this.nEg != null) {
+            this.nEg.onDestroy();
         }
     }
 
@@ -242,8 +242,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
-        if (this.nCb != null) {
-            this.nCb.onKeyboardVisibilityChanged(z);
+        if (this.nEg != null) {
+            this.nEg.onKeyboardVisibilityChanged(z);
         }
     }
 
@@ -255,7 +255,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         return this.mClickZone;
     }
 
-    public boolean dPK() {
+    public boolean dPT() {
         return this.mIsPayDialog;
     }
 

@@ -2,7 +2,7 @@ package com.baidu.ar.face.algo;
 
 import android.content.res.AssetManager;
 import com.baidu.ar.libloader.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class FaceJniClient {
     static {
         a.require("anakin_lite");

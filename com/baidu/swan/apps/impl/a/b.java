@@ -8,10 +8,10 @@ import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final byte[] dda = {31, -117};
+    private static final byte[] deD = {31, -117};
 
     public static String md5(byte[] bArr) {
         try {
@@ -57,10 +57,10 @@ public class b {
             r0 = r1
             goto La
         L15:
-            byte[] r0 = com.baidu.swan.apps.impl.a.b.dda
+            byte[] r0 = com.baidu.swan.apps.impl.a.b.deD
             r0 = r0[r2]
             r13[r2] = r0
-            byte[] r0 = com.baidu.swan.apps.impl.a.b.dda
+            byte[] r0 = com.baidu.swan.apps.impl.a.b.deD
             r0 = r0[r3]
             r13[r3] = r0
             java.io.ByteArrayInputStream r4 = new java.io.ByteArrayInputStream     // Catch: java.lang.Exception -> L78
@@ -155,7 +155,7 @@ public class b {
             org.json.JSONObject r10 = new org.json.JSONObject     // Catch: java.lang.Throwable -> L48
             java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L48
             r10.<init>(r0)     // Catch: java.lang.Throwable -> L48
-            java.lang.String r0 = com.baidu.swan.apps.impl.a.a.a.ddn     // Catch: java.lang.Throwable -> L48
+            java.lang.String r0 = com.baidu.swan.apps.impl.a.a.a.deQ     // Catch: java.lang.Throwable -> L48
             java.lang.String r0 = r10.getString(r0)     // Catch: java.lang.Throwable -> L48
             boolean r10 = com.baidu.swan.apps.impl.a.b.DEBUG     // Catch: java.lang.Throwable -> L48
             if (r10 == 0) goto Lbe
@@ -163,12 +163,12 @@ public class b {
             android.util.Log.d(r10, r0)     // Catch: java.lang.Throwable -> L48
         Lbe:
             r10 = 2
-            javax.crypto.Cipher r10 = hs(r10)     // Catch: java.lang.Throwable -> L48
+            javax.crypto.Cipher r10 = ht(r10)     // Catch: java.lang.Throwable -> L48
             r11 = 0
             byte[] r0 = android.util.Base64.decode(r0, r11)     // Catch: java.lang.Throwable -> L48
             byte[] r10 = r10.doFinal(r0)     // Catch: java.lang.Throwable -> L48
             java.io.File r0 = new java.io.File     // Catch: java.lang.Throwable -> L48
-            java.lang.String r11 = com.baidu.swan.apps.impl.a.a.a.ddn     // Catch: java.lang.Throwable -> L48
+            java.lang.String r11 = com.baidu.swan.apps.impl.a.a.a.deQ     // Catch: java.lang.Throwable -> L48
             r0.<init>(r14, r11)     // Catch: java.lang.Throwable -> L48
             java.io.FileOutputStream r11 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L48
             r11.<init>(r0)     // Catch: java.lang.Throwable -> L48
@@ -275,7 +275,7 @@ public class b {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.swan.apps.impl.a.b.b(byte[], java.io.File):java.io.File");
     }
 
-    private static Cipher hs(int i) throws Exception {
+    private static Cipher ht(int i) throws Exception {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
         cipher.init(i, new SecretKeySpec(md5("la32118_p9d8#*!6)".getBytes()).substring(16).getBytes(), e.q), new IvParameterSpec("2081147213143090".getBytes()));
         return cipher;

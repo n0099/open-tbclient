@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.nio.BufferOverflowException;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
     private MediaCodec.BufferInfo mBufferInfo;
@@ -28,8 +28,8 @@ public class a {
     private MediaCodec mMediaCodec;
     private ByteBuffer[] mOutputBuffers;
     private int mSampleRate;
-    private long dmq = 0;
-    private ByteArrayOutputStream afZ = new ByteArrayOutputStream();
+    private long dnS = 0;
+    private ByteArrayOutputStream ahs = new ByteArrayOutputStream();
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public a(String str, int i, int i2, int i3) {
@@ -101,7 +101,7 @@ public class a {
         }
     }
 
-    public byte[] H(byte[] bArr) {
+    public byte[] J(byte[] bArr) {
         if (this.mMediaCodec == null || bArr == null) {
             if (DEBUG) {
                 Log.d("AudioRecorderManager", "wrong input or mediaCodec");
@@ -133,9 +133,9 @@ public class a {
         }
         switch (c) {
             case 0:
-                return I(bArr);
+                return K(bArr);
             case 1:
-                return J(bArr);
+                return L(bArr);
             case 2:
             default:
                 return bArr;
@@ -168,10 +168,10 @@ public class a {
     private byte[] p(int i, int i2, int i3, int i4) {
         int i5 = i + 7;
         byte[] bArr = new byte[i5];
-        int ig = ig(i3);
+        int ih = ih(i3);
         bArr[0] = -1;
         bArr[1] = -15;
-        bArr[2] = (byte) ((ig << 2) + ((i2 - 1) << 6) + (i4 >> 2));
+        bArr[2] = (byte) ((ih << 2) + ((i2 - 1) << 6) + (i4 >> 2));
         bArr[3] = (byte) (((i4 & 3) << 6) + (i5 >> 11));
         bArr[4] = (byte) ((i5 & 2047) >> 3);
         bArr[5] = (byte) (((i5 & 7) << 5) + 31);
@@ -179,7 +179,7 @@ public class a {
         return bArr;
     }
 
-    private int ig(int i) {
+    private int ih(int i) {
         switch (i) {
             case 7350:
                 return 12;
@@ -211,7 +211,7 @@ public class a {
         }
     }
 
-    private byte[] I(byte[] bArr) {
+    private byte[] K(byte[] bArr) {
         if (this.mMediaCodec != null && bArr != null) {
             if (DEBUG) {
                 Log.d("AudioRecorderManager", "start AAC encode");
@@ -223,8 +223,8 @@ public class a {
                 try {
                     byteBuffer.put(bArr);
                     byteBuffer.limit(bArr.length);
-                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, cy(this.dmq), 0);
-                    this.dmq++;
+                    this.mMediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, cy(this.dnS), 0);
+                    this.dnS++;
                 } catch (IllegalArgumentException | BufferOverflowException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -242,7 +242,7 @@ public class a {
                     try {
                         byteBuffer2.get(p, 7, i);
                         byteBuffer2.position(this.mBufferInfo.offset);
-                        this.afZ.write(p);
+                        this.ahs.write(p);
                         this.mMediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
                         dequeueOutputBuffer = this.mMediaCodec.dequeueOutputBuffer(this.mBufferInfo, 0L);
                     } catch (IOException | IllegalArgumentException | BufferUnderflowException e2) {
@@ -256,20 +256,20 @@ public class a {
                     }
                 }
             }
-            bArr = this.afZ.toByteArray();
+            bArr = this.ahs.toByteArray();
             try {
-                this.afZ.flush();
+                this.ahs.flush();
             } catch (IOException e4) {
                 if (DEBUG) {
                     e4.printStackTrace();
                 }
             }
-            this.afZ.reset();
+            this.ahs.reset();
         }
         return bArr;
     }
 
-    private byte[] J(byte[] bArr) {
+    private byte[] L(byte[] bArr) {
         return bArr;
     }
 }

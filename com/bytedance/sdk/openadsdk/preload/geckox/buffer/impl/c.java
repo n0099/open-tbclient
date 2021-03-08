@@ -9,17 +9,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f7466a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f7467b;
+    private long f5068a;
+    private long b;
     private RandomAccessFile c;
     private AtomicBoolean d = new AtomicBoolean(false);
     private File e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(long j, File file) throws IOException {
-        this.f7466a = j;
+        this.f5068a = j;
         this.e = file;
         file.getParentFile().mkdirs();
         try {
@@ -40,7 +38,7 @@ class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public long b() {
-        return this.f7466a;
+        return this.f5068a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
@@ -63,7 +61,7 @@ class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
             throw new IOException("too large:" + j);
         }
         skipBytes = this.c.skipBytes((int) j);
-        this.f7467b = this.c.getFilePointer();
+        this.b = this.c.getFilePointer();
         return skipBytes;
     }
 
@@ -78,10 +76,10 @@ class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
                 i2 = bArr.length - i;
             }
             synchronized (this) {
-                if (this.f7467b != this.f7466a) {
-                    i3 = this.f7467b + ((long) i2) > this.f7466a ? (int) (this.f7466a - this.f7467b) : i2;
+                if (this.b != this.f5068a) {
+                    i3 = this.b + ((long) i2) > this.f5068a ? (int) (this.f5068a - this.b) : i2;
                     this.c.write(bArr, i, i3);
-                    this.f7467b += i3;
+                    this.b += i3;
                 }
             }
         }
@@ -93,7 +91,7 @@ class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         if (this.d.get()) {
             throw new IOException("released!");
         }
-        return this.f7467b;
+        return this.b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
@@ -103,11 +101,11 @@ class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         }
         if (j < 0) {
             j = 0;
-        } else if (j > this.f7466a) {
-            j = this.f7466a;
+        } else if (j > this.f5068a) {
+            j = this.f5068a;
         }
-        this.f7467b = j;
-        this.c.seek(this.f7467b);
+        this.b = j;
+        this.c.seek(this.b);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
@@ -136,17 +134,17 @@ class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
             i2 = bArr.length - i;
         }
         synchronized (this) {
-            if (this.f7467b == this.f7466a) {
+            if (this.b == this.f5068a) {
                 return -1;
             }
-            if (this.f7467b + i2 > this.f7466a) {
-                i2 = (int) (this.f7466a - this.f7467b);
+            if (this.b + i2 > this.f5068a) {
+                i2 = (int) (this.f5068a - this.b);
             }
             int read = this.c.read(bArr, i, i2);
             if (read == -1) {
                 return -1;
             }
-            this.f7467b += read;
+            this.b += read;
             return read;
         }
     }

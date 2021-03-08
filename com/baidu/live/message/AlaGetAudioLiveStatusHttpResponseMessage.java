@@ -3,11 +3,11 @@ package com.baidu.live.message;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.util.AdExtParam;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGetAudioLiveStatusHttpResponseMessage extends JsonHttpResponsedMessage {
-    public String buK;
-    public String buL;
-    public String buM;
+    public String bwk;
+    public String bwl;
+    public String bwm;
     public long liveId;
 
     public AlaGetAudioLiveStatusHttpResponseMessage() {
@@ -20,9 +20,9 @@ public class AlaGetAudioLiveStatusHttpResponseMessage extends JsonHttpResponsedM
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.liveId = optJSONObject.optLong("liveId");
-            this.buK = optJSONObject.optString("queryType");
-            this.buL = optJSONObject.optString("queryResult");
-            this.buM = optJSONObject.optString(AdExtParam.KEY_REQUEST_TYPE);
+            this.bwk = optJSONObject.optString("queryType");
+            this.bwl = optJSONObject.optString("queryResult");
+            this.bwm = optJSONObject.optString(AdExtParam.KEY_REQUEST_TYPE);
         }
     }
 }

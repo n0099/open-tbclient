@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.atomdata.CommonWebViewActivityConfig;
 import com.baidu.tieba.sdk.activity.CommonWebViewActivity;
 import com.baidu.tieba.sdk.activity.CommonWebViewFullActivity;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveSdkLibInitialize {
     static {
         if (Build.VERSION.SDK_INT == 26) {

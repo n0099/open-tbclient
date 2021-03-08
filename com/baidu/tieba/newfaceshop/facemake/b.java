@@ -10,32 +10,32 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static Bitmap c(ImageFileInfo imageFileInfo) {
-        Bitmap b2;
+        Bitmap b;
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         com.baidu.adp.widget.ImageView.a a2 = bVar.a(imageFileInfo, true);
         if (a2 != null) {
-            b2 = a2.getRawBitmap();
+            b = a2.getRawBitmap();
         } else {
-            b2 = bVar.b(imageFileInfo, true);
+            b = bVar.b(imageFileInfo, true);
         }
-        if (b2 == null) {
-            return OS(imageFileInfo.getFilePath());
+        if (b == null) {
+            return OY(imageFileInfo.getFilePath());
         }
-        return b2;
+        return b;
     }
 
-    public static Bitmap OS(String str) {
+    public static Bitmap OY(String str) {
         Bitmap bitmap = null;
         try {
             File file = new File(str);
             if (file.exists()) {
                 if (ae(file)) {
-                    com.baidu.adp.widget.ImageView.a bs = a.C0013a.ld().bs(str);
-                    if (bs != null) {
-                        bitmap = bs.getRawBitmap();
+                    com.baidu.adp.widget.ImageView.a bw = a.C0019a.ld().bw(str);
+                    if (bw != null) {
+                        bitmap = bw.getRawBitmap();
                     }
                 } else {
                     BitmapFactory.Options options = new BitmapFactory.Options();

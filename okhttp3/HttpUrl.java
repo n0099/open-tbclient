@@ -18,7 +18,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
 import org.apache.http.HttpHost;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class HttpUrl {
     static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     static final String FRAGMENT_ENCODE_SET = "";
@@ -369,7 +369,7 @@ public final class HttpUrl {
         return PublicSuffixDatabase.get().getEffectiveTldPlusOne(this.host);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class Builder {
         static final String INVALID_HOST = "Invalid URL host";
         @Nullable

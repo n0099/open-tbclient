@@ -2,7 +2,7 @@ package androidx.core.os;
 
 import android.os.Parcel;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public interface ParcelableCompatCreatorCallbacks<T> {
     T createFromParcel(Parcel parcel, ClassLoader classLoader);
 

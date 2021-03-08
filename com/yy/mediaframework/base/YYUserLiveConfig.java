@@ -1,5 +1,5 @@
 package com.yy.mediaframework.base;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYUserLiveConfig {
     public long mUid = 0;
     public long mTopSid = 0;

@@ -10,13 +10,13 @@ import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.ao.ag;
 import com.baidu.swan.apps.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
     private static final boolean mIsOn;
 
     static {
-        mIsOn = ProcessUtils.isMainProcess() ? na("swan_prefetch_app_data") : arn();
+        mIsOn = ProcessUtils.isMainProcess() ? nh("swan_prefetch_app_data") : arq();
         if (DEBUG) {
             Log.i("PrefetchABSwitcher", "prefetch switch - " + mIsOn);
         }
@@ -26,31 +26,31 @@ public final class a {
         return mIsOn;
     }
 
-    private static boolean na(String str) {
-        int arm;
+    private static boolean nh(String str) {
+        int arp;
         if (DEBUG) {
-            if (com.baidu.swan.apps.ad.a.a.aEV() || (arm = arm()) == 1) {
+            if (com.baidu.swan.apps.ad.a.a.aEY() || (arp = arp()) == 1) {
                 return true;
             }
-            if (arm == 0) {
+            if (arp == 0) {
                 return false;
             }
         }
-        int i = com.baidu.swan.apps.t.a.awZ().getSwitch(str, 0);
+        int i = com.baidu.swan.apps.t.a.axc().getSwitch(str, 0);
         if (DEBUG) {
             Log.d("PrefetchABSwitcher", str + " value from AB : " + i);
         }
         return i == 1;
     }
 
-    private static int arm() {
+    private static int arp() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("swan_prefetch_app_data", -1);
     }
 
-    private static boolean arn() {
+    private static boolean arq() {
         boolean z = false;
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0413a.class, null);
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0419a.class, null);
         if (callOnMainWithContentProvider.isOk() && callOnMainWithContentProvider.mResult.getBoolean("result", false)) {
             z = true;
         }
@@ -60,13 +60,13 @@ public final class a {
         return z;
     }
 
-    public static boolean aro() {
-        return !ag.ub("3.210.0");
+    public static boolean arr() {
+        return !ag.ui("3.210.0");
     }
 
     /* renamed from: com.baidu.swan.apps.core.prefetch.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0413a extends ProviderDelegation {
+    /* loaded from: classes8.dex */
+    public static class C0419a extends ProviderDelegation {
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();

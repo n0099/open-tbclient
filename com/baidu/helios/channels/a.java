@@ -7,9 +7,9 @@ import com.baidu.helios.common.c.a;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.Comparator;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public abstract class a {
-    public static Comparator<a> arO = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
+    public static Comparator<a> atp = new Comparator<a>() { // from class: com.baidu.helios.channels.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -18,33 +18,29 @@ public abstract class a {
             return priority != 0 ? priority > 0 ? -1 : 1 : aVar.getName().compareTo(aVar2.getName());
         }
     };
-    protected C0128a arM;
-    protected a.C0133a arN;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f2414b;
+    protected C0134a atn;
+    protected a.C0139a ato;
+    private final String b;
     private long c;
 
     /* renamed from: com.baidu.helios.channels.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0128a {
+    /* loaded from: classes14.dex */
+    public static class C0134a {
         public Context applicationContext;
-        public com.baidu.helios.common.c.a arP;
-        public com.baidu.helios.ids.b arQ;
+        public com.baidu.helios.common.c.a atq;
+        public com.baidu.helios.ids.b atr;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static abstract class b {
-        private a.C0133a ary;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f2415b;
+        private a.C0139a asY;
+        private String b;
         private String c;
         private boolean d = true;
 
-        public b(a.C0133a c0133a, String str) {
-            this.ary = c0133a;
-            this.f2415b = str;
+        public b(a.C0139a c0139a, String str) {
+            this.asY = c0139a;
+            this.b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
@@ -52,15 +48,15 @@ public abstract class a {
             this.d = z;
         }
 
-        public abstract void q(JSONObject jSONObject);
+        public abstract void s(JSONObject jSONObject);
 
-        public abstract void r(JSONObject jSONObject);
+        public abstract void t(JSONObject jSONObject);
 
-        public boolean uJ() {
-            String p = this.ary.p(this.c, true);
+        public boolean uM() {
+            String p = this.asY.p(this.c, true);
             if (!TextUtils.isEmpty(p)) {
                 try {
-                    q(new JSONObject(p));
+                    s(new JSONObject(p));
                     aR(false);
                     return true;
                 } catch (Exception e) {
@@ -69,12 +65,12 @@ public abstract class a {
             return false;
         }
 
-        public boolean uK() {
+        public boolean uN() {
             if (this.d) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    r(jSONObject);
-                    this.ary.c(this.c, jSONObject.toString(), true);
+                    t(jSONObject);
+                    this.asY.c(this.c, jSONObject.toString(), true);
                     aR(false);
                     return true;
                 } catch (Exception e) {
@@ -84,31 +80,29 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class c {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class d {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2416a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private int f2417b;
+        private int f1837a;
+        private int b;
         public Exception exception;
 
         public e(int i, int i2, Exception exc) {
-            this.f2416a = i;
-            this.f2417b = i2;
+            this.f1837a = i;
+            this.b = i2;
             this.exception = exc;
         }
 
-        public static e bK(int i) {
+        public static e bL(int i) {
             return new e(-1, i, null);
         }
 
@@ -116,21 +110,21 @@ public abstract class a {
             return new e(-1, 0, exc);
         }
 
-        public static e uL() {
+        public static e uO() {
             return new e(0, 0, null);
         }
 
-        public static e uM() {
-            return bK(0);
+        public static e uP() {
+            return bL(0);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class f {
         public boolean useCache;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static class g {
         public int errCode;
         public Exception exception;
@@ -142,16 +136,16 @@ public abstract class a {
             this.exception = exc;
         }
 
-        public static g bL(int i) {
+        public static g bM(int i) {
             return new g(i, null, null);
-        }
-
-        public static g dY(String str) {
-            return new g(0, str, null);
         }
 
         public static g e(int i, Exception exc) {
             return new g(i, null, exc);
+        }
+
+        public static g ee(String str) {
+            return new g(0, str, null);
         }
 
         public static g j(Exception exc) {
@@ -164,7 +158,7 @@ public abstract class a {
     }
 
     public a(String str, long j) {
-        this.f2414b = str;
+        this.b = str;
         this.c = j;
     }
 
@@ -172,15 +166,15 @@ public abstract class a {
 
     public abstract g a(String str, f fVar);
 
-    public final void a(C0128a c0128a) {
-        this.arM = c0128a;
-        this.arN = c0128a.arP.vh().ea(IXAdRequestInfo.CS);
+    public final void a(C0134a c0134a) {
+        this.atn = c0134a;
+        this.ato = c0134a.atq.vk().eg(IXAdRequestInfo.CS);
     }
 
     public abstract void a(c cVar);
 
     public String getName() {
-        return this.f2414b;
+        return this.b;
     }
 
     public long getPriority() {

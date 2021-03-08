@@ -12,77 +12,75 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class gx {
 
     /* renamed from: a  reason: collision with other field name */
-    private static al f487a = new al(true);
+    private static al f408a = new al(true);
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f14072a = -1;
+    private static volatile int f8400a = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static long f486a = System.currentTimeMillis();
+    private static long f407a = System.currentTimeMillis();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final Object f489a = new Object();
+    private static final Object f410a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static List<a> f491a = Collections.synchronizedList(new ArrayList());
+    private static List<a> f412a = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f490a = "";
+    private static String f411a = "";
 
     /* renamed from: a  reason: collision with other field name */
-    private static com.xiaomi.push.providers.a f488a = null;
+    private static com.xiaomi.push.providers.a f409a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f14073a;
+        public int f8401a;
 
         /* renamed from: a  reason: collision with other field name */
-        public long f492a;
+        public long f413a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f493a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f14074b;
+        public String f414a;
+        public int b;
 
         /* renamed from: b  reason: collision with other field name */
-        public long f494b;
+        public long f415b;
 
         /* renamed from: b  reason: collision with other field name */
-        public String f495b;
+        public String f416b;
 
         public a(String str, long j, int i, int i2, String str2, long j2) {
-            this.f493a = "";
-            this.f492a = 0L;
-            this.f14073a = -1;
-            this.f14074b = -1;
-            this.f495b = "";
-            this.f494b = 0L;
-            this.f493a = str;
-            this.f492a = j;
-            this.f14073a = i;
-            this.f14074b = i2;
-            this.f495b = str2;
-            this.f494b = j2;
+            this.f414a = "";
+            this.f413a = 0L;
+            this.f8401a = -1;
+            this.b = -1;
+            this.f416b = "";
+            this.f415b = 0L;
+            this.f414a = str;
+            this.f413a = j;
+            this.f8401a = i;
+            this.b = i2;
+            this.f416b = str2;
+            this.f415b = j2;
         }
 
         public boolean a(a aVar) {
-            return TextUtils.equals(aVar.f493a, this.f493a) && TextUtils.equals(aVar.f495b, this.f495b) && aVar.f14073a == this.f14073a && aVar.f14074b == this.f14074b && Math.abs(aVar.f492a - this.f492a) <= 5000;
+            return TextUtils.equals(aVar.f414a, this.f414a) && TextUtils.equals(aVar.f416b, this.f416b) && aVar.f8401a == this.f8401a && aVar.b == this.b && Math.abs(aVar.f413a - this.f413a) <= 5000;
         }
     }
 
     public static int a(Context context) {
-        if (f14072a == -1) {
-            f14072a = b(context);
+        if (f8400a == -1) {
+            f8400a = b(context);
         }
-        return f14072a;
+        return f8400a;
     }
 
     public static int a(String str) {
@@ -95,8 +93,8 @@ public class gx {
 
     private static long a(int i, long j, boolean z, long j2, boolean z2) {
         if (z && z2) {
-            long j3 = f486a;
-            f486a = j2;
+            long j3 = f407a;
+            f407a = j2;
             if (j2 - j3 > 30000 && j > 1024) {
                 return 2 * j;
             }
@@ -105,26 +103,26 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static com.xiaomi.push.providers.a m352a(Context context) {
-        if (f488a != null) {
-            return f488a;
+    private static com.xiaomi.push.providers.a m331a(Context context) {
+        if (f409a != null) {
+            return f409a;
         }
-        f488a = new com.xiaomi.push.providers.a(context);
-        return f488a;
+        f409a = new com.xiaomi.push.providers.a(context);
+        return f409a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static synchronized String m353a(Context context) {
+    private static synchronized String m332a(Context context) {
         String str;
         synchronized (gx.class) {
-            str = !TextUtils.isEmpty(f490a) ? f490a : "";
+            str = !TextUtils.isEmpty(f411a) ? f411a : "";
         }
         return str;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m355a(Context context) {
-        f14072a = b(context);
+    public static void m334a(Context context) {
+        f8400a = b(context);
     }
 
     private static void a(Context context, String str, long j, boolean z, long j2) {
@@ -133,12 +131,12 @@ public class gx {
         if (context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
             return;
         }
-        synchronized (f489a) {
-            isEmpty = f491a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m353a(context) : "", j));
+        synchronized (f410a) {
+            isEmpty = f412a.isEmpty();
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m332a(context) : "", j));
         }
         if (isEmpty) {
-            f487a.a(new gy(context), 5000L);
+            f408a.a(new gy(context), 5000L);
         }
     }
 
@@ -147,20 +145,20 @@ public class gx {
     }
 
     private static void a(a aVar) {
-        for (a aVar2 : f491a) {
+        for (a aVar2 : f412a) {
             if (aVar2.a(aVar)) {
-                aVar2.f494b += aVar.f494b;
+                aVar2.f415b += aVar.f415b;
                 return;
             }
         }
-        f491a.add(aVar);
+        f412a.add(aVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m356a(String str) {
+    public static synchronized void m335a(String str) {
         synchronized (gx.class) {
             if (!l.d() && !TextUtils.isEmpty(str)) {
-                f490a = str;
+                f411a = str;
             }
         }
     }
@@ -188,17 +186,17 @@ public class gx {
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, List<a> list) {
         try {
-            synchronized (com.xiaomi.push.providers.a.f871a) {
-                SQLiteDatabase writableDatabase = m352a(context).getWritableDatabase();
+            synchronized (com.xiaomi.push.providers.a.f792a) {
+                SQLiteDatabase writableDatabase = m331a(context).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 for (a aVar : list) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("package_name", aVar.f493a);
-                    contentValues.put("message_ts", Long.valueOf(aVar.f492a));
-                    contentValues.put(HttpConstants.NETWORK_TYPE, Integer.valueOf(aVar.f14073a));
-                    contentValues.put("bytes", Long.valueOf(aVar.f494b));
-                    contentValues.put("rcv", Integer.valueOf(aVar.f14074b));
-                    contentValues.put("imsi", aVar.f495b);
+                    contentValues.put("package_name", aVar.f414a);
+                    contentValues.put("message_ts", Long.valueOf(aVar.f413a));
+                    contentValues.put(HttpConstants.NETWORK_TYPE, Integer.valueOf(aVar.f8401a));
+                    contentValues.put("bytes", Long.valueOf(aVar.f415b));
+                    contentValues.put("rcv", Integer.valueOf(aVar.b));
+                    contentValues.put("imsi", aVar.f416b);
                     writableDatabase.insert("traffic", null, contentValues);
                 }
                 writableDatabase.setTransactionSuccessful();

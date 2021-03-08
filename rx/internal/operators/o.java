@@ -3,7 +3,7 @@ package rx.internal.operators;
 import java.util.concurrent.TimeUnit;
 import rx.g;
 import rx.internal.operators.p;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class o<T> extends p<T> {
     @Override // rx.internal.operators.p
     public /* bridge */ /* synthetic */ rx.j call(rx.j jVar) {

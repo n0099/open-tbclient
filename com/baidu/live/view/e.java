@@ -9,7 +9,7 @@ import android.widget.PopupWindow;
 import com.baidu.live.adp.lib.safe.ShowUtil;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends PopupWindow {
     public e(Context context) {
         super(context);
@@ -37,42 +37,42 @@ public class e extends PopupWindow {
             return;
         }
         if (i3 >= 0) {
-            h("mLastWidth", Integer.valueOf(i3));
+            i("mLastWidth", Integer.valueOf(i3));
             setWidth(i3);
         }
         if (i4 >= 0) {
-            h("mLastHeight", Integer.valueOf(i4));
+            i("mLastHeight", Integer.valueOf(i4));
             setHeight(i4);
         }
-        Object il = il("mContentView");
-        View view = il instanceof View ? (View) il : null;
+        Object ir = ir("mContentView");
+        View view = ir instanceof View ? (View) ir : null;
         if (isShowing() && view != null) {
-            Object il2 = il("mDecorView");
-            View view2 = il2 instanceof View ? (View) il2 : null;
+            Object ir2 = ir("mDecorView");
+            View view2 = ir2 instanceof View ? (View) ir2 : null;
             if (view2 != null) {
                 WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) view2.getLayoutParams();
-                Object il3 = il("mWidthMode");
-                int intValue = il3 != null ? ((Integer) il3).intValue() : 0;
-                Object il4 = il("mLastWidth");
-                int intValue2 = il4 != null ? ((Integer) il4).intValue() : 0;
+                Object ir3 = ir("mWidthMode");
+                int intValue = ir3 != null ? ((Integer) ir3).intValue() : 0;
+                Object ir4 = ir("mLastWidth");
+                int intValue2 = ir4 != null ? ((Integer) ir4).intValue() : 0;
                 if (intValue >= 0) {
                     intValue = intValue2;
                 }
                 if (i3 != -1 && layoutParams.width != intValue) {
                     layoutParams.width = intValue;
-                    h("mLastWidth", Integer.valueOf(intValue));
+                    i("mLastWidth", Integer.valueOf(intValue));
                     z = true;
                 }
-                Object il5 = il("mHeightMode");
-                int intValue3 = il5 != null ? ((Integer) il5).intValue() : 0;
-                Object il6 = il("mLastHeight");
-                int intValue4 = il6 != null ? ((Integer) il6).intValue() : 0;
+                Object ir5 = ir("mHeightMode");
+                int intValue3 = ir5 != null ? ((Integer) ir5).intValue() : 0;
+                Object ir6 = ir("mLastHeight");
+                int intValue4 = ir6 != null ? ((Integer) ir6).intValue() : 0;
                 if (intValue3 >= 0) {
                     intValue3 = intValue4;
                 }
                 if (i4 != -1 && layoutParams.height != intValue3) {
                     layoutParams.height = intValue3;
-                    h("mLastHeight", Integer.valueOf(intValue3));
+                    i("mLastHeight", Integer.valueOf(intValue3));
                     z = true;
                 }
                 if (layoutParams.x != i) {
@@ -98,8 +98,8 @@ public class e extends PopupWindow {
                 }
                 if (z2) {
                     c("setLayoutDirectionFromAnchor", null, null);
-                    Object il7 = il("mWindowManager");
-                    WindowManager windowManager = il7 instanceof WindowManager ? (WindowManager) il7 : null;
+                    Object ir7 = ir("mWindowManager");
+                    WindowManager windowManager = ir7 instanceof WindowManager ? (WindowManager) ir7 : null;
                     if (windowManager != null) {
                         windowManager.updateViewLayout(view2, layoutParams);
                     }
@@ -108,7 +108,7 @@ public class e extends PopupWindow {
         }
     }
 
-    private Object il(String str) {
+    private Object ir(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -122,7 +122,7 @@ public class e extends PopupWindow {
         }
     }
 
-    private void h(String str, Object obj) {
+    private void i(String str, Object obj) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 Field declaredField = PopupWindow.class.getDeclaredField(str);

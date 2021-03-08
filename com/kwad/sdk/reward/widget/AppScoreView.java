@@ -10,10 +10,8 @@ import com.kwad.sdk.R;
 public class AppScoreView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f10658a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ImageView f10659b;
+    private ImageView f7033a;
+    private ImageView b;
 
     public AppScoreView(Context context) {
         this(context, null);
@@ -30,26 +28,26 @@ public class AppScoreView extends LinearLayout {
 
     private void a() {
         inflate(getContext(), R.layout.ksad_app_score, this);
-        this.f10658a = (ImageView) findViewById(R.id.ksad_score_fourth);
-        this.f10659b = (ImageView) findViewById(R.id.ksad_score_fifth);
+        this.f7033a = (ImageView) findViewById(R.id.ksad_score_fourth);
+        this.b = (ImageView) findViewById(R.id.ksad_score_fifth);
     }
 
     public void setScore(float f) {
         if (f > 4.5d) {
-            this.f10658a.setImageResource(R.drawable.ksad_app_score_yellow);
-            this.f10659b.setImageResource(R.drawable.ksad_app_score_yellow);
+            this.f7033a.setImageResource(R.drawable.ksad_app_score_yellow);
+            this.b.setImageResource(R.drawable.ksad_app_score_yellow);
         } else if (f > 4.0d) {
-            this.f10658a.setImageResource(R.drawable.ksad_app_score_yellow);
-            this.f10659b.setImageResource(R.drawable.ksad_app_score_half);
+            this.f7033a.setImageResource(R.drawable.ksad_app_score_yellow);
+            this.b.setImageResource(R.drawable.ksad_app_score_half);
         } else if (f > 3.5d) {
-            this.f10658a.setImageResource(R.drawable.ksad_app_score_yellow);
-            this.f10659b.setImageResource(R.drawable.ksad_app_score_gray);
+            this.f7033a.setImageResource(R.drawable.ksad_app_score_yellow);
+            this.b.setImageResource(R.drawable.ksad_app_score_gray);
         } else if (f > 3.0d) {
-            this.f10658a.setImageResource(R.drawable.ksad_app_score_half);
-            this.f10659b.setImageResource(R.drawable.ksad_app_score_gray);
+            this.f7033a.setImageResource(R.drawable.ksad_app_score_half);
+            this.b.setImageResource(R.drawable.ksad_app_score_gray);
         } else if (f == 3.0d) {
-            this.f10658a.setImageResource(R.drawable.ksad_app_score_gray);
-            this.f10659b.setImageResource(R.drawable.ksad_app_score_gray);
+            this.f7033a.setImageResource(R.drawable.ksad_app_score_gray);
+            this.b.setImageResource(R.drawable.ksad_app_score_gray);
         }
     }
 }

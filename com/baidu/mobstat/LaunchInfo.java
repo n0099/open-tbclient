@@ -3,28 +3,26 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LaunchInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3606a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f3607b;
+    private String f2549a;
+    private String b;
     private String c;
 
     public String getPushLandingPage() {
-        if (TextUtils.isEmpty(this.f3606a)) {
+        if (TextUtils.isEmpty(this.f2549a)) {
             return "";
         }
-        return this.f3606a;
+        return this.f2549a;
     }
 
     public String getPushContent() {
-        if (TextUtils.isEmpty(this.f3607b)) {
+        if (TextUtils.isEmpty(this.b)) {
             return "";
         }
-        return this.f3607b;
+        return this.b;
     }
 
     public String getRefererPkgName() {
@@ -35,8 +33,8 @@ public class LaunchInfo {
     }
 
     public void setPushInfo(String str, String str2) {
-        this.f3606a = str;
-        this.f3607b = bx.a(str2, 1024);
+        this.f2549a = str;
+        this.b = bx.a(str2, 1024);
     }
 
     public void setRefererPkgName(String str) {
@@ -44,7 +42,7 @@ public class LaunchInfo {
     }
 
     public int getLaunchType(Context context) {
-        if (!TextUtils.isEmpty(this.f3606a)) {
+        if (!TextUtils.isEmpty(this.f2549a)) {
             return 2;
         }
         String str = "";

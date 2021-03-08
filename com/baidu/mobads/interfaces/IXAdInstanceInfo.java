@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IXAdInstanceInfo {
     boolean getAPOOpen();
 
@@ -339,7 +339,7 @@ public interface IXAdInstanceInfo {
 
     void setWinurl(String str);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public enum CreativeType {
         NONE("none"),
         TEXT("text"),
@@ -352,20 +352,20 @@ public interface IXAdInstanceInfo {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3385a;
+        private final String f2414a;
 
         CreativeType(String str) {
-            this.f3385a = str;
+            this.f2414a = str;
         }
 
         public String getValue() {
-            return this.f3385a;
+            return this.f2414a;
         }
 
         public static CreativeType parse(String str) {
             CreativeType[] values;
             for (CreativeType creativeType : values()) {
-                if (creativeType.f3385a.equalsIgnoreCase(str)) {
+                if (creativeType.f2414a.equalsIgnoreCase(str)) {
                     return creativeType;
                 }
             }

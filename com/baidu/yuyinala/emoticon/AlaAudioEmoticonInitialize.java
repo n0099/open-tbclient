@@ -12,17 +12,17 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.yuyinala.emoticon.message.AlaEmoticonListResponseMessage;
 import com.baidu.yuyinala.emoticon.message.AlaSendEmoticonResponseMessage;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaAudioEmoticonInitialize {
     static {
-        ejg();
-        ejh();
-        eji();
-        eiZ();
+        ejq();
+        ejr();
+        ejs();
+        ejj();
     }
 
-    private static void ejg() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031004, com.baidu.live.a.avJ + "ala/audio/img/showList");
+    private static void ejq() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031004, com.baidu.live.a.axj + "ala/audio/img/showList");
         tbHttpMessageTask.setResponsedClass(AlaEmoticonListResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
@@ -33,8 +33,8 @@ public class AlaAudioEmoticonInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void ejh() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031025, com.baidu.live.a.avJ + "ala/audio/img/send");
+    private static void ejr() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031025, com.baidu.live.a.axj + "ala/audio/img/send");
         tbHttpMessageTask.setResponsedClass(AlaSendEmoticonResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
@@ -45,7 +45,7 @@ public class AlaAudioEmoticonInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void eji() {
+    private static void ejs() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501006) { // from class: com.baidu.yuyinala.emoticon.AlaAudioEmoticonInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -55,20 +55,20 @@ public class AlaAudioEmoticonInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("ala_live_show_data");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof ab)) {
-                        a.ejf().b((TbPageContext) obj, (ab) obj2);
+                        a.ejp().b((TbPageContext) obj, (ab) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void eiZ() {
+    private static void ejj() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.emoticon.AlaAudioEmoticonInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.ejf().FA();
+                    a.ejp().FD();
                 }
             }
         });

@@ -11,7 +11,7 @@ import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class GestureAR extends c {
     public static final int MDL_GESTURE_STATUS_DETECTED = 5002;
     public static final String SDK_TO_LUA_GESTURE_RESULT_BODY = "gesture_result";

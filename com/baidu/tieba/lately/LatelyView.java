@@ -24,9 +24,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class LatelyView extends FrameLayout implements d<String> {
-    private LinearLayoutManager XX;
-    private g gJB;
-    private SelectForumItemAdapter ipm;
+    private LinearLayoutManager Zr;
+    private g gLk;
+    private SelectForumItemAdapter iqV;
     private RecyclerView mRecyclerView;
     private h mRefreshView;
     private int mSkinType;
@@ -48,11 +48,11 @@ public class LatelyView extends FrameLayout implements d<String> {
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.select_forum_list);
-        this.ipm = new SelectForumItemAdapter(this);
-        this.ipm.setType(1);
-        this.XX = new LinearLayoutManager(getContext());
-        this.mRecyclerView.setLayoutManager(this.XX);
-        this.mRecyclerView.setAdapter(this.ipm);
+        this.iqV = new SelectForumItemAdapter(this);
+        this.iqV.setType(1);
+        this.Zr = new LinearLayoutManager(getContext());
+        this.mRecyclerView.setLayoutManager(this.Zr);
+        this.mRecyclerView.setAdapter(this.iqV);
     }
 
     @Override // com.baidu.tieba.d
@@ -63,18 +63,18 @@ public class LatelyView extends FrameLayout implements d<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.d
     /* renamed from: request */
-    public void aB(String str) {
-        RecentlyVisitedForumData cvO = a.cvJ().cvO();
-        if (cvO == null) {
+    public void aD(String str) {
+        RecentlyVisitedForumData cvU = a.cvP().cvU();
+        if (cvU == null) {
             W(false, false);
             return;
         }
-        LinkedList<VisitedForumData> forumData = cvO.getForumData();
+        LinkedList<VisitedForumData> forumData = cvU.getForumData();
         if (y.isEmpty(forumData)) {
             W(false, false);
             return;
         }
-        WZ();
+        Xc();
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         Iterator<VisitedForumData> it = forumData.iterator();
@@ -83,15 +83,15 @@ public class LatelyView extends FrameLayout implements d<String> {
             if (next != null) {
                 j jVar = new j();
                 jVar.forumId = next.getForumId();
-                jVar.aVj = next.bAJ();
+                jVar.aWJ = next.bAM();
                 jVar.forumName = next.getForumName();
                 jVar.level = next.getLevel();
-                jVar.fAg = next.bAP();
-                jVar.fAh = next.bAQ();
-                jVar.fAi = next.bAR();
-                jVar.tabInfoList = next.bAS();
-                jVar.fAj = next.bAT();
-                if (jVar.fAg) {
+                jVar.fBF = next.bAS();
+                jVar.fBG = next.bAT();
+                jVar.fBH = next.bAU();
+                jVar.tabInfoList = next.bAV();
+                jVar.fBI = next.bAW();
+                if (jVar.fBF) {
                     arrayList2.add(jVar);
                 } else {
                     arrayList.add(jVar);
@@ -100,22 +100,22 @@ public class LatelyView extends FrameLayout implements d<String> {
             }
         }
         arrayList2.addAll(arrayList);
-        this.ipm.bn(arrayList2);
-        this.ipm.notifyDataSetChanged();
+        this.iqV.bn(arrayList2);
+        this.iqV.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.d
-    public void Em(String str) {
+    public void Et(String str) {
     }
 
     public void W(boolean z, boolean z2) {
-        if (!cqT()) {
+        if (!cqZ()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.lately.LatelyView.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                            LatelyView.this.aB(null);
+                            LatelyView.this.aD(null);
                         }
                     }
                 });
@@ -125,15 +125,15 @@ public class LatelyView extends FrameLayout implements d<String> {
             if (z2) {
                 this.mRefreshView.showRefreshButton();
             } else {
-                this.mRefreshView.ro(R.drawable.new_pic_emotion_01);
+                this.mRefreshView.rp(R.drawable.new_pic_emotion_01);
                 this.mRefreshView.hideRefreshButton();
             }
-            this.mRefreshView.Dk(getContext().getString(R.string.activity_select_forum_empty));
+            this.mRefreshView.Dr(getContext().getString(R.string.activity_select_forum_empty));
             this.mRecyclerView.setVisibility(8);
         }
     }
 
-    public void WZ() {
+    public void Xc() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
@@ -141,7 +141,7 @@ public class LatelyView extends FrameLayout implements d<String> {
         this.mRecyclerView.setVisibility(0);
     }
 
-    public boolean cqT() {
+    public boolean cqZ() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -153,13 +153,13 @@ public class LatelyView extends FrameLayout implements d<String> {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            if (this.gJB != null) {
-                this.gJB.onChangeSkinType();
+            if (this.gLk != null) {
+                this.gLk.onChangeSkinType();
             }
             if (this.mRefreshView != null) {
                 this.mRefreshView.onChangeSkinType();
             }
-            this.ipm.notifyDataSetChanged();
+            this.iqV.notifyDataSetChanged();
         }
     }
 

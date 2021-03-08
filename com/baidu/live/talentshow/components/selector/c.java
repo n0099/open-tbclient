@@ -3,33 +3,33 @@ package com.baidu.live.talentshow.components.selector;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    private ArrayList<com.baidu.live.talentshow.b.d> bEb = new ArrayList<>();
+    private ArrayList<com.baidu.live.talentshow.b.d> bFB = new ArrayList<>();
 
-    public ArrayList<com.baidu.live.talentshow.b.d> Sm() {
-        return this.bEb;
+    public ArrayList<com.baidu.live.talentshow.b.d> Sp() {
+        return this.bFB;
     }
 
-    public int Sn() {
-        return this.bEb.size();
+    public int Sq() {
+        return this.bFB.size();
     }
 
     public void ae(List<com.baidu.live.talentshow.b.d> list) {
-        this.bEb.addAll(af(list));
+        this.bFB.addAll(af(list));
     }
 
-    public void So() {
+    public void Sr() {
         ArrayList<com.baidu.live.talentshow.b.d> arrayList = new ArrayList<>();
-        Iterator<com.baidu.live.talentshow.b.d> it = this.bEb.iterator();
+        Iterator<com.baidu.live.talentshow.b.d> it = this.bFB.iterator();
         while (it.hasNext()) {
             com.baidu.live.talentshow.b.d next = it.next();
             if (!a(next, arrayList)) {
                 arrayList.add(next);
             }
         }
-        this.bEb.clear();
-        this.bEb.addAll(arrayList);
+        this.bFB.clear();
+        this.bFB.addAll(arrayList);
     }
 
     private boolean a(com.baidu.live.talentshow.b.d dVar, ArrayList<com.baidu.live.talentshow.b.d> arrayList) {
@@ -44,13 +44,13 @@ public class c {
     }
 
     public void clearData() {
-        this.bEb.clear();
+        this.bFB.clear();
     }
 
     private ArrayList<com.baidu.live.talentshow.b.d> af(List<com.baidu.live.talentshow.b.d> list) {
         ArrayList<com.baidu.live.talentshow.b.d> arrayList = new ArrayList<>();
         for (com.baidu.live.talentshow.b.d dVar : list) {
-            if (!a(dVar, this.bEb)) {
+            if (!a(dVar, this.bFB)) {
                 arrayList.add(dVar);
             }
         }

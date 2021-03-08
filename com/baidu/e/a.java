@@ -15,11 +15,11 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a implements MethodChannel.MethodCallHandler, PlatformView {
-    private View anZ;
-    private String aoa = "-1";
-    private com.baidu.tieba.square.a aob;
+    private String apA = "-1";
+    private com.baidu.tieba.square.a apB;
+    private View apz;
     private final MethodChannel methodChannel;
     private int viewId;
 
@@ -28,7 +28,7 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
     public a(Context context, BinaryMessenger binaryMessenger, int i, Map<String, Object> map) {
         d(context, map);
         this.viewId = i;
-        this.methodChannel = new MethodChannel(binaryMessenger, "common_platform_view_" + this.aoa);
+        this.methodChannel = new MethodChannel(binaryMessenger, "common_platform_view_" + this.apA);
         this.methodChannel.setMethodCallHandler(this);
     }
 
@@ -50,19 +50,19 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
             if (obj4 != null) {
                 Double.valueOf(obj4.toString()).doubleValue();
             }
-            this.aoa = String.valueOf(map.get("persistentViewId"));
+            this.apA = String.valueOf(map.get("persistentViewId"));
             if ("BarSquare".equals(String.valueOf(map.get("nativeViewType")))) {
-                this.aob = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
-                this.aob.dLx();
-                this.aob.startLoadData();
-                this.anZ = this.aob.npH.getRootLayout();
+                this.apB = new com.baidu.tieba.square.a(TbadkApplication.getInst().getCurrentActivity(), ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                this.apB.dLF();
+                this.apB.startLoadData();
+                this.apz = this.apB.nrL.getRootLayout();
             }
         }
     }
 
     @Override // io.flutter.plugin.platform.PlatformView
     public View getView() {
-        return this.anZ;
+        return this.apz;
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -70,12 +70,12 @@ public class a implements MethodChannel.MethodCallHandler, PlatformView {
         if (methodCall.method.equals("getPlatformVersion")) {
             result.success("Android " + Build.VERSION.RELEASE);
         } else if (methodCall.method.equals("removePlatformView")) {
-            b.bI(this.viewId);
+            b.bJ(this.viewId);
             result.success(true);
         } else if (methodCall.method.equals("selectForumCategory")) {
             String str = (String) methodCall.arguments;
-            if (this.aob != null && !TextUtils.isEmpty(str)) {
-                this.aob.SS(str);
+            if (this.apB != null && !TextUtils.isEmpty(str)) {
+                this.apB.SY(str);
             }
             result.success(null);
         } else {

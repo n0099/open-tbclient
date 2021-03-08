@@ -10,10 +10,10 @@ public interface c extends IInterface {
     public static final class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private IBinder f9152a;
+        private IBinder f6091a;
 
         public a(IBinder iBinder) {
-            this.f9152a = iBinder;
+            this.f6091a = iBinder;
         }
 
         @Override // com.kwad.sdk.core.f.b.c
@@ -23,7 +23,7 @@ public interface c extends IInterface {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.zui.deviceidservice.IDeviceidInterface");
-                this.f9152a.transact(1, obtain, obtain2, 0);
+                this.f6091a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 str = obtain2.readString();
             } catch (Exception e) {
@@ -37,7 +37,7 @@ public interface c extends IInterface {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f9152a;
+            return this.f6091a;
         }
     }
 

@@ -4,7 +4,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 import android.opengl.Matrix;
 import com.baidu.ar.arplay.representation.Quaternion;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class e extends j {
     private static final String TAG = e.class.getSimpleName();
     private final Quaternion rA;

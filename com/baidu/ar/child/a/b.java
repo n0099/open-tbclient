@@ -4,7 +4,7 @@ import com.baidu.ar.arplay.core.pixel.FramePixels;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.d.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b extends j {
     public b() {
         this.nk = new PixelReadParams(PixelType.BGR);

@@ -1,10 +1,10 @@
 package com.bytedance.sdk.openadsdk.core.h;
-
-import androidx.annotation.NonNull;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface e {
-    void a() throws Throwable;
+public class e {
 
-    void a(@NonNull JSONObject jSONObject) throws Throwable;
+    /* renamed from: a  reason: collision with root package name */
+    public String f4454a;
+    public String b;
+    public String c;
+    public int d = 3600000;
 }

@@ -4,11 +4,9 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.security.PublicKey;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class ab extends com.vivo.push.v {
-
-    /* renamed from: b  reason: collision with root package name */
-    protected PushMessageCallback f13604b;
+    protected PushMessageCallback b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(com.vivo.push.y yVar) {
@@ -16,7 +14,7 @@ public abstract class ab extends com.vivo.push.v {
     }
 
     public final void a(PushMessageCallback pushMessageCallback) {
-        this.f13604b = pushMessageCallback;
+        this.b = pushMessageCallback;
     }
 
     public final boolean a(PublicKey publicKey, String str, String str2) {
@@ -37,7 +35,7 @@ public abstract class ab extends com.vivo.push.v {
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify id is success");
                 } else {
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
-                    com.vivo.push.util.p.c(this.f13711a, "vertify fail srcDigest is " + str);
+                    com.vivo.push.util.p.c(this.f8089a, "vertify fail srcDigest is " + str);
                     z = false;
                 }
                 return z;

@@ -4,72 +4,72 @@ import android.view.View;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.v.f;
 import com.baidu.swan.games.view.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private static int dXM = com.baidu.swan.apps.t.a.awZ().agC();
+    private static int dZn = com.baidu.swan.apps.t.a.axc().agF();
 
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aAp = f.aAl().aAp();
-        return aAp != null && aAp.a(view, aVar);
+        d aAs = f.aAo().aAs();
+        return aAs != null && aAs.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d aAp = f.aAl().aAp();
-        return aAp != null && aAp.b(view, aVar);
+        d aAs = f.aAo().aAs();
+        return aAs != null && aAs.b(view, aVar);
     }
 
     public static boolean removeView(View view) {
-        d aAp = f.aAl().aAp();
-        if (aAp == null) {
+        d aAs = f.aAo().aAs();
+        if (aAs == null) {
             return false;
         }
-        if (aAp.aZm()) {
-            SwanAppActivity azV = f.aAl().azV();
-            if (azV != null) {
-                azV.setRequestedOrientation(0);
+        if (aAs.aZp()) {
+            SwanAppActivity azY = f.aAo().azY();
+            if (azY != null) {
+                azY.setRequestedOrientation(0);
             }
-            aAp.io(false);
+            aAs.io(false);
         }
-        return aAp.removeView(view);
+        return aAs.removeView(view);
     }
 
     public static boolean aU(View view) {
-        d aAp = f.aAl().aAp();
-        return aAp != null && aAp.aT(view);
+        d aAs = f.aAo().aAs();
+        return aAs != null && aAs.aT(view);
     }
 
     public static boolean isLandScape() {
-        d aAp = f.aAl().aAp();
-        return (aAp == null || !aAp.isLandScape() || aAp.aZm()) ? false : true;
+        d aAs = f.aAo().aAs();
+        return (aAs == null || !aAs.isLandScape() || aAs.aZp()) ? false : true;
     }
 
-    public static int aZq() {
-        return ((Integer) f.aAl().azY().first).intValue();
+    public static int aZt() {
+        return ((Integer) f.aAo().aAb().first).intValue();
     }
 
-    public static int aZr() {
-        return ((Integer) f.aAl().azY().second).intValue();
+    public static int aZu() {
+        return ((Integer) f.aAo().aAb().second).intValue();
     }
 
-    public static boolean aZs() {
-        return dXM == 3;
+    public static boolean aZv() {
+        return dZn == 3;
     }
 
-    public static boolean aZt() {
-        return dXM == 2;
+    public static boolean aZw() {
+        return dZn == 2;
     }
 
     public static void a(com.baidu.swan.games.view.a aVar) {
-        d aAp = f.aAl().aAp();
-        if (aAp != null) {
-            aAp.a(aVar);
+        d aAs = f.aAo().aAs();
+        if (aAs != null) {
+            aAs.a(aVar);
         }
     }
 
     public static void b(com.baidu.swan.games.view.a aVar) {
-        d aAp = f.aAl().aAp();
-        if (aAp != null) {
-            aAp.b(aVar);
+        d aAs = f.aAo().aAs();
+        if (aAs != null) {
+            aAs.b(aVar);
         }
     }
 }

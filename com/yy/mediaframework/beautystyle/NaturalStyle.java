@@ -1,5 +1,5 @@
 package com.yy.mediaframework.beautystyle;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class NaturalStyle extends AbstractStyle {
     public NaturalStyle() {
         this.sMinParams = new float[]{0.35f, 0.6f, 0.15f, 0.35f};

@@ -1,14 +1,12 @@
 package com.baidu.mobads.constants;
 
 import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3312a = XAdSDKProxyVersion.DEBUG.booleanValue();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f3313b;
+    public static final boolean f2370a = XAdSDKProxyVersion.DEBUG.booleanValue();
+    public static final int b;
     public static String c;
     public static final Object d;
     public static final Object e;
@@ -29,7 +27,7 @@ public final class a {
     public static String t;
 
     static {
-        f3313b = f3312a ? 2 : 4;
+        b = f2370a ? 2 : 4;
         c = "0.0";
         d = HttpConstants.OS_TYPE_VALUE;
         e = "androidlunpan";

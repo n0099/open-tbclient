@@ -26,10 +26,8 @@ import java.util.List;
 public class RewardDislikeDialogNew extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f6364a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f6365b;
+    private View f4306a;
+    private TextView b;
     private TTDislikeListView c;
     private b d;
     private l e;
@@ -76,27 +74,27 @@ public class RewardDislikeDialogNew extends FrameLayout {
             }
         });
         setBackgroundColor(Color.parseColor("#80000000"));
-        this.f6364a = LayoutInflater.from(context).inflate(ac.f(context, "tt_dislike_dialog_layout2"), (ViewGroup) this, false);
+        this.f4306a = LayoutInflater.from(context).inflate(ac.f(context, "tt_dislike_dialog_layout2"), (ViewGroup) this, false);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
         layoutParams.width = ak.c(getContext(), 345.0f);
-        this.f6364a.setLayoutParams(layoutParams);
-        this.f6364a.setClickable(true);
+        this.f4306a.setLayoutParams(layoutParams);
+        this.f4306a.setClickable(true);
         c();
         b();
     }
 
     private void b() {
         if (this.e != null) {
-            this.d = new b(LayoutInflater.from(getContext()), this.e.Y());
+            this.d = new b(LayoutInflater.from(getContext()), this.e.al());
             this.c.setAdapter((ListAdapter) this.d);
             this.c.setMaterialMeta(this.e);
         }
     }
 
     private void c() {
-        this.f6365b = (TextView) this.f6364a.findViewById(ac.e(getContext(), "tt_edit_suggestion"));
-        this.f6365b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeDialogNew.2
+        this.b = (TextView) this.f4306a.findViewById(ac.e(getContext(), "tt_edit_suggestion"));
+        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeDialogNew.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (RewardDislikeDialogNew.this.f != null) {
@@ -105,13 +103,13 @@ public class RewardDislikeDialogNew extends FrameLayout {
                 }
             }
         });
-        this.c = (TTDislikeListView) this.f6364a.findViewById(ac.e(getContext(), "tt_filer_words_lv"));
+        this.c = (TTDislikeListView) this.f4306a.findViewById(ac.e(getContext(), "tt_filer_words_lv"));
         this.c.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.component.reward.view.RewardDislikeDialogNew.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (RewardDislikeDialogNew.this.f != null) {
                     try {
-                        RewardDislikeDialogNew.this.f.a(i, RewardDislikeDialogNew.this.e.Y().get(i));
+                        RewardDislikeDialogNew.this.f.a(i, RewardDislikeDialogNew.this.e.al().get(i));
                     } catch (Throwable th) {
                     }
                 }
@@ -121,8 +119,8 @@ public class RewardDislikeDialogNew extends FrameLayout {
     }
 
     public void a() {
-        if (this.f6364a.getParent() == null) {
-            addView(this.f6364a);
+        if (this.f4306a.getParent() == null) {
+            addView(this.f4306a);
         }
         d();
         setVisibility(0);
@@ -151,15 +149,13 @@ public class RewardDislikeDialogNew extends FrameLayout {
     }
 
     public void a(String str) {
-        this.e.b(str);
+        this.e.c(str);
         this.c.setMaterialMeta(this.e);
     }
 
     /* loaded from: classes6.dex */
     public class b extends BaseAdapter {
-
-        /* renamed from: b  reason: collision with root package name */
-        private boolean f6370b = true;
+        private boolean b = true;
         private final List<FilterWord> c;
         private final LayoutInflater d;
 
@@ -192,36 +188,36 @@ public class RewardDislikeDialogNew extends FrameLayout {
             if (view == null) {
                 a aVar2 = new a();
                 view = this.d.inflate(ac.f(this.d.getContext(), "tt_dialog_listview_item"), viewGroup, false);
-                aVar2.f6371a = (TextView) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv"));
-                aVar2.f6372b = (FlowLayout) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv_son"));
+                aVar2.f4311a = (TextView) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv"));
+                aVar2.b = (FlowLayout) view.findViewById(ac.e(this.d.getContext(), "tt_item_tv_son"));
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
             FilterWord filterWord = this.c.get(i);
-            aVar.f6371a.setText(filterWord.getName());
+            aVar.f4311a.setText(filterWord.getName());
             if (!filterWord.hasSecondOptions()) {
                 if (i != this.c.size() - 1) {
-                    aVar.f6371a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_middle_seletor"));
+                    aVar.f4311a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_middle_seletor"));
                 } else {
-                    aVar.f6371a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_bottom_seletor"));
+                    aVar.f4311a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_bottom_seletor"));
                 }
             }
-            if (this.f6370b && i == 0) {
-                aVar.f6371a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_top_seletor"));
+            if (this.b && i == 0) {
+                aVar.f4311a.setBackgroundResource(ac.d(this.d.getContext(), "tt_dislike_top_seletor"));
             }
             if (filterWord.hasSecondOptions()) {
-                aVar.f6372b.removeAllViews();
+                aVar.b.removeAllViews();
                 for (int i2 = 0; i2 < filterWord.getOptions().size(); i2++) {
-                    TextView textView = (TextView) this.d.inflate(ac.f(this.d.getContext(), "tt_dislike_flowlayout_tv"), (ViewGroup) aVar.f6372b, false);
+                    TextView textView = (TextView) this.d.inflate(ac.f(this.d.getContext(), "tt_dislike_flowlayout_tv"), (ViewGroup) aVar.b, false);
                     textView.setText(filterWord.getOptions().get(i2).getName());
                     textView.setOnClickListener(new c(filterWord.getOptions().get(i2), i2));
-                    aVar.f6372b.addView(textView);
+                    aVar.b.addView(textView);
                 }
-                aVar.f6372b.setVisibility(0);
+                aVar.b.setVisibility(0);
             } else {
-                aVar.f6372b.setVisibility(8);
+                aVar.b.setVisibility(8);
             }
             return view;
         }
@@ -230,10 +226,8 @@ public class RewardDislikeDialogNew extends FrameLayout {
         private class a {
 
             /* renamed from: a  reason: collision with root package name */
-            TextView f6371a;
-
-            /* renamed from: b  reason: collision with root package name */
-            FlowLayout f6372b;
+            TextView f4311a;
+            FlowLayout b;
 
             private a() {
             }
@@ -242,21 +236,19 @@ public class RewardDislikeDialogNew extends FrameLayout {
 
     /* loaded from: classes6.dex */
     private class c implements View.OnClickListener {
-
-        /* renamed from: b  reason: collision with root package name */
-        private FilterWord f6374b;
+        private FilterWord b;
         private int c;
 
         public c(FilterWord filterWord, int i) {
-            this.f6374b = filterWord;
+            this.b = filterWord;
             this.c = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            RewardDislikeDialogNew.this.f.a(this.c, this.f6374b);
+            RewardDislikeDialogNew.this.f.a(this.c, this.b);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f6374b);
+            arrayList.add(this.b);
             d.a(RewardDislikeDialogNew.this.e, arrayList);
             RewardDislikeDialogNew.this.a(true);
         }

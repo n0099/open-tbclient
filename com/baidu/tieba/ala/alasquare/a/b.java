@@ -4,25 +4,25 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.card.data.BaseCardInfo;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId gyN = BdUniqueId.gen();
-    public cb gyO;
+    public static final BdUniqueId gAw = BdUniqueId.gen();
+    public cb gAx;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return gyN;
+        return gAw;
     }
 
-    public cb bln() {
-        return this.gyO;
+    public cb blp() {
+        return this.gAx;
     }
 
     public ar az(String str, boolean z) {
-        cb bln = bln();
-        if (bln == null || bln.eSY == null) {
+        cb blp = blp();
+        if (blp == null || blp.eUz == null) {
             return null;
         }
-        return new ar(str).v("obj_locate", bln.eSY.eMi);
+        return new ar(str).v("obj_locate", blp.eUz.eNJ);
     }
 }

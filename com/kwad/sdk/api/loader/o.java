@@ -16,10 +16,8 @@ import java.util.Map;
 class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, Resources> f8242a = new HashMap();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Object f8243b = new Object();
+    private static Map<String, Resources> f5485a = new HashMap();
+    private static final Object b = new Object();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
@@ -192,14 +190,14 @@ class o {
     @NonNull
     public static Resources a(Context context, Resources resources, String str) {
         Resources resources2;
-        synchronized (f8243b) {
-            resources2 = f8242a.get(str);
+        synchronized (b) {
+            resources2 = f5485a.get(str);
             if (resources2 == null) {
                 resources2 = b(context, resources, str);
                 if (resources2 == null) {
                     throw new RuntimeException("Can not createResources for " + str);
                 }
-                f8242a.put(str, resources);
+                f5485a.put(str, resources);
             }
         }
         return resources2;

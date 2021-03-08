@@ -7,17 +7,17 @@ import io.reactivex.k;
 import io.reactivex.m;
 import io.reactivex.o;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MaybeDelayWithCompletable<T> extends k<T> {
-    final e qpD;
+    final e qqf;
     final o<T> source;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
-        this.qpD.a(new OtherObserver(mVar, this.source));
+        this.qqf.a(new OtherObserver(mVar, this.source));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class OtherObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b {
         private static final long serialVersionUID = 703409937383992161L;
         final m<? super T> actual;
@@ -56,19 +56,19 @@ public final class MaybeDelayWithCompletable<T> extends k<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class a<T> implements m<T> {
         final m<? super T> actual;
-        final AtomicReference<io.reactivex.disposables.b> qoo;
+        final AtomicReference<io.reactivex.disposables.b> qoQ;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, m<? super T> mVar) {
-            this.qoo = atomicReference;
+            this.qoQ = atomicReference;
             this.actual = mVar;
         }
 
         @Override // io.reactivex.m
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.qoo, bVar);
+            DisposableHelper.replace(this.qoQ, bVar);
         }
 
         @Override // io.reactivex.m

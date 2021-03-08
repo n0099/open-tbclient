@@ -30,26 +30,26 @@ import com.baidu.live.tbadk.maintab.FragmentTabIndicator;
 import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.megapp.ma.Util;
 import com.baidu.tieba.ala.adapter.AlaRankListPKStatusFragmentAdapter;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements View.OnTouchListener {
-    private int aKa;
-    private String gpR;
-    private boolean gpS;
-    private FragmentTabHost gpZ;
-    private AlaRankListPKStatusFragmentAdapter gqa;
+    private int aLA;
+    private String grA;
+    private boolean grB;
+    private FragmentTabHost grI;
+    private AlaRankListPKStatusFragmentAdapter grJ;
     private String mPortrait;
     private View mRootView;
     private int mScreenWidth;
     private long mUserId;
     private Handler mHandler = new Handler();
-    CustomMessageListener aWK = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaRankListPKStatusActivity.2
+    CustomMessageListener aYk = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.AlaRankListPKStatusActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AlaRankListPKStatusActivity.this.closeActivity();
         }
     };
-    private ViewTreeObserver.OnGlobalLayoutListener baD = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaRankListPKStatusActivity.3
+    private ViewTreeObserver.OnGlobalLayoutListener bcd = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.AlaRankListPKStatusActivity.3
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(AlaRankListPKStatusActivity.this.getPageContext().getPageActivity());
@@ -77,19 +77,19 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         super.onCreate(bundle);
         if (!isFinishing()) {
             if (bundle != null) {
-                this.aKa = bundle.getInt(UbcStatConstant.KEY_LIVE_TYPE, 1);
+                this.aLA = bundle.getInt(UbcStatConstant.KEY_LIVE_TYPE, 1);
                 this.mUserId = bundle.getLong(TbEnum.SystemMessage.KEY_USER_ID, 0L);
-                this.gpR = bundle.getString("rank_list_type", "");
-                this.gpS = bundle.getBoolean("rank_list_from");
+                this.grA = bundle.getString("rank_list_type", "");
+                this.grB = bundle.getBoolean("rank_list_from");
                 this.mPortrait = bundle.getString("portrait");
             } else {
-                this.aKa = getIntent().getIntExtra(UbcStatConstant.KEY_LIVE_TYPE, 1);
+                this.aLA = getIntent().getIntExtra(UbcStatConstant.KEY_LIVE_TYPE, 1);
                 this.mUserId = getIntent().getLongExtra(TbEnum.SystemMessage.KEY_USER_ID, 0L);
-                this.gpR = getIntent().getStringExtra("rank_list_type");
-                this.gpS = getIntent().getBooleanExtra("rank_list_from", false);
+                this.grA = getIntent().getStringExtra("rank_list_type");
+                this.grB = getIntent().getBooleanExtra("rank_list_from", false);
                 this.mPortrait = getIntent().getStringExtra("portrait");
             }
-            registerListener(this.aWK);
+            registerListener(this.aYk);
             initView();
         }
     }
@@ -106,42 +106,42 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             }
         });
         ((TextView) this.mRootView.findViewById(a.f.ala_rank_list_title)).setText(a.h.ala_rank_list_pk_status_panel_title);
-        bOz();
+        bOF();
         initTabSpec();
         if (UtilHelper.canUseStyleImmersiveSticky() && UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
             com.baidu.live.utils.i.ae(this.mRootView);
         }
     }
 
-    private void bOz() {
-        this.gpZ = (FragmentTabHost) findViewById(a.f.ala_rank_list_tabhost);
-        this.gpZ.setup(getSupportFragmentManager());
-        this.gpZ.setTabWidgetViewHeight((int) getResources().getDimension(a.d.sdk_ds80));
-        this.gpZ.getFragmentTabWidget().setAbsoluteWeight(true);
-        this.gpZ.getFragmentTabWidget().setDiverColor(getResources().getColor(a.c.sdk_cp_cont_b));
-        this.gpZ.getFragmentTabWidget().setDviderRectWidth(-2);
-        this.gpZ.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds4));
+    private void bOF() {
+        this.grI = (FragmentTabHost) findViewById(a.f.ala_rank_list_tabhost);
+        this.grI.setup(getSupportFragmentManager());
+        this.grI.setTabWidgetViewHeight((int) getResources().getDimension(a.d.sdk_ds80));
+        this.grI.getFragmentTabWidget().setAbsoluteWeight(true);
+        this.grI.getFragmentTabWidget().setDiverColor(getResources().getColor(a.c.sdk_cp_cont_b));
+        this.grI.getFragmentTabWidget().setDviderRectWidth(-2);
+        this.grI.getFragmentTabWidget().setDviderRectHeight(BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds4));
     }
 
     private void initTabSpec() {
-        this.gqa = new AlaRankListPKStatusFragmentAdapter(this, this.aKa, this.mUserId, this.gpS, this.mPortrait);
-        int Fs = this.gqa.Fs(this.gpR);
-        int count = this.gqa.getCount();
+        this.grJ = new AlaRankListPKStatusFragmentAdapter(this, this.aLA, this.mUserId, this.grB, this.mPortrait);
+        int FB = this.grJ.FB(this.grA);
+        int count = this.grJ.getCount();
         for (int i = 0; i < count; i++) {
-            Fragment item = this.gqa.getItem(i);
+            Fragment item = this.grJ.getItem(i);
             if (item != null) {
-                a(item, this.gqa.tp(i));
+                a(item, this.grJ.tr(i));
             }
         }
-        FragmentTabWidget fragmentTabWidget = this.gpZ.getFragmentTabWidget();
+        FragmentTabWidget fragmentTabWidget = this.grI.getFragmentTabWidget();
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) fragmentTabWidget.getLayoutParams();
         layoutParams.gravity = 1;
         layoutParams.width = -1;
         layoutParams.leftMargin = (int) getResources().getDimension(a.d.sdk_ds34);
         layoutParams.rightMargin = (int) getResources().getDimension(a.d.sdk_ds34);
         fragmentTabWidget.setLayoutParams(layoutParams);
-        this.gpZ.initViewPagerWithNoType();
-        this.gpZ.setCurrentTab(Fs);
+        this.grI.initViewPagerWithNoType();
+        this.grI.setCurrentTab(FB);
     }
 
     private void a(Fragment fragment, String str) {
@@ -153,7 +153,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             fragmentTabIndicator.setTextColorResId(a.c.ala_rank_list_tab_text_color);
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(a.d.sdk_fontsize32));
             tabSpec.mIndicatorView = fragmentTabIndicator;
-            this.gpZ.addTabSpec(tabSpec);
+            this.grI.addTabSpec(tabSpec);
         }
     }
 
@@ -162,9 +162,9 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putLong(TbEnum.SystemMessage.KEY_USER_ID, this.mUserId);
-        bundle.putInt(UbcStatConstant.KEY_LIVE_TYPE, this.aKa);
-        bundle.putString("rank_list_type", this.gpR);
-        bundle.putBoolean("rank_list_from", this.gpS);
+        bundle.putInt(UbcStatConstant.KEY_LIVE_TYPE, this.aLA);
+        bundle.putString("rank_list_type", this.grA);
+        bundle.putBoolean("rank_list_from", this.grB);
         bundle.putString("portrait", this.mPortrait);
     }
 
@@ -189,7 +189,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
             }
             this.mScreenWidth = screenDimensions[0];
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.baD);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.bcd);
             if (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
                 if (screenDimensions[1] > screenDimensions[0]) {
@@ -219,9 +219,9 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         return false;
     }
 
-    private void bOA() {
+    private void bOG() {
         if (this instanceof Activity) {
-            overridePendingTransition(a.C0195a.sdk_activity_open_translate_from_right, a.C0195a.sdk_activity_close_translate_to_right);
+            overridePendingTransition(a.C0201a.sdk_activity_open_translate_from_right, a.C0201a.sdk_activity_close_translate_to_right);
         } else {
             overridePendingTransition(Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, "slide_in_from_bottom", ResUtils.ANIM), Util.getHostResourcesId(getActivity(), TbConfig.PACKAGE_NAME, "slide_out_to_bottom", ResUtils.ANIM));
         }
@@ -229,12 +229,12 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
-        bOA();
+        bOG();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
-        bOA();
+        bOG();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
@@ -246,7 +246,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
     public void onDestroy() {
         super.onDestroy();
         this.mHandler.removeCallbacksAndMessages(null);
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.baD);
-        this.baD = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.bcd);
+        this.bcd = null;
     }
 }

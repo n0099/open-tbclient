@@ -6,9 +6,9 @@ import java.io.IOException;
 /* loaded from: classes6.dex */
 public class a {
     public static com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a(Context context, File file, long j) throws IOException {
-        com.bytedance.sdk.openadsdk.preload.geckox.buffer.a b2 = b(context, file, j);
-        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "buffer type:" + b2.getClass());
-        return b2;
+        com.bytedance.sdk.openadsdk.preload.geckox.buffer.a b = b(context, file, j);
+        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "buffer type:" + b.getClass());
+        return b;
     }
 
     private static com.bytedance.sdk.openadsdk.preload.geckox.buffer.a b(Context context, File file, long j) throws IOException {

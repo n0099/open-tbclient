@@ -1,10 +1,10 @@
 package com.baidu.live.noble.b;
 
 import com.baidu.live.noble.data.NobleUserInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(NobleUserInfo nobleUserInfo);
     }

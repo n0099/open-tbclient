@@ -5,15 +5,13 @@ package com.sdk.base.framework.f.h;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f12848a = new c("WIFI", 0) { // from class: com.sdk.base.framework.f.h.d
+    public static final c f7646a = new c("WIFI", 0) { // from class: com.sdk.base.framework.f.h.d
         @Override // com.sdk.base.framework.f.h.c
         public final int a() {
             return 0;
         }
     };
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final c f12849b = new c("NET", 1) { // from class: com.sdk.base.framework.f.h.e
+    public static final c b = new c("NET", 1) { // from class: com.sdk.base.framework.f.h.e
         @Override // com.sdk.base.framework.f.h.c
         public final int a() {
             return 1;
@@ -27,7 +25,7 @@ public abstract class c {
     };
 
     static {
-        c[] cVarArr = {f12848a, f12849b, c};
+        c[] cVarArr = {f7646a, b, c};
     }
 
     private c(String str, int i) {

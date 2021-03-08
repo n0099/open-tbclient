@@ -3,19 +3,19 @@ package com.baidu.browser.core;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class BdWorkThread extends HandlerThread {
     private static final String LOG_TAG = BdWorkThread.class.getSimpleName();
-    private a aft;
-    private Message afu;
-    private volatile Status afv;
-    private long afw;
+    private a agM;
+    private Message agN;
+    private volatile Status agO;
+    private long agP;
     private long mInterval;
     private final Object mLock;
     private Handler mPrivateHandler;
     private long mTimeout;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public enum Status {
         PENDING,
         RUNNING,
@@ -25,7 +25,7 @@ public class BdWorkThread extends HandlerThread {
         Status
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public interface a {
         void k(Message message);
 
@@ -33,8 +33,8 @@ public class BdWorkThread extends HandlerThread {
     }
 
     public void i(Message message) {
-        if (System.currentTimeMillis() - this.afw > this.mInterval) {
-            this.afv = Status.WORKING;
+        if (System.currentTimeMillis() - this.agP > this.mInterval) {
+            this.agO = Status.WORKING;
             this.mPrivateHandler.removeMessages(1);
             this.mPrivateHandler.removeMessages(2);
             this.mPrivateHandler.obtainMessage(1, message).sendToTarget();
@@ -61,24 +61,24 @@ public class BdWorkThread extends HandlerThread {
                     }
                 };
             }
-            i(this.afu);
-            this.afu = null;
+            i(this.agN);
+            this.agN = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(Message message) {
-        this.afv = Status.PROCESS;
-        this.afw = System.currentTimeMillis();
+        this.agO = Status.PROCESS;
+        this.agP = System.currentTimeMillis();
         try {
-            if (this.aft != null) {
-                this.aft.k(message);
+            if (this.agM != null) {
+                this.agM.k(message);
             }
         } catch (Error e) {
         } catch (Exception e2) {
         }
-        if (this.afv == Status.PROCESS) {
-            this.afv = Status.RUNNING;
+        if (this.agO == Status.PROCESS) {
+            this.agO = Status.RUNNING;
             return;
         }
         synchronized (this.mLock) {
@@ -91,8 +91,8 @@ public class BdWorkThread extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: private */
     public void sD() {
         try {
-            if (this.aft != null) {
-                this.aft.sE();
+            if (this.agM != null) {
+                this.agM.sE();
             }
         } catch (Error e) {
         } catch (Exception e2) {

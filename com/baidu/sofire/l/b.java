@@ -7,21 +7,19 @@ import android.content.pm.Signature;
 import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b {
-
-    /* renamed from: b  reason: collision with root package name */
-    Context f5301b;
+    Context b;
     public com.baidu.sofire.j.c c;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f5300a = null;
+    public a f3562a = null;
     private String e = null;
     private String f = null;
     ServiceConnection d = new d(this);
 
     public b(Context context, com.baidu.sofire.j.c cVar) {
-        this.f5301b = context;
+        this.b = context;
         this.c = cVar;
     }
 
@@ -36,11 +34,11 @@ public final class b {
         Signature[] signatureArr;
         try {
             if (TextUtils.isEmpty(this.e)) {
-                this.e = this.f5301b.getPackageName();
+                this.e = this.b.getPackageName();
             }
             if (TextUtils.isEmpty(this.f)) {
                 try {
-                    signatureArr = this.f5301b.getPackageManager().getPackageInfo(this.e, 64).signatures;
+                    signatureArr = this.b.getPackageManager().getPackageInfo(this.e, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e) {
                     signatureArr = null;
                 }
@@ -49,8 +47,8 @@ public final class b {
                         try {
                             byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
                             StringBuilder sb = new StringBuilder();
-                            for (byte b2 : digest) {
-                                sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
+                            for (byte b : digest) {
+                                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
                             }
                             str2 = sb.toString();
                         } catch (NoSuchAlgorithmException e2) {
@@ -67,7 +65,7 @@ public final class b {
                 }
                 str2 = null;
             }
-            str2 = this.f5300a.a(this.e, this.f, str);
+            str2 = this.f3562a.a(this.e, this.f, str);
         } catch (Throwable th2) {
             th = th2;
             str2 = null;

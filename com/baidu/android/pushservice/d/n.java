@@ -14,12 +14,12 @@ public class n extends d {
     public void a(HashMap<String, String> hashMap) {
         super.a(hashMap);
         hashMap.put("method", "unbind");
-        hashMap.put("model", l.a(this.f1264a) + "");
-        if (com.baidu.android.pushservice.b.d.b(this.f1264a)) {
-            hashMap.put("new_channel_id", com.baidu.android.pushservice.j.a(this.f1264a).c());
+        hashMap.put("model", l.a(this.f1124a) + "");
+        if (com.baidu.android.pushservice.b.d.b(this.f1124a)) {
+            hashMap.put("new_channel_id", com.baidu.android.pushservice.j.a(this.f1124a).c());
         }
-        hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(this.f1264a) ? 1 : 0) + "");
+        hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(this.f1124a) ? 1 : 0) + "");
         hashMap.put("manufacture", Build.MANUFACTURER);
-        hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(this.f1264a) ? 1 : 0) + "");
+        hashMap.put("proxy_mode", (com.baidu.android.pushservice.b.d.c(this.f1124a) ? 1 : 0) + "");
     }
 }

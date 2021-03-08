@@ -312,7 +312,7 @@ public class e {
 
     public static PackageInfo a(@NonNull Context context, @NonNull File file, int i) {
         PackageInfo packageInfo = null;
-        if (com.ss.android.socialbase.downloader.k.a.eIF().a("getpackageinfo_by_reflect", 0) == 1 && (packageInfo = l(context, file.getAbsolutePath(), i)) == null) {
+        if (com.ss.android.socialbase.downloader.k.a.eIH().a("getpackageinfo_by_reflect", 0) == 1 && (packageInfo = k(context, file.getAbsolutePath(), i)) == null) {
             a("getPackageInfo::reflect", "packageInfo is null");
         }
         if (packageInfo == null) {
@@ -344,14 +344,14 @@ public class e {
     }
 
     private static void a(@NonNull String str, @NonNull String str2) {
-        com.ss.android.socialbase.downloader.h.c eGD = com.ss.android.socialbase.downloader.downloader.b.eGD();
-        if (eGD != null) {
+        com.ss.android.socialbase.downloader.h.c eGH = com.ss.android.socialbase.downloader.downloader.b.eGH();
+        if (eGH != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("message", str2);
             } catch (JSONException e) {
             }
-            eGD.a(str, jSONObject);
+            eGH.a(str, jSONObject);
         }
     }
 
@@ -360,21 +360,21 @@ public class e {
     }
 
     private static String a(a aVar, int i) {
-        int b2 = aVar.b(i);
+        int b = aVar.b(i);
         int c = aVar.c(i);
-        if (b2 == 3) {
-            return aVar.Rm(i);
+        if (b == 3) {
+            return aVar.Rq(i);
         }
-        if (b2 == 2) {
+        if (b == 2) {
             return String.format("?%s%08X", a(c), Integer.valueOf(c));
         }
-        if (b2 >= 16 && b2 <= 31) {
+        if (b >= 16 && b <= 31) {
             return String.valueOf(c);
         }
-        return String.format("<0x%X, type 0x%02X>", Integer.valueOf(c), Integer.valueOf(b2));
+        return String.format("<0x%X, type 0x%02X>", Integer.valueOf(c), Integer.valueOf(b));
     }
 
-    public static PackageInfo l(Context context, String str, int i) {
+    public static PackageInfo k(Context context, String str, int i) {
         PackageInfo packageInfo;
         try {
             Object a2 = f.a(str);
@@ -391,7 +391,7 @@ public class e {
                 packageInfo = null;
             }
             if (packageInfo == null) {
-                return h(a3, i);
+                return g(a3, i);
             }
             return packageInfo;
         } catch (Exception e) {
@@ -400,7 +400,7 @@ public class e {
         }
     }
 
-    private static PackageInfo h(Object obj, int i) throws Exception {
+    private static PackageInfo g(Object obj, int i) throws Exception {
         ArrayList arrayList;
         PackageInfo packageInfo = new PackageInfo();
         String str = (String) f.a(obj, "packageName");

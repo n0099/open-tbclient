@@ -7,17 +7,17 @@ import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g extends com.baidu.swan.apps.api.a.d {
     public g(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b ln(String str) {
+    public com.baidu.swan.apps.api.c.b lu(String str) {
         if (DEBUG) {
             Log.d("Api-PhoneCallApi", "start make phone call");
         }
-        if (ajP()) {
+        if (ajS()) {
             com.baidu.swan.apps.console.c.e("Api-PhoneCallApi", "Api-PhoneCallApi does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-PhoneCallApi does not supported when app is invisible.");
         }

@@ -6,17 +6,17 @@ import com.baidu.ar.arplay.core.pixel.PixelRotation;
 import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.d.j;
 import com.baidu.ar.d.l;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a extends j {
     private static final String TAG = a.class.getSimpleName();
     private int cj = 720;
     private int ck = 1280;
     private boolean cl = true;
-    private InterfaceC0066a cm = null;
+    private InterfaceC0072a cm = null;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0066a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0072a {
         void b(FramePixels framePixels);
     }
 
@@ -26,8 +26,8 @@ public class a extends j {
         this.nk.setOutputHeight(this.ck);
     }
 
-    public void a(InterfaceC0066a interfaceC0066a) {
-        this.cm = interfaceC0066a;
+    public void a(InterfaceC0072a interfaceC0072a) {
+        this.cm = interfaceC0072a;
     }
 
     public void an() {

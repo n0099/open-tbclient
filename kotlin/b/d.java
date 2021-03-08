@@ -2,27 +2,27 @@ package kotlin.b;
 
 import com.baidu.android.common.others.IStringUtil;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 final class d {
-    private final double quc;
-    private final double qud;
+    private final double quE;
+    private final double quF;
 
     public boolean isEmpty() {
-        return this.quc > this.qud;
+        return this.quE > this.quF;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof d) && ((isEmpty() && ((d) obj).isEmpty()) || (this.quc == ((d) obj).quc && this.qud == ((d) obj).qud));
+        return (obj instanceof d) && ((isEmpty() && ((d) obj).isEmpty()) || (this.quE == ((d) obj).quE && this.quF == ((d) obj).quF));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (Double.valueOf(this.quc).hashCode() * 31) + Double.valueOf(this.qud).hashCode();
+        return (Double.valueOf(this.quE).hashCode() * 31) + Double.valueOf(this.quF).hashCode();
     }
 
     public String toString() {
-        return "" + this.quc + IStringUtil.TOP_PATH + this.qud;
+        return "" + this.quE + IStringUtil.TOP_PATH + this.quF;
     }
 }

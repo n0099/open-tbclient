@@ -6,10 +6,8 @@ import com.baidu.pano.platform.c.j;
 public class BaiduPanoData {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2501a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2502b;
+    private String f1886a;
+    private String b;
     private int c = 0;
     private int d = 0;
     private String e = j.a();
@@ -39,19 +37,19 @@ public class BaiduPanoData {
     }
 
     public String getPid() {
-        return this.f2501a;
+        return this.f1886a;
     }
 
     public void setPid(String str) {
-        this.f2501a = str;
+        this.f1886a = str;
     }
 
     public String getName() {
-        return this.f2502b;
+        return this.b;
     }
 
     public void setName(String str) {
-        this.f2502b = str;
+        this.b = str;
     }
 
     public int getErrorCode() {
@@ -67,10 +65,10 @@ public class BaiduPanoData {
     }
 
     public boolean hasStreetPano() {
-        return !TextUtils.isEmpty(this.f2501a);
+        return !TextUtils.isEmpty(this.f1886a);
     }
 
     public String toString() {
-        return "BaiduPanoData [pid = " + this.f2501a + ", name=" + this.f2502b + ",x=" + this.c + ", y=" + this.d + ", sdkVersion=" + this.e + ", errorCode=" + this.f + ", hasStreetPano=" + hasStreetPano() + "]";
+        return "BaiduPanoData [pid = " + this.f1886a + ", name=" + this.b + ",x=" + this.c + ", y=" + this.d + ", sdkVersion=" + this.e + ", errorCode=" + this.f + ", hasStreetPano=" + hasStreetPano() + "]";
     }
 }

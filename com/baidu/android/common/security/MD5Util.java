@@ -3,7 +3,7 @@ package com.baidu.android.common.security;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public final class MD5Util {
     private MD5Util() {
     }
@@ -21,8 +21,8 @@ public final class MD5Util {
 
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }

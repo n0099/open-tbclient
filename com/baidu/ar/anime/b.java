@@ -22,22 +22,22 @@ import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private InterfaceC0068b cp;
+    private InterfaceC0074b cp;
     private HandlerThread cq;
     private a cr;
     private boolean ct;
 
     /* renamed from: cn  reason: collision with root package name */
-    private FramePixels f1486cn = null;
+    private FramePixels f1257cn = null;
     private byte[] co = null;
     private boolean cs = true;
     private AlgoHandleController cb = null;
     private ArrayList<String> cu = new ArrayList<>();
     private boolean cv = true;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     private static final class a extends Handler {
         private boolean cC;
 
@@ -70,14 +70,14 @@ public class b {
     }
 
     /* renamed from: com.baidu.ar.anime.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0068b {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0074b {
         void a(int i, String str, long j);
     }
 
-    public b(InterfaceC0068b interfaceC0068b) {
+    public b(InterfaceC0074b interfaceC0074b) {
         this.cp = null;
-        this.cp = interfaceC0068b;
+        this.cp = interfaceC0074b;
         if (this.cq == null) {
             this.cq = new HandlerThread("AnimeHandlerThread");
             this.cq.start();
@@ -89,22 +89,22 @@ public class b {
 
     private long a(ArrayList<byte[]> arrayList) {
         long j = 0;
-        if (this.f1486cn != null && arrayList != null && arrayList.size() > 0 && this.cb != null) {
+        if (this.f1257cn != null && arrayList != null && arrayList.size() > 0 && this.cb != null) {
             if (arrayList.size() < 2) {
                 com.baidu.ar.h.b.aS("result List size < 2!");
             } else {
                 j = this.cb.createHandle();
-                this.cb.setHandleInput(j, 21, this.f1486cn.getTimestamp(), 4, this.f1486cn.getWidth(), this.f1486cn.getHeight(), this.f1486cn.isFrontCamera(), this.f1486cn.getSegOrientation().getValue(), false, this.f1486cn.getPixelsAddress());
+                this.cb.setHandleInput(j, 21, this.f1257cn.getTimestamp(), 4, this.f1257cn.getWidth(), this.f1257cn.getHeight(), this.f1257cn.isFrontCamera(), this.f1257cn.getSegOrientation().getValue(), false, this.f1257cn.getPixelsAddress());
                 ReserveHandleData reserveHandleData = new ReserveHandleData();
                 reserveHandleData.setByteDataSize(arrayList.size());
-                int width = this.f1486cn.getWidth();
-                int height = this.f1486cn.getHeight();
+                int width = this.f1257cn.getWidth();
+                int height = this.f1257cn.getHeight();
                 if (this.cv) {
-                    height = this.f1486cn.getHeight() / 2;
+                    height = this.f1257cn.getHeight() / 2;
                 }
                 if (this.ct) {
-                    width = this.f1486cn.getHeight();
-                    height = this.f1486cn.getWidth() / 2;
+                    width = this.f1257cn.getHeight();
+                    height = this.f1257cn.getWidth() / 2;
                 }
                 reserveHandleData.setByteWidths(new int[]{width, width});
                 reserveHandleData.setByteHeights(new int[]{height, height});
@@ -215,20 +215,20 @@ public class b {
         long currentTimeMillis = System.currentTimeMillis();
         if (!TextUtils.isEmpty(optString2)) {
             byte[] decode = Base64.decode(optString2, 0);
-            Bitmap b2 = this.ct ? e.b(e.a(BitmapFactory.decodeByteArray(decode, 0, decode.length), 90), 180) : BitmapFactory.decodeByteArray(decode, 0, decode.length);
-            if (b2 != null) {
-                byte[] b3 = j.b(b2);
-                b2.recycle();
-                arrayList.add(b3);
+            Bitmap b = this.ct ? e.b(e.a(BitmapFactory.decodeByteArray(decode, 0, decode.length), 90), 180) : BitmapFactory.decodeByteArray(decode, 0, decode.length);
+            if (b != null) {
+                byte[] b2 = j.b(b);
+                b.recycle();
+                arrayList.add(b2);
             }
         }
         if (!TextUtils.isEmpty(optString)) {
             byte[] decode2 = Base64.decode(optString, 0);
-            Bitmap b4 = this.ct ? e.b(e.a(BitmapFactory.decodeByteArray(decode2, 0, decode2.length), 90), 180) : BitmapFactory.decodeByteArray(decode2, 0, decode2.length);
-            if (b4 != null) {
-                byte[] b5 = j.b(b4);
-                b4.recycle();
-                arrayList.add(b5);
+            Bitmap b3 = this.ct ? e.b(e.a(BitmapFactory.decodeByteArray(decode2, 0, decode2.length), 90), 180) : BitmapFactory.decodeByteArray(decode2, 0, decode2.length);
+            if (b3 != null) {
+                byte[] b4 = j.b(b3);
+                b3.recycle();
+                arrayList.add(b4);
             }
         }
         com.baidu.ar.h.b.aS("decodeByteArray and getRgbaFromBitmap cost:" + (System.currentTimeMillis() - currentTimeMillis));
@@ -247,7 +247,7 @@ public class b {
         this.cr.a(1001, new Runnable() { // from class: com.baidu.ar.anime.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.f1486cn = framePixels;
+                b.this.f1257cn = framePixels;
                 if (framePixels == null || framePixels.getPixelsAddress() == null) {
                     com.baidu.ar.h.b.aS("framePixels data error!");
                     return;
@@ -322,7 +322,7 @@ public class b {
     }
 
     public void w(final String str) {
-        if (this.co == null || this.f1486cn == null) {
+        if (this.co == null || this.f1257cn == null) {
             com.baidu.ar.h.b.aS("retryChangeStyle input data error!");
             if (this.cp != null) {
                 this.cp.a(203, "retryChangeStyle input data error", 0L);
@@ -330,7 +330,7 @@ public class b {
             }
             return;
         }
-        final String str2 = String.valueOf(this.f1486cn.getTimestamp()) + String.valueOf(System.currentTimeMillis());
+        final String str2 = String.valueOf(this.f1257cn.getTimestamp()) + String.valueOf(System.currentTimeMillis());
         if (this.cu != null) {
             this.cu.add(str2);
             if (this.cq == null || !this.cq.isAlive() || this.cr == null) {

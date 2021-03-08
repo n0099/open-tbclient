@@ -5,29 +5,27 @@ import android.graphics.Bitmap;
 public class BaseNpcModel {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2983a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2984b = "";
+    private String f2178a = "";
+    private String b = "";
     private String c = "";
     private Bitmap d = null;
     private String e = "";
     private boolean f = false;
 
     public String getDownLoadKey() {
-        return this.f2983a;
+        return this.f2178a;
     }
 
     public void setDownLoadKey(String str) {
-        this.f2983a = str;
+        this.f2178a = str;
     }
 
     public String getOriginTitle() {
-        return this.f2984b;
+        return this.b;
     }
 
     public void setOriginTitle(String str) {
-        this.f2984b = str;
+        this.b = str;
     }
 
     public String getLocalPath() {

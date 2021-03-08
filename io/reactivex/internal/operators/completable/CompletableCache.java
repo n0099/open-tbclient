@@ -6,10 +6,10 @@ import io.reactivex.disposables.b;
 import io.reactivex.e;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CompletableCache extends a implements c {
-    static final InnerCompletableCache[] qop = new InnerCompletableCache[0];
-    static final InnerCompletableCache[] qoq = new InnerCompletableCache[0];
+    static final InnerCompletableCache[] qoR = new InnerCompletableCache[0];
+    static final InnerCompletableCache[] qoS = new InnerCompletableCache[0];
     Throwable error;
     final AtomicReference<InnerCompletableCache[]> observers;
     final AtomicBoolean once;
@@ -45,7 +45,7 @@ public final class CompletableCache extends a implements c {
     public void onError(Throwable th) {
         InnerCompletableCache[] andSet;
         this.error = th;
-        for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(qoq)) {
+        for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(qoS)) {
             if (!innerCompletableCache.get()) {
                 innerCompletableCache.actual.onError(th);
             }
@@ -55,7 +55,7 @@ public final class CompletableCache extends a implements c {
     @Override // io.reactivex.c
     public void onComplete() {
         InnerCompletableCache[] andSet;
-        for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(qoq)) {
+        for (InnerCompletableCache innerCompletableCache : this.observers.getAndSet(qoS)) {
             if (!innerCompletableCache.get()) {
                 innerCompletableCache.actual.onComplete();
             }
@@ -67,7 +67,7 @@ public final class CompletableCache extends a implements c {
         InnerCompletableCache[] innerCompletableCacheArr2;
         do {
             innerCompletableCacheArr = this.observers.get();
-            if (innerCompletableCacheArr == qoq) {
+            if (innerCompletableCacheArr == qoS) {
                 return false;
             }
             int length = innerCompletableCacheArr.length;
@@ -99,7 +99,7 @@ public final class CompletableCache extends a implements c {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        innerCompletableCacheArr2 = qop;
+                        innerCompletableCacheArr2 = qoR;
                     } else {
                         innerCompletableCacheArr2 = new InnerCompletableCache[length - 1];
                         System.arraycopy(innerCompletableCacheArr, 0, innerCompletableCacheArr2, 0, i);
@@ -115,7 +115,7 @@ public final class CompletableCache extends a implements c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public final class InnerCompletableCache extends AtomicBoolean implements b {
         private static final long serialVersionUID = 8943152917179642732L;
         final c actual;

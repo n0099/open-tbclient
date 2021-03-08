@@ -6,15 +6,15 @@ import com.kwad.sdk.core.videocache.f;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f9483a;
+    private static f f6288a;
 
     public static f a(Context context) {
-        if (f9483a == null) {
-            f b2 = b(context);
-            f9483a = b2;
-            return b2;
+        if (f6288a == null) {
+            f b = b(context);
+            f6288a = b;
+            return b;
         }
-        return f9483a;
+        return f6288a;
     }
 
     private static f b(Context context) {

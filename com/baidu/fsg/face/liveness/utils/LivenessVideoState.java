@@ -10,10 +10,8 @@ public class LivenessVideoState {
     public static final int STATE_VIDEO_DONE = 6;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f2303a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f2304b;
+    private long f1768a;
+    private long b;
     public boolean isLrcTipAnimCalling;
     public boolean isWarningTipAnimCalled;
     public long lrcTextStartTime;
@@ -36,28 +34,28 @@ public class LivenessVideoState {
     }
 
     public String getLrcStartTimeOffset() {
-        return ((this.lrcTextStartTime - this.f2303a) / 1000) + "";
+        return ((this.lrcTextStartTime - this.f1768a) / 1000) + "";
     }
 
     public void setProcessStartTime() {
-        this.f2303a = System.currentTimeMillis();
+        this.f1768a = System.currentTimeMillis();
         setLastFindFaceStartTime();
     }
 
     public boolean isFirstRecogTimeout() {
-        return this.currentState < 5 && System.currentTimeMillis() - this.f2303a > 20000;
+        return this.currentState < 5 && System.currentTimeMillis() - this.f1768a > 20000;
     }
 
     public long getVideoTime() {
-        return (System.currentTimeMillis() - this.f2303a) / 1000;
+        return (System.currentTimeMillis() - this.f1768a) / 1000;
     }
 
     public void setLastFindFaceStartTime() {
-        this.f2304b = System.currentTimeMillis();
+        this.b = System.currentTimeMillis();
     }
 
     public boolean isVideoStateLostFaceTimeout() {
-        return this.currentState == 5 && System.currentTimeMillis() - this.f2304b > 5000;
+        return this.currentState == 5 && System.currentTimeMillis() - this.b > 5000;
     }
 
     public boolean isGotoRecogFace(long[] jArr) {

@@ -18,7 +18,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class f {
     private static final String SECONDARY_FOLDER_NAME = "code_cache" + File.separator + "secondary-dexes";
-    public static a Jx = null;
+    public static a KQ = null;
 
     private static SharedPreferences getMultiDexPreferences(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
@@ -70,19 +70,19 @@ public class f {
         }
     }
 
-    public static void L(Context context) throws PackageManager.NameNotFoundException, IOException {
-        Jx = new a(getSourcePaths(context));
-        Jx.execute(new List[0]);
+    public static void K(Context context) throws PackageManager.NameNotFoundException, IOException {
+        KQ = new a(getSourcePaths(context));
+        KQ.execute(new List[0]);
     }
 
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<List<String>, Integer, String> {
-        public List<String> Jy;
+        public List<String> KR;
         public boolean finished = false;
-        public String Jz = "";
+        public String KS = "";
 
         public a(List<String> list) {
-            this.Jy = list;
+            this.KR = list;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -92,7 +92,7 @@ public class f {
         public String doInBackground(List<String>... listArr) throws IOException {
             DexFile dexFile;
             Looper.prepare();
-            for (String str : this.Jy) {
+            for (String str : this.KR) {
                 try {
                     if (str.endsWith(".zip")) {
                         dexFile = DexFile.loadDex(str, str + ".tmp", 0);
@@ -103,9 +103,9 @@ public class f {
                     while (entries.hasMoreElements()) {
                         String nextElement = entries.nextElement();
                         if (nextElement.endsWith("Static")) {
-                            this.Jz = nextElement;
+                            this.KS = nextElement;
                             Class.forName(nextElement);
-                            this.Jz = "";
+                            this.KS = "";
                             Log.e("MultiLoadHelper", nextElement + l.isMainThread());
                         }
                     }
@@ -124,8 +124,8 @@ public class f {
             this.finished = true;
         }
 
-        public boolean br(String str) {
-            return (str == null || !str.equals(this.Jz) || this.finished) ? false : true;
+        public boolean bv(String str) {
+            return (str == null || !str.equals(this.KS) || this.finished) ? false : true;
         }
     }
 }

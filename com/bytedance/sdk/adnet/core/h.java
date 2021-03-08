@@ -26,16 +26,14 @@ import java.util.Map;
 public class h implements com.bytedance.sdk.adnet.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<String, a> f6029a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f6030b;
+    private final Map<String, a> f4040a;
+    private long b;
     private final File c;
     private final int d;
 
     public h(File file, int i) {
-        this.f6029a = new LinkedHashMap(16, 0.75f, true);
-        this.f6030b = 0L;
+        this.f4040a = new LinkedHashMap(16, 0.75f, true);
+        this.b = 0L;
         this.c = file;
         this.d = i;
     }
@@ -55,7 +53,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
     /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: com.bytedance.sdk.adnet.e.b$a */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.bytedance.sdk.adnet.e.b
-    public synchronized b.a Zc(String str) {
+    public synchronized b.a Zj(String str) {
         b bVar;
         b.a aVar;
         Throwable th = null;
@@ -63,7 +61,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
             if (TextUtils.isEmpty(str)) {
                 aVar = 0;
             } else {
-                a aVar2 = this.f6029a.get(str);
+                a aVar2 = this.f4040a.get(str);
                 if (aVar2 == null) {
                     aVar = 0;
                 } else {
@@ -76,8 +74,8 @@ public class h implements com.bytedance.sdk.adnet.e.b {
                     }
                     try {
                         a c2 = a.c(bVar);
-                        if (TextUtils.equals(str, c2.f6032b)) {
-                            aVar = aVar2.ai(a(bVar, bVar.a()));
+                        if (TextUtils.equals(str, c2.b)) {
+                            aVar = aVar2.ak(a(bVar, bVar.a()));
                             bVar.close();
                             if (bVar != null) {
                                 try {
@@ -87,7 +85,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
                                 }
                             }
                         } else {
-                            r.b("%s: key=%s, found=%s", c.getAbsolutePath(), str, c2.f6032b);
+                            q.b("%s: key=%s, found=%s", c.getAbsolutePath(), str, c2.b);
                             e(str);
                             bVar.close();
                             if (bVar != null) {
@@ -100,7 +98,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
                         }
                     } catch (Throwable th5) {
                         th = th5;
-                        r.b("%s: %s", c.getAbsolutePath(), th.toString());
+                        q.b("%s: %s", c.getAbsolutePath(), th.toString());
                         b(str);
                         if (bVar != null) {
                             try {
@@ -121,7 +119,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
     public synchronized void a() {
         if (!this.c.exists()) {
             if (!this.c.mkdirs()) {
-                r.c("Unable to create cache dir %s", this.c.getAbsolutePath());
+                q.c("Unable to create cache dir %s", this.c.getAbsolutePath());
             }
         } else {
             File[] listFiles = this.c.listFiles();
@@ -130,8 +128,8 @@ public class h implements com.bytedance.sdk.adnet.e.b {
                     long length = file.length();
                     b bVar = new b(new BufferedInputStream(a(file)), length);
                     a c = a.c(bVar);
-                    c.f6031a = length;
-                    a(c.f6032b, c);
+                    c.f4041a = length;
+                    a(c.b, c);
                     bVar.close();
                 }
             }
@@ -151,8 +149,8 @@ public class h implements com.bytedance.sdk.adnet.e.b {
         /*
             r6 = this;
             monitor-enter(r6)
-            long r0 = r6.f6030b     // Catch: java.lang.Throwable -> L6f
-            byte[] r2 = r8.f6064b     // Catch: java.lang.Throwable -> L6f
+            long r0 = r6.b     // Catch: java.lang.Throwable -> L6f
+            byte[] r2 = r8.b     // Catch: java.lang.Throwable -> L6f
             int r2 = r2.length     // Catch: java.lang.Throwable -> L6f
             long r2 = (long) r2     // Catch: java.lang.Throwable -> L6f
             long r0 = r0 + r2
@@ -160,7 +158,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
             long r2 = (long) r2     // Catch: java.lang.Throwable -> L6f
             int r0 = (r0 > r2 ? 1 : (r0 == r2 ? 0 : -1))
             if (r0 <= 0) goto L20
-            byte[] r0 = r8.f6064b     // Catch: java.lang.Throwable -> L6f
+            byte[] r0 = r8.b     // Catch: java.lang.Throwable -> L6f
             int r0 = r0.length     // Catch: java.lang.Throwable -> L6f
             float r0 = (float) r0     // Catch: java.lang.Throwable -> L6f
             int r1 = r6.d     // Catch: java.lang.Throwable -> L6f
@@ -189,7 +187,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
             r4 = 0
             java.lang.String r5 = r2.getAbsolutePath()     // Catch: java.lang.Throwable -> L52
             r3[r4] = r5     // Catch: java.lang.Throwable -> L52
-            com.bytedance.sdk.adnet.core.r.b(r1, r3)     // Catch: java.lang.Throwable -> L52
+            com.bytedance.sdk.adnet.core.q.b(r1, r3)     // Catch: java.lang.Throwable -> L52
             java.io.IOException r1 = new java.io.IOException     // Catch: java.lang.Throwable -> L52
             r1.<init>()     // Catch: java.lang.Throwable -> L52
             throw r1     // Catch: java.lang.Throwable -> L52
@@ -207,17 +205,17 @@ public class h implements com.bytedance.sdk.adnet.e.b {
             r3 = 0
             java.lang.String r2 = r2.getAbsolutePath()     // Catch: java.lang.Throwable -> L6f
             r1[r3] = r2     // Catch: java.lang.Throwable -> L6f
-            com.bytedance.sdk.adnet.core.r.b(r0, r1)     // Catch: java.lang.Throwable -> L6f
+            com.bytedance.sdk.adnet.core.q.b(r0, r1)     // Catch: java.lang.Throwable -> L6f
             goto L1e
         L6f:
             r0 = move-exception
             monitor-exit(r6)
             throw r0
         L72:
-            byte[] r3 = r8.f6064b     // Catch: java.lang.Throwable -> L52
+            byte[] r3 = r8.b     // Catch: java.lang.Throwable -> L52
             r0.write(r3)     // Catch: java.lang.Throwable -> L52
             long r4 = r2.length()     // Catch: java.lang.Throwable -> L52
-            r1.f6031a = r4     // Catch: java.lang.Throwable -> L52
+            r1.f4041a = r4     // Catch: java.lang.Throwable -> L52
             r6.a(r7, r1)     // Catch: java.lang.Throwable -> L52
             r6.b()     // Catch: java.lang.Throwable -> L52
             if (r0 == 0) goto L1e
@@ -258,7 +256,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
         boolean delete = c(str).delete();
         e(str);
         if (!delete) {
-            r.b("Could not delete cache entry for key=%s, filename=%s", str, d(str));
+            q.b("Could not delete cache entry for key=%s, filename=%s", str, d(str));
         }
     }
 
@@ -273,13 +271,13 @@ public class h implements com.bytedance.sdk.adnet.e.b {
 
     private void b() {
         int i;
-        if (this.f6030b >= this.d) {
-            if (r.f6048a) {
-                r.a("Pruning old cache entries.", new Object[0]);
+        if (this.b >= this.d) {
+            if (q.f4050a) {
+                q.a("Pruning old cache entries.", new Object[0]);
             }
-            long j = this.f6030b;
+            long j = this.b;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            Iterator<Map.Entry<String, a>> it = this.f6029a.entrySet().iterator();
+            Iterator<Map.Entry<String, a>> it = this.f4040a.entrySet().iterator();
             int i2 = 0;
             while (true) {
                 if (!it.hasNext()) {
@@ -287,37 +285,37 @@ public class h implements com.bytedance.sdk.adnet.e.b {
                     break;
                 }
                 a value = it.next().getValue();
-                if (c(value.f6032b).delete()) {
-                    this.f6030b -= value.f6031a;
+                if (c(value.b).delete()) {
+                    this.b -= value.f4041a;
                 } else {
-                    r.b("Could not delete cache entry for key=%s, filename=%s", value.f6032b, d(value.f6032b));
+                    q.b("Could not delete cache entry for key=%s, filename=%s", value.b, d(value.b));
                 }
                 it.remove();
                 i = i2 + 1;
-                if (((float) this.f6030b) < this.d * 0.9f) {
+                if (((float) this.b) < this.d * 0.9f) {
                     break;
                 }
                 i2 = i;
             }
-            if (r.f6048a) {
-                r.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i), Long.valueOf(this.f6030b - j), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
+            if (q.f4050a) {
+                q.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i), Long.valueOf(this.b - j), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
             }
         }
     }
 
     private void a(String str, a aVar) {
-        if (!this.f6029a.containsKey(str)) {
-            this.f6030b += aVar.f6031a;
+        if (!this.f4040a.containsKey(str)) {
+            this.b += aVar.f4041a;
         } else {
-            this.f6030b = (aVar.f6031a - this.f6029a.get(str).f6031a) + this.f6030b;
+            this.b = (aVar.f4041a - this.f4040a.get(str).f4041a) + this.b;
         }
-        this.f6029a.put(str, aVar);
+        this.f4040a.put(str, aVar);
     }
 
     private void e(String str) {
-        a remove = this.f6029a.remove(str);
+        a remove = this.f4040a.remove(str);
         if (remove != null) {
-            this.f6030b -= remove.f6031a;
+            this.b -= remove.f4041a;
         }
     }
 
@@ -348,10 +346,8 @@ public class h implements com.bytedance.sdk.adnet.e.b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        long f6031a;
-
-        /* renamed from: b  reason: collision with root package name */
-        final String f6032b;
+        long f4041a;
+        final String b;
         final String c;
         final long d;
         final long e;
@@ -360,7 +356,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
         final List<com.bytedance.sdk.adnet.core.a> h;
 
         private a(String str, String str2, long j, long j2, long j3, long j4, List<com.bytedance.sdk.adnet.core.a> list) {
-            this.f6032b = str;
+            this.b = str;
             this.c = "".equals(str2) ? null : str2;
             this.d = j;
             this.e = j2;
@@ -374,7 +370,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
         }
 
         private static List<com.bytedance.sdk.adnet.core.a> b(b.a aVar) {
-            return aVar.i != null ? aVar.i : com.bytedance.sdk.adnet.d.c.K(aVar.h);
+            return aVar.i != null ? aVar.i : com.bytedance.sdk.adnet.d.b.K(aVar.h);
         }
 
         static a c(b bVar) throws Throwable {
@@ -384,15 +380,15 @@ public class h implements com.bytedance.sdk.adnet.e.b {
             return new a(h.a(bVar), h.a(bVar), h.b((InputStream) bVar), h.b((InputStream) bVar), h.b((InputStream) bVar), h.b((InputStream) bVar), h.b(bVar));
         }
 
-        b.a ai(byte[] bArr) {
+        b.a ak(byte[] bArr) {
             b.a aVar = new b.a();
-            aVar.f6064b = bArr;
+            aVar.b = bArr;
             aVar.c = this.c;
             aVar.d = this.d;
             aVar.e = this.e;
             aVar.f = this.f;
             aVar.g = this.g;
-            aVar.h = com.bytedance.sdk.adnet.d.c.a(this.h);
+            aVar.h = com.bytedance.sdk.adnet.d.b.a(this.h);
             aVar.i = Collections.unmodifiableList(this.h);
             return aVar;
         }
@@ -400,7 +396,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
         boolean a(OutputStream outputStream) {
             try {
                 h.a(outputStream, 538247942);
-                h.a(outputStream, this.f6032b);
+                h.a(outputStream, this.b);
                 h.a(outputStream, this.c == null ? "" : this.c);
                 h.a(outputStream, this.d);
                 h.a(outputStream, this.e);
@@ -410,7 +406,7 @@ public class h implements com.bytedance.sdk.adnet.e.b {
                 outputStream.flush();
                 return true;
             } catch (Throwable th) {
-                r.b("%s", th.toString());
+                q.b("%s", th.toString());
                 return false;
             }
         }
@@ -422,21 +418,19 @@ public class h implements com.bytedance.sdk.adnet.e.b {
     public static class b extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        private final long f6033a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private long f6034b;
+        private final long f4042a;
+        private long b;
 
         b(InputStream inputStream, long j) {
             super(inputStream);
-            this.f6033a = j;
+            this.f4042a = j;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read() throws IOException {
             int read = super.read();
             if (read != -1) {
-                this.f6034b++;
+                this.b++;
             }
             return read;
         }
@@ -445,13 +439,13 @@ public class h implements com.bytedance.sdk.adnet.e.b {
         public int read(byte[] bArr, int i, int i2) throws IOException {
             int read = super.read(bArr, i, i2);
             if (read != -1) {
-                this.f6034b += read;
+                this.b += read;
             }
             return read;
         }
 
         long a() {
-            return this.f6033a - this.f6034b;
+            return this.f4042a - this.b;
         }
     }
 

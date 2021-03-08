@@ -11,7 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private a fuC;
+    private a fwb;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -50,7 +50,7 @@ public class b {
                     BdLog.e(e);
                 }
                 if (shareItem2.typeShareToSmallApp != 4) {
-                    shareItem2.fvm = str;
+                    shareItem2.fwL = str;
                     shareItem2.imageUri = Uri.parse(str);
                 }
                 return shareItem2;
@@ -62,14 +62,14 @@ public class b {
             /* renamed from: c */
             public void onPostExecute(ShareItem shareItem2) {
                 super.onPostExecute(shareItem2);
-                if (b.this.fuC != null) {
-                    b.this.fuC.d(shareItem2);
+                if (b.this.fwb != null) {
+                    b.this.fwb.d(shareItem2);
                 }
             }
         }.execute(shareItem);
     }
 
     public void a(a aVar) {
-        this.fuC = aVar;
+        this.fwb = aVar;
     }
 }

@@ -12,19 +12,17 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f5377a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static HashMap f5378b;
+    public static a f3617a;
+    private static HashMap b;
     private static ExecutorService c;
 
     private a() {
-        if (f5378b == null) {
-            f5378b = new HashMap();
+        if (b == null) {
+            b = new HashMap();
         }
     }
 
@@ -122,13 +120,13 @@ public final class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f5377a == null) {
-                f5377a = new a();
+            if (f3617a == null) {
+                f3617a = new a();
                 if (c == null) {
                     c = Executors.newFixedThreadPool(1);
                 }
             }
-            aVar = f5377a;
+            aVar = f3617a;
         }
         return aVar;
     }
@@ -137,7 +135,7 @@ public final class a {
         Bitmap bitmap;
         Bitmap bitmap2;
         String c2 = k.c(str);
-        if (!f5378b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f5378b.get(c2)).get()) == null) {
+        if (!b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) b.get(c2)).get()) == null) {
             try {
                 bitmap = f.a(c2);
             } catch (OutOfMemoryError e) {
@@ -145,7 +143,7 @@ public final class a {
                 bitmap = null;
             }
             if (bitmap != null) {
-                f5378b.put(c2, new SoftReference(bitmap));
+                b.put(c2, new SoftReference(bitmap));
                 return bitmap;
             }
             c.execute(new b(this, str, c2, nVar));

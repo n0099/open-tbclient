@@ -3,9 +3,9 @@ package com.baidu.platform.comapi.wnplatform.o.b.a;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4449a;
+    private String f3077a;
 
     public String a() {
-        return this.f4449a;
+        return this.f3077a;
     }
 }

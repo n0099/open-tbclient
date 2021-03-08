@@ -1,9 +1,9 @@
 package com.baidu.live.ag;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
-    void FA();
+    void FD();
 
     void a(Context context, long j, int[] iArr);
 

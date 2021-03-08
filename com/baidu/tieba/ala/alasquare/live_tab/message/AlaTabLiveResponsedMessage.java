@@ -8,7 +8,7 @@ import com.baidu.tieba.ala.alasquare.live_tab.b.g;
 import com.baidu.tieba.ala.alasquare.live_tab.b.h;
 import com.baidu.tieba.ala.alasquare.live_tab.b.j;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
     public a hotLiveInfo;
     public d officialRecommendLiveInfo;

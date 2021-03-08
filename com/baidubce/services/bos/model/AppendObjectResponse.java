@@ -1,5 +1,5 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AppendObjectResponse extends PutObjectResponse {
     private String contentMd5;
     private Long nextAppendOffset;

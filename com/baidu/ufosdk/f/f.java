@@ -10,22 +10,20 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f {
     private static String c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
     private static f d = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final String f5386b = "ufo";
+    private final String b = "ufo";
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f5385a = 1209600000;
+    public final int f3622a = 1209600000;
 
     public static Bitmap a(String str) {
         Bitmap decodeFile;
-        String b2 = b(str);
-        if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
-            new File(c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
+        String b = b(str);
+        if (new File(b).exists() && (decodeFile = BitmapFactory.decodeFile(b, null)) != null) {
+            new File(c + "/cache/image/", b).setLastModified(System.currentTimeMillis());
             return decodeFile;
         }
         return null;

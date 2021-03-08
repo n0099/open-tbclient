@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.statistic.model;
 
 import androidx.annotation.Keep;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.bytedance.sdk.openadsdk.d.a.c;
+import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.Common;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class StatisticModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f7516common;
+    public Common f5100common;
     @c(a = "packages")
     public List<PackageStatisticModel> packages = new ArrayList();
 

@@ -3,11 +3,11 @@ package com.baidu.swan.games.view.recommend.a;
 import android.content.res.Resources;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private float eni;
-    private float enj;
-    private a enk;
+    private float eoL;
+    private float eoM;
+    private a eoN;
     @V8JavascriptField
     public volatile float height;
     @V8JavascriptField
@@ -17,37 +17,37 @@ public class d {
     @V8JavascriptField
     public volatile float width;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void vv(String str);
+        void vC(String str);
     }
 
     public d() {
-        Resources resources = com.baidu.swan.apps.t.a.awW() != null ? com.baidu.swan.apps.t.a.awW().getResources() : null;
+        Resources resources = com.baidu.swan.apps.t.a.awZ() != null ? com.baidu.swan.apps.t.a.awZ().getResources() : null;
         this.left = b(resources, a.d.swangame_recommend_button_default_left);
         this.top = b(resources, a.d.swangame_recommend_button_default_top);
         this.width = b(resources, a.d.swangame_recommend_button_default_width);
         this.height = b(resources, a.d.swangame_recommend_button_default_height);
-        this.eni = this.width;
-        this.enj = this.height;
+        this.eoL = this.width;
+        this.eoM = this.height;
     }
 
     private float b(Resources resources, int i) {
         if (resources == null || i == 0) {
             return 0.0f;
         }
-        return com.baidu.swan.games.utils.e.Z(resources.getDimension(i));
+        return com.baidu.swan.games.utils.e.ad(resources.getDimension(i));
     }
 
     public void a(a aVar) {
-        this.enk = aVar;
+        this.eoN = aVar;
     }
 
     public void onFieldChangedCallback(String str) {
-        this.width = this.eni;
-        this.height = this.enj;
-        if (this.enk != null) {
-            this.enk.vv(str);
+        this.width = this.eoL;
+        this.height = this.eoM;
+        if (this.eoN != null) {
+            this.eoN.vC(str);
         }
     }
 

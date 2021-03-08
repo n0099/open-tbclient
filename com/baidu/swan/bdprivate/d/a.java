@@ -14,13 +14,13 @@ import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.bdprivate.b;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends ActivityDelegation {
 
     /* renamed from: com.baidu.swan.bdprivate.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0487a {
-        void aPz();
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0493a {
+        void aPC();
 
         void cK(String str, String str2);
     }
@@ -32,7 +32,7 @@ public class a extends ActivityDelegation {
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
-                        a.this.aPZ();
+                        a.this.aQc();
                         return;
                     }
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "login failed");
@@ -41,14 +41,14 @@ public class a extends ActivityDelegation {
             });
             return false;
         }
-        aPZ();
+        aQc();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aPZ() {
-        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0487a() { // from class: com.baidu.swan.bdprivate.d.a.2
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0487a
+    public void aQc() {
+        com.baidu.swan.bdprivate.a.a.a(getAgent(), new InterfaceC0493a() { // from class: com.baidu.swan.bdprivate.d.a.2
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0493a
             public void cK(String str, String str2) {
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "invoiceId == null or invoiceType == null");
@@ -57,8 +57,8 @@ public class a extends ActivityDelegation {
                 a.this.cJ(str, str2);
             }
 
-            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0487a
-            public void aPz() {
+            @Override // com.baidu.swan.bdprivate.d.a.InterfaceC0493a
+            public void aPC() {
                 a.this.mResult.putString(TiebaInitialize.LogFields.ERROR_MESSAGE, "choose invoiceId failed");
                 a.this.finish();
             }
@@ -70,7 +70,7 @@ public class a extends ActivityDelegation {
         if (!SwanAppNetworkUtils.isNetworkConnected(getAgent())) {
             d.u(getAgent(), b.g.invoice_network_none);
         } else {
-            com.baidu.swan.a.c.a.eI(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aQa())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.axv().aiy()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
+            com.baidu.swan.a.c.a.eH(AppRuntime.getAppContext()).getRequest().url(com.baidu.swan.apps.i.c.processCommonParams(aQd())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(com.baidu.swan.apps.t.a.axy().aiB()).build().executeAsync(new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.bdprivate.d.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: a */
@@ -109,7 +109,7 @@ public class a extends ActivityDelegation {
         }
     }
 
-    private static String aQa() {
+    private static String aQd() {
         return String.format("%s/ma/invoice/detail", BaseUrlManager.ONLINE_URL);
     }
 }

@@ -2,7 +2,7 @@ package com.squareup.wire;
 
 import com.baidu.android.imsdk.internal.Constants;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 final class Stringer {
     private static final Charset UTF_8 = Charset.forName("UTF-8");
 
@@ -33,7 +33,7 @@ final class Stringer {
         return new String(encoder.output, UTF_8);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class Decoder {
         private static final int[] DECODE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         private static final int EQUALS = -2;
@@ -221,7 +221,7 @@ final class Stringer {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     private static class Encoder {
         private static final byte[] ENCODE = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         private final byte[] output;
@@ -236,9 +236,9 @@ final class Stringer {
             int i3;
             int i4;
             int i5;
+            byte b;
             byte b2;
             byte b3;
-            byte b4;
             int i6 = 1;
             byte[] bArr2 = ENCODE;
             byte[] bArr3 = this.output;
@@ -294,12 +294,12 @@ final class Stringer {
             if (z) {
                 if (i3 - this.tailLen == i7 - 1) {
                     if (this.tailLen > 0) {
-                        b4 = this.tail[0];
+                        b3 = this.tail[0];
                     } else {
-                        b4 = bArr[i3];
+                        b3 = bArr[i3];
                         i6 = 0;
                     }
-                    int i11 = (b4 & 255) << 4;
+                    int i11 = (b3 & 255) << 4;
                     this.tailLen -= i6;
                     int i12 = i5 + 1;
                     bArr3[i5] = bArr2[(i11 >> 6) & 63];
@@ -309,20 +309,20 @@ final class Stringer {
                     bArr3[i13 + 1] = 61;
                 } else if (i3 - this.tailLen == i7 - 2) {
                     if (this.tailLen > 1) {
-                        b2 = this.tail[0];
+                        b = this.tail[0];
                     } else {
-                        b2 = bArr[i3];
+                        b = bArr[i3];
                         i6 = 0;
                         i3++;
                     }
-                    int i14 = (b2 & 255) << 10;
+                    int i14 = (b & 255) << 10;
                     if (this.tailLen > 0) {
-                        b3 = this.tail[i6];
+                        b2 = this.tail[i6];
                         i6++;
                     } else {
-                        b3 = bArr[i3];
+                        b2 = bArr[i3];
                     }
-                    int i15 = ((b3 & 255) << 2) | i14;
+                    int i15 = ((b2 & 255) << 2) | i14;
                     this.tailLen -= i6;
                     int i16 = i5 + 1;
                     bArr3[i5] = bArr2[(i15 >> 12) & 63];

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PushDialogUserLikeButton extends CommonUserLikeButton {
     public PushDialogUserLikeButton(Context context) {
         super(context);
@@ -25,7 +25,7 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.fnt) {
+        if (this.foT) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             ap.setViewTextColor(this, R.color.CAM_X0109, 1, i);
             setBackgroundDrawable(null);

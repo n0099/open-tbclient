@@ -2,13 +2,13 @@ package com.baidu.live.yuyinbarrage.view;
 
 import android.widget.LinearLayout;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ImBarrageTrackListView extends LinearLayout {
-    private List<LandscapeImBarrageTrackView> aDR;
+    private List<LandscapeImBarrageTrackView> aFr;
 
     public void setCanAddNext() {
-        if (this.aDR != null && !this.aDR.isEmpty()) {
-            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aDR) {
+        if (this.aFr != null && !this.aFr.isEmpty()) {
+            for (LandscapeImBarrageTrackView landscapeImBarrageTrackView : this.aFr) {
                 landscapeImBarrageTrackView.setCanAddNext();
             }
         }

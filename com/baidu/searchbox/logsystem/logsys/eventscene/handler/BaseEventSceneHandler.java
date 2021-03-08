@@ -7,7 +7,7 @@ import com.baidu.searchbox.logsystem.logsys.LogFile;
 import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BaseEventSceneHandler<T> implements EventSceneHandler<T> {
     protected static final String TAG = "BaseEventSceneHandler";
 

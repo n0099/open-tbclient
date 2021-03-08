@@ -33,7 +33,7 @@ public class c extends com.kwad.sdk.contentalliance.home.a.a {
         while (it.hasNext()) {
             AdTemplate next = it.next();
             if (k == d.k(next.photoInfo)) {
-                if (this.f8624a.contains(this.d)) {
+                if (this.f5755a.contains(this.d)) {
                     it.remove();
                 } else {
                     list.set(list.indexOf(next), this.d);
@@ -41,14 +41,14 @@ public class c extends com.kwad.sdk.contentalliance.home.a.a {
             }
             next.mIsLeftSlipStatus = 1;
         }
-        this.f8624a.addAll(list);
-        if (this.f8624a.contains(this.d)) {
+        this.f5755a.addAll(list);
+        if (this.f5755a.contains(this.d)) {
             return;
         }
-        if (this.f8624a.size() <= 3) {
-            this.f8624a.add(this.d);
+        if (this.f5755a.size() <= 3) {
+            this.f5755a.add(this.d);
         } else {
-            this.f8624a.add(2, this.d);
+            this.f5755a.add(2, this.d);
         }
     }
 
@@ -59,7 +59,7 @@ public class c extends com.kwad.sdk.contentalliance.home.a.a {
         }
         this.g = true;
         if (!e()) {
-            this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.c.c.1
+            this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.c.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     c.this.a(f.g.k, f.g.l);
@@ -72,10 +72,10 @@ public class c extends com.kwad.sdk.contentalliance.home.a.a {
         final p.a aVar = new p.a();
         aVar.e = this.e;
         com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(this.c);
-        fVar.f9168b = this.c.getPageScene();
-        aVar.f9303a = fVar;
+        fVar.b = this.c.getPageScene();
+        aVar.f6176a = fVar;
         aVar.c = d.o(this.d.photoInfo);
-        aVar.f9304b = new com.kwad.sdk.core.g.a.c();
+        aVar.b = new com.kwad.sdk.core.g.a.c();
         this.f = new i<g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.c.c.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -99,8 +99,8 @@ public class c extends com.kwad.sdk.contentalliance.home.a.a {
         this.f.a(new j<g, AdResultData>() { // from class: com.kwad.sdk.contentalliance.home.c.c.3
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull g gVar, final int i2, final String str) {
-                if ((f.f9323a.k != i2 && (!c.this.f8624a.isEmpty() || f.c.k != i2)) || c.this.f8624a.contains(c.this.d)) {
-                    c.this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.c.c.3.3
+                if ((f.f6187a.k != i2 && (!c.this.f5755a.isEmpty() || f.c.k != i2)) || c.this.f5755a.contains(c.this.d)) {
+                    c.this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.c.c.3.3
                         @Override // java.lang.Runnable
                         public void run() {
                             c.this.a(i2, str);
@@ -109,8 +109,8 @@ public class c extends com.kwad.sdk.contentalliance.home.a.a {
                     });
                     return;
                 }
-                c.this.f8624a.add(c.this.d);
-                c.this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.c.c.3.2
+                c.this.f5755a.add(c.this.d);
+                c.this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.c.c.3.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.a(z, 0);
@@ -122,13 +122,13 @@ public class c extends com.kwad.sdk.contentalliance.home.a.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull g gVar, @NonNull final AdResultData adResultData) {
-                c.this.f8625b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.c.c.3.1
+                c.this.b.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.c.c.3.1
                     @Override // java.lang.Runnable
                     public void run() {
                         if (z) {
-                            c.this.f8624a.clear();
+                            c.this.f5755a.clear();
                         }
-                        if (c.this.f8624a.isEmpty()) {
+                        if (c.this.f5755a.isEmpty()) {
                             m.e();
                         }
                         c.this.e = adResultData.pcursor;

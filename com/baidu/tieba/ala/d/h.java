@@ -15,11 +15,11 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.tieba.ala.view.AlaSeriesGiftPendant;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h implements com.baidu.live.ad.a {
-    protected AlaSeriesGiftPendant gSd;
-    private PendantParentView gou;
-    private PendantChildView gov;
+    protected AlaSeriesGiftPendant gTM;
+    private PendantParentView gqd;
+    private PendantChildView gqe;
     private boolean isHost = false;
     private Context mContext;
 
@@ -31,13 +31,13 @@ public class h implements com.baidu.live.ad.a {
     public void a(ViewGroup viewGroup, String str) {
         if (viewGroup != null) {
             if (viewGroup instanceof PendantParentView) {
-                this.gou = (PendantParentView) viewGroup;
-                bNZ();
+                this.gqd = (PendantParentView) viewGroup;
+                bOf();
             }
             if (str != null && !TextUtils.isEmpty(str)) {
-                if (this.gSd == null || (this.gov != null && this.gov.indexOfChild(this.gSd) < 0)) {
-                    this.gSd = new AlaSeriesGiftPendant(this.gov.getContext(), this.isHost, str);
-                    this.gov.addView(this.gSd);
+                if (this.gTM == null || (this.gqe != null && this.gqe.indexOfChild(this.gTM) < 0)) {
+                    this.gTM = new AlaSeriesGiftPendant(this.gqe.getContext(), this.isHost, str);
+                    this.gqe.addView(this.gTM);
                 }
             }
         }
@@ -48,15 +48,15 @@ public class h implements com.baidu.live.ad.a {
     }
 
     @Override // com.baidu.live.ad.a
-    public boolean Z(JSONObject jSONObject) {
-        if (dJ(jSONObject) == -1) {
+    public boolean ab(JSONObject jSONObject) {
+        if (dL(jSONObject) == -1) {
             return false;
         }
-        if (this.gSd != null && (this.gSd.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gSd.getParent()).removeView(this.gSd);
+        if (this.gTM != null && (this.gTM.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gTM.getParent()).removeView(this.gTM);
         }
-        this.gSd = new AlaSeriesGiftPendant(this.gov.getContext(), this.isHost, jSONObject.toString());
-        this.gov.addView(this.gSd);
+        this.gTM = new AlaSeriesGiftPendant(this.gqe.getContext(), this.isHost, jSONObject.toString());
+        this.gqe.addView(this.gTM);
         JSONObject jSONObject2 = new JSONObject();
         try {
             JSONObject jSONObject3 = new JSONObject();
@@ -72,20 +72,20 @@ public class h implements com.baidu.live.ad.a {
 
     @Override // com.baidu.live.ad.a
     public void setCanVisible(boolean z) {
-        if (this.gSd != null) {
-            this.gSd.setCanVisible(z);
+        if (this.gTM != null) {
+            this.gTM.setCanVisible(z);
         }
     }
 
     @Override // com.baidu.live.ad.a
     public void cT(boolean z) {
-        if (this.gSd != null && z && !AlaSeriesGiftPendant.ijT) {
-            this.gSd.setCanVisible(true);
+        if (this.gTM != null && z && !AlaSeriesGiftPendant.ilC) {
+            this.gTM.setCanVisible(true);
         }
     }
 
     @Override // com.baidu.live.ad.a
-    public void xh() {
+    public void xk() {
         mv(true);
     }
 
@@ -99,9 +99,9 @@ public class h implements com.baidu.live.ad.a {
         this.isHost = z;
     }
 
-    private void bNZ() {
-        if (this.gov == null) {
-            this.gov = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.h.1
+    private void bOf() {
+        if (this.gqe == null) {
+            this.gqe = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.d.h.1
                 @Override // com.baidu.live.pendantview.PendantChildView
                 public PendantParentView.Position getVerticalPosition() {
                     return PendantParentView.Position.RIGHT;
@@ -132,25 +132,25 @@ public class h implements com.baidu.live.ad.a {
                     return 9;
                 }
             };
-            this.gov.setBackgroundColor(0);
+            this.gqe.setBackgroundColor(0);
         }
-        if (this.gou != null && this.gou.indexOfChild(this.gov) < 0) {
-            this.gou.a(this.gov, new LinearLayout.LayoutParams(-2, -2));
+        if (this.gqd != null && this.gqd.indexOfChild(this.gqe) < 0) {
+            this.gqd.a(this.gqe, new LinearLayout.LayoutParams(-2, -2));
         }
     }
 
-    private int dJ(JSONObject jSONObject) {
+    private int dL(JSONObject jSONObject) {
         String optString;
         return (jSONObject == null || (optString = jSONObject.optString("content_type")) == null || optString.isEmpty() || !optString.equals(UbcStatConstant.ContentType.UBC_TYPE_TYING_GIFT)) ? -1 : 0;
     }
 
     private void mv(boolean z) {
-        if (this.gSd != null && (this.gSd.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gSd.getParent()).removeView(this.gSd);
+        if (this.gTM != null && (this.gTM.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gTM.getParent()).removeView(this.gTM);
         }
-        if (z && this.gov != null && (this.gov.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.gov.getParent()).removeView(this.gov);
+        if (z && this.gqe != null && (this.gqe.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.gqe.getParent()).removeView(this.gqe);
         }
-        AlaSeriesGiftPendant.ijT = true;
+        AlaSeriesGiftPendant.ilC = true;
     }
 }

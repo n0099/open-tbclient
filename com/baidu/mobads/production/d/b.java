@@ -21,7 +21,7 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.production.p;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.mobads.production.a implements a {
     protected final IXAdLogger A;
     private RelativeLayout B;

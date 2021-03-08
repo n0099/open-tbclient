@@ -18,13 +18,13 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.ala.player.c;
 import com.baidu.tieba.sdk.util.b;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LivePlayerActivity extends LiveBaseActivity implements BdPageContextSupport {
-    private a nda;
-    private com.baidu.tieba.sdk.e.a ndb;
+    private a nff;
+    private com.baidu.tieba.sdk.e.a nfg;
     private boolean mReceiverTag = false;
     private boolean mIsFromH5 = false;
-    c ndc = new c() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
+    c nfh = new c() { // from class: com.baidu.tieba.sdk.activity.LivePlayerActivity.1
         @Override // com.baidu.tieba.ala.player.c
         public void a(boolean z, boolean z2, long j) {
             LivePlayerActivity.this.finish();
@@ -35,7 +35,7 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     public void onCreate(Bundle bundle) {
         com.baidu.tieba.sdk.b.c cVar;
         if (BdBaseApplication.getInst() != null) {
-            cVar = com.baidu.tieba.sdk.d.a.dFB().dFI();
+            cVar = com.baidu.tieba.sdk.d.a.dFJ().dFQ();
             if (cVar != null) {
                 cVar.a(this);
             }
@@ -51,17 +51,17 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
         if (BdBaseApplication.getInst() == null && TbConfig.sdkInitCallback != null) {
             TbConfig.sdkInitCallback.initSdk();
         }
-        com.baidu.tieba.sdk.a.dFx().dFz();
-        this.ndb = com.baidu.tieba.sdk.a.dFx().a(this);
-        this.ndb.a(this.ndc);
+        com.baidu.tieba.sdk.a.dFF().dFH();
+        this.nfg = com.baidu.tieba.sdk.a.dFF().a(this);
+        this.nfg.a(this.nfh);
         if (cVar != null) {
             cVar.b(this);
         }
         if (!this.mReceiverTag) {
-            this.nda = new a(this);
+            this.nff = new a(this);
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(b.dGa());
-            registerReceiver(this.nda, intentFilter, WebViewBroadcastReceiver.BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
+            intentFilter.addAction(b.dGi());
+            registerReceiver(this.nff, intentFilter, WebViewBroadcastReceiver.BROADCAST_PERMISSION_CLOSE_WEBVIEW, null);
             this.mReceiverTag = true;
         }
         pb(false);
@@ -75,8 +75,8 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     }
 
     public void pb(boolean z) {
-        if (this.ndb != null) {
-            this.ndb.pb(z);
+        if (this.nfg != null) {
+            this.nfg.pb(z);
         }
     }
 
@@ -84,10 +84,10 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.ndb.onStart();
-        com.baidu.tieba.sdk.b.c dFI = com.baidu.tieba.sdk.d.a.dFB().dFI();
-        if (dFI != null) {
-            dFI.e(this);
+        this.nfg.onStart();
+        com.baidu.tieba.sdk.b.c dFQ = com.baidu.tieba.sdk.d.a.dFJ().dFQ();
+        if (dFQ != null) {
+            dFQ.e(this);
         }
     }
 
@@ -95,10 +95,10 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.ndb.onResume();
-        com.baidu.tieba.sdk.b.c dFI = com.baidu.tieba.sdk.d.a.dFB().dFI();
-        if (dFI != null) {
-            dFI.c(this);
+        this.nfg.onResume();
+        com.baidu.tieba.sdk.b.c dFQ = com.baidu.tieba.sdk.d.a.dFJ().dFQ();
+        if (dFQ != null) {
+            dFQ.c(this);
         }
     }
 
@@ -106,18 +106,18 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.ndb.onPause();
-        com.baidu.tieba.sdk.b.c dFI = com.baidu.tieba.sdk.d.a.dFB().dFI();
-        if (dFI != null) {
-            dFI.d(this);
+        this.nfg.onPause();
+        com.baidu.tieba.sdk.b.c dFQ = com.baidu.tieba.sdk.d.a.dFJ().dFQ();
+        if (dFQ != null) {
+            dFQ.d(this);
         }
     }
 
     protected void pc(boolean z) {
-        this.ndb.pc(z);
-        com.baidu.tieba.sdk.b.c dFI = com.baidu.tieba.sdk.d.a.dFB().dFI();
-        if (dFI != null) {
-            dFI.f(this);
+        this.nfg.pc(z);
+        com.baidu.tieba.sdk.b.c dFQ = com.baidu.tieba.sdk.d.a.dFJ().dFQ();
+        if (dFQ != null) {
+            dFQ.f(this);
         }
     }
 
@@ -131,14 +131,14 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (this.ndb != null) {
-            this.ndb.onWindowFocusChanged(z);
+        if (this.nfg != null) {
+            this.nfg.onWindowFocusChanged(z);
         }
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.ndb.onKeyDown(i, keyEvent)) {
+        if (this.nfg.onKeyDown(i, keyEvent)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -148,43 +148,43 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.ndb.onActivityResult(i, i2, intent);
+        this.nfg.onActivityResult(i, i2, intent);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.ndb != null) {
-            this.ndb.onConfigurationChanged(configuration);
+        if (this.nfg != null) {
+            this.nfg.onConfigurationChanged(configuration);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        com.baidu.tieba.sdk.b.c dFI = com.baidu.tieba.sdk.d.a.dFB().dFI();
-        if (dFI != null) {
-            dFI.g(this);
+        com.baidu.tieba.sdk.b.c dFQ = com.baidu.tieba.sdk.d.a.dFJ().dFQ();
+        if (dFQ != null) {
+            dFQ.g(this);
         }
         super.onDestroy();
-        if (this.ndb != null) {
-            this.ndb.onDestroy();
+        if (this.nfg != null) {
+            this.nfg.onDestroy();
         }
-        if (dFI != null) {
-            dFI.h(this);
+        if (dFQ != null) {
+            dFQ.h(this);
         }
-        if (this.nda != null && this.mReceiverTag) {
-            unregisterReceiver(this.nda);
+        if (this.nff != null && this.mReceiverTag) {
+            unregisterReceiver(this.nff);
             this.mReceiverTag = false;
         }
     }
 
     @Override // com.baidu.live.adp.base.BdPageContextSupport, com.baidu.live.tbadk.TbPageContextSupport
     public BdPageContext getPageContext() {
-        return this.ndb;
+        return this.nfg;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     private static class a extends BroadcastReceiver {
         WeakReference<LivePlayerActivity> reference;
 
@@ -194,7 +194,7 @@ public class LivePlayerActivity extends LiveBaseActivity implements BdPageContex
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent != null && this.reference != null && this.reference.get() != null && TextUtils.equals(b.dGa(), intent.getAction())) {
+            if (intent != null && this.reference != null && this.reference.get() != null && TextUtils.equals(b.dGi(), intent.getAction())) {
                 if (TextUtils.equals(intent.getStringExtra("DetailLifecycle"), MissionEvent.MESSAGE_STOP)) {
                     this.reference.get().pb(false);
                     this.reference.get().onStart();

@@ -19,9 +19,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.c.g;
 /* loaded from: classes.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
-    public g amp;
-    private int amq;
-    private int amr;
+    public g anH;
+    private int anI;
+    private int anJ;
 
     public UnfollowedDecorView(Context context) {
         this(context, null);
@@ -33,9 +33,9 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
 
     public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.amq = R.drawable.icon_pure_card_more22;
-        this.amr = R.color.CAM_X0111;
-        this.amp = new g(getCurrentActivityPageContext((Activity) context), this);
+        this.anI = R.drawable.icon_pure_card_more22;
+        this.anJ = R.color.CAM_X0111;
+        this.anH = new g(getCurrentActivityPageContext((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_more22, ap.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
@@ -44,13 +44,13 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!l.isFastDoubleClick()) {
-            this.amp.ctO();
+            this.anH.ctU();
         }
     }
 
     public void r(cb cbVar) {
-        this.amp.r(cbVar);
-        if (!az.x(cbVar) && cbVar.bpK()) {
+        this.anH.r(cbVar);
+        if (!az.x(cbVar) && cbVar.bpM()) {
             setVisibility(0);
         } else {
             setVisibility(8);
@@ -58,7 +58,7 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void onChangeSkinType() {
-        setImageDrawable(WebPManager.a(this.amq, ap.getColor(this.amr), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.a(this.anI, ap.getColor(this.anJ), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 
     private TbPageContext getCurrentActivityPageContext(Activity activity) {
@@ -72,8 +72,8 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void setWebPResId(int i, int i2) {
-        this.amq = i;
-        this.amr = i2;
-        setImageDrawable(WebPManager.a(this.amq, ap.getColor(this.amr), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.anI = i;
+        this.anJ = i2;
+        setImageDrawable(WebPManager.a(this.anI, ap.getColor(this.anJ), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

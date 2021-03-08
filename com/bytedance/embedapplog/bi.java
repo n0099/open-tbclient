@@ -6,13 +6,11 @@ public interface bi {
 
     /* loaded from: classes6.dex */
     public static class a {
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f5803b;
+        public String b;
         boolean c;
     }
 
     boolean a(Context context);
 
-    a hS(Context context);
+    a hR(Context context);
 }

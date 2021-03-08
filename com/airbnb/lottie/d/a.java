@@ -6,10 +6,10 @@ import android.animation.ValueAnimator;
 import android.os.Build;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class a extends ValueAnimator {
-    private final Set<ValueAnimator.AnimatorUpdateListener> HA = new CopyOnWriteArraySet();
-    private final Set<Animator.AnimatorListener> HB = new CopyOnWriteArraySet();
+    private final Set<ValueAnimator.AnimatorUpdateListener> IZ = new CopyOnWriteArraySet();
+    private final Set<Animator.AnimatorListener> Ja = new CopyOnWriteArraySet();
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
     public long getStartDelay() {
@@ -34,37 +34,37 @@ public abstract class a extends ValueAnimator {
 
     @Override // android.animation.ValueAnimator
     public void addUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.HA.add(animatorUpdateListener);
+        this.IZ.add(animatorUpdateListener);
     }
 
     @Override // android.animation.ValueAnimator
     public void removeUpdateListener(ValueAnimator.AnimatorUpdateListener animatorUpdateListener) {
-        this.HA.remove(animatorUpdateListener);
+        this.IZ.remove(animatorUpdateListener);
     }
 
     @Override // android.animation.ValueAnimator
     public void removeAllUpdateListeners() {
-        this.HA.clear();
+        this.IZ.clear();
     }
 
     @Override // android.animation.Animator
     public void addListener(Animator.AnimatorListener animatorListener) {
-        this.HB.add(animatorListener);
+        this.Ja.add(animatorListener);
     }
 
     @Override // android.animation.Animator
     public void removeListener(Animator.AnimatorListener animatorListener) {
-        this.HB.remove(animatorListener);
+        this.Ja.remove(animatorListener);
     }
 
     @Override // android.animation.Animator
     public void removeAllListeners() {
-        this.HB.clear();
+        this.Ja.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void W(boolean z) {
-        for (Animator.AnimatorListener animatorListener : this.HB) {
+        for (Animator.AnimatorListener animatorListener : this.Ja) {
             if (Build.VERSION.SDK_INT >= 26) {
                 animatorListener.onAnimationStart(this, z);
             } else {
@@ -75,14 +75,14 @@ public abstract class a extends ValueAnimator {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void kq() {
-        for (Animator.AnimatorListener animatorListener : this.HB) {
+        for (Animator.AnimatorListener animatorListener : this.Ja) {
             animatorListener.onAnimationRepeat(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void X(boolean z) {
-        for (Animator.AnimatorListener animatorListener : this.HB) {
+        for (Animator.AnimatorListener animatorListener : this.Ja) {
             if (Build.VERSION.SDK_INT >= 26) {
                 animatorListener.onAnimationEnd(this, z);
             } else {
@@ -93,14 +93,14 @@ public abstract class a extends ValueAnimator {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void kr() {
-        for (Animator.AnimatorListener animatorListener : this.HB) {
+        for (Animator.AnimatorListener animatorListener : this.Ja) {
             animatorListener.onAnimationCancel(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ks() {
-        for (ValueAnimator.AnimatorUpdateListener animatorUpdateListener : this.HA) {
+        for (ValueAnimator.AnimatorUpdateListener animatorUpdateListener : this.IZ) {
             animatorUpdateListener.onAnimationUpdate(this);
         }
     }

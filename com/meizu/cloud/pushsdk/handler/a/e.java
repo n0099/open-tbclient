@@ -55,11 +55,11 @@ public class e extends a<MessageV3> {
         if (messageV3 == null || TextUtils.isEmpty(messageV3.getDeviceId()) || TextUtils.isEmpty(messageV3.getTaskId())) {
             return;
         }
-        String b2 = b(messageV3.getThroughMessage());
-        if (TextUtils.isEmpty(b2)) {
+        String b = b(messageV3.getThroughMessage());
+        if (TextUtils.isEmpty(b)) {
             com.meizu.cloud.pushsdk.util.d.d(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
         } else {
-            com.meizu.cloud.pushsdk.util.d.d(c(), b2, messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+            com.meizu.cloud.pushsdk.util.d.d(c(), b, messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
         }
     }
 

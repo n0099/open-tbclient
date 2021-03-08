@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class StringU {
-    private static boolean gfb;
+    private static boolean ggE;
 
     private static native String toUpper(String str);
 
     static {
         try {
-            gfb = com.baidu.adp.lib.util.h.nI().loadLibrary("stringu", 2);
-            if (gfb) {
+            ggE = com.baidu.adp.lib.util.h.nI().loadLibrary("stringu", 2);
+            if (ggE) {
                 B("stringu_so_load_success", null);
             } else {
                 B("stringu_so_load_retry_fail", "retry to load so failed at 2 times");
@@ -26,10 +26,10 @@ public class StringU {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String Es(String str) {
+    public static String Ez(String str) {
         String str2;
         String str3 = "";
-        if (gfb && !TextUtils.isEmpty(str)) {
+        if (ggE && !TextUtils.isEmpty(str)) {
             try {
                 str3 = toUpper(str);
                 if (TextUtils.isEmpty(str3)) {

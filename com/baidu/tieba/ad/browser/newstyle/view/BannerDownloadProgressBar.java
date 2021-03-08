@@ -14,14 +14,14 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BannerDownloadProgressBar extends AppCompatTextView {
-    private final Paint bhF;
-    private int dYw;
-    private int ghl;
-    private int ghm;
-    private final Paint ghn;
-    private final RectF gho;
-    private final RectF ghp;
-    private Shader ghq;
+    private final Paint bjh;
+    private int dZX;
+    private int giP;
+    private int giQ;
+    private final Paint giR;
+    private final RectF giS;
+    private final RectF giT;
+    private Shader giU;
     private final Paint mForegroundPaint;
     private int mProgress;
     private int mRadius;
@@ -35,14 +35,14 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.mTextSize = 10.0f;
-        this.dYw = 100;
+        this.dZX = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         this.mForegroundPaint = new Paint();
-        this.ghn = new Paint();
-        this.bhF = new Paint();
-        this.gho = new RectF();
-        this.ghp = new RectF();
+        this.giR = new Paint();
+        this.bjh = new Paint();
+        this.giS = new RectF();
+        this.giT = new RectF();
         init(context, attributeSet);
     }
 
@@ -51,14 +51,14 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.mTextSize = 10.0f;
-        this.dYw = 100;
+        this.dZX = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         this.mForegroundPaint = new Paint();
-        this.ghn = new Paint();
-        this.bhF = new Paint();
-        this.gho = new RectF();
-        this.ghp = new RectF();
+        this.giR = new Paint();
+        this.bjh = new Paint();
+        this.giS = new RectF();
+        this.giT = new RectF();
         init(context, attributeSet);
     }
 
@@ -69,10 +69,10 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         int parseColor2 = Color.parseColor("#2BBCFF");
         int parseColor3 = Color.parseColor("#2B87FF");
         this.strokeWidth = getResources().getDimensionPixelSize(R.dimen.progress_button_frame);
-        this.ghl = obtainStyledAttributes.getColor(R.styleable.ad_progress_ad_btn_foreground_start, parseColor2);
-        this.ghm = obtainStyledAttributes.getColor(R.styleable.ad_progress_ad_btn_foreground_end, parseColor3);
+        this.giP = obtainStyledAttributes.getColor(R.styleable.ad_progress_ad_btn_foreground_start, parseColor2);
+        this.giQ = obtainStyledAttributes.getColor(R.styleable.ad_progress_ad_btn_foreground_end, parseColor3);
         this.mTextColor = obtainStyledAttributes.getColor(R.styleable.ad_progress_ad_btn_textColor, parseColor);
-        this.dYw = obtainStyledAttributes.getInteger(R.styleable.ad_progress_ad_btn_max, this.dYw);
+        this.dZX = obtainStyledAttributes.getInteger(R.styleable.ad_progress_ad_btn_max, this.dZX);
         this.mProgress = obtainStyledAttributes.getInteger(R.styleable.ad_progress_ad_btn_progress, 0);
         this.mText = obtainStyledAttributes.getString(R.styleable.ad_progress_ad_btn_text);
         this.mTextSize = obtainStyledAttributes.getDimension(R.styleable.ad_progress_ad_btn_textSize, (int) getResources().getDimension(R.dimen.progress_button_font_size));
@@ -82,13 +82,13 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     private void rX() {
-        this.bhF.setAntiAlias(true);
-        this.bhF.setTextSize(this.mTextSize);
-        this.bhF.setColor(this.mTextColor);
+        this.bjh.setAntiAlias(true);
+        this.bjh.setTextSize(this.mTextSize);
+        this.bjh.setColor(this.mTextColor);
         this.mForegroundPaint.setAntiAlias(true);
         this.mForegroundPaint.setStyle(Paint.Style.FILL);
-        this.ghn.setAntiAlias(true);
-        this.ghn.setStyle(Paint.Style.STROKE);
+        this.giR.setAntiAlias(true);
+        this.giR.setStyle(Paint.Style.STROKE);
         setGravity(17);
     }
 
@@ -105,36 +105,36 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     private void J(Canvas canvas) {
-        Paint.FontMetrics fontMetrics = this.bhF.getFontMetrics();
+        Paint.FontMetrics fontMetrics = this.bjh.getFontMetrics();
         float height = (getHeight() / 2) - fontMetrics.descent;
-        float measuredWidth = (getMeasuredWidth() - this.bhF.measureText(this.mText)) / 2.0f;
-        canvas.drawText(this.mText, measuredWidth, (float) (((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + height + 0.5d), this.bhF);
+        float measuredWidth = (getMeasuredWidth() - this.bjh.measureText(this.mText)) / 2.0f;
+        canvas.drawText(this.mText, measuredWidth, (float) (((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + height + 0.5d), this.bjh);
     }
 
     private void U(Canvas canvas) {
         this.mRadius = getMeasuredHeight() / 2;
-        this.ghp.left = 0.0f;
-        this.ghp.top = 0.0f;
-        this.ghp.right = getMeasuredWidth();
-        this.ghp.bottom = getMeasuredHeight();
-        this.ghn.setStrokeWidth(this.strokeWidth);
-        this.ghn.setColor(Color.parseColor("#E5E5E5"));
-        canvas.drawRoundRect(this.ghp, this.mRadius, this.mRadius, this.ghn);
+        this.giT.left = 0.0f;
+        this.giT.top = 0.0f;
+        this.giT.right = getMeasuredWidth();
+        this.giT.bottom = getMeasuredHeight();
+        this.giR.setStrokeWidth(this.strokeWidth);
+        this.giR.setColor(Color.parseColor("#E5E5E5"));
+        canvas.drawRoundRect(this.giT, this.mRadius, this.mRadius, this.giR);
     }
 
     private void D(Canvas canvas) {
         this.mRadius = getMeasuredHeight() / 2;
-        float f = this.mProgress / (this.dYw + 0.0f);
-        this.gho.left = this.strokeWidth;
-        this.gho.top = this.strokeWidth;
-        this.gho.bottom = getMeasuredHeight() - this.strokeWidth;
-        this.gho.right = f * getMeasuredWidth();
-        if (this.gho.right < this.mRadius * 2) {
-            this.gho.right = this.mRadius * 2;
+        float f = this.mProgress / (this.dZX + 0.0f);
+        this.giS.left = this.strokeWidth;
+        this.giS.top = this.strokeWidth;
+        this.giS.bottom = getMeasuredHeight() - this.strokeWidth;
+        this.giS.right = f * getMeasuredWidth();
+        if (this.giS.right < this.mRadius * 2) {
+            this.giS.right = this.mRadius * 2;
         }
-        this.ghq = new LinearGradient(0.0f, 0.0f, this.gho.right, 0.0f, new int[]{this.ghl, this.ghm}, (float[]) null, Shader.TileMode.CLAMP);
-        this.mForegroundPaint.setShader(this.ghq);
-        canvas.drawRoundRect(this.gho, this.mRadius, this.mRadius, this.mForegroundPaint);
+        this.giU = new LinearGradient(0.0f, 0.0f, this.giS.right, 0.0f, new int[]{this.giP, this.giQ}, (float[]) null, Shader.TileMode.CLAMP);
+        this.mForegroundPaint.setShader(this.giU);
+        canvas.drawRoundRect(this.giS, this.mRadius, this.mRadius, this.mForegroundPaint);
     }
 
     public void setText(String str) {
@@ -146,9 +146,9 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     public void setForeground(int i, int i2) {
-        if (i != this.ghl || i2 != this.ghm) {
-            this.ghl = i;
-            this.ghm = i2;
+        if (i != this.giP || i2 != this.giQ) {
+            this.giP = i;
+            this.giQ = i2;
             rX();
             postInvalidate();
         }
@@ -171,11 +171,11 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     public int getMaxProgress() {
-        return this.dYw;
+        return this.dZX;
     }
 
     public void setMaxProgress(int i) {
-        this.dYw = i;
+        this.dZX = i;
     }
 
     public int getProgress() {
@@ -183,10 +183,10 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     }
 
     public void setProgress(int i) {
-        if (i >= 0 && i <= this.dYw && i != this.mProgress) {
+        if (i >= 0 && i <= this.dZX && i != this.mProgress) {
             this.mProgress = i;
             this.mText = getResources().getString(R.string.ad_button_already_download) + this.mProgress + "%";
-            if (this.mProgress == this.dYw) {
+            if (this.mProgress == this.dZX) {
                 this.mText = "";
             }
             postInvalidate();

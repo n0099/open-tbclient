@@ -9,11 +9,9 @@ import android.net.NetworkRequest;
 import android.os.Build;
 import cn.com.chinatelecom.account.api.CtAuth;
 import java.net.InetAddress;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends cn.com.chinatelecom.account.api.b.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f1110b = d.class.getSimpleName();
+    private static final String b = d.class.getSimpleName();
     private a f;
     private boolean c = false;
     private ConnectivityManager d = null;
@@ -21,7 +19,7 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
     private long g = 0;
     private long h = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -35,7 +33,7 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
             byte[] address = InetAddress.getByName(str).getAddress();
             return (address[0] & 255) | ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8);
         } catch (Throwable th) {
-            CtAuth.warn(f1110b, "When InetAddress.getByName(),throws exception", th);
+            CtAuth.warn(b, "When InetAddress.getByName(),throws exception", th);
             return -1;
         }
     }
@@ -63,7 +61,7 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
                         d.this.d.unregisterNetworkCallback(this);
                         d.this.d = null;
                     } catch (Throwable th) {
-                        CtAuth.warn(d.f1110b, "switchToMobileForAboveL", th);
+                        CtAuth.warn(d.b, "switchToMobileForAboveL", th);
                     }
                 }
             }
@@ -96,7 +94,7 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
         try {
             this.d.unregisterNetworkCallback(this.e);
         } catch (Throwable th) {
-            CtAuth.warn(f1110b, "unregisterNetworkCallback", th);
+            CtAuth.warn(b, "unregisterNetworkCallback", th);
         }
         this.d = null;
     }
@@ -117,10 +115,10 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
             z = ((Boolean) cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(this.d, 5, Integer.valueOf(a(b(str))))).booleanValue();
             try {
                 this.g = System.currentTimeMillis() - this.h;
-                CtAuth.info(f1110b, "Switch network result ： " + z + " (4.x) , expendTime ：" + this.g);
+                CtAuth.info(b, "Switch network result ： " + z + " (4.x) , expendTime ：" + this.g);
             } catch (Throwable th) {
                 th = th;
-                CtAuth.warn(f1110b, "4.x网络切换异常", th);
+                CtAuth.warn(b, "4.x网络切换异常", th);
                 return z;
             }
         } catch (Throwable th2) {
@@ -138,13 +136,13 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
                     try {
                         Thread.sleep(2500L);
                     } catch (Throwable th) {
-                        CtAuth.warn(d.f1110b, "timeoutCheckRunnable exception!", th);
+                        CtAuth.warn(d.b, "timeoutCheckRunnable exception!", th);
                     }
                     if (!d.this.c) {
                         if (d.this.f != null) {
                             d.this.f.a(-720002, "切换移动网络超时", 2500L);
                         }
-                        CtAuth.info(d.f1110b, "切换网络超时(L)");
+                        CtAuth.info(d.b, "切换网络超时(L)");
                         d.this.b();
                         return;
                     }
@@ -152,7 +150,7 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
                 try {
                     Thread.sleep(i <= 2500 ? i : i - 2500);
                 } catch (Throwable th2) {
-                    CtAuth.warn(d.f1110b, "timeoutCheckRunnable exception!", th2);
+                    CtAuth.warn(d.b, "timeoutCheckRunnable exception!", th2);
                 }
                 if (d.this.f != null) {
                     d.this.f.a();
@@ -166,7 +164,7 @@ public class d extends cn.com.chinatelecom.account.api.b.a {
         try {
             a(context);
         } catch (Throwable th) {
-            CtAuth.warn(f1110b, "switchToMobileForAboveL", th);
+            CtAuth.warn(b, "switchToMobileForAboveL", th);
             if (this.f != null) {
                 this.f.a(-720001, "切换网络出现异常", -1L);
             }

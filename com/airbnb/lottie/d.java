@@ -10,51 +10,51 @@ import com.airbnb.lottie.model.layer.Layer;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d {
-    private final m BM = new m();
-    private final HashSet<String> BN = new HashSet<>();
-    private Map<String, List<Layer>> BO;
-    private Map<String, com.airbnb.lottie.model.c> BP;
-    private SparseArrayCompat<com.airbnb.lottie.model.d> BQ;
-    private LongSparseArray<Layer> BR;
-    private List<Layer> BS;
-    private float BT;
-    private float BU;
-    private float BV;
+    private final m Dk = new m();
+    private final HashSet<String> Dl = new HashSet<>();
+    private Map<String, List<Layer>> Dm;
+    private Map<String, com.airbnb.lottie.model.c> Dn;
+    private SparseArrayCompat<com.airbnb.lottie.model.d> Do;
+    private LongSparseArray<Layer> Dp;
+    private List<Layer> Dq;
+    private float Dr;
+    private float Ds;
+    private float Dt;
     private Rect bounds;
     private Map<String, g> images;
 
     public void b(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, g> map2, SparseArrayCompat<com.airbnb.lottie.model.d> sparseArrayCompat, Map<String, com.airbnb.lottie.model.c> map3) {
         this.bounds = rect;
-        this.BT = f;
-        this.BU = f2;
-        this.BV = f3;
-        this.BS = list;
-        this.BR = longSparseArray;
-        this.BO = map;
+        this.Dr = f;
+        this.Ds = f2;
+        this.Dt = f3;
+        this.Dq = list;
+        this.Dp = longSparseArray;
+        this.Dm = map;
         this.images = map2;
-        this.BQ = sparseArrayCompat;
-        this.BP = map3;
+        this.Do = sparseArrayCompat;
+        this.Dn = map3;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void bc(String str) {
+    public void bg(String str) {
         Log.w("LOTTIE", str);
-        this.BN.add(str);
+        this.Dl.add(str);
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.BM.setEnabled(z);
+        this.Dk.setEnabled(z);
     }
 
     public m getPerformanceTracker() {
-        return this.BM;
+        return this.Dk;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Layer B(long j) {
-        return this.BR.get(j);
+        return this.Dp.get(j);
     }
 
     public Rect hQ() {
@@ -62,39 +62,39 @@ public class d {
     }
 
     public float hR() {
-        return (hZ() / this.BV) * 1000.0f;
+        return (hZ() / this.Dt) * 1000.0f;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float hS() {
-        return this.BT;
+        return this.Dr;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public float hT() {
-        return this.BU;
+        return this.Ds;
     }
 
     public float hU() {
-        return this.BV;
+        return this.Dt;
     }
 
     public List<Layer> hV() {
-        return this.BS;
+        return this.Dq;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public List<Layer> bd(String str) {
-        return this.BO.get(str);
+    public List<Layer> bh(String str) {
+        return this.Dm.get(str);
     }
 
     public SparseArrayCompat<com.airbnb.lottie.model.d> hW() {
-        return this.BQ;
+        return this.Do;
     }
 
     public Map<String, com.airbnb.lottie.model.c> hX() {
-        return this.BP;
+        return this.Dn;
     }
 
     public Map<String, g> hY() {
@@ -102,12 +102,12 @@ public class d {
     }
 
     public float hZ() {
-        return this.BU - this.BT;
+        return this.Ds - this.Dr;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.BS) {
+        for (Layer layer : this.Dq) {
             sb.append(layer.toString("\t"));
         }
         return sb.toString();

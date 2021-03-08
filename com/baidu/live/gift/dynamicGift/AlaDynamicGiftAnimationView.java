@@ -7,50 +7,50 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.live.gift.dynamicGift.AlaDynamicGiftLayout;
 import java.lang.ref.WeakReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaDynamicGiftAnimationView extends ImageView {
     private static Handler mHandler = new Handler();
-    private com.baidu.live.gift.dynamicGift.a bds;
-    private AlaDynamicGiftLayout.a bdt;
-    private long bdu;
-    private Runnable bdv;
-    private a bdw;
+    private com.baidu.live.gift.dynamicGift.a beU;
+    private AlaDynamicGiftLayout.a beV;
+    private long beW;
+    private Runnable beX;
+    private a beY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void GL();
+        void GO();
 
-        void GM();
+        void GP();
 
-        void dh(int i);
+        void di(int i);
     }
 
     public AlaDynamicGiftAnimationView(Context context) {
         super(context);
-        this.bdw = new a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.1
+        this.beY = new a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.1
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void GL() {
-                if (AlaDynamicGiftAnimationView.this.bdt != null) {
-                    AlaDynamicGiftAnimationView.this.bdt.onFrameStart();
+            public void GO() {
+                if (AlaDynamicGiftAnimationView.this.beV != null) {
+                    AlaDynamicGiftAnimationView.this.beV.onFrameStart();
                 }
             }
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void dh(int i) {
-                if (AlaDynamicGiftAnimationView.this.bdt != null) {
-                    AlaDynamicGiftAnimationView.this.bdt.onFrameUpdate(i);
+            public void di(int i) {
+                if (AlaDynamicGiftAnimationView.this.beV != null) {
+                    AlaDynamicGiftAnimationView.this.beV.onFrameUpdate(i);
                 }
             }
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void GM() {
-                AlaDynamicGiftAnimationView.this.bds.release();
-                if (AlaDynamicGiftAnimationView.mHandler != null && AlaDynamicGiftAnimationView.this.bdv != null) {
-                    AlaDynamicGiftAnimationView.mHandler.removeCallbacks(AlaDynamicGiftAnimationView.this.bdv);
+            public void GP() {
+                AlaDynamicGiftAnimationView.this.beU.release();
+                if (AlaDynamicGiftAnimationView.mHandler != null && AlaDynamicGiftAnimationView.this.beX != null) {
+                    AlaDynamicGiftAnimationView.mHandler.removeCallbacks(AlaDynamicGiftAnimationView.this.beX);
                 }
-                if (AlaDynamicGiftAnimationView.this.bdt != null) {
-                    AlaDynamicGiftAnimationView.this.bdt.onFrameEnd();
+                if (AlaDynamicGiftAnimationView.this.beV != null) {
+                    AlaDynamicGiftAnimationView.this.beV.onFrameEnd();
                 }
             }
         };
@@ -59,29 +59,29 @@ public class AlaDynamicGiftAnimationView extends ImageView {
 
     public AlaDynamicGiftAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bdw = new a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.1
+        this.beY = new a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.1
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void GL() {
-                if (AlaDynamicGiftAnimationView.this.bdt != null) {
-                    AlaDynamicGiftAnimationView.this.bdt.onFrameStart();
+            public void GO() {
+                if (AlaDynamicGiftAnimationView.this.beV != null) {
+                    AlaDynamicGiftAnimationView.this.beV.onFrameStart();
                 }
             }
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void dh(int i) {
-                if (AlaDynamicGiftAnimationView.this.bdt != null) {
-                    AlaDynamicGiftAnimationView.this.bdt.onFrameUpdate(i);
+            public void di(int i) {
+                if (AlaDynamicGiftAnimationView.this.beV != null) {
+                    AlaDynamicGiftAnimationView.this.beV.onFrameUpdate(i);
                 }
             }
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void GM() {
-                AlaDynamicGiftAnimationView.this.bds.release();
-                if (AlaDynamicGiftAnimationView.mHandler != null && AlaDynamicGiftAnimationView.this.bdv != null) {
-                    AlaDynamicGiftAnimationView.mHandler.removeCallbacks(AlaDynamicGiftAnimationView.this.bdv);
+            public void GP() {
+                AlaDynamicGiftAnimationView.this.beU.release();
+                if (AlaDynamicGiftAnimationView.mHandler != null && AlaDynamicGiftAnimationView.this.beX != null) {
+                    AlaDynamicGiftAnimationView.mHandler.removeCallbacks(AlaDynamicGiftAnimationView.this.beX);
                 }
-                if (AlaDynamicGiftAnimationView.this.bdt != null) {
-                    AlaDynamicGiftAnimationView.this.bdt.onFrameEnd();
+                if (AlaDynamicGiftAnimationView.this.beV != null) {
+                    AlaDynamicGiftAnimationView.this.beV.onFrameEnd();
                 }
             }
         };
@@ -90,29 +90,29 @@ public class AlaDynamicGiftAnimationView extends ImageView {
 
     public AlaDynamicGiftAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bdw = new a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.1
+        this.beY = new a() { // from class: com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.1
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void GL() {
-                if (AlaDynamicGiftAnimationView.this.bdt != null) {
-                    AlaDynamicGiftAnimationView.this.bdt.onFrameStart();
+            public void GO() {
+                if (AlaDynamicGiftAnimationView.this.beV != null) {
+                    AlaDynamicGiftAnimationView.this.beV.onFrameStart();
                 }
             }
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void dh(int i2) {
-                if (AlaDynamicGiftAnimationView.this.bdt != null) {
-                    AlaDynamicGiftAnimationView.this.bdt.onFrameUpdate(i2);
+            public void di(int i2) {
+                if (AlaDynamicGiftAnimationView.this.beV != null) {
+                    AlaDynamicGiftAnimationView.this.beV.onFrameUpdate(i2);
                 }
             }
 
             @Override // com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView.a
-            public void GM() {
-                AlaDynamicGiftAnimationView.this.bds.release();
-                if (AlaDynamicGiftAnimationView.mHandler != null && AlaDynamicGiftAnimationView.this.bdv != null) {
-                    AlaDynamicGiftAnimationView.mHandler.removeCallbacks(AlaDynamicGiftAnimationView.this.bdv);
+            public void GP() {
+                AlaDynamicGiftAnimationView.this.beU.release();
+                if (AlaDynamicGiftAnimationView.mHandler != null && AlaDynamicGiftAnimationView.this.beX != null) {
+                    AlaDynamicGiftAnimationView.mHandler.removeCallbacks(AlaDynamicGiftAnimationView.this.beX);
                 }
-                if (AlaDynamicGiftAnimationView.this.bdt != null) {
-                    AlaDynamicGiftAnimationView.this.bdt.onFrameEnd();
+                if (AlaDynamicGiftAnimationView.this.beV != null) {
+                    AlaDynamicGiftAnimationView.this.beV.onFrameEnd();
                 }
             }
         };
@@ -120,50 +120,50 @@ public class AlaDynamicGiftAnimationView extends ImageView {
     }
 
     private void init(Context context) {
-        this.bdv = new b(this);
-        this.bds = new com.baidu.live.gift.dynamicGift.a();
-        this.bds.a(this.bdw);
+        this.beX = new b(this);
+        this.beU = new com.baidu.live.gift.dynamicGift.a();
+        this.beU.a(this.beY);
     }
 
     public void setScreen(int i, int i2) {
-        if (this.bds != null) {
-            this.bds.setScreen(i, i2);
+        if (this.beU != null) {
+            this.beU.setScreen(i, i2);
         }
     }
 
     public void setData(com.baidu.live.gift.c cVar) {
-        this.bds.setData(cVar);
+        this.beU.setData(cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GK() {
-        if (this.bdv != null) {
-            mHandler.postDelayed(this.bdv, (long) this.bds.GQ());
+    public void GN() {
+        if (this.beX != null) {
+            mHandler.postDelayed(this.beX, (long) this.beU.GT());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class b implements Runnable {
-        WeakReference<AlaDynamicGiftAnimationView> bdy;
+        WeakReference<AlaDynamicGiftAnimationView> bfa;
 
         public b(AlaDynamicGiftAnimationView alaDynamicGiftAnimationView) {
-            this.bdy = new WeakReference<>(alaDynamicGiftAnimationView);
+            this.bfa = new WeakReference<>(alaDynamicGiftAnimationView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             AlaDynamicGiftAnimationView alaDynamicGiftAnimationView;
-            if (this.bdy != null && (alaDynamicGiftAnimationView = this.bdy.get()) != null) {
+            if (this.bfa != null && (alaDynamicGiftAnimationView = this.bfa.get()) != null) {
                 try {
-                    if (!alaDynamicGiftAnimationView.isShown() || !alaDynamicGiftAnimationView.bds.GP()) {
-                        if (System.currentTimeMillis() - alaDynamicGiftAnimationView.bdu > 4000 && alaDynamicGiftAnimationView.bdw != null) {
-                            alaDynamicGiftAnimationView.bdw.GM();
+                    if (!alaDynamicGiftAnimationView.isShown() || !alaDynamicGiftAnimationView.beU.GS()) {
+                        if (System.currentTimeMillis() - alaDynamicGiftAnimationView.beW > 4000 && alaDynamicGiftAnimationView.beY != null) {
+                            alaDynamicGiftAnimationView.beY.GP();
                         }
                     } else {
                         alaDynamicGiftAnimationView.postInvalidate();
                     }
-                    alaDynamicGiftAnimationView.GK();
+                    alaDynamicGiftAnimationView.GN();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -173,30 +173,30 @@ public class AlaDynamicGiftAnimationView extends ImageView {
 
     public void onDestroy() {
         stopAnim();
-        this.bds.release();
+        this.beU.release();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.bds != null) {
-            this.bds.h(canvas);
+        if (this.beU != null) {
+            this.beU.h(canvas);
         }
     }
 
     public void startAnim() {
-        this.bdu = System.currentTimeMillis();
-        GK();
+        this.beW = System.currentTimeMillis();
+        GN();
     }
 
     public void stopAnim() {
-        if (mHandler != null && this.bdv != null) {
-            mHandler.removeCallbacks(this.bdv);
+        if (mHandler != null && this.beX != null) {
+            mHandler.removeCallbacks(this.beX);
         }
-        this.bds.release();
+        this.beU.release();
     }
 
     public void setFrameCallback(AlaDynamicGiftLayout.a aVar) {
-        this.bdt = aVar;
+        this.beV = aVar;
     }
 }

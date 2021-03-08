@@ -1,54 +1,54 @@
 package rx;
 
 import rx.exceptions.MissingBackpressureException;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a {
-    public static final d qxU = c.qya;
-    public static final d qxV = qxU;
-    public static final d qxW = b.qxZ;
-    public static final d qxX = C1313a.qxY;
+    public static final d qyw = c.qyC;
+    public static final d qyx = qyw;
+    public static final d qyy = b.qyB;
+    public static final d qyz = C1295a.qyA;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface d {
-        boolean eMB() throws MissingBackpressureException;
+        boolean eMj() throws MissingBackpressureException;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     static final class b implements d {
-        static final b qxZ = new b();
+        static final b qyB = new b();
 
         private b() {
         }
 
         @Override // rx.a.d
-        public boolean eMB() {
+        public boolean eMj() {
             return true;
         }
     }
 
     /* renamed from: rx.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    static final class C1313a implements d {
-        static final C1313a qxY = new C1313a();
+    /* loaded from: classes4.dex */
+    static final class C1295a implements d {
+        static final C1295a qyA = new C1295a();
 
-        private C1313a() {
+        private C1295a() {
         }
 
         @Override // rx.a.d
-        public boolean eMB() {
+        public boolean eMj() {
             return false;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     static final class c implements d {
-        static final c qya = new c();
+        static final c qyC = new c();
 
         private c() {
         }
 
         @Override // rx.a.d
-        public boolean eMB() throws MissingBackpressureException {
+        public boolean eMj() throws MissingBackpressureException {
             throw new MissingBackpressureException("Overflowed buffer");
         }
     }

@@ -22,20 +22,18 @@ import java.util.zip.ZipFile;
 public class b extends AsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4238a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f4239b;
+    private String f2932a;
+    private int b;
     private a<String> c;
     private boolean d = false;
     private boolean e;
     private String f;
 
     public b(String str, int i, boolean z, a<String> aVar) {
-        this.f4238a = "";
-        this.f4239b = 0;
-        this.f4238a = str;
-        this.f4239b = i;
+        this.f2932a = "";
+        this.b = 0;
+        this.f2932a = str;
+        this.b = i;
         this.c = aVar;
         this.e = z;
     }
@@ -98,7 +96,7 @@ public class b extends AsyncTask<String, Integer, String> {
             return null;
         }
         this.f = str;
-        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f4238a, this.f4239b);
+        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f2932a, this.b);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
@@ -111,7 +109,7 @@ public class b extends AsyncTask<String, Integer, String> {
         if (file2.exists()) {
             try {
                 new ZipFile(str2);
-                if (com.baidu.platform.comapi.walknavi.d.a.b.f4209a) {
+                if (com.baidu.platform.comapi.walknavi.d.a.b.f2913a) {
                     return c(str2);
                 }
                 if (this.c != null) {
@@ -120,14 +118,14 @@ public class b extends AsyncTask<String, Integer, String> {
                 return "false";
             } catch (Exception e) {
                 file2.delete();
-                if (!com.baidu.platform.comapi.walknavi.d.a.b.f4209a) {
+                if (!com.baidu.platform.comapi.walknavi.d.a.b.f2913a) {
                     if (this.c != null) {
                         this.c.a(true, b(str));
                     }
                     return "true";
                 }
             }
-        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f4209a) {
+        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f2913a) {
             if (this.c != null) {
                 this.c.a(true, b(str));
             }
@@ -143,15 +141,15 @@ public class b extends AsyncTask<String, Integer, String> {
                 return null;
             }
         }
-        int b2 = b(str);
-        com.baidu.platform.comapi.walknavi.d.a.g.a.a("download length = " + b2);
-        if (b2 == 0) {
+        int b = b(str);
+        com.baidu.platform.comapi.walknavi.d.a.g.a.a("download length = " + b);
+        if (b == 0) {
             return null;
         }
         try {
             URLConnection openConnection = new URL(str).openConnection();
             openConnection.setConnectTimeout(10000);
-            openConnection.setRequestProperty(Headers.RANGE, "bytes=0-" + b2);
+            openConnection.setRequestProperty(Headers.RANGE, "bytes=0-" + b);
             randomAccessFile2 = new RandomAccessFile(str2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
             try {
                 randomAccessFile2.seek(0L);
@@ -164,7 +162,7 @@ public class b extends AsyncTask<String, Integer, String> {
                             com.baidu.platform.comapi.walknavi.d.a.g.a.a("one while read start n =" + read);
                             randomAccessFile2.write(bArr, 0, read);
                             i += read;
-                            int i2 = (int) ((100.0f * i) / b2);
+                            int i2 = (int) ((100.0f * i) / b);
                             com.baidu.platform.comapi.walknavi.d.a.g.a.a("percentProgress = " + i2);
                             publishProgress(Integer.valueOf(i2));
                             while (this.d) {

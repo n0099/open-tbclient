@@ -21,10 +21,10 @@ import org.apache.http.params.HttpParams;
 public class g implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final HttpClient f3860a;
+    protected final HttpClient f2694a;
 
     public g(HttpClient httpClient) {
-        this.f3860a = httpClient;
+        this.f2694a = httpClient;
     }
 
     private static void a(HttpUriRequest httpUriRequest, Map<String, String> map) {
@@ -35,15 +35,15 @@ public class g implements i {
 
     @Override // com.baidu.pano.platform.a.a.i
     public HttpResponse a(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws IOException, com.baidu.pano.platform.a.a {
-        HttpUriRequest b2 = b(nVar, map);
-        a(b2, map);
-        a(b2, nVar.i());
-        a(b2);
-        HttpParams params = b2.getParams();
+        HttpUriRequest b = b(nVar, map);
+        a(b, map);
+        a(b, nVar.i());
+        a(b);
+        HttpParams params = b.getParams();
         int t = nVar.t();
         HttpConnectionParams.setConnectionTimeout(params, 5000);
         HttpConnectionParams.setSoTimeout(params, t);
-        return this.f3860a.execute(b2);
+        return this.f2694a.execute(b);
     }
 
     static HttpUriRequest b(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws com.baidu.pano.platform.a.a {

@@ -9,9 +9,7 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.RadiusPvFrameLayout;
 /* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.contentalliance.profile.tabvideo.a.a.a implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    private RadiusPvFrameLayout f8800b;
+    private RadiusPvFrameLayout b;
     private RadiusPvFrameLayout.a c = new RadiusPvFrameLayout.a() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.a.b.a.1
         @Override // com.kwad.sdk.widget.RadiusPvFrameLayout.a
         public void a() {
@@ -20,44 +18,44 @@ public class a extends com.kwad.sdk.contentalliance.profile.tabvideo.a.a.a imple
     };
 
     private void e() {
-        com.kwad.sdk.contentalliance.profile.tabvideo.detail.a.a().a(((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10454a).f.g());
+        com.kwad.sdk.contentalliance.profile.tabvideo.detail.a.a().a(((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f6892a).f.g());
         ProfileVideoDetailParam profileVideoDetailParam = new ProfileVideoDetailParam();
-        profileVideoDetailParam.mEnterScene = ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10454a).f8799a.mEntryScene;
-        profileVideoDetailParam.mAuthorId = ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10454a).f8799a.mAuthorId;
-        profileVideoDetailParam.mTabId = ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10454a).f8799a.mTabId;
-        profileVideoDetailParam.mSelectedPosition = ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10454a).h;
+        profileVideoDetailParam.mEnterScene = ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f6892a).f5861a.mEntryScene;
+        profileVideoDetailParam.mAuthorId = ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f6892a).f5861a.mAuthorId;
+        profileVideoDetailParam.mTabId = ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f6892a).f5861a.mTabId;
+        profileVideoDetailParam.mSelectedPosition = ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f6892a).h;
         com.kwad.sdk.contentalliance.profile.tabvideo.detail.b.a(o(), profileVideoDetailParam);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        e.a((AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10454a).i);
+        e.a((AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f6892a).i);
     }
 
     private void g() {
-        e.b((AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f10454a).i, 1);
+        e.b((AdTemplate) ((com.kwad.sdk.contentalliance.profile.tabvideo.a.a.b) this.f6892a).i, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8800b.setOnClickListener(this);
-        this.f8800b.a(this.c);
+        this.b.setOnClickListener(this);
+        this.b.a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8800b.b();
+        this.b.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8800b = (RadiusPvFrameLayout) b(R.id.ksad_profile_item_root);
+        this.b = (RadiusPvFrameLayout) b(R.id.ksad_profile_item_root);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

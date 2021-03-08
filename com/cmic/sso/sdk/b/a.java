@@ -18,33 +18,33 @@ import com.cmic.sso.sdk.e.t;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
     @SuppressLint({"StaticFieldLeak"})
-    private static a pwL = null;
+    private static a pyQ = null;
     private Context mContext;
     private Handler mHandler;
     private final Object mObject;
-    private c pwK;
-    private long pwM;
-    private String pwN;
+    private c pyP;
+    private long pyR;
+    private String pyS;
 
     private a(Context context) {
-        this.pwM = 8000L;
+        this.pyR = 8000L;
         this.mObject = new Object();
         this.mContext = context.getApplicationContext();
         this.mHandler = new Handler(this.mContext.getMainLooper());
-        this.pwK = c.m54if(this.mContext);
-        t.ig(this.mContext);
+        this.pyP = c.ie(this.mContext);
+        t.m54if(this.mContext);
         k.a(this.mContext);
         j.a(this.mContext);
         o.a(new o.a() { // from class: com.cmic.sso.sdk.b.a.1
             @Override // com.cmic.sso.sdk.e.o.a
             protected void a() {
-                String b2 = k.b("AID", "");
-                com.cmic.sso.sdk.e.c.b("AuthnHelper", "aid = " + b2);
-                if (TextUtils.isEmpty(b2)) {
-                    a.this.erv();
+                String b = k.b("AID", "");
+                com.cmic.sso.sdk.e.c.b("AuthnHelper", "aid = " + b);
+                if (TextUtils.isEmpty(b)) {
+                    a.this.erE();
                 }
                 if (com.cmic.sso.sdk.e.b.a(a.this.mContext, true)) {
                     com.cmic.sso.sdk.e.c.b("AuthnHelper", "生成androidkeystore成功");
@@ -56,39 +56,39 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void erv() {
+    public void erE() {
         String str = "%" + s.a();
         com.cmic.sso.sdk.e.c.b("AuthnHelper", "generate aid = " + str);
-        k.a erD = k.erD();
-        erD.a("AID", str);
-        erD.b();
+        k.a erM = k.erM();
+        erM.a("AID", str);
+        erM.b();
     }
 
     private a(Context context, String str) {
         this(context);
-        this.pwN = str;
+        this.pyS = str;
     }
 
-    public static a id(Context context) {
-        if (pwL == null) {
+    public static a ic(Context context) {
+        if (pyQ == null) {
             synchronized (a.class) {
-                if (pwL == null) {
-                    pwL = new a(context);
+                if (pyQ == null) {
+                    pyQ = new a(context);
                 }
             }
         }
-        return pwL;
+        return pyQ;
     }
 
     public static a bw(Context context, String str) {
-        if (pwL == null) {
+        if (pyQ == null) {
             synchronized (a.class) {
-                if (pwL == null) {
-                    pwL = new a(context, str);
+                if (pyQ == null) {
+                    pyQ = new a(context, str);
                 }
             }
         }
-        return pwL;
+        return pyQ;
     }
 
     public void a(final String str, final String str2, final b bVar) {
@@ -129,44 +129,44 @@ public class a {
 
     private com.cmic.sso.sdk.a a(b bVar) {
         com.cmic.sso.sdk.a aVar = new com.cmic.sso.sdk.a(64);
-        String b2 = s.b();
-        aVar.a("traceId", b2);
+        String b = s.b();
+        aVar.a("traceId", b);
         if (bVar != null) {
-            com.cmic.sso.sdk.e.e.a(b2, bVar);
+            com.cmic.sso.sdk.e.e.a(b, bVar);
         }
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public class RunnableC1039a implements Runnable {
-        private com.cmic.sso.sdk.a pwW;
+    /* loaded from: classes14.dex */
+    public class RunnableC1054a implements Runnable {
+        private com.cmic.sso.sdk.a pzb;
 
-        RunnableC1039a(com.cmic.sso.sdk.a aVar) {
-            this.pwW = aVar;
+        RunnableC1054a(com.cmic.sso.sdk.a aVar) {
+            this.pzb = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             JSONObject a2;
-            if (!t.ig(a.this.mContext).a() && this.pwW.b("doNetworkSwitch", false)) {
+            if (!t.m54if(a.this.mContext).a() && this.pzb.b("doNetworkSwitch", false)) {
                 a2 = e.a("102508", "数据网络切换失败");
             } else {
                 a2 = e.a("200023", "登录超时");
             }
-            a.this.a(a2.optString("resultCode", "200023"), a2.optString("resultString", "登录超时"), this.pwW, a2);
+            a.this.a(a2.optString("resultCode", "200023"), a2.optString("resultString", "登录超时"), this.pzb, a2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.cmic.sso.sdk.a aVar) {
-        final RunnableC1039a runnableC1039a = new RunnableC1039a(aVar);
-        this.mHandler.postDelayed(runnableC1039a, this.pwM);
-        this.pwK.a(aVar, new d() { // from class: com.cmic.sso.sdk.b.a.5
+        final RunnableC1054a runnableC1054a = new RunnableC1054a(aVar);
+        this.mHandler.postDelayed(runnableC1054a, this.pyR);
+        this.pyP.a(aVar, new d() { // from class: com.cmic.sso.sdk.b.a.5
             @Override // com.cmic.sso.sdk.b.d
             public void b(String str, String str2, com.cmic.sso.sdk.a aVar2, JSONObject jSONObject) {
-                a.this.mHandler.removeCallbacks(runnableC1039a);
+                a.this.mHandler.removeCallbacks(runnableC1054a);
                 a.this.a(str, str2, aVar2, jSONObject);
             }
         });
@@ -176,34 +176,34 @@ public class a {
     public boolean a(com.cmic.sso.sdk.a aVar, String str, String str2, String str3, int i, b bVar) {
         boolean z;
         aVar.a("CLOSE_CERT_VERIFY", q.h());
-        aVar.a("use2048PublicKey", "rsa2048".equals(this.pwN));
+        aVar.a("use2048PublicKey", "rsa2048".equals(this.pyS));
         aVar.a("systemStartTime", SystemClock.elapsedRealtime());
         aVar.a(LogBuilder.KEY_START_TIME, p.a());
         aVar.a("loginMethod", str3);
         aVar.a("appkey", str2);
         aVar.a("appid", str);
-        aVar.a("timeOut", String.valueOf(this.pwM));
+        aVar.a("timeOut", String.valueOf(this.pyR));
         boolean z2 = false;
         if (g.a(this.mContext, "android.permission.READ_PHONE_STATE")) {
             z2 = true;
         }
         com.cmic.sso.sdk.e.c.a("AuthnHelper", "有READ_PHONE_STATE权限？" + z2);
         aVar.a("hsaReadPhoneStatePermission", z2);
-        com.cmic.sso.sdk.a.b.ert().a(this.mContext, z2);
-        aVar.a("networkClass", com.cmic.sso.sdk.a.b.ert().a(this.mContext));
-        aVar.a("simCardNum", String.valueOf(com.cmic.sso.sdk.a.b.ert().eru().i()));
-        String b2 = j.erC().b();
-        String Bf = j.erC().Bf(z2);
+        com.cmic.sso.sdk.a.b.erC().a(this.mContext, z2);
+        aVar.a("networkClass", com.cmic.sso.sdk.a.b.erC().a(this.mContext));
+        aVar.a("simCardNum", String.valueOf(com.cmic.sso.sdk.a.b.erC().erD().i()));
+        String b = j.erL().b();
+        String Bd = j.erL().Bd(z2);
         String e = j.e();
-        String a2 = j.erC().a(false);
-        aVar.a("imsi", b2);
-        aVar.a("imei", Bf);
+        String a2 = j.erL().a(false);
+        aVar.a("imsi", b);
+        aVar.a("imei", Bd);
         aVar.a("operatortype", a2);
         aVar.a("iccid", e);
         aVar.a("logintype", i);
         com.cmic.sso.sdk.e.c.b("AuthnHelper", "iccid=" + e);
-        com.cmic.sso.sdk.e.c.b("AuthnHelper", "imsi=" + b2);
-        if (TextUtils.isEmpty(b2)) {
+        com.cmic.sso.sdk.e.c.b("AuthnHelper", "imsi=" + b);
+        if (TextUtils.isEmpty(b)) {
             com.cmic.sso.sdk.e.c.a("AuthnHelper", "使用iccid作为缓存key");
             aVar.a("keyIsSimKeyICCID", true);
         }
@@ -270,19 +270,19 @@ public class a {
     public void a(String str, String str2, final com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
         final JSONObject c;
         try {
-            String b2 = aVar.b("traceId");
-            if (!com.cmic.sso.sdk.e.e.a(b2)) {
+            String b = aVar.b("traceId");
+            if (!com.cmic.sso.sdk.e.e.a(b)) {
                 synchronized (this) {
-                    final b Zk = com.cmic.sso.sdk.e.e.Zk(b2);
-                    com.cmic.sso.sdk.e.e.b(b2);
-                    if (Zk != null) {
+                    final b Zq = com.cmic.sso.sdk.e.e.Zq(b);
+                    com.cmic.sso.sdk.e.e.b(b);
+                    if (Zq != null) {
                         aVar.a("systemEndTime", SystemClock.elapsedRealtime());
                         aVar.a(LogBuilder.KEY_END_TIME, p.a());
-                        int b3 = aVar.b("logintype", -1);
+                        int b2 = aVar.b("logintype", -1);
                         if (jSONObject == null) {
                             jSONObject = e.a(str, str2);
                         }
-                        if (b3 == 3) {
+                        if (b2 == 3) {
                             c = e.a(str, aVar, jSONObject);
                         } else {
                             c = e.c(str, str2, aVar, jSONObject);
@@ -290,7 +290,7 @@ public class a {
                         this.mHandler.post(new Runnable() { // from class: com.cmic.sso.sdk.b.a.6
                             @Override // java.lang.Runnable
                             public void run() {
-                                Zk.onGetTokenComplete(c);
+                                Zq.onGetTokenComplete(c);
                             }
                         });
                         a(this.mContext, str, aVar);
@@ -308,7 +308,7 @@ public class a {
                 }
             }
             if (com.cmic.sso.sdk.e.e.a()) {
-                t.ig(this.mContext).b();
+                t.m54if(this.mContext).b();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -322,14 +322,14 @@ public class a {
     }
 
     public void iz(long j) {
-        this.pwM = j;
+        this.pyR = j;
     }
 
-    public JSONObject ie(Context context) {
+    public JSONObject id(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.cmic.sso.sdk.a.b.ert().a(context, g.a(context, "android.permission.READ_PHONE_STATE"));
-            String a2 = j.erC().a(true);
+            com.cmic.sso.sdk.a.b.erC().a(context, g.a(context, "android.permission.READ_PHONE_STATE"));
+            String a2 = j.erL().a(true);
             int a3 = n.a(context, a2);
             jSONObject.put("operatortype", a2);
             jSONObject.put("networktype", a3 + "");

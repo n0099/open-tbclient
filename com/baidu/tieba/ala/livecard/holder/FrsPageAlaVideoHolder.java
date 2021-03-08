@@ -2,12 +2,12 @@ package com.baidu.tieba.ala.livecard.holder;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.ala.livecard.a.e;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class FrsPageAlaVideoHolder extends TypeAdapter.ViewHolder {
-    public e hnz;
+    public e hpj;
 
     public FrsPageAlaVideoHolder(e eVar) {
         super(eVar.getView());
-        this.hnz = eVar;
+        this.hpj = eVar;
     }
 }

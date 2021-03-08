@@ -6,37 +6,37 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import rx.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class i implements k {
-    private List<k> qDK;
-    private volatile boolean qyH;
+    private List<k> qEm;
+    private volatile boolean qzj;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.qDK = new LinkedList(Arrays.asList(kVarArr));
+        this.qEm = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.qDK = new LinkedList();
-        this.qDK.add(kVar);
+        this.qEm = new LinkedList();
+        this.qEm.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.qyH;
+        return this.qzj;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.qyH) {
+            if (!this.qzj) {
                 synchronized (this) {
-                    if (!this.qyH) {
-                        List list = this.qDK;
+                    if (!this.qzj) {
+                        List list = this.qEm;
                         if (list == null) {
                             list = new LinkedList();
-                            this.qDK = list;
+                            this.qEm = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.qyH) {
+        if (!this.qzj) {
             synchronized (this) {
-                List<k> list = this.qDK;
-                if (!this.qyH && list != null) {
+                List<k> list = this.qEm;
+                if (!this.qzj && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.qyH) {
+        if (!this.qzj) {
             synchronized (this) {
-                if (!this.qyH) {
-                    this.qyH = true;
-                    List<k> list = this.qDK;
-                    this.qDK = null;
+                if (!this.qzj) {
+                    this.qzj = true;
+                    List<k> list = this.qEm;
+                    this.qEm = null;
                     u(list);
                 }
             }
@@ -87,7 +87,7 @@ public final class i implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.hk(arrayList);
+            rx.exceptions.a.hj(arrayList);
         }
     }
 }

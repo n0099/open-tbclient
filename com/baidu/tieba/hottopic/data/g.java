@@ -2,10 +2,10 @@ package com.baidu.tieba.hottopic.data;
 
 import com.baidu.adp.BdUniqueId;
 import tbclient.Hottopic.HotThread;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g implements com.baidu.adp.widget.ListView.n {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public String kut;
+    public String kwv;
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
@@ -14,7 +14,7 @@ public class g implements com.baidu.adp.widget.ListView.n {
 
     public void a(HotThread hotThread) {
         if (hotThread != null) {
-            this.kut = hotThread.hot_title;
+            this.kwv = hotThread.hot_title;
         }
     }
 }

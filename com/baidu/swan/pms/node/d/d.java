@@ -8,13 +8,13 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.swan.pms.node.b {
     @Override // com.baidu.swan.pms.node.b
-    public JSONArray bdw() {
+    public JSONArray bdy() {
         JSONArray jSONArray = new JSONArray();
-        com.baidu.swan.pms.b bcp = com.baidu.swan.pms.d.bcp();
+        com.baidu.swan.pms.b bcr = com.baidu.swan.pms.d.bcr();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", "bbasp_core");
-            jSONObject.put(SharedPrefConfig.VERSION_NAME, bcp != null ? bcp.ayj() : "0");
+            jSONObject.put(SharedPrefConfig.VERSION_NAME, bcr != null ? bcr.aym() : "0");
             jSONArray.put(jSONObject);
         } catch (JSONException e) {
             if (com.baidu.swan.pms.d.DEBUG) {
@@ -24,7 +24,7 @@ public class d extends com.baidu.swan.pms.node.b {
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject2.put("type", "bbasp_game");
-            jSONObject2.put(SharedPrefConfig.VERSION_NAME, bcp != null ? bcp.ayl() : "0");
+            jSONObject2.put(SharedPrefConfig.VERSION_NAME, bcr != null ? bcr.ayo() : "0");
             jSONArray.put(jSONObject2);
         } catch (JSONException e2) {
             if (com.baidu.swan.pms.d.DEBUG) {
@@ -34,7 +34,7 @@ public class d extends com.baidu.swan.pms.node.b {
         JSONObject jSONObject3 = new JSONObject();
         try {
             jSONObject3.put("type", ETAG.KEY_EXTENSION);
-            jSONObject3.put(SharedPrefConfig.VERSION_NAME, bcp != null ? bcp.ayk() : "0");
+            jSONObject3.put(SharedPrefConfig.VERSION_NAME, bcr != null ? bcr.ayn() : "0");
             jSONArray.put(jSONObject3);
         } catch (JSONException e3) {
             if (com.baidu.swan.pms.d.DEBUG) {

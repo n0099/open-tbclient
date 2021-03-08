@@ -52,7 +52,7 @@ public class i {
             edit.putString("request_id", str4);
             edit.putString("user_id", str5);
             edit.putBoolean("bind_status", true);
-            m.f1433a = 1;
+            m.f1223a = 1;
             edit.putLong("version_code", m.c(context, context.getPackageName()));
             edit.apply();
         } catch (Exception e) {

@@ -2,6 +2,7 @@ package com.baidu.ufosdk.f;
 
 import android.annotation.SuppressLint;
 import android.util.Base64;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.Key;
 import java.security.MessageDigest;
@@ -11,12 +12,12 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class k {
     private static String a() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(a("W", false));
+        stringBuffer.append(a(ExifInterface.LONGITUDE_WEST, false));
         stringBuffer.append(a("9", true));
         stringBuffer.append(random.nextInt(1) + 1);
         stringBuffer.append(a("Y", true));
@@ -91,8 +92,8 @@ public final class k {
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : digest) {
-                sb.append(Integer.toHexString(b2 & 255));
+            for (byte b : digest) {
+                sb.append(Integer.toHexString(b & 255));
             }
             return sb.toString();
         }

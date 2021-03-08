@@ -7,60 +7,60 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public e lro = new e();
-    public List<c> lrp = new ArrayList();
+    public e ltq = new e();
+    public List<c> lts = new ArrayList();
 
     public void parseJson(JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
-            this.lro.parseJson(jSONObject.optJSONObject("user"));
+            this.ltq.parseJson(jSONObject.optJSONObject("user"));
             JSONArray optJSONArray = jSONObject.optJSONArray("special_List");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     c cVar = new c();
                     cVar.parseJson(optJSONArray.getJSONObject(i));
-                    this.lrp.add(cVar);
+                    this.lts.add(cVar);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     static class e {
+        public b ltC = new b();
+        public d ltD = new d();
         public String mId;
         public String mName;
         public String mPortrait;
-        public b lrz = new b();
-        public d lrA = new d();
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
                 this.mId = jSONObject.optString("id");
                 this.mName = jSONObject.optString("name");
                 this.mPortrait = jSONObject.optString("portrait");
-                this.lrz.parseJson(jSONObject.optJSONObject("pay_member_info"));
-                this.lrA.parseJson(jSONObject.optJSONObject("Parr_scores"));
+                this.ltC.parseJson(jSONObject.optJSONObject("pay_member_info"));
+                this.ltD.parseJson(jSONObject.optJSONObject("Parr_scores"));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.memberCenter.memberprivilege.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0796a {
-        public String lrq;
+    /* loaded from: classes8.dex */
+    public static class C0802a {
+        public String ltt;
         public String mDesc;
         public String mLink;
         public String mTitle;
 
-        C0796a() {
+        C0802a() {
         }
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
-                this.lrq = jSONObject.optString(BigdayActivityConfig.IMG_URL);
+                this.ltt = jSONObject.optString(BigdayActivityConfig.IMG_URL);
                 this.mTitle = jSONObject.optString("title");
                 this.mDesc = jSONObject.optString("desc");
                 this.mLink = jSONObject.optString("link");
@@ -68,9 +68,9 @@ public class a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     static class c {
-        public ArrayList<C0796a> lru = new ArrayList<>();
+        public ArrayList<C0802a> ltx = new ArrayList<>();
         public String mClassName;
 
         public void parseJson(JSONObject jSONObject) throws Exception {
@@ -81,9 +81,9 @@ public class a {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                        C0796a c0796a = new C0796a();
-                        c0796a.parseJson(jSONObject2);
-                        this.lru.add(c0796a);
+                        C0802a c0802a = new C0802a();
+                        c0802a.parseJson(jSONObject2);
+                        this.ltx.add(c0802a);
                     }
                 }
             }
@@ -91,37 +91,37 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
-        public long lqp;
-        public long lrr;
-        public long lrs;
-        public String lrt;
+        public long lsr;
+        public long ltu;
+        public long ltv;
+        public String ltw;
 
         b() {
         }
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
-                this.lqp = jSONObject.optInt("props_id");
-                this.lrr = jSONObject.optLong("end_time");
-                this.lrs = jSONObject.optLong("now_time");
-                this.lrt = jSONObject.optString("pic_url");
+                this.lsr = jSONObject.optInt("props_id");
+                this.ltu = jSONObject.optLong("end_time");
+                this.ltv = jSONObject.optLong("now_time");
+                this.ltw = jSONObject.optString("pic_url");
             }
         }
 
         public boolean isValid() {
-            return (this.lqp == 1 || this.lqp == 2) && this.lrr > this.lrs;
+            return (this.lsr == 1 || this.lsr == 2) && this.ltu > this.ltv;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class d {
-        public long lrv;
-        public long lrw;
-        public long lrx;
-        public long lry;
+        public long ltA;
+        public long ltB;
+        public long lty;
+        public long ltz;
         public long mLevel;
         public long mLimit;
         public long mUpdateTime;
@@ -131,10 +131,10 @@ public class a {
 
         public void parseJson(JSONObject jSONObject) throws Exception {
             if (jSONObject != null) {
-                this.lrv = jSONObject.optLong("scores_total");
-                this.lrw = jSONObject.optLong("scores_fetch");
-                this.lrx = jSONObject.optLong("scores_money");
-                this.lry = jSONObject.optLong("scores_other");
+                this.lty = jSONObject.optLong("scores_total");
+                this.ltz = jSONObject.optLong("scores_fetch");
+                this.ltA = jSONObject.optLong("scores_money");
+                this.ltB = jSONObject.optLong("scores_other");
                 this.mUpdateTime = jSONObject.optLong("update_time");
                 this.mLevel = jSONObject.optLong("level");
                 this.mLimit = jSONObject.optLong(Constants.EXTRA_CONFIG_LIMIT);
@@ -142,7 +142,7 @@ public class a {
         }
 
         public boolean isValid() {
-            return this.lrx >= 0 && this.lry >= 0;
+            return this.ltA >= 0 && this.ltB >= 0;
         }
     }
 }

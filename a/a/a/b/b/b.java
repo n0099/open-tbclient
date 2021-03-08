@@ -13,18 +13,18 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b implements a.a.a.b.a.a {
+    public final a.InterfaceC0006a BY;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f1036a;
+    public final String f1017a;
     public volatile int c;
     public volatile long d;
-    public final a.InterfaceC0000a zm;
 
-    public b(String str, a.InterfaceC0000a interfaceC0000a) {
-        this.f1036a = str;
-        this.zm = interfaceC0000a;
+    public b(String str, a.InterfaceC0006a interfaceC0006a) {
+        this.f1017a = str;
+        this.BY = interfaceC0006a;
     }
 
     public final void a() {
@@ -37,7 +37,7 @@ public class b implements a.a.a.b.a.a {
         try {
             try {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f1036a).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f1017a).openConnection();
                     try {
                         httpURLConnection2.setConnectTimeout(4000);
                         httpURLConnection2.setReadTimeout(4000);
@@ -87,21 +87,21 @@ public class b implements a.a.a.b.a.a {
     public final void a(DownloadException downloadException) {
         switch (downloadException.getErrorCode()) {
             case 106:
-                synchronized (this.zm) {
+                synchronized (this.BY) {
                     this.c = 106;
-                    ((g) this.zm).d();
+                    ((g) this.BY).d();
                 }
                 return;
             case 107:
-                synchronized (this.zm) {
+                synchronized (this.BY) {
                     this.c = 107;
-                    ((g) this.zm).b();
+                    ((g) this.BY).b();
                 }
                 return;
             case 108:
-                synchronized (this.zm) {
+                synchronized (this.BY) {
                     this.c = 108;
-                    ((g) this.zm).a(downloadException);
+                    ((g) this.BY).a(downloadException);
                 }
                 return;
             default:
@@ -134,29 +134,29 @@ public class b implements a.a.a.b.a.a {
         this.c = 103;
         long currentTimeMillis = System.currentTimeMillis();
         long j2 = this.d;
-        g gVar = (g) this.zm;
-        if (((b) gVar.zs).b()) {
+        g gVar = (g) this.BY;
+        if (((b) gVar.Ce).b()) {
             gVar.b();
             return;
         }
         gVar.g = 103;
-        a aVar = gVar.zo;
-        aVar.zl.setTime(currentTimeMillis - j2);
-        aVar.zl.setAcceptRanges(z);
-        aVar.zl.setStatus(103);
-        aVar.zk.a(aVar.zl);
-        gVar.zr.a(z);
-        gVar.zr.c = j;
+        a aVar = gVar.Ca;
+        aVar.BX.setTime(currentTimeMillis - j2);
+        aVar.BX.setAcceptRanges(z);
+        aVar.BX.setStatus(103);
+        aVar.BW.a(aVar.BX);
+        gVar.Cd.a(z);
+        gVar.Cd.c = j;
         gVar.g = 104;
         gVar.j.clear();
         if (z) {
             ArrayList<e> arrayList = new ArrayList();
-            int a2 = gVar.zp.a();
+            int a2 = gVar.Cb.a();
             int i2 = 0;
             while (i2 < a2) {
                 long j3 = j / a2;
                 long j4 = i2 * j3;
-                arrayList.add(new e(i2, gVar.d, gVar.zn.getUri(), j4, i2 == a2 + (-1) ? j : (j3 + j4) - 1, 0L));
+                arrayList.add(new e(i2, gVar.d, gVar.BZ.getUri(), j4, i2 == a2 + (-1) ? j : (j3 + j4) - 1, 0L));
                 i2++;
             }
             Iterator it = arrayList.iterator();
@@ -168,12 +168,12 @@ public class b implements a.a.a.b.a.a {
                 }
                 i3 = (int) (((e) it.next()).d + i);
             }
-            gVar.zr.a(i);
+            gVar.Cd.a(i);
             for (e eVar : arrayList) {
-                gVar.j.add(new d(gVar.zr, eVar, gVar));
+                gVar.j.add(new d(gVar.Cd, eVar, gVar));
             }
         } else {
-            gVar.j.add(new f(gVar.zr, new e(0, gVar.d, gVar.zn.getUri(), 0L, 0L, 0L), gVar));
+            gVar.j.add(new f(gVar.Cd, new e(0, gVar.d, gVar.BZ.getUri(), 0L, 0L, 0L), gVar));
         }
         for (a.a.a.b.a.b bVar : gVar.j) {
             gVar.c.execute(bVar);
@@ -192,11 +192,11 @@ public class b implements a.a.a.b.a.a {
     public void run() {
         Process.setThreadPriority(10);
         this.c = 102;
-        g gVar = (g) this.zm;
+        g gVar = (g) this.BY;
         gVar.g = 102;
-        a aVar = gVar.zo;
-        aVar.zl.setStatus(102);
-        aVar.zk.a(aVar.zl);
+        a aVar = gVar.Ca;
+        aVar.BX.setStatus(102);
+        aVar.BW.a(aVar.BX);
         try {
             a();
         } catch (DownloadException e) {

@@ -8,10 +8,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class RankListView extends LinearLayout {
-    private TextView akv;
-    private ImageView oix;
+    private TextView alO;
+    private ImageView okC;
 
     public RankListView(Context context) {
         super(context);
@@ -25,16 +25,16 @@ public class RankListView extends LinearLayout {
 
     private void initView() {
         LayoutInflater.from(getContext()).inflate(a.g.yuyin_ala_liveroom_ranklist_layout, this);
-        this.oix = (ImageView) findViewById(a.f.iv_icon);
-        this.akv = (TextView) findViewById(a.f.tv_text);
+        this.okC = (ImageView) findViewById(a.f.iv_icon);
+        this.alO = (TextView) findViewById(a.f.tv_text);
     }
 
     public void setmTvText(int i) {
-        if (this.akv != null) {
+        if (this.alO != null) {
             if (i > 0) {
-                this.akv.setText("交友房第" + i + "名");
+                this.alO.setText("交友房第" + i + "名");
             } else {
-                this.akv.setText("交友房未上榜");
+                this.alO.setText("交友房未上榜");
             }
         }
     }

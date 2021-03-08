@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Guideline extends View {
     public Guideline(Context context) {
         super(context);

@@ -3,7 +3,7 @@ package com.baidu.tieba.yuyinala.liveroom.recommend.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.live.adp.widget.listview.BdTypeListView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaRecommendLiveListView extends BdTypeListView {
     public AlaRecommendLiveListView(Context context) {
         super(context);

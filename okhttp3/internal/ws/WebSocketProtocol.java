@@ -2,7 +2,7 @@ package okhttp3.internal.ws;
 
 import okio.Buffer;
 import okio.ByteString;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class WebSocketProtocol {
     static final String ACCEPT_MAGIC = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
     static final int B0_FLAG_FIN = 128;

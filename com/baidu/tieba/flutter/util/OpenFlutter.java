@@ -39,7 +39,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class OpenFlutter {
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
     public static final String ACTIVITY_FANS = "PersonFansList";
@@ -149,11 +149,11 @@ public class OpenFlutter {
         if (ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (f.r(uri)) {
-                f.bhH().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
+                f.bhJ().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap2) {
-                        if (hashMap2 != null && (hashMap2.get(f.eDR) instanceof String)) {
-                            String str2 = (String) hashMap2.get(f.eDR);
+                        if (hashMap2 != null && (hashMap2.get(f.eFs) instanceof String)) {
+                            String str2 = (String) hashMap2.get(f.eFs);
                             if (!StringUtils.isNull(str2)) {
                                 hashMap.put("portrait", str2);
                             }
@@ -236,7 +236,7 @@ public class OpenFlutter {
             e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, d.bDM()));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, d.bDP()));
                 }
             }, 100L);
         } else {

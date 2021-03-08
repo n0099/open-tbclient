@@ -7,11 +7,11 @@ import java.nio.ByteBuffer;
 public class a implements e<ByteBuffer> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ByteBuffer f10258a;
+    private final ByteBuffer f6776a;
 
     /* renamed from: com.kwad.sdk.glide.load.resource.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1134a implements e.a<ByteBuffer> {
+    public static class C1151a implements e.a<ByteBuffer> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.a.e.a
         @NonNull
@@ -27,7 +27,7 @@ public class a implements e<ByteBuffer> {
     }
 
     public a(ByteBuffer byteBuffer) {
-        this.f10258a = byteBuffer;
+        this.f6776a = byteBuffer;
     }
 
     @Override // com.kwad.sdk.glide.load.a.e
@@ -39,7 +39,7 @@ public class a implements e<ByteBuffer> {
     @NonNull
     /* renamed from: c */
     public ByteBuffer a() {
-        this.f10258a.position(0);
-        return this.f10258a;
+        this.f6776a.position(0);
+        return this.f6776a;
     }
 }

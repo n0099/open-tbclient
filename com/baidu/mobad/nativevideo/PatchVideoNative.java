@@ -5,14 +5,12 @@ import android.widget.RelativeLayout;
 import com.baidu.mobad.feeds.NativeErrorCode;
 import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PatchVideoNative {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3241a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f3242b;
+    private Context f2328a;
+    private String b;
     private RelativeLayout c;
     private IPatchVideoNativeListener d;
     private a e;
@@ -20,7 +18,7 @@ public class PatchVideoNative {
     private e g;
     private boolean h;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface IPatchVideoNativeListener {
         void onAdClick();
 
@@ -36,11 +34,11 @@ public class PatchVideoNative {
     }
 
     public PatchVideoNative(Context context, String str, RelativeLayout relativeLayout, IPatchVideoNativeListener iPatchVideoNativeListener) {
-        this.f3241a = context;
-        this.f3242b = str;
+        this.f2328a = context;
+        this.b = str;
         this.c = relativeLayout;
         this.d = iPatchVideoNativeListener;
-        this.e = new a(this.f3241a, this.f3242b, new b(this));
+        this.e = new a(this.f2328a, this.b, new b(this));
     }
 
     public void requestAd(RequestParameters requestParameters) {

@@ -10,32 +10,30 @@ import java.util.concurrent.atomic.AtomicReference;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicReference<i> f9971a = new AtomicReference<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final ArrayMap<i, List<Class<?>>> f9972b = new ArrayMap<>();
+    private final AtomicReference<i> f6600a = new AtomicReference<>();
+    private final ArrayMap<i, List<Class<?>>> b = new ArrayMap<>();
 
     @Nullable
     public List<Class<?>> a(@NonNull Class<?> cls, @NonNull Class<?> cls2, @NonNull Class<?> cls3) {
         i iVar;
         List<Class<?>> list;
-        i andSet = this.f9971a.getAndSet(null);
+        i andSet = this.f6600a.getAndSet(null);
         if (andSet == null) {
             iVar = new i(cls, cls2, cls3);
         } else {
             andSet.a(cls, cls2, cls3);
             iVar = andSet;
         }
-        synchronized (this.f9972b) {
-            list = this.f9972b.get(iVar);
+        synchronized (this.b) {
+            list = this.b.get(iVar);
         }
-        this.f9971a.set(iVar);
+        this.f6600a.set(iVar);
         return list;
     }
 
     public void a(@NonNull Class<?> cls, @NonNull Class<?> cls2, @NonNull Class<?> cls3, @NonNull List<Class<?>> list) {
-        synchronized (this.f9972b) {
-            this.f9972b.put(new i(cls, cls2, cls3), list);
+        synchronized (this.b) {
+            this.b.put(new i(cls, cls2, cls3), list);
         }
     }
 }

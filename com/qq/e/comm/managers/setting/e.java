@@ -11,36 +11,34 @@ import java.io.File;
 import java.io.FileWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected JSONObject f11558a;
+    protected JSONObject f7572a;
 
-    /* loaded from: classes15.dex */
-    static final class a<T> {
+    /* loaded from: classes4.dex */
+    static class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f11559a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private final T f11560b;
+        private final String f7573a;
+        private final T b;
 
         private a(String str, T t) {
-            this.f11559a = str;
-            this.f11560b = t;
+            this.f7573a = str;
+            this.b = t;
         }
 
-        /* synthetic */ a(String str, Object obj, byte b2) {
+        /* synthetic */ a(String str, Object obj, byte b) {
             this(str, obj);
         }
 
         public final String a() {
-            return this.f11559a;
+            return this.f7573a;
         }
 
         public final T b() {
-            return this.f11560b;
+            return this.b;
         }
     }
 
@@ -55,13 +53,13 @@ class e {
         GDTLogger.d("Initialize " + simpleName + ",Json=" + str);
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.f11558a = new JSONObject(str);
+                this.f7572a = new JSONObject(str);
             } catch (JSONException e) {
                 GDTLogger.e("JsonException While build" + simpleName + " Instance from JSON", e);
             }
         }
-        if (this.f11558a == null) {
-            this.f11558a = new JSONObject();
+        if (this.f7572a == null) {
+            this.f7572a = new JSONObject();
         }
     }
 
@@ -128,17 +126,14 @@ class e {
         return a(context, "devCloudSetting", str, str2);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0083 A[Catch: Exception -> 0x0098, TRY_LEAVE, TryCatch #2 {Exception -> 0x0098, blocks: (B:25:0x007e, B:27:0x0083), top: B:42:0x007e }] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0080 A[Catch: Exception -> 0x0084, TRY_LEAVE, TryCatch #8 {Exception -> 0x0084, blocks: (B:25:0x007b, B:27:0x0080), top: B:48:0x007b }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x007b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static boolean b(Context context, String str, String str2, String str3) {
         FileWriter fileWriter;
         FileWriter fileWriter2;
-        Throwable th;
-        FileWriter fileWriter3;
-        FileWriter fileWriter4;
         File dir = context.getDir(SystemUtil.buildNewPathByProcessName("e_qq_com_setting"), 0);
         if (!dir.exists()) {
             dir.mkdirs();
@@ -146,47 +141,45 @@ class e {
         File file = new File(dir, str + ".cfg");
         File file2 = new File(dir, str + ".sig");
         try {
-            fileWriter3 = new FileWriter(file);
+            fileWriter2 = new FileWriter(file);
         } catch (Exception e) {
-            fileWriter3 = null;
-            fileWriter4 = null;
-        } catch (Throwable th2) {
             fileWriter = null;
             fileWriter2 = null;
-            th = th2;
+        } catch (Throwable th) {
+            th = th;
+            fileWriter = null;
+            fileWriter2 = null;
         }
         try {
-            fileWriter3.write(str3);
-            fileWriter4 = new FileWriter(file2);
+            fileWriter2.write(str3);
+            fileWriter = new FileWriter(file2);
             try {
                 try {
-                    fileWriter4.write(str2);
+                    fileWriter.write(str2);
                     try {
-                        fileWriter3.close();
-                        fileWriter4.close();
+                        fileWriter2.close();
+                        fileWriter.close();
                     } catch (Exception e2) {
                     }
                     return true;
                 } catch (Exception e3) {
                     file.delete();
                     file2.delete();
-                    if (fileWriter3 != null) {
+                    if (fileWriter2 != null) {
                         try {
-                            fileWriter3.close();
+                            fileWriter2.close();
                         } catch (Exception e4) {
                             return false;
                         }
                     }
-                    if (fileWriter4 != null) {
-                        fileWriter4.close();
+                    if (fileWriter != null) {
+                        fileWriter.close();
                         return false;
                     }
                     return false;
                 }
-            } catch (Throwable th3) {
-                fileWriter = fileWriter4;
-                fileWriter2 = fileWriter3;
-                th = th3;
+            } catch (Throwable th2) {
+                th = th2;
                 if (fileWriter2 != null) {
                     try {
                         fileWriter2.close();
@@ -200,11 +193,10 @@ class e {
                 throw th;
             }
         } catch (Exception e6) {
-            fileWriter4 = null;
-        } catch (Throwable th4) {
             fileWriter = null;
-            fileWriter2 = fileWriter3;
-            th = th4;
+        } catch (Throwable th3) {
+            th = th3;
+            fileWriter = null;
             if (fileWriter2 != null) {
             }
             if (fileWriter != null) {

@@ -35,10 +35,8 @@ import org.apache.http.conn.util.InetAddressUtils;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2093a = "armeabi";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f2094b = "armeabi-v7a";
+    public static final String f1627a = "armeabi";
+    public static final String b = "armeabi-v7a";
     public static final String c = "x86";
     public static final String d = "arm64-v8a";
     static final int e = 480;
@@ -215,7 +213,7 @@ public class h {
     }
 
     public static String a(String str, Context context) {
-        return str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f2080a;
+        return str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f1620a;
     }
 
     public static int a(Context context, float f2) {

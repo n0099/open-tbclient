@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/startAccelerometer");
@@ -61,10 +61,10 @@ public class a extends aa {
             }
             c.i("accelerometer", " init ");
             final k kVar = new k("accelerometerChange", optParamsAsJo, optString);
-            com.baidu.swan.apps.ak.a.a aMy = com.baidu.swan.apps.ak.a.a.aMy();
-            aMy.w(context, a.C0383a.li(optParamsAsJo.optString("interval")));
-            aMy.a(new a.InterfaceC0357a() { // from class: com.baidu.swan.apps.ak.a.a.a.1
-                @Override // com.baidu.swan.apps.ak.a.a.InterfaceC0357a
+            com.baidu.swan.apps.ak.a.a aMB = com.baidu.swan.apps.ak.a.a.aMB();
+            aMB.w(context, a.C0389a.lp(optParamsAsJo.optString("interval")));
+            aMB.a(new a.InterfaceC0363a() { // from class: com.baidu.swan.apps.ak.a.a.a.1
+                @Override // com.baidu.swan.apps.ak.a.a.InterfaceC0363a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
@@ -74,7 +74,7 @@ public class a extends aa {
                     a.this.a(unitedSchemeEntity, callbackHandler, kVar, dArr);
                 }
             });
-            aMy.aMz();
+            aMB.aMC();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             kVar.a(unitedSchemeEntity, callbackHandler);
             return true;

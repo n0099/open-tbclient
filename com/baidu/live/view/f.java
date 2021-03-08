@@ -10,10 +10,10 @@ import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends Drawable {
-    private int[] bTD;
-    private int[] bTE;
+    private int[] bVd;
+    private int[] bVe;
     private int mAlpha = 255;
     private ColorFilter mColorFilter;
     private float mCornerRadius;
@@ -30,8 +30,8 @@ public class f extends Drawable {
         Rect bounds = getBounds();
         float strokeWidth = this.mStrokePaint.getStrokeWidth();
         this.mRectF.set(bounds.left + (strokeWidth * 0.5f), bounds.top + (strokeWidth * 0.5f), bounds.right - (strokeWidth * 0.5f), bounds.bottom - (strokeWidth * 0.5f));
-        this.mFillPaint.setShader(new LinearGradient(bounds.left + strokeWidth, bounds.top + strokeWidth, bounds.right - strokeWidth, bounds.top + strokeWidth, this.bTD, (float[]) null, Shader.TileMode.CLAMP));
-        this.mStrokePaint.setShader(new LinearGradient(this.mRectF.left, this.mRectF.top, this.mRectF.right, this.mRectF.top, this.bTE, (float[]) null, Shader.TileMode.CLAMP));
+        this.mFillPaint.setShader(new LinearGradient(bounds.left + strokeWidth, bounds.top + strokeWidth, bounds.right - strokeWidth, bounds.top + strokeWidth, this.bVd, (float[]) null, Shader.TileMode.CLAMP));
+        this.mStrokePaint.setShader(new LinearGradient(this.mRectF.left, this.mRectF.top, this.mRectF.right, this.mRectF.top, this.bVe, (float[]) null, Shader.TileMode.CLAMP));
         this.mStrokePaint.setStrokeWidth(strokeWidth);
         float min = Math.min(this.mCornerRadius, Math.min(this.mRectF.width(), this.mRectF.height()) * 0.5f);
         canvas.drawRoundRect(this.mRectF, min, min, this.mFillPaint);
@@ -83,8 +83,8 @@ public class f extends Drawable {
     }
 
     public void f(int[] iArr, int[] iArr2) {
-        this.bTD = iArr;
-        this.bTE = iArr2;
+        this.bVd = iArr;
+        this.bVe = iArr2;
         invalidateSelf();
     }
 

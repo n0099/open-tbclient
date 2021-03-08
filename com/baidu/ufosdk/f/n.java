@@ -9,28 +9,26 @@ import android.text.style.ImageSpan;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class n extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f5391a;
-
-    /* renamed from: b  reason: collision with root package name */
-    Handler f5392b;
+    ImageView f3627a;
+    Handler b;
     Context c;
     TextView d;
 
     public n(Context context, ImageView imageView, Handler handler) {
         this.d = null;
-        this.f5391a = imageView;
-        this.f5392b = handler;
+        this.f3627a = imageView;
+        this.b = handler;
         this.c = context;
     }
 
     public n(Context context, TextView textView, Handler handler) {
         this.d = null;
         this.d = textView;
-        this.f5392b = handler;
+        this.b = handler;
         this.c = context;
     }
 
@@ -46,17 +44,17 @@ public final class n extends Handler {
                 this.d.setText(spannableString.toString());
                 return;
             }
-            this.f5391a.setImageBitmap(bitmap);
+            this.f3627a.setImageBitmap(bitmap);
             if (bitmap.getHeight() > bitmap.getWidth()) {
-                this.f5391a.setMaxWidth(i.a(this.c, 80.0f));
-                this.f5391a.setMaxHeight(i.a(this.c, 120.0f));
+                this.f3627a.setMaxWidth(i.a(this.c, 80.0f));
+                this.f3627a.setMaxHeight(i.a(this.c, 120.0f));
             } else {
-                this.f5391a.setMaxWidth(i.a(this.c, 120.0f));
-                this.f5391a.setMaxHeight(i.a(this.c, 80.0f));
+                this.f3627a.setMaxWidth(i.a(this.c, 120.0f));
+                this.f3627a.setMaxHeight(i.a(this.c, 80.0f));
             }
         }
-        if (this.f5392b != null) {
-            this.f5392b.obtainMessage(6).sendToTarget();
+        if (this.b != null) {
+            this.b.obtainMessage(6).sendToTarget();
         }
     }
 }

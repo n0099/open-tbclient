@@ -9,21 +9,21 @@ import android.os.SystemClock;
 import androidx.core.app.NotificationCompat;
 import com.xiaomi.push.fc;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class fd implements fc.a {
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f394a;
+    protected Context f315a;
 
     /* renamed from: a  reason: collision with other field name */
-    private PendingIntent f393a = null;
+    private PendingIntent f314a = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile long f14009a = 0;
+    private volatile long f8361a = 0;
 
     public fd(Context context) {
-        this.f394a = null;
-        this.f394a = context;
+        this.f315a = null;
+        this.f315a = context;
     }
 
     private void a(AlarmManager alarmManager, long j, PendingIntent pendingIntent) {
@@ -42,28 +42,28 @@ public class fd implements fc.a {
 
     @Override // com.xiaomi.push.fc.a
     public void a() {
-        if (this.f393a != null) {
+        if (this.f314a != null) {
             try {
-                ((AlarmManager) this.f394a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f393a);
+                ((AlarmManager) this.f315a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f314a);
             } catch (Exception e) {
             } finally {
-                this.f393a = null;
+                this.f314a = null;
                 com.xiaomi.channel.commonutils.logger.b.c("unregister timer");
-                this.f14009a = 0L;
+                this.f8361a = 0L;
             }
         }
-        this.f14009a = 0L;
+        this.f8361a = 0L;
     }
 
     public void a(Intent intent, long j) {
-        AlarmManager alarmManager = (AlarmManager) this.f394a.getSystemService(NotificationCompat.CATEGORY_ALARM);
-        this.f393a = PendingIntent.getBroadcast(this.f394a, 0, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) this.f315a.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        this.f314a = PendingIntent.getBroadcast(this.f315a, 0, intent, 0);
         if (Build.VERSION.SDK_INT >= 23) {
-            ba.a(alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j), this.f393a);
+            ba.a(alarmManager, "setExactAndAllowWhileIdle", 0, Long.valueOf(j), this.f314a);
         } else if (Build.VERSION.SDK_INT >= 19) {
-            a(alarmManager, j, this.f393a);
+            a(alarmManager, j, this.f314a);
         } else {
-            alarmManager.set(0, j, this.f393a);
+            alarmManager.set(0, j, this.f314a);
         }
         com.xiaomi.channel.commonutils.logger.b.c("register timer " + j);
     }
@@ -71,26 +71,26 @@ public class fd implements fc.a {
     @Override // com.xiaomi.push.fc.a
     public void a(boolean z) {
         long a2 = a();
-        if (z || this.f14009a != 0) {
+        if (z || this.f8361a != 0) {
             if (z) {
                 a();
             }
-            if (z || this.f14009a == 0) {
-                this.f14009a = (a2 - (SystemClock.elapsedRealtime() % a2)) + System.currentTimeMillis();
+            if (z || this.f8361a == 0) {
+                this.f8361a = (a2 - (SystemClock.elapsedRealtime() % a2)) + System.currentTimeMillis();
             } else {
-                this.f14009a += a2;
-                if (this.f14009a < System.currentTimeMillis()) {
-                    this.f14009a = a2 + System.currentTimeMillis();
+                this.f8361a += a2;
+                if (this.f8361a < System.currentTimeMillis()) {
+                    this.f8361a = a2 + System.currentTimeMillis();
                 }
             }
             Intent intent = new Intent(com.xiaomi.push.service.at.o);
-            intent.setPackage(this.f394a.getPackageName());
-            a(intent, this.f14009a);
+            intent.setPackage(this.f315a.getPackageName());
+            a(intent, this.f8361a);
         }
     }
 
     @Override // com.xiaomi.push.fc.a
     public boolean a() {
-        return this.f14009a != 0;
+        return this.f8361a != 0;
     }
 }

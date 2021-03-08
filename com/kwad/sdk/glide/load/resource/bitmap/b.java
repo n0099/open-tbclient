@@ -9,25 +9,23 @@ import java.io.File;
 public class b implements com.kwad.sdk.glide.load.g<BitmapDrawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10270a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.g<Bitmap> f10271b;
+    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f6784a;
+    private final com.kwad.sdk.glide.load.g<Bitmap> b;
 
     public b(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, com.kwad.sdk.glide.load.g<Bitmap> gVar) {
-        this.f10270a = eVar;
-        this.f10271b = gVar;
+        this.f6784a = eVar;
+        this.b = gVar;
     }
 
     @Override // com.kwad.sdk.glide.load.g
     @NonNull
     public EncodeStrategy a(@NonNull com.kwad.sdk.glide.load.e eVar) {
-        return this.f10271b.a(eVar);
+        return this.b.a(eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.a
     public boolean a(@NonNull com.kwad.sdk.glide.load.engine.s<BitmapDrawable> sVar, @NonNull File file, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return this.f10271b.a(new d(sVar.e().getBitmap(), this.f10270a), file, eVar);
+        return this.b.a(new d(sVar.e().getBitmap(), this.f6784a), file, eVar);
     }
 }

@@ -25,43 +25,43 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.utils.q;
 import com.baidu.tieba.ala.headline.view.AlaGetHeadlineView;
 import com.baidu.tieba.ala.headline.view.AlaShowHeadlineView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaHeadlineActivity extends BaseFragmentActivity {
-    private ab aDd;
-    private CustomMessageListener awl;
-    private a bgE;
-    AlaShowHeadlineView hdS;
-    AlaGetHeadlineView hdT;
-    ImageView hdU;
-    CustomMessageListener hdV;
-    RelativeLayout hdW;
-    View hdX;
-    private CustomMessageListener hdY;
-    private CustomMessageListener hdZ;
-    ImageView heb;
-    View hec;
-    boolean hed;
-    private boolean hea = true;
+    private ab aED;
+    private CustomMessageListener axL;
+    private a bif;
+    AlaShowHeadlineView hfB;
+    AlaGetHeadlineView hfC;
+    ImageView hfD;
+    CustomMessageListener hfE;
+    RelativeLayout hfF;
+    View hfG;
+    private CustomMessageListener hfH;
+    private CustomMessageListener hfI;
+    ImageView hfK;
+    View hfL;
+    boolean hfM;
+    private boolean hfJ = true;
     String otherParams = "";
-    boolean hee = false;
-    private HttpMessageListener hef = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.9
+    boolean hfN = false;
+    private HttpMessageListener hfO = new HttpMessageListener(1021120) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && AlaHeadlineActivity.this.hee) {
+            if (httpResponsedMessage != null && AlaHeadlineActivity.this.hfN) {
                 AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage = (AlaSdkGetGiftListHttpResponseMessage) httpResponsedMessage;
-                if (alaSdkGetGiftListHttpResponseMessage.HC() != null && alaSdkGetGiftListHttpResponseMessage.HC().size() > 0) {
-                    if (AlaHeadlineActivity.this.hed) {
-                        AlaHeadlineActivity.this.hdS.setVisibility(0);
-                        AlaHeadlineActivity.this.hdT.setVisibility(8);
+                if (alaSdkGetGiftListHttpResponseMessage.HF() != null && alaSdkGetGiftListHttpResponseMessage.HF().size() > 0) {
+                    if (AlaHeadlineActivity.this.hfM) {
+                        AlaHeadlineActivity.this.hfB.setVisibility(0);
+                        AlaHeadlineActivity.this.hfC.setVisibility(8);
                         return;
                     }
-                    AlaHeadlineActivity.this.hdS.setVisibility(8);
-                    AlaHeadlineActivity.this.hdT.setVisibility(0);
+                    AlaHeadlineActivity.this.hfB.setVisibility(8);
+                    AlaHeadlineActivity.this.hfC.setVisibility(0);
                     return;
                 }
                 BdUtilHelper.showToast(AlaHeadlineActivity.this.getActivity(), AlaHeadlineActivity.this.getResources().getString(a.h.sdk_get_headline_none_gift_tip));
-                AlaHeadlineActivity.this.hee = false;
+                AlaHeadlineActivity.this.hfN = false;
             }
         }
     };
@@ -74,14 +74,14 @@ public class AlaHeadlineActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         setContentView(a.g.sdk_headline_dialog);
         initView();
-        bWM();
+        bWS();
         mi(UtilHelper.getRealScreenOrientation(getActivity()) == 2);
     }
 
     private void initView() {
-        this.hdW = (RelativeLayout) findViewById(a.f.root_container);
-        this.hdX = findViewById(a.f.headline_dialog);
-        this.hdX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.1
+        this.hfF = (RelativeLayout) findViewById(a.f.root_container);
+        this.hfG = findViewById(a.f.headline_dialog);
+        this.hfG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
@@ -89,114 +89,114 @@ public class AlaHeadlineActivity extends BaseFragmentActivity {
                 }
             }
         });
-        this.hec = findViewById(a.f.topBG_click);
-        this.heb = (ImageView) findViewById(a.f.topBG);
-        this.hdU = (ImageView) findViewById(a.f.close_dialog);
-        this.hdU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.2
+        this.hfL = findViewById(a.f.topBG_click);
+        this.hfK = (ImageView) findViewById(a.f.topBG);
+        this.hfD = (ImageView) findViewById(a.f.close_dialog);
+        this.hfD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaHeadlineActivity.this.finish();
             }
         });
-        this.hdS = (AlaShowHeadlineView) findViewById(a.f.show_view);
-        ((Button) this.hdS.findViewById(a.f.show_view_get_headline)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.3
+        this.hfB = (AlaShowHeadlineView) findViewById(a.f.show_view);
+        ((Button) this.hfB.findViewById(a.f.show_view_get_headline)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                String Fs = ac.Fs();
-                if (Fs == null || Fs.length() == 0) {
-                    AlaHeadlineActivity.this.hee = true;
-                    new e(AlaHeadlineActivity.this.getPageContext(), true).gA(q.Vu());
+                String Fv = ac.Fv();
+                if (Fv == null || Fv.length() == 0) {
+                    AlaHeadlineActivity.this.hfN = true;
+                    new e(AlaHeadlineActivity.this.getPageContext(), true).gG(q.Vx());
                     return;
                 }
-                AlaHeadlineActivity.this.hdS.setVisibility(8);
-                AlaHeadlineActivity.this.hdT.setVisibility(0);
+                AlaHeadlineActivity.this.hfB.setVisibility(8);
+                AlaHeadlineActivity.this.hfC.setVisibility(0);
             }
         });
-        this.hdT = (AlaGetHeadlineView) findViewById(a.f.get_view);
-        this.hdT.findViewById(a.f.get_view_back_dialog_click).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.4
+        this.hfC = (AlaGetHeadlineView) findViewById(a.f.get_view);
+        this.hfC.findViewById(a.f.get_view_back_dialog_click).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaHeadlineActivity.this.hee = false;
-                AlaHeadlineActivity.this.hdS.setVisibility(0);
-                AlaHeadlineActivity.this.hdT.setVisibility(8);
+                AlaHeadlineActivity.this.hfN = false;
+                AlaHeadlineActivity.this.hfB.setVisibility(0);
+                AlaHeadlineActivity.this.hfC.setVisibility(8);
             }
         });
-        this.hdS.setActivity(getActivity());
-        this.hdT.setActivity(getActivity());
+        this.hfB.setActivity(getActivity());
+        this.hfC.setActivity(getActivity());
         ab abVar = new ab();
         abVar.isHost = getIntent().getBooleanExtra("ala_get_headline_is_host", false);
-        this.hed = abVar.isHost;
-        abVar.aId.userId = getIntent().getLongExtra("ala_get_headline_user_id", 0L);
-        abVar.aId.portrait = getIntent().getStringExtra("ala_get_headline_portrait");
-        abVar.aId.userName = getIntent().getStringExtra("ala_get_headline_userName");
-        abVar.aId.nickName = getIntent().getStringExtra("ala_get_headline_nickName");
+        this.hfM = abVar.isHost;
+        abVar.aJD.userId = getIntent().getLongExtra("ala_get_headline_user_id", 0L);
+        abVar.aJD.portrait = getIntent().getStringExtra("ala_get_headline_portrait");
+        abVar.aJD.userName = getIntent().getStringExtra("ala_get_headline_userName");
+        abVar.aJD.nickName = getIntent().getStringExtra("ala_get_headline_nickName");
         abVar.mLiveInfo.live_id = getIntent().getLongExtra("ala_get_headline_live_id", 0L);
         abVar.mLiveInfo.room_id = getIntent().getLongExtra("ala_get_headline_room_id", 0L);
         abVar.mLiveInfo.appId = getIntent().getStringExtra("ala_get_headline_appId");
         abVar.mLiveInfo.feed_id = getIntent().getStringExtra("ala_get_headline_feed_id");
-        abVar.aIB = bWL();
+        abVar.aKb = bWR();
         this.otherParams = getIntent().getStringExtra("ala_get_headline_other_params");
         setData(abVar, this.otherParams);
         if (abVar.isHost) {
-            ((RelativeLayout.LayoutParams) this.hdU.getLayoutParams()).topMargin = getResources().getDimensionPixelSize(a.d.sdk_ds520);
-            this.hdS.setVisibility(0);
-            this.hdT.setVisibility(8);
+            ((RelativeLayout.LayoutParams) this.hfD.getLayoutParams()).topMargin = getResources().getDimensionPixelSize(a.d.sdk_ds520);
+            this.hfB.setVisibility(0);
+            this.hfC.setVisibility(8);
         }
     }
 
-    private com.baidu.live.data.q bWL() {
+    private com.baidu.live.data.q bWR() {
         com.baidu.live.data.q qVar = new com.baidu.live.data.q();
-        qVar.aHr = getIntent().getBooleanExtra("ala_get_headline_headline_info_is_open", true);
+        qVar.aIR = getIntent().getBooleanExtra("ala_get_headline_headline_info_is_open", true);
         qVar.endTime = getIntent().getLongExtra("ala_get_headline_headline_info_end_time", 0L);
         qVar.serverTime = getIntent().getLongExtra("ala_get_headline_headline_info_server_time", 0L);
-        qVar.aHs = getIntent().getLongExtra("ala_get_headline_headline_info_init_score", 0L);
-        qVar.aHu = getIntent().getLongExtra("ala_get_headline_headline_info_cur_score", 0L);
-        qVar.aHC = getIntent().getStringExtra("ala_get_headline_headline_info_support_url");
+        qVar.aIS = getIntent().getLongExtra("ala_get_headline_headline_info_init_score", 0L);
+        qVar.aIU = getIntent().getLongExtra("ala_get_headline_headline_info_cur_score", 0L);
+        qVar.aJc = getIntent().getStringExtra("ala_get_headline_headline_info_support_url");
         qVar.giftName = getIntent().getStringExtra("ala_get_headline_headline_info_gift_name");
-        qVar.aHx = getIntent().getStringExtra("ala_get_headline_headline_info_gift_image_url");
+        qVar.aIX = getIntent().getStringExtra("ala_get_headline_headline_info_gift_image_url");
         qVar.giftNum = getIntent().getLongExtra("ala_get_headline_headline_info_gift_num", 0L);
-        qVar.aHw = getIntent().getLongExtra("ala_get_headline_headline_info_gift_score", 0L);
+        qVar.aIW = getIntent().getLongExtra("ala_get_headline_headline_info_gift_score", 0L);
         qVar.liveId = getIntent().getLongExtra("ala_get_headline_headline_info_live_id", 0L);
-        qVar.aHz = getIntent().getStringExtra("ala_get_headline_headline_info_anchor_head");
-        qVar.aHA = getIntent().getStringExtra("ala_get_headline_headline_info_user_head");
+        qVar.aIZ = getIntent().getStringExtra("ala_get_headline_headline_info_anchor_head");
+        qVar.aJa = getIntent().getStringExtra("ala_get_headline_headline_info_user_head");
         qVar.userName = getIntent().getStringExtra("ala_get_headline_headline_info_user_name");
-        qVar.aHy = getIntent().getStringExtra("ala_get_headline_headline_info_anchor_name");
+        qVar.aIY = getIntent().getStringExtra("ala_get_headline_headline_info_anchor_name");
         return qVar;
     }
 
     public void setData(ab abVar, String str) {
-        if (abVar != null && abVar.aIB != null) {
-            this.aDd = abVar;
+        if (abVar != null && abVar.aKb != null) {
+            this.aED = abVar;
             int intExtra = getIntent().getIntExtra("ala_get_headline_current_status", 1);
-            if (this.hea) {
+            if (this.hfJ) {
                 if (intExtra == 1) {
-                    this.hdS.heo = 0L;
-                    this.hdT.heo = 0L;
+                    this.hfB.hfX = 0L;
+                    this.hfC.hfX = 0L;
                 } else {
-                    this.hdS.heo = getIntent().getLongExtra("ala_get_headline_count_down_time", 0L);
-                    this.hdT.heo = getIntent().getLongExtra("ala_get_headline_count_down_time", 0L);
-                    if (this.hdS.heo > 0) {
-                        this.hdS.hfo.setText(getString(a.h.sdk_get_headline_timer, new Object[]{this.hdS.heo + ""}));
+                    this.hfB.hfX = getIntent().getLongExtra("ala_get_headline_count_down_time", 0L);
+                    this.hfC.hfX = getIntent().getLongExtra("ala_get_headline_count_down_time", 0L);
+                    if (this.hfB.hfX > 0) {
+                        this.hfB.hgX.setText(getString(a.h.sdk_get_headline_timer, new Object[]{this.hfB.hfX + ""}));
                     }
                 }
-                this.hea = false;
+                this.hfJ = false;
             }
-            this.hdS.setData(abVar, str);
-            this.hdT.setData(abVar, str);
+            this.hfB.setData(abVar, str);
+            this.hfC.setData(abVar, str);
         }
     }
 
-    private void bWM() {
-        this.awl = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.5
+    private void bWS() {
+        this.axL = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 AlaHeadlineActivity.this.finish();
             }
         };
-        MessageManager.getInstance().registerListener(this.awl);
-        if (this.hdV == null) {
-            this.hdV = new CustomMessageListener(2913242) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.6
+        MessageManager.getInstance().registerListener(this.axL);
+        if (this.hfE == null) {
+            this.hfE = new CustomMessageListener(2913242) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -205,56 +205,56 @@ public class AlaHeadlineActivity extends BaseFragmentActivity {
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hdV);
+            MessageManager.getInstance().registerListener(this.hfE);
         }
-        if (this.hdY == null) {
-            this.hdY = new CustomMessageListener(2913244) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.7
+        if (this.hfH == null) {
+            this.hfH = new CustomMessageListener(2913244) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.7
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof c)) {
-                        if (AlaHeadlineActivity.this.bgE == null) {
-                            AlaHeadlineActivity.this.bgE = new com.baidu.live.an.a(AlaHeadlineActivity.this.getActivity());
+                        if (AlaHeadlineActivity.this.bif == null) {
+                            AlaHeadlineActivity.this.bif = new com.baidu.live.an.a(AlaHeadlineActivity.this.getActivity());
                         }
-                        AlaHeadlineActivity.this.bgE.a((c) customResponsedMessage.getData());
+                        AlaHeadlineActivity.this.bif.a((c) customResponsedMessage.getData());
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hdY);
+            MessageManager.getInstance().registerListener(this.hfH);
         }
-        if (this.hdZ == null) {
-            this.hdZ = new CustomMessageListener(2913245) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.8
+        if (this.hfI == null) {
+            this.hfI = new CustomMessageListener(2913245) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.8
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    if (customResponsedMessage.getData() != null && AlaHeadlineActivity.this.hdS != null) {
+                    if (customResponsedMessage.getData() != null && AlaHeadlineActivity.this.hfB != null) {
                         long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                        AlaHeadlineActivity.this.hdS.heo = longValue;
-                        AlaHeadlineActivity.this.hdT.heo = longValue;
-                        AlaHeadlineActivity.this.hdS.setData(AlaHeadlineActivity.this.aDd, AlaHeadlineActivity.this.otherParams);
-                        AlaHeadlineActivity.this.hdT.setData(AlaHeadlineActivity.this.aDd, AlaHeadlineActivity.this.otherParams);
+                        AlaHeadlineActivity.this.hfB.hfX = longValue;
+                        AlaHeadlineActivity.this.hfC.hfX = longValue;
+                        AlaHeadlineActivity.this.hfB.setData(AlaHeadlineActivity.this.aED, AlaHeadlineActivity.this.otherParams);
+                        AlaHeadlineActivity.this.hfC.setData(AlaHeadlineActivity.this.aED, AlaHeadlineActivity.this.otherParams);
                         if (longValue > 0) {
-                            AlaHeadlineActivity.this.hdS.hfo.setText(AlaHeadlineActivity.this.getString(a.h.sdk_get_headline_timer, new Object[]{longValue + ""}));
+                            AlaHeadlineActivity.this.hfB.hgX.setText(AlaHeadlineActivity.this.getString(a.h.sdk_get_headline_timer, new Object[]{longValue + ""}));
                         }
                     }
                 }
             };
-            MessageManager.getInstance().registerListener(this.hdZ);
+            MessageManager.getInstance().registerListener(this.hfI);
         }
-        MessageManager.getInstance().registerListener(this.hef);
+        MessageManager.getInstance().registerListener(this.hfO);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity, com.baidu.live.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.awl);
-        MessageManager.getInstance().unRegisterListener(this.hdV);
-        MessageManager.getInstance().unRegisterListener(this.hdY);
-        MessageManager.getInstance().unRegisterListener(this.hdZ);
-        MessageManager.getInstance().unRegisterListener(this.hef);
-        if (this.bgE != null) {
-            this.bgE.release();
-            this.bgE = null;
+        MessageManager.getInstance().unRegisterListener(this.axL);
+        MessageManager.getInstance().unRegisterListener(this.hfE);
+        MessageManager.getInstance().unRegisterListener(this.hfH);
+        MessageManager.getInstance().unRegisterListener(this.hfI);
+        MessageManager.getInstance().unRegisterListener(this.hfO);
+        if (this.bif != null) {
+            this.bif.release();
+            this.bif = null;
         }
         super.onDestroy();
     }
@@ -281,35 +281,35 @@ public class AlaHeadlineActivity extends BaseFragmentActivity {
 
     private void mi(boolean z) {
         if (z) {
-            this.heb.setVisibility(8);
-            this.hec.setVisibility(8);
-            this.hdU.setVisibility(8);
-            this.hdT.hen.setVisibility(0);
-            this.hdS.hfu.setVisibility(0);
+            this.hfK.setVisibility(8);
+            this.hfL.setVisibility(8);
+            this.hfD.setVisibility(8);
+            this.hfC.hfW.setVisibility(0);
+            this.hfB.hhd.setVisibility(0);
             if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.hdT.hen.setVisibility(8);
-                this.hdS.hfu.setVisibility(8);
+                this.hfC.hfW.setVisibility(8);
+                this.hfB.hhd.setVisibility(8);
             }
-            u(this.hdT, a.d.sdk_ds0);
-            u(this.hdS, a.d.sdk_ds0);
-            u(this.hdT.hdW, a.d.sdk_ds20);
-            u(this.hdS.hff, a.d.sdk_ds0);
-            u(this.hdS.hfg, a.d.sdk_ds20);
+            u(this.hfC, a.d.sdk_ds0);
+            u(this.hfB, a.d.sdk_ds0);
+            u(this.hfC.hfF, a.d.sdk_ds20);
+            u(this.hfB.hgO, a.d.sdk_ds0);
+            u(this.hfB.hgP, a.d.sdk_ds20);
             return;
         }
-        this.heb.setVisibility(0);
-        this.hec.setVisibility(0);
-        this.hdU.setVisibility(0);
+        this.hfK.setVisibility(0);
+        this.hfL.setVisibility(0);
+        this.hfD.setVisibility(0);
         if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.hdU.setVisibility(8);
+            this.hfD.setVisibility(8);
         }
-        this.hdT.hen.setVisibility(8);
-        this.hdS.hfu.setVisibility(8);
-        u(this.hdT, a.d.sdk_ds_170);
-        u(this.hdS, a.d.sdk_ds_170);
-        u(this.hdT.hdW, a.d.sdk_ds122);
-        u(this.hdS.hff, a.d.sdk_ds70);
-        u(this.hdS.hfg, a.d.sdk_ds122);
+        this.hfC.hfW.setVisibility(8);
+        this.hfB.hhd.setVisibility(8);
+        u(this.hfC, a.d.sdk_ds_170);
+        u(this.hfB, a.d.sdk_ds_170);
+        u(this.hfC.hfF, a.d.sdk_ds122);
+        u(this.hfB.hgO, a.d.sdk_ds70);
+        u(this.hfB.hgP, a.d.sdk_ds122);
     }
 
     private void u(View view, int i) {

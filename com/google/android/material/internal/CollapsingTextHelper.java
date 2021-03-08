@@ -25,7 +25,7 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.animation.AnimationUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class CollapsingTextHelper {
     private static final boolean DEBUG_DRAW = false;
     private static final Paint DEBUG_DRAW_PAINT;

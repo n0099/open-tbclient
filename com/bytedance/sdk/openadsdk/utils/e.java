@@ -10,16 +10,16 @@ import java.util.HashMap;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<String, ArrayList<String>> f7580a = new HashMap<>();
+    private static HashMap<String, ArrayList<String>> f5134a = new HashMap<>();
 
     public static ArrayList<String> a(Context context, String str) {
         String packageName;
-        Signature[] b2;
+        Signature[] b;
         if (context == null || str == null || (packageName = context.getPackageName()) == null) {
             return null;
         }
-        if (f7580a.get(str) != null) {
-            return f7580a.get(str);
+        if (f5134a.get(str) != null) {
+            return f5134a.get(str);
         }
         ArrayList<String> arrayList = new ArrayList<>();
         try {
@@ -37,7 +37,7 @@ public class e {
         } catch (Exception e) {
             u.b(e.toString());
         }
-        f7580a.put(str, arrayList);
+        f5134a.put(str, arrayList);
         return arrayList;
     }
 
@@ -79,8 +79,8 @@ public class e {
             }
             byte[] digest = messageDigest.digest(byteArray);
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : digest) {
-                sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3).toUpperCase());
+            for (byte b : digest) {
+                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3).toUpperCase());
                 sb.append(":");
             }
             return sb.substring(0, sb.length() - 1).toString();

@@ -10,10 +10,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
-    private TextView kDZ;
-    private TextView kEa;
+    private TextView kGb;
+    private TextView kGc;
     private Context mContext;
 
     public OfficialFeedItemBottom(Context context) {
@@ -29,31 +29,31 @@ public class OfficialFeedItemBottom extends LinearLayout {
     private void initView() {
         setOrientation(1);
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-        this.kDZ = (TextView) findViewById(R.id.message_no_image_title);
-        this.kEa = (TextView) findViewById(R.id.message_info);
-        cVm();
+        this.kGb = (TextView) findViewById(R.id.message_no_image_title);
+        this.kGc = (TextView) findViewById(R.id.message_info);
+        cVt();
     }
 
-    public void cVm() {
-        ap.setViewTextColor(this.kEa, R.color.CAM_X0107);
-        ap.setViewTextColor(this.kDZ, R.color.CAM_X0105);
+    public void cVt() {
+        ap.setViewTextColor(this.kGc, R.color.CAM_X0107);
+        ap.setViewTextColor(this.kGb, R.color.CAM_X0105);
     }
 
-    public void setData(a.C0761a c0761a, boolean z) {
-        int i = TextUtils.isEmpty(c0761a.text) ? 8 : 0;
-        this.kDZ.setText(c0761a.title);
-        this.kEa.setText(c0761a.text);
-        this.kEa.setVisibility(i);
+    public void setData(a.C0767a c0767a, boolean z) {
+        int i = TextUtils.isEmpty(c0767a.text) ? 8 : 0;
+        this.kGb.setText(c0767a.title);
+        this.kGc.setText(c0767a.text);
+        this.kGc.setVisibility(i);
         if (z) {
-            this.kDZ.setVisibility(8);
+            this.kGb.setVisibility(8);
         } else {
-            this.kDZ.setVisibility(0);
+            this.kGb.setVisibility(0);
         }
     }
 
-    public void CM(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kEa.getLayoutParams();
+    public void CP(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.kGc.getLayoutParams();
         layoutParams.topMargin = i;
-        this.kEa.setLayoutParams(layoutParams);
+        this.kGc.setLayoutParams(layoutParams);
     }
 }

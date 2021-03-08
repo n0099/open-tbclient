@@ -3,47 +3,47 @@ package com.baidu.tieba.yuyinala.liveroom.wheat.b.b;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.f;
 import com.baidu.tieba.yuyinala.liveroom.wheat.c.q;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.wheat.b.a {
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Wo(String str) {
-        if (q.edM().Yk()) {
-            edh();
-        } else if (q.edM().edQ()) {
-            edh();
-        } else if (q.edM().iH(str)) {
-            f.edr().f(this.mPageContext);
+    public void Wv(String str) {
+        if (q.edU().Yn()) {
+            edp();
+        } else if (q.edU().edY()) {
+            edp();
+        } else if (q.edU().iN(str)) {
+            f.edz().f(this.mPageContext);
         } else {
-            edg();
+            edo();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.b.a
-    public void Wp(String str) {
-        if (edb()) {
-            edi();
-        } else if (edc()) {
-            if (q.edM().Yk()) {
-                if (q.edM().iH(str)) {
-                    if (q.edM().iJ(str)) {
-                        edh();
+    public void Ww(String str) {
+        if (edj()) {
+            edq();
+        } else if (edk()) {
+            if (q.edU().Yn()) {
+                if (q.edU().iN(str)) {
+                    if (q.edU().iP(str)) {
+                        edp();
                         return;
                     } else {
-                        edj();
+                        edr();
                         return;
                     }
                 }
-                edh();
-            } else if (q.edM().iJ(str)) {
-                edh();
-            } else if (q.edM().WD(str)) {
-                edj();
+                edp();
+            } else if (q.edU().iP(str)) {
+                edp();
+            } else if (q.edU().WK(str)) {
+                edr();
             } else {
-                edg();
+                edo();
             }
         }
     }

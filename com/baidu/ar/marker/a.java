@@ -3,7 +3,7 @@ package com.baidu.ar.marker;
 import com.baidu.ar.c;
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a extends d implements IMarker {
     private WeakReference<IMarker> sZ;
     private IMarkerStateListener ta;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.guardthrone.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public String hde;
+    public String heN;
     public String tabName;
 }

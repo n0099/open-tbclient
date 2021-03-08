@@ -7,10 +7,10 @@ import com.kwad.sdk.glide.load.engine.s;
 public class b implements s<byte[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final byte[] f10259a;
+    private final byte[] f6777a;
 
     public b(byte[] bArr) {
-        this.f10259a = (byte[]) j.a(bArr);
+        this.f6777a = (byte[]) j.a(bArr);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -24,12 +24,12 @@ public class b implements s<byte[]> {
     @NonNull
     /* renamed from: b */
     public byte[] e() {
-        return this.f10259a;
+        return this.f6777a;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return this.f10259a.length;
+        return this.f6777a.length;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s

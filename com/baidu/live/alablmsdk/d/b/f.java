@@ -1,36 +1,36 @@
 package com.baidu.live.alablmsdk.d.b;
 
 import android.text.TextUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
-    private com.baidu.live.alablmsdk.c.b.e aAA;
-    String aAy;
-    String aAz;
+    String aBY;
+    String aBZ;
+    private com.baidu.live.alablmsdk.c.b.e aCa;
     String mToken;
 
     public void a(com.baidu.live.alablmsdk.c.b.e eVar) {
-        this.aAA = eVar;
+        this.aCa = eVar;
     }
 
-    public void ew(String str) {
+    public void eD(String str) {
         this.mToken = str;
     }
 
     public void setAppId(String str) {
-        this.aAy = str;
+        this.aBY = str;
     }
 
-    public void fa(String str) {
-        this.aAz = str;
+    public void fg(String str) {
+        this.aBZ = str;
     }
 
     public void b(com.baidu.live.alablmsdk.c.b.a aVar) {
-        com.baidu.live.alablmsdk.a.b.a.d("token-manager genTokenAsync: mCurAppId=" + this.aAy + " , mCurImUk=" + this.aAz);
-        if (this.aAA != null) {
-            if (zl() && zm()) {
-                this.aAA.a(this.aAy, this.aAz, aVar);
+        com.baidu.live.alablmsdk.a.b.a.d("token-manager genTokenAsync: mCurAppId=" + this.aBY + " , mCurImUk=" + this.aBZ);
+        if (this.aCa != null) {
+            if (zo() && zp()) {
+                this.aCa.a(this.aBY, this.aBZ, aVar);
             } else if (aVar != null) {
-                aVar.ai("", "token-manager check appId|imUk error, appId=" + this.aAy + " , imUk=" + this.aAz);
+                aVar.ai("", "token-manager check appId|imUk error, appId=" + this.aBY + " , imUk=" + this.aBZ);
             }
         }
     }
@@ -39,17 +39,17 @@ public class f {
         return this.mToken;
     }
 
-    public void zk() {
-        this.aAy = null;
-        this.aAz = null;
+    public void zn() {
+        this.aBY = null;
+        this.aBZ = null;
         this.mToken = null;
     }
 
-    private boolean zl() {
-        return !TextUtils.isEmpty(this.aAy);
+    private boolean zo() {
+        return !TextUtils.isEmpty(this.aBY);
     }
 
-    private boolean zm() {
-        return !TextUtils.isEmpty(this.aAz);
+    private boolean zp() {
+        return !TextUtils.isEmpty(this.aBZ);
     }
 }

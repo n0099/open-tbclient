@@ -1,11 +1,11 @@
 package com.baidu.cloudbase.download.a;
 
 import com.baidu.cloudbase.download.exception.DownloadException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
     public boolean acceptRanges;
-    public a anL;
-    public DownloadException anM;
+    public a apj;
+    public DownloadException apl;
     public boolean calledCompleted;
     public long finished;
     public long length;
@@ -15,11 +15,11 @@ public class b {
     public long time;
 
     public void a(a aVar) {
-        this.anL = aVar;
+        this.apj = aVar;
     }
 
     public void d(DownloadException downloadException) {
-        this.anM = downloadException;
+        this.apl = downloadException;
     }
 
     public boolean getCalledCompleted() {
@@ -27,7 +27,7 @@ public class b {
     }
 
     public Exception getException() {
-        return this.anM;
+        return this.apl;
     }
 
     public long getFinished() {
@@ -87,6 +87,6 @@ public class b {
     }
 
     public a tY() {
-        return this.anL;
+        return this.apj;
     }
 }

@@ -3,24 +3,22 @@ package com.baidu.android.pushservice.message;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1470a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private byte[] f1471b;
+    private int f1248a;
+    private byte[] b;
 
     public int a() {
-        return this.f1470a;
+        return this.f1248a;
     }
 
     public void a(int i) {
-        this.f1470a = i;
+        this.f1248a = i;
     }
 
     public void a(byte[] bArr) {
-        this.f1471b = bArr;
+        this.b = bArr;
     }
 
     public byte[] b() {
-        return this.f1471b;
+        return this.b;
     }
 }

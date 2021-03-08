@@ -5,26 +5,26 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f14227a = new Object();
+    private static Object f8507a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, Queue<String>> f915a = new HashMap();
+    private static Map<String, Queue<String>> f836a = new HashMap();
 
     public static boolean a(XMPushService xMPushService, String str, String str2) {
-        synchronized (f14227a) {
+        synchronized (f8507a) {
             SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
-            Queue<String> queue = f915a.get(str);
+            Queue<String> queue = f836a.get(str);
             if (queue == null) {
                 String[] split = sharedPreferences.getString(str, "").split(",");
                 queue = new LinkedList<>();
                 for (String str3 : split) {
                     queue.add(str3);
                 }
-                f915a.put(str, queue);
+                f836a.put(str, queue);
             }
             if (queue.contains(str2)) {
                 return true;

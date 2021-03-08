@@ -3,7 +3,7 @@ package com.yy.mediaframework.inteligence.dynamictexture;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TestDynamicTexture extends AbstractDynamicTexture {
     private static final int DEFAULT_TEXTURE_HEIGHT = 1280;
     private static final float DEFAULT_TEXTURE_RATIO = 0.4f;

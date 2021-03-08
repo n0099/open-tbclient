@@ -7,10 +7,8 @@ import com.baidu.platform.comapi.walknavi.e.b;
 public class BikeNaviLaunchParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2667a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private LatLng f2668b;
+    private LatLng f1993a;
+    private LatLng b;
     private int c;
     private int d = 0;
     private int e;
@@ -20,11 +18,11 @@ public class BikeNaviLaunchParam {
     }
 
     public LatLng getStartPt() {
-        return this.f2667a;
+        return this.f1993a;
     }
 
     public LatLng getEndPt() {
-        return this.f2668b;
+        return this.b;
     }
 
     public int getStartCityCode() {
@@ -32,12 +30,12 @@ public class BikeNaviLaunchParam {
     }
 
     public BikeNaviLaunchParam stPt(LatLng latLng) {
-        this.f2667a = latLng;
+        this.f1993a = latLng;
         return this;
     }
 
     public BikeNaviLaunchParam endPt(LatLng latLng) {
-        this.f2668b = latLng;
+        this.b = latLng;
         return this;
     }
 

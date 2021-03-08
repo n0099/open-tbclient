@@ -13,6 +13,7 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import com.bumptech.glide.R;
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.util.Preconditions;
 import java.lang.ref.WeakReference;
@@ -20,12 +21,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 @Deprecated
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     private static final String TAG = "ViewTarget";
     private static boolean isTagUsedAtLeastOnce;
-    @Nullable
-    private static Integer tagId;
+    private static int tagId = R.id.glide_custom_view_target_tag;
     @Nullable
     private View.OnAttachStateChangeListener attachStateListener;
     private boolean isAttachStateListenerAdded;
@@ -158,29 +158,26 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     }
 
     private void setTag(@Nullable Object obj) {
-        if (tagId == null) {
-            isTagUsedAtLeastOnce = true;
-            this.view.setTag(obj);
-            return;
-        }
-        this.view.setTag(tagId.intValue(), obj);
+        isTagUsedAtLeastOnce = true;
+        this.view.setTag(tagId, obj);
     }
 
     @Nullable
     private Object getTag() {
-        return tagId == null ? this.view.getTag() : this.view.getTag(tagId.intValue());
+        return this.view.getTag(tagId);
     }
 
+    @Deprecated
     public static void setTagId(int i) {
-        if (tagId != null || isTagUsedAtLeastOnce) {
+        if (isTagUsedAtLeastOnce) {
             throw new IllegalArgumentException("You cannot set the tag id more than once or change the tag id after the first request has been made");
         }
-        tagId = Integer.valueOf(i);
+        tagId = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class SizeDeterminer {
         private static final int PENDING_SIZE = 0;
         @Nullable
@@ -282,7 +279,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
                         return 0;
                     }
                     if (Log.isLoggable(ViewTarget.TAG, 4)) {
-                        Log.i(ViewTarget.TAG, "Glide treats LayoutParams.WRAP_CONTENT as a request for an image the size of this device's screen dimensions. If you want to load the original image and are ok with the corresponding memory cost and OOMs (depending on the input size), use .override(Target.SIZE_ORIGINAL). Otherwise, use LayoutParams.MATCH_PARENT, set layout_width and layout_height to fixed dimension, or use .override() with fixed dimensions.");
+                        Log.i(ViewTarget.TAG, "Glide treats LayoutParams.WRAP_CONTENT as a request for an image the size of this device's screen dimensions. If you want to load the original image and are ok with the corresponding memory cost and OOMs (depending on the input size), use override(Target.SIZE_ORIGINAL). Otherwise, use LayoutParams.MATCH_PARENT, set layout_width and layout_height to fixed dimension, or use .override() with fixed dimensions.");
                     }
                     return getMaxDisplayLength(this.view.getContext());
                 }
@@ -296,7 +293,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             private final WeakReference<SizeDeterminer> sizeDeterminerRef;
 

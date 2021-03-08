@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class WriteImagesInfo implements Serializable {
     private LinkedList<ImageFileInfo> chosedFiles;
     private boolean isOriginalImg;

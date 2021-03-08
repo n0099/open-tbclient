@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class ThumbnailStreamOpener {
     private static final FileService DEFAULT_SERVICE = new FileService();
     private static final String TAG = "ThumbStreamOpener";
@@ -87,28 +87,69 @@ class ThumbnailStreamOpener {
         return null;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [112=4, 111=5] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0046 */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.lang.String */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0050  */
+    /* JADX WARN: Type inference failed for: r0v0, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r0v5, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r0v6 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r0v8 */
     @Nullable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private String getPath(@NonNull Uri uri) {
-        String string;
-        Cursor query = this.query.query(uri);
-        if (query != null) {
+        Cursor cursor;
+        String str = 0;
+        str = 0;
+        str = 0;
+        str = 0;
+        try {
             try {
-                if (query.moveToFirst()) {
-                    string = query.getString(0);
-                    return string;
+                cursor = this.query.query(uri);
+            } catch (Throwable th) {
+                th = th;
+                if (0 != 0) {
+                    str.close();
                 }
-            } finally {
-                if (query != null) {
-                    query.close();
+                throw th;
+            }
+        } catch (SecurityException e) {
+            e = e;
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (0 != 0) {
+            }
+            throw th;
+        }
+        if (cursor != null) {
+            try {
+            } catch (SecurityException e2) {
+                e = e2;
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Failed to query for thumbnail for Uri: " + uri, e);
                 }
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return str;
+            }
+            if (cursor.moveToFirst()) {
+                str = cursor.getString(0);
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return str;
             }
         }
-        string = null;
-        if (query != null) {
-            query.close();
+        if (cursor != null) {
+            cursor.close();
         }
-        return string;
+        return str;
     }
 
     private boolean isValid(File file) {

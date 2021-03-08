@@ -6,18 +6,18 @@ import java.util.Comparator;
 class c implements Comparator<b.a> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1140a;
+    final /* synthetic */ b f1058a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f1140a = bVar;
+        this.f1058a = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(b.a aVar, b.a aVar2) {
-        int i = aVar2.f1137b - aVar.f1137b;
+        int i = aVar2.b - aVar.b;
         if (i == 0) {
             if (aVar.d && aVar2.d) {
                 return 0;

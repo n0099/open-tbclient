@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class GlideException extends Exception {
     private static final StackTraceElement[] EMPTY_ELEMENTS = new StackTraceElement[0];
     private static final long serialVersionUID = 1;
@@ -19,6 +19,8 @@ public final class GlideException extends Exception {
     private Class<?> dataClass;
     private DataSource dataSource;
     private String detailMessage;
+    @Nullable
+    private Exception exception;
     private Key key;
 
     public GlideException(String str) {
@@ -45,6 +47,15 @@ public final class GlideException extends Exception {
         this.key = key;
         this.dataSource = dataSource;
         this.dataClass = cls;
+    }
+
+    public void setOrigin(@Nullable Exception exc) {
+        this.exception = exc;
+    }
+
+    @Nullable
+    public Exception getOrigin() {
+        return this.exception;
     }
 
     @Override // java.lang.Throwable
@@ -149,7 +160,7 @@ public final class GlideException extends Exception {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class IndentedAppendable implements Appendable {
         private static final String EMPTY_SEQUENCE = "";
         private static final String INDENT = "  ";

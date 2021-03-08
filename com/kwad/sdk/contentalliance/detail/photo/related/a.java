@@ -9,10 +9,8 @@ public class a {
     private static volatile a c;
 
     /* renamed from: a  reason: collision with root package name */
-    private List<AdTemplate> f8576a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private List<AdTemplate> f8577b;
+    private List<AdTemplate> f5724a;
+    private List<AdTemplate> b;
 
     private a() {
     }
@@ -32,45 +30,45 @@ public class a {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f8576a == null) {
-            this.f8576a = new ArrayList();
+        if (this.f5724a == null) {
+            this.f5724a = new ArrayList();
         }
-        this.f8576a.clear();
-        this.f8576a.addAll(list);
+        this.f5724a.clear();
+        this.f5724a.addAll(list);
     }
 
     @Nullable
     public List<AdTemplate> b() {
-        return this.f8576a;
+        return this.f5724a;
     }
 
     public void b(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f8577b == null) {
-            this.f8577b = new ArrayList();
+        if (this.b == null) {
+            this.b = new ArrayList();
         }
-        this.f8577b.clear();
-        this.f8577b.addAll(list);
+        this.b.clear();
+        this.b.addAll(list);
     }
 
     public void c() {
-        if (this.f8576a != null) {
-            this.f8576a.clear();
+        if (this.f5724a != null) {
+            this.f5724a.clear();
         }
-        this.f8576a = null;
+        this.f5724a = null;
     }
 
     @Nullable
     public List<AdTemplate> d() {
-        return this.f8577b;
+        return this.b;
     }
 
     public void e() {
-        if (this.f8577b != null) {
-            this.f8577b.clear();
+        if (this.b != null) {
+            this.b.clear();
         }
-        this.f8577b = null;
+        this.b = null;
     }
 }

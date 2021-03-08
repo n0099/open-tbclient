@@ -7,19 +7,17 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IOAdEvent f3482a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ t f3483b;
+    final /* synthetic */ IOAdEvent f2478a;
+    final /* synthetic */ t b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar, IOAdEvent iOAdEvent) {
-        this.f3483b = tVar;
-        this.f3482a = iOAdEvent;
+        this.b = tVar;
+        this.f2478a = iOAdEvent;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x004e  */
@@ -50,10 +48,10 @@ class u implements Runnable {
         int i;
         SplashAdListener splashAdListener13;
         SplashAdListener splashAdListener14;
-        splashAdListener = this.f3483b.f3481a.j;
+        splashAdListener = this.b.f2477a.j;
         if (splashAdListener != null) {
-            if (IXAdEvent.AD_LOADED.equals(this.f3482a.getType())) {
-                Map<String, Object> data = this.f3482a.getData();
+            if (IXAdEvent.AD_LOADED.equals(this.f2478a.getType())) {
+                Map<String, Object> data = this.f2478a.getData();
                 RsplashType rsplashType = RsplashType.IMAGE;
                 if (data != null) {
                     String str = data.get(com.baidu.mobads.constants.a.s) instanceof String ? (String) data.get(com.baidu.mobads.constants.a.s) : null;
@@ -67,68 +65,68 @@ class u implements Runnable {
                             i = ((Integer) obj).intValue();
                         }
                     }
-                    splashAdListener13 = this.f3483b.f3481a.j;
+                    splashAdListener13 = this.b.f2477a.j;
                     if (splashAdListener13 != null) {
-                        splashAdListener14 = this.f3483b.f3481a.j;
+                        splashAdListener14 = this.b.f2477a.j;
                         splashAdListener14.onADLoaded(rsplashType, i);
                     }
                     j.a().a(1005);
                 }
                 i = 0;
-                splashAdListener13 = this.f3483b.f3481a.j;
+                splashAdListener13 = this.b.f2477a.j;
                 if (splashAdListener13 != null) {
                 }
                 j.a().a(1005);
-            } else if (IXAdEvent.AD_STARTED.equals(this.f3482a.getType())) {
+            } else if (IXAdEvent.AD_STARTED.equals(this.f2478a.getType())) {
                 j.a().a(1006);
-                splashAdListener11 = this.f3483b.f3481a.j;
+                splashAdListener11 = this.b.f2477a.j;
                 if (splashAdListener11 != null) {
-                    splashAdListener12 = this.f3483b.f3481a.j;
+                    splashAdListener12 = this.b.f2477a.j;
                     splashAdListener12.onAdPresent();
                 }
                 j.a().b();
-            } else if ("AdUserClick".equals(this.f3482a.getType())) {
-                splashAdListener8 = this.f3483b.f3481a.j;
+            } else if ("AdUserClick".equals(this.f2478a.getType())) {
+                splashAdListener8 = this.b.f2477a.j;
                 if (splashAdListener8 != null) {
-                    splashAdListener10 = this.f3483b.f3481a.j;
+                    splashAdListener10 = this.b.f2477a.j;
                     splashAdListener10.onAdClick();
                 }
-                Map<String, Object> data2 = this.f3482a.getData();
+                Map<String, Object> data2 = this.f2478a.getData();
                 Integer num = data2 != null ? (Integer) data2.get("actionType") : null;
-                splashAdListener9 = this.f3483b.f3481a.j;
+                splashAdListener9 = this.b.f2477a.j;
                 if ((splashAdListener9 instanceof SplashLpCloseListener) && num != null && num.intValue() == 1) {
-                    context3 = this.f3483b.f3481a.d;
+                    context3 = this.b.f2477a.d;
                     com.baidu.mobads.command.b.a.a(context3).b();
-                    context4 = this.f3483b.f3481a.d;
+                    context4 = this.b.f2477a.d;
                     com.baidu.mobads.command.b.a a2 = com.baidu.mobads.command.b.a.a(context4);
-                    iOAdEventListener = this.f3483b.f3481a.k;
+                    iOAdEventListener = this.b.f2477a.k;
                     a2.addEventListener("AdLpClosed", iOAdEventListener);
                 }
-            } else if (IXAdEvent.AD_STOPPED.equals(this.f3482a.getType())) {
-                aVar2 = this.f3483b.f3481a.f3285a;
+            } else if (IXAdEvent.AD_STOPPED.equals(this.f2478a.getType())) {
+                aVar2 = this.b.f2477a.f2354a;
                 aVar2.removeAllListeners();
-                splashAdListener6 = this.f3483b.f3481a.j;
+                splashAdListener6 = this.b.f2477a.j;
                 if (splashAdListener6 != null) {
-                    splashAdListener7 = this.f3483b.f3481a.j;
+                    splashAdListener7 = this.b.f2477a.j;
                     splashAdListener7.onAdDismissed();
                 }
-            } else if (IXAdEvent.AD_ERROR.equals(this.f3482a.getType())) {
-                aVar = this.f3483b.f3481a.f3285a;
+            } else if (IXAdEvent.AD_ERROR.equals(this.f2478a.getType())) {
+                aVar = this.b.f2477a.f2354a;
                 aVar.removeAllListeners();
-                String message = XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f3482a.getData());
-                splashAdListener4 = this.f3483b.f3481a.j;
+                String message = XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f2478a.getData());
+                splashAdListener4 = this.b.f2477a.j;
                 if (splashAdListener4 != null) {
-                    splashAdListener5 = this.f3483b.f3481a.j;
+                    splashAdListener5 = this.b.f2477a.j;
                     splashAdListener5.onAdFailed(message);
                 }
-            } else if ("AdLpClosed".equals(this.f3482a.getType())) {
-                splashAdListener2 = this.f3483b.f3481a.j;
+            } else if ("AdLpClosed".equals(this.f2478a.getType())) {
+                splashAdListener2 = this.b.f2477a.j;
                 if (splashAdListener2 instanceof SplashLpCloseListener) {
-                    context = this.f3483b.f3481a.d;
+                    context = this.b.f2477a.d;
                     com.baidu.mobads.command.b.a.a(context).removeEventListeners("AdLpClosed");
-                    context2 = this.f3483b.f3481a.d;
+                    context2 = this.b.f2477a.d;
                     com.baidu.mobads.command.b.a.a(context2).c();
-                    splashAdListener3 = this.f3483b.f3481a.j;
+                    splashAdListener3 = this.b.f2477a.j;
                     ((SplashLpCloseListener) splashAdListener3).onLpClosed();
                 }
             }

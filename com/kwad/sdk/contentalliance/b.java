@@ -13,16 +13,14 @@ import com.kwad.sdk.mvp.Presenter;
 public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Presenter f8265a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected T f8266b;
+    protected Presenter f5501a;
+    protected T b;
     protected ViewGroup c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a() {
-        if (this.f8265a != null) {
-            this.f8265a.j();
+        if (this.f5501a != null) {
+            this.f5501a.j();
         }
         this.c = null;
     }
@@ -37,12 +35,12 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f8266b = c();
-        if (this.f8265a == null) {
-            this.f8265a = d();
-            this.f8265a.a((View) this.c);
+        this.b = c();
+        if (this.f5501a == null) {
+            this.f5501a = d();
+            this.f5501a.a((View) this.c);
         }
-        this.f8265a.a(this.f8266b);
+        this.f5501a.a(this.b);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -57,8 +55,8 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends KsFragment {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
         super.onDestroyView();
-        if (this.f8266b != null) {
-            this.f8266b.a();
+        if (this.b != null) {
+            this.b.a();
         }
         a();
     }

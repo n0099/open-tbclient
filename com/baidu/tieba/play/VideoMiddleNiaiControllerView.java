@@ -20,20 +20,20 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    protected View fE(Context context) {
+    protected View fD(Context context) {
         return View.inflate(context, R.layout.video_middle_naivi_controller, null);
     }
 
     public void setBottomBarShow(boolean z) {
-        if (this.ghT != null) {
+        if (this.gjx != null) {
             if (z) {
-                this.ghT.setThumb(null);
-                this.ghT.setProgressDrawable(TbadkCoreApplication.getInst().getDrawable(R.drawable.video_navi_video_three_width_seekbar));
+                this.gjx.setThumb(null);
+                this.gjx.setProgressDrawable(TbadkCoreApplication.getInst().getDrawable(R.drawable.video_navi_video_three_width_seekbar));
                 return;
             }
-            this.ghT.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_pressed));
-            this.ghT.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_normal));
-            this.ghT.setProgressDrawable(TbadkCoreApplication.getInst().getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
+            this.gjx.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_pressed));
+            this.gjx.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_normal));
+            this.gjx.setProgressDrawable(TbadkCoreApplication.getInst().getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
         }
     }
 }

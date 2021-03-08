@@ -14,15 +14,13 @@ import java.util.concurrent.TimeUnit;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected z f7493a = new z.a().d(10, TimeUnit.SECONDS).e(10, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(10, TimeUnit.SECONDS).eqA();
-
-    /* renamed from: b  reason: collision with root package name */
-    protected z f7494b = new z.a().d(10, TimeUnit.SECONDS).e(30, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(30, TimeUnit.SECONDS).eqA();
+    protected z f5083a = new z.a().c(10, TimeUnit.SECONDS).d(10, TimeUnit.SECONDS).e(10, TimeUnit.SECONDS).eqH();
+    protected z b = new z.a().c(10, TimeUnit.SECONDS).d(30, TimeUnit.SECONDS).e(30, TimeUnit.SECONDS).eqH();
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
     public c a(String str, String str2) throws Exception {
-        com.bytedance.sdk.a.b.b epR = this.f7493a.g(new ab.a().Za(str).a(ac.a(y.YZ(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2)).eqJ()).epR();
-        return new c(a(epR.epM()), epR.c() == 200 ? epR.epN().e() : null, epR.c(), epR.d());
+        com.bytedance.sdk.a.b.b epY = this.f5083a.g(new ab.a().Zh(str).a(ac.a(y.Zg(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2)).eqQ()).epY();
+        return new c(a(epY.epT()), epY.c() == 200 ? epY.epU().e() : null, epY.c(), epY.e());
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
@@ -30,9 +28,9 @@ public class a implements b {
         BufferedInputStream bufferedInputStream;
         int i = 0;
         try {
-            com.bytedance.sdk.a.b.b epR = this.f7494b.g(new ab.a().eqG().Za(str).eqJ()).epR();
-            i = epR.c();
-            bufferedInputStream = new BufferedInputStream(epR.epN().c());
+            com.bytedance.sdk.a.b.b epY = this.b.g(new ab.a().eqN().Zh(str).eqQ()).epY();
+            i = epY.c();
+            bufferedInputStream = new BufferedInputStream(epY.epU().c());
             try {
                 try {
                     byte[] bArr = new byte[2048];

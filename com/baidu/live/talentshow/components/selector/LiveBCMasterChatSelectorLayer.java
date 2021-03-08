@@ -16,69 +16,69 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.talentshow.components.selector.a;
 import com.baidu.live.tbadk.widget.CommonEmptyView;
 import java.util.List;
-/* loaded from: classes11.dex */
-public class LiveBCMasterChatSelectorLayer extends LayerChildView implements a.InterfaceC0202a {
-    private LinearLayout bDN;
-    private com.baidu.live.talentshow.components.selector.a bDO;
-    private b bDP;
-    private FrameLayout bDQ;
-    private a bDR;
-    private LinearLayout bDS;
-    private boolean bDT;
-    private CommonEmptyView bwJ;
+/* loaded from: classes10.dex */
+public class LiveBCMasterChatSelectorLayer extends LayerChildView implements a.InterfaceC0208a {
+    private LinearLayout bFn;
+    private com.baidu.live.talentshow.components.selector.a bFo;
+    private b bFp;
+    private FrameLayout bFq;
+    private a bFr;
+    private LinearLayout bFs;
+    private boolean bFt;
+    private CommonEmptyView byj;
     private BdListView mListView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void Rr();
+        void Ru();
 
-        void Rs();
+        void Rv();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void b(com.baidu.live.talentshow.b.d dVar);
     }
 
     public LiveBCMasterChatSelectorLayer(@NonNull Context context) {
         super(context);
-        this.bDT = false;
+        this.bFt = false;
         init(context);
     }
 
     public LiveBCMasterChatSelectorLayer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bDT = false;
+        this.bFt = false;
         init(context);
     }
 
     public LiveBCMasterChatSelectorLayer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bDT = false;
+        this.bFt = false;
         init(context);
     }
 
     private void init(Context context) {
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(a.g.talent_layout_master_apply_list, this);
         this.mListView = (BdListView) viewGroup.findViewById(a.f.detail_list);
-        this.bwJ = (CommonEmptyView) viewGroup.findViewById(a.f.emptyView);
-        this.bDN = (LinearLayout) viewGroup.findViewById(a.f.root_view);
-        this.bDQ = (FrameLayout) viewGroup.findViewById(a.f.layout_progress);
-        this.bwJ.setTitle(a.h.talent_no_apply_user);
-        this.bwJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
-        this.mListView.setEmptyView(this.bwJ);
-        this.bDS = (LinearLayout) viewGroup.findViewById(a.f.layout_list);
-        this.bDO = new com.baidu.live.talentshow.components.selector.a();
-        this.mListView.setAdapter((ListAdapter) this.bDO);
+        this.byj = (CommonEmptyView) viewGroup.findViewById(a.f.emptyView);
+        this.bFn = (LinearLayout) viewGroup.findViewById(a.f.root_view);
+        this.bFq = (FrameLayout) viewGroup.findViewById(a.f.layout_progress);
+        this.byj.setTitle(a.h.talent_no_apply_user);
+        this.byj.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
+        this.mListView.setEmptyView(this.byj);
+        this.bFs = (LinearLayout) viewGroup.findViewById(a.f.layout_list);
+        this.bFo = new com.baidu.live.talentshow.components.selector.a();
+        this.mListView.setAdapter((ListAdapter) this.bFo);
         setCanceledOnTouchOutside(true);
     }
 
     public LinearLayout getParentLayout() {
-        return this.bDN;
+        return this.bFn;
     }
 
     public LinearLayout getListLayout() {
-        return this.bDS;
+        return this.bFs;
     }
 
     public BdListView getListView() {
@@ -86,45 +86,45 @@ public class LiveBCMasterChatSelectorLayer extends LayerChildView implements a.I
     }
 
     public void d(View.OnClickListener onClickListener) {
-        this.bDN.setOnClickListener(onClickListener);
-        this.bDO.a(this);
-        this.bDS.setOnClickListener(onClickListener);
+        this.bFn.setOnClickListener(onClickListener);
+        this.bFo.a(this);
+        this.bFs.setOnClickListener(onClickListener);
     }
 
     public void setOnConfirmListener(b bVar) {
-        this.bDP = bVar;
+        this.bFp = bVar;
     }
 
     public void setOnPanelStateChangeListener(a aVar) {
-        this.bDR = aVar;
-    }
-
-    @Override // com.baidu.live.core.layer.LayerChildView
-    public void AW() {
-    }
-
-    @Override // com.baidu.live.core.layer.LayerChildView
-    public void AX() {
-        this.bDN.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_transparent));
-    }
-
-    @Override // com.baidu.live.core.layer.LayerChildView
-    public void AY() {
-        this.bDT = true;
-        if (this.bDR != null) {
-            this.bDR.Rr();
-        }
-        this.bDN.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_black_alpha50));
+        this.bFr = aVar;
     }
 
     @Override // com.baidu.live.core.layer.LayerChildView
     public void AZ() {
-        this.bDT = false;
-        if (this.bDO != null) {
-            this.bDO.clearData();
+    }
+
+    @Override // com.baidu.live.core.layer.LayerChildView
+    public void Ba() {
+        this.bFn.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_transparent));
+    }
+
+    @Override // com.baidu.live.core.layer.LayerChildView
+    public void Bb() {
+        this.bFt = true;
+        if (this.bFr != null) {
+            this.bFr.Ru();
         }
-        if (this.bDR != null) {
-            this.bDR.Rs();
+        this.bFn.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_black_alpha50));
+    }
+
+    @Override // com.baidu.live.core.layer.LayerChildView
+    public void Bc() {
+        this.bFt = false;
+        if (this.bFo != null) {
+            this.bFo.clearData();
+        }
+        if (this.bFr != null) {
+            this.bFr.Rv();
         }
     }
 
@@ -133,44 +133,44 @@ public class LiveBCMasterChatSelectorLayer extends LayerChildView implements a.I
             if (list.size() == 0) {
                 showNoDataView();
             } else {
-                Si();
+                Sl();
             }
-            this.bDO.setDatas(list);
+            this.bFo.setDatas(list);
         }
     }
 
-    @Override // com.baidu.live.talentshow.components.selector.a.InterfaceC0202a
+    @Override // com.baidu.live.talentshow.components.selector.a.InterfaceC0208a
     public void c(com.baidu.live.talentshow.b.d dVar) {
-        if (this.bDP != null) {
-            this.bDP.b(dVar);
+        if (this.bFp != null) {
+            this.bFp.b(dVar);
         }
     }
 
-    public void Sh() {
-        this.bwJ.setTitle(a.h.talent_no_apply_net_error);
-        this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
-        this.bDQ.setVisibility(8);
-        this.bwJ.setVisibility(0);
+    public void Sk() {
+        this.byj.setTitle(a.h.talent_no_apply_net_error);
+        this.byj.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.LIGHT);
+        this.bFq.setVisibility(8);
+        this.byj.setVisibility(0);
     }
 
     public void showLoading() {
-        this.bDQ.setVisibility(0);
-        this.bwJ.setVisibility(8);
+        this.bFq.setVisibility(0);
+        this.byj.setVisibility(8);
     }
 
     public void showNoDataView() {
-        this.bwJ.setTitle(a.h.talent_no_apply_user);
-        this.bwJ.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
-        this.bDQ.setVisibility(8);
-        this.bwJ.setVisibility(0);
+        this.byj.setTitle(a.h.talent_no_apply_user);
+        this.byj.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.LIGHT);
+        this.bFq.setVisibility(8);
+        this.byj.setVisibility(0);
     }
 
-    public void Si() {
-        this.bDQ.setVisibility(8);
-        this.bwJ.setVisibility(8);
+    public void Sl() {
+        this.bFq.setVisibility(8);
+        this.byj.setVisibility(8);
     }
 
-    public boolean Sj() {
-        return this.bDT;
+    public boolean Sm() {
+        return this.bFt;
     }
 }

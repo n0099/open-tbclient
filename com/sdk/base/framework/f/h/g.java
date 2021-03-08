@@ -5,7 +5,7 @@ package com.sdk.base.framework.f.h;
 public abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f12850a = new g("CMCC", 0) { // from class: com.sdk.base.framework.f.h.h
+    public static final g f7647a = new g("CMCC", 0) { // from class: com.sdk.base.framework.f.h.h
         @Override // com.sdk.base.framework.f.h.g
         public final String a() {
             return "CMCC";
@@ -16,9 +16,7 @@ public abstract class g {
             return 1;
         }
     };
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final g f12851b = new g("CUCC", 1) { // from class: com.sdk.base.framework.f.h.i
+    public static final g b = new g("CUCC", 1) { // from class: com.sdk.base.framework.f.h.i
         @Override // com.sdk.base.framework.f.h.g
         public final String a() {
             return "CUCC";
@@ -42,7 +40,7 @@ public abstract class g {
     };
 
     static {
-        g[] gVarArr = {f12850a, f12851b, c};
+        g[] gVarArr = {f7647a, b, c};
     }
 
     private g(String str, int i) {

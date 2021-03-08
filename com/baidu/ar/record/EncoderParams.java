@@ -1,5 +1,5 @@
 package com.baidu.ar.record;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class EncoderParams {
     private static final int AAC_SAMPLES_PER_FRAME = 1024;
     private static final int AUDIO_BIT_RATE = 128000;

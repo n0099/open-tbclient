@@ -3,9 +3,9 @@ package com.baidu.live.guess;
 import android.content.Context;
 import android.view.ViewGroup;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void IZ();
+    void Jc();
 
     void a(ab abVar, ViewGroup viewGroup);
 

@@ -9,33 +9,33 @@ import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.webkit.internal.ETAG;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i implements e {
-    final ar lag;
+    final ar lcj;
 
     private i(BaseLegoCardInfo baseLegoCardInfo) {
         this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
     }
 
     private i(String str, int i, int i2, String str2) {
-        this.lag = new ar(str);
-        this.lag.ap("obj_source", i);
-        this.lag.ap("obj_type", i2);
+        this.lcj = new ar(str);
+        this.lcj.aq("obj_source", i);
+        this.lcj.aq("obj_type", i2);
         if (!TextUtils.isEmpty(str2)) {
-            this.lag.dR("obj_card", str2);
+            this.lcj.dR("obj_card", str2);
         }
     }
 
     @Override // com.baidu.tieba.lego.e
     public void a(ICardInfo iCardInfo) {
         b(iCardInfo);
-        TiebaStatic.log(this.lag);
+        TiebaStatic.log(this.lcj);
     }
 
     @Override // com.baidu.tieba.lego.e
     public e fF(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.lag.dR(str, str2);
+            this.lcj.dR(str, str2);
         }
         return this;
     }
@@ -43,7 +43,7 @@ public class i implements e {
     @Override // com.baidu.tieba.lego.e
     public e bA(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
-            this.lag.ap(str, i);
+            this.lcj.aq(str, i);
         }
         return this;
     }
@@ -51,7 +51,7 @@ public class i implements e {
     @Override // com.baidu.tieba.lego.e
     public e N(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            this.lag.dR(str, String.valueOf(j));
+            this.lcj.dR(str, String.valueOf(j));
         }
         return this;
     }
@@ -59,7 +59,7 @@ public class i implements e {
     private void b(ICardInfo iCardInfo) {
         BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
         if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
-            List<Object> params = this.lag.getParams();
+            List<Object> params = this.lcj.getParams();
             for (String str : baseLegoCardInfo.getsExtras().split(ETAG.ITEM_SEPARATOR)) {
                 String[] split = str.split("=");
                 if (split.length == 2) {
@@ -75,11 +75,11 @@ public class i implements e {
                         }
                     }
                     if (!z) {
-                        this.lag.dR(str2, str3);
+                        this.lcj.dR(str2, str3);
                     }
                 }
             }
-            fF(TiebaInitialize.Params.OBJ_PARAM3, m.csr());
+            fF(TiebaInitialize.Params.OBJ_PARAM3, m.csx());
         }
     }
 
@@ -91,7 +91,7 @@ public class i implements e {
         return !TextUtils.isEmpty(str) ? new i(str, i, i2, str2) : new a();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class a implements e {
         private a() {
         }

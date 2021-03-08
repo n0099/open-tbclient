@@ -1,9 +1,9 @@
 package com.baidu.pyramid.runtime.multiprocess.a;
 
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a {
-    public static List<com.baidu.pyramid.runtime.multiprocess.components.a> jt(String str) {
+    public static List<com.baidu.pyramid.runtime.multiprocess.components.a> jA(String str) {
         return null;
     }
 }

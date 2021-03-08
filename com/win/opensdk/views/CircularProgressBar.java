@@ -11,111 +11,110 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
-import com.win.opensdk.bi;
-/* loaded from: classes3.dex */
+import com.win.opensdk.v;
+/* loaded from: classes14.dex */
 public class CircularProgressBar extends ProgressBar {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13763a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private final Paint f76a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Paint f13764b;
-
-    /* renamed from: case  reason: not valid java name */
-    private int f77case;
-    private int java;
-
-    /* renamed from: java  reason: collision with other field name */
-    private String f78java;
-    private final Paint qlB;
-    private final RectF qlC;
-    private final Paint qlG;
+    public int f8176a;
+    public int b;
+    public String c;
+    public int d;
+    public final RectF e;
+    public final Paint f;
+    public final Paint g;
+    public final Paint h;
+    public final Paint i;
 
     public CircularProgressBar(Context context) {
         super(context);
-        this.java = Color.parseColor("#787878");
-        this.f77case = Color.parseColor("#ffffff");
-        this.f78java = "";
-        this.f13763a = 0;
-        this.qlC = new RectF();
-        this.qlB = new Paint();
-        this.qlG = new Paint();
-        this.f76a = new Paint();
-        this.f13764b = new Paint();
-        eIX();
+        this.f8176a = Color.parseColor("#787878");
+        this.b = Color.parseColor("#ffffff");
+        this.c = "";
+        this.d = 0;
+        this.e = new RectF();
+        this.f = new Paint();
+        this.g = new Paint();
+        this.h = new Paint();
+        this.i = new Paint();
+        a();
     }
 
     public CircularProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.java = Color.parseColor("#787878");
-        this.f77case = Color.parseColor("#ffffff");
-        this.f78java = "";
-        this.f13763a = 0;
-        this.qlC = new RectF();
-        this.qlB = new Paint();
-        this.qlG = new Paint();
-        this.f76a = new Paint();
-        this.f13764b = new Paint();
-        eIX();
+        this.f8176a = Color.parseColor("#787878");
+        this.b = Color.parseColor("#ffffff");
+        this.c = "";
+        this.d = 0;
+        this.e = new RectF();
+        this.f = new Paint();
+        this.g = new Paint();
+        this.h = new Paint();
+        this.i = new Paint();
+        a();
     }
 
     public CircularProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.java = Color.parseColor("#787878");
-        this.f77case = Color.parseColor("#ffffff");
-        this.f78java = "";
-        this.f13763a = 0;
-        this.qlC = new RectF();
-        this.qlB = new Paint();
-        this.qlG = new Paint();
-        this.f76a = new Paint();
-        this.f13764b = new Paint();
-        eIX();
+        this.f8176a = Color.parseColor("#787878");
+        this.b = Color.parseColor("#ffffff");
+        this.c = "";
+        this.d = 0;
+        this.e = new RectF();
+        this.f = new Paint();
+        this.g = new Paint();
+        this.h = new Paint();
+        this.i = new Paint();
+        a();
     }
 
-    private void eIX() {
+    public void a() {
         if (Build.VERSION.SDK_INT >= 11) {
             setLayerType(1, null);
         }
-        this.f13763a = bi.k(getContext(), 2.5f) + 1;
-        this.qlB.setColor(this.f77case);
-        this.qlG.setColor(this.java);
-        this.f76a.setColor(this.f77case);
-        this.f13764b.setColor(this.java);
-        this.qlB.setAntiAlias(true);
-        this.qlB.setStyle(Paint.Style.STROKE);
-        this.qlB.setStrokeWidth(this.f13763a);
-        this.qlG.setAntiAlias(true);
-        this.qlG.setStyle(Paint.Style.STROKE);
-        this.qlG.setStrokeWidth(this.f13763a);
-        this.f76a.setAntiAlias(true);
-        this.f76a.setStyle(Paint.Style.FILL);
-        this.f76a.setStrokeWidth(this.f13763a);
-        this.f13764b.setTextSize(14.0f);
-        this.f13764b.setStyle(Paint.Style.FILL);
-        this.f13764b.setAntiAlias(true);
-        this.f13764b.setTypeface(Typeface.create(Typeface.MONOSPACE, 1));
+        this.d = v.b(getContext(), 2.5f) + 1;
+        this.f.setColor(this.b);
+        this.g.setColor(this.f8176a);
+        this.h.setColor(this.b);
+        this.i.setColor(this.f8176a);
+        this.f.setAntiAlias(true);
+        this.f.setStyle(Paint.Style.STROKE);
+        this.f.setStrokeWidth(this.d);
+        this.g.setAntiAlias(true);
+        this.g.setStyle(Paint.Style.STROKE);
+        this.g.setStrokeWidth(this.d);
+        this.h.setAntiAlias(true);
+        this.h.setStyle(Paint.Style.FILL);
+        this.h.setStrokeWidth(this.d);
+        this.i.setTextSize(14.0f);
+        this.i.setStyle(Paint.Style.FILL);
+        this.i.setAntiAlias(true);
+        this.i.setTypeface(Typeface.create(Typeface.MONOSPACE, 1));
+    }
+
+    public String getTitle() {
+        return this.c;
     }
 
     @Override // android.widget.ProgressBar, android.view.View
-    protected synchronized void onDraw(Canvas canvas) {
-        canvas.drawArc(this.qlC, 0.0f, 360.0f, false, this.f76a);
-        canvas.drawArc(this.qlC, 0.0f, 360.0f, false, this.qlG);
-        canvas.drawArc(this.qlC, 270.0f, -(getMax() > 0 ? (getProgress() / getMax()) * 360.0f : 0.0f), false, this.qlB);
-        if (!TextUtils.isEmpty(this.f78java)) {
-            canvas.drawText(this.f78java, (int) ((getMeasuredWidth() / 2) - (this.f13764b.measureText(this.f78java) / 2.0f)), (int) ((getMeasuredHeight() / 2) + (Math.abs(this.f13764b.descent() + this.f13764b.ascent()) / 2.0f)), this.f13764b);
+    public synchronized void onDraw(Canvas canvas) {
+        canvas.drawArc(this.e, 0.0f, 360.0f, false, this.h);
+        canvas.drawArc(this.e, 0.0f, 360.0f, false, this.g);
+        canvas.drawArc(this.e, 270.0f, -(getMax() > 0 ? (getProgress() / getMax()) * 360.0f : 0.0f), false, this.f);
+        if (!TextUtils.isEmpty(this.c)) {
+            canvas.drawText(this.c, (int) ((getMeasuredWidth() / 2) - (this.i.measureText(this.c) / 2.0f)), (int) ((getMeasuredHeight() / 2) + (Math.abs(this.i.descent() + this.i.ascent()) / 2.0f)), this.i);
         }
         super.onDraw(canvas);
     }
 
     @Override // android.widget.ProgressBar, android.view.View
-    protected void onMeasure(int i, int i2) {
-        int min = Math.min(getDefaultSize(getSuggestedMinimumWidth(), i), getDefaultSize(getSuggestedMinimumHeight(), i2));
-        setMeasuredDimension((this.f13763a * 2) + min, (this.f13763a * 2) + min);
-        this.qlC.set(this.f13763a, this.f13763a, this.f13763a + min, min + this.f13763a);
+    public void onMeasure(int i, int i2) {
+        int min = Math.min(ProgressBar.getDefaultSize(getSuggestedMinimumWidth(), i), ProgressBar.getDefaultSize(getSuggestedMinimumHeight(), i2));
+        int i3 = this.d;
+        setMeasuredDimension((i3 * 2) + min, (i3 * 2) + min);
+        RectF rectF = this.e;
+        int i4 = this.d;
+        rectF.set(i4, i4, min + i4, min + i4);
     }
 
     @Override // android.widget.ProgressBar
@@ -126,16 +125,12 @@ public class CircularProgressBar extends ProgressBar {
 
     public synchronized void setTitle(String str) {
         if (str.equalsIgnoreCase("X")) {
-            this.f78java = Html.fromHtml("&#xd7;").toString();
-            this.f13764b.setTextSize(bi.k(getContext(), 24.0f));
+            this.c = Html.fromHtml("&#xd7;").toString();
+            this.i.setTextSize(v.b(getContext(), 24.0f));
         } else {
-            this.f78java = str;
-            this.f13764b.setTextSize(bi.k(getContext(), 14.0f));
+            this.c = str;
+            this.i.setTextSize(v.b(getContext(), 14.0f));
         }
         invalidate();
-    }
-
-    public String getTitle() {
-        return this.f78java;
     }
 }

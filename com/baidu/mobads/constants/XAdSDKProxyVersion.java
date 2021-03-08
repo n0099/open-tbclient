@@ -1,5 +1,5 @@
 package com.baidu.mobads.constants;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class XAdSDKProxyVersion {
     public static final String BAIDU_AD_SDK_VERSION = "";
     public static final int MAJOR_VERSION_NUMBER = 0;

@@ -4,9 +4,9 @@ import android.graphics.Color;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    public static HashMap ix(String str) {
+    public static HashMap iD(String str) {
         HashMap hashMap = new HashMap();
         String replace = str.replace("?", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (replace.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
@@ -26,7 +26,7 @@ public class e {
         return hashMap;
     }
 
-    public static boolean fo(int i) {
+    public static boolean fp(int i) {
         return 1.0d - ((((0.299d * ((double) Color.red(i))) + (0.587d * ((double) Color.green(i)))) + (0.114d * ((double) Color.blue(i)))) / 255.0d) >= 0.5d;
     }
 }

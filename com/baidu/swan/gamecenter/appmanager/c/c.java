@@ -5,20 +5,20 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class c extends b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public c(String str) {
-        super("onSuccess", 0, g(null, str));
+        super("onSuccess", 0, h(null, str));
     }
 
     public c(Download download) {
-        super("onSuccess", 0, g(d(download), ""));
+        super("onSuccess", 0, h(d(download), ""));
     }
 
     public c(Collection<Download> collection) {
-        super("onSuccess", 0, g(k(collection), ""));
+        super("onSuccess", 0, h(k(collection), ""));
     }
 
     private static JSONArray k(Collection<Download> collection) {
@@ -38,7 +38,7 @@ public class c extends b {
         JSONObject jSONObject = new JSONObject();
         if (download != null) {
             try {
-                jSONObject.put("apkId", new com.baidu.swan.gamecenter.appmanager.download.a(download).aTi());
+                jSONObject.put("apkId", new com.baidu.swan.gamecenter.appmanager.download.a(download).aTl());
                 jSONObject.put("downloadId", download.getId());
                 jSONObject.put("packageName", download.getKeyByUser());
                 jSONObject.put("url", download.getUrl());
@@ -55,7 +55,7 @@ public class c extends b {
         return jSONObject;
     }
 
-    private static String g(Object obj, String str) {
+    private static String h(Object obj, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("data", obj);

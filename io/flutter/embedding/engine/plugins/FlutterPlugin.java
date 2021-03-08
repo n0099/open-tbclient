@@ -6,10 +6,10 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.platform.PlatformViewRegistry;
 import io.flutter.view.TextureRegistry;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public interface FlutterPlugin {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface FlutterAssets {
         String getAssetFilePathByName(@NonNull String str);
 
@@ -24,7 +24,7 @@ public interface FlutterPlugin {
 
     void onDetachedFromEngine(@NonNull FlutterPluginBinding flutterPluginBinding);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class FlutterPluginBinding {
         private final Context applicationContext;
         private final BinaryMessenger binaryMessenger;

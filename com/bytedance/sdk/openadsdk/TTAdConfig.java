@@ -1,14 +1,15 @@
 package com.bytedance.sdk.openadsdk;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
 import com.bytedance.sdk.adnet.e.a;
+import com.bytedance.sdk.openadsdk.core.p;
 /* loaded from: classes6.dex */
 public final class TTAdConfig {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6080a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f6081b;
+    private String f4071a;
+    private String b;
     private boolean c;
     private String d;
     private String e;
@@ -38,19 +39,22 @@ public final class TTAdConfig {
     }
 
     public String getAppId() {
-        return this.f6080a;
+        return this.f4071a;
     }
 
     public void setAppId(String str) {
-        this.f6080a = str;
+        this.f4071a = str;
     }
 
     public String getAppName() {
-        return this.f6081b;
+        if (this.b == null || this.b.isEmpty()) {
+            this.b = a(p.a());
+        }
+        return this.b;
     }
 
     public void setAppName(String str) {
-        this.f6081b = str;
+        this.b = str;
     }
 
     public boolean isPaid() {
@@ -181,14 +185,21 @@ public final class TTAdConfig {
         this.r = tTCustomController;
     }
 
+    private String a(Context context) {
+        try {
+            PackageManager packageManager = context.getApplicationContext().getPackageManager();
+            return (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 128));
+        } catch (PackageManager.NameNotFoundException e) {
+            return "";
+        }
+    }
+
     /* loaded from: classes6.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6082a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f6083b;
+        private String f4072a;
+        private String b;
         private String d;
         private String e;
         private int[] j;
@@ -207,12 +218,12 @@ public final class TTAdConfig {
         private boolean q = false;
 
         public Builder appId(String str) {
-            this.f6082a = str;
+            this.f4072a = str;
             return this;
         }
 
         public Builder appName(String str) {
-            this.f6083b = str;
+            this.b = str;
             return this;
         }
 
@@ -304,8 +315,8 @@ public final class TTAdConfig {
 
         public TTAdConfig build() {
             TTAdConfig tTAdConfig = new TTAdConfig();
-            tTAdConfig.setAppId(this.f6082a);
-            tTAdConfig.setAppName(this.f6083b);
+            tTAdConfig.setAppId(this.f4072a);
+            tTAdConfig.setAppName(this.b);
             tTAdConfig.setPaid(this.c);
             tTAdConfig.setKeywords(this.d);
             tTAdConfig.setData(this.e);

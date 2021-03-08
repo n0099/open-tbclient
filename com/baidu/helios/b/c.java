@@ -4,10 +4,10 @@ import com.baidu.helios.ids.b;
 import com.baidu.helios.ids.gaid.GaidProvider;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class c implements b.a {
     @Override // com.baidu.helios.ids.b.a
-    public List<com.baidu.helios.ids.a> vp() {
+    public List<com.baidu.helios.ids.a> vs() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new com.baidu.helios.ids.a.a());
         arrayList.add(new com.baidu.helios.ids.c.a());

@@ -16,7 +16,7 @@ import com.baidu.swan.apps.scheme.j;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/showToast");
@@ -24,7 +24,7 @@ public class e extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (eVar != null && eVar.ajP()) {
+        if (eVar != null && eVar.ajS()) {
             if (DEBUG) {
                 Log.d("ShowToastAction", "ShowToastAction does not supported when app is invisible.");
             }
@@ -46,7 +46,7 @@ public class e extends aa {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("type", "1");
-            final int aN = h.aN(jSONObject);
+            final int aP = h.aP(jSONObject);
             final String optString2 = jSONObject.optString("message");
             if (TextUtils.isEmpty(optString2)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -94,7 +94,7 @@ public class e extends aa {
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.e.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aN, optBoolean);
+                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aP, optBoolean);
                         }
                     });
                     break;
@@ -102,7 +102,7 @@ public class e extends aa {
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.e.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aN, a2, optBoolean);
+                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aP, a2, optBoolean);
                         }
                     });
                     break;
@@ -110,7 +110,7 @@ public class e extends aa {
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.e.3
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.b(context, callbackHandler, unitedSchemeEntity, optString2, aN, optBoolean);
+                            e.this.b(context, callbackHandler, unitedSchemeEntity, optString2, aP, optBoolean);
                         }
                     });
                     break;
@@ -118,7 +118,7 @@ public class e extends aa {
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.e.e.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aN, optString5, optString4);
+                            e.this.a(context, callbackHandler, unitedSchemeEntity, optString2, aP, optString5, optString4);
                         }
                     });
                     break;
@@ -139,32 +139,32 @@ public class e extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, final CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, @NonNull String str2, final String str3) {
-        com.baidu.swan.apps.res.widget.b.d.dm(context).h(str).i(str2).jj(i).b(new d.a() { // from class: com.baidu.swan.apps.scheme.actions.e.e.5
+        com.baidu.swan.apps.res.widget.b.d.dl(context).h(str).i(str2).jk(i).b(new d.a() { // from class: com.baidu.swan.apps.scheme.actions.e.e.5
             @Override // com.baidu.swan.apps.res.widget.b.d.a
-            public void agr() {
+            public void agu() {
                 if (!TextUtils.isEmpty(str3)) {
                     callbackHandler.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             }
-        }).aIx();
+        }).aIA();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).jj(i).hc(z).jf(2).aIs();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).jk(i).hc(z).jg(2).aIv();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, h.P(str, 14)).i(drawable).jj(i).hc(z).aIv();
+        com.baidu.swan.apps.res.widget.b.d.a(context, h.Q(str, 14)).i(drawable).jk(i).hc(z).aIy();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, h.P(str, 14)).jj(i).hc(z).aIw();
+        com.baidu.swan.apps.res.widget.b.d.a(context, h.Q(str, 14)).jk(i).hc(z).aIz();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 

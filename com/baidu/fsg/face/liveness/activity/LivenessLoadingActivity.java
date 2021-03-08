@@ -30,10 +30,8 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     public static final String TAG = "LivenessLoadingActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    private LoadingDialog f2127a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private i f2128b;
+    private LoadingDialog f1648a;
+    private i b;
     private g c;
     private LivenessRecogDTO d;
     private boolean e;
@@ -59,8 +57,8 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
             finish();
         }
         if (this.d.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
-            this.f2128b.execBean();
-            RimStatisticsUtil.onEventStart(d.f2300b);
+            this.b.execBean();
+            RimStatisticsUtil.onEventStart(d.b);
             LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态开始  ");
             return;
         }
@@ -86,7 +84,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
         int optInt;
         switch (i) {
             case 1:
-                RimStatisticsUtil.onEventEndWithValue(d.f2300b, 0, this.livenessRecogDTO != null ? this.livenessRecogDTO.getSpno() : "");
+                RimStatisticsUtil.onEventEndWithValue(d.b, 0, this.livenessRecogDTO != null ? this.livenessRecogDTO.getSpno() : "");
                 LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态结束  0");
                 if (!TextUtils.isEmpty(str)) {
                     try {
@@ -154,7 +152,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
         switch (i) {
             case 1:
                 c();
-                RimStatisticsUtil.onEventEndWithValue(d.f2300b, i2, this.livenessRecogDTO != null ? this.livenessRecogDTO.getSpno() : "");
+                RimStatisticsUtil.onEventEndWithValue(d.b, i2, this.livenessRecogDTO != null ? this.livenessRecogDTO.getSpno() : "");
                 LogUtil.d("hello", "onEventStart(StatServiceEvent.QUERYVIDEO):  查询视频状态结束  " + i2);
                 LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                 livenessRecogResult.setResultCode(i2);
@@ -186,8 +184,8 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a() {
-        this.f2128b = new i(this);
-        this.f2128b.setResponseCallback(this);
+        this.b = new i(this);
+        this.b.setResponseCallback(this);
         this.c = new g(this);
         this.c.setResponseCallback(this);
         this.d = (LivenessRecogDTO) c.a().a("request_data");
@@ -199,19 +197,19 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
     }
 
     private void a(Context context) {
-        if (this.f2127a == null) {
-            this.f2127a = new LoadingDialog(context);
-            this.f2127a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.f2127a.setCancelable(false);
+        if (this.f1648a == null) {
+            this.f1648a = new LoadingDialog(context);
+            this.f1648a.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
+            this.f1648a.setCancelable(false);
         }
-        if ((context instanceof Activity) && isUseable((Activity) context) && !this.f2127a.isShowing()) {
-            this.f2127a.show();
+        if ((context instanceof Activity) && isUseable((Activity) context) && !this.f1648a.isShowing()) {
+            this.f1648a.show();
         }
     }
 
     private void c() {
-        if (isUseable(this) && this.f2127a.isShowing()) {
-            this.f2127a.dismiss();
+        if (isUseable(this) && this.f1648a.isShowing()) {
+            this.f1648a.dismiss();
             finish();
         }
     }

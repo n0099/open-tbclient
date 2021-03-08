@@ -18,14 +18,12 @@ import com.ksad.lottie.model.content.GradientType;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class g implements d, j, a.InterfaceC1067a {
+public class g implements d, j, a.InterfaceC1084a {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f7941a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.ksad.lottie.model.layer.a f7942b;
+    private final String f5313a;
+    private final com.ksad.lottie.model.layer.a b;
     private final LongSparseArray<LinearGradient> c = new LongSparseArray<>();
     private final LongSparseArray<RadialGradient> d = new LongSparseArray<>();
     private final Matrix e = new Matrix();
@@ -44,8 +42,8 @@ public class g implements d, j, a.InterfaceC1067a {
     private final int q;
 
     public g(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.d dVar) {
-        this.f7942b = aVar;
-        this.f7941a = dVar.a();
+        this.b = aVar;
+        this.f5313a = dVar.a();
         this.p = fVar;
         this.j = dVar.b();
         this.f.setFillType(dVar.c());
@@ -87,11 +85,11 @@ public class g implements d, j, a.InterfaceC1067a {
         PointF e = this.m.e();
         PointF e2 = this.n.e();
         com.ksad.lottie.model.content.c e3 = this.k.e();
-        int[] b2 = e3.b();
+        int[] b = e3.b();
         float[] a2 = e3.a();
         float f = e.x;
         float f2 = e.y;
-        RadialGradient radialGradient2 = new RadialGradient(f, f2, (float) Math.hypot(e2.x - f, e2.y - f2), b2, a2, Shader.TileMode.CLAMP);
+        RadialGradient radialGradient2 = new RadialGradient(f, f2, (float) Math.hypot(e2.x - f, e2.y - f2), b, a2, Shader.TileMode.CLAMP);
         this.d.put(d, radialGradient2);
         return radialGradient2;
     }
@@ -107,7 +105,7 @@ public class g implements d, j, a.InterfaceC1067a {
         return round3 != 0 ? i * 31 * round3 : i;
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1084a
     public void a() {
         this.p.invalidateSelf();
     }
@@ -120,10 +118,10 @@ public class g implements d, j, a.InterfaceC1067a {
             this.f.addPath(this.i.get(i2).d(), matrix);
         }
         this.f.computeBounds(this.h, false);
-        Shader b2 = this.j == GradientType.Linear ? b() : c();
+        Shader b = this.j == GradientType.Linear ? b() : c();
         this.e.set(matrix);
-        b2.setLocalMatrix(this.e);
-        this.g.setShader(b2);
+        b.setLocalMatrix(this.e);
+        this.g.setShader(b);
         if (this.o != null) {
             this.g.setColorFilter(this.o.e());
         }

@@ -26,17 +26,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private static c eGg;
+    private static c eHH;
     private final HashMap<String, e> mSwitchs = new HashMap<>();
-    private final HashMap<BdUniqueId, com.baidu.tbadk.a.a.a> eGh = new HashMap<>();
-    private final HashMap<BdUniqueId, e> eGi = new HashMap<>();
+    private final HashMap<BdUniqueId, com.baidu.tbadk.a.a.a> eHI = new HashMap<>();
+    private final HashMap<BdUniqueId, e> eHJ = new HashMap<>();
 
     private c() {
-        biI();
-        D(biH());
+        biK();
+        D(biJ());
     }
 
-    private void biI() {
+    private void biK() {
         a(new q());
         a(new g());
         a(new h());
@@ -55,62 +55,62 @@ public class c {
         a(new o());
     }
 
-    public static c biJ() {
-        if (eGg == null) {
+    public static c biL() {
+        if (eHH == null) {
             synchronized (c.class) {
-                if (eGg == null) {
-                    eGg = new c();
+                if (eHH == null) {
+                    eHH = new c();
                 }
             }
         }
-        return eGg;
+        return eHH;
     }
 
     protected void a(com.baidu.tbadk.a.a.a aVar) {
-        if (aVar != null && aVar.bjD() != null) {
-            this.eGh.put(aVar.bjD(), aVar);
+        if (aVar != null && aVar.bjF() != null) {
+            this.eHI.put(aVar.bjF(), aVar);
         }
     }
 
-    public Map<BdUniqueId, e> biK() {
-        return this.eGi;
+    public Map<BdUniqueId, e> biM() {
+        return this.eHJ;
     }
 
-    private void biL() {
-        this.eGi.clear();
-        for (BdUniqueId bdUniqueId : this.eGh.keySet()) {
-            this.eGi.put(bdUniqueId, j(bdUniqueId));
+    private void biN() {
+        this.eHJ.clear();
+        for (BdUniqueId bdUniqueId : this.eHI.keySet()) {
+            this.eHJ.put(bdUniqueId, j(bdUniqueId));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e j(BdUniqueId bdUniqueId) {
-        com.baidu.tbadk.a.a.a aVar = this.eGh.get(bdUniqueId);
+        com.baidu.tbadk.a.a.a aVar = this.eHI.get(bdUniqueId);
         if (aVar == null) {
             return null;
         }
-        return aVar.bjF();
+        return aVar.bjH();
     }
 
-    private void biM() {
-        for (Map.Entry<BdUniqueId, com.baidu.tbadk.a.a.a> entry : this.eGh.entrySet()) {
+    private void biO() {
+        for (Map.Entry<BdUniqueId, com.baidu.tbadk.a.a.a> entry : this.eHI.entrySet()) {
             com.baidu.tbadk.a.a.a value = entry.getValue();
             if (value != null) {
                 b(value);
             }
         }
-        biL();
+        biN();
     }
 
     private void b(com.baidu.tbadk.a.a.a aVar) {
         e eVar = null;
         if (aVar != null) {
-            ArrayList<String> bjE = aVar.bjE();
-            if (y.isEmpty(bjE)) {
+            ArrayList<String> bjG = aVar.bjG();
+            if (y.isEmpty(bjG)) {
                 aVar.a((e) null);
                 return;
             }
-            Iterator<String> it = bjE.iterator();
+            Iterator<String> it = bjG.iterator();
             while (it.hasNext()) {
                 eVar = this.mSwitchs.get(it.next());
                 if (eVar != null) {
@@ -121,11 +121,11 @@ public class c {
         }
     }
 
-    private static String biN() {
+    private static String biP() {
         return "ubs_abtest_config";
     }
 
-    public synchronized e zq(String str) {
+    public synchronized e zx(String str) {
         return this.mSwitchs.get(str);
     }
 
@@ -135,11 +135,11 @@ public class c {
             if (hashMap != null) {
                 this.mSwitchs.putAll(hashMap);
             }
-            biM();
+            biO();
         }
     }
 
-    public void zr(String str) {
+    public void zy(String str) {
         try {
             if (TextUtils.isEmpty(str)) {
                 M(null);
@@ -152,10 +152,10 @@ public class c {
 
     public void M(JSONArray jSONArray) {
         try {
-            String biN = biN();
+            String biP = biP();
             if (jSONArray == null) {
                 this.mSwitchs.clear();
-                com.baidu.tbadk.core.sharedPref.b.brQ().remove(biN);
+                com.baidu.tbadk.core.sharedPref.b.brR().remove(biP);
                 return;
             }
             HashMap<String, e> hashMap = new HashMap<>();
@@ -167,23 +167,23 @@ public class c {
                 }
             }
             D(hashMap);
-            com.baidu.tbadk.core.sharedPref.b.brQ().putString(biN, jSONArray.toString());
-            biO();
+            com.baidu.tbadk.core.sharedPref.b.brR().putString(biP, jSONArray.toString());
+            biQ();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void biO() {
+    private void biQ() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921506, 1));
-        com.baidu.tbadk.core.sharedPref.b.brQ().putInt("static_opt_open", d.biS() ? 1 : 0);
+        com.baidu.tbadk.core.sharedPref.b.brR().putInt("static_opt_open", d.biU() ? 1 : 0);
     }
 
-    private HashMap<String, e> biH() {
+    private HashMap<String, e> biJ() {
         HashMap<String, e> hashMap = new HashMap<>();
         try {
-            biN();
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.brQ().getString(biN(), "[]"));
+            biP();
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.brR().getString(biP(), "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 if (jSONObject != null) {

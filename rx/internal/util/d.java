@@ -1,26 +1,26 @@
 package rx.internal.util;
 
 import rx.j;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class d<T> extends j<T> {
-    final rx.e<? super T> qDy;
+    final rx.e<? super T> qEa;
 
     public d(rx.e<? super T> eVar) {
-        this.qDy = eVar;
+        this.qEa = eVar;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.qDy.onNext(t);
+        this.qEa.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.qDy.onError(th);
+        this.qEa.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.qDy.onCompleted();
+        this.qEa.onCompleted();
     }
 }

@@ -2,9 +2,9 @@ package kotlin.collections;
 
 import java.util.Iterator;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public abstract class w implements Iterator<Float> {
-    public abstract float eLj();
+    public abstract float eKR();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class w implements Iterator<Float> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eLi */
+    /* renamed from: eKQ */
     public final Float next() {
-        return Float.valueOf(eLj());
+        return Float.valueOf(eKR());
     }
 }

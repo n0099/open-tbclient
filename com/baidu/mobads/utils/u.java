@@ -3,17 +3,17 @@ package com.baidu.mobads.utils;
 import android.content.Context;
 import android.provider.Settings;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class u extends com.baidu.mobads.f.a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f3510a;
+    final /* synthetic */ Context f2495a;
     final /* synthetic */ t c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar, Context context) {
         this.c = tVar;
-        this.f3510a = context;
+        this.f2495a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class u extends com.baidu.mobads.f.a<String> {
         String str2;
         try {
             this.c.m = "1";
-            String string = Settings.System.getString(this.f3510a.getContentResolver(), "bd_setting_i");
+            String string = Settings.System.getString(this.f2495a.getContentResolver(), "bd_setting_i");
             e = this.c.e(string);
             if (e) {
                 this.c.m = "2";
@@ -40,7 +40,7 @@ public class u extends com.baidu.mobads.f.a<String> {
                 str2 = string;
             }
             try {
-                String[] strArr = this.f3510a.getPackageManager().getPackageInfo(this.f3510a.getPackageName(), 4096).requestedPermissions;
+                String[] strArr = this.f2495a.getPackageManager().getPackageInfo(this.f2495a.getPackageName(), 4096).requestedPermissions;
                 int i = 0;
                 while (true) {
                     if (i >= strArr.length) {

@@ -13,19 +13,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private HttpMessageListener icA = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1
+    private InterfaceC0697a iel;
+    private BdAsyncTask iem;
+    private HttpMessageListener ien = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT) { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(final HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage) {
                 final List<n> effectList = ((AlaGetEnterEffectResponsedMessage) httpResponsedMessage).getEffectList();
                 if (y.isEmpty(effectList)) {
-                    a.this.icy.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                    a.this.iel.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     return;
                 }
-                a.this.icz = new BdAsyncTask() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1.1
+                a.this.iem = new BdAsyncTask() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.a.1.1
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     protected Object doInBackground(Object[] objArr) {
                         for (n nVar : effectList) {
@@ -47,44 +49,42 @@ public class a {
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onPostExecute(Object obj) {
                         super.onPostExecute(obj);
-                        a.this.icy.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                        a.this.iel.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     }
 
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onCancelled() {
                         super.onCancelled();
-                        a.this.icy.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
+                        a.this.iel.a((AlaGetEnterEffectResponsedMessage) httpResponsedMessage);
                     }
                 }.execute(new Object[0]);
             }
         }
     };
-    private InterfaceC0691a icy;
-    private BdAsyncTask icz;
     private TbPageContext mPageContext;
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.entereffect.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public interface InterfaceC0691a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0697a {
         void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0691a interfaceC0691a) {
+    public a(TbPageContext tbPageContext, InterfaceC0697a interfaceC0697a) {
         this.mPageContext = tbPageContext;
-        this.icy = interfaceC0691a;
-        this.mPageContext.registerListener(this.icA);
+        this.iel = interfaceC0697a;
+        this.mPageContext.registerListener(this.ien);
     }
 
-    public void cns() {
+    public void cny() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         this.mPageContext.sendMessage(httpMessage);
     }
 
     public void onDestory() {
-        if (this.icz != null) {
-            this.icz.cancel();
+        if (this.iem != null) {
+            this.iem.cancel();
         }
     }
 }

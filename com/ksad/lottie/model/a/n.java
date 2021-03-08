@@ -7,7 +7,7 @@ import java.util.List;
 abstract class n<V, O> implements m<V, O> {
 
     /* renamed from: a  reason: collision with root package name */
-    final List<com.ksad.lottie.e.a<V>> f8050a;
+    final List<com.ksad.lottie.e.a<V>> f5377a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(V v) {
@@ -16,13 +16,13 @@ abstract class n<V, O> implements m<V, O> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(List<com.ksad.lottie.e.a<V>> list) {
-        this.f8050a = list;
+        this.f5377a = list;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (!this.f8050a.isEmpty()) {
-            sb.append("values=").append(Arrays.toString(this.f8050a.toArray()));
+        if (!this.f5377a.isEmpty()) {
+            sb.append("values=").append(Arrays.toString(this.f5377a.toArray()));
         }
         return sb.toString();
     }

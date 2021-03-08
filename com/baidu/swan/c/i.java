@@ -11,18 +11,18 @@ import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import java.io.File;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class i implements b {
-    private String dIo;
+    private String dJP;
     private final Context mContext = AppRuntime.getAppContext();
     @NonNull
     private final SharedPreferences mSp;
 
     public i(String str) {
-        this.dIo = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? DefaultSharedPrefsWrapper.SP_FILE_DEFAULT : str;
-        if (DefaultSharedPrefsWrapper.SP_FILE_DEFAULT.equals(this.dIo)) {
+        this.dJP = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? DefaultSharedPrefsWrapper.SP_FILE_DEFAULT : str;
+        if (DefaultSharedPrefsWrapper.SP_FILE_DEFAULT.equals(this.dJP)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(this.mContext);
-            this.dIo = this.mContext.getPackageName() + "_preferences";
+            this.dJP = this.mContext.getPackageName() + "_preferences";
             return;
         }
         this.mSp = this.mContext.getSharedPreferences(str, 0);
@@ -36,16 +36,16 @@ public class i implements b {
     @Override // com.baidu.swan.c.b
     @NonNull
     public File getFile() {
-        return ax(this.mContext, this.dIo);
+        return ax(this.mContext, this.dJP);
     }
 
     @Override // com.baidu.swan.c.b
-    public boolean aMf() {
+    public boolean aMi() {
         return false;
     }
 
     @Override // com.baidu.swan.c.b
-    public Set<String> aMg() {
+    public Set<String> aMj() {
         return this.mSp.getAll().keySet();
     }
 

@@ -8,7 +8,7 @@ import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f extends b {
     public f(j jVar) {
         super(jVar, "/swanAPI/topFavor");
@@ -16,9 +16,9 @@ public class f extends b {
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(com.baidu.swan.apps.runtime.e eVar, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
-        SwanFavorDataManager.auO().c(this.dGT, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.scheme.actions.b.f.1
+        SwanFavorDataManager.auR().c(this.dIu, 1, new com.baidu.swan.apps.favordata.a.a() { // from class: com.baidu.swan.apps.scheme.actions.b.f.1
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void aop() {
+            public void aos() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "1");
@@ -31,7 +31,7 @@ public class f extends b {
             }
 
             @Override // com.baidu.swan.apps.favordata.a.a
-            public void aoq() {
+            public void aot() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "0");
@@ -52,8 +52,8 @@ public class f extends b {
             return false;
         }
         try {
-            this.dGT = new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.dGT);
+            this.dIu = new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.dIu);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

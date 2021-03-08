@@ -8,8 +8,8 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
     public boolean hasMore;
-    public int jxK;
-    public List<n> jxL;
+    public int jzt;
+    public List<n> jzu;
     public String key;
     public int labelId;
     public int pn;
@@ -19,9 +19,9 @@ public class c {
         if (y.isEmpty(list)) {
             return 0;
         }
-        if (y.isEmpty(this.jxL)) {
-            this.jxL = new LinkedList();
-            this.jxL.addAll(list);
+        if (y.isEmpty(this.jzu)) {
+            this.jzu = new LinkedList();
+            this.jzu.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             n nVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.jxL.size()) {
+                if (i2 >= this.jzu.size()) {
                     z = false;
                     break;
                 }
-                n nVar2 = this.jxL.get(i2);
+                n nVar2 = this.jzu.get(i2);
                 if (nVar != null && (nVar instanceof b) && nVar2 != null && (nVar2 instanceof b)) {
-                    cb bln = ((b) nVar).bln();
-                    cb bln2 = ((b) nVar2).bln();
-                    if (bln != null && bln2 != null && bln.getTid() != null && bln2.getTid() != null && bln.getTid().equals(bln2.getTid())) {
+                    cb blp = ((b) nVar).blp();
+                    cb blp2 = ((b) nVar2).blp();
+                    if (blp != null && blp2 != null && blp.getTid() != null && blp2.getTid() != null && blp.getTid().equals(blp2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            y.addAll(this.jxL, 0, linkedList);
+            y.addAll(this.jzu, 0, linkedList);
         }
         return linkedList.size();
     }

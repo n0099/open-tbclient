@@ -2,7 +2,7 @@ package com.baidu.ar;
 
 import android.opengl.EGLContext;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class DefaultParams {
     private boolean aA = true;
     private boolean aB = true;

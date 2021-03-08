@@ -6,7 +6,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T> {
     private static final long serialVersionUID = -4403180040475402120L;
     boolean done;

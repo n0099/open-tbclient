@@ -57,7 +57,7 @@ public class Heartbeat {
                             Intent intent = new Intent(Heartbeat.this.mContext, a.class);
                             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                             intent.setPackage(Heartbeat.this.mContext.getPackageName());
-                            a.ao(Heartbeat.this.mContext).e(Heartbeat.this.mContext, intent);
+                            a.an(Heartbeat.this.mContext).e(Heartbeat.this.mContext, intent);
                             Heartbeat.this.mHandler.postDelayed(BoxHeartbeat.this.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
                         }
                     });

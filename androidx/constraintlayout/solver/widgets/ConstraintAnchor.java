@@ -4,7 +4,7 @@ import androidx.constraintlayout.solver.Cache;
 import androidx.constraintlayout.solver.SolverVariable;
 import java.util.ArrayList;
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class ConstraintAnchor {
     private static final boolean ALLOW_BINARY = false;
     public static final int AUTO_CONSTRAINT_CREATOR = 2;
@@ -22,20 +22,20 @@ public class ConstraintAnchor {
     private ConnectionType mConnectionType = ConnectionType.RELAXED;
     private int mConnectionCreator = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public enum ConnectionType {
         RELAXED,
         STRICT
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public enum Strength {
         NONE,
         STRONG,
         WEAK
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public enum Type {
         NONE,
         LEFT,

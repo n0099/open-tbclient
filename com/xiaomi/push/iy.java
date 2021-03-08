@@ -10,13 +10,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class iy {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Comparator f14163a = new a();
+    private static final Comparator f8455a = new a();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     private static class a implements Comparator {
         private a() {
         }
@@ -36,11 +36,11 @@ public final class iy {
         }
     }
 
-    public static int a(byte b2, byte b3) {
-        if (b2 < b3) {
+    public static int a(byte b, byte b2) {
+        if (b < b2) {
             return -1;
         }
-        return b3 < b2 ? 1 : 0;
+        return b2 < b ? 1 : 0;
     }
 
     public static int a(int i, int i2) {
@@ -77,7 +77,7 @@ public final class iy {
             return a2;
         }
         for (int i = 0; i < list.size(); i++) {
-            int compare = f14163a.compare(list.get(i), list2.get(i));
+            int compare = f8455a.compare(list.get(i), list2.get(i));
             if (compare != 0) {
                 return compare;
             }
@@ -90,20 +90,20 @@ public final class iy {
         if (a2 != 0) {
             return a2;
         }
-        TreeMap treeMap = new TreeMap(f14163a);
+        TreeMap treeMap = new TreeMap(f8455a);
         treeMap.putAll(map);
         Iterator it = treeMap.entrySet().iterator();
-        TreeMap treeMap2 = new TreeMap(f14163a);
+        TreeMap treeMap2 = new TreeMap(f8455a);
         treeMap2.putAll(map2);
         Iterator it2 = treeMap2.entrySet().iterator();
         while (it.hasNext() && it2.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             Map.Entry entry2 = (Map.Entry) it2.next();
-            int compare = f14163a.compare(entry.getKey(), entry2.getKey());
+            int compare = f8455a.compare(entry.getKey(), entry2.getKey());
             if (compare != 0) {
                 return compare;
             }
-            int compare2 = f14163a.compare(entry.getValue(), entry2.getValue());
+            int compare2 = f8455a.compare(entry.getValue(), entry2.getValue());
             if (compare2 != 0) {
                 return compare2;
             }
@@ -116,14 +116,14 @@ public final class iy {
         if (a2 != 0) {
             return a2;
         }
-        TreeSet treeSet = new TreeSet(f14163a);
+        TreeSet treeSet = new TreeSet(f8455a);
         treeSet.addAll(set);
-        TreeSet treeSet2 = new TreeSet(f14163a);
+        TreeSet treeSet2 = new TreeSet(f8455a);
         treeSet2.addAll(set2);
         Iterator it = treeSet.iterator();
         Iterator it2 = treeSet2.iterator();
         while (it.hasNext() && it2.hasNext()) {
-            int compare = f14163a.compare(it.next(), it2.next());
+            int compare = f8455a.compare(it.next(), it2.next());
             if (compare != 0) {
                 return compare;
             }
@@ -156,12 +156,12 @@ public final class iy {
         return 0;
     }
 
-    public static String a(byte b2) {
-        return Integer.toHexString((b2 | GDiffPatcher.EOF) & 511).toUpperCase().substring(1);
+    public static String a(byte b) {
+        return Integer.toHexString((b | GDiffPatcher.EOF) & 511).toUpperCase().substring(1);
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
-        return m504a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m505a(byteBuffer));
+        return m483a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m484a(byteBuffer));
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -181,13 +181,13 @@ public final class iy {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m504a(ByteBuffer byteBuffer) {
+    public static boolean m483a(ByteBuffer byteBuffer) {
         return byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m505a(ByteBuffer byteBuffer) {
-        if (m504a(byteBuffer)) {
+    public static byte[] m484a(ByteBuffer byteBuffer) {
+        if (m483a(byteBuffer)) {
             return byteBuffer.array();
         }
         byte[] bArr = new byte[byteBuffer.remaining()];

@@ -1,13 +1,12 @@
 package com.baidu.ufosdk.b;
 
 import android.os.Build;
-import androidx.core.internal.view.SupportMenu;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static String a() {
         String str;
@@ -36,7 +35,7 @@ public final class b {
             }
             String linkedList = eVar.toString();
             try {
-                return linkedList.length() > 65535 ? linkedList.substring(linkedList.length() - SupportMenu.USER_MASK, linkedList.length() - 1) : linkedList;
+                return linkedList.length() > 65535 ? linkedList.substring(linkedList.length() - 65535, linkedList.length() - 1) : linkedList;
             } catch (IOException e) {
                 return str;
             }

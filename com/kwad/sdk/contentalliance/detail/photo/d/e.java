@@ -11,10 +11,8 @@ import com.kwad.sdk.contentalliance.detail.photo.d.b;
 public class e extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    b.a f8470a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private b f8471b;
+    b.a f5648a;
+    private b b;
     private d c;
     private a d;
 
@@ -27,7 +25,7 @@ public class e extends Dialog {
 
     public e(Context context, d dVar) {
         super(context);
-        this.f8470a = new b.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.e.1
+        this.f5648a = new b.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.d.e.1
             @Override // com.kwad.sdk.contentalliance.detail.photo.d.b.a
             public void a() {
                 e.this.dismiss();
@@ -58,10 +56,10 @@ public class e extends Dialog {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         requestWindowFeature(1);
-        this.f8471b = new b(getContext());
-        this.f8471b.a(this.c);
-        setContentView(this.f8471b);
-        this.f8471b.a(this.f8470a);
+        this.b = new b(getContext());
+        this.b.a(this.c);
+        setContentView(this.b);
+        this.b.a(this.f5648a);
         setCanceledOnTouchOutside(true);
         getWindow().setBackgroundDrawable(new ColorDrawable(0));
         getWindow().setLayout(-1, -1);
@@ -70,8 +68,8 @@ public class e extends Dialog {
     @Override // android.app.Dialog, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.f8471b.b(this.f8470a);
-        this.f8471b.a();
+        this.b.b(this.f5648a);
+        this.b.a();
     }
 
     @Override // android.app.Dialog

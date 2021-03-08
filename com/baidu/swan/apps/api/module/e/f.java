@@ -6,13 +6,13 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.ao.ak;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f extends com.baidu.swan.apps.api.a.d {
     public f(@NonNull com.baidu.swan.apps.api.a.b bVar) {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b kA(String str) {
+    public com.baidu.swan.apps.api.c.b kH(String str) {
         if (DEBUG) {
             Log.d("Api-PullDownRefresh", "stop pull down refresh");
         }
@@ -33,21 +33,21 @@ public class f extends com.baidu.swan.apps.api.a.d {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.f.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.core.d.f afX = com.baidu.swan.apps.v.f.aAl().afX();
-                if (afX == null) {
+                com.baidu.swan.apps.core.d.f aga = com.baidu.swan.apps.v.f.aAo().aga();
+                if (aga == null) {
                     com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "manager is null");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
-                } else if (!(afX.apx() instanceof com.baidu.swan.apps.core.d.e)) {
+                } else if (!(aga.apA() instanceof com.baidu.swan.apps.core.d.e)) {
                     com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "top fragment error");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                 } else {
-                    com.baidu.swan.apps.core.d.e eVar = (com.baidu.swan.apps.core.d.e) afX.apx();
-                    if (eVar.aiO() == null) {
+                    com.baidu.swan.apps.core.d.e eVar = (com.baidu.swan.apps.core.d.e) aga.apA();
+                    if (eVar.aiR() == null) {
                         com.baidu.swan.apps.console.c.e("Api-PullDownRefresh", "view is null");
                         f.this.a(optString, new com.baidu.swan.apps.api.c.b(1001));
                         return;
                     }
-                    eVar.aiO().gH(false);
+                    eVar.aiR().gH(false);
                     com.baidu.swan.apps.console.c.i("Api-PullDownRefresh", "refresh complete");
                     f.this.a(optString, new com.baidu.swan.apps.api.c.b(0));
                 }

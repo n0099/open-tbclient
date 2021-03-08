@@ -16,7 +16,7 @@ import java.util.Iterator;
 public class c extends a implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4424a = 0;
+    public static int f3063a = 0;
     private SensorManager f;
     private Sensor g;
     private boolean h;
@@ -36,15 +36,13 @@ public class c extends a implements SensorEventListener {
     private com.baidu.platform.comapi.wnplatform.model.datastruct.a o = new com.baidu.platform.comapi.wnplatform.model.datastruct.a();
     private float[] p = new float[9];
     private float[] q = new float[3];
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f4425b = com.baidu.platform.comapi.wnplatform.o.b.a.a();
+    private Context b = com.baidu.platform.comapi.wnplatform.o.b.a.a();
 
     public c() {
         this.f = null;
         this.g = null;
         try {
-            this.f = (SensorManager) this.f4425b.getSystemService("sensor");
+            this.f = (SensorManager) this.b.getSystemService("sensor");
             this.g = this.f.getDefaultSensor(11);
         } catch (Exception e) {
             this.f = null;
@@ -81,7 +79,7 @@ public class c extends a implements SensorEventListener {
         synchronized (this.i) {
             if (this.h) {
                 z = true;
-            } else if (((SensorManager) this.f4425b.getSystemService("sensor")) == null) {
+            } else if (((SensorManager) this.b.getSystemService("sensor")) == null) {
                 z = false;
             } else {
                 this.h = c();
@@ -95,7 +93,7 @@ public class c extends a implements SensorEventListener {
         SensorManager sensorManager;
         boolean z;
         try {
-            sensorManager = (SensorManager) this.f4425b.getSystemService("sensor");
+            sensorManager = (SensorManager) this.b.getSystemService("sensor");
         } catch (Exception e) {
             sensorManager = null;
         }
@@ -127,7 +125,7 @@ public class c extends a implements SensorEventListener {
         if (this != null) {
             synchronized (this.i) {
                 if (this.h) {
-                    SensorManager sensorManager = (SensorManager) this.f4425b.getSystemService("sensor");
+                    SensorManager sensorManager = (SensorManager) this.b.getSystemService("sensor");
                     if (sensorManager != null) {
                         this.h = false;
                         try {
@@ -175,8 +173,8 @@ public class c extends a implements SensorEventListener {
         SensorManager.getRotationMatrix(this.p, null, this.l, this.m);
         SensorManager.getOrientation(this.p, this.q);
         synchronized (this.o) {
-            this.o.f4440a = this.l[0];
-            this.o.f4441b = this.l[1];
+            this.o.f3072a = this.l[0];
+            this.o.b = this.l[1];
             this.o.c = this.l[2];
             float degrees = (float) Math.toDegrees(this.q[0]);
             if (degrees < 0.0f && degrees > -180.0f) {
@@ -204,7 +202,7 @@ public class c extends a implements SensorEventListener {
                 e.printStackTrace();
             }
             try {
-                windowManager = (WindowManager) this.f4425b.getSystemService("window");
+                windowManager = (WindowManager) this.b.getSystemService("window");
             } catch (Exception e2) {
                 windowManager = null;
             }
@@ -234,8 +232,8 @@ public class c extends a implements SensorEventListener {
                             message.obj = this.r;
                             this.j.sendMessage(message);
                         }
-                        f4424a++;
-                        if (f4424a % 50 == 0) {
+                        f3063a++;
+                        if (f3063a % 50 == 0) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("head:" + this.r.d);
                             sb.append("pitch:" + this.r.e);

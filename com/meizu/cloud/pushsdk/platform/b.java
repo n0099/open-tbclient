@@ -12,8 +12,8 @@ public class b {
         try {
             byte[] digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes());
             StringBuffer stringBuffer = new StringBuffer();
-            for (byte b2 : digest) {
-                int i = b2 & 255;
+            for (byte b : digest) {
+                int i = b & 255;
                 if (i < 16) {
                     stringBuffer.append(0);
                 }

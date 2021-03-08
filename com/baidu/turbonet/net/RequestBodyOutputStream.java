@@ -2,21 +2,21 @@ package com.baidu.turbonet.net;
 
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RequestBodyOutputStream extends OutputStream {
     private String mBoundary;
-    private final PipedOutputStreamAndroid25 oRz;
+    private final PipedOutputStreamAndroid25 oTE;
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        this.oRz.write(i);
-        this.oRz.flush();
+        this.oTE.write(i);
+        this.oTE.flush();
     }
 
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
-        this.oRz.write(bArr, i, i2);
-        this.oRz.flush();
+        this.oTE.write(bArr, i, i2);
+        this.oTE.flush();
     }
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -25,6 +25,6 @@ public class RequestBodyOutputStream extends OutputStream {
             String str = "\r\n--" + this.mBoundary + "--\r\n";
             write(str.getBytes(), 0, str.getBytes().length);
         }
-        this.oRz.close();
+        this.oTE.close();
     }
 }

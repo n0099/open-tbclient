@@ -2,7 +2,7 @@ package com.baidu.live.gift;
 
 import android.content.DialogInterface;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface ah {
     void initView();
 

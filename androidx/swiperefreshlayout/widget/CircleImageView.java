@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class CircleImageView extends ImageView {
     private static final int FILL_SHADOW_COLOR = 1023410176;
     private static final int KEY_SHADOW_COLOR = 503316480;
@@ -89,7 +89,7 @@ public class CircleImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private class OvalShadow extends OvalShape {
         private RadialGradient mRadialGradient;
         private Paint mShadowPaint = new Paint();

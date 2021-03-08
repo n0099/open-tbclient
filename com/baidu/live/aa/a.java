@@ -2,11 +2,11 @@ package com.baidu.live.aa;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    void Fy();
+    void FB();
 
-    void cr(int i);
+    void cs(int i);
 
     boolean p(ab abVar);
 

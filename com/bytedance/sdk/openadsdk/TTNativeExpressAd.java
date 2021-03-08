@@ -47,6 +47,8 @@ public interface TTNativeExpressAd {
 
     void destroy();
 
+    TTAdDislike getDislikeDialog(Activity activity);
+
     View getExpressAdView();
 
     List<FilterWord> getFilterWords();

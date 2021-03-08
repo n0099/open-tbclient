@@ -2,39 +2,39 @@ package com.baidu.live.alablmsdk.config.a;
 
 import com.baidu.live.alablmsdk.config.enums.BLMViewShapeType;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    public BLMViewShapeType axC;
-    public int axD;
-    public d axE;
+    public BLMViewShapeType azc;
+    public int azd;
+    public d aze;
     public String tag;
 
     public a(String str, int i, BLMViewShapeType bLMViewShapeType, d dVar) {
         this.tag = str;
-        this.axD = i;
-        this.axE = dVar;
-        this.axC = bLMViewShapeType;
+        this.azd = i;
+        this.aze = dVar;
+        this.azc = bLMViewShapeType;
     }
 
-    public String r(float f) {
-        if (this.axE == null) {
+    public String v(float f) {
+        if (this.aze == null) {
             return "";
         }
-        if (this.axD < 0) {
-            this.axD = 0;
+        if (this.azd < 0) {
+            this.azd = 0;
         }
-        int q = com.baidu.live.alablmsdk.a.b.q(this.axE.x * f);
-        int q2 = com.baidu.live.alablmsdk.a.b.q(this.axE.y * f);
-        int q3 = com.baidu.live.alablmsdk.a.b.q(this.axE.width * f);
-        int q4 = com.baidu.live.alablmsdk.a.b.q(this.axE.height * f);
+        int u = com.baidu.live.alablmsdk.a.b.u(this.aze.x * f);
+        int u2 = com.baidu.live.alablmsdk.a.b.u(this.aze.y * f);
+        int u3 = com.baidu.live.alablmsdk.a.b.u(this.aze.width * f);
+        int u4 = com.baidu.live.alablmsdk.a.b.u(this.aze.height * f);
         StringBuilder sb = new StringBuilder();
-        if (this.axC == BLMViewShapeType.RECTANGLE) {
-            sb.append("x:").append(q).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("y:").append(q2).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("z:").append(this.axD).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-            sb.append("w:").append(q3).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("h:").append(q4);
+        if (this.azc == BLMViewShapeType.RECTANGLE) {
+            sb.append("x:").append(u).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("y:").append(u2).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("z:").append(this.azd).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+            sb.append("w:").append(u3).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("h:").append(u4);
         } else {
-            int q5 = com.baidu.live.alablmsdk.a.b.q(((Math.min(this.axE.width, this.axE.height) * 1.0f) / 2.0f) * f);
-            sb.append("x:").append(q + q5).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("y:").append(q2 + q5).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("z:").append(this.axD).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-            sb.append("r:").append(q5);
+            int u5 = com.baidu.live.alablmsdk.a.b.u(((Math.min(this.aze.width, this.aze.height) * 1.0f) / 2.0f) * f);
+            sb.append("x:").append(u + u5).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("y:").append(u2 + u5).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append("z:").append(this.azd).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+            sb.append("r:").append(u5);
         }
         return sb.toString();
     }

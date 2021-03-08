@@ -7,6 +7,6 @@ public final class n extends k<Runnable> implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        ((Runnable) this.f12791b).run();
+        ((Runnable) this.b).run();
     }
 }

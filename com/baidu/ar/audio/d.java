@@ -1,16 +1,14 @@
 package com.baidu.ar.audio;
-
-import androidx.core.internal.view.SupportMenu;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 class d {
     private static final String TAG = d.class.getSimpleName();
 
     d() {
     }
 
-    private static int a(byte b2, byte b3) {
-        int i = (b2 & 255) + ((b3 & 255) << 8);
-        return i >= 32768 ? i - SupportMenu.USER_MASK : i;
+    private static int a(byte b, byte b2) {
+        int i = (b & 255) + ((b2 & 255) << 8);
+        return i >= 32768 ? i - 65535 : i;
     }
 
     public static void a(byte[] bArr, double d) {

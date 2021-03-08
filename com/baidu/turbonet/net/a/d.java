@@ -22,73 +22,73 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class d extends HttpURLConnection {
     private final List<Pair<String, String>> mRequestHeaders;
-    private UrlResponseInfo oPH;
-    private boolean oQk;
-    private String oQq;
-    private String oQr;
-    private boolean oRO;
-    private final TurbonetEngine oRj;
-    private final g oSc;
-    private boolean oSe;
-    private boolean oSf;
-    private UrlRequest oSl;
-    private e oSm;
-    private f oSn;
-    private UrlRequestException oSo;
+    private UrlResponseInfo oRM;
     private boolean oSp;
-    private boolean oSq;
-    private List<Map.Entry<String, String>> oSr;
-    private Map<String, List<String>> oSs;
-    private boolean oSt;
-    private int oSu;
+    private String oSv;
+    private String oSw;
+    private boolean oTT;
+    private final TurbonetEngine oTo;
+    private final g oUh;
+    private boolean oUj;
+    private boolean oUk;
+    private UrlRequest oUq;
+    private e oUr;
+    private f oUs;
+    private UrlRequestException oUt;
+    private boolean oUu;
+    private boolean oUv;
+    private List<Map.Entry<String, String>> oUw;
+    private Map<String, List<String>> oUx;
+    private boolean oUy;
+    private int oUz;
 
     public d(URL url, TurbonetEngine turbonetEngine) {
         super(url);
-        this.oSp = false;
-        this.oSq = false;
-        this.oSt = false;
-        this.oSu = 0;
-        this.oSe = false;
-        this.oSf = false;
-        this.oRj = turbonetEngine;
-        this.oSc = new g(getURL().toString());
-        this.oSm = new e(this);
+        this.oUu = false;
+        this.oUv = false;
+        this.oUy = false;
+        this.oUz = 0;
+        this.oUj = false;
+        this.oUk = false;
+        this.oTo = turbonetEngine;
+        this.oUh = new g(getURL().toString());
+        this.oUr = new e(this);
         this.mRequestHeaders = new ArrayList();
     }
 
     @Override // java.net.URLConnection
     public void connect() throws IOException {
         getOutputStream();
-        eho();
+        ehw();
     }
 
     @Override // java.net.HttpURLConnection
     public void disconnect() {
         if (this.connected) {
-            this.oSl.cancel();
+            this.oUq.cancel();
         }
     }
 
     @Override // java.net.HttpURLConnection
     public String getResponseMessage() throws IOException {
-        ehp();
-        return this.oPH.ehb();
+        ehx();
+        return this.oRM.ehj();
     }
 
     @Override // java.net.HttpURLConnection
     public int getResponseCode() throws IOException {
-        ehp();
-        return this.oPH.getHttpStatusCode();
+        ehx();
+        return this.oRM.getHttpStatusCode();
     }
 
     @Override // java.net.URLConnection
     public Map<String, List<String>> getHeaderFields() {
         try {
-            ehp();
-            return ehs();
+            ehx();
+            return ehA();
         } catch (IOException e) {
             return Collections.emptyMap();
         }
@@ -97,10 +97,10 @@ public class d extends HttpURLConnection {
     @Override // java.net.URLConnection
     public final String getHeaderField(String str) {
         try {
-            ehp();
-            Map<String, List<String>> ehs = ehs();
-            if (ehs.containsKey(str)) {
-                List<String> list = ehs.get(str);
+            ehx();
+            Map<String, List<String>> ehA = ehA();
+            if (ehA.containsKey(str)) {
+                List<String> list = ehA.get(str);
                 return list.get(list.size() - 1);
             }
             return null;
@@ -111,68 +111,68 @@ public class d extends HttpURLConnection {
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderFieldKey(int i) {
-        Map.Entry<String, String> Nf = Nf(i);
-        if (Nf == null) {
+        Map.Entry<String, String> Nj = Nj(i);
+        if (Nj == null) {
             return null;
         }
-        return Nf.getKey();
+        return Nj.getKey();
     }
 
     @Override // java.net.HttpURLConnection, java.net.URLConnection
     public final String getHeaderField(int i) {
-        Map.Entry<String, String> Nf = Nf(i);
-        if (Nf == null) {
+        Map.Entry<String, String> Nj = Nj(i);
+        if (Nj == null) {
             return null;
         }
-        return Nf.getValue();
+        return Nj.getValue();
     }
 
     @Override // java.net.URLConnection
     public InputStream getInputStream() throws IOException {
-        ehp();
-        if (!this.instanceFollowRedirects && this.oSp) {
+        ehx();
+        if (!this.instanceFollowRedirects && this.oUu) {
             throw new IOException("Cannot read response body of a redirect.");
         }
-        if (this.oPH.getHttpStatusCode() >= 400) {
+        if (this.oRM.getHttpStatusCode() >= 400) {
             throw new FileNotFoundException(this.url.toString());
         }
-        return this.oSm;
+        return this.oUr;
     }
 
     @Override // java.net.URLConnection
     public OutputStream getOutputStream() throws IOException {
-        if (this.oSn == null && this.doOutput) {
+        if (this.oUs == null && this.doOutput) {
             if (this.connected) {
                 throw new ProtocolException("Cannot write to OutputStream after receiving response.");
             }
-            if (ehr()) {
-                this.oSn = new b(this, this.chunkLength, this.oSc, this.oSe, this.oSf);
-                eho();
+            if (ehz()) {
+                this.oUs = new b(this, this.chunkLength, this.oUh, this.oUj, this.oUk);
+                ehw();
             } else {
-                long ehn = ehn();
-                if (ehn != -1) {
-                    this.oSn = new c(this, ehn, this.oSc);
-                    eho();
+                long ehv = ehv();
+                if (ehv != -1) {
+                    this.oUs = new c(this, ehv, this.oUh);
+                    ehw();
                 } else {
                     com.baidu.turbonet.base.a.d("cr_CronetHttpURLConn", "Outputstream is being buffered in memory.");
                     String requestProperty = getRequestProperty("Content-Length");
                     if (requestProperty == null) {
-                        this.oSn = new com.baidu.turbonet.net.a.a(this);
+                        this.oUs = new com.baidu.turbonet.net.a.a(this);
                     } else {
                         try {
-                            this.oSn = new com.baidu.turbonet.net.a.a(this, Long.parseLong(requestProperty));
+                            this.oUs = new com.baidu.turbonet.net.a.a(this, Long.parseLong(requestProperty));
                         } catch (NumberFormatException e) {
                             com.baidu.turbonet.base.a.e("cr_CronetHttpURLConn", "CONTENT_LENGTH has wrong format.", new Object[0]);
-                            this.oSn = new com.baidu.turbonet.net.a.a(this);
+                            this.oUs = new com.baidu.turbonet.net.a.a(this);
                         }
                     }
                 }
             }
         }
-        return this.oSn;
+        return this.oUs;
     }
 
-    private long ehn() {
+    private long ehv() {
         long j = this.fixedContentLength;
         try {
             long j2 = getClass().getField("fixedContentLengthLong").getLong(this);
@@ -182,19 +182,19 @@ public class d extends HttpURLConnection {
         }
     }
 
-    private void eho() throws IOException {
+    private void ehw() throws IOException {
         if (!this.connected) {
-            UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(), this.oSc, this.oRj);
+            UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(), this.oUh, this.oTo);
             if (this.doOutput) {
                 if (this.method.equals("GET")) {
                     this.method = "POST";
                 }
-                if (this.oSn != null) {
-                    builder.b(this.oSn.ehj(), this.oSc);
-                    if (getRequestProperty("Content-Length") == null && !ehr()) {
-                        addRequestProperty("Content-Length", Long.toString(this.oSn.ehj().getLength()));
+                if (this.oUs != null) {
+                    builder.b(this.oUs.ehr(), this.oUh);
+                    if (getRequestProperty("Content-Length") == null && !ehz()) {
+                        addRequestProperty("Content-Length", Long.toString(this.oUs.ehr().getLength()));
                     }
-                    this.oSn.ehh();
+                    this.oUs.ehp();
                 } else if (getRequestProperty("Content-Length") == null) {
                     addRequestProperty("Content-Length", "0");
                 }
@@ -206,36 +206,36 @@ public class d extends HttpURLConnection {
                 builder.hb((String) pair.first, (String) pair.second);
             }
             if (!getUseCaches()) {
-                builder.egW();
+                builder.ehe();
             }
-            builder.Xj(this.method);
-            if (this.oRO) {
-                builder.egX();
+            builder.Xq(this.method);
+            if (this.oTT) {
+                builder.ehf();
             }
-            if (this.oQk) {
-                builder.egY();
+            if (this.oSp) {
+                builder.ehg();
             }
-            if (!TextUtils.isEmpty(this.oQq)) {
-                builder.Xk(this.oQq);
+            if (!TextUtils.isEmpty(this.oSv)) {
+                builder.Xr(this.oSv);
             }
-            if (!TextUtils.isEmpty(this.oQr)) {
-                builder.Xl(this.oQr);
+            if (!TextUtils.isEmpty(this.oSw)) {
+                builder.Xs(this.oSw);
             }
-            builder.Na(getConnectTimeout());
-            builder.Nb(getReadTimeout());
-            builder.MZ(getRequestTimeout());
+            builder.Ne(getConnectTimeout());
+            builder.Nf(getReadTimeout());
+            builder.Nd(getRequestTimeout());
             this.connected = true;
-            this.oSl = builder.egZ();
-            this.oSl.start();
+            this.oUq = builder.ehh();
+            this.oUq.start();
         }
     }
 
     @Override // java.net.HttpURLConnection
     public InputStream getErrorStream() {
         try {
-            ehp();
-            if (this.oPH.getHttpStatusCode() >= 400) {
-                return this.oSm;
+            ehx();
+            if (this.oRM.getHttpStatusCode() >= 400) {
+                return this.oUr;
             }
             return null;
         } catch (IOException e) {
@@ -257,10 +257,10 @@ public class d extends HttpURLConnection {
         if (this.connected) {
             throw new IllegalStateException("Cannot modify request property after connection is made.");
         }
-        int Xm = Xm(str);
-        if (Xm >= 0) {
+        int Xt = Xt(str);
+        if (Xt >= 0) {
             if (z) {
-                this.mRequestHeaders.remove(Xm);
+                this.mRequestHeaders.remove(Xt);
             } else {
                 throw new UnsupportedOperationException("Cannot add multiple headers of the same key, " + str + ". crbug.com/432719.");
             }
@@ -287,9 +287,9 @@ public class d extends HttpURLConnection {
 
     @Override // java.net.URLConnection
     public String getRequestProperty(String str) {
-        int Xm = Xm(str);
-        if (Xm >= 0) {
-            return (String) this.mRequestHeaders.get(Xm).second;
+        int Xt = Xt(str);
+        if (Xt >= 0) {
+            return (String) this.mRequestHeaders.get(Xt).second;
         }
         return null;
     }
@@ -301,11 +301,11 @@ public class d extends HttpURLConnection {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void p(ByteBuffer byteBuffer) throws IOException {
-        this.oSl.read(byteBuffer);
-        this.oSc.Ng(getReadTimeout());
+        this.oUq.read(byteBuffer);
+        this.oUh.Nk(getReadTimeout());
     }
 
-    private int Xm(String str) {
+    private int Xt(String str) {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -322,47 +322,47 @@ public class d extends HttpURLConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends UrlRequest.Callback {
         public a() {
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            d.this.oPH = urlResponseInfo;
-            d.this.oSc.quit();
+            d.this.oRM = urlResponseInfo;
+            d.this.oUh.quit();
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer) {
-            d.this.oPH = urlResponseInfo;
-            d.this.oSc.quit();
+            d.this.oRM = urlResponseInfo;
+            d.this.oUh.quit();
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, String str) {
-            d.this.oSp = true;
+            d.this.oUu = true;
             try {
                 URL url = new URL(str);
                 boolean equals = url.getProtocol().equals(d.this.url.getProtocol());
                 if (d.this.instanceFollowRedirects) {
                     d.this.url = url;
                 }
-                if (d.this.instanceFollowRedirects && (equals || d.this.oSt)) {
-                    d.this.oSl.followRedirect();
+                if (d.this.instanceFollowRedirects && (equals || d.this.oUy)) {
+                    d.this.oUq.followRedirect();
                     return;
                 }
             } catch (MalformedURLException e) {
             }
-            d.this.oPH = urlResponseInfo;
-            d.this.oSl.cancel();
+            d.this.oRM = urlResponseInfo;
+            d.this.oUq.cancel();
             c(null);
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
             com.baidu.turbonet.base.a.i("cr_CronetHttpURLConn", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.getUrl(), Integer.valueOf(urlResponseInfo.getHttpStatusCode()), Long.valueOf(urlResponseInfo.getReceivedBytesCount()));
-            d.this.oPH = urlResponseInfo;
+            d.this.oRM = urlResponseInfo;
             c(null);
         }
 
@@ -372,79 +372,79 @@ public class d extends HttpURLConnection {
                 throw new IllegalStateException("Exception cannot be null in onFailed.");
             }
             com.baidu.turbonet.base.a.e("cr_CronetHttpURLConn", "****** onFailed, url is: %s, error is: %s", d.this.getURL().toString(), urlRequestException);
-            d.this.oPH = urlResponseInfo;
-            d.this.oSo = urlRequestException;
-            c(d.this.oSo);
+            d.this.oRM = urlResponseInfo;
+            d.this.oUt = urlRequestException;
+            c(d.this.oUt);
         }
 
         @Override // com.baidu.turbonet.net.UrlRequest.Callback
         public void c(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            d.this.oPH = urlResponseInfo;
+            d.this.oRM = urlResponseInfo;
             c(new IOException("stream closed"));
         }
 
         private void c(IOException iOException) {
-            if (d.this.oSm != null) {
-                d.this.oSm.c(iOException);
+            if (d.this.oUr != null) {
+                d.this.oUr.c(iOException);
             }
-            if (d.this.oSn != null) {
-                d.this.oSn.d(iOException);
+            if (d.this.oUs != null) {
+                d.this.oUs.d(iOException);
             }
-            d.this.oSq = true;
-            d.this.oSc.quit();
+            d.this.oUv = true;
+            d.this.oUh.quit();
         }
     }
 
-    private void ehp() throws IOException {
-        if (this.oSn != null) {
-            this.oSn.ehi();
-            if (ehr()) {
-                this.oSn.close();
+    private void ehx() throws IOException {
+        if (this.oUs != null) {
+            this.oUs.ehq();
+            if (ehz()) {
+                this.oUs.close();
             }
         }
-        if (!this.oSq) {
-            eho();
-            this.oSc.Ng(getReadTimeout());
-            this.oSq = true;
+        if (!this.oUv) {
+            ehw();
+            this.oUh.Nk(getReadTimeout());
+            this.oUv = true;
         }
-        ehq();
+        ehy();
     }
 
-    private void ehq() throws IOException {
-        if (!this.oSq) {
+    private void ehy() throws IOException {
+        if (!this.oUv) {
             throw new IllegalStateException("No response.");
         }
-        if (this.oSo != null) {
-            throw this.oSo;
+        if (this.oUt != null) {
+            throw this.oUt;
         }
-        if (this.oPH == null) {
+        if (this.oRM == null) {
             throw new NullPointerException("Response info is null when there is no exception.");
         }
     }
 
-    private Map.Entry<String, String> Nf(int i) {
+    private Map.Entry<String, String> Nj(int i) {
         try {
-            ehp();
-            List<Map.Entry<String, String>> ehc = ehc();
-            if (i >= ehc.size()) {
+            ehx();
+            List<Map.Entry<String, String>> ehk = ehk();
+            if (i >= ehk.size()) {
                 return null;
             }
-            return ehc.get(i);
+            return ehk.get(i);
         } catch (IOException e) {
             return null;
         }
     }
 
-    private boolean ehr() {
+    private boolean ehz() {
         return this.chunkLength > 0;
     }
 
-    private Map<String, List<String>> ehs() {
-        if (this.oSs != null) {
-            return this.oSs;
+    private Map<String, List<String>> ehA() {
+        if (this.oUx != null) {
+            return this.oUx;
         }
         TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-        for (Map.Entry<String, String> entry : ehc()) {
+        for (Map.Entry<String, String> entry : ehk()) {
             ArrayList arrayList = new ArrayList();
             if (treeMap.containsKey(entry.getKey())) {
                 arrayList.addAll((Collection) treeMap.get(entry.getKey()));
@@ -452,33 +452,33 @@ public class d extends HttpURLConnection {
             arrayList.add(entry.getValue());
             treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
         }
-        this.oSs = Collections.unmodifiableMap(treeMap);
-        return this.oSs;
+        this.oUx = Collections.unmodifiableMap(treeMap);
+        return this.oUx;
     }
 
-    private List<Map.Entry<String, String>> ehc() {
-        if (this.oSr != null) {
-            return this.oSr;
+    private List<Map.Entry<String, String>> ehk() {
+        if (this.oUw != null) {
+            return this.oUw;
         }
-        this.oSr = new ArrayList();
-        for (Map.Entry<String, String> entry : this.oPH.ehc()) {
+        this.oUw = new ArrayList();
+        for (Map.Entry<String, String> entry : this.oRM.ehk()) {
             if (!entry.getKey().equalsIgnoreCase("Content-Encoding")) {
-                this.oSr.add(new AbstractMap.SimpleImmutableEntry(entry));
+                this.oUw.add(new AbstractMap.SimpleImmutableEntry(entry));
             }
         }
-        this.oSr = Collections.unmodifiableList(this.oSr);
-        return this.oSr;
+        this.oUw = Collections.unmodifiableList(this.oUw);
+        return this.oUw;
     }
 
-    public UrlResponseInfo eht() {
-        return this.oPH;
+    public UrlResponseInfo ehB() {
+        return this.oRM;
     }
 
-    public void ehu() {
-        this.oSt = true;
+    public void ehC() {
+        this.oUy = true;
     }
 
     public int getRequestTimeout() {
-        return this.oSu;
+        return this.oUz;
     }
 }

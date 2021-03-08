@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.Buffer;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GLShaderProgram {
     static final String Tag = "GLShaderProgram";
     private String fragmentSource;

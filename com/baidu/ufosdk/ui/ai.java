@@ -6,23 +6,23 @@ import android.widget.Toast;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.ufosdk.UfoSDK;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ai implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackFacePageActivity f5434a;
+    final /* synthetic */ FeedbackFacePageActivity f3655a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FeedbackFacePageActivity feedbackFacePageActivity) {
-        this.f5434a = feedbackFacePageActivity;
+        this.f3655a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         String str;
         if (UfoSDK.clientid.length() == 0) {
-            Toast.makeText(this.f5434a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
-            if (com.baidu.ufosdk.b.d.b(this.f5434a.getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(this.f5434a.getApplicationContext()).contains("NONE")) {
+            Toast.makeText(this.f3655a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
+            if (com.baidu.ufosdk.b.d.b(this.f3655a.getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(this.f3655a.getApplicationContext()).contains("NONE")) {
                 return;
             }
             new Thread(new aj(this)).start();
@@ -33,13 +33,13 @@ public final class ai implements View.OnClickListener {
                 return;
             }
             Intent intent = new Intent();
-            intent.setClass(this.f5434a, FeedbackEditActivity.class);
-            str = this.f5434a.t;
+            intent.setClass(this.f3655a, FeedbackEditActivity.class);
+            str = this.f3655a.t;
             intent.putExtra("msgid", str);
             intent.putExtra("fromlist", "no");
             intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
             intent.putExtra("come_from", 2);
-            this.f5434a.startActivity(intent);
+            this.f3655a.startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
         }

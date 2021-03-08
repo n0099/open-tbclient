@@ -5,11 +5,11 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private float bGS;
-    private float bGT;
-    private float bGU;
-    private float bGV;
-    private InterfaceC0711a iFs;
+    private float bIs;
+    private float bIt;
+    private float bIu;
+    private float bIv;
+    private InterfaceC0717a iHb;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,16 +17,16 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.iFs.G(i, i2);
+                    a.this.iHb.G(i, i2);
                     return true;
                 case 1:
-                    a.this.iFs.H(i, i2);
+                    a.this.iHb.H(i, i2);
                     return true;
                 case 2:
-                    a.this.iFs.ch(i, i2);
+                    a.this.iHb.ch(i, i2);
                     return true;
                 case 3:
-                    a.this.iFs.I(i, i2);
+                    a.this.iHb.I(i, i2);
                     return true;
                 default:
                     return false;
@@ -37,7 +37,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0711a {
+    public interface InterfaceC0717a {
         void G(int i, int i2);
 
         void H(int i, int i2);
@@ -47,52 +47,52 @@ public class a {
         void ch(int i, int i2);
     }
 
-    public void a(InterfaceC0711a interfaceC0711a) {
-        this.iFs = interfaceC0711a;
+    public void a(InterfaceC0717a interfaceC0717a) {
+        this.iHb = interfaceC0717a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.bGU = motionEvent.getRawX();
-                this.bGV = motionEvent.getRawY();
-                this.bGS = this.bGU;
-                this.bGT = this.bGV;
+                this.bIu = motionEvent.getRawX();
+                this.bIv = motionEvent.getRawY();
+                this.bIs = this.bIu;
+                this.bIt = this.bIv;
                 return true;
             case 1:
             case 3:
-                if (this.iFs != null) {
-                    int i = (int) (this.bGS - this.bGU);
-                    int i2 = (int) (this.bGT - this.bGV);
+                if (this.iHb != null) {
+                    int i = (int) (this.bIs - this.bIu);
+                    int i2 = (int) (this.bIt - this.bIv);
                     if (Math.abs(i) >= Math.abs(i2)) {
-                        F(i, (int) this.bGU);
+                        F(i, (int) this.bIu);
                     } else {
                         cg(i, i2);
                     }
                 }
-                this.bGU = 0.0f;
-                this.bGV = 0.0f;
+                this.bIu = 0.0f;
+                this.bIv = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (this.bGU == 0.0f || this.bGV == 0.0f) {
-                    this.bGU = motionEvent.getRawX();
-                    this.bGV = motionEvent.getRawY();
-                    this.bGS = this.bGU;
-                    this.bGT = this.bGV;
+                if (this.bIu == 0.0f || this.bIv == 0.0f) {
+                    this.bIu = motionEvent.getRawX();
+                    this.bIv = motionEvent.getRawY();
+                    this.bIs = this.bIu;
+                    this.bIt = this.bIv;
                 }
-                int i3 = (int) (rawY - this.bGT);
-                int i4 = (int) (rawY - this.bGV);
-                if (this.iFs != null) {
+                int i3 = (int) (rawY - this.bIt);
+                int i4 = (int) (rawY - this.bIv);
+                if (this.iHb != null) {
                     if (i3 > 0) {
                         E(i4, i3);
                     } else {
                         D(i4, i3);
                     }
                 }
-                this.bGS = rawX;
-                this.bGT = rawY;
+                this.bIs = rawX;
+                this.bIt = rawY;
                 return true;
             default:
                 return true;

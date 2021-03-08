@@ -13,16 +13,14 @@ public class c implements e {
     private static final ArrayList<String> e = new ArrayList<>(6);
 
     /* renamed from: a  reason: collision with root package name */
-    protected final String f13169a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected final long f13170b;
+    protected final String f7841a;
+    protected final long b;
     protected List<com.ss.android.socialbase.downloader.g.e> c;
     private int g;
     private long h;
     private boolean i;
     private boolean j;
-    private e qgK;
+    private e qhz;
     private Map<String, String> f = null;
     protected final Object d = new Object();
 
@@ -36,9 +34,9 @@ public class c implements e {
     }
 
     public c(String str, List<com.ss.android.socialbase.downloader.g.e> list, long j) {
-        this.f13169a = str;
+        this.f7841a = str;
         this.c = list;
-        this.f13170b = j;
+        this.b = j;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -46,12 +44,12 @@ public class c implements e {
         if (this.f == null) {
             try {
                 this.j = true;
-                this.qgK = com.ss.android.socialbase.downloader.downloader.b.v(this.f13169a, this.c);
+                this.qhz = com.ss.android.socialbase.downloader.downloader.b.v(this.f7841a, this.c);
                 synchronized (this.d) {
-                    if (this.qgK != null) {
+                    if (this.qhz != null) {
                         this.f = new HashMap();
-                        a(this.qgK, this.f);
-                        this.g = this.qgK.b();
+                        a(this.qhz, this.f);
+                        this.g = this.qhz.b();
                         this.h = System.currentTimeMillis();
                         this.i = a(this.g);
                     }
@@ -60,10 +58,10 @@ public class c implements e {
                 }
             } catch (Throwable th) {
                 synchronized (this.d) {
-                    if (this.qgK != null) {
+                    if (this.qhz != null) {
                         this.f = new HashMap();
-                        a(this.qgK, this.f);
-                        this.g = this.qgK.b();
+                        a(this.qhz, this.f);
+                        this.g = this.qhz.b();
                         this.h = System.currentTimeMillis();
                         this.i = a(this.g);
                     }
@@ -102,8 +100,8 @@ public class c implements e {
         if (this.f != null) {
             return this.f.get(str);
         }
-        if (this.qgK != null) {
-            return this.qgK.a(str);
+        if (this.qhz != null) {
+            return this.qhz.a(str);
         }
         return null;
     }
@@ -115,8 +113,8 @@ public class c implements e {
 
     @Override // com.ss.android.socialbase.downloader.i.e
     public void c() {
-        if (this.qgK != null) {
-            this.qgK.c();
+        if (this.qhz != null) {
+            this.qhz.c();
         }
     }
 
@@ -125,7 +123,7 @@ public class c implements e {
     }
 
     public boolean f() {
-        return System.currentTimeMillis() - this.h < b.f13167b;
+        return System.currentTimeMillis() - this.h < b.b;
     }
 
     public boolean g() {

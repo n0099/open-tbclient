@@ -8,14 +8,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.qq.e.comm.managers.status.SDKStatus;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public final class MediaView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11473a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f11474b;
+    private int f7519a;
+    private int b;
 
     public MediaView(Context context) {
         super(context);
@@ -42,14 +40,14 @@ public final class MediaView extends FrameLayout {
 
     @Override // android.widget.FrameLayout, android.view.View
     protected final void onMeasure(int i, int i2) {
-        if ((SDKStatus.getSDKVersionCode() == 11 || SDKStatus.getSDKVersionCode() == 12) && this.f11473a > 0 && this.f11474b > 0) {
+        if ((SDKStatus.getSDKVersionCode() == 11 || SDKStatus.getSDKVersionCode() == 12) && this.f7519a > 0 && this.b > 0) {
             int size = View.MeasureSpec.getSize(i);
             int size2 = View.MeasureSpec.getSize(i2);
-            if (this.f11474b * size < this.f11473a * size2 || size2 == 0) {
+            if (this.b * size < this.f7519a * size2 || size2 == 0) {
                 i = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec((size * this.f11474b) / this.f11473a, 1073741824);
-            } else if (this.f11474b * size > this.f11473a * size2 || size == 0) {
-                i = View.MeasureSpec.makeMeasureSpec((this.f11473a * size2) / this.f11474b, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec((size * this.b) / this.f7519a, 1073741824);
+            } else if (this.b * size > this.f7519a * size2 || size == 0) {
+                i = View.MeasureSpec.makeMeasureSpec((this.f7519a * size2) / this.b, 1073741824);
                 i2 = View.MeasureSpec.makeMeasureSpec(size2, 1073741824);
             } else {
                 i = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
@@ -60,7 +58,7 @@ public final class MediaView extends FrameLayout {
     }
 
     public final void setRatio(int i, int i2) {
-        this.f11473a = i;
-        this.f11474b = i2;
+        this.f7519a = i;
+        this.b = i2;
     }
 }

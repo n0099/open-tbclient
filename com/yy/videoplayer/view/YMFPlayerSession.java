@@ -7,7 +7,7 @@ import com.yy.videoplayer.decoder.VideoConstant;
 import com.yy.videoplayer.utils.YMFLog;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFPlayerSession {
     private ConcurrentHashMap<View, YMFPlayerController> mPlayerViewControllerMap = new ConcurrentHashMap<>();
     private Context mContext = null;

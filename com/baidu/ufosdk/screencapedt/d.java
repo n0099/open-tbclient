@@ -6,15 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 final class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScreenCapEditActivity f5401a;
+    final /* synthetic */ ScreenCapEditActivity f3633a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ScreenCapEditActivity screenCapEditActivity) {
-        this.f5401a = screenCapEditActivity;
+        this.f3633a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,35 +27,35 @@ final class d implements View.OnClickListener {
         int i2;
         Canvas canvas;
         Paint paint;
-        this.f5401a.a(false);
-        hashMap = this.f5401a.t;
+        this.f3633a.a(false);
+        hashMap = this.f3633a.t;
         for (Map.Entry entry : hashMap.entrySet()) {
-            canvas = this.f5401a.m;
-            float b2 = ((a) entry.getValue()).b();
+            canvas = this.f3633a.m;
+            float b = ((a) entry.getValue()).b();
             float c = ((a) entry.getValue()).c();
             float d = ((a) entry.getValue()).d();
             float e = ((a) entry.getValue()).e();
-            paint = this.f5401a.n;
-            canvas.drawRect(b2, c, d, e, paint);
+            paint = this.f3633a.n;
+            canvas.drawRect(b, c, d, e, paint);
         }
-        button = this.f5401a.T;
+        button = this.f3633a.T;
         button.setClickable(false);
-        z = this.f5401a.I;
+        z = this.f3633a.I;
         if (!z) {
-            ScreenCapEditActivity.j(this.f5401a);
-            ScreenCapEditActivity screenCapEditActivity = this.f5401a;
-            i = this.f5401a.M;
+            ScreenCapEditActivity.j(this.f3633a);
+            ScreenCapEditActivity screenCapEditActivity = this.f3633a;
+            i = this.f3633a.M;
             ScreenCapEditActivity.a(screenCapEditActivity, i);
             return;
         }
-        z2 = this.f5401a.L;
+        z2 = this.f3633a.L;
         if (!z2) {
-            ScreenCapEditActivity.i(this.f5401a);
+            ScreenCapEditActivity.i(this.f3633a);
             return;
         }
-        ScreenCapEditActivity.j(this.f5401a);
-        ScreenCapEditActivity screenCapEditActivity2 = this.f5401a;
-        i2 = this.f5401a.M;
+        ScreenCapEditActivity.j(this.f3633a);
+        ScreenCapEditActivity screenCapEditActivity2 = this.f3633a;
+        i2 = this.f3633a.M;
         ScreenCapEditActivity.a(screenCapEditActivity2, i2);
     }
 }

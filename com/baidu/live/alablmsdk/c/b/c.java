@@ -1,13 +1,13 @@
 package com.baidu.live.alablmsdk.c.b;
 
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void a(d dVar);
 
     void release();
 
-    boolean xM();
+    boolean xP();
 
-    View yh();
+    View yk();
 }

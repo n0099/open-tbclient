@@ -2,7 +2,7 @@ package com.baidu.ar.d;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c extends b {
     private ArrayList<b> mB;
 

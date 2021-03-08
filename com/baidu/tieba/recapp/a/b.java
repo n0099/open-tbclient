@@ -5,48 +5,48 @@ import android.text.TextUtils;
 import com.baidu.tbadk.b.e;
 import com.baidu.tbadk.b.f;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements e {
-    private final HashMap<String, f> law;
+    private final HashMap<String, f> lcz;
 
     private b() {
-        this.law = new HashMap<>();
+        this.lcz = new HashMap<>();
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    private static class C0856b {
-        private static b mRR = new b();
+    /* loaded from: classes7.dex */
+    private static class C0862b {
+        private static b mTX = new b();
     }
 
-    public static b dDv() {
-        return C0856b.mRR;
+    public static b dDD() {
+        return C0862b.mTX;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, com.baidu.adp.base.e eVar) {
         if (str != null) {
-            a Ry = a.Ry(str);
-            f fVar = this.law.get(Ry.getKey());
-            if (fVar != null && Ry.isValid()) {
+            a RE = a.RE(str);
+            f fVar = this.lcz.get(RE.getKey());
+            if (fVar != null && RE.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    Ry.getParams().putAll(hashMap);
+                    RE.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, Ry.getParams(), str, eVar);
+                fVar.a(obj, RE.getParams(), str, eVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.law.put(str, fVar);
+        this.lcz.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
         a(aVar.key(), aVar);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
-        HashMap<String, String> eZG;
+        HashMap<String, String> fbf;
         private boolean isValid;
         String key;
 
@@ -59,7 +59,7 @@ public class b implements e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.eZG;
+            return this.fbf;
         }
 
         private a(String str) {
@@ -68,17 +68,17 @@ public class b implements e {
             this.isValid = TextUtils.isEmpty(parse.getScheme()) ? false : true;
             if (this.isValid) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.eZG = new HashMap<>();
+                this.fbf = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.eZG.put(str2, parse.getQueryParameter(str2));
+                    this.fbf.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.eZG = new HashMap<>();
+            this.fbf = new HashMap<>();
         }
 
-        public static a Ry(String str) {
+        public static a RE(String str) {
             return new a(str);
         }
     }

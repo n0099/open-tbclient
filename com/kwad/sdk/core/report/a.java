@@ -33,10 +33,8 @@ public class a {
     private long X;
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f9387a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f9388b;
+    public AdTemplate f6228a;
+    public SceneImpl b;
     public long c;
     public long d;
     public long e;
@@ -74,7 +72,7 @@ public class a {
         this.V = -1;
         this.W = -1;
         this.c = j;
-        this.f9387a = null;
+        this.f6228a = null;
     }
 
     public a(long j, @NonNull AdTemplate adTemplate) {
@@ -89,7 +87,7 @@ public class a {
         this.V = -1;
         this.W = -1;
         this.c = j;
-        this.f9387a = adTemplate;
+        this.f6228a = adTemplate;
         a(adTemplate.getShowPosition());
     }
 

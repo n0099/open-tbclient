@@ -64,11 +64,11 @@ public class ab extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String ezA() {
+    protected String ezJ() {
         return "LocalResourceFetchProducer";
     }
 
     private static int j(ImageRequest imageRequest) {
-        return Integer.parseInt(imageRequest.eAf().getPath().substring(1));
+        return Integer.parseInt(imageRequest.eAo().getPath().substring(1));
     }
 }

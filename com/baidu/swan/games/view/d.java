@@ -5,15 +5,15 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private FrameLayout aiT;
-    private boolean emc;
-    private ArrayList<a> emb = new ArrayList<>();
-    private boolean emd = false;
+    private FrameLayout akl;
+    private boolean enF;
+    private ArrayList<a> enE = new ArrayList<>();
+    private boolean enG = false;
 
     public d(@NonNull FrameLayout frameLayout) {
-        this.aiT = frameLayout;
+        this.akl = frameLayout;
     }
 
     public boolean a(View view, com.baidu.swan.apps.model.a.a.a aVar) {
@@ -23,7 +23,7 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.aiT.addView(view, layoutParams);
+        this.akl.addView(view, layoutParams);
         return true;
     }
 
@@ -31,7 +31,7 @@ public class d {
         if (!aT(view)) {
             return false;
         }
-        this.aiT.removeView(view);
+        this.akl.removeView(view);
         return true;
     }
 
@@ -42,92 +42,92 @@ public class d {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
         layoutParams.topMargin = aVar.getTop();
-        this.aiT.updateViewLayout(view, layoutParams);
+        this.akl.updateViewLayout(view, layoutParams);
         return true;
     }
 
     public boolean isLandScape() {
-        return this.emc;
+        return this.enF;
     }
 
     public void in(boolean z) {
-        this.emc = z;
+        this.enF = z;
     }
 
     public boolean aT(View view) {
-        return view != null && view.getParent() == this.aiT && this.aiT.indexOfChild(view) >= 0;
+        return view != null && view.getParent() == this.akl && this.akl.indexOfChild(view) >= 0;
     }
 
     public Context getContext() {
-        return this.aiT.getContext();
+        return this.akl.getContext();
     }
 
-    public FrameLayout aZl() {
-        return this.aiT;
+    public FrameLayout aZo() {
+        return this.akl;
     }
 
-    public boolean aZm() {
-        return this.emd;
+    public boolean aZp() {
+        return this.enG;
     }
 
     public void io(boolean z) {
-        this.emd = z;
+        this.enG = z;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (!this.emb.contains(aVar)) {
-                this.emb.add(aVar);
+            if (!this.enE.contains(aVar)) {
+                this.enE.add(aVar);
             }
         }
     }
 
     public synchronized void b(a aVar) {
         if (aVar != null) {
-            this.emb.remove(aVar);
+            this.enE.remove(aVar);
         }
     }
 
-    private synchronized a[] aZn() {
+    private synchronized a[] aZq() {
         a[] aVarArr;
-        if (this.emb.isEmpty()) {
+        if (this.enE.isEmpty()) {
             aVarArr = null;
         } else {
-            aVarArr = new a[this.emb.size()];
-            this.emb.toArray(aVarArr);
+            aVarArr = new a[this.enE.size()];
+            this.enE.toArray(aVarArr);
         }
         return aVarArr;
     }
 
-    private synchronized void aZo() {
-        this.emb.clear();
+    private synchronized void aZr() {
+        this.enE.clear();
     }
 
-    public void awn() {
-        a[] aZn = aZn();
-        if (aZn != null) {
-            for (a aVar : aZn) {
-                aVar.aSV();
+    public void awq() {
+        a[] aZq = aZq();
+        if (aZq != null) {
+            for (a aVar : aZq) {
+                aVar.aSY();
             }
         }
     }
 
-    public void awm() {
-        a[] aZn = aZn();
-        if (aZn != null) {
-            for (a aVar : aZn) {
-                aVar.aSW();
+    public void awp() {
+        a[] aZq = aZq();
+        if (aZq != null) {
+            for (a aVar : aZq) {
+                aVar.aSZ();
             }
         }
     }
 
     public void onPageDestroy() {
-        a[] aZn = aZn();
-        if (aZn != null) {
-            for (a aVar : aZn) {
-                aVar.aSX();
+        a[] aZq = aZq();
+        if (aZq != null) {
+            for (a aVar : aZq) {
+                aVar.aTa();
             }
         }
-        aZo();
+        aZr();
     }
 }

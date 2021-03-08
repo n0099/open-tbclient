@@ -8,7 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(28)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class TypefaceCompatApi28Impl extends TypefaceCompatApi26Impl {
     private static final String CREATE_FROM_FAMILIES_WITH_DEFAULT_METHOD = "createFromFamiliesWithDefault";
     private static final String DEFAULT_FAMILY = "sans-serif";

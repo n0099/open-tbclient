@@ -6,10 +6,10 @@ import com.baidu.swan.apps.core.slave.b;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.u.c.b;
 import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class j {
-    public static void qx(String str) {
-        if (TextUtils.equals(i.cd("route", str).qp("sub_state"), "1")) {
+    public static void qE(String str) {
+        if (TextUtils.equals(i.cd("route", str).qw("sub_state"), "1")) {
             i.cd("route", str).f(new UbcFlowEvent("na_end_sub_package_download"));
         }
     }
@@ -17,16 +17,16 @@ public class j {
     public static void a(b.a aVar, String str) {
         i.cd("route", str).f(new UbcFlowEvent("na_pre_load_slave_ok"));
         if (aVar != null) {
-            if (aVar.cXb != null) {
-                aVar.cXb.jX(str);
+            if (aVar.cYB != null) {
+                aVar.cYB.ke(str);
             }
-            i.cd("route", str).f(new UbcFlowEvent("na_pre_load_slave_start").cE(aVar.cXd)).f(new UbcFlowEvent("na_pre_load_slave_end").cE(aVar.cXe));
+            i.cd("route", str).f(new UbcFlowEvent("na_pre_load_slave_start").cE(aVar.cYD)).f(new UbcFlowEvent("na_pre_load_slave_end").cE(aVar.cYE));
         }
     }
 
-    public static void qy(String str) {
+    public static void qF(String str) {
         com.baidu.swan.apps.y.e.gn(true);
-        com.baidu.swan.apps.inlinewidget.f.b.b.awA();
+        com.baidu.swan.apps.inlinewidget.f.b.b.awD();
         i.ch("route", str);
         i.cd("route", str).f(new UbcFlowEvent("na_first_receive_action")).cg("sub_state", "0");
     }
@@ -38,18 +38,18 @@ public class j {
         } else {
             cd.a(HybridUbcFlow.SubmitStrategy.ROUTE);
         }
-        cd.o("type", Integer.valueOf(i));
+        cd.p("type", Integer.valueOf(i));
     }
 
-    public static void qz(String str) {
-        b.a afZ;
-        com.baidu.swan.apps.runtime.e aIK = com.baidu.swan.apps.runtime.e.aIK();
-        if (aIK != null && (afZ = aIK.afZ()) != null) {
-            i.cd("route", str).cg("appid", afZ.getAppId()).cg(Constant.KEY_LAUNCHID, afZ.azt()).o("from", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME).cg("web_widget_state", "0").aDI();
+    public static void qG(String str) {
+        b.a agc;
+        com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
+        if (aIN != null && (agc = aIN.agc()) != null) {
+            i.cd("route", str).cg("appid", agc.getAppId()).cg(Constant.KEY_LAUNCHID, agc.azw()).p("from", GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME).cg("web_widget_state", "0").aDL();
         }
     }
 
-    public static void qA(String str) {
-        i.cd("route", str).f(new UbcFlowEvent("web_widget_first_screen_finish")).cg("web_widget_state", "1").aDK();
+    public static void qH(String str) {
+        i.cd("route", str).f(new UbcFlowEvent("web_widget_first_screen_finish")).cg("web_widget_state", "1").aDN();
     }
 }

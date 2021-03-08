@@ -1,102 +1,137 @@
 package com.pgl.sys.ces.b;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import java.text.DecimalFormat;
+import android.content.Intent;
+import android.content.IntentFilter;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class a implements SensorEventListener {
-    private static a qaG = null;
+public class a {
+    private static a qbt = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private SensorManager f11404a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f11405b;
-    private int c = 0;
-    private float[] d = new float[3];
-    private DecimalFormat qaF = new DecimalFormat("0.0");
+    private Context f7483a;
+    private List<String> b = new ArrayList();
 
     private a(Context context) {
-        this.f11404a = null;
-        Context applicationContext = context.getApplicationContext();
-        if (applicationContext != null) {
-            this.f11404a = (SensorManager) applicationContext.getSystemService("sensor");
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:8:0x0017, code lost:
-        if (r3.f11404a.registerListener(r3, r3.f11404a.getDefaultSensor(1), 3) == false) goto L11;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private synchronized void b() {
-        try {
-            if (this.f11404a != null) {
-                if (this.f11405b == 0) {
-                }
-                this.f11405b++;
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    private synchronized void c() {
-        try {
-            if (this.f11404a != null) {
-                this.f11405b--;
-                if (this.f11405b == 0) {
-                    this.f11404a.unregisterListener(this);
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        this.f7483a = null;
+        this.f7483a = context;
     }
 
     public static a iv(Context context) {
-        if (qaG == null) {
+        if (qbt == null) {
             synchronized (a.class) {
-                if (qaG == null) {
-                    qaG = new a(context);
+                if (qbt == null) {
+                    qbt = new a(context);
                 }
             }
         }
-        return qaG;
+        return qbt;
     }
 
-    public String a() {
-        StringBuilder append;
-        b();
+    public int a() {
+        Intent registerReceiver = this.f7483a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        if (registerReceiver == null) {
+            return -1;
+        }
+        return Math.round(((registerReceiver.getIntExtra("level", -1) / registerReceiver.getIntExtra("scale", -1)) * 100.0f) * 10.0f) / 10;
+    }
+
+    public int b() {
+        Intent registerReceiver = this.f7483a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        if (registerReceiver == null) {
+            return -1;
+        }
+        return registerReceiver.getIntExtra("plugged", -1);
+    }
+
+    @SuppressLint({"DefaultLocale"})
+    public String c() {
+        int i;
+        int i2;
         try {
-            synchronized (this) {
-                int i = 0;
-                while (this.c == 0 && i < 10) {
-                    i++;
-                    wait(100L);
+            try {
+                try {
+                    synchronized (this) {
+                        try {
+                            i2 = b();
+                            try {
+                                return "" + (a() + (i2 * 10000));
+                            } catch (Throwable th) {
+                                th = th;
+                                i = -1;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            i = -1;
+                            i2 = -1;
+                        }
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                    i = -1;
+                    i2 = -1;
+                    String str = "" + (i + (i2 * 10000));
+                    throw th;
                 }
+            } catch (Exception e) {
+                return "-10001";
             }
-            return append.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return append.toString();
-        } finally {
-            String str = this.qaF.format(this.d[0]) + ", " + this.qaF.format(this.d[1]) + ", " + this.qaF.format(this.d[2]);
-            c();
-            this.c = 0;
+        } catch (Throwable th4) {
+            th = th4;
+        }
+        try {
+            throw th;
+        } catch (Throwable th5) {
+            th = th5;
+            String str2 = "" + (i + (i2 * 10000));
+            throw th;
         }
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
+    public void d() {
+        String c = c();
+        if (c == null) {
+            return;
+        }
+        this.b.add(c);
+        try {
+            int size = this.b.size();
+            if (size > 20) {
+                ArrayList arrayList = new ArrayList(this.b.subList(size - 10, size));
+                this.b.clear();
+                this.b = arrayList;
+            }
+        } catch (Throwable th) {
+        }
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        this.d = sensorEvent.values;
-        this.c = 1;
+    public synchronized String e() {
+        String str;
+        List<String> subList;
+        synchronized (this) {
+            str = "";
+            int size = this.b.size();
+            if (size > 0) {
+                if (size == 1) {
+                    str = this.b.get(0);
+                } else {
+                    try {
+                        String str2 = "";
+                        for (int i = 0; i < this.b.subList(size + (-10) > 0 ? size - 10 : 0, size).size(); i++) {
+                            try {
+                                str2 = str2 + subList.get(i) + ",";
+                            } catch (Throwable th) {
+                                str = str2;
+                            }
+                        }
+                        str = str2.substring(0, str2.length() - 1);
+                    } catch (Throwable th2) {
+                    }
+                }
+            }
+        }
+        return str;
     }
 }

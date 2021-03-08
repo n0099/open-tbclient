@@ -5,14 +5,14 @@ import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableFromIterable<T> extends g<T> {
-    final Iterable<? extends T> qoN;
+    final Iterable<? extends T> qpp;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            a(cVar, this.qoN.iterator());
+            a(cVar, this.qpp.iterator());
         } catch (Throwable th) {
             io.reactivex.exceptions.a.N(th);
             EmptySubscription.error(th, cVar);
@@ -34,7 +34,7 @@ public final class FlowableFromIterable<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static abstract class BaseRangeSubscription<T> extends BasicQueueSubscription<T> {
         private static final long serialVersionUID = -2252972430506210021L;
         volatile boolean cancelled;
@@ -64,7 +64,7 @@ public final class FlowableFromIterable<T> extends g<T> {
             } else if (!this.it.hasNext()) {
                 return null;
             }
-            return (T) io.reactivex.internal.functions.a.m(this.it.next(), "Iterator.next() returned a null value");
+            return (T) io.reactivex.internal.functions.a.n(this.it.next(), "Iterator.next() returned a null value");
         }
 
         @Override // io.reactivex.internal.a.f
@@ -95,7 +95,7 @@ public final class FlowableFromIterable<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class IteratorSubscription<T> extends BaseRangeSubscription<T> {
         private static final long serialVersionUID = -6022804456014692607L;
         final org.a.c<? super T> actual;
@@ -208,7 +208,7 @@ public final class FlowableFromIterable<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class IteratorConditionalSubscription<T> extends BaseRangeSubscription<T> {
         private static final long serialVersionUID = -6022804456014692607L;
         final io.reactivex.internal.a.a<? super T> actual;

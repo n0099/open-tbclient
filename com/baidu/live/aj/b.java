@@ -19,7 +19,7 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.data.k;
 import com.baidu.live.data.m;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static Bitmap a(Context context, String str, int i, boolean z, int i2) {
         return a(context, str, i, 0, 0, z, i2);
@@ -53,7 +53,7 @@ public class b {
             GradientDrawable gradientDrawable = (GradientDrawable) findViewById.getBackground();
             if (z) {
                 textView2.setTextColor(context.getResources().getColor(a.c.sdk_color_guard_name_gold_text));
-                if (com.baidu.live.ae.a.Qj().bAS.aQa == null || com.baidu.live.ae.a.Qj().bAS.aQa.cB(i) == null) {
+                if (com.baidu.live.ae.a.Qm().bCs.aRA == null || com.baidu.live.ae.a.Qm().bCs.aRA.cC(i) == null) {
                     a(gradientDrawable, new int[]{context.getResources().getColor(a.c.sdk_color_guard_bd_gold_start), context.getResources().getColor(a.c.sdk_color_guard_bd_gold_mid), context.getResources().getColor(a.c.sdk_color_guard_bd_gold_end)});
                     textView.setTextColor(context.getResources().getColor(a.c.sdk_color_guard_level_gold_text));
                     gradientDrawable.setStroke(1, context.getResources().getColor(a.c.sdk_color_guard_border_gold_text));
@@ -63,31 +63,31 @@ public class b {
                         layoutParams2.setMargins(0, BdUtilHelper.dip2px(context, -1.0f), 0, 0);
                     }
                 } else {
-                    m.a cB = com.baidu.live.ae.a.Qj().bAS.aQa.cB(i);
+                    m.a cC = com.baidu.live.ae.a.Qm().bCs.aRA.cC(i);
                     int[] iArr = new int[3];
-                    iArr[0] = Color.parseColor(cB.Bq() == null ? "#F9B34A" : cB.Bq());
-                    iArr[1] = Color.parseColor(cB.Bt() == null ? "#FFEDAC" : cB.Bt());
-                    iArr[2] = Color.parseColor(cB.Br() == null ? "#E69111" : cB.Br());
+                    iArr[0] = Color.parseColor(cC.Bt() == null ? "#F9B34A" : cC.Bt());
+                    iArr[1] = Color.parseColor(cC.Bw() == null ? "#FFEDAC" : cC.Bw());
+                    iArr[2] = Color.parseColor(cC.Bu() == null ? "#E69111" : cC.Bu());
                     a(gradientDrawable, iArr);
-                    textView.setTextColor(Color.parseColor(cB.Bs() == null ? "#E45E00" : cB.Bs()));
-                    gradientDrawable.setStroke(1, Color.parseColor(cB.Bu() == null ? "#FFE8A7" : cB.Bu()));
-                    if (cB.Bp() != null) {
-                        layoutParams2.setMargins(0, BdUtilHelper.dip2px(context, Integer.parseInt(cB.Bp())), 0, 0);
+                    textView.setTextColor(Color.parseColor(cC.Bv() == null ? "#E45E00" : cC.Bv()));
+                    gradientDrawable.setStroke(1, Color.parseColor(cC.Bx() == null ? "#FFE8A7" : cC.Bx()));
+                    if (cC.Bs() != null) {
+                        layoutParams2.setMargins(0, BdUtilHelper.dip2px(context, Integer.parseInt(cC.Bs())), 0, 0);
                     }
                 }
                 if (i4 > 0 && i4 < 4) {
-                    m mVar = com.baidu.live.ae.a.Qj().bAS.aQb;
+                    m mVar = com.baidu.live.ae.a.Qm().bCs.aRB;
                     if (mVar != null) {
-                        m.a cB2 = mVar.cB(i4);
+                        m.a cC2 = mVar.cC(i4);
                         int[] iArr2 = new int[3];
-                        iArr2[0] = Color.parseColor(cB2.Bq() == null ? "#F9B34A" : cB2.Bq());
-                        iArr2[1] = Color.parseColor(cB2.Bt() == null ? "#FFEDAC" : cB2.Bt());
-                        iArr2[2] = Color.parseColor(cB2.Br() == null ? "#E69111" : cB2.Br());
+                        iArr2[0] = Color.parseColor(cC2.Bt() == null ? "#F9B34A" : cC2.Bt());
+                        iArr2[1] = Color.parseColor(cC2.Bw() == null ? "#FFEDAC" : cC2.Bw());
+                        iArr2[2] = Color.parseColor(cC2.Bu() == null ? "#E69111" : cC2.Bu());
                         a(gradientDrawable, iArr2);
-                        textView.setTextColor(Color.parseColor(cB2.Bs() == null ? "#E45E00" : cB2.Bs()));
-                        gradientDrawable.setStroke(1, Color.parseColor(cB2.Bu() == null ? "#FFE8A7" : cB2.Bu()));
-                        if (cB2.Bp() != null) {
-                            layoutParams2.setMargins(0, BdUtilHelper.dip2px(context, Integer.parseInt(cB2.Bp())), 0, 0);
+                        textView.setTextColor(Color.parseColor(cC2.Bv() == null ? "#E45E00" : cC2.Bv()));
+                        gradientDrawable.setStroke(1, Color.parseColor(cC2.Bx() == null ? "#FFE8A7" : cC2.Bx()));
+                        if (cC2.Bs() != null) {
+                            layoutParams2.setMargins(0, BdUtilHelper.dip2px(context, Integer.parseInt(cC2.Bs())), 0, 0);
                         }
                     }
                     switch (i4) {
@@ -119,15 +119,15 @@ public class b {
                 gradientDrawable.setStroke(1, Color.parseColor("#ffe900"));
             } else {
                 textView2.setTextColor(context.getResources().getColor(a.c.sdk_white_alpha100));
-                if (com.baidu.live.ae.a.Qj().bAS.aPZ != null && com.baidu.live.ae.a.Qj().bAS.aPZ.cz(i) != null) {
-                    k.a cz = com.baidu.live.ae.a.Qj().bAS.aPZ.cz(i);
+                if (com.baidu.live.ae.a.Qm().bCs.aRz != null && com.baidu.live.ae.a.Qm().bCs.aRz.cA(i) != null) {
+                    k.a cA = com.baidu.live.ae.a.Qm().bCs.aRz.cA(i);
                     int[] iArr3 = new int[2];
-                    iArr3[0] = Color.parseColor(cz.Bq() == null ? "#FF90B5" : cz.Bq());
-                    iArr3[1] = Color.parseColor(cz.Br() == null ? "#FFADC6" : cz.Bq());
+                    iArr3[0] = Color.parseColor(cA.Bt() == null ? "#FF90B5" : cA.Bt());
+                    iArr3[1] = Color.parseColor(cA.Bu() == null ? "#FFADC6" : cA.Bt());
                     a(gradientDrawable, iArr3);
-                    textView.setTextColor(Color.parseColor(cz.Bs() == null ? "#FF2F87" : cz.Bs()));
-                    if (cz.Bp() != null) {
-                        layoutParams2.setMargins(0, BdUtilHelper.dip2px(context, Integer.parseInt(cz.Bp())), 0, 0);
+                    textView.setTextColor(Color.parseColor(cA.Bv() == null ? "#FF2F87" : cA.Bv()));
+                    if (cA.Bs() != null) {
+                        layoutParams2.setMargins(0, BdUtilHelper.dip2px(context, Integer.parseInt(cA.Bs())), 0, 0);
                     }
                 } else {
                     a(gradientDrawable, new int[]{context.getResources().getColor(a.c.sdk_ala_guard_level_bg_1_3_start_color), context.getResources().getColor(a.c.sdk_ala_guard_level_bg_1_3_end_color)});

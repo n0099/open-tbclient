@@ -4,29 +4,29 @@ import android.content.Context;
 import android.text.SpannableStringBuilder;
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g implements c {
-    private int aJO;
+    private int aLo;
     private String color;
-    private SpannableStringBuilder miL;
+    private SpannableStringBuilder mkN;
     private int textSize;
 
     public g() {
-        this.aJO = 0;
+        this.aLo = 0;
         this.textSize = -1;
-        this.miL = new SpannableStringBuilder();
+        this.mkN = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.aJO = 0;
+        this.aLo = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.miL = new SpannableStringBuilder();
+            this.mkN = new SpannableStringBuilder();
             if (excContent != null) {
-                this.miL.append((CharSequence) excContent.text);
+                this.mkN.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.aJO = excContent.align.intValue();
+                this.aLo = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void t(CharSequence charSequence) {
         if (charSequence != null) {
-            this.miL.append(charSequence);
+            this.mkN.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence dtD() {
-        return this.miL;
+    public CharSequence dtM() {
+        return this.mkN;
     }
 
-    public int dtF() {
-        return this.aJO;
+    public int dtO() {
+        return this.aLo;
     }
 
-    public String Bs() {
+    public String Bv() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean dtE() {
-        return (this.aJO > 0 && this.aJO < 3) || !StringUtils.isNull(this.color);
+    public boolean dtN() {
+        return (this.aLo > 0 && this.aLo < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

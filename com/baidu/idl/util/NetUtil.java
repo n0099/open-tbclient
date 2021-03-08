@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import org.json.JSONException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class NetUtil {
     private static final String TAG = "NetUtil";
 
@@ -263,7 +263,7 @@ public class NetUtil {
         throw new RuntimeException("This class instance can not be created.");
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class RequestAdapter<T> {
         private static final int CONNECT_TIMEOUT = 5000;
         private static final int READ_TIMEOUT = 5000;

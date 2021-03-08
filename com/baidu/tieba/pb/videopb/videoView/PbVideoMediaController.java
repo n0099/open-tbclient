@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
 /* loaded from: classes2.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
-    private ProgressBar mns;
+    private ProgressBar mpv;
 
     public PbVideoMediaController(Context context) {
         super(context);
@@ -29,51 +29,51 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     }
 
     private void init() {
-        this.mns = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
+        this.mpv = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView, com.baidu.tieba.play.VideoControllerView
-    protected View fE(Context context) {
+    protected View fD(Context context) {
         return View.inflate(context, R.layout.pb_video_media_controller, null);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
     public void bx(int i, int i2) {
         super.bx(i, i2);
-        this.mns.setProgress(this.ghT.getProgress());
+        this.mpv.setProgress(this.gjx.getProgress());
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    public void aRo() {
-        super.aRo();
-        this.mns.setProgress(0);
+    public void aRr() {
+        super.aRr();
+        this.mpv.setProgress(0);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
     public void setCurrentDuration(int i, boolean z) {
         super.setCurrentDuration(i, z);
         if (!z) {
-            this.ghT.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
-            if (this.ghR != null) {
-                this.ghR.setText(au.stringForVideoTime(i));
+            this.gjx.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
+            if (this.gjv != null) {
+                this.gjv.setText(au.stringForVideoTime(i));
             }
         }
-        this.mns.setProgress(this.ghT.getProgress());
+        this.mpv.setProgress(this.gjx.getProgress());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.VideoControllerView
-    public int bLK() {
-        int bLK = super.bLK();
-        this.mns.setProgress(this.ghT.getProgress());
-        return bLK;
+    public int bLO() {
+        int bLO = super.bLO();
+        this.mpv.setProgress(this.gjx.getProgress());
+        return bLO;
     }
 
     public void setBottomBarShow(boolean z) {
-        this.mns.setVisibility(z ? 0 : 8);
-        this.ghT.setVisibility(z ? 8 : 0);
-        this.ghR.setVisibility(z ? 8 : 0);
-        this.ghS.setVisibility(z ? 8 : 0);
+        this.mpv.setVisibility(z ? 0 : 8);
+        this.gjx.setVisibility(z ? 8 : 0);
+        this.gjv.setVisibility(z ? 8 : 0);
+        this.gjw.setVisibility(z ? 8 : 0);
     }
 
     public void au(boolean z, boolean z2) {
@@ -83,8 +83,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
             dimens = l.getDimens(getContext(), R.dimen.tbds210);
         }
         layoutParams.height = dimens;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ghR.getLayoutParams();
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.ghS.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gjv.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.gjw.getLayoutParams();
         layoutParams2.leftMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
         layoutParams3.rightMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
     }

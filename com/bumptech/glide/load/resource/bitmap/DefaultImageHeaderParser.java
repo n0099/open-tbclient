@@ -2,8 +2,6 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.internal.view.SupportMenu;
-import androidx.core.view.MotionEventCompat;
 import com.bumptech.glide.load.ImageHeaderParser;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.util.Preconditions;
@@ -12,7 +10,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class DefaultImageHeaderParser implements ImageHeaderParser {
     static final int EXIF_MAGIC_NUMBER = 65496;
     static final int EXIF_SEGMENT_TYPE = 225;
@@ -38,20 +36,6 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     static final byte[] JPEG_EXIF_SEGMENT_PREAMBLE_BYTES = JPEG_EXIF_SEGMENT_PREAMBLE.getBytes(Charset.forName("UTF-8"));
     private static final int[] BYTES_PER_FORMAT = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
-    public interface Reader {
-        int getByte() throws IOException;
-
-        int getUInt16() throws IOException;
-
-        short getUInt8() throws IOException;
-
-        int read(byte[] bArr, int i) throws IOException;
-
-        long skip(long j) throws IOException;
-    }
-
     @Override // com.bumptech.glide.load.ImageHeaderParser
     @NonNull
     public ImageHeaderParser.ImageType getType(@NonNull InputStream inputStream) throws IOException {
@@ -74,64 +58,78 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         return getOrientation(new ByteBufferReader((ByteBuffer) Preconditions.checkNotNull(byteBuffer)), (ArrayPool) Preconditions.checkNotNull(arrayPool));
     }
 
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:18:0x003a -> B:44:0x000b). Please submit an issue!!! */
     @NonNull
     private ImageHeaderParser.ImageType getType(Reader reader) throws IOException {
-        int uInt16 = reader.getUInt16();
-        if (uInt16 == EXIF_MAGIC_NUMBER) {
-            return ImageHeaderParser.ImageType.JPEG;
-        }
-        int uInt162 = ((uInt16 << 16) & SupportMenu.CATEGORY_MASK) | (reader.getUInt16() & SupportMenu.USER_MASK);
-        if (uInt162 == PNG_HEADER) {
-            reader.skip(21L);
-            return reader.getByte() >= 3 ? ImageHeaderParser.ImageType.PNG_A : ImageHeaderParser.ImageType.PNG;
-        } else if ((uInt162 >> 8) == GIF_HEADER) {
-            return ImageHeaderParser.ImageType.GIF;
-        } else {
-            if (uInt162 != RIFF_HEADER) {
-                return ImageHeaderParser.ImageType.UNKNOWN;
-            }
-            reader.skip(4L);
-            if ((((reader.getUInt16() << 16) & SupportMenu.CATEGORY_MASK) | (reader.getUInt16() & SupportMenu.USER_MASK)) != WEBP_HEADER) {
-                return ImageHeaderParser.ImageType.UNKNOWN;
-            }
-            int uInt163 = ((reader.getUInt16() << 16) & SupportMenu.CATEGORY_MASK) | (reader.getUInt16() & SupportMenu.USER_MASK);
-            if ((uInt163 & (-256)) != VP8_HEADER) {
-                return ImageHeaderParser.ImageType.UNKNOWN;
-            }
-            if ((uInt163 & 255) == 88) {
-                reader.skip(4L);
-                return (reader.getByte() & 16) != 0 ? ImageHeaderParser.ImageType.WEBP_A : ImageHeaderParser.ImageType.WEBP;
-            } else if ((uInt163 & 255) == 76) {
-                reader.skip(4L);
-                return (reader.getByte() & 8) != 0 ? ImageHeaderParser.ImageType.WEBP_A : ImageHeaderParser.ImageType.WEBP;
+        ImageHeaderParser.ImageType imageType;
+        try {
+            int uInt16 = reader.getUInt16();
+            if (uInt16 == EXIF_MAGIC_NUMBER) {
+                imageType = ImageHeaderParser.ImageType.JPEG;
             } else {
-                return ImageHeaderParser.ImageType.WEBP;
+                int uInt8 = (uInt16 << 8) | reader.getUInt8();
+                if (uInt8 == GIF_HEADER) {
+                    imageType = ImageHeaderParser.ImageType.GIF;
+                } else {
+                    int uInt82 = (uInt8 << 8) | reader.getUInt8();
+                    if (uInt82 == PNG_HEADER) {
+                        reader.skip(21L);
+                        try {
+                            imageType = reader.getUInt8() >= 3 ? ImageHeaderParser.ImageType.PNG_A : ImageHeaderParser.ImageType.PNG;
+                        } catch (Reader.EndOfFileException e) {
+                            imageType = ImageHeaderParser.ImageType.PNG;
+                        }
+                    } else if (uInt82 != RIFF_HEADER) {
+                        imageType = ImageHeaderParser.ImageType.UNKNOWN;
+                    } else {
+                        reader.skip(4L);
+                        if (((reader.getUInt16() << 16) | reader.getUInt16()) != WEBP_HEADER) {
+                            imageType = ImageHeaderParser.ImageType.UNKNOWN;
+                        } else {
+                            int uInt162 = (reader.getUInt16() << 16) | reader.getUInt16();
+                            if ((uInt162 & (-256)) != VP8_HEADER) {
+                                imageType = ImageHeaderParser.ImageType.UNKNOWN;
+                            } else if ((uInt162 & 255) == 88) {
+                                reader.skip(4L);
+                                imageType = (reader.getUInt8() & 16) != 0 ? ImageHeaderParser.ImageType.WEBP_A : ImageHeaderParser.ImageType.WEBP;
+                            } else if ((uInt162 & 255) == 76) {
+                                reader.skip(4L);
+                                imageType = (reader.getUInt8() & 8) != 0 ? ImageHeaderParser.ImageType.WEBP_A : ImageHeaderParser.ImageType.WEBP;
+                            } else {
+                                imageType = ImageHeaderParser.ImageType.WEBP;
+                            }
+                        }
+                    }
+                }
             }
+            return imageType;
+        } catch (Reader.EndOfFileException e2) {
+            return ImageHeaderParser.ImageType.UNKNOWN;
         }
     }
 
     private int getOrientation(Reader reader, ArrayPool arrayPool) throws IOException {
-        int uInt16 = reader.getUInt16();
-        if (!handles(uInt16)) {
-            if (Log.isLoggable(TAG, 3)) {
-                Log.d(TAG, "Parser doesn't handle magic number: " + uInt16);
-                return -1;
-            }
-            return -1;
-        }
-        int moveToExifSegmentAndGetLength = moveToExifSegmentAndGetLength(reader);
-        if (moveToExifSegmentAndGetLength == -1) {
-            if (Log.isLoggable(TAG, 3)) {
-                Log.d(TAG, "Failed to parse exif segment length, or exif segment not found");
-                return -1;
-            }
-            return -1;
-        }
-        byte[] bArr = (byte[]) arrayPool.get(moveToExifSegmentAndGetLength, byte[].class);
         try {
-            return parseExifSegment(reader, bArr, moveToExifSegmentAndGetLength);
-        } finally {
+            int uInt16 = reader.getUInt16();
+            if (!handles(uInt16)) {
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Parser doesn't handle magic number: " + uInt16);
+                }
+                return -1;
+            }
+            int moveToExifSegmentAndGetLength = moveToExifSegmentAndGetLength(reader);
+            if (moveToExifSegmentAndGetLength == -1) {
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Failed to parse exif segment length, or exif segment not found");
+                }
+                return -1;
+            }
+            byte[] bArr = (byte[]) arrayPool.get(moveToExifSegmentAndGetLength, byte[].class);
+            int parseExifSegment = parseExifSegment(reader, bArr, moveToExifSegmentAndGetLength);
             arrayPool.put(bArr);
+            return parseExifSegment;
+        } catch (Reader.EndOfFileException e) {
+            return -1;
         }
     }
 
@@ -278,7 +276,7 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class RandomAccessReader {
         private final ByteBuffer data;
 
@@ -313,7 +311,28 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes14.dex */
+    public interface Reader {
+        int getUInt16() throws IOException;
+
+        short getUInt8() throws IOException;
+
+        int read(byte[] bArr, int i) throws IOException;
+
+        long skip(long j) throws IOException;
+
+        /* loaded from: classes14.dex */
+        public static final class EndOfFileException extends IOException {
+            private static final long serialVersionUID = 1;
+
+            EndOfFileException() {
+                super("Unexpectedly reached end of a file");
+            }
+        }
+    }
+
+    /* loaded from: classes14.dex */
     private static final class ByteBufferReader implements Reader {
         private final ByteBuffer byteBuffer;
 
@@ -323,20 +342,16 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public int getUInt16() {
-            return ((getByte() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (getByte() & 255);
+        public short getUInt8() throws Reader.EndOfFileException {
+            if (this.byteBuffer.remaining() < 1) {
+                throw new Reader.EndOfFileException();
+            }
+            return (short) (this.byteBuffer.get() & 255);
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public short getUInt8() {
-            return (short) (getByte() & 255);
-        }
-
-        @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public long skip(long j) {
-            int min = (int) Math.min(this.byteBuffer.remaining(), j);
-            this.byteBuffer.position(this.byteBuffer.position() + min);
-            return min;
+        public int getUInt16() throws Reader.EndOfFileException {
+            return (getUInt8() << 8) | getUInt8();
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
@@ -350,15 +365,14 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public int getByte() {
-            if (this.byteBuffer.remaining() < 1) {
-                return -1;
-            }
-            return this.byteBuffer.get();
+        public long skip(long j) {
+            int min = (int) Math.min(this.byteBuffer.remaining(), j);
+            this.byteBuffer.position(this.byteBuffer.position() + min);
+            return min;
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static final class StreamReader implements Reader {
         private final InputStream is;
 
@@ -367,13 +381,34 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public int getUInt16() throws IOException {
-            return ((this.is.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.is.read() & 255);
+        public short getUInt8() throws IOException {
+            int read = this.is.read();
+            if (read == -1) {
+                throw new Reader.EndOfFileException();
+            }
+            return (short) read;
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public short getUInt8() throws IOException {
-            return (short) (this.is.read() & 255);
+        public int getUInt16() throws IOException {
+            return (getUInt8() << 8) | getUInt8();
+        }
+
+        @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
+        public int read(byte[] bArr, int i) throws IOException {
+            int i2 = 0;
+            int i3 = 0;
+            while (i3 < i) {
+                i2 = this.is.read(bArr, i3, i - i3);
+                if (i2 == -1) {
+                    break;
+                }
+                i3 += i2;
+            }
+            if (i3 == 0 && i2 == -1) {
+                throw new Reader.EndOfFileException();
+            }
+            return i3;
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
@@ -393,24 +428,6 @@ public final class DefaultImageHeaderParser implements ImageHeaderParser {
                 }
             }
             return j - j2;
-        }
-
-        @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public int read(byte[] bArr, int i) throws IOException {
-            int i2 = i;
-            while (i2 > 0) {
-                int read = this.is.read(bArr, i - i2, i2);
-                if (read == -1) {
-                    break;
-                }
-                i2 -= read;
-            }
-            return i - i2;
-        }
-
-        @Override // com.bumptech.glide.load.resource.bitmap.DefaultImageHeaderParser.Reader
-        public int getByte() throws IOException {
-            return this.is.read();
         }
     }
 }

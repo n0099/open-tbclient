@@ -3,7 +3,7 @@ package androidx.vectordrawable.graphics.drawable;
 import android.animation.TypeEvaluator;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ArgbEvaluator implements TypeEvaluator {
     private static final ArgbEvaluator sInstance = new ArgbEvaluator();
 

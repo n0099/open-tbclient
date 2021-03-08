@@ -10,7 +10,7 @@ import java.io.InputStream;
 public class n extends l<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final UriMatcher f10058a = new UriMatcher(-1);
+    private static final UriMatcher f6653a = new UriMatcher(-1);
 
     public n(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);

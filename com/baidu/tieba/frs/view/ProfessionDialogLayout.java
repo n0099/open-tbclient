@@ -15,8 +15,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class ProfessionDialogLayout extends LinearLayout {
-    private View.OnClickListener jSw;
-    private View.OnClickListener jSx;
+    private View.OnClickListener jUf;
+    private View.OnClickListener jUg;
     private Context mContext;
 
     public ProfessionDialogLayout(Context context) {
@@ -49,27 +49,27 @@ public class ProfessionDialogLayout extends LinearLayout {
         tbImageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.jSx != null) {
-                    ProfessionDialogLayout.this.jSx.onClick(view);
+                if (ProfessionDialogLayout.this.jUg != null) {
+                    ProfessionDialogLayout.this.jUg.onClick(view);
                 }
             }
         });
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.jSw != null) {
-                    ProfessionDialogLayout.this.jSw.onClick(view);
+                if (ProfessionDialogLayout.this.jUf != null) {
+                    ProfessionDialogLayout.this.jUf.onClick(view);
                 }
             }
         });
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
-        this.jSw = onClickListener;
+        this.jUf = onClickListener;
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
-        this.jSx = onClickListener;
+        this.jUg = onClickListener;
     }
 
     private void setImageAttribute(TbImageView tbImageView) {

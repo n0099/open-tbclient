@@ -22,13 +22,13 @@ public class x extends ch {
         Signature signature;
         try {
             packageInfo = this.e.getPackageManager().getPackageInfo(this.e.getPackageName(), 64);
-        } catch (Exception e) {
-            au.a(e);
+        } catch (Throwable th) {
+            au.a(th);
             packageInfo = null;
         }
-        String b2 = (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || (signature = packageInfo.signatures[0]) == null) ? null : ap.b(signature.toByteArray());
-        if (b2 != null) {
-            jSONObject.put("sig_hash", b2);
+        String b = (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length <= 0 || (signature = packageInfo.signatures[0]) == null) ? null : ap.b(signature.toByteArray());
+        if (b != null) {
+            jSONObject.put("sig_hash", b);
             return true;
         }
         return true;

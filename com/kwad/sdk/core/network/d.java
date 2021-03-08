@@ -9,7 +9,7 @@ public abstract class d extends b {
     @Override // com.kwad.sdk.core.network.b
     protected void e() {
         String a2 = a();
-        if (!com.kwad.sdk.a.f8126b.booleanValue() || a2.contains(com.kwad.sdk.d.d())) {
+        if (!com.kwad.sdk.a.b.booleanValue() || a2.contains(com.kwad.sdk.d.d())) {
             return;
         }
         DevelopMangerPlugin.DevelopValue a3 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_AD_UNIVERSE");
@@ -33,7 +33,7 @@ public abstract class d extends b {
         a("SDKVersionCode", 3030900);
         b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
         a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-        a("sdkType", com.kwad.sdk.d.f9671a);
+        a("sdkType", com.kwad.sdk.d.f6401a);
         a("appInfo", com.kwad.sdk.core.g.a.b.a());
         a("deviceInfo", com.kwad.sdk.core.g.a.d.a(g()));
         a("networkInfo", com.kwad.sdk.core.g.a.i.a());

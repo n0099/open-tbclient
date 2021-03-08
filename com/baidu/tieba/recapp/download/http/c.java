@@ -9,28 +9,28 @@ import java.util.List;
 import org.apache.http.cookie.SM;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private static String MV;
-    private static String MW;
-    private static boolean MX;
-    private static String MY;
+    private static String Ou;
+    private static String Ov;
+    private static boolean Ow;
+    private static String Ox;
     private static String sUid;
-    private long Ne;
-    private g mTd;
-    private d mTe;
+    private long OD;
+    private g mVk;
+    private d mVl;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.Ne = BdStatisticsManager.getInstance().getClientLogId();
+        this.OD = BdStatisticsManager.getInstance().getClientLogId();
     }
 
-    public static void bM(String str) {
-        MV = str;
+    public static void bQ(String str) {
+        Ou = str;
     }
 
     public static void setUserAgent(String str) {
-        MW = str;
+        Ov = str;
     }
 
     public static void setUid(String str) {
@@ -38,33 +38,33 @@ public class c {
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.mTd = new g();
-        a(this.mTd, z);
-        this.mTd.dDK().setUrl(str);
-        this.mTe = new d(this.mTd);
-        this.mTe.d(i, i3, i4);
-        return this.mTd.dDL();
+        this.mVk = new g();
+        a(this.mVk, z);
+        this.mVk.dDS().setUrl(str);
+        this.mVl = new d(this.mVk);
+        this.mVl.d(i, i3, i4);
+        return this.mVk.dDT();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.mTd = new g();
-        a(this.mTd, z);
-        this.mTd.dDK().setUrl(str);
+        this.mVk = new g();
+        a(this.mVk, z);
+        this.mVk.dDS().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.mTd.dDK().addPostData(basicNameValuePair);
+                this.mVk.dDS().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.mTd.dDK().s(next.getName(), next.getValue());
+                this.mVk.dDS().s(next.getName(), next.getValue());
             }
         }
-        this.mTe = new d(this.mTd);
-        this.mTe.f(i, i2, -1);
-        return this.mTd.dDL();
+        this.mVl = new d(this.mVk);
+        this.mVl.f(i, i2, -1);
+        return this.mVk.dDT();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -72,11 +72,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.mTd = new g();
-        b(this.mTd);
-        this.mTd.dDK().setUrl(str);
-        this.mTe = new d(this.mTd);
-        return this.mTe.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.mVk = new g();
+        b(this.mVk);
+        this.mVk.dDS().setUrl(str);
+        this.mVl = new d(this.mVk);
+        return this.mVl.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -84,54 +84,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.mTe != null) {
-            this.mTe.cancel();
+        if (this.mVl != null) {
+            this.mVl.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.mTe != null) {
-            return this.mTe.isCancel();
+        if (this.mVl != null) {
+            return this.mVl.isCancel();
         }
         return false;
     }
 
     public void setCancel() {
-        if (this.mTe != null) {
-            this.mTe.setCancel();
+        if (this.mVl != null) {
+            this.mVl.setCancel();
         }
     }
 
-    public g dDJ() {
-        return this.mTd;
+    public g dDR() {
+        return this.mVk;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
-            if (!TextUtils.isEmpty(MV)) {
-                gVar.dDK().s(SM.COOKIE, MV);
+            if (!TextUtils.isEmpty(Ou)) {
+                gVar.dDS().s(SM.COOKIE, Ou);
             } else {
-                gVar.dDK().s(SM.COOKIE, "");
+                gVar.dDS().s(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(sUid)) {
-                gVar.dDK().s("client_user_token", sUid);
+                gVar.dDS().s("client_user_token", sUid);
             }
-            if (!TextUtils.isEmpty(MW)) {
-                gVar.dDK().s("User-Agent", MW);
+            if (!TextUtils.isEmpty(Ov)) {
+                gVar.dDS().s("User-Agent", Ov);
             }
             if (z) {
-                gVar.dDK().s(Headers.ACCEPT_ENCODING, "gzip");
+                gVar.dDS().s(Headers.ACCEPT_ENCODING, "gzip");
             } else {
-                gVar.dDK().s(Headers.ACCEPT_ENCODING, "");
+                gVar.dDS().s(Headers.ACCEPT_ENCODING, "");
             }
-            if (MX) {
-                gVar.dDK().s(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            if (Ow) {
+                gVar.dDS().s(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.dDK().s(HTTP.CONN_DIRECTIVE, "close");
+                gVar.dDS().s(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.dDK().s("client_logid", String.valueOf(this.Ne));
-            if (!TextUtils.isEmpty(MY)) {
-                gVar.dDK().s("cuid", MY);
+            gVar.dDS().s("client_logid", String.valueOf(this.OD));
+            if (!TextUtils.isEmpty(Ox)) {
+                gVar.dDS().s("cuid", Ox);
             }
         }
     }

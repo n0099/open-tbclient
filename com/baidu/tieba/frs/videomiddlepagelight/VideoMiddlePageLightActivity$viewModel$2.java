@@ -22,7 +22,7 @@ final class VideoMiddlePageLightActivity$viewModel$2 extends Lambda implements k
     @Override // kotlin.jvm.a.a
     public final VideoMiddlePageViewModel invoke() {
         TbPageContext pageContext = this.this$0.getPageContext();
-        p.n(pageContext, "pageContext");
+        p.o(pageContext, "pageContext");
         return (VideoMiddlePageViewModel) ViewModelProviders.of(this.this$0, new VideoMiddlePageViewModelFactory(pageContext)).get(VideoMiddlePageViewModel.class);
     }
 }

@@ -19,10 +19,8 @@ import java.util.Arrays;
 public class KSHalfPageLoadingView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f9013a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private LottieAnimationView f9014b;
+    private TextView f5995a;
+    private LottieAnimationView b;
     private KSPageLoadingView.a c;
 
     public KSHalfPageLoadingView(@NonNull Context context) {
@@ -46,30 +44,30 @@ public class KSHalfPageLoadingView extends FrameLayout implements View.OnClickLi
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, iArr);
         boolean z = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i), false);
         obtainStyledAttributes.recycle();
-        this.f9013a = (TextView) findViewById(R.id.ksad_error_tip);
-        this.f9013a.setTextColor(getContext().getResources().getColor(z ? R.color.ksad_hale_page_loading_error_title_light_color : R.color.ksad_hale_page_loading_error_title_dark_color));
-        this.f9013a.setOnClickListener(this);
+        this.f5995a = (TextView) findViewById(R.id.ksad_error_tip);
+        this.f5995a.setTextColor(getContext().getResources().getColor(z ? R.color.ksad_hale_page_loading_error_title_light_color : R.color.ksad_hale_page_loading_error_title_dark_color));
+        this.f5995a.setOnClickListener(this);
         int i2 = z ? R.raw.ksad_page_loading_light_anim : R.raw.ksad_detail_loading_amin_new;
-        this.f9014b = (LottieAnimationView) findViewById(R.id.ksad_loading_anim);
-        this.f9014b.setRepeatMode(1);
-        this.f9014b.setRepeatCount(-1);
-        this.f9014b.setAnimation(i2);
+        this.b = (LottieAnimationView) findViewById(R.id.ksad_loading_anim);
+        this.b.setRepeatMode(1);
+        this.b.setRepeatCount(-1);
+        this.b.setAnimation(i2);
         setOnClickListener(this);
     }
 
     private void a(String str) {
         g();
-        this.f9013a.setText(str);
-        this.f9013a.setVisibility(0);
-        this.f9013a.setOnClickListener(null);
+        this.f5995a.setText(str);
+        this.f5995a.setVisibility(0);
+        this.f5995a.setOnClickListener(null);
         setVisibility(0);
     }
 
     private void g() {
-        if (!this.f9014b.c()) {
-            this.f9014b.d();
+        if (!this.b.c()) {
+            this.b.d();
         }
-        this.f9014b.setVisibility(8);
+        this.b.setVisibility(8);
     }
 
     public void a() {
@@ -77,28 +75,28 @@ public class KSHalfPageLoadingView extends FrameLayout implements View.OnClickLi
     }
 
     public void b() {
-        this.f9013a.setVisibility(8);
-        this.f9014b.setVisibility(0);
-        if (!this.f9014b.c()) {
-            this.f9014b.b();
+        this.f5995a.setVisibility(8);
+        this.b.setVisibility(0);
+        if (!this.b.c()) {
+            this.b.b();
         }
         setVisibility(0);
     }
 
     public void c() {
         g();
-        this.f9013a.setText(q.j(getContext()));
-        this.f9013a.setVisibility(0);
-        this.f9013a.setOnClickListener(this);
+        this.f5995a.setText(q.j(getContext()));
+        this.f5995a.setVisibility(0);
+        this.f5995a.setOnClickListener(this);
         p.a(getContext());
         setVisibility(0);
     }
 
     public void d() {
         g();
-        this.f9013a.setText(q.j(getContext()));
-        this.f9013a.setVisibility(0);
-        this.f9013a.setOnClickListener(this);
+        this.f5995a.setText(q.j(getContext()));
+        this.f5995a.setVisibility(0);
+        this.f5995a.setOnClickListener(this);
         p.b(getContext());
         setVisibility(0);
     }

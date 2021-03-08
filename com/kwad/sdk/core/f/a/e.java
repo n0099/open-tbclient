@@ -9,10 +9,10 @@ import android.os.Bundle;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9138a;
+    private Context f6080a;
 
     public e(Context context) {
-        this.f9138a = context;
+        this.f6080a = context;
     }
 
     public String a() {
@@ -22,7 +22,7 @@ public class e {
         try {
             Uri parse = Uri.parse("content://cn.nubia.identity/identity");
             if (Build.VERSION.SDK_INT > 17) {
-                ContentProviderClient acquireContentProviderClient = this.f9138a.getContentResolver().acquireContentProviderClient(parse);
+                ContentProviderClient acquireContentProviderClient = this.f6080a.getContentResolver().acquireContentProviderClient(parse);
                 call = acquireContentProviderClient.call("getOAID", null, null);
                 if (Build.VERSION.SDK_INT >= 24) {
                     acquireContentProviderClient.close();
@@ -30,7 +30,7 @@ public class e {
                     acquireContentProviderClient.release();
                 }
             } else {
-                call = this.f9138a.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
+                call = this.f6080a.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
             }
             if (call != null) {
                 str = call.getInt("code", -1) == 0 ? call.getString("id") : "";

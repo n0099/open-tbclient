@@ -3,22 +3,22 @@ package com.baidu.swan.games.c;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.ao.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.swan.apps.event.a.b {
     private String data;
-    private String eeJ;
+    private String egk;
     private String logType;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.eeJ = str2;
+        this.egk = str2;
         this.logType = str3;
         this.data = str4;
     }
 
     @Override // com.baidu.swan.apps.event.a.b, com.baidu.swan.apps.event.a.a
-    public String nK(String str) {
-        String str2 = this.eeJ;
+    public String nR(String str) {
+        String str2 = this.egk;
         char c = 65535;
         switch (str2.hashCode()) {
             case -2011830027:
@@ -42,7 +42,7 @@ public class c extends com.baidu.swan.apps.event.a.b {
         }
         switch (c) {
             case 0:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(j.a(j.aNL(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.logType, JSONObject.quote(j.a(j.aNO(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
             case 1:
                 return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.logType, JSONObject.quote(this.data));
             case 2:

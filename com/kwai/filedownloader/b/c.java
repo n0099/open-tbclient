@@ -17,11 +17,9 @@ public class c implements a {
     private AtomicInteger f = new AtomicInteger();
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f10872a = new b();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final d f10873b = new d();
-    private final long d = com.kwai.filedownloader.f.e.a().f10932b;
+    private final b f7178a = new b();
+    private final d b = new d();
+    private final long d = com.kwai.filedownloader.f.e.a().b;
 
     public c() {
         HandlerThread handlerThread = new HandlerThread(f.i("RemitHandoverToDB"), 10);
@@ -59,11 +57,11 @@ public class c implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(int i) {
-        this.f10873b.a(this.f10872a.b(i));
-        List<com.kwai.filedownloader.d.a> c = this.f10872a.c(i);
-        this.f10873b.d(i);
+        this.b.a(this.f7178a.b(i));
+        List<com.kwai.filedownloader.d.a> c = this.f7178a.c(i);
+        this.b.d(i);
         for (com.kwai.filedownloader.d.a aVar : c) {
-            this.f10873b.a(aVar);
+            this.b.a(aVar);
         }
     }
 
@@ -84,8 +82,8 @@ public class c implements a {
 
     @Override // com.kwai.filedownloader.b.a
     public void a() {
-        this.f10872a.a();
-        this.f10873b.a();
+        this.f7178a.a();
+        this.b.a();
     }
 
     @Override // com.kwai.filedownloader.b.a
@@ -95,149 +93,149 @@ public class c implements a {
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, int i2) {
-        this.f10872a.a(i, i2);
+        this.f7178a.a(i, i2);
         if (h(i)) {
             return;
         }
-        this.f10873b.a(i, i2);
+        this.b.a(i, i2);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, int i2, long j) {
-        this.f10872a.a(i, i2, j);
+        this.f7178a.a(i, i2, j);
         if (h(i)) {
             return;
         }
-        this.f10873b.a(i, i2, j);
+        this.b.a(i, i2, j);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, long j) {
-        this.f10872a.a(i, j);
+        this.f7178a.a(i, j);
         if (h(i)) {
             return;
         }
-        this.f10873b.a(i, j);
+        this.b.a(i, j);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, long j, String str, String str2) {
-        this.f10872a.a(i, j, str, str2);
+        this.f7178a.a(i, j, str, str2);
         if (h(i)) {
             return;
         }
-        this.f10873b.a(i, j, str, str2);
+        this.b.a(i, j, str, str2);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, String str, long j, long j2, int i2) {
-        this.f10872a.a(i, str, j, j2, i2);
+        this.f7178a.a(i, str, j, j2, i2);
         if (h(i)) {
             return;
         }
-        this.f10873b.a(i, str, j, j2, i2);
+        this.b.a(i, str, j, j2, i2);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, Throwable th) {
-        this.f10872a.a(i, th);
+        this.f7178a.a(i, th);
         if (h(i)) {
             return;
         }
-        this.f10873b.a(i, th);
+        this.b.a(i, th);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(int i, Throwable th, long j) {
-        this.f10872a.a(i, th, j);
+        this.f7178a.a(i, th, j);
         if (h(i)) {
             i(i);
         }
-        this.f10873b.a(i, th, j);
+        this.b.a(i, th, j);
         this.e.remove(Integer.valueOf(i));
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(com.kwai.filedownloader.d.a aVar) {
-        this.f10872a.a(aVar);
+        this.f7178a.a(aVar);
         if (h(aVar.a())) {
             return;
         }
-        this.f10873b.a(aVar);
+        this.b.a(aVar);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void a(com.kwai.filedownloader.d.c cVar) {
-        this.f10872a.a(cVar);
+        this.f7178a.a(cVar);
         if (h(cVar.a())) {
             return;
         }
-        this.f10873b.a(cVar);
+        this.b.a(cVar);
     }
 
     @Override // com.kwai.filedownloader.b.a
-    public a.InterfaceC1156a b() {
-        return this.f10873b.a(this.f10872a.f10868a, this.f10872a.f10869b);
+    public a.InterfaceC1173a b() {
+        return this.b.a(this.f7178a.f7175a, this.f7178a.b);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public com.kwai.filedownloader.d.c b(int i) {
-        return this.f10872a.b(i);
+        return this.f7178a.b(i);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void b(int i, long j) {
-        this.f10872a.b(i, j);
+        this.f7178a.b(i, j);
         if (h(i)) {
             this.c.removeMessages(i);
             if (this.f.get() == i) {
                 this.g = Thread.currentThread();
                 this.c.sendEmptyMessage(0);
                 LockSupport.park();
-                this.f10873b.b(i, j);
+                this.b.b(i, j);
             }
         } else {
-            this.f10873b.b(i, j);
+            this.b.b(i, j);
         }
         this.e.remove(Integer.valueOf(i));
     }
 
     @Override // com.kwai.filedownloader.b.a
     public List<com.kwai.filedownloader.d.a> c(int i) {
-        return this.f10872a.c(i);
+        return this.f7178a.c(i);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void c(int i, long j) {
-        this.f10872a.c(i, j);
+        this.f7178a.c(i, j);
         if (h(i)) {
             i(i);
         }
-        this.f10873b.c(i, j);
+        this.b.c(i, j);
         this.e.remove(Integer.valueOf(i));
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void d(int i) {
-        this.f10872a.d(i);
+        this.f7178a.d(i);
         if (h(i)) {
             return;
         }
-        this.f10873b.d(i);
+        this.b.d(i);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public boolean e(int i) {
-        this.f10873b.e(i);
-        return this.f10872a.e(i);
+        this.b.e(i);
+        return this.f7178a.e(i);
     }
 
     @Override // com.kwai.filedownloader.b.a
     public void f(int i) {
-        this.f10872a.f(i);
+        this.f7178a.f(i);
         if (h(i)) {
             return;
         }
-        this.f10873b.f(i);
+        this.b.f(i);
     }
 }

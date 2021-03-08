@@ -9,10 +9,8 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 public class d extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f9100a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected e f9101b;
+    public int f6049a;
+    protected e b;
     protected KsDrawAd.AdInteractionListener c;
     @NonNull
     public AdBaseFrameLayout d;

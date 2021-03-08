@@ -4,7 +4,7 @@ import com.baidu.ar.arplay.core.engine.rotate.Orientation;
 import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.renderer.ARPRenderer;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class FramePixels {
     private int mHeight;
     private Orientation mOrientation;

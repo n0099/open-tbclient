@@ -18,20 +18,20 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<M extends Message<?>, T extends MessageTask, R extends f<?, ?>, N extends ResponsedMessage<?>> implements com.baidu.adp.framework.b<M, T> {
-    private static com.baidu.adp.framework.listener.b<Message<?>> JF = null;
-    protected MessageManager IH;
+    private static com.baidu.adp.framework.listener.b<Message<?>> KY = null;
+    protected MessageManager Kc;
     private final SparseArray<T> mTasks = new SparseArray<>();
     private final SparseArray<N> mStickyResponsedMessage = new SparseArray<>();
     private final SparseArray<LinkedList<MessageListener<N>>> mListeners = new SparseArray<>();
-    protected com.baidu.adp.framework.d.d JE = null;
+    protected com.baidu.adp.framework.d.d KX = null;
     private boolean mAborted = false;
     private final SparseIntArray mListenerLocked = new SparseIntArray();
 
     public abstract M b(M m, T t);
 
     public c(MessageManager messageManager) {
-        this.IH = null;
-        this.IH = messageManager;
+        this.Kc = null;
+        this.Kc = messageManager;
     }
 
     public synchronized void registerTask(T t) {
@@ -142,24 +142,24 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             t = findTask(cmd);
         }
         if (t != null) {
-            M b2 = b(m, t);
-            if (this.JE != null) {
+            M b = b(m, t);
+            if (this.KX != null) {
                 if (t.getTimeOut() == null) {
-                    t.setTimeOut(this.JE.lb());
+                    t.setTimeOut(this.KX.lb());
                 }
                 if (t.getRetry() == 0) {
-                    t.setRetry(this.JE.getRetryCount());
+                    t.setRetry(this.KX.getRetryCount());
                 }
             }
-            if (b2 != null) {
-                a(b2, t);
+            if (b != null) {
+                a(b, t);
                 return true;
             }
             BdLog.d("message is trapped:" + cmd);
             return false;
         }
-        if (JF != null) {
-            JF.a(m);
+        if (KY != null) {
+            KY.a(m);
         }
         BdLog.e("task not register:" + cmd);
         return false;
@@ -241,6 +241,6 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public static void setNotFindTaskListener(com.baidu.adp.framework.listener.b<Message<?>> bVar) {
-        JF = bVar;
+        KY = bVar;
     }
 }

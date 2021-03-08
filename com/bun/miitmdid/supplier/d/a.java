@@ -4,14 +4,14 @@ import android.content.Context;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.meizu.flyme.openidsdk.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5747a;
+    private Context f3878a;
 
     public a(Context context) {
-        this.f5747a = context;
+        this.f3878a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -26,7 +26,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         try {
-            return b.d(this.f5747a);
+            return b.d(this.f3878a);
         } catch (Exception e) {
             return "";
         }
@@ -35,7 +35,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         try {
-            return b.b(this.f5747a);
+            return b.b(this.f3878a);
         } catch (Exception e) {
             return "";
         }
@@ -44,7 +44,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         try {
-            return b.a(this.f5747a);
+            return b.a(this.f3878a);
         } catch (Exception e) {
             return "";
         }
@@ -53,7 +53,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         try {
-            return b.c(this.f5747a);
+            return b.c(this.f3878a);
         } catch (Exception e) {
             return "";
         }

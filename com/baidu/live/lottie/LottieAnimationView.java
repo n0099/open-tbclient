@@ -26,7 +26,7 @@ import java.io.StringReader;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class LottieAnimationView extends ImageView {
     private static final String TAG = LottieAnimationView.class.getSimpleName();
     private String animationName;
@@ -160,7 +160,7 @@ public class LottieAnimationView extends ImageView {
         setProgress(obtainStyledAttributes.getFloat(q.a.LottieAnimationView_lottie_progress, 0.0f));
         enableMergePathsForKitKatAndAbove(obtainStyledAttributes.getBoolean(q.a.LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove, false));
         if (obtainStyledAttributes.hasValue(q.a.LottieAnimationView_lottie_colorFilter)) {
-            addValueCallback(new com.baidu.live.lottie.model.e("**"), (com.baidu.live.lottie.model.e) l.Db, (com.baidu.live.lottie.e.c<com.baidu.live.lottie.model.e>) new com.baidu.live.lottie.e.c(new r(obtainStyledAttributes.getColor(q.a.LottieAnimationView_lottie_colorFilter, 0))));
+            addValueCallback(new com.baidu.live.lottie.model.e("**"), (com.baidu.live.lottie.model.e) l.Ex, (com.baidu.live.lottie.e.c<com.baidu.live.lottie.model.e>) new com.baidu.live.lottie.e.c(new r(obtainStyledAttributes.getColor(q.a.LottieAnimationView_lottie_colorFilter, 0))));
         }
         if (obtainStyledAttributes.hasValue(q.a.LottieAnimationView_lottie_scale)) {
             this.lottieDrawable.setScale(obtainStyledAttributes.getFloat(q.a.LottieAnimationView_lottie_scale, 1.0f));
@@ -212,7 +212,7 @@ public class LottieAnimationView extends ImageView {
         savedState.animationResId = this.animationResId;
         savedState.progress = this.lottieDrawable.getProgress();
         savedState.isAnimating = this.lottieDrawable.isAnimating();
-        savedState.BL = this.lottieDrawable.getImageAssetsFolder();
+        savedState.Dj = this.lottieDrawable.getImageAssetsFolder();
         savedState.repeatMode = this.lottieDrawable.getRepeatMode();
         savedState.repeatCount = this.lottieDrawable.getRepeatCount();
         return savedState;
@@ -238,7 +238,7 @@ public class LottieAnimationView extends ImageView {
         if (savedState.isAnimating) {
             playAnimation();
         }
-        this.lottieDrawable.be(savedState.BL);
+        this.lottieDrawable.bi(savedState.Dj);
         setRepeatMode(savedState.repeatMode);
         setRepeatCount(savedState.repeatCount);
     }
@@ -478,7 +478,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setImageAssetsFolder(String str) {
-        this.lottieDrawable.be(str);
+        this.lottieDrawable.bi(str);
     }
 
     @Nullable
@@ -600,7 +600,7 @@ public class LottieAnimationView extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.live.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -612,12 +612,12 @@ public class LottieAnimationView extends ImageView {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: dI */
+            /* renamed from: dJ */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
         };
-        String BL;
+        String Dj;
         String animationName;
         int animationResId;
         boolean isAnimating;
@@ -634,7 +634,7 @@ public class LottieAnimationView extends ImageView {
             this.animationName = parcel.readString();
             this.progress = parcel.readFloat();
             this.isAnimating = parcel.readInt() == 1;
-            this.BL = parcel.readString();
+            this.Dj = parcel.readString();
             this.repeatMode = parcel.readInt();
             this.repeatCount = parcel.readInt();
         }
@@ -645,7 +645,7 @@ public class LottieAnimationView extends ImageView {
             parcel.writeString(this.animationName);
             parcel.writeFloat(this.progress);
             parcel.writeInt(this.isAnimating ? 1 : 0);
-            parcel.writeString(this.BL);
+            parcel.writeString(this.Dj);
             parcel.writeInt(this.repeatMode);
             parcel.writeInt(this.repeatCount);
         }

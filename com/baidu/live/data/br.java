@@ -6,11 +6,11 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class br extends BaseData {
-    public ArrayList<t> aPx = new ArrayList<>();
-    public ai aPy = new ai();
-    public ad aPz = new ad();
+    public ArrayList<t> aQX = new ArrayList<>();
+    public ai aQY = new ai();
+    public ad aQZ = new ad();
     public int interval;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -43,12 +43,12 @@ public class br extends BaseData {
                                 tVar.a(aVar);
                                 tVar.parseJson(optJSONObject4);
                                 tVar.serverTime = optLong;
-                                this.aPx.add(tVar);
+                                this.aQX.add(tVar);
                             }
                         }
                     }
-                    this.aPy.parseJson(optJSONObject3.optJSONObject("gongyanfang_pkpanel"));
-                    this.aPz.parserJson(optJSONObject3.optJSONObject("lottery_info"));
+                    this.aQY.parseJson(optJSONObject3.optJSONObject("gongyanfang_pkpanel"));
+                    this.aQZ.parserJson(optJSONObject3.optJSONObject("lottery_info"));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

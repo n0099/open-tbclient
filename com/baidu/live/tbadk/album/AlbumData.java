@@ -3,7 +3,7 @@ package com.baidu.live.tbadk.album;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.img.ImageFileInfo;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlbumData {
     public static final String ALBUM_ID_ALL = String.valueOf(Integer.MAX_VALUE);
     public static final String ALBUM_ID_VIDEO = String.valueOf(2147483646);

@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b extends Binder implements IInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f7847a = null;
+    private static d f5256a = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(String str) {

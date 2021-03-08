@@ -8,7 +8,7 @@ import com.yy.mediaframework.Constant;
 import com.yy.mediaframework.UploadStreamStateParams;
 import com.yy.mediaframework.opengles.YMFPreviewCanvasView;
 import com.yy.mediaframework.opengles.YMFPreviewView;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderPreviewView extends FrameLayout {
     private SurfaceView mSurfaceView;
 

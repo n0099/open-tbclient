@@ -3,7 +3,7 @@ package androidx.media;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.versionedparcelable.VersionedParcelable;
-/* loaded from: classes5.dex */
+/* loaded from: classes14.dex */
 interface AudioAttributesImpl extends VersionedParcelable {
     Object getAudioAttributes();
 

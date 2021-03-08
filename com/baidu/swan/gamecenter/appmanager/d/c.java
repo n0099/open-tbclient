@@ -6,28 +6,28 @@ import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.apps.u.c.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(String str, String str2, String str3, String str4, a aVar) {
-        String vP = b.vP(str2);
-        if (!TextUtils.isEmpty(vP)) {
+        String vW = b.vW(str2);
+        if (!TextUtils.isEmpty(vW)) {
             if (DEBUG) {
                 Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
             }
             if (!TextUtils.isEmpty(str)) {
                 b bVar = new b();
                 bVar.a(aVar);
-                bVar.mType = vP;
+                bVar.mType = vW;
                 bVar.mValue = str3;
                 bVar.packageName = str;
                 bVar.mAppVersion = ak.getVersionName();
-                if (e.aIL() != null) {
-                    b.a aIO = e.aIL().aIO();
-                    bVar.mFrom = h.ju(aIO.getAppFrameType());
-                    bVar.mAppId = aIO.getAppId();
-                    bVar.mSource = aIO.aza();
+                if (e.aIO() != null) {
+                    b.a aIR = e.aIO().aIR();
+                    bVar.mFrom = h.jv(aIR.getAppFrameType());
+                    bVar.mAppId = aIR.getAppId();
+                    bVar.mSource = aIR.azd();
                 }
                 bVar.mErrorCode = str4;
                 h.a("1245", bVar);

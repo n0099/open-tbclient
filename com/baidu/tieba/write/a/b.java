@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
-    private final ArrayList<MetaData> ofX = new ArrayList<>();
-    private HashMap<String, String> ofY = null;
+    private final ArrayList<MetaData> oic = new ArrayList<>();
+    private HashMap<String, String> oid = null;
 
-    public void j(JSONObject jSONObject, boolean z) {
+    public void h(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.ofY == null) {
-                        this.ofY = new HashMap<>();
+                    if (this.oid == null) {
+                        this.oid = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.ofX.add(metaData);
+                        this.oic.add(metaData);
                         if (z) {
-                            this.ofY.put(metaData.getName_show(), metaData.getPortrait());
+                            this.oid.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,15 +40,15 @@ public class b {
         }
     }
 
-    public void Vo(String str) {
+    public void Vv(String str) {
         try {
-            j(new JSONObject(str), true);
+            h(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public ArrayList<MetaData> dXm() {
-        return this.ofX;
+    public ArrayList<MetaData> dXu() {
+        return this.oic;
     }
 }

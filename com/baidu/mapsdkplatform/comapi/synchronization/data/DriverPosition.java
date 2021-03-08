@@ -8,17 +8,15 @@ public final class DriverPosition implements Parcelable {
     public static final Parcelable.Creator<DriverPosition> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3104a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private LatLng f3105b;
+    private String f2252a;
+    private LatLng b;
     private double c;
     private double d;
     private int e;
 
     public DriverPosition() {
-        this.f3104a = null;
-        this.f3105b = null;
+        this.f2252a = null;
+        this.b = null;
         this.c = 0.0d;
         this.d = 0.0d;
         this.e = 0;
@@ -26,8 +24,8 @@ public final class DriverPosition implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public DriverPosition(Parcel parcel) {
-        this.f3104a = parcel.readString();
-        this.f3105b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f2252a = parcel.readString();
+        this.b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
         this.c = parcel.readDouble();
         this.d = parcel.readDouble();
         this.e = parcel.readInt();
@@ -47,7 +45,7 @@ public final class DriverPosition implements Parcelable {
     }
 
     public LatLng getPoint() {
-        return this.f3105b;
+        return this.b;
     }
 
     public double getSpeed() {
@@ -55,7 +53,7 @@ public final class DriverPosition implements Parcelable {
     }
 
     public String getTimeStamp() {
-        return this.f3104a;
+        return this.f2252a;
     }
 
     public void setAngle(double d) {
@@ -73,7 +71,7 @@ public final class DriverPosition implements Parcelable {
     }
 
     public void setPoint(LatLng latLng) {
-        this.f3105b = latLng;
+        this.b = latLng;
     }
 
     public void setSpeed(double d) {
@@ -81,13 +79,13 @@ public final class DriverPosition implements Parcelable {
     }
 
     public void setTimeStamp(String str) {
-        this.f3104a = str;
+        this.f2252a = str;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f3104a);
-        parcel.writeParcelable(this.f3105b, i);
+        parcel.writeString(this.f2252a);
+        parcel.writeParcelable(this.b, i);
         parcel.writeDouble(this.c);
         parcel.writeDouble(this.d);
         parcel.writeInt(this.e);

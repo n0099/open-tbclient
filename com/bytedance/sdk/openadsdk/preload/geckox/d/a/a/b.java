@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.d.a.a;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.bytedance.sdk.openadsdk.preload.a.d;
+import com.bytedance.sdk.openadsdk.preload.b.d;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.io.File;
 /* loaded from: classes6.dex */
@@ -27,7 +27,7 @@ public class b extends d<Pair<Uri, UpdatePackage>, Pair<com.bytedance.sdk.openad
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d
+    @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
         this.d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
@@ -36,9 +36,9 @@ public class b extends d<Pair<Uri, UpdatePackage>, Pair<com.bytedance.sdk.openad
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.d
+    @Override // com.bytedance.sdk.openadsdk.preload.b.d
     /* renamed from: a */
-    public Object a_(com.bytedance.sdk.openadsdk.preload.a.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> bVar, Pair<Uri, UpdatePackage> pair) throws Throwable {
+    public Object a_(com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> bVar, Pair<Uri, UpdatePackage> pair) throws Throwable {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "start download full single file channel:", ((UpdatePackage) pair.second).getChannel());
         UpdatePackage updatePackage = (UpdatePackage) pair.second;
         String uri = ((Uri) pair.first).toString();
@@ -50,7 +50,7 @@ public class b extends d<Pair<Uri, UpdatePackage>, Pair<com.bytedance.sdk.openad
             this.d.h().a(uri, length, new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b(a2));
             try {
                 try {
-                    return bVar.a((com.bytedance.sdk.openadsdk.preload.a.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
+                    return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
                 } catch (Exception e) {
                     throw e;
                 }

@@ -10,11 +10,11 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PersonExpandImageView extends ImageView {
     private final Rect mDstRect;
-    private final DisplayMetrics mFE;
-    private int mFF;
+    private final DisplayMetrics mHH;
+    private int mHI;
     private final Paint mPaint;
     private final Rect mSrcRect;
 
@@ -22,14 +22,14 @@ public class PersonExpandImageView extends ImageView {
         super(context, attributeSet);
         this.mSrcRect = new Rect();
         this.mDstRect = new Rect();
-        this.mFF = 0;
+        this.mHI = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
         this.mPaint = new Paint();
-        this.mFE = getResources().getDisplayMetrics();
+        this.mHH = getResources().getDisplayMetrics();
     }
 
     public void setInitHeight(int i) {
-        this.mFF = i;
+        this.mHI = i;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -40,12 +40,12 @@ public class PersonExpandImageView extends ImageView {
         float f2;
         float f3;
         float f4 = 0.0f;
-        if (this.mFF != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
+        if (this.mHI != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             if (width != 0 && height != 0) {
-                if ((width * 1.0f) / height < (getWidth() * 1.0f) / this.mFF) {
-                    float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.mFF) - getWidth()) * 0.2f) + getWidth();
+                if ((width * 1.0f) / height < (getWidth() * 1.0f) / this.mHI) {
+                    float width2 = (((((getWidth() * getHeight()) * 1.0f) / this.mHI) - getWidth()) * 0.2f) + getWidth();
                     float f5 = ((height * 1.0f) / width) * width2;
                     if (width2 != 0.0f && f5 != 0.0f) {
                         float width3 = (getWidth() * width) / width2;

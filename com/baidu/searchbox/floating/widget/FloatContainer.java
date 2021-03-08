@@ -13,7 +13,7 @@ import kotlin.e;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class FloatContainer extends FrameLayout {
     private HashMap _$_findViewCache;
     private ClickListener clickListener;
@@ -24,19 +24,19 @@ public final class FloatContainer extends FrameLayout {
     private TouchListener touchListener;
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface ClickListener {
         void onClick();
     }
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface LayoutListener {
         void onLayout();
     }
 
     @e
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface TouchListener {
         void onTouch(MotionEvent motionEvent);
     }
@@ -71,8 +71,8 @@ public final class FloatContainer extends FrameLayout {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FloatContainer(Config config, Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        p.o(config, "config");
-        p.o(context, "context");
+        p.p(config, "config");
+        p.p(context, "context");
         this.config = config;
         this.gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.searchbox.floating.widget.FloatContainer$gestureDetector$1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener

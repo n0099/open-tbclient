@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYMediaSample {
     public int mCameraFacing;
     public AtomicBoolean mCameraNV21DataUsed;

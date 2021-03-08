@@ -1,10 +1,10 @@
 package com.baidu.swan.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class c {
-    private static boolean ezy = true;
-    private static String ezz;
+    private static boolean eAZ = true;
+    private static String eBa;
 
-    public static void bfz() {
-        ezz = null;
+    public static void bfB() {
+        eBa = null;
     }
 }

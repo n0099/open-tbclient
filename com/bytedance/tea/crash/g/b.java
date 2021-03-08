@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Debug;
 /* loaded from: classes6.dex */
 public class b {
-    static final a pwy;
+    static final a pyB;
 
     /* loaded from: classes6.dex */
     private static class a {
@@ -28,8 +28,8 @@ public class b {
     @TargetApi(19)
     /* renamed from: com.bytedance.tea.crash.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private static class C1035b extends a {
-        private C1035b() {
+    private static class C1050b extends a {
+        private C1050b() {
             super();
         }
 
@@ -51,21 +51,21 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
-            pwy = new C1035b();
+            pyB = new C1050b();
         } else {
-            pwy = new a();
+            pyB = new a();
         }
     }
 
     public static int a(Debug.MemoryInfo memoryInfo) {
-        return pwy.a(memoryInfo);
+        return pyB.a(memoryInfo);
     }
 
     public static int b(Debug.MemoryInfo memoryInfo) {
-        return pwy.b(memoryInfo);
+        return pyB.b(memoryInfo);
     }
 
     public static int c(Debug.MemoryInfo memoryInfo) {
-        return pwy.c(memoryInfo);
+        return pyB.c(memoryInfo);
     }
 }

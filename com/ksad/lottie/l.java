@@ -10,10 +10,8 @@ import java.util.Set;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f8036a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Set<a> f8037b = new ArraySet();
+    private boolean f5369a = false;
+    private final Set<a> b = new ArraySet();
     private final Map<String, com.ksad.lottie.d.d> c = new HashMap();
     private final Comparator<Pair<String, Float>> d = new Comparator<Pair<String, Float>>() { // from class: com.ksad.lottie.l.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +33,7 @@ public class l {
     }
 
     public void a(String str, float f) {
-        if (this.f8036a) {
+        if (this.f5369a) {
             com.ksad.lottie.d.d dVar = this.c.get(str);
             if (dVar == null) {
                 dVar = new com.ksad.lottie.d.d();
@@ -43,7 +41,7 @@ public class l {
             }
             dVar.a(f);
             if (str.equals("__container")) {
-                for (a aVar : this.f8037b) {
+                for (a aVar : this.b) {
                     aVar.a(f);
                 }
             }
@@ -52,6 +50,6 @@ public class l {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(boolean z) {
-        this.f8036a = z;
+        this.f5369a = z;
     }
 }

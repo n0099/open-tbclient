@@ -11,72 +11,72 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaGiftStrokeTextView extends TextView {
-    private int aFr;
-    private TextView bgU;
+    private int aGR;
+    private TextView biw;
 
     public AlaGiftStrokeTextView(Context context) {
         super(context);
-        this.bgU = null;
-        this.bgU = new TextView(context);
+        this.biw = null;
+        this.biw = new TextView(context);
         init();
     }
 
     public AlaGiftStrokeTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bgU = null;
-        this.bgU = new TextView(context, attributeSet);
+        this.biw = null;
+        this.biw = new TextView(context, attributeSet);
         init();
     }
 
     public AlaGiftStrokeTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bgU = null;
-        this.bgU = new TextView(context, attributeSet, i);
+        this.biw = null;
+        this.biw = new TextView(context, attributeSet, i);
         init();
     }
 
     private void init() {
-        this.aFr = getResources().getColor(a.c.sdk_cp_cont_i);
-        TextPaint paint = this.bgU.getPaint();
+        this.aGR = getResources().getColor(a.c.sdk_cp_cont_i);
+        TextPaint paint = this.biw.getPaint();
         paint.setStrokeWidth(getResources().getDimension(a.d.sdk_ds2));
         paint.setStyle(Paint.Style.STROKE);
-        this.bgU.setTextColor(this.aFr);
-        this.bgU.setGravity(getGravity());
+        this.biw.setTextColor(this.aGR);
+        this.biw.setGravity(getGravity());
     }
 
     @Override // android.view.View
     public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
         super.setLayoutParams(layoutParams);
-        this.bgU.setLayoutParams(layoutParams);
+        this.biw.setLayoutParams(layoutParams);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        CharSequence text = this.bgU.getText();
+        CharSequence text = this.biw.getText();
         if (text == null || !text.equals(getText())) {
-            this.bgU.setText(getText());
+            this.biw.setText(getText());
             postInvalidate();
         }
-        this.bgU.measure(View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i), View.MeasureSpec.getMode(i)), View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), View.MeasureSpec.getMode(i2)));
+        this.biw.measure(View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i), View.MeasureSpec.getMode(i)), View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), View.MeasureSpec.getMode(i2)));
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.bgU.layout(i, i2, i3, i4);
+        this.biw.layout(i, i2, i3, i4);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        this.bgU.draw(canvas);
+        this.biw.draw(canvas);
         super.onDraw(canvas);
     }
 
     public void setStrokeColor(int i) {
-        this.aFr = i;
-        this.bgU.setTextColor(this.aFr);
+        this.aGR = i;
+        this.biw.setTextColor(this.aGR);
     }
 }

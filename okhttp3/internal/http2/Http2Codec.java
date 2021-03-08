@@ -27,7 +27,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class Http2Codec implements HttpCodec {
     private static final String CONNECTION = "connection";
     private static final String PROXY_CONNECTION = "proxy-connection";
@@ -137,7 +137,7 @@ public final class Http2Codec implements HttpCodec {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     class StreamFinishingSource extends ForwardingSource {
         long bytesRead;
         boolean completed;

@@ -4,27 +4,27 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Looper;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public class a extends com.baidu.l.b.a {
 
     /* renamed from: com.baidu.l.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
-    public interface InterfaceC0148a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0154a {
         void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
     }
 
     public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        if (com.baidu.l.a.adh()) {
+        if (com.baidu.l.a.adk()) {
             b.requestPermissions(activity, strArr, i);
-        } else if (activity instanceof InterfaceC0148a) {
-            a(activity, strArr, i, (InterfaceC0148a) activity);
+        } else if (activity instanceof InterfaceC0154a) {
+            a(activity, strArr, i, (InterfaceC0154a) activity);
         }
     }
 
-    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0148a interfaceC0148a) {
-        if (com.baidu.l.a.adh()) {
+    public static void a(final Activity activity, final String[] strArr, final int i, final InterfaceC0154a interfaceC0154a) {
+        if (com.baidu.l.a.adk()) {
             b.requestPermissions(activity, strArr, i);
-        } else if (!activity.isFinishing() && interfaceC0148a != null) {
+        } else if (!activity.isFinishing() && interfaceC0154a != null) {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.l.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -35,14 +35,14 @@ public class a extends com.baidu.l.b.a {
                     for (int i2 = 0; i2 < length; i2++) {
                         iArr[i2] = packageManager.checkPermission(strArr[i2], packageName);
                     }
-                    interfaceC0148a.onRequestPermissionsResult(i, strArr, iArr);
+                    interfaceC0154a.onRequestPermissionsResult(i, strArr, iArr);
                 }
             });
         }
     }
 
     public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
-        if (com.baidu.l.a.adh()) {
+        if (com.baidu.l.a.adk()) {
             return b.shouldShowRequestPermissionRationale(activity, str);
         }
         return false;

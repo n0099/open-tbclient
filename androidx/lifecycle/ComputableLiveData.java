@@ -9,7 +9,7 @@ import androidx.arch.core.executor.ArchTaskExecutor;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class ComputableLiveData<T> {
     final AtomicBoolean mComputing;
     final Executor mExecutor;

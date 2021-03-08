@@ -34,46 +34,46 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ActiveWebBannerItemView extends FrameLayout implements c {
-    private CommonWebView bVO;
-    private List<String> bVP;
-    private SchemeCallback bVR;
-    private h bWa;
-    private String eML;
-    private boolean hmM;
-    private a hpl;
-    private t hpp;
+    private h bXA;
+    private CommonWebView bXo;
+    private List<String> bXp;
+    private SchemeCallback bXr;
+    private String eOm;
+    private boolean how;
+    private a hqU;
+    private t hqY;
 
     public ActiveWebBannerItemView(Context context) {
         super(context);
-        this.bVR = new SchemeCallback() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.4
+        this.bXr = new SchemeCallback() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.4
             @Override // com.baidu.live.tbadk.scheme.SchemeCallback
             public void doJsCallback(int i, String str, JSONObject jSONObject, String str2) {
                 try {
                     String assembJavaScript = SchemeUtils.assembJavaScript(i, str, jSONObject, str2);
                     if (Build.VERSION.SDK_INT >= 19) {
-                        ActiveWebBannerItemView.this.bVO.evaluateJavascript(assembJavaScript, null);
+                        ActiveWebBannerItemView.this.bXo.evaluateJavascript(assembJavaScript, null);
                     } else {
-                        ActiveWebBannerItemView.this.bVO.loadUrl(assembJavaScript);
+                        ActiveWebBannerItemView.this.bXo.loadUrl(assembJavaScript);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         };
-        this.bWa = new h() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.5
+        this.bXA = new h() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.5
             @Override // com.baidu.live.view.web.h
-            public boolean iz(String str) {
-                if (TextUtils.isEmpty(str) || ActiveWebBannerItemView.this.hpl == null) {
+            public boolean iF(String str) {
+                if (TextUtils.isEmpty(str) || ActiveWebBannerItemView.this.hqU == null) {
                     return false;
                 }
                 if (ActiveWebBannerItemView.this.el(str, "fullscreen")) {
-                    ActiveWebBannerItemView.this.hpl.Hq(str);
+                    ActiveWebBannerItemView.this.hqU.Hz(str);
                 } else if (ActiveWebBannerItemView.this.el(str, UbcStatConstant.KEY_CONTENT_ROOM)) {
-                    ActiveWebBannerItemView.this.hpl.Hp(str);
+                    ActiveWebBannerItemView.this.hqU.Hy(str);
                 } else {
-                    ActiveWebBannerItemView.this.hpl.Hr(str);
+                    ActiveWebBannerItemView.this.hqU.HA(str);
                 }
                 return true;
             }
@@ -83,54 +83,54 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setCallback(a aVar) {
-        this.hpl = aVar;
+        this.hqU = aVar;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void setData(boolean z, ab abVar, t tVar) {
-        if (this.bVO != null && tVar != null) {
-            this.hpp = tVar;
-            String a2 = a(z, abVar, tVar.webUrl, tVar.jump_url, tVar.aHU);
-            if (!a2.equals(this.bVO.getOriginalUrl())) {
-                this.bVO.loadUrl(a2);
+        if (this.bXo != null && tVar != null) {
+            this.hqY = tVar;
+            String a2 = a(z, abVar, tVar.webUrl, tVar.jump_url, tVar.aJu);
+            if (!a2.equals(this.bXo.getOriginalUrl())) {
+                this.bXo.loadUrl(a2);
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void onStart() {
-        if (this.bVO != null) {
-            this.bVO.onResume();
+        if (this.bXo != null) {
+            this.bXo.onResume();
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                this.bVO.resumeTimers();
+                this.bXo.resumeTimers();
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void onStop() {
-        if (this.bVO != null) {
-            this.bVO.onPause();
+        if (this.bXo != null) {
+            this.bXo.onPause();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.activeview.c
     public void release() {
-        this.hpl = null;
-        this.hmM = false;
+        this.hqU = null;
+        this.how = false;
         removeAllViews();
-        if (this.bVO != null) {
-            if (this.bVP != null) {
-                for (String str : this.bVP) {
-                    this.bVO.removeJavascriptInterface(str);
+        if (this.bXo != null) {
+            if (this.bXp != null) {
+                for (String str : this.bXp) {
+                    this.bXo.removeJavascriptInterface(str);
                 }
-                this.bVP.clear();
+                this.bXp.clear();
             }
-            this.bVO.stopLoading();
-            this.bVO.removeAllViews();
-            this.bVO.loadUrl("about:blank");
-            this.bVO.freeMemory();
-            this.bVO.destroy();
+            this.bXo.stopLoading();
+            this.bXo.removeAllViews();
+            this.bXo.loadUrl("about:blank");
+            this.bXo.freeMemory();
+            this.bXo.destroy();
         }
     }
 
@@ -138,48 +138,48 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
         g gVar = new g();
         gVar.t(activity).a(new f() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.1
             @Override // com.baidu.live.view.web.f
-            public void fp(int i) {
-                if ((ActiveWebBannerItemView.this.hpl != null) & (ActiveWebBannerItemView.this.hpp != null)) {
-                    ActiveWebBannerItemView.this.hpl.bM(ActiveWebBannerItemView.this.hpp.aHW.pos, ActiveWebBannerItemView.this.hpp.activityId);
+            public void fq(int i) {
+                if ((ActiveWebBannerItemView.this.hqU != null) & (ActiveWebBannerItemView.this.hqY != null)) {
+                    ActiveWebBannerItemView.this.hqU.bM(ActiveWebBannerItemView.this.hqY.aJw.pos, ActiveWebBannerItemView.this.hqY.activityId);
                 }
             }
-        }).a(getSchemeCallback()).b(this.bWa);
-        this.bVP = new ArrayList();
-        com.baidu.live.view.web.a[] XY = gVar.XY();
-        for (com.baidu.live.view.web.a aVar : XY) {
-            this.bVP.add(aVar.getName());
-            this.bVO.addJavascriptInterface(aVar, aVar.getName());
+        }).a(getSchemeCallback()).b(this.bXA);
+        this.bXp = new ArrayList();
+        com.baidu.live.view.web.a[] Yb = gVar.Yb();
+        for (com.baidu.live.view.web.a aVar : Yb) {
+            this.bXp.add(aVar.getName());
+            this.bXo.addJavascriptInterface(aVar, aVar.getName());
         }
     }
 
     public void loadUrl(String str) {
-        if (this.bVO != null) {
-            this.bVO.loadUrl(str);
+        if (this.bXo != null) {
+            this.bXo.loadUrl(str);
         }
     }
 
-    public boolean bYR() {
-        return this.hmM;
+    public boolean bYX() {
+        return this.how;
     }
 
     @RequiresApi(19)
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        if (this.bVO != null) {
-            this.bVO.evaluateJavascript(str, valueCallback);
+        if (this.bXo != null) {
+            this.bXo.evaluateJavascript(str, valueCallback);
         }
     }
 
     private void init() {
-        this.hmM = false;
+        this.how = false;
         setBackgroundColor(0);
         if (getBackground() != null) {
             getBackground().setAlpha(0);
         }
-        this.bVO = new CommonWebView(getContext());
-        this.bVO.setRequestDisallowInterceptTouchEvent(false);
-        this.bVO.setVerticalScrollEnabled(false);
-        this.bVO.setHorizontalScrollEnabled(false);
-        this.bVO.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.2
+        this.bXo = new CommonWebView(getContext());
+        this.bXo.setRequestDisallowInterceptTouchEvent(false);
+        this.bXo.setVerticalScrollEnabled(false);
+        this.bXo.setHorizontalScrollEnabled(false);
+        this.bXo.setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.2
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
@@ -188,9 +188,9 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // android.webkit.ValueCallback
                         public void onReceiveValue(String str2) {
-                            ActiveWebBannerItemView.this.hmM = Boolean.valueOf(str2).booleanValue();
-                            if (ActiveWebBannerItemView.this.hpl != null) {
-                                ActiveWebBannerItemView.this.hpl.nG(ActiveWebBannerItemView.this.hmM);
+                            ActiveWebBannerItemView.this.how = Boolean.valueOf(str2).booleanValue();
+                            if (ActiveWebBannerItemView.this.hqU != null) {
+                                ActiveWebBannerItemView.this.hqU.nG(ActiveWebBannerItemView.this.how);
                             }
                         }
                     });
@@ -201,7 +201,7 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
             public void onReceivedError(WebView webView, int i, String str, String str2) {
                 super.onReceivedError(webView, i, str, str2);
                 if (Build.VERSION.SDK_INT < 23) {
-                    ActiveWebBannerItemView.this.rl(str2);
+                    ActiveWebBannerItemView.this.rt(str2);
                 }
             }
 
@@ -211,25 +211,25 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
                 String uri;
                 super.onReceivedError(webView, webResourceRequest, webResourceError);
                 if (webResourceRequest.isForMainFrame() && webResourceRequest.getUrl() != null && (uri = webResourceRequest.getUrl().toString()) != null && !uri.equals("file:///android_asset/web/error.html")) {
-                    ActiveWebBannerItemView.this.rl(uri);
+                    ActiveWebBannerItemView.this.rt(uri);
                 }
             }
         });
-        addView(this.bVO, new FrameLayout.LayoutParams(-1, -1));
+        addView(this.bXo, new FrameLayout.LayoutParams(-1, -1));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.bVO.resumeTimers();
+            this.bXo.resumeTimers();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rl(String str) {
-        this.eML = str;
-        this.bVO.loadUrl("file:///android_asset/web/error.html");
-        this.bVO.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.3
+    public void rt(String str) {
+        this.eOm = str;
+        this.bXo.loadUrl("file:///android_asset/web/error.html");
+        this.bXo.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.activeview.ActiveWebBannerItemView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (ActiveWebBannerItemView.this.bVO != null && ActiveWebBannerItemView.this.bVO.getUrl() != null && ActiveWebBannerItemView.this.bVO.getUrl().equals("file:///android_asset/web/error.html") && !TextUtils.isEmpty(ActiveWebBannerItemView.this.eML)) {
-                    ActiveWebBannerItemView.this.bVO.loadUrl(ActiveWebBannerItemView.this.eML);
+                if (ActiveWebBannerItemView.this.bXo != null && ActiveWebBannerItemView.this.bXo.getUrl() != null && ActiveWebBannerItemView.this.bXo.getUrl().equals("file:///android_asset/web/error.html") && !TextUtils.isEmpty(ActiveWebBannerItemView.this.eOm)) {
+                    ActiveWebBannerItemView.this.bXo.loadUrl(ActiveWebBannerItemView.this.eOm);
                     return false;
                 }
                 return false;
@@ -238,7 +238,7 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
     }
 
     public SchemeCallback getSchemeCallback() {
-        return this.bVR;
+        return this.bXr;
     }
 
     private String a(boolean z, ab abVar, String str, String str2, int i) {
@@ -250,8 +250,8 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
         if (abVar == null) {
             return str;
         }
-        String encryptionUserId = abVar.aIz != null ? ExtraParamsManager.getEncryptionUserId(String.valueOf(abVar.aIz.userId)) : null;
-        String encryptionUserId2 = abVar.aId != null ? ExtraParamsManager.getEncryptionUserId(String.valueOf(abVar.aId.userId)) : null;
+        String encryptionUserId = abVar.aJZ != null ? ExtraParamsManager.getEncryptionUserId(String.valueOf(abVar.aJZ.userId)) : null;
+        String encryptionUserId2 = abVar.aJD != null ? ExtraParamsManager.getEncryptionUserId(String.valueOf(abVar.aJD.userId)) : null;
         if (abVar.mLiveInfo != null) {
             str4 = String.valueOf(abVar.mLiveInfo.room_id);
             str3 = String.valueOf(abVar.mLiveInfo.live_id);
@@ -263,11 +263,11 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
         if (i == 2) {
             a2.put(UbcStatConstant.KEY_CONTENT_ROOM, 1);
         }
-        a2.put(BigdayActivityConfig.JUMP_URL, aK(str2, i));
+        a2.put(BigdayActivityConfig.JUMP_URL, aL(str2, i));
         return WebviewHelper.addQueryParams(str, a2);
     }
 
-    private String aK(String str, int i) {
+    private String aL(String str, int i) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return "";

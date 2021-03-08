@@ -8,14 +8,12 @@ import android.widget.ViewSwitcher;
 import androidx.appcompat.app.AppCompatDialog;
 import com.baidu.pass.biometrics.face.R;
 import com.baidu.pass.utils.CommonViewUtility;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a extends AppCompatDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f4054a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f4055b;
+    private ViewSwitcher f2808a;
+    private TextView b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -32,8 +30,8 @@ public class a extends AppCompatDialog {
     private void a() {
         setContentView(R.layout.layout_pass_liveness_alert_dialog);
         setCanceledOnTouchOutside(false);
-        this.f4054a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f4055b = (TextView) findViewById(R.id.dialog_title);
+        this.f2808a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.dialog_msg);
         this.d = (TextView) findViewById(R.id.msg_text);
         this.e = (TextView) findViewById(R.id.positive_btn);
@@ -51,7 +49,7 @@ public class a extends AppCompatDialog {
     }
 
     public void c(String str) {
-        this.f4055b.setText(str);
+        this.b.setText(str);
     }
 
     public void c(int i) {
@@ -79,17 +77,17 @@ public class a extends AppCompatDialog {
 
     public void a(boolean z) {
         if (z) {
-            this.f4055b.setVisibility(0);
+            this.b.setVisibility(0);
         } else {
-            this.f4055b.setVisibility(8);
+            this.b.setVisibility(8);
         }
     }
 
     public void a(int i) {
         if ((i < 1 ? 1 : Math.min(i, 2)) == 2) {
-            this.f4054a.setDisplayedChild(0);
+            this.f2808a.setDisplayedChild(0);
         } else {
-            this.f4054a.setDisplayedChild(1);
+            this.f2808a.setDisplayedChild(1);
         }
     }
 

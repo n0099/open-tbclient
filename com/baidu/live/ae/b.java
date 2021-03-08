@@ -1,25 +1,25 @@
 package com.baidu.live.ae;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private static b bAY;
-    private boolean bAZ = true;
+    private static b bCy;
+    private boolean bCz = true;
 
-    public static b Qv() {
-        if (bAY == null) {
+    public static b Qy() {
+        if (bCy == null) {
             synchronized (b.class) {
-                if (bAY == null) {
-                    bAY = new b();
+                if (bCy == null) {
+                    bCy = new b();
                 }
             }
         }
-        return bAY;
+        return bCy;
     }
 
-    public boolean Qw() {
-        return this.bAZ;
+    public boolean Qz() {
+        return this.bCz;
     }
 
     public void cU(boolean z) {
-        this.bAZ = z;
+        this.bCz = z;
     }
 }

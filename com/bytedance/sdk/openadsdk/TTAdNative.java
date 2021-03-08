@@ -128,4 +128,6 @@ public interface TTAdNative {
     void loadSplashAd(AdSlot adSlot, @NonNull SplashAdListener splashAdListener);
 
     void loadSplashAd(AdSlot adSlot, @NonNull SplashAdListener splashAdListener, int i);
+
+    void loadStream(AdSlot adSlot, @NonNull FeedAdListener feedAdListener);
 }

@@ -11,20 +11,18 @@ import com.bytedance.sdk.openadsdk.utils.af;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6338a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f6339b;
+    private String f4289a;
+    private Context b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, String str) {
-        this.f6339b = context;
-        this.f6338a = TextUtils.isEmpty(str) ? "" : str;
+        this.b = context;
+        this.f4289a = TextUtils.isEmpty(str) ? "" : str;
     }
 
     @Nullable
     private Context b() {
-        return this.f6339b == null ? p.a() : this.f6339b;
+        return this.b == null ? p.a() : this.b;
     }
 
     @Nullable
@@ -42,15 +40,15 @@ class h {
         if (TextUtils.isEmpty(str)) {
             str = "0";
         }
-        return this.f6338a + "_cache_" + str;
+        return this.f4289a + "_cache_" + str;
     }
 
     private String c() {
-        return this.f6338a + "_adslot";
+        return this.f4289a + "_adslot";
     }
 
     private String d() {
-        return this.f6338a + "_adslot_preload";
+        return this.f4289a + "_adslot_preload";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

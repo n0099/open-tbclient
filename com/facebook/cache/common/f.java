@@ -1,18 +1,18 @@
 package com.facebook.cache.common;
 /* loaded from: classes5.dex */
 public class f implements CacheEventListener {
-    private static f pyb = null;
+    private static f pAg = null;
 
     private f() {
     }
 
-    public static synchronized f erW() {
+    public static synchronized f esf() {
         f fVar;
         synchronized (f.class) {
-            if (pyb == null) {
-                pyb = new f();
+            if (pAg == null) {
+                pAg = new f();
             }
-            fVar = pyb;
+            fVar = pAg;
         }
         return fVar;
     }

@@ -27,7 +27,7 @@ import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialResources;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class MaterialButton extends AppCompatButton {
     public static final int ICON_GRAVITY_START = 1;
     public static final int ICON_GRAVITY_TEXT_START = 2;
@@ -46,7 +46,7 @@ public class MaterialButton extends AppCompatButton {
     private final MaterialButtonHelper materialButtonHelper;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface IconGravity {
     }
 

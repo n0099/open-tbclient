@@ -11,22 +11,22 @@ import com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController;
 import com.baidu.live.tbadk.util.PageDialogHelper;
 import com.baidu.tieba.ala.live.c.a;
 import com.baidu.tieba.ala.live.c.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements IChannelPayController {
-    private BaseActivity bVA;
+    private BaseActivity bXa;
     private PayConfig mCurPayConfig;
     private com.baidu.tieba.ala.live.c.a mPayController;
 
     public a(PayChannelData payChannelData) {
-        this.bVA = payChannelData.getBaseActivity();
+        this.bXa = payChannelData.getBaseActivity();
         Log.d(IChannelPayController.TAG, "-->mPayController  构造函数");
-        this.mPayController = c.c(this.bVA);
-        this.mPayController.a(new a.InterfaceC0647a() { // from class: com.baidu.tieba.ala.live.a.1
-            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0647a
-            public void Ha(String str) {
+        this.mPayController = c.c(this.bXa);
+        this.mPayController.a(new a.InterfaceC0653a() { // from class: com.baidu.tieba.ala.live.a.1
+            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0653a
+            public void Hj(String str) {
             }
 
-            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0647a
+            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0653a
             public void a(boolean z, Intent intent) {
                 Intent intent2 = new Intent();
                 int intExtra = intent.getIntExtra("result_code", -1);
@@ -67,14 +67,14 @@ public class a implements IChannelPayController {
         String liveId = payChannelData.getLiveId();
         Log.d(IChannelPayController.TAG, "-->mPayController  pay--- propsId:" + iconId + ", money:" + str + ", propsMon:1, tBeanNum:" + str2 + ", from:" + from);
         this.mCurPayConfig = new PayConfig(payType, "0", iconId, str, "1", true, str2, false, PageDialogHelper.PayForm.NOT_SET, null, null, from, liveId);
-        this.mPayController.Hk(payChannelData.getChannel());
+        this.mPayController.Ht(payChannelData.getChannel());
         this.mPayController.setShowToast(payChannelData.getShowToast());
         this.mPayController.d(this.mCurPayConfig);
     }
 
     @Override // com.baidu.live.tbadk.pay.channel.interfaces.IChannelPayController
     public void release() {
-        this.bVA = null;
+        this.bXa = null;
         this.mPayController = null;
     }
 }

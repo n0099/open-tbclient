@@ -2,7 +2,7 @@ package com.baidu.tieba.write.vcode.newVcode.a;
 
 import android.webkit.WebView;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface b {
     void P(boolean z, String str);
 
@@ -10,7 +10,7 @@ public interface b {
 
     void d(NewWriteModel.d dVar);
 
-    void dWO();
+    void dWW();
 
     void onDestroy();
 

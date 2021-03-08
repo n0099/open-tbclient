@@ -20,22 +20,20 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a extends AbstractKsEntryElement {
 
     /* renamed from: a  reason: collision with root package name */
-    private static com.kwad.sdk.entry.model.a f9770a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.core.response.model.a f9771b;
+    private static com.kwad.sdk.entry.model.a f6466a = null;
+    private com.kwad.sdk.core.response.model.a b;
     private c c;
     private h.a e;
     private boolean d = false;
     private AtomicBoolean f = new AtomicBoolean(false);
 
     public static com.kwad.sdk.entry.model.a a() {
-        return f9770a;
+        return f6466a;
     }
 
     private void a(Context context, KsEntryElement.OnFeedClickListener onFeedClickListener) {
-        if (this.c == null && this.f9771b != null) {
-            switch (this.f9771b.f9432a) {
+        if (this.c == null && this.b != null) {
+            switch (this.b.f6255a) {
                 case 1:
                     this.c = (EntryLinearView) View.inflate(context, R.layout.ksad_view_entry_twophoto, null);
                     break;
@@ -57,7 +55,7 @@ public class a extends AbstractKsEntryElement {
                     break;
             }
             if (this.c != null) {
-                if (!this.c.a(this.f9771b)) {
+                if (!this.c.a(this.b)) {
                     this.c = new b(context);
                 }
                 this.c.setOnfeedClickListener(onFeedClickListener);
@@ -66,11 +64,11 @@ public class a extends AbstractKsEntryElement {
     }
 
     public static void a(com.kwad.sdk.entry.model.a aVar) {
-        f9770a = aVar;
+        f6466a = aVar;
     }
 
     public static void b() {
-        f9770a = null;
+        f6466a = null;
     }
 
     public void a(h.a aVar) {
@@ -78,7 +76,7 @@ public class a extends AbstractKsEntryElement {
     }
 
     public void a(com.kwad.sdk.core.response.model.a aVar) {
-        this.f9771b = aVar;
+        this.b = aVar;
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsEntryElement
@@ -90,8 +88,8 @@ public class a extends AbstractKsEntryElement {
 
     @Override // com.kwad.sdk.api.KsEntryElement
     public int getEntryViewType() {
-        if (this.f9771b != null) {
-            return this.f9771b.f9432a;
+        if (this.b != null) {
+            return this.b.f6255a;
         }
         return 0;
     }
@@ -117,7 +115,7 @@ public class a extends AbstractKsEntryElement {
                         ((View) a.this.c).post(new Runnable() { // from class: com.kwad.sdk.entry.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.this.c.a(a.this.f9771b);
+                                a.this.c.a(a.this.b);
                             }
                         });
                     }

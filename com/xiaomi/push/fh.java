@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.kwai.video.player.PlayerPostEvent;
 import com.kwai.video.player.PlayerProps;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public enum fh {
     TCP_CONN_FAIL(1),
     TCP_CONN_TIME(2),
@@ -63,10 +63,10 @@ public enum fh {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f400a;
+    private final int f321a;
 
     fh(int i) {
-        this.f400a = i;
+        this.f321a = i;
     }
 
     public static fh a(int i) {
@@ -187,6 +187,6 @@ public enum fh {
     }
 
     public int a() {
-        return this.f400a;
+        return this.f321a;
     }
 }

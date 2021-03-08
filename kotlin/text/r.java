@@ -6,7 +6,7 @@ import java.util.Iterator;
 import kotlin.collections.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class r extends q {
     public static final boolean N(String str, String str2, boolean z) {
         if (str == null) {
@@ -27,9 +27,9 @@ public class r extends q {
 
     public static final String m(String str, String str2, String str3, boolean z) {
         String a2;
-        kotlin.jvm.internal.p.o(str, "$receiver");
-        kotlin.jvm.internal.p.o(str2, "oldValue");
-        kotlin.jvm.internal.p.o(str3, "newValue");
+        kotlin.jvm.internal.p.p(str, "$receiver");
+        kotlin.jvm.internal.p.p(str2, "oldValue");
+        kotlin.jvm.internal.p.p(str3, "newValue");
         a2 = kotlin.sequences.d.a(l.a(str, new String[]{str2}, z, 0, 4, (Object) null), (r14 & 1) != 0 ? ", " : str3, (r14 & 2) != 0 ? "" : null, (r14 & 4) != 0 ? "" : null, (r14 & 8) != 0 ? -1 : 0, (r14 & 16) != 0 ? StringHelper.STRING_MORE : null, (r14 & 32) != 0 ? null : null);
         return a2;
     }
@@ -42,14 +42,14 @@ public class r extends q {
     }
 
     public static final boolean startsWith(String str, String str2, boolean z) {
-        kotlin.jvm.internal.p.o(str, "$receiver");
-        kotlin.jvm.internal.p.o(str2, "prefix");
+        kotlin.jvm.internal.p.p(str, "$receiver");
+        kotlin.jvm.internal.p.p(str2, "prefix");
         return !z ? str.startsWith(str2) : l.a(str, 0, str2, 0, str2.length(), z);
     }
 
     public static final boolean isBlank(CharSequence charSequence) {
         boolean z;
-        kotlin.jvm.internal.p.o(charSequence, "$receiver");
+        kotlin.jvm.internal.p.p(charSequence, "$receiver");
         if (charSequence.length() != 0) {
             kotlin.b.h B = l.B(charSequence);
             if (!(B instanceof Collection) || !((Collection) B).isEmpty()) {
@@ -58,7 +58,7 @@ public class r extends q {
                     if (!it.hasNext()) {
                         z = true;
                         break;
-                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).eBG()))) {
+                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).eBM()))) {
                         z = false;
                         break;
                     }
@@ -74,8 +74,8 @@ public class r extends q {
     }
 
     public static final boolean a(String str, int i, String str2, int i2, int i3, boolean z) {
-        kotlin.jvm.internal.p.o(str, "$receiver");
-        kotlin.jvm.internal.p.o(str2, "other");
+        kotlin.jvm.internal.p.p(str, "$receiver");
+        kotlin.jvm.internal.p.p(str2, "other");
         if (!z) {
             return str.regionMatches(i, str2, i2, i3);
         }

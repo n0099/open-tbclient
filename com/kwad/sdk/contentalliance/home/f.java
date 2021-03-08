@@ -13,10 +13,8 @@ import java.util.List;
 public class f extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsFragment f8737a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public i f8738b;
+    public KsFragment f5822a;
+    public i b;
     public SlidePlayViewPager c;
     public com.kwad.sdk.contentalliance.detail.b.b d;
     public SceneImpl e;

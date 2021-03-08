@@ -4,7 +4,7 @@ import android.os.SystemClock;
 import com.baidu.ar.face.algo.FaceAlgoData;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
     protected long mf;
     protected FaceAlgoData ob;

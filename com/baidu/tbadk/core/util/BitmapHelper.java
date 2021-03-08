@@ -1051,7 +1051,7 @@ public class BitmapHelper {
 
     public static int readPictureDegree(String str) {
         try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
+            switch (new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1)) {
                 case 3:
                     return 180;
                 case 4:

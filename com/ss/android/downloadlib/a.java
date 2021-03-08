@@ -1,12 +1,12 @@
 package com.ss.android.downloadlib;
 
 import com.bytedance.sdk.openadsdk.adhost.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class a {
 
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class C1221a {
+    /* loaded from: classes14.dex */
+    public static final class C1211a {
         public static int appdownloader_action_bg = R.drawable.appdownloader_action_bg;
         public static int appdownloader_action_new_bg = R.drawable.appdownloader_action_new_bg;
         public static int appdownloader_ad_detail_download_progress = R.drawable.appdownloader_ad_detail_download_progress;
@@ -33,7 +33,7 @@ public final class a {
         public static int ttdownloader_icon_finger = R.drawable.ttdownloader_icon_finger;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class b {
         public static int app_icon_iv = R.id.app_icon_iv;
         public static int app_name_tv = R.id.app_name_tv;
@@ -64,7 +64,7 @@ public final class a {
         public static int local_install_hijack_layout = R.id.local_install_hijack_layout;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class c {
         public static int appdownloader_notification_layout = R.layout.appdownloader_notification_layout;
         public static int ttdownloader_dialog_apk_install_guide = R.layout.ttdownloader_dialog_apk_install_guide;
@@ -75,7 +75,7 @@ public final class a {
         public static int ttdownloader_layout_install_hijack_xiaomi = R.layout.ttdownloader_layout_install_hijack_xiaomi;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static final class d {
         public static int appdownloader_style_detail_download_progress_bar = R.style.appdownloader_style_detail_download_progress_bar;
         public static int appdownloader_style_notification_text = R.style.appdownloader_style_notification_text;

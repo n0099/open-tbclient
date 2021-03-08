@@ -24,15 +24,13 @@ public interface c {
 
     String e();
 
-    com.ss.android.a.a.d.b eEd();
+    com.ss.android.a.a.d.b eEi();
 
-    List<String> eEe();
+    List<String> eEj();
 
-    JSONObject eEf();
+    com.ss.android.a.a.d.f eEk();
 
-    com.ss.android.a.a.d.f eEg();
-
-    ah eEh();
+    ah eEl();
 
     long f();
 
@@ -69,4 +67,6 @@ public interface c {
     String v();
 
     String w();
+
+    JSONObject z();
 }

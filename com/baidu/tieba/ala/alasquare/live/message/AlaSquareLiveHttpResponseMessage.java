@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.LiveSquare.LiveSquareResIdl;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     private LinkedList<a> categoryList;
     private LinkedList<FunctionListInfo> functionList;
@@ -46,9 +46,9 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> b2;
-        if (!hasError() && !y.isEmpty(this.categoryList) && this.mPn == 1 && (b2 = BdCacheService.lw().b("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) != null) {
-            b2.set("ala_square_live_key", bArr, 604800000L);
+        l<byte[]> b;
+        if (!hasError() && !y.isEmpty(this.categoryList) && this.mPn == 1 && (b = BdCacheService.lw().b("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) != null) {
+            b.set("ala_square_live_key", bArr, 604800000L);
         }
     }
 

@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tieba.memberCenter.tail.data.g;
 import com.squareup.wire.Wire;
 import tbclient.UpdateTail.UpdateTailResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class UpdateTailSocketResponseMessage extends SocketResponsedMessage {
     private g resultData;
 
@@ -16,7 +16,7 @@ public class UpdateTailSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: getResultData */
-    public g m45getResultData() {
+    public g m46getResultData() {
         return this.resultData;
     }
 

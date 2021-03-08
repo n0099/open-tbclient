@@ -6,10 +6,8 @@ import android.text.TextUtils;
 class f {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f8201a = "newversion";
-
-    /* renamed from: b  reason: collision with root package name */
-    static String f8202b = "curversion";
+    static String f5463a = "newversion";
+    static String b = "curversion";
     static String c = "apiversion";
     static String d = "_enable";
 

@@ -4,44 +4,44 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends a {
-    private RectF cJJ;
-    private float cJK;
-    private float cJL;
-    private boolean cJM;
+    private RectF cLj;
+    private float cLk;
+    private float cLl;
+    private boolean cLm;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 4) {
-            int P = com.baidu.swan.apps.ao.ah.P((float) jSONArray.optDouble(0));
-            int P2 = com.baidu.swan.apps.ao.ah.P((float) jSONArray.optDouble(1));
-            int P3 = com.baidu.swan.apps.ao.ah.P((float) jSONArray.optDouble(2));
+            int T = com.baidu.swan.apps.ao.ah.T((float) jSONArray.optDouble(0));
+            int T2 = com.baidu.swan.apps.ao.ah.T((float) jSONArray.optDouble(1));
+            int T3 = com.baidu.swan.apps.ao.ah.T((float) jSONArray.optDouble(2));
             float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
-            this.cJJ = new RectF(P - P3, P2 - P3, P + P3, P2 + P3);
-            this.cJK = degrees;
-            this.cJL = ((float) Math.toDegrees((float) jSONArray.optDouble(4))) - degrees;
+            this.cLj = new RectF(T - T3, T2 - T3, T + T3, T2 + T3);
+            this.cLk = degrees;
+            this.cLl = ((float) Math.toDegrees((float) jSONArray.optDouble(4))) - degrees;
         }
         if (jSONArray.length() > 5) {
-            this.cJM = jSONArray.optBoolean(5);
+            this.cLm = jSONArray.optBoolean(5);
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.cJJ != null) {
-            if (!this.cJM && Math.abs(this.cJL) >= 360.0f) {
-                bVar.mPath.addCircle((this.cJJ.right + this.cJJ.left) / 2.0f, (this.cJJ.bottom + this.cJJ.top) / 2.0f, (this.cJJ.bottom - this.cJJ.top) / 2.0f, Path.Direction.CW);
-                bVar.mPath.arcTo(this.cJJ, 0.0f, this.cJK);
+        if (this.cLj != null) {
+            if (!this.cLm && Math.abs(this.cLl) >= 360.0f) {
+                bVar.mPath.addCircle((this.cLj.right + this.cLj.left) / 2.0f, (this.cLj.bottom + this.cLj.top) / 2.0f, (this.cLj.bottom - this.cLj.top) / 2.0f, Path.Direction.CW);
+                bVar.mPath.arcTo(this.cLj, 0.0f, this.cLk);
                 return;
             }
-            float f = this.cJL % 360.0f;
-            if (f < 0.0f && !this.cJM) {
+            float f = this.cLl % 360.0f;
+            if (f < 0.0f && !this.cLm) {
                 f += 360.0f;
-            } else if (f > 0.0f && this.cJM) {
+            } else if (f > 0.0f && this.cLm) {
                 f -= 360.0f;
             }
-            bVar.mPath.arcTo(this.cJJ, this.cJK, f);
+            bVar.mPath.arcTo(this.cLj, this.cLk, f);
         }
     }
 }

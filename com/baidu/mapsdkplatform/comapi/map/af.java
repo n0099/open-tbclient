@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.mapsdkplatform.comjni.map.basemap.a f3045a;
+    private com.baidu.mapsdkplatform.comjni.map.basemap.a f2218a;
 
     public af(com.baidu.mapsdkplatform.comjni.map.basemap.a aVar) {
-        this.f3045a = aVar;
+        this.f2218a = aVar;
     }
 
     public Point a(GeoPoint geoPoint) {
@@ -19,10 +19,10 @@ public class af {
             return null;
         }
         Point point = new Point(0, 0);
-        String b2 = this.f3045a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
-        if (b2 != null) {
+        String b = this.f2218a.b((int) geoPoint.getLongitudeE6(), (int) geoPoint.getLatitudeE6());
+        if (b != null) {
             try {
-                JSONObject jSONObject = new JSONObject(b2);
+                JSONObject jSONObject = new JSONObject(b);
                 point.x = jSONObject.getInt("scrx");
                 point.y = jSONObject.getInt("scry");
                 return point;
@@ -35,7 +35,7 @@ public class af {
     }
 
     public GeoPoint a(int i, int i2) {
-        String a2 = this.f3045a.a(i, i2);
+        String a2 = this.f2218a.a(i, i2);
         GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
         if (a2 != null) {
             try {

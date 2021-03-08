@@ -9,26 +9,26 @@ import android.os.Bundle;
 import android.util.Log;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class o extends ArCoreApk {
-    private static final o pSg = new o();
+    private static final o pSV = new o();
 
     /* renamed from: a */
-    Exception f7864a;
+    Exception f5266a;
     private boolean c;
     private int d;
     private boolean g;
     private boolean i;
     private boolean j;
     private int k;
-    private ArCoreApk.Availability pSh;
-    private w pSi;
+    private ArCoreApk.Availability pSW;
+    private w pSX;
 
     o() {
     }
 
-    public static o eBa() {
-        return pSg;
+    public static o eBg() {
+        return pSV;
     }
 
     @Override // com.google.ar.core.ArCoreApk
@@ -42,7 +42,7 @@ public final class o extends ArCoreApk {
                 return n.ir(context);
             }
             synchronized (this) {
-                if ((this.pSh == null || this.pSh.isUnknown()) && !this.g) {
+                if ((this.pSW == null || this.pSW.isUnknown()) && !this.g) {
                     this.g = true;
                     n nVar = new n(this);
                     if (b(context)) {
@@ -55,8 +55,8 @@ public final class o extends ArCoreApk {
                         it(context).a(context, nVar);
                     }
                 }
-                if (this.pSh != null) {
-                    return this.pSh;
+                if (this.pSW != null) {
+                    return this.pSW;
                 } else if (this.g) {
                     return ArCoreApk.Availability.UNKNOWN_CHECKING;
                 } else {
@@ -71,22 +71,22 @@ public final class o extends ArCoreApk {
     }
 
     public final synchronized w it(Context context) {
-        if (this.pSi == null) {
+        if (this.pSX == null) {
             w wVar = new w((byte) 0);
             wVar.a(context.getApplicationContext());
-            this.pSi = wVar;
+            this.pSX = wVar;
         }
-        return this.pSi;
+        return this.pSX;
     }
 
     public final synchronized void b() {
-        if (this.f7864a == null) {
+        if (this.f5266a == null) {
             this.d = 0;
         }
         this.c = false;
-        if (this.pSi != null) {
-            this.pSi.a();
-            this.pSi = null;
+        if (this.pSX != null) {
+            this.pSX.a();
+            this.pSX = null;
         }
     }
 

@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class f {
-    private static PackageInfo U(Context context) {
+    private static PackageInfo T(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
         } catch (PackageManager.NameNotFoundException e) {
@@ -16,8 +16,8 @@ public class f {
     }
 
     private static String d(Context context) {
-        PackageInfo U = U(context);
-        return U == null ? "" : U.packageName;
+        PackageInfo T = T(context);
+        return T == null ? "" : T.packageName;
     }
 
     public static String a(Context context) {
@@ -26,11 +26,11 @@ public class f {
             String str = (String) packageManager.getApplicationLabel(packageManager.getApplicationInfo(d(context), 0));
             if (str == null) {
                 try {
-                    PackageInfo U = U(context);
-                    if (U == null) {
+                    PackageInfo T = T(context);
+                    if (T == null) {
                         return null;
                     }
-                    return context.getResources().getString(U.applicationInfo.labelRes);
+                    return context.getResources().getString(T.applicationInfo.labelRes);
                 } catch (Exception e) {
                     e = e;
                     e.printStackTrace();
@@ -45,9 +45,9 @@ public class f {
 
     public static String b(Context context) {
         try {
-            PackageInfo U = U(context);
-            if (U != null) {
-                return d(context) + ETAG.ITEM_SEPARATOR + U.versionName;
+            PackageInfo T = T(context);
+            if (T != null) {
+                return d(context) + ETAG.ITEM_SEPARATOR + T.versionName;
             }
         } catch (Exception e) {
             e.printStackTrace();

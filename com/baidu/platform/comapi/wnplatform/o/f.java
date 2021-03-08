@@ -5,10 +5,8 @@ import com.kwad.sdk.core.response.model.SdkConfigData;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f4455a = {"m", "km", "米", "公里"};
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f4456b = {"m", "h", "分钟", "小时"};
+    public static final String[] f3081a = {"m", "km", "米", "公里"};
+    public static final String[] b = {"m", "h", "分钟", "小时"};
     public static final String[] c = {"m", "h", "d", "分钟", "小时", "天"};
 
     /* loaded from: classes4.dex */
@@ -40,13 +38,13 @@ public class f {
             if (stringBuffer != null) {
                 int i3 = i / 1000;
                 if (i3 >= 100) {
-                    stringBuffer.append(String.format("%d%s", Integer.valueOf(i3), f4455a[i2 + 1]));
+                    stringBuffer.append(String.format("%d%s", Integer.valueOf(i3), f3081a[i2 + 1]));
                 } else {
-                    stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f4455a[i2 + 1]));
+                    stringBuffer.append(String.format(str, Double.valueOf(i / 1000.0d), f3081a[i2 + 1]));
                 }
             }
         } else if (stringBuffer != null) {
-            stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f4455a[0 + i2]));
+            stringBuffer.append(String.format("%d%s", Integer.valueOf(i), f3081a[0 + i2]));
         }
     }
 

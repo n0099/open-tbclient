@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderVideoConfig {
     private HardDecodeDirectRenderConfig mHardDirectRender = new HardDecodeDirectRenderConfig();
     private static Support h264HwDecoderSupport = Support.SUPPORTED;
@@ -21,7 +21,7 @@ public class ThunderVideoConfig {
     private static boolean bWindowSurfaceSupported = false;
     private static final Object testWindowSurfaceLocker = new Object();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private enum Support {
         SUPPORTED,
         UNSUPPORTED,
@@ -33,7 +33,7 @@ public class ThunderVideoConfig {
         new Thread(new LoadThread(), "YY_LoadVideoConfig_Thread").start();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class LoadThread implements Runnable {
         private LoadThread() {
         }
@@ -56,7 +56,7 @@ public class ThunderVideoConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class TestWindowSurfaceTask implements Runnable {
         private AtomicBoolean mResult;
 

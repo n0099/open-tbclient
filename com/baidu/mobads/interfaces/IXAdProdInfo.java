@@ -3,7 +3,7 @@ package com.baidu.mobads.interfaces;
 import android.view.View;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IXAdProdInfo {
     String getAdPlacementId();
 

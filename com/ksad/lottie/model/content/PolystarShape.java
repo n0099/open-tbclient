@@ -6,10 +6,8 @@ import com.ksad.lottie.model.a.m;
 public class PolystarShape implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8059a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Type f8060b;
+    private final String f5382a;
+    private final Type b;
     private final com.ksad.lottie.model.a.b c;
     private final m<PointF, PointF> d;
     private final com.ksad.lottie.model.a.b e;
@@ -41,8 +39,8 @@ public class PolystarShape implements b {
     }
 
     public PolystarShape(String str, Type type, com.ksad.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.ksad.lottie.model.a.b bVar2, com.ksad.lottie.model.a.b bVar3, com.ksad.lottie.model.a.b bVar4, com.ksad.lottie.model.a.b bVar5, com.ksad.lottie.model.a.b bVar6) {
-        this.f8059a = str;
-        this.f8060b = type;
+        this.f5382a = str;
+        this.b = type;
         this.c = bVar;
         this.d = mVar;
         this.e = bVar2;
@@ -58,11 +56,11 @@ public class PolystarShape implements b {
     }
 
     public String a() {
-        return this.f8059a;
+        return this.f5382a;
     }
 
     public Type b() {
-        return this.f8060b;
+        return this.b;
     }
 
     public com.ksad.lottie.model.a.b c() {

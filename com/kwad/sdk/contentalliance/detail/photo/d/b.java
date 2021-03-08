@@ -18,10 +18,8 @@ import java.util.List;
 public class b extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Presenter f8459a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected c f8460b;
+    protected Presenter f5640a;
+    protected c b;
     private LinearLayout c;
     private Button d;
     private List<a> e;
@@ -51,8 +49,8 @@ public class b extends LinearLayout {
 
     private c b(@NonNull d dVar) {
         c cVar = new c();
-        cVar.f8466a = dVar;
-        cVar.f8467b = this.f;
+        cVar.f5646a = dVar;
+        cVar.b = this.f;
         return cVar;
     }
 
@@ -122,7 +120,7 @@ public class b extends LinearLayout {
     }
 
     public void a() {
-        this.f8459a.j();
+        this.f5640a.j();
     }
 
     public void a(@NonNull a aVar) {
@@ -130,12 +128,12 @@ public class b extends LinearLayout {
     }
 
     public void a(@NonNull d dVar) {
-        this.f8460b = b(dVar);
-        if (this.f8459a == null) {
-            this.f8459a = c(dVar);
-            this.f8459a.a((View) this.c);
+        this.b = b(dVar);
+        if (this.f5640a == null) {
+            this.f5640a = c(dVar);
+            this.f5640a.a((View) this.c);
         }
-        this.f8459a.a(this.f8460b);
+        this.f5640a.a(this.b);
     }
 
     public void b(@NonNull a aVar) {

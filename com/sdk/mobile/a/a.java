@@ -12,11 +12,11 @@ public final class a {
         if (c.a(str2).booleanValue()) {
             DataInfo dataInfo = new DataInfo();
             dataInfo.putData("accessCode", str);
-            return aVar2.a(aVar2.f12825b, "/api/netm/v1.0/qhbt", dataInfo, aVar2.a(), 0, i.f12804b);
+            return aVar2.a(aVar2.b, "/api/netm/v1.0/qhbt", dataInfo, aVar2.a(), 0, i.b);
         }
         DataInfo dataInfo2 = new DataInfo();
         dataInfo2.putData("accessCode", str);
         dataInfo2.putData("mobile", str2);
-        return aVar2.a(aVar2.f12825b, "/api/netm/v1.0/qhbv", dataInfo2, aVar2.a(), 0, i.f12804b);
+        return aVar2.a(aVar2.b, "/api/netm/v1.0/qhbv", dataInfo2, aVar2.a(), 0, i.b);
     }
 }

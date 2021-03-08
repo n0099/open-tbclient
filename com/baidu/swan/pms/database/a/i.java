@@ -33,11 +33,11 @@ public class i extends b<com.baidu.swan.pms.model.i> implements com.baidu.swan.p
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: j */
-    public ContentValues al(com.baidu.swan.pms.model.i iVar) {
+    public ContentValues an(com.baidu.swan.pms.model.i iVar) {
         ContentValues e = super.e(iVar);
         e.put("max_age", Long.valueOf(iVar.maxAge));
-        e.put("abi", iVar.eui.id);
-        e.put("lib_name", iVar.libName);
+        e.put("abi", iVar.evJ.id);
+        e.put("lib_name", iVar.dbu);
         return e;
     }
 
@@ -46,8 +46,8 @@ public class i extends b<com.baidu.swan.pms.model.i> implements com.baidu.swan.p
             com.baidu.swan.pms.model.i iVar = new com.baidu.swan.pms.model.i();
             if (a(cursor, iVar)) {
                 iVar.maxAge = cursor.getLong(a(cursor, "max_age"));
-                iVar.eui = AbiType.findById(cursor.getString(a(cursor, "abi")), null);
-                iVar.libName = cursor.getString(a(cursor, "lib_name"));
+                iVar.evJ = AbiType.findById(cursor.getString(a(cursor, "abi")), null);
+                iVar.dbu = cursor.getString(a(cursor, "lib_name"));
                 return iVar;
             }
         }

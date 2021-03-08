@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import androidx.annotation.VisibleForTesting;
 import com.baidu.mobstat.Config;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class AttributeStrategy implements LruPoolStrategy {
     private final KeyPool keyPool = new KeyPool();
     private final GroupedLinkedMap<Key, Bitmap> groupedMap = new GroupedLinkedMap<>();
@@ -52,7 +52,7 @@ class AttributeStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     static class KeyPool extends BaseKeyPool<Key> {
         KeyPool() {
         }
@@ -74,7 +74,7 @@ class AttributeStrategy implements LruPoolStrategy {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Key implements Poolable {
         private Bitmap.Config config;
         private int height;

@@ -9,18 +9,16 @@ import com.baidu.tieba.R;
 public class ad extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private RelativeLayout f4295a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f4296b;
+    private RelativeLayout f2970a;
+    private TextView b;
     private TextView c;
 
     public ad(Context context, View view) {
-        this.f4296b = null;
+        this.b = null;
         this.c = null;
-        this.f4295a = (RelativeLayout) view.findViewById(R.dimen.M_W_X011);
-        this.f4296b = (TextView) this.f4295a.findViewById(R.dimen.M_W_X012);
-        this.c = (TextView) this.f4295a.findViewById(R.dimen.M_W_X013);
+        this.f2970a = (RelativeLayout) view.findViewById(R.dimen.M_W_X011);
+        this.b = (TextView) this.f2970a.findViewById(R.dimen.M_W_X012);
+        this.c = (TextView) this.f2970a.findViewById(R.dimen.M_W_X013);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

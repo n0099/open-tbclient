@@ -13,15 +13,15 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implements DialogInterface.OnDismissListener, View.OnClickListener {
-    private TextView bYe;
-    private TextView bYf;
-    public CustomMessageListener bgy;
+    private TextView bZE;
+    private TextView bZF;
+    public CustomMessageListener bhY;
     private TextView mTitle;
-    private a oIy;
+    private a oKD;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onCancel();
 
@@ -30,7 +30,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bgy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
+        this.bhY = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,7 +44,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     public g(Activity activity) {
         super(activity);
-        this.bgy = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
+        this.bhY = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -57,13 +57,13 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     private void initView() {
         this.mTitle = (TextView) findViewById(a.f.tv_title);
-        this.bYe = (TextView) findViewById(a.f.tv_cancel);
-        this.bYf = (TextView) findViewById(a.f.tv_confirm);
+        this.bZE = (TextView) findViewById(a.f.tv_cancel);
+        this.bZF = (TextView) findViewById(a.f.tv_confirm);
     }
 
     private void initListener() {
-        this.bYe.setOnClickListener(this);
-        this.bYf.setOnClickListener(this);
+        this.bZE.setOnClickListener(this);
+        this.bZF.setOnClickListener(this);
     }
 
     public void setText(String str) {
@@ -72,29 +72,29 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         }
     }
 
-    public void VP(String str) {
-        if (this.bYe != null && !TextUtils.isEmpty(str)) {
-            this.bYe.setText(str);
+    public void VW(String str) {
+        if (this.bZE != null && !TextUtils.isEmpty(str)) {
+            this.bZE.setText(str);
         }
     }
 
     public void ce(String str, int i) {
-        if (this.bYe != null && !TextUtils.isEmpty(str)) {
-            this.bYe.setText(str);
-            this.bYe.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
+        if (this.bZE != null && !TextUtils.isEmpty(str)) {
+            this.bZE.setText(str);
+            this.bZE.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
         }
     }
 
     public void cf(String str, int i) {
-        if (this.bYf != null) {
-            this.bYf.setText(str);
-            this.bYf.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
+        if (this.bZF != null) {
+            this.bZF.setText(str);
+            this.bZF.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(i));
         }
     }
 
-    public void eel() {
-        if (this.bYf != null) {
-            this.bYf.getPaint().setFakeBoldText(true);
+    public void eet() {
+        if (this.bZF != null) {
+            this.bZF.getPaint().setFakeBoldText(true);
         }
     }
 
@@ -113,12 +113,12 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean Ss() {
+    protected boolean Sv() {
         return true;
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
-    protected boolean St() {
+    protected boolean Sw() {
         return true;
     }
 
@@ -134,7 +134,7 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        MessageManager.getInstance().registerListener(this.bgy);
+        MessageManager.getInstance().registerListener(this.bhY);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -145,25 +145,25 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a implemen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bYe) {
+        if (view == this.bZE) {
             dismiss();
-            if (this.oIy != null) {
-                this.oIy.onCancel();
+            if (this.oKD != null) {
+                this.oKD.onCancel();
             }
-        } else if (view == this.bYf) {
+        } else if (view == this.bZF) {
             dismiss();
-            if (this.oIy != null) {
-                this.oIy.onConfirm();
+            if (this.oKD != null) {
+                this.oKD.onConfirm();
             }
         }
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        MessageManager.getInstance().unRegisterListener(this.bgy);
+        MessageManager.getInstance().unRegisterListener(this.bhY);
     }
 
     public void a(a aVar) {
-        this.oIy = aVar;
+        this.oKD = aVar;
     }
 }

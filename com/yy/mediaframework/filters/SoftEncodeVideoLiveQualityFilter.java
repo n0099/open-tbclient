@@ -6,7 +6,7 @@ import com.yy.mediaframework.inteligence.common.ResolutionModifyNotFoundExceptio
 import com.yy.mediaframework.inteligence.framerate.AdjustFrameRateModify;
 import com.yy.mediaframework.inteligence.resolution.DefaultResolutionModify;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SoftEncodeVideoLiveQualityFilter extends VideoLiveQualityFilter {
     public SoftEncodeVideoLiveQualityFilter(VideoLiveFilterContext videoLiveFilterContext, ILiveSession iLiveSession) {
         super(videoLiveFilterContext, iLiveSession);

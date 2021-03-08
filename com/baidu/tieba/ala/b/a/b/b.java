@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.b.a.b;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static Object b(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
         try {

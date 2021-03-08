@@ -23,7 +23,7 @@ import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     private float mCurrentPositionOffset;
     private int mCurrentTabIndex;
@@ -43,7 +43,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     private LinearLayout mTabsContainer;
     private int mTextSize;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public interface ScrollTabPageListener {
         void onPageScrolled(int i, float f, int i2);
 
@@ -358,7 +358,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     private class InnerScrollTabPageListener implements ViewPager.OnPageChangeListener {
         private int mLastPosition;
 
@@ -417,7 +417,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class ViewHolder {
         TextView icon;
         TextView title;

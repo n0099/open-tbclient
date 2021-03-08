@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlManager implements Runnable {
     private static final String TAG = "GlManager";
     private IEglCore mEglCore;
@@ -218,7 +218,7 @@ public class GlManager implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class GlHandler extends Handler {
         private WeakReference<GlManager> mWeakGLManager;
 

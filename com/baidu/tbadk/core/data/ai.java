@@ -1,18 +1,18 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class ai {
-    public int aHS;
-    public int aXz;
+    public int aJs;
+    public int aYZ;
     public int accountType;
     public long beginTime;
     public String desc;
-    public long eNQ;
-    public String eNR;
-    public long eNS;
-    public long eNT;
-    public int eNU;
-    public int eNV;
-    public int eNW;
+    public long ePr;
+    public String ePs;
+    public long ePt;
+    public long ePu;
+    public int ePv;
+    public int ePw;
+    public int ePx;
     public long endTime;
     public int id;
     public String name;

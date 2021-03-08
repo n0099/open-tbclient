@@ -2,7 +2,7 @@ package com.vivo.push.c;
 
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.mapapi.UIMsg;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class ai {
     public static com.vivo.push.v a(com.vivo.push.y yVar) {
         switch (yVar.b()) {

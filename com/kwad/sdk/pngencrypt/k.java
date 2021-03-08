@@ -3,10 +3,8 @@ package com.kwad.sdk.pngencrypt;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f10513a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final int f10514b;
+    public final int f6927a;
+    public final int b;
     public final int c;
     public final int d;
     public final boolean e;
@@ -22,8 +20,8 @@ public class k {
     private long o = -1;
 
     public k(int i, int i2, int i3, boolean z, boolean z2, boolean z3) {
-        this.f10513a = i;
-        this.f10514b = i2;
+        this.f6927a = i;
+        this.b = i2;
         this.e = z;
         this.g = z3;
         this.f = z2;
@@ -36,7 +34,7 @@ public class k {
         this.i = this.d * this.c;
         this.j = (this.i + 7) / 8;
         this.k = ((this.i * i) + 7) / 8;
-        this.l = this.d * this.f10513a;
+        this.l = this.d * this.f6927a;
         this.m = this.h ? this.k : this.l;
         switch (this.c) {
             case 1:
@@ -73,16 +71,16 @@ public class k {
         }
         if (obj != null && getClass() == obj.getClass()) {
             k kVar = (k) obj;
-            return this.e == kVar.e && this.c == kVar.c && this.f10513a == kVar.f10513a && this.f == kVar.f && this.g == kVar.g && this.f10514b == kVar.f10514b;
+            return this.e == kVar.e && this.c == kVar.c && this.f6927a == kVar.f6927a && this.f == kVar.f && this.g == kVar.g && this.b == kVar.b;
         }
         return false;
     }
 
     public int hashCode() {
-        return (((((this.f ? 1231 : 1237) + (((((((this.e ? 1231 : 1237) + 31) * 31) + this.c) * 31) + this.f10513a) * 31)) * 31) + (this.g ? 1231 : 1237)) * 31) + this.f10514b;
+        return (((((this.f ? 1231 : 1237) + (((((((this.e ? 1231 : 1237) + 31) * 31) + this.c) * 31) + this.f6927a) * 31)) * 31) + (this.g ? 1231 : 1237)) * 31) + this.b;
     }
 
     public String toString() {
-        return "ImageInfo [cols=" + this.f10513a + ", rows=" + this.f10514b + ", bitDepth=" + this.c + ", channels=" + this.d + ", alpha=" + this.e + ", greyscale=" + this.f + ", indexed=" + this.g + "]";
+        return "ImageInfo [cols=" + this.f6927a + ", rows=" + this.b + ", bitDepth=" + this.c + ", channels=" + this.d + ", alpha=" + this.e + ", greyscale=" + this.f + ", indexed=" + this.g + "]";
     }
 }

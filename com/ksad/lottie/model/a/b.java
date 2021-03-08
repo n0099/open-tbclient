@@ -14,7 +14,7 @@ public class b extends n<Float, Float> {
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<Float, Float> a() {
-        return new com.ksad.lottie.a.b.c(this.f8050a);
+        return new com.ksad.lottie.a.b.c(this.f5377a);
     }
 
     @Override // com.ksad.lottie.model.a.n

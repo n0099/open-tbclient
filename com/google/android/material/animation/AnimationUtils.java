@@ -8,7 +8,7 @@ import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class AnimationUtils {
     public static final TimeInterpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
     public static final TimeInterpolator FAST_OUT_SLOW_IN_INTERPOLATOR = new FastOutSlowInInterpolator();

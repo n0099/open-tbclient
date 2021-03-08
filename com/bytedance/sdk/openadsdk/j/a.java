@@ -1,154 +1,229 @@
 package com.bytedance.sdk.openadsdk.j;
 
-import androidx.annotation.NonNull;
-import com.baidubce.http.Headers;
-import com.bytedance.sdk.adnet.err.VAdError;
-import com.bytedance.sdk.openadsdk.j.i;
-import com.bytedance.sdk.openadsdk.j.l;
-import java.io.IOException;
-import java.util.HashMap;
+import android.text.TextUtils;
+import com.bytedance.sdk.openadsdk.utils.u;
+import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-import org.apache.http.client.methods.HttpHead;
-import org.apache.http.protocol.HTTP;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public abstract class a implements k {
-    private static final AtomicLong m = new AtomicLong();
+public class a extends ThreadPoolExecutor {
 
     /* renamed from: a  reason: collision with root package name */
-    protected volatile com.bytedance.sdk.openadsdk.j.a.a f7219a;
+    private String f4858a;
 
-    /* renamed from: b  reason: collision with root package name */
-    protected final com.bytedance.sdk.openadsdk.j.b.c f7220b;
-    protected com.bytedance.sdk.openadsdk.j.d.a e;
-    protected volatile List<i.b> f;
-    protected volatile String g;
-    protected volatile String h;
-    protected volatile i i;
-    protected volatile l j;
-    protected final AtomicInteger c = new AtomicInteger();
-    protected final AtomicLong d = new AtomicLong();
-    protected volatile boolean k = false;
-    public final long l = m.incrementAndGet();
-    private final AtomicInteger n = new AtomicInteger(0);
-    private int o = -1;
-
-    public a(com.bytedance.sdk.openadsdk.j.a.a aVar, com.bytedance.sdk.openadsdk.j.b.c cVar) {
-        this.f7219a = aVar;
-        this.f7220b = cVar;
+    public a(String str, int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory, RejectedExecutionHandler rejectedExecutionHandler) {
+        super(i, i2, j, timeUnit, blockingQueue, threadFactory, rejectedExecutionHandler);
+        this.f4858a = null;
+        this.f4858a = str;
     }
 
-    public void a() {
-        this.n.compareAndSet(0, 1);
-    }
-
-    public boolean b() {
-        return this.n.get() == 1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
-        this.n.compareAndSet(0, 2);
-    }
-
-    public boolean d() {
-        return this.n.get() == 2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void e() throws com.bytedance.sdk.openadsdk.j.c.a {
-        if (b()) {
-            throw new com.bytedance.sdk.openadsdk.j.c.a();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public com.bytedance.sdk.openadsdk.j.e.a a(l.a aVar, int i, int i2, String str) throws IOException, VAdError {
-        com.bytedance.sdk.openadsdk.j.e.b b2 = com.bytedance.sdk.openadsdk.j.e.c.a().b();
-        com.bytedance.sdk.openadsdk.j.e.f fVar = new com.bytedance.sdk.openadsdk.j.e.f();
-        HashMap hashMap = new HashMap();
-        fVar.f7265b = aVar.f7311a;
-        fVar.f7264a = 0;
-        if (HttpHead.METHOD_NAME.equalsIgnoreCase(str)) {
-            fVar.f7264a = 4;
-        }
-        List<i.b> list = this.f;
-        if (list != null && !list.isEmpty()) {
-            for (i.b bVar : list) {
-                if (!Headers.RANGE.equalsIgnoreCase(bVar.f7303a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f7303a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f7303a) && !"Host".equalsIgnoreCase(bVar.f7303a)) {
-                    hashMap.put(bVar.f7303a, bVar.f7304b);
+    @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.Executor
+    public void execute(final Runnable runnable) {
+        BlockingQueue<Runnable> queue;
+        if (runnable instanceof g) {
+            super.execute(new b((g) runnable, this));
+        } else {
+            super.execute(new b(new g() { // from class: com.bytedance.sdk.openadsdk.j.a.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    runnable.run();
                 }
-            }
+            }, this));
         }
-        String a2 = com.bytedance.sdk.openadsdk.j.g.d.a(i, i2);
-        if (a2 != null) {
-            hashMap.put(Headers.RANGE, a2);
-        }
-        if (e.f) {
-            hashMap.put(Headers.CACHE_CONTROL, "no-cache");
-        }
-        d c = d.c();
-        f a3 = f.a();
-        boolean z = this.i == null;
-        c a4 = z ? c.a() : a3.b();
-        c b3 = z ? c.b() : a3.c();
-        if (a4 != null || b3 != null) {
-            if (a4 != null) {
-                fVar.c = a4.a(aVar.f7312b);
-            }
-            if (b3 != null) {
-                fVar.d = b3.a(aVar.f7312b);
-            }
-        }
-        fVar.e = hashMap;
-        if (this.k) {
-            this.k = false;
-            return null;
-        }
-        return b2.a(fVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int f() {
-        if (this.i != null) {
-            return this.i.c.f7301a;
-        }
-        return this.f7219a instanceof com.bytedance.sdk.openadsdk.j.a.b ? 1 : 0;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean g() {
-        return f() == 1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(int i, int i2) {
-        if (i > 0 && i2 >= 0) {
-            int i3 = e.g;
-            int f = f();
-            if (i3 == 1 || (i3 == 2 && f == 1)) {
-                int i4 = (int) ((i2 / i) * 100.0f);
-                int i5 = i4 <= 100 ? i4 : 100;
-                synchronized (this) {
-                    if (i5 > this.o) {
-                        this.o = i5;
-                        com.bytedance.sdk.openadsdk.j.g.d.b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                if (a.this.e != null) {
-                                    a.this.e.a(a.this.j, a.this.o);
-                                }
-                            }
-                        });
+        if (e.d() && !TextUtils.isEmpty(this.f4858a) && (queue = getQueue()) != null) {
+            String str = this.f4858a;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case 3366:
+                    if (str.equals("io")) {
+                        c = 0;
+                        break;
                     }
-                }
+                    break;
+                case 2993840:
+                    if (str.equals("aidl")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (queue.size() >= 8 && getCorePoolSize() != 8) {
+                        try {
+                            setMaximumPoolSize(e.f4866a + 8);
+                            setCorePoolSize(8);
+                            u.c("ADThreadPoolExecutor", "execute: increase " + this.f4858a);
+                            return;
+                        } catch (Exception e) {
+                            u.c("ADThreadPoolExecutor", e.getMessage());
+                            return;
+                        }
+                    }
+                    return;
+                case 1:
+                    if (queue.size() >= 4 && getCorePoolSize() != 4) {
+                        try {
+                            setMaximumPoolSize(e.f4866a + 4);
+                            setCorePoolSize(4);
+                            u.c("ADThreadPoolExecutor", "execute: increase " + this.f4858a);
+                            return;
+                        } catch (Exception e2) {
+                            u.c("ADThreadPoolExecutor", e2.getMessage());
+                            return;
+                        }
+                    }
+                    return;
+                default:
+                    return;
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Boolean bool, String str, @NonNull Throwable th) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0032, code lost:
+        if (r3.equals("io") != false) goto L10;
+     */
+    @Override // java.util.concurrent.ThreadPoolExecutor
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    protected void afterExecute(Runnable runnable, Throwable th) {
+        BlockingQueue<Runnable> queue;
+        boolean z = false;
+        super.afterExecute(runnable, th);
+        if (e.d() && !TextUtils.isEmpty(this.f4858a) && (queue = getQueue()) != null) {
+            String str = this.f4858a;
+            switch (str.hashCode()) {
+                case 3366:
+                    break;
+                case 2993840:
+                    if (str.equals("aidl")) {
+                        z = true;
+                        break;
+                    }
+                    z = true;
+                    break;
+                default:
+                    z = true;
+                    break;
+            }
+            switch (z) {
+                case false:
+                    if (queue.size() < 8 && getCorePoolSize() != 2) {
+                        try {
+                            setCorePoolSize(2);
+                            setMaximumPoolSize(8);
+                            u.c("ADThreadPoolExecutor", "execute: reduce " + this.f4858a);
+                            return;
+                        } catch (Exception e) {
+                            u.c("ADThreadPoolExecutor", e.getMessage());
+                            return;
+                        }
+                    }
+                    return;
+                case true:
+                    if (queue.size() < 4 && getCorePoolSize() != 0) {
+                        try {
+                            setCorePoolSize(0);
+                            setMaximumPoolSize(4);
+                            u.c("ADThreadPoolExecutor", "execute: reduce " + this.f4858a);
+                            return;
+                        } catch (Exception e2) {
+                            u.c("ADThreadPoolExecutor", e2.getMessage());
+                            return;
+                        }
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.ExecutorService
+    public List<Runnable> shutdownNow() {
+        return ("io".equals(this.f4858a) || "aidl".equals(this.f4858a)) ? Collections.emptyList() : super.shutdownNow();
+    }
+
+    @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.ExecutorService
+    public void shutdown() {
+        if (!"io".equals(this.f4858a) && !"aidl".equals(this.f4858a)) {
+            super.shutdown();
+        }
+    }
+
+    public String a() {
+        return this.f4858a;
+    }
+
+    /* renamed from: com.bytedance.sdk.openadsdk.j.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static class C1038a {
+        private RejectedExecutionHandler h;
+
+        /* renamed from: a  reason: collision with root package name */
+        private String f4861a = "io";
+        private int b = 1;
+        private long c = 30;
+        private TimeUnit d = TimeUnit.SECONDS;
+        private int e = 1;
+        private BlockingQueue<Runnable> f = null;
+        private ThreadFactory g = null;
+        private int i = 5;
+
+        public C1038a a(String str) {
+            this.f4861a = str;
+            return this;
+        }
+
+        public C1038a a(int i) {
+            this.b = i;
+            return this;
+        }
+
+        public C1038a a(long j) {
+            this.c = j;
+            return this;
+        }
+
+        public C1038a a(TimeUnit timeUnit) {
+            this.d = timeUnit;
+            return this;
+        }
+
+        public C1038a b(int i) {
+            this.e = i;
+            return this;
+        }
+
+        public C1038a a(BlockingQueue<Runnable> blockingQueue) {
+            this.f = blockingQueue;
+            return this;
+        }
+
+        public C1038a a(RejectedExecutionHandler rejectedExecutionHandler) {
+            this.h = rejectedExecutionHandler;
+            return this;
+        }
+
+        public a a() {
+            if (this.g == null) {
+                this.g = new h(this.i, this.f4861a);
+            }
+            if (this.h == null) {
+                this.h = e.e();
+            }
+            if (this.f == null) {
+                this.f = new LinkedBlockingQueue();
+            }
+            return new a(this.f4861a, this.b, this.e, this.c, this.d, this.f, this.g, this.h);
+        }
     }
 }

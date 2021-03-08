@@ -14,7 +14,7 @@ public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2766a;
+    int f2049a;
     Bundle c;
     private String d;
     private LatLng e;
@@ -25,19 +25,17 @@ public final class TextOptions extends OverlayOptions {
     private int h = 12;
     private int j = 4;
     private int k = 32;
-
-    /* renamed from: b  reason: collision with root package name */
-    boolean f2767b = true;
+    boolean b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Text text = new Text();
-        text.x = this.f2767b;
-        text.w = this.f2766a;
+        text.x = this.b;
+        text.w = this.f2049a;
         text.y = this.c;
-        text.f2764a = this.d;
-        text.f2765b = this.e;
+        text.f2048a = this.d;
+        text.b = this.e;
         text.c = this.f;
         text.d = this.g;
         text.e = this.h;
@@ -115,11 +113,11 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2766a;
+        return this.f2049a;
     }
 
     public boolean isVisible() {
-        return this.f2767b;
+        return this.b;
     }
 
     public TextOptions position(LatLng latLng) {
@@ -149,12 +147,12 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public TextOptions visible(boolean z) {
-        this.f2767b = z;
+        this.b = z;
         return this;
     }
 
     public TextOptions zIndex(int i) {
-        this.f2766a = i;
+        this.f2049a = i;
         return this;
     }
 }

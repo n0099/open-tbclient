@@ -3,17 +3,17 @@ package com.google.ar.core;
 import android.view.View;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class r implements View.OnClickListener {
-    private final /* synthetic */ InstallActivity pSj;
+    private final /* synthetic */ InstallActivity pSY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(InstallActivity installActivity) {
-        this.pSj = installActivity;
+        this.pSY = installActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.pSj.E(new UnavailableUserDeclinedInstallationException());
+        this.pSY.E(new UnavailableUserDeclinedInstallationException());
     }
 }

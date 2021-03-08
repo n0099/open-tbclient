@@ -3,7 +3,7 @@ package com.baidu.live.d;
 import android.content.Context;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class k extends IntentConfig {
     public k(Context context, String str, String str2, String str3, String str4, int i, String str5, String str6, boolean z, int i2, int i3, int i4, boolean z2, int i5, String str7, String str8, boolean z3, int i6) {
         super(context);
@@ -39,7 +39,7 @@ public class k extends IntentConfig {
         getIntent().putExtra("entry_super_customer", z);
     }
 
-    public void cp(int i) {
+    public void cq(int i) {
         getIntent().putExtra("guard_club_join_amount", i);
     }
 
@@ -55,15 +55,15 @@ public class k extends IntentConfig {
         getIntent().putExtra("noble_enabled", z);
     }
 
-    public void fh(String str) {
+    public void fn(String str) {
         getIntent().putExtra("bg_info", str);
     }
 
-    public void fi(String str) {
+    public void fo(String str) {
         getIntent().putExtra("login_user_id", str);
     }
 
-    public void fj(String str) {
+    public void fp(String str) {
         getIntent().putExtra("active_params", str);
     }
 }

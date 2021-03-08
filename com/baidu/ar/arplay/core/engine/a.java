@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
     private b et;
     private boolean eu = true;
@@ -35,8 +35,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public enum EnumC0070a {
+    /* loaded from: classes3.dex */
+    public enum EnumC0076a {
         EGESTURE_CLICK,
         EGESTURE_DOUBLE_CLICK,
         EGESTURE_LONG_PRESS,
@@ -50,7 +50,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -84,7 +84,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum c {
         EStatSingFingerCandidate,
         EStatTwoFingersCandidate,
@@ -101,7 +101,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum d {
         ESWIPE_RIGHT,
         ESWIPE_LEFT,
@@ -110,7 +110,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class e {
         int id;
         long time;
@@ -137,7 +137,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum f {
         ETOUCH_BEGIN,
         ETOUCH_MOVE,
@@ -260,7 +260,7 @@ public class a {
         if (this.es == null || !this.es.aW()) {
             return;
         }
-        a(EnumC0070a.EGESTURE_CLICK.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0076a.EGESTURE_CLICK.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         aS();
     }
 
@@ -268,14 +268,14 @@ public class a {
         if (this.es == null || !this.es.aZ()) {
             return;
         }
-        a(EnumC0070a.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0076a.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void a(long j, int i, float f2, float f3, float f4, float f5, int i2, float f6, float f7, float f8, float f9) {
         if (this.es == null || !this.es.ba()) {
             return;
         }
-        a(EnumC0070a.EGESTURE_TWO_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
+        a(EnumC0076a.EGESTURE_TWO_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
     }
 
     private void a(long j, int i, float f2, float f3, float f4, float f5, int i2, float f6, float f7, float f8, float f9, boolean z) {
@@ -288,9 +288,9 @@ public class a {
             }
             this.eJ = z;
         }
-        int ordinal = EnumC0070a.EGESTURE_TWO_FINGER_UNPINCH.ordinal();
+        int ordinal = EnumC0076a.EGESTURE_TWO_FINGER_UNPINCH.ordinal();
         if (z) {
-            ordinal = EnumC0070a.EGESTURE_TWO_FINGER_PINCH.ordinal();
+            ordinal = EnumC0076a.EGESTURE_TWO_FINGER_PINCH.ordinal();
         }
         a(ordinal, j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
         if (this.eI) {
@@ -302,14 +302,14 @@ public class a {
         if (this.es == null || !this.es.bd()) {
             return;
         }
-        a(EnumC0070a.EGESTURE_TWO_FINGER_ROTATE.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
+        a(EnumC0076a.EGESTURE_TWO_FINGER_ROTATE.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
     }
 
     private void a(long j, int i, int i2) {
         if (this.es == null || !this.es.bb()) {
             return;
         }
-        a(EnumC0070a.EGESTURE_SWIPE.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
+        a(EnumC0076a.EGESTURE_SWIPE.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
         clearStatus();
     }
 
@@ -389,11 +389,11 @@ public class a {
     }
 
     private void aS() {
-        a(EnumC0070a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0076a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void aT() {
-        ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0070a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
+        ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0076a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
     }
 
     private void aU() {
@@ -411,7 +411,7 @@ public class a {
         if (this.es == null || !this.es.aY()) {
             return;
         }
-        a(EnumC0070a.EGESTURE_LONG_PRESS.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0076a.EGESTURE_LONG_PRESS.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void b(MotionEvent motionEvent) {

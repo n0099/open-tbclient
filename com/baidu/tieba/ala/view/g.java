@@ -27,150 +27,150 @@ import com.baidu.tieba.ala.data.p;
 import com.baidu.tieba.ala.data.r;
 import com.baidu.tieba.ala.view.AlaRankListHeaderView;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g {
-    private int aKa;
-    private LinearLayout bwE;
-    private CommonEmptyView bwJ;
-    private LinearLayout cdZ;
-    private a gVe;
-    private long gpP;
-    private String gpR;
-    private boolean gpS;
-    private AlaLastLiveroomInfo grF = new AlaLastLiveroomInfo();
-    private BdListView ijC;
-    private com.baidu.tieba.ala.adapter.c ijD;
-    private d ijE;
-    private f ijF;
-    private e ijG;
-    private AlaRankListHeaderView ijH;
-    private r ijI;
-    private ArrayList<com.baidu.tieba.ala.data.h> ijJ;
-    private TbPageContext<BaseFragmentActivity> ijb;
+    private int aLA;
+    private LinearLayout bye;
+    private CommonEmptyView byj;
+    private LinearLayout cfz;
+    private a gWN;
+    private String grA;
+    private boolean grB;
+    private long gry;
+    private AlaLastLiveroomInfo gto = new AlaLastLiveroomInfo();
+    private TbPageContext<BaseFragmentActivity> ikK;
+    private BdListView ill;
+    private com.baidu.tieba.ala.adapter.c ilm;
+    private d iln;
+    private f ilo;
+    private e ilp;
+    private AlaRankListHeaderView ilq;
+    private r ilr;
+    private ArrayList<com.baidu.tieba.ala.data.h> ils;
     private Context mContext;
     private String mPortrait;
     private View mRootView;
     private long mUserId;
     private String mUserName;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void h(View view, String str);
     }
 
     public g(TbPageContext<BaseFragmentActivity> tbPageContext, String str, int i, a aVar, boolean z, long j, String str2, String str3, long j2) {
-        this.ijb = tbPageContext;
-        this.mContext = this.ijb.getPageActivity();
-        this.gVe = aVar;
-        this.gpS = z;
+        this.ikK = tbPageContext;
+        this.mContext = this.ikK.getPageActivity();
+        this.gWN = aVar;
+        this.grB = z;
         this.mUserId = j;
         this.mUserName = str2;
-        this.aKa = i;
+        this.aLA = i;
         this.mPortrait = str3;
-        this.gpP = j2;
-        this.grF.setLastAnchorPortrait(str3);
-        this.grF.setLastAnchorUname(str2);
-        this.grF.setLastAnchorUid(String.valueOf(j));
-        this.grF.setLastLiveId(this.gpP);
-        this.grF.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HOUR_RANK);
-        Iz(str);
+        this.gry = j2;
+        this.gto.setLastAnchorPortrait(str3);
+        this.gto.setLastAnchorUname(str2);
+        this.gto.setLastAnchorUid(String.valueOf(j));
+        this.gto.setLastLiveId(this.gry);
+        this.gto.setFrom(AlaLastLiveroomInfo.TYPE_FROM_HOUR_RANK);
+        II(str);
     }
 
-    private void Iz(String str) {
-        this.gpR = str;
+    private void II(String str) {
+        this.grA = str;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.g.ala_rank_fragment_layout, (ViewGroup) null);
-        this.ijC = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
-        this.ijD = new com.baidu.tieba.ala.adapter.c(this.mContext, str, this.gpP, this.gpS, this.grF);
-        this.ijC.setAdapter((ListAdapter) this.ijD);
-        this.ijH = new AlaRankListHeaderView(this.ijb.getPageActivity(), this.gpP, this.gpS, this.grF);
-        this.ijH.a(this.ijb, str, 0L);
-        this.ijC.addHeaderView(this.ijH);
-        if (TextUtils.equals("hour", this.gpR) && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.cdZ = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.g.hour_rank_list_footer_view, (ViewGroup) null);
-            this.ijC.addFooterView(this.cdZ);
-            this.cdZ.setVisibility(0);
-        } else if (this.cdZ != null) {
-            this.cdZ.setVisibility(8);
+        this.ill = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
+        this.ilm = new com.baidu.tieba.ala.adapter.c(this.mContext, str, this.gry, this.grB, this.gto);
+        this.ill.setAdapter((ListAdapter) this.ilm);
+        this.ilq = new AlaRankListHeaderView(this.ikK.getPageActivity(), this.gry, this.grB, this.gto);
+        this.ilq.a(this.ikK, str, 0L);
+        this.ill.addHeaderView(this.ilq);
+        if (TextUtils.equals("hour", this.grA) && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu()) {
+            this.cfz = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.g.hour_rank_list_footer_view, (ViewGroup) null);
+            this.ill.addFooterView(this.cfz);
+            this.cfz.setVisibility(0);
+        } else if (this.cfz != null) {
+            this.cfz.setVisibility(8);
         }
-        this.bwE = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
+        this.bye = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
         if ("hot".equals(str) || SdkStaticKeys.RANK_TYPE_FLOWER.equals(str)) {
-            this.ijE = new d(this.mContext, str, this.gpS);
-            this.ijE.a(this.gVe);
-            this.bwE.addView(this.ijE.getView(), new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds124)));
+            this.iln = new d(this.mContext, str, this.grB);
+            this.iln.a(this.gWN);
+            this.bye.addView(this.iln.getView(), new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds124)));
         } else if ("pk".equals(str)) {
-            this.ijF = new f(this.mContext, str, this.gpS, this.mUserId, this.aKa, this.mPortrait);
-            this.bwE.addView(this.ijF.getView(), new LinearLayout.LayoutParams(-1, -2));
+            this.ilo = new f(this.mContext, str, this.grB, this.mUserId, this.aLA, this.mPortrait);
+            this.bye.addView(this.ilo.getView(), new LinearLayout.LayoutParams(-1, -2));
         } else if ("guard".equals(str)) {
-            this.ijG = new e(this.mContext, str, this.gpS, this.mPortrait);
-            this.bwE.addView(this.ijG.getView(), new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds92)));
+            this.ilp = new e(this.mContext, str, this.grB, this.mPortrait);
+            this.bye.addView(this.ilp.getView(), new LinearLayout.LayoutParams(-1, this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds92)));
         } else if ("challenge_history".equals(str)) {
             Log.d("rankType", "ALA_RANK_LIST_TYPE_CHALLENGE_HISTORY");
         } else {
-            this.ijE = new d(this.mContext, str, this.gpS);
-            this.ijE.a(this.gVe);
-            this.bwE.addView(this.ijE.getView(), new LinearLayout.LayoutParams(-1, -2));
+            this.iln = new d(this.mContext, str, this.grB);
+            this.iln.a(this.gWN);
+            this.bye.addView(this.iln.getView(), new LinearLayout.LayoutParams(-1, -2));
         }
-        this.bwJ = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_rank_list_empty);
-        this.ijC.setEmptyView(this.bwJ);
+        this.byj = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_rank_list_empty);
+        this.ill.setEmptyView(this.byj);
     }
 
-    public void EK() {
-        if (this.ijE != null) {
-            this.ijE.EK();
+    public void EN() {
+        if (this.iln != null) {
+            this.iln.EN();
         }
     }
 
     public void setDatas(ArrayList<com.baidu.tieba.ala.data.h> arrayList) {
-        if (this.ijD != null) {
-            this.ijD.setData(arrayList);
-            this.ijJ = arrayList;
+        if (this.ilm != null) {
+            this.ilm.setData(arrayList);
+            this.ils = arrayList;
         }
     }
 
     public void a(ArrayList<com.baidu.tieba.ala.data.h> arrayList, long j, AlaRankListHeaderView.a aVar) {
         setDatas(arrayList);
-        this.ijH.setCountDownCallback(aVar);
-        this.ijH.a(this.ijb, this.gpR, j);
+        this.ilq.setCountDownCallback(aVar);
+        this.ilq.a(this.ikK, this.grA, j);
     }
 
-    public ArrayList<com.baidu.tieba.ala.data.h> bHz() {
-        return this.ijJ;
+    public ArrayList<com.baidu.tieba.ala.data.h> bHD() {
+        return this.ils;
     }
 
     public void c(p pVar) {
-        this.ijH.b(pVar);
+        this.ilq.b(pVar);
     }
 
-    public void wE(int i) {
-        if (this.ijH != null) {
-            this.ijH.setHourHeaderInfoVisible(i);
+    public void wF(int i) {
+        if (this.ilq != null) {
+            this.ilq.setHourHeaderInfoVisible(i);
         }
     }
 
-    public void fv(int i) {
-        if (this.cdZ != null) {
-            this.cdZ.setVisibility(i);
+    public void fw(int i) {
+        if (this.cfz != null) {
+            this.cfz.setVisibility(i);
         }
     }
 
     public void a(AlaRankListHeaderView.b bVar) {
-        if (this.ijH != null) {
-            this.ijH.setRankListCallback(bVar);
+        if (this.ilq != null) {
+            this.ilq.setRankListCallback(bVar);
         }
     }
 
-    public void wF(int i) {
-        this.ijC.setVisibility(i);
+    public void wG(int i) {
+        this.ill.setVisibility(i);
     }
 
-    public r cpG() {
-        return this.ijI;
+    public r cpM() {
+        return this.ilr;
     }
 
     public void c(final r rVar) {
         if (rVar == null) {
-            if (this.ijE != null) {
-                this.ijE.getView().setVisibility(8);
+            if (this.iln != null) {
+                this.iln.getView().setVisibility(8);
                 return;
             }
             return;
@@ -179,12 +179,12 @@ public class g {
             rVar.userName = this.mUserName;
             rVar.bdPortrait = this.mPortrait;
         }
-        this.ijI = rVar;
+        this.ilr = rVar;
         View view = null;
-        if (this.ijE != null) {
-            this.ijE.b(rVar);
-            this.ijE.getView().setVisibility(0);
-            view = this.ijE.getView();
+        if (this.iln != null) {
+            this.iln.b(rVar);
+            this.iln.getView().setVisibility(0);
+            view = this.iln.getView();
         }
         if (TbadkCoreApplication.getInst().isNotMobileBaidu()) {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.g.1
@@ -209,44 +209,44 @@ public class g {
         }
     }
 
-    public void cpH() {
-        if (this.ijE != null) {
-            this.ijE.getView().setVisibility(8);
+    public void cpN() {
+        if (this.iln != null) {
+            this.iln.getView().setVisibility(8);
         }
-        if (this.ijF != null) {
-            this.ijF.getView().setVisibility(8);
+        if (this.ilo != null) {
+            this.ilo.getView().setVisibility(8);
         }
-        if (this.ijG != null) {
-            this.ijG.getView().setVisibility(8);
+        if (this.ilp != null) {
+            this.ilp.getView().setVisibility(8);
         }
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.bwJ.reset();
-        this.bwJ.setTitle(a.h.sdk_net_fail_tip_rank);
-        this.bwJ.setRefreshButton(a.h.sdk_click_refresh_net_text, onClickListener);
-        this.bwJ.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bwJ.setVisibility(0);
+        this.byj.reset();
+        this.byj.setTitle(a.h.sdk_net_fail_tip_rank);
+        this.byj.setRefreshButton(a.h.sdk_click_refresh_net_text, onClickListener);
+        this.byj.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.byj.setVisibility(0);
     }
 
-    public void WZ() {
-        this.bwJ.setVisibility(8);
+    public void Xc() {
+        this.byj.setVisibility(8);
     }
 
     public void dQ(boolean z) {
         if (z) {
-            this.bwJ.reset();
-            this.bwJ.setTitle(a.h.rank_empty_text);
-            this.bwJ.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
-            this.bwJ.setVisibility(0);
+            this.byj.reset();
+            this.byj.setTitle(a.h.rank_empty_text);
+            this.byj.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
+            this.byj.setVisibility(0);
             return;
         }
-        this.bwJ.setVisibility(8);
+        this.byj.setVisibility(8);
     }
 
     public void release() {
-        if (this.ijH != null) {
-            this.ijH.release();
+        if (this.ilq != null) {
+            this.ilq.release();
         }
     }
 

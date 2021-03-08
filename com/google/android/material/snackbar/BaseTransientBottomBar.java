@@ -40,7 +40,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>> {
     static final int ANIMATION_DURATION = 250;
     static final int ANIMATION_FADE_DURATION = 180;
@@ -73,20 +73,20 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     protected final SnackbarBaseLayout view;
 
     @Deprecated
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface ContentViewCallback extends com.google.android.material.snackbar.ContentViewCallback {
     }
 
     @IntRange(from = 1)
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface Duration {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnAttachStateChangeListener {
         void onViewAttachedToWindow(View view);
 
@@ -95,12 +95,12 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
     /* JADX INFO: Access modifiers changed from: protected */
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnLayoutChangeListener {
         void onLayoutChange(View view, int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class BaseCallback<B> {
         public static final int DISMISS_EVENT_ACTION = 1;
         public static final int DISMISS_EVENT_CONSECUTIVE = 4;
@@ -110,14 +110,14 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public @interface DismissEvent {
         }
 
-        public void onDismissed(B b2, int i) {
+        public void onDismissed(B b, int i) {
         }
 
-        public void onShown(B b2) {
+        public void onShown(B b) {
         }
     }
 
@@ -467,7 +467,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
     /* JADX INFO: Access modifiers changed from: protected */
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class SnackbarBaseLayout extends FrameLayout {
         private final AccessibilityManager accessibilityManager;
         private OnAttachStateChangeListener onAttachStateChangeListener;
@@ -539,7 +539,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Behavior extends SwipeDismissBehavior<View> {
         private final BehaviorDelegate delegate = new BehaviorDelegate(this);
 
@@ -561,7 +561,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class BehaviorDelegate {
         private SnackbarManager.Callback managerCallback;
 

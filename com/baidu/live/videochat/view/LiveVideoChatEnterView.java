@@ -10,31 +10,31 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.view.bubbleview.BubbleLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveVideoChatEnterView extends RelativeLayout {
-    private ImageView bRT;
-    private BubbleLayout bRU;
-    private TextView bRV;
-    private boolean bRW;
-    private long bRX;
-    private int bRY;
-    private int bRZ;
-    private Runnable bSa;
+    private Runnable bTA;
+    private ImageView bTt;
+    private BubbleLayout bTu;
+    private TextView bTv;
+    private boolean bTw;
+    private long bTx;
+    private int bTy;
+    private int bTz;
     private String mCacheKey;
     private CharSequence mContentText;
     private Handler mHandler;
 
     public LiveVideoChatEnterView(Context context) {
         super(context);
-        this.bRW = false;
-        this.bRX = 0L;
+        this.bTw = false;
+        this.bTx = 0L;
         this.mCacheKey = null;
-        this.bRY = -1;
-        this.bRZ = 0;
-        this.bSa = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
+        this.bTy = -1;
+        this.bTz = 0;
+        this.bTA = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
-                LiveVideoChatEnterView.this.Xj();
+                LiveVideoChatEnterView.this.Xm();
             }
         };
         init(context);
@@ -42,15 +42,15 @@ public class LiveVideoChatEnterView extends RelativeLayout {
 
     public LiveVideoChatEnterView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bRW = false;
-        this.bRX = 0L;
+        this.bTw = false;
+        this.bTx = 0L;
         this.mCacheKey = null;
-        this.bRY = -1;
-        this.bRZ = 0;
-        this.bSa = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
+        this.bTy = -1;
+        this.bTz = 0;
+        this.bTA = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
-                LiveVideoChatEnterView.this.Xj();
+                LiveVideoChatEnterView.this.Xm();
             }
         };
         init(context);
@@ -58,15 +58,15 @@ public class LiveVideoChatEnterView extends RelativeLayout {
 
     public LiveVideoChatEnterView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bRW = false;
-        this.bRX = 0L;
+        this.bTw = false;
+        this.bTx = 0L;
         this.mCacheKey = null;
-        this.bRY = -1;
-        this.bRZ = 0;
-        this.bSa = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
+        this.bTy = -1;
+        this.bTz = 0;
+        this.bTA = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
-                LiveVideoChatEnterView.this.Xj();
+                LiveVideoChatEnterView.this.Xm();
             }
         };
         init(context);
@@ -74,9 +74,9 @@ public class LiveVideoChatEnterView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.sdk_live_video_chat_enter_view, this);
-        this.bRU = (BubbleLayout) findViewById(a.f.layout_bubble);
-        this.bRV = (TextView) findViewById(a.f.layout_bubble_text);
-        this.bRT = (ImageView) findViewById(a.f.live_video_chat_enter);
+        this.bTu = (BubbleLayout) findViewById(a.f.layout_bubble);
+        this.bTv = (TextView) findViewById(a.f.layout_bubble_text);
+        this.bTt = (ImageView) findViewById(a.f.live_video_chat_enter);
     }
 
     public View getEnterView() {
@@ -88,26 +88,26 @@ public class LiveVideoChatEnterView extends RelativeLayout {
     }
 
     public void setAutoHideBubble(boolean z, long j) {
-        if (this.bRX <= 0) {
-            this.bRX = 0L;
+        if (this.bTx <= 0) {
+            this.bTx = 0L;
         }
-        this.bRW = z;
-        this.bRX = j;
+        this.bTw = z;
+        this.bTx = j;
     }
 
     public void setMaxShowTime(int i) {
         if (i < 0) {
             i = -1;
         }
-        this.bRY = i;
+        this.bTy = i;
     }
 
-    public void Xj() {
+    public void Xm() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.bRU != null && this.bRU.getParent() != null) {
-            this.bRU.setVisibility(4);
+        if (this.bTu != null && this.bTu.getParent() != null) {
+            this.bTu.setVisibility(4);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.example.image_loader_plugin;
 
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class ResNameTransform {
     private static HashMap<String, String> platformImageNameMap = new HashMap<>();
     private static HashMap<String, String> svgColorMap = new HashMap<>();

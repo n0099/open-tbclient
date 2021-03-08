@@ -1,5 +1,5 @@
 package com.yy.videoplayer.decoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SmoothnessCounter {
     private long mIntervalMilliTs;
     private long mPreviousRenderMilliTs = 0;

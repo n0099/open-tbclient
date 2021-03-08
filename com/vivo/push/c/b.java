@@ -1,6 +1,6 @@
 package com.vivo.push.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class b extends com.vivo.push.v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(com.vivo.push.y yVar) {
@@ -9,22 +9,22 @@ public final class b extends com.vivo.push.v {
 
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
-        boolean b2;
-        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f13711a);
+        boolean b;
+        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f8089a);
         try {
             if (((com.vivo.push.b.d) yVar).d()) {
-                b2 = f.a(this.f13711a);
+                b = f.a(this.f8089a);
             } else {
-                b2 = f.b(this.f13711a);
+                b = f.b(this.f8089a);
             }
-            if (b2) {
-                com.vivo.push.model.b a3 = com.vivo.push.util.s.a(this.f13711a);
+            if (b) {
+                com.vivo.push.model.b a3 = com.vivo.push.util.s.a(this.f8089a);
                 if (a2 == null || a3 == null || a3.a() == null || !a3.a().equals(a2.a())) {
                     if (a2 != null && a2.a() != null) {
-                        com.vivo.push.a.a.a(this.f13711a, a2.a(), new com.vivo.push.b.ac(a2.a()));
+                        com.vivo.push.a.a.a(this.f8089a, a2.a(), new com.vivo.push.b.ac(a2.a()));
                     }
                     if (a3 != null && a3.a() != null) {
-                        com.vivo.push.a.a.a(this.f13711a, a3.a(), new com.vivo.push.b.f());
+                        com.vivo.push.a.a.a(this.f8089a, a3.a(), new com.vivo.push.b.f());
                     }
                 }
             }

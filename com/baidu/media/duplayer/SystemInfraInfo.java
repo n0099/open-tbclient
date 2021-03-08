@@ -5,7 +5,7 @@ import com.baidu.cyberplayer.sdk.CyberLog;
 public class SystemInfraInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3193a = false;
+    private boolean f2303a = false;
     @Keep
     private long mBuildDateUTC;
     @Keep
@@ -47,12 +47,12 @@ public class SystemInfraInfo {
     }
 
     private void i() {
-        if (this.f3193a) {
+        if (this.f2303a) {
             return;
         }
         nativeGetConstInfo();
         CyberLog.i("", "SystemInfraInfo mNumProcessors:" + this.mNumProcessors + " \nmMaxCpuFreq:" + this.mMaxCpuFreq + " \nmBuildDateUTC" + this.mBuildDateUTC);
-        this.f3193a = true;
+        this.f2303a = true;
     }
 
     private native void nativeGetConstInfo();

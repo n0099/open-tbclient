@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.xiaomi.push.hz;
 import com.xiaomi.push.ip;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PushMessageHelper {
     public static final String ERROR_MESSAGE = "error_message";
     public static final String ERROR_TYPE = "error_type";
@@ -36,7 +36,7 @@ public class PushMessageHelper {
 
     public static MiPushMessage generateMessage(ip ipVar, hz hzVar, boolean z) {
         MiPushMessage miPushMessage = new MiPushMessage();
-        miPushMessage.setMessageId(ipVar.m478a());
+        miPushMessage.setMessageId(ipVar.m457a());
         if (!TextUtils.isEmpty(ipVar.d())) {
             miPushMessage.setMessageType(1);
             miPushMessage.setAlias(ipVar.d());
@@ -55,17 +55,17 @@ public class PushMessageHelper {
         }
         if (hzVar != null) {
             if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                miPushMessage.setMessageId(hzVar.m402a());
+                miPushMessage.setMessageId(hzVar.m381a());
             }
             if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                miPushMessage.setTopic(hzVar.m407b());
+                miPushMessage.setTopic(hzVar.m386b());
             }
             miPushMessage.setDescription(hzVar.d());
-            miPushMessage.setTitle(hzVar.m410c());
+            miPushMessage.setTitle(hzVar.m389c());
             miPushMessage.setNotifyType(hzVar.a());
             miPushMessage.setNotifyId(hzVar.c());
             miPushMessage.setPassThrough(hzVar.b());
-            miPushMessage.setExtra(hzVar.m403a());
+            miPushMessage.setExtra(hzVar.m382a());
         }
         miPushMessage.setNotified(z);
         return miPushMessage;

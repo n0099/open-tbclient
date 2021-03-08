@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveGiftUIInfo extends BaseData implements Serializable {
     private String categoryTextSelectedColor;
     private String horizontalBgUrl;

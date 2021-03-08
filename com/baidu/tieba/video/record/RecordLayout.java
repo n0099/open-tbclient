@@ -7,20 +7,20 @@ import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RecordLayout extends RelativeLayout {
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
     private VelocityTracker mVelocityTracker;
-    private a nRD;
+    private a nTI;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void dUr();
+        void dUA();
 
-        void dUs();
+        void dUz();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.nRD != null) {
+                if (this.nTI != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.nRD.dUs();
+                            this.nTI.dUA();
                         } else {
-                            this.nRD.dUr();
+                            this.nTI.dUz();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.getEquipmentWidth(getContext())) {
                         if (rawX > 0) {
-                            this.nRD.dUs();
+                            this.nTI.dUA();
                         } else {
-                            this.nRD.dUs();
+                            this.nTI.dUA();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.nRD = aVar;
+        this.nTI = aVar;
     }
 }

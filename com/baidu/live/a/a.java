@@ -2,20 +2,20 @@ package com.baidu.live.a;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
 
     /* renamed from: com.baidu.live.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0154a {
-        void xi();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0160a {
+        void xl();
 
-        void xj();
+        void xm();
     }
 
     void a(ViewGroup viewGroup, ab abVar);
 
-    void a(InterfaceC0154a interfaceC0154a);
+    void a(InterfaceC0160a interfaceC0160a);
 
     void a(ab abVar);
 
@@ -31,5 +31,5 @@ public interface a {
 
     void setIsHost(boolean z);
 
-    void xh();
+    void xk();
 }

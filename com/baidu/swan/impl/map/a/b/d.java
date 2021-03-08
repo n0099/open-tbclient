@@ -7,10 +7,10 @@ import com.baidu.swan.apps.ab.c;
 import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import com.baidu.swan.apps.setting.oauth.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onFail();
 
@@ -22,13 +22,13 @@ public class d {
             aVar.onFail();
             return;
         }
-        com.baidu.swan.apps.runtime.e aIK = com.baidu.swan.apps.runtime.e.aIK();
-        if (aIK != null) {
-            aIK.aIW().b((Activity) context, "mapp_location", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.impl.map.a.b.d.1
+        com.baidu.swan.apps.runtime.e aIN = com.baidu.swan.apps.runtime.e.aIN();
+        if (aIN != null) {
+            aIN.aIZ().b((Activity) context, "mapp_location", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.impl.map.a.b.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
-                public void L(h<b.d> hVar) {
+                public void N(h<b.d> hVar) {
                     if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         d.a(a.this);
                     } else {
@@ -41,11 +41,11 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(final a aVar) {
-        com.baidu.swan.apps.runtime.e aIL = com.baidu.swan.apps.runtime.e.aIL();
-        if (ak.aOl() && aIL != null) {
+        com.baidu.swan.apps.runtime.e aIO = com.baidu.swan.apps.runtime.e.aIO();
+        if (ak.aOo() && aIO != null) {
             aVar.onSuccess();
         } else {
-            aIL.aIE().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new c.a() { // from class: com.baidu.swan.impl.map.a.b.d.2
+            aIO.aIH().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new c.a() { // from class: com.baidu.swan.impl.map.a.b.d.2
                 @Override // com.baidu.swan.apps.ab.c.a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {

@@ -3,14 +3,14 @@ package com.baidu.live.adp.base;
 import android.app.Activity;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class BdActivityStack {
     private static ArrayList<SoftReference<Activity>> sActivityStack;
     private static BdActivityStack sInstance;
     private OnAllActivityClosed mActivityClosed;
     private int mActivityStackMaxSize = 0;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface OnAllActivityClosed {
         void onActivityClosed();
     }

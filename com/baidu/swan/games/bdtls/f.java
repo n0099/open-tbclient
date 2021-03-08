@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.swan.apps.statistic.h;
 import com.baidu.swan.games.bdtls.model.Bdtls;
 import com.baidu.swan.games.bdtls.model.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static void a(j jVar, Bdtls.Alert alert) {
         if (a.DEBUG) {
@@ -19,10 +19,10 @@ public class f {
         }
         try {
             String str = alert.getLevel() == 1 ? "warning" : "fatal_error";
-            int intValue = jVar.aVp() != null ? jVar.aVp().intValue() : -1;
-            int intValue2 = jVar.aVq() != null ? jVar.aVq().intValue() : -1;
-            int intValue3 = jVar.aVr() != null ? jVar.aVr().intValue() : -1;
-            int intValue4 = jVar.aVs() != null ? jVar.aVs().intValue() : -1;
+            int intValue = jVar.aVs() != null ? jVar.aVs().intValue() : -1;
+            int intValue2 = jVar.aVt() != null ? jVar.aVt().intValue() : -1;
+            int intValue3 = jVar.aVu() != null ? jVar.aVu().intValue() : -1;
+            int intValue4 = jVar.aVv() != null ? jVar.aVv().intValue() : -1;
             String str2 = alert.getDescription() != null ? new String(alert.getDescription().toByteArray()) : "";
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
@@ -30,11 +30,11 @@ public class f {
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
             fVar.mType = "alert";
             fVar.mValue = str;
-            fVar.r("dh_group_id", Integer.valueOf(intValue));
-            fVar.r("dh_secret", Integer.valueOf(intValue2));
-            fVar.r("dh_pub_c", Integer.valueOf(intValue3));
-            fVar.r("dh_pub_s", Integer.valueOf(intValue4));
-            fVar.r("alert_msg", str2);
+            fVar.s("dh_group_id", Integer.valueOf(intValue));
+            fVar.s("dh_secret", Integer.valueOf(intValue2));
+            fVar.s("dh_pub_c", Integer.valueOf(intValue3));
+            fVar.s("dh_pub_s", Integer.valueOf(intValue4));
+            fVar.s("alert_msg", str2);
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc create event");
             }
@@ -47,12 +47,12 @@ public class f {
         }
     }
 
-    public static void wc(String str) {
+    public static void wj(String str) {
         if (a.DEBUG) {
             Log.d("BDTLS", "bdtls success");
         }
-        j aUm = e.aUl().aUm();
-        if (aUm == null) {
+        j aUp = e.aUo().aUp();
+        if (aUp == null) {
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc data is null");
                 return;
@@ -60,19 +60,19 @@ public class f {
             return;
         }
         try {
-            int intValue = aUm.aVp() != null ? aUm.aVp().intValue() : -1;
-            int intValue2 = aUm.aVq() != null ? aUm.aVq().intValue() : -1;
-            int intValue3 = aUm.aVr() != null ? aUm.aVr().intValue() : -1;
-            int intValue4 = aUm.aVs() != null ? aUm.aVs().intValue() : -1;
+            int intValue = aUp.aVs() != null ? aUp.aVs().intValue() : -1;
+            int intValue2 = aUp.aVt() != null ? aUp.aVt().intValue() : -1;
+            int intValue3 = aUp.aVu() != null ? aUp.aVu().intValue() : -1;
+            int intValue4 = aUp.aVv() != null ? aUp.aVv().intValue() : -1;
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
             }
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
             fVar.mType = str;
-            fVar.r("dh_group_id", Integer.valueOf(intValue));
-            fVar.r("dh_secret", Integer.valueOf(intValue2));
-            fVar.r("dh_pub_c", Integer.valueOf(intValue3));
-            fVar.r("dh_pub_s", Integer.valueOf(intValue4));
+            fVar.s("dh_group_id", Integer.valueOf(intValue));
+            fVar.s("dh_secret", Integer.valueOf(intValue2));
+            fVar.s("dh_pub_c", Integer.valueOf(intValue3));
+            fVar.s("dh_pub_s", Integer.valueOf(intValue4));
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc create event");
             }

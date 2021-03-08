@@ -10,21 +10,21 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.card.b<b> {
     private int dividerHeight;
-    private View gfy;
-    private int iBZ;
+    private View ghb;
+    private int iDI;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.iBZ = R.color.CAM_X0204;
+        this.iDI = R.color.CAM_X0204;
         this.dividerHeight = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.gfy = getView().findViewById(R.id.card_divider);
+        this.ghb = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ap.setBackgroundColor(this.gfy, this.iBZ);
+            ap.setBackgroundColor(this.ghb, this.iDI);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.b<b> {
     @Override // com.baidu.tieba.card.b
     public void a(b bVar) {
         if (bVar != null) {
-            this.gfy.setVisibility(0);
-            this.iBZ = bVar.iBZ;
+            this.ghb.setVisibility(0);
+            this.iDI = bVar.iDI;
             this.dividerHeight = bVar.dividerHeight;
-            cth();
+            ctn();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cth() {
-        ViewGroup.LayoutParams layoutParams = this.gfy.getLayoutParams();
+    private void ctn() {
+        ViewGroup.LayoutParams layoutParams = this.ghb.getLayoutParams();
         if (layoutParams != null && layoutParams.height != this.dividerHeight) {
             layoutParams.height = this.dividerHeight;
-            this.gfy.setLayoutParams(layoutParams);
+            this.ghb.setLayoutParams(layoutParams);
         }
     }
 

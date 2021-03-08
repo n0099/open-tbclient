@@ -3,11 +3,11 @@ package com.baidu.swan.apps.canvas.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class AbsCanvasView extends View {
-    private boolean cKD;
-    private boolean cKE;
-    private boolean cKF;
+    private boolean cMd;
+    private boolean cMe;
+    private boolean cMf;
 
     public AbsCanvasView(Context context) {
         this(context, null);
@@ -19,24 +19,24 @@ public abstract class AbsCanvasView extends View {
 
     public AbsCanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cKD = false;
-        this.cKE = false;
-        this.cKF = false;
+        this.cMd = false;
+        this.cMe = false;
+        this.cMf = false;
     }
 
-    public boolean akU() {
-        return this.cKD;
+    public boolean akX() {
+        return this.cMd;
     }
 
     public void setInterceptTouchEvent(boolean z) {
-        this.cKD = z;
+        this.cMd = z;
     }
 
     public void setGesture(boolean z) {
-        this.cKE = z;
+        this.cMe = z;
     }
 
     public void setHide(boolean z) {
-        this.cKF = z;
+        this.cMf = z;
     }
 }

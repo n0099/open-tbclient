@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala;
 
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaFeedBackInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(com.baidu.live.d.g.class, AlaFeedBackReasonActivity.class);

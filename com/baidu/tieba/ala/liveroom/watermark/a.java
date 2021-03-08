@@ -1,25 +1,25 @@
 package com.baidu.tieba.ala.liveroom.watermark;
 
 import android.view.ViewGroup;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private AlaLiveRoomWatermarkView hSC;
+    private AlaLiveRoomWatermarkView hUl;
 
-    public void clP() {
-        if (this.hSC != null && this.hSC.getParent() != null) {
-            ((ViewGroup) this.hSC.getParent()).removeView(this.hSC);
+    public void clV() {
+        if (this.hUl != null && this.hUl.getParent() != null) {
+            ((ViewGroup) this.hUl.getParent()).removeView(this.hUl);
         }
     }
 
     public void setTimeTextMode(boolean z) {
-        if (this.hSC != null) {
-            this.hSC.setTimeTextMode(z);
+        if (this.hUl != null) {
+            this.hUl.setTimeTextMode(z);
         }
     }
 
     public void setVisibility(int i) {
-        if (this.hSC != null) {
-            this.hSC.setVisibility(i);
+        if (this.hUl != null) {
+            this.hUl.setVisibility(i);
         }
     }
 }

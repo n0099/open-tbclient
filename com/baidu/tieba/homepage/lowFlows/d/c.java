@@ -24,7 +24,7 @@ public class c {
         for (ThreadInfo threadInfo : list) {
             cb cbVar = new cb();
             cbVar.a(threadInfo);
-            cbVar.eTK = true;
+            cbVar.eVl = true;
             arrayList.add(cbVar);
         }
         return com.baidu.tieba.homepage.hotTopic.tab.c.dX(arrayList);

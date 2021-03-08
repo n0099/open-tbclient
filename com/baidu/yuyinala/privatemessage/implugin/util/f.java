@@ -33,12 +33,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
     @SuppressLint({"UseSparseArrays"})
-    private static Map<Long, Long> cdq = new HashMap();
+    private static Map<Long, Long> ceR = new HashMap();
 
-    public static String h(Context context, long j) {
+    public static String f(Context context, long j) {
         SimpleDateFormat simpleDateFormat;
         SimpleDateFormat simpleDateFormat2;
         SimpleDateFormat simpleDateFormat3;
@@ -49,10 +49,10 @@ public class f {
         }
         TimeZone timeZone = Calendar.getInstance().getTimeZone();
         String str = "";
-        if (hI(context)) {
+        if (hH(context)) {
             simpleDateFormat = new SimpleDateFormat("HH:mm", Locale.CHINA);
         } else {
-            str = i(context, j) + " ";
+            str = g(context, j) + " ";
             simpleDateFormat = new SimpleDateFormat("hh:mm", Locale.CHINA);
         }
         simpleDateFormat.setTimeZone(timeZone);
@@ -64,7 +64,7 @@ public class f {
         }
         if (c(Long.valueOf(currentTimeMillis), j)) {
             Calendar.getInstance().setTimeInMillis(j);
-            return Oa(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
+            return Oe(calendar.get(7)) + " " + str + simpleDateFormat.format(new Date(j));
         } else if (d(Long.valueOf(currentTimeMillis), j) || e(Long.valueOf(currentTimeMillis), j)) {
             new SimpleDateFormat("MM-dd ", Locale.CHINA).setTimeZone(timeZone);
             return simpleDateFormat2.format(new Date(j)) + str + simpleDateFormat.format(new Date(j));
@@ -74,7 +74,7 @@ public class f {
         }
     }
 
-    private static String Oa(int i) {
+    private static String Oe(int i) {
         switch (i) {
             case 1:
                 return "星期日";
@@ -95,11 +95,11 @@ public class f {
         }
     }
 
-    private static boolean hI(Context context) {
+    private static boolean hH(Context context) {
         return DateFormat.is24HourFormat(context);
     }
 
-    private static String i(Context context, long j) {
+    private static String g(Context context, long j) {
         int hours = new Date(j).getHours();
         if (hours >= 5 && hours < 12) {
             return "上午";
@@ -166,7 +166,7 @@ public class f {
         return calendar.get(1) == calendar2.get(1);
     }
 
-    public static String j(Context context, long j) {
+    public static String h(Context context, long j) {
         if (Long.valueOf(j).toString().length() == 10) {
             j *= 1000;
         }
@@ -176,13 +176,13 @@ public class f {
         return simpleDateFormat.format(new Date(j));
     }
 
-    public static void g(Context context, View view) {
+    public static void f(Context context, View view) {
         if (context != null && view != null) {
             ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 
-    public static void h(Context context, View view) {
+    public static void g(Context context, View view) {
         view.requestFocus();
         ((InputMethodManager) context.getSystemService("input_method")).showSoftInput(view, 1);
     }
@@ -203,7 +203,7 @@ public class f {
         return 55;
     }
 
-    public static long emB() {
+    public static long emL() {
         long j = 0;
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
@@ -221,7 +221,7 @@ public class f {
         return j;
     }
 
-    public static boolean hJ(Context context) {
+    public static boolean hI(Context context) {
         long h = com.baidu.yuyinala.privatemessage.implugin.util.c.b.h(context, "check_sdcard", 0L);
         return h == 0 || (System.currentTimeMillis() / 1000) - h > 18000;
     }
@@ -261,7 +261,7 @@ public class f {
                                 context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                                 return;
                             }
-                            com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().h(context, str, false);
+                            com.baidu.yuyinala.privatemessage.implugin.d.b.eke().h(context, str, false);
                         } catch (Exception e) {
                             c.e("Utils", "ex " + e.getMessage());
                         }
@@ -282,20 +282,20 @@ public class f {
             jSONObject.put("oauth", "");
             jSONObject.put("needUserSetting", false);
             jSONObject.put("thirdLogin", false);
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ejU().a(jSONObject.toString(), dVar);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.eke().a(jSONObject.toString(), dVar);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public static void elk() {
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a elq = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.ell().elq();
-        if (elq != null) {
-            elq.elk();
+    public static void elu() {
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a elA = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.elv().elA();
+        if (elA != null) {
+            elA.elu();
         }
     }
 
-    public static int dK(Context context) {
+    public static int dJ(Context context) {
         try {
             if (context.getResources().getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE) != 0) {
                 return context.getResources().getDimensionPixelSize(context.getResources().getIdentifier("navigation_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE));

@@ -6,10 +6,8 @@ import android.text.TextUtils;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f1438a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f1439b;
+    private static j f1226a;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -17,7 +15,7 @@ public final class j {
 
     private j(Context context) {
         this.d = PushSettings.c(context);
-        this.f1439b = PushSettings.a(context);
+        this.b = PushSettings.a(context);
         if (com.baidu.android.pushservice.b.d.b(context)) {
             this.e = com.baidu.android.pushservice.i.i.a(context, "com.baidu.pushservice.channel_token_new");
             this.c = PushSettings.b(context);
@@ -26,22 +24,22 @@ public final class j {
     }
 
     public static j a(Context context) {
-        if (f1438a == null) {
+        if (f1226a == null) {
             synchronized (j.class) {
-                if (f1438a == null) {
-                    f1438a = new j(context);
+                if (f1226a == null) {
+                    f1226a = new j(context);
                 }
             }
         }
-        return f1438a;
+        return f1226a;
     }
 
     public String a() {
-        return this.f1439b;
+        return this.b;
     }
 
     public synchronized void a(String str, String str2, String str3, String str4) {
-        this.f1439b = str;
+        this.b = str;
         this.d = str2;
         this.c = str3;
         this.e = str4;
@@ -62,12 +60,12 @@ public final class j {
     }
 
     public boolean e() {
-        if (TextUtils.isEmpty(this.f1439b)) {
-            this.f1439b = PushSettings.a(this.f);
+        if (TextUtils.isEmpty(this.b)) {
+            this.b = PushSettings.a(this.f);
         }
         if (TextUtils.isEmpty(this.d)) {
             this.d = PushSettings.c(this.f);
         }
-        return (TextUtils.isEmpty(this.f1439b) || TextUtils.isEmpty(this.d)) ? false : true;
+        return (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.d)) ? false : true;
     }
 }

@@ -28,7 +28,7 @@ import com.baidu.searchbox.widget.ViewDragHelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public abstract class SlidingPaneLayout extends ViewGroup {
     private static final int DEFAULT_FADE_COLOR = -858993460;
     static final SlidingPanelLayoutImpl IMPL;
@@ -61,7 +61,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     private double slideEdgeFactor;
     private double slideWidthFactor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface PanelSlideListener {
         void onPanelClosed(View view);
 
@@ -71,7 +71,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public interface SlidingPanelLayoutImpl {
         void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view);
     }
@@ -96,7 +96,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.mAutoSlide = z;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class SimplePanelSlideListener implements PanelSlideListener {
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
         public void onPanelSlide(View view, float f) {
@@ -885,7 +885,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.mPreservedOpenState = savedState.isOpen;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     private class DragHelperCallback extends ViewDragHelper.Callback {
         private final int OFFSET_X;
         private int currX;
@@ -984,7 +984,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.slideWidthFactor = d;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         private static final int[] ATTRS = {16843137};
         Paint dimPaint;
@@ -1028,7 +1028,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.searchbox.widget.SlidingPaneLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -1063,7 +1063,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     static class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
         SlidingPanelLayoutImplBase() {
         }
@@ -1074,7 +1074,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     static class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
         private Method mGetDisplayList;
         private Field mRecreateDisplayList;
@@ -1109,7 +1109,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     static class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
         SlidingPanelLayoutImplJBMR1() {
         }
@@ -1120,7 +1120,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     class AccessibilityDelegate extends AccessibilityDelegateCompat {
         private final Rect mTmpRect = new Rect();
 
@@ -1190,7 +1190,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes14.dex */
     public class DisableLayerRunnable implements Runnable {
         final View mChildView;
 

@@ -6,24 +6,24 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class c {
     private static String sProcessName = null;
 
     public static String getCurProcessName(Context context) {
-        ActivityManager.RunningAppProcessInfo S;
-        if (TextUtils.isEmpty(sProcessName) && (S = S(context)) != null) {
-            sProcessName = S.processName;
+        ActivityManager.RunningAppProcessInfo R;
+        if (TextUtils.isEmpty(sProcessName) && (R = R(context)) != null) {
+            sProcessName = R.processName;
         }
         return sProcessName;
     }
 
-    public static boolean R(Context context) {
+    public static boolean Q(Context context) {
         String curProcessName = getCurProcessName(context);
         return curProcessName != null && curProcessName.equals("com.baidu.browser.apps");
     }
 
-    public static ActivityManager.RunningAppProcessInfo S(Context context) {
+    public static ActivityManager.RunningAppProcessInfo R(Context context) {
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {

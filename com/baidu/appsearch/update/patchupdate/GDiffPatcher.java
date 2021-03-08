@@ -19,7 +19,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GDiffPatcher {
     public static final int COPY_INT_INT = 254;
     public static final int COPY_INT_UBYTE = 252;
@@ -39,10 +39,8 @@ public class GDiffPatcher {
     public static final int QUARTER_MB = 262144;
 
     /* renamed from: a  reason: collision with root package name */
-    private ByteBuffer f1481a = ByteBuffer.allocate(Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION);
-
-    /* renamed from: b  reason: collision with root package name */
-    private byte[] f1482b = this.f1481a.array();
+    private ByteBuffer f1253a = ByteBuffer.allocate(Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION);
+    private byte[] b = this.f1253a.array();
     private boolean c = false;
     private long d = 0;
     private int e = 246;
@@ -104,11 +102,11 @@ public class GDiffPatcher {
 
     void a(int i, InputStream inputStream, OutputStream outputStream) {
         while (i > 0) {
-            int read = inputStream.read(this.f1482b, 0, Math.min(this.f1482b.length, i));
+            int read = inputStream.read(this.b, 0, Math.min(this.b.length, i));
             if (read == -1) {
                 throw new EOFException("cannot read " + i);
             }
-            a(this.f1482b, 0, read, outputStream);
+            a(this.b, 0, read, outputStream);
             i -= read;
         }
     }
@@ -116,12 +114,12 @@ public class GDiffPatcher {
     void a(long j, int i, d dVar, OutputStream outputStream) {
         dVar.a(j);
         while (i > 0) {
-            this.f1481a.clear().limit(Math.min(this.f1481a.capacity(), i));
-            int a2 = dVar.a(this.f1481a);
+            this.f1253a.clear().limit(Math.min(this.f1253a.capacity(), i));
+            int a2 = dVar.a(this.f1253a);
             if (a2 == -1) {
                 throw new EOFException("in copy " + j + " " + i);
             }
-            a(this.f1481a.array(), 0, a2, outputStream);
+            a(this.f1253a.array(), 0, a2, outputStream);
             i -= a2;
         }
     }

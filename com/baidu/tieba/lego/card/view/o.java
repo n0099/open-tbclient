@@ -14,29 +14,29 @@ import com.baidu.tieba.lego.card.view.c;
 import com.baidu.tieba.play.VideoControllerView;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.tieba.tbadkCore.v;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class o {
-    private TbImageView ams;
-    private TbPageContext<?> eUY;
-    private TbCyberVideoView gAl;
-    private c laL;
-    private View ldg;
-    private ImageView ldj;
-    private a lee;
-    private View lfB;
-    ImmersiveVideoCardEx.a lfC;
-    private n lfE;
+    private TbImageView anK;
+    private TbPageContext<?> eWx;
+    private TbCyberVideoView gBU;
+    private c lcO;
+    private View lfj;
+    private ImageView lfm;
+    private a lgh;
+    private View lhD;
+    ImmersiveVideoCardEx.a lhE;
+    private n lhG;
     private int mScreenHeight;
     private int mScreenWidth;
     private String mVideoUrl;
     int page;
-    private boolean lfD = false;
-    private boolean iwQ = false;
-    private TbImageView.b lfF = new TbImageView.b() { // from class: com.baidu.tieba.lego.card.view.o.1
+    private boolean lhF = false;
+    private boolean iyz = false;
+    private TbImageView.b lhH = new TbImageView.b() { // from class: com.baidu.tieba.lego.card.view.o.1
         @Override // com.baidu.tbadk.widget.TbImageView.b
         public void onComplete(String str, boolean z) {
-            if (z && o.this.ams != null) {
-                o.this.ams.setDefaultBgResource(0);
+            if (z && o.this.anK != null) {
+                o.this.anK.setDefaultBgResource(0);
             }
         }
 
@@ -44,11 +44,11 @@ public class o {
         public void onCancel() {
         }
     };
-    private SeekBar.OnSeekBarChangeListener ghW = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.lego.card.view.o.2
+    private SeekBar.OnSeekBarChangeListener gjA = new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.lego.card.view.o.2
         @Override // android.widget.SeekBar.OnSeekBarChangeListener
         public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
             if (z) {
-                o.this.laL.dcD();
+                o.this.lcO.dcM();
             }
         }
 
@@ -58,154 +58,154 @@ public class o {
 
         @Override // android.widget.SeekBar.OnSeekBarChangeListener
         public void onStopTrackingTouch(SeekBar seekBar) {
-            if (!o.this.laL.dcz() && o.this.laL.dcr() != null) {
-                o.this.laL.Ec(o.this.laL.dcr().getSeekPosition());
-                o.this.laL.FX(o.this.mVideoUrl);
+            if (!o.this.lcO.dcI() && o.this.lcO.dcA() != null) {
+                o.this.lcO.Ef(o.this.lcO.dcA().getSeekPosition());
+                o.this.lcO.Gg(o.this.mVideoUrl);
             }
         }
     };
-    private VideoControllerView.b lfG = new VideoControllerView.b() { // from class: com.baidu.tieba.lego.card.view.o.3
+    private VideoControllerView.b lhI = new VideoControllerView.b() { // from class: com.baidu.tieba.lego.card.view.o.3
         @Override // com.baidu.tieba.play.VideoControllerView.b
-        public void tb(int i) {
-            if (!o.this.dch()) {
-                o.this.laL.Eb(i);
+        public void td(int i) {
+            if (!o.this.dcq()) {
+                o.this.lcO.Ee(i);
             }
         }
     };
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.o.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!o.this.dch() && view.getId() == o.this.lfB.getId()) {
+            if (!o.this.dcq() && view.getId() == o.this.lhD.getId()) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    com.baidu.adp.lib.util.l.showLongToast(o.this.eUY.getPageActivity(), o.this.eUY.getString(R.string.neterror));
+                    com.baidu.adp.lib.util.l.showLongToast(o.this.eWx.getPageActivity(), o.this.eWx.getString(R.string.neterror));
                 }
-                if (o.this.lee != null && o.this.gAl.isPlaying()) {
-                    o.this.lee.dci();
+                if (o.this.lgh != null && o.this.gBU.isPlaying()) {
+                    o.this.lgh.dcr();
                 }
             }
         }
     };
-    private c.b ldp = new c.b() { // from class: com.baidu.tieba.lego.card.view.o.5
+    private c.b lfs = new c.b() { // from class: com.baidu.tieba.lego.card.view.o.5
         @Override // com.baidu.tieba.lego.card.view.c.b
         public void rj() {
         }
 
         @Override // com.baidu.tieba.lego.card.view.c.b
         public void rk() {
-            o.this.lee.dcd();
+            o.this.lgh.dcm();
         }
     };
-    private CyberPlayerManager.OnPreparedListener eAA = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.lego.card.view.o.6
+    private CyberPlayerManager.OnPreparedListener eCb = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.lego.card.view.o.6
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
-            if (o.this.gAl != null) {
-                o.this.lee.dci();
-                if (o.this.lfE == null || o.this.lfE.dcH() == null || !o.this.lfE.dcH().equals(o.this.mVideoUrl) || o.this.lfE.dcI() <= 0) {
-                    if (o.this.lfE != null && o.this.lfE.NJ(o.this.mVideoUrl) > 0) {
-                        o.this.gAl.seekTo(o.this.lfE.NJ(o.this.mVideoUrl));
+            if (o.this.gBU != null) {
+                o.this.lgh.dcr();
+                if (o.this.lhG == null || o.this.lhG.dcQ() == null || !o.this.lhG.dcQ().equals(o.this.mVideoUrl) || o.this.lhG.dcR() <= 0) {
+                    if (o.this.lhG != null && o.this.lhG.NP(o.this.mVideoUrl) > 0) {
+                        o.this.gBU.seekTo(o.this.lhG.NP(o.this.mVideoUrl));
                         return;
                     }
                     return;
                 }
-                o.this.gAl.seekTo(o.this.lfE.dcI());
-                o.this.lfE.NI(null);
-                o.this.lfE.Ef(0);
+                o.this.gBU.seekTo(o.this.lhG.dcR());
+                o.this.lhG.NO(null);
+                o.this.lhG.Ei(0);
             }
         }
     };
-    private VideoControllerView.a lfH = new VideoControllerView.a() { // from class: com.baidu.tieba.lego.card.view.o.7
+    private VideoControllerView.a lhJ = new VideoControllerView.a() { // from class: com.baidu.tieba.lego.card.view.o.7
         @Override // com.baidu.tieba.play.VideoControllerView.a
-        public void bLL() {
-            if (!o.this.dch() && o.this.lee != null && o.this.ldg != null) {
-                if (o.this.gAl.isPlaying()) {
-                    o.this.lee.dci();
+        public void bLP() {
+            if (!o.this.dcq() && o.this.lgh != null && o.this.lfj != null) {
+                if (o.this.gBU.isPlaying()) {
+                    o.this.lgh.dcr();
                 }
-                if (o.this.ldg.getAlpha() != 1.0f) {
-                    o.this.ldg.setAlpha(1.0f);
+                if (o.this.lfj.getAlpha() != 1.0f) {
+                    o.this.lfj.setAlpha(1.0f);
                 }
-                o.this.ldg.clearAnimation();
+                o.this.lfj.clearAnimation();
             }
         }
     };
-    private a.InterfaceC0777a lcS = new a.InterfaceC0777a() { // from class: com.baidu.tieba.lego.card.view.o.8
-        @Override // com.baidu.tieba.lego.card.view.a.InterfaceC0777a
-        public void dck() {
-            if (o.this.laL.dcz()) {
-                o.this.laL.dcB();
+    private a.InterfaceC0783a leV = new a.InterfaceC0783a() { // from class: com.baidu.tieba.lego.card.view.o.8
+        @Override // com.baidu.tieba.lego.card.view.a.InterfaceC0783a
+        public void dct() {
+            if (o.this.lcO.dcI()) {
+                o.this.lcO.dcK();
             }
         }
 
-        @Override // com.baidu.tieba.lego.card.view.a.InterfaceC0777a
-        public void dcl() {
-            if (o.this.laL.dcz()) {
-                o.this.laL.dcB();
+        @Override // com.baidu.tieba.lego.card.view.a.InterfaceC0783a
+        public void dcu() {
+            if (o.this.lcO.dcI()) {
+                o.this.lcO.dcK();
             }
         }
 
-        @Override // com.baidu.tieba.lego.card.view.a.InterfaceC0777a
-        public void dcm() {
-            if (o.this.laL.dcz()) {
-                o.this.laL.dcA();
+        @Override // com.baidu.tieba.lego.card.view.a.InterfaceC0783a
+        public void dcv() {
+            if (o.this.lcO.dcI()) {
+                o.this.lcO.dcJ();
             }
         }
     };
 
     public o(TbPageContext<?> tbPageContext, View view) {
-        this.eUY = tbPageContext;
-        this.lfB = view;
-        this.lfB.setOnClickListener(this.mOnClickListener);
-        this.laL = d.B(tbPageContext);
-        this.laL.a(this);
-        this.gAl = this.laL.getVideoView();
-        this.ams = (TbImageView) this.lfB.findViewById(R.id.video_thumbnail);
-        this.ams.setEvent(this.lfF);
-        this.ldj = (ImageView) this.lfB.findViewById(R.id.img_play);
-        this.ldg = this.laL.dcs();
-        this.mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.eUY.getPageActivity());
-        this.mScreenHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(this.eUY.getPageActivity());
-        this.lfE = d.A(this.eUY);
+        this.eWx = tbPageContext;
+        this.lhD = view;
+        this.lhD.setOnClickListener(this.mOnClickListener);
+        this.lcO = d.B(tbPageContext);
+        this.lcO.a(this);
+        this.gBU = this.lcO.getVideoView();
+        this.anK = (TbImageView) this.lhD.findViewById(R.id.video_thumbnail);
+        this.anK.setEvent(this.lhH);
+        this.lfm = (ImageView) this.lhD.findViewById(R.id.img_play);
+        this.lfj = this.lcO.dcB();
+        this.mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(this.eWx.getPageActivity());
+        this.mScreenHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(this.eWx.getPageActivity());
+        this.lhG = d.A(this.eWx);
     }
 
     public void tL(boolean z) {
-        if (this.laL != null) {
-            this.laL.tL(z);
+        if (this.lcO != null) {
+            this.lcO.tL(z);
         }
     }
 
     public void tJ(boolean z) {
-        if (this.laL != null) {
-            this.laL.tJ(z);
+        if (this.lcO != null) {
+            this.lcO.tJ(z);
         }
     }
 
     public View getView() {
-        return this.lfB;
+        return this.lhD;
     }
 
     public void d(a aVar) {
-        this.lee = aVar;
-        if (this.lee != null) {
-            this.lee.a(this.lcS);
+        this.lgh = aVar;
+        if (this.lgh != null) {
+            this.lgh.a(this.leV);
         }
     }
 
-    private void dcM() {
-        if (this.laL != null && this.gAl != null && this.lfC != null) {
-            this.laL.stopPlay();
-            this.laL.dr(this.lfB);
-            if (this.laL.dcx()) {
-                this.laL.dcv();
+    private void dcV() {
+        if (this.lcO != null && this.gBU != null && this.lhE != null) {
+            this.lcO.stopPlay();
+            this.lcO.dr(this.lhD);
+            if (this.lcO.dcG()) {
+                this.lcO.dcE();
             }
-            this.laL.dcr().setOnProgressUpdatedListener(this.lfG);
-            this.laL.dcr().setOnDragingListener(this.lfH);
-            this.laL.dcr().setOnSeekBarChangeListener(this.ghW);
-            this.laL.a(this.eAA);
-            this.laL.setThumbnail(this.lfC.thumbUrl);
-            this.laL.hh(this.lfC.cEb);
-            this.laL.setVideoUrl(this.mVideoUrl);
-            this.laL.a(this.ldp);
-            this.laL.cSK();
-            this.laL.show();
+            this.lcO.dcA().setOnProgressUpdatedListener(this.lhI);
+            this.lcO.dcA().setOnDragingListener(this.lhJ);
+            this.lcO.dcA().setOnSeekBarChangeListener(this.gjA);
+            this.lcO.a(this.eCb);
+            this.lcO.setThumbnail(this.lhE.thumbUrl);
+            this.lcO.hh(this.lhE.cFB);
+            this.lcO.setVideoUrl(this.mVideoUrl);
+            this.lcO.a(this.lfs);
+            this.lcO.cSR();
+            this.lcO.show();
         }
     }
 
@@ -214,13 +214,13 @@ public class o {
     }
 
     public void startPlay() {
-        if (!this.iwQ) {
-            if (this.page <= 0 || this.page == com.baidu.tieba.lego.card.c.c.lcu) {
-                this.iwQ = true;
-                if (!dch()) {
-                    dcM();
-                    if (v.dMU() && this.laL != null) {
-                        this.laL.FX(this.mVideoUrl);
+        if (!this.iyz) {
+            if (this.page <= 0 || this.page == com.baidu.tieba.lego.card.c.c.lex) {
+                this.iyz = true;
+                if (!dcq()) {
+                    dcV();
+                    if (v.dNc() && this.lcO != null) {
+                        this.lcO.Gg(this.mVideoUrl);
                     }
                 }
             }
@@ -228,61 +228,61 @@ public class o {
     }
 
     public void stopPlay() {
-        if (!dch()) {
-            if (this.iwQ && this.laL != null && this.lfB.equals(this.laL.dcw())) {
-                this.laL.stopPlay();
-                if (this.laL.dcx()) {
-                    this.laL.hide();
+        if (!dcq()) {
+            if (this.iyz && this.lcO != null && this.lhD.equals(this.lcO.dcF())) {
+                this.lcO.stopPlay();
+                if (this.lcO.dcG()) {
+                    this.lcO.hide();
                 }
             }
-            this.iwQ = false;
-            this.lfD = false;
+            this.iyz = false;
+            this.lhF = false;
         }
     }
 
     public boolean isPlayStarted() {
-        return this.iwQ;
+        return this.iyz;
     }
 
     public void fK(String str, String str2) {
-        if (this.laL != null) {
-            this.laL.fJ(str, str2);
+        if (this.lcO != null) {
+            this.lcO.fJ(str, str2);
         }
     }
 
     public void a(ImmersiveVideoCardEx.a aVar, int i) {
-        this.lfC = aVar;
+        this.lhE = aVar;
         this.page = i;
-        if (!dch() && aVar != null) {
+        if (!dcq() && aVar != null) {
             if (this.mVideoUrl == null || !this.mVideoUrl.equalsIgnoreCase(aVar.videoUrl)) {
                 stopPlay();
                 this.mVideoUrl = aVar.videoUrl;
-                this.ams.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                this.ams.startLoad(aVar.thumbUrl, 17, false);
-                int i2 = aVar.lcd;
-                int i3 = aVar.lce;
-                ViewGroup.LayoutParams layoutParams = this.lfB.getLayoutParams();
-                if (i2 > 0 && i3 > 0 && layoutParams != null && !aVar.lcf) {
+                this.anK.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+                this.anK.startLoad(aVar.thumbUrl, 17, false);
+                int i2 = aVar.leg;
+                int i3 = aVar.leh;
+                ViewGroup.LayoutParams layoutParams = this.lhD.getLayoutParams();
+                if (i2 > 0 && i3 > 0 && layoutParams != null && !aVar.lei) {
                     if (i2 > i3) {
                         layoutParams.height = (i3 * (this.mScreenWidth * 1)) / i2;
                     } else {
                         layoutParams.height = this.mScreenWidth;
                     }
-                    this.lfB.setLayoutParams(layoutParams);
-                    this.laL.dcu();
-                } else if (layoutParams != null && aVar.lcf) {
+                    this.lhD.setLayoutParams(layoutParams);
+                    this.lcO.dcD();
+                } else if (layoutParams != null && aVar.lei) {
                     layoutParams.width = this.mScreenWidth;
                     layoutParams.height = this.mScreenHeight;
-                    this.lfB.setLayoutParams(layoutParams);
-                    this.laL.dct();
+                    this.lhD.setLayoutParams(layoutParams);
+                    this.lcO.dcC();
                 }
-                this.laL.clearAnimation();
+                this.lcO.clearAnimation();
             }
         }
     }
 
     public boolean isPlaying() {
-        return !this.lfD;
+        return !this.lhF;
     }
 
     public String getPlayUrl() {
@@ -290,14 +290,14 @@ public class o {
     }
 
     public int getCurrentPosition() {
-        if (dch()) {
+        if (dcq()) {
             return 0;
         }
-        return this.gAl.getCurrentPosition();
+        return this.gBU.getCurrentPosition();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean dch() {
-        return this.lfB == null || this.gAl == null || this.ams == null || this.ldj == null || this.ldg == null || this.lee == null;
+    public boolean dcq() {
+        return this.lhD == null || this.gBU == null || this.anK == null || this.lfm == null || this.lfj == null || this.lgh == null;
     }
 }

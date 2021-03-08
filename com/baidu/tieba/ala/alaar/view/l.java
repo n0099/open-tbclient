@@ -10,24 +10,24 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tieba.horizonallist.widget.HListView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class l {
-    protected String gni;
-    View gxA;
-    protected int gxB = 300;
-    protected boolean gxC;
-    protected boolean gxD;
-    public Object gxt;
-    FrameLayout gxu;
-    TopTipSeekBar gxv;
-    public HListView gxw;
-    a gxx;
-    View gxy;
-    TextView gxz;
+    protected String goR;
+    public Object gzc;
+    FrameLayout gzd;
+    TopTipSeekBar gze;
+    public HListView gzf;
+    a gzg;
+    View gzh;
+    TextView gzi;
+    View gzj;
+    protected int gzk = 300;
+    protected boolean gzl;
+    protected boolean gzm;
     int itemPosition;
     View view;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a<D> {
         void a(D d, SeekBar seekBar, int i, boolean z);
 
@@ -39,51 +39,51 @@ public class l {
     }
 
     public void a(a aVar) {
-        this.gxx = aVar;
+        this.gzg = aVar;
     }
 
     public void setEnable(boolean z) {
-        this.gxC = !z;
-        if (this.gxy != null) {
-            this.gxy.setVisibility(this.gxC ? 8 : 0);
+        this.gzl = !z;
+        if (this.gzh != null) {
+            this.gzh.setVisibility(this.gzl ? 8 : 0);
         }
     }
 
     public boolean isEnable() {
-        return !this.gxC;
+        return !this.gzl;
     }
 
     public void mp(boolean z) {
-        this.gxD = z;
-        if (this.gxA != null) {
-            this.gxA.setVisibility(this.gxD ? 0 : 8);
+        this.gzm = z;
+        if (this.gzj != null) {
+            this.gzj.setVisibility(this.gzm ? 0 : 8);
         }
     }
 
     public View c(View view, ViewGroup viewGroup) {
-        if (this.gxy == null) {
-            this.gxy = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.ala_live_beauty_ar_tab_btn, viewGroup, false);
-            if (this.gxy != null) {
-                this.gxy.setVisibility(this.gxC ? 8 : 0);
+        if (this.gzh == null) {
+            this.gzh = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.ala_live_beauty_ar_tab_btn, viewGroup, false);
+            if (this.gzh != null) {
+                this.gzh.setVisibility(this.gzl ? 8 : 0);
             }
-            this.gxz = (TextView) this.gxy.findViewById(a.f.button_tv);
-            this.gxA = this.gxy.findViewById(a.f.red_dot_iv);
+            this.gzi = (TextView) this.gzh.findViewById(a.f.button_tv);
+            this.gzj = this.gzh.findViewById(a.f.red_dot_iv);
         }
-        this.gxA.setVisibility(this.gxD ? 0 : 8);
-        this.gxz.setText(this.gni == null ? "" : this.gni);
-        return this.gxy;
+        this.gzj.setVisibility(this.gzm ? 0 : 8);
+        this.gzi.setText(this.goR == null ? "" : this.goR);
+        return this.gzh;
     }
 
-    public View bQQ() {
-        return this.gxw;
+    public View bQW() {
+        return this.gzf;
     }
 
     public void setSelected(boolean z) {
-        if (this.gxy != null) {
+        if (this.gzh != null) {
             if (z) {
-                this.gxz.setTextColor(this.view.getResources().getColor(a.c.sdk_cp_other_b));
+                this.gzi.setTextColor(this.view.getResources().getColor(a.c.sdk_cp_other_b));
             } else {
-                this.gxz.setTextColor(this.view.getResources().getColor(a.c.sdk_cp_cont_g));
+                this.gzi.setTextColor(this.view.getResources().getColor(a.c.sdk_cp_cont_g));
             }
         }
     }
@@ -109,13 +109,13 @@ public class l {
         });
     }
 
-    public void tD(final int i) {
-        if (this.gxw != null && i >= 0) {
-            this.gxw.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.l.2
+    public void tF(final int i) {
+        if (this.gzf != null && i >= 0) {
+            this.gzf.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.l.2
                 @Override // java.lang.Runnable
                 public void run() {
                     View view = null;
-                    HListView hListView = l.this.gxw;
+                    HListView hListView = l.this.gzf;
                     if (i >= hListView.getFirstVisiblePosition() && i <= hListView.getLastVisiblePosition()) {
                         view = hListView.getChildAt(i - hListView.getFirstVisiblePosition());
                     }
@@ -124,7 +124,7 @@ public class l {
                         view.getGlobalVisibleRect(rect);
                         Rect rect2 = new Rect();
                         hListView.getGlobalVisibleRect(rect2);
-                        l.this.gxw.smoothScrollToPositionFromLeft(i, (rect2.width() - rect.width()) >> 1, 0);
+                        l.this.gzf.smoothScrollToPositionFromLeft(i, (rect2.width() - rect.width()) >> 1, 0);
                     }
                 }
             }, 0L);
@@ -132,15 +132,15 @@ public class l {
     }
 
     public void setTitle(String str) {
-        this.gni = str;
+        this.goR = str;
     }
 
     public String getTitle() {
-        return this.gni;
+        return this.goR;
     }
 
-    public void tE(int i) {
-        this.gxB = i;
+    public void tG(int i) {
+        this.gzk = i;
     }
 
     public void mq(boolean z) {
@@ -148,12 +148,12 @@ public class l {
             com.baidu.tieba.ala.alaar.makeup.h.d("seekbar", "showSeekbar " + z);
         }
         int i = z ? 0 : 4;
-        if (this.gxu != null && this.gxu.getVisibility() != i) {
-            this.gxu.setVisibility(i);
+        if (this.gzd != null && this.gzd.getVisibility() != i) {
+            this.gzd.setVisibility(i);
         }
     }
 
     public void D(int i, int i2, int i3, int i4) {
-        this.gxv.a(i, i2, i3, i4, true);
+        this.gze.a(i, i2, i3, i4, true);
     }
 }

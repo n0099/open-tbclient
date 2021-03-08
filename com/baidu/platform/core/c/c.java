@@ -10,24 +10,24 @@ public class c extends com.baidu.platform.base.e {
     }
 
     private void a(PoiIndoorOption poiIndoorOption) {
-        this.f4143a.a("qt", "indoor_s");
-        this.f4143a.a(Config.EVENT_HEAT_X, "0");
-        this.f4143a.a("y", "0");
-        this.f4143a.a("from", "android_map_sdk");
+        this.f2867a.a("qt", "indoor_s");
+        this.f2867a.a(Config.EVENT_HEAT_X, "0");
+        this.f2867a.a("y", "0");
+        this.f2867a.a("from", "android_map_sdk");
         String str = poiIndoorOption.bid;
         if (str != null && !str.equals("")) {
-            this.f4143a.a("bid", str);
+            this.f2867a.a("bid", str);
         }
         String str2 = poiIndoorOption.wd;
         if (str2 != null && !str2.equals("")) {
-            this.f4143a.a(ActVideoSetting.WIFI_DISPLAY, str2);
+            this.f2867a.a(ActVideoSetting.WIFI_DISPLAY, str2);
         }
         String str3 = poiIndoorOption.floor;
         if (str3 != null && !str3.equals("")) {
-            this.f4143a.a("floor", str3);
+            this.f2867a.a("floor", str3);
         }
-        this.f4143a.a("current", poiIndoorOption.currentPage + "");
-        this.f4143a.a("pageSize", poiIndoorOption.pageSize + "");
+        this.f2867a.a("current", poiIndoorOption.currentPage + "");
+        this.f2867a.a("pageSize", poiIndoorOption.pageSize + "");
     }
 
     @Override // com.baidu.platform.base.e

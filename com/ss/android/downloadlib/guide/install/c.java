@@ -23,16 +23,16 @@ public class c {
     }
 
     private static void a(boolean z) {
-        String b2 = b(System.currentTimeMillis());
+        String b = b(System.currentTimeMillis());
         SharedPreferences sharedPreferences = j.a().getSharedPreferences("sp_install_guide", 0);
         try {
-            JSONObject jSONObject = new JSONObject(sharedPreferences.getString(b2, "{}"));
+            JSONObject jSONObject = new JSONObject(sharedPreferences.getString(b, "{}"));
             jSONObject.putOpt("key_install_finish", Integer.valueOf(jSONObject.optInt("key_install_finish") + 1));
             if (z) {
                 jSONObject.putOpt("key_install_finish_hijack", Integer.valueOf(jSONObject.optInt("key_install_finish_hijack") + 1));
             }
             SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putString(b2, jSONObject.toString());
+            edit.putString(b, jSONObject.toString());
             edit.apply();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class c {
     }
 
     private static boolean c(int i) {
-        return System.currentTimeMillis() - j.a().getSharedPreferences("sp_install_guide", 0).getLong("guide_last_show_time", 0L) >= ((long) (com.ss.android.downloadlib.f.d.fI(i) * 86400000));
+        return System.currentTimeMillis() - j.a().getSharedPreferences("sp_install_guide", 0).getLong("guide_last_show_time", 0L) >= ((long) (com.ss.android.downloadlib.f.d.fJ(i) * 86400000));
     }
 
     private static boolean d(int i) {
@@ -74,13 +74,13 @@ public class c {
         calendar.setTimeInMillis(System.currentTimeMillis());
         int i2 = 0;
         int i3 = 0;
-        for (int fJ = com.ss.android.downloadlib.f.d.fJ(i); fJ > 0; fJ--) {
+        for (int fK = com.ss.android.downloadlib.f.d.fK(i); fK > 0; fK--) {
             Pair<Integer, Integer> jg = jg(calendar.getTimeInMillis());
             i3 += ((Integer) jg.first).intValue();
             i2 += ((Integer) jg.second).intValue();
             calendar.setTimeInMillis(calendar.getTimeInMillis() - 86400000);
         }
-        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.QY(i);
+        return ((double) i2) >= ((double) i3) * com.ss.android.downloadlib.f.d.Rc(i);
     }
 
     private static Pair<Integer, Integer> jg(long j) {

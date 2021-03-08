@@ -11,7 +11,7 @@ import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.games.c.d;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends aa {
     public e(j jVar) {
         super(jVar, "/swanAPI/debugGameSconsole");
@@ -20,15 +20,15 @@ public class e extends aa {
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         if (DEBUG) {
-            JSONObject b2 = b(unitedSchemeEntity, "params");
-            if (b2 == null) {
+            JSONObject b = b(unitedSchemeEntity, "params");
+            if (b == null) {
                 Toast.makeText(context, a.h.aiapps_debug_swan_core_params_empty, 1).show();
             } else {
-                String optString = b2.optString("downloadurl");
+                String optString = b.optString("downloadurl");
                 if (TextUtils.isEmpty(optString)) {
                     Toast.makeText(context, a.h.aiapps_debug_swan_core_url_empty, 1).show();
                 } else {
-                    d.aVA().a(optString, new d.a() { // from class: com.baidu.swan.games.c.e.1
+                    d.aVD().a(optString, new d.a() { // from class: com.baidu.swan.games.c.e.1
                         @Override // com.baidu.swan.games.c.d.a
                         public void fg(boolean z) {
                             Context appContext = AppRuntime.getAppContext();

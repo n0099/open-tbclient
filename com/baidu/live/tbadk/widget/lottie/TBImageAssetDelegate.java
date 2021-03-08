@@ -7,7 +7,7 @@ import com.baidu.live.lottie.i;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.StringHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TBImageAssetDelegate implements c {
     private static final String DIR_ANIMATION = "animation";
     public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();

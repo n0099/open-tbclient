@@ -32,9 +32,9 @@ public class ProfileGuideConfigItem extends a<ProfileGuideConfig> {
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences sharedPreferences) {
         JSONObject jSONObject;
-        ProfileGuideConfig b2 = b();
-        if (b2 == null) {
-            b2 = new ProfileGuideConfig();
+        ProfileGuideConfig b = b();
+        if (b == null) {
+            b = new ProfileGuideConfig();
         }
         try {
             jSONObject = new JSONObject(sharedPreferences.getString(a(), ""));
@@ -43,9 +43,9 @@ public class ProfileGuideConfigItem extends a<ProfileGuideConfig> {
             jSONObject = null;
         }
         if (jSONObject != null) {
-            b2.parseJson(jSONObject);
+            b.parseJson(jSONObject);
         }
-        a((ProfileGuideConfigItem) b2);
+        a((ProfileGuideConfigItem) b);
     }
 
     @Override // com.kwad.sdk.core.config.item.a

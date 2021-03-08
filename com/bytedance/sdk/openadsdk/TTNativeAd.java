@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -19,6 +21,13 @@ public interface TTNativeAd {
 
         void onAdShow(TTNativeAd tTNativeAd);
     }
+
+    /* loaded from: classes6.dex */
+    public interface ExpressRenderListener {
+        void onRenderSuccess(View view, float f, float f2, boolean z);
+    }
+
+    void destroy();
 
     Bitmap getAdLogo();
 
@@ -67,7 +76,18 @@ public interface TTNativeAd {
 
     void registerViewForInteraction(@NonNull ViewGroup viewGroup, @NonNull List<View> list, @NonNull List<View> list2, @Nullable List<View> list3, @Nullable View view, AdInteractionListener adInteractionListener);
 
+    void render();
+
     void setActivityForDownloadApp(@NonNull Activity activity);
 
+    void setDislikeCallback(Activity activity, TTAdDislike.DislikeInteractionCallback dislikeInteractionCallback);
+
+    void setDislikeDialog(TTDislikeDialogAbstract tTDislikeDialogAbstract);
+
     void setDownloadListener(TTAppDownloadListener tTAppDownloadListener);
+
+    void setExpressRenderListener(ExpressRenderListener expressRenderListener);
+
+    @MainThread
+    void showInteractionExpressAd(Activity activity);
 }

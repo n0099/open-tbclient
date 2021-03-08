@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.bubble;
 
 import android.content.Context;
 import android.util.AttributeSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BubbleViewWrite extends BubbleView {
     public BubbleViewWrite(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);

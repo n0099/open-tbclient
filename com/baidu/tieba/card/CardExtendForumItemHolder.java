@@ -12,37 +12,37 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
 /* loaded from: classes.dex */
 public class CardExtendForumItemHolder extends ItemViewHolder {
-    public BarImageView fSE;
-    public TextView fSF;
-    public EntelechyUserLikeButton fSH;
-    private com.baidu.tieba.card.data.g iuT;
+    public BarImageView fUe;
+    public TextView fUf;
+    public EntelechyUserLikeButton fUh;
+    private com.baidu.tieba.card.data.g iwC;
     private int mSkinType;
 
     public CardExtendForumItemHolder(View view) {
         super(view);
-        this.fSE = null;
-        this.fSF = null;
-        this.fSH = null;
+        this.fUe = null;
+        this.fUf = null;
+        this.fUh = null;
         this.mSkinType = 3;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void a(com.baidu.tieba.horizonalList.widget.c cVar) {
         if (cVar != null && (cVar instanceof com.baidu.tieba.card.data.g)) {
-            this.iuT = (com.baidu.tieba.card.data.g) cVar;
-            this.fSE.setTag(this.iuT.forumAvatar);
-            this.fSE.setTag(R.id.tag_forum_name, this.iuT.forumName);
-            this.fSE.startLoad(this.iuT.forumAvatar, 15, false);
-            this.fSF.setText(au.getFixedText(this.iuT.forumName, 4, true) + getView().getContext().getResources().getString(R.string.forum));
-            this.fSF.setTag(R.id.tag_forum_name, this.iuT.forumName);
-            this.fSH.setTag(R.id.tag_forum_id, Long.valueOf(this.iuT.forumId));
-            this.fSH.setTag(R.id.tag_forum_name, this.iuT.forumName);
-            getView().setTag(R.id.tag_forum_id, Long.valueOf(this.iuT.forumId));
-            getView().setTag(R.id.tag_forum_name, this.iuT.forumName);
-            a(this.fSH, this.iuT.isLiked);
-            this.fSE.setOnClickListener(this.onClickListener);
-            this.fSH.setOnClickListener(this.onClickListener);
-            this.fSF.setOnClickListener(this.onClickListener);
+            this.iwC = (com.baidu.tieba.card.data.g) cVar;
+            this.fUe.setTag(this.iwC.forumAvatar);
+            this.fUe.setTag(R.id.tag_forum_name, this.iwC.forumName);
+            this.fUe.startLoad(this.iwC.forumAvatar, 15, false);
+            this.fUf.setText(au.getFixedText(this.iwC.forumName, 4, true) + getView().getContext().getResources().getString(R.string.forum));
+            this.fUf.setTag(R.id.tag_forum_name, this.iwC.forumName);
+            this.fUh.setTag(R.id.tag_forum_id, Long.valueOf(this.iwC.forumId));
+            this.fUh.setTag(R.id.tag_forum_name, this.iwC.forumName);
+            getView().setTag(R.id.tag_forum_id, Long.valueOf(this.iwC.forumId));
+            getView().setTag(R.id.tag_forum_name, this.iwC.forumName);
+            a(this.fUh, this.iwC.isLiked);
+            this.fUe.setOnClickListener(this.onClickListener);
+            this.fUh.setOnClickListener(this.onClickListener);
+            this.fUf.setOnClickListener(this.onClickListener);
             getView().setOnClickListener(this.onClickListener);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -51,11 +51,11 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public ItemViewHolder cI(View view) {
         CardExtendForumItemHolder cardExtendForumItemHolder = new CardExtendForumItemHolder(view);
-        cardExtendForumItemHolder.fSE = (BarImageView) view.findViewById(R.id.forum_avatar);
-        cardExtendForumItemHolder.fSE.setGifIconSupport(false);
-        cardExtendForumItemHolder.fSF = (TextView) view.findViewById(R.id.m_forum_name_textview);
-        cardExtendForumItemHolder.fSH = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
-        cardExtendForumItemHolder.kst = 16908308;
+        cardExtendForumItemHolder.fUe = (BarImageView) view.findViewById(R.id.forum_avatar);
+        cardExtendForumItemHolder.fUe.setGifIconSupport(false);
+        cardExtendForumItemHolder.fUf = (TextView) view.findViewById(R.id.m_forum_name_textview);
+        cardExtendForumItemHolder.fUh = (EntelechyUserLikeButton) view.findViewById(R.id.forum_add_love);
+        cardExtendForumItemHolder.kuv = 16908308;
         return cardExtendForumItemHolder;
     }
 
@@ -63,8 +63,8 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             ap.setBackgroundColor(getView(), R.color.CAM_X0201);
-            ap.setViewTextColor(this.fSF, R.color.CAM_X0105);
-            a(this.fSH, this.iuT.isLiked);
+            ap.setViewTextColor(this.fUf, R.color.CAM_X0105);
+            a(this.fUh, this.iwC.isLiked);
         }
         this.mSkinType = i;
     }

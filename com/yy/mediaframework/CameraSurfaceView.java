@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback, CameraListener, GetAnchorStatInfoInterface.IGetCurrentCameraEncodeStatInfo, GetAnchorStatInfoInterface.IGetImageFilterInfo, IMediaCodecUpload {
     private static final String TAG = "CameraSurfaceView";
     private boolean bEnableFaceDetected;

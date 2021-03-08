@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.view.View;
 import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.videochat.player.LivePlayer;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    private LivePlayer bOS;
-    private com.baidu.live.u.b bOT;
+    private LivePlayer bQs;
+    private com.baidu.live.u.b bQt;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -15,40 +15,40 @@ public class b {
     }
 
     public void a(com.baidu.live.u.b bVar) {
-        this.bOT = bVar;
+        this.bQt = bVar;
     }
 
     public void e(AlaLiveInfoData alaLiveInfoData) {
-        if (this.bOS == null) {
-            this.bOS = new LivePlayer(this.mActivity);
-            this.bOS.setIPlayerCallBack(new com.baidu.live.u.b() { // from class: com.baidu.live.videochat.a.b.1
+        if (this.bQs == null) {
+            this.bQs = new LivePlayer(this.mActivity);
+            this.bQs.setIPlayerCallBack(new com.baidu.live.u.b() { // from class: com.baidu.live.videochat.a.b.1
                 @Override // com.baidu.live.u.b
-                public void cv(int i) {
-                    if (b.this.bOT != null) {
-                        b.this.bOT.cv(i);
+                public void cw(int i) {
+                    if (b.this.bQt != null) {
+                        b.this.bQt.cw(i);
                     }
                 }
             });
         }
-        this.bOS.c(alaLiveInfoData);
+        this.bQs.c(alaLiveInfoData);
     }
 
-    public void Wq() {
-        if (this.bOS != null) {
-            this.bOS.setIPlayerCallBack(null);
-            this.bOS.cM(true);
-            this.bOS.destroy();
-            this.bOS = null;
+    public void Wt() {
+        if (this.bQs != null) {
+            this.bQs.setIPlayerCallBack(null);
+            this.bQs.cM(true);
+            this.bQs.destroy();
+            this.bQs = null;
         }
     }
 
     public boolean isStarted() {
-        return this.bOS != null;
+        return this.bQs != null;
     }
 
-    public View Wo() {
-        if (this.bOS != null) {
-            return this.bOS.getLivePlayer();
+    public View Wr() {
+        if (this.bQs != null) {
+            return this.bQs.getLivePlayer();
         }
         return null;
     }

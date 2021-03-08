@@ -25,10 +25,8 @@ public class BikeNavigateHelper {
     private static BikeNavigateHelper d;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2659a;
-
-    /* renamed from: b  reason: collision with root package name */
-    Activity f2660b;
+    boolean f1989a;
+    Activity b;
     private com.baidu.mapapi.bikenavi.controllers.a.a c = new com.baidu.mapapi.bikenavi.controllers.a.a();
 
     private BikeNavigateHelper() {
@@ -90,11 +88,11 @@ public class BikeNavigateHelper {
 
     public boolean startBikeNavi(Activity activity) {
         if (b.a().a(activity, (Bundle) null)) {
-            if (!this.f2659a) {
+            if (!this.f1989a) {
                 if (!b.a().p()) {
                     return false;
                 }
-                this.f2659a = true;
+                this.f1989a = true;
             }
             return true;
         }
@@ -109,7 +107,7 @@ public class BikeNavigateHelper {
 
     public View onCreate(Activity activity) {
         if (this.c != null) {
-            this.f2660b = activity;
+            this.b = activity;
             return this.c.a(activity);
         }
         return null;
@@ -132,7 +130,7 @@ public class BikeNavigateHelper {
     }
 
     public void resume() {
-        if (this.f2660b != null && !this.f2660b.isFinishing()) {
+        if (this.b != null && !this.b.isFinishing()) {
             b.a().g();
             if (this.c != null) {
                 this.c.c();
@@ -151,8 +149,8 @@ public class BikeNavigateHelper {
             this.c.d();
             this.c = null;
         }
-        this.f2659a = false;
-        this.f2660b = null;
+        this.f1989a = false;
+        this.b = null;
         if (d != null) {
             d = null;
         }

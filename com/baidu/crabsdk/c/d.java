@@ -1,6 +1,7 @@
 package com.baidu.crabsdk.c;
 
 import android.util.Base64;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.crabsdk.b.h;
 import java.security.Key;
 import java.util.Random;
@@ -13,7 +14,7 @@ public final class d {
         try {
             String substring = str2.substring(0, 16);
             String substring2 = str2.substring(str2.length() - 16, str2.length());
-            Key dw = dw(substring);
+            Key dA = dA(substring);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -23,7 +24,7 @@ public final class d {
             }
             byte[] bArr = new byte[length];
             System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-            cipher.init(1, dw, new IvParameterSpec(substring2.getBytes()));
+            cipher.init(1, dA, new IvParameterSpec(substring2.getBytes()));
             return cipher.doFinal(bArr);
         } catch (Exception e) {
             e.printStackTrace();
@@ -40,19 +41,6 @@ public final class d {
         return z ? stringBuffer.reverse().toString() : stringBuffer.toString();
     }
 
-    private static String al() {
-        Random random = new Random();
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(a("W", false));
-        stringBuffer.append(a("9", true));
-        stringBuffer.append(random.nextInt(1) + 1);
-        stringBuffer.append(a("Y", true));
-        stringBuffer.append("abe");
-        stringBuffer.append(a("y", true));
-        stringBuffer.append("1a88");
-        return stringBuffer.toString();
-    }
-
     private static String am() {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i < 9; i++) {
@@ -66,7 +54,7 @@ public final class d {
         try {
             String substring = str.substring(0, 16);
             String substring2 = str.substring(str.length() - 16, str.length());
-            Key dw = dw(substring);
+            Key dA = dA(substring);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             int length = bArr.length;
@@ -75,7 +63,7 @@ public final class d {
             }
             byte[] bArr2 = new byte[length];
             System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-            cipher.init(1, dw, new IvParameterSpec(substring2.getBytes()));
+            cipher.init(1, dA, new IvParameterSpec(substring2.getBytes()));
             return cipher.doFinal(bArr2);
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +75,7 @@ public final class d {
         return h.a(str + str2);
     }
 
-    private static Key dw(String str) {
+    private static Key dA(String str) {
         try {
             return new SecretKeySpec(str.getBytes(), com.baidu.sapi2.utils.e.q);
         } catch (Exception e) {
@@ -96,9 +84,9 @@ public final class d {
         }
     }
 
-    public static String dx(String str) {
+    public static String dB(String str) {
         try {
-            Key dw = dw(al());
+            Key dA = dA(uu());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -108,7 +96,7 @@ public final class d {
             }
             byte[] bArr = new byte[length];
             System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-            cipher.init(1, dw, new IvParameterSpec(am().getBytes()));
+            cipher.init(1, dA, new IvParameterSpec(am().getBytes()));
             return new String(Base64.encodeToString(cipher.doFinal(bArr), 0));
         } catch (Exception e) {
             e.printStackTrace();
@@ -116,11 +104,11 @@ public final class d {
         }
     }
 
-    public static String dy(String str) {
+    public static String dC(String str) {
         try {
-            Key dw = dw(al());
+            Key dA = dA(uu());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(2, dw, new IvParameterSpec(am().getBytes()));
+            cipher.init(2, dA, new IvParameterSpec(am().getBytes()));
             return new String(cipher.doFinal(Base64.decode(str, 0))).trim();
         } catch (Exception e) {
             return null;
@@ -129,5 +117,18 @@ public final class d {
 
     public static String e(String str, String str2) {
         return Base64.encodeToString(S(str, str2), 0);
+    }
+
+    private static String uu() {
+        Random random = new Random();
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(a(ExifInterface.LONGITUDE_WEST, false));
+        stringBuffer.append(a("9", true));
+        stringBuffer.append(random.nextInt(1) + 1);
+        stringBuffer.append(a("Y", true));
+        stringBuffer.append("abe");
+        stringBuffer.append(a("y", true));
+        stringBuffer.append("1a88");
+        return stringBuffer.toString();
     }
 }

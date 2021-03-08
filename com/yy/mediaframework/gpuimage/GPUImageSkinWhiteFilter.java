@@ -2,7 +2,7 @@ package com.yy.mediaframework.gpuimage;
 
 import android.opengl.GLES20;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageSkinWhiteFilter extends GPUImageFilter implements IFilterParams {
     public static final String FRAGMENT_SHADER = " precision highp float;\n \n varying highp vec2 textureCoordinate;\n \n uniform sampler2D inputImageTexture;\n uniform float white;\n \n float logCurve(float color)\n {\n     return log(color * (white - 1.0) + 1.0) / log(white);\n }\n \n void main()\n {\n     vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);\n     float r = logCurve(textureColor.r);\n     float g = logCurve(textureColor.g);\n     float b = logCurve(textureColor.b);\n     gl_FragColor = vec4(r, g, b, 1.0);\n }";
     private float mWhite;

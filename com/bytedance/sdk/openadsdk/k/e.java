@@ -1,62 +1,39 @@
 package com.bytedance.sdk.openadsdk.k;
-
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Executors;
-import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f7329a = Runtime.getRuntime().availableProcessors();
+    private String f4877a;
+    private String b;
+    private boolean c;
+    private int d;
 
-    /* renamed from: b  reason: collision with root package name */
-    private static final int f7330b;
-    private static final int c;
-    private static final int d;
-    private static final PriorityBlockingQueue<Runnable> e;
-    private static final PriorityBlockingQueue<Runnable> f;
-    private static final PriorityBlockingQueue<Runnable> g;
-    private static final ArrayBlockingQueue<Runnable> h;
-
-    static {
-        f7330b = (f7329a / 2) + 1 < 4 ? 4 : (f7329a / 2) + 1;
-        c = (f7329a / 2) + 1 < 4 ? 4 : (f7329a / 2) + 1;
-        d = (f7329a / 2) + 1 > 4 ? 4 : (f7329a / 2) + 1;
-        e = new PriorityBlockingQueue<>();
-        f = new PriorityBlockingQueue<>();
-        g = new PriorityBlockingQueue<>();
-        h = new ArrayBlockingQueue<>(4);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(String str, String str2, boolean z, int i) {
+        this.f4877a = str;
+        this.b = str2;
+        this.c = z;
+        this.d = i;
     }
 
-    public static ThreadPoolExecutor a() {
-        return new ThreadPoolExecutor(2, f7330b, 5L, TimeUnit.SECONDS, e, new d(5, "tt-api-thread-"), f());
+    public String a() {
+        return this.f4877a;
     }
 
-    public static ThreadPoolExecutor b() {
-        return new ThreadPoolExecutor(2, c, 5L, TimeUnit.SECONDS, f, new d(5, "tt-background-thread-"), f());
+    public String b() {
+        return this.b;
     }
 
-    public static ScheduledExecutorService c() {
-        return Executors.newSingleThreadScheduledExecutor(new d(1, "tt-delay-thread-"));
+    public boolean c() {
+        return this.c;
     }
 
-    public static ThreadPoolExecutor d() {
-        return new ThreadPoolExecutor(0, 2, 5L, TimeUnit.SECONDS, g, new d(5, "tt-aidl-thread-"), f());
+    public int d() {
+        return this.d;
     }
 
-    public static ThreadPoolExecutor e() {
-        return new ThreadPoolExecutor(2, 4, 10L, TimeUnit.SECONDS, h, new d(5, "tt-file-log-upload-thread-"), f());
-    }
-
-    public static RejectedExecutionHandler f() {
-        return new RejectedExecutionHandler() { // from class: com.bytedance.sdk.openadsdk.k.e.1
-            @Override // java.util.concurrent.RejectedExecutionHandler
-            public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
-            }
-        };
+    public void a(int i) {
+        this.d = i;
     }
 }

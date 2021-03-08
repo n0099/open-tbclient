@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f8244a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] f5486a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(File file) {
@@ -21,11 +21,11 @@ class p {
             }
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder(digest.length * 2);
-            for (byte b2 : digest) {
-                if ((b2 & 255) < 16) {
+            for (byte b : digest) {
+                if ((b & 255) < 16) {
                     sb.append("0");
                 }
-                sb.append(Integer.toHexString(b2 & 255));
+                sb.append(Integer.toHexString(b & 255));
             }
             return sb.toString();
         } catch (Exception e) {

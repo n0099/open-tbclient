@@ -4,11 +4,11 @@ import android.os.SystemClock;
 import com.baidu.a.a.a;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class MiniGzip {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1141a = MiniGzip.class.getSimpleName();
+    private static final String f1059a = MiniGzip.class.getSimpleName();
 
     static {
         System.loadLibrary("minigzip_v1");
@@ -20,12 +20,12 @@ public final class MiniGzip {
     public static void unGzipFile(String str, String str2) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (str == null || str2 == null || str.equals("") || str2.equals("")) {
-            LogUtil.logD(f1141a, "parameters invalid : srcFile=" + str + "//destFile=" + str2);
+            LogUtil.logD(f1059a, "parameters invalid : srcFile=" + str + "//destFile=" + str2);
         } else if (!new File(str).exists()) {
-            LogUtil.logD(f1141a, str + "  not exists.");
+            LogUtil.logD(f1059a, str + "  not exists.");
         } else if (new a(new File(str)).a()) {
             uncompressFile(str, str2);
-            LogUtil.logD(f1141a, "native ungzip use time : " + (SystemClock.elapsedRealtime() - elapsedRealtime));
+            LogUtil.logD(f1059a, "native ungzip use time : " + (SystemClock.elapsedRealtime() - elapsedRealtime));
         }
     }
 

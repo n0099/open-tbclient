@@ -5,15 +5,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public final class d extends h<Params, Result> {
-
-    /* renamed from: b  reason: collision with root package name */
-    private /* synthetic */ c f12782b;
+    private /* synthetic */ c b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar) {
         super((byte) 0);
-        this.f12782b = cVar;
+        this.b = cVar;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.Object, Result] */
@@ -21,10 +19,10 @@ public final class d extends h<Params, Result> {
     public final Result call() {
         AtomicBoolean atomicBoolean;
         ?? a2;
-        atomicBoolean = this.f12782b.g;
+        atomicBoolean = this.b.g;
         atomicBoolean.set(true);
         Process.setThreadPriority(10);
-        a2 = this.f12782b.a((c) this.f12782b.b(this.f12786a));
+        a2 = this.b.a((c) this.b.b(this.f7612a));
         return a2;
     }
 }

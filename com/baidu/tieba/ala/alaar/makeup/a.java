@@ -7,31 +7,31 @@ import androidx.annotation.MainThread;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class a<T> {
-    private List<InterfaceC0610a<T>> grL;
-    private Runnable grM;
-    private List<b> grK = new ArrayList();
+    private List<InterfaceC0616a<T>> gtu;
+    private Runnable gtv;
+    private List<b> gtt = new ArrayList();
     private Handler mHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.baidu.tieba.ala.alaar.makeup.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0610a<T> {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0616a<T> {
         void b(a<T> aVar);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface b<T> {
         @MainThread
         void c(a<T> aVar);
     }
 
-    protected abstract boolean bOX();
+    protected abstract boolean bPd();
 
-    protected abstract boolean bOY();
+    protected abstract boolean bPe();
 
     public void a(final b bVar) {
-        if (!bOX()) {
+        if (!bPd()) {
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -48,46 +48,46 @@ public abstract class a<T> {
         }
         synchronized (this) {
             if (bVar != null) {
-                this.grK.add(bVar);
+                this.gtt.add(bVar);
             }
-            if (this.grM == null) {
-                this.grM = new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.2
+            if (this.gtv == null) {
+                this.gtv = new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!a.this.bOY()) {
-                            a.this.bOZ();
+                        if (!a.this.bPe()) {
+                            a.this.bPf();
                         }
                     }
                 };
-                ThreadPool.acG().execute(this.grM);
+                ThreadPool.acJ().execute(this.gtv);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bOZ() {
-        this.grM = null;
+    public void bPf() {
+        this.gtv = null;
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.3
             @Override // java.lang.Runnable
             public void run() {
-                for (b bVar : a.this.grK) {
+                for (b bVar : a.this.gtt) {
                     bVar.c(a.this);
                 }
-                a.this.grK.clear();
+                a.this.gtt.clear();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bPa() {
-        if (this.grL != null && !this.grL.isEmpty()) {
+    public void bPg() {
+        if (this.gtu != null && !this.gtu.isEmpty()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.grL.size()) {
-                    InterfaceC0610a<T> interfaceC0610a = this.grL.get(i2);
-                    if (interfaceC0610a != null) {
-                        interfaceC0610a.b(this);
+                if (i2 < this.gtu.size()) {
+                    InterfaceC0616a<T> interfaceC0616a = this.gtu.get(i2);
+                    if (interfaceC0616a != null) {
+                        interfaceC0616a.b(this);
                     }
                     i = i2 + 1;
                 } else {

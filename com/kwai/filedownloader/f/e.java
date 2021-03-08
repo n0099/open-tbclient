@@ -8,10 +8,8 @@ import java.util.Properties;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f10931a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final long f10932b;
+    public final int f7213a;
+    public final long b;
     public final boolean c;
     public final boolean d;
     public final int e;
@@ -22,7 +20,7 @@ public class e {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final e f10933a = new e();
+        private static final e f7214a = new e();
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -63,7 +61,7 @@ public class e {
             } catch (IOException e2) {
                 if (!(e2 instanceof FileNotFoundException)) {
                     e2.printStackTrace();
-                } else if (d.f10930a) {
+                } else if (d.f7212a) {
                     d.c(e.class, "not found filedownloader.properties", new Object[0]);
                 }
                 if (inputStream != null) {
@@ -93,14 +91,14 @@ public class e {
                 this.d = "true".equals("true");
             }
             if (str3 != null) {
-                this.f10931a = Math.max(0, Integer.valueOf(str3).intValue());
+                this.f7213a = Math.max(0, Integer.valueOf(str3).intValue());
             } else {
-                this.f10931a = 65536;
+                this.f7213a = 65536;
             }
             if (str4 != null) {
-                this.f10932b = Math.max(0L, Long.valueOf(str4).longValue());
+                this.b = Math.max(0L, Long.valueOf(str4).longValue());
             } else {
-                this.f10932b = 2000L;
+                this.b = 2000L;
             }
             if (str5 != null) {
                 this.e = a(Integer.valueOf(str5).intValue());
@@ -121,8 +119,8 @@ public class e {
             } else {
                 this.g = str.equals("true");
             }
-            if (d.f10930a) {
-                d.b(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", Long.valueOf(System.currentTimeMillis() - currentTimeMillis), "http.lenient", Boolean.valueOf(this.c), "process.non-separate", Boolean.valueOf(this.d), "download.min-progress-step", Integer.valueOf(this.f10931a), "download.min-progress-time", Long.valueOf(this.f10932b), "download.max-network-thread-count", Integer.valueOf(this.e));
+            if (d.f7212a) {
+                d.b(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", Long.valueOf(System.currentTimeMillis() - currentTimeMillis), "http.lenient", Boolean.valueOf(this.c), "process.non-separate", Boolean.valueOf(this.d), "download.min-progress-step", Integer.valueOf(this.f7213a), "download.min-progress-time", Long.valueOf(this.b), "download.max-network-thread-count", Integer.valueOf(this.e));
             }
         } catch (Throwable th) {
             if (inputStream != null) {
@@ -149,6 +147,6 @@ public class e {
     }
 
     public static e a() {
-        return a.f10933a;
+        return a.f7214a;
     }
 }

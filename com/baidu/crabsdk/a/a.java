@@ -10,23 +10,23 @@ import java.util.Map;
 public final class a {
     public static int W = 2000;
     public static int X = 1;
-    static a aof = null;
+    static a apF = null;
     private long Y;
     private long Z;
     private long aa;
     private long ab;
-    private StringBuilder aod = new StringBuilder();
-    public ArrayList<String> aoe = new ArrayList<>();
+    private StringBuilder apD = new StringBuilder();
+    public ArrayList<String> apE = new ArrayList<>();
 
     private a() {
     }
 
     private String g() {
-        Iterator<String> it = this.aoe.iterator();
+        Iterator<String> it = this.apE.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.aod.append(next);
+            this.apD.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -45,14 +45,14 @@ public final class a {
     }
 
     public static a uh() {
-        if (aof == null) {
+        if (apF == null) {
             synchronized (a.class) {
-                if (aof == null) {
-                    aof = new a();
+                if (apF == null) {
+                    apF = new a();
                 }
             }
         }
-        return aof;
+        return apF;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
@@ -79,10 +79,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.aod.toString());
+        hashMap.put("errorTrace", this.apD.toString());
         hashMap.put("errorLine", g);
         hashMap.put("errorOriLine", g);
-        this.aod.setLength(0);
+        this.apD.setLength(0);
         return hashMap;
     }
 }

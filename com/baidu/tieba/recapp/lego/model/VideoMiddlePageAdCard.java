@@ -14,14 +14,14 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com.baidu.tieba.lego.card.view.i {
     private d adFacadeData;
     public boolean autoPlay;
     public AdCard.c operateData;
     public b.a parallelChargeInfo;
     public String tagName;
-    public AdCard.f tailFrame;
+    public AdCard.g tailFrame;
     public String threadTitle;
     public String userName;
     public String userPortrait;
@@ -58,15 +58,15 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com
             this.video = null;
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
-        this.tailFrame = new AdCard.f();
+        this.tailFrame = new AdCard.g();
         this.tailFrame.parseFromJson(optJSONObject2);
         JSONObject optJSONObject3 = jSONObject.optJSONObject("operate");
         this.operateData = new AdCard.c();
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.mTq)) {
-            this.operateData.mTq = this.userName;
+        if (TextUtils.isEmpty(this.operateData.mVv)) {
+            this.operateData.mVv = this.userName;
         }
     }
 

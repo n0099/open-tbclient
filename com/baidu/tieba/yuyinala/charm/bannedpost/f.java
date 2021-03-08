@@ -8,28 +8,28 @@ import com.baidu.live.adp.framework.listener.HttpMessageListener;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends BdBaseModel {
-    private a oqu;
-    private HttpMessageListener oqv = new HttpMessageListener(1031039) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.f.1
+    private a osA;
+    private HttpMessageListener osB = new HttpMessageListener(1031039) { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof CancelBlockSpeakHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == f.this.getUniqueId()) {
                 CancelBlockSpeakHttpResponseMessage cancelBlockSpeakHttpResponseMessage = (CancelBlockSpeakHttpResponseMessage) httpResponsedMessage;
                 if (httpResponsedMessage.getError() == 0) {
-                    if (f.this.oqu != null) {
-                        f.this.oqu.a(null);
+                    if (f.this.osA != null) {
+                        f.this.osA.a(null);
                     }
-                } else if (f.this.oqu != null) {
-                    f.this.oqu.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (f.this.osA != null) {
+                    f.this.osA.A(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     };
-    private BdUniqueId aCW = BdUniqueId.gen();
+    private BdUniqueId aEw = BdUniqueId.gen();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void A(int i, String str);
 
@@ -37,19 +37,19 @@ public class f extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oqu = aVar;
+        this.osA = aVar;
     }
 
     public f(Context context) {
-        setUniqueId(this.aCW);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031039, com.baidu.live.a.avJ + "ala/audio/live/blockIm");
+        setUniqueId(this.aEw);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031039, com.baidu.live.a.axj + "ala/audio/live/blockIm");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(CancelBlockSpeakHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.oqv);
+        MessageManager.getInstance().registerListener(this.osB);
     }
 
     public void l(String str, String str2, String str3, int i) {
@@ -58,7 +58,7 @@ public class f extends BdBaseModel {
         httpMessage.addParam("block_group_id", str2);
         httpMessage.addParam("block_user_uk", str3);
         httpMessage.addParam("block_type", i);
-        httpMessage.setTag(this.aCW);
+        httpMessage.setTag(this.aEw);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 

@@ -7,10 +7,8 @@ import java.io.InputStream;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private InputStream f13046a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f13047b;
+    private InputStream f7764a;
+    private boolean b;
     private int c;
 
     public d() {
@@ -21,15 +19,15 @@ public class d {
     }
 
     public final void b(InputStream inputStream, boolean z) {
-        this.f13046a = inputStream;
-        this.f13047b = z;
+        this.f7764a = inputStream;
+        this.b = z;
         this.c = 0;
     }
 
     public final void a() {
-        if (this.f13046a != null) {
+        if (this.f7764a != null) {
             try {
-                this.f13046a.close();
+                this.f7764a.close();
             } catch (IOException e) {
             }
             b(null, false);
@@ -43,10 +41,10 @@ public class d {
     public final int a(int i) throws IOException {
         int i2;
         if (i >= 0 && i <= 4) {
-            if (this.f13047b) {
+            if (this.b) {
                 i2 = 0;
                 for (int i3 = (i - 1) * 8; i3 >= 0; i3 -= 8) {
-                    int read = this.f13046a.read();
+                    int read = this.f7764a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
@@ -57,7 +55,7 @@ public class d {
                 int i4 = i * 8;
                 i2 = 0;
                 for (int i5 = 0; i5 != i4; i5 += 8) {
-                    int read2 = this.f13046a.read();
+                    int read2 = this.f7764a.read();
                     if (read2 == -1) {
                         throw new EOFException();
                     }
@@ -86,7 +84,7 @@ public class d {
 
     public final void c(int i) throws IOException {
         if (i > 0) {
-            long skip = this.f13046a.skip(i);
+            long skip = this.f7764a.skip(i);
             this.c = (int) (this.c + skip);
             if (skip != i) {
                 throw new EOFException();

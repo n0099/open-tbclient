@@ -16,14 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class NativeExpressADView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private NEADVI f11479a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f11480b;
+    private NEADVI f7522a;
+    private boolean b;
     private volatile boolean c;
     private volatile boolean d;
     private NativeExpressMediaListener e;
@@ -32,7 +30,7 @@ public class NativeExpressADView extends FrameLayout {
     private volatile boolean g;
     private ViewBindStatusListener h;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public interface ViewBindStatusListener {
         void onAttachedToWindow();
 
@@ -45,7 +43,7 @@ public class NativeExpressADView extends FrameLayout {
 
     public NativeExpressADView(final NEADI neadi, final Context context, final ADSize aDSize, final String str, final String str2, final JSONObject jSONObject, final HashMap<String, JSONObject> hashMap) {
         super(context);
-        this.f11480b = false;
+        this.b = false;
         this.c = false;
         this.d = false;
         this.ext = new HashMap();
@@ -65,8 +63,8 @@ public class NativeExpressADView extends FrameLayout {
                         public void run() {
                             try {
                                 if (pOFactory != null) {
-                                    NativeExpressADView.this.f11479a = pOFactory.getNativeExpressADView(neadi, context, NativeExpressADView.this, aDSize, str, str2, jSONObject, hashMap);
-                                    NativeExpressADView.this.f11480b = true;
+                                    NativeExpressADView.this.f7522a = pOFactory.getNativeExpressADView(neadi, context, NativeExpressADView.this, aDSize, str, str2, jSONObject, hashMap);
+                                    NativeExpressADView.this.b = true;
                                     if (NativeExpressADView.this.e != null) {
                                         NativeExpressADView.this.setMediaListener(NativeExpressADView.this.e);
                                     }
@@ -84,7 +82,7 @@ public class NativeExpressADView extends FrameLayout {
                                 try {
                                     GDTLogger.e("Exception while init Native Express AD View Core", th);
                                 } finally {
-                                    NativeExpressADView.this.f11480b = true;
+                                    NativeExpressADView.this.b = true;
                                 }
                             }
                         }
@@ -116,8 +114,8 @@ public class NativeExpressADView extends FrameLayout {
     }
 
     public void destroy() {
-        if (this.f11479a != null) {
-            this.f11479a.destroy();
+        if (this.f7522a != null) {
+            this.f7522a.destroy();
         }
     }
 
@@ -126,12 +124,12 @@ public class NativeExpressADView extends FrameLayout {
     }
 
     public void negativeFeedback() {
-        if (!this.f11480b) {
+        if (!this.b) {
             this.g = true;
-        } else if (this.f11479a == null) {
+        } else if (this.f7522a == null) {
             GDTLogger.e("Native Express negativeFeedback  core is null");
         } else {
-            this.f11479a.reportAdNegative();
+            this.f7522a.reportAdNegative();
             this.g = false;
         }
     }
@@ -169,37 +167,37 @@ public class NativeExpressADView extends FrameLayout {
     }
 
     public void preloadVideo() {
-        if (!this.f11480b) {
+        if (!this.b) {
             this.c = true;
-        } else if (this.f11479a != null) {
-            this.f11479a.preloadVideo();
+        } else if (this.f7522a != null) {
+            this.f7522a.preloadVideo();
         } else {
             GDTLogger.e("Native Express AD View Init Error");
         }
     }
 
     public void render() {
-        if (!this.f11480b) {
+        if (!this.b) {
             this.d = true;
-        } else if (this.f11479a != null) {
-            this.f11479a.render();
+        } else if (this.f7522a != null) {
+            this.f7522a.render();
         } else {
             GDTLogger.e("Native Express AD View Init Error");
         }
     }
 
     public void setAdSize(ADSize aDSize) {
-        if (this.f11479a != null) {
-            this.f11479a.setAdSize(aDSize);
+        if (this.f7522a != null) {
+            this.f7522a.setAdSize(aDSize);
         }
     }
 
     public void setMediaListener(NativeExpressMediaListener nativeExpressMediaListener) {
         this.e = nativeExpressMediaListener;
-        if (this.f11479a == null || nativeExpressMediaListener == null) {
+        if (this.f7522a == null || nativeExpressMediaListener == null) {
             return;
         }
-        this.f11479a.setAdListener(new NativeExpressAD.ADListenerAdapter(nativeExpressMediaListener));
+        this.f7522a.setAdListener(new NativeExpressAD.ADListenerAdapter(nativeExpressMediaListener));
     }
 
     public void setViewBindStatusListener(ViewBindStatusListener viewBindStatusListener) {

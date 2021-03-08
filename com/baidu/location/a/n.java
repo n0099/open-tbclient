@@ -12,10 +12,8 @@ import java.util.List;
 public class n implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2572a = new Object();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static n f2573b = null;
+    private static Object f1930a = new Object();
+    private static n b = null;
     private float[] c;
     private int d = 0;
     private List<Float> e = new ArrayList();
@@ -40,11 +38,11 @@ public class n implements SensorEventListener {
 
     public static n a() {
         n nVar;
-        synchronized (f2572a) {
-            if (f2573b == null) {
-                f2573b = new n();
+        synchronized (f1930a) {
+            if (b == null) {
+                b = new n();
             }
-            nVar = f2573b;
+            nVar = b;
         }
         return nVar;
     }

@@ -6,26 +6,26 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.homepage.personalize.data.f;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.card.a<com.baidu.tbadk.core.data.a> {
-    private HomePageAlaRecommendLayout kmy;
+    private HomePageAlaRecommendLayout koA;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity());
         this.mSkinType = 3;
-        this.kmy = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
+        this.koA = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.kmy;
+        return this.koA;
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.kmy.onChangeSkinType(i);
-            g(this.kmy, 3);
+            this.koA.onChangeSkinType(i);
+            g(this.koA, 3);
         }
         this.mSkinType = i;
     }
@@ -37,7 +37,7 @@ public class a extends com.baidu.card.a<com.baidu.tbadk.core.data.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.kmy.setData((f) aVar);
+    public void E(com.baidu.tbadk.core.data.a aVar) {
+        this.koA.setData((f) aVar);
     }
 }

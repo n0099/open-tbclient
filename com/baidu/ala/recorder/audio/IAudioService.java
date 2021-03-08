@@ -2,7 +2,7 @@ package com.baidu.ala.recorder.audio;
 
 import android.content.Context;
 import com.baidu.ala.ndk.AlaAudioFrame;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface IAudioService {
     public static final int BUFFER_LENGTH = 2048;
     public static final int ERROR_CLOSE_AEC_RECORDER = 202;
@@ -18,7 +18,7 @@ public interface IAudioService {
     public static final int TYPE_OSL = 3;
     public static final int TYPE_STD = 1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface FrameCallback {
         public static final int AUDIO_TYPE_MSG_ID = 1001;
         public static final int CHECK_AUDIO_MSG_ID = 1000;

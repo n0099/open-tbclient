@@ -35,14 +35,14 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onAttachedToEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        p.o(flutterPluginBinding, "binding");
+        p.p(flutterPluginBinding, "binding");
         new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "progresshud").setMethodCallHandler(new ProgresshudPlugin());
         ProgresshudPluginKt.setMaskType(SVProgressHUD.SVProgressHUDMaskType.None);
     }
 
     @Override // io.flutter.embedding.engine.plugins.FlutterPlugin
     public void onDetachedFromEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        p.o(flutterPluginBinding, "binding");
+        p.p(flutterPluginBinding, "binding");
         throw new NotImplementedError("An operation is not implemented: not implemented");
     }
 
@@ -57,17 +57,17 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
         Activity activity3;
         Activity activity4;
         Activity activity5;
-        p.o(methodCall, NotificationCompat.CATEGORY_CALL);
-        p.o(result, "result");
+        p.p(methodCall, NotificationCompat.CATEGORY_CALL);
+        p.p(result, "result");
         activity = ProgresshudPluginKt.mCurrentActivity;
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        p.n(inst, "TbadkCoreApplication.getInst()");
+        p.o(inst, "TbadkCoreApplication.getInst()");
         if (!p.l(activity, inst.getCurrentActivity())) {
             TbadkCoreApplication inst2 = TbadkCoreApplication.getInst();
-            p.n(inst2, "TbadkCoreApplication.getInst()");
+            p.o(inst2, "TbadkCoreApplication.getInst()");
             ProgresshudPluginKt.mCurrentActivity = inst2.getCurrentActivity();
             TbadkCoreApplication inst3 = TbadkCoreApplication.getInst();
-            p.n(inst3, "TbadkCoreApplication.getInst()");
+            p.o(inst3, "TbadkCoreApplication.getInst()");
             ProgresshudPluginKt.setDialog(new SVProgressHUD(inst3.getCurrentActivity()));
         }
         if (p.l(methodCall.method, "getPlatformVersion")) {
@@ -81,13 +81,13 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
                 boolean l = p.l((String) methodCall.argument("isSvg"), "1");
                 String androidNameFromIos = getAndroidNameFromIos(valueOf);
                 h kD = h.kD();
-                p.n(kD, "BdResources.getInstance()");
+                p.o(kD, "BdResources.getInstance()");
                 Resources resources = kD.getResources();
                 BdBaseApplication inst4 = BdBaseApplication.getInst();
-                p.n(inst4, "BdBaseApplication.getInst()");
+                p.o(inst4, "BdBaseApplication.getInst()");
                 int identifier = resources.getIdentifier(androidNameFromIos, "drawable", inst4.getPackageName());
                 activity5 = ProgresshudPluginKt.mCurrentActivity;
-                BdToast.b(activity5, valueOf2, identifier, l).bqD();
+                BdToast.b(activity5, valueOf2, identifier, l).bqF();
             }
         } else if (p.l(methodCall.method, "showWithStatus")) {
             ProgresshudPluginKt.getDialog().showWithStatus(methodCall.arguments.toString(), ProgresshudPluginKt.getMaskType());
@@ -103,7 +103,7 @@ public final class ProgresshudPlugin implements FlutterPlugin, MethodChannel.Met
             String str = (String) methodCall.argument("status");
             Object argument = methodCall.argument("time");
             if (argument == null) {
-                p.eLu();
+                p.eLc();
             }
             double doubleValue = ((Number) argument).doubleValue();
             activity2 = ProgresshudPluginKt.mCurrentActivity;

@@ -3,7 +3,7 @@ package com.baidu.tbadk.s;
 public interface b {
     void ay(String str, boolean z);
 
-    void bER();
+    void bEV();
 
     void g(String str, boolean z, boolean z2);
 

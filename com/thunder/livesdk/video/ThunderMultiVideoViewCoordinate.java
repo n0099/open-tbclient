@@ -1,5 +1,5 @@
 package com.thunder.livesdk.video;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderMultiVideoViewCoordinate {
     public int mIndex = 0;
     public int mX = 0;

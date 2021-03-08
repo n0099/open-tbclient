@@ -5,28 +5,26 @@ import com.baidu.mapapi.search.district.OnGetDistricSearchResultListener;
 import com.baidu.platform.base.SearchType;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.platform.base.a implements e {
-
-    /* renamed from: b  reason: collision with root package name */
-    private OnGetDistricSearchResultListener f4485b = null;
+    private OnGetDistricSearchResultListener b = null;
 
     @Override // com.baidu.platform.core.a.e
     public void a() {
-        this.f4136a.lock();
-        this.f4485b = null;
-        this.f4136a.unlock();
+        this.f2863a.lock();
+        this.b = null;
+        this.f2863a.unlock();
     }
 
     @Override // com.baidu.platform.core.a.e
     public void a(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
-        this.f4136a.lock();
-        this.f4485b = onGetDistricSearchResultListener;
-        this.f4136a.unlock();
+        this.f2863a.lock();
+        this.b = onGetDistricSearchResultListener;
+        this.f2863a.unlock();
     }
 
     @Override // com.baidu.platform.core.a.e
     public boolean a(DistrictSearchOption districtSearchOption) {
         b bVar = new b();
         bVar.a(SearchType.DISTRICT_SEARCH);
-        return a(new a(districtSearchOption), this.f4485b, bVar);
+        return a(new a(districtSearchOption), this.b, bVar);
     }
 }

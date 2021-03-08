@@ -8,38 +8,38 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.au;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FaceBuyModel extends BdBaseModel {
-    private b iUS;
-    private a iUT;
-    private int iUU;
+    private b iWB;
+    private a iWC;
+    private int iWD;
 
     public FaceBuyModel(Context context) {
         super(null);
-        this.iUU = 3;
-        this.iUS = null;
-        this.iUT = null;
+        this.iWD = 3;
+        this.iWB = null;
+        this.iWC = null;
     }
 
-    public void JI(String str) {
-        if (this.iUS == null) {
-            this.iUS = new b();
-            this.iUS.setPriority(3);
-            this.iUS.execute(str);
+    public void JR(String str) {
+        if (this.iWB == null) {
+            this.iWB = new b();
+            this.iWB.setPriority(3);
+            this.iWB.execute(str);
         }
     }
 
-    public void JJ(String str) {
-        if (this.iUT == null) {
-            this.iUT = new a();
-            this.iUT.setPriority(3);
-            this.iUT.execute(str);
+    public void JS(String str) {
+        if (this.iWC == null) {
+            this.iWC = new a();
+            this.iWC.setPriority(3);
+            this.iWC.execute(str);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class b extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
-        private com.baidu.tbadk.core.util.aa cml;
+        private com.baidu.tbadk.core.util.aa cnM;
 
         private b() {
         }
@@ -47,13 +47,13 @@ public class FaceBuyModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: u */
+        /* renamed from: t */
         public FaceBuyData doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
             try {
-                this.cml = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
-                this.cml.addPostData("pid", obj);
-                return (FaceBuyData) OrmObject.objectWithJsonStr(this.cml.postNetData(), FaceBuyData.class);
+                this.cnM = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
+                this.cnM.addPostData("pid", obj);
+                return (FaceBuyData) OrmObject.objectWithJsonStr(this.cnM.postNetData(), FaceBuyData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
@@ -63,10 +63,10 @@ public class FaceBuyModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cml != null) {
-                this.cml.cancelNetConnect();
+            if (this.cnM != null) {
+                this.cnM.cancelNetConnect();
             }
-            FaceBuyModel.this.iUS = null;
+            FaceBuyModel.this.iWB = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(null);
         }
 
@@ -76,14 +76,14 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: a */
         public void onPostExecute(FaceBuyData faceBuyData) {
             super.onPostExecute(faceBuyData);
-            FaceBuyModel.this.iUS = null;
+            FaceBuyModel.this.iWB = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyData);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class a extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
-        private com.baidu.tbadk.core.util.aa cml;
+        private com.baidu.tbadk.core.util.aa cnM;
         private volatile boolean mCanceled;
 
         private a() {
@@ -93,16 +93,16 @@ public class FaceBuyModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: t */
+        /* renamed from: s */
         public FaceBuyQueryData doInBackground(Object... objArr) {
             int i = 0;
             FaceBuyQueryData faceBuyQueryData = null;
             String obj = objArr[0].toString();
             if (!au.isEmpty(obj)) {
-                this.cml = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
-                this.cml.addPostData("order_id", obj);
-                while (!this.mCanceled && i < FaceBuyModel.this.iUU) {
-                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.cml.postNetData(), FaceBuyQueryData.class);
+                this.cnM = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
+                this.cnM.addPostData("order_id", obj);
+                while (!this.mCanceled && i < FaceBuyModel.this.iWD) {
+                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.cnM.postNetData(), FaceBuyQueryData.class);
                     if (faceBuyQueryData != null && faceBuyQueryData.buy_result != null) {
                         if (faceBuyQueryData.buy_result.status == 2) {
                             break;
@@ -132,7 +132,7 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: a */
         public void onPostExecute(FaceBuyQueryData faceBuyQueryData) {
             super.onPostExecute(faceBuyQueryData);
-            FaceBuyModel.this.iUT = null;
+            FaceBuyModel.this.iWC = null;
             this.mCanceled = true;
             FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyQueryData);
         }
@@ -140,10 +140,10 @@ public class FaceBuyModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cml != null) {
-                this.cml.cancelNetConnect();
+            if (this.cnM != null) {
+                this.cnM.cancelNetConnect();
             }
-            FaceBuyModel.this.iUT = null;
+            FaceBuyModel.this.iWC = null;
             FaceBuyModel.this.mLoadDataCallBack.callback(null);
         }
     }
@@ -155,8 +155,8 @@ public class FaceBuyModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iUS != null) {
-            this.iUS.cancel();
+        if (this.iWB != null) {
+            this.iWB.cancel();
             return true;
         }
         return true;

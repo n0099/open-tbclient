@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoFileRecordFilter extends AbstractYYMediaFilter implements Runnable {
     private static final int MSG_FRAME_AVAIL = 1;
     private static final int MSG_QUIT = 2;
@@ -168,7 +168,7 @@ public class VideoFileRecordFilter extends AbstractYYMediaFilter implements Runn
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class OutputStreamHandler extends Handler {
         private WeakReference<VideoFileRecordFilter> mWeakRecorder;
 

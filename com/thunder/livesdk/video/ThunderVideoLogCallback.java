@@ -2,10 +2,10 @@ package com.thunder.livesdk.video;
 
 import com.thunder.livesdk.log.ThunderLog;
 import com.yy.mediaframework.utils.ILog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderVideoLogCallback implements ILog, com.yy.videoplayer.utils.ILog {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class SingletonHolder {
         private static final ThunderVideoLogCallback INSTANCE = new ThunderVideoLogCallback();
 

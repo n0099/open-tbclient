@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseData {
-    public List<C0914a> aGx;
+    public List<C0920a> aHX;
 
     /* renamed from: com.baidu.tieba.yuyinala.charm.bannedpost.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C0914a {
+    /* loaded from: classes10.dex */
+    public static class C0920a {
         public String bd_portrait;
         public String uk;
         public String user_name;
@@ -31,15 +31,15 @@ public class a extends BaseData {
                 jSONArray = optJSONObject.optJSONArray("ban_forever_list");
             }
             if (jSONArray != null) {
-                this.aGx = new ArrayList();
+                this.aHX = new ArrayList();
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject2 = jSONArray.optJSONObject(i);
-                    C0914a c0914a = new C0914a();
-                    c0914a.user_name = optJSONObject2.optString("user_name");
-                    c0914a.user_nickname = optJSONObject2.optString("user_nickname");
-                    c0914a.bd_portrait = optJSONObject2.optString("bd_portrait");
-                    c0914a.uk = optJSONObject2.optString("uk");
-                    this.aGx.add(c0914a);
+                    C0920a c0920a = new C0920a();
+                    c0920a.user_name = optJSONObject2.optString("user_name");
+                    c0920a.user_nickname = optJSONObject2.optString("user_nickname");
+                    c0920a.bd_portrait = optJSONObject2.optString("bd_portrait");
+                    c0920a.uk = optJSONObject2.optString("uk");
+                    this.aHX.add(c0920a);
                 }
             }
         }

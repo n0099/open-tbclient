@@ -4,15 +4,15 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class cy extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f5514a;
+    final /* synthetic */ FeedbackInputActivity f3725a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cy(FeedbackInputActivity feedbackInputActivity) {
-        this.f5514a = feedbackInputActivity;
+        this.f3725a = feedbackInputActivity;
     }
 
     private static Integer a() {
@@ -33,17 +33,17 @@ public final class cy extends AsyncTask {
     @Override // android.os.AsyncTask
     protected final /* synthetic */ void onPostExecute(Object obj) {
         boolean z;
-        z = this.f5514a.aD;
+        z = this.f3725a.aD;
         if (z) {
-            Intent intent = new Intent(this.f5514a, FeedbackListActivity.class);
+            Intent intent = new Intent(this.f3725a, FeedbackListActivity.class);
             intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
             intent.putExtra("backPress", true);
-            this.f5514a.startActivity(intent);
+            this.f3725a.startActivity(intent);
         }
-        this.f5514a.finish();
+        this.f3725a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f5514a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f5514a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f5514a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f3725a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f3725a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f3725a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception e) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }
@@ -51,10 +51,10 @@ public final class cy extends AsyncTask {
 
     @Override // android.os.AsyncTask
     protected final void onPreExecute() {
-        if (this.f5514a.getCurrentFocus() == null || this.f5514a.getCurrentFocus().getWindowToken() == null) {
+        if (this.f3725a.getCurrentFocus() == null || this.f3725a.getCurrentFocus().getWindowToken() == null) {
             return;
         }
-        ((InputMethodManager) this.f5514a.getSystemService("input_method")).hideSoftInputFromWindow(this.f5514a.getCurrentFocus().getWindowToken(), 2);
+        ((InputMethodManager) this.f3725a.getSystemService("input_method")).hideSoftInputFromWindow(this.f3725a.getCurrentFocus().getWindowToken(), 2);
     }
 
     @Override // android.os.AsyncTask

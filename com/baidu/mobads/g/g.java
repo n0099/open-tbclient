@@ -25,14 +25,12 @@ import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.jar.JarFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static Thread.UncaughtExceptionHandler f3345a;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected static volatile com.baidu.mobads.g.a f3346b = null;
+    protected static Thread.UncaughtExceptionHandler f2390a;
+    protected static volatile com.baidu.mobads.g.a b = null;
     protected static volatile com.baidu.mobads.g.a c = null;
     protected static volatile Class d = null;
     protected static String e = null;
@@ -48,7 +46,7 @@ public class g {
     @SuppressLint({"HandlerLeak"})
     protected final Handler h = new i(this, Looper.getMainLooper());
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(boolean z);
     }
@@ -83,12 +81,12 @@ public class g {
         }
         this.l = context;
         c(context);
-        if (f3345a == null) {
-            f3345a = q.a(context);
+        if (f2390a == null) {
+            f2390a = q.a(context);
             q.a(context).a(new j(this));
         }
         if (!(Thread.getDefaultUncaughtExceptionHandler() instanceof q)) {
-            Thread.setDefaultUncaughtExceptionHandler(f3345a);
+            Thread.setDefaultUncaughtExceptionHandler(f2390a);
         }
     }
 
@@ -111,9 +109,9 @@ public class g {
     /* JADX INFO: Access modifiers changed from: protected */
     @TargetApi(9)
     public void a(String str) {
-        if (f3346b != null) {
+        if (b != null) {
             SharedPreferences.Editor edit = k().edit();
-            edit.putFloat("__badApkVersion__8.8451", (float) f3346b.f3336a);
+            edit.putFloat("__badApkVersion__8.8451", (float) b.f2385a);
             if (Build.VERSION.SDK_INT >= 9) {
                 edit.apply();
             } else {
@@ -186,7 +184,7 @@ public class g {
 
     private void b(com.baidu.mobads.g.b bVar) {
         this.m.d("XAdApkLoader", "len=" + bVar.length() + ", path=" + bVar.getAbsolutePath());
-        if (f3346b == null) {
+        if (b == null) {
             String a2 = a(this.l);
             com.baidu.mobads.g.b bVar2 = new com.baidu.mobads.g.b(a2, this.l);
             if (bVar2.exists()) {
@@ -197,17 +195,17 @@ public class g {
             } catch (Exception e2) {
                 this.m.e(e2);
             }
-            f3346b = new com.baidu.mobads.g.a(bVar2.b(), this.l, XAdSDKProxyVersion.getVersion(), XAdSDKProxyVersion.DEBUG);
+            b = new com.baidu.mobads.g.a(bVar2.b(), this.l, XAdSDKProxyVersion.getVersion(), XAdSDKProxyVersion.DEBUG);
             try {
-                this.m.d("XAdApkLoader", "preloaded apk.version=" + f3346b.a().getRemoteVersion());
+                this.m.d("XAdApkLoader", "preloaded apk.version=" + b.a().getRemoteVersion());
                 return;
             } catch (a e3) {
-                this.m.d("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + f3346b.f3336a);
+                this.m.d("XAdApkLoader", "preload local apk " + bVar.getAbsolutePath() + " failed, msg:" + e3.getMessage() + ", v=" + b.f2385a);
                 a(e3.getMessage());
                 throw e3;
             }
         }
-        this.m.d("XAdApkLoader", "mApkBuilder already initialized, version: " + f3346b.f3336a);
+        this.m.d("XAdApkLoader", "mApkBuilder already initialized, version: " + b.f2385a);
     }
 
     private boolean c(com.baidu.mobads.g.b bVar) {
@@ -250,7 +248,7 @@ public class g {
     public void c(boolean z) {
         try {
             IXAdURIUitls uRIUitls = XAdSDKFoundationFacade.getInstance().getURIUitls();
-            double d2 = z ? f3346b.f3336a : 0.0d;
+            double d2 = z ? b.f2385a : 0.0d;
             if (z) {
             }
             m mVar = new m(this, d2);
@@ -370,7 +368,7 @@ public class g {
             this.o.add(cVar);
         }
         this.g = handler;
-        if (f3346b == null) {
+        if (b == null) {
             g();
         } else {
             b(true);
@@ -387,7 +385,7 @@ public class g {
     }
 
     public IXAdContainerFactory h() {
-        return a(f3346b);
+        return a(b);
     }
 
     private IXAdContainerFactory a(com.baidu.mobads.g.a aVar) {
@@ -402,13 +400,13 @@ public class g {
     }
 
     protected void i() {
-        if (f3346b != null) {
-            f3346b.b();
-            f3346b = null;
+        if (b != null) {
+            b.b();
+            b = null;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a extends Exception {
         public a(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);
@@ -416,7 +414,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends Exception {
         public b(String str) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(str);

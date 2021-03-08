@@ -2,7 +2,7 @@ package com.baidu.mobads.nativecpu;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public enum CPUDataType {
     NEWS("news", 0),
     IMAGE("image", 1),
@@ -16,28 +16,26 @@ public enum CPUDataType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    String f3399a;
-
-    /* renamed from: b  reason: collision with root package name */
-    int f3400b;
+    String f2424a;
+    int b;
 
     CPUDataType(String str, int i) {
-        this.f3399a = str;
-        this.f3400b = i;
+        this.f2424a = str;
+        this.b = i;
     }
 
     public String getName() {
-        return this.f3399a;
+        return this.f2424a;
     }
 
     public int getValue() {
-        return this.f3400b;
+        return this.b;
     }
 
     public static CPUDataType parseType(String str) {
         CPUDataType[] values;
         for (CPUDataType cPUDataType : values()) {
-            if (cPUDataType != null && TextUtils.isEmpty(cPUDataType.f3399a) && cPUDataType.f3399a.equals(str)) {
+            if (cPUDataType != null && TextUtils.isEmpty(cPUDataType.f2424a) && cPUDataType.f2424a.equals(str)) {
                 return cPUDataType;
             }
         }

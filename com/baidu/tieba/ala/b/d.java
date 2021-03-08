@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class d {
-    public File gMj = null;
+    public File gNS = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -19,36 +19,36 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return acc() != null && acc().exists();
+        return acf() != null && acf().exists();
     }
 
-    public void bSZ() {
-        File file = new File(ace());
+    public void bTf() {
+        File file = new File(ach());
         if (file != null) {
             com.baidu.tieba.ala.b.b.a.deleteDir(file);
         }
-        this.gMj = null;
-        ace();
-        acc();
+        this.gNS = null;
+        ach();
+        acf();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File acc() {
-        if (this.gMj == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.gMj = new File(ace(), getName());
+    public File acf() {
+        if (this.gNS == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.gNS = new File(ach(), getName());
         }
-        return this.gMj;
+        return this.gNS;
     }
 
     public String getFilePath() {
-        return acc().getAbsolutePath();
+        return acf().getAbsolutePath();
     }
 
-    public String ace() {
-        return TextUtils.equals(this.mType, "so") ? c.bSX().getAbsolutePath() : c.bSY().getAbsolutePath();
+    public String ach() {
+        return TextUtils.equals(this.mType, "so") ? c.bTd().getAbsolutePath() : c.bTe().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -75,25 +75,25 @@ public class d {
                 }
             }
             com.baidu.tieba.ala.b.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(acc());
-            if (isLoaded() && bTa()) {
+            file2.renameTo(acf());
+            if (isLoaded() && bTg()) {
                 z = true;
             }
             if (!z) {
-                com.baidu.tieba.ala.b.b.a.deleteDir(acc());
+                com.baidu.tieba.ala.b.b.a.deleteDir(acf());
             }
             com.baidu.tieba.ala.b.b.a.deleteFile(str);
         } catch (Exception e2) {
             e2.printStackTrace();
-            com.baidu.tieba.ala.b.b.a.deleteDir(acc());
+            com.baidu.tieba.ala.b.b.a.deleteDir(acf());
         }
         return z;
     }
 
-    public boolean bTa() {
+    public boolean bTg() {
         JSONArray optJSONArray;
         try {
-            File file = new File(acc(), "files.json");
+            File file = new File(acf(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }
@@ -109,7 +109,7 @@ public class d {
             ArrayList<a> arrayList = new ArrayList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.Gc(optJSONArray.getString(i)));
+                arrayList.add(a.Gl(optJSONArray.getString(i)));
             }
             return U(arrayList);
         } catch (Exception e) {
@@ -160,13 +160,13 @@ public class d {
         return dVar;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public String mMd5;
         public String mName;
         public String mPath;
 
-        public static a Gc(String str) {
+        public static a Gl(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

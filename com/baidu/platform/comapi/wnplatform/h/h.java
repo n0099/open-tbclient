@@ -8,11 +8,11 @@ import java.text.DecimalFormat;
 public class h implements com.baidu.platform.comapi.wnplatform.j.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f4419a;
+    final /* synthetic */ f f3059a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.f4419a = fVar;
+        this.f3059a = fVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.j.b
@@ -23,7 +23,7 @@ public class h implements com.baidu.platform.comapi.wnplatform.j.b {
         new DecimalFormat("######0.00");
         double d = aVar.d;
         double h = com.baidu.platform.comapi.walknavi.b.a().G().h();
-        com.baidu.platform.comapi.walknavi.b.a().D().a(aVar.f4440a, aVar.f4441b, aVar.c, d, aVar.e, aVar.f);
+        com.baidu.platform.comapi.walknavi.b.a().D().a(aVar.f3072a, aVar.b, aVar.c, d, aVar.e, aVar.f);
         if (com.baidu.platform.comapi.walknavi.b.a().G().j() != null) {
             double d2 = aVar.d - h;
             com.baidu.platform.comapi.walknavi.d.e c = com.baidu.platform.comapi.walknavi.d.e.c();

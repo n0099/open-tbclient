@@ -13,17 +13,15 @@ import java.util.zip.InflaterInputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f10501a = a("IHDR");
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f10502b = a("PLTE");
+    public static final byte[] f6920a = a("IHDR");
+    public static final byte[] b = a("PLTE");
     public static final byte[] c = a("IDAT");
     public static final byte[] d = a("IEND");
     private static byte[] f = new byte[4096];
     public static Pattern e = Pattern.compile("[a-zA-Z][a-zA-Z][A-Z][a-zA-Z]");
 
     public static String a(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.f10518a);
+        return new String(bArr, com.kwad.sdk.pngencrypt.n.f6930a);
     }
 
     public static String a(byte[] bArr, int i) {
@@ -31,7 +29,7 @@ public class b {
     }
 
     public static String a(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f10518a);
+        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f6930a);
     }
 
     public static List<PngChunk> a(List<PngChunk> list, c cVar) {
@@ -56,7 +54,7 @@ public class b {
     }
 
     public static byte[] a(String str) {
-        return str.getBytes(com.kwad.sdk.pngencrypt.n.f10518a);
+        return str.getBytes(com.kwad.sdk.pngencrypt.n.f6930a);
     }
 
     public static byte[] a(byte[] bArr, int i, int i2, boolean z) {
@@ -76,11 +74,11 @@ public class b {
     }
 
     public static String b(byte[] bArr) {
-        return new String(bArr, com.kwad.sdk.pngencrypt.n.f10519b);
+        return new String(bArr, com.kwad.sdk.pngencrypt.n.b);
     }
 
     public static String b(byte[] bArr, int i, int i2) {
-        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.f10519b);
+        return new String(bArr, i, i2, com.kwad.sdk.pngencrypt.n.b);
     }
 
     public static boolean b(String str) {

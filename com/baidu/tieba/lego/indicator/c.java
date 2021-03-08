@@ -18,27 +18,27 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.c.e;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
     private boolean isShow = false;
-    private Animation kyM;
-    private Animation kyN;
-    private ViewGroup kyR;
-    private a lgg;
-    private b lgh;
+    private Animation kAO;
+    private Animation kAP;
+    private ViewGroup kAT;
+    private a lii;
+    private b lij;
     private View rootView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void cTG();
+        void cTN();
     }
 
     public c(ViewGroup viewGroup) {
-        this.kyR = viewGroup;
+        this.kAT = viewGroup;
     }
 
     public void a(a aVar) {
-        this.lgg = aVar;
+        this.lii = aVar;
     }
 
     public boolean isShowing() {
@@ -49,15 +49,15 @@ public class c {
         if (!this.isShow) {
             this.isShow = true;
             this.rootView = b(context, list, i);
-            this.kyR.addView(this.rootView);
+            this.kAT.addView(this.rootView);
             ap.setBackgroundColor(this.rootView, R.color.CAM_X0111);
-            this.rootView.startAnimation(go(context));
+            this.rootView.startAnimation(gn(context));
         }
     }
 
-    public void gn(Context context) {
+    public void gm(Context context) {
         if (this.rootView != null) {
-            this.rootView.startAnimation(gp(context));
+            this.rootView.startAnimation(go(context));
         }
     }
 
@@ -65,49 +65,49 @@ public class c {
         View inflate = LayoutInflater.from(context).inflate(R.layout.lego_scroll_fragment_more, (ViewGroup) null);
         GridView gridView = (GridView) inflate.findViewById(R.id.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
-        this.lgh = new b(context, i);
-        this.lgh.setTagList(list);
-        gridView.setAdapter((ListAdapter) this.lgh);
+        this.lij = new b(context, i);
+        this.lij.setTagList(list);
+        gridView.setAdapter((ListAdapter) this.lij);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.lego.indicator.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                e item = c.this.lgh.getItem(i2);
+                e item = c.this.lij.getItem(i2);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEGO_SWITCH_TAB_FROM_POP_WINDOW));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEGO_SWITCH_TAB, item));
-                c.this.gn(context);
+                c.this.gm(context);
             }
         });
         return inflate;
     }
 
-    private Animation go(Context context) {
-        if (this.kyM == null) {
-            this.kyM = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
+    private Animation gn(Context context) {
+        if (this.kAO == null) {
+            this.kAO = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
         }
-        return this.kyM;
+        return this.kAO;
     }
 
-    private Animation gp(Context context) {
-        if (this.kyN == null) {
-            this.kyN = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+    private Animation go(Context context) {
+        if (this.kAP == null) {
+            this.kAP = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
         }
-        this.kyN.setAnimationListener(new d() { // from class: com.baidu.tieba.lego.indicator.c.2
+        this.kAP.setAnimationListener(new d() { // from class: com.baidu.tieba.lego.indicator.c.2
             @Override // com.baidu.adp.lib.f.d, android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 c.this.isShow = false;
-                if (c.this.lgg != null) {
-                    c.this.lgg.cTG();
+                if (c.this.lii != null) {
+                    c.this.lii.cTN();
                 }
-                c.this.kyR.removeView(c.this.rootView);
+                c.this.kAT.removeView(c.this.rootView);
             }
         });
-        return this.kyN;
+        return this.kAP;
     }
 
     public void onChangeSkin(int i) {
         ap.setBackgroundColor(this.rootView, R.color.CAM_X0111);
-        if (this.lgh != null) {
-            this.lgh.notifyDataSetChanged();
+        if (this.lij != null) {
+            this.lij.notifyDataSetChanged();
         }
     }
 }

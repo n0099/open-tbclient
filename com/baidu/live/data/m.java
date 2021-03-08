@@ -3,20 +3,20 @@ package com.baidu.live.data;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class m {
-    String aGH;
+    String aIh;
 
     public m(String str) {
-        this.aGH = str;
+        this.aIh = str;
     }
 
-    public a cB(int i) {
-        if (TextUtils.isEmpty(this.aGH)) {
+    public a cC(int i) {
+        if (TextUtils.isEmpty(this.aIh)) {
             return null;
         }
         try {
-            JSONObject optJSONObject = new JSONObject(this.aGH).optJSONObject(String.valueOf(i));
+            JSONObject optJSONObject = new JSONObject(this.aIh).optJSONObject(String.valueOf(i));
             if (optJSONObject != null) {
                 return new a(optJSONObject);
             }
@@ -27,11 +27,11 @@ public class m {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        String aGI;
-        String aGJ;
-        String aGK;
+        String aIi;
+        String aIj;
+        String aIk;
         String borderColor;
         String endColor;
         String iconUrl;
@@ -46,35 +46,35 @@ public class m {
                 this.iconUrl = jSONObject.optString("icon_url");
                 this.startColor = jSONObject.optString("start_color");
                 this.endColor = jSONObject.optString("end_color");
-                this.aGI = jSONObject.optString("text_color");
+                this.aIi = jSONObject.optString("text_color");
                 this.borderColor = jSONObject.optString("border_color");
-                this.aGK = jSONObject.optString("middile_color");
-                this.aGJ = jSONObject.optString("offset");
+                this.aIk = jSONObject.optString("middile_color");
+                this.aIj = jSONObject.optString("offset");
             }
         }
 
-        public String Bp() {
-            return this.aGJ;
+        public String Bs() {
+            return this.aIj;
         }
 
-        public String Bt() {
-            return this.aGK;
+        public String Bw() {
+            return this.aIk;
         }
 
-        public String Bu() {
+        public String Bx() {
             return this.borderColor;
         }
 
-        public String Bq() {
+        public String Bt() {
             return this.startColor;
         }
 
-        public String Br() {
+        public String Bu() {
             return this.endColor;
         }
 
-        public String Bs() {
-            return this.aGI;
+        public String Bv() {
+            return this.aIi;
         }
     }
 }

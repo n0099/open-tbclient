@@ -11,7 +11,7 @@ import com.baidu.swan.apps.setting.oauth.OAuthException;
 import com.baidu.swan.apps.setting.oauth.a.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends aa {
     public a(j jVar) {
         super(jVar, "/swanAPI/authorize");
@@ -42,11 +42,11 @@ public class a extends aa {
             com.baidu.swan.games.v.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
             return false;
         }
-        eVar.aIW().b(context, optString2, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.a.1
+        eVar.aIZ().b(context, optString2, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.setting.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
-            public void L(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void N(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 a.this.a(callbackHandler, optString2, optString, hVar);
             }
         });
@@ -61,25 +61,25 @@ public class a extends aa {
             jSONObject.put("scope", str);
             if (hVar == null || hVar.mData == null) {
                 int errorCode = hVar == null ? 10001 : hVar.getErrorCode();
-                com.baidu.swan.apps.setting.oauth.c.c("empty auth result", true);
-                jSONObject.put("errMsg", com.baidu.swan.apps.setting.oauth.c.gn(errorCode));
+                com.baidu.swan.apps.setting.oauth.c.d("empty auth result", true);
+                jSONObject.put("errMsg", com.baidu.swan.apps.setting.oauth.c.gp(errorCode));
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, errorCode).toString());
                 com.baidu.swan.games.v.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, errorCode).toString());
             } else if (!hVar.isOk()) {
-                OAuthException aKT = hVar.aKT();
-                jSONObject.put("errMsg", aKT == null ? "" : aKT.getMessage());
+                OAuthException aKW = hVar.aKW();
+                jSONObject.put("errMsg", aKW == null ? "" : aKW.getMessage());
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode()).toString());
                 com.baidu.swan.games.v.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.getErrorCode()).toString());
             } else {
                 jSONObject.put("code", hVar.mData.code);
-                jSONObject.put("errMsg", hVar.mData.dJc ? "authorize:ok" : "user deny");
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.mData.dJc ? 0 : 10003).toString());
-                if (!hVar.mData.dJc) {
+                jSONObject.put("errMsg", hVar.mData.dKD ? "authorize:ok" : "user deny");
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.mData.dKD ? 0 : 10003).toString());
+                if (!hVar.mData.dKD) {
                     com.baidu.swan.games.v.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, hVar.getErrorCode()).toString());
                 }
             }
         } catch (JSONException e) {
-            com.baidu.swan.apps.setting.oauth.c.c("json exception", true);
+            com.baidu.swan.apps.setting.oauth.c.d("json exception", true);
             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(10001, "internal error").toString());
             com.baidu.swan.games.v.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 10001, "internal error").toString());
         }

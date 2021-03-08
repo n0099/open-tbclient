@@ -3,10 +3,10 @@ package kotlin.b;
 import com.baidu.android.common.others.IStringUtil;
 import kotlin.jvm.internal.o;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class k extends i {
-    public static final a qur = new a(null);
-    private static final k quq = new k(1, 0);
+    public static final a quT = new a(null);
+    private static final k quS = new k(1, 0);
 
     public k(long j, long j2) {
         super(j, j2, 1L);
@@ -14,12 +14,12 @@ public final class k extends i {
 
     @Override // kotlin.b.i
     public boolean isEmpty() {
-        return eLH() > eLI();
+        return eLp() > eLq();
     }
 
     @Override // kotlin.b.i
     public boolean equals(Object obj) {
-        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (eLH() == ((k) obj).eLH() && eLI() == ((k) obj).eLI()));
+        return (obj instanceof k) && ((isEmpty() && ((k) obj).isEmpty()) || (eLp() == ((k) obj).eLp() && eLq() == ((k) obj).eLq()));
     }
 
     @Override // kotlin.b.i
@@ -27,16 +27,16 @@ public final class k extends i {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * (eLH() ^ (eLH() >>> 32))) + (eLI() ^ (eLI() >>> 32)));
+        return (int) ((31 * (eLp() ^ (eLp() >>> 32))) + (eLq() ^ (eLq() >>> 32)));
     }
 
     @Override // kotlin.b.i
     public String toString() {
-        return "" + eLH() + IStringUtil.TOP_PATH + eLI();
+        return "" + eLp() + IStringUtil.TOP_PATH + eLq();
     }
 
     @kotlin.e
-    /* loaded from: classes6.dex */
+    /* loaded from: classes14.dex */
     public static final class a {
         private a() {
         }

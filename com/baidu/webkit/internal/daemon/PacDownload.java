@@ -15,7 +15,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class PacDownload implements IResourceTask, INetListener {
     private static final String LOG_TAG = "PacDownload";
     private static boolean mDownloading;

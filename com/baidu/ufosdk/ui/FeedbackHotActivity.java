@@ -32,7 +32,7 @@ import org.apache.http.HttpHost;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"InlinedApi", "SetJavaScriptEnabled", "JavascriptInterface", "NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FeedbackHotActivity extends Activity {
     private RelativeLayout g;
     private LinearLayout h;
@@ -45,10 +45,8 @@ public class FeedbackHotActivity extends Activity {
     private Timer q;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f5412a = R.id.BLOCK;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f5413b = R.id.BOTH;
+    private final int f3641a = R.id.BLOCK;
+    private final int b = R.id.BOTH;
     private final int c = R.id.BOTTOM;
     private final int d = R.id.Backward;
     private final int e = R.id.CTRL;

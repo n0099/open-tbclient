@@ -9,7 +9,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleableRes;
 import androidx.appcompat.content.res.AppCompatResources;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class MaterialResources {
     private MaterialResources() {
     }

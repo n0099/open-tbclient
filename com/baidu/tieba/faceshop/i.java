@@ -14,12 +14,12 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class i {
-    private static i iUO = new i();
+    private static i iWx = new i();
 
-    public static i cyL() {
-        return iUO;
+    public static i cyR() {
+        return iWx;
     }
 
     private i() {
@@ -56,7 +56,7 @@ public class i {
         }
     }
 
-    public EmotionGroupData JD(String str) {
+    public EmotionGroupData JM(String str) {
         Cursor cursor;
         EmotionGroupData emotionGroupData = null;
         if (!TextUtils.isEmpty(str)) {
@@ -89,7 +89,7 @@ public class i {
         return emotionGroupData;
     }
 
-    public List<EmotionGroupData> xY(int i) {
+    public List<EmotionGroupData> xZ(int i) {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase openedDatabase = mainDBDatabaseManager.getOpenedDatabase();
         Cursor cursor = null;
@@ -156,7 +156,7 @@ public class i {
         }
     }
 
-    public boolean JE(String str) {
+    public boolean JN(String str) {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase openedDatabase = mainDBDatabaseManager.getOpenedDatabase();
         openedDatabase.beginTransaction();
@@ -196,7 +196,7 @@ public class i {
         }
     }
 
-    public List<EmotionData> JF(String str) {
+    public List<EmotionData> JO(String str) {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase openedDatabase = mainDBDatabaseManager.getOpenedDatabase();
         Cursor cursor = null;
@@ -296,7 +296,7 @@ public class i {
         return i > 0;
     }
 
-    public List<CollectEmotionData> JG(String str) {
+    public List<CollectEmotionData> JP(String str) {
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
@@ -328,7 +328,7 @@ public class i {
         return arrayList;
     }
 
-    public int JH(String str) {
+    public int JQ(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();

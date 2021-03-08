@@ -12,22 +12,22 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ei extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13970a;
+    private Context f8339a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f311a;
+    private SharedPreferences f232a;
 
     /* renamed from: a  reason: collision with other field name */
-    private com.xiaomi.push.service.ak f312a;
+    private com.xiaomi.push.service.ak f233a;
 
     public ei(Context context) {
-        this.f13970a = context;
-        this.f311a = context.getSharedPreferences("mipush_extra", 0);
-        this.f312a = com.xiaomi.push.service.ak.a(context);
+        this.f8339a = context;
+        this.f232a = context.getSharedPreferences("mipush_extra", 0);
+        this.f233a = com.xiaomi.push.service.ak.a(context);
     }
 
     private List<hu> a(File file) {
@@ -35,17 +35,17 @@ public class ei extends ai.a {
         RandomAccessFile randomAccessFile;
         FileInputStream fileInputStream;
         FileLock fileLock2;
-        dp m257a = dq.a().m257a();
-        String a2 = m257a == null ? "" : m257a.a();
+        dp m236a = dq.a().m236a();
+        String a2 = m236a == null ? "" : m236a.a();
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         byte[] bArr = new byte[4];
-        synchronized (dv.f13957a) {
+        synchronized (dv.f8330a) {
             try {
-                File file2 = new File(this.f13970a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m615a(file2);
+                File file2 = new File(this.f8339a.getExternalFilesDir(null), "push_cdata.lock");
+                y.m594a(file2);
                 randomAccessFile = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -126,50 +126,50 @@ public class ei extends ai.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f311a.edit();
+        SharedPreferences.Editor edit = this.f232a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m262a() {
-        if (az.d(this.f13970a)) {
+    private boolean m241a() {
+        if (az.d(this.f8339a)) {
             return false;
         }
-        if (!az.f(this.f13970a) || c()) {
-            return (az.g(this.f13970a) && !b()) || az.h(this.f13970a);
+        if (!az.f(this.f8339a) || c()) {
+            return (az.g(this.f8339a) && !b()) || az.h(this.f8339a);
         }
         return true;
     }
 
     private boolean b() {
-        if (this.f312a.a(hr.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f311a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f312a.a(hr.Upload3GFrequency.a(), 432000)));
+        if (this.f233a.a(hr.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f232a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f233a.a(hr.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f312a.a(hr.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f311a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f312a.a(hr.Upload4GFrequency.a(), 259200)));
+        if (this.f233a.a(hr.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f232a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f233a.a(hr.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo191a() {
+    public int mo170a() {
         return 1;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        File file = new File(this.f13970a.getExternalFilesDir(null), "push_cdata.data");
-        if (!az.c(this.f13970a)) {
+        File file = new File(this.f8339a.getExternalFilesDir(null), "push_cdata.data");
+        if (!az.c(this.f8339a)) {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (m262a() || !file.exists()) {
+        } else if (m241a() || !file.exists()) {
         } else {
             List<hu> a2 = a(file);
             if (!ad.a(a2)) {
@@ -181,11 +181,11 @@ public class ei extends ai.a {
                 cif.a(a2);
                 byte[] a3 = y.a(iw.a(cif));
                 il ilVar = new il("-1", false);
-                ilVar.c(hw.DataCollection.f555a);
+                ilVar.c(hw.DataCollection.f476a);
                 ilVar.a(a3);
-                dp m257a = dq.a().m257a();
-                if (m257a != null) {
-                    m257a.a(ilVar, hm.Notification, null);
+                dp m236a = dq.a().m236a();
+                if (m236a != null) {
+                    m236a.a(ilVar, hm.Notification, null);
                 }
                 a();
             }

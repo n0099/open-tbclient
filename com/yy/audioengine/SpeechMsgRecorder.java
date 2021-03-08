@@ -1,12 +1,12 @@
 package com.yy.audioengine;
 
 import com.yy.audioengine.Constant;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SpeechMsgRecorder {
     private ISpeechMsgRecorderNotify mNotify = null;
     private long mRecorderCtx;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum RECORDER_INIT_STATUS {
         ERROR_NONE,
         ERROR_UNKNOWN_CODEC,
@@ -14,7 +14,7 @@ public class SpeechMsgRecorder {
         ERROR_FILE_OPEN_FAIL
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum SpeechMsgCodecType {
         SpeechMsgCodecSilk,
         SpeechMsgCodecSpeex,

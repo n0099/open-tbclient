@@ -41,7 +41,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class HardDecodeWayGpu implements SurfaceTexture.OnFrameAvailableListener, HardDecRender.IDecoderDataOutCallBack, HardDecodeWay, Runnable {
     private static final int MSG_END_OF_STREAM = 7;
     private static final int MSG_GET_SCREENSHOT = 4;
@@ -168,7 +168,7 @@ public class HardDecodeWayGpu implements SurfaceTexture.OnFrameAvailableListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoHeaderInfo {
         public byte[] header;
         public int height;
@@ -180,7 +180,7 @@ public class HardDecodeWayGpu implements SurfaceTexture.OnFrameAvailableListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ScreenShotInfo {
         public int height;
         public boolean isSuccess;
@@ -192,7 +192,7 @@ public class HardDecodeWayGpu implements SurfaceTexture.OnFrameAvailableListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class SurfaceScaleInfo {
         public int height;
         public VideoConstant.OrientationType orientationType;
@@ -1066,7 +1066,7 @@ public class HardDecodeWayGpu implements SurfaceTexture.OnFrameAvailableListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RenderHandler extends Handler {
         private WeakReference<HardDecodeWayGpu> mWeakWay;
 

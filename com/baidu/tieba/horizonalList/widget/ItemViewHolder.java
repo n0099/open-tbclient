@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes.dex */
 public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
-    public int kst;
+    public int kuv;
     public View.OnClickListener onClickListener;
 
     public abstract void a(c cVar);

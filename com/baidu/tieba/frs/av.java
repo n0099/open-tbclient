@@ -5,5 +5,5 @@ public interface av {
 
     void g(boolean z, boolean z2, int i);
 
-    void yB(int i);
+    void yC(int i);
 }

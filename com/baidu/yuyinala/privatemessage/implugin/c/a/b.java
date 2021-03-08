@@ -1,7 +1,7 @@
 package com.baidu.yuyinala.privatemessage.implugin.c.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void Yp(String str);
+    void Yw(String str);
 
     void onFailed(int i);
 

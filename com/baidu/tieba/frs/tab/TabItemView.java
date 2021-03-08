@@ -12,25 +12,25 @@ import com.baidu.tieba.R;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public class TabItemView extends TextView {
-    private d jIk;
-    private boolean jIl;
-    private int jIm;
+    private d jJT;
+    private boolean jJU;
+    private int jJV;
     private int mState;
-    public static int jIi = 0;
-    public static int jIj = 1;
+    public static int jJR = 0;
+    public static int jJS = 1;
     public static int STATE_EXPANDED = 2;
 
     public TabItemView(Context context, d dVar, int i, boolean z) {
         super(context);
-        this.mState = jIi;
-        this.jIm = 0;
-        this.jIk = dVar;
-        this.jIl = z;
+        this.mState = jJR;
+        this.jJV = 0;
+        this.jJT = dVar;
+        this.jJU = z;
         w(context, i);
     }
 
     private void w(Context context, int i) {
-        if (this.jIl) {
+        if (this.jJU) {
             setPadding(0, l.getDimens(getContext(), R.dimen.tbds20), 0, 0);
             setTextSize(0, l.getDimens(context, R.dimen.tbds42));
         } else {
@@ -38,16 +38,16 @@ public class TabItemView extends TextView {
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.jIk != null) {
-            setText(this.jIk.name);
+        if (this.jJT != null) {
+            setText(this.jJT.name);
         }
-        bup();
+        bus();
     }
 
     public void setState(int i) {
-        if (this.jIk != null && this.jIk.jIh != null && this.jIk.jIh.jkX != null && this.jIk.jIh.jkX.size() > 0) {
+        if (this.jJT != null && this.jJT.jJQ != null && this.jJT.jJQ.jmH != null && this.jJT.jJQ.jmH.size() > 0) {
             int i2 = -l.getDimens(getContext(), R.dimen.tbds20);
-            if (!this.jIl) {
+            if (!this.jJU) {
                 i2 = 0;
             }
             if (i == STATE_EXPANDED) {
@@ -61,14 +61,14 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
         }
-        if (this.jIl) {
+        if (this.jJU) {
             ap.setViewTextColor(this, R.color.CAM_X0105, 1);
         } else {
-            if (i == jIj || i == STATE_EXPANDED) {
-                if (this.jIm == 0) {
+            if (i == jJS || i == STATE_EXPANDED) {
+                if (this.jJV == 0) {
                     ap.setViewTextColor(this, R.color.CAM_X0302, 1);
                 } else {
-                    ap.setViewTextColor(this, this.jIm, 1);
+                    ap.setViewTextColor(this, this.jJV, 1);
                 }
             } else {
                 ap.setViewTextColor(this, R.color.CAM_X0106, 1);
@@ -80,17 +80,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.jIk == null) {
+        if (this.jJT == null) {
             return -1;
         }
-        return this.jIk.tabId;
+        return this.jJT.tabId;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void bup() {
+    public void bus() {
         setState(this.mState);
     }
 
@@ -98,7 +98,7 @@ public class TabItemView extends TextView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.jIl) {
+            if (this.jJU) {
                 setPadding(0, l.getDimens(getContext(), R.dimen.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
@@ -127,10 +127,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.jIk == null) {
+        if (this.jJT == null) {
             return null;
         }
-        return this.jIk.url;
+        return this.jJT.url;
     }
 
     public int getDrawableWidth() {
@@ -143,10 +143,10 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.jIl = z;
+        this.jJU = z;
     }
 
     public void setSelectItemColorResId(int i) {
-        this.jIm = i;
+        this.jJV = i;
     }
 }

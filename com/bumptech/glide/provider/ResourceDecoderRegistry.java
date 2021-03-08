@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ResourceDecoderRegistry {
     private final List<String> bucketPriorityList = new ArrayList();
     private final Map<String, List<Entry<?, ?>>> decoders = new HashMap();
@@ -14,10 +14,12 @@ public class ResourceDecoderRegistry {
     public synchronized void setBucketPriorityList(@NonNull List<String> list) {
         ArrayList<String> arrayList = new ArrayList(this.bucketPriorityList);
         this.bucketPriorityList.clear();
-        this.bucketPriorityList.addAll(list);
-        for (String str : arrayList) {
-            if (!list.contains(str)) {
-                this.bucketPriorityList.add(str);
+        for (String str : list) {
+            this.bucketPriorityList.add(str);
+        }
+        for (String str2 : arrayList) {
+            if (!list.contains(str2)) {
+                this.bucketPriorityList.add(str2);
             }
         }
     }
@@ -79,7 +81,7 @@ public class ResourceDecoderRegistry {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Entry<T, R> {
         private final Class<T> dataClass;
         final ResourceDecoder<T, R> decoder;

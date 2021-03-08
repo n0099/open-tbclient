@@ -10,12 +10,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    public static void Y(String str, int i) {
-        File ou;
+    public static void Z(String str, int i) {
+        File oB;
         String[] list;
-        if (!TextUtils.isEmpty(str) && i >= 0 && (ou = d.ou(str)) != null && (list = ou.list()) != null && list.length > i) {
+        if (!TextUtils.isEmpty(str) && i >= 0 && (oB = d.oB(str)) != null && (list = oB.list()) != null && list.length > i) {
             List asList = Arrays.asList(list);
             try {
                 Collections.sort(asList, new Comparator<String>() { // from class: com.baidu.swan.apps.ac.e.a.1
@@ -51,9 +51,9 @@ public class a {
     private static void r(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
             h hVar = new h();
-            hVar.euc = str;
+            hVar.evD = str;
             hVar.versionName = b.cY(j);
-            com.baidu.swan.pms.database.a.bcv().f(hVar);
+            com.baidu.swan.pms.database.a.bcx().f(hVar);
         }
     }
 }

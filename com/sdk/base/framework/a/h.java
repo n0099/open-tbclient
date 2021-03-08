@@ -18,10 +18,8 @@ import java.util.UUID;
 public class h<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12801a = h.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static boolean f12802b = com.sdk.base.framework.c.f.f12821b;
+    private static final String f7620a = h.class.getSimpleName();
+    private static boolean b = com.sdk.base.framework.c.f.b;
     private static String c = UUID.randomUUID().toString();
     private Context d;
     private j<T> e;
@@ -73,7 +71,7 @@ public class h<T> {
                 }
             } catch (Exception e) {
                 com.sdk.base.framework.f.g.a.b(e.toString());
-                com.sdk.base.framework.a.a.c.b(f12801a, e.toString(), Boolean.valueOf(f12802b));
+                com.sdk.base.framework.a.a.c.b(f7620a, e.toString(), Boolean.valueOf(b));
             }
         }
         return byteArrayOutputStream;
@@ -90,7 +88,7 @@ public class h<T> {
             if (this.e != null) {
                 String a2 = this.e.a();
                 String e = this.e.e();
-                str = i.f12803a.k;
+                str = i.f7621a.k;
                 if (a2.equals(str)) {
                     String b2 = j.b(this.e.f());
                     return com.sdk.base.framework.a.a.c.b(b2).booleanValue() ? e + "?" + b2 : e;
@@ -99,7 +97,7 @@ public class h<T> {
                 return com.sdk.base.framework.a.a.c.b((String) null).booleanValue() ? e + "?unikey=" + ((String) null) : e;
             }
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(f12801a, e2.getMessage(), Boolean.valueOf(f12802b));
+            com.sdk.base.framework.a.a.c.b(f7620a, e2.getMessage(), Boolean.valueOf(b));
         }
         return null;
     }
@@ -115,7 +113,7 @@ public class h<T> {
                 URL url = new URL(str);
                 int a2 = com.sdk.base.framework.f.h.b.a(this.d, (ArrayList<String>) null).a();
                 System.currentTimeMillis();
-                if (!b(str) || a2 == com.sdk.base.framework.f.h.c.f12849b.a()) {
+                if (!b(str) || a2 == com.sdk.base.framework.f.h.c.b.a()) {
                     httpURLConnection = null;
                 } else {
                     int b2 = com.sdk.base.framework.f.a.a.b();
@@ -130,7 +128,7 @@ public class h<T> {
                         } else {
                             a2 = com.sdk.base.framework.f.h.b.a(this.d, (ArrayList<String>) null).a();
                         }
-                        httpURLConnection = (b2 <= 21 || a2 == com.sdk.base.framework.f.h.c.f12849b.a()) ? null : new a(this.d, url).a();
+                        httpURLConnection = (b2 <= 21 || a2 == com.sdk.base.framework.f.h.c.b.a()) ? null : new a(this.d, url).a();
                     } else {
                         httpURLConnection = new a(this.d, url).a();
                     }
@@ -140,7 +138,7 @@ public class h<T> {
                 }
                 if (httpURLConnection == null) {
                     httpURLConnection = (HttpURLConnection) url.openConnection();
-                } else if (a2 == com.sdk.base.framework.f.h.c.f12848a.a()) {
+                } else if (a2 == com.sdk.base.framework.f.h.c.f7646a.a()) {
                     a2 = 2;
                 }
                 httpURLConnection.setDoOutput(true);
@@ -164,7 +162,7 @@ public class h<T> {
             return null;
         } catch (Exception e2) {
             com.sdk.base.framework.f.g.a.b(e2.toString());
-            com.sdk.base.framework.a.a.c.b(f12801a, e2.toString(), Boolean.valueOf(f12802b));
+            com.sdk.base.framework.a.a.c.b(f7620a, e2.toString(), Boolean.valueOf(b));
             throw e2;
         }
     }
@@ -180,7 +178,7 @@ public class h<T> {
             httpURLConnection.setRequestProperty("Charset", "UTF-8");
             httpURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, "keep-alive");
             if (this.e != null) {
-                str = i.f12804b.k;
+                str = i.b.k;
                 if (str.equals(this.e.a())) {
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.connect();
@@ -199,6 +197,6 @@ public class h<T> {
     }
 
     public final void c() {
-        this.e.a(i.f12803a.toString());
+        this.e.a(i.f7621a.toString());
     }
 }

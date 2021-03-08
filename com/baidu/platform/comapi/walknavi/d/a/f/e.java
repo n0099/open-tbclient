@@ -20,7 +20,7 @@ public final class e {
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f4243a + com.baidu.platform.comapi.walknavi.d.a.g.d.f4244b + "/queryARResource";
+        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f2935a + com.baidu.platform.comapi.walknavi.d.a.g.d.b + "/queryARResource";
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("doQueryArResource: " + str);
         d dVar = new d(str, aVar2);
         dVar.execute(a2);
@@ -52,9 +52,9 @@ public final class e {
         if (!TextUtils.isEmpty(a3)) {
             jSONObject2.put("ar_key", a3);
         }
-        String b2 = aVar.b();
-        if (!TextUtils.isEmpty(b2)) {
-            jSONObject2.put("ar_id", b2);
+        String b = aVar.b();
+        if (!TextUtils.isEmpty(b)) {
+            jSONObject2.put("ar_id", b);
         } else {
             jSONObject2.put("ar_id", "");
         }
@@ -66,7 +66,7 @@ public final class e {
         jSONObject2.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         jSONObject2.put("user_id", a2.toString());
         jSONObject2.put("publish_id", "6");
-        if (!com.baidu.platform.comapi.walknavi.d.a.b.f4209a) {
+        if (!com.baidu.platform.comapi.walknavi.d.a.b.f2913a) {
             jSONObject2.put("update_check", 1);
         }
         a(context, jSONObject2);
@@ -86,7 +86,7 @@ public final class e {
                 com.baidu.platform.comapi.walknavi.d.a.g.a.a("bdar: postSystemInfo context is null!!!");
             } else {
                 long[] a2 = h.a();
-                long[] b2 = h.b();
+                long[] b = h.b();
                 Sensor defaultSensor = ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4);
                 if (jSONObject != null) {
                     jSONObject.put(HttpConstants.OS_BRAND, Build.BRAND.toLowerCase());
@@ -100,8 +100,8 @@ public final class e {
                     jSONObject.put(HttpConstants.OS_RAM_MEMEORY, h.a(context));
                     jSONObject.put(HttpConstants.OS_ROM_AVAIL_MEMORY, a2[1]);
                     jSONObject.put(HttpConstants.OS_ROM_MEMORY, a2[0]);
-                    jSONObject.put(HttpConstants.OS_ROM_SDCARD_AVAIL_MEMORY, b2[1]);
-                    jSONObject.put(HttpConstants.OS_SDCARD_MEMORY, b2[0]);
+                    jSONObject.put(HttpConstants.OS_ROM_SDCARD_AVAIL_MEMORY, b[1]);
+                    jSONObject.put(HttpConstants.OS_SDCARD_MEMORY, b[0]);
                     jSONObject.put(HttpConstants.OS_CPU_NAME, h.c());
                     jSONObject.put(HttpConstants.OS_CPU_NUM_CORES, h.d());
                     jSONObject.put(HttpConstants.OS_CPU_MIN_FREQ, h.e());

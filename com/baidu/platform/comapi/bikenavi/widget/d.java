@@ -7,11 +7,11 @@ import com.baidu.platform.comapi.bikenavi.widget.CustomScrollView;
 public class d implements CustomScrollView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f4174a;
+    final /* synthetic */ a f2891a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.f4174a = aVar;
+        this.f2891a = aVar;
     }
 
     @Override // com.baidu.platform.comapi.bikenavi.widget.CustomScrollView.b
@@ -23,18 +23,18 @@ public class d implements CustomScrollView.b {
         if (bVar != bVar2) {
             switch (bVar2) {
                 case TOP:
-                    imageView3 = this.f4174a.t;
+                    imageView3 = this.f2891a.t;
                     imageView3.setVisibility(8);
-                    imageView4 = this.f4174a.u;
+                    imageView4 = this.f2891a.u;
                     imageView4.setVisibility(0);
-                    this.f4174a.b(true);
+                    this.f2891a.b(true);
                     return;
                 case BOTTOM:
-                    imageView = this.f4174a.t;
+                    imageView = this.f2891a.t;
                     imageView.setVisibility(0);
-                    imageView2 = this.f4174a.u;
+                    imageView2 = this.f2891a.u;
                     imageView2.setVisibility(8);
-                    this.f4174a.b(false);
+                    this.f2891a.b(false);
                     return;
                 default:
                     return;

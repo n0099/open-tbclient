@@ -3,7 +3,7 @@ package com.baidu.swan.apps.adaptation.a;
 import android.content.Context;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface m {
     File Y(Context context, String str);
 

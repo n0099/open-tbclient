@@ -3,7 +3,7 @@ package com.yy.mediaframework.filters;
 import com.yy.mediaframework.gpuimage.adapter.GlTextureImageReader;
 import com.yy.mediaframework.model.YYMediaSample;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFTextureReaderFilter extends AbstractYYMediaFilter {
     private static final String TAG = "YMFTextureReaderFilter";
     private VideoLiveFilterContext mFilterContext;

@@ -4,18 +4,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.NoSuchElementException;
 /* loaded from: classes4.dex */
 public class OkHttpVersionUtil {
-    public static boolean egD() throws RuntimeException {
-        String egE = egE();
-        if (egE.isEmpty()) {
+    public static boolean egL() throws RuntimeException {
+        String egM = egM();
+        if (egM.isEmpty()) {
             throw new NoSuchElementException();
         }
-        String[] split = egE.split("/");
+        String[] split = egM.split("/");
         if (split.length != 2) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", egE));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", egM));
         }
         String[] split2 = split[1].split("\\.");
         if (split2.length != 3) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", egE));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", egM));
         }
         try {
             if (Integer.parseInt(split2[0]) == 3) {
@@ -25,12 +25,12 @@ public class OkHttpVersionUtil {
             }
             return false;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", egE));
+            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", egM));
         }
     }
 
-    private static String egE() {
-        if (egF()) {
+    private static String egM() {
+        if (egN()) {
             try {
                 return (String) Class.forName("okhttp3.internal.Version").getMethod("userAgent", new Class[0]).invoke(null, new Object[0]);
             } catch (ClassNotFoundException e) {
@@ -46,7 +46,7 @@ public class OkHttpVersionUtil {
         return "";
     }
 
-    private static boolean egF() {
+    private static boolean egN() {
         try {
             Class.forName("okhttp3.OkHttpClient");
             return true;

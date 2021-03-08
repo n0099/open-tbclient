@@ -15,32 +15,32 @@ import com.baidu.yuyinala.emoticon.AlaEmoticonListView;
 import com.baidu.yuyinala.emoticon.b.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<AlaEmoticonListView, AlaEmoticonListDialogData> implements c, AlaEmoticonListView.a, a.InterfaceC0961a {
-    private com.baidu.yuyinala.emoticon.b.a oWs;
+/* loaded from: classes10.dex */
+public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<AlaEmoticonListView, AlaEmoticonListDialogData> implements c, AlaEmoticonListView.a, a.InterfaceC0967a {
+    private com.baidu.yuyinala.emoticon.b.a oYx;
 
     public b(TbPageContext tbPageContext, ab abVar) {
         super(tbPageContext, new AlaEmoticonListView(tbPageContext), null);
-        ((AlaEmoticonListView) this.bJy).a((c) this);
-        ((AlaEmoticonListView) this.bJy).a((AlaEmoticonListView.a) this);
-        eM(80);
+        ((AlaEmoticonListView) this.bKY).a((c) this);
+        ((AlaEmoticonListView) this.bKY).a((AlaEmoticonListView.a) this);
+        eN(80);
         de(true);
         df(true);
-        this.oWs = com.baidu.yuyinala.emoticon.b.a.aP(abVar);
-        this.oWs.aQ(abVar);
-        this.oWs.a(this);
-        a((DialogInterface.OnDismissListener) this.bJy);
+        this.oYx = com.baidu.yuyinala.emoticon.b.a.aP(abVar);
+        this.oYx.aQ(abVar);
+        this.oYx.a(this);
+        a((DialogInterface.OnDismissListener) this.bKY);
     }
 
     @Override // com.baidu.yuyinala.emoticon.AlaEmoticonListView.a
     public void loadData() {
-        this.oWs.ejj();
+        this.oYx.ejt();
     }
 
     @Override // com.baidu.yuyinala.emoticon.AlaEmoticonListView.a
     public void a(com.baidu.yuyinala.emoticon.a.a aVar) {
         if (aVar != null) {
-            this.oWs.Yf(aVar.getId());
+            this.oYx.Ym(aVar.getId());
             b(aVar);
         }
     }
@@ -61,20 +61,20 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<AlaEmoti
             jSONObject.put("meme_id", id);
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "meme");
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            if (this.oWs != null) {
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oWs.getCustomRoomId());
+            if (this.oYx != null) {
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.oYx.getCustomRoomId());
             }
             UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, "memeicon_clk").setContentExt(jSONObject));
         }
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean Ss() {
+    public boolean Sv() {
         return true;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean St() {
+    public boolean Sw() {
         return true;
     }
 
@@ -83,13 +83,13 @@ public class b extends com.baidu.live.tieba.pb.interactionpopupwindow.a<AlaEmoti
         return 0;
     }
 
-    @Override // com.baidu.yuyinala.emoticon.b.a.InterfaceC0961a
+    @Override // com.baidu.yuyinala.emoticon.b.a.InterfaceC0967a
     public void a(AlaEmoticonListDialogData alaEmoticonListDialogData) {
-        ((AlaEmoticonListView) this.bJy).a(alaEmoticonListDialogData, true);
+        ((AlaEmoticonListView) this.bKY).a(alaEmoticonListDialogData, true);
     }
 
-    @Override // com.baidu.yuyinala.emoticon.b.a.InterfaceC0961a
-    public void Ye(String str) {
+    @Override // com.baidu.yuyinala.emoticon.b.a.InterfaceC0967a
+    public void Yl(String str) {
         if (StringUtils.isNull(str)) {
             this.mPageContext.showToast(a.h.send_emoticon_fail);
         } else {

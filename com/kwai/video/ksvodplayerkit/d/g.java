@@ -3,21 +3,19 @@ package com.kwai.video.ksvodplayerkit.d;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f11074a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f11075b;
+    public boolean f7290a;
+    public String b;
     public long c;
     public long d;
 
     public g() {
-        this.f11074a = false;
+        this.f7290a = false;
     }
 
     public g(boolean z, String str, long j, long j2) {
-        this.f11074a = false;
-        this.f11074a = z;
-        this.f11075b = str;
+        this.f7290a = false;
+        this.f7290a = z;
+        this.b = str;
         this.d = j;
         this.c = j2;
     }

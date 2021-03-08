@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LiveTranscodingParams {
     public String transcodingCofig = null;
     public HashSet<String> transcodingStreamUrls = null;

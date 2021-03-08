@@ -5,21 +5,21 @@ import com.baidu.rtc.h;
 import com.baidu.rtc.i;
 import com.baidu.rtc.l;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends i {
-    private i.a azH = null;
+    private i.a aBh = null;
 
     @Override // com.baidu.rtc.i
     public void a(i.a aVar) {
         com.baidu.live.alablmsdk.a.b.a.ag(" BLMRtcVideoCaptureProxy  initialize", "");
-        this.azH = aVar;
+        this.aBh = aVar;
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
     public void dispose() {
         super.dispose();
         com.baidu.live.alablmsdk.a.b.a.ag(" BLMRtcVideoCaptureProxy  dispose", "");
-        this.azH = null;
+        this.aBh = null;
     }
 
     @Override // com.baidu.rtc.i, org.webrtc.VideoCapturer
@@ -42,11 +42,11 @@ public class d extends i {
         l n = n(bArr, i, i2);
         if (n == null) {
             com.baidu.live.alablmsdk.a.b.a.d(" videoFrame == null ");
-            com.baidu.live.alablmsdk.a.b.a.eA(" videoFrame == null ");
+            com.baidu.live.alablmsdk.a.b.a.eG(" videoFrame == null ");
             return;
         }
-        if (this.azH != null) {
-            this.azH.a(n);
+        if (this.aBh != null) {
+            this.aBh.a(n);
         }
         n.release();
     }

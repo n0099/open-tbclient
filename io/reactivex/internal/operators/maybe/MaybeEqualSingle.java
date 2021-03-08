@@ -8,20 +8,20 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MaybeEqualSingle<T> extends w<Boolean> {
     final d<? super T, ? super T> isEqual;
-    final o<? extends T> qpE;
-    final o<? extends T> qpF;
+    final o<? extends T> qqg;
+    final o<? extends T> qqh;
 
     @Override // io.reactivex.w
     protected void b(y<? super Boolean> yVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(yVar, this.isEqual);
         yVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.qpE, this.qpF);
+        equalCoordinator.subscribe(this.qqg, this.qqh);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class EqualCoordinator<T> extends AtomicInteger implements io.reactivex.disposables.b {
         final y<? super Boolean> actual;
         final d<? super T, ? super T> isEqual;
@@ -85,7 +85,7 @@ public final class MaybeEqualSingle<T> extends w<Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class EqualObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements m<T> {
         private static final long serialVersionUID = -3031974433025990931L;
         final EqualCoordinator<T> parent;

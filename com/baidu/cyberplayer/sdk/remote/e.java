@@ -24,31 +24,29 @@ public class e implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private Uri f1799a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Map<String, String> f1800b;
+    private Uri f1447a;
+    private Map<String, String> b;
 
     public e(Uri uri, Map<String, String> map) {
-        this.f1799a = uri;
-        this.f1800b = map;
+        this.f1447a = uri;
+        this.b = map;
     }
 
     protected e(Parcel parcel) {
-        this.f1799a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-        this.f1800b = new HashMap();
+        this.f1447a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
+        this.b = new HashMap();
         int readInt = parcel.readInt();
         for (int i = 0; i < readInt; i++) {
-            this.f1800b.put(parcel.readString(), parcel.readString());
+            this.b.put(parcel.readString(), parcel.readString());
         }
     }
 
     public Uri a() {
-        return this.f1799a;
+        return this.f1447a;
     }
 
     public Map<String, String> b() {
-        return this.f1800b;
+        return this.b;
     }
 
     @Override // android.os.Parcelable
@@ -58,13 +56,13 @@ public class e implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f1799a, i);
-        if (this.f1800b == null || this.f1800b.size() <= 0) {
+        parcel.writeParcelable(this.f1447a, i);
+        if (this.b == null || this.b.size() <= 0) {
             parcel.writeInt(0);
             return;
         }
-        parcel.writeInt(this.f1800b.size());
-        for (Map.Entry<String, String> entry : this.f1800b.entrySet()) {
+        parcel.writeInt(this.b.size());
+        for (Map.Entry<String, String> entry : this.b.entrySet()) {
             parcel.writeString(entry.getKey());
             parcel.writeString(entry.getValue());
         }

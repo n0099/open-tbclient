@@ -1,7 +1,7 @@
 package com.yy.mediaframework.model;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ByteArrayPool {
     private int mBufSize;
     private int mCapacity;

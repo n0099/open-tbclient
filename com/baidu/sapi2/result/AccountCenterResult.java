@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class AccountCenterResult extends SapiResult {
     public static final int ERROR_CODE_HANDLE_LOGIN = -10001;
     public static final int ERROR_CODE_LOGIN_SUCCESS = -10002;

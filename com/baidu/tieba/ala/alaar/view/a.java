@@ -13,18 +13,18 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alaar.sticker.a.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    public List<com.baidu.live.ar.i> aCd = new ArrayList();
-    private int gvd = -1;
-    private int gve = -1;
-    private int gwA = 0;
-    private InterfaceC0614a gwz;
+    private InterfaceC0620a gyi;
     private Context mContext;
+    public List<com.baidu.live.ar.i> aDD = new ArrayList();
+    private int gwM = -1;
+    private int gwN = -1;
+    private int gyj = 0;
 
     /* renamed from: com.baidu.tieba.ala.alaar.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0614a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0620a {
         void b(int i, int[] iArr, boolean z);
     }
 
@@ -32,23 +32,23 @@ public class a extends BaseAdapter {
         this.mContext = context;
     }
 
-    public void a(InterfaceC0614a interfaceC0614a) {
-        this.gwz = interfaceC0614a;
+    public void a(InterfaceC0620a interfaceC0620a) {
+        this.gyi = interfaceC0620a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aCd == null) {
+        if (this.aDD == null) {
             return 0;
         }
-        return this.aCd.size();
+        return this.aDD.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: tv */
+    /* renamed from: tx */
     public com.baidu.live.ar.i getItem(int i) {
-        return (com.baidu.live.ar.i) ListUtils.getItem(this.aCd, i);
+        return (com.baidu.live.ar.i) ListUtils.getItem(this.aDD, i);
     }
 
     @Override // android.widget.Adapter
@@ -58,14 +58,14 @@ public class a extends BaseAdapter {
 
     public void setDatas(List<com.baidu.live.ar.i> list) {
         if (!ListUtils.isEmpty(list)) {
-            this.aCd.clear();
-            this.aCd.addAll(list);
+            this.aDD.clear();
+            this.aDD.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public List<com.baidu.live.ar.i> getDatas() {
-        return this.aCd;
+        return this.aDD;
     }
 
     @Override // android.widget.Adapter
@@ -90,14 +90,14 @@ public class a extends BaseAdapter {
         });
         if (gVar != null) {
             gVar.b(getItem(i));
-            if (this.gvd == i) {
-                gVar.bQO();
+            if (this.gwM == i) {
+                gVar.bQU();
             } else {
-                gVar.bQN();
+                gVar.bQT();
             }
         }
-        if (i == 0 && this.gwA != 0) {
-            view.setPadding(this.gwA, 0, 0, 0);
+        if (i == 0 && this.gyj != 0) {
+            view.setPadding(this.gyj, 0, 0, 0);
         } else {
             view.setPadding(0, 0, 0, 0);
         }
@@ -107,14 +107,14 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.live.ar.i iVar, int i, g gVar, int[] iArr, boolean z) {
         if (iVar != null) {
-            this.gve = i;
-            if (com.baidu.tieba.ala.alaar.sticker.a.e.FC(iVar.zx())) {
-                if (this.gwz != null) {
-                    this.gwz.b(i, iArr, z);
+            this.gwN = i;
+            if (com.baidu.tieba.ala.alaar.sticker.a.e.FL(iVar.zA())) {
+                if (this.gyi != null) {
+                    this.gyi.b(i, iArr, z);
                 }
-                this.gvd = i;
+                this.gwM = i;
                 notifyDataSetChanged();
-            } else if (TextUtils.isEmpty(iVar.zx()) || !com.baidu.tieba.ala.alaar.sticker.a.e.cE(iVar.zx())) {
+            } else if (TextUtils.isEmpty(iVar.zA()) || !com.baidu.tieba.ala.alaar.sticker.a.e.cI(iVar.zA())) {
                 a(iVar, gVar, i, iArr);
             }
         }
@@ -123,12 +123,12 @@ public class a extends BaseAdapter {
     private void a(com.baidu.live.ar.i iVar, final g gVar, final int i, final int[] iArr) {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(this.mContext, a.h.sdk_network_not_available);
-        } else if (iVar != null && !TextUtils.isEmpty(iVar.zx())) {
-            com.baidu.tieba.ala.alaar.sticker.a.e.a(iVar.zx(), new e.a() { // from class: com.baidu.tieba.ala.alaar.view.a.2
+        } else if (iVar != null && !TextUtils.isEmpty(iVar.zA())) {
+            com.baidu.tieba.ala.alaar.sticker.a.e.a(iVar.zA(), new e.a() { // from class: com.baidu.tieba.ala.alaar.view.a.2
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onStarted() {
                     if (gVar != null) {
-                        gVar.bQA();
+                        gVar.bQG();
                     }
                 }
 
@@ -138,14 +138,14 @@ public class a extends BaseAdapter {
 
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onCompleted(String str) {
-                    if (a.this.gve != i) {
+                    if (a.this.gwN != i) {
                         a.this.notifyDataSetChanged();
                         return;
                     }
-                    a.this.gvd = i;
+                    a.this.gwM = i;
                     a.this.notifyDataSetChanged();
-                    if (a.this.gwz != null) {
-                        a.this.gwz.b(i, iArr, false);
+                    if (a.this.gyi != null) {
+                        a.this.gyi.b(i, iArr, false);
                     }
                 }
 
@@ -158,16 +158,16 @@ public class a extends BaseAdapter {
     }
 
     public void setSelect(int i) {
-        if (this.aCd != null && this.aCd.size() > 0 && i >= 0 && i < getCount()) {
-            this.gvd = i;
+        if (this.aDD != null && this.aDD.size() > 0 && i >= 0 && i < getCount()) {
+            this.gwM = i;
             notifyDataSetChanged();
-            if (this.gwz != null) {
-                this.gwz.b(this.gvd, null, false);
+            if (this.gyi != null) {
+                this.gyi.b(this.gwM, null, false);
             }
         }
     }
 
-    public void tw(int i) {
-        this.gwA = i;
+    public void ty(int i) {
+        this.gyj = i;
     }
 }

@@ -5,21 +5,21 @@ import android.content.Context;
 import android.os.Process;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private static final Object pRM = new Object();
+    private static final Object pSB = new Object();
     private static volatile String sProcessName;
 
-    public static String eAR() {
+    public static String eAX() {
         String str;
         if (sProcessName != null) {
             return sProcessName;
         }
-        synchronized (pRM) {
+        synchronized (pSB) {
             if (sProcessName != null) {
                 str = sProcessName;
             } else {
-                sProcessName = ip(com.github.a.a.c.eAH().provideContext());
+                sProcessName = ip(com.github.a.a.c.eAN().provideContext());
                 str = sProcessName;
             }
         }

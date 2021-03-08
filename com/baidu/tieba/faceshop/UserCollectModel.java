@@ -16,10 +16,10 @@ import com.tencent.open.SocialConstants;
 import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class UserCollectModel extends FaceBaseModel {
     public static final String ALL_DELETE = "all_delete";
-    private final HttpMessageListener gJb = new HttpMessageListener(1003339) { // from class: com.baidu.tieba.faceshop.UserCollectModel.2
+    private final HttpMessageListener gKK = new HttpMessageListener(1003339) { // from class: com.baidu.tieba.faceshop.UserCollectModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -42,9 +42,9 @@ public class UserCollectModel extends FaceBaseModel {
     public UserCollectModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.gJb.setTag(getUniqueId());
-        this.gJb.setSelfListener(true);
-        registerListener(this.gJb);
+        this.gKK.setTag(getUniqueId());
+        this.gKK.setSelfListener(true);
+        registerListener(this.gKK);
     }
 
     private void registerTask() {
@@ -60,7 +60,7 @@ public class UserCollectModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.gJb);
+        MessageManager.getInstance().unRegisterListener(this.gKK);
         MessageManager.getInstance().unRegisterTask(1003339);
         return true;
     }
@@ -69,12 +69,12 @@ public class UserCollectModel extends FaceBaseModel {
         new Thread(new Runnable() { // from class: com.baidu.tieba.faceshop.UserCollectModel.1
             @Override // java.lang.Runnable
             public void run() {
-                List<CollectEmotionData> JG = i.cyL().JG(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<CollectEmotionData> JP = i.cyR().JP(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
-                if (JG != null) {
+                if (JP != null) {
                     JSONArray jSONArray = new JSONArray();
                     try {
-                        for (CollectEmotionData collectEmotionData : JG) {
+                        for (CollectEmotionData collectEmotionData : JP) {
                             if (!com.baidu.tbadk.imageManager.d.SETTING_SHARP_TEXT.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                                 jSONArray.put(collectEmotionData.toJSON());
                                 hashSet.add(collectEmotionData.sharpText);

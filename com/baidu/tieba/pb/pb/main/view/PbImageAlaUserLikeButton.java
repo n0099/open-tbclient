@@ -26,13 +26,13 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements c
     public void aM(boolean z) {
         if (z) {
             com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar.pT(R.color.CAM_X0109);
+            bVar.pU(R.color.CAM_X0109);
             setConfig(bVar);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
             com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
-            bVar2.pR(R.color.CAM_X0302);
+            bVar2.pS(R.color.CAM_X0302);
             bVar2.a(R.drawable.icon_pure_add10_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
             bVar2.setIconSize(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
             setConfig(bVar2);

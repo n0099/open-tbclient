@@ -56,7 +56,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>, TbPageContextSupport, a {
     private long lastResumeTime;
     private com.baidu.tbadk.core.a mLayoutInflateFactory;
@@ -279,7 +279,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d pageStayDurationItem = getPageStayDurationItem();
             pageStayDurationItem.setStayDurationTime(currentTimeMillis);
-            e.bDS().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
+            e.bDW().a(getPageContext().getPageActivity(), pageStayDurationItem, null);
         }
         TbadkCoreApplication.getInst().DelResumeNum();
         TbadkCoreApplication.getInst().setCurrentActivity(null);
@@ -393,7 +393,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements g<T>
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return e.bDS().getMaxCostFromServer();
+                return e.bDW().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b

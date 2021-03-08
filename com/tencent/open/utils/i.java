@@ -11,16 +11,14 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class i {
     private static Handler c;
     private static HandlerThread d;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Object f13441b = new Object();
+    private static Object b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f13440a = c();
+    public static final Executor f7993a = c();
 
     private static Executor c() {
         Executor threadPoolExecutor;
@@ -62,22 +60,20 @@ public final class i {
         return new a();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class a implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        final Queue<Runnable> f13442a;
-
-        /* renamed from: b  reason: collision with root package name */
-        Runnable f13443b;
+        final Queue<Runnable> f7994a;
+        Runnable b;
 
         private a() {
-            this.f13442a = new LinkedList();
+            this.f7994a = new LinkedList();
         }
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(final Runnable runnable) {
-            this.f13442a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
+            this.f7994a.offer(new Runnable() { // from class: com.tencent.open.utils.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -87,16 +83,16 @@ public final class i {
                     }
                 }
             });
-            if (this.f13443b == null) {
+            if (this.b == null) {
                 a();
             }
         }
 
         protected synchronized void a() {
-            Runnable poll = this.f13442a.poll();
-            this.f13443b = poll;
+            Runnable poll = this.f7994a.poll();
+            this.b = poll;
             if (poll != null) {
-                i.f13440a.execute(this.f13443b);
+                i.f7993a.execute(this.b);
             }
         }
     }

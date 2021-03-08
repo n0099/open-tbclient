@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.live.guess.group;
 
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class JoinGroupHttpResponseMessage extends JsonHttpResponsedMessage {
     public String msg;
     public int status;

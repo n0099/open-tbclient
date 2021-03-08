@@ -1,12 +1,12 @@
 package com.baidu.live.lottie.model.content;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class MergePaths implements b {
-    private final MergePathsMode btP;
+    private final MergePathsMode bvq;
     private final String name;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -34,15 +34,15 @@ public class MergePaths implements b {
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.btP = mergePathsMode;
+        this.bvq = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode NN() {
-        return this.btP;
+    public MergePathsMode NQ() {
+        return this.bvq;
     }
 
     @Override // com.baidu.live.lottie.model.content.b
@@ -56,6 +56,6 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.btP + '}';
+        return "MergePaths{mode=" + this.bvq + '}';
     }
 }

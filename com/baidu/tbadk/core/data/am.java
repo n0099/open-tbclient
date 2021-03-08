@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public interface am extends com.baidu.adp.widget.ListView.n {
-    AdvertAppInfo blH();
+    AdvertAppInfo blJ();
 
-    int blI();
+    int blK();
 
-    boolean blJ();
+    boolean blL();
 
     void setPosition(int i);
 }

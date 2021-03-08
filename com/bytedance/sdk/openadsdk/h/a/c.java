@@ -1,33 +1,179 @@
 package com.bytedance.sdk.openadsdk.h.a;
 
-import org.json.JSONObject;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.ImageView;
+import androidx.annotation.GuardedBy;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import com.bytedance.sdk.adnet.core.Request;
+import com.bytedance.sdk.adnet.core.g;
+import com.bytedance.sdk.adnet.core.k;
+import com.bytedance.sdk.adnet.core.o;
+import com.bytedance.sdk.adnet.err.e;
+import com.bytedance.sdk.openadsdk.utils.f;
+import com.bytedance.sdk.openadsdk.utils.u;
 /* loaded from: classes6.dex */
-public class c extends d<c> {
+public class c extends Request<byte[]> {
+    private static final Object i = new Object();
+    private final Object c;
+    @Nullable
+    @GuardedBy("mLock")
+    private a d;
+    private final Bitmap.Config e;
+    private final int f;
+    private final int g;
+    private final ImageView.ScaleType h;
 
-    /* renamed from: a  reason: collision with root package name */
-    private long f7175a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f7176b;
-
-    public c a(long j) {
-        this.f7175a = j;
-        return this;
+    /* loaded from: classes6.dex */
+    public interface a extends o.a<byte[]> {
+        void a(String str, byte[] bArr);
     }
 
-    public c b(long j) {
-        this.f7176b = j;
-        return this;
+    public c(String str, a aVar, int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
+        super(0, str, aVar);
+        this.c = new Object();
+        setRetryPolicy(new g(1000, 2, 2.0f));
+        this.d = aVar;
+        this.e = config;
+        this.f = i2;
+        this.g = i3;
+        this.h = scaleType;
+        setShouldCache(false);
     }
 
-    @Override // com.bytedance.sdk.openadsdk.h.a.d, com.bytedance.sdk.openadsdk.h.a.b
-    public JSONObject a() {
-        JSONObject a2 = super.a();
-        try {
-            a2.put("c_process_time", this.f7175a);
-            a2.put("s_process_time", this.f7176b);
-        } catch (Exception e) {
+    @Override // com.bytedance.sdk.adnet.core.Request
+    public Request.b getPriority() {
+        return Request.b.LOW;
+    }
+
+    private static int a(int i2, int i3, int i4, int i5, ImageView.ScaleType scaleType) {
+        if (i2 == 0 && i3 == 0) {
+            return i4;
         }
-        return a2;
+        if (scaleType == ImageView.ScaleType.FIT_XY) {
+            return i2 == 0 ? i4 : i2;
+        } else if (i2 == 0) {
+            return (int) ((i3 / i5) * i4);
+        } else {
+            if (i3 != 0) {
+                double d = i5 / i4;
+                if (scaleType == ImageView.ScaleType.CENTER_CROP) {
+                    if (i2 * d < i3) {
+                        return (int) (i3 / d);
+                    }
+                    return i2;
+                } else if (i2 * d > i3) {
+                    return (int) (i3 / d);
+                } else {
+                    return i2;
+                }
+            }
+            return i2;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.bytedance.sdk.adnet.core.Request
+    public o<byte[]> a(k kVar) {
+        o<byte[]> c;
+        synchronized (i) {
+            try {
+                c = b(kVar);
+            } catch (OutOfMemoryError e) {
+                u.c("GifRequest", "Caught OOM for byte image", e);
+                c = o.c(new e(e));
+            }
+        }
+        return c;
+    }
+
+    private o<byte[]> b(k kVar) {
+        Bitmap bitmap;
+        final byte[] bArr = kVar.b;
+        String a2 = com.bytedance.sdk.openadsdk.h.a.a.a().a(getUrl(), this.f, this.g, this.h);
+        if (bArr.length >= 3 && bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70) {
+            try {
+                com.bytedance.sdk.openadsdk.h.a.a.a().a(a2, bArr);
+                if (this.d != null) {
+                    this.b.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.h.a.c.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (c.this.d != null) {
+                                c.this.d.a(c.this.getUrl(), bArr);
+                            }
+                        }
+                    });
+                }
+                return o.a(bArr, com.bytedance.sdk.adnet.d.b.c(kVar));
+            } catch (Exception e) {
+            }
+        }
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        if (this.f == 0 && this.g == 0) {
+            options.inPreferredConfig = this.e;
+            bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+        } else {
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+            int i2 = options.outWidth;
+            int i3 = options.outHeight;
+            int a3 = a(this.f, this.g, i2, i3, this.h);
+            int a4 = a(this.g, this.f, i3, i2, this.h);
+            options.inJustDecodeBounds = false;
+            options.inSampleSize = a(i2, i3, a3, a4);
+            Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+            if (decodeByteArray == null || (decodeByteArray.getWidth() <= a3 && decodeByteArray.getHeight() <= a4)) {
+                bitmap = decodeByteArray;
+            } else {
+                bitmap = Bitmap.createScaledBitmap(decodeByteArray, a3, a4, true);
+                decodeByteArray.recycle();
+            }
+        }
+        if (bitmap == null) {
+            return o.c(new e(kVar));
+        }
+        final byte[] b = f.b(bitmap);
+        com.bytedance.sdk.openadsdk.h.a.a.a().a(a2, b);
+        if (this.d != null) {
+            this.b.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.h.a.c.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (c.this.d != null) {
+                        c.this.d.a(c.this.getUrl(), b);
+                    }
+                }
+            });
+        }
+        return o.a(b, com.bytedance.sdk.adnet.d.b.c(kVar));
+    }
+
+    @Override // com.bytedance.sdk.adnet.core.Request
+    public void cancel() {
+        super.cancel();
+        synchronized (this.c) {
+            this.d = null;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.bytedance.sdk.adnet.core.Request
+    public void a(o<byte[]> oVar) {
+        a aVar;
+        synchronized (this.c) {
+            aVar = this.d;
+        }
+        if (aVar != null) {
+            aVar.a(oVar);
+        }
+    }
+
+    @VisibleForTesting
+    static int a(int i2, int i3, int i4, int i5) {
+        float f = 1.0f;
+        while (f * 2.0f <= Math.min(i2 / i4, i3 / i5)) {
+            f *= 2.0f;
+        }
+        return (int) f;
     }
 }

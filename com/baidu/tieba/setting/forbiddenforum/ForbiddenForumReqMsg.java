@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.v;
 import tbclient.GetDislikeList.DataReq;
 import tbclient.GetDislikeList.GetDislikeListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ForbiddenForumReqMsg extends NetMessage {
     public int pageNum;
     public int pageSize;

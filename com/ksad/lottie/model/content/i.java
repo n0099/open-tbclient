@@ -6,10 +6,8 @@ import androidx.annotation.Nullable;
 public class i implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final boolean f8081a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Path.FillType f8082b;
+    private final boolean f5393a;
+    private final Path.FillType b;
     private final String c;
     @Nullable
     private final com.ksad.lottie.model.a.a d;
@@ -18,8 +16,8 @@ public class i implements b {
 
     public i(String str, boolean z, Path.FillType fillType, @Nullable com.ksad.lottie.model.a.a aVar, @Nullable com.ksad.lottie.model.a.d dVar) {
         this.c = str;
-        this.f8081a = z;
-        this.f8082b = fillType;
+        this.f5393a = z;
+        this.b = fillType;
         this.d = aVar;
         this.e = dVar;
     }
@@ -44,10 +42,10 @@ public class i implements b {
     }
 
     public Path.FillType d() {
-        return this.f8082b;
+        return this.b;
     }
 
     public String toString() {
-        return "ShapeFill{color=, fillEnabled=" + this.f8081a + '}';
+        return "ShapeFill{color=, fillEnabled=" + this.f5393a + '}';
     }
 }

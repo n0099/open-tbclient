@@ -9,7 +9,7 @@ import com.baidu.live.tbadk.scheme.SchemeCallback;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements ILiveScheme {
     @Override // com.baidu.live.tbadk.scheme.ILiveScheme
     public void excute(Context context, Map<String, String> map, SchemeCallback schemeCallback) {
@@ -80,18 +80,18 @@ public class a implements ILiveScheme {
         }
         if (TextUtils.equals(str, "1")) {
             if (!TextUtils.isEmpty(str2)) {
-                com.baidu.tieba.sdk.a.dFx().c(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
+                com.baidu.tieba.sdk.a.dFF().c(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
             } else if (!TextUtils.isEmpty(str3)) {
-                com.baidu.tieba.sdk.a.dFx().b(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
+                com.baidu.tieba.sdk.a.dFF().b(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
             } else if (!TextUtils.isEmpty(str4)) {
-                com.baidu.tieba.sdk.a.dFx().d(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
+                com.baidu.tieba.sdk.a.dFF().d(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
             }
         } else if (!TextUtils.isEmpty(str2)) {
-            com.baidu.tieba.sdk.a.dFx().a(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
+            com.baidu.tieba.sdk.a.dFF().a(context != null ? context : TbadkCoreApplication.getInst(), str2, "1".equals(str5), str9, jSONObject);
         } else if (!TextUtils.isEmpty(str3)) {
-            com.baidu.tieba.sdk.a.dFx().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
+            com.baidu.tieba.sdk.a.dFF().a(context != null ? context : TbadkCoreApplication.getInst(), Long.parseLong(str3), "1".equals(str5), str9, jSONObject);
         } else if (!TextUtils.isEmpty(str4)) {
-            com.baidu.tieba.sdk.a.dFx().b(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
+            com.baidu.tieba.sdk.a.dFF().b(context != null ? context : TbadkCoreApplication.getInst(), str4, "1".equals(str5), str9, jSONObject);
         }
     }
 }

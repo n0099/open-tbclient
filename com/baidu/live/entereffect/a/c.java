@@ -1,17 +1,17 @@
 package com.baidu.live.entereffect.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class c {
-    public String aGI;
-    public String aUA;
-    public String aUr;
-    public String aUs;
-    public String aUt;
-    public String aUu;
-    public String aUv;
-    public String aUw;
-    public int aUx;
-    public int aUy;
-    public boolean aUz;
+    public String aIi;
+    public String aVR;
+    public String aVS;
+    public String aVT;
+    public String aVU;
+    public String aVV;
+    public String aVW;
+    public int aVX;
+    public int aVY;
+    public boolean aVZ;
+    public String aWa;
     public String iconUrl;
     public String id;
     public long msgId;

@@ -7,23 +7,21 @@ import java.util.List;
 public class r implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1553a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ ArBridge.d f1554b;
+    final /* synthetic */ int f1299a;
+    final /* synthetic */ ArBridge.d b;
     final /* synthetic */ ArBridge c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ArBridge arBridge, int i, ArBridge.d dVar) {
         this.c = arBridge;
-        this.f1553a = i;
-        this.f1554b = dVar;
+        this.f1299a = i;
+        this.b = dVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         List list;
-        ArBridge.a aVar = new ArBridge.a(this.f1553a, -1, this.f1554b);
+        ArBridge.a aVar = new ArBridge.a(this.f1299a, -1, this.b);
         list = this.c.e;
         list.add(aVar);
     }

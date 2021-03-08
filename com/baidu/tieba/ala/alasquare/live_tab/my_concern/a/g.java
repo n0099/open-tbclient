@@ -5,13 +5,13 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernTitleView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.special_forum.data.g, LiveTabConcernTitleView.ViewHolder> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.g.gCD);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.special_forum.data.g.gEm);
         this.mPageContext = tbPageContext;
     }
 
@@ -27,11 +27,11 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.special_forum.data.g gVar, LiveTabConcernTitleView.ViewHolder viewHolder) {
-        if (viewHolder == null || viewHolder.gDQ == null) {
+        if (viewHolder == null || viewHolder.gFz == null) {
             return null;
         }
-        viewHolder.gDQ.a(gVar);
-        viewHolder.gDQ.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        viewHolder.gFz.a(gVar);
+        viewHolder.gFz.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return viewHolder.getView();
     }
 }

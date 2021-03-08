@@ -1,75 +1,218 @@
 package com.bytedance.sdk.adnet.core;
 
+import android.text.TextUtils;
+import com.bytedance.sdk.a.b.ab;
+import com.bytedance.sdk.a.b.ac;
+import com.bytedance.sdk.a.b.v;
+import com.bytedance.sdk.a.b.y;
+import com.bytedance.sdk.a.b.z;
+import com.bytedance.sdk.adnet.err.VAdError;
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes6.dex */
-public class l {
+public class l implements com.bytedance.sdk.adnet.e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f6042a;
+    private final z f4047a = new z.a().c(10000, TimeUnit.MILLISECONDS).d(10000, TimeUnit.MILLISECONDS).e(10000, TimeUnit.MILLISECONDS).eqH();
 
-    /* renamed from: b  reason: collision with root package name */
-    public final byte[] f6043b;
-    public final Map<String, String> c;
-    public final List<a> d;
-    public final boolean e;
-    public final long f;
-
-    @Deprecated
-    public l(int i, byte[] bArr, Map<String, String> map, boolean z, long j) {
-        this(i, bArr, map, a(map), z, j);
+    @Override // com.bytedance.sdk.adnet.e.a
+    public b a(Request<?> request, Map<String, String> map) throws IOException, VAdError {
+        int timeoutMs = request.getTimeoutMs();
+        z eqH = this.f4047a.eqG().c(timeoutMs, TimeUnit.MILLISECONDS).d(timeoutMs, TimeUnit.MILLISECONDS).e(timeoutMs, TimeUnit.MILLISECONDS).Bc(true).Bb(true).eqH();
+        ab.a h = h(request);
+        if (h == null) {
+            throw new IllegalArgumentException("request params maybe null");
+        }
+        b(request);
+        if (!TextUtils.isEmpty(request.getUserAgent())) {
+            h.Zi("User-Agent").hp("User-Agent", request.getUserAgent());
+        }
+        Map<String, String> headers = request.getHeaders();
+        if (headers != null) {
+            for (String str : headers.keySet()) {
+                h.hp(str, headers.get(str));
+            }
+        }
+        if (map != null) {
+            for (String str2 : map.keySet()) {
+                h.ho(str2, map.get(str2));
+            }
+        }
+        a(h, request);
+        com.bytedance.sdk.a.b.b epY = eqH.g(h.eqQ()).epY();
+        com.bytedance.sdk.a.b.a.c.k g = com.bytedance.sdk.a.b.a.c.k.g(epY);
+        com.bytedance.sdk.a.b.c epU = epY.epU();
+        boolean z = false;
+        try {
+            int i = g.b;
+            if (i == -1) {
+                throw new IOException("Could not retrieve response code from HttpUrlConnection.");
+            }
+            if (!a(request.getMethod(), i)) {
+                b bVar = new b(i, f(epY.epT()));
+                epU.close();
+                return bVar;
+            }
+            try {
+                return new b(i, f(epY.epT()), (int) epU.b(), new a(epU));
+            } catch (Throwable th) {
+                th = th;
+                z = true;
+                if (!z) {
+                    epU.close();
+                }
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 
-    public l(int i, byte[] bArr, boolean z, long j, List<a> list) {
-        this(i, bArr, a(list), list, z, j);
+    private void b(Request<?> request) {
+        if (request != null) {
+            request.setIpAddrStr(g(request));
+        }
     }
 
-    @Deprecated
-    public l(byte[] bArr, Map<String, String> map) {
-        this(200, bArr, map, false, 0L);
+    private String g(Request<?> request) {
+        if (request == null || request.getUrl() == null) {
+            return "";
+        }
+        try {
+            return InetAddress.getByName(new URL(request.getUrl()).getHost()).getHostAddress();
+        } catch (Exception e) {
+            return "";
+        }
     }
 
-    private l(int i, byte[] bArr, Map<String, String> map, List<a> list, boolean z, long j) {
-        this.f6042a = i;
-        this.f6043b = bArr;
-        this.c = map;
-        if (list == null) {
-            this.d = null;
+    private ab.a h(Request request) throws IOException {
+        boolean z;
+        if (request == null || request.getUrl() == null) {
+            return null;
+        }
+        ab.a aVar = new ab.a();
+        URL url = new URL(request.getUrl());
+        String host = url.getHost();
+        String a2 = com.bytedance.sdk.adnet.a.pwT != null ? com.bytedance.sdk.adnet.a.pwT.a(host) : null;
+        if (TextUtils.isEmpty(a2)) {
+            z = false;
         } else {
-            this.d = Collections.unmodifiableList(list);
+            try {
+                aVar.e(new URL(url.toString().replaceFirst(host, a2))).hp("Host", host);
+                z = true;
+            } catch (Exception e) {
+                z = false;
+            }
         }
-        this.e = z;
-        this.f = j;
+        if (!z) {
+            aVar.e(url);
+        }
+        return aVar;
     }
 
-    private static Map<String, String> a(List<a> list) {
-        if (list == null) {
-            return null;
-        }
-        if (list.isEmpty()) {
-            return Collections.emptyMap();
-        }
-        TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-        for (a aVar : list) {
-            treeMap.put(aVar.getName(), aVar.getValue());
-        }
-        return treeMap;
+    private static boolean a(int i, int i2) {
+        return (i == 4 || (100 <= i2 && i2 < 200) || i2 == 204 || i2 == 304) ? false : true;
     }
 
-    private static List<a> a(Map<String, String> map) {
-        if (map == null) {
-            return null;
+    private static List<com.bytedance.sdk.adnet.core.a> f(v vVar) {
+        if (vVar == null) {
+            return new ArrayList();
         }
-        if (map.isEmpty()) {
-            return Collections.emptyList();
-        }
-        ArrayList arrayList = new ArrayList(map.size());
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            arrayList.add(new a(entry.getKey(), entry.getValue()));
+        ArrayList arrayList = new ArrayList(vVar.a());
+        int a2 = vVar.a();
+        for (int i = 0; i < a2; i++) {
+            String a3 = vVar.a(i);
+            String b = vVar.b(i);
+            if (a3 != null) {
+                arrayList.add(new com.bytedance.sdk.adnet.core.a(a3, b));
+            }
         }
         return arrayList;
+    }
+
+    private static void a(ab.a aVar, Request<?> request) throws IOException, com.bytedance.sdk.adnet.err.a {
+        switch (request.getMethod()) {
+            case -1:
+                byte[] postBody = request.getPostBody();
+                if (postBody != null) {
+                    aVar.a(ac.b(y.Zg(request.getBodyContentType()), postBody));
+                    return;
+                }
+                return;
+            case 0:
+                aVar.eqN();
+                return;
+            case 1:
+                aVar.a(i(request));
+                return;
+            case 2:
+                aVar.c(i(request));
+                return;
+            case 3:
+                aVar.eqP();
+                return;
+            case 4:
+                aVar.eqO();
+                return;
+            case 5:
+                aVar.a(HttpOptions.METHOD_NAME, null);
+                return;
+            case 6:
+                aVar.a(HttpTrace.METHOD_NAME, null);
+                return;
+            case 7:
+                aVar.d(i(request));
+                return;
+            default:
+                throw new IllegalStateException("Unknown method type.");
+        }
+    }
+
+    private static ac i(Request request) throws com.bytedance.sdk.adnet.err.a {
+        byte[] body = request.getBody();
+        if (body == null) {
+            if (request.getMethod() == 1) {
+                body = "".getBytes();
+            } else {
+                return null;
+            }
+        }
+        return ac.b(y.Zg(request.getBodyContentType()), body);
+    }
+
+    /* loaded from: classes6.dex */
+    static class a extends FilterInputStream {
+        private final com.bytedance.sdk.a.b.c pxM;
+
+        a(com.bytedance.sdk.a.b.c cVar) {
+            super(l.b(cVar));
+            this.pxM = cVar;
+        }
+
+        @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+        public void close() throws IOException {
+            super.close();
+            try {
+                this.pxM.close();
+            } catch (Throwable th) {
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static InputStream b(com.bytedance.sdk.a.b.c cVar) {
+        if (cVar == null) {
+            return null;
+        }
+        return cVar.c();
     }
 }

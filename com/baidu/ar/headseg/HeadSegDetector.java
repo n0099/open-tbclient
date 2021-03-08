@@ -12,7 +12,7 @@ import com.baidu.ar.d.l;
 import com.baidu.ar.databasic.AlgoHandleAdapter;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class HeadSegDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = HeadSegDetector.class.getSimpleName();
     private int qB = 256;
@@ -33,7 +33,7 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
             @Override // com.baidu.ar.b.b.b
             public int a(com.baidu.ar.mdl.a aVar) {
                 String str = aVar.tw[0];
-                return aVar.f1491tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
+                return aVar.f1261tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
             }
 
             @Override // com.baidu.ar.c.a

@@ -1,7 +1,7 @@
 package com.yy.mediaframework.model;
 
 import android.view.SurfaceHolder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SurfaceHolderInfo extends AbstractSurfaceInfo {
     public SurfaceHolder mSurfaceHolder;
 

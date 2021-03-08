@@ -1,5 +1,5 @@
 package com.baidu.live.alablmsdk.c.b;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void ax(long j);
 }

@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.a.f;
 import com.baidu.tieba.ala.alasquare.widget.f;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
-    private boolean gyC;
-    private boolean gyD;
-    private f.a gyE;
-    private int gyr;
-    private boolean gyz;
+    private int gAa;
+    private boolean gAi;
+    private boolean gAl;
+    private boolean gAm;
+    private f.a gAn;
     private TbPageContext<?> mPageContext;
     private int mTabIndex;
 
@@ -28,11 +28,11 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
     /* renamed from: P */
     public SquareRecordViewHolder e(ViewGroup viewGroup) {
         com.baidu.tieba.ala.alasquare.widget.f fVar = new com.baidu.tieba.ala.alasquare.widget.f(this.mPageContext);
-        fVar.mP(this.gyC);
-        fVar.mQ(this.gyD);
-        fVar.mO(this.gyz);
+        fVar.mP(this.gAl);
+        fVar.mQ(this.gAm);
+        fVar.mO(this.gAi);
         SquareRecordViewHolder squareRecordViewHolder = new SquareRecordViewHolder(fVar);
-        fVar.a(this.gyE);
+        fVar.a(this.gAn);
         return squareRecordViewHolder;
     }
 
@@ -41,22 +41,22 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.a.f fVar, SquareRecordViewHolder squareRecordViewHolder) {
         com.baidu.tieba.ala.alasquare.widget.f fVar2;
-        if (squareRecordViewHolder == null || (fVar2 = squareRecordViewHolder.gyF) == null || fVar2.getView() == null) {
+        if (squareRecordViewHolder == null || (fVar2 = squareRecordViewHolder.gAo) == null || fVar2.getView() == null) {
             return null;
         }
         if (fVar != null) {
             fVar.locate = i + 1;
         }
         fVar2.a(fVar);
-        com.baidu.tieba.ala.alasquare.b.a.bSe().e(fVar.az(bRe(), false));
+        com.baidu.tieba.ala.alasquare.b.a.bSk().e(fVar.az(bRk(), false));
         a(fVar);
-        if (i == this.gyr) {
+        if (i == this.gAa) {
             fVar2.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
         }
         return fVar2.getView();
     }
 
-    private String bRe() {
+    private String bRk() {
         if (this.mTabIndex == 2) {
             return "c12127";
         }
@@ -66,31 +66,31 @@ public class AlaSquareRecordAdapter extends a<f, SquareRecordViewHolder> {
         return null;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class SquareRecordViewHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.ala.alasquare.widget.f gyF;
+        public com.baidu.tieba.ala.alasquare.widget.f gAo;
 
         public SquareRecordViewHolder(com.baidu.tieba.ala.alasquare.widget.f fVar) {
             super(fVar.getView());
-            this.gyF = fVar;
+            this.gAo = fVar;
         }
     }
 
     private void a(com.baidu.tieba.ala.alasquare.a.f fVar) {
-        if (fVar != null && fVar.gyO != null && TextUtils.equals("c12479", bRe())) {
+        if (fVar != null && fVar.gAx != null && TextUtils.equals("c12479", bRk())) {
             ar arVar = new ar("c12461");
-            if (StringUtils.isNull(fVar.gyO.mRecomSource)) {
+            if (StringUtils.isNull(fVar.gAx.mRecomSource)) {
                 arVar.dR("obj_source", "0");
             } else {
                 arVar.dR("obj_source", "1");
             }
-            if (StringUtils.isNull(fVar.gyO.mRecomAbTag)) {
+            if (StringUtils.isNull(fVar.gAx.mRecomAbTag)) {
                 arVar.dR("obj_locate", "0");
             } else {
                 arVar.dR("obj_locate", "1");
             }
             arVar.dR("obj_type", "1");
-            com.baidu.tieba.ala.alasquare.b.a.bSe().e(arVar);
+            com.baidu.tieba.ala.alasquare.b.a.bSk().e(arVar);
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ANRContext {
     private static final IANRContext ANR_CONTEXT_DEFAULT = new IANRContext() { // from class: com.baidu.searchbox.anr.impl.ANRContext.1
         @Override // com.baidu.searchbox.anr.ioc.IANRContext

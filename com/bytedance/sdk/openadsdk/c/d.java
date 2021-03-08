@@ -23,35 +23,36 @@ public class d {
     }
 
     public static void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, Map<String, Object> map) {
-        Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context;
-        JSONObject jSONObject = new JSONObject();
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(Config.DEVICE_PART, com.bytedance.sdk.openadsdk.utils.i.d(a2).toString());
-            jSONObject2.put("is_cache", lVar.ac() ? 1 : 0);
-            if (map != null) {
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    jSONObject2.put(entry.getKey(), entry.getValue());
+        if (!a(str, lVar)) {
+            Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(Config.DEVICE_PART, com.bytedance.sdk.openadsdk.utils.i.d(a2).toString());
+                jSONObject2.put("is_cache", lVar.ap() ? 1 : 0);
+                if (map != null) {
+                    for (Map.Entry<String, Object> entry : map.entrySet()) {
+                        jSONObject2.put(entry.getKey(), entry.getValue());
+                    }
                 }
+                ak.a(jSONObject2);
+                jSONObject.put("ad_extra_data", jSONObject2.toString());
+                jSONObject.putOpt("log_extra", lVar.aj());
+                float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - aj.g(lVar.aj())).floatValue();
+                if (floatValue <= 0.0f) {
+                    floatValue = 0.0f;
+                }
+                jSONObject.putOpt("show_time", Float.valueOf(floatValue));
+            } catch (JSONException e) {
             }
-            ak.a(jSONObject2);
-            jSONObject.put("ad_extra_data", jSONObject2.toString());
-            jSONObject.putOpt("log_extra", lVar.W());
-            float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - aj.g(lVar.W())).floatValue();
-            if (floatValue <= 0.0f) {
-                floatValue = 0.0f;
+            com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(a2, str, "show", lVar.ag(), jSONObject));
+            String a3 = com.bytedance.sdk.openadsdk.core.k.a(com.bytedance.sdk.openadsdk.core.p.a());
+            if (!TextUtils.isEmpty(a3)) {
+                com.bytedance.sdk.openadsdk.core.p.g().a(a3, lVar.ab(), true);
             }
-            jSONObject.putOpt("show_time", Float.valueOf(floatValue));
-        } catch (JSONException e) {
-        }
-        com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(a2, str, "show", lVar.T(), jSONObject));
-        String a3 = com.bytedance.sdk.openadsdk.core.k.a(com.bytedance.sdk.openadsdk.core.p.a());
-        if (!TextUtils.isEmpty(a3)) {
-            com.bytedance.sdk.openadsdk.core.p.g().a(a3, lVar.O(), true);
-        }
-        u.e("AdEvent", "pangolin ad show " + lVar.T());
-        if (!TextUtils.isEmpty(com.bytedance.sdk.openadsdk.core.k.a(context))) {
-            s.b(com.bytedance.sdk.openadsdk.core.k.a(context)).c("AdShow");
+            if (!TextUtils.isEmpty(com.bytedance.sdk.openadsdk.core.k.a(context))) {
+                s.b(com.bytedance.sdk.openadsdk.core.k.a(context)).c("AdShow");
+            }
         }
     }
 
@@ -66,10 +67,10 @@ public class d {
                 jSONObject2.put("load_ad_duration", j);
             }
             jSONObject.put("ad_extra_data", jSONObject2.toString());
-            jSONObject.putOpt("log_extra", lVar.W());
+            jSONObject.putOpt("log_extra", lVar.aj());
         } catch (JSONException e) {
         }
-        com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(com.bytedance.sdk.openadsdk.core.p.a(), str, str2, lVar.T(), jSONObject));
+        com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(com.bytedance.sdk.openadsdk.core.p.a(), str, str2, lVar.ag(), jSONObject));
     }
 
     public static void a(com.bytedance.sdk.openadsdk.core.d.l lVar, String str, Map<String, Object> map) {
@@ -115,51 +116,60 @@ public class d {
     }
 
     public static void a(Context context, String str, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.core.d.f fVar, String str2, boolean z, Map<String, Object> map) {
-        if (context == null) {
-            context = com.bytedance.sdk.openadsdk.core.p.a();
-        }
-        JSONObject jSONObject = new JSONObject();
-        if (fVar != null) {
-            try {
-                JSONObject a2 = fVar.a();
-                a2.put(Config.DEVICE_PART, com.bytedance.sdk.openadsdk.utils.i.d(context).toString());
-                a2.put("is_valid", z);
-                ak.a(a2);
-                if (map != null) {
-                    for (Map.Entry<String, Object> entry : map.entrySet()) {
-                        a2.put(entry.getKey(), entry.getValue());
-                    }
-                }
-                jSONObject.put("ad_extra_data", a2.toString());
-            } catch (JSONException e) {
+        if (!a(str2, lVar)) {
+            if (context == null) {
+                context = com.bytedance.sdk.openadsdk.core.p.a();
             }
-        }
-        jSONObject.putOpt("log_extra", lVar.W());
-        float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - aj.g(lVar.W())).floatValue();
-        if (floatValue <= 0.0f) {
-            floatValue = 0.0f;
-        }
-        jSONObject.putOpt("show_time", Float.valueOf(floatValue));
-        com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(context, str2, str, lVar.T(), jSONObject));
-        String a3 = com.bytedance.sdk.openadsdk.core.k.a(com.bytedance.sdk.openadsdk.core.p.a());
-        if (!TextUtils.isEmpty(a3) && "click".equals(str)) {
-            com.bytedance.sdk.openadsdk.core.p.g().a(a3, lVar.P(), true);
-        }
-        if (u.c()) {
-            u.c("AdEvent", str + " " + lVar.T());
+            JSONObject jSONObject = new JSONObject();
+            if (fVar != null) {
+                try {
+                    JSONObject a2 = fVar.a();
+                    a2.put(Config.DEVICE_PART, com.bytedance.sdk.openadsdk.utils.i.d(context).toString());
+                    a2.put("is_valid", z);
+                    ak.a(a2);
+                    if (map != null) {
+                        for (Map.Entry<String, Object> entry : map.entrySet()) {
+                            a2.put(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    a(lVar, a2, str2);
+                    jSONObject.put("ad_extra_data", a2.toString());
+                } catch (JSONException e) {
+                }
+            }
+            jSONObject.putOpt("log_extra", lVar.aj());
+            float floatValue = Double.valueOf((System.currentTimeMillis() / 1000) - aj.g(lVar.aj())).floatValue();
+            if (floatValue <= 0.0f) {
+                floatValue = 0.0f;
+            }
+            jSONObject.putOpt("show_time", Float.valueOf(floatValue));
+            com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(context, str2, str, lVar.ag(), jSONObject));
+            String a3 = com.bytedance.sdk.openadsdk.core.k.a(com.bytedance.sdk.openadsdk.core.p.a());
+            if (!TextUtils.isEmpty(a3) && "click".equals(str)) {
+                com.bytedance.sdk.openadsdk.core.p.g().a(a3, lVar.ac(), true);
+            }
+            if (u.c()) {
+                u.c("AdEvent", str + " " + lVar.ag());
+            }
         }
     }
 
-    public static void b(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, Map<String, Object> map) {
-        if (context == null) {
-            context = com.bytedance.sdk.openadsdk.core.p.a();
+    private static boolean a(String str, com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (TextUtils.isEmpty(str) || lVar == null) {
+            return false;
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.putOpt("log_extra", lVar.W());
-        } catch (Exception e) {
+        return str.equals("feed_video_middle_page") && lVar.az() == 1;
+    }
+
+    private static void a(com.bytedance.sdk.openadsdk.core.d.l lVar, JSONObject jSONObject, String str) {
+        int i = 1;
+        if (lVar != null && jSONObject != null && !TextUtils.isEmpty(str) && str.equals("embeded_ad")) {
+            try {
+                jSONObject.put("video_middle_page", (lVar.az() != 1 || lVar.N() == null) ? 0 : 0);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(context, str, "render_h5_detect", lVar.T(), jSONObject));
     }
 
     public static void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2, JSONObject jSONObject) {
@@ -213,7 +223,7 @@ public class d {
     public static void a(@NonNull com.bytedance.sdk.openadsdk.core.d.l lVar, List<FilterWord> list) {
         com.bytedance.sdk.openadsdk.dislike.a.a().a(lVar, list);
         if (u.c()) {
-            u.c("AdEvent", "tt_dislike_icon " + lVar.T());
+            u.c("AdEvent", "tt_dislike_icon " + lVar.ag());
         }
     }
 
@@ -399,12 +409,12 @@ public class d {
     private static void c(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt("log_extra", lVar.W());
+            jSONObject.putOpt("log_extra", lVar.aj());
         } catch (JSONException e) {
         }
-        com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(context, str, str2, lVar.T(), jSONObject));
+        com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(context, str, str2, lVar.ag(), jSONObject));
         if (u.c()) {
-            u.c("AdEvent", "tag: " + str + "label: " + str2 + " " + lVar.T());
+            u.c("AdEvent", "tag: " + str + "label: " + str2 + " " + lVar.ag());
         }
     }
 
@@ -413,13 +423,13 @@ public class d {
         if (lVar != null) {
             if (jSONObject != null) {
                 try {
-                    jSONObject.putOpt("log_extra", lVar.W());
+                    jSONObject.putOpt("log_extra", lVar.aj());
                 } catch (JSONException e) {
                 }
             }
-            com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(context, str, str2, lVar.T(), jSONObject));
+            com.bytedance.sdk.openadsdk.core.p.c().a(com.bytedance.sdk.openadsdk.c.a.a(context, str, str2, lVar.ag(), jSONObject));
             if (u.c()) {
-                u.c("AdEvent", "tag: " + str + "label: " + str2 + " " + lVar.T());
+                u.c("AdEvent", "tag: " + str + "label: " + str2 + " " + lVar.ag());
             }
         }
     }
@@ -481,12 +491,12 @@ public class d {
         if (lVar != null && context != null) {
             HashMap hashMap = new HashMap();
             hashMap.put("color_percent", Integer.valueOf(i));
-            if (lVar.F() != null) {
-                hashMap.put("playable_url", lVar.F().i());
+            if (lVar.R() != null) {
+                hashMap.put("playable_url", lVar.R().j());
             }
-            hashMap.put("memory_total", Integer.valueOf(aj.i()));
-            hashMap.put("memory_use", Integer.valueOf(aj.k() - aj.j()));
-            hashMap.put("request_id", aj.h(lVar.W()));
+            hashMap.put("memory_total", Integer.valueOf(aj.j()));
+            hashMap.put("memory_use", Integer.valueOf(aj.l() - aj.k()));
+            hashMap.put("request_id", aj.h(lVar.aj()));
             hashMap.put("timestamp", Long.valueOf(System.currentTimeMillis()));
             hashMap.put("color_percent_type", Integer.valueOf(i2));
             k(context, lVar, str, str2, hashMap);
@@ -515,7 +525,7 @@ public class d {
         if (lVar != null) {
             a(com.bytedance.sdk.openadsdk.core.p.a(), lVar, str, "open_appback", Long.valueOf(j));
             com.bytedance.sdk.openadsdk.utils.k.a(0L);
-            com.bytedance.sdk.openadsdk.utils.k.b("");
+            com.bytedance.sdk.openadsdk.utils.k.c("");
         }
     }
 

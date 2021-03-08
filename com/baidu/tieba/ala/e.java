@@ -2,19 +2,19 @@ package com.baidu.tieba.ala;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    boolean gre = false;
+    boolean gsN = false;
     String date = "";
-    int brp = 0;
+    int bsP = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String toJsonString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("hasToast", this.gre);
+            jSONObject.put("hasToast", this.gsN);
             jSONObject.put("date", this.date);
-            jSONObject.put("times", this.brp);
+            jSONObject.put("times", this.bsP);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

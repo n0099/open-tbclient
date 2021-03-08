@@ -15,7 +15,7 @@ public class ar {
                 }
             }
             return false;
-        } catch (Exception e) {
+        } catch (Throwable th) {
             return false;
         }
     }
@@ -26,6 +26,8 @@ public class ar {
             networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (SecurityException e) {
             au.a(e);
+            networkInfo = null;
+        } catch (Throwable th) {
             networkInfo = null;
         }
         if (networkInfo != null && networkInfo.isAvailable()) {

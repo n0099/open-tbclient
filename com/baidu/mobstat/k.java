@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum k {
     AP_LIST(0) { // from class: com.baidu.mobstat.k.1
         @Override // com.baidu.mobstat.k
@@ -161,9 +161,9 @@ public enum k {
         if (arrayList3.size() != 0 && arrayList.size() == 0 && arrayList2.size() == 0) {
             i iVar = arrayList3.get(0);
             long a2 = iVar.a();
-            String b2 = iVar.b();
+            String b = iVar.b();
             arrayList2.add(Long.valueOf(a2));
-            arrayList.add(b2);
+            arrayList.add(b);
         }
         int a3 = a(arrayList2);
         if (a3 != arrayList.size()) {
@@ -187,13 +187,13 @@ public enum k {
             while (it.hasNext()) {
                 i next = it.next();
                 long a3 = next.a();
-                String b2 = next.b();
-                int length = b2.length();
+                String b = next.b();
+                int length = b.length();
                 if (i3 + length > i) {
                     break;
                 }
                 arrayList.add(Long.valueOf(a3));
-                list.add(b2);
+                list.add(b);
                 i3 += length;
             }
             c -= i6;
@@ -225,7 +225,7 @@ public enum k {
                 }
             }
             if (jVar.a()) {
-                int b2 = jVar.b();
+                int b = jVar.b();
             }
             if (jVar != null) {
                 jVar.close();

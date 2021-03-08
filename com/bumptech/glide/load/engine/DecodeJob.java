@@ -26,7 +26,7 @@ import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, FactoryPools.Poolable, Comparable<DecodeJob<?>>, Runnable {
     private static final String TAG = "DecodeJob";
     private Callback<R> callback;
@@ -62,7 +62,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     private final ReleaseManager releaseManager = new ReleaseManager();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface Callback<R> {
         void onLoadFailed(GlideException glideException);
 
@@ -72,13 +72,13 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface DiskCacheProvider {
         DiskCache getDiskCache();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum RunReason {
         INITIALIZE,
         SWITCH_TO_SOURCE_SERVICE,
@@ -86,7 +86,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public enum Stage {
         INITIALIZE,
         RESOURCE_CACHE,
@@ -194,44 +194,29 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [257=4, 258=4, 260=4] */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     @Override // java.lang.Runnable
     public void run() {
         GlideTrace.beginSectionFormat("DecodeJob#run(model=%s)", this.model);
         DataFetcher<?> dataFetcher = this.currentFetcher;
         try {
-            if (this.isCancelled) {
-                notifyFailed();
-            } else {
+            try {
+                if (this.isCancelled) {
+                    notifyFailed();
+                    return;
+                }
                 runWrapped();
                 if (dataFetcher != null) {
                     dataFetcher.cleanup();
                 }
                 GlideTrace.endSection();
+            } catch (CallbackException e) {
+                throw e;
             }
-        } catch (Throwable th) {
-            try {
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "DecodeJob threw unexpectedly, isCancelled: " + this.isCancelled + ", stage: " + this.stage, th);
-                }
-                if (this.stage != Stage.ENCODE) {
-                    this.throwables.add(th);
-                    notifyFailed();
-                }
-                if (!this.isCancelled) {
-                    throw th;
-                }
-                if (dataFetcher != null) {
-                    dataFetcher.cleanup();
-                }
-                GlideTrace.endSection();
-            } finally {
-                if (dataFetcher != null) {
-                    dataFetcher.cleanup();
-                }
-                GlideTrace.endSection();
+        } finally {
+            if (dataFetcher != null) {
+                dataFetcher.cleanup();
             }
+            GlideTrace.endSection();
         }
     }
 
@@ -299,7 +284,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     private void setNotifiedOrThrow() {
         this.stateVerifier.throwIfRecycled();
         if (this.isCallbackNotified) {
-            throw new IllegalStateException("Already notified");
+            throw new IllegalStateException("Already notified", this.throwables.isEmpty() ? null : this.throwables.get(this.throwables.size() - 1));
         }
         this.isCallbackNotified = true;
     }
@@ -307,14 +292,20 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     private Stage getNextStage(Stage stage) {
         switch (stage) {
             case RESOURCE_CACHE:
-                return this.diskCacheStrategy.decodeCachedData() ? Stage.DATA_CACHE : getNextStage(Stage.DATA_CACHE);
+                if (this.diskCacheStrategy.decodeCachedData()) {
+                    return Stage.DATA_CACHE;
+                }
+                return getNextStage(Stage.DATA_CACHE);
             case DATA_CACHE:
                 return this.onlyRetrieveFromCache ? Stage.FINISHED : Stage.SOURCE;
             case SOURCE:
             case FINISHED:
                 return Stage.FINISHED;
             case INITIALIZE:
-                return this.diskCacheStrategy.decodeCachedResource() ? Stage.RESOURCE_CACHE : getNextStage(Stage.RESOURCE_CACHE);
+                if (this.diskCacheStrategy.decodeCachedResource()) {
+                    return Stage.RESOURCE_CACHE;
+                }
+                return getNextStage(Stage.RESOURCE_CACHE);
             default:
                 throw new IllegalArgumentException("Unrecognized stage: " + stage);
         }
@@ -515,7 +506,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
         private final DataSource dataSource;
 
@@ -531,7 +522,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class ReleaseManager {
         private boolean isEncodeComplete;
         private boolean isFailed;
@@ -567,7 +558,7 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class DeferredEncodeManager<Z> {
         private ResourceEncoder<Z> encoder;
         private Key key;

@@ -18,15 +18,13 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5264a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String f5265b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-    private static final String c = f5264a + f5265b;
+    private static final String f3539a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+    private static final String b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+    private static final String c = f3539a + b;
     private static c d;
     private Context e;
 
@@ -208,8 +206,8 @@ public final class l {
             return null;
         }
         c cVar = new c((byte) 0);
-        cVar.f5267a = str2;
-        cVar.f5268b = str;
+        cVar.f3541a = str2;
+        cVar.b = str;
         return cVar;
     }
 
@@ -230,8 +228,8 @@ public final class l {
             }
             if (!TextUtils.isEmpty(str)) {
                 c cVar = new c((byte) 0);
-                cVar.f5267a = str;
-                cVar.f5268b = c2;
+                cVar.f3541a = str;
+                cVar.b = c2;
                 return cVar;
             }
         } catch (Throwable th) {
@@ -261,19 +259,17 @@ public final class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5267a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f5268b;
+        public String f3541a;
+        public String b;
 
         private c() {
         }
 
-        /* synthetic */ c(byte b2) {
+        /* synthetic */ c(byte b) {
             this();
         }
 
@@ -289,8 +285,8 @@ public final class l {
                     return null;
                 }
                 c cVar = new c();
-                cVar.f5267a = string;
-                cVar.f5268b = string2;
+                cVar.f3541a = string;
+                cVar.b = string2;
                 return cVar;
             } catch (Throwable th) {
                 e.a();
@@ -300,11 +296,11 @@ public final class l {
 
         public final String a() {
             try {
-                String str = this.f5268b;
+                String str = this.b;
                 if (TextUtils.isEmpty(str)) {
                     str = "0";
                 }
-                return this.f5267a + "|" + new StringBuffer(str).reverse().toString();
+                return this.f3541a + "|" + new StringBuffer(str).reverse().toString();
             } catch (Throwable th) {
                 e.a();
                 return null;
@@ -312,7 +308,7 @@ public final class l {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), com.baidu.sapi2.utils.e.q);
@@ -322,11 +318,11 @@ public final class l {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final byte[] f5266a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        private static final byte[] f3540a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
         public static byte[] a(byte[] bArr) {
             int i;
@@ -339,9 +335,9 @@ public final class l {
             byte[] bArr2 = new byte[i3];
             int i4 = 0;
             while (true) {
-                byte b2 = bArr[length - 1];
-                if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
-                    if (b2 != 61) {
+                byte b = bArr[length - 1];
+                if (b != 10 && b != 13 && b != 32 && b != 9) {
+                    if (b != 61) {
                         break;
                     }
                     i4++;
@@ -353,19 +349,19 @@ public final class l {
             int i7 = 0;
             int i8 = 0;
             while (i5 < length) {
-                byte b3 = bArr[i5];
-                if (b3 == 10 || b3 == 13 || b3 == 32 || b3 == 9) {
+                byte b2 = bArr[i5];
+                if (b2 == 10 || b2 == 13 || b2 == 32 || b2 == 9) {
                     i = i8;
                 } else {
-                    if (b3 >= 65 && b3 <= 90) {
-                        i2 = b3 - 65;
-                    } else if (b3 >= 97 && b3 <= 122) {
-                        i2 = b3 - 71;
-                    } else if (b3 >= 48 && b3 <= 57) {
-                        i2 = b3 + 4;
-                    } else if (b3 == 43) {
+                    if (b2 >= 65 && b2 <= 90) {
+                        i2 = b2 - 65;
+                    } else if (b2 >= 97 && b2 <= 122) {
+                        i2 = b2 - 71;
+                    } else if (b2 >= 48 && b2 <= 57) {
+                        i2 = b2 + 4;
+                    } else if (b2 == 43) {
                         i2 = 62;
-                    } else if (b3 == 47) {
+                    } else if (b2 == 47) {
                         i2 = 63;
                     } else {
                         return null;
@@ -403,7 +399,7 @@ public final class l {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d {
         public static String a(byte[] bArr) {
             try {
@@ -412,8 +408,8 @@ public final class l {
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 StringBuilder sb = new StringBuilder();
-                for (byte b2 : digest) {
-                    String upperCase = Integer.toHexString(b2 & 255).toUpperCase();
+                for (byte b : digest) {
+                    String upperCase = Integer.toHexString(b & 255).toUpperCase();
                     if (upperCase.length() == 1) {
                         sb.append("0");
                     }

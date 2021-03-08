@@ -14,7 +14,7 @@ import com.baidu.ar.databasic.ReserveHandleData;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class SegDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = SegDetector.class.getSimpleName();
     protected boolean mIsFrontCamera;
@@ -126,14 +126,14 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                 switch (SegDetector.this.oU) {
                     case 2:
                         int[] iArr = new int[2];
-                        return aVar.f1491tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                        return aVar.f1261tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
                     case 3:
                     default:
                         return -1;
                     case 4:
-                        return aVar.f1491tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                        return aVar.f1261tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
                     case 5:
-                        return aVar.f1491tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.f1261tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                 }
             }
 

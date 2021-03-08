@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class BdRootActivity extends Activity {
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {

@@ -8,34 +8,34 @@ import java.io.File;
 import java.io.FileWriter;
 /* loaded from: classes3.dex */
 public class c {
-    private static c avH;
-    private static File avI;
+    private static c axh;
+    private static File axi;
     private static Context mContext;
 
-    public static c aJ(Context context) {
+    public static c aI(Context context) {
         Log.i("LogToFileUtils", "init ...");
-        if (mContext == null || avH == null || avI == null || !avI.exists()) {
+        if (mContext == null || axh == null || axi == null || !axi.exists()) {
             mContext = context;
-            avH = new c();
-            avI = getLogFile();
-            write("imsdkversion:" + xa());
-            write("lcpsdkversion:" + wZ());
-            Log.i("LogToFileUtils", "LogFilePath is: " + avI.getPath());
+            axh = new c();
+            axi = getLogFile();
+            write("imsdkversion:" + xd());
+            write("lcpsdkversion:" + xc());
+            Log.i("LogToFileUtils", "LogFilePath is: " + axi.getPath());
         } else {
             Log.i("LogToFileUtils", "LogToFileUtils has been init ...");
         }
-        return avH;
+        return axh;
     }
 
     public static void write(Object obj) {
-        if (mContext == null || avH == null || avI == null || !avI.exists()) {
+        if (mContext == null || axh == null || axi == null || !axi.exists()) {
             Log.e("LogToFileUtils", "Initialization failure !!!");
             return;
         }
         String str = System.currentTimeMillis() + ":" + obj.toString();
         Log.i("LogToFileUtils", str);
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(avI, true));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(axi, true));
             bufferedWriter.write(str);
             bufferedWriter.write("\r\n");
             bufferedWriter.flush();
@@ -44,11 +44,11 @@ public class c {
         }
     }
 
-    private static String wZ() {
+    private static String xc() {
         return "2240016";
     }
 
-    private static String xa() {
+    private static String xd() {
         try {
             Class<?> cls = Class.forName("com.baidu.android.imsdk.internal.IMConfigInternal");
             String valueOf = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), mContext));

@@ -6,10 +6,10 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
-    private int WQ;
-    private int dSQ;
+    private int Yl;
+    private int dUr;
 
     public AlaBannerRecyclerView(Context context) {
         super(context);
@@ -29,8 +29,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.WQ = y;
-                this.dSQ = x;
+                this.Yl = y;
+                this.dUr = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
                 break;
             case 1:
@@ -38,8 +38,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 getParent().requestDisallowInterceptTouchEvent(false);
                 break;
             case 2:
-                int i = y - this.WQ;
-                int i2 = x - this.dSQ;
+                int i = y - this.Yl;
+                int i2 = x - this.dUr;
                 if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
                     getParent().requestDisallowInterceptTouchEvent(false);
                     break;
@@ -49,17 +49,17 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 }
                 break;
         }
-        this.WQ = y;
-        this.dSQ = x;
+        this.Yl = y;
+        this.dUr = x;
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView
     public boolean fling(int i, int i2) {
-        return super.fling(tZ(i), tZ(i2));
+        return super.fling(ub(i), ub(i2));
     }
 
-    private int tZ(int i) {
+    private int ub(int i) {
         return i > 0 ? Math.min(i, 3000) : Math.max(i, -3000);
     }
 }

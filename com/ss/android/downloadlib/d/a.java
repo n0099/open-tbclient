@@ -9,15 +9,15 @@ import java.io.File;
 public class a implements ab {
     @Override // com.ss.android.socialbase.downloader.d.ab
     public void a(com.ss.android.socialbase.downloader.g.c cVar) throws com.ss.android.socialbase.downloader.e.a {
-        m eET = j.eET();
-        if (cVar != null && eET != null) {
+        m eEX = j.eEX();
+        if (cVar != null && eEX != null) {
             String D = cVar.D();
             String n = cVar.n();
-            File a2 = a(D, n);
-            com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eEB().j(cVar);
-            eET.a(D, n, a2, j != null ? i.a(j.q()) : null);
+            File hB = hB(D, n);
+            com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eEF().j(cVar);
+            eEX.a(D, n, hB, j != null ? i.a(j.q()) : null);
             cVar.h("application/vnd.android.package-archive");
-            cVar.d(a2.getName());
+            cVar.d(hB.getName());
             cVar.i((String) null);
         }
     }
@@ -25,12 +25,12 @@ public class a implements ab {
     @Override // com.ss.android.socialbase.downloader.d.ab
     public boolean b(com.ss.android.socialbase.downloader.g.c cVar) {
         if (cVar != null) {
-            return com.ss.android.a.a.e.a.a(com.ss.android.socialbase.downloader.k.a.RW(cVar.g()), cVar.eHn());
+            return com.ss.android.a.a.e.a.a(com.ss.android.socialbase.downloader.k.a.Sa(cVar.g()), cVar.at());
         }
         return false;
     }
 
-    private File a(String str, String str2) {
+    private File hB(String str, String str2) {
         File file = new File(str2);
         String name = file.getName();
         int lastIndexOf = name.lastIndexOf(46);

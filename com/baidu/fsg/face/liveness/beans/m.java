@@ -21,10 +21,8 @@ import java.util.List;
 public class m extends UploadBean {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2279a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f2280b;
+    private String f1756a;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -36,7 +34,7 @@ public class m extends UploadBean {
     }
 
     public void b(String str) {
-        this.f2280b = str;
+        this.b = str;
     }
 
     public void c(String str) {
@@ -44,7 +42,7 @@ public class m extends UploadBean {
     }
 
     public void d(String str) {
-        this.f2279a = str;
+        this.f1756a = str;
     }
 
     public m(Context context) {
@@ -67,11 +65,11 @@ public class m extends UploadBean {
             if (!TextUtils.isEmpty(a())) {
                 arrayList.add(new RestNameValuePair("atbc", a()));
             }
-            if (!TextUtils.isEmpty(this.f2279a)) {
-                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f2279a));
+            if (!TextUtils.isEmpty(this.f1756a)) {
+                arrayList.add(new RestNameValuePair(LogConfig.LOG_VIDEO_TYPE, this.f1756a));
             }
-            if (!TextUtils.isEmpty(this.f2280b)) {
-                arrayList.add(new RestNameValuePair("callbackkey", this.f2280b));
+            if (!TextUtils.isEmpty(this.b)) {
+                arrayList.add(new RestNameValuePair("callbackkey", this.b));
             }
             if (!TextUtils.isEmpty(this.c)) {
                 arrayList.add(new RestNameValuePair("image_callbackkey", this.c));

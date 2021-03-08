@@ -58,13 +58,13 @@ public class g extends a {
         this.k.a(this);
         a(this.k);
         k t = layer.t();
-        if (t != null && t.f8046a != null) {
-            this.n = t.f8046a.a();
+        if (t != null && t.f5375a != null) {
+            this.n = t.f5375a.a();
             this.n.a(this);
             a(this.n);
         }
-        if (t != null && t.f8047b != null) {
-            this.o = t.f8047b.a();
+        if (t != null && t.b != null) {
+            this.o = t.b.a();
             this.o.a(this);
             a(this.o);
         }
@@ -119,7 +119,7 @@ public class g extends a {
     private void a(com.ksad.lottie.model.b bVar, Matrix matrix, com.ksad.lottie.model.c cVar, Canvas canvas) {
         float f = ((float) bVar.c) / 100.0f;
         float a2 = com.ksad.lottie.d.f.a(matrix);
-        String str = bVar.f8051a;
+        String str = bVar.f5378a;
         int i = 0;
         while (true) {
             int i2 = i;
@@ -129,9 +129,9 @@ public class g extends a {
             com.ksad.lottie.model.d dVar = this.m.h().get(com.ksad.lottie.model.d.a(str.charAt(i2), cVar.a(), cVar.c()));
             if (dVar != null) {
                 a(dVar, matrix, f, bVar, canvas);
-                float b2 = ((float) dVar.b()) * f * com.ksad.lottie.d.f.a() * a2;
+                float b = ((float) dVar.b()) * f * com.ksad.lottie.d.f.a() * a2;
                 float f2 = bVar.e / 10.0f;
-                canvas.translate(((this.q != null ? this.q.e().floatValue() + f2 : f2) * a2) + b2, 0.0f);
+                canvas.translate(((this.q != null ? this.q.e().floatValue() + f2 : f2) * a2) + b, 0.0f);
             }
             i = i2 + 1;
         }
@@ -143,7 +143,7 @@ public class g extends a {
         if (a3 == null) {
             return;
         }
-        String str = bVar.f8051a;
+        String str = bVar.f5378a;
         m o = this.l.o();
         String a4 = o != null ? o.a(str) : str;
         this.h.setTypeface(a3);
@@ -195,7 +195,7 @@ public class g extends a {
             canvas.setMatrix(matrix);
         }
         com.ksad.lottie.model.b e = this.k.e();
-        com.ksad.lottie.model.c cVar = this.m.i().get(e.f8052b);
+        com.ksad.lottie.model.c cVar = this.m.i().get(e.b);
         if (cVar == null) {
             canvas.restore();
             return;

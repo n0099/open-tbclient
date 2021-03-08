@@ -1,4 +1,4 @@
 package com.qq.e.ads;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class PortraitADActivity extends ADActivity {
 }

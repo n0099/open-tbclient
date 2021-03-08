@@ -2,9 +2,9 @@ package com.baidu.tieba.lego.c;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    public String lfR;
+    public String lhT;
     public String pic;
     public String scheme;
     public String shareContent;
@@ -20,7 +20,7 @@ public class d {
             if (TextUtils.isEmpty(this.shareTitle) || TextUtils.isEmpty(this.shareContent) || TextUtils.isEmpty(this.shareImageUrl)) {
                 return false;
             }
-        } else if (TextUtils.isEmpty(this.pic) || TextUtils.isEmpty(this.lfR)) {
+        } else if (TextUtils.isEmpty(this.pic) || TextUtils.isEmpty(this.lhT)) {
             return false;
         }
         return true;
@@ -30,7 +30,7 @@ public class d {
         JSONObject optJSONObject;
         if (jSONObject != null) {
             this.pic = jSONObject.optString("pic");
-            this.lfR = jSONObject.optString("picNight");
+            this.lhT = jSONObject.optString("picNight");
             this.scheme = jSONObject.optString("scheme");
             this.type = jSONObject.optInt("type", 1);
             if (this.type == 2 && (optJSONObject = jSONObject.optJSONObject("extra")) != null) {

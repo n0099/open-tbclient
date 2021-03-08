@@ -1,5 +1,5 @@
 package com.baidu.live.tbadk.live.finish;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface IFinishLiveListener {
     void onFinishLive(long j, long j2);
 

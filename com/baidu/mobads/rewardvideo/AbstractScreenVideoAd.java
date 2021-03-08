@@ -11,16 +11,16 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.production.rewardvideo.a;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractScreenVideoAd {
 
     /* renamed from: a  reason: collision with root package name */
-    private IXAdConstants4PDK.ActivityState f3476a = IXAdConstants4PDK.ActivityState.CREATE;
+    private IXAdConstants4PDK.ActivityState f2474a = IXAdConstants4PDK.ActivityState.CREATE;
     protected ScreenVideoAdListener mAdListener;
     protected a mAdProd;
     protected final Context mContext;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface ScreenVideoAdListener {
         void onAdClick();
 
@@ -108,7 +108,7 @@ public abstract class AbstractScreenVideoAd {
     }
 
     private void a(IXAdConstants4PDK.ActivityState activityState) {
-        this.f3476a = activityState;
+        this.f2474a = activityState;
         if (this.mAdProd != null) {
             if (activityState == IXAdConstants4PDK.ActivityState.PAUSE) {
                 this.mAdProd.pause();
@@ -120,7 +120,7 @@ public abstract class AbstractScreenVideoAd {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public abstract class ScreenVideoIOAdEventListener implements IOAdEventListener {
         protected abstract void handleCustomEvent(String str, HashMap<String, Object> hashMap);
 

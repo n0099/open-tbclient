@@ -17,20 +17,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class g extends a {
-    private final char[] Hf;
-    private final Paint Hg;
-    private final Map<com.baidu.live.lottie.model.d, List<com.baidu.live.lottie.a.a.c>> Hh;
+    private final Paint IB;
+    private final Map<com.baidu.live.lottie.model.d, List<com.baidu.live.lottie.a.a.c>> IC;
+    private final char[] Iz;
     @Nullable
-    private com.baidu.live.lottie.a.b.a<Integer, Integer> bsy;
-    private final n bur;
+    private com.baidu.live.lottie.a.b.a<Integer, Integer> btZ;
+    private final n bvR;
     @Nullable
-    private com.baidu.live.lottie.a.b.a<Integer, Integer> bus;
+    private com.baidu.live.lottie.a.b.a<Integer, Integer> bvS;
     @Nullable
-    private com.baidu.live.lottie.a.b.a<Float, Float> but;
+    private com.baidu.live.lottie.a.b.a<Float, Float> bvT;
     @Nullable
-    private com.baidu.live.lottie.a.b.a<Float, Float> buu;
+    private com.baidu.live.lottie.a.b.a<Float, Float> bvU;
     private final com.baidu.live.lottie.e composition;
     private final h lottieDrawable;
     private final Matrix matrix;
@@ -40,10 +40,10 @@ public class g extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(h hVar, Layer layer) {
         super(hVar, layer);
-        this.Hf = new char[1];
+        this.Iz = new char[1];
         this.rectF = new RectF();
         this.matrix = new Matrix();
-        this.Hg = new Paint(1) { // from class: com.baidu.live.lottie.model.layer.g.1
+        this.IB = new Paint(1) { // from class: com.baidu.live.lottie.model.layer.g.1
             {
                 setStyle(Paint.Style.FILL);
             }
@@ -53,32 +53,32 @@ public class g extends a {
                 setStyle(Paint.Style.STROKE);
             }
         };
-        this.Hh = new HashMap();
+        this.IC = new HashMap();
         this.lottieDrawable = hVar;
         this.composition = layer.getComposition();
-        this.bur = layer.Of().Ns();
-        this.bur.b(this);
-        a(this.bur);
-        k Og = layer.Og();
-        if (Og != null && Og.btr != null) {
-            this.bsy = Og.btr.Ns();
-            this.bsy.b(this);
-            a(this.bsy);
+        this.bvR = layer.Oi().Nv();
+        this.bvR.b(this);
+        a(this.bvR);
+        k Oj = layer.Oj();
+        if (Oj != null && Oj.buS != null) {
+            this.btZ = Oj.buS.Nv();
+            this.btZ.b(this);
+            a(this.btZ);
         }
-        if (Og != null && Og.bts != null) {
-            this.bus = Og.bts.Ns();
-            this.bus.b(this);
-            a(this.bus);
+        if (Oj != null && Oj.buT != null) {
+            this.bvS = Oj.buT.Nv();
+            this.bvS.b(this);
+            a(this.bvS);
         }
-        if (Og != null && Og.btt != null) {
-            this.but = Og.btt.Ns();
-            this.but.b(this);
-            a(this.but);
+        if (Oj != null && Oj.buU != null) {
+            this.bvT = Oj.buU.Nv();
+            this.bvT.b(this);
+            a(this.bvT);
         }
-        if (Og != null && Og.btu != null) {
-            this.buu = Og.btu.Ns();
-            this.buu.b(this);
-            a(this.buu);
+        if (Oj != null && Oj.buV != null) {
+            this.bvU = Oj.buV.Nv();
+            this.bvU.b(this);
+            a(this.bvU);
         }
     }
 
@@ -88,29 +88,29 @@ public class g extends a {
         if (!this.lottieDrawable.ig()) {
             canvas.setMatrix(matrix);
         }
-        com.baidu.live.lottie.model.b value = this.bur.getValue();
+        com.baidu.live.lottie.model.b value = this.bvR.getValue();
         com.baidu.live.lottie.model.c cVar = this.composition.hX().get(value.fontName);
         if (cVar == null) {
             canvas.restore();
             return;
         }
-        if (this.bsy != null) {
-            this.Hg.setColor(this.bsy.getValue().intValue());
+        if (this.btZ != null) {
+            this.IB.setColor(this.btZ.getValue().intValue());
         } else {
-            this.Hg.setColor(value.color);
+            this.IB.setColor(value.color);
         }
-        if (this.bus != null) {
-            this.strokePaint.setColor(this.bus.getValue().intValue());
+        if (this.bvS != null) {
+            this.strokePaint.setColor(this.bvS.getValue().intValue());
         } else {
             this.strokePaint.setColor(value.strokeColor);
         }
-        int intValue = (this.bsN.Nn().getValue().intValue() * 255) / 100;
-        this.Hg.setAlpha(intValue);
+        int intValue = (this.bup.Nq().getValue().intValue() * 255) / 100;
+        this.IB.setAlpha(intValue);
         this.strokePaint.setAlpha(intValue);
-        if (this.but != null) {
-            this.strokePaint.setStrokeWidth(this.but.getValue().floatValue());
+        if (this.bvT != null) {
+            this.strokePaint.setStrokeWidth(this.bvT.getValue().floatValue());
         } else {
-            this.strokePaint.setStrokeWidth((float) (value.Fg * com.baidu.live.lottie.d.f.kz() * com.baidu.live.lottie.d.f.c(matrix)));
+            this.strokePaint.setStrokeWidth((float) (value.Gz * com.baidu.live.lottie.d.f.kz() * com.baidu.live.lottie.d.f.c(matrix)));
         }
         if (this.lottieDrawable.ig()) {
             a(value, matrix, cVar, canvas);
@@ -121,7 +121,7 @@ public class g extends a {
     }
 
     private void a(com.baidu.live.lottie.model.b bVar, Matrix matrix, com.baidu.live.lottie.model.c cVar, Canvas canvas) {
-        float f = ((float) bVar.Fc) / 100.0f;
+        float f = ((float) bVar.Gv) / 100.0f;
         float c = com.baidu.live.lottie.d.f.c(matrix);
         String str = bVar.text;
         int i = 0;
@@ -133,7 +133,7 @@ public class g extends a {
                     a(dVar, matrix, f, bVar, canvas);
                     float width = ((float) dVar.getWidth()) * f * com.baidu.live.lottie.d.f.kz() * c;
                     float f2 = bVar.tracking / 10.0f;
-                    canvas.translate(((this.buu != null ? this.buu.getValue().floatValue() + f2 : f2) * c) + width, 0.0f);
+                    canvas.translate(((this.bvU != null ? this.bvU.getValue().floatValue() + f2 : f2) * c) + width, 0.0f);
                 }
                 i = i2 + 1;
             } else {
@@ -147,18 +147,18 @@ public class g extends a {
         Typeface n = this.lottieDrawable.n(cVar.iV(), cVar.iW());
         if (n != null) {
             String str = bVar.text;
-            s Nf = this.lottieDrawable.Nf();
-            String bh = Nf != null ? Nf.bh(str) : str;
-            this.Hg.setTypeface(n);
-            this.Hg.setTextSize((float) (bVar.Fc * com.baidu.live.lottie.d.f.kz()));
-            this.strokePaint.setTypeface(this.Hg.getTypeface());
-            this.strokePaint.setTextSize(this.Hg.getTextSize());
-            for (int i = 0; i < bh.length(); i++) {
-                char charAt = bh.charAt(i);
+            s Ni = this.lottieDrawable.Ni();
+            String bl = Ni != null ? Ni.bl(str) : str;
+            this.IB.setTypeface(n);
+            this.IB.setTextSize((float) (bVar.Gv * com.baidu.live.lottie.d.f.kz()));
+            this.strokePaint.setTypeface(this.IB.getTypeface());
+            this.strokePaint.setTextSize(this.IB.getTextSize());
+            for (int i = 0; i < bl.length(); i++) {
+                char charAt = bl.charAt(i);
                 a(charAt, bVar, canvas);
-                this.Hf[0] = charAt;
+                this.Iz[0] = charAt;
                 float f = bVar.tracking / 10.0f;
-                canvas.translate(((this.buu != null ? this.buu.getValue().floatValue() + f : f) * c) + this.Hg.measureText(this.Hf, 0, 1), 0.0f);
+                canvas.translate(((this.bvU != null ? this.bvU.getValue().floatValue() + f : f) * c) + this.IB.measureText(this.Iz, 0, 1), 0.0f);
             }
         }
     }
@@ -169,15 +169,15 @@ public class g extends a {
             Path iu = a2.get(i).iu();
             iu.computeBounds(this.rectF, false);
             this.matrix.set(matrix);
-            this.matrix.preTranslate(0.0f, ((float) (-bVar.Ff)) * com.baidu.live.lottie.d.f.kz());
+            this.matrix.preTranslate(0.0f, ((float) (-bVar.Gy)) * com.baidu.live.lottie.d.f.kz());
             this.matrix.preScale(f, f);
             iu.transform(this.matrix);
-            if (bVar.Fh) {
-                b(iu, this.Hg, canvas);
+            if (bVar.GA) {
+                b(iu, this.IB, canvas);
                 b(iu, this.strokePaint, canvas);
             } else {
                 b(iu, this.strokePaint, canvas);
-                b(iu, this.Hg, canvas);
+                b(iu, this.IB, canvas);
             }
         }
     }
@@ -191,14 +191,14 @@ public class g extends a {
     }
 
     private void a(char c, com.baidu.live.lottie.model.b bVar, Canvas canvas) {
-        this.Hf[0] = c;
-        if (bVar.Fh) {
-            b(this.Hf, this.Hg, canvas);
-            b(this.Hf, this.strokePaint, canvas);
+        this.Iz[0] = c;
+        if (bVar.GA) {
+            b(this.Iz, this.IB, canvas);
+            b(this.Iz, this.strokePaint, canvas);
             return;
         }
-        b(this.Hf, this.strokePaint, canvas);
-        b(this.Hf, this.Hg, canvas);
+        b(this.Iz, this.strokePaint, canvas);
+        b(this.Iz, this.IB, canvas);
     }
 
     private void b(char[] cArr, Paint paint, Canvas canvas) {
@@ -210,8 +210,8 @@ public class g extends a {
     }
 
     private List<com.baidu.live.lottie.a.a.c> a(com.baidu.live.lottie.model.d dVar) {
-        if (this.Hh.containsKey(dVar)) {
-            return this.Hh.get(dVar);
+        if (this.IC.containsKey(dVar)) {
+            return this.IC.get(dVar);
         }
         List<j> iX = dVar.iX();
         int size = iX.size();
@@ -219,21 +219,21 @@ public class g extends a {
         for (int i = 0; i < size; i++) {
             arrayList.add(new com.baidu.live.lottie.a.a.c(this.lottieDrawable, this, iX.get(i)));
         }
-        this.Hh.put(dVar, arrayList);
+        this.IC.put(dVar, arrayList);
         return arrayList;
     }
 
     @Override // com.baidu.live.lottie.model.layer.a, com.baidu.live.lottie.model.f
     public <T> void a(T t, @Nullable com.baidu.live.lottie.e.c<T> cVar) {
         super.a((g) t, (com.baidu.live.lottie.e.c<g>) cVar);
-        if (t == l.Cy && this.bsy != null) {
-            this.bsy.a(cVar);
-        } else if (t == l.Cz && this.bus != null) {
-            this.bus.a(cVar);
-        } else if (t == l.CJ && this.but != null) {
-            this.but.a(cVar);
-        } else if (t == l.CK && this.buu != null) {
-            this.buu.a(cVar);
+        if (t == l.Ea && this.btZ != null) {
+            this.btZ.a(cVar);
+        } else if (t == l.Eb && this.bvS != null) {
+            this.bvS.a(cVar);
+        } else if (t == l.Ek && this.bvT != null) {
+            this.bvT.a(cVar);
+        } else if (t == l.El && this.bvU != null) {
+            this.bvU.a(cVar);
         }
     }
 }

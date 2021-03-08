@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableInterval extends g<Long> {
     final long initialDelay;
     final long period;
@@ -23,15 +23,15 @@ public final class FlowableInterval extends g<Long> {
         cVar.onSubscribe(intervalSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c eKq = vVar.eKq();
-            intervalSubscriber.setResource(eKq);
-            eKq.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
+            v.c eJY = vVar.eJY();
+            intervalSubscriber.setResource(eJY);
+            eJY.b(intervalSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalSubscriber.setResource(vVar.a(intervalSubscriber, this.initialDelay, this.period, this.unit));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class IntervalSubscriber extends AtomicLong implements Runnable, d {
         private static final long serialVersionUID = -2809475196591179431L;
         final org.a.c<? super Long> actual;

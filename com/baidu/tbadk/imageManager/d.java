@@ -51,12 +51,12 @@ public class d {
             }
             if (i2 > 0) {
                 ar arVar = new ar("c12223");
-                arVar.ap("obj_param1", i2);
+                arVar.aq("obj_param1", i2);
                 TiebaStatic.log(arVar);
             }
             if (i > 0) {
                 ar arVar2 = new ar(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-                arVar2.ap("obj_param1", i);
+                arVar2.aq("obj_param1", i);
                 TiebaStatic.log(arVar2);
             }
         }

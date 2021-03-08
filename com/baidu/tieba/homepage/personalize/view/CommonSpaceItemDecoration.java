@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes2.dex */
 public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
-    private int Ye;
-    private int Yf;
+    private int Zx;
+    private int Zy;
     private int mEnd;
 
     public CommonSpaceItemDecoration(int i, int i2, int i3) {
-        this.Ye = i;
-        this.Yf = i2;
+        this.Zx = i;
+        this.Zy = i2;
         this.mEnd = i3;
     }
 
@@ -22,9 +22,9 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.Ye;
+                rect.top = this.Zx;
             } else {
-                rect.top = this.Yf;
+                rect.top = this.Zy;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                 rect.bottom = this.mEnd;
@@ -33,9 +33,9 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.Ye;
+            rect.left = this.Zx;
         } else {
-            rect.left = this.Yf;
+            rect.left = this.Zy;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
             rect.right = this.mEnd;

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ManitoHeaderItemViewHolder extends TypeAdapter.ViewHolder {
     public int mSkinType;
     public TextView title;

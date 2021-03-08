@@ -25,33 +25,31 @@ import org.json.JSONObject;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f14385a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f14386b = "";
+    private static String f8622a = "";
+    private static String b = "";
 
     public static synchronized String a() {
         String str;
         synchronized (d.class) {
             try {
-                if (TextUtils.isEmpty(f14386b)) {
-                    String d = Orange.eJI().d();
+                if (TextUtils.isEmpty(b)) {
+                    String d = Orange.eJq().d();
                     com.yxcorp.kuaishou.addfp.android.b.b.b("user dis :" + d);
                     if (!TextUtils.isEmpty(d)) {
                         byte[] bytes = d.getBytes();
                         for (int i = 0; i < bytes.length; i++) {
                             bytes[i] = (byte) (bytes[i] ^ 165);
                         }
-                        f14386b = "fuels:" + Base64.encodeToString(bytes, 0);
+                        b = "fuels:" + Base64.encodeToString(bytes, 0);
                     }
-                    if (TextUtils.isEmpty(f14386b)) {
+                    if (TextUtils.isEmpty(b)) {
                         str = "KWE_N";
-                        f14386b = "KWE_N";
+                        b = "KWE_N";
                     } else {
-                        str = f14386b;
+                        str = b;
                     }
                 } else {
-                    str = f14386b;
+                    str = b;
                 }
             }
         }
@@ -64,7 +62,7 @@ public final class d {
                 String str = "";
                 if (Build.VERSION.SDK_INT < 29) {
                     try {
-                        str = f.jh(context).qmB.b();
+                        str = f.jb(context).qnd.b();
                     } catch (Throwable th) {
                     }
                     if (TextUtils.isEmpty(str) || str.startsWith("KWE")) {
@@ -72,11 +70,11 @@ public final class d {
                     }
                     return TextUtils.isEmpty(str) ? "KWE_N" : str;
                 }
-                String[] jg = com.yxcorp.kuaishou.addfp.android.b.a.jg(context);
-                Arrays.sort(jg);
+                String[] ja = com.yxcorp.kuaishou.addfp.android.b.a.ja(context);
+                Arrays.sort(ja);
                 int i = 0;
                 while (i < 2) {
-                    String str2 = jg[i];
+                    String str2 = ja[i];
                     if (TextUtils.isEmpty(str2) || str2.startsWith("KWE")) {
                         str2 = str;
                     }
@@ -110,15 +108,15 @@ public final class d {
         /*
             java.lang.Class<com.yxcorp.kuaishou.addfp.android.a.d> r1 = com.yxcorp.kuaishou.addfp.android.a.d.class
             monitor-enter(r1)
-            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f14385a     // Catch: java.lang.Throwable -> L3f
+            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f8622a     // Catch: java.lang.Throwable -> L3f
             boolean r0 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L3f
             if (r0 != 0) goto Lf
-            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f14385a     // Catch: java.lang.Throwable -> L3f
+            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f8622a     // Catch: java.lang.Throwable -> L3f
         Ld:
             monitor-exit(r1)
             return r0
         Lf:
-            com.yxcorp.kuaishou.addfp.android.Orange r0 = com.yxcorp.kuaishou.addfp.android.Orange.eJI()     // Catch: java.lang.Throwable -> L3f
+            com.yxcorp.kuaishou.addfp.android.Orange r0 = com.yxcorp.kuaishou.addfp.android.Orange.eJq()     // Catch: java.lang.Throwable -> L3f
             java.lang.String r0 = r0.d()     // Catch: java.lang.Throwable -> L3f
             java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L3f
             java.lang.String r3 = "nammm :"
@@ -128,9 +126,9 @@ public final class d {
             com.yxcorp.kuaishou.addfp.android.b.b.b(r2)     // Catch: java.lang.Throwable -> L3f
             boolean r2 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L3f
             if (r2 != 0) goto L32
-            com.yxcorp.kuaishou.addfp.android.a.d.f14385a = r0     // Catch: java.lang.Throwable -> L3f
+            com.yxcorp.kuaishou.addfp.android.a.d.f8622a = r0     // Catch: java.lang.Throwable -> L3f
         L32:
-            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f14385a     // Catch: java.lang.Throwable -> L3f
+            java.lang.String r0 = com.yxcorp.kuaishou.addfp.android.a.d.f8622a     // Catch: java.lang.Throwable -> L3f
             boolean r0 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Throwable -> L3f
             if (r0 == 0) goto L44
             java.lang.String r0 = f(r4)     // Catch: java.lang.Throwable -> L3f
@@ -198,7 +196,7 @@ public final class d {
                 return "";
             }
             try {
-                a2 = f.jh(context).qmB.a();
+                a2 = f.jb(context).qnd.a();
             } catch (Throwable th) {
             }
             if ((TextUtils.isEmpty(a2) || a2.startsWith("KWE")) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
@@ -215,8 +213,8 @@ public final class d {
     private static String c() {
         byte[] hardwareAddress;
         try {
-            InetAddress eJK = eJK();
-            if (eJK == null || (hardwareAddress = NetworkInterface.getByInetAddress(eJK).getHardwareAddress()) == null) {
+            InetAddress eJs = eJs();
+            if (eJs == null || (hardwareAddress = NetworkInterface.getByInetAddress(eJs).getHardwareAddress()) == null) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer();
@@ -248,8 +246,8 @@ public final class d {
 
     public static String d(Context context) {
         try {
-            String m = com.yxcorp.kuaishou.addfp.a.eJC().m(context, b.qmy.b(), false);
-            return !TextUtils.isEmpty(m) ? m : "KWE_N";
+            String k = com.yxcorp.kuaishou.addfp.a.eJk().k(context, b.qna.b(), false);
+            return !TextUtils.isEmpty(k) ? k : "KWE_N";
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
             return "KWE_PE";
@@ -366,7 +364,7 @@ public final class d {
                 boolean d = com.yxcorp.kuaishou.addfp.android.b.e.d(context, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"});
                 com.yxcorp.kuaishou.addfp.android.b.a.a();
                 if (d) {
-                    str4 = c.jf(context).b("Lm91a2R0ZnQ=");
+                    str4 = c.iZ(context).b("Lm91a2R0ZnQ=");
                     if (!TextUtils.isEmpty(str4)) {
                         a(context, "k_w_o_d_out_dtt", str4);
                         str = str4;
@@ -381,7 +379,7 @@ public final class d {
                 boolean d2 = com.yxcorp.kuaishou.addfp.android.b.e.d(context, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"});
                 com.yxcorp.kuaishou.addfp.android.b.a.a();
                 if (d2) {
-                    str4 = c.jf(context).b("Lm91a2R0ZnQ=");
+                    str4 = c.iZ(context).b("Lm91a2R0ZnQ=");
                     if (TextUtils.isEmpty(str4)) {
                         c.a(context, a2);
                     }
@@ -392,12 +390,12 @@ public final class d {
             if (TextUtils.isEmpty(a2) && TextUtils.isEmpty(str)) {
                 return "KWE_N";
             }
-            LinkedHashMap acb = c.jf(context).acb(a2);
-            if (acb == null || acb.size() == 0) {
-                acb = c.jf(context).acb(str);
+            LinkedHashMap aca = c.iZ(context).aca(a2);
+            if (aca == null || aca.size() == 0) {
+                aca = c.iZ(context).aca(str);
             }
-            if (acb != null && acb.size() > 0) {
-                ListIterator listIterator = new ArrayList(acb.entrySet()).listIterator(acb.size());
+            if (aca != null && aca.size() > 0) {
+                ListIterator listIterator = new ArrayList(aca.entrySet()).listIterator(aca.size());
                 JSONObject jSONObject = new JSONObject();
                 while (listIterator.hasPrevious() && i < 10) {
                     try {
@@ -420,7 +418,7 @@ public final class d {
         }
     }
 
-    private static InetAddress eJK() {
+    private static InetAddress eJs() {
         Throwable th;
         InetAddress inetAddress;
         try {
@@ -533,23 +531,23 @@ public final class d {
     private static String f(Context context) {
         try {
             String b2 = b();
-            f14385a = b2;
-            if (TextUtils.isEmpty(b2) || f14385a.equals(Config.DEF_MAC_ID)) {
+            f8622a = b2;
+            if (TextUtils.isEmpty(b2) || f8622a.equals(Config.DEF_MAC_ID)) {
                 if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{"android.permission.ACCESS_WIFI_STATE"}) && context != null) {
                     try {
-                        f14385a = f.jh(context).qmC.a();
+                        f8622a = f.jb(context).qne.a();
                     } catch (Throwable th) {
                     }
-                    if (TextUtils.isEmpty(f14385a)) {
-                        f14385a = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
+                    if (TextUtils.isEmpty(f8622a)) {
+                        f8622a = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
                     }
-                    if (!TextUtils.isEmpty(f14385a) && !f14385a.equals(Config.DEF_MAC_ID)) {
-                        return f14385a;
+                    if (!TextUtils.isEmpty(f8622a) && !f8622a.equals(Config.DEF_MAC_ID)) {
+                        return f8622a;
                     }
                 }
                 return "KWE_OTHER";
             }
-            return f14385a;
+            return f8622a;
         } catch (Throwable th2) {
             return "KWE_PE";
         }

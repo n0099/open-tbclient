@@ -6,7 +6,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoRenderPosition {
     public static final int FILLMODE_INNERFIT = 1;
     public static final int FILLMODE_OUTERFIT = 2;

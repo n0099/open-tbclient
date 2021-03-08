@@ -1,5 +1,5 @@
 package com.baidu.mobads.component;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdLogInfo {
     private String mAdPlaceId;
     private String mQk;

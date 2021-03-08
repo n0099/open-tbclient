@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i extends a<com.baidu.tieba.card.data.k, ThreadCardViewHolder<com.baidu.tieba.card.data.k>> implements com.baidu.tieba.a.f {
-    private ab<com.baidu.tieba.card.data.k> agg;
-    private String aif;
-    private boolean akO;
-    public BdUniqueId fGZ;
+    private ab<com.baidu.tieba.card.data.k> ahy;
+    private String ajx;
+    private boolean amh;
+    public BdUniqueId fIy;
     private TbPageContext<?> mPageContext;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.akO = true;
-        this.agg = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.newdetail.adapter.a.i.1
+        this.amh = true;
+        this.ahy = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.newdetail.adapter.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
@@ -47,9 +47,9 @@ public class i extends a<com.baidu.tieba.card.data.k, ThreadCardViewHolder<com.b
     public ThreadCardViewHolder<com.baidu.tieba.card.data.k> e(ViewGroup viewGroup) {
         ak.a aVar = new ak.a(this.mPageContext.getPageActivity());
         com.baidu.card.d dVar = new com.baidu.card.d(this.mPageContext.getPageActivity());
-        dVar.setPageUniqueId(this.fGZ);
-        dVar.bq(128);
-        dVar.br(1024);
+        dVar.setPageUniqueId(this.fIy);
+        dVar.br(128);
+        dVar.bs(1024);
         dVar.a(new d.a() { // from class: com.baidu.tieba.newdetail.adapter.a.i.2
             @Override // com.baidu.card.d.a
             public void a(com.baidu.tbadk.core.data.a aVar2, View view) {
@@ -67,17 +67,17 @@ public class i extends a<com.baidu.tieba.card.data.k, ThreadCardViewHolder<com.b
         aVar.a(dVar);
         ap apVar = new ap(this.mPageContext.getPageActivity());
         aVar.c(apVar);
-        apVar.bD(2);
+        apVar.bE(2);
         aVar.a((com.baidu.card.h) new ao(this.mPageContext.getPageActivity()));
         aVar.a((com.baidu.card.h) new com.baidu.card.k(this.mPageContext.getPageActivity()));
         n nVar = new n(this.mPageContext.getPageActivity());
-        nVar.setFromCDN(this.akO);
+        nVar.setFromCDN(this.amh);
         nVar.setForm(ImageViewerConfig.FROM_CONCERN);
         aVar.a((com.baidu.card.h) nVar);
         am amVar = new am(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.e eVar = new com.baidu.tbadk.core.data.e();
-        eVar.eMa = 9;
-        eVar.eMg = 9;
+        eVar.eNB = 9;
+        eVar.eNH = 9;
         amVar.setAgreeStatisticData(eVar);
         amVar.setFrom(9);
         amVar.setShareReportFrom(4);
@@ -86,7 +86,7 @@ public class i extends a<com.baidu.tieba.card.data.k, ThreadCardViewHolder<com.b
         ak th = aVar.th();
         th.setSourceForPb(17);
         ThreadCardViewHolder<com.baidu.tieba.card.data.k> threadCardViewHolder = new ThreadCardViewHolder<>(th);
-        threadCardViewHolder.setPageId(this.fGZ);
+        threadCardViewHolder.setPageId(this.fIy);
         a(new w() { // from class: com.baidu.tieba.newdetail.adapter.a.i.3
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, com.baidu.adp.widget.ListView.n nVar2, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -94,11 +94,11 @@ public class i extends a<com.baidu.tieba.card.data.k, ThreadCardViewHolder<com.b
                     ThreadCardViewHolder threadCardViewHolder2 = (ThreadCardViewHolder) view.getTag();
                     com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) nVar2;
                     kVar.objType = 1;
-                    if (i.this.agg != null) {
-                        i.this.agg.a(threadCardViewHolder2.getView(), kVar);
+                    if (i.this.ahy != null) {
+                        i.this.ahy.a(threadCardViewHolder2.getView(), kVar);
                     }
                     az.a((com.baidu.tbadk.core.data.a) kVar, view.getContext(), 17, false);
-                    threadCardViewHolder2.tj().b(new a.C0089a(1));
+                    threadCardViewHolder2.tj().b(new a.C0095a(1));
                 }
             }
         });
@@ -109,21 +109,21 @@ public class i extends a<com.baidu.tieba.card.data.k, ThreadCardViewHolder<com.b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, ThreadCardViewHolder<com.baidu.tieba.card.data.k> threadCardViewHolder) {
-        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.eJQ == null) {
+        if (kVar == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || kVar.eLr == null) {
             return null;
         }
-        kVar.xd(kVar.position + 1);
-        threadCardViewHolder.tj().setPage(this.aif);
+        kVar.xe(kVar.position + 1);
+        threadCardViewHolder.tj().setPage(this.ajx);
         threadCardViewHolder.a(true, Align.ALIGN_RIGHT_TOP);
         threadCardViewHolder.b((ThreadCardViewHolder<com.baidu.tieba.card.data.k>) kVar);
         threadCardViewHolder.tj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        threadCardViewHolder.tj().a(this.agg);
+        threadCardViewHolder.tj().a(this.ahy);
         com.baidu.tieba.newdetail.b.b(this, kVar);
         return threadCardViewHolder.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Ew(String str) {
-        this.aif = str;
+    public void ED(String str) {
+        this.ajx = str;
     }
 }

@@ -2,7 +2,7 @@ package com.thunder.livesdk;
 
 import com.thunder.livesdk.ThunderPublisher;
 import com.thunder.livesdk.log.ThunderLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ExternalVideoSource extends ThunderVideoCapture {
     ThunderPublisher.IVideoPublisher mPublisher = null;
     private int mVideoBuffType = 1;

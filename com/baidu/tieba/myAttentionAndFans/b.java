@@ -4,10 +4,10 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.data.bg;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class b extends BaseAdapter {
-    protected ArrayList<UserData> eVV = null;
-    boolean hld = false;
+    protected ArrayList<UserData> eXu = null;
+    boolean hmM = false;
     private boolean mHasMore = false;
 
     public abstract void a(bg bgVar);
@@ -15,13 +15,13 @@ public abstract class b extends BaseAdapter {
     public abstract boolean hm(long j);
 
     public void resetData() {
-        this.eVV.clear();
+        this.eXu.clear();
     }
 
-    public void bYy() {
-        this.hld = false;
-        if (this.eVV != null && this.eVV.size() == 0) {
-            this.hld = true;
+    public void bYE() {
+        this.hmM = false;
+        if (this.eXu != null && this.eXu.size() == 0) {
+            this.hmM = true;
         }
     }
 

@@ -7,7 +7,7 @@ import com.yy.mediaframework.inteligence.common.ResolutionModifyConfig;
 import com.yy.mediaframework.inteligence.dynamictexture.IDynamicTexture;
 import com.yy.mediaframework.screenshot.ScreenShotCallback;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface ILiveSession {
     void adjustEncoderBitrate(int i);
 

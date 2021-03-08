@@ -11,43 +11,41 @@ import org.json.JSONObject;
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f5774a = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", "package", "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final String[] f5775b = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "iid", "app_name", SharedPrefConfig.VERSION_NAME, HttpConstants.DEVICE_TYPE, "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
+    private static final String[] f3898a = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", "package", "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
+    private static final String[] b = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "iid", "app_name", SharedPrefConfig.VERSION_NAME, HttpConstants.DEVICE_TYPE, "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", "device_id", "openudid", "clientudid", "aid"};
 
     public static String a(Context context, JSONObject jSONObject, String str, boolean z, f fVar) {
-        HashMap<String, String> hR;
+        HashMap<String, String> hQ;
         if (!TextUtils.isEmpty(str)) {
-            HashMap hashMap = new HashMap(f5774a.length + 10);
-            for (int i = 0; i < f5774a.length; i++) {
-                String optString = jSONObject.optString(f5774a[i], null);
+            HashMap hashMap = new HashMap(f3898a.length + 10);
+            for (int i = 0; i < f3898a.length; i++) {
+                String optString = jSONObject.optString(f3898a[i], null);
                 if (!TextUtils.isEmpty(optString)) {
-                    hashMap.put(f5775b[i], optString);
+                    hashMap.put(b[i], optString);
                 }
             }
             if (fVar != null) {
                 try {
-                    hR = fVar.hR(context);
+                    hQ = fVar.hQ(context);
                 } catch (Exception e) {
                     au.a(e);
                 }
             } else {
-                hR = null;
+                hQ = null;
             }
-            if (av.b(context) && hR != null) {
-                hashMap.putAll(hR);
+            if (av.b(context) && hQ != null) {
+                hashMap.putAll(hQ);
             }
             try {
-                HashMap<String, String> enE = b.ent() == null ? null : b.ent().enE();
-                if (enE != null) {
-                    hashMap.putAll(enE);
+                HashMap<String, String> enO = b.enD() == null ? null : b.enD().enO();
+                if (enO != null) {
+                    hashMap.putAll(enO);
                 }
             } catch (Exception e2) {
                 au.a(e2);
             }
-            if (b.pmQ.size() > 0) {
-                hashMap.putAll(b.pmQ);
+            if (b.poY.size() > 0) {
+                hashMap.putAll(b.poY);
             }
             if (z) {
                 hashMap.put("ssmix", "a");
@@ -100,26 +98,16 @@ public class ab {
 
     public static String[] m(Context context, JSONObject jSONObject) {
         String str;
-        String[] strArr = new String[aa.enY().eom().length];
-        if (b.eny()) {
+        String[] strArr = new String[aa.eoj().eow().length];
+        if (b.enI()) {
             str = "/service/2/app_log/?tt_data=a";
         } else {
             str = "/service/2/app_log/?";
         }
-        for (int i = 0; i < aa.enY().eom().length; i++) {
-            strArr[i] = a(context, jSONObject, aa.enY().eom()[i] + str, true, b.enu());
-            strArr[i] = aa.a(strArr[i], aa.f5773b);
+        for (int i = 0; i < aa.eoj().eow().length; i++) {
+            strArr[i] = a(context, jSONObject, aa.eoj().eow()[i] + str, true, b.enE());
+            strArr[i] = aa.a(strArr[i], aa.b);
         }
         return strArr;
-    }
-
-    public static String n(Context context, JSONObject jSONObject) {
-        String str;
-        if (b.eny()) {
-            str = "/service/2/app_log/?tt_data=a";
-        } else {
-            str = "/service/2/app_log/?";
-        }
-        return a(context, jSONObject, aa.enY().eon() + str, true, b.enu());
     }
 }

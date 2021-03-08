@@ -3,58 +3,58 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a eYp = null;
-    public static int eYq = 0;
-    public static int eYr = 0;
-    public static int eYs = 0;
-    public static int eYt = 1;
+    private static a eZO = null;
+    public static int eZP = 0;
+    public static int eZQ = 0;
+    public static int eZR = 0;
+    public static int eZS = 1;
 
     public static void B(Context context, int i) {
-        if (eYp != null) {
-            eYp.B(context, i);
+        if (eZO != null) {
+            eZO.B(context, i);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (eYp != null) {
-            eYp.c(context, i, z);
+        if (eZO != null) {
+            eZO.c(context, i, z);
         }
     }
 
-    public static void eT(Context context) {
-        if (eYp != null) {
-            eYp.eT(context);
+    public static void eS(Context context) {
+        if (eZO != null) {
+            eZO.eS(context);
         }
     }
 
     public static void d(Context context, int i, boolean z) {
-        if (eYp != null) {
-            eYp.d(context, i, z);
+        if (eZO != null) {
+            eZO.d(context, i, z);
         }
     }
 
-    public static Class<?> brG() {
-        if (eYp == null) {
+    public static Class<?> brH() {
+        if (eZO == null) {
             return null;
         }
-        return eYp.brG();
+        return eZO.brH();
     }
 
-    public static String brH() {
-        if (eYp == null) {
+    public static String brI() {
+        if (eZO == null) {
             return null;
         }
-        return eYp.brH();
+        return eZO.brI();
     }
 
     public static void a(a aVar) {
-        eYp = aVar;
+        eZO = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (eYp == null) {
+        if (eZO == null) {
             return -1;
         }
-        return eYp.getCurrentTabType();
+        return eZO.getCurrentTabType();
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaLiveInfoData extends OrmObject implements Serializable {
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
     public static final int LIVE_SCREEN_DIRECTION_PORTRAIT = 1;

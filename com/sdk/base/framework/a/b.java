@@ -10,22 +10,20 @@ import java.net.URL;
 public final class b extends ConnectivityManager.NetworkCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ URL f12771a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private /* synthetic */ a f12772b;
+    private /* synthetic */ URL f7604a;
+    private /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, URL url) {
-        this.f12772b = aVar;
-        this.f12771a = url;
+        this.b = aVar;
+        this.f7604a = url;
     }
 
     @Override // android.net.ConnectivityManager.NetworkCallback
     public final void onAvailable(Network network) {
         super.onAvailable(network);
         try {
-            this.f12772b.c = (HttpURLConnection) network.openConnection(this.f12771a);
+            this.b.c = (HttpURLConnection) network.openConnection(this.f7604a);
         } catch (IOException e) {
         }
     }

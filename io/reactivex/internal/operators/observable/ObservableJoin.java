@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends a<TLeft, R> {
     final h<? super TLeft, ? extends t<TLeftEnd>> leftEnd;
     final t<? extends TRight> other;
@@ -30,7 +30,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
         this.other.subscribe(leftRightObserver2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class JoinDisposable<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements io.reactivex.disposables.b, ObservableGroupJoin.a {
         private static final long serialVersionUID = -6071216598687999801L;
         final u<? super R> actual;
@@ -45,7 +45,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
         static final Integer LEFT_CLOSE = 3;
         static final Integer RIGHT_CLOSE = 4;
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.eKm());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(q.eJU());
         final Map<Integer, TLeft> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();
@@ -124,7 +124,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
                             this.leftIndex = i2 + 1;
                             this.lefts.put(Integer.valueOf(i2), poll);
                             try {
-                                t tVar = (t) io.reactivex.internal.functions.a.m(this.leftEnd.apply(poll), "The leftEnd returned a null ObservableSource");
+                                t tVar = (t) io.reactivex.internal.functions.a.n(this.leftEnd.apply(poll), "The leftEnd returned a null ObservableSource");
                                 ObservableGroupJoin.LeftRightEndObserver leftRightEndObserver = new ObservableGroupJoin.LeftRightEndObserver(this, true, i2);
                                 this.disposables.a(leftRightEndObserver);
                                 tVar.subscribe(leftRightEndObserver);
@@ -136,7 +136,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
                                 }
                                 for (TRight tright : this.rights.values()) {
                                     try {
-                                        uVar.onNext((Object) io.reactivex.internal.functions.a.m(this.resultSelector.apply(poll, tright), "The resultSelector returned a null value"));
+                                        uVar.onNext((Object) io.reactivex.internal.functions.a.n(this.resultSelector.apply(poll, tright), "The resultSelector returned a null value"));
                                     } catch (Throwable th) {
                                         fail(th, uVar, aVar);
                                         return;
@@ -152,7 +152,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
                             this.rightIndex = i3 + 1;
                             this.rights.put(Integer.valueOf(i3), poll);
                             try {
-                                t tVar2 = (t) io.reactivex.internal.functions.a.m(this.rightEnd.apply(poll), "The rightEnd returned a null ObservableSource");
+                                t tVar2 = (t) io.reactivex.internal.functions.a.n(this.rightEnd.apply(poll), "The rightEnd returned a null ObservableSource");
                                 ObservableGroupJoin.LeftRightEndObserver leftRightEndObserver2 = new ObservableGroupJoin.LeftRightEndObserver(this, false, i3);
                                 this.disposables.a(leftRightEndObserver2);
                                 tVar2.subscribe(leftRightEndObserver2);
@@ -164,7 +164,7 @@ public final class ObservableJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends
                                 }
                                 for (TLeft tleft : this.lefts.values()) {
                                     try {
-                                        uVar.onNext((Object) io.reactivex.internal.functions.a.m(this.resultSelector.apply(tleft, poll), "The resultSelector returned a null value"));
+                                        uVar.onNext((Object) io.reactivex.internal.functions.a.n(this.resultSelector.apply(tleft, poll), "The resultSelector returned a null value"));
                                     } catch (Throwable th3) {
                                         fail(th3, uVar, aVar);
                                         return;

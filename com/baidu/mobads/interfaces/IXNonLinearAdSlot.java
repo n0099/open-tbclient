@@ -1,4 +1,4 @@
 package com.baidu.mobads.interfaces;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IXNonLinearAdSlot extends IXAdProd {
 }

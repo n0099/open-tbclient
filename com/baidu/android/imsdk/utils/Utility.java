@@ -355,7 +355,7 @@ public final class Utility {
     public static void startIMService(Context context) {
         LogUtils.i(TAG, "--- Start IM Service ---");
         try {
-            a.ao(context).e(context, new Intent(context, a.class));
+            a.an(context).e(context, new Intent(context, a.class));
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -388,7 +388,7 @@ public final class Utility {
         creatMethodIntent.putExtra("contacter", j2);
         creatMethodIntent.putExtra("category", j);
         try {
-            a.ao(context).e(context, creatMethodIntent);
+            a.an(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
@@ -470,7 +470,7 @@ public final class Utility {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
         }
         try {
-            a.ao(context).e(context, creatMethodIntent);
+            a.an(context).e(context, creatMethodIntent);
         } catch (Exception e) {
             ListenerManager.getInstance().removeListener(str);
             LogUtils.e(TAG, "Exception ", e);
@@ -592,9 +592,9 @@ public final class Utility {
             return Constants.ERROR_MSG_MD5_NULL;
         }
         StringBuilder sb = new StringBuilder();
-        for (byte b2 : bArr) {
-            char c = hexDigits[(b2 & 240) >> 4];
-            char c2 = hexDigits[b2 & 15];
+        for (byte b : bArr) {
+            char c = hexDigits[(b & 240) >> 4];
+            char c2 = hexDigits[b & 15];
             sb.append(c);
             sb.append(c2);
         }

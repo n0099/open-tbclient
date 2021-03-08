@@ -10,14 +10,14 @@ public class FunAdStatic {
     public static String Tag = "tag";
 
     static {
-        com.baidu.tieba.h.b.jTg.set(new d());
-        cNw();
+        com.baidu.tieba.h.b.jUD.set(new d());
+        cND();
     }
 
-    private static void cNw() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new CustomMessageTask.CustomRunnable<a.b>() { // from class: com.baidu.tieba.funad.FunAdStatic.1
+    private static void cND() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921525, new CustomMessageTask.CustomRunnable<a.InterfaceC0749a>() { // from class: com.baidu.tieba.funad.FunAdStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<a.b> run(CustomMessage<a.b> customMessage) {
+            public CustomResponsedMessage<a.InterfaceC0749a> run(CustomMessage<a.InterfaceC0749a> customMessage) {
                 return new CustomResponsedMessage<>(2921525, new b());
             }
         });

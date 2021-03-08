@@ -11,10 +11,8 @@ import java.util.ArrayList;
 public class h extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4380a = 600;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f4381b;
+    public static int f3034a = 600;
+    private Context b;
     private int c;
     private Scroller d;
     private boolean e;
@@ -50,12 +48,12 @@ public class h extends ViewGroup {
                     this.h.remove(0);
                     this.h.remove(0);
                 }
-                d dVar = new d(this.f4381b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.c()), this.c);
+                d dVar = new d(this.b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.c()), this.c);
                 dVar.setTag(Integer.valueOf(com.baidu.platform.comapi.walknavi.segmentbrowse.c.c()));
                 addView(dVar);
                 this.h.add(0, dVar);
                 if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() < com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-                    d dVar2 = new d(this.f4381b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.b()), this.c);
+                    d dVar2 = new d(this.b, com.baidu.platform.comapi.walknavi.segmentbrowse.c.d(com.baidu.platform.comapi.walknavi.segmentbrowse.c.b()), this.c);
                     dVar2.setTag(Integer.valueOf(com.baidu.platform.comapi.walknavi.segmentbrowse.c.b()));
                     addView(dVar2);
                     this.h.add(dVar2);
@@ -133,7 +131,7 @@ public class h extends ViewGroup {
                 VelocityTracker velocityTracker = this.p;
                 velocityTracker.computeCurrentVelocity(1000);
                 int xVelocity = (int) velocityTracker.getXVelocity();
-                if (xVelocity > f4380a) {
+                if (xVelocity > f3034a) {
                     com.baidu.platform.comapi.wnplatform.d.a.a("TextViewOne", "onTouchEvent width" + this.c);
                     this.m = true;
                     if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.a() == com.baidu.platform.comapi.walknavi.segmentbrowse.c.g()) {

@@ -5,21 +5,21 @@ import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GiftPagerAdapter extends PagerAdapter {
-    private List<View> bas;
+    private List<View> bbS;
 
     public GiftPagerAdapter(List<View> list) {
-        this.bas = new ArrayList();
-        this.bas = list;
+        this.bbS = new ArrayList();
+        this.bbS = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.bas == null) {
+        if (this.bbS == null) {
             return 0;
         }
-        return this.bas.size();
+        return this.bbS.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -30,7 +30,7 @@ public class GiftPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            viewGroup.removeView(this.bas.get(i));
+            viewGroup.removeView(this.bbS.get(i));
         }
     }
 
@@ -39,7 +39,7 @@ public class GiftPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.bas.get(i);
+        View view = this.bbS.get(i);
         viewGroup.addView(view);
         return view;
     }

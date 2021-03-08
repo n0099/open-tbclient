@@ -51,18 +51,18 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameCommentActivityConfig.class, FrsGameCommentActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsProfessionIntroActivityConfig.class, FrsProfessionIntroActivity.class);
-        cb.eQZ.set(true);
-        e.jfq.set(new az());
+        cb.eSA.set(true);
+        e.jgZ.set(new az());
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.frs.FRSExtraStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, bq.ePp, null));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.extra.adapter.a(null, com.baidu.tieba.card.data.n.iBr, true));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.extra.adapter.b(null, com.baidu.tieba.tbadkCore.ad.nwb, null));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.gamepaltform.a(null, com.baidu.tieba.i.b.jUq, null));
+                    absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, bq.eQQ, null));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.extra.adapter.a(null, com.baidu.tieba.card.data.n.iDa, true));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.extra.adapter.b(null, com.baidu.tieba.tbadkCore.ad.nyf, null));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.gamepaltform.a(null, com.baidu.tieba.i.b.jWs, null));
                 }
             }
         });
@@ -72,7 +72,7 @@ public class FRSExtraStatic {
                 return null;
             }
         }));
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.frs.FRSExtraStatic.3
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.frs.FRSExtraStatic.3
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 Map<String, String> paramPair;
@@ -130,7 +130,7 @@ public class FRSExtraStatic {
                     if (data instanceof ai) {
                         ai aiVar = (ai) data;
                         aiVar.b(new com.baidu.tieba.frs.gamerecommend.a(aiVar.getForumId(), aiVar.getForumName()));
-                        for (FrsTabInfo frsTabInfo : aiVar.bAS()) {
+                        for (FrsTabInfo frsTabInfo : aiVar.bAV()) {
                             if (frsTabInfo.tab_id.intValue() > 100) {
                                 com.baidu.tieba.frs.gametabs.c cVar = new com.baidu.tieba.frs.gametabs.c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
                                 aiVar.b(cVar);
@@ -151,23 +151,23 @@ public class FRSExtraStatic {
             }
         });
         TbadkCoreApplication.getInst().RegisterIntent(FrsMoreFeedForumsConfig.class, FrsMoreFeedForumsActivity.class);
-        bGO();
-        bSJ();
+        bGS();
+        bSP();
     }
 
-    private static void bGO() {
+    private static void bGS() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.frs.FRSExtraStatic.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new com.baidu.tieba.frs.frsfeedforums.c(null, com.baidu.tieba.tbadkCore.l.nvd, true));
+                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new com.baidu.tieba.frs.frsfeedforums.c(null, com.baidu.tieba.tbadkCore.l.nxh, true));
                 }
             }
         });
     }
 
-    private static void bSJ() {
+    private static void bSP() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_FRS_MORE_FEED_FORUMS_CONTROLLER, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.frs.FRSExtraStatic.6
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {

@@ -6,20 +6,18 @@ import android.os.Looper;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b qbw;
+    private static volatile b qck;
+    private Handler b = null;
 
-    /* renamed from: b  reason: collision with root package name */
-    private Handler f12929b = null;
-
-    public static b eEz() {
-        if (qbw == null) {
+    public static b eED() {
+        if (qck == null) {
             synchronized (b.class) {
-                if (qbw == null) {
-                    qbw = new b();
+                if (qck == null) {
+                    qck = new b();
                 }
             }
         }
-        return qbw;
+        return qck;
     }
 
     public void a(Context context, com.ss.android.socialbase.downloader.g.c cVar) {
@@ -32,18 +30,18 @@ public class b {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.f12929b == null) {
-                this.f12929b = new Handler(Looper.getMainLooper());
+            if (this.b == null) {
+                this.b = new Handler(Looper.getMainLooper());
             }
             final String j = cVar.j();
-            com.ss.android.socialbase.downloader.downloader.f.iB(context).j(cVar.g());
-            this.f12929b.post(new Runnable() { // from class: com.ss.android.downloadlib.a.b.1
+            com.ss.android.socialbase.downloader.downloader.f.iC(context).j(cVar.g());
+            this.b.post(new Runnable() { // from class: com.ss.android.downloadlib.a.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.eEN().a(3, j.a(), null, "下载失败，请重试！", null, 0);
-                    f aaZ = com.ss.android.downloadlib.h.eFl().aaZ(j);
-                    if (aaZ != null) {
-                        aaZ.f();
+                    j.eER().a(3, j.a(), null, "下载失败，请重试！", null, 0);
+                    f abe = com.ss.android.downloadlib.h.eFp().abe(j);
+                    if (abe != null) {
+                        abe.f();
                     }
                 }
             });

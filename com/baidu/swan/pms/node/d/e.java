@@ -7,6 +7,6 @@ import org.json.JSONArray;
 public class e extends com.baidu.swan.pms.node.a {
     @Override // com.baidu.swan.pms.node.a, com.baidu.swan.pms.node.d
     public void a(JSONArray jSONArray, g gVar, @Nullable g gVar2, @Nullable g gVar3) {
-        b.bdK().b(jSONArray, gVar, gVar2, gVar3);
+        b.bdM().b(jSONArray, gVar, gVar2, gVar3);
     }
 }

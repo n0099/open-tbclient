@@ -6,7 +6,7 @@ import android.os.HandlerThread;
 import com.thunder.livesdk.helper.ThunderNative;
 import com.thunder.livesdk.log.ThunderLog;
 import com.yy.audioengine.MainHandler;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderAudioFilePlayer implements Comparable<ThunderAudioFilePlayer> {
     public static final int AUDIO_PLAYER_CREATE_FILE_DECODER_FAILED = -1;
     public static final int AUDIO_PLAYER_OPEN_FILE_DECODER_FAILED = -2;
@@ -37,7 +37,7 @@ public class ThunderAudioFilePlayer implements Comparable<ThunderAudioFilePlayer
     private HandlerThread mPlayerQueueThread = new HandlerThread("PlayerQueueThread");
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IThunderAudioFilePlayerCallback {
         void onAudioFilePause();
 

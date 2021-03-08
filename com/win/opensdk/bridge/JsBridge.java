@@ -1,28 +1,27 @@
 package com.win.opensdk.bridge;
 
 import com.win.opensdk.bridge.core.NativeMethodInjectHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class JsBridge {
-    private static volatile JsBridge qkM;
 
-    private JsBridge() {
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public static volatile JsBridge f8123a;
 
-    public static JsBridge eJn() {
-        JsBridge jsBridge = qkM;
+    public static JsBridge eJf() {
+        JsBridge jsBridge = f8123a;
         if (jsBridge == null) {
             synchronized (JsBridge.class) {
-                jsBridge = qkM;
+                jsBridge = f8123a;
                 if (jsBridge == null) {
                     jsBridge = new JsBridge();
-                    qkM = jsBridge;
+                    f8123a = jsBridge;
                 }
             }
         }
         return jsBridge;
     }
 
-    public NativeMethodInjectHelper E(Class<?> cls) {
-        return NativeMethodInjectHelper.eJp().E(cls);
+    public NativeMethodInjectHelper E(Class cls) {
+        return NativeMethodInjectHelper.eJh().E(cls);
     }
 }

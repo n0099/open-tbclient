@@ -2,23 +2,23 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import com.xiaomi.push.ai;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class bg extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f13882a;
+    private Context f8275a;
 
     public bg(Context context) {
-        this.f13882a = context;
+        this.f8275a = context;
     }
 
     private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.f13882a).m83a().isEventUploadSwitchOpen();
+        return com.xiaomi.clientreport.manager.a.a(this.f8275a).m62a().isEventUploadSwitchOpen();
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a  reason: collision with other method in class */
-    public int mo191a() {
+    public int mo170a() {
         return 100886;
     }
 
@@ -26,8 +26,8 @@ public class bg extends ai.a {
     public void run() {
         try {
             if (a()) {
-                com.xiaomi.channel.commonutils.logger.b.c(this.f13882a.getPackageName() + " begin upload event");
-                com.xiaomi.clientreport.manager.a.a(this.f13882a).m85b();
+                com.xiaomi.channel.commonutils.logger.b.c(this.f8275a.getPackageName() + " begin upload event");
+                com.xiaomi.clientreport.manager.a.a(this.f8275a).m64b();
             }
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

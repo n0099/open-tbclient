@@ -6,13 +6,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class r {
-    public String aGi;
-    public long aGk;
-    public int aHD;
-    public int aHE;
-    public boolean aHF;
+    public String aHI;
+    public long aHK;
+    public int aJd;
+    public int aJe;
+    public boolean aJf;
     public String cuid;
     public String customRoomId;
     public int level;
@@ -34,11 +34,11 @@ public class r {
         this.sex = jSONObject.optInt("sex", 0);
         this.level = jSONObject.optInt("level", 0);
         this.cuid = jSONObject.optString("cuid", "");
-        this.aGi = jSONObject.optString("client_version", "0");
-        this.aHD = jSONObject.optInt("link_status", 0);
-        this.aHE = jSONObject.optInt("living_status", 0);
-        this.aGk = jSONObject.optLong("app_id", 0L);
-        this.aHF = jSONObject.optInt("forbidden_status", 0) == 0;
+        this.aHI = jSONObject.optString("client_version", "0");
+        this.aJd = jSONObject.optInt("link_status", 0);
+        this.aJe = jSONObject.optInt("living_status", 0);
+        this.aHK = jSONObject.optLong("app_id", 0L);
+        this.aJf = jSONObject.optInt("forbidden_status", 0) == 0;
         JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             this.mLiveMarkInfo = new ArrayList();
@@ -54,7 +54,7 @@ public class r {
         }
     }
 
-    public boolean BT() {
-        return this.aHE == 1;
+    public boolean BW() {
+        return this.aJe == 1;
     }
 }

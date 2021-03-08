@@ -4,16 +4,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g extends BaseAdapter {
-    private TbPageContext<?> eUY;
+    private TbPageContext<?> eWx;
     private DressItemData mBgItem;
-    private h nHE;
+    private h nJK;
 
     public g(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
         this.mBgItem = dressItemData;
-        this.nHE = new h(this.eUY);
+        this.nJK = new h(this.eWx);
     }
 
     @Override // android.widget.Adapter
@@ -33,8 +33,8 @@ public class g extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        this.nHE.f(this.mBgItem);
-        this.eUY.getLayoutMode().onModeChanged(this.nHE.getRootView());
-        return this.nHE.getRootView();
+        this.nJK.f(this.mBgItem);
+        this.eWx.getLayoutMode().onModeChanged(this.nJK.getRootView());
+        return this.nJK.getRootView();
     }
 }

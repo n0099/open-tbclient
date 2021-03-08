@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Logger f5846a = Logger.getLogger(l.class.getName());
+    static final Logger f3941a = Logger.getLogger(l.class.getName());
 
     private l() {
     }
@@ -34,17 +34,17 @@ public final class l {
         return new r() { // from class: com.bytedance.sdk.a.a.l.1
             @Override // com.bytedance.sdk.a.a.r
             public void a(c cVar, long j) throws IOException {
-                u.a(cVar.f5842b, 0L, j);
+                u.a(cVar.b, 0L, j);
                 while (j > 0) {
                     t.this.g();
-                    o oVar = cVar.poc;
-                    int min = (int) Math.min(j, oVar.c - oVar.f5851b);
-                    outputStream.write(oVar.f5850a, oVar.f5851b, min);
-                    oVar.f5851b += min;
+                    o oVar = cVar.pqm;
+                    int min = (int) Math.min(j, oVar.c - oVar.b);
+                    outputStream.write(oVar.f3942a, oVar.b, min);
+                    oVar.b += min;
                     j -= min;
-                    cVar.f5842b -= min;
-                    if (oVar.f5851b == oVar.c) {
-                        cVar.poc = oVar.eoP();
+                    cVar.b -= min;
+                    if (oVar.b == oVar.c) {
+                        cVar.pqm = oVar.eoW();
                         p.b(oVar);
                     }
                 }
@@ -61,7 +61,7 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.r
-            public t eoy() {
+            public t eoF() {
                 return t.this;
             }
 
@@ -104,13 +104,13 @@ public final class l {
                 }
                 try {
                     t.this.g();
-                    o Ox = cVar.Ox(1);
-                    int read = inputStream.read(Ox.f5850a, Ox.c, (int) Math.min(j, 8192 - Ox.c));
+                    o OB = cVar.OB(1);
+                    int read = inputStream.read(OB.f3942a, OB.c, (int) Math.min(j, 8192 - OB.c));
                     if (read == -1) {
                         return -1L;
                     }
-                    Ox.c += read;
-                    cVar.f5842b += read;
+                    OB.c += read;
+                    cVar.b += read;
                     return read;
                 } catch (AssertionError e) {
                     if (l.a(e)) {
@@ -126,7 +126,7 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.s
-            public t eoy() {
+            public t eoF() {
                 return t.this;
             }
 
@@ -159,17 +159,17 @@ public final class l {
             }
 
             @Override // com.bytedance.sdk.a.a.a
-            protected void eow() {
+            protected void eoD() {
                 try {
                     socket.close();
                 } catch (AssertionError e) {
                     if (l.a(e)) {
-                        l.f5846a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e);
+                        l.f3941a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e);
                         return;
                     }
                     throw e;
                 } catch (Exception e2) {
-                    l.f5846a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e2);
+                    l.f3941a.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e2);
                 }
             }
         };

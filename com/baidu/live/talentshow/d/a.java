@@ -4,13 +4,13 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.ala.recorder.AlaLiveRecorder;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
-    boolean SK();
+    boolean SN();
 
-    boolean SL();
+    boolean SO();
 
-    boolean SM();
+    boolean SP();
 
     int a(com.baidu.live.talentshow.d.a.b bVar);
 
@@ -26,7 +26,7 @@ public interface a {
 
     String bo(long j);
 
-    long eh(int i);
+    long ei(int i);
 
     void init(Context context);
 

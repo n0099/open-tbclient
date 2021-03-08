@@ -45,10 +45,8 @@ public class g extends KsFragment {
     private i A;
 
     /* renamed from: a  reason: collision with root package name */
-    public KsContentPage.PageListener f8739a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public KsContentPage.VideoListener f8740b;
+    public KsContentPage.PageListener f5823a;
+    public KsContentPage.VideoListener b;
     private View c;
     private SwipeLayout d;
     private com.kwad.sdk.contentalliance.home.swipe.c e;
@@ -177,7 +175,7 @@ public class g extends KsFragment {
                 this.y = com.kwad.sdk.core.config.c.N() || com.kwad.sdk.core.config.c.O();
                 if (com.kwad.sdk.entry.a.a() != null) {
                     this.i = "entry";
-                    com.kwad.sdk.core.scene.a.a().a(this.i, com.kwad.sdk.entry.a.a().f9774a.e, this.h);
+                    com.kwad.sdk.core.scene.a.a().a(this.i, com.kwad.sdk.entry.a.a().f6469a.e, this.h);
                     this.w = com.kwad.sdk.core.config.c.G();
                     this.z = com.kwad.sdk.core.config.c.I();
                 } else if (ag.a(this.j)) {
@@ -209,11 +207,11 @@ public class g extends KsFragment {
     }
 
     public void a(KsContentPage.PageListener pageListener) {
-        this.f8739a = pageListener;
+        this.f5823a = pageListener;
     }
 
     public void a(KsContentPage.VideoListener videoListener) {
-        this.f8740b = videoListener;
+        this.b = videoListener;
     }
 
     public void a(com.kwad.sdk.contentalliance.home.a.d dVar) {
@@ -247,18 +245,18 @@ public class g extends KsFragment {
     protected f e() {
         TrendInfo trendInfo;
         f fVar = new f();
-        fVar.f8737a = this;
+        fVar.f5822a = this;
         fVar.c = this.f;
         fVar.d = this.u;
         fVar.e = this.h;
         fVar.l = this.w;
         fVar.m = this.z;
         if (this.m != null) {
-            fVar.f8738b = new j(new com.kwad.sdk.contentalliance.home.a.g(this.h, this.m));
+            fVar.b = new j(new com.kwad.sdk.contentalliance.home.a.g(this.h, this.m));
             fVar.k = false;
             fVar.j = this.m.mSelectedPosition;
         } else if (this.n != null) {
-            fVar.f8738b = new j(new com.kwad.sdk.contentalliance.home.a.f(this.h, this.n.mIsFromLiveSquare));
+            fVar.b = new j(new com.kwad.sdk.contentalliance.home.a.f(this.h, this.n.mIsFromLiveSquare));
             fVar.k = false;
             fVar.j = this.n.mSelectedPosition;
         } else if (!TextUtils.isEmpty(this.k)) {
@@ -280,24 +278,24 @@ public class g extends KsFragment {
                     com.kwad.sdk.contentalliance.trends.a aVar = new com.kwad.sdk.contentalliance.trends.a(this.h);
                     aVar.a(this.k);
                     aVar.a(trendInfo);
-                    fVar.f8738b = new j(aVar);
+                    fVar.b = new j(aVar);
                     fVar.k = false;
                     fVar.j = 0;
                     fVar.h = TrendInfo.asList(this.k);
                     fVar.i = trendInfo;
-                    this.A = fVar.f8738b;
+                    this.A = fVar.b;
                     this.e = new com.kwad.sdk.contentalliance.home.swipe.c(this.c.getContext());
                     this.e.a(this.w);
                     this.d.setTouchDetector(this.e);
                     this.t = new com.kwad.sdk.core.i.a(this, this.c, 70);
                     this.t.a();
                     final h hVar = new h();
-                    hVar.f8744a = this.t;
-                    hVar.f8745b = this.f8739a;
-                    hVar.c = this.f8740b;
+                    hVar.f5826a = this.t;
+                    hVar.b = this.f5823a;
+                    hVar.c = this.b;
                     hVar.d = this.n;
                     hVar.g = this.e;
-                    hVar.h = fVar.f8738b;
+                    hVar.h = fVar.b;
                     hVar.i = this.w;
                     hVar.j = this.y;
                     hVar.k = this.h;
@@ -332,50 +330,50 @@ public class g extends KsFragment {
             com.kwad.sdk.contentalliance.trends.a aVar2 = new com.kwad.sdk.contentalliance.trends.a(this.h);
             aVar2.a(this.k);
             aVar2.a(trendInfo);
-            fVar.f8738b = new j(aVar2);
+            fVar.b = new j(aVar2);
             fVar.k = false;
             fVar.j = 0;
             fVar.h = TrendInfo.asList(this.k);
             fVar.i = trendInfo;
         } else if (this.o != null) {
-            fVar.f8738b = new j(new com.kwad.sdk.contentalliance.tube.a(this.h, this.o));
+            fVar.b = new j(new com.kwad.sdk.contentalliance.tube.a(this.h, this.o));
             fVar.k = false;
             fVar.j = this.o.mSelectedPosition;
         } else if (this.p != null) {
-            fVar.f8738b = new j(new com.kwad.sdk.contentalliance.home.a.h(this.h, this.p));
+            fVar.b = new j(new com.kwad.sdk.contentalliance.home.a.h(this.h, this.p));
             fVar.k = false;
             fVar.j = this.p.mSelectedPosition;
         } else if (this.q != null) {
-            fVar.f8738b = new j(new com.kwad.sdk.contentalliance.home.a.c(this.h));
+            fVar.b = new j(new com.kwad.sdk.contentalliance.home.a.c(this.h));
             fVar.k = true;
             fVar.j = this.q.mSelectedPosition;
         } else {
             com.kwad.sdk.contentalliance.home.a.c cVar = new com.kwad.sdk.contentalliance.home.a.c(this.h);
             cVar.a(this.j);
             cVar.a(this.x);
-            fVar.f8738b = new j(cVar);
+            fVar.b = new j(cVar);
             fVar.k = true;
             fVar.g = this.j;
             com.kwad.sdk.entry.model.a a2 = com.kwad.sdk.entry.a.a();
             if (a2 != null) {
-                fVar.j = a2.f9775b;
+                fVar.j = a2.b;
             } else {
                 fVar.j = 0;
             }
         }
-        this.A = fVar.f8738b;
+        this.A = fVar.b;
         this.e = new com.kwad.sdk.contentalliance.home.swipe.c(this.c.getContext());
         this.e.a(this.w);
         this.d.setTouchDetector(this.e);
         this.t = new com.kwad.sdk.core.i.a(this, this.c, 70);
         this.t.a();
         final h hVar2 = new h();
-        hVar2.f8744a = this.t;
-        hVar2.f8745b = this.f8739a;
-        hVar2.c = this.f8740b;
+        hVar2.f5826a = this.t;
+        hVar2.b = this.f5823a;
+        hVar2.c = this.b;
         hVar2.d = this.n;
         hVar2.g = this.e;
-        hVar2.h = fVar.f8738b;
+        hVar2.h = fVar.b;
         hVar2.i = this.w;
         hVar2.j = this.y;
         hVar2.k = this.h;
@@ -403,7 +401,7 @@ public class g extends KsFragment {
             }
         });
         if (this.v != null) {
-            fVar.f8738b.a(this.v);
+            fVar.b.a(this.v);
         }
         return fVar;
     }

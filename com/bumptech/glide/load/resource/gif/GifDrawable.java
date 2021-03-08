@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import androidx.vectordrawable.graphics.drawable.Animatable2Compat;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.gifdecoder.GifDecoder;
 import com.bumptech.glide.load.Transformation;
@@ -19,11 +20,14 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.gif.GifFrameLoader;
 import com.bumptech.glide.util.Preconditions;
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
-public class GifDrawable extends Drawable implements Animatable, GifFrameLoader.FrameCallback {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes14.dex */
+public class GifDrawable extends Drawable implements Animatable, Animatable2Compat, GifFrameLoader.FrameCallback {
     private static final int GRAVITY = 119;
     public static final int LOOP_FOREVER = -1;
     public static final int LOOP_INTRINSIC = 0;
+    private List<Animatable2Compat.AnimationCallback> animationCallbacks;
     private boolean applyGravity;
     private Rect destRect;
     private boolean isRecycled;
@@ -222,7 +226,17 @@ public class GifDrawable extends Drawable implements Animatable, GifFrameLoader.
             this.loopCount++;
         }
         if (this.maxLoopCount != -1 && this.loopCount >= this.maxLoopCount) {
+            notifyAnimationEndToListeners();
             stop();
+        }
+    }
+
+    private void notifyAnimationEndToListeners() {
+        if (this.animationCallbacks != null) {
+            int size = this.animationCallbacks.size();
+            for (int i = 0; i < size; i++) {
+                this.animationCallbacks.get(i).onAnimationEnd(this);
+            }
         }
     }
 
@@ -252,8 +266,33 @@ public class GifDrawable extends Drawable implements Animatable, GifFrameLoader.
         this.maxLoopCount = i;
     }
 
+    @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
+    public void registerAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
+        if (animationCallback != null) {
+            if (this.animationCallbacks == null) {
+                this.animationCallbacks = new ArrayList();
+            }
+            this.animationCallbacks.add(animationCallback);
+        }
+    }
+
+    @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
+    public boolean unregisterAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
+        if (this.animationCallbacks == null || animationCallback == null) {
+            return false;
+        }
+        return this.animationCallbacks.remove(animationCallback);
+    }
+
+    @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
+    public void clearAnimationCallbacks() {
+        if (this.animationCallbacks != null) {
+            this.animationCallbacks.clear();
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static final class GifState extends Drawable.ConstantState {
         @VisibleForTesting
         final GifFrameLoader frameLoader;

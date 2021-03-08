@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 public class RatioFrameLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f9861a;
+    private float f6523a;
 
     public RatioFrameLayout(@NonNull Context context) {
         this(context, null);
@@ -22,24 +22,24 @@ public class RatioFrameLayout extends FrameLayout {
 
     public RatioFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f9861a = 0.0f;
+        this.f6523a = 0.0f;
     }
 
     public float getRatio() {
-        return this.f9861a;
+        return this.f6523a;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.f9861a != 0.0f) {
+        if (this.f6523a != 0.0f) {
             int size = View.MeasureSpec.getSize(i);
             com.kwad.sdk.core.d.a.a("RatioFrameLayout", "widthSize:" + size);
-            i2 = View.MeasureSpec.makeMeasureSpec((int) (size * this.f9861a), 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec((int) (size * this.f6523a), 1073741824);
         }
         super.onMeasure(i, i2);
     }
 
     public void setRatio(float f) {
-        this.f9861a = f;
+        this.f6523a = f;
     }
 }

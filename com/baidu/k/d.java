@@ -2,16 +2,16 @@ package com.baidu.k;
 
 import android.os.Bundle;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class d {
-    public static void adf() {
+    public static void adi() {
         if (ProcessUtils.isMainProcess()) {
-            b.add().jm("");
+            b.adg().js("");
         }
     }
 
     public static void k(Bundle bundle) {
-        b.add().k(bundle);
+        b.adg().k(bundle);
     }
 
     public static void l(Bundle bundle) {

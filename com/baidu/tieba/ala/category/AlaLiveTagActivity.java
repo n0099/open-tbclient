@@ -19,14 +19,14 @@ import com.baidu.tieba.ala.category.a.e;
 import com.baidu.tieba.ala.category.c.b;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
-    private String buH;
-    private CommonEmptyView bwJ;
-    private View gMN;
-    private b gMO;
-    private e gMP;
-    private BdGridView gtY;
+    private String bwh;
+    private CommonEmptyView byj;
+    private View gOw;
+    private b gOx;
+    private e gOy;
+    private BdGridView gvH;
     private String mLiveId;
     private NavigationBar mNavigationBar;
     private View mRootView;
@@ -51,86 +51,86 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
     }
 
     private void initData() {
-        this.buH = getIntent().getStringExtra("anchor_id");
+        this.bwh = getIntent().getStringExtra("anchor_id");
         this.mLiveId = getIntent().getStringExtra("live_id");
-        this.gMO = new b(getPageContext(), this.buH, this.mLiveId);
-        this.gMO.a(new b.a() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.1
+        this.gOx = new b(getPageContext(), this.bwh, this.mLiveId);
+        this.gOx.a(new b.a() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.1
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bTk() {
-                AlaLiveTagActivity.this.gMP.setTagList(AlaLiveTagActivity.this.gMO.getTagList());
-                AlaLiveTagActivity.this.gMN.setVisibility(0);
-                AlaLiveTagActivity.this.bTj();
+            public void bTq() {
+                AlaLiveTagActivity.this.gOy.setTagList(AlaLiveTagActivity.this.gOx.getTagList());
+                AlaLiveTagActivity.this.gOw.setVisibility(0);
+                AlaLiveTagActivity.this.bTp();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
             public void ba(int i, String str) {
-                AlaLiveTagActivity.this.bRF();
+                AlaLiveTagActivity.this.bRL();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bTl() {
+            public void bTr() {
                 AlaLiveTagActivity.this.showToast(a.h.ala_live_tag_commit_success);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913203));
                 AlaLiveTagActivity.this.finish();
             }
 
             @Override // com.baidu.tieba.ala.category.c.b.a
-            public void bTm() {
+            public void bTs() {
                 AlaLiveTagActivity.this.showToast(a.h.ala_live_tag_commit_fail);
             }
         });
-        this.gMP = new e(getPageContext());
-        this.gMP.a(new e.b() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.2
+        this.gOy = new e(getPageContext());
+        this.gOy.a(new e.b() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.2
             @Override // com.baidu.tieba.ala.category.a.e.b
-            public void bTn() {
-                AlaLiveTagActivity.this.bTj();
+            public void bTt() {
+                AlaLiveTagActivity.this.bTp();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTj() {
-        if (ListUtils.isEmpty(this.gMP.bTo())) {
-            this.gMN.setAlpha(0.3f);
-            this.gMN.setClickable(false);
+    public void bTp() {
+        if (ListUtils.isEmpty(this.gOy.bTu())) {
+            this.gOw.setAlpha(0.3f);
+            this.gOw.setClickable(false);
             return;
         }
-        this.gMN.setAlpha(1.0f);
-        this.gMN.setClickable(true);
+        this.gOw.setAlpha(1.0f);
+        this.gOw.setClickable(true);
     }
 
     private void initView() {
         this.mNavigationBar = (NavigationBar) findViewById(a.f.ala_live_tag_nav_bar);
         this.mRootView = findViewById(a.f.root_view);
-        this.gtY = (BdGridView) findViewById(a.f.live_tag_gridview);
-        this.bwJ = (CommonEmptyView) findViewById(a.f.empty_view);
-        this.gMN = findViewById(a.f.tag_commit_tv);
-        this.gMN.setOnClickListener(this);
+        this.gvH = (BdGridView) findViewById(a.f.live_tag_gridview);
+        this.byj = (CommonEmptyView) findViewById(a.f.empty_view);
+        this.gOw = findViewById(a.f.tag_commit_tv);
+        this.gOw.setOnClickListener(this);
         TextView centerTextTitle = this.mNavigationBar.setCenterTextTitle(getString(a.h.ala_live_tag_title));
         SkinManager.setNavbarIconSrc((ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(a.f.widget_navi_back_button), a.e.sdk_d_icon_return_n, a.e.sdk_d_icon_return_n);
         SkinManager.setNavbarTitleColor(centerTextTitle, a.c.sdk_cp_cont_i, a.c.sdk_cp_cont_i);
-        this.gtY.setAdapter((ListAdapter) this.gMP);
+        this.gvH.setAdapter((ListAdapter) this.gOy);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadData() {
-        this.gMO.bTC();
+        this.gOx.bTI();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRF() {
-        this.bwJ.reset();
-        this.bwJ.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.3
+    public void bRL() {
+        this.byj.reset();
+        this.byj.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.category.AlaLiveTagActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaLiveTagActivity.this.loadData();
-                AlaLiveTagActivity.this.bwJ.setVisibility(8);
+                AlaLiveTagActivity.this.byj.setVisibility(8);
                 AlaLiveTagActivity.this.mRootView.setVisibility(0);
             }
         });
-        this.bwJ.setTitle(a.h.sdk_net_fail_tip_rank);
-        this.bwJ.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
-        this.bwJ.setVisibility(0);
+        this.byj.setTitle(a.h.sdk_net_fail_tip_rank);
+        this.byj.setup(CommonEmptyView.ImgType.SERVER_ERROR, CommonEmptyView.StyleType.DARK);
+        this.byj.setVisibility(0);
         this.mRootView.setVisibility(8);
     }
 
@@ -138,12 +138,12 @@ public class AlaLiveTagActivity extends BaseActivity<AlaLiveTagActivity> {
     public void onClick(View view) {
         super.onClick(view);
         if (view.getId() == a.f.tag_commit_tv) {
-            List<String> bTo = this.gMP.bTo();
-            Set<String> bTp = this.gMP.bTp();
-            if (bTo != null && bTp != null && bTo.size() == bTp.size() && bTp.containsAll(bTo)) {
+            List<String> bTu = this.gOy.bTu();
+            Set<String> bTv = this.gOy.bTv();
+            if (bTu != null && bTv != null && bTu.size() == bTv.size() && bTv.containsAll(bTu)) {
                 finish();
             } else {
-                this.gMO.co(bTo);
+                this.gOx.co(bTu);
             }
         }
     }

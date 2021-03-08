@@ -3,7 +3,7 @@ package com.baidu.live.personmanager;
 import com.baidu.live.adp.lib.util.BdLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
     public static String B(int i, String str) {
         String str2;

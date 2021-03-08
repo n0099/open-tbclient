@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.f;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class o extends ProxyAdkBaseActivity<o> {
-    private q iVO;
-    private FacePurchaseRecordsModel iVP;
+    private q iXx;
+    private FacePurchaseRecordsModel iXy;
     private String mStType;
     private com.baidu.adp.base.e mLoadDataCallBack = new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.o.2
         @Override // com.baidu.adp.base.e
         public void callback(Object obj) {
             o.this.hideProgressBar();
             if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
-                if (o.this.iVO != null) {
+                if (o.this.iXx != null) {
                     FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
                     if (facePurchaseRecordsData.errno == 0) {
-                        o.this.iVO.c(facePurchaseRecordsData);
+                        o.this.iXx.c(facePurchaseRecordsData);
                         return;
                     } else if (facePurchaseRecordsData.usermsg != null) {
                         o.this.showToast(facePurchaseRecordsData.usermsg);
@@ -37,13 +37,13 @@ public class o extends ProxyAdkBaseActivity<o> {
             o.this.showToast(R.string.neterror);
         }
     };
-    private NoNetworkView.a gyn = new NoNetworkView.a() { // from class: com.baidu.tieba.faceshop.o.3
+    private NoNetworkView.a gzW = new NoNetworkView.a() { // from class: com.baidu.tieba.faceshop.o.3
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
             if (z) {
                 o.this.qj(true);
             }
-            o.this.iVO.qi(z);
+            o.this.iXx.qi(z);
         }
     };
 
@@ -57,26 +57,26 @@ public class o extends ProxyAdkBaseActivity<o> {
     }
 
     private void initUI() {
-        this.iVO = new q(getPageContext());
-        this.iVO.a(new f.c() { // from class: com.baidu.tieba.faceshop.o.1
+        this.iXx = new q(getPageContext());
+        this.iXx.a(new f.c() { // from class: com.baidu.tieba.faceshop.o.1
             @Override // com.baidu.tbadk.core.view.f.c
             public void onListPullRefresh(boolean z) {
                 o.this.qj(false);
             }
         });
-        this.iVO.a(this);
-        cyQ();
+        this.iXx.a(this);
+        cyW();
     }
 
     private void initData(Bundle bundle) {
-        this.iVP = new FacePurchaseRecordsModel(getActivity());
+        this.iXy = new FacePurchaseRecordsModel(getActivity());
         if (bundle != null) {
             this.mStType = bundle.getString("st_type");
         } else {
             this.mStType = getIntent().getStringExtra("st_type");
         }
-        this.iVP.setStType(this.mStType);
-        this.iVP.setLoadDataCallBack(this.mLoadDataCallBack);
+        this.iXy.setStType(this.mStType);
+        this.iXy.setLoadDataCallBack(this.mLoadDataCallBack);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -85,18 +85,18 @@ public class o extends ProxyAdkBaseActivity<o> {
             if (z) {
                 showProgressBar();
             }
-            this.iVP.loadData();
+            this.iXy.loadData();
             return;
         }
-        this.iVO.czs();
+        this.iXx.czy();
     }
 
-    private void cyQ() {
-        this.iVO.c(this.gyn);
+    private void cyW() {
+        this.iXx.c(this.gzW);
     }
 
-    private void cyR() {
-        this.iVO.d(this.gyn);
+    private void cyX() {
+        this.iXx.d(this.gzW);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -115,25 +115,25 @@ public class o extends ProxyAdkBaseActivity<o> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
-        if (this.iVO != null) {
-            this.iVO.onChangeSkinType(i);
+        if (this.iXx != null) {
+            this.iXx.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
-        if (this.iVP != null) {
-            this.iVP.cancelLoadData();
+        if (this.iXy != null) {
+            this.iXy.cancelLoadData();
         }
-        cyR();
+        cyX();
         super.onDestroy();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         FacePurchasePackageData facePurchasePackageData;
-        if (this.iVO != null && this.iVO.czr() != null && (facePurchasePackageData = (FacePurchasePackageData) this.iVO.czr().getItem(i)) != null) {
+        if (this.iXx != null && this.iXx.czx() != null && (facePurchasePackageData = (FacePurchasePackageData) this.iXx.czx().getItem(i)) != null) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FacePackageDetailActivityConfig(getPageContext().getPageActivity(), String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
             super.onItemClick(adapterView, view, i, j);
         }

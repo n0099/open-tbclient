@@ -12,7 +12,7 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.util.StringHelper;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LoadingView extends AbsAttachView {
     private static final long DELAY_TIME = 200;
     private final int arrayLength;

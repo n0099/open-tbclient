@@ -12,48 +12,48 @@ import java.util.List;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     static class a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.k.a coM;
+        final /* synthetic */ com.baidu.poly.a.k.a cqo;
 
         a(com.baidu.poly.a.k.a aVar) {
-            this.coM = aVar;
+            this.cqo = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         /* renamed from: b */
         public void a(String str) {
-            a.C0305a c0305a = new a.C0305a();
+            a.C0311a c0311a = new a.C0311a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt(BaseJsonData.TAG_ERRNO) == 0) {
-                    c0305a.statusCode = 0;
-                    c0305a.message = jSONObject.optString("msg");
+                    c0311a.statusCode = 0;
+                    c0311a.message = jSONObject.optString("msg");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    c0305a.coJ = optJSONObject.optLong("totalAmount");
-                    c0305a.coK = optJSONObject.optLong("userPayAmount");
-                    c0305a.coL = optJSONObject.optString("usedhostMarketingDetail");
+                    c0311a.cql = optJSONObject.optLong("totalAmount");
+                    c0311a.cqm = optJSONObject.optLong("userPayAmount");
+                    c0311a.cqn = optJSONObject.optString("usedhostMarketingDetail");
                 } else {
-                    c0305a.statusCode = jSONObject.optInt("errorLevel", 2);
-                    c0305a.message = jSONObject.optString("msg");
+                    c0311a.statusCode = jSONObject.optInt("errorLevel", 2);
+                    c0311a.message = jSONObject.optString("msg");
                 }
             } catch (Exception e) {
-                c0305a.statusCode = 2;
-                c0305a.message = g.adH().getResources().getString(b.g.calculate_price_default_error);
+                c0311a.statusCode = 2;
+                c0311a.message = g.adK().getResources().getString(b.g.calculate_price_default_error);
             }
-            this.coM.a(c0305a);
+            this.cqo.a(c0311a);
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            a.C0305a c0305a = new a.C0305a();
-            c0305a.statusCode = 2;
-            c0305a.message = g.adH().getResources().getString(b.g.calculate_price_default_error);
-            this.coM.a(c0305a);
+            a.C0311a c0311a = new a.C0311a();
+            c0311a.statusCode = 2;
+            c0311a.message = g.adK().getResources().getString(b.g.calculate_price_default_error);
+            this.cqo.a(c0311a);
         }
     }
 

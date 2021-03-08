@@ -1,18 +1,18 @@
 package rx.internal.producers;
 
 import rx.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class a implements f {
-    static final f qCp = new f() { // from class: rx.internal.producers.a.1
+    static final f qCR = new f() { // from class: rx.internal.producers.a.1
         @Override // rx.f
         public void request(long j) {
         }
     };
     boolean emitting;
-    f qCl;
-    long qCm;
-    long qCn;
-    f qCo;
+    f qCN;
+    long qCO;
+    long qCP;
+    f qCQ;
     long requested;
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -24,7 +24,7 @@ public final class a implements f {
         if (j != 0) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.qCm += j;
+                    this.qCO += j;
                 } else {
                     this.emitting = true;
                     try {
@@ -33,7 +33,7 @@ public final class a implements f {
                             j2 = Long.MAX_VALUE;
                         }
                         this.requested = j2;
-                        f fVar = this.qCl;
+                        f fVar = this.qCN;
                         if (fVar != null) {
                             fVar.request(j);
                         }
@@ -56,7 +56,7 @@ public final class a implements f {
         }
         synchronized (this) {
             if (this.emitting) {
-                this.qCn += j;
+                this.qCP += j;
                 return;
             }
             this.emitting = true;
@@ -84,14 +84,14 @@ public final class a implements f {
         synchronized (this) {
             if (this.emitting) {
                 if (fVar == null) {
-                    fVar = qCp;
+                    fVar = qCR;
                 }
-                this.qCo = fVar;
+                this.qCQ = fVar;
                 return;
             }
             this.emitting = true;
             try {
-                this.qCl = fVar;
+                this.qCN = fVar;
                 if (fVar != null) {
                     fVar.request(this.requested);
                 }
@@ -108,16 +108,16 @@ public final class a implements f {
     public void emitLoop() {
         while (true) {
             synchronized (this) {
-                long j = this.qCm;
-                long j2 = this.qCn;
-                f fVar = this.qCo;
+                long j = this.qCO;
+                long j2 = this.qCP;
+                f fVar = this.qCQ;
                 if (j == 0 && j2 == 0 && fVar == null) {
                     this.emitting = false;
                     return;
                 }
-                this.qCm = 0L;
-                this.qCn = 0L;
-                this.qCo = null;
+                this.qCO = 0L;
+                this.qCP = 0L;
+                this.qCQ = null;
                 long j3 = this.requested;
                 if (j3 != Long.MAX_VALUE) {
                     long j4 = j3 + j;
@@ -133,14 +133,14 @@ public final class a implements f {
                     }
                 }
                 if (fVar != null) {
-                    if (fVar == qCp) {
-                        this.qCl = null;
+                    if (fVar == qCR) {
+                        this.qCN = null;
                     } else {
-                        this.qCl = fVar;
+                        this.qCN = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.qCl;
+                    f fVar2 = this.qCN;
                     if (fVar2 != null && j != 0) {
                         fVar2.request(j);
                     }

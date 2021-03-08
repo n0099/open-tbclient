@@ -25,15 +25,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class at {
     private static final at u = new at();
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3691a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private WeakReference<Activity> f3692b;
+    private Context f2598a;
+    private WeakReference<Activity> b;
     private Handler c;
     private long g;
     private long h;
@@ -56,7 +54,7 @@ public class at {
     private ViewTreeObserver.OnScrollChangedListener w = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.mobstat.at.11
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
-            at.this.a(at.this.f3692b);
+            at.this.a(at.this.b);
         }
     };
     private Runnable x = null;
@@ -64,7 +62,7 @@ public class at {
     private float z = 0.0f;
     private Object A = new Object();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(ao aoVar);
 
@@ -120,8 +118,8 @@ public class at {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, long j) {
-        this.f3691a = activity.getApplicationContext();
-        this.f3692b = new WeakReference<>(activity);
+        this.f2598a = activity.getApplicationContext();
+        this.b = new WeakReference<>(activity);
         this.g = j;
         String e = bj.e(activity);
         if (bj.a(e, this.j)) {
@@ -209,7 +207,7 @@ public class at {
                 @Override // java.lang.Runnable
                 public void run() {
                     Activity activity;
-                    if (at.this.f3692b != null && (activity = (Activity) at.this.f3692b.get()) != null) {
+                    if (at.this.b != null && (activity = (Activity) at.this.b.get()) != null) {
                         String e = bj.e(activity);
                         if (!TextUtils.isEmpty(at.this.k) && at.this.k.equals(e)) {
                             at.this.c();
@@ -401,7 +399,7 @@ public class at {
         }
         a(this.e);
         if (this.d) {
-            a(this.f3692b, j);
+            a(this.b, j);
             this.d = false;
         }
         a(this.s, j);
@@ -482,15 +480,15 @@ public class at {
                     String e = bj.e(activity);
                     String f = bj.f(activity);
                     ArrayList<Integer> a2 = a(activity, view);
-                    int a3 = ah.a(this.f3691a, a2.get(0).intValue());
-                    int a4 = ah.a(this.f3691a, a2.get(1).intValue());
-                    ArrayList<Integer> b2 = bj.b(activity, view);
-                    int a5 = ah.a(this.f3691a, b2.get(0).intValue());
-                    int a6 = ah.a(this.f3691a, b2.get(1).intValue());
+                    int a3 = ah.a(this.f2598a, a2.get(0).intValue());
+                    int a4 = ah.a(this.f2598a, a2.get(1).intValue());
+                    ArrayList<Integer> b = bj.b(activity, view);
+                    int a5 = ah.a(this.f2598a, b.get(0).intValue());
+                    int a6 = ah.a(this.f2598a, b.get(1).intValue());
                     int i = a5 > a3 ? a5 : a3;
                     int i2 = a6 > a4 ? a6 : a4;
                     if (i != 0 && i2 != 0) {
-                        a(this.f3691a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
+                        a(this.f2598a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
                     }
                 }
             }
@@ -615,11 +613,11 @@ public class at {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(ap apVar, ap apVar2) {
-                long b2 = apVar.b() - apVar2.b();
-                if (b2 > 0) {
+                long b = apVar.b() - apVar2.b();
+                if (b > 0) {
                     return 1;
                 }
-                if (b2 < 0) {
+                if (b < 0) {
                     return -1;
                 }
                 return 0;
@@ -628,7 +626,7 @@ public class at {
         if (this.v != null) {
             this.v.a(arrayList);
         }
-        aw.a().a(this.f3691a, arrayList);
+        aw.a().a(this.f2598a, arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -719,9 +717,9 @@ public class at {
             String f = aqVar.f();
             if (!TextUtils.isEmpty(d) && !TextUtils.isEmpty(f)) {
                 WeakReference<View> weakReference = null;
-                LinkedHashMap<WeakReference<View>, HashMap<String, ArrayList<aq>>> b2 = b(hashMap, view);
-                if (b2 != null && b2.size() > 0) {
-                    Iterator<Map.Entry<WeakReference<View>, HashMap<String, ArrayList<aq>>>> it = b2.entrySet().iterator();
+                LinkedHashMap<WeakReference<View>, HashMap<String, ArrayList<aq>>> b = b(hashMap, view);
+                if (b != null && b.size() > 0) {
+                    Iterator<Map.Entry<WeakReference<View>, HashMap<String, ArrayList<aq>>>> it = b.entrySet().iterator();
                     if (it.hasNext()) {
                         Map.Entry<WeakReference<View>, HashMap<String, ArrayList<aq>>> next = it.next();
                         hashMap2 = next.getValue();
@@ -790,20 +788,20 @@ public class at {
 
     private boolean a(aq aqVar, aq aqVar2) {
         String a2 = aqVar2.a();
-        String b2 = aqVar2.b();
+        String b = aqVar2.b();
         JSONArray c = aqVar2.c();
         String d = aqVar2.d();
         String e = aqVar2.e();
         String f = aqVar2.f();
         boolean g = aqVar2.g();
         String a3 = aqVar.a();
-        String b3 = aqVar.b();
+        String b2 = aqVar.b();
         JSONArray c2 = aqVar.c();
         String d2 = aqVar.d();
         String e2 = aqVar.e();
         String f2 = aqVar.f();
         boolean g2 = aqVar.g();
-        if (!a(a3, a2) || !a(b3, b2) || !a(c2, c) || !a(d2, d) || !a(e2, e) || !a(f2, f) || g2 != g) {
+        if (!a(a3, a2) || !a(b2, b) || !a(c2, c) || !a(d2, d) || !a(e2, e) || !a(f2, f) || g2 != g) {
             return false;
         }
         return true;
@@ -870,15 +868,15 @@ public class at {
         if (this.v != null) {
             this.v.b(arrayList);
         }
-        aw.a().b(this.f3691a, arrayList);
+        aw.a().b(this.f2598a, arrayList);
     }
 
     private ArrayList<aq> h(HashMap<String, ArrayList<aq>> hashMap) {
         ArrayList<aq> arrayList = new ArrayList<>();
         for (Map.Entry<String, ArrayList<aq>> entry : hashMap.entrySet()) {
-            aq b2 = b(entry.getValue());
-            if (b2 != null) {
-                arrayList.add(b2);
+            aq b = b(entry.getValue());
+            if (b != null) {
+                arrayList.add(b);
             }
         }
         return arrayList;

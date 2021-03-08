@@ -13,7 +13,7 @@ public class b extends a {
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
-        Intent intent = new Intent("android.settings.MANAGE_UNKNOWN_APP_SOURCES", Uri.parse("package:" + this.f13009a.getPackageName()));
+        Intent intent = new Intent("android.settings.MANAGE_UNKNOWN_APP_SOURCES", Uri.parse("package:" + this.f7743a.getPackageName()));
         intent.addFlags(1073741824);
         intent.addFlags(8388608);
         intent.addFlags(268435456);

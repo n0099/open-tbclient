@@ -18,27 +18,25 @@ import java.security.MessageDigest;
 public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Long> f10303a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new d.a<Long>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.1
+    public static final com.kwad.sdk.glide.load.d<Long> f6801a = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", -1L, new d.a<Long>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.1
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f10305a = ByteBuffer.allocate(8);
+        private final ByteBuffer f6802a = ByteBuffer.allocate(8);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.d.a
         public void a(@NonNull byte[] bArr, @NonNull Long l, @NonNull MessageDigest messageDigest) {
             messageDigest.update(bArr);
-            synchronized (this.f10305a) {
-                this.f10305a.position(0);
-                messageDigest.update(this.f10305a.putLong(l.longValue()).array());
+            synchronized (this.f6802a) {
+                this.f6802a.position(0);
+                messageDigest.update(this.f6802a.putLong(l.longValue()).array());
             }
         }
     });
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final com.kwad.sdk.glide.load.d<Integer> f10304b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new d.a<Integer>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.2
+    public static final com.kwad.sdk.glide.load.d<Integer> b = com.kwad.sdk.glide.load.d.a("com.kwad.sdk.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", 2, new d.a<Integer>() { // from class: com.kwad.sdk.glide.load.resource.bitmap.v.2
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f10306a = ByteBuffer.allocate(4);
+        private final ByteBuffer f6803a = ByteBuffer.allocate(4);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.d.a
@@ -47,9 +45,9 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
                 return;
             }
             messageDigest.update(bArr);
-            synchronized (this.f10306a) {
-                this.f10306a.position(0);
-                messageDigest.update(this.f10306a.putInt(num.intValue()).array());
+            synchronized (this.f6803a) {
+                this.f6803a.position(0);
+                messageDigest.update(this.f6803a.putInt(num.intValue()).array());
             }
         }
     });
@@ -161,9 +159,9 @@ public class v<T> implements com.kwad.sdk.glide.load.f<T, Bitmap> {
 
     @Override // com.kwad.sdk.glide.load.f
     public com.kwad.sdk.glide.load.engine.s<Bitmap> a(@NonNull T t, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        long longValue = ((Long) eVar.a(f10303a)).longValue();
+        long longValue = ((Long) eVar.a(f6801a)).longValue();
         if (longValue >= 0 || longValue == -1) {
-            Integer num = (Integer) eVar.a(f10304b);
+            Integer num = (Integer) eVar.a(b);
             Integer num2 = num == null ? 2 : num;
             DownsampleStrategy downsampleStrategy = (DownsampleStrategy) eVar.a(DownsampleStrategy.h);
             DownsampleStrategy downsampleStrategy2 = downsampleStrategy == null ? DownsampleStrategy.g : downsampleStrategy;

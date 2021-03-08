@@ -11,17 +11,17 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class a extends RelativeLayout implements View.OnClickListener {
-    private ImageView cqs;
-    private TextView cqt;
-    private TextView cqu;
-    private ImageView cqv;
-    private InterfaceC0310a cqw;
+    private ImageView crT;
+    private TextView crU;
+    private TextView crV;
+    private ImageView crW;
+    private InterfaceC0316a crX;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0310a {
+    /* loaded from: classes14.dex */
+    public interface InterfaceC0316a {
         void a();
     }
 
@@ -31,57 +31,57 @@ public class a extends RelativeLayout implements View.OnClickListener {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_channel_list_item, (ViewGroup) this, true);
-        this.cqs = (ImageView) findViewById(b.e.channel_icon_view);
-        this.cqt = (TextView) findViewById(b.e.channel_name_view);
-        this.cqu = (TextView) findViewById(b.e.channel_desc_view);
-        this.cqv = (ImageView) findViewById(b.e.channel_select_view);
+        this.crT = (ImageView) findViewById(b.e.channel_icon_view);
+        this.crU = (TextView) findViewById(b.e.channel_name_view);
+        this.crV = (TextView) findViewById(b.e.channel_desc_view);
+        this.crW = (ImageView) findViewById(b.e.channel_select_view);
         setOnClickListener(this);
     }
 
-    public void a(o oVar, InterfaceC0310a interfaceC0310a) {
+    public void a(o oVar, InterfaceC0316a interfaceC0316a) {
         String displayName = oVar.getDisplayName();
         String S = oVar.S();
         String icon = oVar.getIcon();
         int P = oVar.P();
         int N = oVar.N();
-        com.baidu.poly.a.d.b.adp().b(this.cqs, icon);
-        this.cqt.setText(displayName);
+        com.baidu.poly.a.d.b.ads().b(this.crT, icon);
+        this.crU.setText(displayName);
         if (P == 1) {
-            this.cqv.setImageResource(b.d.channel_checked);
+            this.crW.setImageResource(b.d.channel_checked);
         } else {
-            this.cqv.setImageResource(b.d.unchecked);
+            this.crW.setImageResource(b.d.unchecked);
         }
         if (1 == N) {
-            this.cqw = interfaceC0310a;
+            this.crX = interfaceC0316a;
         } else {
-            this.cqs.setAlpha(0.4f);
-            this.cqt.setAlpha(0.4f);
-            this.cqu.setAlpha(0.4f);
-            this.cqv.setVisibility(8);
+            this.crT.setAlpha(0.4f);
+            this.crU.setAlpha(0.4f);
+            this.crV.setAlpha(0.4f);
+            this.crW.setVisibility(8);
         }
         if (!TextUtils.isEmpty(S)) {
             String M = oVar.M();
             if (!TextUtils.isEmpty(M)) {
                 try {
-                    this.cqu.setTextColor(Color.parseColor(M));
+                    this.crV.setTextColor(Color.parseColor(M));
                 } catch (Exception e) {
                 }
             }
-            this.cqu.setText(S);
+            this.crV.setText(S);
             return;
         }
-        this.cqu.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cqt.getLayoutParams();
+        this.crV.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.crU.getLayoutParams();
         layoutParams.addRule(15);
         layoutParams.topMargin = 0;
-        this.cqt.setLayoutParams(layoutParams);
+        this.crU.setLayoutParams(layoutParams);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC0310a interfaceC0310a = this.cqw;
-        if (interfaceC0310a != null) {
-            interfaceC0310a.a();
+        InterfaceC0316a interfaceC0316a = this.crX;
+        if (interfaceC0316a != null) {
+            interfaceC0316a.a();
         }
     }
 

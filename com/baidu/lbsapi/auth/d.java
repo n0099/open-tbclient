@@ -7,11 +7,11 @@ import java.util.HashMap;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2485a;
+    final /* synthetic */ c f1876a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f2485a = cVar;
+        this.f1876a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,9 +19,9 @@ public class d implements Runnable {
         Context context;
         HashMap<String, String> hashMap;
         a.a("postWithHttps start Thread id = " + String.valueOf(Thread.currentThread().getId()));
-        context = this.f2485a.f2483a;
+        context = this.f1876a.f1875a;
         g gVar = new g(context);
-        hashMap = this.f2485a.f2484b;
-        this.f2485a.a(gVar.a(hashMap));
+        hashMap = this.f1876a.b;
+        this.f1876a.a(gVar.a(hashMap));
     }
 }

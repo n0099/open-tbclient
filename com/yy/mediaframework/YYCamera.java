@@ -8,7 +8,7 @@ import com.yy.mediaframework.stat.YMFLiveStatisticManager;
 import com.yy.mediaframework.stat.YMFLiveUsrBehaviorStat;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYCamera {
     public static final int DISPLAY_ROTATION_LANDSCAPE = 90;
     public static final int DISPLAY_ROTATION_LANDSCAPE_UPSIDEDOWN = 270;

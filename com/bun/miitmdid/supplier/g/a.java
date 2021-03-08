@@ -3,15 +3,15 @@ package com.bun.miitmdid.supplier.g;
 import android.content.Context;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5752a;
+    private Context f3883a;
 
     public a(Context context) {
         com.heytap.openid.a.a.a(context);
-        this.f5752a = context;
+        this.f3883a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -40,7 +40,7 @@ public class a implements InnerIdSupplier {
     public String getAAID() {
         String str = "";
         try {
-            str = com.heytap.openid.a.a.d(this.f5752a);
+            str = com.heytap.openid.a.a.d(this.f3883a);
             return str == null ? "" : str;
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class a implements InnerIdSupplier {
     public String getOAID() {
         String str = "";
         try {
-            str = com.heytap.openid.a.a.b(this.f5752a);
+            str = com.heytap.openid.a.a.b(this.f3883a);
             return str == null ? "" : str;
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ public class a implements InnerIdSupplier {
     public String getVAID() {
         String str = "";
         try {
-            str = com.heytap.openid.a.a.c(this.f5752a);
+            str = com.heytap.openid.a.a.c(this.f3883a);
             return str == null ? "" : str;
         } catch (Exception e) {
             e.printStackTrace();

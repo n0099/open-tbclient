@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class SnackbarManager {
     private static final int LONG_DURATION_MS = 2750;
     static final int MSG_TIMEOUT = 0;
@@ -27,7 +27,7 @@ class SnackbarManager {
     });
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface Callback {
         void dismiss(int i);
 
@@ -129,7 +129,7 @@ class SnackbarManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class SnackbarRecord {
         final WeakReference<Callback> callback;
         int duration;

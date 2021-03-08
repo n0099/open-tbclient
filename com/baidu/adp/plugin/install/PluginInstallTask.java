@@ -4,12 +4,12 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.kwad.sdk.collector.AppStatusRules;
 /* loaded from: classes.dex */
 public class PluginInstallTask extends OrmObject {
-    protected boolean Tf;
-    protected long Tg;
+    protected long UB;
+    protected boolean Uz;
     protected String apkFilePath;
     protected String pkgName;
 
     public long oL() {
-        return Math.max(Math.min(this.Tg * 80, 240000L), (long) AppStatusRules.DEFAULT_GRANULARITY);
+        return Math.max(Math.min(this.UB * 80, 240000L), (long) AppStatusRules.DEFAULT_GRANULARITY);
     }
 }

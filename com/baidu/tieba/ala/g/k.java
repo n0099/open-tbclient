@@ -17,15 +17,15 @@ import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.tieba.ala.messages.CancelPkResponseMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class k extends BdBaseModel {
     private HttpMessageListener messageListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void bv(int i, String str);
 
-        void cmk();
+        void cmq();
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class k extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        cmi();
+        cmo();
         b(aVar);
     }
 
@@ -60,7 +60,7 @@ public class k extends BdBaseModel {
                         aVar.bv(cancelPkResponseMessage.getError(), cancelPkResponseMessage.getErrorString());
                         return;
                     }
-                    aVar.cmk();
+                    aVar.cmq();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue("lodId", Long.valueOf(cancelPkResponseMessage.getLogId()));
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(cancelPkResponseMessage.getError()));
@@ -79,7 +79,7 @@ public class k extends BdBaseModel {
         registerListener(this.messageListener);
     }
 
-    private void cmi() {
+    private void cmo() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021212, TbConfig.SERVER_ADDRESS + "ala/pksolo/cancelPk");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -89,7 +89,7 @@ public class k extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void cmj() {
+    public void cmp() {
         MessageManager.getInstance().unRegisterListener(this.messageListener);
         MessageManager.getInstance().unRegisterTask(1021212);
     }

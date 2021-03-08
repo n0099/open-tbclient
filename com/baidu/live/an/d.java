@@ -20,93 +20,93 @@ import com.baidu.live.view.RoundRectRelativeLayout;
 import com.baidu.live.view.e;
 import com.baidu.live.view.web.CommonWebLayout;
 import com.baidu.live.view.web.f;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends e implements f {
-    private float bAh;
-    private CommonWebLayout bVC;
-    private View bVD;
-    private RoundRectRelativeLayout bWv;
-    private int bWw;
-    private c bWx;
-    public boolean bWy;
-    private boolean bWz;
+    private float bBH;
+    private RoundRectRelativeLayout bXV;
+    private int bXW;
+    private c bXX;
+    public boolean bXY;
+    private boolean bXZ;
+    private CommonWebLayout bXc;
+    private View bXd;
     private Context mContext;
 
     public d(Context context) {
         super(context);
-        this.bWy = false;
-        this.bWz = false;
+        this.bXY = false;
+        this.bXZ = false;
         this.mContext = context;
         setClippingEnabled(false);
         init();
     }
 
     public CommonWebLayout getWebView() {
-        return this.bVC;
+        return this.bXc;
     }
 
     public void b(c cVar, b bVar) {
-        int Yg;
-        int Yh;
+        int Yj;
+        int Yk;
         int i;
-        int Yf;
+        int Yi;
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && cVar != null) {
-            this.bWx = cVar;
+            this.bXX = cVar;
             View findViewById = ((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290);
             if (findViewById != null) {
                 switch (UtilHelper.getRealScreenOrientation(this.mContext)) {
                     case 2:
-                        this.bWw = 5;
+                        this.bXW = 5;
                         if (cVar.isFullScreen) {
-                            Yg = Ye();
+                            Yj = Yh();
                         } else {
-                            Yg = Yg();
+                            Yj = Yj();
                         }
-                        Yh = Yh();
+                        Yk = Yk();
                         setClippingEnabled(true);
-                        this.bWv.setCornerRadius(this.bAh, 0.0f, 0.0f, this.bAh);
-                        i = Yg;
+                        this.bXV.setCornerRadius(this.bBH, 0.0f, 0.0f, this.bBH);
+                        i = Yj;
                         break;
                     default:
-                        this.bWw = 80;
-                        i = Ye();
+                        this.bXW = 80;
+                        i = Yh();
                         if (cVar.isFullScreen) {
-                            ah(this.bWv);
+                            ah(this.bXV);
                             setClippingEnabled(false);
-                            this.bWv.setSystemUiVisibility(4870);
-                            Yh = -1;
+                            this.bXV.setSystemUiVisibility(4870);
+                            Yk = -1;
                             break;
                         } else {
-                            if (cVar.bWt == 1) {
-                                Yf = Yb();
+                            if (cVar.bXT == 1) {
+                                Yi = Ye();
                             } else {
                                 float f = 0.7f;
                                 if (cVar != null) {
-                                    f = cVar.bWs;
+                                    f = cVar.bXS;
                                 }
                                 if (f <= 0.1f) {
                                     f = 0.1f;
                                 }
                                 if (f > 1.0f) {
-                                    Yf = (int) ((f * this.mContext.getResources().getDisplayMetrics().density) + 0.5f);
+                                    Yi = (int) ((f * this.mContext.getResources().getDisplayMetrics().density) + 0.5f);
                                 } else {
-                                    Yf = (int) (f * Yf());
+                                    Yi = (int) (f * Yi());
                                 }
                             }
                             setClippingEnabled(true);
-                            this.bWv.setCornerRadius(this.bAh, this.bAh, 0.0f, 0.0f);
-                            Yh = Yf;
+                            this.bXV.setCornerRadius(this.bBH, this.bBH, 0.0f, 0.0f);
+                            Yk = Yi;
                             break;
                         }
                 }
                 setWidth(i);
-                setHeight(Yh);
+                setHeight(Yk);
                 showAtLocation(findViewById, 85, 0, 0);
                 if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                    ah(this.bWv);
+                    ah(this.bXV);
                 }
-                LN();
-                this.bVC.loadUrl(cVar.url);
+                LQ();
+                this.bXc.loadUrl(cVar.url);
                 if (bVar != null) {
                     bVar.onShow();
                 }
@@ -114,68 +114,68 @@ public class d extends e implements f {
         }
     }
 
-    public void cr(int i) {
-        int Yg;
-        int Yh;
+    public void cs(int i) {
+        int Yj;
+        int Yk;
         int i2;
-        int Yf;
+        int Yi;
         if (((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290) != null) {
             switch (i) {
                 case 2:
-                    this.bWw = 5;
-                    if (this.bWx.isFullScreen) {
-                        Yg = Ye();
+                    this.bXW = 5;
+                    if (this.bXX.isFullScreen) {
+                        Yj = Yh();
                     } else {
-                        Yg = Yg();
+                        Yj = Yj();
                     }
-                    Yh = Yh();
+                    Yk = Yk();
                     setClippingEnabled(true);
-                    this.bWv.setCornerRadius(this.bAh, 0.0f, 0.0f, this.bAh);
-                    i2 = Yg;
+                    this.bXV.setCornerRadius(this.bBH, 0.0f, 0.0f, this.bBH);
+                    i2 = Yj;
                     break;
                 default:
-                    this.bWw = 80;
-                    i2 = Ye();
-                    if (this.bWx.isFullScreen) {
-                        int Yf2 = Yf();
-                        ah(this.bWv);
+                    this.bXW = 80;
+                    i2 = Yh();
+                    if (this.bXX.isFullScreen) {
+                        int Yi2 = Yi();
+                        ah(this.bXV);
                         setClippingEnabled(false);
-                        this.bWv.setSystemUiVisibility(4870);
-                        Yh = Yf2;
+                        this.bXV.setSystemUiVisibility(4870);
+                        Yk = Yi2;
                         break;
                     } else {
-                        if (this.bWx.bWt == 1) {
-                            Yf = Yb();
+                        if (this.bXX.bXT == 1) {
+                            Yi = Ye();
                         } else {
                             float f = 0.7f;
-                            if (this.bWx != null) {
-                                f = this.bWx.bWs;
+                            if (this.bXX != null) {
+                                f = this.bXX.bXS;
                             }
                             if (f <= 0.1f) {
                                 f = 0.1f;
                             }
                             if (f > 1.0f) {
-                                Yf = (int) f;
+                                Yi = (int) f;
                             } else {
-                                Yf = (int) (f * Yf());
+                                Yi = (int) (f * Yi());
                             }
                         }
                         setClippingEnabled(true);
-                        this.bWv.setCornerRadius(this.bAh, this.bAh, 0.0f, 0.0f);
-                        Yh = Yf;
+                        this.bXV.setCornerRadius(this.bBH, this.bBH, 0.0f, 0.0f);
+                        Yk = Yi;
                         break;
                     }
             }
-            update(i2, Yh);
+            update(i2, Yk);
             if (i == 2) {
-                ah(this.bWv);
+                ah(this.bXV);
             }
         }
     }
 
-    private int Yb() {
+    private int Ye() {
         int dimensionPixelSize;
-        int screenHeight = ScreenHelper.getScreenHeight(this.mContext) - p.bu(this.mContext);
+        int screenHeight = ScreenHelper.getScreenHeight(this.mContext) - p.bt(this.mContext);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             dimensionPixelSize = UtilHelper.getStatusBarHeight();
         } else {
@@ -184,18 +184,18 @@ public class d extends e implements f {
         return screenHeight - dimensionPixelSize;
     }
 
-    public void Yc() {
+    public void Yf() {
         super.dismiss();
     }
 
-    public c Yd() {
-        return this.bWx;
+    public c Yg() {
+        return this.bXX;
     }
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!Yi() || this.bWx.url.contains("disableDisAnimation=1")) {
-            Yc();
+        if (!Yl() || this.bXX.url.contains("disableDisAnimation=1")) {
+            Yf();
         }
     }
 
@@ -208,88 +208,88 @@ public class d extends e implements f {
         setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.live.an.d.1
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (d.this.bVC != null) {
-                    d.this.bVC.release();
+                if (d.this.bXc != null) {
+                    d.this.bXc.release();
                 }
             }
         });
     }
 
     private void initView() {
-        this.bAh = this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds26);
-        this.bWv = new RoundRectRelativeLayout(this.mContext);
-        x(this.bWv);
-        y(this.bWv);
-        setContentView(this.bWv);
+        this.bBH = this.mContext.getResources().getDimensionPixelOffset(a.d.sdk_ds26);
+        this.bXV = new RoundRectRelativeLayout(this.mContext);
+        x(this.bXV);
+        y(this.bXV);
+        setContentView(this.bXV);
     }
 
     private void x(ViewGroup viewGroup) {
-        this.bVC = new CommonWebLayout(this.mContext);
-        this.bVC.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha85));
-        this.bVC.setCallback(new com.baidu.live.view.web.c() { // from class: com.baidu.live.an.d.2
+        this.bXc = new CommonWebLayout(this.mContext);
+        this.bXc.setBackgroundColor(this.mContext.getResources().getColor(a.c.sdk_black_alpha85));
+        this.bXc.setCallback(new com.baidu.live.view.web.c() { // from class: com.baidu.live.an.d.2
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void it(String str) {
-                super.it(str);
-                if (d.this.bVD != null && !d.this.bWy) {
-                    d.this.bVD.setVisibility(0);
+            public void iz(String str) {
+                super.iz(str);
+                if (d.this.bXd != null && !d.this.bXY) {
+                    d.this.bXd.setVisibility(0);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void fn(int i) {
-                super.fn(i);
-                if (i == 100 && d.this.bVD != null) {
-                    d.this.bVD.setVisibility(8);
+            public void fo(int i) {
+                super.fo(i);
+                if (i == 100 && d.this.bXd != null) {
+                    d.this.bXd.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void iu(String str) {
-                super.iu(str);
-                if (d.this.bVD != null) {
-                    d.this.bVD.setVisibility(8);
+            public void iA(String str) {
+                super.iA(str);
+                if (d.this.bXd != null) {
+                    d.this.bXd.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public void f(String str, int i, String str2) {
                 super.f(str, i, str2);
-                if (d.this.bVD != null) {
-                    d.this.bVD.setVisibility(8);
+                if (d.this.bXd != null) {
+                    d.this.bXd.setVisibility(8);
                 }
             }
         });
-        viewGroup.addView(this.bVC, new ViewGroup.LayoutParams(-1, -1));
+        viewGroup.addView(this.bXc, new ViewGroup.LayoutParams(-1, -1));
     }
 
     private void y(ViewGroup viewGroup) {
-        this.bVD = LayoutInflater.from(this.mContext).inflate(a.g.layout_standard_web_pop_progress, (ViewGroup) null);
+        this.bXd = LayoutInflater.from(this.mContext).inflate(a.g.layout_standard_web_pop_progress, (ViewGroup) null);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        viewGroup.addView(this.bVD, layoutParams);
-        this.bVD.setVisibility(8);
-    }
-
-    private int Ye() {
-        return ScreenHelper.getRealScreenWidth(this.mContext);
-    }
-
-    private int Yf() {
-        return ScreenHelper.getRealScreenHeight(this.mContext);
-    }
-
-    private int Yg() {
-        return Yh();
+        viewGroup.addView(this.bXd, layoutParams);
+        this.bXd.setVisibility(8);
     }
 
     private int Yh() {
+        return ScreenHelper.getRealScreenWidth(this.mContext);
+    }
+
+    private int Yi() {
         return ScreenHelper.getRealScreenHeight(this.mContext);
     }
 
-    private void LN() {
+    private int Yj() {
+        return Yk();
+    }
+
+    private int Yk() {
+        return ScreenHelper.getRealScreenHeight(this.mContext);
+    }
+
+    private void LQ() {
         if (getContentView() != null) {
             TranslateAnimation translateAnimation = null;
-            switch (this.bWw) {
+            switch (this.bXW) {
                 case 5:
                     translateAnimation = new TranslateAnimation(1, 1.0f, 1, 0.0f, 1, 0.0f, 1, 0.0f);
                     break;
@@ -305,16 +305,16 @@ public class d extends e implements f {
         }
     }
 
-    private boolean Yi() {
+    private boolean Yl() {
         if (getContentView() == null) {
             return false;
         }
-        if (this.bWz) {
+        if (this.bXZ) {
             return true;
         }
-        this.bWz = true;
+        this.bXZ = true;
         TranslateAnimation translateAnimation = null;
-        switch (this.bWw) {
+        switch (this.bXW) {
             case 5:
                 translateAnimation = new TranslateAnimation(1, 0.0f, 1, 1.0f, 1, 0.0f, 1, 0.0f);
                 break;
@@ -332,8 +332,8 @@ public class d extends e implements f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    d.this.bWz = false;
-                    d.this.Yc();
+                    d.this.bXZ = false;
+                    d.this.Yf();
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener
@@ -347,7 +347,7 @@ public class d extends e implements f {
     }
 
     @Override // com.baidu.live.view.web.f
-    public void fp(int i) {
+    public void fq(int i) {
         dismiss();
     }
 

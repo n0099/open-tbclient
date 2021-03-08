@@ -9,10 +9,8 @@ import java.util.concurrent.Executors;
 public class AsyncHttpClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2681a = 4000;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f2682b = 4000;
+    private int f2002a = 4000;
+    private int b = 4000;
     private ExecutorService c = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */

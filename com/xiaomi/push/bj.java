@@ -14,7 +14,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class bj {
     public static String a() {
         return Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL;
@@ -24,7 +24,7 @@ public class bj {
         String a2 = bm.a(context).a("sp_client_report_status", "sp_client_report_key", "");
         if (TextUtils.isEmpty(a2)) {
             String a3 = bf.a(20);
-            bm.a(context).m196a("sp_client_report_status", "sp_client_report_key", a3);
+            bm.a(context).m175a("sp_client_report_status", "sp_client_report_key", a3);
             return a3;
         }
         return a2;
@@ -84,7 +84,7 @@ public class bj {
                         if (!TextUtils.isEmpty(file4.getAbsolutePath())) {
                             file2 = new File(file4.getAbsolutePath() + ".lock");
                             try {
-                                y.m615a(file2);
+                                y.m594a(file2);
                                 randomAccessFile = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
                                 try {
                                     try {
@@ -195,7 +195,7 @@ public class bj {
     }
 
     public static void a(Context context, List<String> list) {
-        if (list == null || list.size() <= 0 || !m192a(context)) {
+        if (list == null || list.size() <= 0 || !m171a(context)) {
             return;
         }
         for (String str : list) {
@@ -206,7 +206,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m192a(Context context) {
+    public static boolean m171a(Context context) {
         try {
             return context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= 108;
         } catch (PackageManager.NameNotFoundException e) {
@@ -216,9 +216,9 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m193a(Context context, String str) {
+    public static boolean m172a(Context context, String str) {
         File file = new File(str);
-        long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m83a().getMaxFileLength();
+        long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m62a().getMaxFileLength();
         if (file.exists()) {
             try {
                 if (file.length() > maxFileLength) {
@@ -229,21 +229,21 @@ public class bj {
                 return false;
             }
         } else {
-            y.m615a(file);
+            y.m594a(file);
         }
         return true;
     }
 
     @TargetApi(9)
     public static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(bc.m187a(str), 16);
+        byte[] copyOf = Arrays.copyOf(bc.m166a(str), 16);
         copyOf[0] = 68;
         copyOf[15] = 84;
         return copyOf;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static File[] m194a(Context context, String str) {
+    public static File[] m173a(Context context, String str) {
         File externalFilesDir = context.getExternalFilesDir(str);
         if (externalFilesDir != null) {
             return externalFilesDir.listFiles(new bl());

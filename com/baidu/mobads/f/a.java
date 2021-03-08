@@ -5,15 +5,13 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import java.util.concurrent.Future;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class a<T> implements Runnable {
     private static b f;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3320a = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected Future<T> f3321b;
+    private String f2376a = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
+    protected Future<T> b;
     private long c;
     private long d;
     private long e;
@@ -26,7 +24,7 @@ public abstract class a<T> implements Runnable {
     }
 
     public void a(Future future) {
-        this.f3321b = future;
+        this.b = future;
     }
 
     public void a(long j) {
@@ -36,10 +34,10 @@ public abstract class a<T> implements Runnable {
     public a b() {
         try {
             this.d = System.currentTimeMillis();
-            d().obtainMessage(1, new C0263a(this, a())).sendToTarget();
+            d().obtainMessage(1, new C0269a(this, a())).sendToTarget();
         } catch (Throwable th) {
             try {
-                d().obtainMessage(2, new C0263a(this, th)).sendToTarget();
+                d().obtainMessage(2, new C0269a(this, th)).sendToTarget();
             } finally {
                 this.e = System.currentTimeMillis();
             }
@@ -59,7 +57,7 @@ public abstract class a<T> implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -67,16 +65,16 @@ public abstract class a<T> implements Runnable {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            C0263a c0263a = (C0263a) message.obj;
+            C0269a c0269a = (C0269a) message.obj;
             switch (message.what) {
                 case 1:
-                    c0263a.f3322a.a((a) c0263a.f3323b);
+                    c0269a.f2377a.a((a) c0269a.b);
                     return;
                 case 2:
-                    c0263a.f3322a.a((Throwable) c0263a.f3323b);
+                    c0269a.f2377a.a((Throwable) c0269a.b);
                     return;
                 case 3:
-                    c0263a.f3322a.c();
+                    c0269a.f2377a.c();
                     return;
                 default:
                     return;
@@ -86,18 +84,16 @@ public abstract class a<T> implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mobads.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0263a<T> {
+    /* loaded from: classes4.dex */
+    public static class C0269a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        final a f3322a;
+        final a f2377a;
+        final T b;
 
-        /* renamed from: b  reason: collision with root package name */
-        final T f3323b;
-
-        C0263a(a aVar, T t) {
-            this.f3322a = aVar;
-            this.f3323b = t;
+        C0269a(a aVar, T t) {
+            this.f2377a = aVar;
+            this.b = t;
         }
     }
 

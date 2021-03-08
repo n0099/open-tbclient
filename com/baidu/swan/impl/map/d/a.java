@@ -8,11 +8,11 @@ import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a extends c {
     public a(@NonNull Context context) {
         super("BaiduMap", context.getString(R.string.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
-        this.erf = true;
+        this.esH = true;
     }
 
     @Override // com.baidu.swan.impl.map.d.c

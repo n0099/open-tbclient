@@ -5,25 +5,25 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public f(Context context) {
-        super(context, com.baidu.live.im.a.bjU);
+        super(context, com.baidu.live.im.a.blu);
     }
 
     @Override // com.baidu.live.yuyinim.a.b
-    protected void Kz() {
-        if (KA()) {
-            KB();
+    protected void KC() {
+        if (KD()) {
+            KE();
         } else {
-            KC();
+            KF();
         }
     }
 
     @Override // com.baidu.live.yuyinim.a.b
     protected int getColor() {
-        if (KA()) {
+        if (KD()) {
             return -1;
         }
         return this.mContext.getResources().getColor(a.c.sdk_common_color_10034);
@@ -34,7 +34,7 @@ public class f extends b {
         boolean z;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         if (bVar instanceof com.baidu.live.im.a) {
-            z = !"0".equals(bVar.KZ().userId) && ((com.baidu.live.im.a) bVar).Jp().equals(bVar.KZ().userId);
+            z = !"0".equals(bVar.Lc().userId) && ((com.baidu.live.im.a) bVar).Js().equals(bVar.Lc().userId);
         } else {
             z = false;
         }
@@ -44,7 +44,7 @@ public class f extends b {
             spannableStringBuilder2.setSpan(bVar2, 0, 1, 33);
             spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
         }
-        a(spannableStringBuilder, bVar.KZ(), aVar, z, true, true);
+        a(spannableStringBuilder, bVar.Lc(), aVar, z, true, true);
         if (z) {
             cn(false);
         }

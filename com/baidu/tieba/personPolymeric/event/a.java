@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.data.e;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements f {
     protected TbPageContext mPageContext;
-    protected int mCe = 1;
+    protected int mEk = 1;
     protected int userType = 2;
     protected boolean isHost = false;
 
@@ -35,15 +35,15 @@ public class a implements f {
     public void a(View view, com.baidu.tieba.g.a aVar) {
         if (aVar != null) {
             UserData userData = null;
-            if (aVar.iRZ != null && (userData = (UserData) aVar.iRZ.getSerializable(UserData.TYPE_USER)) != null) {
-                this.mCe = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+            if (aVar.iTI != null && (userData = (UserData) aVar.iTI.getSerializable(UserData.TYPE_USER)) != null) {
+                this.mEk = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
                 this.userType = userData.isGod() ? 1 : 2;
-                this.isHost = this.mCe == 1;
+                this.isHost = this.mEk == 1;
             }
-            switch (aVar.iRY) {
+            switch (aVar.iTH) {
                 case 2:
                     if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-                        bf.bsV().b(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+                        bf.bsY().b(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                         return;
                     }
                     return;
@@ -58,30 +58,30 @@ public class a implements f {
                         if (aVar instanceof com.baidu.tieba.personCenter.d.a) {
                             TiebaStatic.log(new ar("c11586"));
                         } else {
-                            TiebaStatic.log(new ar("c11597").ap("obj_locate", 2).ap("obj_type", this.mCe).ap("obj_source", this.userType));
+                            TiebaStatic.log(new ar("c11597").aq("obj_locate", 2).aq("obj_type", this.mEk).aq("obj_source", this.userType));
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 5:
-                    com.baidu.tieba.p.a.dFe().h(2, false, this.isHost);
+                    com.baidu.tieba.p.a.dFm().h(2, false, this.isHost);
                     if (userData != null) {
-                        TiebaStatic.log(new ar("c11597").ap("obj_locate", 3).ap("obj_type", this.mCe).ap("obj_source", this.userType));
+                        TiebaStatic.log(new ar("c11597").aq("obj_locate", 3).aq("obj_type", this.mEk).aq("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 6:
                     if (userData != null) {
-                        TiebaStatic.log(new ar("c11597").ap("obj_locate", 1).ap("obj_type", this.mCe).ap("obj_source", this.userType));
+                        TiebaStatic.log(new ar("c11597").aq("obj_locate", 1).aq("obj_type", this.mEk).aq("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 7:
                     if (userData != null) {
-                        TiebaStatic.log(new ar("c11597").ap("obj_locate", 4).ap("obj_type", this.mCe).ap("obj_source", this.userType));
+                        TiebaStatic.log(new ar("c11597").aq("obj_locate", 4).aq("obj_type", this.mEk).aq("obj_source", this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonBarActivityConfig(this.mPageContext.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
                         return;
                     }

@@ -12,10 +12,8 @@ import java.util.List;
 public class b implements d.a<Object>, e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<com.kwad.sdk.glide.load.c> f10179a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final f<?> f10180b;
+    private final List<com.kwad.sdk.glide.load.c> f6734a;
+    private final f<?> b;
     private final e.a c;
     private int d;
     private com.kwad.sdk.glide.load.c e;
@@ -32,8 +30,8 @@ public class b implements d.a<Object>, e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(List<com.kwad.sdk.glide.load.c> list, f<?> fVar, e.a aVar) {
         this.d = -1;
-        this.f10179a = list;
-        this.f10180b = fVar;
+        this.f6734a = list;
+        this.b = fVar;
         this.c = aVar;
     }
 
@@ -58,14 +56,14 @@ public class b implements d.a<Object>, e {
         while (true) {
             if (this.f == null || !c()) {
                 this.d++;
-                if (this.d >= this.f10179a.size()) {
+                if (this.d >= this.f6734a.size()) {
                     break;
                 }
-                com.kwad.sdk.glide.load.c cVar = this.f10179a.get(this.d);
-                this.i = this.f10180b.b().a(new c(cVar, this.f10180b.f()));
+                com.kwad.sdk.glide.load.c cVar = this.f6734a.get(this.d);
+                this.i = this.b.b().a(new c(cVar, this.b.f()));
                 if (this.i != null) {
                     this.e = cVar;
-                    this.f = this.f10180b.a(this.i);
+                    this.f = this.b.a(this.i);
                     this.g = 0;
                 }
             } else {
@@ -74,12 +72,12 @@ public class b implements d.a<Object>, e {
                     List<com.kwad.sdk.glide.load.b.n<File, ?>> list = this.f;
                     int i = this.g;
                     this.g = i + 1;
-                    this.h = list.get(i).a(this.i, this.f10180b.g(), this.f10180b.h(), this.f10180b.e());
-                    if (this.h == null || !this.f10180b.a(this.h.c.a())) {
+                    this.h = list.get(i).a(this.i, this.b.g(), this.b.h(), this.b.e());
+                    if (this.h == null || !this.b.a(this.h.c.a())) {
                         z = z2;
                     } else {
                         z = true;
-                        this.h.c.a(this.f10180b.d(), this);
+                        this.h.c.a(this.b.d(), this);
                     }
                     z2 = z;
                 }

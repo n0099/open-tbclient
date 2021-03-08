@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<String, kotlin.h> {
     final /* synthetic */ ArrayList $result;
 
@@ -19,12 +19,12 @@ final class TextStreamsKt$readLines$1 extends Lambda implements kotlin.jvm.a.b<S
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ kotlin.h invoke(String str) {
         invoke2(str);
-        return kotlin.h.qto;
+        return kotlin.h.qtQ;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(String str) {
-        p.o(str, "it");
+        p.p(str, "it");
         this.$result.add(str);
     }
 }

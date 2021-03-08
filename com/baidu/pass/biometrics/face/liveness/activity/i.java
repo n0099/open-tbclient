@@ -10,23 +10,23 @@ import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class i extends HttpHandlerWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LivenessRecogActivity f4020a;
+    final /* synthetic */ LivenessRecogActivity f2789a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(LivenessRecogActivity livenessRecogActivity, Looper looper) {
         super(looper);
-        this.f4020a = livenessRecogActivity;
+        this.f2789a = livenessRecogActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
     public void onFailure(Throwable th, int i, String str) {
-        this.f4020a.a(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
+        this.f2789a.a(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,16 +39,16 @@ public class i extends HttpHandlerWrap {
             passFaceRecogResult.extraJson = new JSONObject(str).getJSONObject("result");
             passFaceRecogResult.callbackkey = passFaceRecogResult.extraJson.optString("faceid");
             if (!TextUtils.isEmpty(passFaceRecogResult.callbackkey)) {
-                passFaceRecogCallback = this.f4020a.t;
+                passFaceRecogCallback = this.f2789a.t;
                 if (passFaceRecogCallback != null) {
                     new h(this, passFaceRecogResult).execute(new Void[0]);
                     return;
                 }
                 return;
             }
-            this.f4020a.a(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
+            this.f2789a.a(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
         } catch (JSONException e) {
-            this.f4020a.a(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
+            this.f2789a.a(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
         }
     }
 }

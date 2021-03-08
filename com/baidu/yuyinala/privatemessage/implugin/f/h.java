@@ -3,27 +3,27 @@ package com.baidu.yuyinala.privatemessage.implugin.f;
 import com.baidu.android.util.io.BaseJsonData;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class h {
     private JSONObject mData;
     private long mPaId;
     private String mType;
-    private String paP;
-    private int paQ;
-    public int paR;
-    public int paS = -1;
+    private String pcV;
+    private int pcW;
+    public int pcX;
+    public int pcY = -1;
 
-    public void Yq(String str) {
+    public void Yx(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.paS = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
-            if (this.paS == 0) {
+            this.pcY = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
+            if (this.pcY == 0) {
                 this.mData = jSONObject.optJSONObject("data");
                 if (this.mData != null) {
                     this.mType = this.mData.optString("type");
-                    this.paP = this.mData.optString("third_id");
-                    this.paQ = this.mData.optInt("has_sub");
-                    this.paR = this.mData.optInt("notify");
+                    this.pcV = this.mData.optString("third_id");
+                    this.pcW = this.mData.optInt("has_sub");
+                    this.pcX = this.mData.optInt("notify");
                 }
             }
         } catch (JSONException e) {
@@ -40,30 +40,30 @@ public class h {
     }
 
     public String getThirdId() {
-        return this.paP;
+        return this.pcV;
     }
 
-    public int ejX() {
-        return this.paR;
+    public int ekh() {
+        return this.pcX;
     }
 
     public void setNotify(int i) {
-        this.paR = i;
+        this.pcX = i;
     }
 
     public String getType() {
-        return Yr("type") ? this.mType : "";
+        return Yy("type") ? this.mType : "";
     }
 
-    public String ejY() {
-        return Yr("third_id") ? this.paP : "";
+    public String eki() {
+        return Yy("third_id") ? this.pcV : "";
     }
 
     public boolean isDataValid() {
-        return this.paS == 0;
+        return this.pcY == 0;
     }
 
-    private boolean Yr(String str) {
+    private boolean Yy(String str) {
         return isDataValid() && this.mData != null && this.mData.has(str);
     }
 }

@@ -10,11 +10,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class TipView extends LinearLayout {
-    private ImageView coO;
-    private TextView coP;
-    private Animation coQ;
+    private ImageView cqq;
+    private TextView cqr;
+    private Animation cqs;
 
     public TipView(Context context) {
         this(context, null);
@@ -24,41 +24,41 @@ public class TipView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(context).inflate(b.f.view_tip, (ViewGroup) this, true);
-        this.coO = (ImageView) findViewById(b.e.tip_loading_view);
-        this.coP = (TextView) findViewById(b.e.tip_text_view);
+        this.cqq = (ImageView) findViewById(b.e.tip_loading_view);
+        this.cqr = (TextView) findViewById(b.e.tip_text_view);
     }
 
     public void a(String str) {
         setVisibility(0);
-        if (this.coQ == null) {
-            this.coQ = AnimationUtils.loadAnimation(getContext(), b.a.loading_rotate);
+        if (this.cqs == null) {
+            this.cqs = AnimationUtils.loadAnimation(getContext(), b.a.loading_rotate);
         }
-        this.coP.setText(str);
-        ViewGroup.LayoutParams layoutParams = this.coO.getLayoutParams();
+        this.cqr.setText(str);
+        ViewGroup.LayoutParams layoutParams = this.cqq.getLayoutParams();
         if (layoutParams != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(b.c.channel_loading_icon_size);
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
         }
-        this.coO.startAnimation(this.coQ);
+        this.cqq.startAnimation(this.cqs);
     }
 
     public void b(String str, String str2) {
         setVisibility(0);
-        this.coO.clearAnimation();
-        ViewGroup.LayoutParams layoutParams = this.coO.getLayoutParams();
+        this.cqq.clearAnimation();
+        ViewGroup.LayoutParams layoutParams = this.cqq.getLayoutParams();
         if (layoutParams != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(b.c.pay_loading_icon_size);
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
         }
-        com.baidu.poly.a.d.b.adp().b(this.coO, str);
-        this.coP.setText(str2);
+        com.baidu.poly.a.d.b.ads().b(this.cqq, str);
+        this.cqr.setText(str2);
     }
 
     public void j() {
         setVisibility(8);
-        this.coO.clearAnimation();
+        this.cqq.clearAnimation();
     }
 
     public TipView(Context context, AttributeSet attributeSet) {

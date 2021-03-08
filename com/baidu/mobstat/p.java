@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.android.imsdk.IMConstants;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class p extends j {
     public p() {
         super("app_change3", "Create table if not exists app_change3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");

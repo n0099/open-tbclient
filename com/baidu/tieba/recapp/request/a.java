@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.SM;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     private String url;
 
@@ -23,17 +23,17 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap dbG = a.this.dbG();
-                HashMap b2 = a.this.b(str, i, i2, i3, str2, str3);
+                HashMap dbP = a.this.dbP();
+                HashMap b = a.this.b(str, i, i2, i3, str2, str3);
                 e eVar = new e();
                 eVar.lU().setUrl(a.this.url);
                 eVar.lU().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                if (dbG != null && !dbG.isEmpty()) {
-                    eVar.lU().t(a.this.dbG());
+                if (dbP != null && !dbP.isEmpty()) {
+                    eVar.lU().t(a.this.dbP());
                 }
-                if (b2 != null && !b2.isEmpty()) {
+                if (b != null && !b.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
-                    for (Map.Entry<String, Object> entry : b2.entrySet()) {
+                    for (Map.Entry<String, Object> entry : b.entrySet()) {
                         arrayList.add(entry);
                     }
                     eVar.lU().n(arrayList);
@@ -46,7 +46,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> dbG() {
+    public HashMap<String, String> dbP() {
         String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(SM.COOKIE, cookie);

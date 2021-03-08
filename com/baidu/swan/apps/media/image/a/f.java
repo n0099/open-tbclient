@@ -13,7 +13,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class f implements d {
     private BitmapRegionDecoder decoder;
     private final Object decoderLock = new Object();

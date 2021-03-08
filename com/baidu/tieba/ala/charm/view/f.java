@@ -18,85 +18,85 @@ import com.baidu.live.tbadk.statics.AlaStaticItem;
 import com.baidu.live.tbadk.statics.AlaStaticsManager;
 import com.baidu.live.tbadk.statics.SdkStaticKeys;
 import com.baidu.live.utils.m;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f {
-    private boolean bnF;
+    private boolean bpf;
     private View contentView;
     private Context context;
-    private int gNF = -1;
-    private TextView gPA;
-    private TextView gPD;
-    private TextView gPV;
-    private View.OnClickListener gPl;
-    private TextView gPx;
-    private HeadImageView gPz;
+    private int gPo = -1;
+    private View.OnClickListener gQU;
+    private TextView gRE;
+    private TextView gRg;
+    private HeadImageView gRi;
+    private TextView gRj;
+    private TextView gRm;
     private TextView mName;
     private String mOtherParams;
     private View mRootView;
 
     public f(Context context, View.OnClickListener onClickListener) {
         this.context = context;
-        this.gPl = onClickListener;
+        this.gQU = onClickListener;
         this.mRootView = LayoutInflater.from(context).inflate(a.g.improve_charm_bottom_layout, (ViewGroup) null);
         this.contentView = this.mRootView.findViewById(a.f.content_view);
-        bTW();
-        this.gPx = (TextView) this.mRootView.findViewById(a.f.tvGradeNum);
-        this.gPz = (HeadImageView) this.mRootView.findViewById(a.f.photo);
-        this.gPz.setIsRound(true);
-        this.gPz.setAutoChangeStyle(false);
-        this.gPz.setClickable(false);
+        bUc();
+        this.gRg = (TextView) this.mRootView.findViewById(a.f.tvGradeNum);
+        this.gRi = (HeadImageView) this.mRootView.findViewById(a.f.photo);
+        this.gRi.setIsRound(true);
+        this.gRi.setAutoChangeStyle(false);
+        this.gRi.setClickable(false);
         this.mName = (TextView) this.mRootView.findViewById(a.f.ala_name);
-        this.gPA = (TextView) this.mRootView.findViewById(a.f.ala_intro);
-        this.gPV = (TextView) this.mRootView.findViewById(a.f.sub_charm_textView);
-        this.gPD = (TextView) this.mRootView.findViewById(a.f.improve_rink_btn);
+        this.gRj = (TextView) this.mRootView.findViewById(a.f.ala_intro);
+        this.gRE = (TextView) this.mRootView.findViewById(a.f.sub_charm_textView);
+        this.gRm = (TextView) this.mRootView.findViewById(a.f.improve_rink_btn);
         this.contentView.setClickable(true);
     }
 
     public void a(final com.baidu.tieba.ala.charm.data.a aVar) {
         if (aVar != null) {
-            this.gPD.setTag(new int[]{aVar.type, aVar.grade});
+            this.gRm.setTag(new int[]{aVar.type, aVar.grade});
             String str = "";
             if (aVar.type == 0) {
-                this.gPx.setText("未上榜");
-                this.gPV.setVisibility(8);
-                this.gPA.setText(a.h.become_vip_text);
-                this.gPD.setText(a.h.goto_list_text);
+                this.gRg.setText("未上榜");
+                this.gRE.setVisibility(8);
+                this.gRj.setText(a.h.become_vip_text);
+                this.gRm.setText(a.h.goto_list_text);
                 str = "no_list";
             } else if (aVar.type == 1) {
-                this.gPx.setText("未上榜");
-                this.gPV.setVisibility(8);
-                this.gPA.setText(Html.fromHtml("距离第100名还差<font color='#ff1e66'>" + aVar.gOz + "魅力</font>"));
-                this.gPD.setText(a.h.goto_list_text);
+                this.gRg.setText("未上榜");
+                this.gRE.setVisibility(8);
+                this.gRj.setText(Html.fromHtml("距离第100名还差<font color='#ff1e66'>" + aVar.gQi + "魅力</font>"));
+                this.gRm.setText(a.h.goto_list_text);
                 str = "no_list_hundred";
             } else if (aVar.type == 2) {
-                this.gPx.setText("01");
-                this.gPV.setVisibility(8);
-                this.gPA.setText(this.mRootView.getContext().getResources().getString(a.h.ala_pay_gift_name, aVar.totalPrice + ""));
-                this.gPD.setVisibility(8);
+                this.gRg.setText("01");
+                this.gRE.setVisibility(8);
+                this.gRj.setText(this.mRootView.getContext().getResources().getString(a.h.ala_pay_gift_name, aVar.totalPrice + ""));
+                this.gRm.setVisibility(8);
                 str = "my_ranking";
             } else if (aVar.type == 3) {
                 if (aVar.grade < 10) {
-                    this.gPx.setText("0" + aVar.grade);
+                    this.gRg.setText("0" + aVar.grade);
                 } else {
-                    this.gPx.setText(String.valueOf(aVar.grade));
+                    this.gRg.setText(String.valueOf(aVar.grade));
                 }
-                this.gPV.setText(String.format("还差%s魅力", Long.valueOf(aVar.gOz)));
-                this.gPV.setVisibility(0);
-                this.gPA.setText(a.h.transcend_text);
-                this.gPD.setText(a.h.improve_rink_text);
+                this.gRE.setText(String.format("还差%s魅力", Long.valueOf(aVar.gQi)));
+                this.gRE.setVisibility(0);
+                this.gRj.setText(a.h.transcend_text);
+                this.gRm.setText(a.h.improve_rink_text);
                 if (aVar.grade <= 100) {
                     str = "my_ranking";
                 } else {
                     str = "no_list_hundred";
                 }
             }
-            m.a(this.gPz, aVar.portrait, true, false);
+            m.a(this.gRi, aVar.portrait, true, false);
             this.mName.setText(aVar.userName);
-            this.gPD.setOnClickListener(this.gPl);
-            if (!this.bnF && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo())) {
-                String ui = com.baidu.tieba.ala.charm.g.ui(this.gNF);
+            this.gRm.setOnClickListener(this.gQU);
+            if (!this.bpf && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo())) {
+                String uk = com.baidu.tieba.ala.charm.g.uk(this.gPo);
                 AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.DISPLAY_CHARMLIST_BAR);
-                alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, ui);
+                alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, uk);
                 alaStaticItem.addParams(SdkStaticKeys.KEY_CHARMLIST_ACTION_TYPE, str);
                 alaStaticItem.addParams("other_params", this.mOtherParams);
                 AlaStaticsManager.getInst().onStatic(alaStaticItem);
@@ -110,7 +110,7 @@ public class f {
         }
     }
 
-    public void EK() {
+    public void EN() {
         if (this.contentView != null) {
             if (UtilHelper.getRealScreenOrientation(this.context) == 2) {
                 this.contentView.setBackgroundResource(a.e.improve_charm_bottom_layout_bg_land);
@@ -120,7 +120,7 @@ public class f {
         }
     }
 
-    private void bTW() {
+    private void bUc() {
         if (this.contentView != null) {
             if (UtilHelper.getRealScreenOrientation(this.context) == 2) {
                 this.contentView.setBackgroundResource(a.e.improve_charm_bottom_layout_bg_land);
@@ -135,11 +135,11 @@ public class f {
     }
 
     public void mV(boolean z) {
-        this.bnF = z;
+        this.bpf = z;
     }
 
-    public void ul(int i) {
-        this.gNF = i;
+    public void un(int i) {
+        this.gPo = i;
     }
 
     public void setOtherParams(String str) {

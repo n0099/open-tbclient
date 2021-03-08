@@ -10,10 +10,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.a.b;
 import com.baidu.tieba.ala.alasquare.widget.c;
 import com.baidu.tieba.ala.alasquare.widget.d;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
-    private int gyr;
-    d gys;
+    private int gAa;
+    d gAb;
     private TbPageContext<?> mPageContext;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     /* renamed from: M */
     public SquareActiveViewHolder e(ViewGroup viewGroup) {
         c cVar = new c(this.mPageContext);
-        cVar.a(this.gys);
+        cVar.a(this.gAb);
         return new SquareActiveViewHolder(cVar);
     }
 
@@ -31,24 +31,24 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, SquareActiveViewHolder squareActiveViewHolder) {
         c cVar;
-        if (squareActiveViewHolder == null || (cVar = squareActiveViewHolder.gyt) == null || cVar.getView() == null) {
+        if (squareActiveViewHolder == null || (cVar = squareActiveViewHolder.gAc) == null || cVar.getView() == null) {
             return null;
         }
         cVar.a(bVar);
-        com.baidu.tieba.ala.alasquare.b.a.bSe().e(bVar.az("c12249", false));
-        if (i == this.gyr) {
+        com.baidu.tieba.ala.alasquare.b.a.bSk().e(bVar.az("c12249", false));
+        if (i == this.gAa) {
             cVar.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
         }
         return squareActiveViewHolder.getView();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class SquareActiveViewHolder extends TypeAdapter.ViewHolder {
-        public c gyt;
+        public c gAc;
 
         public SquareActiveViewHolder(c cVar) {
             super(cVar.getView());
-            this.gyt = cVar;
+            this.gAc = cVar;
         }
     }
 }

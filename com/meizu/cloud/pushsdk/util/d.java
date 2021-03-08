@@ -99,7 +99,7 @@ public class d {
 
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         HashMap hashMap = new HashMap();
-        hashMap.put(h.f1945a, str5);
+        hashMap.put(h.f1535a, str5);
         hashMap.put(Config.FEED_LIST_PART, str3);
         hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, str2);
         if (TextUtils.isEmpty(str6)) {

@@ -27,10 +27,8 @@ import org.json.JSONObject;
 public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, MapRenderer.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3058a = j.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private Handler f3059b;
+    private static final String f2225a = j.class.getSimpleName();
+    private Handler b;
     private MapRenderer c;
     private int d;
     private int e;
@@ -42,10 +40,8 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        float f3060a;
-
-        /* renamed from: b  reason: collision with root package name */
-        float f3061b;
+        float f2226a;
+        float b;
         float c;
         float d;
         boolean e;
@@ -54,7 +50,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         double h;
 
         public String toString() {
-            return "MultiTouch{x1=" + this.f3060a + ", x2=" + this.f3061b + ", y1=" + this.c + ", y2=" + this.d + ", mTwoTouch=" + this.e + ", centerX=" + this.f + ", centerY=" + this.g + ", length=" + this.h + '}';
+            return "MultiTouch{x1=" + this.f2226a + ", x2=" + this.b + ", y1=" + this.c + ", y2=" + this.d + ", mTwoTouch=" + this.e + ", centerX=" + this.f + ", centerY=" + this.g + ", length=" + this.h + '}';
         }
     }
 
@@ -74,7 +70,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         this.g.a();
         this.g.a(zVar);
         h();
-        this.g.a(this.f3059b);
+        this.g.a(this.b);
         this.g.f();
         setBackgroundColor(0);
     }
@@ -106,7 +102,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
     }
 
     private void h() {
-        this.f3059b = new k(this);
+        this.b = new k(this);
     }
 
     public e a() {
@@ -133,7 +129,7 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         } else if (q) {
             message.arg1 = 1;
         }
-        this.f3059b.sendMessage(message);
+        this.b.sendMessage(message);
     }
 
     public void a(String str, Rect rect) {
@@ -197,12 +193,12 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
                     }
                 }
             }
-            this.g.b(this.f3059b);
+            this.g.b(this.b);
             this.g.b(i);
             this.g = null;
         }
-        if (this.f3059b != null) {
-            this.f3059b.removeCallbacksAndMessages(null);
+        if (this.b != null) {
+            this.b.removeCallbacksAndMessages(null);
         }
     }
 
@@ -253,21 +249,21 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         if (this.g == null || this.g.i == null || !this.g.k) {
             return true;
         }
-        GeoPoint b2 = this.g.b((int) motionEvent.getX(), (int) motionEvent.getY());
-        if (b2 != null) {
+        GeoPoint b = this.g.b((int) motionEvent.getX(), (int) motionEvent.getY());
+        if (b != null) {
             if (this.g.h != null) {
                 for (l lVar : this.g.h) {
                     if (lVar != null) {
-                        lVar.b(b2);
+                        lVar.b(b);
                     }
                 }
             }
             if (this.g.f) {
                 ab E = this.g.E();
-                E.f3038a += 1.0f;
+                E.f2214a += 1.0f;
                 if (!this.g.g) {
-                    E.d = b2.getLongitudeE6();
-                    E.e = b2.getLatitudeE6();
+                    E.d = b.getLongitudeE6();
+                    E.e = b.getLatitudeE6();
                 }
                 BaiduMap.mapStatusReason |= 1;
                 this.g.a(E, 300);
@@ -318,9 +314,9 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         if (a2 == null || a2.equals("")) {
             if (this.g.h != null) {
                 for (l lVar : this.g.h) {
-                    GeoPoint b2 = this.g.b((int) motionEvent.getX(), (int) motionEvent.getY());
+                    GeoPoint b = this.g.b((int) motionEvent.getX(), (int) motionEvent.getY());
                     if (lVar != null) {
-                        lVar.c(b2);
+                        lVar.c(b);
                     }
                 }
             }
@@ -451,8 +447,8 @@ public class j extends GLSurfaceView implements GestureDetector.OnDoubleTapListe
         if (this.g == null || this.g.i == null) {
             return;
         }
-        this.c.f3034a = i2;
-        this.c.f3035b = i3;
+        this.c.f2212a = i2;
+        this.c.b = i3;
         this.d = i2;
         this.e = i3;
         this.c.c = 0;

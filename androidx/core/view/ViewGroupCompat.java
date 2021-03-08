@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.NonNull;
 import androidx.core.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class ViewGroupCompat {
     public static final int LAYOUT_MODE_CLIP_BOUNDS = 0;
     public static final int LAYOUT_MODE_OPTICAL_BOUNDS = 1;

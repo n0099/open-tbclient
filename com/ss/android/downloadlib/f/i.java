@@ -26,13 +26,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Object[] f12991b = new Object[0];
+    private static Object[] b = new Object[0];
     private static Object[] c = new Object[73];
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f12990a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    static final char[] f7734a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     private static String d = null;
 
     public static boolean a(String str) {
@@ -104,7 +102,7 @@ public class i {
 
     public static PackageInfo h(com.ss.android.b.a.b.a aVar) {
         com.ss.android.socialbase.downloader.g.c h;
-        if (aVar == null || (h = com.ss.android.socialbase.downloader.downloader.f.iB(com.ss.android.downloadlib.a.j.a()).h(aVar.t())) == null) {
+        if (aVar == null || (h = com.ss.android.socialbase.downloader.downloader.f.iC(com.ss.android.downloadlib.a.j.a()).h(aVar.t())) == null) {
             return null;
         }
         try {
@@ -170,17 +168,17 @@ public class i {
         }
     }
 
-    public static com.ss.android.downloadlib.a.b.b A(String str, int i, String str2) {
+    public static com.ss.android.downloadlib.a.b.b B(String str, int i, String str2) {
         com.ss.android.downloadlib.a.b.b bVar = new com.ss.android.downloadlib.a.b.b();
         if (!TextUtils.isEmpty(str)) {
             try {
                 PackageInfo packageInfo = com.ss.android.downloadlib.a.j.a().getPackageManager().getPackageInfo(str, 0);
                 if (packageInfo != null) {
-                    bVar.QU(packageInfo.versionCode);
-                    bVar.QT(com.ss.android.downloadlib.a.b.b.f12934b);
-                    o eER = com.ss.android.downloadlib.a.j.eER();
-                    if (eER != null && eER.a() && !b(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
-                        bVar.QT(com.ss.android.downloadlib.a.b.b.c);
+                    bVar.QY(packageInfo.versionCode);
+                    bVar.QX(com.ss.android.downloadlib.a.b.b.b);
+                    o eEV = com.ss.android.downloadlib.a.j.eEV();
+                    if (eEV != null && eEV.a() && !b(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
+                        bVar.QX(com.ss.android.downloadlib.a.b.b.c);
                     }
                 }
             } catch (Exception e) {
@@ -200,14 +198,14 @@ public class i {
         if (aVar == null) {
             return false;
         }
-        return A(aVar.m(), aVar.r(), aVar.s()).a();
+        return B(aVar.m(), aVar.r(), aVar.s()).a();
     }
 
     public static boolean b(com.ss.android.a.a.b.c cVar) {
         if (cVar == null) {
             return false;
         }
-        return A(cVar.v(), cVar.r(), cVar.s()).a();
+        return B(cVar.v(), cVar.r(), cVar.s()).a();
     }
 
     public static boolean j(Context context, Intent intent) {
@@ -276,7 +274,7 @@ public class i {
         }
     }
 
-    public static Intent bB(Context context, String str) {
+    public static Intent bA(Context context, String str) {
         Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
         if (launchIntentForPackage == null) {
             return null;
@@ -299,7 +297,7 @@ public class i {
         }
     }
 
-    public static Signature[] bC(Context context, String str) {
+    public static Signature[] bB(Context context, String str) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
             if (packageInfo != null) {
@@ -311,7 +309,7 @@ public class i {
         return null;
     }
 
-    public static Signature[] bD(Context context, String str) {
+    public static Signature[] bC(Context context, String str) {
         try {
             PackageInfo packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(str, 64);
             if (packageArchiveInfo != null) {
@@ -431,7 +429,7 @@ public class i {
     }
 
     @NonNull
-    public static <T> T M(T... tArr) {
+    public static <T> T L(T... tArr) {
         if (tArr == null) {
             throw new IllegalArgumentException("args is null");
         }
@@ -481,7 +479,7 @@ public class i {
     }
 
     public static void a(@NonNull Throwable th) {
-        com.ss.android.downloadlib.a.j.eEQ().a(null, new com.ss.android.socialbase.downloader.e.a(1, b(th)), 1);
+        com.ss.android.downloadlib.a.j.eEU().a(null, new com.ss.android.socialbase.downloader.e.a(1, b(th)), 1);
     }
 
     public static String b(Throwable th) {

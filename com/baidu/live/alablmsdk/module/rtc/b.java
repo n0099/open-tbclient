@@ -1,8 +1,8 @@
 package com.baidu.live.alablmsdk.module.rtc;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public String axH;
-    public String ayE;
-    public String ayF;
-    public long ayG;
+    public String aAe;
+    public String aAf;
+    public long aAg;
+    public String azh;
 }

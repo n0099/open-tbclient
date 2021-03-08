@@ -6,7 +6,7 @@ import com.yy.mediaframework.YYVideoSDK;
 import com.yy.mediaframework.utils.YMFLog;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlTextureImageReader {
     public boolean mGlPboSupported;
     private byte[] mPixBytes = null;

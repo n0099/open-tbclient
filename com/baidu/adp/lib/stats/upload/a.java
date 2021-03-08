@@ -13,19 +13,19 @@ import java.util.Iterator;
 public class a {
     public static BdUploadingLogInfo a(com.baidu.adp.lib.stats.base.a aVar, boolean z) {
         ArrayList arrayList;
-        ArrayList<com.baidu.adp.lib.stats.base.d> b2 = b(aVar, z);
+        ArrayList<com.baidu.adp.lib.stats.base.d> b = b(aVar, z);
         BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getWriteDir(), aVar.nn(), aVar.np());
-        if (b2 != null && b2.size() > 0) {
-            if (b2.size() > 1) {
-                Collections.sort(b2, new e());
+        if (b != null && b.size() > 0) {
+            if (b.size() > 1) {
+                Collections.sort(b, new e());
             }
             ArrayList arrayList2 = new ArrayList();
-            int size = b2.size();
+            int size = b.size();
             int i = 0;
             long j = 0;
             while (i < size) {
-                com.baidu.adp.lib.stats.base.d dVar = b2.get(i);
-                j += dVar.Pr;
+                com.baidu.adp.lib.stats.base.d dVar = b.get(i);
+                j += dVar.QS;
                 arrayList2.add(dVar);
                 if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
                     bdUploadingLogInfo.add(arrayList2);
@@ -70,7 +70,7 @@ public class a {
             while (it.hasNext()) {
                 com.baidu.adp.lib.stats.base.d next = it.next();
                 if (next != null) {
-                    long j = next.Ps;
+                    long j = next.QT;
                     if (j != 0 && j + 604800000 < currentTimeMillis) {
                         arrayList4.add(next.mFileName);
                     } else {

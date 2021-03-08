@@ -48,12 +48,12 @@ public class e {
             }
             com.ksad.lottie.model.a aVar = hVar.c().get(i2);
             PointF a3 = aVar.a();
-            PointF b2 = aVar.b();
+            PointF b = aVar.b();
             PointF c = aVar.c();
-            if (a3.equals(pointF) && b2.equals(c)) {
+            if (a3.equals(pointF) && b.equals(c)) {
                 path.lineTo(c.x, c.y);
             } else {
-                path.cubicTo(a3.x, a3.y, b2.x, b2.y, c.x, c.y);
+                path.cubicTo(a3.x, a3.y, b.x, b.y, c.x, c.y);
             }
             pointF.set(c.x, c.y);
             i = i2 + 1;

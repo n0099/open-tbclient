@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    public void dx(JSONObject jSONObject) {
+    public void dz(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -56,11 +56,11 @@ public class c {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        Cf(str2);
+                        Cm(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        Cf(str2);
+                        Cm(str2);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byE() {
+    public void byH() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
@@ -79,7 +79,7 @@ public class c {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void Cf(String str) {
+    public void Cm(String str) {
         String localUrl = getLocalUrl();
         if (!TextUtils.equals(localUrl, str) || !isFileExist(localUrl)) {
             dU(str, localUrl);
@@ -100,7 +100,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private aa cml = null;
+        private aa cnM = null;
         private final String mFile;
         private final String mLocalUrl;
         private final String mRemoteUrl;
@@ -117,8 +117,8 @@ public class c {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.cml = new aa(this.mRemoteUrl);
-                bool = Boolean.valueOf(this.cml.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
+                this.cnM = new aa(this.mRemoteUrl);
+                bool = Boolean.valueOf(this.cnM.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), 900002));
                 if (bool != null && bool.booleanValue()) {
                     if (!StringUtils.isNull(o.renameTo(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.mRemoteUrl) && !this.mRemoteUrl.equals(this.mLocalUrl)) {
                         o.DelFile(aw.getNameMd5FromUrl(this.mLocalUrl));
@@ -137,7 +137,7 @@ public class c {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new c().byE();
+                new c().byH();
             }
         }
     }

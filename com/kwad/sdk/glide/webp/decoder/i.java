@@ -17,11 +17,9 @@ import java.nio.ByteBuffer;
 public class i implements com.kwad.sdk.glide.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ByteBuffer f10381a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private WebpImage f10382b;
-    private final a.InterfaceC1122a c;
+    private ByteBuffer f6848a;
+    private WebpImage b;
+    private final a.InterfaceC1139a c;
     private int d;
     private final int[] e;
     private final com.kwad.sdk.glide.webp.c[] f;
@@ -33,19 +31,19 @@ public class i implements com.kwad.sdk.glide.b.a {
     private Bitmap.Config l;
     private final LruCache<Integer, Bitmap> m;
 
-    public i(a.InterfaceC1122a interfaceC1122a, WebpImage webpImage, ByteBuffer byteBuffer, int i) {
-        this(interfaceC1122a, webpImage, byteBuffer, i, WebpFrameCacheStrategy.f10366a);
+    public i(a.InterfaceC1139a interfaceC1139a, WebpImage webpImage, ByteBuffer byteBuffer, int i) {
+        this(interfaceC1139a, webpImage, byteBuffer, i, WebpFrameCacheStrategy.f6839a);
     }
 
-    public i(a.InterfaceC1122a interfaceC1122a, WebpImage webpImage, ByteBuffer byteBuffer, int i, WebpFrameCacheStrategy webpFrameCacheStrategy) {
+    public i(a.InterfaceC1139a interfaceC1139a, WebpImage webpImage, ByteBuffer byteBuffer, int i, WebpFrameCacheStrategy webpFrameCacheStrategy) {
         this.d = -1;
         this.l = Bitmap.Config.ARGB_8888;
-        this.c = interfaceC1122a;
-        this.f10382b = webpImage;
+        this.c = interfaceC1139a;
+        this.b = webpImage;
         this.e = webpImage.getFrameDurations();
         this.f = new com.kwad.sdk.glide.webp.c[webpImage.getFrameCount()];
-        for (int i2 = 0; i2 < this.f10382b.getFrameCount(); i2++) {
-            this.f[i2] = this.f10382b.getFrameInfo(i2);
+        for (int i2 = 0; i2 < this.b.getFrameCount(); i2++) {
+            this.f[i2] = this.b.getFrameInfo(i2);
             if (Log.isLoggable("WebpDecoder", 3)) {
                 Log.d("WebpDecoder", "mFrameInfos: " + this.f[i2].toString());
             }
@@ -84,9 +82,9 @@ public class i implements com.kwad.sdk.glide.b.a {
         com.kwad.sdk.glide.webp.c cVar = this.f[i];
         int i2 = cVar.d / this.g;
         int i3 = cVar.e / this.g;
-        int i4 = cVar.f10365b / this.g;
+        int i4 = cVar.b / this.g;
         int i5 = cVar.c / this.g;
-        WebpFrame frame = this.f10382b.getFrame(i);
+        WebpFrame frame = this.b.getFrame(i);
         try {
             try {
                 Bitmap a2 = this.c.a(i2, i3, this.l);
@@ -107,11 +105,11 @@ public class i implements com.kwad.sdk.glide.b.a {
     }
 
     private void a(Canvas canvas, com.kwad.sdk.glide.webp.c cVar) {
-        canvas.drawRect(cVar.f10365b / this.g, cVar.c / this.g, (cVar.f10365b + cVar.d) / this.g, (cVar.c + cVar.e) / this.g, this.j);
+        canvas.drawRect(cVar.b / this.g, cVar.c / this.g, (cVar.b + cVar.d) / this.g, (cVar.c + cVar.e) / this.g, this.j);
     }
 
     private boolean a(com.kwad.sdk.glide.webp.c cVar) {
-        return cVar.f10365b == 0 && cVar.c == 0 && cVar.d == this.f10382b.getWidth() && cVar.e == this.f10382b.getHeight();
+        return cVar.b == 0 && cVar.c == 0 && cVar.d == this.b.getWidth() && cVar.e == this.b.getHeight();
     }
 
     private int b(int i, Canvas canvas) {
@@ -156,7 +154,7 @@ public class i implements com.kwad.sdk.glide.b.a {
 
     @Override // com.kwad.sdk.glide.b.a
     public ByteBuffer a() {
-        return this.f10381a;
+        return this.f6848a;
     }
 
     @Override // com.kwad.sdk.glide.b.a
@@ -172,16 +170,16 @@ public class i implements com.kwad.sdk.glide.b.a {
             throw new IllegalArgumentException("Sample size must be >=0, not: " + i);
         }
         int highestOneBit = Integer.highestOneBit(i);
-        this.f10381a = byteBuffer.asReadOnlyBuffer();
-        this.f10381a.position(0);
+        this.f6848a = byteBuffer.asReadOnlyBuffer();
+        this.f6848a.position(0);
         this.g = highestOneBit;
-        this.i = this.f10382b.getWidth() / highestOneBit;
-        this.h = this.f10382b.getHeight() / highestOneBit;
+        this.i = this.b.getWidth() / highestOneBit;
+        this.h = this.b.getHeight() / highestOneBit;
     }
 
     @Override // com.kwad.sdk.glide.b.a
     public void b() {
-        this.d = (this.d + 1) % this.f10382b.getFrameCount();
+        this.d = (this.d + 1) % this.b.getFrameCount();
     }
 
     @Override // com.kwad.sdk.glide.b.a
@@ -194,7 +192,7 @@ public class i implements com.kwad.sdk.glide.b.a {
 
     @Override // com.kwad.sdk.glide.b.a
     public int d() {
-        return this.f10382b.getFrameCount();
+        return this.b.getFrameCount();
     }
 
     @Override // com.kwad.sdk.glide.b.a
@@ -209,7 +207,7 @@ public class i implements com.kwad.sdk.glide.b.a {
 
     @Override // com.kwad.sdk.glide.b.a
     public int g() {
-        return this.f10382b.getSizeInBytes();
+        return this.b.getSizeInBytes();
     }
 
     @Override // com.kwad.sdk.glide.b.a
@@ -231,23 +229,23 @@ public class i implements com.kwad.sdk.glide.b.a {
             canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
             return a2;
         }
-        int b2 = !b(e) ? b(e - 1, canvas) : e;
+        int b = !b(e) ? b(e - 1, canvas) : e;
         if (Log.isLoggable("WebpDecoder", 3)) {
-            Log.d("WebpDecoder", "frameNumber=" + e + ", nextIndex=" + b2);
+            Log.d("WebpDecoder", "frameNumber=" + e + ", nextIndex=" + b);
         }
-        while (b2 < e) {
-            com.kwad.sdk.glide.webp.c cVar = this.f[b2];
+        while (b < e) {
+            com.kwad.sdk.glide.webp.c cVar = this.f[b];
             if (!cVar.g) {
                 a(canvas, cVar);
             }
-            a(b2, canvas);
+            a(b, canvas);
             if (Log.isLoggable("WebpDecoder", 3)) {
-                Log.d("WebpDecoder", "renderFrame, index=" + b2 + ", blend=" + cVar.g + ", dispose=" + cVar.h);
+                Log.d("WebpDecoder", "renderFrame, index=" + b + ", blend=" + cVar.g + ", dispose=" + cVar.h);
             }
             if (cVar.h) {
                 a(canvas, cVar);
             }
-            b2++;
+            b++;
         }
         com.kwad.sdk.glide.webp.c cVar2 = this.f[e];
         if (!cVar2.g) {
@@ -263,10 +261,10 @@ public class i implements com.kwad.sdk.glide.b.a {
 
     @Override // com.kwad.sdk.glide.b.a
     public void i() {
-        this.f10382b.dispose();
-        this.f10382b = null;
+        this.b.dispose();
+        this.b = null;
         this.m.evictAll();
-        this.f10381a = null;
+        this.f6848a = null;
     }
 
     public WebpFrameCacheStrategy j() {

@@ -2,7 +2,7 @@ package com.baidu.live.adp.lib.safe;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class ThreadService {
     private static ThreadService _service = new ThreadService();
     private final ThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);

@@ -7,27 +7,25 @@ import com.baidu.platform.comapi.pano.a;
 public class b extends HttpClient.ProtoResultCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a.InterfaceC0281a f4184a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ a f4185b;
+    final /* synthetic */ a.InterfaceC0287a f2899a;
+    final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar, a.InterfaceC0281a interfaceC0281a) {
-        this.f4185b = aVar;
-        this.f4184a = interfaceC0281a;
+    public b(a aVar, a.InterfaceC0287a interfaceC0287a) {
+        this.b = aVar;
+        this.f2899a = interfaceC0287a;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
-        this.f4184a.a(httpStateError);
+        this.f2899a.a(httpStateError);
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onSuccess(String str) {
         c a2;
-        a.InterfaceC0281a interfaceC0281a = this.f4184a;
-        a2 = this.f4185b.a(str);
-        interfaceC0281a.a((a.InterfaceC0281a) a2);
+        a.InterfaceC0287a interfaceC0287a = this.f2899a;
+        a2 = this.b.a(str);
+        interfaceC0287a.a((a.InterfaceC0287a) a2);
     }
 }

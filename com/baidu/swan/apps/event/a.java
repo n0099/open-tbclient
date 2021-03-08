@@ -12,7 +12,7 @@ import com.baidu.swan.apps.performance.b.c;
 import com.baidu.swan.apps.performance.h;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
@@ -24,24 +24,24 @@ public final class a {
         String O2;
         if (aVar != null && aVar2 != null) {
             h.B("postMessage", "dispatchJSEvent start.");
-            if (c.aEy()) {
+            if (c.aEB()) {
                 if (aVar.isWebView()) {
-                    str = "var event = new Event('" + aVar2.cIt + "');";
+                    str = "var event = new Event('" + aVar2.cJT + "');";
                     O2 = "";
                 } else {
                     str = "var event = new Object();";
-                    O2 = O("event", "type", aVar2.cIt);
+                    O2 = O("event", "type", aVar2.cJT);
                 }
-                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(O2).append(aVar2.nK("event")).append(" ").append(d(aVar)).append(".dispatchEvent(").append("event").append(");").append("})();").toString();
+                format2 = new StringBuffer().append("javascript:(function(){").append(str).append(" ").append(O2).append(aVar2.nR("event")).append(" ").append(d(aVar)).append(".dispatchEvent(").append("event").append(");").append("})();").toString();
             } else {
                 if (aVar.isWebView()) {
-                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", "event", aVar2.cIt);
+                    format = String.format(Locale.getDefault(), "var %s = new Event('%s');", "event", aVar2.cJT);
                     O = "";
                 } else {
                     format = String.format(Locale.getDefault(), "var %s = new Object();", "event");
-                    O = O("event", "type", aVar2.cIt);
+                    O = O("event", "type", aVar2.cJT);
                 }
-                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, O + aVar2.nK("event"), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), "event"));
+                format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, O + aVar2.nR("event"), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", d(aVar), "event"));
             }
             h.B("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
@@ -85,7 +85,7 @@ public final class a {
             return "";
         }
         String quote = JSONObject.quote(str3);
-        return c.aEy() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
+        return c.aEB() ? str + "." + str2 + " = " + quote + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, quote);
     }
 
     public static String c(String str, String str2, JSONObject jSONObject) {
@@ -98,7 +98,7 @@ public final class a {
             return "";
         }
         if ((obj instanceof Integer) || (obj instanceof Float) || (obj instanceof Double) || (obj instanceof Long) || (obj instanceof Boolean)) {
-            return c.aEy() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
+            return c.aEB() ? str + "." + str2 + " = " + obj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, obj);
         }
         return O(str, str2, String.valueOf(obj));
     }

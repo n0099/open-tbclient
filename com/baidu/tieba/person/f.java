@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.adp.base.d {
-    TextView erH;
-    TextView ick;
+    TextView etj;
+    TextView idX;
     TbPageContext mPageContext;
-    RoundLinearLayout msn;
-    TextView mso;
-    TextView msp;
-    TextView msq;
-    TextView msr;
-    TextView mss;
+    RoundLinearLayout mup;
+    TextView muq;
+    TextView mur;
+    TextView mus;
+    TextView mut;
+    TextView muu;
 
     public f(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext);
@@ -29,91 +29,91 @@ public class f extends com.baidu.adp.base.d {
     }
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        this.msn = (RoundLinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.person_info_more_view, (ViewGroup) null);
-        this.msn.setRadius(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds31));
-        this.mso = (TextView) this.msn.findViewById(R.id.person_info_more_view_item_friend);
-        this.mso.setOnClickListener(onClickListener);
-        this.msp = (TextView) this.msn.findViewById(R.id.person_info_more_view_item_report);
-        this.msp.setOnClickListener(onClickListener);
-        this.msq = (TextView) this.msn.findViewById(R.id.person_info_more_view_item_black);
-        this.msq.setOnClickListener(onClickListener);
-        this.msr = (TextView) this.msn.findViewById(R.id.person_info_more_view_item_mute);
-        this.msr.setOnClickListener(onClickListener);
-        this.erH = (TextView) this.msn.findViewById(R.id.person_info_more_view_item_cancel);
-        this.erH.setOnClickListener(onClickListener);
-        this.ick = (TextView) this.msn.findViewById(R.id.person_info_more_view_item_username);
-        this.mss = (TextView) this.msn.findViewById(R.id.person_info_item_remove_fans_view);
-        this.mss.setOnClickListener(onClickListener);
+        this.mup = (RoundLinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.person_info_more_view, (ViewGroup) null);
+        this.mup.setRadius(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds31));
+        this.muq = (TextView) this.mup.findViewById(R.id.person_info_more_view_item_friend);
+        this.muq.setOnClickListener(onClickListener);
+        this.mur = (TextView) this.mup.findViewById(R.id.person_info_more_view_item_report);
+        this.mur.setOnClickListener(onClickListener);
+        this.mus = (TextView) this.mup.findViewById(R.id.person_info_more_view_item_black);
+        this.mus.setOnClickListener(onClickListener);
+        this.mut = (TextView) this.mup.findViewById(R.id.person_info_more_view_item_mute);
+        this.mut.setOnClickListener(onClickListener);
+        this.etj = (TextView) this.mup.findViewById(R.id.person_info_more_view_item_cancel);
+        this.etj.setOnClickListener(onClickListener);
+        this.idX = (TextView) this.mup.findViewById(R.id.person_info_more_view_item_username);
+        this.muu = (TextView) this.mup.findViewById(R.id.person_info_item_remove_fans_view);
+        this.muu.setOnClickListener(onClickListener);
     }
 
     public void m(boolean z, boolean z2, boolean z3) {
         if (z) {
-            this.mso.setText(R.string.remove_friend);
+            this.muq.setText(R.string.remove_friend);
         } else {
-            this.mso.setText(R.string.frs_recommend_friend_item_add);
+            this.muq.setText(R.string.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.msq.setText(R.string.remove_block_chat);
+            this.mus.setText(R.string.remove_block_chat);
         } else {
-            this.msq.setText(R.string.block_chat_message);
+            this.mus.setText(R.string.block_chat_message);
         }
         if (z3) {
-            this.mss.setVisibility(0);
+            this.muu.setVisibility(0);
         } else {
-            this.mss.setVisibility(8);
+            this.muu.setVisibility(8);
         }
     }
 
     public View getView() {
-        return this.msn;
+        return this.mup;
     }
 
-    public View dwr() {
-        return this.mso;
+    public View dwA() {
+        return this.muq;
     }
 
-    public View dws() {
-        return this.msq;
+    public View dwB() {
+        return this.mus;
     }
 
-    public View dwt() {
-        return this.msr;
+    public View dwC() {
+        return this.mut;
     }
 
-    public View dwu() {
-        return this.msp;
+    public View dwD() {
+        return this.mur;
     }
 
-    public View dwv() {
-        return this.mss;
+    public View dwE() {
+        return this.muu;
     }
 
-    public void GL(int i) {
-        this.msr.setVisibility(0);
+    public void GO(int i) {
+        this.mut.setVisibility(0);
         if (i == 0) {
-            this.msr.setText(this.mPageContext.getResources().getString(R.string.mute));
+            this.mut.setText(this.mPageContext.getResources().getString(R.string.mute));
         } else if (i == 1) {
-            this.msr.setText(this.mPageContext.getResources().getString(R.string.un_mute));
+            this.mut.setText(this.mPageContext.getResources().getString(R.string.un_mute));
         }
     }
 
     public void setUserName(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.ick.setVisibility(8);
+            this.idX.setVisibility(8);
             return;
         }
-        this.ick.setVisibility(0);
-        this.ick.setText(String.format(this.mPageContext.getResources().getString(R.string.more_info_username), str));
+        this.idX.setVisibility(0);
+        this.idX.setText(String.format(this.mPageContext.getResources().getString(R.string.more_info_username), str));
     }
 
     public void onChangeSkinType() {
-        ap.setBackgroundResource(this.msn, R.color.CAM_X0211);
-        ap.n(this.msq, R.color.CAM_X0105);
-        ap.n(this.mso, R.color.CAM_X0105);
-        ap.n(this.msp, R.color.CAM_X0105);
-        ap.n(this.msr, R.color.CAM_X0105);
-        ap.setViewTextColor(this.ick, R.color.CAM_X0109, 1);
-        ap.n(this.mss, R.color.CAM_X0105);
-        ap.n(this.erH, R.color.CAM_X0107);
+        ap.setBackgroundResource(this.mup, R.color.CAM_X0211);
+        ap.n(this.mus, R.color.CAM_X0105);
+        ap.n(this.muq, R.color.CAM_X0105);
+        ap.n(this.mur, R.color.CAM_X0105);
+        ap.n(this.mut, R.color.CAM_X0105);
+        ap.setViewTextColor(this.idX, R.color.CAM_X0109, 1);
+        ap.n(this.muu, R.color.CAM_X0105);
+        ap.n(this.etj, R.color.CAM_X0107);
     }
 }

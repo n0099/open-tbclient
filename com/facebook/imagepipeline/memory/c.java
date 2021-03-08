@@ -15,8 +15,8 @@ public class c extends BasePool<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: PZ */
-    public Bitmap PQ(int i) {
+    /* renamed from: Qd */
+    public Bitmap PU(int i) {
         return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
     }
 
@@ -24,13 +24,13 @@ public class c extends BasePool<Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: ad */
-    public void bw(Bitmap bitmap) {
+    public void by(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         bitmap.recycle();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int PR(int i) {
+    protected int PV(int i) {
         return i;
     }
 
@@ -38,13 +38,13 @@ public class c extends BasePool<Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: ae */
-    public int bx(Bitmap bitmap) {
+    public int bz(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         return bitmap.getAllocationByteCount();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int PS(int i) {
+    protected int PW(int i) {
         return i;
     }
 
@@ -52,7 +52,7 @@ public class c extends BasePool<Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: af */
-    public boolean by(Bitmap bitmap) {
+    public boolean bA(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         return !bitmap.isRecycled() && bitmap.isMutable();
     }

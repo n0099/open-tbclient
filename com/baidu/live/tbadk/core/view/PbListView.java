@@ -14,7 +14,7 @@ import com.baidu.live.adp.widget.listview.BdIListPage;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.SkinManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PbListView extends BdIListPage {
     private String endText;
     private int lineColor;
@@ -35,7 +35,7 @@ public class PbListView extends BdIListPage {
     private TextView mTextView;
     private LinearLayout mTopExtraView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum IconType {
         ICON_DOWN_WARD,
         ICON_UP_WARD

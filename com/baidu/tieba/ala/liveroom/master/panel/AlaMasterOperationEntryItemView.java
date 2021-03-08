@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.liveroom.master.panel;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaMasterOperationEntryItemView extends AlaMasterOperationBaseItemView {
     public AlaMasterOperationEntryItemView(Context context, int i) {
         super(context, i);

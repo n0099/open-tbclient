@@ -1,5 +1,5 @@
 package com.facebook.fresco.animation.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class c implements b {
     @Override // com.facebook.fresco.animation.c.b
     public void d(a aVar) {

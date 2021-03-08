@@ -9,10 +9,10 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LoadingView extends FrameLayout implements b<LoadingView> {
-    private SmoothProgressBar dCK;
-    private TextView dCL;
+    private SmoothProgressBar dEl;
+    private TextView dEm;
     private View mRootView;
 
     public LoadingView(Context context) {
@@ -33,17 +33,17 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
     protected void init() {
         LayoutInflater.from(getContext()).inflate(a.g.aiapps_loading_layout, (ViewGroup) this, true);
         this.mRootView = findViewById(a.f.root_container);
-        this.dCK = (SmoothProgressBar) findViewById(a.f.loading_bar);
-        this.dCL = (TextView) findViewById(a.f.message);
+        this.dEl = (SmoothProgressBar) findViewById(a.f.loading_bar);
+        this.dEm = (TextView) findViewById(a.f.message);
         setPageResources();
     }
 
     public void setMsg(int i) {
-        this.dCL.setText(i);
+        this.dEm.setText(i);
     }
 
     public void setMsg(String str) {
-        this.dCL.setText(str);
+        this.dEm.setText(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,24 +56,24 @@ public class LoadingView extends FrameLayout implements b<LoadingView> {
         if (this.mRootView != null) {
             this.mRootView.setBackground(this.mRootView.getResources().getDrawable(a.e.aiapps_loading_bg));
         }
-        if (this.dCK != null) {
-            this.dCK.setIndeterminateDrawable(this.dCK.getResources().getDrawable(a.e.aiapps_loading_progress_animation));
+        if (this.dEl != null) {
+            this.dEl.setIndeterminateDrawable(this.dEl.getResources().getDrawable(a.e.aiapps_loading_progress_animation));
         }
-        if (this.dCL != null) {
-            this.dCL.setTextColor(this.dCL.getResources().getColor(a.c.aiapps_loading_text_color));
+        if (this.dEm != null) {
+            this.dEm.setTextColor(this.dEm.getResources().getColor(a.c.aiapps_loading_text_color));
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.t.a.axs().a(this, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.widget.loadingview.LoadingView.1
+        com.baidu.swan.apps.t.a.axv().a(this, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.widget.loadingview.LoadingView.1
         });
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.t.a.axs().O(this);
+        com.baidu.swan.apps.t.a.axv().Q(this);
     }
 }

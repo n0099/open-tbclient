@@ -7,13 +7,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f10974a = new b();
+    private final b f7232a = new b();
 
     /* loaded from: classes3.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final p f10975a = new p();
+        private static final p f7233a = new p();
 
         static {
             com.kwai.filedownloader.message.e.a().a(new z());
@@ -24,26 +24,24 @@ class p {
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private ThreadPoolExecutor f10976a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private LinkedBlockingQueue<Runnable> f10977b;
+        private ThreadPoolExecutor f7234a;
+        private LinkedBlockingQueue<Runnable> b;
 
         b() {
             a();
         }
 
         private void a() {
-            this.f10977b = new LinkedBlockingQueue<>();
-            this.f10976a = com.kwai.filedownloader.f.b.a(3, this.f10977b, "LauncherTask");
+            this.b = new LinkedBlockingQueue<>();
+            this.f7234a = com.kwai.filedownloader.f.b.a(3, this.b, "LauncherTask");
         }
 
         public void a(w.b bVar) {
-            this.f10976a.execute(new c(bVar));
+            this.f7234a.execute(new c(bVar));
         }
 
         public void b(w.b bVar) {
-            this.f10977b.remove(bVar);
+            this.b.remove(bVar);
         }
     }
 
@@ -52,25 +50,23 @@ class p {
     public static class c implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final w.b f10978a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private boolean f10979b = false;
+        private final w.b f7235a;
+        private boolean b = false;
 
         c(w.b bVar) {
-            this.f10978a = bVar;
+            this.f7235a = bVar;
         }
 
         public boolean equals(Object obj) {
-            return super.equals(obj) || obj == this.f10978a;
+            return super.equals(obj) || obj == this.f7235a;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f10979b) {
+            if (this.b) {
                 return;
             }
-            this.f10978a.p();
+            this.f7235a.p();
         }
     }
 
@@ -78,16 +74,16 @@ class p {
     }
 
     public static p a() {
-        return a.f10975a;
+        return a.f7233a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(w.b bVar) {
-        this.f10974a.a(bVar);
+        this.f7232a.a(bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void b(w.b bVar) {
-        this.f10974a.b(bVar);
+        this.f7232a.b(bVar);
     }
 }

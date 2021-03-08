@@ -5,28 +5,28 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SelectorTextView extends TextView {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private boolean dww;
+    private boolean dxX;
 
     public SelectorTextView(Context context) {
         super(context);
-        this.dww = false;
+        this.dxX = false;
     }
 
     public SelectorTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dww = false;
+        this.dxX = false;
     }
 
     public SelectorTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dww = false;
+        this.dxX = false;
     }
 
     public void setMode(boolean z) {
-        this.dww = z;
+        this.dxX = z;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -37,7 +37,7 @@ public class SelectorTextView extends TextView {
                     if (DEBUG) {
                         Log.d("ACTION_DOWN", "ACTION_DOWN");
                     }
-                    if (this.dww) {
+                    if (this.dxX) {
                         setAlpha(0.5f);
                         break;
                     } else {

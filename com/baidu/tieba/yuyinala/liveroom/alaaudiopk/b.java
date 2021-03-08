@@ -1,9 +1,9 @@
 package com.baidu.tieba.yuyinala.liveroom.alaaudiopk;
 
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
-    public static String LS(int i) {
+    public static String LW(int i) {
         if (i == 0) {
             return "00:00";
         }

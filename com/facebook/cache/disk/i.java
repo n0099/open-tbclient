@@ -5,26 +5,26 @@ import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class i implements com.facebook.cache.common.a {
-    private static final Object pyS = new Object();
-    private static i pyT;
-    private static int pyU;
-    private String mIE;
-    private IOException oSy;
-    private com.facebook.cache.common.b pyV;
-    private long pyW;
-    private long pyX;
-    private long pyY;
-    private CacheEventListener.EvictionReason pyZ;
-    private i pza;
+    private static final Object pAX = new Object();
+    private static i pAY;
+    private static int pAZ;
+    private String mKH;
+    private IOException oUD;
+    private com.facebook.cache.common.b pBa;
+    private long pBb;
+    private long pBc;
+    private long pBd;
+    private CacheEventListener.EvictionReason pBe;
+    private i pBf;
 
     @ReturnsOwnership
-    public static i esx() {
-        synchronized (pyS) {
-            if (pyT != null) {
-                i iVar = pyT;
-                pyT = iVar.pza;
-                iVar.pza = null;
-                pyU--;
+    public static i esG() {
+        synchronized (pAX) {
+            if (pAY != null) {
+                i iVar = pAY;
+                pAY = iVar.pBf;
+                iVar.pBf = null;
+                pAZ--;
                 return iVar;
             }
             return new i();
@@ -35,60 +35,60 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i h(com.facebook.cache.common.b bVar) {
-        this.pyV = bVar;
+        this.pBa = bVar;
         return this;
     }
 
-    public i Zt(String str) {
-        this.mIE = str;
+    public i Zz(String str) {
+        this.mKH = str;
         return this;
     }
 
     public i iA(long j) {
-        this.pyW = j;
+        this.pBb = j;
         return this;
     }
 
     public i iB(long j) {
-        this.pyY = j;
+        this.pBd = j;
         return this;
     }
 
     public i iC(long j) {
-        this.pyX = j;
+        this.pBc = j;
         return this;
     }
 
     public i h(IOException iOException) {
-        this.oSy = iOException;
+        this.oUD = iOException;
         return this;
     }
 
     public i a(CacheEventListener.EvictionReason evictionReason) {
-        this.pyZ = evictionReason;
+        this.pBe = evictionReason;
         return this;
     }
 
     public void recycle() {
-        synchronized (pyS) {
-            if (pyU < 5) {
+        synchronized (pAX) {
+            if (pAZ < 5) {
                 reset();
-                pyU++;
-                if (pyT != null) {
-                    this.pza = pyT;
+                pAZ++;
+                if (pAY != null) {
+                    this.pBf = pAY;
                 }
-                pyT = this;
+                pAY = this;
             }
         }
     }
 
     private void reset() {
-        this.pyV = null;
-        this.mIE = null;
-        this.pyW = 0L;
-        this.pyX = 0L;
-        this.pyY = 0L;
-        this.oSy = null;
-        this.pyZ = null;
+        this.pBa = null;
+        this.mKH = null;
+        this.pBb = 0L;
+        this.pBc = 0L;
+        this.pBd = 0L;
+        this.oUD = null;
+        this.pBe = null;
     }
 }

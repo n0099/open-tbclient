@@ -4,52 +4,52 @@ import android.net.Uri;
 import javax.annotation.Nullable;
 /* loaded from: classes5.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.f.e> pMm;
-    private final ak pMt;
-    private long pMu = 0;
-    private int pMv;
+    private int pOA;
     @Nullable
-    private com.facebook.imagepipeline.common.a pMw;
+    private com.facebook.imagepipeline.common.a pOB;
+    private final k<com.facebook.imagepipeline.f.e> pOr;
+    private final ak pOy;
+    private long pOz = 0;
 
     public t(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
-        this.pMm = kVar;
-        this.pMt = akVar;
+        this.pOr = kVar;
+        this.pOy = akVar;
     }
 
-    public k<com.facebook.imagepipeline.f.e> ezC() {
-        return this.pMm;
+    public k<com.facebook.imagepipeline.f.e> ezL() {
+        return this.pOr;
     }
 
-    public ak ezD() {
-        return this.pMt;
+    public ak ezM() {
+        return this.pOy;
     }
 
     public String getId() {
-        return this.pMt.getId();
+        return this.pOy.getId();
     }
 
-    public am ezq() {
-        return this.pMt.ezq();
+    public am ezz() {
+        return this.pOy.ezz();
     }
 
     public Uri getUri() {
-        return this.pMt.ezp().eAf();
+        return this.pOy.ezy().eAo();
     }
 
-    public long ezE() {
-        return this.pMu;
+    public long ezN() {
+        return this.pOz;
     }
 
     public void iO(long j) {
-        this.pMu = j;
+        this.pOz = j;
     }
 
-    public int ezF() {
-        return this.pMv;
+    public int ezO() {
+        return this.pOA;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a ezG() {
-        return this.pMw;
+    public com.facebook.imagepipeline.common.a ezP() {
+        return this.pOB;
     }
 }

@@ -28,20 +28,20 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
-public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements BdListView.e, a.InterfaceC0802a {
-    private long eCy;
+/* loaded from: classes7.dex */
+public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements BdListView.e, a.InterfaceC0808a {
+    private long eDZ;
     private long fid;
     private String firstDir;
-    private com.baidu.tieba.hottopic.controller.b ktw;
-    private HotTopicDetailModel lxX;
-    private a.b lxY;
+    private com.baidu.tieba.hottopic.controller.b kvy;
+    private HotTopicDetailModel lAa;
+    private a.b lAb;
     private String secondDir;
     private boolean mIsFromSchema = false;
-    private long lxZ = -1;
-    private boolean lya = false;
-    private String fey = null;
-    private String ePt = null;
+    private long lAc = -1;
+    private boolean lAd = false;
+    private String ffX = null;
+    private String eQU = null;
     private String mFrom = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,8 +49,8 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public void onCreate(Bundle bundle) {
         boolean z = true;
         if (ab(getIntent())) {
-            this.fey = "" + this.lxZ;
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.b.kB().bo("MainTabActivity")) {
+            this.ffX = "" + this.lAc;
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !com.baidu.adp.base.b.kB().bs("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
         } else {
@@ -60,43 +60,43 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             setIsAddSwipeBackLayout(false);
         }
         super.onCreate(bundle);
-        if ((TextUtils.isEmpty(this.fey) || com.baidu.adp.lib.f.b.toLong(this.fey, 0L) <= 0) && TextUtils.isEmpty(this.ePt)) {
+        if ((TextUtils.isEmpty(this.ffX) || com.baidu.adp.lib.f.b.toLong(this.ffX, 0L) <= 0) && TextUtils.isEmpty(this.eQU)) {
             finish();
             return;
         }
-        this.lxX = new HotTopicDetailModel(getPageContext(), this);
-        this.lxY = new HotTopicDetailView(getPageContext(), this, bundle);
-        this.lxX.setFrom(this.mFrom);
-        fP(this.fey, this.ePt);
-        this.ktw = new com.baidu.tieba.hottopic.controller.b(this);
-        setContentView(this.lxY.getRootView());
+        this.lAa = new HotTopicDetailModel(getPageContext(), this);
+        this.lAb = new HotTopicDetailView(getPageContext(), this, bundle);
+        this.lAa.setFrom(this.mFrom);
+        fP(this.ffX, this.eQU);
+        this.kvy = new com.baidu.tieba.hottopic.controller.b(this);
+        setContentView(this.lAb.getRootView());
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        ER(1);
+        EU(1);
         if (getIntent() == null || !getIntent().getBooleanExtra(TopicDetailActivityConfig.KEY_IS_FROM_YUN_PUSH, false)) {
             z = false;
         }
-        this.lya = z;
+        this.lAd = z;
     }
 
     private void aA(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.fey = intent.getStringExtra("topic_id");
-            this.ePt = intent.getStringExtra("topic_name");
+            this.ffX = intent.getStringExtra("topic_id");
+            this.eQU = intent.getStringExtra("topic_name");
             this.fid = intent.getLongExtra("topic_fid", 0L);
             this.firstDir = intent.getStringExtra("topic_first_dir");
             this.secondDir = intent.getStringExtra("topic_second_dir");
             this.mFrom = intent.getStringExtra("from");
-            this.eCy = intent.getLongExtra(IntentConfig.TOPIC_TID, 0L);
+            this.eDZ = intent.getLongExtra(IntentConfig.TOPIC_TID, 0L);
         } else if (bundle != null) {
-            this.fey = bundle.getString("topic_id");
-            this.ePt = bundle.getString("topic_name");
+            this.ffX = bundle.getString("topic_id");
+            this.eQU = bundle.getString("topic_name");
             this.fid = bundle.getLong("topic_fid", 0L);
             this.firstDir = bundle.getString("topic_first_dir");
             this.secondDir = bundle.getString("topic_second_dir");
             this.mFrom = bundle.getString("from");
-            this.eCy = bundle.getLong(IntentConfig.TOPIC_TID, 0L);
+            this.eDZ = bundle.getLong(IntentConfig.TOPIC_TID, 0L);
         }
     }
 
@@ -107,13 +107,13 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
             String uri2 = uri.toString();
             if (f.r(uri)) {
-                f.bhH().e(uri, new f.a() { // from class: com.baidu.tieba.newdetail.HotTopicDetailActivity.1
+                f.bhJ().e(uri, new f.a() { // from class: com.baidu.tieba.newdetail.HotTopicDetailActivity.1
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap) {
-                        if (hashMap != null && (hashMap.get(f.eDS) instanceof String)) {
-                            String str = (String) hashMap.get(f.eDS);
+                        if (hashMap != null && (hashMap.get(f.eFt) instanceof String)) {
+                            String str = (String) hashMap.get(f.eFt);
                             if (!StringUtils.isNull(str)) {
-                                HotTopicDetailActivity.this.lxZ = com.baidu.adp.lib.f.b.toLong(str, -1L);
+                                HotTopicDetailActivity.this.lAc = com.baidu.adp.lib.f.b.toLong(str, -1L);
                             }
                         }
                     }
@@ -134,130 +134,130 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                     substring = decode.substring(length);
                 }
                 if (!StringUtils.isNull(substring)) {
-                    this.lxZ = com.baidu.adp.lib.f.b.toLong(substring, -1L);
+                    this.lAc = com.baidu.adp.lib.f.b.toLong(substring, -1L);
                 }
             }
         } else {
-            this.lxZ = intent.getLongExtra("topic_id", -1L);
+            this.lAc = intent.getLongExtra("topic_id", -1L);
         }
-        return this.lxZ > 0;
+        return this.lAc > 0;
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0802a
-    public void ER(int i) {
-        boolean EY = this.lxX.EY(i);
-        if (this.lxY.did() == null) {
-            if (EY) {
-                this.lxY.dia();
-                this.lxY.dic();
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0808a
+    public void EU(int i) {
+        boolean Fb = this.lAa.Fb(i);
+        if (this.lAb.dim() == null) {
+            if (Fb) {
+                this.lAb.dij();
+                this.lAb.dil();
                 return;
             }
-            this.lxY.uo(true);
-            this.lxY.dib();
-        } else if (!EY) {
-            this.lxY.bRI();
+            this.lAb.uo(true);
+            this.lAb.dik();
+        } else if (!Fb) {
+            this.lAb.bRO();
         }
     }
 
-    public void ES(int i) {
-        boolean EZ = this.lxX.EZ(i);
-        if (this.lxY.EX(i).pageData == null) {
-            if (EZ) {
-                this.lxY.EU(i);
-                this.lxY.EW(i);
+    public void EV(int i) {
+        boolean Fc = this.lAa.Fc(i);
+        if (this.lAb.Fa(i).pageData == null) {
+            if (Fc) {
+                this.lAb.EX(i);
+                this.lAb.EZ(i);
                 return;
             }
-            this.lxY.E(true, i);
-            this.lxY.EV(i);
+            this.lAb.E(true, i);
+            this.lAb.EY(i);
         }
     }
 
-    public void ET(int i) {
-        d EX = this.lxY.EX(i);
-        if (EX.pageData == null) {
-            ES(i);
-        } else if (EX.pageData.bmF() != 0) {
-            this.lxX.a(i, EX.pageData, EX.lastId);
+    public void EW(int i) {
+        d Fa = this.lAb.Fa(i);
+        if (Fa.pageData == null) {
+            EV(i);
+        } else if (Fa.pageData.bmH() != 0) {
+            this.lAa.a(i, Fa.pageData, Fa.lastId);
         }
     }
 
     public boolean a(i iVar, int i) {
-        return this.lxX.a(iVar, i);
+        return this.lAa.a(iVar, i);
     }
 
     public boolean a(com.baidu.tieba.hottopic.data.a aVar) {
-        return this.lxX.a(aVar);
+        return this.lAa.a(aVar);
     }
 
     public String getTopicId() {
-        return this.fey;
+        return this.ffX;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        ET(this.lxY.die());
+        EW(this.lAb.din());
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0802a
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0808a
     public void a(int i, e eVar) {
         if (eVar != null && eVar.sortType == -1) {
-            this.lxY.f(eVar);
+            this.lAb.f(eVar);
             return;
         }
-        this.lxY.dib();
-        this.lxY.bRI();
+        this.lAb.dik();
+        this.lAb.bRO();
         if (i != 0 || eVar == null) {
-            if (this.lxY.did() == null) {
-                this.lxY.uo(false);
+            if (this.lAb.dim() == null) {
+                this.lAb.uo(false);
                 return;
             }
             return;
         }
-        if (eVar.cTo() != null) {
-            fP(eVar.cTo().fey, eVar.cTo().ePt);
+        if (eVar.cTv() != null) {
+            fP(eVar.cTv().ffX, eVar.cTv().eQU);
         }
-        this.lxY.e(eVar);
-        this.lxY.dif();
-        a(i, eVar.kuE, true);
+        this.lAb.e(eVar);
+        this.lAb.dio();
+        a(i, eVar.kwG, true);
     }
 
     private void fP(String str, String str2) {
         if ((!TextUtils.isEmpty(str) && com.baidu.adp.lib.f.b.toLong(str, 0L) > 0) || !TextUtils.isEmpty(str2)) {
-            this.fey = str;
-            this.ePt = str2;
-            this.lxX.x(com.baidu.adp.lib.f.b.toLong(str, 0L), str2);
+            this.ffX = str;
+            this.eQU = str2;
+            this.lAa.x(com.baidu.adp.lib.f.b.toLong(str, 0L), str2);
         }
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0802a
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0808a
     public void a(int i, d dVar) {
         a(i, dVar, false);
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0802a
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0808a
     public void a(int i, long j, long j2, int i2) {
         if (i == 0 && j > 0 && i2 >= 0) {
             if (i2 == 1 || i2 == 2) {
-                this.lxY.e(j, j2, i2);
+                this.lAb.d(j, j2, i2);
             } else {
-                this.lxY.K(j, j2);
+                this.lAb.K(j, j2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0802a
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0808a
     public void d(e eVar) {
-        com.baidu.tieba.hottopic.data.f cTo;
-        if (eVar != null && (cTo = eVar.cTo()) != null) {
-            String str = "http://tieba.baidu.com/mo/q/newtopic/detail?topic_id=" + this.fey;
-            if (!TextUtils.isEmpty(this.ePt)) {
-                str = str + "&topic_name=" + URLEncoder.encode(this.ePt);
+        com.baidu.tieba.hottopic.data.f cTv;
+        if (eVar != null && (cTv = eVar.cTv()) != null) {
+            String str = "http://tieba.baidu.com/mo/q/newtopic/detail?topic_id=" + this.ffX;
+            if (!TextUtils.isEmpty(this.eQU)) {
+                str = str + "&topic_name=" + URLEncoder.encode(this.eQU);
             }
-            this.ktw.a(cTo.fey, cTo.ePt, str, cTo.koH, cTo.shareTitle, true);
+            this.kvy.a(cTv.ffX, cTv.eQU, str, cTv.kqJ, cTv.shareTitle, true);
         }
     }
 
-    public void dhY() {
+    public void dih() {
         if ("5".equals(this.mFrom)) {
             finish();
         } else {
@@ -267,30 +267,30 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
 
     private void a(int i, d dVar, boolean z) {
         boolean z2 = false;
-        int die = this.lxY.die();
+        int din = this.lAb.din();
         if (dVar != null) {
-            die = dVar.sortType;
+            din = dVar.sortType;
         }
-        this.lxY.EV(die);
+        this.lAb.EY(din);
         if (i != 0 || dVar == null || y.isEmpty(dVar.list)) {
-            if (this.lxY.EX(die).pageData == null) {
-                this.lxY.E(i != 0, die);
+            if (this.lAb.Fa(din).pageData == null) {
+                this.lAb.E(i != 0, din);
                 return;
             }
             return;
         }
-        a.b bVar = this.lxY;
-        if (z || this.lxY.EX(die).pageData == null) {
+        a.b bVar = this.lAb;
+        if (z || this.lAb.Fa(din).pageData == null) {
             z2 = true;
         }
-        bVar.a(dVar, z2, die);
+        bVar.a(dVar, z2, din);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.lxY.onChangeSkinType();
+        this.lAb.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
@@ -302,23 +302,23 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.lxY.resume();
-        TiebaStatic.log(new ar("c13817").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("topic_id", this.fey));
+        this.lAb.resume();
+        TiebaStatic.log(new ar("c13817").dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("topic_id", this.ffX));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.lxY.pause();
+        this.lAb.pause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.lxY.destroy();
-        dhZ();
+        this.lAb.destroy();
+        dii();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -345,7 +345,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (i2 == -1) {
             switch (i) {
                 case 110435:
-                    this.lxX.dig();
+                    this.lAa.dip();
                     return;
                 default:
                     return;
@@ -353,8 +353,8 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    private void dhZ() {
-        if (this.lya) {
+    private void dii() {
+        if (this.lAd) {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this).createNormalCfg(2);
             createNormalCfg.setSubTabName(getString(R.string.tab_name_topic_rank));
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, createNormalCfg));

@@ -15,10 +15,10 @@ import java.util.Set;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f7411a;
+    private static Context f4925a;
 
     public static boolean a() {
-        if (f7411a == null || p.a() == null) {
+        if (f4925a == null || p.a() == null) {
             u.b("The context of SPHelper is null, please initialize sdk in main process");
             return false;
         }
@@ -36,31 +36,37 @@ public class a {
     }
 
     public static void a(Context context) {
-        f7411a = context == null ? p.a() : context.getApplicationContext();
+        f4925a = context == null ? p.a() : context.getApplicationContext();
     }
 
     private static Context c() {
-        return f7411a == null ? p.a() : f7411a;
+        return f4925a == null ? p.a() : f4925a;
     }
 
     private static String d() {
-        return e.f7415b + "/t_sp/";
+        return e.b + "/t_sp/";
     }
 
     private static String b(String str) {
         return TextUtils.isEmpty(str) ? "" : "?sp_file_name=" + str;
     }
 
+    public static synchronized void a(String str, Boolean bool) {
+        synchronized (a.class) {
+            a((String) null, str, bool);
+        }
+    }
+
     public static synchronized void a(String str, String str2, Boolean bool) {
         synchronized (a.class) {
             if (a()) {
                 try {
-                    ContentResolver b2 = b();
-                    if (b2 != null) {
+                    ContentResolver b = b();
+                    if (b != null) {
                         Uri parse = Uri.parse(d() + "boolean/" + str2 + b(str));
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("value", bool);
-                        b2.update(parse, contentValues, null, null);
+                        b.update(parse, contentValues, null, null);
                     }
                 } catch (Throwable th) {
                 }
@@ -78,12 +84,12 @@ public class a {
         synchronized (a.class) {
             if (a()) {
                 try {
-                    ContentResolver b2 = b();
-                    if (b2 != null) {
+                    ContentResolver b = b();
+                    if (b != null) {
                         Uri parse = Uri.parse(d() + "string/" + str2 + b(str));
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("value", str3);
-                        b2.update(parse, contentValues, null, null);
+                        b.update(parse, contentValues, null, null);
                     }
                 } catch (Throwable th) {
                 }
@@ -101,12 +107,12 @@ public class a {
         synchronized (a.class) {
             if (a()) {
                 try {
-                    ContentResolver b2 = b();
-                    if (b2 != null) {
+                    ContentResolver b = b();
+                    if (b != null) {
                         Uri parse = Uri.parse(d() + "int/" + str2 + b(str));
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("value", num);
-                        b2.update(parse, contentValues, null, null);
+                        b.update(parse, contentValues, null, null);
                     }
                 } catch (Throwable th) {
                 }
@@ -124,12 +130,12 @@ public class a {
         synchronized (a.class) {
             if (a()) {
                 try {
-                    ContentResolver b2 = b();
-                    if (b2 != null) {
+                    ContentResolver b = b();
+                    if (b != null) {
                         Uri parse = Uri.parse(d() + "long/" + str2 + b(str));
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("value", l);
-                        b2.update(parse, contentValues, null, null);
+                        b.update(parse, contentValues, null, null);
                     }
                 } catch (Throwable th) {
                 }
@@ -141,12 +147,12 @@ public class a {
         synchronized (a.class) {
             if (a()) {
                 try {
-                    ContentResolver b2 = b();
-                    if (b2 != null) {
+                    ContentResolver b = b();
+                    if (b != null) {
                         Uri parse = Uri.parse(d() + "float/" + str2 + b(str));
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("value", f);
-                        b2.update(parse, contentValues, null, null);
+                        b.update(parse, contentValues, null, null);
                     }
                 } catch (Throwable th) {
                 }
@@ -158,8 +164,8 @@ public class a {
         synchronized (a.class) {
             if (a()) {
                 try {
-                    ContentResolver b2 = b();
-                    if (b2 != null) {
+                    ContentResolver b = b();
+                    if (b != null) {
                         Uri parse = Uri.parse(d() + "string_set/" + str2 + b(str));
                         ContentValues contentValues = new ContentValues();
                         HashSet hashSet = new HashSet();
@@ -167,7 +173,7 @@ public class a {
                             hashSet.add(str3.replace(",", "__COMMA__"));
                         }
                         contentValues.put("value", hashSet.toString());
-                        b2.update(parse, contentValues, null, null);
+                        b.update(parse, contentValues, null, null);
                     }
                 } catch (Throwable th) {
                 }
@@ -183,8 +189,8 @@ public class a {
         String type;
         if (a()) {
             try {
-                ContentResolver b2 = b();
-                if (b2 == null || (type = b2.getType(Uri.parse(d() + "string/" + str2 + b(str)))) == null) {
+                ContentResolver b = b();
+                if (b == null || (type = b.getType(Uri.parse(d() + "string/" + str2 + b(str)))) == null) {
                     return str3;
                 }
                 return !type.equals("null") ? type : str3;
@@ -199,8 +205,8 @@ public class a {
         String type;
         if (a()) {
             try {
-                ContentResolver b2 = b();
-                if (b2 != null && (type = b2.getType(Uri.parse(d() + "int/" + str2 + b(str)))) != null && !type.equals("null")) {
+                ContentResolver b = b();
+                if (b != null && (type = b.getType(Uri.parse(d() + "int/" + str2 + b(str)))) != null && !type.equals("null")) {
                     return Integer.parseInt(type);
                 }
                 return i;
@@ -215,8 +221,8 @@ public class a {
         String type;
         if (a()) {
             try {
-                ContentResolver b2 = b();
-                if (b2 != null && (type = b2.getType(Uri.parse(d() + "float/" + str2 + b(str)))) != null && !type.equals("null")) {
+                ContentResolver b = b();
+                if (b != null && (type = b.getType(Uri.parse(d() + "float/" + str2 + b(str)))) != null && !type.equals("null")) {
                     return Float.parseFloat(type);
                 }
                 return f;
@@ -227,12 +233,16 @@ public class a {
         return f;
     }
 
+    public static boolean a(String str, boolean z) {
+        return a((String) null, str, z);
+    }
+
     public static boolean a(String str, String str2, boolean z) {
         String type;
         if (a()) {
             try {
-                ContentResolver b2 = b();
-                if (b2 != null && (type = b2.getType(Uri.parse(d() + "boolean/" + str2 + b(str)))) != null && !type.equals("null")) {
+                ContentResolver b = b();
+                if (b != null && (type = b.getType(Uri.parse(d() + "boolean/" + str2 + b(str)))) != null && !type.equals("null")) {
                     return Boolean.parseBoolean(type);
                 }
                 return z;
@@ -251,8 +261,8 @@ public class a {
         String type;
         if (a()) {
             try {
-                ContentResolver b2 = b();
-                if (b2 != null && (type = b2.getType(Uri.parse(d() + "long/" + str2 + b(str)))) != null && !type.equals("null")) {
+                ContentResolver b = b();
+                if (b != null && (type = b.getType(Uri.parse(d() + "long/" + str2 + b(str)))) != null && !type.equals("null")) {
                     return Long.parseLong(type);
                 }
                 return j;
@@ -268,8 +278,8 @@ public class a {
         String type;
         if (a()) {
             try {
-                ContentResolver b2 = b();
-                if (b2 != null && (type = b2.getType(Uri.parse(d() + "string_set/" + str2 + b(str)))) != null && !type.equals("null") && type.matches("\\[.*\\]")) {
+                ContentResolver b = b();
+                if (b != null && (type = b.getType(Uri.parse(d() + "string_set/" + str2 + b(str)))) != null && !type.equals("null") && type.matches("\\[.*\\]")) {
                     String[] split = type.substring(1, type.length() - 1).split(", ");
                     HashSet hashSet = new HashSet();
                     for (String str3 : split) {
@@ -288,9 +298,9 @@ public class a {
     public static void c(String str, String str2) {
         if (a()) {
             try {
-                ContentResolver b2 = b();
-                if (b2 != null) {
-                    b2.delete(Uri.parse(d() + "long/" + str2 + b(str)), null, null);
+                ContentResolver b = b();
+                if (b != null) {
+                    b.delete(Uri.parse(d() + "long/" + str2 + b(str)), null, null);
                 }
             } catch (Throwable th) {
             }
@@ -300,9 +310,9 @@ public class a {
     public static void a(String str) {
         if (a()) {
             try {
-                ContentResolver b2 = b();
-                if (b2 != null) {
-                    b2.delete(Uri.parse(d() + "clean" + b(str)), null, null);
+                ContentResolver b = b();
+                if (b != null) {
+                    b.delete(Uri.parse(d() + "clean" + b(str)), null, null);
                 }
             } catch (Throwable th) {
             }

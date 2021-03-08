@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.model.OfficialBarFeedMsglistModel;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
-    private OfficialBarFeedMsglistView kCH;
-    private OfficialBarFeedMsglistModel kCI;
-    private boolean kCJ = false;
-    private int kCK = 3;
+    private OfficialBarFeedMsglistView kEJ;
+    private OfficialBarFeedMsglistModel kEK;
+    private boolean kEL = false;
+    private int kEM = 3;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -27,11 +27,11 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.kCK != i) {
-            this.kCK = i;
+        if (this.kEM != i) {
+            this.kEM = i;
             super.onChangeSkinType(i);
-            if (this.kCH != null) {
-                this.kCH.onChangeSkinType(i);
+            if (this.kEJ != null) {
+                this.kEJ.onChangeSkinType(i);
             }
         }
     }
@@ -40,8 +40,8 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.kCI != null && this.kCJ) {
-            this.kCI.LoadData(false);
+        if (this.kEK != null && this.kEL) {
+            this.kEK.LoadData(false);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8)));
         ar arVar = new ar("c13861");
@@ -53,9 +53,9 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.kCJ = true;
-        if (this.kCI != null) {
-            this.kCI.cancelLoadData();
+        this.kEL = true;
+        if (this.kEK != null) {
+            this.kEK.cancelLoadData();
         }
     }
 
@@ -63,32 +63,32 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.kCI != null) {
-            this.kCI.onDestroy();
+        if (this.kEK != null) {
+            this.kEK.onDestroy();
         }
     }
 
     private void initData() {
         try {
-            this.kCI = new OfficialBarFeedMsglistModel(getPageContext());
-            this.kCI.setHeadLoadCallback(this);
-            this.kCI.LoadData(true);
+            this.kEK = new OfficialBarFeedMsglistModel(getPageContext());
+            this.kEK.setHeadLoadCallback(this);
+            this.kEK.LoadData(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     private void initView() {
-        this.kCH = new OfficialBarFeedMsglistView(this);
+        this.kEJ = new OfficialBarFeedMsglistView(this);
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
     public void onListDataLoad(List<com.baidu.tieba.im.message.chat.b> list, List<com.baidu.tieba.im.db.pojo.a> list2) {
-        this.kCH.A(list, list2);
+        this.kEJ.z(list, list2);
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
     public void onReadCountLoad(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-        this.kCH.a(longSparseArray);
+        this.kEJ.a(longSparseArray);
     }
 }

@@ -9,9 +9,9 @@ import java.util.Iterator;
 import kotlin.e;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    private final ArrayList<Integer> eiQ = new ArrayList<>();
+    private final ArrayList<Integer> ekr = new ArrayList<>();
 
     public final void i(c cVar) {
         if (cVar != null) {
@@ -24,15 +24,15 @@ public final class a {
             switch (str.hashCode()) {
                 case 3202370:
                     if (str.equals("hide")) {
-                        f aAl = f.aAl();
-                        p.n(aAl, "SwanAppController.getInstance()");
-                        com.baidu.swan.apps.core.d.f afX = aAl.afX();
-                        j jVar = afX != null ? (j) afX.j(j.class) : null;
-                        g apY = jVar != null ? jVar.apY() : null;
-                        if (apY != null && jVar != null) {
+                        f aAo = f.aAo();
+                        p.o(aAo, "SwanAppController.getInstance()");
+                        com.baidu.swan.apps.core.d.f aga = aAo.aga();
+                        j jVar = aga != null ? (j) aga.j(j.class) : null;
+                        g aqb = jVar != null ? jVar.aqb() : null;
+                        if (aqb != null && jVar != null) {
                             jVar.fr(true);
                         }
-                        return a(apY, str2);
+                        return a(aqb, str2);
                     }
                     break;
             }
@@ -41,13 +41,13 @@ public final class a {
     }
 
     private final boolean a(g gVar, String str) {
-        Integer wY = b.wY(str);
-        if (wY != null) {
-            if (!this.eiQ.contains(wY)) {
-                this.eiQ.add(wY);
+        Integer xf = b.xf(str);
+        if (xf != null) {
+            if (!this.ekr.contains(xf)) {
+                this.ekr.add(xf);
             }
             if (gVar != null) {
-                gVar.lD(wY.intValue());
+                gVar.lE(xf.intValue());
             }
             return true;
         }
@@ -55,13 +55,13 @@ public final class a {
     }
 
     public final void a(g gVar) {
-        if (!this.eiQ.isEmpty()) {
-            Iterator<Integer> it = this.eiQ.iterator();
+        if (!this.ekr.isEmpty()) {
+            Iterator<Integer> it = this.ekr.iterator();
             while (it.hasNext()) {
                 Integer next = it.next();
                 if (gVar != null) {
-                    p.n(next, "id");
-                    gVar.lD(next.intValue());
+                    p.o(next, "id");
+                    gVar.lE(next.intValue());
                 }
             }
         }

@@ -11,7 +11,7 @@ import com.baidu.ar.bus.CallBack;
 import com.baidu.ar.c.c;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ObjDetectDetector extends com.baidu.ar.b.a.a {
     private static final String TAG = ObjDetectDetector.class.getSimpleName();
     private int oU = 6;
@@ -46,7 +46,7 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
                 if (strArr == null || strArr.length == 0) {
                     return -1;
                 }
-                return aVar.f1491tv ? ARMdlInterfaceJNI.initObjDetectFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initObjDetect(strArr[0], strArr[1]);
+                return aVar.f1261tv ? ARMdlInterfaceJNI.initObjDetectFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initObjDetect(strArr[0], strArr[1]);
             }
 
             @Override // com.baidu.ar.c.a

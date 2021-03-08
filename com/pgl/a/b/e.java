@@ -8,7 +8,7 @@ import java.util.List;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static List<String> f11390a = new ArrayList();
+    private static List<String> f7474a = new ArrayList();
 
     private static File a(Context context) {
         if (context == null || context.getFilesDir() == null) {
@@ -25,24 +25,24 @@ public class e {
     public static synchronized boolean a(Context context, String str) {
         boolean z = true;
         synchronized (e.class) {
-            if (!f11390a.contains(str)) {
+            if (!f7474a.contains(str)) {
                 try {
                     System.loadLibrary(str);
-                    f11390a.add(str);
+                    f7474a.add(str);
                 } catch (UnsatisfiedLinkError e) {
-                    File bx = bx(context, str);
-                    if (bx == null) {
+                    File b = b(context, str);
+                    if (b == null) {
                         z = false;
                     } else {
-                        if (bx.exists()) {
-                            bx.delete();
+                        if (b.exists()) {
+                            b.delete();
                         }
-                        if (f(context, str, bx) != null) {
+                        if (f(context, str, b) != null) {
                             z = false;
                         } else {
                             try {
-                                System.load(bx.getAbsolutePath());
-                                f11390a.add(str);
+                                System.load(b.getAbsolutePath());
+                                f7474a.add(str);
                             } catch (Throwable th) {
                                 z = false;
                             }
@@ -56,7 +56,7 @@ public class e {
         return z;
     }
 
-    private static File bx(Context context, String str) {
+    private static File b(Context context, String str) {
         String mapLibraryName = System.mapLibraryName(str);
         File a2 = a(context);
         if (a2 != null) {

@@ -1,10 +1,10 @@
 package com.yy.audioengine;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SpeechMsgPlayer {
     private ISpeechMsgPlayerNotify mNotify = null;
     private long mPlayerCtx;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum PLAYER_INIT_STATUS {
         ERROR_NONE,
         ERROR_FILE_OPEN,

@@ -15,45 +15,43 @@ import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class CtrlPoint extends CtrlPointProvider {
     String c;
-    CtrlPointProvider.CtrlPointListener cih;
+    CtrlPointProvider.CtrlPointListener cjH;
     private long d;
-
-    /* renamed from: b  reason: collision with root package name */
-    String f3186b = null;
+    String b = null;
     private Handler e = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.CtrlPoint.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    if (CtrlPoint.this.cih != null) {
-                        CtrlPoint.this.cih.onPrepared();
+                    if (CtrlPoint.this.cjH != null) {
+                        CtrlPoint.this.cjH.onPrepared();
                         break;
                     }
                     break;
                 case 2:
-                    if (CtrlPoint.this.cih != null) {
-                        CtrlPoint.this.cih.onComplete();
+                    if (CtrlPoint.this.cjH != null) {
+                        CtrlPoint.this.cjH.onComplete();
                         break;
                     }
                     break;
                 case 3:
-                    if (CtrlPoint.this.cih != null) {
-                        CtrlPoint.this.cih.onError(message.arg1, message.arg2);
+                    if (CtrlPoint.this.cjH != null) {
+                        CtrlPoint.this.cjH.onError(message.arg1, message.arg2);
                         break;
                     }
                     break;
                 case 4:
-                    if (CtrlPoint.this.cih != null) {
+                    if (CtrlPoint.this.cjH != null) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("url", CtrlPoint.this.f3186b);
+                        hashMap.put("url", CtrlPoint.this.b);
                         hashMap.put("uuid", CtrlPoint.this.c);
-                        CtrlPoint.this.cih.onInfo(message.arg1, message.arg2, hashMap);
+                        CtrlPoint.this.cjH.onInfo(message.arg1, message.arg2, hashMap);
                         break;
                     }
                     break;
                 case 5:
-                    if (CtrlPoint.this.cih != null) {
-                        CtrlPoint.this.cih.onSeekCompleted(message.arg1, message.arg2);
+                    if (CtrlPoint.this.cjH != null) {
+                        CtrlPoint.this.cjH.onSeekCompleted(message.arg1, message.arg2);
                         break;
                     }
                     break;
@@ -221,13 +219,13 @@ public class CtrlPoint extends CtrlPointProvider {
             return;
         }
         nativeCtrlPointSetAVTransportURI(this.d, str);
-        this.f3186b = str;
+        this.b = str;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider
     public void setListener(CtrlPointProvider.CtrlPointListener ctrlPointListener) {
         if (this.d != 0) {
-            this.cih = ctrlPointListener;
+            this.cjH = ctrlPointListener;
             nativeCtrlPointSetListener(this.d, new WeakReference(this));
         }
     }

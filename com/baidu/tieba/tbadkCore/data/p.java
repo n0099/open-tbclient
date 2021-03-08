@@ -9,23 +9,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    public List<AbstractData> eOu = new ArrayList();
+    public List<AbstractData> ePV = new ArrayList();
     public String id;
-    public MetaData nyh;
+    public MetaData nAm;
 
     public void parseJson(JSONObject jSONObject) {
         try {
             this.id = jSONObject.optString("id");
-            this.nyh = new MetaData();
-            this.nyh.parserJson(jSONObject.optJSONObject("author"));
+            this.nAm = new MetaData();
+            this.nAm.parserJson(jSONObject.optJSONObject("author"));
             JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
-            this.eOu = new ArrayList();
+            this.ePV = new ArrayList();
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     AbstractData abstractData = new AbstractData();
                     abstractData.parserJson(optJSONArray.getJSONObject(i));
-                    this.eOu.add(abstractData);
+                    this.ePV.add(abstractData);
                 }
             }
         } catch (JSONException e) {

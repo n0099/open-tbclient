@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f1132a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+    private static final byte[] f1053a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
     public static String a(byte[] bArr, String str) throws UnsupportedEncodingException {
         int i;
@@ -17,13 +17,13 @@ public final class b {
         int i3 = 0;
         for (int i4 = 0; i4 < length2; i4 += 3) {
             int i5 = i3 + 1;
-            bArr2[i3] = f1132a[(bArr[i4] & 255) >> 2];
+            bArr2[i3] = f1053a[(bArr[i4] & 255) >> 2];
             int i6 = i5 + 1;
-            bArr2[i5] = f1132a[((bArr[i4] & 3) << 4) | ((bArr[i4 + 1] & 255) >> 4)];
+            bArr2[i5] = f1053a[((bArr[i4] & 3) << 4) | ((bArr[i4 + 1] & 255) >> 4)];
             int i7 = i6 + 1;
-            bArr2[i6] = f1132a[((bArr[i4 + 1] & 15) << 2) | ((bArr[i4 + 2] & 255) >> 6)];
+            bArr2[i6] = f1053a[((bArr[i4 + 1] & 15) << 2) | ((bArr[i4 + 2] & 255) >> 6)];
             int i8 = i7 + 1;
-            bArr2[i7] = f1132a[bArr[i4 + 2] & 63];
+            bArr2[i7] = f1053a[bArr[i4 + 2] & 63];
             if ((i8 - i2) % 76 != 0 || i8 == 0) {
                 i3 = i8;
             } else {
@@ -35,9 +35,9 @@ public final class b {
         switch (bArr.length % 3) {
             case 1:
                 int i9 = i3 + 1;
-                bArr2[i3] = f1132a[(bArr[length2] & 255) >> 2];
+                bArr2[i3] = f1053a[(bArr[length2] & 255) >> 2];
                 int i10 = i9 + 1;
-                bArr2[i9] = f1132a[(bArr[length2] & 3) << 4];
+                bArr2[i9] = f1053a[(bArr[length2] & 3) << 4];
                 int i11 = i10 + 1;
                 bArr2[i10] = 61;
                 i = i11 + 1;
@@ -45,11 +45,11 @@ public final class b {
                 break;
             case 2:
                 int i12 = i3 + 1;
-                bArr2[i3] = f1132a[(bArr[length2] & 255) >> 2];
+                bArr2[i3] = f1053a[(bArr[length2] & 255) >> 2];
                 int i13 = i12 + 1;
-                bArr2[i12] = f1132a[((bArr[length2] & 3) << 4) | ((bArr[length2 + 1] & 255) >> 4)];
+                bArr2[i12] = f1053a[((bArr[length2] & 3) << 4) | ((bArr[length2 + 1] & 255) >> 4)];
                 int i14 = i13 + 1;
-                bArr2[i13] = f1132a[(bArr[length2 + 1] & 15) << 2];
+                bArr2[i13] = f1053a[(bArr[length2 + 1] & 15) << 2];
                 i = i14 + 1;
                 bArr2[i14] = 61;
                 break;
@@ -74,9 +74,9 @@ public final class b {
         byte[] bArr2 = new byte[i4];
         int i5 = 0;
         while (true) {
-            byte b2 = bArr[i - 1];
-            if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
-                if (b2 != 61) {
+            byte b = bArr[i - 1];
+            if (b != 10 && b != 13 && b != 32 && b != 9) {
+                if (b != 61) {
                     break;
                 }
                 i5++;
@@ -88,21 +88,21 @@ public final class b {
         int i8 = 0;
         int i9 = 0;
         while (i6 < i) {
-            byte b3 = bArr[i6];
-            if (b3 == 10 || b3 == 13 || b3 == 32) {
+            byte b2 = bArr[i6];
+            if (b2 == 10 || b2 == 13 || b2 == 32) {
                 i2 = i9;
-            } else if (b3 == 9) {
+            } else if (b2 == 9) {
                 i2 = i9;
             } else {
-                if (b3 >= 65 && b3 <= 90) {
-                    i3 = b3 - 65;
-                } else if (b3 >= 97 && b3 <= 122) {
-                    i3 = b3 - 71;
-                } else if (b3 >= 48 && b3 <= 57) {
-                    i3 = b3 + 4;
-                } else if (b3 == 43) {
+                if (b2 >= 65 && b2 <= 90) {
+                    i3 = b2 - 65;
+                } else if (b2 >= 97 && b2 <= 122) {
+                    i3 = b2 - 71;
+                } else if (b2 >= 48 && b2 <= 57) {
+                    i3 = b2 + 4;
+                } else if (b2 == 43) {
                     i3 = 62;
-                } else if (b3 != 47) {
+                } else if (b2 != 47) {
                     return null;
                 } else {
                     i3 = 63;

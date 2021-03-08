@@ -33,7 +33,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityControlSurface, BroadcastReceiverControlSurface, ContentProviderControlSurface, ServiceControlSurface {
     private static final String TAG = "FlutterEnginePluginRegistry";
     @Nullable
@@ -413,7 +413,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
         Log.e(TAG, "Attempted to detach plugins from a ContentProvider when no ContentProvider was attached.");
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private static class DefaultFlutterAssets implements FlutterPlugin.FlutterAssets {
         final FlutterLoader flutterLoader;
 
@@ -443,7 +443,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class FlutterEngineActivityPluginBinding implements ActivityPluginBinding {
         @NonNull
         private final Activity activity;
@@ -569,7 +569,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class FlutterEngineServicePluginBinding implements ServicePluginBinding {
         @Nullable
         private final HiddenLifecycleReference hiddenLifecycleReference;
@@ -619,7 +619,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class FlutterEngineBroadcastReceiverPluginBinding implements BroadcastReceiverPluginBinding {
         @NonNull
         private final BroadcastReceiver broadcastReceiver;
@@ -636,7 +636,7 @@ public class FlutterEnginePluginRegistry implements PluginRegistry, ActivityCont
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class FlutterEngineContentProviderPluginBinding implements ContentProviderPluginBinding {
         @NonNull
         private final ContentProvider contentProvider;

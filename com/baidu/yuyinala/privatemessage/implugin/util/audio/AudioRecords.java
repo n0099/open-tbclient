@@ -1,10 +1,10 @@
 package com.baidu.yuyinala.privatemessage.implugin.util.audio;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AudioRecords {
     private static final String TAG = AudioRecords.class.getSimpleName();
-    public static final FormatFactory phN = FormatFactory.AMR_NB;
+    public static final FormatFactory pjV = FormatFactory.AMR_NB;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public enum FormatFactory {
         DEFAULT(0, "DEFAULT"),
         THREE_GPP(1, "3gpp"),

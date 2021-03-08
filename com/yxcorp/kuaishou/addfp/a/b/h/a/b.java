@@ -13,14 +13,12 @@ import android.text.TextUtils;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14372a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f14373b;
-    private static volatile b qmq = null;
-    private static a qmr = null;
-    private static a qms = null;
-    private static a qmt = null;
+    private Context f8614a;
+    private boolean b;
+    private static volatile b qmS = null;
+    private static a qmT = null;
+    private static a qmU = null;
+    private static a qmV = null;
     private static Object g = new Object();
     private static HandlerThread h = null;
     private static Handler i = null;
@@ -28,10 +26,10 @@ public class b {
     private static String k = null;
 
     private b(Context context) {
-        this.f14373b = false;
-        this.f14372a = context;
-        this.f14373b = "1".equals(a("persist.sys.identifierid.supported", "0"));
-        if (this.f14373b) {
+        this.b = false;
+        this.f8614a = context;
+        this.b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+        if (this.b) {
             HandlerThread handlerThread = new HandlerThread("vivo_work");
             h = handlerThread;
             handlerThread.start();
@@ -111,15 +109,15 @@ public class b {
         }
     }
 
-    public static b je(Context context) {
-        if (qmq == null) {
+    public static b iY(Context context) {
+        if (qmS == null) {
             synchronized (b.class) {
-                if (qmq == null) {
-                    qmq = new b(context);
+                if (qmS == null) {
+                    qmS = new b(context);
                 }
             }
         }
-        return qmq;
+        return qmS;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:28:0x006a, code lost:
@@ -166,19 +164,19 @@ public class b {
     }
 
     public final boolean a() {
-        return this.f14373b;
+        return this.b;
     }
 
     public final String b() {
-        if (this.f14373b) {
+        if (this.b) {
             if (k != null) {
                 return k;
             }
             a(0, (String) null);
-            if (qmr == null) {
-                Context context = this.f14372a;
-                qmr = new a(qmq, 0, null);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, qmr);
+            if (qmT == null) {
+                Context context = this.f8614a;
+                qmT = new a(qmS, 0, null);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, qmT);
             }
             return k;
         }

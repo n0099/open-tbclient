@@ -2,11 +2,11 @@ package com.baidu.live.yuyingift.yuyinhousegift.view;
 
 import android.content.Context;
 import com.baidu.live.yuyingift.a.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class YuyinAlaRoomNormalGiftView extends YuyinAlaRoomBaseGiftView {
-    protected a ccl;
+    protected a cdO;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void s(c cVar);
 
@@ -20,27 +20,27 @@ public class YuyinAlaRoomNormalGiftView extends YuyinAlaRoomBaseGiftView {
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView
-    protected void ZA() {
-        if (this.ccl != null) {
-            this.ccl.s(this.bZu);
+    protected void ZD() {
+        if (this.cdO != null) {
+            this.cdO.s(this.caU);
         }
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView
-    protected void ZB() {
-        if (this.ccl != null) {
-            this.ccl.t(getLastShowGift());
+    protected void ZE() {
+        if (this.cdO != null) {
+            this.cdO.t(getLastShowGift());
         }
     }
 
     public void setAnimCallback(a aVar) {
-        this.ccl = aVar;
+        this.cdO = aVar;
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView
-    protected void ZC() {
-        if (this.ccl != null) {
-            this.ccl.u(getLastShowGift());
+    protected void ZF() {
+        if (this.cdO != null) {
+            this.cdO.u(getLastShowGift());
         }
     }
 }

@@ -15,7 +15,7 @@ import com.kwad.sdk.utils.v;
 public class a extends com.kwad.sdk.lib.a.a.a<AdTemplate, b<?, AdTemplate>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f8805a;
+    private d f5863a;
     private c<AdTemplate, ?> c;
     private com.kwad.sdk.lib.b.c<?, AdTemplate> d;
     private KSProfilePageLoadingView e;
@@ -40,7 +40,7 @@ public class a extends com.kwad.sdk.lib.a.a.a<AdTemplate, b<?, AdTemplate>> {
                         a.this.e.c();
                     }
                 }
-            } else if (com.kwad.sdk.core.network.f.f9323a.k == i) {
+            } else if (com.kwad.sdk.core.network.f.f6187a.k == i) {
                 p.a(a.this.o());
             } else {
                 p.b(a.this.o());
@@ -63,8 +63,8 @@ public class a extends com.kwad.sdk.lib.a.a.a<AdTemplate, b<?, AdTemplate>> {
             if (z) {
                 if (a.this.c.i()) {
                     a.this.e.d();
-                } else if (!a.this.f8805a.d(a.this.f)) {
-                    a.this.f8805a.c(a.this.f);
+                } else if (!a.this.f5863a.d(a.this.f)) {
+                    a.this.f5863a.c(a.this.f);
                 }
             }
             a.this.f.a(a.this.d.j());
@@ -77,9 +77,9 @@ public class a extends com.kwad.sdk.lib.a.a.a<AdTemplate, b<?, AdTemplate>> {
     @Override // com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f10407b.g;
-        this.f8805a = this.f10407b.i;
-        this.c = this.f10407b.h;
+        this.d = this.b.g;
+        this.f5863a = this.b.i;
+        this.c = this.b.h;
         this.d.a(this.h);
         this.e.setRetryClickListener(this.g);
     }

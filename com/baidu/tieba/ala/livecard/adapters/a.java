@@ -8,9 +8,9 @@ import com.baidu.tieba.ala.livecard.holder.FrsPageAlaInsertRecLiveHolder;
 import com.baidu.tieba.card.z;
 import com.baidu.tieba.frs.k;
 import com.baidu.tieba.tbadkCore.g;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
-    private com.baidu.tieba.ala.livecard.a.a hmX;
+    private com.baidu.tieba.ala.livecard.a.a hoH;
     private String mForumName;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -26,9 +26,9 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
         if (this.mPageContext == null) {
             return null;
         }
-        this.hmX = new com.baidu.tieba.ala.livecard.a.a(this.mPageContext);
-        this.hmX.setForumName(this.mForumName);
-        return new FrsPageAlaInsertRecLiveHolder(this.hmX);
+        this.hoH = new com.baidu.tieba.ala.livecard.a.a(this.mPageContext);
+        this.hoH.setForumName(this.mForumName);
+        return new FrsPageAlaInsertRecLiveHolder(this.hoH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,12 +37,12 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
     public View a(int i, View view, ViewGroup viewGroup, g gVar, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
         super.a(i, view, viewGroup, (ViewGroup) gVar, (g) frsPageAlaInsertRecLiveHolder);
         if (gVar != null) {
-            int topThreadSize = this.jfU != null ? this.jfU.getTopThreadSize() : 0;
-            if (gVar.nuI != null && gVar.nuI.get(0) != null) {
-                gVar.nuI.get(0).eOs = (i + 1) - topThreadSize;
+            int topThreadSize = this.jhD != null ? this.jhD.getTopThreadSize() : 0;
+            if (gVar.nwM != null && gVar.nwM.get(0) != null) {
+                gVar.nwM.get(0).ePT = (i + 1) - topThreadSize;
             }
-            frsPageAlaInsertRecLiveHolder.hnq.setForumName(this.mForumName);
-            frsPageAlaInsertRecLiveHolder.hnq.a(gVar);
+            frsPageAlaInsertRecLiveHolder.hpa.setForumName(this.mForumName);
+            frsPageAlaInsertRecLiveHolder.hpa.a(gVar);
         }
         return view;
     }
@@ -53,6 +53,6 @@ public class a extends k<g, FrsPageAlaInsertRecLiveHolder> implements z {
     }
 
     @Override // com.baidu.tieba.card.z
-    public void uX(int i) {
+    public void uZ(int i) {
     }
 }

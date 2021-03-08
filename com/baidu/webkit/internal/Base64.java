@@ -1,7 +1,7 @@
 package com.baidu.webkit.internal;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class Base64 implements INoProGuard {
     static final byte[] base64EncMap = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
     private static final byte INTERNAL_PADDING = 35;
@@ -17,10 +17,10 @@ public class Base64 implements INoProGuard {
         byte[] bArr2 = new byte[bArr.length];
         int i4 = 0;
         boolean z = false;
-        for (byte b2 : bArr) {
-            if (b2 != 35) {
-                if (((48 <= b2 && b2 <= 57) || ((65 <= b2 && b2 <= 90) || ((97 <= b2 && b2 <= 122) || b2 == 43 || b2 == 47))) && !z) {
-                    bArr2[i4] = base64DecMap[b2];
+        for (byte b : bArr) {
+            if (b != 35) {
+                if (((48 <= b && b <= 57) || ((65 <= b && b <= 90) || ((97 <= b && b <= 122) || b == 43 || b == 47))) && !z) {
+                    bArr2[i4] = base64DecMap[b];
                     i4++;
                 }
                 return null;

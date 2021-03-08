@@ -1,7 +1,7 @@
 package com.yy.mediaframework.utils;
 
 import android.opengl.GLES20;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GLTexture {
     private int mTarget = -1;
     private int mTextureHandle;

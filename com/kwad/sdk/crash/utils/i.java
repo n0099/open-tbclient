@@ -7,10 +7,8 @@ import java.util.List;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f9668a = new Object();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final Object f9669b = new Object();
+    private static final Object f6399a = new Object();
+    private static final Object b = new Object();
     private static List<String> c = null;
     private static String d = null;
     private static SimpleDateFormat e = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

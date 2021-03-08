@@ -5,19 +5,19 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
 /* loaded from: classes2.dex */
 public class g extends BaseCardInfo {
-    public static final BdUniqueId iEs = BdUniqueId.gen();
-    private ScoreCardInfo iEt;
+    public static final BdUniqueId iGb = BdUniqueId.gen();
+    private ScoreCardInfo iGc;
 
     public void a(ScoreCardInfo scoreCardInfo) {
-        this.iEt = scoreCardInfo;
+        this.iGc = scoreCardInfo;
     }
 
-    public ScoreCardInfo cub() {
-        return this.iEt;
+    public ScoreCardInfo cuh() {
+        return this.iGc;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return iEs;
+        return iGb;
     }
 }

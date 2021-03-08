@@ -10,78 +10,78 @@ public final class q extends f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(c cVar, int i) {
         super(null);
-        u.a(cVar.f5842b, 0L, i);
-        o oVar = cVar.poc;
+        u.a(cVar.b, 0L, i);
+        o oVar = cVar.pqm;
         int i2 = 0;
         int i3 = 0;
         while (i3 < i) {
-            if (oVar.c == oVar.f5851b) {
+            if (oVar.c == oVar.b) {
                 throw new AssertionError("s.limit == s.pos");
             }
-            i3 += oVar.c - oVar.f5851b;
+            i3 += oVar.c - oVar.b;
             i2++;
-            oVar = oVar.poq;
+            oVar = oVar.pqy;
         }
         this.f = new byte[i2];
         this.g = new int[i2 * 2];
-        o oVar2 = cVar.poc;
+        o oVar2 = cVar.pqm;
         int i4 = 0;
         int i5 = 0;
         while (i5 < i) {
-            this.f[i4] = oVar2.f5850a;
-            int i6 = (oVar2.c - oVar2.f5851b) + i5;
+            this.f[i4] = oVar2.f3942a;
+            int i6 = (oVar2.c - oVar2.b) + i5;
             if (i6 > i) {
                 i6 = i;
             }
             this.g[i4] = i6;
-            this.g[this.f.length + i4] = oVar2.f5851b;
+            this.g[this.f.length + i4] = oVar2.b;
             oVar2.d = true;
             i4++;
-            oVar2 = oVar2.poq;
+            oVar2 = oVar2.pqy;
             i5 = i6;
         }
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String a() {
-        return eoQ().a();
+        return eoX().a();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String b() {
-        return eoQ().b();
+        return eoX().b();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String e() {
-        return eoQ().e();
+        return eoX().e();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f f() {
-        return eoQ().f();
+        return eoX().f();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f c() {
-        return eoQ().c();
+        return eoX().c();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f d() {
-        return eoQ().d();
+        return eoX().d();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f a(int i, int i2) {
-        return eoQ().a(i, i2);
+        return eoX().a(i, i2);
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public byte a(int i) {
         u.a(this.g[this.f.length - 1], i, 1L);
-        int b2 = b(i);
-        return this.f[b2][(i - (b2 == 0 ? 0 : this.g[b2 - 1])) + this.g[this.f.length + b2]];
+        int b = b(i);
+        return this.f[b][(i - (b == 0 ? 0 : this.g[b - 1])) + this.g[this.f.length + b]];
     }
 
     private int b(int i) {
@@ -120,17 +120,17 @@ public final class q extends f {
             int i3 = this.g[length + i];
             int i4 = this.g[i];
             o oVar = new o(this.f[i], i3, (i3 + i4) - i2, true, false);
-            if (cVar.poc == null) {
-                oVar.por = oVar;
-                oVar.poq = oVar;
-                cVar.poc = oVar;
+            if (cVar.pqm == null) {
+                oVar.pqz = oVar;
+                oVar.pqy = oVar;
+                cVar.pqm = oVar;
             } else {
-                cVar.poc.por.a(oVar);
+                cVar.pqm.pqz.a(oVar);
             }
             i++;
             i2 = i4;
         }
-        cVar.f5842b += i2;
+        cVar.b += i2;
     }
 
     @Override // com.bytedance.sdk.a.a.f
@@ -138,17 +138,17 @@ public final class q extends f {
         if (i < 0 || i > g() - i3) {
             return false;
         }
-        int b2 = b(i);
+        int b = b(i);
         while (i3 > 0) {
-            int i4 = b2 == 0 ? 0 : this.g[b2 - 1];
-            int min = Math.min(i3, ((this.g[b2] - i4) + i4) - i);
-            if (!fVar.a(i2, this.f[b2], (i - i4) + this.g[this.f.length + b2], min)) {
+            int i4 = b == 0 ? 0 : this.g[b - 1];
+            int min = Math.min(i3, ((this.g[b] - i4) + i4) - i);
+            if (!fVar.a(i2, this.f[b], (i - i4) + this.g[this.f.length + b], min)) {
                 return false;
             }
             i += min;
             i2 += min;
             i3 -= min;
-            b2++;
+            b++;
         }
         return true;
     }
@@ -158,22 +158,22 @@ public final class q extends f {
         if (i < 0 || i > g() - i3 || i2 < 0 || i2 > bArr.length - i3) {
             return false;
         }
-        int b2 = b(i);
+        int b = b(i);
         while (i3 > 0) {
-            int i4 = b2 == 0 ? 0 : this.g[b2 - 1];
-            int min = Math.min(i3, ((this.g[b2] - i4) + i4) - i);
-            if (!u.a(this.f[b2], (i - i4) + this.g[this.f.length + b2], bArr, i2, min)) {
+            int i4 = b == 0 ? 0 : this.g[b - 1];
+            int min = Math.min(i3, ((this.g[b] - i4) + i4) - i);
+            if (!u.a(this.f[b], (i - i4) + this.g[this.f.length + b], bArr, i2, min)) {
                 return false;
             }
             i += min;
             i2 += min;
             i3 -= min;
-            b2++;
+            b++;
         }
         return true;
     }
 
-    private f eoQ() {
+    private f eoX() {
         return new f(h());
     }
 
@@ -214,6 +214,6 @@ public final class q extends f {
 
     @Override // com.bytedance.sdk.a.a.f
     public String toString() {
-        return eoQ().toString();
+        return eoX().toString();
     }
 }

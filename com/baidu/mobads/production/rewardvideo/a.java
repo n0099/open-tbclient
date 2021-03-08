@@ -19,7 +19,7 @@ import com.baidu.mobads.vo.d;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.mobads.production.a {
     private IXRewardVideoAdContainer A;
     private boolean B;

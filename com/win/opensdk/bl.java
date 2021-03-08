@@ -1,62 +1,67 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import com.bun.miitmdid.core.MdidSdkHelper;
-import com.bun.miitmdid.interfaces.IIdentifierListener;
-/* loaded from: classes3.dex */
+import android.text.TextUtils;
+/* loaded from: classes14.dex */
 public class bl {
+    public static String c;
+    public static String d;
+    public static String e;
+    public static bl qlf;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13729a;
+    public Context f8118a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static String f13730b;
+    public bl(Context context) {
+        this.f8118a = context;
+    }
 
-    /* renamed from: case  reason: not valid java name */
-    public static String f26case;
-    private static int java;
+    public static bl iN(Context context) {
+        if (qlf == null) {
+            synchronized (bl.class) {
+                if (qlf == null) {
+                    qlf = new bl(context);
+                }
+            }
+        }
+        return qlf;
+    }
 
-    /* renamed from: java  reason: collision with other field name */
-    public static final String f27java = bl.class.getSimpleName();
-    private static boolean qjq = true;
+    public String a() {
+        return d;
+    }
 
-    public static void iL(Context context) {
-        if (!bk.java()) {
-            qjq = false;
+    public String b() {
+        if (TextUtils.isEmpty(c)) {
+            try {
+                return bp.j(this.f8118a);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return "";
+            }
+        }
+        return c;
+    }
+
+    public String c() {
+        return e;
+    }
+
+    public void d() {
+        boolean z;
+        try {
+            Class.forName("com.fun.openid.sdk.b");
+            Class.forName("com.fun.openid.sdk.c");
+            z = true;
+        } catch (Exception e2) {
+            z = false;
+        }
+        if (!z) {
             return;
         }
         try {
-            int InitSdk = MdidSdkHelper.InitSdk(context, true, new IIdentifierListener() { // from class: com.win.opensdk.bl.1
-            });
-            if (InitSdk == 1008612) {
-                Sf(InitSdk);
-            } else if (InitSdk == 1008613) {
-                Sf(InitSdk);
-            } else if (InitSdk == 1008611) {
-                Sf(InitSdk);
-            } else if (InitSdk == 1008614) {
-                Sf(InitSdk);
-            } else if (InitSdk == 1008615) {
-                Sf(InitSdk);
-            }
-        } catch (Exception e) {
+            com.fun.openid.sdk.b.a(this.f8118a, new bi(this));
+        } catch (Exception e3) {
         }
-    }
-
-    private static void Sf(int i) {
-        qjq = false;
-        java = i;
-    }
-
-    public static String java() {
-        return f26case;
-    }
-
-    public static String eJe() {
-        return f13729a;
-    }
-
-    public static String a() {
-        return f13730b;
     }
 }

@@ -28,8 +28,8 @@ public class IMPushUploadConstants {
         try {
             byte[] digest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : digest) {
-                int i = b2 & 255;
+            for (byte b : digest) {
+                int i = b & 255;
                 if (i < 16) {
                     sb.append(0);
                 }

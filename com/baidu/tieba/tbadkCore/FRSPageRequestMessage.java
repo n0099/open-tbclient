@@ -210,7 +210,7 @@ public class FRSPageRequestMessage extends NetMessage {
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.app_pos = com.baidu.tieba.recapp.c.a.dEm().dEq();
+        builder.app_pos = com.baidu.tieba.recapp.c.a.dEu().dEy();
         com.baidu.tbadk.util.v.a(builder, true, false, true);
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);

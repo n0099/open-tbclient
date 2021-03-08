@@ -29,10 +29,8 @@ import com.kwad.sdk.widget.KsLogoView;
 public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private AdBaseFrameLayout f9725a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f9726b;
+    private AdBaseFrameLayout f6438a;
+    private AdTemplate b;
     private AdInfo c;
     @Nullable
     private b d;
@@ -93,7 +91,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
-                DrawVideoTailFrame.this.m.a(a.a(DrawVideoTailFrame.this.f9726b), DrawVideoTailFrame.this.m.getMax());
+                DrawVideoTailFrame.this.m.a(a.a(DrawVideoTailFrame.this.b), DrawVideoTailFrame.this.m.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -125,7 +123,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     }
 
     public void a(AdTemplate adTemplate) {
-        this.f9726b = adTemplate;
+        this.b = adTemplate;
         this.c = com.kwad.sdk.core.response.b.c.j(adTemplate);
         AdInfo.AdMaterialInfo.MaterialFeature E = a.E(this.c);
         String str = E.coverUrl;
@@ -143,10 +141,10 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
                 layoutParams.width = c;
                 layoutParams.height = (int) (f * c);
             }
-            KSImageLoader.loadImage(this.f, str, this.f9726b);
+            KSImageLoader.loadImage(this.f, str, this.b);
         }
         if (a.y(this.c)) {
-            KSImageLoader.loadAppIcon(this.h, a.o(this.c), this.f9726b, 11);
+            KSImageLoader.loadAppIcon(this.h, a.o(this.c), this.b, 11);
             this.i.setText(a.q(this.c));
             float u = a.u(this.c);
             if (u >= 3.0f) {
@@ -177,19 +175,19 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.d, view == this.m);
-        com.kwad.sdk.core.download.b.a.a(getContext(), this.f9726b, new a.InterfaceC1094a() { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1094a
+        com.kwad.sdk.core.download.b.a.a(getContext(), this.b, new a.InterfaceC1111a() { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
             public void a() {
                 if (DrawVideoTailFrame.this.q != null) {
                     DrawVideoTailFrame.this.q.onAdClicked();
                 }
-                com.kwad.sdk.core.report.b.a(DrawVideoTailFrame.this.f9726b, 2, DrawVideoTailFrame.this.f9725a.getTouchCoords());
+                com.kwad.sdk.core.report.b.a(DrawVideoTailFrame.this.b, 2, DrawVideoTailFrame.this.f6438a.getTouchCoords());
             }
         }, this.d);
     }
 
     public void setAdBaseFrameLayout(AdBaseFrameLayout adBaseFrameLayout) {
-        this.f9725a = adBaseFrameLayout;
+        this.f6438a = adBaseFrameLayout;
     }
 
     public void setAdInteractionListener(KsDrawAd.AdInteractionListener adInteractionListener) {

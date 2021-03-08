@@ -5,20 +5,20 @@ import android.view.View;
 import com.baidu.h.a.d.a;
 import com.baidu.live.ah.a;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.h.a.d.a {
-    private int bXo;
-    private int bXp;
+    private int bYO;
+    private int bYP;
 
     @Override // com.baidu.h.a.d.a
-    public void a(Activity activity, a.InterfaceC0117a interfaceC0117a) {
+    public void a(Activity activity, a.InterfaceC0123a interfaceC0123a) {
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        this.bXo = inst.getResources().getDimensionPixelSize(a.C0157a.like_explosion_size);
-        this.bXp = inst.getResources().getDimensionPixelSize(a.C0157a.like_heart_size);
+        this.bYO = inst.getResources().getDimensionPixelSize(a.C0163a.like_explosion_size);
+        this.bYP = inst.getResources().getDimensionPixelSize(a.C0163a.like_heart_size);
         HeartSurfaceView2 heartSurfaceView2 = new HeartSurfaceView2(inst);
         heartSurfaceView2.setZOrderOnTop(true);
         heartSurfaceView2.getHolder().setFormat(-3);
-        interfaceC0117a.b(0, heartSurfaceView2);
+        interfaceC0123a.b(0, heartSurfaceView2);
     }
 
     @Override // com.baidu.h.a.d.a

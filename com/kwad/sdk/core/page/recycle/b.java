@@ -13,10 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private Rect f9356a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f9357b;
+    private Rect f6210a;
+    private int b;
     private int c;
     private boolean d;
     private int e;
@@ -50,12 +48,12 @@ public class b extends g {
             this.e = iArr[1];
         }
         int a2 = f.a(this).a();
-        int b2 = f.a(this).b();
-        if (a2 == -1 || b2 == -1) {
+        int b = f.a(this).b();
+        if (a2 == -1 || b == -1) {
             return;
         }
-        if (i < a2 || i > b2) {
-            if (i > b2) {
+        if (i < a2 || i > b) {
+            if (i > b) {
                 scrollBy(0, i2);
                 a(i, i2, i3);
                 return;
@@ -73,16 +71,16 @@ public class b extends g {
     }
 
     private void b() {
-        if (this.f9356a == null) {
-            this.f9356a = new Rect();
+        if (this.f6210a == null) {
+            this.f6210a = new Rect();
         } else {
-            this.f9356a.setEmpty();
+            this.f6210a.setEmpty();
         }
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt.getVisibility() == 0) {
-                this.f9356a.union(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
+                this.f6210a.union(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
             }
         }
     }
@@ -107,12 +105,12 @@ public class b extends g {
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.f9357b != 0) {
+        if (this.b != 0) {
             b();
-            if (this.f9356a != null && !this.f9356a.isEmpty()) {
+            if (this.f6210a != null && !this.f6210a.isEmpty()) {
                 canvas.save();
-                canvas.clipRect(this.f9356a);
-                canvas.drawColor(this.f9357b);
+                canvas.clipRect(this.f6210a);
+                canvas.drawColor(this.b);
                 canvas.restore();
             }
         }
@@ -174,7 +172,7 @@ public class b extends g {
     }
 
     public void setUnderneathColor(int i) {
-        this.f9357b = i;
+        this.b = i;
         b();
         invalidate();
     }

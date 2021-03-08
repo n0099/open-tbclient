@@ -11,15 +11,15 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableSequenceEqual<T> extends g<Boolean> {
     final d<? super T, ? super T> comparer;
     final int prefetch;
-    final org.a.b<? extends T> qpj;
-    final org.a.b<? extends T> qpk;
+    final org.a.b<? extends T> qpL;
+    final org.a.b<? extends T> qpM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void drain();
 
@@ -30,10 +30,10 @@ public final class FlowableSequenceEqual<T> extends g<Boolean> {
     public void a(org.a.c<? super Boolean> cVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(cVar, this.prefetch, this.comparer);
         cVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.qpj, this.qpk);
+        equalCoordinator.subscribe(this.qpL, this.qpM);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class EqualCoordinator<T> extends DeferredScalarSubscription<Boolean> implements a {
         private static final long serialVersionUID = -6178010334400373240L;
         final d<? super T, ? super T> comparer;
@@ -182,7 +182,7 @@ public final class FlowableSequenceEqual<T> extends g<Boolean> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class EqualSubscriber<T> extends AtomicReference<org.a.d> implements j<T> {
         private static final long serialVersionUID = 4804128302091633067L;
         volatile boolean done;

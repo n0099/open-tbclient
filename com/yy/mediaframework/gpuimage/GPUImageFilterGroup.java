@@ -10,7 +10,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GPUImageFilterGroup extends GPUImageFilter {
     private boolean m2DTextureEnable;
     protected List<GPUImageFilter> mFilters;

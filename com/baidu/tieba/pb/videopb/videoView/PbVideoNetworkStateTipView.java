@@ -14,7 +14,7 @@ import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
 import com.baidu.tieba.video.f;
 /* loaded from: classes2.dex */
 public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
-    private TextView eBu;
+    private TextView eCV;
 
     public PbVideoNetworkStateTipView(Context context) {
         super(context);
@@ -37,19 +37,19 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     }
 
     private void init() {
-        this.eBu = (TextView) findViewById(R.id.video_net_tip_duration);
+        this.eCV = (TextView) findViewById(R.id.video_net_tip_duration);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
     public void setVideoDuration(int i) {
         if (i > 0) {
-            this.eBu.setText(String.format(getResources().getString(R.string.pb_video_duration), au.stringForVideoTime(i * 1000)));
+            this.eCV.setText(String.format(getResources().getString(R.string.pb_video_duration), au.stringForVideoTime(i * 1000)));
         }
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public boolean dvB() {
-        return (hasAgreeToPlay() || f.dSf().dSg() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
+    public boolean dvK() {
+        return (hasAgreeToPlay() || f.dSn().dSo() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
@@ -62,8 +62,8 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
             if (view.getId() == R.id.free_flow) {
                 com.baidu.tbadk.browser.a.startWebActivity(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             } else if (view.getId() == R.id.play) {
-                if (this.mKI != null) {
-                    this.mKI.onClick(view);
+                if (this.mMK != null) {
+                    this.mMK.onClick(view);
                 }
                 TiebaStatic.log("c12618");
             }

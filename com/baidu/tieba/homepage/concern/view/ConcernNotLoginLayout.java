@@ -16,9 +16,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes2.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView kcA;
-    private TextView kcB;
-    private TBSpecificationBtn kcC;
+    private ImageView keD;
+    private TextView keE;
+    private TBSpecificationBtn keF;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -39,31 +39,31 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.kcA = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
-        this.kcB = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
-        this.kcB.setTextSize(0, l.getDimens(context, R.dimen.T_X06));
-        this.kcC = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
+        this.keD = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
+        this.keE = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
+        this.keE.setTextSize(0, l.getDimens(context, R.dimen.T_X06));
+        this.keF = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
         com.baidu.tbadk.core.view.commonBtn.a aVar = new com.baidu.tbadk.core.view.commonBtn.a();
-        this.kcC.setText(context.getResources().getString(R.string.concern_login_and_see_more));
-        this.kcC.setTextSize(R.dimen.T_X05);
-        this.kcC.setTextHorizontalCenter(true);
-        this.kcC.setConfig(aVar);
-        this.kcC.setOnClickListener(this);
+        this.keF.setText(context.getResources().getString(R.string.concern_login_and_see_more));
+        this.keF.setTextSize(R.dimen.T_X05);
+        this.keF.setTextHorizontalCenter(true);
+        this.keF.setConfig(aVar);
+        this.keF.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.tv_concern_login_and_see_more) {
             bh.checkUpIsLogin(this.mContext);
-            HomePageStatic.jZe = true;
+            HomePageStatic.kbg = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        ap.setImageResource(this.kcA, R.drawable.new_pic_emotion_09);
-        ap.setViewTextColor(this.kcB, R.color.CAM_X0107);
-        if (this.kcC != null) {
-            this.kcC.bup();
+        ap.setImageResource(this.keD, R.drawable.new_pic_emotion_09);
+        ap.setViewTextColor(this.keE, R.color.CAM_X0107);
+        if (this.keF != null) {
+            this.keF.bus();
         }
     }
 }

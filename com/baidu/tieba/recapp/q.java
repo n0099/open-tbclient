@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 public interface q {
     void a(AdvertAppInfo advertAppInfo, String str);
 
-    void cDa();
+    void cDg();
 
     String getFid();
 

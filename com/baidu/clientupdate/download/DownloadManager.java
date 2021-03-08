@@ -45,7 +45,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DownloadManager {
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
     public static final String ACTION_DOWNLOAD_PROGRESS_CHANGE = "com.baidu.clientupdate.download.PROGRESS_CHANGE";
@@ -169,18 +169,18 @@ public final class DownloadManager {
             download.mCurrentLength = j2;
             download.mFileLength = j3;
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - download.f1682a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
-                download.f1682a = currentTimeMillis;
+            if (currentTimeMillis - download.f1372a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
+                download.f1372a = currentTimeMillis;
                 int progress = download.getProgress();
                 if (progress != download.c) {
                     DownloadManager.this.notifyProgressChange(j, progress);
                     download.c = progress;
                 }
-                if (currentTimeMillis - download.f1683b > 2000) {
+                if (currentTimeMillis - download.b > 2000) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     DownloadManager.this.mDbHelper.b(download);
                     LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (System.currentTimeMillis() - currentTimeMillis2) + "ms");
-                    download.f1683b = currentTimeMillis;
+                    download.b = currentTimeMillis;
                 }
             }
         }
@@ -229,8 +229,8 @@ public final class DownloadManager {
         if (bArr == null || bArr.length <= 0) {
             return null;
         }
-        for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & 255);
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
             if (hexString.length() < 2) {
                 sb.append(0);
             }

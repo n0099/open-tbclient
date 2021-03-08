@@ -19,10 +19,8 @@ import java.util.List;
 public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected TubeProfile f9003a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private a f9004b;
+    protected TubeProfile f5989a;
+    private a b;
     private com.kwad.sdk.lib.widget.b<AdTemplate> c;
     private TrendTubeEpisodeViewPager d;
     private b e;
@@ -35,13 +33,11 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
 
     /* loaded from: classes3.dex */
     private class b extends PagerAdapter implements ViewPager.OnPageChangeListener {
-
-        /* renamed from: b  reason: collision with root package name */
-        private List<EpisodePhotoView> f9007b;
+        private List<EpisodePhotoView> b;
         private List<EpisodePhotoView> c;
 
         private b() {
-            this.f9007b = new ArrayList();
+            this.b = new ArrayList();
             this.c = new ArrayList();
         }
 
@@ -49,7 +45,7 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
         public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
             if (obj instanceof View) {
                 viewGroup.removeView((View) obj);
-                this.f9007b.add((EpisodePhotoView) obj);
+                this.b.add((EpisodePhotoView) obj);
                 this.c.remove(obj);
             }
         }
@@ -68,18 +64,18 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
         @NonNull
         public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
             EpisodePhotoView episodePhotoView;
-            if (this.f9007b.size() > 0) {
-                EpisodePhotoView remove = this.f9007b.remove(0);
+            if (this.b.size() > 0) {
+                EpisodePhotoView remove = this.b.remove(0);
                 remove.l();
                 episodePhotoView = remove;
             } else {
                 episodePhotoView = (EpisodePhotoView) View.inflate(TrendTubeScrollView.this.getContext(), R.layout.ksad_tube_trend_scroll_view_episode_photo, null);
             }
             viewGroup.addView(episodePhotoView);
-            episodePhotoView.a(i, TrendTubeScrollView.this.f9003a.tubeInfo.tubeId);
+            episodePhotoView.a(i, TrendTubeScrollView.this.f5989a.tubeInfo.tubeId);
             episodePhotoView.setTemplateData((AdTemplate) TrendTubeScrollView.this.c.get(i));
             episodePhotoView.setOnClickListener(TrendTubeScrollView.this.f);
-            if (i < 5 || i != getCount() - 1 || TrendTubeScrollView.this.f9003a.tubeInfo.totalEpisodeCount <= 6) {
+            if (i < 5 || i != getCount() - 1 || TrendTubeScrollView.this.f5989a.tubeInfo.totalEpisodeCount <= 6) {
                 episodePhotoView.setLookMoreVisibility(false);
             } else {
                 episodePhotoView.setLookMoreVisibility(true);
@@ -148,13 +144,13 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
     }
 
     public void a(TubeProfile tubeProfile) {
-        this.f9003a = tubeProfile;
-        if (this.f9003a == null) {
+        this.f5989a = tubeProfile;
+        if (this.f5989a == null) {
             removeAllViews();
             return;
         }
         this.c.clear();
-        Iterator<AdTemplate> it = this.f9003a.adTemplateList.iterator();
+        Iterator<AdTemplate> it = this.f5989a.adTemplateList.iterator();
         int i = 0;
         while (it.hasNext()) {
             this.c.add(it.next());
@@ -171,10 +167,10 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
     }
 
     protected void a(AdTemplate adTemplate, int i, View view) {
-        if (this.f9004b == null) {
+        if (this.b == null) {
             return;
         }
-        this.f9004b.a(adTemplate, i, view);
+        this.b.a(adTemplate, i, view);
     }
 
     protected float getRatio() {
@@ -200,6 +196,6 @@ public class TrendTubeScrollView extends com.kwad.sdk.widget.b {
     }
 
     public void setEpisodeItemClickListener(a aVar) {
-        this.f9004b = aVar;
+        this.b = aVar;
     }
 }

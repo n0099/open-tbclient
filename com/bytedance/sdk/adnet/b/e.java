@@ -7,22 +7,22 @@ import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.bytedance.sdk.adnet.core.Request;
-import com.bytedance.sdk.adnet.core.l;
-import com.bytedance.sdk.adnet.core.p;
-import com.bytedance.sdk.adnet.core.r;
+import com.bytedance.sdk.adnet.core.k;
+import com.bytedance.sdk.adnet.core.o;
+import com.bytedance.sdk.adnet.core.q;
 /* loaded from: classes6.dex */
 public class e extends Request<Bitmap> {
     private static final Object i = new Object();
     private final Object c;
     @Nullable
     @GuardedBy("mLock")
-    private p.a<Bitmap> d;
+    private o.a<Bitmap> d;
     private final Bitmap.Config e;
     private final int f;
     private final int g;
     private final ImageView.ScaleType h;
 
-    public e(String str, p.a<Bitmap> aVar, int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
+    public e(String str, o.a<Bitmap> aVar, int i2, int i3, ImageView.ScaleType scaleType, Bitmap.Config config) {
         super(0, str, aVar);
         this.c = new Object();
         setRetryPolicy(new com.bytedance.sdk.adnet.core.g(1000, 2, 2.0f));
@@ -66,22 +66,22 @@ public class e extends Request<Bitmap> {
     }
 
     @Override // com.bytedance.sdk.adnet.core.Request
-    protected p<Bitmap> a(l lVar) {
-        p<Bitmap> c;
+    protected o<Bitmap> a(k kVar) {
+        o<Bitmap> c;
         synchronized (i) {
             try {
-                c = b(lVar);
+                c = b(kVar);
             } catch (OutOfMemoryError e) {
-                r.c("Caught OOM for %d byte image, url=%s", Integer.valueOf(lVar.f6043b.length), getUrl());
-                c = p.c(new com.bytedance.sdk.adnet.err.e(e));
+                q.c("Caught OOM for %d byte image, url=%s", Integer.valueOf(kVar.b.length), getUrl());
+                c = o.c(new com.bytedance.sdk.adnet.err.e(e));
             }
         }
         return c;
     }
 
-    private p<Bitmap> b(l lVar) {
+    private o<Bitmap> b(k kVar) {
         Bitmap bitmap;
-        byte[] bArr = lVar.f6043b;
+        byte[] bArr = kVar.b;
         BitmapFactory.Options options = new BitmapFactory.Options();
         if (this.f == 0 && this.g == 0) {
             options.inPreferredConfig = this.e;
@@ -104,9 +104,9 @@ public class e extends Request<Bitmap> {
             }
         }
         if (bitmap == null) {
-            return p.c(new com.bytedance.sdk.adnet.err.e(lVar));
+            return o.c(new com.bytedance.sdk.adnet.err.e(kVar));
         }
-        return p.a(bitmap, com.bytedance.sdk.adnet.d.c.c(lVar));
+        return o.a(bitmap, com.bytedance.sdk.adnet.d.b.c(kVar));
     }
 
     @Override // com.bytedance.sdk.adnet.core.Request
@@ -118,13 +118,13 @@ public class e extends Request<Bitmap> {
     }
 
     @Override // com.bytedance.sdk.adnet.core.Request
-    protected void a(p<Bitmap> pVar) {
-        p.a<Bitmap> aVar;
+    protected void a(o<Bitmap> oVar) {
+        o.a<Bitmap> aVar;
         synchronized (this.c) {
             aVar = this.d;
         }
         if (aVar != null) {
-            aVar.a(pVar);
+            aVar.a(oVar);
         }
     }
 

@@ -9,13 +9,13 @@ public class b extends e {
     }
 
     private void a(BusLineSearchOption busLineSearchOption) {
-        this.f4143a.a("qt", "bsl");
-        this.f4143a.a("rt_info", "1");
-        this.f4143a.a("ie", "utf-8");
-        this.f4143a.a("oue", "0");
-        this.f4143a.a("c", busLineSearchOption.mCity);
-        this.f4143a.a("uid", busLineSearchOption.mUid);
-        this.f4143a.a("t", System.currentTimeMillis() + "");
+        this.f2867a.a("qt", "bsl");
+        this.f2867a.a("rt_info", "1");
+        this.f2867a.a("ie", "utf-8");
+        this.f2867a.a("oue", "0");
+        this.f2867a.a("c", busLineSearchOption.mCity);
+        this.f2867a.a("uid", busLineSearchOption.mUid);
+        this.f2867a.a("t", System.currentTimeMillis() + "");
     }
 
     @Override // com.baidu.platform.base.e

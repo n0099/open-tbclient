@@ -20,19 +20,15 @@ public class h {
     private boolean g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    a f2549a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    a f2550b = null;
+    a f1914a = null;
+    a b = null;
     private String h = null;
     private int i = -2;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public class a extends com.baidu.location.d.e {
-
-        /* renamed from: b  reason: collision with root package name */
-        private String f2552b = null;
+        private String b = null;
         private String c = null;
         private boolean d = true;
         private boolean e = false;
@@ -55,7 +51,7 @@ public class h {
                 return;
             }
             h.this.g = true;
-            this.f2552b = str;
+            this.b = str;
             this.c = str2;
             b(com.baidu.location.d.j.f);
         }
@@ -71,7 +67,7 @@ public class h {
                         if (jSONObject2 != null && jSONObject2.has("imo")) {
                             Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
                             int i = jSONObject2.getJSONObject("imo").getInt("mv");
-                            if (Jni.encode3(this.f2552b).longValue() == valueOf.longValue()) {
+                            if (Jni.encode3(this.b).longValue() == valueOf.longValue()) {
                                 ContentValues contentValues = new ContentValues();
                                 contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 contentValues.put("hst", Integer.valueOf(i));
@@ -83,7 +79,7 @@ public class h {
                                 } catch (Exception e) {
                                 }
                                 Bundle bundle = new Bundle();
-                                bundle.putByteArray("mac", this.f2552b.getBytes());
+                                bundle.putByteArray("mac", this.b.getBytes());
                                 bundle.putInt("hotspot", i);
                                 h.this.a(bundle);
                             }
@@ -313,11 +309,11 @@ public class h {
                         }
                     }
                     if (z2) {
-                        if (this.f2549a == null) {
-                            this.f2549a = new a();
+                        if (this.f1914a == null) {
+                            this.f1914a = new a();
                         }
-                        if (this.f2549a != null) {
-                            this.f2549a.a(replace, a(true));
+                        if (this.f1914a != null) {
+                            this.f1914a.a(replace, a(true));
                             return;
                         }
                         return;

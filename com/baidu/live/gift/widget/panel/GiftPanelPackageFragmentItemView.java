@@ -14,13 +14,13 @@ import android.widget.TextView;
 import com.baidu.live.gift.aa;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GiftPanelPackageFragmentItemView extends RelativeLayout {
-    private TbImageView beA;
-    private View bhY;
-    private TextView bhZ;
-    private ImageView bia;
-    private TextView bib;
+    private TbImageView bgc;
+    private View bjA;
+    private TextView bjB;
+    private ImageView bjC;
+    private TextView bjD;
 
     public GiftPanelPackageFragmentItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -29,44 +29,44 @@ public class GiftPanelPackageFragmentItemView extends RelativeLayout {
 
     public void setData(aa.a aVar) {
         if (aVar != null) {
-            if (this.beA != null && (TextUtils.isEmpty(this.beA.getUrl()) || !this.beA.getUrl().equals(aVar.pic))) {
-                this.beA.startLoad(!TextUtils.isEmpty(aVar.pic) ? aVar.pic : "", 10, false, false);
+            if (this.bgc != null && (TextUtils.isEmpty(this.bgc.getUrl()) || !this.bgc.getUrl().equals(aVar.pic))) {
+                this.bgc.startLoad(!TextUtils.isEmpty(aVar.pic) ? aVar.pic : "", 10, false, false);
             }
-            if (this.bhZ != null) {
-                this.bhZ.setText(!TextUtils.isEmpty(aVar.name) ? aVar.name : "");
+            if (this.bjB != null) {
+                this.bjB.setText(!TextUtils.isEmpty(aVar.name) ? aVar.name : "");
             }
-            if (this.bia != null) {
-                this.bia.setVisibility(aVar.aYc ? 0 : 8);
+            if (this.bjC != null) {
+                this.bjC.setVisibility(aVar.aZC ? 0 : 8);
             }
             if (aVar.num > 0) {
-                if (this.bhY != null) {
-                    this.bhY.setAlpha(1.0f);
+                if (this.bjA != null) {
+                    this.bjA.setAlpha(1.0f);
                 }
-                if (this.bib != null) {
-                    this.bib.setText(aVar.num > 99 ? "99+" : String.valueOf(aVar.num));
-                    this.bib.setVisibility(0);
+                if (this.bjD != null) {
+                    this.bjD.setText(aVar.num > 99 ? "99+" : String.valueOf(aVar.num));
+                    this.bjD.setVisibility(0);
                     return;
                 }
                 return;
             }
-            if (this.bhY != null) {
-                this.bhY.setAlpha(0.3f);
+            if (this.bjA != null) {
+                this.bjA.setAlpha(0.3f);
             }
-            if (this.bib != null) {
-                this.bib.setVisibility(4);
+            if (this.bjD != null) {
+                this.bjD.setVisibility(4);
             }
         }
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.live_gift_panel_package_fragment_item, (ViewGroup) this, true);
-        this.bhY = findViewById(a.f.layout_primary);
-        this.beA = (TbImageView) findViewById(a.f.iv_thumb);
-        this.bhZ = (TextView) findViewById(a.f.tv_name);
-        this.bia = (ImageView) findViewById(a.f.iv_rare);
-        this.bib = (TextView) findViewById(a.f.tv_count);
-        this.beA.setDefaultBgResource(a.c.sdk_transparent);
-        this.beA.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.bjA = findViewById(a.f.layout_primary);
+        this.bgc = (TbImageView) findViewById(a.f.iv_thumb);
+        this.bjB = (TextView) findViewById(a.f.tv_name);
+        this.bjC = (ImageView) findViewById(a.f.iv_rare);
+        this.bjD = (TextView) findViewById(a.f.tv_count);
+        this.bgc.setDefaultBgResource(a.c.sdk_transparent);
+        this.bgc.setDefaultErrorResource(a.e.sdk_shape_transparent);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);
@@ -77,7 +77,7 @@ public class GiftPanelPackageFragmentItemView extends RelativeLayout {
             gradientDrawable.setColor(-49865);
         }
         gradientDrawable.setCornerRadius(getResources().getDimensionPixelOffset(a.d.sdk_ds12));
-        this.bib.setBackgroundDrawable(gradientDrawable);
+        this.bjD.setBackgroundDrawable(gradientDrawable);
         setSelected(false);
     }
 }

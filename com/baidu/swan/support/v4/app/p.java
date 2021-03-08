@@ -8,27 +8,27 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class p extends o {
     static boolean DEBUG = false;
-    private j ewt;
-    final com.baidu.swan.support.v4.b.g<a> exg = new com.baidu.swan.support.v4.b.g<>();
-    final com.baidu.swan.support.v4.b.g<a> exh = new com.baidu.swan.support.v4.b.g<>();
+    private j exV;
+    final com.baidu.swan.support.v4.b.g<a> eyK = new com.baidu.swan.support.v4.b.g<>();
+    final com.baidu.swan.support.v4.b.g<a> eyL = new com.baidu.swan.support.v4.b.g<>();
     boolean mRetaining;
     boolean mStarted;
     final String mWho;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public final class a implements d.a<Object>, d.b<Object> {
-        o.a<Object> exi;
-        com.baidu.swan.support.v4.a.d<Object> exj;
-        boolean exk;
-        boolean exl;
-        boolean exm;
-        boolean exn;
-        a exo;
-        final /* synthetic */ p exp;
+        o.a<Object> eyM;
+        com.baidu.swan.support.v4.a.d<Object> eyN;
+        boolean eyO;
+        boolean eyP;
+        boolean eyQ;
+        boolean eyR;
+        a eyS;
+        final /* synthetic */ p eyT;
         final Bundle mArgs;
         Object mData;
         boolean mDeliveredData;
@@ -38,26 +38,26 @@ public class p extends o {
         boolean mStarted;
 
         void start() {
-            if (this.mRetaining && this.exl) {
+            if (this.mRetaining && this.eyP) {
                 this.mStarted = true;
             } else if (!this.mStarted) {
                 this.mStarted = true;
                 if (p.DEBUG) {
                     Log.v("LoaderManager", "  Starting: " + this);
                 }
-                if (this.exj == null && this.exi != null) {
-                    this.exj = this.exi.e(this.mId, this.mArgs);
+                if (this.eyN == null && this.eyM != null) {
+                    this.eyN = this.eyM.e(this.mId, this.mArgs);
                 }
-                if (this.exj != null) {
-                    if (this.exj.getClass().isMemberClass() && !Modifier.isStatic(this.exj.getClass().getModifiers())) {
-                        throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.exj);
+                if (this.eyN != null) {
+                    if (this.eyN.getClass().isMemberClass() && !Modifier.isStatic(this.eyN.getClass().getModifiers())) {
+                        throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.eyN);
                     }
-                    if (!this.exn) {
-                        this.exj.a(this.mId, this);
-                        this.exj.a((d.a<Object>) this);
-                        this.exn = true;
+                    if (!this.eyR) {
+                        this.eyN.a(this.mId, this);
+                        this.eyN.a((d.a<Object>) this);
+                        this.eyR = true;
                     }
-                    this.exj.startLoading();
+                    this.eyN.startLoading();
                 }
             }
         }
@@ -67,31 +67,31 @@ public class p extends o {
                 Log.v("LoaderManager", "  Retaining: " + this);
             }
             this.mRetaining = true;
-            this.exl = this.mStarted;
+            this.eyP = this.mStarted;
             this.mStarted = false;
-            this.exi = null;
+            this.eyM = null;
         }
 
-        void beg() {
+        void bei() {
             if (this.mRetaining) {
                 if (p.DEBUG) {
                     Log.v("LoaderManager", "  Finished Retaining: " + this);
                 }
                 this.mRetaining = false;
-                if (this.mStarted != this.exl && !this.mStarted) {
+                if (this.mStarted != this.eyP && !this.mStarted) {
                     stop();
                 }
             }
-            if (this.mStarted && this.exk && !this.exm) {
-                b(this.exj, this.mData);
+            if (this.mStarted && this.eyO && !this.eyQ) {
+                b(this.eyN, this.mData);
             }
         }
 
-        void bej() {
-            if (this.mStarted && this.exm) {
-                this.exm = false;
-                if (this.exk) {
-                    b(this.exj, this.mData);
+        void bel() {
+            if (this.mStarted && this.eyQ) {
+                this.eyQ = false;
+                if (this.eyO) {
+                    b(this.eyN, this.mData);
                 }
             }
         }
@@ -101,11 +101,11 @@ public class p extends o {
                 Log.v("LoaderManager", "  Stopping: " + this);
             }
             this.mStarted = false;
-            if (!this.mRetaining && this.exj != null && this.exn) {
-                this.exn = false;
-                this.exj.a((d.b<Object>) this);
-                this.exj.b(this);
-                this.exj.stopLoading();
+            if (!this.mRetaining && this.eyN != null && this.eyR) {
+                this.eyR = false;
+                this.eyN.a((d.b<Object>) this);
+                this.eyN.b(this);
+                this.eyN.stopLoading();
             }
         }
 
@@ -117,47 +117,47 @@ public class p extends o {
             this.mDestroyed = true;
             boolean z = this.mDeliveredData;
             this.mDeliveredData = false;
-            if (this.exi != null && this.exj != null && this.exk && z) {
+            if (this.eyM != null && this.eyN != null && this.eyO && z) {
                 if (p.DEBUG) {
                     Log.v("LoaderManager", "  Reseting: " + this);
                 }
-                if (this.exp.ewt != null) {
-                    String str2 = this.exp.ewt.ews.mNoTransactionsBecause;
-                    this.exp.ewt.ews.mNoTransactionsBecause = "onLoaderReset";
+                if (this.eyT.exV != null) {
+                    String str2 = this.eyT.exV.exU.mNoTransactionsBecause;
+                    this.eyT.exV.exU.mNoTransactionsBecause = "onLoaderReset";
                     str = str2;
                 } else {
                     str = null;
                 }
                 try {
-                    this.exi.a(this.exj);
+                    this.eyM.a(this.eyN);
                 } finally {
-                    if (this.exp.ewt != null) {
-                        this.exp.ewt.ews.mNoTransactionsBecause = str;
+                    if (this.eyT.exV != null) {
+                        this.eyT.exV.exU.mNoTransactionsBecause = str;
                     }
                 }
             }
-            this.exi = null;
+            this.eyM = null;
             this.mData = null;
-            this.exk = false;
-            if (this.exj != null) {
-                if (this.exn) {
-                    this.exn = false;
-                    this.exj.a((d.b<Object>) this);
-                    this.exj.b(this);
+            this.eyO = false;
+            if (this.eyN != null) {
+                if (this.eyR) {
+                    this.eyR = false;
+                    this.eyN.a((d.b<Object>) this);
+                    this.eyN.b(this);
                 }
-                this.exj.reset();
+                this.eyN.reset();
             }
-            if (this.exo != null) {
-                this.exo.destroy();
+            if (this.eyS != null) {
+                this.eyS.destroy();
             }
         }
 
         void b(com.baidu.swan.support.v4.a.d<Object> dVar, Object obj) {
             String str;
-            if (this.exi != null) {
-                if (this.exp.ewt != null) {
-                    String str2 = this.exp.ewt.ews.mNoTransactionsBecause;
-                    this.exp.ewt.ews.mNoTransactionsBecause = "onLoadFinished";
+            if (this.eyM != null) {
+                if (this.eyT.exV != null) {
+                    String str2 = this.eyT.exV.exU.mNoTransactionsBecause;
+                    this.eyT.exV.exU.mNoTransactionsBecause = "onLoadFinished";
                     str = str2;
                 } else {
                     str = null;
@@ -166,11 +166,11 @@ public class p extends o {
                     if (p.DEBUG) {
                         Log.v("LoaderManager", "  onLoadFinished in " + dVar + ": " + dVar.dataToString(obj));
                     }
-                    this.exi.a(dVar, obj);
+                    this.eyM.a(dVar, obj);
                     this.mDeliveredData = true;
                 } finally {
-                    if (this.exp.ewt != null) {
-                        this.exp.ewt.ews.mNoTransactionsBecause = str;
+                    if (this.eyT.exV != null) {
+                        this.eyT.exV.exU.mNoTransactionsBecause = str;
                     }
                 }
             }
@@ -183,7 +183,7 @@ public class p extends o {
             sb.append(" #");
             sb.append(this.mId);
             sb.append(" : ");
-            com.baidu.swan.support.v4.b.c.buildShortClassTag(this.exj, sb);
+            com.baidu.swan.support.v4.b.c.buildShortClassTag(this.eyN, sb);
             sb.append("}}");
             return sb.toString();
         }
@@ -196,17 +196,17 @@ public class p extends o {
             printWriter.println(this.mArgs);
             printWriter.print(str);
             printWriter.print("mCallbacks=");
-            printWriter.println(this.exi);
+            printWriter.println(this.eyM);
             printWriter.print(str);
             printWriter.print("mLoader=");
-            printWriter.println(this.exj);
-            if (this.exj != null) {
-                this.exj.dump(str + "  ", fileDescriptor, printWriter, strArr);
+            printWriter.println(this.eyN);
+            if (this.eyN != null) {
+                this.eyN.dump(str + "  ", fileDescriptor, printWriter, strArr);
             }
-            if (this.exk || this.mDeliveredData) {
+            if (this.eyO || this.mDeliveredData) {
                 printWriter.print(str);
                 printWriter.print("mHaveData=");
-                printWriter.print(this.exk);
+                printWriter.print(this.eyO);
                 printWriter.print("  mDeliveredData=");
                 printWriter.println(this.mDeliveredData);
                 printWriter.print(str);
@@ -217,22 +217,22 @@ public class p extends o {
             printWriter.print("mStarted=");
             printWriter.print(this.mStarted);
             printWriter.print(" mReportNextStart=");
-            printWriter.print(this.exm);
+            printWriter.print(this.eyQ);
             printWriter.print(" mDestroyed=");
             printWriter.println(this.mDestroyed);
             printWriter.print(str);
             printWriter.print("mRetaining=");
             printWriter.print(this.mRetaining);
             printWriter.print(" mRetainingStarted=");
-            printWriter.print(this.exl);
+            printWriter.print(this.eyP);
             printWriter.print(" mListenerRegistered=");
-            printWriter.println(this.exn);
-            if (this.exo != null) {
+            printWriter.println(this.eyR);
+            if (this.eyS != null) {
                 printWriter.print(str);
                 printWriter.println("Pending Loader ");
-                printWriter.print(this.exo);
+                printWriter.print(this.eyS);
                 printWriter.println(":");
-                this.exo.dump(str + "  ", fileDescriptor, printWriter, strArr);
+                this.eyS.dump(str + "  ", fileDescriptor, printWriter, strArr);
             }
         }
     }
@@ -240,17 +240,17 @@ public class p extends o {
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(String str, j jVar, boolean z) {
         this.mWho = str;
-        this.ewt = jVar;
+        this.exV = jVar;
         this.mStarted = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(j jVar) {
-        this.ewt = jVar;
+        this.exV = jVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bee() {
+    public void beg() {
         if (DEBUG) {
             Log.v("LoaderManager", "Starting in " + this);
         }
@@ -261,8 +261,8 @@ public class p extends o {
             return;
         }
         this.mStarted = true;
-        for (int size = this.exg.size() - 1; size >= 0; size--) {
-            this.exg.valueAt(size).start();
+        for (int size = this.eyK.size() - 1; size >= 0; size--) {
+            this.eyK.valueAt(size).start();
         }
     }
 
@@ -277,14 +277,14 @@ public class p extends o {
             Log.w("LoaderManager", "Called doStop when not started: " + this, runtimeException);
             return;
         }
-        for (int size = this.exg.size() - 1; size >= 0; size--) {
-            this.exg.valueAt(size).stop();
+        for (int size = this.eyK.size() - 1; size >= 0; size--) {
+            this.eyK.valueAt(size).stop();
         }
         this.mStarted = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bef() {
+    public void beh() {
         if (DEBUG) {
             Log.v("LoaderManager", "Retaining in " + this);
         }
@@ -296,35 +296,35 @@ public class p extends o {
         }
         this.mRetaining = true;
         this.mStarted = false;
-        for (int size = this.exg.size() - 1; size >= 0; size--) {
-            this.exg.valueAt(size).retain();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void beg() {
-        if (this.mRetaining) {
-            if (DEBUG) {
-                Log.v("LoaderManager", "Finished Retaining in " + this);
-            }
-            this.mRetaining = false;
-            for (int size = this.exg.size() - 1; size >= 0; size--) {
-                this.exg.valueAt(size).beg();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void beh() {
-        for (int size = this.exg.size() - 1; size >= 0; size--) {
-            this.exg.valueAt(size).exm = true;
+        for (int size = this.eyK.size() - 1; size >= 0; size--) {
+            this.eyK.valueAt(size).retain();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bei() {
-        for (int size = this.exg.size() - 1; size >= 0; size--) {
-            this.exg.valueAt(size).bej();
+        if (this.mRetaining) {
+            if (DEBUG) {
+                Log.v("LoaderManager", "Finished Retaining in " + this);
+            }
+            this.mRetaining = false;
+            for (int size = this.eyK.size() - 1; size >= 0; size--) {
+                this.eyK.valueAt(size).bei();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void bej() {
+        for (int size = this.eyK.size() - 1; size >= 0; size--) {
+            this.eyK.valueAt(size).eyQ = true;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void bek() {
+        for (int size = this.eyK.size() - 1; size >= 0; size--) {
+            this.eyK.valueAt(size).bel();
         }
     }
 
@@ -334,18 +334,18 @@ public class p extends o {
             if (DEBUG) {
                 Log.v("LoaderManager", "Destroying Active in " + this);
             }
-            for (int size = this.exg.size() - 1; size >= 0; size--) {
-                this.exg.valueAt(size).destroy();
+            for (int size = this.eyK.size() - 1; size >= 0; size--) {
+                this.eyK.valueAt(size).destroy();
             }
-            this.exg.clear();
+            this.eyK.clear();
         }
         if (DEBUG) {
             Log.v("LoaderManager", "Destroying Inactive in " + this);
         }
-        for (int size2 = this.exh.size() - 1; size2 >= 0; size2--) {
-            this.exh.valueAt(size2).destroy();
+        for (int size2 = this.eyL.size() - 1; size2 >= 0; size2--) {
+            this.eyL.valueAt(size2).destroy();
         }
-        this.exh.clear();
+        this.eyL.clear();
     }
 
     public String toString() {
@@ -353,35 +353,35 @@ public class p extends o {
         sb.append("LoaderManager{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
         sb.append(" in ");
-        com.baidu.swan.support.v4.b.c.buildShortClassTag(this.ewt, sb);
+        com.baidu.swan.support.v4.b.c.buildShortClassTag(this.exV, sb);
         sb.append("}}");
         return sb.toString();
     }
 
     public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        if (this.exg.size() > 0) {
+        if (this.eyK.size() > 0) {
             printWriter.print(str);
             printWriter.println("Active Loaders:");
             String str2 = str + "    ";
-            for (int i = 0; i < this.exg.size(); i++) {
-                a valueAt = this.exg.valueAt(i);
+            for (int i = 0; i < this.eyK.size(); i++) {
+                a valueAt = this.eyK.valueAt(i);
                 printWriter.print(str);
                 printWriter.print("  #");
-                printWriter.print(this.exg.keyAt(i));
+                printWriter.print(this.eyK.keyAt(i));
                 printWriter.print(": ");
                 printWriter.println(valueAt.toString());
                 valueAt.dump(str2, fileDescriptor, printWriter, strArr);
             }
         }
-        if (this.exh.size() > 0) {
+        if (this.eyL.size() > 0) {
             printWriter.print(str);
             printWriter.println("Inactive Loaders:");
             String str3 = str + "    ";
-            for (int i2 = 0; i2 < this.exh.size(); i2++) {
-                a valueAt2 = this.exh.valueAt(i2);
+            for (int i2 = 0; i2 < this.eyL.size(); i2++) {
+                a valueAt2 = this.eyL.valueAt(i2);
                 printWriter.print(str);
                 printWriter.print("  #");
-                printWriter.print(this.exh.keyAt(i2));
+                printWriter.print(this.eyL.keyAt(i2));
                 printWriter.print(": ");
                 printWriter.println(valueAt2.toString());
                 valueAt2.dump(str3, fileDescriptor, printWriter, strArr);
@@ -391,10 +391,10 @@ public class p extends o {
 
     @Override // com.baidu.swan.support.v4.app.o
     public boolean hasRunningLoaders() {
-        int size = this.exg.size();
+        int size = this.eyK.size();
         boolean z = false;
         for (int i = 0; i < size; i++) {
-            a valueAt = this.exg.valueAt(i);
+            a valueAt = this.eyK.valueAt(i);
             z |= valueAt.mStarted && !valueAt.mDeliveredData;
         }
         return z;

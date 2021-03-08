@@ -8,7 +8,7 @@ import com.baidu.mobstat.Config;
 import com.yy.mediaframework.YYVideoSDK;
 import java.net.NetworkInterface;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class InfoUtil {
     private static final String TAG = "InfoUtil";
 

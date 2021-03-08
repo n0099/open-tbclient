@@ -9,9 +9,7 @@ import com.kwad.sdk.utils.p;
 import com.kwad.sdk.utils.v;
 /* loaded from: classes3.dex */
 public class f extends com.kwad.sdk.contentalliance.home.e {
-
-    /* renamed from: b  reason: collision with root package name */
-    private KSPageLoadingView f8692b;
+    private KSPageLoadingView b;
     private com.kwad.sdk.contentalliance.home.a.i c;
     private SlidePlayViewPager d;
     private boolean e;
@@ -44,19 +42,19 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
     private com.kwad.sdk.contentalliance.home.a.d j = new com.kwad.sdk.contentalliance.home.a.d() { // from class: com.kwad.sdk.contentalliance.home.b.f.4
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(int i, String str) {
-            f.this.f8692b.a();
+            f.this.b.a();
             if (f.this.d.j()) {
                 if (com.kwad.sdk.core.network.f.g.k == i) {
-                    f.this.f8692b.c();
-                } else if (!v.a(f.this.f8692b.getContext())) {
-                    f.this.f8692b.a(f.this.f.e());
+                    f.this.b.c();
+                } else if (!v.a(f.this.b.getContext())) {
+                    f.this.b.a(f.this.f.e());
                 } else if (com.kwad.sdk.core.network.f.j.k == i) {
-                    f.this.f8692b.d();
+                    f.this.b.d();
                 } else {
-                    f.this.f8692b.b(f.this.f.e());
+                    f.this.b.b(f.this.f.e());
                 }
             } else if (f.this.e) {
-                if (com.kwad.sdk.core.network.f.f9323a.k == i) {
+                if (com.kwad.sdk.core.network.f.f6187a.k == i) {
                     p.a(f.this.o());
                 } else if (com.kwad.sdk.core.network.f.g.k != i) {
                     p.b(f.this.o());
@@ -68,28 +66,28 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
-            f.this.f8692b.a();
+            f.this.b.a();
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, boolean z2, int i, int i2) {
             switch (i) {
                 case 0:
-                    f.this.f8692b.b();
+                    f.this.b.b();
                     return;
                 case 1:
-                    f.this.f8692b.a();
+                    f.this.b.a();
                     return;
                 case 2:
                 case 3:
-                    f.this.f8692b.e();
+                    f.this.b.e();
                     return;
                 case 4:
                     if (f.this.e) {
-                        f.this.f8692b.b();
+                        f.this.b.b();
                         return;
                     } else {
-                        f.this.f8692b.a();
+                        f.this.b.a();
                         return;
                     }
                 default:
@@ -105,7 +103,7 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        for (a aVar : this.f8736a.p) {
+        for (a aVar : this.f5821a.p) {
             aVar.a();
         }
     }
@@ -113,12 +111,12 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     protected void a() {
         super.a();
-        this.c = this.f8736a.f8738b;
-        this.f = this.f8736a.f.f8744a;
+        this.c = this.f5821a.b;
+        this.f = this.f5821a.f.f5826a;
         this.c.a(this.j);
         this.d.a(this.i);
         this.d.a(this.h);
-        this.f8692b.setRetryClickListener(this.g);
+        this.b.setRetryClickListener(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -127,7 +125,7 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
         super.b_();
         this.e = false;
         this.c.b(this.j);
-        this.f8692b.setRetryClickListener(null);
+        this.b.setRetryClickListener(null);
         this.d.b(this.i);
         this.d.b(this.h);
     }
@@ -137,6 +135,6 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
     public void c() {
         super.c();
         this.d = (SlidePlayViewPager) b(R.id.ksad_slide_play_view_pager);
-        this.f8692b = (KSPageLoadingView) b(R.id.ksad_page_loading);
+        this.b = (KSPageLoadingView) b(R.id.ksad_page_loading);
     }
 }

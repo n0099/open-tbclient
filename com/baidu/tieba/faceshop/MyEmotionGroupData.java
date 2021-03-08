@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MyEmotionGroupData implements com.baidu.tieba.face.data.b, Serializable {
     private static final long serialVersionUID = 1;
     protected String groupId;

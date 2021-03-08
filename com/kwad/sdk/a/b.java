@@ -25,10 +25,8 @@ import com.kwad.sdk.mvp.Presenter;
 public class b extends com.kwad.sdk.core.view.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private KsNativeAd.AdInteractionListener f8141a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private KsNativeAd.VideoPlayListener f8142b;
+    private KsNativeAd.AdInteractionListener f5427a;
+    private KsNativeAd.VideoPlayListener b;
     private AdBaseFrameLayout c;
     private DetailVideoView d;
     private com.kwad.sdk.a.a.b e;
@@ -56,8 +54,8 @@ public class b extends com.kwad.sdk.core.view.b {
         com.kwad.sdk.a.a.b bVar = new com.kwad.sdk.a.a.b();
         bVar.c = this.c;
         bVar.d = this.g;
-        bVar.f8139a = this.f8141a;
-        bVar.f8140b = this.f8142b;
+        bVar.f5426a = this.f5427a;
+        bVar.b = this.b;
         if (this.i == null && com.kwad.sdk.core.response.b.a.y(this.h)) {
             bVar.e = new com.kwad.sdk.core.download.b.b(this.g);
         } else {
@@ -124,10 +122,10 @@ public class b extends com.kwad.sdk.core.view.b {
     }
 
     public void setAdInteractionListener(KsNativeAd.AdInteractionListener adInteractionListener) {
-        this.f8141a = adInteractionListener;
+        this.f5427a = adInteractionListener;
     }
 
     public void setVideoPlayListener(KsNativeAd.VideoPlayListener videoPlayListener) {
-        this.f8142b = videoPlayListener;
+        this.b = videoPlayListener;
     }
 }

@@ -9,69 +9,69 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a {
-    private Vibrator dNn;
-    public float dwp;
+    private Vibrator dOO;
+    public float dxQ;
     private Context mContext;
     private Rect mTempRect = new Rect();
-    private DragLayer nyK;
-    private d nyL;
-    private c nyM;
-    public boolean nyN;
-    private float nyO;
-    private b nyP;
-    private Rect nyQ;
-    private int nyR;
-    private int nyS;
+    private DragLayer nAP;
+    private d nAQ;
+    private c nAR;
+    public boolean nAS;
+    private float nAT;
+    private b nAU;
+    private Rect nAV;
+    private int nAW;
+    private int nAX;
 
     public a(Context context) {
         this.mContext = context;
-        this.dNn = (Vibrator) context.getSystemService("vibrator");
-        this.nyO = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
+        this.dOO = (Vibrator) context.getSystemService("vibrator");
+        this.nAT = this.mContext.getResources().getDisplayMetrics().density * 20.0f;
     }
 
     public void a(DragLayer dragLayer) {
-        this.nyK = dragLayer;
+        this.nAP = dragLayer;
         dragLayer.setDragController(this);
-        this.nyR = this.nyK.getPaddingLeft();
-        this.nyS = this.nyK.getPaddingRight();
+        this.nAW = this.nAP.getPaddingLeft();
+        this.nAX = this.nAP.getPaddingRight();
     }
 
     public void b(View view, Bundle bundle) {
-        if (this.nyK != null && view != null && view.getDrawingCache() != null) {
-            this.nyN = true;
-            this.nyP = new b(this.mContext);
+        if (this.nAP != null && view != null && view.getDrawingCache() != null) {
+            this.nAS = true;
+            this.nAU = new b(this.mContext);
             Rect rect = new Rect();
             view.getDrawingRect(rect);
-            this.nyK.offsetDescendantRectToMyCoords(view, rect);
+            this.nAP.offsetDescendantRectToMyCoords(view, rect);
             view.setDrawingCacheEnabled(true);
             view.buildDrawingCache();
-            this.nyP.bm = Bitmap.createBitmap(view.getDrawingCache());
+            this.nAU.bm = Bitmap.createBitmap(view.getDrawingCache());
             view.destroyDrawingCache();
             view.setDrawingCacheEnabled(false);
-            this.nyP.rect = rect;
-            this.nyP.nzr = bundle;
+            this.nAU.rect = rect;
+            this.nAU.nBw = bundle;
             view.setVisibility(4);
-            a(this.nyP);
-            this.nyK.setDragObject(this.nyP);
-            this.dNn.vibrate(300L);
+            a(this.nAU);
+            this.nAP.setDragObject(this.nAU);
+            this.dOO.vibrate(300L);
         }
     }
 
     public void endDrag() {
-        if (this.nyN) {
-            this.nyN = false;
-            this.nyP = null;
-            this.nyL.dOd();
-            this.nyL.dOe();
-            this.nyK.dOg();
-            this.nyK.invalidate();
+        if (this.nAS) {
+            this.nAS = false;
+            this.nAU = null;
+            this.nAQ.dOm();
+            this.nAQ.dOn();
+            this.nAP.dOp();
+            this.nAP.invalidate();
         }
     }
 
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & 255) {
             case 0:
-                this.dwp = motionEvent.getX(0);
+                this.dxQ = motionEvent.getX(0);
                 break;
             case 1:
             case 3:
@@ -80,22 +80,22 @@ public class a {
                 endDrag();
                 break;
         }
-        return this.nyN;
+        return this.nAS;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.nyN) {
-            if (this.nyQ == null) {
-                this.nyQ = new Rect();
-                this.nyK.getDrawingRect(this.nyQ);
-                Rect rect = this.nyQ;
-                rect.top = (int) (rect.top - this.nyO);
-                Rect rect2 = this.nyQ;
-                rect2.bottom = (int) (rect2.bottom + this.nyO);
+        if (this.nAS) {
+            if (this.nAV == null) {
+                this.nAV = new Rect();
+                this.nAP.getDrawingRect(this.nAV);
+                Rect rect = this.nAV;
+                rect.top = (int) (rect.top - this.nAT);
+                Rect rect2 = this.nAV;
+                rect2.bottom = (int) (rect2.bottom + this.nAT);
             }
             switch (motionEvent.getAction() & 255) {
                 case 0:
-                    this.dwp = motionEvent.getX(0);
+                    this.dxQ = motionEvent.getX(0);
                     break;
                 case 1:
                 case 3:
@@ -105,10 +105,10 @@ public class a {
                     break;
                 case 2:
                     float x = motionEvent.getX(0);
-                    this.dwp = x;
-                    this.nyP.rect.offset((int) (x - this.dwp), 0);
-                    a(this.nyP);
-                    dNZ();
+                    this.dxQ = x;
+                    this.nAU.rect.offset((int) (x - this.dxQ), 0);
+                    a(this.nAU);
+                    dOi();
                     break;
             }
             return true;
@@ -116,50 +116,50 @@ public class a {
         return false;
     }
 
-    public void dNZ() {
-        this.mTempRect.set(this.nyP.rect);
-        this.nyK.offsetRectIntoDescendantCoords((View) this.nyL, this.mTempRect);
-        this.nyL.i(this.mTempRect);
-        this.nyK.invalidate();
-        if (this.nyP.nzs) {
-            this.nyL.dOb();
-        } else if (this.nyP.nzt) {
-            this.nyL.dOc();
+    public void dOi() {
+        this.mTempRect.set(this.nAU.rect);
+        this.nAP.offsetRectIntoDescendantCoords((View) this.nAQ, this.mTempRect);
+        this.nAQ.i(this.mTempRect);
+        this.nAP.invalidate();
+        if (this.nAU.nBx) {
+            this.nAQ.dOk();
+        } else if (this.nAU.nBy) {
+            this.nAQ.dOl();
         } else {
-            this.nyL.dOd();
+            this.nAQ.dOm();
         }
     }
 
     private void a(b bVar) {
-        bVar.nzs = false;
-        bVar.nzt = false;
+        bVar.nBx = false;
+        bVar.nBy = false;
         Rect rect = bVar.rect;
         int width = rect.width();
-        int width2 = (this.nyK.getWidth() - this.nyR) - this.nyS;
-        if (rect.left < this.nyR) {
-            rect.left = this.nyR;
+        int width2 = (this.nAP.getWidth() - this.nAW) - this.nAX;
+        if (rect.left < this.nAW) {
+            rect.left = this.nAW;
             rect.right = rect.left + width;
         }
-        if (rect.right > this.nyR + width2) {
-            rect.right = this.nyR + width2;
+        if (rect.right > this.nAW + width2) {
+            rect.right = this.nAW + width2;
             rect.left = rect.right - width;
         }
-        if (rect.left < this.nyR + this.nyO) {
-            bVar.nzs = true;
-            bVar.nzt = false;
+        if (rect.left < this.nAW + this.nAT) {
+            bVar.nBx = true;
+            bVar.nBy = false;
         }
-        if (rect.right > (this.nyR + width2) - this.nyO) {
-            bVar.nzs = false;
-            bVar.nzt = true;
+        if (rect.right > (this.nAW + width2) - this.nAT) {
+            bVar.nBx = false;
+            bVar.nBy = true;
         }
     }
 
     public void a(d dVar) {
-        this.nyL = dVar;
+        this.nAQ = dVar;
     }
 
     public void a(c cVar) {
-        this.nyM = cVar;
-        this.nyM.setDragController(this);
+        this.nAR = cVar;
+        this.nAR.setDragController(this);
     }
 }

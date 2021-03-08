@@ -9,24 +9,24 @@ import com.baidu.tieba.sharesdk.a.b;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends b {
-    private IUiListener nkF;
-    private final com.baidu.adp.lib.e.c<e.a> nkH;
+    private IUiListener nmJ;
+    private final com.baidu.adp.lib.e.c<e.a> nmL;
 
     public c(Context context) {
         super(context);
-        this.nkH = new com.baidu.adp.lib.e.c<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.nmL = new com.baidu.adp.lib.e.c<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: a */
             public void onLoaded(e.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar == null || aVar.fcS == null || TextUtils.isEmpty(aVar.path)) {
+                if (aVar == null || aVar.fer == null || TextUtils.isEmpty(aVar.path)) {
                     c.this.dn(2, 4);
                 }
-                c.this.SH(aVar.path);
+                c.this.SN(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
@@ -36,12 +36,12 @@ public class c extends b {
                 c.this.dn(3, 4);
             }
         };
-        this.nkw = 4;
+        this.nmA = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.nkE == null) {
+        if (shareEntity == null || this.nmI == null) {
             dn(2, 4);
             if (bVar != null) {
                 bVar.dm(0, 2);
@@ -52,8 +52,8 @@ public class c extends b {
                 bVar.dm(0, 2);
             }
         } else {
-            this.nkF = new b.a(bVar);
-            if (shareEntity.dJk() != 0) {
+            this.nmJ = new b.a(bVar);
+            if (shareEntity.dJs() != 0) {
                 b(shareEntity);
             } else {
                 c(shareEntity);
@@ -62,23 +62,23 @@ public class c extends b {
     }
 
     private void b(ShareEntity shareEntity) {
-        if (Cl(shareEntity.dJi())) {
-            SH(shareEntity.dJi());
+        if (Cs(shareEntity.dJq())) {
+            SN(shareEntity.dJq());
         } else if (z(shareEntity.getImageUri())) {
-            SH(shareEntity.getImageUri().getPath());
+            SN(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.e.d.mw().a(shareEntity.getImgUrl(), 34, this.nkH, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.e.d.mw().a(shareEntity.getImgUrl(), 34, this.nmL, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void SH(String str) {
+    public void SN(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.nkF != null) {
-            this.nkE.shareToQQ((Activity) this.context, bundle, this.nkF);
+        if (this.nmJ != null) {
+            this.nmI.shareToQQ((Activity) this.context, bundle, this.nmJ);
         }
     }
 
@@ -93,8 +93,8 @@ public class c extends b {
             arrayList.add(shareEntity.getImgUrl());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.nkF != null) {
-            this.nkE.shareToQzone((Activity) this.context, bundle, this.nkF);
+        if (this.nmJ != null) {
+            this.nmI.shareToQzone((Activity) this.context, bundle, this.nmJ);
         }
     }
 }

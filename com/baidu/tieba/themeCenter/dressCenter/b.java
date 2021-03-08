@@ -12,21 +12,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends BaseAdapter {
-    private TbPageContext<?> eUY;
+    private TbPageContext<?> eWx;
     private List<d> mThemeList;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        public View gfy;
-        public View jlC;
+        public View ghb;
+        public View jnm;
         public TextView mTitleView;
-        public HeadImageView nJp;
+        public HeadImageView nLv;
     }
 
     public b(TbPageContext<?> tbPageContext) {
-        this.eUY = tbPageContext;
+        this.eWx = tbPageContext;
     }
 
     @Override // android.widget.Adapter
@@ -39,7 +39,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Kk */
+    /* renamed from: Kp */
     public d getItem(int i) {
         if (this.mThemeList == null || this.mThemeList.size() <= 0 || i < 0 || i >= this.mThemeList.size()) {
             return null;
@@ -59,32 +59,32 @@ public class b extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.eUY.getPageActivity()).inflate(R.layout.dressup_item_view, viewGroup, false);
+            view = LayoutInflater.from(this.eWx.getPageActivity()).inflate(R.layout.dressup_item_view, viewGroup, false);
             a aVar2 = new a();
-            aVar2.nJp = (HeadImageView) view.findViewById(R.id.dress_icon);
-            aVar2.nJp.setDefaultResource(R.drawable.img_default_100);
-            aVar2.nJp.setDefaultBgResource(R.color.CAM_X0204);
+            aVar2.nLv = (HeadImageView) view.findViewById(R.id.dress_icon);
+            aVar2.nLv.setDefaultResource(R.drawable.img_default_100);
+            aVar2.nLv.setDefaultBgResource(R.color.CAM_X0204);
             aVar2.mTitleView = (TextView) view.findViewById(R.id.dress_desc_view);
-            aVar2.jlC = view.findViewById(R.id.tip_view);
-            aVar2.gfy = view.findViewById(R.id.divider_line);
+            aVar2.jnm = view.findViewById(R.id.tip_view);
+            aVar2.ghb = view.findViewById(R.id.divider_line);
             view.setTag(aVar2);
             aVar = aVar2;
         }
         if (item != null) {
-            aVar.nJp.startLoad(item.getIconUrl(), 10, false);
+            aVar.nLv.startLoad(item.getIconUrl(), 10, false);
             aVar.mTitleView.setText(item.getName());
-            if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.brQ().getLong(SharedPrefConfig.DRESSUP_CENTER_RED_TIP + TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + item.getType(), 0L) > 0) {
-                aVar.jlC.setVisibility(0);
+            if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.brR().getLong(SharedPrefConfig.DRESSUP_CENTER_RED_TIP + TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + item.getType(), 0L) > 0) {
+                aVar.jnm.setVisibility(0);
             } else {
-                aVar.jlC.setVisibility(4);
+                aVar.jnm.setVisibility(4);
             }
             if (i == getCount() - 1) {
-                aVar.gfy.setVisibility(8);
+                aVar.ghb.setVisibility(8);
             } else {
-                aVar.gfy.setVisibility(0);
+                aVar.ghb.setVisibility(0);
             }
         }
-        this.eUY.getLayoutMode().onModeChanged(view);
+        this.eWx.getLayoutMode().onModeChanged(view);
         return view;
     }
 

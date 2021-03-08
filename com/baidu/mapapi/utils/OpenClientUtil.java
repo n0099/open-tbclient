@@ -24,10 +24,10 @@ public class OpenClientUtil {
         if (context == null) {
             return;
         }
-        String b2 = b.b(context);
+        String b = b.b(context);
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
-        intent.setData(Uri.parse("http://map.baidu.com/zt/client/index/?fr=sdk_[" + b2 + "]"));
+        intent.setData(Uri.parse("http://map.baidu.com/zt/client/index/?fr=sdk_[" + b + "]"));
         context.startActivity(intent);
     }
 }

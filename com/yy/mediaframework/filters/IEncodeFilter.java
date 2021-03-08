@@ -3,7 +3,7 @@ package com.yy.mediaframework.filters;
 import com.yy.mediaframework.IEncoderListener;
 import com.yy.mediaframework.base.VideoEncoderConfig;
 import com.yy.mediaframework.base.VideoEncoderType;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class IEncodeFilter extends AbstractYYMediaFilter {
     public abstract VideoEncoderType getEncoderFilterType();
 

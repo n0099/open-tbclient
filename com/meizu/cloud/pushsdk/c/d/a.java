@@ -20,14 +20,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class a implements d {
-
-    /* renamed from: b  reason: collision with root package name */
-    private SQLiteDatabase f11283b;
+    private SQLiteDatabase b;
     private b c;
     private int f;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11282a = a.class.getSimpleName();
+    private String f7411a = a.class.getSimpleName();
     private String[] d = {"id", "eventData", "dateCreated"};
     private long e = -1;
 
@@ -77,7 +75,7 @@ public class a implements d {
     public List<Map<String, Object>> a(String str, String str2) {
         ArrayList arrayList = new ArrayList();
         if (e()) {
-            Cursor query = this.f11283b.query("events", this.d, str, null, null, null, str2);
+            Cursor query = this.b.query("events", this.d, str, null, null, null, str2);
             query.moveToFirst();
             while (!query.isAfterLast()) {
                 HashMap hashMap = new HashMap();
@@ -104,8 +102,8 @@ public class a implements d {
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public boolean a(long j) {
-        int delete = e() ? this.f11283b.delete("events", "id=" + j, null) : -1;
-        com.meizu.cloud.pushsdk.c.f.c.b(this.f11282a, "Removed event from database: " + j, new Object[0]);
+        int delete = e() ? this.b.delete("events", "id=" + j, null) : -1;
+        com.meizu.cloud.pushsdk.c.f.c.b(this.f7411a, "Removed event from database: " + j, new Object[0]);
         return delete == 1;
     }
 
@@ -114,9 +112,9 @@ public class a implements d {
             byte[] a2 = a(aVar.a());
             ContentValues contentValues = new ContentValues(2);
             contentValues.put("eventData", a2);
-            this.e = this.f11283b.insert("events", null, contentValues);
+            this.e = this.b.insert("events", null, contentValues);
         }
-        com.meizu.cloud.pushsdk.c.f.c.b(this.f11282a, "Added event to database: " + this.e, new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.b(this.f7411a, "Added event to database: " + this.e, new Object[0]);
         return this.e;
     }
 
@@ -125,17 +123,17 @@ public class a implements d {
             return;
         }
         try {
-            this.f11283b = this.c.getWritableDatabase();
-            this.f11283b.enableWriteAheadLogging();
+            this.b = this.c.getWritableDatabase();
+            this.b.enableWriteAheadLogging();
         } catch (Exception e) {
-            com.meizu.cloud.pushsdk.c.f.c.a(this.f11282a, " open database error " + e.getMessage(), new Object[0]);
+            com.meizu.cloud.pushsdk.c.f.c.a(this.f7411a, " open database error " + e.getMessage(), new Object[0]);
         }
     }
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public long c() {
         if (e()) {
-            return DatabaseUtils.queryNumEntries(this.f11283b, "events");
+            return DatabaseUtils.queryNumEntries(this.b, "events");
         }
         return 0L;
     }
@@ -154,6 +152,6 @@ public class a implements d {
     }
 
     public boolean e() {
-        return this.f11283b != null && this.f11283b.isOpen();
+        return this.b != null && this.b.isOpen();
     }
 }

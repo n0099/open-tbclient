@@ -10,9 +10,7 @@ import com.kwad.sdk.utils.p;
 public class n extends com.kwad.sdk.contentalliance.home.e {
     private SwipeLayout d;
     private com.kwad.sdk.contentalliance.home.a.b e;
-
-    /* renamed from: b  reason: collision with root package name */
-    private d.a f8704b = new d.a() { // from class: com.kwad.sdk.contentalliance.home.b.n.1
+    private d.a b = new d.a() { // from class: com.kwad.sdk.contentalliance.home.b.n.1
         @Override // com.kwad.sdk.contentalliance.home.d.a
         public boolean a() {
             return false;
@@ -36,7 +34,7 @@ public class n extends com.kwad.sdk.contentalliance.home.e {
             }
         }
     };
-    private com.kwad.sdk.contentalliance.home.d c = new com.kwad.sdk.contentalliance.home.d(this.f8704b);
+    private com.kwad.sdk.contentalliance.home.d c = new com.kwad.sdk.contentalliance.home.d(this.b);
     private SwipeLayout.a f = new SwipeLayout.a() { // from class: com.kwad.sdk.contentalliance.home.b.n.2
         @Override // com.kwad.sdk.contentalliance.home.swipe.SwipeLayout.a
         public void a() {
@@ -58,13 +56,13 @@ public class n extends com.kwad.sdk.contentalliance.home.e {
     public void a() {
         super.a();
         e();
-        if (this.f8736a.f8738b != null) {
-            this.e = this.f8736a.f8738b.c();
+        if (this.f5821a.b != null) {
+            this.e = this.f5821a.b.c();
         }
         if (this.d != null) {
             this.d.a(this.f);
         }
-        this.c.a(this.f8736a.m);
+        this.c.a(this.f5821a.m);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

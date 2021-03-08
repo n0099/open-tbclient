@@ -12,6 +12,10 @@ public class TTC5Proxy {
         a.a().a(context, adSlot, feedAdListener);
     }
 
+    public static void loadStream(Context context, AdSlot adSlot, TTAdNative.FeedAdListener feedAdListener) {
+        a.a().b(context, adSlot, feedAdListener);
+    }
+
     public static void loadDraw(Context context, AdSlot adSlot, TTAdNative.DrawFeedAdListener drawFeedAdListener) {
         a.a().a(context, adSlot, drawFeedAdListener);
     }

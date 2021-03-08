@@ -17,7 +17,7 @@ import java.io.Writer;
 public abstract class FileCopyUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f1974a = 4096;
+    private static final int f1552a = 4096;
 
     public static int copy(File file, File file2) throws IOException {
         Assert.notNull(file, "No input File specified");

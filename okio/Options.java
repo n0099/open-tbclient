@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Options extends AbstractList<ByteString> implements RandomAccess {
     final ByteString[] byteStrings;
     final int[] trie;
@@ -107,20 +107,20 @@ public final class Options extends AbstractList<ByteString> implements RandomAcc
             buffer.writeInt(i7);
             buffer.writeInt(i6);
             for (int i10 = i4; i10 < i3; i10++) {
-                byte b2 = list.get(i10).getByte(i);
-                if (i10 == i4 || b2 != list.get(i10 - 1).getByte(i)) {
-                    buffer.writeInt(b2 & 255);
+                byte b = list.get(i10).getByte(i);
+                if (i10 == i4 || b != list.get(i10 - 1).getByte(i)) {
+                    buffer.writeInt(b & 255);
                 }
             }
             Buffer buffer2 = new Buffer();
             while (i4 < i3) {
-                byte b3 = list.get(i4).getByte(i);
+                byte b2 = list.get(i4).getByte(i);
                 int i11 = i4 + 1;
                 while (true) {
                     if (i11 >= i3) {
                         i11 = i3;
                         break;
-                    } else if (b3 != list.get(i11).getByte(i)) {
+                    } else if (b2 != list.get(i11).getByte(i)) {
                         break;
                     } else {
                         i11++;

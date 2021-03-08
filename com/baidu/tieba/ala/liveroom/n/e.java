@@ -9,12 +9,12 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaDiversionInfoResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e extends BdBaseModel {
-    private a hKW;
-    private HttpMessageListener hKX;
+    private a hMF;
+    private HttpMessageListener hMG;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(com.baidu.tieba.ala.liveroom.data.c cVar);
 
@@ -23,25 +23,25 @@ public class e extends BdBaseModel {
 
     public e(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.hKX = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.n.e.1
+        this.hMG = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.n.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021181 && (httpResponsedMessage instanceof AlaDiversionInfoResponseMessage)) {
                     AlaDiversionInfoResponseMessage alaDiversionInfoResponseMessage = (AlaDiversionInfoResponseMessage) httpResponsedMessage;
-                    if (e.this.hKW != null) {
+                    if (e.this.hMF != null) {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
-                            e.this.hKW.bp(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
+                            e.this.hMF.bp(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            e.this.hKW.a(alaDiversionInfoResponseMessage.ciQ());
+                            e.this.hMF.a(alaDiversionInfoResponseMessage.ciW());
                         }
                     }
                 }
             }
         };
-        this.hKW = aVar;
+        this.hMF = aVar;
         initTasks();
-        registerListener(this.hKX);
+        registerListener(this.hMG);
     }
 
     private void initTasks() {

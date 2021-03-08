@@ -8,7 +8,7 @@ public interface a {
 
     /* renamed from: com.kwad.sdk.glide.load.engine.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1132a {
+    public interface InterfaceC1149a {
         @Nullable
         a a();
     }

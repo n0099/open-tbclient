@@ -22,10 +22,8 @@ import org.json.JSONObject;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3124a = g.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private RoleOptions f3125b;
+    private static final String f2263a = g.class.getSimpleName();
+    private RoleOptions b;
     private DisplayOptions c;
     private BlockingQueue<SyncResponseResult> d;
     private i e;
@@ -45,7 +43,7 @@ public final class g {
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final g f3126a = new g(null);
+        private static final g f2264a = new g(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -59,20 +57,20 @@ public final class g {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 100000:
-                    SyncResponseResult b2 = g.this.b((String) message.obj);
-                    if (b2 == null) {
-                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(g.f3124a, "parser response data is null");
+                    SyncResponseResult b = g.this.b((String) message.obj);
+                    if (b == null) {
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(g.f2263a, "parser response data is null");
                         return;
                     }
-                    g.this.a(b2);
+                    g.this.a(b);
                     g.this.j();
-                    g.this.b(b2);
+                    g.this.b(b);
                     return;
                 case 100001:
                     g.this.k();
                     return;
                 default:
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(g.f3124a, "Undefined message type");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(g.f2263a, "Undefined message type");
                     return;
             }
         }
@@ -95,14 +93,14 @@ public final class g {
     }
 
     private f a(int i) {
-        if (this.f3125b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "RoleOptions is null");
+        if (this.b == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "RoleOptions is null");
             return null;
         }
         f fVar = new f();
-        fVar.a(this.f3125b.getOrderId());
-        fVar.b(this.f3125b.getDriverId());
-        fVar.c(this.f3125b.getUserId());
+        fVar.a(this.b.getOrderId());
+        fVar.b(this.b.getDriverId());
+        fVar.c(this.b.getUserId());
         fVar.a(i);
         if (this.m) {
             this.f = String.valueOf(0);
@@ -114,7 +112,7 @@ public final class g {
     }
 
     public static g a() {
-        return a.f3126a;
+        return a.f2264a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -129,14 +127,14 @@ public final class g {
         try {
             this.d.put(syncResponseResult);
         } catch (InterruptedException e) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "InterruptedException happened when put item into queue", e);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "InterruptedException happened when put item into queue", e);
             Thread.currentThread().interrupt();
         }
     }
 
     private void a(String str) {
         if (this.h == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "HttpClient cannot be null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "HttpClient cannot be null");
         } else {
             this.h.a(str, new h(this));
         }
@@ -147,18 +145,18 @@ public final class g {
         LatLng latLng2 = null;
         String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (split.length == 0) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "There's no section route data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "There's no section route data");
             return;
         }
         String[] split2 = split[0].split(",");
         if (2 != split2.length) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "Section start position latlng invalid: " + split[0]);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "Section start position latlng invalid: " + split[0]);
             return;
         }
         try {
             latLng = new LatLng(Double.valueOf(split2[1]).doubleValue(), Double.valueOf(split2[0]).doubleValue());
         } catch (NumberFormatException e) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get startPosition failed", e);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get startPosition failed", e);
             latLng = null;
         }
         int i = 1;
@@ -167,12 +165,12 @@ public final class g {
             routeSectionInfo.a(latLng);
             String[] split3 = split[i].split(",");
             if (2 != split3.length) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "Section position latlng invalid: " + split[i]);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "Section position latlng invalid: " + split[i]);
             } else {
                 try {
                     latLng = new LatLng(Double.valueOf(split3[1]).doubleValue(), Double.valueOf(split3[0]).doubleValue());
                 } catch (NumberFormatException e2) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get endPosition failed", e2);
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get endPosition failed", e2);
                     latLng = latLng2;
                 }
                 routeSectionInfo.b(latLng);
@@ -191,49 +189,49 @@ public final class g {
         double d2 = 0.0d;
         JSONObject optJSONObject = jSONArray.optJSONObject(jSONArray.length() - 1);
         if (optJSONObject == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "Invalid driver position data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "Invalid driver position data");
             return;
         }
         syncResponseResult.c().setTimeStamp(optJSONObject.optString("t"));
         String optString = optJSONObject.optString("p");
         if (optString == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "No position info data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "No position info data");
             return;
         }
         String[] split = optString.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (split.length == 0) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "Position info array is empty");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "Position info array is empty");
             return;
         }
         String[] split2 = split[0].split(",");
         if (2 != split2.length) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "Position latlng invalid");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "Position latlng invalid");
             return;
         }
         try {
             latLng = new LatLng(Double.valueOf(split2[1]).doubleValue(), Double.valueOf(split2[0]).doubleValue());
         } catch (NumberFormatException e) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get driver position failed", e);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get driver position failed", e);
             latLng = null;
         }
         syncResponseResult.c().setPoint(latLng);
         try {
             d = Double.valueOf(split[1]).doubleValue();
         } catch (NumberFormatException e2) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get angle failed", e2);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get angle failed", e2);
             d = 0.0d;
         }
         syncResponseResult.c().setAngle(d);
         try {
             d2 = Double.valueOf(split[2]).doubleValue();
         } catch (NumberFormatException e3) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get speed failed", e3);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get speed failed", e3);
         }
         syncResponseResult.c().setSpeed(d2);
         try {
             i = Integer.valueOf(split[3]).intValue();
         } catch (NumberFormatException e4) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get orderStateInPosition failed", e4);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get orderStateInPosition failed", e4);
             i = 0;
         }
         syncResponseResult.c().setOrderStateInPosition(i);
@@ -242,27 +240,27 @@ public final class g {
     private void a(JSONObject jSONObject, SyncResponseResult syncResponseResult) {
         JSONObject optJSONObject = jSONObject.optJSONObject("route");
         if (optJSONObject != null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "parser route data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "parser route data");
             b(optJSONObject, syncResponseResult);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("traffic");
         if (optJSONObject2 != null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "parser traffic data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "parser traffic data");
             c(optJSONObject2, syncResponseResult);
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("positions");
         if (optJSONArray != null && optJSONArray.length() != 0) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "parser driver position data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "parser driver position data");
             a(optJSONArray, syncResponseResult);
         }
         String optString = jSONObject.optString("run");
         if (!TextUtils.isEmpty(optString)) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "parser travelled distance and elapsed time data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "parser travelled distance and elapsed time data");
             c(optString, syncResponseResult);
         }
         String optString2 = jSONObject.optString("remain");
         if (!TextUtils.isEmpty(optString2)) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "parser remain distance and estimated time data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "parser remain distance and estimated time data");
             d(optString2, syncResponseResult);
         }
         syncResponseResult.a(jSONObject.optInt("s"));
@@ -304,23 +302,23 @@ public final class g {
     public SyncResponseResult b(String str) {
         JSONObject jSONObject;
         if (TextUtils.isEmpty(str)) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "Response result is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "Response result is null");
             return null;
         }
         SyncResponseResult syncResponseResult = new SyncResponseResult();
         try {
             jSONObject = new JSONObject(str);
         } catch (JSONException e) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "JSONException happened when parser");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "JSONException happened when parser");
             syncResponseResult = null;
         }
         if (!a(jSONObject)) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "Response result is invalid");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "Response result is invalid");
             return null;
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject == null || optJSONObject.length() <= 0) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "No route and traffic and driver data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "No route and traffic and driver data");
             return null;
         }
         a(optJSONObject, syncResponseResult);
@@ -364,14 +362,14 @@ public final class g {
         int i4;
         String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (split.length == 0) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "There's no section traffic data");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "There's no section traffic data");
             return;
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
         for (String str2 : split) {
             String[] split2 = str2.split(",");
             if (3 != split2.length) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "section traffic data is invalid: " + str2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "section traffic data is invalid: " + str2);
             } else {
                 try {
                     i2 = Integer.valueOf(split2[0]).intValue();
@@ -381,7 +379,7 @@ public final class g {
                             i3 = Integer.valueOf(split2[2]).intValue();
                         } catch (NumberFormatException e) {
                             e = e;
-                            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get traffic status info failed", e);
+                            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get traffic status info failed", e);
                             i3 = 0;
                             while (i4 < i2 + i) {
                             }
@@ -418,21 +416,21 @@ public final class g {
     private void c(String str, SyncResponseResult syncResponseResult) {
         String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (2 != split.length) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "The travelled data is null or invalid");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "The travelled data is null or invalid");
             return;
         }
         float f = 0.0f;
         try {
             f = Float.valueOf(split[0]).floatValue();
         } catch (NumberFormatException e) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get travelledDistance failed", e);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get travelledDistance failed", e);
         }
         syncResponseResult.a(f);
         long j = 0;
         try {
             j = Long.valueOf(split[1]).longValue();
         } catch (NumberFormatException e2) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get elapsedTime failed", e2);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get elapsedTime failed", e2);
         }
         syncResponseResult.a(j);
     }
@@ -451,21 +449,21 @@ public final class g {
     private void d(String str, SyncResponseResult syncResponseResult) {
         String[] split = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         if (2 != split.length) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "The remain data is null or invalid: ");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "The remain data is null or invalid: ");
             return;
         }
         float f = 0.0f;
         try {
             f = Float.valueOf(split[0]).floatValue();
         } catch (NumberFormatException e) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get remainDistance failed", e);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get remainDistance failed", e);
         }
         syncResponseResult.b(f);
         long j = 0;
         try {
             j = Long.valueOf(split[1]).longValue();
         } catch (NumberFormatException e2) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f3124a, "Get estimatedTime failed", e2);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2263a, "Get estimatedTime failed", e2);
         }
         syncResponseResult.b(j);
     }
@@ -490,12 +488,12 @@ public final class g {
         this.p = i;
         f a2 = a(i);
         if (a2 == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "Data request option is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "Data request option is null");
             return;
         }
         String a3 = new m(a2).a();
         if (a3 == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f3124a, "send url string is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2263a, "send url string is null");
         } else {
             a(a3);
         }
@@ -517,7 +515,7 @@ public final class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(RoleOptions roleOptions) {
-        this.f3125b = roleOptions;
+        this.b = roleOptions;
     }
 
     public void a(i iVar) {
@@ -565,7 +563,7 @@ public final class g {
     }
 
     public RoleOptions e() {
-        return this.f3125b;
+        return this.b;
     }
 
     public DisplayOptions f() {

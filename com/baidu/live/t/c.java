@@ -2,7 +2,7 @@ package com.baidu.live.t;
 
 import android.view.ViewGroup;
 import com.baidu.live.data.ab;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface c {
     void a(ab abVar);
 
@@ -14,5 +14,5 @@ public interface c {
 
     void setVisible(int i);
 
-    void xh();
+    void xk();
 }

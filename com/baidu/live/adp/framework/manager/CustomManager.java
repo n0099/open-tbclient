@@ -9,7 +9,7 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.settings.CustomTaskSetting;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CustomManager extends Manager<CustomMessage<?>, CustomMessageTask, CustomRule, CustomResponsedMessage<?>> {
     private CustomClient mClient;
 

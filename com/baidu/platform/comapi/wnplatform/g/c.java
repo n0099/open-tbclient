@@ -17,9 +17,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends ItemizedOverlay {
-
-    /* renamed from: b  reason: collision with root package name */
-    private View f4411b;
+    private View b;
     private TextView c;
     private ImageView d;
     private Context e;
@@ -29,11 +27,11 @@ public class c extends ItemizedOverlay {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final c f4412a = new c();
+        static final c f3054a = new c();
     }
 
     public static c b() {
-        return a.f4412a;
+        return a.f3054a;
     }
 
     private c() {
@@ -70,19 +68,19 @@ public class c extends ItemizedOverlay {
 
     private BitmapDescriptor a(Context context, int i) {
         try {
-            this.f4411b = ((Activity) context).getLayoutInflater().inflate(R.array.S_O_X004, (ViewGroup) null);
-            this.c = (TextView) this.f4411b.findViewById(R.dimen.abc_text_size_display_1_material);
-            this.d = (ImageView) this.f4411b.findViewById(R.dimen.abc_text_size_caption_material);
+            this.b = ((Activity) context).getLayoutInflater().inflate(R.array.S_O_X004, (ViewGroup) null);
+            this.c = (TextView) this.b.findViewById(R.dimen.abc_text_size_display_1_material);
+            this.d = (ImageView) this.b.findViewById(R.dimen.abc_text_size_caption_material);
             if (com.baidu.platform.comapi.wnplatform.a.a().h() == 2) {
                 this.c.setText(i + "");
             } else {
                 this.c.setText("途");
             }
-            this.f4411b.setDrawingCacheEnabled(true);
-            this.f4411b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            this.f4411b.layout(0, 0, this.f4411b.getMeasuredWidth(), this.f4411b.getMeasuredHeight());
-            this.f4411b.buildDrawingCache();
-            return BitmapDescriptorFactory.fromBitmap(this.f4411b.getDrawingCache());
+            this.b.setDrawingCacheEnabled(true);
+            this.b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            this.b.layout(0, 0, this.b.getMeasuredWidth(), this.b.getMeasuredHeight());
+            this.b.buildDrawingCache();
+            return BitmapDescriptorFactory.fromBitmap(this.b.getDrawingCache());
         } catch (Exception e) {
             return null;
         }

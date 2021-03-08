@@ -8,24 +8,22 @@ import java.util.Calendar;
 class ab implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MotionEvent f1522a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ aa f1523b;
+    final /* synthetic */ MotionEvent f1279a;
+    final /* synthetic */ aa b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar, MotionEvent motionEvent) {
-        this.f1523b = aaVar;
-        this.f1522a = motionEvent;
+        this.b = aaVar;
+        this.f1279a = motionEvent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Log.d(BaiduArView.f1500b, "touch on single tap with motionEvnet " + this.f1522a);
+        Log.d(BaiduArView.b, "touch on single tap with motionEvnet " + this.f1279a);
         long timeInMillis = Calendar.getInstance().getTimeInMillis();
-        Log.d(BaiduArView.f1500b, "touch timeInMils " + timeInMillis);
-        if (!this.f1523b.f1521a.x && !this.f1523b.f1521a.z) {
-            ArBridge.getInstance().a(BaiduArView.j.EClick.ordinal(), this.f1522a.getPointerId(0), this.f1522a.getX(), this.f1522a.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, timeInMillis);
+        Log.d(BaiduArView.b, "touch timeInMils " + timeInMillis);
+        if (!this.b.f1278a.x && !this.b.f1278a.z) {
+            ArBridge.getInstance().a(BaiduArView.j.EClick.ordinal(), this.f1279a.getPointerId(0), this.f1279a.getX(), this.f1279a.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, timeInMillis);
         }
     }
 }

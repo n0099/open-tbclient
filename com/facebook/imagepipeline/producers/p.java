@@ -3,16 +3,16 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes5.dex */
 public class p implements aj<com.facebook.imagepipeline.f.e> {
-    private final com.facebook.imagepipeline.b.e pIO;
-    private final com.facebook.imagepipeline.b.f pIP;
-    private final com.facebook.imagepipeline.b.e pJS;
-    private final aj<com.facebook.imagepipeline.f.e> pLO;
+    private final com.facebook.imagepipeline.b.e pKT;
+    private final com.facebook.imagepipeline.b.f pKU;
+    private final com.facebook.imagepipeline.b.e pLX;
+    private final aj<com.facebook.imagepipeline.f.e> pNT;
 
     public p(com.facebook.imagepipeline.b.e eVar, com.facebook.imagepipeline.b.e eVar2, com.facebook.imagepipeline.b.f fVar, aj<com.facebook.imagepipeline.f.e> ajVar) {
-        this.pJS = eVar;
-        this.pIO = eVar2;
-        this.pIP = fVar;
-        this.pLO = ajVar;
+        this.pLX = eVar;
+        this.pKT = eVar2;
+        this.pKU = fVar;
+        this.pNT = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -21,45 +21,45 @@ public class p implements aj<com.facebook.imagepipeline.f.e> {
     }
 
     private void c(k<com.facebook.imagepipeline.f.e> kVar, ak akVar) {
-        if (akVar.ezr().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
-            kVar.g(null, 1);
+        if (akVar.ezA().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+            kVar.f(null, 1);
         } else {
-            this.pLO.a(akVar.ezp().ewO() ? new a(kVar, akVar, this.pJS, this.pIO, this.pIP) : kVar, akVar);
+            this.pNT.a(akVar.ezy().ewX() ? new a(kVar, akVar, this.pLX, this.pKT, this.pKU) : kVar, akVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a extends n<com.facebook.imagepipeline.f.e, com.facebook.imagepipeline.f.e> {
-        private final com.facebook.imagepipeline.b.e pIO;
-        private final com.facebook.imagepipeline.b.f pIP;
-        private final com.facebook.imagepipeline.b.e pJS;
-        private final ak pMb;
+        private final com.facebook.imagepipeline.b.e pKT;
+        private final com.facebook.imagepipeline.b.f pKU;
+        private final com.facebook.imagepipeline.b.e pLX;
+        private final ak pOg;
 
         private a(k<com.facebook.imagepipeline.f.e> kVar, ak akVar, com.facebook.imagepipeline.b.e eVar, com.facebook.imagepipeline.b.e eVar2, com.facebook.imagepipeline.b.f fVar) {
             super(kVar);
-            this.pMb = akVar;
-            this.pJS = eVar;
-            this.pIO = eVar2;
-            this.pIP = fVar;
+            this.pOg = akVar;
+            this.pLX = eVar;
+            this.pKT = eVar2;
+            this.pKU = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
-        public void f(com.facebook.imagepipeline.f.e eVar, int i) {
-            if (Ql(i) || eVar == null || ee(i, 10) || eVar.eyw() == com.facebook.c.c.pGy) {
-                ezC().g(eVar, i);
+        public void e(com.facebook.imagepipeline.f.e eVar, int i) {
+            if (Qp(i) || eVar == null || ee(i, 10) || eVar.eyF() == com.facebook.c.c.pID) {
+                ezL().f(eVar, i);
                 return;
             }
-            ImageRequest ezp = this.pMb.ezp();
-            com.facebook.cache.common.b c = this.pIP.c(ezp, this.pMb.eud());
-            if (ezp.eAe() == ImageRequest.CacheChoice.SMALL) {
-                this.pIO.a(c, eVar);
+            ImageRequest ezy = this.pOg.ezy();
+            com.facebook.cache.common.b c = this.pKU.c(ezy, this.pOg.eum());
+            if (ezy.eAn() == ImageRequest.CacheChoice.SMALL) {
+                this.pKT.a(c, eVar);
             } else {
-                this.pJS.a(c, eVar);
+                this.pLX.a(c, eVar);
             }
-            ezC().g(eVar, i);
+            ezL().f(eVar, i);
         }
     }
 }

@@ -74,16 +74,14 @@ public class CyberCfgManager {
     private String f = null;
     private String k;
     private String l;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Context f1750b = null;
+    private static Context b = null;
     private static CyberCfgManager g = new CyberCfgManager();
     private static volatile boolean h = false;
     private static volatile boolean i = false;
     private static int j = 86400000;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<String> f1749a = new ArrayList<>();
+    public static ArrayList<String> f1413a = new ArrayList<>();
     private static ArrayList<String> m = new ArrayList<>();
     private static ArrayList<String> n = new ArrayList<>();
     private static ArrayList<String> o = new ArrayList<>();
@@ -92,10 +90,10 @@ public class CyberCfgManager {
     private static ArrayList<String> r = new ArrayList<>();
 
     static {
-        f1749a.add("hwH60");
-        f1749a.add("hwp7");
-        f1749a.add("sp8830ec");
-        f1749a.add("Hisense M30T");
+        f1413a.add("hwH60");
+        f1413a.add("hwp7");
+        f1413a.add("sp8830ec");
+        f1413a.add("Hisense M30T");
         m.add("GT-I9500");
         m.add("GT-I9268");
         m.add("GT-I8268");
@@ -258,8 +256,8 @@ public class CyberCfgManager {
     private void e() {
         Map<String, String> a2;
         try {
-            if (f1750b != null) {
-                this.l = n.a(f1750b);
+            if (b != null) {
+                this.l = n.a(b);
             }
             if (TextUtils.isEmpty(this.l) || (a2 = a.a(this.l + File.separator + "cybermedia.pro")) == null) {
                 return;
@@ -335,8 +333,8 @@ public class CyberCfgManager {
 
     @Keep
     public static CyberCfgManager getInstance() {
-        if (f1750b == null) {
-            f1750b = CyberPlayerManager.getApplicationContext();
+        if (b == null) {
+            b = CyberPlayerManager.getApplicationContext();
         }
         return g;
     }
@@ -453,7 +451,7 @@ public class CyberCfgManager {
     }
 
     private boolean n() {
-        if (Build.VERSION.SDK_INT >= 16 && !CfgItemParser.a(f1749a, m)) {
+        if (Build.VERSION.SDK_INT >= 16 && !CfgItemParser.a(f1413a, m)) {
             String a2 = a(this.d, "black_devices_for_hw", "");
             if (TextUtils.isEmpty(a2)) {
                 return false;
@@ -485,7 +483,7 @@ public class CyberCfgManager {
     }
 
     public String a(String str) {
-        String packageName = f1750b.getPackageName();
+        String packageName = b.getPackageName();
         String str2 = (str + File.separator + "videoconfig") + "?cmd=1&";
         StringBuilder sb = new StringBuilder();
         n.a(sb, "package_name", packageName);
@@ -494,14 +492,14 @@ public class CyberCfgManager {
             n.a(sb, "appid", this.f);
         }
         try {
-            PackageManager packageManager = f1750b.getPackageManager();
+            PackageManager packageManager = b.getPackageManager();
             if (packageManager != null) {
                 n.a(sb, "appversion", packageManager.getPackageInfo(packageName, 0).versionName);
             }
         } catch (PackageManager.NameNotFoundException e) {
         }
         n.a(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
-        n.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(f1750b));
+        n.a(sb, "net_type", DpNetworkUtils.getNetworkStatisticsData(b));
         try {
             n.a(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));
         } catch (Throwable th) {
@@ -572,16 +570,16 @@ public class CyberCfgManager {
 
     @Keep
     public synchronized long getPrefLong(String str, long j2) {
-        if (f1750b != null) {
-            j2 = f1750b.getSharedPreferences("video_cfg", 0).getLong(str, j2);
+        if (b != null) {
+            j2 = b.getSharedPreferences("video_cfg", 0).getLong(str, j2);
         }
         return j2;
     }
 
     @Keep
     public synchronized String getPrefStr(String str, String str2) {
-        if (f1750b != null) {
-            str2 = f1750b.getSharedPreferences("video_cfg", 0).getString(str, str2);
+        if (b != null) {
+            str2 = b.getSharedPreferences("video_cfg", 0).getString(str, str2);
         }
         return str2;
     }
@@ -619,8 +617,8 @@ public class CyberCfgManager {
 
     @Keep
     public synchronized void setPrefLong(String str, long j2) {
-        if (f1750b != null) {
-            SharedPreferences.Editor edit = f1750b.getSharedPreferences("video_cfg", 0).edit();
+        if (b != null) {
+            SharedPreferences.Editor edit = b.getSharedPreferences("video_cfg", 0).edit();
             edit.putLong(str, j2);
             edit.commit();
         }
@@ -628,8 +626,8 @@ public class CyberCfgManager {
 
     @Keep
     public synchronized void setPrefStr(String str, String str2) {
-        if (f1750b != null) {
-            SharedPreferences.Editor edit = f1750b.getSharedPreferences("video_cfg", 0).edit();
+        if (b != null) {
+            SharedPreferences.Editor edit = b.getSharedPreferences("video_cfg", 0).edit();
             edit.putString(str, str2);
             edit.commit();
         }

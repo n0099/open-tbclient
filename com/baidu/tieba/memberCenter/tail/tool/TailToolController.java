@@ -17,22 +17,22 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.n;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class TailToolController extends NoPressedLinearLayout implements n {
-    private EditorTools acR;
-    private int acS;
-    private View.OnClickListener lsT;
-    private CustomMessageListener ltl;
-    private g lts;
-    private h ltx;
-    private b lty;
-    private CustomMessageListener ltz;
+    private EditorTools ael;
+    private int aem;
+    private View.OnClickListener luW;
+    private b lvA;
+    private CustomMessageListener lvB;
+    private CustomMessageListener lvo;
+    private g lvu;
+    private h lvz;
     private Context mContext;
 
     public TailToolController(Context context) {
         super(context);
-        this.acS = 0;
-        this.ltl = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.1
+        this.aem = 0;
+        this.lvo = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -42,21 +42,21 @@ public class TailToolController extends NoPressedLinearLayout implements n {
                 }
             }
         };
-        this.ltz = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_EDIT_CLOSE) { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.2
+        this.lvB = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_EDIT_CLOSE) { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && TailToolController.this.lts.dgz()) {
+                if (customResponsedMessage != null && TailToolController.this.lvu.dgI()) {
                     TailToolController.this.setVisibility(0);
-                    TailToolController.this.lts.tZ(false);
+                    TailToolController.this.lvu.tZ(false);
                 }
             }
         };
-        this.lsT = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.3
+        this.luW = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TailToolController.this.dgu();
-                TailToolController.this.dgt();
+                TailToolController.this.dgD();
+                TailToolController.this.dgC();
             }
         };
         init(context);
@@ -64,8 +64,8 @@ public class TailToolController extends NoPressedLinearLayout implements n {
 
     public TailToolController(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.acS = 0;
-        this.ltl = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.1
+        this.aem = 0;
+        this.lvo = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -75,21 +75,21 @@ public class TailToolController extends NoPressedLinearLayout implements n {
                 }
             }
         };
-        this.ltz = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_EDIT_CLOSE) { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.2
+        this.lvB = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_EDIT_CLOSE) { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && TailToolController.this.lts.dgz()) {
+                if (customResponsedMessage != null && TailToolController.this.lvu.dgI()) {
                     TailToolController.this.setVisibility(0);
-                    TailToolController.this.lts.tZ(false);
+                    TailToolController.this.lvu.tZ(false);
                 }
             }
         };
-        this.lsT = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.3
+        this.luW = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.tool.TailToolController.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TailToolController.this.dgu();
-                TailToolController.this.dgt();
+                TailToolController.this.dgD();
+                TailToolController.this.dgC();
             }
         };
         init(context);
@@ -97,10 +97,10 @@ public class TailToolController extends NoPressedLinearLayout implements n {
 
     private void init(Context context) {
         this.mContext = context;
-        this.ltx = new h((ViewGroup) LayoutInflater.from(context).inflate(R.layout.tail_tool, (ViewGroup) this, true));
-        this.lts = new g(context);
-        this.lty = new b(context, this.lts, this.lsT);
-        this.ltx.c(this.lty);
+        this.lvz = new h((ViewGroup) LayoutInflater.from(context).inflate(R.layout.tail_tool, (ViewGroup) this, true));
+        this.lvu = new g(context);
+        this.lvA = new b(context, this.lvu, this.luW);
+        this.lvz.c(this.lvA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,14 +117,14 @@ public class TailToolController extends NoPressedLinearLayout implements n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgt() {
+    public void dgC() {
         hide();
-        this.lts.tZ(true);
+        this.lvu.tZ(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgu() {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TailEditActivityConfig(this.mContext, this.lts.getTails().isEmpty())));
+    public void dgD() {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TailEditActivityConfig(this.mContext, this.lvu.getTails().isEmpty())));
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -133,48 +133,48 @@ public class TailToolController extends NoPressedLinearLayout implements n {
 
     @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.acR = editorTools;
+        this.ael = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.acR != null) {
-            this.acR.b(aVar);
+        if (this.ael != null) {
+            this.ael.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.acS = i;
+        this.aem = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.lts.onAttached();
-        MessageManager.getInstance().registerListener(this.ltl);
-        MessageManager.getInstance().registerListener(this.ltz);
+        this.lvu.onAttached();
+        MessageManager.getInstance().registerListener(this.lvo);
+        MessageManager.getInstance().registerListener(this.lvB);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.lts.dgy();
-        MessageManager.getInstance().unRegisterListener(this.ltl);
-        MessageManager.getInstance().unRegisterListener(this.ltz);
+        this.lvu.dgH();
+        MessageManager.getInstance().unRegisterListener(this.lvo);
+        MessageManager.getInstance().unRegisterListener(this.lvB);
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.acS;
+        return this.aem;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void init() {
-        dgv();
+        dgE();
     }
 
-    private void dgv() {
+    private void dgE() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             mp(currentAccountObj.getIsSelectTail());
@@ -184,7 +184,7 @@ public class TailToolController extends NoPressedLinearLayout implements n {
     @Override // com.baidu.tbadk.editortools.n
     public void display() {
         setVisibility(0);
-        this.lts.dgl();
+        this.lvu.dgu();
     }
 
     @Override // com.baidu.tbadk.editortools.n

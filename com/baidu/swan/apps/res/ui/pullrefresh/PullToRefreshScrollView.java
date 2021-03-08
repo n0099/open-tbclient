@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     public PullToRefreshScrollView(Context context) {
         this(context, null);
@@ -23,12 +23,12 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullDown() {
-        return ((ScrollView) this.dze).getScrollY() == 0;
+        return ((ScrollView) this.dAF).getScrollY() == 0;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullUp() {
-        View childAt = ((ScrollView) this.dze).getChildAt(0);
-        return childAt != null && ((ScrollView) this.dze).getScrollY() >= childAt.getHeight() - getHeight();
+        View childAt = ((ScrollView) this.dAF).getChildAt(0);
+        return childAt != null && ((ScrollView) this.dAF).getScrollY() >= childAt.getHeight() - getHeight();
     }
 }

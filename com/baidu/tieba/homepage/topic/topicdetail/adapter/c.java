@@ -13,7 +13,7 @@ public class c extends com.baidu.adp.widget.ListView.a<d, CardViewHolder<e>> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), d.koT);
+        super(tbPageContext.getPageActivity(), d.kqV);
         this.mPageContext = tbPageContext;
     }
 
@@ -31,11 +31,11 @@ public class c extends com.baidu.adp.widget.ListView.a<d, CardViewHolder<e>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, d dVar, CardViewHolder<e> cardViewHolder) {
-        if (dVar == null || cardViewHolder == null || cardViewHolder.cti() == null) {
+        if (dVar == null || cardViewHolder == null || cardViewHolder.cto() == null) {
             return null;
         }
-        cardViewHolder.cti().a(dVar);
-        cardViewHolder.cti().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.cto().a(dVar);
+        cardViewHolder.cto().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return cardViewHolder.getView();
     }
 }

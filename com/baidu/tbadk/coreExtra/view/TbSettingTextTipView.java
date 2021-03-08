@@ -17,52 +17,52 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout fxX;
-    protected TextView fxY;
-    private boolean fya;
-    private int fyb;
-    protected ImageView fyc;
+    private int fzA;
+    protected ImageView fzB;
+    protected LinearLayout fzw;
+    protected TextView fzx;
+    private boolean fzz;
     protected Context mContext;
     private View mTopLine;
     protected TextView textView;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fya = true;
+        this.fzz = true;
         this.mContext = context;
-        bzF();
+        bzI();
         h(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.fya = true;
+        this.fzz = true;
         this.mContext = context;
-        bzF();
+        bzI();
     }
 
     public void displayTip() {
-        if (this.fxY != null) {
-            this.fxY.setVisibility(0);
+        if (this.fzx != null) {
+            this.fzx.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.fxY != null) {
-            this.fxY.setTextColor(i);
+        if (this.fzx != null) {
+            this.fzx.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.fxY != null) {
+        if (this.fzx != null) {
         }
     }
 
     public void A(int i, int i2, int i3, int i4) {
-        if (this.fxY != null) {
+        if (this.fzx != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.fxY.setLayoutParams(layoutParams);
+            this.fzx.setLayoutParams(layoutParams);
         }
     }
 
@@ -70,7 +70,7 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.fyc.setVisibility(8);
+        this.fzB.setVisibility(8);
     }
 
     public void setText(String str) {
@@ -82,23 +82,23 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.fxY.setText(str);
+        this.fzx.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.fxY.getText();
+        return this.fzx.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.fxY.setBackgroundDrawable(drawable);
+        this.fzx.setBackgroundDrawable(drawable);
     }
 
-    protected void bzF() {
+    protected void bzI() {
         LayoutInflater.from(this.mContext).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.fxX = (LinearLayout) findViewById(R.id.container);
+        this.fzw = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.fxY = (TextView) findViewById(R.id.tip);
-        this.fyc = (ImageView) findViewById(R.id.arrow2);
+        this.fzx = (TextView) findViewById(R.id.tip);
+        this.fzB = (ImageView) findViewById(R.id.arrow2);
         this.mTopLine = findViewById(R.id.top_line_ll);
     }
 
@@ -111,15 +111,15 @@ public class TbSettingTextTipView extends FrameLayout {
                 this.textView.setText(string);
             }
             if (string2 != null) {
-                this.fxY.setText(string2);
+                this.fzx.setText(string2);
             }
-            this.fya = obtainStyledAttributes.getBoolean(R.styleable.TbSettingView_settingShowArraw, true);
+            this.fzz = obtainStyledAttributes.getBoolean(R.styleable.TbSettingView_settingShowArraw, true);
             obtainStyledAttributes.recycle();
         }
-        this.fxX.setClickable(false);
-        this.fxX.setFocusable(false);
-        if (!this.fya) {
-            this.fyc.setVisibility(4);
+        this.fzw.setClickable(false);
+        this.fzw.setFocusable(false);
+        if (!this.fzz) {
+            this.fzB.setVisibility(4);
         }
     }
 
@@ -136,33 +136,33 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setTipTextSize(float f) {
-        this.fxY.setTextSize(0, f);
+        this.fzx.setTextSize(0, f);
     }
 
-    public void bzG() {
+    public void bzJ() {
         int dimens = l.getDimens(this.mContext, R.dimen.tbds42);
         int dimens2 = l.getDimens(this.mContext, R.dimen.tbds33);
         setMainTextSize(dimens);
         setTipTextSize(dimens2);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.textView.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.fxY.getLayoutParams()).setMargins(0, 0, l.getDimens(this.mContext, R.dimen.tbds18), 0);
-        this.fxX.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.fzx.getLayoutParams()).setMargins(0, 0, l.getDimens(this.mContext, R.dimen.tbds18), 0);
+        this.fzw.getLayoutParams().height = -1;
         requestLayout();
     }
 
     public void onChangeSkinType(int i) {
         ap.setBackgroundColor(this.mTopLine, R.color.CAM_X0205);
         ap.setViewTextColor(this.textView, R.color.CAM_X0105);
-        ap.setViewTextColor(this.fxY, this.fyb == 0 ? R.color.CAM_X0109 : this.fyb);
-        SvgManager.bsR().a(this.fyc, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        if (this.fxX != null) {
-            this.fxX.setBackgroundDrawable(ap.oC(R.color.CAM_X0205));
+        ap.setViewTextColor(this.fzx, this.fzA == 0 ? R.color.CAM_X0109 : this.fzA);
+        SvgManager.bsU().a(this.fzB, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.fzw != null) {
+            this.fzw.setBackgroundDrawable(ap.oD(R.color.CAM_X0205));
         }
     }
 
     public void setTipViewColor(int i) {
-        this.fyb = i;
-        ap.setViewTextColor(this.fxY, this.fyb);
+        this.fzA = i;
+        ap.setViewTextColor(this.fzx, this.fzA);
     }
 }

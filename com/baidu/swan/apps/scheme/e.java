@@ -8,14 +8,14 @@ import com.baidu.swan.apps.scheme.actions.o;
 import com.baidu.swan.apps.scheme.actions.s;
 import com.baidu.swan.apps.scheme.actions.v;
 import com.baidu.swan.apps.scheme.actions.z;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static j a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         j jVar = new j();
         unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", jVar);
-        com.baidu.swan.apps.t.a.axy().a(jVar);
+        com.baidu.swan.apps.t.a.axB().a(jVar);
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.e(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.k.d(jVar));
         jVar.a(new k(jVar));

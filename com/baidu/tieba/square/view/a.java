@@ -23,41 +23,41 @@ import com.baidu.tieba.square.square.i;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<?> eUY;
-    private CoverFlowView<i> ntH;
-    private HashSet<String> ntG = new HashSet<>();
+    private TbPageContext<?> eWx;
+    private CoverFlowView<i> nvM;
+    private HashSet<String> nvL = new HashSet<>();
     private ArrayList<i> datas = new ArrayList<>();
-    private d<i> eXg = new d<i>() { // from class: com.baidu.tieba.square.view.a.1
+    private d<i> eYF = new d<i>() { // from class: com.baidu.tieba.square.view.a.1
         @Override // com.baidu.tbadk.core.flow.a.d
         public void f(int i, String str) {
             String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
             i iVar = (i) y.getItem(a.this.datas, i);
-            String dMq = iVar != null ? iVar.dMq() : null;
-            if (bf.bsV().b(a.this.eUY, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(dMq)) {
-                TiebaStatic.eventStat(a.this.eUY.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(dMq), "obj_name", String.valueOf(dMq), "obj_cpid", 0, TiebaInitialize.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", HttpConstants.OS_TYPE_VALUE, "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
+            String dMy = iVar != null ? iVar.dMy() : null;
+            if (bf.bsY().b(a.this.eWx, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(dMy)) {
+                TiebaStatic.eventStat(a.this.eWx.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK", "task", "tbanner", "obj_id", String.valueOf(dMy), "obj_name", String.valueOf(dMy), "obj_cpid", 0, TiebaInitialize.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", HttpConstants.OS_TYPE_VALUE, "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
             }
-            TiebaStatic.eventStat(a.this.eUY.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
+            TiebaStatic.eventStat(a.this.eWx.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.core.flow.a.d
         public void a(int i, i iVar) {
             if (iVar != null) {
-                String dMq = iVar.dMq();
-                if (i == 2 && !TextUtils.isEmpty(dMq) && a.this.ntG.add(dMq)) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(dMq), "obj_name", String.valueOf(dMq), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", HttpConstants.OS_TYPE_VALUE, "os_version", Build.VERSION.RELEASE);
+                String dMy = iVar.dMy();
+                if (i == 2 && !TextUtils.isEmpty(dMy) && a.this.nvL.add(dMy)) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE", "task", "tbanner", "obj_id", String.valueOf(dMy), "obj_name", String.valueOf(dMy), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", HttpConstants.OS_TYPE_VALUE, "os_version", Build.VERSION.RELEASE);
                 }
             }
         }
     };
 
     public a(final TbPageContext<?> tbPageContext) {
-        this.ntH = null;
-        this.eUY = tbPageContext;
-        this.ntH = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.ntH.setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.square.view.a.2
+        this.nvM = null;
+        this.eWx = tbPageContext;
+        this.nvM = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.nvM.setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.square.view.a.2
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public e tt() {
                 e eVar = new e();
@@ -70,13 +70,13 @@ public class a extends BaseAdapter {
                 com.baidu.tbadk.core.flow.a.c tu = super.tu();
                 if (tu != null) {
                     tu.setGravity(85);
-                    tu.or(R.dimen.ds20);
-                    tu.os(R.dimen.ds30);
+                    tu.os(R.dimen.ds20);
+                    tu.ot(R.dimen.ds30);
                 }
                 return tu;
             }
         });
-        this.ntH.setCallback(this.eXg);
+        this.nvM.setCallback(this.eYF);
     }
 
     public void setData(ArrayList<by> arrayList) {
@@ -89,7 +89,7 @@ public class a extends BaseAdapter {
             }
         }
         this.datas = arrayList2;
-        this.ntH.setData(arrayList2);
+        this.nvM.setData(arrayList2);
         notifyDataSetChanged();
     }
 
@@ -110,16 +110,16 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.ntH;
+        return this.nvM;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.ntH != null) {
-            this.ntH.onChangeSkinType();
+        if (this.nvM != null) {
+            this.nvM.onChangeSkinType();
         }
     }
 
-    public CoverFlowView<i> dMx() {
-        return this.ntH;
+    public CoverFlowView<i> dMF() {
+        return this.nvM;
     }
 }

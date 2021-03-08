@@ -1,30 +1,30 @@
 package com.baidu.swan.apps.framework;
 
 import android.view.KeyEvent;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements b {
     @Override // com.baidu.swan.apps.framework.b
-    public void auU() {
+    public void auX() {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void auV() {
+    public void auY() {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void ajV() {
+    public void ajY() {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void alo() {
+    public void alr() {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void anq() {
+    public void ant() {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void ajU() {
+    public void ajX() {
     }
 
     @Override // com.baidu.swan.apps.framework.b
@@ -33,6 +33,6 @@ public class a implements b {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void ajW() {
+    public void ajZ() {
     }
 }

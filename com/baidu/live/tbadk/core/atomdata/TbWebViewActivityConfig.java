@@ -1,7 +1,7 @@
 package com.baidu.live.tbadk.core.atomdata;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class TbWebViewActivityConfig extends WebViewActivityConfig {
     public static String GOD_INVITE_JUMP_URL = "https://tiebac.baidu.com/mo/q/god/inviteGod";
     public static final String JUMP_PARAMS_PAGE_TYPE = "?page_type=open_full_screen_opacity_web_page";

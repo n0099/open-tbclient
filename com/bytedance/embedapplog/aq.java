@@ -7,30 +7,30 @@ import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String f5784a = null;
+    private static volatile String f3904a = null;
 
     public static String a(Context context, cn cnVar) {
-        if (TextUtils.isEmpty(f5784a)) {
+        if (TextUtils.isEmpty(f3904a)) {
             synchronized (aq.class) {
-                if (!TextUtils.isEmpty(f5784a)) {
-                    return f5784a;
+                if (!TextUtils.isEmpty(f3904a)) {
+                    return f3904a;
                 }
                 AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(context);
                 String id = advertisingIdInfo != null ? advertisingIdInfo.getId() : null;
                 if (TextUtils.isEmpty(id)) {
-                    id = cnVar.eoo().getString("google_aid", null);
-                } else if (!TextUtils.equals(cnVar.eoo().getString("google_aid", null), id)) {
+                    id = cnVar.eox().getString("google_aid", null);
+                } else if (!TextUtils.equals(cnVar.eox().getString("google_aid", null), id)) {
                     a(context, id, cnVar);
                 }
-                f5784a = id;
+                f3904a = id;
             }
         }
-        return f5784a;
+        return f3904a;
     }
 
     private static void a(Context context, String str, cn cnVar) {
         if (!TextUtils.isEmpty(str) && context != null) {
-            cnVar.eoo().edit().putString("google_aid", str).apply();
+            cnVar.eox().edit().putString("google_aid", str).apply();
         }
     }
 }

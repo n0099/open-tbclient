@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 class WebRtcAudioRecord {
     private static final int BITS_PER_SAMPLE = 16;
     private static final int BUFFERS_PER_SECOND = 100;
@@ -74,7 +74,7 @@ class WebRtcAudioRecord {
         doLog("End Print Current Thread Name=======================================");
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class AudioRecordThread extends Thread {
         private volatile boolean keepAlive;
 

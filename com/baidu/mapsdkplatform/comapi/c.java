@@ -11,10 +11,10 @@ import java.io.IOException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3019a;
+    private static boolean f2202a;
 
     public static void a(Context context, boolean z, String str, String str2) {
-        if (f3019a) {
+        if (f2202a) {
             return;
         }
         if (context == null) {
@@ -31,7 +31,7 @@ public class c {
         if (a(str2)) {
             EnvironmentUtilities.setSDCardPath(str2);
         }
-        f3019a = true;
+        f2202a = true;
     }
 
     private static boolean a(String str) {

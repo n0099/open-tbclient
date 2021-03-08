@@ -13,7 +13,7 @@ import com.baidubce.util.LengthCheckInputStream;
 import java.io.InputStream;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BosObjectResponseHandler implements HttpResponseHandler {
     @Override // com.baidubce.http.handler.HttpResponseHandler
     public boolean handle(BceHttpResponse bceHttpResponse, AbstractBceResponse abstractBceResponse) throws Exception {

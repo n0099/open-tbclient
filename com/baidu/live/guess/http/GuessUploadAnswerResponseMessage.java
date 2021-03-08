@@ -4,7 +4,7 @@ import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class GuessUploadAnswerResponseMessage extends JsonHttpResponsedMessage {
     private int doubleTicketNumber;
     private String msg;

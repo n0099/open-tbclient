@@ -10,7 +10,7 @@ import com.yy.mediaframework.model.ExternalDecodeInfo;
 import com.yy.mediaframework.model.ExternalYYMediaSample;
 import com.yy.mediaframework.screenshot.ScreenShotCallback;
 import com.yy.mediaframework.watermark.WaterMark;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IMediaCodecUpload {
     void onExternalVideoEnd();
 

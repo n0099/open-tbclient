@@ -6,14 +6,14 @@ import androidx.annotation.Nullable;
 public class b {
     public String downloadKey;
     public int installStatus;
-    public long lMP;
-    public long mSR;
-    public int mSS;
-    public String mST;
-    public String mSU;
-    public String mSV;
-    public String mSW;
-    public String mSX;
+    public long lOR;
+    public long mUY;
+    public int mUZ;
+    public String mVa;
+    public String mVb;
+    public String mVc;
+    public String mVd;
+    public String mVe;
     public String packageName;
 
     public boolean equals(@Nullable Object obj) {

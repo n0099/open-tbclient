@@ -7,44 +7,44 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.ala.alasquare.live_tab.a.d;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
-    private BdTypeRecyclerView XW;
-    private List<com.baidu.adp.widget.ListView.a> bns;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a gAD;
-    private d gAQ;
-    private boolean gAR = false;
+    private BdTypeRecyclerView Zq;
+    private List<com.baidu.adp.widget.ListView.a> boS;
+    private boolean gCA = false;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a gCm;
+    private d gCz;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.XW = bdTypeRecyclerView;
-        Kw();
+        this.Zq = bdTypeRecyclerView;
+        Kz();
     }
 
-    private void Kw() {
-        this.bns = new ArrayList();
-        this.gAQ = new d(this.mPageContext);
-        this.gAQ.mw(this.gAR);
-        this.gAD = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.bns.add(this.gAQ);
-        this.bns.add(this.gAD);
-        this.XW.addAdapters(this.bns);
+    private void Kz() {
+        this.boS = new ArrayList();
+        this.gCz = new d(this.mPageContext);
+        this.gCz.mw(this.gCA);
+        this.gCm = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.boS.add(this.gCz);
+        this.boS.add(this.gCm);
+        this.Zq.addAdapters(this.boS);
     }
 
     public void setData(List<n> list) {
-        this.XW.setData(list);
+        this.Zq.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.XW != null) {
-            this.XW.getListAdapter().notifyDataSetChanged();
+        if (this.Zq != null) {
+            this.Zq.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void mw(boolean z) {
-        this.gAR = z;
+        this.gCA = z;
     }
 }

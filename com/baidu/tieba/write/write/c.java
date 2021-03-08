@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
-    private String eue;
-    private ArrayList<String> ocW;
-    private final String oju = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String evF;
+    private ArrayList<String> ofb;
+    private final String olz = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !y.isEmpty(this.ocW)) {
+        if (spannable != null && !y.isEmpty(this.ofb)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.ocW.iterator();
+                Iterator<String> it = this.ofb.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -80,10 +80,10 @@ public class c {
         if (editText == null || (text = editText.getText()) == null) {
             return false;
         }
-        int b2 = b((Spanned) text);
-        if (b2 > 0) {
+        int b = b((Spanned) text);
+        if (b > 0) {
             editText.requestFocus();
-            editText.setSelection(b2);
+            editText.setSelection(b);
             return true;
         }
         editText.setSelection(editText.getSelectionEnd());
@@ -91,7 +91,7 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (y.isEmpty(dWv())) {
+        if (y.isEmpty(dWD())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -114,19 +114,19 @@ public class c {
     }
 
     public void bg(ArrayList<String> arrayList) {
-        this.ocW = arrayList;
+        this.ofb = arrayList;
     }
 
-    public ArrayList<String> dWv() {
-        return this.ocW;
+    public ArrayList<String> dWD() {
+        return this.ofb;
     }
 
-    public void Vh(String str) {
-        this.eue = str;
+    public void Vo(String str) {
+        this.evF = str;
     }
 
-    public String dWz() {
-        return this.eue;
+    public String dWH() {
+        return this.evF;
     }
 
     private void c(Spannable spannable) {

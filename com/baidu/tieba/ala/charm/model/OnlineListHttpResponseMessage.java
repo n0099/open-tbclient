@@ -4,11 +4,11 @@ import com.baidu.live.data.AlaLiveUserInfoData;
 import com.baidu.live.data.v;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private AlaLiveUserInfoData aId;
-    private v gOV;
-    private long gOW;
+    private AlaLiveUserInfoData aJD;
+    private v gQE;
+    private long gQF;
     private long mAudienceCount;
 
     public OnlineListHttpResponseMessage() {
@@ -22,31 +22,31 @@ public class OnlineListHttpResponseMessage extends JsonHttpResponsedMessage {
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             this.mAudienceCount = optJSONObject.optLong("audience_count");
             if (optJSONObject.optJSONArray("initmacy_rank") != null) {
-                this.gOV = new v();
-                this.gOV.parserJson(optJSONObject);
+                this.gQE = new v();
+                this.gQE.parserJson(optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("current_user_info");
             if (optJSONObject2 != null) {
-                this.aId = new AlaLiveUserInfoData();
-                this.aId.parserJson(optJSONObject2);
+                this.aJD = new AlaLiveUserInfoData();
+                this.aJD.parserJson(optJSONObject2);
             }
-            this.gOW = optJSONObject.optLong("live_total_price");
+            this.gQF = optJSONObject.optLong("live_total_price");
         }
     }
 
-    public long bTQ() {
+    public long bTW() {
         return this.mAudienceCount;
     }
 
-    public v bTR() {
-        return this.gOV;
+    public v bTX() {
+        return this.gQE;
     }
 
-    public AlaLiveUserInfoData bTS() {
-        return this.aId;
+    public AlaLiveUserInfoData bTY() {
+        return this.aJD;
     }
 
-    public long bTT() {
-        return this.gOW;
+    public long bTZ() {
+        return this.gQF;
     }
 }

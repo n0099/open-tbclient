@@ -8,28 +8,28 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b extends a {
-    private TbImageView feK;
-    private ViewGroup gIH;
+    private TbImageView fgj;
+    private ViewGroup gKq;
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        bSz();
+        bSF();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void init() {
-        this.gIH = new FrameLayout(this.mTbPageContext.getPageActivity());
-        this.feK = new TbImageView(this.mTbPageContext.getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.gAp);
-        this.feK.setDefaultBgResource(R.drawable.pic_live_ufan);
-        this.feK.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.feK.setLayoutParams(layoutParams);
-        this.gIH.addView(this.feK);
+        this.gKq = new FrameLayout(this.mTbPageContext.getPageActivity());
+        this.fgj = new TbImageView(this.mTbPageContext.getPageActivity());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mScreenWidth, this.gBY);
+        this.fgj.setDefaultBgResource(R.drawable.pic_live_ufan);
+        this.fgj.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.fgj.setLayoutParams(layoutParams);
+        this.gKq.addView(this.fgj);
         this.mMaskView.setVisibility(8);
-        this.gIH.addView(this.mMaskView);
-        this.feK.setClickable(false);
+        this.gKq.addView(this.mMaskView);
+        this.fgj.setClickable(false);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -43,19 +43,19 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void bSA() {
-        super.bSA();
-        if (this.feK != null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.feK.getLayoutParams();
+    public void bSG() {
+        super.bSG();
+        if (this.fgj != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fgj.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.gAp;
-            this.feK.setLayoutParams(layoutParams);
+            layoutParams.height = this.gBY;
+            this.fgj.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public View getContentView() {
-        return this.gIH;
+        return this.gKq;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -82,6 +82,6 @@ public class b extends a {
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
     public void onDestroy() {
-        this.feK = null;
+        this.fgj = null;
     }
 }

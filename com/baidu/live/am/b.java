@@ -5,15 +5,15 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.live.data.ab;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void H(Object obj);
+    void J(Object obj);
 
-    void Rl();
+    void Ro();
 
-    boolean Rm();
+    boolean Rp();
 
-    boolean Rn();
+    boolean Rq();
 
     void Y(View view);
 
@@ -21,7 +21,7 @@ public interface b {
 
     void a(a aVar);
 
-    void aa(JSONObject jSONObject);
+    void ac(JSONObject jSONObject);
 
     View getEnterView();
 

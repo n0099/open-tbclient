@@ -12,17 +12,15 @@ import java.util.HashMap;
 public class a implements b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1724a = Boolean.toString(true);
-
-    /* renamed from: b  reason: collision with root package name */
-    private InterfaceC0100a f1725b;
+    private static final String f1396a = Boolean.toString(true);
+    private InterfaceC0106a b;
     private String c;
     private String d;
     private ArrayList<String> e = null;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0100a {
+    public interface InterfaceC0106a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -34,7 +32,7 @@ public class a implements b.a {
 
     private String a() {
         File file;
-        String str = f1724a;
+        String str = f1396a;
         try {
             file = new File(this.d, this.c);
             try {
@@ -104,7 +102,7 @@ public class a implements b.a {
 
     private static String a(String str, ArrayList<String> arrayList) {
         File file;
-        String str2 = f1724a;
+        String str2 = f1396a;
         if (arrayList != null) {
             for (int i = 0; i < arrayList.size(); i++) {
                 try {
@@ -136,7 +134,7 @@ public class a implements b.a {
     }
 
     private String b() {
-        String str = f1724a;
+        String str = f1396a;
         try {
             if (this.e != null) {
                 CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
@@ -163,25 +161,25 @@ public class a implements b.a {
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j) {
-        this.f1725b.a(str, j);
+        this.b.a(str, j);
     }
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j, long j2) {
-        this.f1725b.a(str, j, j2);
+        this.b.a(str, j, j2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void a(String str, long j, String str2) {
-        this.f1725b.a(str, j, -1, str2 + ",networkstatus:" + n.i() + ",url:" + str);
+        this.b.a(str, j, -1, str2 + ",networkstatus:" + n.i() + ",url:" + str);
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0100a interfaceC0100a) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0100a == null) {
+    public void a(String str, String str2, String str3, InterfaceC0106a interfaceC0106a) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0106a == null) {
             return;
         }
         this.c = str2;
-        this.f1725b = interfaceC0100a;
+        this.b = interfaceC0106a;
         this.d = str3;
         n.b(this.d);
         CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);
@@ -196,23 +194,23 @@ public class a implements b.a {
     @Override // com.baidu.cyberplayer.sdk.a.b.a
     public void b(String str, long j) {
         String a2 = a();
-        if (!f1724a.equals(a2)) {
+        if (!f1396a.equals(a2)) {
             n.a(this.d, this.e);
-            this.f1725b.a(str, j, -2, a2);
+            this.b.a(str, j, -2, a2);
             return;
         }
-        String b2 = b();
-        if (!f1724a.equals(b2)) {
+        String b = b();
+        if (!f1396a.equals(b)) {
             n.a(this.d, this.e);
-            this.f1725b.a(str, j, -3, b2);
+            this.b.a(str, j, -3, b);
             return;
         }
         String a3 = a(this.d, this.e);
-        if (f1724a.equals(a3)) {
-            this.f1725b.a(str, j, this.e);
+        if (f1396a.equals(a3)) {
+            this.b.a(str, j, this.e);
             return;
         }
         n.a(this.d, this.e);
-        this.f1725b.a(str, j, -6, a3);
+        this.b.a(str, j, -6, a3);
     }
 }

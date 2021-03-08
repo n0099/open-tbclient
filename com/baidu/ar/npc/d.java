@@ -6,10 +6,8 @@ import java.util.HashMap;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1533a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ HashMap f1534b;
+    final /* synthetic */ String f1285a;
+    final /* synthetic */ HashMap b;
     final /* synthetic */ int c;
     final /* synthetic */ int d;
     final /* synthetic */ ArBridge e;
@@ -17,8 +15,8 @@ public class d implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ArBridge arBridge, String str, HashMap hashMap, int i, int i2) {
         this.e = arBridge;
-        this.f1533a = str;
-        this.f1534b = hashMap;
+        this.f1285a = str;
+        this.b = hashMap;
         this.c = i;
         this.d = i2;
     }
@@ -27,6 +25,6 @@ public class d implements Runnable {
     public void run() {
         this.e.nativeDestroyCase();
         this.e.setGLJniEnv();
-        this.e.nativeCreateCase(this.f1533a, this.e.getCaseId(), this.f1534b, this.c, this.d);
+        this.e.nativeCreateCase(this.f1285a, this.e.getCaseId(), this.b, this.c, this.d);
     }
 }

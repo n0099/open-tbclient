@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class z {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
@@ -19,15 +19,15 @@ public final class z {
 
     public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
         if (context != null && drawable != null) {
-            int db = db(context);
+            int da = da(context);
             if (i >= 0 && i < 255) {
-                db = Color.argb((Color.alpha(db) * i) / 255, Color.red(db), Color.green(db), Color.blue(db));
+                da = Color.argb((Color.alpha(da) * i) / 255, Color.red(da), Color.green(da), Color.blue(da));
             }
-            drawable.setColorFilter(db, mode);
+            drawable.setColorFilter(da, mode);
         }
     }
 
-    public static int db(Context context) {
+    public static int da(Context context) {
         return context.getResources().getColor(a.c.aiapps_ui_cover_layer_color);
     }
 }

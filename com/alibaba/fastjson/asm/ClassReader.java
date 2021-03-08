@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes4.dex */
 public class ClassReader {
-
-    /* renamed from: b  reason: collision with root package name */
-    public final byte[] f1128b;
+    public final byte[] b;
     public final int header;
     private final int[] items;
     private final int maxStringLength;
@@ -27,7 +25,7 @@ public class ClassReader {
             }
         }
         inputStream.close();
-        this.f1128b = byteArrayOutputStream.toByteArray();
+        this.b = byteArrayOutputStream.toByteArray();
         this.items = new int[readUnsignedShort(8)];
         int length = this.items.length;
         this.strings = new String[length];
@@ -35,7 +33,7 @@ public class ClassReader {
         int i4 = 10;
         while (i3 < length) {
             this.items[i3] = i4 + 1;
-            switch (this.f1128b[i4]) {
+            switch (this.b[i4]) {
                 case 1:
                     int readUnsignedShort = readUnsignedShort(i4 + 1) + 3;
                     if (readUnsignedShort <= i2) {
@@ -186,12 +184,12 @@ public class ClassReader {
     }
 
     private int readUnsignedShort(int i) {
-        byte[] bArr = this.f1128b;
+        byte[] bArr = this.b;
         return (bArr[i + 1] & 255) | ((bArr[i] & 255) << 8);
     }
 
     private int readInt(int i) {
-        byte[] bArr = this.f1128b;
+        byte[] bArr = this.b;
         return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
     }
 
@@ -211,16 +209,16 @@ public class ClassReader {
     private String readUTF(int i, int i2, char[] cArr) {
         int i3;
         int i4 = i + i2;
-        byte[] bArr = this.f1128b;
+        byte[] bArr = this.b;
         char c = 0;
         char c2 = 0;
         int i5 = 0;
         while (i < i4) {
             int i6 = i + 1;
-            byte b2 = bArr[i];
+            byte b = bArr[i];
             switch (c2) {
                 case 0:
-                    int i7 = b2 & 255;
+                    int i7 = b & 255;
                     if (i7 < 128) {
                         i3 = i5 + 1;
                         cArr[i5] = (char) i7;
@@ -238,11 +236,11 @@ public class ClassReader {
                     }
                 case 1:
                     i3 = i5 + 1;
-                    cArr[i5] = (char) ((c << 6) | (b2 & 63));
+                    cArr[i5] = (char) ((c << 6) | (b & 63));
                     c2 = 0;
                     break;
                 case 2:
-                    c = (char) ((c << 6) | (b2 & 63));
+                    c = (char) ((c << 6) | (b & 63));
                     c2 = 1;
                     i3 = i5;
                     break;

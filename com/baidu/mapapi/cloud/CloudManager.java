@@ -8,10 +8,8 @@ import com.baidu.platform.comjni.map.cloud.a;
 public class CloudManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2671a = CloudManager.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static CloudManager f2672b;
+    private static final String f1996a = CloudManager.class.getSimpleName();
+    private static CloudManager b;
     private ICloudCenter c;
 
     private CloudManager() {
@@ -26,10 +24,10 @@ public class CloudManager {
     }
 
     public static CloudManager getInstance() {
-        if (f2672b == null) {
-            f2672b = new CloudManager();
+        if (b == null) {
+            b = new CloudManager();
         }
-        return f2672b;
+        return b;
     }
 
     public boolean boundSearch(BoundSearchInfo boundSearchInfo) {

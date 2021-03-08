@@ -3,7 +3,7 @@ package com.baidu.tieba.recommendlist.data;
 import android.text.TextUtils;
 import com.baidu.live.data.AlaLiveInfoData;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaRecommendLiveData extends AlaLiveInfoData {
     public String bdPortrait;
     public String distance;

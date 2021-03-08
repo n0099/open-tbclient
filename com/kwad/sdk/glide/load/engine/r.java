@@ -8,17 +8,15 @@ import com.kwad.sdk.glide.g.a.a;
 public final class r<Z> implements a.c, s<Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pools.Pool<r<?>> f10248a = com.kwad.sdk.glide.g.a.a.a(20, new a.InterfaceC1125a<r<?>>() { // from class: com.kwad.sdk.glide.load.engine.r.1
+    private static final Pools.Pool<r<?>> f6771a = com.kwad.sdk.glide.g.a.a.a(20, new a.InterfaceC1142a<r<?>>() { // from class: com.kwad.sdk.glide.load.engine.r.1
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1125a
+        @Override // com.kwad.sdk.glide.g.a.a.InterfaceC1142a
         /* renamed from: a */
         public r<?> b() {
             return new r<>();
         }
     });
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.g.a.c f10249b = com.kwad.sdk.glide.g.a.c.a();
+    private final com.kwad.sdk.glide.g.a.c b = com.kwad.sdk.glide.g.a.c.a();
     private s<Z> c;
     private boolean d;
     private boolean e;
@@ -29,7 +27,7 @@ public final class r<Z> implements a.c, s<Z> {
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public static <Z> r<Z> a(s<Z> sVar) {
-        r<Z> rVar = (r) com.kwad.sdk.glide.g.j.a(f10248a.acquire());
+        r<Z> rVar = (r) com.kwad.sdk.glide.g.j.a(f6771a.acquire());
         rVar.b(sVar);
         return rVar;
     }
@@ -42,7 +40,7 @@ public final class r<Z> implements a.c, s<Z> {
 
     private void f() {
         this.c = null;
-        f10248a.release(this);
+        f6771a.release(this);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
@@ -53,7 +51,7 @@ public final class r<Z> implements a.c, s<Z> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void b() {
-        this.f10249b.b();
+        this.b.b();
         if (!this.d) {
             throw new IllegalStateException("Already unlocked");
         }
@@ -71,12 +69,12 @@ public final class r<Z> implements a.c, s<Z> {
     @Override // com.kwad.sdk.glide.g.a.a.c
     @NonNull
     public com.kwad.sdk.glide.g.a.c d() {
-        return this.f10249b;
+        return this.b;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public synchronized void d_() {
-        this.f10249b.b();
+        this.b.b();
         this.e = true;
         if (!this.d) {
             this.c.d_();

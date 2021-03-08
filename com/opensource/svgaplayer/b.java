@@ -6,56 +6,56 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class b extends Drawable {
-    private boolean pYJ;
-    private int pYK;
-    private final com.opensource.svgaplayer.a.b pYL;
-    private final f pYM;
-    private final c pYN;
+    private final f pZA;
+    private final c pZB;
+    private boolean pZx;
+    private int pZy;
+    private final com.opensource.svgaplayer.a.b pZz;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
-        p.o(fVar, "videoItem");
-        p.o(cVar, "dynamicItem");
-        this.pYM = fVar;
-        this.pYN = cVar;
-        this.pYJ = true;
+        p.p(fVar, "videoItem");
+        p.p(cVar, "dynamicItem");
+        this.pZA = fVar;
+        this.pZB = cVar;
+        this.pZx = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.pYL = new com.opensource.svgaplayer.a.b(this.pYM, this.pYN);
+        this.pZz = new com.opensource.svgaplayer.a.b(this.pZA, this.pZB);
     }
 
-    public final f eCE() {
-        return this.pYM;
+    public final f eCK() {
+        return this.pZA;
     }
 
-    public final void BG(boolean z) {
-        if (this.pYJ != z) {
-            this.pYJ = z;
+    public final void BE(boolean z) {
+        if (this.pZx != z) {
+            this.pZx = z;
             invalidateSelf();
         }
     }
 
-    public final int eCD() {
-        return this.pYK;
+    public final int eCJ() {
+        return this.pZy;
     }
 
-    public final void QD(int i) {
-        if (this.pYK != i) {
-            this.pYK = i;
+    public final void QH(int i) {
+        if (this.pZy != i) {
+            this.pZy = i;
             invalidateSelf();
         }
     }
 
     public final void setScaleType(ImageView.ScaleType scaleType) {
-        p.o(scaleType, "<set-?>");
+        p.p(scaleType, "<set-?>");
         this.scaleType = scaleType;
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.pYJ && canvas != null) {
-            this.pYL.a(canvas, this.pYK, this.scaleType);
+        if (!this.pZx && canvas != null) {
+            this.pZz.a(canvas, this.pZy, this.scaleType);
         }
     }
 

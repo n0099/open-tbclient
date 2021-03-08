@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.adaptation.a;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ar {
     void a(com.baidu.swan.apps.media.c.c cVar, Context context);
 
     void a(com.baidu.swan.apps.media.c.c cVar, boolean z);
 
-    ar aif();
+    ar aii();
 
     boolean isPlaying();
 

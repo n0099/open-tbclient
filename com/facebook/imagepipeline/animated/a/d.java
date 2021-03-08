@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.animated.a;
 
 import android.graphics.Bitmap;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public interface d {
     com.facebook.imagepipeline.f.c a(com.facebook.imagepipeline.f.e eVar, com.facebook.imagepipeline.common.b bVar, Bitmap.Config config);
 

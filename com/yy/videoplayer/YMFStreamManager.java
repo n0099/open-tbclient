@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFStreamManager {
     private static final String TAG = "YMFStreamManager";
     private static IYMFDecoderListener mDecoderListener;
@@ -37,7 +37,7 @@ public class YMFStreamManager {
     private static ConcurrentHashMap<Long, Boolean> mStreamVideoPlayRenderMap = new ConcurrentHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoSsrcStruct {
         public long pts;
         public int ssrc;

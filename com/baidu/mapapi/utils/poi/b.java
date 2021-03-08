@@ -6,35 +6,33 @@ import com.baidu.platform.comapi.pano.PanoStateError;
 /* synthetic */ class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f2969a;
-
-    /* renamed from: b  reason: collision with root package name */
-    static final /* synthetic */ int[] f2970b = new int[HttpClient.HttpStateError.values().length];
+    static final /* synthetic */ int[] f2170a;
+    static final /* synthetic */ int[] b = new int[HttpClient.HttpStateError.values().length];
 
     static {
         try {
-            f2970b[HttpClient.HttpStateError.NETWORK_ERROR.ordinal()] = 1;
+            b[HttpClient.HttpStateError.NETWORK_ERROR.ordinal()] = 1;
         } catch (NoSuchFieldError e) {
         }
         try {
-            f2970b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
+            b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
         } catch (NoSuchFieldError e2) {
         }
-        f2969a = new int[PanoStateError.values().length];
+        f2170a = new int[PanoStateError.values().length];
         try {
-            f2969a[PanoStateError.PANO_UID_ERROR.ordinal()] = 1;
+            f2170a[PanoStateError.PANO_UID_ERROR.ordinal()] = 1;
         } catch (NoSuchFieldError e3) {
         }
         try {
-            f2969a[PanoStateError.PANO_NOT_FOUND.ordinal()] = 2;
+            f2170a[PanoStateError.PANO_NOT_FOUND.ordinal()] = 2;
         } catch (NoSuchFieldError e4) {
         }
         try {
-            f2969a[PanoStateError.PANO_NO_TOKEN.ordinal()] = 3;
+            f2170a[PanoStateError.PANO_NO_TOKEN.ordinal()] = 3;
         } catch (NoSuchFieldError e5) {
         }
         try {
-            f2969a[PanoStateError.PANO_NO_ERROR.ordinal()] = 4;
+            f2170a[PanoStateError.PANO_NO_ERROR.ordinal()] = 4;
         } catch (NoSuchFieldError e6) {
         }
     }

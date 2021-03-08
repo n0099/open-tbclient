@@ -1,5 +1,5 @@
 package com.bigkoo.svprogresshud;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class SVProgressHUDAnimateUtil {
     private static final int INVALID = -1;
 

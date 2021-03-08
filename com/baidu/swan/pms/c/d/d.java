@@ -1,25 +1,25 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes3.dex */
 public class d extends g {
-    private String dsg;
-    private String evi;
+    private String dtJ;
+    private String ewJ;
 
     public d(String str, String str2, int i) {
         super(i);
-        this.dsg = str;
-        this.evi = str2;
+        this.dtJ = str;
+        this.ewJ = str2;
     }
 
-    public d yg(String str) {
-        this.evi = str;
+    public d yn(String str) {
+        this.ewJ = str;
         return this;
     }
 
-    public String bdq() {
-        return this.dsg;
+    public String bds() {
+        return this.dtJ;
     }
 
-    public String bdr() {
-        return this.evi;
+    public String bdt() {
+        return this.ewJ;
     }
 }

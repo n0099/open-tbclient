@@ -7,10 +7,10 @@ import com.kwad.sdk.glide.load.engine.s;
 public class g<Z> implements e<Z, Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final g<?> f10334a = new g<>();
+    private static final g<?> f6820a = new g<>();
 
     public static <Z> e<Z, Z> a() {
-        return f10334a;
+        return f6820a;
     }
 
     @Override // com.kwad.sdk.glide.load.resource.e.e

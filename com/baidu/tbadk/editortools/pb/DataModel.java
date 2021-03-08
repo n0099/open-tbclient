@@ -4,11 +4,11 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public abstract class DataModel<T> extends BdBaseModel<T> {
-    public abstract WriteData CR(String str);
+    public abstract WriteData CY(String str);
 
-    public abstract boolean bBI();
+    public abstract boolean bBL();
 
-    public abstract String bBJ();
+    public abstract String bBM();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public DataModel(com.baidu.adp.base.f<T> fVar) {

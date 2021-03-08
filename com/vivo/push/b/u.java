@@ -1,39 +1,37 @@
 package com.vivo.push.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class u extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13592a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f13593b;
+    private String f8025a;
+    private int b;
 
     public u(int i) {
         super(i);
-        this.f13592a = null;
-        this.f13593b = 0;
+        this.f8025a = null;
+        this.b = 0;
     }
 
     public final String g() {
-        return this.f13592a;
+        return this.f8025a;
     }
 
     public final int h() {
-        return this.f13593b;
+        return this.b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.y
     public void c(com.vivo.push.a aVar) {
-        aVar.a("req_id", this.f13592a);
-        aVar.a("status_msg_code", this.f13593b);
+        aVar.a("req_id", this.f8025a);
+        aVar.a("status_msg_code", this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.y
     public void d(com.vivo.push.a aVar) {
-        this.f13592a = aVar.a("req_id");
-        this.f13593b = aVar.b("status_msg_code", this.f13593b);
+        this.f8025a = aVar.a("req_id");
+        this.b = aVar.b("status_msg_code", this.b);
     }
 
     @Override // com.vivo.push.y

@@ -11,15 +11,13 @@ import java.util.List;
 public class FlowLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<List<View>> f7006a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private List<Integer> f7007b;
+    private List<List<View>> f4662a;
+    private List<Integer> b;
 
     public FlowLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f7006a = new ArrayList();
-        this.f7007b = new ArrayList();
+        this.f4662a = new ArrayList();
+        this.b = new ArrayList();
     }
 
     public FlowLayout(Context context, AttributeSet attributeSet) {
@@ -49,7 +47,7 @@ public class FlowLayout extends ViewGroup {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
             int measuredWidth = childAt.getMeasuredWidth() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin;
             int measuredHeight = childAt.getMeasuredHeight() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin;
-            if (i8 + measuredWidth > (size - getPaddingLeft()) - getPaddingRight()) {
+            if ((i8 + measuredWidth) - marginLayoutParams.rightMargin > (size - getPaddingLeft()) - getPaddingRight()) {
                 i4 = Math.max(i4, i8);
                 i3 = i5 + i7;
             } else {
@@ -74,60 +72,63 @@ public class FlowLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Log.e("TAG", "onLayout");
-        this.f7006a.clear();
-        this.f7007b.clear();
+        this.f4662a.clear();
+        this.b.clear();
         int width = getWidth();
         int i5 = 0;
         int i6 = 0;
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
-        for (int i7 = 0; i7 < childCount; i7++) {
-            View childAt = getChildAt(i7);
+        int i7 = 0;
+        for (int i8 = 0; i8 < childCount; i8++) {
+            View childAt = getChildAt(i8);
+            i7++;
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
-            if (measuredWidth + i5 + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin > (width - getPaddingLeft()) - getPaddingRight()) {
-                this.f7007b.add(Integer.valueOf(i6));
-                this.f7006a.add(arrayList);
+            if ((measuredWidth * i7) + ((marginLayoutParams.leftMargin + marginLayoutParams.rightMargin) * (i7 - 1)) > (width - getPaddingLeft()) - getPaddingRight()) {
+                this.b.add(Integer.valueOf(i6));
+                this.f4662a.add(arrayList);
                 i5 = 0;
-                i6 = marginLayoutParams.bottomMargin + marginLayoutParams.topMargin + measuredHeight;
+                i6 = marginLayoutParams.topMargin + measuredHeight + marginLayoutParams.bottomMargin;
                 arrayList = new ArrayList();
+                i7 = 0;
             }
             i5 += measuredWidth + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin;
             i6 = Math.max(i6, marginLayoutParams.bottomMargin + marginLayoutParams.topMargin + measuredHeight);
             arrayList.add(childAt);
         }
-        this.f7007b.add(Integer.valueOf(i6));
-        this.f7006a.add(arrayList);
+        this.b.add(Integer.valueOf(i6));
+        this.f4662a.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.f7006a.size();
-        int i8 = 0;
-        int i9 = paddingTop;
-        while (i8 < size) {
-            List<View> list = this.f7006a.get(i8);
-            int intValue = this.f7007b.get(i8).intValue();
-            int i10 = 0;
+        int size = this.f4662a.size();
+        int i9 = 0;
+        int i10 = paddingTop;
+        while (i9 < size) {
+            List<View> list = this.f4662a.get(i9);
+            int intValue = this.b.get(i9).intValue();
+            int i11 = 0;
             while (true) {
-                int i11 = i10;
-                int i12 = paddingLeft;
-                if (i11 < list.size()) {
-                    View view = list.get(i11);
+                int i12 = i11;
+                int i13 = paddingLeft;
+                if (i12 < list.size()) {
+                    View view = list.get(i12);
                     if (view.getVisibility() == 8) {
-                        paddingLeft = i12;
+                        paddingLeft = i13;
                     } else {
                         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-                        int i13 = marginLayoutParams2.leftMargin + i12;
-                        int i14 = marginLayoutParams2.topMargin + i9;
-                        view.layout(i13, i14, view.getMeasuredWidth() + i13, view.getMeasuredHeight() + i14);
-                        paddingLeft = i12 + view.getMeasuredWidth() + marginLayoutParams2.leftMargin + marginLayoutParams2.rightMargin;
+                        int i14 = marginLayoutParams2.leftMargin + i13;
+                        int i15 = marginLayoutParams2.topMargin + i10;
+                        view.layout(i14, i15, view.getMeasuredWidth() + i14, view.getMeasuredHeight() + i15);
+                        paddingLeft = i13 + view.getMeasuredWidth() + marginLayoutParams2.leftMargin + marginLayoutParams2.rightMargin;
                     }
-                    i10 = i11 + 1;
+                    i11 = i12 + 1;
                 }
             }
             paddingLeft = getPaddingLeft();
-            i8++;
-            i9 += intValue;
+            i9++;
+            i10 += intValue;
         }
     }
 

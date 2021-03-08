@@ -12,7 +12,7 @@ import kotlin.e;
 import kotlin.jvm.internal.p;
 import org.json.JSONObject;
 @e
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a extends com.baidu.swan.gamecenter.c.a {
     public a() {
         super("navigateToSwanGame");
@@ -20,12 +20,12 @@ public final class a extends com.baidu.swan.gamecenter.c.a {
 
     @Override // com.baidu.swan.gamecenter.c.a
     public b b(JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
-        b.a aIO;
-        b.a aIO2;
-        p.o(jSONObject, "paramsJson");
-        p.o(bVar, BuyTBeanActivityConfig.CALLBACK);
-        Application awW = com.baidu.swan.apps.t.a.awW();
-        if (awW == null) {
+        b.a aIR;
+        b.a aIR2;
+        p.p(jSONObject, "paramsJson");
+        p.p(bVar, BuyTBeanActivityConfig.CALLBACK);
+        Application awZ = com.baidu.swan.apps.t.a.awZ();
+        if (awZ == null) {
             bVar.onFail(202, "params may be error");
         } else {
             String optString = jSONObject.optString("appKey");
@@ -34,18 +34,18 @@ public final class a extends com.baidu.swan.gamecenter.c.a {
                 bVar.onFail(202, "params may be error");
             } else {
                 JSONObject jSONObject2 = new JSONObject();
-                com.baidu.swan.apps.runtime.e aIL = com.baidu.swan.apps.runtime.e.aIL();
-                jSONObject2.put("pre_source", (aIL == null || (aIO2 = aIL.aIO()) == null || (r0 = aIO2.aza()) == null) ? "" : "");
-                com.baidu.swan.apps.runtime.e aIL2 = com.baidu.swan.apps.runtime.e.aIL();
-                jSONObject2.put("pre_appid", (aIL2 == null || (aIO = aIL2.aIO()) == null || (r0 = aIO.getAppKey()) == null) ? "" : "");
+                com.baidu.swan.apps.runtime.e aIO = com.baidu.swan.apps.runtime.e.aIO();
+                jSONObject2.put("pre_source", (aIO == null || (aIR2 = aIO.aIR()) == null || (r0 = aIR2.azd()) == null) ? "" : "");
+                com.baidu.swan.apps.runtime.e aIO2 = com.baidu.swan.apps.runtime.e.aIO();
+                jSONObject2.put("pre_appid", (aIO2 == null || (aIR = aIO2.aIR()) == null || (r0 = aIR.getAppKey()) == null) ? "" : "");
                 jSONObject.put("ubc", jSONObject2);
-                String b2 = c.b(optString, 1, jSONObject);
-                String str2 = b2;
-                Uri parse = str2 == null || str2.length() == 0 ? null : Uri.parse(b2);
+                String b = c.b(optString, 1, jSONObject);
+                String str2 = b;
+                Uri parse = str2 == null || str2.length() == 0 ? null : Uri.parse(b);
                 if (parse == null) {
                     bVar.onFail(202, "params may be error");
-                } else if (SchemeRouter.invokeScheme(awW, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                    bVar.aF(null);
+                } else if (SchemeRouter.invokeScheme(awZ, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                    bVar.aH(null);
                 } else {
                     bVar.onFail(202, "params may be error");
                 }

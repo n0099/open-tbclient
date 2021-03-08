@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.maybe;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.m;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MaybeDoFinally<T> extends a<T, T> {
     final io.reactivex.b.a onFinally;
 
@@ -12,7 +12,7 @@ public final class MaybeDoFinally<T> extends a<T, T> {
         this.source.a(new DoFinallyObserver(mVar, this.onFinally));
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class DoFinallyObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, m<T> {
         private static final long serialVersionUID = 4109457741734051389L;
         final m<? super T> actual;

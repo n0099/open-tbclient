@@ -1,5 +1,5 @@
 package com.vivo.push.c;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 final class g extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(com.vivo.push.y yVar) {
@@ -8,7 +8,7 @@ final class g extends ab {
 
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
-        com.vivo.push.util.p.d("OnClearCacheTask", "delete push info " + this.f13711a.getPackageName());
-        com.vivo.push.util.y.b(this.f13711a).a();
+        com.vivo.push.util.p.d("OnClearCacheTask", "delete push info " + this.f8089a.getPackageName());
+        com.vivo.push.util.y.b(this.f8089a).a();
     }
 }

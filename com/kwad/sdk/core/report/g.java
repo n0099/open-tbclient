@@ -8,10 +8,8 @@ import java.util.List;
 public class g extends c<ReportAction, f> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f9418a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static g f9419b = new g();
+    private static volatile boolean f6247a = false;
+    private static g b = new g();
 
     private g() {
     }
@@ -31,7 +29,7 @@ public class g extends c<ReportAction, f> {
         if (aVar == null) {
             return;
         }
-        f9419b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
+        b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -46,14 +44,14 @@ public class g extends c<ReportAction, f> {
     }
 
     public static g c() {
-        return f9419b;
+        return b;
     }
 
     public static void c(final a aVar) {
         if (aVar == null) {
             return;
         }
-        f9419b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
+        b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -65,7 +63,7 @@ public class g extends c<ReportAction, f> {
 
     @Override // com.kwad.sdk.core.report.c
     public void a(Context context) {
-        if (f9418a) {
+        if (f6247a) {
             return;
         }
         super.a(context);
@@ -76,7 +74,7 @@ public class g extends c<ReportAction, f> {
         if (a2 == 2) {
             a(l.a(context));
         }
-        f9418a = true;
+        f6247a = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

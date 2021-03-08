@@ -26,15 +26,15 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            if (d.cPc()) {
-                if (!d.cPg()) {
-                    builder.page_tag = d.cPe();
+            if (d.cPj()) {
+                if (!d.cPn()) {
+                    builder.page_tag = d.cPl();
                 } else {
-                    builder.page_tag = d.cPd();
+                    builder.page_tag = d.cPk();
                 }
             }
-            builder.last_req_unix = Long.valueOf(b.brQ().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
-            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bjg() ? b.brQ().getInt("key_home_concern_all_status", 0) : 1);
+            builder.last_req_unix = Long.valueOf(b.brR().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
+            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bji() ? b.brR().getInt("key_home_concern_all_status", 0) : 1);
             if (z) {
                 v.b(builder, true);
             }
@@ -50,8 +50,8 @@ public class ConcernPageRequestMessage extends NetMessage {
 
     private String buildAdParam() {
         boolean isEmpty = TextUtils.isEmpty(this.pageTag);
-        int RT = isEmpty ? 0 : com.baidu.tieba.recapp.report.b.dEt().RT("CONCERN");
-        return AdExtParam.a.bEU().rC(RT).DE(TbadkCoreApplication.getInst().getCuidGalaxy2()).DH((this.adInfo == null || isEmpty) ? "" : this.adInfo.adFloorInfo).DF(isEmpty ? "" : com.baidu.tieba.recapp.report.b.dEt().RR("CONCERN")).bEV();
+        int RZ = isEmpty ? 0 : com.baidu.tieba.recapp.report.b.dEB().RZ("CONCERN");
+        return AdExtParam.a.bEY().rE(RZ).DL(TbadkCoreApplication.getInst().getCuidGalaxy2()).DO((this.adInfo == null || isEmpty) ? "" : this.adInfo.adFloorInfo).DM(isEmpty ? "" : com.baidu.tieba.recapp.report.b.dEB().RX("CONCERN")).bEZ();
     }
 
     public String getPageTag() {

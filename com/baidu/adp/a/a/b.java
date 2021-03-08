@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int In = 0;
+    private static int JK = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
@@ -32,9 +32,9 @@ public class b {
             }
             while (cls != null && e(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    In++;
+                    JK++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    In--;
+                    JK--;
                 }
                 cls = cls.getSuperclass();
             }
@@ -66,17 +66,17 @@ public class b {
 
     private static String kF() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < In; i++) {
+        for (int i = 0; i < JK; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
     }
 
-    public static boolean m(Object obj) {
+    public static boolean o(Object obj) {
         return obj.getClass().isArray() || (obj instanceof Collection) || (obj instanceof Hashtable) || (obj instanceof HashMap) || (obj instanceof SparseArray) || (obj instanceof HashSet) || (obj instanceof List) || (obj instanceof AbstractMap);
     }
 
-    public static boolean n(Object obj) {
+    public static boolean p(Object obj) {
         Class<?> cls;
         return (obj == null || (obj instanceof Boolean) || (obj instanceof Short) || (obj instanceof Byte) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Character) || (obj instanceof Double) || (obj instanceof String) || (cls = obj.getClass()) == Boolean.TYPE || cls == Boolean.class || cls == Short.TYPE || cls == Short.class || cls == Byte.TYPE || cls == Byte.class || cls == Integer.TYPE || cls == Integer.class || cls == Long.TYPE || cls == Long.class || cls == Float.TYPE || cls == Float.class || cls == Character.TYPE || cls == Character.class || cls == Double.TYPE || cls == Double.class || cls == String.class) ? false : true;
     }
@@ -91,10 +91,10 @@ public class b {
         }
         if (obj.getClass().isArray()) {
             if (Array.getLength(obj) > 0) {
-                if (!n(Array.get(obj, 0))) {
+                if (!p(Array.get(obj, 0))) {
                     stringBuffer.append(str + " = [");
                     for (int i3 = 0; i3 < Array.getLength(obj) - 1; i3++) {
-                        stringBuffer.append(o(Array.get(obj, i3)) + ",");
+                        stringBuffer.append(q(Array.get(obj, i3)) + ",");
                     }
                     stringBuffer.append(Array.get(obj, Array.getLength(obj) - 1) + "]\n");
                 } else {
@@ -116,18 +116,18 @@ public class b {
                 if (size > 0) {
                     for (Object obj2 : keySet) {
                         Object obj3 = ((Map) obj).get(obj2);
-                        Object o = o(obj2);
-                        Object o2 = o(obj3);
-                        if (!n(o2) && !n(o)) {
+                        Object q = q(obj2);
+                        Object q2 = q(obj3);
+                        if (!p(q2) && !p(q)) {
                             if (i2 == 0) {
                                 stringBuffer.append(str + " = [");
                             } else if (i2 == size - 1) {
-                                stringBuffer.append(o + " = " + o2 + "]\n");
+                                stringBuffer.append(q + " = " + q2 + "]\n");
                             } else {
-                                stringBuffer.append(o + " = " + o2 + ", ");
+                                stringBuffer.append(q + " = " + q2 + ", ");
                             }
                         } else {
-                            stringBuffer.append(c(str + "[" + o + "]", o2, list));
+                            stringBuffer.append(c(str + "[" + q + "]", q2, list));
                         }
                         i2++;
                     }
@@ -147,17 +147,17 @@ public class b {
                 }
                 if (i > 0) {
                     while (it.hasNext()) {
-                        Object o3 = o(it.next());
-                        if (!n(o3)) {
+                        Object q3 = q(it.next());
+                        if (!p(q3)) {
                             if (i2 == 0) {
                                 stringBuffer.append(str + " = [");
                             } else if (i2 == i - 1) {
-                                stringBuffer.append(o3 + "]\n");
+                                stringBuffer.append(q3 + "]\n");
                             } else {
-                                stringBuffer.append(o3 + ", ");
+                                stringBuffer.append(q3 + ", ");
                             }
                         } else {
-                            stringBuffer.append(c(str + "[" + i2 + "]", o3, list));
+                            stringBuffer.append(c(str + "[" + i2 + "]", q3, list));
                         }
                         i2++;
                     }
@@ -170,18 +170,18 @@ public class b {
                     while (i2 < size2) {
                         Integer valueOf = Integer.valueOf(((SparseArray) obj).keyAt(i2));
                         Object valueAt = ((SparseArray) obj).valueAt(i2);
-                        Object o4 = o(valueOf);
-                        Object o5 = o(valueAt);
-                        if (!n(o5) && !n(o4)) {
+                        Object q4 = q(valueOf);
+                        Object q5 = q(valueAt);
+                        if (!p(q5) && !p(q4)) {
                             if (i2 == 0) {
                                 stringBuffer.append(str + " = [");
                             } else if (i2 == size2 - 1) {
-                                stringBuffer.append(o4 + " = " + o5 + "]\n");
+                                stringBuffer.append(q4 + " = " + q5 + "]\n");
                             } else {
-                                stringBuffer.append(o4 + " = " + o5 + ", ");
+                                stringBuffer.append(q4 + " = " + q5 + ", ");
                             }
                         } else {
-                            stringBuffer.append(c(str + "[" + o4 + "]", o5, list));
+                            stringBuffer.append(c(str + "[" + q4 + "]", q5, list));
                         }
                         i2++;
                     }
@@ -193,7 +193,7 @@ public class b {
         return stringBuffer.toString();
     }
 
-    private static Object o(Object obj) {
+    private static Object q(Object obj) {
         if (obj != null && obj.getClass() == String.class) {
             return "\"" + obj + "\"";
         }
@@ -204,37 +204,37 @@ public class b {
         if (obj == null) {
             return str + " = null\n";
         }
-        if (m(obj)) {
+        if (o(obj)) {
             return b(str, obj, list);
         }
-        if (n(obj)) {
+        if (p(obj)) {
             if (!list.contains(obj)) {
                 list.add(obj);
                 return a(str, obj, list);
             }
             return str + " = <already visited>\n";
         }
-        return str + " = " + o(obj) + "\n";
+        return str + " = " + q(obj) + "\n";
     }
 
-    private static String c(String str, Object obj) {
+    private static String d(String str, Object obj) {
         if (obj == null) {
             return str + ": null\n";
         }
-        if (m(obj)) {
+        if (o(obj)) {
             return b(str, obj, new ArrayList());
         }
-        if (n(obj)) {
+        if (p(obj)) {
             return a(str, obj, new ArrayList());
         }
         return str + " = " + obj.toString() + "\n\r";
     }
 
-    public static void d(String str, Object obj) {
+    public static void e(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.Iy) {
+        if (d.JV) {
             stringBuffer.append("Message_Type: " + str + "\n");
-            stringBuffer.append(c("", obj));
+            stringBuffer.append(d("", obj));
             stringBuffer.append("----------------------------------------------------------\n");
             String[] split = stringBuffer.toString().split("\n");
             for (String str2 : split) {

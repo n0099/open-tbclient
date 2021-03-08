@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetThemeList.DataReq;
 import tbclient.GetThemeList.GetThemeListReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DressupCenterRequestMessage extends NetMessage {
     public DressupCenterRequestMessage() {
         super(1003030, CmdConfigSocket.CMD_DRESSUP_CENTER);

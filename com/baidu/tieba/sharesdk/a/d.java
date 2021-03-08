@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends a {
     public d(Context context) {
         super(context);

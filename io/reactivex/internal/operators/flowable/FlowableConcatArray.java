@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableConcatArray<T> extends g<T> {
     final boolean delayError;
     final org.a.b<? extends T>[] sources;
@@ -20,7 +20,7 @@ public final class FlowableConcatArray<T> extends g<T> {
         concatArraySubscriber.onComplete();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class ConcatArraySubscriber<T> extends SubscriptionArbiter implements j<T> {
         private static final long serialVersionUID = -8158322871608889516L;
         final org.a.c<? super T> actual;

@@ -1,66 +1,66 @@
 package com.baidu.live.liveroom.e;
 
 import android.content.Context;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class i {
-    private static volatile i brG = null;
-    private e brH;
-    private e brI;
-    private c brJ;
-    private com.baidu.live.u.d brK;
+    private static volatile i btg = null;
+    private e bth;
+    private e bti;
+    private c btj;
+    private com.baidu.live.u.d btk;
 
     private i() {
     }
 
-    public static i MT() {
-        if (brG == null) {
+    public static i MW() {
+        if (btg == null) {
             synchronized (i.class) {
-                if (brG == null) {
-                    brG = new i();
+                if (btg == null) {
+                    btg = new i();
                 }
             }
         }
-        return brG;
+        return btg;
     }
 
     public void a(e eVar) {
-        this.brH = eVar;
+        this.bth = eVar;
     }
 
     public void b(e eVar) {
-        this.brI = eVar;
+        this.bti = eVar;
     }
 
-    public boolean MU() {
-        return this.brH != null;
+    public boolean MX() {
+        return this.bth != null;
     }
 
-    public d ba(Context context) {
-        if (this.brH != null) {
-            return this.brH.aZ(context);
+    public d aZ(Context context) {
+        if (this.bth != null) {
+            return this.bth.aY(context);
         }
         return null;
     }
 
-    public d bb(Context context) {
-        if (this.brI != null) {
-            return this.brI.aZ(context);
+    public d ba(Context context) {
+        if (this.bti != null) {
+            return this.bti.aY(context);
         }
         return null;
     }
 
     public void a(c cVar) {
-        this.brJ = cVar;
+        this.btj = cVar;
     }
 
-    public b MV() {
-        if (this.brJ != null) {
-            return this.brJ.MR();
+    public b MY() {
+        if (this.btj != null) {
+            return this.btj.MU();
         }
         return null;
     }
 
-    public com.baidu.live.u.d MW() {
-        return this.brK;
+    public com.baidu.live.u.d MZ() {
+        return this.btk;
     }
 }

@@ -15,7 +15,7 @@ import com.yy.mediaframework.utils.YMFLog;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractEncoderFilter extends IEncodeFilter {
     private int capFrameRate;
     protected IEncodedDataOutCallBack encodedCallBack;
@@ -48,12 +48,12 @@ public abstract class AbstractEncoderFilter extends IEncodeFilter {
     private YMFEncoderStatisticInfo mVideoPublishInfo = new YMFEncoderStatisticInfo(0);
     protected AtomicBoolean mFirstEncoderDataOut = new AtomicBoolean(false);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IEncodeStateCallBack {
         void onEncodeError(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IEncodedDataOutCallBack {
         void onFirstEncodedDataOut();
 

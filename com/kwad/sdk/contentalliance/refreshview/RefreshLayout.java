@@ -50,13 +50,11 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     private boolean W;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f8823a;
+    protected int f5876a;
     private final Animation aa;
     private final Animation ab;
     private boolean ac;
-
-    /* renamed from: b  reason: collision with root package name */
-    protected float f8824b;
+    protected float b;
     protected float c;
     protected View d;
     protected com.kwad.sdk.contentalliance.refreshview.d e;
@@ -201,7 +199,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                 if (RefreshLayout.this.L == null) {
                     return;
                 }
-                switch (AnonymousClass6.f8830a[RefreshLayout.this.K.ordinal()]) {
+                switch (AnonymousClass6.f5882a[RefreshLayout.this.K.ordinal()]) {
                     case 1:
                         RefreshLayout.this.a(RefreshLayout.this.c + RefreshLayout.this.D, RefreshLayout.this.d.getTop(), f);
                         return;
@@ -217,7 +215,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                 if (RefreshLayout.this.L == null) {
                     return;
                 }
-                switch (AnonymousClass6.f8830a[RefreshLayout.this.K.ordinal()]) {
+                switch (AnonymousClass6.f5882a[RefreshLayout.this.K.ordinal()]) {
                     case 1:
                         RefreshLayout.this.a(RefreshLayout.this.D, RefreshLayout.this.d.getTop(), f);
                         return;
@@ -230,10 +228,10 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         this.ac = true;
         this.y = ViewConfiguration.get(context).getScaledTouchSlop();
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        this.f8823a = (int) (displayMetrics.density * 70.0f);
+        this.f5876a = (int) (displayMetrics.density * 70.0f);
         this.c = displayMetrics.density * 70.0f;
-        this.f8824b = 0.0f;
-        com.kwad.sdk.core.d.a.b("RefreshLayout", "constructor: " + this.f8824b);
+        this.b = 0.0f;
+        com.kwad.sdk.core.d.a.b("RefreshLayout", "constructor: " + this.b);
         this.D = 0.0f;
         this.E = 1.0f;
         this.k = new NestedScrollingParentHelper(this);
@@ -266,7 +264,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
 
     private void a(float f) {
         float f2 = f - this.z;
-        if (this.o && (f2 > this.y || this.f8824b > 0.0f)) {
+        if (this.o && (f2 > this.y || this.b > 0.0f)) {
             this.q = true;
             this.B = this.z + this.y;
         } else if (this.q || f2 <= this.y) {
@@ -331,8 +329,8 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                     }
                 }
             }
-            com.kwad.sdk.core.d.a.b("RefreshLayout", f + " -- " + f2 + " -- " + f3 + " -- " + this.f8824b + " -- " + this.c);
-            a((int) (f3 - this.f8824b), z);
+            com.kwad.sdk.core.d.a.b("RefreshLayout", f + " -- " + f2 + " -- " + f3 + " -- " + this.b + " -- " + this.c);
+            a((int) (f3 - this.b), z);
         }
     }
 
@@ -348,14 +346,14 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         switch (this.K) {
             case FLOAT:
                 this.d.offsetTopAndBottom(i);
-                this.f8824b = this.d.getTop();
+                this.b = this.d.getTop();
                 break;
             case PINNED:
                 this.L.offsetTopAndBottom(i);
                 if (this.G != null) {
                     this.G.offsetTopAndBottom(i);
                 }
-                this.f8824b = this.L.getTop();
+                this.b = this.L.getTop();
                 break;
             default:
                 this.L.offsetTopAndBottom(i);
@@ -366,32 +364,32 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                     this.F = f - ((int) f);
                     this.d.offsetTopAndBottom((int) f);
                 }
-                this.f8824b = this.L.getTop();
-                com.kwad.sdk.core.d.a.b("RefreshLayout", "refresh style" + this.f8824b);
+                this.b = this.L.getTop();
+                com.kwad.sdk.core.d.a.b("RefreshLayout", "refresh style" + this.b);
                 break;
         }
-        com.kwad.sdk.core.d.a.b("RefreshLayout", "current offset" + this.f8824b);
+        com.kwad.sdk.core.d.a.b("RefreshLayout", "current offset" + this.b);
         switch (this.K) {
             case FLOAT:
-                this.e.a(this.f8824b, (this.f8824b - this.D) / this.c);
+                this.e.a(this.b, (this.b - this.D) / this.c);
                 if (this.R != null) {
-                    this.R.a(this.f8824b, (this.f8824b - this.D) / this.c, z);
+                    this.R.a(this.b, (this.b - this.D) / this.c, z);
                 }
                 if (this.S != null) {
                     for (int i2 = 0; i2 < this.S.size(); i2++) {
-                        this.S.get(i2).a(this.f8824b, (this.f8824b - this.D) / this.c, z);
+                        this.S.get(i2).a(this.b, (this.b - this.D) / this.c, z);
                     }
                     break;
                 }
                 break;
             default:
-                this.e.a(this.f8824b, this.f8824b / this.c);
+                this.e.a(this.b, this.b / this.c);
                 if (this.R != null) {
-                    this.R.a(this.f8824b, this.f8824b / this.c, z);
+                    this.R.a(this.b, this.b / this.c, z);
                 }
                 if (this.S != null) {
                     for (int i3 = 0; i3 < this.S.size(); i3++) {
-                        this.S.get(i3).a(this.f8824b, this.f8824b / this.c, z);
+                        this.S.get(i3).a(this.b, this.b / this.c, z);
                     }
                     break;
                 }
@@ -414,14 +412,14 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
             this.r = z2;
             this.o = z;
             if (z) {
-                b((int) this.f8824b, this.P);
+                b((int) this.b, this.P);
                 return;
             }
             this.e.c();
             postDelayed(new Runnable() { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    RefreshLayout.this.a((int) RefreshLayout.this.f8824b, RefreshLayout.this.f);
+                    RefreshLayout.this.a((int) RefreshLayout.this.b, RefreshLayout.this.f);
                 }
             }, this.e.f());
         }
@@ -461,9 +459,9 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
             case FLOAT:
                 return i;
             case PINNED:
-                return i + ((int) this.f8824b);
+                return i + ((int) this.b);
             default:
-                return i + ((int) this.f8824b);
+                return i + ((int) this.b);
         }
     }
 
@@ -509,10 +507,10 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     private void c() {
         switch (this.K) {
             case FLOAT:
-                setTargetOrRefreshViewOffsetY((int) (this.D - this.f8824b));
+                setTargetOrRefreshViewOffsetY((int) (this.D - this.b));
                 return;
             default:
-                setTargetOrRefreshViewOffsetY((int) (0.0f - this.f8824b));
+                setTargetOrRefreshViewOffsetY((int) (0.0f - this.b));
                 return;
         }
     }
@@ -551,7 +549,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                 return;
             }
             this.o = false;
-            a((int) this.f8824b, this.f);
+            a((int) this.b, this.f);
         }
     }
 
@@ -586,11 +584,11 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     protected int a(int i) {
         switch (this.K) {
             case FLOAT:
-                return i + ((int) this.f8824b);
+                return i + ((int) this.b);
             case PINNED:
                 return i;
             default:
-                return i + ((int) this.f8824b);
+                return i + ((int) this.b);
         }
     }
 
@@ -629,7 +627,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         this.e = (com.kwad.sdk.contentalliance.refreshview.d) this.d;
         a c2 = c(attributeSet);
         if (c2 == null) {
-            c2 = new a(this.f8823a, this.f8823a);
+            c2 = new a(this.f5876a, this.f5876a);
         }
         addView(this.d, c2);
     }
@@ -787,7 +785,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                             this.n = false;
                         }
                         this.z = a2;
-                        this.A = this.f8824b;
+                        this.A = this.b;
                         this.s = false;
                         break;
                     } else {
@@ -806,7 +804,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                             if (this.M != null && this.M.isRunning()) {
                                 this.M.cancel();
                                 this.e.c();
-                                a((int) this.f8824b, this.f);
+                                a((int) this.b, this.f);
                                 break;
                             }
                         } else {
@@ -867,14 +865,14 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
                 case FLOAT:
                     float f = -this.d.getMeasuredHeight();
                     this.D = f;
-                    this.f8824b = f;
+                    this.b = f;
                     break;
                 case PINNED:
                     this.D = 0.0f;
-                    this.f8824b = 0.0f;
+                    this.b = 0.0f;
                     break;
                 default:
-                    this.f8824b = 0.0f;
+                    this.b = 0.0f;
                     this.D = -this.d.getMeasuredHeight();
                     break;
             }
@@ -1155,7 +1153,7 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         }
         this.o = z;
         this.r = false;
-        b((int) this.f8824b, this.P);
+        b((int) this.b, this.P);
     }
 
     public void setShowRefreshView(boolean z) {

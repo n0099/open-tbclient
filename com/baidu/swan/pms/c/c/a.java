@@ -6,41 +6,41 @@ import com.baidu.swan.pms.model.g;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public List<C0539a> euS;
+    public List<C0545a> ewt;
 
     /* renamed from: com.baidu.swan.pms.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0539a {
+    public static class C0545a {
         public int category;
         public int errorCode;
-        public f euT;
-        public List<g> euU;
-        public PMSAppInfo euV;
-        public boolean euW;
-        public String euc;
+        public String evD;
+        public f ewu;
+        public List<g> ewv;
+        public PMSAppInfo eww;
+        public boolean ewx;
 
         public boolean equals(Object obj) {
             if (super.equals(obj)) {
                 return true;
             }
-            if (obj == null || this.euT == null || !(obj instanceof C0539a)) {
+            if (obj == null || this.ewu == null || !(obj instanceof C0545a)) {
                 return false;
             }
-            return this.euT.equals(((C0539a) obj).euT);
+            return this.ewu.equals(((C0545a) obj).ewu);
         }
 
         public int hashCode() {
-            return this.euT == null ? super.hashCode() : this.euT.hashCode();
+            return this.ewu == null ? super.hashCode() : this.ewu.hashCode();
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append("PMS Item: ").append(this.euc);
-            if (this.euT != null) {
-                sb.append(",pkgMain=").append(this.euT);
+            sb.append("PMS Item: ").append(this.evD);
+            if (this.ewu != null) {
+                sb.append(",pkgMain=").append(this.ewu);
             }
-            if (this.euV != null) {
-                sb.append(",appInfo=").append(this.euV);
+            if (this.eww != null) {
+                sb.append(",appInfo=").append(this.eww);
             }
             return sb.toString();
         }

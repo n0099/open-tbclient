@@ -13,150 +13,150 @@ import java.util.function.UnaryOperator;
 public class c<T> implements List<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final d<T> f10444a;
+    private final d<T> f6886a;
 
     public c(d<T> dVar) {
-        this.f10444a = dVar;
+        this.f6886a = dVar;
     }
 
     @Override // java.util.List
     public void add(int i, T t) {
-        this.f10444a.a().add(i, t);
+        this.f6886a.a().add(i, t);
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean add(T t) {
-        return this.f10444a.a().add(t);
+        return this.f6886a.a().add(t);
     }
 
     @Override // java.util.List
     public boolean addAll(int i, @NonNull Collection<? extends T> collection) {
-        return this.f10444a.a().addAll(i, collection);
+        return this.f6886a.a().addAll(i, collection);
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean addAll(@NonNull Collection<? extends T> collection) {
-        return this.f10444a.a().addAll(collection);
+        return this.f6886a.a().addAll(collection);
     }
 
     @Override // java.util.List, java.util.Collection
     public void clear() {
-        this.f10444a.a().clear();
+        this.f6886a.a().clear();
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean contains(Object obj) {
-        return this.f10444a.a().contains(obj);
+        return this.f6886a.a().contains(obj);
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean containsAll(@NonNull Collection<?> collection) {
-        return this.f10444a.a().containsAll(collection);
+        return this.f6886a.a().containsAll(collection);
     }
 
     @Override // java.lang.Iterable
     public void forEach(Consumer<? super T> consumer) {
-        this.f10444a.a().forEach(consumer);
+        this.f6886a.a().forEach(consumer);
     }
 
     @Override // java.util.List
     public T get(int i) {
-        return this.f10444a.a().get(i);
+        return this.f6886a.a().get(i);
     }
 
     @Override // java.util.List
     public int indexOf(Object obj) {
-        return this.f10444a.a().indexOf(obj);
+        return this.f6886a.a().indexOf(obj);
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean isEmpty() {
-        return this.f10444a.a().isEmpty();
+        return this.f6886a.a().isEmpty();
     }
 
     @Override // java.util.List, java.util.Collection, java.lang.Iterable
     @NonNull
     public Iterator<T> iterator() {
-        return this.f10444a.a().iterator();
+        return this.f6886a.a().iterator();
     }
 
     @Override // java.util.List
     public int lastIndexOf(Object obj) {
-        return this.f10444a.a().lastIndexOf(obj);
+        return this.f6886a.a().lastIndexOf(obj);
     }
 
     @Override // java.util.List
     @NonNull
     public ListIterator<T> listIterator() {
-        return this.f10444a.a().listIterator();
+        return this.f6886a.a().listIterator();
     }
 
     @Override // java.util.List
     @NonNull
     public ListIterator<T> listIterator(int i) {
-        return this.f10444a.a().listIterator(i);
+        return this.f6886a.a().listIterator(i);
     }
 
     @Override // java.util.List
     public T remove(int i) {
-        return this.f10444a.a().remove(i);
+        return this.f6886a.a().remove(i);
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean remove(Object obj) {
-        return this.f10444a.a().remove(obj);
+        return this.f6886a.a().remove(obj);
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean removeAll(@NonNull Collection<?> collection) {
-        return this.f10444a.a().removeAll(collection);
+        return this.f6886a.a().removeAll(collection);
     }
 
     @Override // java.util.List
     public void replaceAll(UnaryOperator<T> unaryOperator) {
-        this.f10444a.a().replaceAll(unaryOperator);
+        this.f6886a.a().replaceAll(unaryOperator);
     }
 
     @Override // java.util.List, java.util.Collection
     public boolean retainAll(@NonNull Collection<?> collection) {
-        return this.f10444a.a().retainAll(collection);
+        return this.f6886a.a().retainAll(collection);
     }
 
     @Override // java.util.List
     public T set(int i, T t) {
-        return this.f10444a.a().set(i, t);
+        return this.f6886a.a().set(i, t);
     }
 
     @Override // java.util.List, java.util.Collection
     public int size() {
-        return this.f10444a.a().size();
+        return this.f6886a.a().size();
     }
 
     @Override // java.util.List
     public void sort(Comparator<? super T> comparator) {
-        this.f10444a.a().sort(comparator);
+        this.f6886a.a().sort(comparator);
     }
 
     @Override // java.util.List, java.util.Collection, java.lang.Iterable
     public Spliterator<T> spliterator() {
-        return this.f10444a.a().spliterator();
+        return this.f6886a.a().spliterator();
     }
 
     @Override // java.util.List
     @NonNull
     public List<T> subList(int i, int i2) {
-        return this.f10444a.a().subList(i, i2);
+        return this.f6886a.a().subList(i, i2);
     }
 
     @Override // java.util.List, java.util.Collection
     @NonNull
     public Object[] toArray() {
-        return this.f10444a.a().toArray();
+        return this.f6886a.a().toArray();
     }
 
     @Override // java.util.List, java.util.Collection
     @NonNull
     public <T1> T1[] toArray(@NonNull T1[] t1Arr) {
-        return (T1[]) this.f10444a.a().toArray(t1Arr);
+        return (T1[]) this.f6886a.a().toArray(t1Arr);
     }
 }

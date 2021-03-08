@@ -8,16 +8,14 @@ import android.view.View;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f4459a = 0.0f;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static int f4460b = 0;
+    private static float f3083a = 0.0f;
+    private static int b = 0;
 
     public static float a(Context context) {
-        if (f4459a == 0.0f) {
-            f4459a = context.getResources().getDisplayMetrics().density;
+        if (f3083a == 0.0f) {
+            f3083a = context.getResources().getDisplayMetrics().density;
         }
-        return f4459a;
+        return f3083a;
     }
 
     public static int b(Context context) {
@@ -44,8 +42,8 @@ public class g {
         if (context == null) {
             return 0;
         }
-        if (f4460b > 0) {
-            return f4460b;
+        if (b > 0) {
+            return b;
         }
         if (context instanceof Activity) {
             View findViewById = ((Activity) context).getWindow().getDecorView().findViewById(16908290);

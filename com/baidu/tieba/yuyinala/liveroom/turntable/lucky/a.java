@@ -1,15 +1,15 @@
 package com.baidu.tieba.yuyinala.liveroom.turntable.lucky;
 
 import android.widget.FrameLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private FrameLayout hPd;
-    private boolean hPh;
+    private FrameLayout hQM;
+    private boolean hQQ;
 
     public void oM(boolean z) {
-        this.hPh = z;
-        if (this.hPd != null && this.hPd.getParent() != null) {
-            this.hPd.setVisibility(z ? 0 : 8);
+        this.hQQ = z;
+        if (this.hQM != null && this.hQM.getParent() != null) {
+            this.hQM.setVisibility(z ? 0 : 8);
         }
     }
 }

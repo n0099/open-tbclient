@@ -6,7 +6,7 @@ import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.plugin.common.JSONMethodCodec;
 import io.flutter.plugin.common.MethodChannel;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class NavigationChannel {
     private static final String TAG = "NavigationChannel";
     @NonNull

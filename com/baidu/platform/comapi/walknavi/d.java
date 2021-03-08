@@ -4,15 +4,15 @@ package com.baidu.platform.comapi.walknavi;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4202a;
+    final /* synthetic */ b f2909a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.f4202a = bVar;
+        this.f2909a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f4202a.F().runEntryState();
+        this.f2909a.F().runEntryState();
     }
 }

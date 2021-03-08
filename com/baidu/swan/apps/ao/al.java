@@ -5,54 +5,54 @@ import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.Context;
 import android.text.ClipboardManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class al {
-    protected static Context dPn;
+    protected static Context dQO;
 
     public abstract CharSequence getText();
 
     public abstract void setText(CharSequence charSequence);
 
-    public static al dR(Context context) {
-        dPn = context.getApplicationContext();
+    public static al dQ(Context context) {
+        dQO = context.getApplicationContext();
         return c.hasHoneycomb() ? new a() : new b();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class b extends al {
-        private static ClipboardManager dPq = null;
+        private static ClipboardManager dQR = null;
 
         public b() {
-            dPq = (ClipboardManager) dPn.getSystemService("clipboard");
+            dQR = (ClipboardManager) dQO.getSystemService("clipboard");
         }
 
         @Override // com.baidu.swan.apps.ao.al
         public void setText(CharSequence charSequence) {
-            dPq.setText(charSequence);
+            dQR.setText(charSequence);
         }
 
         @Override // com.baidu.swan.apps.ao.al
         public CharSequence getText() {
-            return dPq.getText();
+            return dQR.getText();
         }
     }
 
     @TargetApi(11)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private static class a extends al {
-        private static android.content.ClipboardManager dPo = null;
-        private static ClipData dPp = null;
+        private static android.content.ClipboardManager dQP = null;
+        private static ClipData dQQ = null;
 
         @SuppressLint({"ServiceCast"})
         public a() {
-            dPo = (android.content.ClipboardManager) dPn.getSystemService("clipboard");
+            dQP = (android.content.ClipboardManager) dQO.getSystemService("clipboard");
         }
 
         @Override // com.baidu.swan.apps.ao.al
         public void setText(CharSequence charSequence) {
-            dPp = ClipData.newPlainText("text/plain", charSequence);
+            dQQ = ClipData.newPlainText("text/plain", charSequence);
             try {
-                dPo.setPrimaryClip(dPp);
+                dQP.setPrimaryClip(dQQ);
             } catch (RuntimeException e) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     e.printStackTrace();
@@ -63,14 +63,14 @@ public abstract class al {
         @Override // com.baidu.swan.apps.ao.al
         public CharSequence getText() {
             try {
-                dPp = dPo.getPrimaryClip();
+                dQQ = dQP.getPrimaryClip();
             } catch (Exception e) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     throw e;
                 }
             }
-            if (dPp != null && dPp.getItemCount() > 0) {
-                return dPp.getItemAt(0).getText();
+            if (dQQ != null && dQQ.getItemCount() > 0) {
+                return dQQ.getItemAt(0).getText();
             }
             return "";
         }

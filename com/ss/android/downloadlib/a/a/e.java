@@ -12,14 +12,12 @@ import com.ss.android.downloadlib.a;
 public class e extends Dialog implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f12927a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private View f12928b;
+    private View f7689a;
+    private View b;
     private boolean e;
     private Activity f;
-    private d qbt;
-    private c qbu;
+    private d qch;
+    private c qci;
 
     public e(@NonNull Activity activity, @NonNull d dVar) {
         this(activity, dVar, null);
@@ -28,23 +26,23 @@ public class e extends Dialog implements c {
     public e(@NonNull Activity activity, @NonNull d dVar, c cVar) {
         super(activity, a.d.ttdownloader_translucent_dialog);
         this.f = activity;
-        this.qbt = dVar;
-        this.qbu = cVar;
+        this.qch = dVar;
+        this.qci = cVar;
         setCancelable(false);
         d();
     }
 
     private void d() {
         setContentView(LayoutInflater.from(this.f.getApplicationContext()).inflate(a(), (ViewGroup) null));
-        this.f12927a = findViewById(b());
-        this.f12928b = findViewById(c());
-        this.f12927a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.1
+        this.f7689a = findViewById(b());
+        this.b = findViewById(c());
+        this.f7689a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.e();
             }
         });
-        this.f12928b.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.2
+        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.a.a.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.f();
@@ -54,17 +52,17 @@ public class e extends Dialog implements c {
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int a() {
-        return this.qbu != null ? this.qbu.a() : a.c.ttdownloader_dialog_reserve_wifi;
+        return this.qci != null ? this.qci.a() : a.c.ttdownloader_dialog_reserve_wifi;
     }
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int b() {
-        return this.qbu != null ? this.qbu.b() : a.b.confirm_tv;
+        return this.qci != null ? this.qci.b() : a.b.confirm_tv;
     }
 
     @Override // com.ss.android.downloadlib.a.a.c
     public int c() {
-        return this.qbu != null ? this.qbu.c() : a.b.cancel_tv;
+        return this.qci != null ? this.qci.c() : a.b.cancel_tv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -85,9 +83,9 @@ public class e extends Dialog implements c {
             this.f.finish();
         }
         if (this.e) {
-            this.qbt.a();
+            this.qch.a();
         } else {
-            this.qbt.b();
+            this.qch.b();
         }
     }
 

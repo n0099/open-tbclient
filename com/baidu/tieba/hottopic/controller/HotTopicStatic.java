@@ -34,39 +34,39 @@ import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.tieba.newlist.HotTopicListActivity;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HotTopicStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicActivityConfig.class, HotTopicDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(RelateTopicForumActivityConfig.class, RelateTopicForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(HotRanklistActivityConfig.class, HotTopicListActivity.class);
-        cTa();
-        cTb();
-        cTc();
-        cwb();
-        cTd();
-        cTe();
-        cTf();
-        bRa();
+        cTh();
+        cTi();
+        cTj();
+        cwh();
+        cTk();
+        cTl();
+        cTm();
+        bRg();
     }
 
-    private static void cTa() {
+    private static void cTh() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC, ResponseSocketHotTopicMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC, 1003041, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
     }
 
-    private static void cTb() {
+    private static void cTi() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_RELATE_THREAD, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_RELATE_THREAD, 1003042, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
     }
 
-    private static void cTc() {
+    private static void cTj() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_BLESS, BlessSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_TOPIC_BLESS, 1003065, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
-    private static void cwb() {
-        bf.bsV().a(new bf.a() { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.1
+    private static void cwh() {
+        bf.bsY().a(new bf.a() { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.1
             @Override // com.baidu.tbadk.core.util.bf.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 String lowerCase;
@@ -91,25 +91,25 @@ public class HotTopicStatic {
         });
     }
 
-    private static void cTd() {
+    private static void cTk() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_ADAPTER) { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new com.baidu.tieba.hottopic.frs.c(null, cb.eQU));
+                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new com.baidu.tieba.hottopic.frs.c(null, cb.eSv));
                 }
             }
         });
     }
 
-    private static void cTe() {
+    private static void cTl() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST, ResponseSocketHotRanklistMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST, 1003078, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
     }
 
-    private static void cTf() {
-        bf.bsV().a(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST, new bf.b() { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.3
+    private static void cTm() {
+        bf.bsY().a(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST, new bf.b() { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.3
             @Override // com.baidu.tbadk.core.util.bf.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null && map != null) {
@@ -119,7 +119,7 @@ public class HotTopicStatic {
         });
     }
 
-    private static void bRa() {
+    private static void bRg() {
         CustomMessageListener customMessageListener = new CustomMessageListener(CmdConfigCustom.CMD_FRS_ADD_TAB) { // from class: com.baidu.tieba.hottopic.controller.HotTopicStatic.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

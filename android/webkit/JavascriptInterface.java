@@ -6,6 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public @interface JavascriptInterface {
 }

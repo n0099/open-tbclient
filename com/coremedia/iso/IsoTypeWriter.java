@@ -1,8 +1,7 @@
 package com.coremedia.iso;
 
-import androidx.core.internal.view.SupportMenu;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IsoTypeWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
 
@@ -28,7 +27,7 @@ public final class IsoTypeWriter {
         if (!$assertionsDisabled && (j < 0 || j > 4294967296L)) {
             throw new AssertionError("The given long is not in the range of uint32 (" + j + ")");
         }
-        writeUInt16BE(byteBuffer, ((int) j) & SupportMenu.USER_MASK);
+        writeUInt16BE(byteBuffer, ((int) j) & 65535);
         writeUInt16BE(byteBuffer, (int) ((j >> 16) & 65535));
     }
 

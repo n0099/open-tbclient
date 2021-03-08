@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderHttpsRequestHandler {
     private static final int ERR_IOEXCEPTION = 12;
     private static final int ERR_MALFORMED_URL = 10;

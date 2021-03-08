@@ -19,10 +19,8 @@ import java.util.Arrays;
 public class KSPageLoadingView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f9015a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private ImageView f9016b;
+    private View f5996a;
+    private ImageView b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -59,11 +57,11 @@ public class KSPageLoadingView extends FrameLayout implements View.OnClickListen
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, iArr);
         this.i = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i), false);
         obtainStyledAttributes.recycle();
-        this.f9015a = findViewById(R.id.ksad_error_container);
-        this.f9015a.setOnClickListener(this);
-        this.f9015a.setBackgroundColor(getContext().getResources().getColor(this.i ? R.color.ksad_page_loading_error_container_light_color : R.color.ksad_page_loading_error_container_dark_color));
-        this.f9016b = (ImageView) findViewById(R.id.ksad_error_img);
-        this.f9016b.setVisibility(0);
+        this.f5996a = findViewById(R.id.ksad_error_container);
+        this.f5996a.setOnClickListener(this);
+        this.f5996a.setBackgroundColor(getContext().getResources().getColor(this.i ? R.color.ksad_page_loading_error_container_light_color : R.color.ksad_page_loading_error_container_dark_color));
+        this.b = (ImageView) findViewById(R.id.ksad_error_img);
+        this.b.setVisibility(0);
         this.c = (TextView) findViewById(R.id.ksad_error_title);
         this.c.setTextColor(getContext().getResources().getColor(this.i ? R.color.ksad_page_loading_error_title_light_color : R.color.ksad_page_loading_error_title_dark_color));
         this.d = (TextView) findViewById(R.id.ksad_error_sub_title);
@@ -91,7 +89,7 @@ public class KSPageLoadingView extends FrameLayout implements View.OnClickListen
     }
 
     private void g() {
-        this.f9015a.setVisibility(8);
+        this.f5996a.setVisibility(8);
     }
 
     private void h() {
@@ -108,14 +106,14 @@ public class KSPageLoadingView extends FrameLayout implements View.OnClickListen
     public void a(boolean z) {
         f();
         h();
-        this.f9016b.setImageDrawable(getContext().getResources().getDrawable(this.i ? R.drawable.ksad_page_loading_network_error : R.drawable.ksad_content_network_error));
+        this.b.setImageDrawable(getContext().getResources().getDrawable(this.i ? R.drawable.ksad_page_loading_network_error : R.drawable.ksad_content_network_error));
         this.c.setText(q.d(getContext()));
         this.c.setVisibility(0);
         this.d.setText(q.e(getContext()));
         this.d.setVisibility(0);
         this.e.setText(q.i(getContext()));
         this.e.setVisibility(0);
-        this.f9015a.setVisibility(0);
+        this.f5996a.setVisibility(0);
         if (z) {
             p.a(getContext());
         }
@@ -135,14 +133,14 @@ public class KSPageLoadingView extends FrameLayout implements View.OnClickListen
     public void b(boolean z) {
         f();
         h();
-        this.f9016b.setImageDrawable(getContext().getResources().getDrawable(this.i ? R.drawable.ksad_page_loading_data_error : R.drawable.ksad_no_data_img));
+        this.b.setImageDrawable(getContext().getResources().getDrawable(this.i ? R.drawable.ksad_page_loading_data_error : R.drawable.ksad_no_data_img));
         this.c.setText(q.g(getContext()));
         this.c.setVisibility(0);
         this.d.setText(q.h(getContext()));
         this.d.setVisibility(0);
         this.e.setText(q.i(getContext()));
         this.e.setVisibility(0);
-        this.f9015a.setVisibility(0);
+        this.f5996a.setVisibility(0);
         if (z) {
             p.b(getContext());
         }
@@ -152,26 +150,26 @@ public class KSPageLoadingView extends FrameLayout implements View.OnClickListen
     public void c() {
         f();
         h();
-        this.f9016b.setImageDrawable(getContext().getResources().getDrawable(this.i ? R.drawable.ksad_page_loading_data_limit_error : R.drawable.ksad_no_video_img));
+        this.b.setImageDrawable(getContext().getResources().getDrawable(this.i ? R.drawable.ksad_page_loading_data_limit_error : R.drawable.ksad_no_video_img));
         this.c.setText(getContext().getString(R.string.ksad_page_loading_data_limit_error_title));
         this.c.setVisibility(0);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
-        this.f9015a.setVisibility(0);
+        this.f5996a.setVisibility(0);
         setVisibility(0);
     }
 
     public void d() {
         f();
         h();
-        this.f9016b.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ksad_no_video_img));
+        this.b.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ksad_no_video_img));
         this.c.setText(getContext().getString(R.string.ksad_video_no_found));
         this.c.setVisibility(0);
         this.d.setText(getContext().getString(R.string.ksad_click_to_next_video));
         this.d.setVisibility(0);
         this.e.setText(getContext().getString(R.string.ksad_watch_next_video));
         this.e.setVisibility(0);
-        this.f9015a.setVisibility(0);
+        this.f5996a.setVisibility(0);
         setVisibility(0);
     }
 

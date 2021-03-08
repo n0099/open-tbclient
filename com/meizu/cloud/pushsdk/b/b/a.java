@@ -5,25 +5,23 @@ import com.meizu.cloud.pushsdk.b.c.k;
 public class a extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11144a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f11145b;
+    private String f7333a;
+    private int b;
     private String c;
     private k d;
 
     public a() {
-        this.f11145b = 0;
+        this.b = 0;
     }
 
     public a(k kVar) {
-        this.f11145b = 0;
+        this.b = 0;
         this.d = kVar;
     }
 
     public a(Throwable th) {
         super(th);
-        this.f11145b = 0;
+        this.b = 0;
     }
 
     public k a() {
@@ -31,7 +29,7 @@ public class a extends Exception {
     }
 
     public void a(int i) {
-        this.f11145b = i;
+        this.b = i;
     }
 
     public void a(String str) {
@@ -39,14 +37,14 @@ public class a extends Exception {
     }
 
     public int b() {
-        return this.f11145b;
+        return this.b;
     }
 
     public void b(String str) {
-        this.f11144a = str;
+        this.f7333a = str;
     }
 
     public String c() {
-        return this.f11144a;
+        return this.f7333a;
     }
 }

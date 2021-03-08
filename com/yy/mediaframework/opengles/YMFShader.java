@@ -2,7 +2,7 @@ package com.yy.mediaframework.opengles;
 
 import android.opengl.GLES20;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFShader {
     private static final String TAG = "YMFShader";
     private int mFragmentHandle;

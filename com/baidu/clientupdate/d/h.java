@@ -5,7 +5,7 @@ import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.clientupdate.appinfo.RuleInfo;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class h {
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.clientupdate.appinfo.ClientUpdateInfo */
     /* JADX WARN: Multi-variable type inference failed */

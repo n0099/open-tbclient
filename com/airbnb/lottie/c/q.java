@@ -10,19 +10,19 @@ import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 class q {
-    private static SparseArrayCompat<WeakReference<Interpolator>> Hv;
+    private static SparseArrayCompat<WeakReference<Interpolator>> IT;
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
 
     q() {
     }
 
     private static SparseArrayCompat<WeakReference<Interpolator>> kp() {
-        if (Hv == null) {
-            Hv = new SparseArrayCompat<>();
+        if (IT == null) {
+            IT = new SparseArrayCompat<>();
         }
-        return Hv;
+        return IT;
     }
 
     @Nullable
@@ -36,7 +36,7 @@ class q {
 
     private static void b(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            Hv.put(i, weakReference);
+            IT.put(i, weakReference);
         }
     }
 
@@ -201,8 +201,8 @@ class q {
             t = t4;
         }
         com.airbnb.lottie.e.a<T> aVar = new com.airbnb.lottie.e.a<>(dVar, t3, t, interpolator, f2, null);
-        aVar.HR = pointF4;
-        aVar.HS = pointF5;
+        aVar.Jq = pointF4;
+        aVar.Jr = pointF5;
         return aVar;
     }
 

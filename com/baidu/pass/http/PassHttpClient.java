@@ -11,15 +11,13 @@ import java.util.concurrent.TimeUnit;
 public class PassHttpClient implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ThreadFactory f4100a = new a();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final ThreadPoolExecutor f4101b = new ThreadPoolExecutor(6, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f4100a);
+    private static final ThreadFactory f2840a = new a();
+    private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f2840a);
     private d c;
 
     static {
         if (Build.VERSION.SDK_INT >= 9) {
-            f4101b.allowCoreThreadTimeOut(true);
+            b.allowCoreThreadTimeOut(true);
         }
     }
 
@@ -61,6 +59,6 @@ public class PassHttpClient implements com.baidu.pass.a {
 
     private void a(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
         this.c = new d(method, context, passHttpParamDTO, httpResponseHandler);
-        f4101b.submit(this.c);
+        b.submit(this.c);
     }
 }

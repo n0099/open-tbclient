@@ -5,11 +5,11 @@ import java.util.List;
 import tbclient.GetTails.ColorInfo;
 import tbclient.GetTails.ResData;
 import tbclient.GetTails.TailInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
-    private String lsd;
-    private List<TailData> lsc = new ArrayList();
-    private List<String> lse = new ArrayList();
+    private String lug;
+    private List<TailData> luf = new ArrayList();
+    private List<String> luh = new ArrayList();
 
     public void a(ResData resData) {
         if (resData != null && resData.tailList != null) {
@@ -24,9 +24,9 @@ public class d {
                     getTails().add(tailData);
                 }
             }
-            Og(resData.default_color);
+            Om(resData.default_color);
             for (ColorInfo colorInfo : resData.colorList) {
-                dfU().add(colorInfo.fontColor);
+                dgd().add(colorInfo.fontColor);
             }
         }
     }
@@ -36,14 +36,14 @@ public class d {
     }
 
     public List<TailData> getTails() {
-        return this.lsc;
+        return this.luf;
     }
 
-    public void Og(String str) {
-        this.lsd = str;
+    public void Om(String str) {
+        this.lug = str;
     }
 
-    public List<String> dfU() {
-        return this.lse;
+    public List<String> dgd() {
+        return this.luh;
     }
 }

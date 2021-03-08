@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class b extends com.sdk.base.framework.f.a {
     static {
         b.class.getName();
-        boolean z = com.sdk.base.framework.c.f.f12821b;
+        boolean z = com.sdk.base.framework.c.f.b;
     }
 
     public static c a(Context context, ArrayList<String> arrayList) {
@@ -18,7 +18,7 @@ public class b extends com.sdk.base.framework.f.a {
     }
 
     public static String a(Context context, String str) {
-        int b2;
+        int b;
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             String str2 = null;
@@ -26,30 +26,30 @@ public class b extends com.sdk.base.framework.f.a {
                 String substring = str.substring(3);
                 str2 = substring.substring(0, substring.length() - 10);
             }
-            b2 = com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : ("01".equals(str2) || "06".equals(str2) || "09".equals(str2)) ? g.f12851b.b() : ("00".equals(str2) || "02".equals(str2) || "04".equals(str2) || "07".equals(str2)) ? g.f12850a.b() : ("03".equals(str2) || "05".equals(str2) || Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE.equals(str2)) ? g.c.b() : -1;
-            if (b2 == -1 && activeNetworkInfo != null) {
+            b = com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? -1 : ("01".equals(str2) || "06".equals(str2) || "09".equals(str2)) ? g.b.b() : ("00".equals(str2) || "02".equals(str2) || "04".equals(str2) || "07".equals(str2)) ? g.f7647a.b() : ("03".equals(str2) || "05".equals(str2) || Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE.equals(str2)) ? g.c.b() : -1;
+            if (b == -1 && activeNetworkInfo != null) {
                 String typeName = activeNetworkInfo.getTypeName();
                 if (!"WIFI".equalsIgnoreCase(typeName) && "MOBILE".equalsIgnoreCase(typeName)) {
                     String extraInfo = activeNetworkInfo.getExtraInfo();
                     if ("cmnet".equals(extraInfo) || "cmwap".equals(extraInfo)) {
-                        b2 = g.f12850a.b();
+                        b = g.f7647a.b();
                     } else if ("3gwap".equals(extraInfo) || "uniwap".equals(extraInfo) || "3gnet".equals(extraInfo) || "uninet".equals(extraInfo)) {
-                        b2 = g.f12851b.b();
+                        b = g.b.b();
                     } else if ("ctnet".equals(extraInfo) || "ctwap".equals(extraInfo)) {
-                        b2 = g.c.b();
+                        b = g.c.b();
                     }
                 }
             }
         } catch (Exception e) {
         }
-        if (b2 == g.f12851b.b()) {
-            return g.f12851b.a();
+        if (b == g.b.b()) {
+            return g.b.a();
         }
-        if (b2 == g.c.b()) {
+        if (b == g.c.b()) {
             return g.c.a();
         }
-        if (b2 == g.f12850a.b()) {
-            return g.f12850a.a();
+        if (b == g.f7647a.b()) {
+            return g.f7647a.a();
         }
         return "UNKOWN";
     }

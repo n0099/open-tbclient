@@ -43,24 +43,24 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClickListener {
-    private static final int fkW = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
-    private View.OnClickListener ajT;
-    private TextView ajY;
-    private boolean akO;
-    private cb akU;
-    private View.OnClickListener akr;
-    private int eQj;
-    private AgreeView fjW;
-    private TextView fkX;
-    private PlayVoiceBntNew fkY;
-    private FrameLayout fkZ;
-    private TextView fla;
-    private ClickableHeaderImageView flb;
-    private PostData flc;
-    private TbRichTextVoiceInfo fld;
-    private int fle;
-    private final float flf;
-    private View.OnClickListener flg;
+    private static final int fmw = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+    private View.OnClickListener alK;
+    private View.OnClickListener alm;
+    private TextView alr;
+    private boolean amh;
+    private cb amn;
+    private int eRK;
+    private AgreeView flv;
+    private TextView fmA;
+    private ClickableHeaderImageView fmB;
+    private PostData fmC;
+    private TbRichTextVoiceInfo fmD;
+    private int fmE;
+    private final float fmF;
+    private View.OnClickListener fmG;
+    private TextView fmx;
+    private PlayVoiceBntNew fmy;
+    private FrameLayout fmz;
     private Context mContext;
     private String mFrom;
     private List<TbRichTextImageInfo> mImageList;
@@ -70,27 +70,27 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
 
     public ThreadGodReplyLayout(Context context) {
         super(context);
-        this.akU = null;
+        this.amn = null;
         this.mSkinType = 3;
-        this.flf = com.baidu.adp.lib.util.l.getScreenSize((Activity) getContext()).widthPixels - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds70) * 2);
-        this.akr = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.3
+        this.fmF = com.baidu.adp.lib.util.l.getScreenSize((Activity) getContext()).widthPixels - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds70) * 2);
+        this.alK = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadGodReplyLayout.this.flc != null && ThreadGodReplyLayout.this.flc.bnQ() != null && !StringUtils.isNull(ThreadGodReplyLayout.this.flc.bnQ().getName_show()) && !StringUtils.isNull(ThreadGodReplyLayout.this.flc.bnQ().getUserId())) {
-                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadGodReplyLayout.this.mContext, ThreadGodReplyLayout.this.flc.bnQ().getUserId(), ThreadGodReplyLayout.this.flc.bnQ().getName_show());
-                    personInfoActivityConfig.setSourceTid(ThreadGodReplyLayout.this.flc.getId());
+                if (ThreadGodReplyLayout.this.fmC != null && ThreadGodReplyLayout.this.fmC.bnS() != null && !StringUtils.isNull(ThreadGodReplyLayout.this.fmC.bnS().getName_show()) && !StringUtils.isNull(ThreadGodReplyLayout.this.fmC.bnS().getUserId())) {
+                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadGodReplyLayout.this.mContext, ThreadGodReplyLayout.this.fmC.bnS().getUserId(), ThreadGodReplyLayout.this.fmC.bnS().getName_show());
+                    personInfoActivityConfig.setSourceTid(ThreadGodReplyLayout.this.fmC.getId());
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, personInfoActivityConfig));
-                    if (ThreadGodReplyLayout.this.ajT != null) {
-                        ThreadGodReplyLayout.this.ajT.onClick(view);
+                    if (ThreadGodReplyLayout.this.alm != null) {
+                        ThreadGodReplyLayout.this.alm.onClick(view);
                     }
                 }
             }
         };
-        this.flg = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.4
+        this.fmG = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadGodReplyLayout.this.ajT != null) {
-                    ThreadGodReplyLayout.this.ajT.onClick(view);
+                if (ThreadGodReplyLayout.this.alm != null) {
+                    ThreadGodReplyLayout.this.alm.onClick(view);
                 }
             }
         };
@@ -99,27 +99,27 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
 
     public ThreadGodReplyLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.akU = null;
+        this.amn = null;
         this.mSkinType = 3;
-        this.flf = com.baidu.adp.lib.util.l.getScreenSize((Activity) getContext()).widthPixels - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds70) * 2);
-        this.akr = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.3
+        this.fmF = com.baidu.adp.lib.util.l.getScreenSize((Activity) getContext()).widthPixels - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds70) * 2);
+        this.alK = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadGodReplyLayout.this.flc != null && ThreadGodReplyLayout.this.flc.bnQ() != null && !StringUtils.isNull(ThreadGodReplyLayout.this.flc.bnQ().getName_show()) && !StringUtils.isNull(ThreadGodReplyLayout.this.flc.bnQ().getUserId())) {
-                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadGodReplyLayout.this.mContext, ThreadGodReplyLayout.this.flc.bnQ().getUserId(), ThreadGodReplyLayout.this.flc.bnQ().getName_show());
-                    personInfoActivityConfig.setSourceTid(ThreadGodReplyLayout.this.flc.getId());
+                if (ThreadGodReplyLayout.this.fmC != null && ThreadGodReplyLayout.this.fmC.bnS() != null && !StringUtils.isNull(ThreadGodReplyLayout.this.fmC.bnS().getName_show()) && !StringUtils.isNull(ThreadGodReplyLayout.this.fmC.bnS().getUserId())) {
+                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadGodReplyLayout.this.mContext, ThreadGodReplyLayout.this.fmC.bnS().getUserId(), ThreadGodReplyLayout.this.fmC.bnS().getName_show());
+                    personInfoActivityConfig.setSourceTid(ThreadGodReplyLayout.this.fmC.getId());
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, personInfoActivityConfig));
-                    if (ThreadGodReplyLayout.this.ajT != null) {
-                        ThreadGodReplyLayout.this.ajT.onClick(view);
+                    if (ThreadGodReplyLayout.this.alm != null) {
+                        ThreadGodReplyLayout.this.alm.onClick(view);
                     }
                 }
             }
         };
-        this.flg = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.4
+        this.fmG = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadGodReplyLayout.this.ajT != null) {
-                    ThreadGodReplyLayout.this.ajT.onClick(view);
+                if (ThreadGodReplyLayout.this.alm != null) {
+                    ThreadGodReplyLayout.this.alm.onClick(view);
                 }
             }
         };
@@ -128,27 +128,27 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
 
     public ThreadGodReplyLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.akU = null;
+        this.amn = null;
         this.mSkinType = 3;
-        this.flf = com.baidu.adp.lib.util.l.getScreenSize((Activity) getContext()).widthPixels - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds70) * 2);
-        this.akr = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.3
+        this.fmF = com.baidu.adp.lib.util.l.getScreenSize((Activity) getContext()).widthPixels - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds70) * 2);
+        this.alK = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadGodReplyLayout.this.flc != null && ThreadGodReplyLayout.this.flc.bnQ() != null && !StringUtils.isNull(ThreadGodReplyLayout.this.flc.bnQ().getName_show()) && !StringUtils.isNull(ThreadGodReplyLayout.this.flc.bnQ().getUserId())) {
-                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadGodReplyLayout.this.mContext, ThreadGodReplyLayout.this.flc.bnQ().getUserId(), ThreadGodReplyLayout.this.flc.bnQ().getName_show());
-                    personInfoActivityConfig.setSourceTid(ThreadGodReplyLayout.this.flc.getId());
+                if (ThreadGodReplyLayout.this.fmC != null && ThreadGodReplyLayout.this.fmC.bnS() != null && !StringUtils.isNull(ThreadGodReplyLayout.this.fmC.bnS().getName_show()) && !StringUtils.isNull(ThreadGodReplyLayout.this.fmC.bnS().getUserId())) {
+                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(ThreadGodReplyLayout.this.mContext, ThreadGodReplyLayout.this.fmC.bnS().getUserId(), ThreadGodReplyLayout.this.fmC.bnS().getName_show());
+                    personInfoActivityConfig.setSourceTid(ThreadGodReplyLayout.this.fmC.getId());
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, personInfoActivityConfig));
-                    if (ThreadGodReplyLayout.this.ajT != null) {
-                        ThreadGodReplyLayout.this.ajT.onClick(view);
+                    if (ThreadGodReplyLayout.this.alm != null) {
+                        ThreadGodReplyLayout.this.alm.onClick(view);
                     }
                 }
             }
         };
-        this.flg = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.4
+        this.fmG = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadGodReplyLayout.this.ajT != null) {
-                    ThreadGodReplyLayout.this.ajT.onClick(view);
+                if (ThreadGodReplyLayout.this.alm != null) {
+                    ThreadGodReplyLayout.this.alm.onClick(view);
                 }
             }
         };
@@ -159,27 +159,27 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         this.mContext = context;
         this.mView = LayoutInflater.from(context).inflate(R.layout.thread_god_reply_layout, (ViewGroup) this, true);
         this.mRootView = (RelativeLayout) this.mView.findViewById(R.id.god_comment_layout);
-        this.flb = (ClickableHeaderImageView) this.mView.findViewById(R.id.god_reply_user_pendant_header);
-        this.flb.setIsRound(true);
-        this.flb.setClickable(true);
-        this.ajY = (TextView) this.mView.findViewById(R.id.god_reply_username_text);
-        this.ajY.setOnClickListener(this.akr);
-        this.fjW = (AgreeView) this.mView.findViewById(R.id.god_reply_agree_view);
-        this.fjW.setAfterClickListener(this.flg);
-        this.fjW.setAgreeAlone(true);
-        this.fkX = (TextView) this.mView.findViewById(R.id.god_reply_content);
-        this.fkY = (PlayVoiceBntNew) this.mView.findViewById(R.id.god_reply_voice_btn);
-        this.fkY.setVisibility(8);
-        this.fkZ = (FrameLayout) this.mView.findViewById(R.id.god_reply_image_layout);
+        this.fmB = (ClickableHeaderImageView) this.mView.findViewById(R.id.god_reply_user_pendant_header);
+        this.fmB.setIsRound(true);
+        this.fmB.setClickable(true);
+        this.alr = (TextView) this.mView.findViewById(R.id.god_reply_username_text);
+        this.alr.setOnClickListener(this.alK);
+        this.flv = (AgreeView) this.mView.findViewById(R.id.god_reply_agree_view);
+        this.flv.setAfterClickListener(this.fmG);
+        this.flv.setAgreeAlone(true);
+        this.fmx = (TextView) this.mView.findViewById(R.id.god_reply_content);
+        this.fmy = (PlayVoiceBntNew) this.mView.findViewById(R.id.god_reply_voice_btn);
+        this.fmy.setVisibility(8);
+        this.fmz = (FrameLayout) this.mView.findViewById(R.id.god_reply_image_layout);
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(getContext());
-        this.fle = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10);
-        this.eQj = (((equipmentWidth - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds44) * 2)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds26) * 2)) - (this.fle * 4)) / 5;
+        this.fmE = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds10);
+        this.eRK = (((equipmentWidth - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds44) * 2)) - (com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds26) * 2)) - (this.fmE * 4)) / 5;
         for (int i = 0; i < 5; i++) {
             TbImageView tbImageView = new TbImageView(getContext());
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.eQj, this.eQj);
-            layoutParams.leftMargin = (this.eQj + this.fle) * i;
-            this.fkZ.addView(tbImageView, layoutParams);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.eRK, this.eRK);
+            layoutParams.leftMargin = (this.eRK + this.fmE) * i;
+            this.fmz.addView(tbImageView, layoutParams);
             tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
             tbImageView.setBorderColor(ap.getColor(R.color.CAM_X0401));
             tbImageView.setBorderSurroundContent(true);
@@ -190,26 +190,26 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             tbImageView.setOnClickListener(this);
             tbImageView.setPlaceHolder(2);
         }
-        this.fkZ.setVisibility(8);
-        this.fla = (TextView) this.mView.findViewById(R.id.god_reply_img_num);
+        this.fmz.setVisibility(8);
+        this.fmA = (TextView) this.mView.findViewById(R.id.god_reply_img_num);
     }
 
     public void setFromCDN(boolean z) {
-        this.akO = z;
+        this.amh = z;
     }
 
     public void setFrom(String str) {
         this.mFrom = str;
     }
 
-    public void buJ() {
-        if (this.flb != null) {
-            this.flb.setPlaceHolder(1);
+    public void buM() {
+        if (this.fmB != null) {
+            this.fmB.setPlaceHolder(1);
         }
-        int childCount = this.fkZ.getChildCount();
+        int childCount = this.fmz.getChildCount();
         if (childCount > 0) {
             for (int i = 0; i < childCount; i++) {
-                View childAt = this.fkZ.getChildAt(i);
+                View childAt = this.fmz.getChildAt(i);
                 if (childAt instanceof TbImageView) {
                     ((TbImageView) childAt).setPlaceHolder(2);
                 }
@@ -218,27 +218,27 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     }
 
     public void setData(cb cbVar) {
-        this.akU = cbVar;
-        setData(cbVar != null ? cbVar.bpv() : null);
+        this.amn = cbVar;
+        setData(cbVar != null ? cbVar.bpx() : null);
     }
 
     public void setData(PostData postData) {
-        if (postData == null || postData.bnQ() == null || postData.bnQ().getUserId() == null) {
+        if (postData == null || postData.bnS() == null || postData.bnS().getUserId() == null) {
             setVisibility(8);
             return;
         }
-        this.flc = postData;
+        this.fmC = postData;
         setVisibility(0);
         a(postData);
-        c(a(postData.dNH()));
+        c(a(postData.dNQ()));
         b(postData);
         c(postData);
-        if ((this.mImageList != null && this.mImageList.size() > 0) || (this.fld != null && this.fld.bIx() != null)) {
+        if ((this.mImageList != null && this.mImageList.size() > 0) || (this.fmD != null && this.fmD.bIB() != null)) {
             this.mRootView.setPadding(0, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.M_H_X003));
         } else {
             this.mRootView.setPadding(0, 0, 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds0));
         }
-        if (!bE(this.fkX) && !bE(this.fkZ) && !bE(this.fkY)) {
+        if (!bE(this.fmx) && !bE(this.fmz) && !bE(this.fmy)) {
             setVisibility(8);
         }
     }
@@ -246,12 +246,12 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
     private void c(SpannableStringBuilder spannableStringBuilder) {
         float f;
         if (spannableStringBuilder == null || TextUtils.isEmpty(spannableStringBuilder.toString())) {
-            this.fkX.setVisibility(8);
+            this.fmx.setVisibility(8);
             return;
         }
-        this.fkX.setVisibility(0);
-        if (!v.a(this.flf, this.fkX.getPaint(), spannableStringBuilder.toString(), 5)) {
-            this.fkX.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+        this.fmx.setVisibility(0);
+        if (!v.a(this.fmF, this.fmx.getPaint(), spannableStringBuilder.toString(), 5)) {
+            this.fmx.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
         } else {
             final SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(spannableStringBuilder);
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(getResources().getString(R.string.text_expand_tail));
@@ -259,32 +259,32 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 spannableStringBuilder3.setSpan(new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.1
                     @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        t.csB().e(new ar("c13348"));
-                        ThreadGodReplyLayout.this.fkX.setMaxLines(15);
-                        ThreadGodReplyLayout.this.fkX.setEllipsize(TextUtils.TruncateAt.END);
-                        ThreadGodReplyLayout.this.fkX.setText(spannableStringBuilder2.toString());
-                        ThreadGodReplyLayout.this.fkX.post(new Runnable() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.1.1
+                        t.csH().e(new ar("c13348"));
+                        ThreadGodReplyLayout.this.fmx.setMaxLines(15);
+                        ThreadGodReplyLayout.this.fmx.setEllipsize(TextUtils.TruncateAt.END);
+                        ThreadGodReplyLayout.this.fmx.setText(spannableStringBuilder2.toString());
+                        ThreadGodReplyLayout.this.fmx.post(new Runnable() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (ThreadGodReplyLayout.this.fkX.getLineCount() >= 15) {
-                                    ThreadGodReplyLayout.this.fkX.setText(((Object) ThreadGodReplyLayout.this.fkX.getText().subSequence(0, ThreadGodReplyLayout.this.fkX.getLayout().getLineEnd(14) - 1)) + StringHelper.STRING_MORE);
+                                if (ThreadGodReplyLayout.this.fmx.getLineCount() >= 15) {
+                                    ThreadGodReplyLayout.this.fmx.setText(((Object) ThreadGodReplyLayout.this.fmx.getText().subSequence(0, ThreadGodReplyLayout.this.fmx.getLayout().getLineEnd(14) - 1)) + StringHelper.STRING_MORE);
                                 }
                             }
                         });
                     }
                 }, 3, spannableStringBuilder3.length(), 17);
-                StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.fkX.getPaint(), (int) this.flf, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-                float f2 = this.flf;
+                StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.fmx.getPaint(), (int) this.fmF, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+                float f2 = this.fmF;
                 if (staticLayout.getLineCount() >= 5) {
                     spannableStringBuilder.delete(staticLayout.getLineEnd(4), spannableStringBuilder.length());
-                    f = this.flf - staticLayout.getLineWidth(4);
+                    f = this.fmF - staticLayout.getLineWidth(4);
                 } else {
                     f = f2;
                 }
                 CharSequence subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - 2, spannableStringBuilder.length());
-                float measureText = this.fkX.getPaint().measureText(spannableStringBuilder3.toString());
+                float measureText = this.fmx.getPaint().measureText(spannableStringBuilder3.toString());
                 int i = 2;
-                while (measureText > this.fkX.getPaint().measureText(subSequence.toString()) + f) {
+                while (measureText > this.fmx.getPaint().measureText(subSequence.toString()) + f) {
                     i++;
                     if (spannableStringBuilder.length() - i < 0) {
                         break;
@@ -294,14 +294,14 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
                 if (spannableStringBuilder.length() - i > 0) {
                     spannableStringBuilder.replace(spannableStringBuilder.length() - i, spannableStringBuilder.length(), (CharSequence) spannableStringBuilder3);
                 }
-                this.fkX.setText(spannableStringBuilder);
-                this.fkX.setOnTouchListener(new com.baidu.tieba.view.i(spannableStringBuilder));
-                t.csB().e(new ar("c13347"));
+                this.fmx.setText(spannableStringBuilder);
+                this.fmx.setOnTouchListener(new com.baidu.tieba.view.i(spannableStringBuilder));
+                t.csH().e(new ar("c13347"));
             } else {
                 return;
             }
         }
-        buK();
+        buN();
     }
 
     private boolean bE(View view) {
@@ -310,30 +310,30 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
 
     public void a(PostData postData) {
         if (postData != null) {
-            this.flb.setData(postData.bnQ());
-            this.ajY.setText(au.cutChineseAndEnglishWithSuffix(postData.bnQ().getName_show(), 14, StringHelper.STRING_MORE) + "：");
-            if (this.akU != null) {
-                postData.bpJ().threadId = this.akU.getTid();
+            this.fmB.setData(postData.bnS());
+            this.alr.setText(au.cutChineseAndEnglishWithSuffix(postData.bnS().getName_show(), 14, StringHelper.STRING_MORE) + "：");
+            if (this.amn != null) {
+                postData.bpL().threadId = this.amn.getTid();
             }
-            postData.bpJ().threadId = String.valueOf(postData.getTid());
-            postData.bpJ().objType = 3;
-            this.fjW.setData(postData.bpJ());
+            postData.bpL().threadId = String.valueOf(postData.getTid());
+            postData.bpL().objType = 3;
+            this.flv.setData(postData.bpL());
         }
     }
 
     private SpannableStringBuilder a(TbRichText tbRichText) {
-        ArrayList<TbRichTextData> bHz;
-        if (tbRichText == null || (bHz = tbRichText.bHz()) == null) {
+        ArrayList<TbRichTextData> bHD;
+        if (tbRichText == null || (bHD = tbRichText.bHD()) == null) {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        Iterator<TbRichTextData> it = bHz.iterator();
+        Iterator<TbRichTextData> it = bHD.iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next.getType() == 1) {
-                spannableStringBuilder.append((CharSequence) next.bHG());
+                spannableStringBuilder.append((CharSequence) next.bHK());
             } else if (next.getType() == 17) {
-                String str = next.bHK().mGifInfo.mSharpText;
+                String str = next.bHO().mGifInfo.mSharpText;
                 if (str != null && str.startsWith("#(") && str.endsWith(")")) {
                     spannableStringBuilder.append((CharSequence) "[表情]");
                 }
@@ -358,46 +358,46 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         } else {
             this.mImageList.clear();
         }
-        if (!com.baidu.tbadk.core.k.bkT().isShowImages()) {
-            this.fkZ.setVisibility(8);
-            this.fla.setVisibility(8);
+        if (!com.baidu.tbadk.core.k.bkV().isShowImages()) {
+            this.fmz.setVisibility(8);
+            this.fmA.setVisibility(8);
             return;
         }
-        TbRichText dNH = postData.dNH();
-        if (dNH == null || dNH.bHz() == null) {
-            this.fkZ.setVisibility(8);
-            this.fla.setVisibility(8);
+        TbRichText dNQ = postData.dNQ();
+        if (dNQ == null || dNQ.bHD() == null) {
+            this.fmz.setVisibility(8);
+            this.fmA.setVisibility(8);
             return;
         }
-        Iterator<TbRichTextData> it = dNH.bHz().iterator();
+        Iterator<TbRichTextData> it = dNQ.bHD().iterator();
         while (it.hasNext()) {
             TbRichTextData next = it.next();
             if (next != null) {
-                next.bq(fkW, fkW);
+                next.bq(fmw, fmw);
                 if (next.getType() == 8) {
-                    this.mImageList.add(next.bHF());
+                    this.mImageList.add(next.bHJ());
                 }
             }
         }
         if (this.mImageList.size() == 0) {
-            this.fkZ.setVisibility(8);
-            this.fla.setVisibility(8);
+            this.fmz.setVisibility(8);
+            this.fmA.setVisibility(8);
             return;
         }
-        this.fkZ.setVisibility(0);
+        this.fmz.setVisibility(0);
         int dimens = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
         int i = 0;
-        for (int i2 = 0; i2 < this.fkZ.getChildCount(); i2++) {
-            View childAt = this.fkZ.getChildAt(i2);
+        for (int i2 = 0; i2 < this.fmz.getChildCount(); i2++) {
+            View childAt = this.fmz.getChildAt(i2);
             if (childAt != null && (childAt instanceof TbImageView)) {
                 TbImageView tbImageView = (TbImageView) childAt;
-                tbImageView.bGo();
+                tbImageView.bGs();
                 tbImageView.setRadius(dimens);
-                tbImageView.rI(15);
+                tbImageView.rK(15);
                 if (i < this.mImageList.size()) {
                     TbRichTextImageInfo tbRichTextImageInfo = this.mImageList.get(i);
-                    if (tbRichTextImageInfo != null && !TextUtils.isEmpty(tbRichTextImageInfo.bHS())) {
-                        tbImageView.startLoad(tbRichTextImageInfo.bHS(), this.akO ? 13 : 14, false);
+                    if (tbRichTextImageInfo != null && !TextUtils.isEmpty(tbRichTextImageInfo.bHW())) {
+                        tbImageView.startLoad(tbRichTextImageInfo.bHW(), this.amh ? 13 : 14, false);
                         tbImageView.setVisibility(0);
                         i++;
                     } else {
@@ -412,54 +412,54 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
         if (this.mImageList.size() > 5) {
             ImageView imageView = new ImageView(getContext());
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.eQj, this.eQj);
-            layoutParams.leftMargin = (this.eQj + this.fle) * 4;
-            this.fkZ.addView(imageView, -1, layoutParams);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.eRK, this.eRK);
+            layoutParams.leftMargin = (this.eRK + this.fmE) * 4;
+            this.fmz.addView(imageView, -1, layoutParams);
             imageView.setImageResource(R.drawable.shape_black_0_to_50_vertical);
-            this.fla.setVisibility(0);
-            this.fla.setText("+" + (this.mImageList.size() - 5));
-            this.fla.post(new Runnable() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.2
+            this.fmA.setVisibility(0);
+            this.fmA.setText("+" + (this.mImageList.size() - 5));
+            this.fmA.post(new Runnable() { // from class: com.baidu.tbadk.core.view.ThreadGodReplyLayout.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    int dimens2 = com.baidu.adp.lib.util.l.getDimens(ThreadGodReplyLayout.this.getContext(), R.dimen.tbds26) + ((ThreadGodReplyLayout.this.eQj - ThreadGodReplyLayout.this.fla.getWidth()) / 2);
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) ThreadGodReplyLayout.this.fla.getLayoutParams();
+                    int dimens2 = com.baidu.adp.lib.util.l.getDimens(ThreadGodReplyLayout.this.getContext(), R.dimen.tbds26) + ((ThreadGodReplyLayout.this.eRK - ThreadGodReplyLayout.this.fmA.getWidth()) / 2);
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) ThreadGodReplyLayout.this.fmA.getLayoutParams();
                     layoutParams2.setMargins(0, dimens2, dimens2, 0);
-                    ThreadGodReplyLayout.this.fla.setLayoutParams(layoutParams2);
+                    ThreadGodReplyLayout.this.fmA.setLayoutParams(layoutParams2);
                 }
             });
             return;
         }
-        this.fla.setVisibility(8);
+        this.fmA.setVisibility(8);
     }
 
     public void c(PostData postData) {
-        this.fld = postData.bHH();
-        if (this.fld == null) {
-            this.fkY.setVisibility(8);
+        this.fmD = postData.bHL();
+        if (this.fmD == null) {
+            this.fmy.setVisibility(8);
             return;
         }
-        this.fkY.setVisibility(0);
-        this.fkY.setTag(this.fld);
+        this.fmy.setVisibility(0);
+        this.fmy.setTag(this.fmD);
     }
 
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            ap.setViewTextColor(this.ajY, R.color.CAM_X0105);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.mRootView).og(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
-            buK();
-            buJ();
-            this.fjW.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.fkY.buo();
+            ap.setViewTextColor(this.alr, R.color.CAM_X0105);
+            com.baidu.tbadk.core.elementsMaven.c.br(this.mRootView).oh(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
+            buN();
+            buM();
+            this.flv.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.fmy.bur();
         }
     }
 
-    private void buK() {
-        m.a(this.fkX, this.akU == null ? null : this.akU.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+    private void buN() {
+        m.a(this.fmx, this.amn == null ? null : this.amn.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
     }
 
     public TextView getGodReplyContent() {
-        return this.fkX;
+        return this.fmx;
     }
 
     @Override // android.view.View.OnClickListener
@@ -468,27 +468,27 @@ public class ThreadGodReplyLayout extends RelativeLayout implements View.OnClick
             int intValue = ((Integer) view.getTag(R.id.god_reply_image_layout)).intValue();
             ArrayList<String> arrayList = new ArrayList<>();
             for (TbRichTextImageInfo tbRichTextImageInfo : this.mImageList) {
-                arrayList.add(tbRichTextImageInfo.bHP());
+                arrayList.add(tbRichTextImageInfo.bHT());
             }
             String str = "";
             String str2 = "";
-            if (this.akU != null) {
-                str = this.akU.bnU();
-                str2 = this.akU.getTid();
+            if (this.amn != null) {
+                str = this.amn.bnW();
+                str2 = this.amn.getTid();
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.s(arrayList).mQ(intValue).zJ(str).zL(str2).jg(true).zM(arrayList.get(0)).jh(true).s(this.akU).jm(false);
-            ImageViewerConfig eP = aVar.eP(getContext());
-            eP.getIntent().putExtra("from", this.mFrom);
-            eP.getIntent().putExtra(ImageViewerConfig.IS_GODREPLY_IMAGE, true);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eP));
-            if (this.ajT != null) {
-                this.ajT.onClick(view);
+            aVar.s(arrayList).mR(intValue).zQ(str).zS(str2).jg(true).zT(arrayList.get(0)).jh(true).s(this.amn).jm(false);
+            ImageViewerConfig eO = aVar.eO(getContext());
+            eO.getIntent().putExtra("from", this.mFrom);
+            eO.getIntent().putExtra(ImageViewerConfig.IS_GODREPLY_IMAGE, true);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eO));
+            if (this.alm != null) {
+                this.alm.onClick(view);
             }
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.ajT = onClickListener;
+        this.alm = onClickListener;
     }
 }

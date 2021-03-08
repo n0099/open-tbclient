@@ -1,7 +1,7 @@
 package com.baidu.tieba.consumptionRecords;
 
 import tbclient.DefaultInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     private String iconUrl;
     private String linkUrl;

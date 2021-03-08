@@ -21,10 +21,8 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
     private static AtomicBoolean o = new AtomicBoolean(false);
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9462a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Context f9463b;
+    private int f6272a;
+    private Context b;
     private AudioManager c;
     private com.kwad.sdk.core.video.a.c d;
     private FrameLayout e;
@@ -44,7 +42,7 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
     private c.e t;
     private c.h u;
     private c.b v;
-    private c.InterfaceC1106c w;
+    private c.InterfaceC1123c w;
     private c.d x;
     private c.a y;
     private BroadcastReceiver z;
@@ -55,19 +53,19 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
 
     public b(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f9462a = 0;
+        this.f6272a = 0;
         this.m = false;
         this.p = false;
         this.q = false;
         this.t = new c.e() { // from class: com.kwad.sdk.core.video.videoview.b.1
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
-                b.this.f9462a = 2;
-                b.this.g.a(b.this.f9462a);
+                b.this.f6272a = 2;
+                b.this.g.a(b.this.f6272a);
                 com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "onPrepared ——> STATE_PREPARED");
                 cVar.f();
                 if (b.this.m) {
-                    cVar.a((int) ae.a(b.this.f9463b, b.this.j));
+                    cVar.a((int) ae.a(b.this.b, b.this.j));
                 }
                 if (b.this.n != 0) {
                     cVar.a((int) b.this.n);
@@ -86,19 +84,19 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
         this.v = new c.b() { // from class: com.kwad.sdk.core.video.videoview.b.3
             @Override // com.kwad.sdk.core.video.a.c.b
             public void a(com.kwad.sdk.core.video.a.c cVar) {
-                b.this.f9462a = 9;
-                b.this.g.a(b.this.f9462a);
+                b.this.f6272a = 9;
+                b.this.g.a(b.this.f6272a);
                 com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "onCompletion ——> STATE_COMPLETED");
                 b.this.e.setKeepScreenOn(false);
             }
         };
-        this.w = new c.InterfaceC1106c() { // from class: com.kwad.sdk.core.video.videoview.b.4
-            @Override // com.kwad.sdk.core.video.a.c.InterfaceC1106c
+        this.w = new c.InterfaceC1123c() { // from class: com.kwad.sdk.core.video.videoview.b.4
+            @Override // com.kwad.sdk.core.video.a.c.InterfaceC1123c
             public boolean a(com.kwad.sdk.core.video.a.c cVar, int i, int i2) {
                 if (i != -38) {
-                    b.this.f9462a = -1;
+                    b.this.f6272a = -1;
                     b.this.g.a(i, i2);
-                    b.this.g.a(b.this.f9462a);
+                    b.this.g.a(b.this.f6272a);
                     com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "onError ——> STATE_ERROR ———— what：" + i + ", extra: " + i2);
                     return true;
                 }
@@ -109,29 +107,29 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
             @Override // com.kwad.sdk.core.video.a.c.d
             public boolean a(com.kwad.sdk.core.video.a.c cVar, int i, int i2) {
                 if (i == 3) {
-                    b.this.f9462a = 4;
-                    b.this.g.a(b.this.f9462a);
+                    b.this.f6272a = 4;
+                    b.this.g.a(b.this.f6272a);
                     com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_VIDEO_RENDERING_START：STATE_PLAYING");
                     return true;
                 } else if (i == 701) {
-                    if (b.this.f9462a == 5 || b.this.f9462a == 7) {
-                        b.this.f9462a = 7;
+                    if (b.this.f6272a == 5 || b.this.f6272a == 7) {
+                        b.this.f6272a = 7;
                         com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PAUSED");
                     } else {
-                        b.this.f9462a = 6;
+                        b.this.f6272a = 6;
                         com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PLAYING");
                     }
-                    b.this.g.a(b.this.f9462a);
+                    b.this.g.a(b.this.f6272a);
                     return true;
                 } else if (i == 702) {
-                    if (b.this.f9462a == 6) {
-                        b.this.f9462a = 4;
-                        b.this.g.a(b.this.f9462a);
+                    if (b.this.f6272a == 6) {
+                        b.this.f6272a = 4;
+                        b.this.g.a(b.this.f6272a);
                         com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PLAYING");
                     }
-                    if (b.this.f9462a == 7) {
-                        b.this.f9462a = 5;
-                        b.this.g.a(b.this.f9462a);
+                    if (b.this.f6272a == 7) {
+                        b.this.f6272a = 5;
+                        b.this.g.a(b.this.f6272a);
                         com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PAUSED");
                         return true;
                     }
@@ -166,18 +164,18 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
                 }
             }
         };
-        this.f9463b = context;
+        this.b = context;
         l();
     }
 
     private void l() {
-        this.e = new FrameLayout(this.f9463b);
+        this.e = new FrameLayout(this.b);
         addView(this.e, new FrameLayout.LayoutParams(-1, -1));
     }
 
     private void m() {
         if (this.d == null) {
-            this.d = com.kwad.sdk.contentalliance.detail.video.a.a(this.f9463b, false);
+            this.d = com.kwad.sdk.contentalliance.detail.video.a.a(this.b, false);
             this.d.b(3);
             if (this.p) {
                 return;
@@ -188,7 +186,7 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
 
     private void n() {
         if (this.f == null) {
-            this.f = new com.kwad.sdk.core.video.a(this.f9463b);
+            this.f = new com.kwad.sdk.core.video.a(this.b);
             this.f.setSurfaceTextureListener(this);
         }
     }
@@ -216,8 +214,8 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
             }
             this.d.a(this.i);
             if (this.d.e()) {
-                this.f9462a = 1;
-                this.g.a(this.f9462a);
+                this.f6272a = 1;
+                this.g.a(this.f6272a);
                 com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "STATE_PREPARING");
             }
         } catch (Exception e) {
@@ -227,25 +225,25 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
     }
 
     private void setPlayType(int i) {
-        if (this.r == null || this.r.f8612b == null) {
+        if (this.r == null || this.r.b == null) {
             return;
         }
-        this.r.f8612b.mVideoPlayerType = i;
+        this.r.b.mVideoPlayerType = i;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public void a() {
-        if (this.f9462a != 0) {
+        if (this.f6272a != 0) {
             com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "KSVideoPlayer只有在状态为STATE_IDLE时才能调用start方法.");
             return;
         }
         m();
         n();
         o();
-        if (this.r == null || this.r.f8612b == null) {
+        if (this.r == null || this.r.b == null) {
             return;
         }
-        if (this.r.f8612b.mVideoPlayerType == 0) {
+        if (this.r.b.mVideoPlayerType == 0) {
             setPlayType(1);
         } else {
             setPlayType(3);
@@ -260,25 +258,25 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
 
     public void a(@NonNull com.kwad.sdk.contentalliance.detail.video.d dVar, Map<String, String> map) {
         this.r = dVar;
-        this.j = dVar.f8611a;
+        this.j = dVar.f5747a;
         this.k = map;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public void b() {
-        if (this.f9462a == 5) {
+        if (this.f6272a == 5) {
             this.d.f();
-            this.f9462a = 4;
-            this.g.a(this.f9462a);
+            this.f6272a = 4;
+            this.g.a(this.f6272a);
             setPlayType(2);
             com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "STATE_PLAYING");
-        } else if (this.f9462a == 7) {
+        } else if (this.f6272a == 7) {
             this.d.f();
-            this.f9462a = 6;
-            this.g.a(this.f9462a);
+            this.f6272a = 6;
+            this.g.a(this.f6272a);
             com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "STATE_BUFFERING_PLAYING");
-        } else if (this.f9462a != 9 && this.f9462a != -1) {
-            com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "KSVideoPlayer在状态为 " + this.f9462a + " 时不能调用restart()方法.");
+        } else if (this.f6272a != 9 && this.f6272a != -1) {
+            com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "KSVideoPlayer在状态为 " + this.f6272a + " 时不能调用restart()方法.");
         } else {
             this.d.n();
             p();
@@ -288,36 +286,36 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public void c() {
-        if (this.f9462a == 4) {
+        if (this.f6272a == 4) {
             this.d.g();
-            this.f9462a = 5;
-            this.g.a(this.f9462a);
+            this.f6272a = 5;
+            this.g.a(this.f6272a);
             com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "STATE_PAUSED");
         }
-        if (this.f9462a == 6) {
+        if (this.f6272a == 6) {
             this.d.g();
-            this.f9462a = 7;
-            this.g.a(this.f9462a);
+            this.f6272a = 7;
+            this.g.a(this.f6272a);
             com.kwad.sdk.core.d.a.b("KSVideoPlayerViewView", "STATE_BUFFERING_PAUSED");
         }
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public boolean d() {
-        return this.f9462a == 0;
+        return this.f6272a == 0;
     }
 
     public boolean e() {
-        return this.f9462a == 6;
+        return this.f6272a == 6;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public boolean f() {
-        return this.f9462a == 7;
+        return this.f6272a == 7;
     }
 
     public boolean g() {
-        return this.f9462a == 4;
+        return this.f6272a == 4;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
@@ -361,11 +359,11 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public boolean h() {
-        return this.f9462a == 5;
+        return this.f6272a == 5;
     }
 
     public boolean i() {
-        return this.f9462a == 9;
+        return this.f6272a == 9;
     }
 
     public void j() {
@@ -386,16 +384,16 @@ public class b extends AdBaseFrameLayout implements TextureView.SurfaceTextureLi
             this.h.release();
             this.h = null;
         }
-        this.f9462a = 0;
+        this.f6272a = 0;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public void k() {
         if (this.m) {
             if (g() || e() || f() || h()) {
-                ae.a(this.f9463b, this.j, getCurrentPosition());
+                ae.a(this.b, this.j, getCurrentPosition());
             } else if (i()) {
-                ae.a(this.f9463b, this.j, 0L);
+                ae.a(this.b, this.j, 0L);
             }
         }
         j();

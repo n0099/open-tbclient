@@ -26,38 +26,38 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class l extends ProxyAdkBaseActivity<l> {
-    private float cEl;
-    private FacePackageDetailModel iVb;
-    private m iVc;
-    private FacePackageDownloadModel iVd;
-    private FaceBuyModel iVe;
+    private float cFL;
+    private FacePackageDetailModel iWK;
+    private m iWL;
+    private FacePackageDownloadModel iWM;
+    private FaceBuyModel iWN;
     private float mDownX;
-    private boolean iVf = false;
+    private boolean iWO = false;
     private final Rect tmpRect = new Rect();
-    private final NoNetworkView.a gyn = new NoNetworkView.a() { // from class: com.baidu.tieba.faceshop.l.1
+    private final NoNetworkView.a gzW = new NoNetworkView.a() { // from class: com.baidu.tieba.faceshop.l.1
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
             if (z) {
                 l.this.refresh();
             }
-            l.this.iVc.qi(z);
+            l.this.iWL.qi(z);
         }
     };
-    private final ProxyAdkBaseActivity<l>.LoadDataCallBack iVg = new ProxyAdkBaseActivity<l>.LoadDataCallBack() { // from class: com.baidu.tieba.faceshop.l.2
+    private final ProxyAdkBaseActivity<l>.LoadDataCallBack iWP = new ProxyAdkBaseActivity<l>.LoadDataCallBack() { // from class: com.baidu.tieba.faceshop.l.2
         @Override // com.baidu.tbadk.ProxyAdkBaseActivity.LoadDataCallBack
         public void callback(Object... objArr) {
             l.this.hideProgressBar();
             Object obj = objArr[0];
             Boolean bool = (Boolean) objArr[1];
             if (obj != null && (obj instanceof FacePackageDetailData)) {
-                if (l.this.iVc != null) {
+                if (l.this.iWL != null) {
                     FacePackageDetailData facePackageDetailData = (FacePackageDetailData) obj;
                     if (facePackageDetailData.errno == 0 && facePackageDetailData.usermsg != null) {
-                        l.this.iVc.g(l.this.iVb);
+                        l.this.iWL.g(l.this.iWK);
                         if (!bool.booleanValue()) {
-                            l.this.iVf = true;
+                            l.this.iWO = true;
                             return;
                         } else {
                             l.this.showProgressBar();
@@ -76,15 +76,15 @@ public class l extends ProxyAdkBaseActivity<l> {
             l.this.showToast(R.string.neterror);
         }
     };
-    private final CustomMessageListener eJz = new CustomMessageListener(CmdConfigCustom.CMD_FILE_DOWNLOAD) { // from class: com.baidu.tieba.faceshop.l.6
+    private final CustomMessageListener eLa = new CustomMessageListener(CmdConfigCustom.CMD_FILE_DOWNLOAD) { // from class: com.baidu.tieba.faceshop.l.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             List<DownloadData> data;
             DownloadData downloadData;
-            if (l.this.iVb != null && l.this.iVb.cyW() != null && l.this.iVc != null && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null) {
-                FacePackageData facePackageData = l.this.iVb.cyW().faces_list;
-                if (data.size() >= 1 && (downloadData = data.get(0)) != null && downloadData.getId().equals(l.this.iVb.getPid())) {
+            if (l.this.iWK != null && l.this.iWK.czc() != null && l.this.iWL != null && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null) {
+                FacePackageData facePackageData = l.this.iWK.czc().faces_list;
+                if (data.size() >= 1 && (downloadData = data.get(0)) != null && downloadData.getId().equals(l.this.iWK.getPid())) {
                     int status = downloadData.getStatus();
                     if (status == 3 || status == 0) {
                         facePackageData.downloaded = 1;
@@ -93,8 +93,8 @@ public class l extends ProxyAdkBaseActivity<l> {
                         if (!au.isEmpty(downloadData.getStatusMsg())) {
                             l.this.showToast(downloadData.getStatusMsg());
                         }
-                        if (l.this.iVd != null) {
-                            l.this.iVd.cancelLoadData();
+                        if (l.this.iWM != null) {
+                            l.this.iWM.cancelLoadData();
                         }
                         facePackageData.downloaded = 0;
                         facePackageData.downloading = 0;
@@ -105,8 +105,8 @@ public class l extends ProxyAdkBaseActivity<l> {
                         facePackageData.downloadNow = downloadData.getLength();
                     }
                 }
-                l.this.iVb.a(facePackageData);
-                l.this.iVc.i(l.this.iVb);
+                l.this.iWK.a(facePackageData);
+                l.this.iWL.i(l.this.iWK);
             }
         }
     };
@@ -121,108 +121,108 @@ public class l extends ProxyAdkBaseActivity<l> {
     }
 
     private void initUI() {
-        this.iVc = new m(getPageContext());
-        cyQ();
-        registerListener(this.eJz);
-        f.cyy();
+        this.iWL = new m(getPageContext());
+        cyW();
+        registerListener(this.eLa);
+        f.cyE();
     }
 
     private void initData(Bundle bundle) {
-        this.iVb = new FacePackageDetailModel(this);
+        this.iWK = new FacePackageDetailModel(this);
         if (bundle != null) {
-            this.iVb.setStType(bundle.getString("st_type"));
-            this.iVb.setPid(bundle.getString("pkg_id"));
-            this.iVb.qh(bundle.getBoolean("is_downloading"));
+            this.iWK.setStType(bundle.getString("st_type"));
+            this.iWK.setPid(bundle.getString("pkg_id"));
+            this.iWK.qh(bundle.getBoolean("is_downloading"));
         } else {
-            this.iVb.setStType(getIntent().getStringExtra("st_type"));
-            this.iVb.setPid(getIntent().getStringExtra("pkg_id"));
-            this.iVb.qh(getIntent().getBooleanExtra("is_downloading", false));
+            this.iWK.setStType(getIntent().getStringExtra("st_type"));
+            this.iWK.setPid(getIntent().getStringExtra("pkg_id"));
+            this.iWK.qh(getIntent().getBooleanExtra("is_downloading", false));
             TiebaStatic.log(getIntent().getStringExtra("st_type"));
         }
-        this.iVb.a(this.iVg);
+        this.iWK.a(this.iWP);
     }
 
     public void refresh() {
         showProgressBar();
-        this.iVb.loadData();
+        this.iWK.loadData();
     }
 
-    private void cyQ() {
-        this.iVc.c(this.gyn);
+    private void cyW() {
+        this.iWL.c(this.gzW);
     }
 
-    private void cyR() {
-        this.iVc.d(this.gyn);
+    private void cyX() {
+        this.iWL.d(this.gzW);
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.iVb != null && this.iVc != null) {
-            if (view == this.iVc.czk()) {
+        if (this.iWK != null && this.iWL != null) {
+            if (view == this.iWL.czq()) {
                 if (!TbadkApplication.isLogin()) {
                     TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), true, RequestResponseCode.REQUEST_LOGIN_USE)));
                     return;
-                } else if (this.iVf) {
-                    switch (this.iVb.cyZ()) {
+                } else if (this.iWO) {
+                    switch (this.iWK.czf()) {
                         case 2:
                         case 3:
                             TiebaStatic.log("emotion_package_detail_free");
-                            String cyX = this.iVb.cyX();
-                            DownloadData downloadData = new DownloadData(this.iVb.getPid());
+                            String czd = this.iWK.czd();
+                            DownloadData downloadData = new DownloadData(this.iWK.getPid());
                             downloadData.setStatus(1);
                             downloadData.setStatusMsg(null);
                             downloadData.setType(11);
-                            f.cyy().b(downloadData);
-                            if (!au.isEmpty(cyX)) {
-                                if (this.iVb.cyW() != null && this.iVb.cyW().faces_list != null) {
-                                    aH(this.iVb.getPid(), this.iVb.cyW().faces_list.pname, cyX);
+                            f.cyE().b(downloadData);
+                            if (!au.isEmpty(czd)) {
+                                if (this.iWK.czc() != null && this.iWK.czc().faces_list != null) {
+                                    aH(this.iWK.getPid(), this.iWK.czc().faces_list.pname, czd);
                                     break;
                                 } else {
                                     return;
                                 }
                             } else {
-                                cyS();
+                                cyY();
                                 break;
                             }
                             break;
                         case 4:
                             TiebaStatic.log("emotion_package_detail_buy");
-                            cyT();
+                            cyZ();
                             break;
                     }
                 } else {
                     return;
                 }
-            } else if (view == this.iVc.czl()) {
-                DownloadData downloadData2 = new DownloadData(this.iVb.getPid());
+            } else if (view == this.iWL.czr()) {
+                DownloadData downloadData2 = new DownloadData(this.iWK.getPid());
                 downloadData2.setStatus(4);
                 downloadData2.setStatusMsg(null);
                 downloadData2.setType(11);
-                f.cyy().b(downloadData2);
-                this.iVb.qh(false);
-                f.cyy().Jz(this.iVb.getPid());
+                f.cyE().b(downloadData2);
+                this.iWK.qh(false);
+                f.cyE().JI(this.iWK.getPid());
             }
             super.onClick(view);
         }
     }
 
-    private void cyS() {
-        this.iVd = new FacePackageDownloadModel(getActivity());
-        this.iVd.JO(this.iVb.getPid());
-        final DownloadData downloadData = new DownloadData(this.iVb.getPid());
+    private void cyY() {
+        this.iWM = new FacePackageDownloadModel(getActivity());
+        this.iWM.JX(this.iWK.getPid());
+        final DownloadData downloadData = new DownloadData(this.iWK.getPid());
         downloadData.setType(11);
         downloadData.setStatus(2);
         downloadData.setStatusMsg(getResources().getString(R.string.neterror));
-        this.iVd.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.l.3
+        this.iWM.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.l.3
             @Override // com.baidu.adp.base.e
             public void callback(Object obj) {
                 if (obj != null && (obj instanceof FacePackageDownloadData)) {
                     FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
                     if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
                         String str = facePackageDownloadData.pack_url;
-                        l.this.iVb.JK(str);
-                        if (l.this.iVb.cyW() != null && l.this.iVb.cyW().faces_list != null) {
-                            l.this.aH(l.this.iVb.getPid(), l.this.iVb.cyW().faces_list.pname, str);
+                        l.this.iWK.JT(str);
+                        if (l.this.iWK.czc() != null && l.this.iWK.czc().faces_list != null) {
+                            l.this.aH(l.this.iWK.getPid(), l.this.iWK.czc().faces_list.pname, str);
                             return;
                         }
                         return;
@@ -230,24 +230,24 @@ public class l extends ProxyAdkBaseActivity<l> {
                         l.this.showToast(facePackageDownloadData.usermsg);
                         return;
                     } else {
-                        f.cyy().b(downloadData);
+                        f.cyE().b(downloadData);
                         return;
                     }
                 }
-                f.cyy().b(downloadData);
+                f.cyE().b(downloadData);
             }
         });
     }
 
     public void aH(String str, String str2, String str3) {
-        f.cyy().aG(str, str2, str3);
+        f.cyE().aG(str, str2, str3);
     }
 
-    public void cyT() {
+    public void cyZ() {
         showProgressBar();
-        String pid = this.iVb.getPid();
-        this.iVe = new FaceBuyModel(getActivity());
-        this.iVe.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.l.4
+        String pid = this.iWK.getPid();
+        this.iWN = new FaceBuyModel(getActivity());
+        this.iWN.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.l.4
             @Override // com.baidu.adp.base.e
             public void callback(Object obj) {
                 l.this.hideProgressBar();
@@ -257,7 +257,7 @@ public class l extends ProxyAdkBaseActivity<l> {
                         String str = faceBuyData.buy_info.buy_url;
                         String str2 = faceBuyData.buy_info.return_url;
                         if (faceBuyData.buy_info.buy_status != 2) {
-                            l.this.iVb.JL(String.valueOf(faceBuyData.buy_info.order_id));
+                            l.this.iWK.JU(String.valueOf(faceBuyData.buy_info.order_id));
                             IntentConfig intentConfig = new IntentConfig(l.this.getActivity());
                             intentConfig.getIntent().putExtra("tag_url", str);
                             intentConfig.getIntent().putExtra("tag_hook_url", str2);
@@ -267,11 +267,11 @@ public class l extends ProxyAdkBaseActivity<l> {
                             return;
                         }
                         l.this.showToast(R.string.has_buy_book);
-                        FacePackageData facePackageData = l.this.iVb.cyW().faces_list;
+                        FacePackageData facePackageData = l.this.iWK.czc().faces_list;
                         facePackageData.buy_status = 1;
                         facePackageData.can_download = 1;
-                        l.this.iVb.a(facePackageData);
-                        l.this.iVc.cze();
+                        l.this.iWK.a(facePackageData);
+                        l.this.iWL.czk();
                         return;
                     } else if (faceBuyData.usermsg != null) {
                         l.this.showToast(faceBuyData.usermsg);
@@ -284,14 +284,14 @@ public class l extends ProxyAdkBaseActivity<l> {
                 l.this.showToast(R.string.neterror);
             }
         });
-        this.iVe.JI(pid);
+        this.iWN.JR(pid);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
-        if (this.iVc != null) {
-            this.iVc.czj();
+        if (this.iWL != null) {
+            this.iWL.czp();
         }
         super.onResume();
     }
@@ -300,76 +300,76 @@ public class l extends ProxyAdkBaseActivity<l> {
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iVb != null) {
-            this.iVb.cancelLoadData();
+        if (this.iWK != null) {
+            this.iWK.cancelLoadData();
         }
-        if (this.iVd != null) {
-            this.iVd.cancelLoadData();
+        if (this.iWM != null) {
+            this.iWM.cancelLoadData();
         }
-        if (this.iVe != null) {
-            this.iVe.cancelLoadData();
+        if (this.iWN != null) {
+            this.iWN.cancelLoadData();
         }
-        cyR();
+        cyX();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iVc != null) {
-            this.iVc.onChangeSkinType(i);
+        if (this.iWL != null) {
+            this.iWL.onChangeSkinType(i);
         }
     }
 
-    public void cyU() {
-        this.iVc.czi();
-        cyS();
+    public void cza() {
+        this.iWL.czo();
+        cyY();
     }
 
-    public void cyV() {
-        this.iVc.czh();
+    public void czb() {
+        this.iWL.czn();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i2 == -1 && this.iVc != null && this.iVb != null && this.iVb.cyW() != null) {
+        if (i2 == -1 && this.iWL != null && this.iWK != null && this.iWK.czc() != null) {
             if (i == 10001) {
                 String stringExtra = intent.getStringExtra("tag_order_id");
-                if (this.iVb.cyW().faces_list != null) {
+                if (this.iWK.czc().faces_list != null) {
                     if (au.isEmpty(stringExtra)) {
-                        stringExtra = this.iVb.cza();
+                        stringExtra = this.iWK.czg();
                     }
-                    this.iVc.czg();
-                    this.iVe = new FaceBuyModel(getActivity());
-                    this.iVe.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.l.5
+                    this.iWL.czm();
+                    this.iWN = new FaceBuyModel(getActivity());
+                    this.iWN.setLoadDataCallBack(new com.baidu.adp.base.e() { // from class: com.baidu.tieba.faceshop.l.5
                         @Override // com.baidu.adp.base.e
                         public void callback(Object obj) {
                             if (obj != null && (obj instanceof FaceBuyQueryData)) {
                                 FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;
                                 if (faceBuyQueryData.errno == 0 && faceBuyQueryData.usermsg != null) {
                                     if (faceBuyQueryData.buy_result.status == 2) {
-                                        l.this.cyU();
+                                        l.this.cza();
                                         return;
                                     } else {
-                                        l.this.cyV();
+                                        l.this.czb();
                                         return;
                                     }
                                 }
-                                l.this.cyV();
+                                l.this.czb();
                                 return;
                             }
-                            l.this.cyV();
+                            l.this.czb();
                         }
                     });
-                    this.iVe.JJ(stringExtra);
+                    this.iWN.JS(stringExtra);
                 }
             } else if (i == 11003) {
-                if (this.iVb.cyW().faces_list.can_download == 1) {
-                    cyS();
+                if (this.iWK.czc().faces_list.can_download == 1) {
+                    cyY();
                 } else {
-                    cyT();
+                    cyZ();
                 }
             }
         }
@@ -386,15 +386,15 @@ public class l extends ProxyAdkBaseActivity<l> {
         if (view != null) {
             view.getDrawingRect(this.tmpRect);
             ((ViewGroup) getWindow().getDecorView()).offsetDescendantRectToMyCoords(view, this.tmpRect);
-            if (this.iVb.cyW() != null && (facePackageData = this.iVb.cyW().faces_list) != null) {
-                this.iVc.a(i, this.tmpRect, facePackageData);
+            if (this.iWK.czc() != null && (facePackageData = this.iWK.czc().faces_list) != null) {
+                this.iWL.a(i, this.tmpRect, facePackageData);
             }
         }
     }
 
     private boolean F(float f, float f2) {
         float f3 = f - this.mDownX;
-        float f4 = f2 - this.cEl;
+        float f4 = f2 - this.cFL;
         return Math.sqrt((double) ((f3 * f3) + (f4 * f4))) > ((double) getResources().getDimensionPixelSize(R.dimen.ds22));
     }
 
@@ -402,26 +402,26 @@ public class l extends ProxyAdkBaseActivity<l> {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
             this.mDownX = motionEvent.getX();
-            this.cEl = motionEvent.getY();
+            this.cFL = motionEvent.getY();
         }
-        if (this.iVc == null) {
+        if (this.iWL == null) {
             return super.dispatchTouchEvent(motionEvent);
         }
-        if (this.iVc.czm()) {
+        if (this.iWL.czs()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
-                    this.iVc.czn();
+                    this.iWL.czt();
                     break;
                 case 2:
                     int x = (int) motionEvent.getX();
                     int y = (int) motionEvent.getY();
                     this.tmpRect.set(x, y, x + 1, y + 1);
-                    GridView czp = this.iVc.czp();
-                    ((ViewGroup) getWindow().getDecorView()).offsetRectIntoDescendantCoords(czp, this.tmpRect);
-                    int pointToPosition = czp.pointToPosition(this.tmpRect.left, this.tmpRect.top);
+                    GridView czv = this.iWL.czv();
+                    ((ViewGroup) getWindow().getDecorView()).offsetRectIntoDescendantCoords(czv, this.tmpRect);
+                    int pointToPosition = czv.pointToPosition(this.tmpRect.left, this.tmpRect.top);
                     if (pointToPosition != -1) {
-                        View childAt = czp.getChildAt(pointToPosition - czp.getFirstVisiblePosition());
+                        View childAt = czv.getChildAt(pointToPosition - czv.getFirstVisiblePosition());
                         if (F(x, y)) {
                             w(childAt, pointToPosition);
                             break;
@@ -437,18 +437,18 @@ public class l extends ProxyAdkBaseActivity<l> {
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.iVc != null) {
-            this.iVc.czo();
+        if (this.iWL != null) {
+            this.iWL.czu();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onSaveInstanceState(Bundle bundle) {
-        if (this.iVb != null) {
-            bundle.putString("st_type", this.iVb.getStType());
-            bundle.putString("pkg_id", this.iVb.getPid());
-            bundle.putBoolean("is_downloading", this.iVb.cyY());
+        if (this.iWK != null) {
+            bundle.putString("st_type", this.iWK.getStType());
+            bundle.putString("pkg_id", this.iWK.getPid());
+            bundle.putBoolean("is_downloading", this.iWK.cze());
         }
         super.onSaveInstanceState(bundle);
     }

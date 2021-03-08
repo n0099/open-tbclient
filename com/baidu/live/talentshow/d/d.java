@@ -1,21 +1,21 @@
 package com.baidu.live.talentshow.d;
 
 import com.baidu.live.alablmsdk.config.enums.BLMRoomMode;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d {
-    public static String bFF = "liveshow_battle";
-    public static int bFG = 0;
-    public static int bFH = 1;
-    public static int bFI = 2;
-    public static int bFJ = 3;
-    public static int bFK = 4;
-    public static BLMRoomMode bFL = BLMRoomMode.BLMROOMMODE_1VN;
-    public static int bFM = -1;
-    public static int bFN = -2;
-    public static int bFO = -3;
-    public static int bFP = -4;
-    public static int bFQ = -5;
-    public static int bFR = -6;
-    public static int bFS = -7;
-    public static int bFT = -8;
+    public static String bHf = "liveshow_battle";
+    public static int bHg = 0;
+    public static int bHh = 1;
+    public static int bHi = 2;
+    public static int bHj = 3;
+    public static int bHk = 4;
+    public static BLMRoomMode bHl = BLMRoomMode.BLMROOMMODE_1VN;
+    public static int bHm = -1;
+    public static int bHn = -2;
+    public static int bHo = -3;
+    public static int bHp = -4;
+    public static int bHq = -5;
+    public static int bHr = -6;
+    public static int bHs = -7;
+    public static int bHt = -8;
 }

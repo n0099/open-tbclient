@@ -2,12 +2,12 @@ package com.baidu.ar.c;
 
 import android.os.Looper;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
     private b iA;
     private com.baidu.ar.bus.a iz;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     private static class a {
         private static c iB = new c();
     }

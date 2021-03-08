@@ -9,16 +9,16 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.alphavideo.c;
 import com.baidu.live.sdk.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class PkRankTaskBGStartAnimView extends FrameLayout {
-    private com.baidu.live.alphavideo.c bei;
-    private FrameLayout igd;
-    private Runnable igf;
-    private a inq;
+    private com.baidu.live.alphavideo.c bfL;
+    private FrameLayout ihM;
+    private Runnable ihO;
+    private a ipa;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void coC();
+        void coI();
     }
 
     public PkRankTaskBGStartAnimView(Context context) {
@@ -26,85 +26,85 @@ public class PkRankTaskBGStartAnimView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.inq = aVar;
+        this.ipa = aVar;
     }
 
     public void bX(int i, int i2) {
         bY(i, i2);
-        coI();
+        coO();
     }
 
-    public boolean IF(String str) {
-        if (this.bei != null && !TextUtils.isEmpty(str)) {
-            this.bei.getView().setVisibility(0);
-            this.bei.setLooping(true);
-            this.bei.play(str);
+    public boolean IO(String str) {
+        if (this.bfL != null && !TextUtils.isEmpty(str)) {
+            this.bfL.getView().setVisibility(0);
+            this.bfL.setLooping(true);
+            this.bfL.play(str);
             return true;
         }
-        if (this.bei != null) {
-            this.bei.getView().setVisibility(8);
+        if (this.bfL != null) {
+            this.bfL.getView().setVisibility(8);
         }
-        this.igf = new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankTaskBGStartAnimView.1
+        this.ihO = new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankTaskBGStartAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (PkRankTaskBGStartAnimView.this.inq != null) {
-                    PkRankTaskBGStartAnimView.this.inq.coC();
+                if (PkRankTaskBGStartAnimView.this.ipa != null) {
+                    PkRankTaskBGStartAnimView.this.ipa.coI();
                 }
             }
         };
-        postDelayed(this.igf, IMConnection.RETRY_DELAY_TIMES);
+        postDelayed(this.ihO, IMConnection.RETRY_DELAY_TIMES);
         return false;
     }
 
     public void stopAnim() {
-        if (this.igf != null) {
-            removeCallbacks(this.igf);
+        if (this.ihO != null) {
+            removeCallbacks(this.ihO);
         }
-        if (this.bei != null) {
-            this.bei.stop();
-            this.bei.reset();
+        if (this.bfL != null) {
+            this.bfL.stop();
+            this.bfL.reset();
         }
     }
 
     public void release() {
         stopAnim();
-        if (this.bei != null) {
-            this.bei.release();
+        if (this.bfL != null) {
+            this.bfL.release();
         }
         removeAllViews();
     }
 
     private void bY(int i, int i2) {
-        if (this.igd == null) {
-            this.igd = new FrameLayout(getContext());
+        if (this.ihM == null) {
+            this.ihM = new FrameLayout(getContext());
         }
-        if (indexOfChild(this.igd) < 0) {
-            addView(this.igd);
+        if (indexOfChild(this.ihM) < 0) {
+            addView(this.ihM);
         }
     }
 
-    private void coI() {
-        if (this.bei == null || this.bei.isDestroyed()) {
+    private void coO() {
+        if (this.bfL == null || this.bfL.isDestroyed()) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913181, com.baidu.live.alphavideo.c.class, getContext());
             if (runTask != null && runTask.getData() != null) {
-                this.bei = (com.baidu.live.alphavideo.c) runTask.getData();
+                this.bfL = (com.baidu.live.alphavideo.c) runTask.getData();
             } else {
                 return;
             }
         }
-        if (this.bei != null) {
-            if (this.igd.indexOfChild(this.bei.getView()) < 0) {
-                this.igd.addView(this.bei.getView(), new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds220), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds88)));
+        if (this.bfL != null) {
+            if (this.ihM.indexOfChild(this.bfL.getView()) < 0) {
+                this.ihM.addView(this.bfL.getView(), new ViewGroup.LayoutParams(getContext().getResources().getDimensionPixelSize(a.d.sdk_ds220), getContext().getResources().getDimensionPixelSize(a.d.sdk_ds88)));
             }
-            this.bei.a(new c.a() { // from class: com.baidu.tieba.ala.view.PkRankTaskBGStartAnimView.2
+            this.bfL.a(new c.a() { // from class: com.baidu.tieba.ala.view.PkRankTaskBGStartAnimView.2
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onStart() {
                 }
 
                 @Override // com.baidu.live.alphavideo.c.a
                 public void onEnd() {
-                    if (PkRankTaskBGStartAnimView.this.inq != null) {
-                        PkRankTaskBGStartAnimView.this.inq.coC();
+                    if (PkRankTaskBGStartAnimView.this.ipa != null) {
+                        PkRankTaskBGStartAnimView.this.ipa.coI();
                     }
                 }
 
@@ -113,7 +113,7 @@ public class PkRankTaskBGStartAnimView extends FrameLayout {
                     onEnd();
                 }
             });
-            this.bei.getView().setVisibility(8);
+            this.bfL.getView().setVisibility(8);
         }
     }
 }

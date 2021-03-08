@@ -47,7 +47,7 @@ public interface j extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof j)) {
                 return (j) queryLocalInterface;
             }
-            return new C1244a(iBinder);
+            return new C1234a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -134,18 +134,18 @@ public interface j extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.j$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        private static class C1244a implements j {
+        private static class C1234a implements j {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13116a;
+            private IBinder f7805a;
 
-            C1244a(IBinder iBinder) {
-                this.f13116a = iBinder;
+            C1234a(IBinder iBinder) {
+                this.f7805a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13116a;
+                return this.f7805a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.j
@@ -154,7 +154,7 @@ public interface j extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlListener");
-                    this.f13116a.transact(1, obtain, obtain2, 0);
+                    this.f7805a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
                 } finally {
@@ -175,7 +175,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(2, obtain, obtain2, 0);
+                    this.f7805a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -195,7 +195,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(3, obtain, obtain2, 0);
+                    this.f7805a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -215,7 +215,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(4, obtain, obtain2, 0);
+                    this.f7805a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -235,7 +235,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(5, obtain, obtain2, 0);
+                    this.f7805a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -255,7 +255,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(6, obtain, obtain2, 0);
+                    this.f7805a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -281,7 +281,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(7, obtain, obtain2, 0);
+                    this.f7805a.transact(7, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -301,7 +301,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(8, obtain, obtain2, 0);
+                    this.f7805a.transact(8, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -321,7 +321,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(9, obtain, obtain2, 0);
+                    this.f7805a.transact(9, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -341,7 +341,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(10, obtain, obtain2, 0);
+                    this.f7805a.transact(10, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -367,7 +367,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(11, obtain, obtain2, 0);
+                    this.f7805a.transact(11, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -393,7 +393,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(12, obtain, obtain2, 0);
+                    this.f7805a.transact(12, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -413,7 +413,7 @@ public interface j extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13116a.transact(13, obtain, obtain2, 0);
+                    this.f7805a.transact(13, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

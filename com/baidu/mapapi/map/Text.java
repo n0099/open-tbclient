@@ -15,10 +15,8 @@ public final class Text extends Overlay {
     private static final String k = Text.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    String f2764a;
-
-    /* renamed from: b  reason: collision with root package name */
-    LatLng f2765b;
+    String f2048a;
+    LatLng b;
     int c;
     int d;
     int e;
@@ -48,11 +46,11 @@ public final class Text extends Overlay {
         float f;
         float f2 = 0.5f;
         super.a(bundle);
-        if (this.f2765b == null) {
+        if (this.b == null) {
             throw new IllegalStateException("when you add a text overlay, you must provide text and the position info.");
         }
-        bundle.putString("text", this.f2764a);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2765b);
+        bundle.putString("text", this.f2048a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.b);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         bundle.putInt("font_color", Color.argb(this.d >>> 24, this.d & 255, (this.d >> 8) & 255, (this.d >> 16) & 255));
@@ -113,7 +111,7 @@ public final class Text extends Overlay {
     }
 
     public LatLng getPosition() {
-        return this.f2765b;
+        return this.b;
     }
 
     public float getRotate() {
@@ -121,7 +119,7 @@ public final class Text extends Overlay {
     }
 
     public String getText() {
-        return this.f2764a;
+        return this.f2048a;
     }
 
     public Typeface getTypeface() {
@@ -157,7 +155,7 @@ public final class Text extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("position can not be null");
         }
-        this.f2765b = latLng;
+        this.b = latLng;
         this.j = 1;
         this.listener.b(this);
     }
@@ -172,7 +170,7 @@ public final class Text extends Overlay {
         if (str == null || str.equals("")) {
             throw new IllegalArgumentException("text can not be null or empty");
         }
-        this.f2764a = str;
+        this.f2048a = str;
         this.j = 1;
         this.listener.b(this);
     }

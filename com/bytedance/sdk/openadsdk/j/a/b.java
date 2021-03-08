@@ -1,49 +1,33 @@
 package com.bytedance.sdk.openadsdk.j.a;
 
-import android.content.Context;
 import com.bytedance.sdk.openadsdk.j.e;
-import com.bytedance.sdk.openadsdk.j.g.d;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class b extends a {
+public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f7222a;
+    private int f4862a = e.f4866a;
+    private int b;
+    private String c;
 
-    public void a() {
-        d.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.j.a.b.1
-            @Override // java.lang.Runnable
-            public void run() {
-                b.this.b();
-            }
-        });
+    public b(int i, String str) {
+        this.b = 0;
+        this.c = "";
+        this.b = i;
+        this.c = str;
     }
 
-    public void b() {
-        com.bytedance.sdk.openadsdk.j.d.c().d();
-        Context a2 = e.a();
-        if (a2 != null) {
-            com.bytedance.sdk.openadsdk.j.b.c.a(a2).a(1);
+    public JSONObject a() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("cupCount", this.f4862a);
+            jSONObject.put("sdkThreadCount", this.b);
+            jSONObject.put("sdkThreadNames", this.c);
+            return jSONObject;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
         }
-        for (File file : this.f7222a.listFiles()) {
-            try {
-                file.delete();
-            } catch (Throwable th) {
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.j.a.a
-    public File c(String str) {
-        return e(str);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.j.a.a
-    public File d(String str) {
-        return e(str);
-    }
-
-    File e(String str) {
-        return new File(this.f7222a, str);
     }
 }

@@ -2,7 +2,7 @@ package com.yy.mediaframework;
 
 import com.yy.mediaframework.CameraInterface;
 import com.yy.mediaframework.model.Rect;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface CameraListener {
     void notifyCameraOpenFail(String str);
 

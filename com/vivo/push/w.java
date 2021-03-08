@@ -4,21 +4,19 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class w {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Handler f13713a = new Handler(Looper.getMainLooper());
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final HandlerThread f13714b;
+    private static final Handler f8090a = new Handler(Looper.getMainLooper());
+    private static final HandlerThread b;
     private static final Handler c;
 
     static {
         HandlerThread handlerThread = new HandlerThread("push_client_thread");
-        f13714b = handlerThread;
+        b = handlerThread;
         handlerThread.start();
-        c = new x(f13714b.getLooper());
+        c = new x(b.getLooper());
     }
 
     public static void a(v vVar) {
@@ -44,6 +42,6 @@ public final class w {
     }
 
     public static void b(Runnable runnable) {
-        f13713a.post(runnable);
+        f8090a.post(runnable);
     }
 }

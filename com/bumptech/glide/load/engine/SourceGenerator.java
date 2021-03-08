@@ -2,6 +2,7 @@ package com.bumptech.glide.load.engine;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Encoder;
 import com.bumptech.glide.load.Key;
@@ -12,8 +13,8 @@ import com.bumptech.glide.util.LogTime;
 import java.util.Collections;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
-public class SourceGenerator implements DataFetcher.DataCallback<Object>, DataFetcherGenerator, DataFetcherGenerator.FetcherReadyCallback {
+/* loaded from: classes14.dex */
+public class SourceGenerator implements DataFetcherGenerator, DataFetcherGenerator.FetcherReadyCallback {
     private static final String TAG = "SourceGenerator";
     private final DataFetcherGenerator.FetcherReadyCallback cb;
     private Object dataToCache;
@@ -46,13 +47,36 @@ public class SourceGenerator implements DataFetcher.DataCallback<Object>, DataFe
                 this.loadDataListIndex = i + 1;
                 this.loadData = loadData.get(i);
                 if (this.loadData != null && (this.helper.getDiskCacheStrategy().isDataCacheable(this.loadData.fetcher.getDataSource()) || this.helper.hasLoadPath(this.loadData.fetcher.getDataClass()))) {
-                    this.loadData.fetcher.loadData(this.helper.getPriority(), this);
+                    startNextLoad(this.loadData);
                     z = true;
                 }
             }
             return z;
         }
         return true;
+    }
+
+    private void startNextLoad(final ModelLoader.LoadData<?> loadData) {
+        this.loadData.fetcher.loadData(this.helper.getPriority(), new DataFetcher.DataCallback<Object>() { // from class: com.bumptech.glide.load.engine.SourceGenerator.1
+            @Override // com.bumptech.glide.load.data.DataFetcher.DataCallback
+            public void onDataReady(@Nullable Object obj) {
+                if (SourceGenerator.this.isCurrentRequest(loadData)) {
+                    SourceGenerator.this.onDataReadyInternal(loadData, obj);
+                }
+            }
+
+            @Override // com.bumptech.glide.load.data.DataFetcher.DataCallback
+            public void onLoadFailed(@NonNull Exception exc) {
+                if (SourceGenerator.this.isCurrentRequest(loadData)) {
+                    SourceGenerator.this.onLoadFailedInternal(loadData, exc);
+                }
+            }
+        });
+    }
+
+    boolean isCurrentRequest(ModelLoader.LoadData<?> loadData) {
+        ModelLoader.LoadData<?> loadData2 = this.loadData;
+        return loadData2 != null && loadData2 == loadData;
     }
 
     private boolean hasNextModelLoader() {
@@ -85,20 +109,18 @@ public class SourceGenerator implements DataFetcher.DataCallback<Object>, DataFe
         }
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher.DataCallback
-    public void onDataReady(Object obj) {
+    void onDataReadyInternal(ModelLoader.LoadData<?> loadData, Object obj) {
         DiskCacheStrategy diskCacheStrategy = this.helper.getDiskCacheStrategy();
-        if (obj != null && diskCacheStrategy.isDataCacheable(this.loadData.fetcher.getDataSource())) {
+        if (obj != null && diskCacheStrategy.isDataCacheable(loadData.fetcher.getDataSource())) {
             this.dataToCache = obj;
             this.cb.reschedule();
             return;
         }
-        this.cb.onDataFetcherReady(this.loadData.sourceKey, obj, this.loadData.fetcher, this.loadData.fetcher.getDataSource(), this.originalKey);
+        this.cb.onDataFetcherReady(loadData.sourceKey, obj, loadData.fetcher, loadData.fetcher.getDataSource(), this.originalKey);
     }
 
-    @Override // com.bumptech.glide.load.data.DataFetcher.DataCallback
-    public void onLoadFailed(@NonNull Exception exc) {
-        this.cb.onDataFetcherFailed(this.originalKey, exc, this.loadData.fetcher, this.loadData.fetcher.getDataSource());
+    void onLoadFailedInternal(ModelLoader.LoadData<?> loadData, @NonNull Exception exc) {
+        this.cb.onDataFetcherFailed(this.originalKey, exc, loadData.fetcher, loadData.fetcher.getDataSource());
     }
 
     @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback

@@ -1,7 +1,7 @@
 package com.baidu.ala.recorder.video.gles;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class Drawable2d {
     private static final int SIZEOF_FLOAT = 4;
     private int mCoordsPerVertex;
@@ -24,7 +24,7 @@ public class Drawable2d {
     private static final FloatBuffer FULL_RECTANGLE_BUF = GlUtil.createFloatBuffer(FULL_RECTANGLE_COORDS);
     private static final FloatBuffer FULL_RECTANGLE_TEX_BUF = GlUtil.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum Prefab {
         TRIANGLE,
         RECTANGLE,

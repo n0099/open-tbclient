@@ -6,7 +6,7 @@ import com.baidu.searchbox.aperf.bosuploader.BOSResponseEntity;
 import com.baidu.searchbox.aperf.bosuploader.BOSUploader;
 import com.baidu.searchbox.aperf.bosuploader.UploadUrlListener;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BOSFileUpload extends BaseFileUpload {
     private static final String BIZ_ANR = "performance-anr";
 

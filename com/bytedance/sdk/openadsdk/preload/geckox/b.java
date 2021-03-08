@@ -14,10 +14,8 @@ import java.util.concurrent.TimeUnit;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f7453a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Executor f7454b;
+    private final Context f5060a;
+    private final Executor b;
     private final Executor c;
     private final com.bytedance.sdk.openadsdk.preload.geckox.k.a d;
     private final com.bytedance.sdk.openadsdk.preload.geckox.statistic.a e;
@@ -35,17 +33,17 @@ public class b {
     private final boolean q;
 
     private b(a aVar) {
-        this.f7453a = aVar.d;
-        if (this.f7453a == null) {
+        this.f5060a = aVar.d;
+        if (this.f5060a == null) {
             throw new IllegalArgumentException("context == null");
         }
-        this.g = aVar.f7458b;
+        this.g = aVar.b;
         this.h = aVar.c;
         this.d = aVar.g;
         this.i = aVar.j;
         this.j = aVar.k;
         if (TextUtils.isEmpty(aVar.l)) {
-            this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f7453a);
+            this.k = com.bytedance.sdk.openadsdk.preload.geckox.utils.a.a(this.f5060a);
         } else {
             this.k = aVar.l;
         }
@@ -53,7 +51,7 @@ public class b {
         this.n = aVar.p;
         this.o = aVar.q;
         if (aVar.o == null) {
-            this.p = new File(this.f7453a.getFilesDir(), "gecko_offline_res_x");
+            this.p = new File(this.f5060a.getFilesDir(), "gecko_offline_res_x");
         } else {
             this.p = aVar.o;
         }
@@ -75,22 +73,22 @@ public class b {
                 @Override // java.util.concurrent.ThreadFactory
                 public Thread newThread(Runnable runnable) {
                     Thread thread = new Thread(runnable);
-                    thread.setName("gecko-update-thread");
+                    thread.setName("tt_pangle_thread_gecko_update");
                     thread.setPriority(3);
                     return thread;
                 }
             });
             threadPoolExecutor.allowCoreThreadTimeOut(true);
-            this.f7454b = threadPoolExecutor;
+            this.b = threadPoolExecutor;
         } else {
-            this.f7454b = aVar.e;
+            this.b = aVar.e;
         }
         if (aVar.f == null) {
             ThreadPoolExecutor threadPoolExecutor2 = new ThreadPoolExecutor(1, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactory() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.b.2
                 @Override // java.util.concurrent.ThreadFactory
                 public Thread newThread(Runnable runnable) {
                     Thread thread = new Thread(runnable);
-                    thread.setName("gecko-check-update-thread");
+                    thread.setName("tt_pangle_thread_gecko_check_update");
                     thread.setPriority(3);
                     return thread;
                 }
@@ -100,17 +98,17 @@ public class b {
         } else {
             this.c = aVar.f;
         }
-        if (aVar.f7457a == null) {
+        if (aVar.f5063a == null) {
             this.f = new com.bytedance.sdk.openadsdk.preload.geckox.i.a();
         } else {
-            this.f = aVar.f7457a;
+            this.f = aVar.f5063a;
         }
         this.e = aVar.h;
         this.q = aVar.i;
     }
 
     public Context a() {
-        return this.f7453a;
+        return this.f5060a;
     }
 
     public com.bytedance.sdk.openadsdk.preload.geckox.a.a.a b() {
@@ -130,7 +128,7 @@ public class b {
     }
 
     public Executor f() {
-        return this.f7454b;
+        return this.b;
     }
 
     public Executor g() {
@@ -181,10 +179,8 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private com.bytedance.sdk.openadsdk.preload.geckox.i.b f7457a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private List<String> f7458b;
+        private com.bytedance.sdk.openadsdk.preload.geckox.i.b f5063a;
+        private List<String> b;
         private List<String> c;
         private Context d;
         private Executor e;
@@ -214,7 +210,7 @@ public class b {
 
         public a b(String... strArr) {
             if (strArr != null && strArr.length >= 1) {
-                this.f7458b = Arrays.asList(strArr);
+                this.b = Arrays.asList(strArr);
             }
             return this;
         }
@@ -226,6 +222,16 @@ public class b {
 
         public a a(boolean z) {
             this.i = z;
+            return this;
+        }
+
+        public a a(Executor executor) {
+            this.e = executor;
+            return this;
+        }
+
+        public a b(Executor executor) {
+            this.f = executor;
             return this;
         }
 

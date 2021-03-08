@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.util.v;
 import tbclient.GetLevelInfo.DataReq;
 import tbclient.GetLevelInfo.GetLevelInfoReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetLevelInfoRequestMessage extends NetMessage {
     private long forumId;
 

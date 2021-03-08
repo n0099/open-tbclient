@@ -23,7 +23,7 @@ import com.baidu.live.tbadk.TbConfig;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class BDLayoutMode {
     private static final String ATTR_NAME_BACKGROUND = "tb_background";
     private static final String ATTR_NAME_DIVIDER = "tb_divider";

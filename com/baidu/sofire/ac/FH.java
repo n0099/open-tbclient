@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.app.NotificationCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.c;
@@ -14,7 +15,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FH {
     public static final int INVOKE_METHOD_ERROR_DEFULT = -1;
     public static final int INVOKE_METHOD_ERROR_ILLGEAL_METHOD_NAME = -3;
@@ -75,11 +76,11 @@ public class FH {
                     if (a2 == null) {
                         return "";
                     }
-                    List<ApkInfo> b2 = a2.b();
-                    if (b2 == null || b2.size() <= 0) {
+                    List<ApkInfo> b = a2.b();
+                    if (b == null || b.size() <= 0) {
                         return "";
                     }
-                    for (ApkInfo apkInfo : b2) {
+                    for (ApkInfo apkInfo : b) {
                         if (apkInfo.key == i) {
                             if (apkInfo.versionName == null) {
                                 return "";
@@ -147,8 +148,8 @@ public class FH {
             Method method = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("p");
             if (optString.equals("callSync")) {
-                if (c.f5210b == null && context != null) {
-                    c.f5210b = context.getApplicationContext();
+                if (c.b == null && context != null) {
+                    c.b = context.getApplicationContext();
                 }
                 if (optJSONArray != null && optJSONArray.length() == 2) {
                     method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -231,8 +232,8 @@ public class FH {
                 if (cls.equals(Context.class)) {
                     if (context != null) {
                         objArr[i3] = context;
-                    } else if (c.f5210b != null) {
-                        objArr[i3] = c.f5210b;
+                    } else if (c.b != null) {
+                        objArr[i3] = c.b;
                     } else {
                         throw new IllegalArgumentException("method request context");
                     }
@@ -324,7 +325,7 @@ public class FH {
     }
 
     private static boolean parseBoolean(String str) throws IllegalArgumentException {
-        if ("T".equals(str)) {
+        if (ExifInterface.GPS_DIRECTION_TRUE.equals(str)) {
             return true;
         }
         if ("F".equals(str)) {

@@ -8,34 +8,32 @@ import java.util.List;
 public class k implements com.ss.android.socialbase.downloader.downloader.k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final SparseArray<com.ss.android.socialbase.downloader.g.c> f13191a = new SparseArray<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final SparseArray<List<com.ss.android.socialbase.downloader.g.b>> f13192b = new SparseArray<>();
+    private final SparseArray<com.ss.android.socialbase.downloader.g.c> f7856a = new SparseArray<>();
+    private final SparseArray<List<com.ss.android.socialbase.downloader.g.b>> b = new SparseArray<>();
 
     public SparseArray<com.ss.android.socialbase.downloader.g.c> a() {
-        return this.f13191a;
+        return this.f7856a;
     }
 
-    public SparseArray<List<com.ss.android.socialbase.downloader.g.b>> eIA() {
-        return this.f13192b;
+    public SparseArray<List<com.ss.android.socialbase.downloader.g.b>> eIC() {
+        return this.b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c g(int i) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.c(2);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.c(2);
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c b(int i) {
         com.ss.android.socialbase.downloader.g.c cVar;
-        synchronized (this.f13191a) {
+        synchronized (this.f7856a) {
             try {
-                cVar = this.f13191a.get(i);
+                cVar = this.f7856a.get(i);
             } catch (Exception e) {
                 e.printStackTrace();
                 cVar = null;
@@ -47,11 +45,11 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public List<com.ss.android.socialbase.downloader.g.c> a(String str) {
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f13191a) {
+        synchronized (this.f7856a) {
             try {
-                int size = this.f13191a.size();
+                int size = this.f7856a.size();
                 for (int i = 0; i < size; i++) {
-                    com.ss.android.socialbase.downloader.g.c valueAt = this.f13191a.valueAt(i);
+                    com.ss.android.socialbase.downloader.g.c valueAt = this.f7856a.valueAt(i);
                     if (str != null && str.equals(valueAt.j())) {
                         arrayList.add(valueAt);
                     }
@@ -68,14 +66,14 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f13191a) {
-            if (this.f13191a.size() == 0) {
+        synchronized (this.f7856a) {
+            if (this.f7856a.size() == 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.f13191a.size(); i++) {
-                com.ss.android.socialbase.downloader.g.c cVar = this.f13191a.get(this.f13191a.keyAt(i));
-                if (cVar != null && !TextUtils.isEmpty(cVar.eHn()) && cVar.eHn().equals(str) && com.ss.android.socialbase.downloader.b.f.g(cVar.q())) {
+            for (int i = 0; i < this.f7856a.size(); i++) {
+                com.ss.android.socialbase.downloader.g.c cVar = this.f7856a.get(this.f7856a.keyAt(i));
+                if (cVar != null && !TextUtils.isEmpty(cVar.at()) && cVar.at().equals(str) && com.ss.android.socialbase.downloader.b.f.g(cVar.q())) {
                     arrayList.add(cVar);
                 }
             }
@@ -88,14 +86,14 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f13191a) {
-            if (this.f13191a.size() == 0) {
+        synchronized (this.f7856a) {
+            if (this.f7856a.size() == 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.f13191a.size(); i++) {
-                com.ss.android.socialbase.downloader.g.c cVar = this.f13191a.get(this.f13191a.keyAt(i));
-                if (cVar != null && !TextUtils.isEmpty(cVar.eHn()) && cVar.eHn().equals(str) && cVar.q() == -3) {
+            for (int i = 0; i < this.f7856a.size(); i++) {
+                com.ss.android.socialbase.downloader.g.c cVar = this.f7856a.get(this.f7856a.keyAt(i));
+                if (cVar != null && !TextUtils.isEmpty(cVar.at()) && cVar.at().equals(str) && cVar.q() == -3) {
                     arrayList.add(cVar);
                 }
             }
@@ -108,14 +106,14 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.f13191a) {
-            if (this.f13191a.size() == 0) {
+        synchronized (this.f7856a) {
+            if (this.f7856a.size() == 0) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.f13191a.size(); i++) {
-                com.ss.android.socialbase.downloader.g.c cVar = this.f13191a.get(this.f13191a.keyAt(i));
-                if (cVar != null && !TextUtils.isEmpty(cVar.eHn()) && cVar.eHn().equals(str) && com.ss.android.socialbase.downloader.b.f.f(cVar.q())) {
+            for (int i = 0; i < this.f7856a.size(); i++) {
+                com.ss.android.socialbase.downloader.g.c cVar = this.f7856a.get(this.f7856a.keyAt(i));
+                if (cVar != null && !TextUtils.isEmpty(cVar.at()) && cVar.at().equals(str) && com.ss.android.socialbase.downloader.b.f.f(cVar.q())) {
                     arrayList.add(cVar);
                 }
             }
@@ -125,21 +123,21 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public List<com.ss.android.socialbase.downloader.g.b> c(int i) {
-        return this.f13192b.get(i);
+        return this.b.get(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public synchronized void d(int i) {
-        this.f13192b.remove(i);
+        this.b.remove(i);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public synchronized void a(com.ss.android.socialbase.downloader.g.b bVar) {
         int k = bVar.k();
-        List<com.ss.android.socialbase.downloader.g.b> list = this.f13192b.get(k);
+        List<com.ss.android.socialbase.downloader.g.b> list = this.b.get(k);
         if (list == null) {
             list = new ArrayList<>();
-            this.f13192b.put(k, list);
+            this.b.put(k, list);
         }
         list.add(bVar);
     }
@@ -188,19 +186,19 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c a(int i, int i2) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.d(i2);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.d(i2);
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public boolean a(com.ss.android.socialbase.downloader.g.c cVar) {
         if (cVar != null) {
-            synchronized (this.f13191a) {
-                r0 = this.f13191a.get(cVar.g()) != null;
-                this.f13191a.put(cVar.g(), cVar);
+            synchronized (this.f7856a) {
+                r0 = this.f7856a.get(cVar.g()) != null;
+                this.f7856a.put(cVar.g(), cVar);
             }
         }
         return r0;
@@ -208,8 +206,8 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public boolean e(int i) {
-        synchronized (this.f13191a) {
-            this.f13191a.remove(i);
+        synchronized (this.f7856a) {
+            this.f7856a.remove(i);
         }
         return true;
     }
@@ -223,97 +221,97 @@ public class k implements com.ss.android.socialbase.downloader.downloader.k {
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public void b() {
-        synchronized (this.f13191a) {
-            this.f13191a.clear();
-            this.f13192b.clear();
+        synchronized (this.f7856a) {
+            this.f7856a.clear();
+            this.b.clear();
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c a(int i, long j, String str, String str2) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.f(j);
-            b2.c(str);
-            if (TextUtils.isEmpty(b2.h()) && !TextUtils.isEmpty(str2)) {
-                b2.d(str2);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.f(j);
+            b.c(str);
+            if (TextUtils.isEmpty(b.h()) && !TextUtils.isEmpty(str2)) {
+                b.d(str2);
             }
-            b2.c(3);
+            b.c(3);
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c a(int i, long j) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.a(j, false);
-            if (b2.q() != -3 && b2.q() != -2 && !com.ss.android.socialbase.downloader.b.f.g(b2.q()) && b2.q() != -4) {
-                b2.c(4);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.a(j, false);
+            if (b.q() != -3 && b.q() != -2 && !com.ss.android.socialbase.downloader.b.f.g(b.q()) && b.q() != -4) {
+                b.c(4);
             }
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c b(int i, long j) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.a(j, false);
-            b2.c(-1);
-            b2.g(false);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.a(j, false);
+            b.c(-1);
+            b.g(false);
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c h(int i) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.c(5);
-            b2.g(false);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.c(5);
+            b.g(false);
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c c(int i, long j) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.a(j, false);
-            b2.c(-3);
-            b2.g(false);
-            b2.h(false);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.a(j, false);
+            b.c(-3);
+            b.g(false);
+            b.h(false);
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c d(int i, long j) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.a(j, false);
-            b2.c(-2);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.a(j, false);
+            b.c(-2);
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c i(int i) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.c(1);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.c(1);
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k
     public com.ss.android.socialbase.downloader.g.c j(int i) {
-        com.ss.android.socialbase.downloader.g.c b2 = b(i);
-        if (b2 != null) {
-            b2.c(-7);
+        com.ss.android.socialbase.downloader.g.c b = b(i);
+        if (b != null) {
+            b.c(-7);
         }
-        return b2;
+        return b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.k

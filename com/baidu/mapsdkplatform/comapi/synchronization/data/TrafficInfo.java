@@ -8,34 +8,32 @@ public final class TrafficInfo implements Parcelable {
     public static final Parcelable.Creator<TrafficInfo> CREATOR = new n();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3112a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f3113b;
+    private boolean f2256a;
+    private String b;
     private ArrayList<Integer> c;
 
     public TrafficInfo() {
-        this.f3112a = false;
-        this.f3113b = null;
-        this.f3112a = false;
-        this.f3113b = null;
+        this.f2256a = false;
+        this.b = null;
+        this.f2256a = false;
+        this.b = null;
         this.c = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TrafficInfo(Parcel parcel) {
-        this.f3112a = false;
-        this.f3113b = null;
-        this.f3112a = parcel.readByte() != 0;
-        this.f3113b = parcel.readString();
+        this.f2256a = false;
+        this.b = null;
+        this.f2256a = parcel.readByte() != 0;
+        this.b = parcel.readString();
     }
 
     public String a() {
-        return this.f3113b;
+        return this.b;
     }
 
     public void a(String str) {
-        this.f3113b = str;
+        this.b = str;
     }
 
     public void a(ArrayList<Integer> arrayList) {
@@ -43,7 +41,7 @@ public final class TrafficInfo implements Parcelable {
     }
 
     public void a(boolean z) {
-        this.f3112a = z;
+        this.f2256a = z;
     }
 
     public ArrayList<Integer> b() {
@@ -57,7 +55,7 @@ public final class TrafficInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.f3112a ? 1 : 0));
-        parcel.writeString(this.f3113b);
+        parcel.writeByte((byte) (this.f2256a ? 1 : 0));
+        parcel.writeString(this.b);
     }
 }

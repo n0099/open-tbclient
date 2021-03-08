@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e extends BaseAdapter {
-    private List<d> jRv;
+    private List<d> jTe;
     private LayoutInflater layoutInflater;
 
     public e(Context context) {
@@ -21,30 +21,30 @@ public class e extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.jRv = list;
+        this.jTe = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.jRv == null) {
+        if (this.jTe == null) {
             return 0;
         }
-        return this.jRv.size();
+        return this.jTe.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: EB */
+    /* renamed from: EE */
     public d getItem(int i) {
-        if (this.jRv == null) {
+        if (this.jTe == null) {
             return null;
         }
-        return this.jRv.get(i);
+        return this.jTe.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.jRv == null) {
+        if (this.jTe == null) {
             return 0L;
         }
         return i;
@@ -64,20 +64,20 @@ public class e extends BaseAdapter {
         if (dVar == null) {
             return;
         }
-        aVar.lqb.setText(dVar.name);
-        ap.setViewTextColor(aVar.lqb, R.color.CAM_X0106);
-        SvgManager.bsR().a(aVar.lqa, dVar.lpZ, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+        aVar.lsd.setText(dVar.name);
+        ap.setViewTextColor(aVar.lsd, R.color.CAM_X0106);
+        SvgManager.bsU().a(aVar.lsc, dVar.lsb, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        private ImageView lqa;
-        private TextView lqb;
+        private ImageView lsc;
+        private TextView lsd;
 
         public a(View view) {
-            this.lqa = (ImageView) view.findViewById(R.id.member_privilege_pic);
-            this.lqb = (TextView) view.findViewById(R.id.member_privilege_name);
+            this.lsc = (ImageView) view.findViewById(R.id.member_privilege_pic);
+            this.lsd = (TextView) view.findViewById(R.id.member_privilege_name);
         }
     }
 }

@@ -4,58 +4,58 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.tbadk.b.f;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b implements com.baidu.tbadk.b.e {
-    private final HashMap<String, f> law;
+    private final HashMap<String, f> lcz;
 
     private b() {
-        this.law = new HashMap<>();
+        this.lcz = new HashMap<>();
     }
 
     /* renamed from: com.baidu.tieba.lego.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    private static class C0775b {
-        private static b lax = new b();
+    /* loaded from: classes8.dex */
+    private static class C0781b {
+        private static b lcA = new b();
     }
 
-    public static b dbr() {
-        return C0775b.lax;
+    public static b dbA() {
+        return C0781b.lcA;
     }
 
-    public void k(Object obj, String str) {
+    public void l(Object obj, String str) {
         if (str != null) {
-            a NB = a.NB(str);
-            f fVar = this.law.get(NB.getKey());
-            if (fVar != null && NB.isValid()) {
-                fVar.a(obj, NB.getParams(), str);
+            a NH = a.NH(str);
+            f fVar = this.lcz.get(NH.getKey());
+            if (fVar != null && NH.isValid()) {
+                fVar.a(obj, NH.getParams(), str);
             }
         }
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, com.baidu.adp.base.e eVar) {
         if (str != null) {
-            a NB = a.NB(str);
-            f fVar = this.law.get(NB.getKey());
-            if (fVar != null && NB.isValid()) {
+            a NH = a.NH(str);
+            f fVar = this.lcz.get(NH.getKey());
+            if (fVar != null && NH.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    NB.getParams().putAll(hashMap);
+                    NH.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, NB.getParams(), str, eVar);
+                fVar.a(obj, NH.getParams(), str, eVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.law.put(str, fVar);
+        this.lcz.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.b.a aVar) {
         a(aVar.key(), aVar);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class a {
-        HashMap<String, String> eZG;
+        HashMap<String, String> fbf;
         private boolean isValid;
         String key;
 
@@ -68,7 +68,7 @@ public class b implements com.baidu.tbadk.b.e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.eZG;
+            return this.fbf;
         }
 
         private a(String str) {
@@ -77,31 +77,31 @@ public class b implements com.baidu.tbadk.b.e {
             this.isValid = "tblego".equals(parse.getScheme());
             if (isValid()) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.eZG = new HashMap<>();
+                this.fbf = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.eZG.put(str2, parse.getQueryParameter(str2));
+                    this.fbf.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.eZG = new HashMap<>();
+            this.fbf = new HashMap<>();
         }
 
-        public String NA(String str) {
+        public String NG(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             if (isValid()) {
-                for (String str2 : this.eZG.keySet()) {
+                for (String str2 : this.fbf.keySet()) {
                     if (str.equals(str2)) {
-                        return this.eZG.get(str2);
+                        return this.fbf.get(str2);
                     }
                 }
             }
             return null;
         }
 
-        public static a NB(String str) {
+        public static a NH(String str) {
             return new a(str);
         }
     }

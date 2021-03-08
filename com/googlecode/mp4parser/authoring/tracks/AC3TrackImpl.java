@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AC3TrackImpl extends AbstractTrack {
     static int[][][][] bitRateAndFrameSizeTable = (int[][][][]) Array.newInstance(Integer.TYPE, 19, 2, 3, 2);
     private final DataSource dataSource;
@@ -183,7 +183,7 @@ public class AC3TrackImpl extends AbstractTrack {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Sample {
         private final DataSource dataSource;
         private final long size;

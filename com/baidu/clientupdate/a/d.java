@@ -22,15 +22,13 @@ import java.util.zip.GZIPOutputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d {
     private static d e;
 
     /* renamed from: a  reason: collision with root package name */
-    private List f1660a = new ArrayList();
-
-    /* renamed from: b  reason: collision with root package name */
-    private List f1661b = new ArrayList();
+    private List f1357a = new ArrayList();
+    private List b = new ArrayList();
     private com.baidu.clientupdate.download.a c;
     private b d;
 
@@ -58,10 +56,10 @@ public final class d {
             if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting() && this.c.g()) {
                 LogUtil.logE("LogUtils", "符合wifi下、有a6动作的上报时机");
                 b();
-                if (this.f1660a == null || this.f1660a.size() == 0) {
+                if (this.f1357a == null || this.f1357a.size() == 0) {
                     return;
                 }
-                String a6 = a(this.f1660a);
+                String a6 = a(this.f1357a);
                 if (TextUtils.isEmpty(a6)) {
                     return;
                 }
@@ -83,9 +81,9 @@ public final class d {
     private a a(Cursor cursor) {
         a aVar = new a();
         try {
-            aVar.f1655b = cursor.getString(cursor.getColumnIndex("ug"));
+            aVar.b = cursor.getString(cursor.getColumnIndex("ug"));
             aVar.c = cursor.getString(cursor.getColumnIndex("nm"));
-            aVar.f1654a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
+            aVar.f1354a = cursor.getString(cursor.getColumnIndex("sessioninfo"));
             aVar.d = cursor.getString(cursor.getColumnIndex(FrsActivityConfig.FLAG));
             aVar.e = new JSONArray(cursor.getString(cursor.getColumnIndex("stm")));
             aVar.f = new JSONArray(cursor.getString(cursor.getColumnIndex(Config.STAT_SDK_CHANNEL)));
@@ -158,7 +156,7 @@ public final class d {
         List list = null;
         String str = "queryAllLog";
         LogUtil.logE("LogUtils", "queryAllLog");
-        if (this.f1661b == null || this.f1661b.size() == 0) {
+        if (this.b == null || this.b.size() == 0) {
             try {
                 try {
                     cursor = this.c.f();
@@ -166,12 +164,12 @@ public final class d {
                         try {
                             cursor.moveToFirst();
                             while (!cursor.isAfterLast()) {
-                                this.f1661b.add(a(cursor));
+                                this.b.add(a(cursor));
                                 cursor.moveToNext();
                             }
-                            this.f1660a.addAll(this.f1661b);
-                            this.f1661b = null;
-                            list = this.f1660a;
+                            this.f1357a.addAll(this.b);
+                            this.b = null;
+                            list = this.f1357a;
                             if (cursor != null) {
                                 cursor.close();
                             }

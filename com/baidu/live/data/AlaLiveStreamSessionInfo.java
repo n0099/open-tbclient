@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveStreamSessionInfo implements Serializable {
     public static final String STREAM_LEVEL_DEFAULT = "L0";
     public static final String STREAM_LEVEL_HIGH = "L3";
@@ -25,7 +25,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
     private String pushUrl;
     public String rtmpUrl;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class AlaLiveStreamSessionLine implements Serializable {
         public String flvUrl;
         public String hslUrl;

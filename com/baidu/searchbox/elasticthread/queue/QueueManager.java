@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.searchbox.elasticthread.ElasticConfig;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class QueueManager implements Recordable {
     private static final double BLOCK_WEIGHT_IMMEDIATE = 9999999.0d;
     private static final boolean DEBUG = false;

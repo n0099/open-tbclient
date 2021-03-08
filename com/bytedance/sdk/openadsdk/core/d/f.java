@@ -10,10 +10,8 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int[] f6495a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int[] f6496b;
+    private final int[] f4390a;
+    private final int[] b;
     private final int[] c;
     private final int[] d;
     private final int e;
@@ -29,16 +27,16 @@ public class f {
     private SparseArray<c.a> o;
 
     private f(@NonNull a aVar) {
-        this.f6495a = aVar.h;
-        this.f6496b = aVar.i;
+        this.f4390a = aVar.h;
+        this.b = aVar.i;
         this.d = aVar.j;
         this.c = aVar.g;
         this.e = aVar.f;
         this.f = aVar.e;
         this.g = aVar.d;
         this.h = aVar.c;
-        this.i = aVar.f6498b;
-        this.j = aVar.f6497a;
+        this.i = aVar.b;
+        this.j = aVar.f4391a;
         this.k = aVar.k;
         this.l = aVar.l;
         this.m = aVar.m;
@@ -49,11 +47,11 @@ public class f {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.f6495a != null && this.f6495a.length == 2) {
-                jSONObject.putOpt("ad_x", Integer.valueOf(this.f6495a[0])).putOpt("ad_y", Integer.valueOf(this.f6495a[1]));
+            if (this.f4390a != null && this.f4390a.length == 2) {
+                jSONObject.putOpt("ad_x", Integer.valueOf(this.f4390a[0])).putOpt("ad_y", Integer.valueOf(this.f4390a[1]));
             }
-            if (this.f6496b != null && this.f6496b.length == 2) {
-                jSONObject.putOpt("width", Integer.valueOf(this.f6496b[0])).putOpt("height", Integer.valueOf(this.f6496b[1]));
+            if (this.b != null && this.b.length == 2) {
+                jSONObject.putOpt("width", Integer.valueOf(this.b[0])).putOpt("height", Integer.valueOf(this.b[1]));
             }
             if (this.c != null && this.c.length == 2) {
                 jSONObject.putOpt("button_x", Integer.valueOf(this.c[0])).putOpt("button_y", Integer.valueOf(this.c[1]));
@@ -68,7 +66,7 @@ public class f {
                     c.a valueAt = this.o.valueAt(i);
                     if (valueAt != null) {
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.putOpt("force", Double.valueOf(valueAt.c)).putOpt("mr", Double.valueOf(valueAt.f6448b)).putOpt("phase", Integer.valueOf(valueAt.f6447a)).putOpt(TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(valueAt.d));
+                        jSONObject3.putOpt("force", Double.valueOf(valueAt.c)).putOpt("mr", Double.valueOf(valueAt.b)).putOpt("phase", Integer.valueOf(valueAt.f4357a)).putOpt(TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(valueAt.d));
                         jSONArray.put(jSONObject3);
                     }
                 }
@@ -84,10 +82,8 @@ public class f {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private long f6497a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private long f6498b;
+        private long f4391a;
+        private long b;
         private int c;
         private int d;
         private int e;
@@ -113,12 +109,12 @@ public class f {
         }
 
         public a a(long j) {
-            this.f6497a = j;
+            this.f4391a = j;
             return this;
         }
 
         public a b(long j) {
-            this.f6498b = j;
+            this.b = j;
             return this;
         }
 

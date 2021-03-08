@@ -12,28 +12,26 @@ import java.util.Map;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private final r f10104a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final a f10105b;
+    private final r f6687a;
+    private final a b;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Map<Class<?>, C1129a<?>> f10106a = new HashMap();
+        private final Map<Class<?>, C1146a<?>> f6688a = new HashMap();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.kwad.sdk.glide.load.b.p$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C1129a<Model> {
+        public static class C1146a<Model> {
 
             /* renamed from: a  reason: collision with root package name */
-            final List<n<Model, ?>> f10107a;
+            final List<n<Model, ?>> f6689a;
 
-            public C1129a(List<n<Model, ?>> list) {
-                this.f10107a = list;
+            public C1146a(List<n<Model, ?>> list) {
+                this.f6689a = list;
             }
         }
 
@@ -42,19 +40,19 @@ public class p {
 
         @Nullable
         public <Model> List<n<Model, ?>> a(Class<Model> cls) {
-            C1129a<?> c1129a = this.f10106a.get(cls);
-            if (c1129a == null) {
+            C1146a<?> c1146a = this.f6688a.get(cls);
+            if (c1146a == null) {
                 return null;
             }
-            return (List<n<Model, ?>>) c1129a.f10107a;
+            return (List<n<Model, ?>>) c1146a.f6689a;
         }
 
         public void a() {
-            this.f10106a.clear();
+            this.f6688a.clear();
         }
 
         public <Model> void a(Class<Model> cls, List<n<Model, ?>> list) {
-            if (this.f10106a.put(cls, new C1129a<>(list)) != null) {
+            if (this.f6688a.put(cls, new C1146a<>(list)) != null) {
                 throw new IllegalStateException("Already cached loaders for model: " + cls);
             }
         }
@@ -65,8 +63,8 @@ public class p {
     }
 
     private p(@NonNull r rVar) {
-        this.f10105b = new a();
-        this.f10104a = rVar;
+        this.b = new a();
+        this.f6687a = rVar;
     }
 
     @NonNull
@@ -77,27 +75,27 @@ public class p {
     @NonNull
     private synchronized <A> List<n<A, ?>> b(@NonNull Class<A> cls) {
         List<n<A, ?>> a2;
-        a2 = this.f10105b.a(cls);
+        a2 = this.b.a(cls);
         if (a2 == null) {
-            a2 = Collections.unmodifiableList(this.f10104a.a(cls));
-            this.f10105b.a(cls, a2);
+            a2 = Collections.unmodifiableList(this.f6687a.a(cls));
+            this.b.a(cls, a2);
         }
         return a2;
     }
 
     @NonNull
     public synchronized List<Class<?>> a(@NonNull Class<?> cls) {
-        return this.f10104a.b(cls);
+        return this.f6687a.b(cls);
     }
 
     @NonNull
     public <A> List<n<A, ?>> a(@NonNull A a2) {
-        List<n<A, ?>> b2 = b((Class) b(a2));
-        int size = b2.size();
+        List<n<A, ?>> b = b((Class) b(a2));
+        int size = b.size();
         boolean z = true;
         List<n<A, ?>> emptyList = Collections.emptyList();
         for (int i = 0; i < size; i++) {
-            n<A, ?> nVar = b2.get(i);
+            n<A, ?> nVar = b.get(i);
             if (nVar.a(a2)) {
                 if (z) {
                     emptyList = new ArrayList<>(size - i);
@@ -110,7 +108,7 @@ public class p {
     }
 
     public synchronized <Model, Data> void a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull o<? extends Model, ? extends Data> oVar) {
-        this.f10104a.a(cls, cls2, oVar);
-        this.f10105b.a();
+        this.f6687a.a(cls, cls2, oVar);
+        this.b.a();
     }
 }

@@ -8,17 +8,17 @@ import com.baidu.swan.apps.ao.aq;
 import com.baidu.swan.apps.ao.e.d;
 import com.baidu.swan.apps.u.c.a.c;
 import kotlin.TypeCastException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class c<SelfT extends c<SelfT>> implements d<SelfT> {
-    private final aq cUQ;
-    private Bundle dgD;
+    private final aq cWq;
+    private Bundle dif;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends c<a> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ao.e.d
-        /* renamed from: azA */
-        public a ayW() {
+        /* renamed from: azD */
+        public a ayZ() {
             return this;
         }
     }
@@ -28,153 +28,153 @@ public abstract class c<SelfT extends c<SelfT>> implements d<SelfT> {
     }
 
     public c(Bundle bundle) {
-        this.cUQ = new aq();
-        this.dgD = bundle;
+        this.cWq = new aq();
+        this.dif = bundle;
     }
 
     public SelfT D(Bundle bundle) {
         H(bundle);
-        return (SelfT) ayW();
+        return (SelfT) ayZ();
     }
 
     public Bundle toBundle() {
-        return azw() ? new Bundle(azx()) : new Bundle();
+        return azz() ? new Bundle(azA()) : new Bundle();
     }
 
-    private boolean azw() {
-        return this.dgD != null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Bundle azx() {
-        if (!azw()) {
-            this.dgD = new Bundle();
-        }
-        return this.dgD;
+    private boolean azz() {
+        return this.dif != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq azy() {
-        return this.cUQ;
+    public Bundle azA() {
+        if (!azz()) {
+            this.dif = new Bundle();
+        }
+        return this.dif;
     }
 
-    public SelfT azz() {
-        if (azw()) {
-            this.dgD.clear();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aq azB() {
+        return this.cWq;
+    }
+
+    public SelfT azC() {
+        if (azz()) {
+            this.dif.clear();
         }
-        return (SelfT) ayW();
+        return (SelfT) ayZ();
     }
 
     public boolean containsKey(String str) {
-        return azw() && this.dgD.containsKey(str);
+        return azz() && this.dif.containsKey(str);
     }
 
-    public SelfT pd(String str) {
-        if (azw()) {
-            this.dgD.remove(str);
+    public SelfT pk(String str) {
+        if (azz()) {
+            this.dif.remove(str);
         }
-        return (SelfT) ayW();
+        return (SelfT) ayZ();
     }
 
     public SelfT Z(@Nullable String str, boolean z) {
-        com.baidu.swan.apps.u.c.a.a.dfV.b((c) this, str, (String) Boolean.valueOf(z));
-        return (SelfT) ayW();
+        com.baidu.swan.apps.u.c.a.a.dhw.b((c) this, str, (String) Boolean.valueOf(z));
+        return (SelfT) ayZ();
     }
 
-    public SelfT W(@Nullable String str, int i) {
-        com.baidu.swan.apps.u.c.a.a.dfY.b((c) this, str, (String) Integer.valueOf(i));
-        return (SelfT) ayW();
+    public SelfT X(@Nullable String str, int i) {
+        com.baidu.swan.apps.u.c.a.a.dhz.b((c) this, str, (String) Integer.valueOf(i));
+        return (SelfT) ayZ();
     }
 
     public SelfT o(@Nullable String str, long j) {
-        com.baidu.swan.apps.u.c.a.a.dfZ.b((c) this, str, (String) Long.valueOf(j));
-        return (SelfT) ayW();
+        com.baidu.swan.apps.u.c.a.a.dhA.b((c) this, str, (String) Long.valueOf(j));
+        return (SelfT) ayZ();
     }
 
     public SelfT e(@Nullable String str, float f) {
-        com.baidu.swan.apps.u.c.a.a.dga.b((c) this, str, (String) Float.valueOf(f));
-        return (SelfT) ayW();
+        com.baidu.swan.apps.u.c.a.a.dhB.b((c) this, str, (String) Float.valueOf(f));
+        return (SelfT) ayZ();
     }
 
     public SelfT bT(@Nullable String str, @Nullable String str2) {
-        com.baidu.swan.apps.u.c.a.a.dgc.b(this, str, str2);
-        return (SelfT) ayW();
+        com.baidu.swan.apps.u.c.a.a.dhD.b(this, str, str2);
+        return (SelfT) ayZ();
     }
 
     public SelfT e(@Nullable String str, @Nullable String[] strArr) {
-        com.baidu.swan.apps.u.c.a.a.dgq.b((c) this, str, (String) strArr);
-        return (SelfT) ayW();
+        com.baidu.swan.apps.u.c.a.a.dhR.b((c) this, str, (String) strArr);
+        return (SelfT) ayZ();
     }
 
     public boolean getBoolean(String str, boolean z) {
-        return com.baidu.swan.apps.u.c.a.a.dfV.a((c) this, str, (String) Boolean.valueOf(z)).booleanValue();
+        return com.baidu.swan.apps.u.c.a.a.dhw.a((c) this, str, (String) Boolean.valueOf(z)).booleanValue();
     }
 
     public int getInt(String str) {
-        return com.baidu.swan.apps.u.c.a.a.dfY.a(this, str).intValue();
+        return com.baidu.swan.apps.u.c.a.a.dhz.a(this, str).intValue();
     }
 
     public int getInt(String str, int i) {
-        return com.baidu.swan.apps.u.c.a.a.dfY.a((c) this, str, (String) Integer.valueOf(i)).intValue();
+        return com.baidu.swan.apps.u.c.a.a.dhz.a((c) this, str, (String) Integer.valueOf(i)).intValue();
     }
 
     public long getLong(String str) {
-        return com.baidu.swan.apps.u.c.a.a.dfZ.a(this, str).longValue();
+        return com.baidu.swan.apps.u.c.a.a.dhA.a(this, str).longValue();
     }
 
     public long getLong(String str, long j) {
-        return com.baidu.swan.apps.u.c.a.a.dfZ.a((c) this, str, (String) Long.valueOf(j)).longValue();
+        return com.baidu.swan.apps.u.c.a.a.dhA.a((c) this, str, (String) Long.valueOf(j)).longValue();
     }
 
     public float getFloat(String str) {
-        return com.baidu.swan.apps.u.c.a.a.dga.a(this, str).floatValue();
+        return com.baidu.swan.apps.u.c.a.a.dhB.a(this, str).floatValue();
     }
 
     public float getFloat(String str, float f) {
-        return com.baidu.swan.apps.u.c.a.a.dga.a((c) this, str, (String) Float.valueOf(f)).floatValue();
+        return com.baidu.swan.apps.u.c.a.a.dhB.a((c) this, str, (String) Float.valueOf(f)).floatValue();
     }
 
     @Nullable
     public String getString(@Nullable String str) {
-        return com.baidu.swan.apps.u.c.a.a.dgc.a(this, str);
+        return com.baidu.swan.apps.u.c.a.a.dhD.a(this, str);
     }
 
     public String getString(@Nullable String str, String str2) {
-        return com.baidu.swan.apps.u.c.a.a.dgc.a(this, str, str2);
+        return com.baidu.swan.apps.u.c.a.a.dhD.a(this, str, str2);
     }
 
     public SelfT H(Bundle bundle) {
         if (bundle != null && !bundle.isEmpty()) {
-            azx().putAll(bundle);
+            azA().putAll(bundle);
         }
-        return (SelfT) ayW();
+        return (SelfT) ayZ();
     }
 
     public SelfT a(@Nullable String str, @Nullable Parcelable parcelable) {
-        com.baidu.swan.apps.u.c.a.a.dgv.b((c) this, str, (String) parcelable);
-        return (SelfT) ayW();
+        com.baidu.swan.apps.u.c.a.a.dhW.b((c) this, str, (String) parcelable);
+        return (SelfT) ayZ();
     }
 
     public SelfT e(@Nullable String str, @Nullable Bundle bundle) {
-        com.baidu.swan.apps.u.c.a.a.dgu.b((c) this, str, (String) bundle);
-        return (SelfT) ayW();
+        com.baidu.swan.apps.u.c.a.a.dhV.b((c) this, str, (String) bundle);
+        return (SelfT) ayZ();
     }
 
     @Nullable
-    public Bundle pe(@Nullable String str) {
-        return com.baidu.swan.apps.u.c.a.a.dgu.a(this, str);
+    public Bundle pl(@Nullable String str) {
+        return com.baidu.swan.apps.u.c.a.a.dhV.a(this, str);
     }
 
     @Nullable
-    public <T extends Parcelable> T pf(@Nullable String str) {
+    public <T extends Parcelable> T pm(@Nullable String str) {
         try {
-            return (T) com.baidu.swan.apps.u.c.a.a.dgv.a(this, str);
+            return (T) com.baidu.swan.apps.u.c.a.a.dhW.a(this, str);
         } catch (TypeCastException e) {
             return null;
         }
     }
 
     public synchronized String toString() {
-        return azw() ? this.dgD.toString() : SchemeCollecter.CLASSIFY_EMPTY;
+        return azz() ? this.dif.toString() : SchemeCollecter.CLASSIFY_EMPTY;
     }
 }

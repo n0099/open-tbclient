@@ -2,7 +2,7 @@ package com.yy.mediaframework.gles;
 
 import android.opengl.GLES20;
 import com.yy.mediaframework.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYGLUtil {
     public static final String TAG = "YYMediaFw";
 

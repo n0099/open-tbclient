@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaChallengeShowAllJinzhuListResponse extends JsonHttpResponsedMessage {
-    private int bby;
-    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> hvt;
+    private int bcY;
+    private List<com.baidu.tieba.ala.liveroom.challenge.a.a> hxc;
     private boolean mHasMore;
 
     public AlaChallengeShowAllJinzhuListResponse() {
         super(1021198);
-        this.hvt = new ArrayList();
+        this.hxc = new ArrayList();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -29,21 +29,21 @@ public class AlaChallengeShowAllJinzhuListResponse extends JsonHttpResponsedMess
                     if (optJSONObject2 != null) {
                         com.baidu.tieba.ala.liveroom.challenge.a.a aVar = new com.baidu.tieba.ala.liveroom.challenge.a.a();
                         aVar.parserJson(optJSONObject2);
-                        this.hvt.add(aVar);
+                        this.hxc.add(aVar);
                     }
                 }
             }
             this.mHasMore = optJSONObject.optInt("hasMore") != 0;
-            this.bby = optJSONObject.optInt("currentPage");
+            this.bcY = optJSONObject.optInt("currentPage");
         }
     }
 
     public List<com.baidu.tieba.ala.liveroom.challenge.a.a> getUserList() {
-        return this.hvt;
+        return this.hxc;
     }
 
-    public int bJK() {
-        return this.bby;
+    public int bJO() {
+        return this.bcY;
     }
 
     public boolean isHasMore() {

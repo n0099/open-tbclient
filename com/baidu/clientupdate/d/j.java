@@ -21,14 +21,12 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f1680a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f1681b = "";
+    static final char[] f1371a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static String b = "";
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
         Object obj2 = null;
@@ -66,8 +64,8 @@ public final class j {
         try {
             if (Build.VERSION.SDK_INT >= 24) {
                 intent.setFlags(RouterCallback.CODE_ERROR);
-                String str = f1681b;
-                if (TextUtils.isEmpty(f1681b)) {
+                String str = b;
+                if (TextUtils.isEmpty(b)) {
                     str = context.getPackageName() + ".fileprovider";
                 }
                 intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
@@ -86,7 +84,7 @@ public final class j {
     }
 
     public static void a(String str) {
-        f1681b = str;
+        b = str;
     }
 
     public static boolean a(Context context) {

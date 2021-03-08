@@ -24,10 +24,8 @@ import org.json.JSONObject;
 public class ac extends TextureView implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, TextureView.SurfaceTextureListener, m.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3042a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f3043b;
+    public static int f2216a;
+    public static int b;
     public static int c;
     private GestureDetector d;
     private Handler e;
@@ -71,7 +69,7 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
             return 0;
         }
         if (c <= 1) {
-            MapRenderer.nativeResize(this.i.j, f3042a, f3043b);
+            MapRenderer.nativeResize(this.i.j, f2216a, b);
             c++;
         }
         return MapRenderer.nativeRender(this.i.j);
@@ -118,17 +116,17 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
             return;
         }
         int i = rect.left;
-        int i2 = f3043b < rect.bottom ? 0 : f3043b - rect.bottom;
+        int i2 = b < rect.bottom ? 0 : b - rect.bottom;
         int width = rect.width();
         int height = rect.height();
         if (i < 0 || i2 < 0 || width <= 0 || height <= 0) {
             return;
         }
-        if (width > f3042a) {
-            width = Math.abs(rect.width()) - (rect.right - f3042a);
+        if (width > f2216a) {
+            width = Math.abs(rect.width()) - (rect.right - f2216a);
         }
-        if (height > f3043b) {
-            height = Math.abs(rect.height()) - (rect.bottom - f3043b);
+        if (height > b) {
+            height = Math.abs(rect.height()) - (rect.bottom - b);
         }
         if (i > SysOSUtil.getScreenSizeX() || i2 > SysOSUtil.getScreenSizeY()) {
             this.i.i.a(str, (Bundle) null);
@@ -138,8 +136,8 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
             }
             return;
         }
-        f3042a = width;
-        f3043b = height;
+        f2216a = width;
+        b = height;
         Bundle bundle = new Bundle();
         bundle.putInt(Config.EVENT_HEAT_X, i);
         bundle.putInt("y", i2);
@@ -207,7 +205,7 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
             }
             if (this.i.f) {
                 ab E = this.i.E();
-                E.f3038a += 1.0f;
+                E.f2214a += 1.0f;
                 if (!this.i.g) {
                     E.d = b2.getLongitudeE6();
                     E.e = b2.getLatitudeE6();
@@ -349,8 +347,8 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         this.g = surfaceTexture;
         this.h = new m(this.g, this, new AtomicBoolean(true), this);
         this.h.start();
-        f3042a = i;
-        f3043b = i2;
+        f2216a = i;
+        b = i2;
         ab E = this.i.E();
         if (E != null) {
             if (E.f == 0 || E.f == -1 || E.f == (E.j.left - E.j.right) / 2) {
@@ -364,7 +362,7 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
             E.j.bottom = i2;
             E.j.right = i;
             this.i.a(E);
-            this.i.a(f3042a, f3043b);
+            this.i.a(f2216a, b);
         }
     }
 
@@ -378,8 +376,8 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         if (this.i == null) {
             return;
         }
-        f3042a = i;
-        f3043b = i2;
+        f2216a = i;
+        b = i2;
         c = 1;
         ab E = this.i.E();
         if (E.f == 0 || E.f == -1 || E.f == (E.j.left - E.j.right) / 2) {
@@ -393,7 +391,7 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         E.j.bottom = i2;
         E.j.right = i;
         this.i.a(E);
-        this.i.a(f3042a, f3043b);
+        this.i.a(f2216a, b);
         MapRenderer.nativeResize(this.i.j, i, i2);
     }
 

@@ -15,53 +15,53 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends f {
-    private g dIn;
-    public final String dIo;
-    private final c.a<Long> dLS;
+    private g dJO;
+    public final String dJP;
+    private final c.a<Long> dNt;
     public final String name;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final boolean dLP = com.baidu.swan.apps.t.a.awZ().ahi();
-    public static final boolean dLQ = com.baidu.swan.apps.t.a.awZ().ahj();
-    public static int dLR = 1024;
+    public static final boolean dNq = com.baidu.swan.apps.t.a.axc().ahl();
+    public static final boolean dNr = com.baidu.swan.apps.t.a.axc().ahm();
+    public static int dNs = 1024;
     public static int INVALID_INDEX = -1;
     public static int ONE_INCREAMENT = 1;
 
     public c(e eVar) {
         super(eVar);
-        this.dLS = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
+        this.dNt = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.al.c.a
-            /* renamed from: aLV */
-            public Long aLW() throws IllegalStateException {
-                return Long.valueOf(c.this.aLT());
+            /* renamed from: aLY */
+            public Long aLZ() throws IllegalStateException {
+                return Long.valueOf(c.this.aLW());
             }
         };
         this.name = b.f(eVar);
-        this.dIo = "aiapp_" + this.name;
-        com.baidu.swan.apps.al.e.dOe.a(this.dLS);
+        this.dJP = "aiapp_" + this.name;
+        com.baidu.swan.apps.al.e.dPF.a(this.dNt);
     }
 
-    public g aLR() {
-        if (this.dIn == null) {
-            this.dIn = new g(this.dIo, false);
+    public g aLU() {
+        if (this.dJO == null) {
+            this.dJO = new g(this.dJP, false);
         }
-        return this.dIn;
+        return this.dJO;
     }
 
     public void au(boolean z) {
         if (z) {
-            aLR().edit().clear().commit();
+            aLU().edit().clear().commit();
         } else {
-            aLR().edit().clear().apply();
+            aLU().edit().clear().apply();
         }
-        com.baidu.swan.c.d.deleteFile(b.tc(e.aIM()));
-        com.baidu.swan.c.d.deleteFile(b.sW(e.aIM()));
-        com.baidu.swan.apps.al.e.dOe.update();
+        com.baidu.swan.c.d.deleteFile(b.tj(e.aIP()));
+        com.baidu.swan.c.d.deleteFile(b.td(e.aIP()));
+        com.baidu.swan.apps.al.e.dPF.update();
     }
 
-    public int tg(@NonNull String str) {
+    public int tn(@NonNull String str) {
         File file = new File(str);
         if (!file.exists() || !file.isFile()) {
             return 2001;
@@ -91,22 +91,22 @@ public class c extends f {
     /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v9 */
-    public String th(String str) {
+    public String to(String str) {
         FileInputStream fileInputStream;
         FileOutputStream fileOutputStream;
-        String sW = b.sW(e.aIM());
-        ?? isEmpty = TextUtils.isEmpty(sW);
+        String td = b.td(e.aIP());
+        ?? isEmpty = TextUtils.isEmpty(td);
         try {
             if (isEmpty != 0) {
                 return "";
             }
             try {
-                File cB = cB(sW, getFileName(str));
+                File cB = cB(td, getFileName(str));
                 fileInputStream = new FileInputStream(new File(str));
                 try {
                     fileOutputStream = new FileOutputStream(cB);
                     try {
-                        byte[] bArr = new byte[dLR];
+                        byte[] bArr = new byte[dNs];
                         while (true) {
                             int read = fileInputStream.read(bArr);
                             if (read == -1) {
@@ -174,7 +174,7 @@ public class c extends f {
         return new File(str, str2);
     }
 
-    public a ti(@NonNull String str) {
+    public a tp(@NonNull String str) {
         File file = new File(str);
         if (file == null || !file.isFile()) {
             return null;
@@ -185,15 +185,15 @@ public class c extends f {
         return aVar;
     }
 
-    public List<a> aLS() {
-        String sW = b.sW(e.aIM());
-        if (TextUtils.isEmpty(sW)) {
+    public List<a> aLV() {
+        String td = b.td(e.aIP());
+        if (TextUtils.isEmpty(td)) {
             return null;
         }
-        return tj(sW);
+        return tq(td);
     }
 
-    public List<a> tj(@NonNull String str) {
+    public List<a> tq(@NonNull String str) {
         if (DEBUG) {
             Log.d("SwanAppStorage", "——> getSavedFileList:  dir " + str);
         }
@@ -233,27 +233,27 @@ public class c extends f {
         return arrayList;
     }
 
-    public long aLT() {
+    public long aLW() {
         if (DEBUG) {
-            File file = aLR().getFile();
+            File file = aLU().getFile();
             Log.i("SwanAppStorage", this.name + " exists = " + file.exists() + " isFile = " + file.isFile() + " path = " + file.getPath() + " size = " + file.length());
         }
-        return aLR().getContentSize();
+        return aLU().getContentSize();
     }
 
-    public long aLU() {
+    public long aLX() {
         return 10485760L;
     }
 
     public boolean cC(@NonNull String str, @NonNull String str2) {
-        return ((long) str2.length()) + (aLT() - ((long) aLR().getString(str, "").length())) > aLU();
+        return ((long) str2.length()) + (aLW() - ((long) aLU().getString(str, "").length())) > aLX();
     }
 
-    public static boolean tk(@NonNull String str) {
+    public static boolean tr(@NonNull String str) {
         return str.getBytes(StandardCharsets.UTF_8).length > 512;
     }
 
-    public static boolean tl(@NonNull String str) {
+    public static boolean ts(@NonNull String str) {
         return str.getBytes(StandardCharsets.UTF_8).length > 3145728;
     }
 }

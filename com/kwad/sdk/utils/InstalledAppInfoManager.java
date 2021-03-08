@@ -54,9 +54,9 @@ public class InstalledAppInfoManager {
 
     @NonNull
     public static JSONArray a(Context context) {
-        Map<String, AppPackageInfo> b2 = b(context);
-        b2.putAll(b(context, com.kwad.sdk.core.config.c.n()));
-        return a(b2);
+        Map<String, AppPackageInfo> b = b(context);
+        b.putAll(b(context, com.kwad.sdk.core.config.c.n()));
+        return a(b);
     }
 
     @NonNull
@@ -133,12 +133,12 @@ public class InstalledAppInfoManager {
             Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
             intent.addCategory("android.intent.category.LAUNCHER");
             List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 32);
-            List<String> b2 = AppStatusHelper.b(context);
+            List<String> b = AppStatusHelper.b(context);
             for (ResolveInfo resolveInfo : queryIntentActivities) {
                 if (resolveInfo != null && resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
                     String str = resolveInfo.activityInfo.packageName;
-                    if (b2 != null && !b2.isEmpty()) {
-                        b2.remove(str);
+                    if (b != null && !b.isEmpty()) {
+                        b.remove(str);
                     }
                     PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
                     if (packageInfo != null) {
@@ -148,8 +148,8 @@ public class InstalledAppInfoManager {
                     }
                 }
             }
-            if (b2 != null && !b2.isEmpty()) {
-                for (String str2 : b2) {
+            if (b != null && !b.isEmpty()) {
+                for (String str2 : b) {
                     try {
                         PackageInfo packageInfo2 = packageManager.getPackageInfo(str2, 0);
                         if (packageInfo2 != null) {

@@ -39,21 +39,21 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MemberPayFragmentActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
-    private ImageView bMe;
-    private int loT;
-    private int loU;
-    private String loV;
-    private int loX;
-    private PayConfigModel loZ;
-    private RelativeLayout lpo;
-    private RelativeLayout lpp;
-    private View lpq;
-    private ImageView lpr;
-    private LinearLayout lps;
-    private IndicatorView lpt;
-    private MemberPayListAdapter lpu;
+    private ImageView bNE;
+    private int lqV;
+    private int lqW;
+    private String lqX;
+    private int lqZ;
+    private PayConfigModel lrb;
+    private RelativeLayout lrq;
+    private RelativeLayout lrr;
+    private View lrs;
+    private ImageView lrt;
+    private LinearLayout lru;
+    private IndicatorView lrv;
+    private MemberPayListAdapter lrw;
     private String mClickZone;
     private int mFrom;
     private boolean mIsClose;
@@ -61,12 +61,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     private String mStType;
     private FragmentTabHost mTabHost;
     private TextView mTvTitle;
-    private int bLv = 0;
+    private int bMV = 0;
     private boolean mHasInit = false;
-    private Boolean lpa = false;
-    private String lpb = "c10482";
-    private String lpc = "c10483";
-    private HttpMessageListener lpf = new HttpMessageListener(1001505) { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.1
+    private Boolean lrc = false;
+    private String lrd = "c10482";
+    private String lre = "c10483";
+    private HttpMessageListener lrh = new HttpMessageListener(1001505) { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -78,12 +78,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                     if (responseGetPayinfoMessage.getPayInfoResultData() != null) {
                         int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
                         if (pay_status == 0) {
-                            MemberPayFragmentActivity.this.dfC();
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_RESPONSE_MEM, Integer.valueOf(MemberPayFragmentActivity.this.loX)));
+                            MemberPayFragmentActivity.this.dfL();
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_RESPONSE_MEM, Integer.valueOf(MemberPayFragmentActivity.this.lqZ)));
                             MemberPayFragmentActivity.this.setResult(-1);
-                            com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean(SharedPrefConfig.SHOW_MEMBER_DEID_LINE, true);
+                            com.baidu.tbadk.core.sharedPref.b.brR().putBoolean(SharedPrefConfig.SHOW_MEMBER_DEID_LINE, true);
                             if (!MemberPayFragmentActivity.this.mIsClose) {
-                                MemberPayFragmentActivity.this.dfr();
+                                MemberPayFragmentActivity.this.dfA();
                                 return;
                             } else {
                                 MemberPayFragmentActivity.this.finish();
@@ -97,7 +97,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             }
         }
     };
-    public HttpMessageListener loE = new HttpMessageListener(1001532) { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.2
+    public HttpMessageListener lqG = new HttpMessageListener(1001532) { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -113,10 +113,10 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 } else if (responseMemberPayMessage.getMemberPayResult() != null) {
                     f memberPayResult = responseMemberPayMessage.getMemberPayResult();
                     MemberPayFragmentActivity.this.d(memberPayResult);
-                    if (MemberPayFragmentActivity.this.lpu != null) {
-                        int count = MemberPayFragmentActivity.this.lpu.getCount();
+                    if (MemberPayFragmentActivity.this.lrw != null) {
+                        int count = MemberPayFragmentActivity.this.lrw.getCount();
                         for (int i = 0; i < count; i++) {
-                            MemberPayFragmentActivity.this.lpu.getItem(i).setDataAndRefreshUI(memberPayResult);
+                            MemberPayFragmentActivity.this.lrw.getItem(i).setDataAndRefreshUI(memberPayResult);
                         }
                     }
                 } else {
@@ -125,38 +125,38 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             }
         }
     };
-    final CustomMessageListener lpg = new CustomMessageListener(CmdConfigCustom.CMD_AUTO_PAY_SUCC) { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.3
+    final CustomMessageListener lri = new CustomMessageListener(CmdConfigCustom.CMD_AUTO_PAY_SUCC) { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016525 && MemberPayFragmentActivity.this.lpu != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016525 && MemberPayFragmentActivity.this.lrw != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 Boolean bool = (Boolean) customResponsedMessage.getData();
-                int count = MemberPayFragmentActivity.this.lpu.getCount();
+                int count = MemberPayFragmentActivity.this.lrw.getCount();
                 for (int i = 0; i < count; i++) {
-                    MemberPayFragmentActivity.this.lpu.getItem(i).n(bool);
+                    MemberPayFragmentActivity.this.lrw.getItem(i).n(bool);
                 }
                 MemberPayFragmentActivity.this.showToast(R.string.tips_auto_pay_succ);
             }
         }
     };
 
-    private void Ew(int i) {
+    private void Ez(int i) {
         if (i >= 2) {
-            this.lps.setVisibility(0);
+            this.lru.setVisibility(0);
         } else {
-            this.lps.setVisibility(4);
+            this.lru.setVisibility(4);
         }
-        this.lpt.setCount(i);
-        Gw();
+        this.lrv.setCount(i);
+        Gz();
     }
 
-    private void Gw() {
-        this.lpt.setPosition(this.bLv);
-        this.mTvTitle.setText(Ex(this.loX));
-        if (this.loX == 2) {
-            ap.setImageResource(this.lpr, R.drawable.icon_tbvip_supervip, TbadkCoreApplication.getInst().getSkinType());
+    private void Gz() {
+        this.lrv.setPosition(this.bMV);
+        this.mTvTitle.setText(EA(this.lqZ));
+        if (this.lqZ == 2) {
+            ap.setImageResource(this.lrt, R.drawable.icon_tbvip_supervip, TbadkCoreApplication.getInst().getSkinType());
         } else {
-            ap.setImageResource(this.lpr, R.drawable.icon_tbvip_commonvip, TbadkCoreApplication.getInst().getSkinType());
+            ap.setImageResource(this.lrt, R.drawable.icon_tbvip_commonvip, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -165,39 +165,39 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        TiebaStatic.log(this.lpb);
+        TiebaStatic.log(this.lrd);
         if (!TbadkCoreApplication.isLogin()) {
             bh.skipToLoginActivity(getActivity());
             finish();
             return;
         }
-        dfA();
+        dfJ();
         t consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
         if (consumePathData != null) {
-            this.lpa = Boolean.valueOf(consumePathData.aM(1, this.loV));
+            this.lrc = Boolean.valueOf(consumePathData.aM(1, this.lqX));
         }
         initView();
         initListener();
         initData();
-        dfB();
+        dfK();
     }
 
-    private void dfA() {
+    private void dfJ() {
         if (getIntent() != null && getIntent().getExtras() != null) {
-            this.loT = getIntent().getExtras().getInt("member_type");
+            this.lqV = getIntent().getExtras().getInt("member_type");
             this.mStType = getIntent().getExtras().getString("st_type");
             this.mFrom = getIntent().getExtras().getInt("from", 0);
             this.mIsClose = getIntent().getExtras().getBoolean("close");
-            this.loU = getIntent().getExtras().getInt("from_scene", 0);
-            this.loV = getIntent().getExtras().getString("scene_id");
+            this.lqW = getIntent().getExtras().getInt("from_scene", 0);
+            this.lqX = getIntent().getExtras().getString("scene_id");
         }
-        if (this.loU == 3) {
-            this.loV = "4001001001";
-        } else if (this.loU == 4) {
-            this.loV = "4001001002";
+        if (this.lqW == 3) {
+            this.lqX = "4001001001";
+        } else if (this.lqW == 4) {
+            this.lqX = "4001001002";
         }
-        if (StringUtils.isNull(this.loV)) {
-            this.loV = "4008001000";
+        if (StringUtils.isNull(this.lqX)) {
+            this.lqX = "4008001000";
         }
         this.mReferPage = getIntent().getExtras().getString("refer_page");
         this.mClickZone = getIntent().getExtras().getString("click_zone");
@@ -206,26 +206,26 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     private void initView() {
         showLoadingDialog(getPageContext().getString(R.string.flist_loading));
         setContentView(R.layout.member_pay_fragment_activity);
-        this.lpq = findViewById(R.id.top_translate_view);
-        this.lpq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.4
+        this.lrs = findViewById(R.id.top_translate_view);
+        this.lrs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MemberPayFragmentActivity.this.dfD();
+                MemberPayFragmentActivity.this.dfM();
             }
         });
-        this.lpo = (RelativeLayout) findViewById(R.id.mainContainer);
-        this.lpp = (RelativeLayout) findViewById(R.id.navigation_bar);
-        this.bMe = (ImageView) findViewById(R.id.btnClose);
-        this.bMe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.5
+        this.lrq = (RelativeLayout) findViewById(R.id.mainContainer);
+        this.lrr = (RelativeLayout) findViewById(R.id.navigation_bar);
+        this.bNE = (ImageView) findViewById(R.id.btnClose);
+        this.bNE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MemberPayFragmentActivity.this.dfD();
+                MemberPayFragmentActivity.this.dfM();
             }
         });
-        this.lpr = (ImageView) findViewById(R.id.tvIcon);
+        this.lrt = (ImageView) findViewById(R.id.tvIcon);
         this.mTvTitle = (TextView) findViewById(R.id.tvTitle);
-        this.lps = (LinearLayout) findViewById(R.id.indicator_parent_view);
-        this.lpt = (IndicatorView) findViewById(R.id.member_tab_indicator);
+        this.lru = (LinearLayout) findViewById(R.id.indicator_parent_view);
+        this.lrv = (IndicatorView) findViewById(R.id.member_tab_indicator);
         this.mTabHost = (FragmentTabHost) findViewById(R.id.tab_host);
         this.mTabHost.setup(getSupportFragmentManager());
         this.mTabHost.setOnPageChangeListener(this);
@@ -237,36 +237,36 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     }
 
     private void initListener() {
-        registerListener(this.loE);
-        registerListener(this.lpf);
-        registerListener(this.lpg);
+        registerListener(this.lqG);
+        registerListener(this.lrh);
+        registerListener(this.lri);
     }
 
     private void initData() {
-        dfq();
-        this.loZ = new PayConfigModel(getPageContext(), new com.baidu.tbadk.pay.a() { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.6
+        dfz();
+        this.lrb = new PayConfigModel(getPageContext(), new com.baidu.tbadk.pay.a() { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.6
             @Override // com.baidu.tbadk.pay.a
             public void onError(String str) {
-                MemberPayFragmentActivity.this.dfr();
+                MemberPayFragmentActivity.this.dfA();
             }
 
             @Override // com.baidu.tbadk.pay.a
             public void onPayNative() {
-                MemberPayFragmentActivity.this.dfr();
+                MemberPayFragmentActivity.this.dfA();
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tbadk.pay.a
             public void onPayH5() {
-                com.baidu.tbadk.pay.c.bDV().a("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + MemberPayFragmentActivity.this.mReferPage + "&click_zone=" + MemberPayFragmentActivity.this.mClickZone, MemberPayFragmentActivity.this.getPageContext());
+                com.baidu.tbadk.pay.c.bDZ().a("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + MemberPayFragmentActivity.this.mReferPage + "&click_zone=" + MemberPayFragmentActivity.this.mClickZone, MemberPayFragmentActivity.this.getPageContext());
                 MemberPayFragmentActivity.this.finish();
             }
         });
-        this.loZ.bDU();
+        this.lrb.bDY();
     }
 
-    private void dfq() {
+    private void dfz() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001532, TbConfig.SERVER_ADDRESS + TbConfig.MEMBER_PAY);
         tbHttpMessageTask.setResponsedClass(ResponseMemberPayMessage.class);
@@ -274,47 +274,47 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dfr() {
+    public void dfA() {
         HttpMessage httpMessage = new HttpMessage(1001532);
         if (this.mStType != null) {
             httpMessage.addParam("st_type", this.mStType);
         }
-        httpMessage.addParam("from_scene", this.loU);
+        httpMessage.addParam("from_scene", this.lqW);
         sendMessage(httpMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.loZ != null) {
-            this.loZ.onDestroy();
+        if (this.lrb != null) {
+            this.lrb.onDestroy();
         }
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        ap.setBackgroundColor(this.lpp, R.color.CAM_X0201);
-        ap.setImageResource(this.bMe, R.drawable.icon_tbvip_close_black, i);
+        ap.setBackgroundColor(this.lrr, R.color.CAM_X0201);
+        ap.setImageResource(this.bNE, R.drawable.icon_tbvip_close_black, i);
         ap.setViewTextColor(this.mTvTitle, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.lpo, R.color.CAM_X0201);
-        if (this.loX == 2) {
-            ap.setImageResource(this.lpr, R.drawable.icon_tbvip_supervip, i);
+        ap.setBackgroundColor(this.lrq, R.color.CAM_X0201);
+        if (this.lqZ == 2) {
+            ap.setImageResource(this.lrt, R.drawable.icon_tbvip_supervip, i);
         } else {
-            ap.setImageResource(this.lpr, R.drawable.icon_tbvip_commonvip, i);
+            ap.setImageResource(this.lrt, R.drawable.icon_tbvip_commonvip, i);
         }
-        this.lpt.setSelector(ap.getDrawable(R.drawable.white_circle_size15_cp_bg_line_a));
-        this.lpt.setDrawable(ap.getDrawable(R.drawable.white_circle_size15_cp_bg_line_c));
-        ap.setBackgroundColor(this.lps, R.color.CAM_X0201);
-        if (this.lpu != null) {
-            int count = this.lpu.getCount();
+        this.lrv.setSelector(ap.getDrawable(R.drawable.white_circle_size15_cp_bg_line_a));
+        this.lrv.setDrawable(ap.getDrawable(R.drawable.white_circle_size15_cp_bg_line_c));
+        ap.setBackgroundColor(this.lru, R.color.CAM_X0201);
+        if (this.lrw != null) {
+            int count = this.lrw.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                this.lpu.getItem(i2).changeSkinType(i);
+                this.lrw.getItem(i2).changeSkinType(i);
             }
         }
     }
 
-    private void dfB() {
+    private void dfK() {
         if (this.mFrom == 6) {
             TiebaStatic.log("consume_24");
         } else if (this.mFrom == 2) {
@@ -324,18 +324,18 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         } else if (this.mFrom == 5) {
             TiebaStatic.log("c10750");
         } else if (this.mFrom == 26) {
-            TiebaStatic.log(new ar("c13747").ap("obj_source", 1));
+            TiebaStatic.log(new ar("c13747").aq("obj_source", 1));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dfC() {
+    public void dfL() {
         if (this.mFrom == 2) {
-            Oc("consume_10");
+            Oi("consume_10");
         } else if (this.mFrom == 1) {
-            Oc("consume_5");
+            Oi("consume_5");
         } else if (this.mFrom == 3) {
-            Oc("consume_35");
+            Oi("consume_35");
         } else if (this.mFrom == 4) {
             TiebaStatic.log("c10032");
         } else if (this.mFrom == 5) {
@@ -347,7 +347,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         }
     }
 
-    private void Oc(String str) {
+    private void Oi(String str) {
         TiebaStatic.eventStat(getPageContext().getPageActivity(), str, "click");
     }
 
@@ -366,63 +366,63 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dfD() {
+    public void dfM() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.setAutoNight(true);
         aVar.jF(true);
         aVar.setTitleShowCenter(true);
         aVar.setMessageShowCenter(true);
-        aVar.At(getString(R.string.tb_member_confirm_dialog_title));
-        aVar.Au(getString(R.string.tb_member_confirm_dialog_msg));
+        aVar.AA(getString(R.string.tb_member_confirm_dialog_title));
+        aVar.AB(getString(R.string.tb_member_confirm_dialog_msg));
         aVar.a(getString(R.string.go_on), new a.b() { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                TiebaStatic.log(new ar("c13202").ap("obj_locate", 1));
+                TiebaStatic.log(new ar("c13202").aq("obj_locate", 1));
             }
         });
         aVar.b(getString(R.string.tb_member_confirm_dialog_quit), new a.b() { // from class: com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity.8
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                TiebaStatic.log(new ar("c13202").ap("obj_locate", 0));
+                TiebaStatic.log(new ar("c13202").aq("obj_locate", 0));
                 aVar2.dismiss();
-                if (MemberPayFragmentActivity.this.lpq != null) {
-                    MemberPayFragmentActivity.this.lpq.setBackgroundColor(MemberPayFragmentActivity.this.getPageContext().getPageActivity().getResources().getColor(R.color.transparent));
+                if (MemberPayFragmentActivity.this.lrs != null) {
+                    MemberPayFragmentActivity.this.lrs.setBackgroundColor(MemberPayFragmentActivity.this.getPageContext().getPageActivity().getResources().getColor(R.color.transparent));
                 }
                 MemberPayFragmentActivity.this.finish();
             }
         });
-        aVar.b(getPageContext()).bqx();
+        aVar.b(getPageContext()).bqz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(f fVar) {
         if (!this.mHasInit) {
             this.mHasInit = true;
-            boolean z = fVar.lpH.lqz.lqu == 2 || this.loT == 2;
+            boolean z = fVar.lrJ.lsB.lsw == 2 || this.lqV == 2;
             ArrayList arrayList = new ArrayList();
             Bundle bundle = new Bundle();
             bundle.putString("member_refer_page", this.mReferPage);
             bundle.putString("member_click_zone", this.mClickZone);
-            bundle.putBoolean("member_is_pay_dialog", this.lpa.booleanValue());
+            bundle.putBoolean("member_is_pay_dialog", this.lrc.booleanValue());
             bundle.putInt("member_from_type", this.mFrom);
-            if (z || fVar.lpI.lqj == null) {
+            if (z || fVar.lrK.lsl == null) {
                 MemberPayFragment memberPayFragment = new MemberPayFragment();
                 bundle.putInt("member_type", 2);
-                this.loX = 2;
+                this.lqZ = 2;
                 memberPayFragment.setArguments(bundle);
                 arrayList.add(memberPayFragment);
-            } else if (fVar.lpI.lqk == null) {
+            } else if (fVar.lrK.lsm == null) {
                 MemberPayFragment memberPayFragment2 = new MemberPayFragment();
                 bundle.putInt("member_type", 1);
-                this.loX = 1;
+                this.lqZ = 1;
                 memberPayFragment2.setArguments(bundle);
                 arrayList.add(memberPayFragment2);
             } else {
                 MemberPayFragment memberPayFragment3 = new MemberPayFragment();
                 Bundle bundle2 = (Bundle) bundle.clone();
                 bundle2.putInt("member_type", 2);
-                this.loX = 2;
+                this.lqZ = 2;
                 memberPayFragment3.setArguments(bundle2);
                 arrayList.add(memberPayFragment3);
                 MemberPayFragment memberPayFragment4 = new MemberPayFragment();
@@ -431,20 +431,20 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 memberPayFragment4.setArguments(bundle3);
                 arrayList.add(memberPayFragment4);
             }
-            if (this.lpu == null) {
-                this.lpu = new MemberPayListAdapter(getSupportFragmentManager());
+            if (this.lrw == null) {
+                this.lrw = new MemberPayListAdapter(getSupportFragmentManager());
                 eS(arrayList);
-                Ew(this.lpu.getCount());
+                Ez(this.lrw.getCount());
                 this.mTabHost.setCurrentTab(0);
             }
         }
     }
 
     private void eS(List<MemberPayFragment> list) {
-        this.lpu.cq(list);
-        int count = this.lpu.getCount();
+        this.lrw.cq(list);
+        int count = this.lrw.getCount();
         for (int i = 0; i < count; i++) {
-            a(this.lpu.getItem(i), i, Ex(this.lpu.getItem(i).getType()));
+            a(this.lrw.getItem(i), i, EA(this.lrw.getItem(i).getType()));
         }
         this.mTabHost.initViewPagerWithNoType();
         this.mTabHost.changeStyle(0);
@@ -460,12 +460,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             fragmentTabIndicator.dayTextColorResId = R.color.fragment_tab_host_indicator_text_color;
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
             fragmentTabIndicator.setContentWidthWrapContent();
-            bVar.eZk = fragmentTabIndicator;
+            bVar.faJ = fragmentTabIndicator;
             this.mTabHost.a(bVar);
         }
     }
 
-    private String Ex(int i) {
+    private String EA(int i) {
         switch (i) {
             case 2:
                 return getResources().getString(R.string.tb_vip_member_title);
@@ -477,7 +477,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            dfD();
+            dfM();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -489,11 +489,11 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.bLv = i;
-        if (this.lpu != null) {
-            this.loX = this.lpu.getItem(this.bLv).getType();
+        this.bMV = i;
+        if (this.lrw != null) {
+            this.lqZ = this.lrw.getItem(this.bMV).getType();
         }
-        Gw();
+        Gz();
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener

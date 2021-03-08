@@ -5,7 +5,7 @@ import android.content.Context;
 public class CommonParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1133a = CommonParam.class.getSimpleName();
+    private static final String f1054a = CommonParam.class.getSimpleName();
 
     public static String a(Context context) {
         return b.a(context);

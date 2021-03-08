@@ -1,78 +1,78 @@
 package com.baidu.swan.apps.view.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int dQS;
-    public int dQT;
-    public boolean dQU;
-    public boolean dQV;
-    public boolean dQW;
-    public boolean dQX;
-    public boolean dQY;
+    public int dSt;
+    public int dSu;
+    public boolean dSv;
+    public boolean dSw;
+    public boolean dSx;
+    public boolean dSy;
+    public boolean dSz;
 
     private a() {
-        this.dQY = true;
+        this.dSz = true;
     }
 
     /* renamed from: com.baidu.swan.apps.view.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0477a {
-        private int dQS;
-        private int dQZ;
-        private boolean dQU = true;
-        private boolean dRa = true;
-        private boolean dRb = true;
-        private boolean dQX = false;
-        private boolean dQY = true;
+    /* loaded from: classes8.dex */
+    public static class C0483a {
+        private int dSA;
+        private int dSt;
+        private boolean dSv = true;
+        private boolean dSB = true;
+        private boolean dSC = true;
+        private boolean dSy = false;
+        private boolean dSz = true;
 
-        public static C0477a aOP() {
-            return new C0477a();
+        public static C0483a aOS() {
+            return new C0483a();
         }
 
-        public C0477a kq(int i) {
-            this.dQS = i;
+        public C0483a kr(int i) {
+            this.dSt = i;
             return this;
         }
 
-        public C0477a kr(int i) {
-            this.dQZ = i;
+        public C0483a ks(int i) {
+            this.dSA = i;
             return this;
         }
 
-        public C0477a hB(boolean z) {
-            this.dQU = z;
+        public C0483a hB(boolean z) {
+            this.dSv = z;
             return this;
         }
 
-        public C0477a hC(boolean z) {
-            this.dRa = z;
+        public C0483a hC(boolean z) {
+            this.dSB = z;
             return this;
         }
 
-        public C0477a hD(boolean z) {
-            this.dRb = z;
+        public C0483a hD(boolean z) {
+            this.dSC = z;
             return this;
         }
 
-        public C0477a hE(boolean z) {
-            this.dQX = z;
+        public C0483a hE(boolean z) {
+            this.dSy = z;
             return this;
         }
 
-        public C0477a hF(boolean z) {
-            this.dQY = z;
+        public C0483a hF(boolean z) {
+            this.dSz = z;
             return this;
         }
 
-        public a aOQ() {
+        public a aOT() {
             a aVar = new a();
-            aVar.dQT = this.dQZ;
-            aVar.dQU = this.dQU;
-            aVar.dQW = this.dRb;
-            aVar.dQV = this.dRa;
-            aVar.dQS = this.dQS;
-            aVar.dQX = this.dQX;
-            aVar.dQY = this.dQY;
+            aVar.dSu = this.dSA;
+            aVar.dSv = this.dSv;
+            aVar.dSx = this.dSC;
+            aVar.dSw = this.dSB;
+            aVar.dSt = this.dSt;
+            aVar.dSy = this.dSy;
+            aVar.dSz = this.dSz;
             return aVar;
         }
     }

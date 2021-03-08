@@ -3,7 +3,7 @@ package kotlin;
 import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 @e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class NotImplementedError extends Error {
     public NotImplementedError() {
         this(null, 1, null);
@@ -12,7 +12,7 @@ public final class NotImplementedError extends Error {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NotImplementedError(String str) {
         super(str);
-        p.o(str, "message");
+        p.p(str, "message");
     }
 
     public /* synthetic */ NotImplementedError(String str, int i, o oVar) {

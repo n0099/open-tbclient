@@ -5,14 +5,12 @@ import android.os.Parcelable;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Parcelable.Creator<e> f3343a = new f();
-
-    /* renamed from: b  reason: collision with root package name */
-    private JSONObject f3344b;
+    public static final Parcelable.Creator<e> f2389a = new f();
+    private JSONObject b;
     private double c;
     private String d;
     private String e;
@@ -27,10 +25,10 @@ public class e implements Parcelable {
 
     public e(String str) {
         try {
-            this.f3344b = new JSONObject(str);
-            this.c = this.f3344b.getDouble("version");
-            this.d = this.f3344b.getString("url");
-            this.e = this.f3344b.getString("sign");
+            this.b = new JSONObject(str);
+            this.c = this.b.getDouble("version");
+            this.d = this.b.getString("url");
+            this.e = this.b.getString("sign");
             this.h = 1;
             this.f = "";
             this.g = 0;
@@ -79,7 +77,7 @@ public class e implements Parcelable {
     }
 
     public String toString() {
-        return this.f3344b.toString();
+        return this.b.toString();
     }
 
     @Override // android.os.Parcelable

@@ -8,36 +8,36 @@ import com.baidu.tieba.lego.card.a.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.lego.card.a.b {
-    public String aaX;
-    public String aaY;
-    public int aaZ;
-    public String aba;
-    public String abb;
-    public String abd;
-    public String abe;
-    public boolean abf;
-    public int abg;
-    public int abh;
-    private b.a abk;
+    public String acA;
+    public String acB;
+    public boolean acC;
+    public int acD;
+    public int acE;
+    private b.a acH;
+    public String acu;
+    public String acv;
+    public int acx;
+    public String acy;
+    public String acz;
     public String adid;
     public String extra;
     public String picUrl;
     public String tplName;
     public String videoUrl;
-    private int aaW = 3;
-    public ArrayList<String> abi = new ArrayList<>();
-    public ArrayList<String> abj = new ArrayList<>();
+    private int acs = 3;
+    public ArrayList<String> acF = new ArrayList<>();
+    public ArrayList<String> acG = new ArrayList<>();
 
     public void setAdType(int i) {
-        this.aaW = i;
+        this.acs = i;
     }
 
     public boolean isEmpty() {
-        return this.aaW == 2;
+        return this.acs == 2;
     }
 
     public int ru() {
-        return this.aaW;
+        return this.acs;
     }
 
     public boolean isValid() {
@@ -51,16 +51,16 @@ public class a implements com.baidu.tieba.lego.card.a.b {
     }
 
     public String rv() {
-        return StringUtils.isNull(this.abd) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.abd;
+        return StringUtils.isNull(this.acA) ? TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail) : this.acA;
     }
 
     @Override // com.baidu.tieba.lego.card.a.b
     public b.a getParallelCharge() {
-        if (this.abk == null) {
-            this.abk = new b.a();
-            this.abk.lbH = this.abi;
-            this.abk.lbI = this.abj;
+        if (this.acH == null) {
+            this.acH = new b.a();
+            this.acH.ldK = this.acF;
+            this.acH.ldL = this.acG;
         }
-        return this.abk;
+        return this.acH;
     }
 }

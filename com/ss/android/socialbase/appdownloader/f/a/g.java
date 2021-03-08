@@ -1,36 +1,33 @@
 package com.ss.android.socialbase.appdownloader.f.a;
 
-import androidx.core.internal.view.SupportMenu;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int[] f13048a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int[] f13049b;
+    private int[] f7765a;
+    private int[] b;
 
     public static g a(d dVar) throws IOException {
         b.a(dVar, 1835009);
+        int b = dVar.b();
         int b2 = dVar.b();
         int b3 = dVar.b();
-        int b4 = dVar.b();
         dVar.b();
+        int b4 = dVar.b();
         int b5 = dVar.b();
-        int b6 = dVar.b();
         g gVar = new g();
-        gVar.f13048a = dVar.b(b3);
-        if (b4 != 0) {
-            dVar.b(b4);
+        gVar.f7765a = dVar.b(b2);
+        if (b3 != 0) {
+            dVar.b(b3);
         }
-        int i = (b6 == 0 ? b2 : b6) - b5;
+        int i = (b5 == 0 ? b : b5) - b4;
         if (i % 4 != 0) {
             throw new IOException("String data size is not multiple of 4 (" + i + ").");
         }
-        gVar.f13049b = dVar.b(i / 4);
-        if (b6 != 0) {
-            int i2 = b2 - b6;
+        gVar.b = dVar.b(i / 4);
+        if (b5 != 0) {
+            int i2 = b - b5;
             if (i2 % 4 != 0) {
                 throw new IOException("Style data size is not multiple of 4 (" + i2 + ").");
             }
@@ -40,15 +37,15 @@ public class g {
     }
 
     public String a(int i) {
-        if (i < 0 || this.f13048a == null || i >= this.f13048a.length) {
+        if (i < 0 || this.f7765a == null || i >= this.f7765a.length) {
             return null;
         }
-        int i2 = this.f13048a[i];
-        int c = c(this.f13049b, i2);
+        int i2 = this.f7765a[i];
+        int c = c(this.b, i2);
         StringBuilder sb = new StringBuilder(c);
         while (c != 0) {
             i2 += 2;
-            sb.append((char) c(this.f13049b, i2));
+            sb.append((char) c(this.b, i2));
             c--;
         }
         return sb.toString();
@@ -59,6 +56,6 @@ public class g {
 
     private static final int c(int[] iArr, int i) {
         int i2 = iArr[i / 4];
-        return (i % 4) / 2 == 0 ? i2 & SupportMenu.USER_MASK : i2 >>> 16;
+        return (i % 4) / 2 == 0 ? i2 & 65535 : i2 >>> 16;
     }
 }

@@ -10,9 +10,9 @@ import com.baidu.tbadk.coreExtra.data.NewGodData;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class x {
-    private static x fNe = null;
-    private String fNd;
-    private Runnable fNf = new Runnable() { // from class: com.baidu.tbadk.util.x.1
+    private static x fOE = null;
+    private String fOD;
+    private Runnable fOF = new Runnable() { // from class: com.baidu.tbadk.util.x.1
         @Override // java.lang.Runnable
         public void run() {
             HashMap hashMap = new HashMap();
@@ -21,18 +21,18 @@ public class x {
             hashMap.put("type", Integer.valueOf(x.this.mType));
             hashMap.put("type_name", x.this.mTypeName);
             if (x.this.mFrom == 2) {
-                hashMap.put("fid", x.this.fNd);
+                hashMap.put("fid", x.this.fOD);
             }
             hashMap.put("animated", false);
             hashMap.put("transparent", true);
             hashMap.put("swipeback", false);
-            if (PluginPackageManager.pv().cA("com.baidu.tieba.pluginFlutter")) {
+            if (PluginPackageManager.pv().cE("com.baidu.tieba.pluginFlutter")) {
                 if (MessageManager.getInstance().findTask(2002015) == null) {
-                    com.baidu.adp.lib.f.e.mA().postDelayed(x.this.fNf, 0L);
+                    com.baidu.adp.lib.f.e.mA().postDelayed(x.this.fOF, 0L);
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GodDialog", hashMap)));
-                com.baidu.tbadk.core.sharedPref.b.brQ().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
+                com.baidu.tbadk.core.sharedPref.b.brR().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
             }
         }
     };
@@ -44,20 +44,20 @@ public class x {
     private x() {
     }
 
-    public static synchronized x bFC() {
+    public static synchronized x bFG() {
         x xVar;
         synchronized (x.class) {
-            if (fNe == null) {
-                fNe = new x();
+            if (fOE == null) {
+                fOE = new x();
             }
-            xVar = fNe;
+            xVar = fOE;
         }
         return xVar;
     }
 
     private boolean a(int i, NewGodData newGodData) {
         if (i != 5) {
-            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brQ().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brQ().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brR().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.brR().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
         }
         return true;
     }
@@ -73,15 +73,15 @@ public class x {
             this.mFieldId = newGodData.getFieldId();
             this.mType = newGodData.getType();
             this.mTypeName = newGodData.getTypeName();
-            com.baidu.adp.lib.f.e.mA().postDelayed(this.fNf, z ? IMConnection.RETRY_DELAY_TIMES : 0L);
+            com.baidu.adp.lib.f.e.mA().postDelayed(this.fOF, z ? IMConnection.RETRY_DELAY_TIMES : 0L);
         }
     }
 
     public void removeCallbacks() {
-        com.baidu.adp.lib.f.e.mA().removeCallbacks(this.fNf);
+        com.baidu.adp.lib.f.e.mA().removeCallbacks(this.fOF);
     }
 
     public void setFid(String str) {
-        this.fNd = str;
+        this.fOD = str;
     }
 }

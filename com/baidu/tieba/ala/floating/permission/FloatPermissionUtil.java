@@ -13,21 +13,21 @@ import android.os.Looper;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.live.liveroom.e.b;
 import com.baidu.live.liveroom.e.i;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public final class FloatPermissionUtil {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void onResult(int i);
     }
 
-    public static boolean MP() {
-        b MV = i.MT().MV();
-        return MV == null || MV.MP();
+    public static boolean MS() {
+        b MY = i.MW().MY();
+        return MY == null || MY.MS();
     }
 
     public static boolean checkPermission(Context context) {
-        return MP();
+        return MS();
     }
 
     public static void ah(Activity activity) {
@@ -53,12 +53,12 @@ public final class FloatPermissionUtil {
     }
 
     @SuppressLint({"ValidFragment"})
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static class PermissionFragment extends Fragment {
-        private static a gUN = null;
+        private static a gWw = null;
 
         public static void b(Activity activity, a aVar) {
-            gUN = aVar;
+            gWw = aVar;
             activity.getFragmentManager().beginTransaction().add(new PermissionFragment(), activity.getLocalClassName()).commitAllowingStateLoss();
         }
 
@@ -66,8 +66,8 @@ public final class FloatPermissionUtil {
         public void onActivityCreated(Bundle bundle) {
             super.onActivityCreated(bundle);
             if (Build.VERSION.SDK_INT < 23) {
-                if (gUN != null) {
-                    gUN.onResult(0);
+                if (gWw != null) {
+                    gWw.onResult(0);
                     return;
                 }
                 return;
@@ -85,8 +85,8 @@ public final class FloatPermissionUtil {
                     @Override // java.lang.Runnable
                     public void run() {
                         boolean checkPermission = FloatPermissionUtil.checkPermission(PermissionFragment.this.getActivity());
-                        if (PermissionFragment.gUN != null) {
-                            PermissionFragment.gUN.onResult(checkPermission ? 0 : 1);
+                        if (PermissionFragment.gWw != null) {
+                            PermissionFragment.gWw.onResult(checkPermission ? 0 : 1);
                         }
                         if (PermissionFragment.this.getFragmentManager() != null) {
                             PermissionFragment.this.getFragmentManager().beginTransaction().remove(PermissionFragment.this).commitAllowingStateLoss();

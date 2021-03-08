@@ -9,7 +9,7 @@ import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ResourceCacheGenerator implements DataFetcher.DataCallback<Object>, DataFetcherGenerator {
     private File cacheFile;
     private final DataFetcherGenerator.FetcherReadyCallback cb;
@@ -36,8 +36,11 @@ public class ResourceCacheGenerator implements DataFetcher.DataCallback<Object>,
             return false;
         }
         List<Class<?>> registeredResourceClasses = this.helper.getRegisteredResourceClasses();
-        if (registeredResourceClasses.isEmpty() && File.class.equals(this.helper.getTranscodeClass())) {
-            return false;
+        if (registeredResourceClasses.isEmpty()) {
+            if (File.class.equals(this.helper.getTranscodeClass())) {
+                return false;
+            }
+            throw new IllegalStateException("Failed to find any load path from " + this.helper.getModelClass() + " to " + this.helper.getTranscodeClass());
         }
         while (true) {
             if (this.modelLoaders == null || !hasNextModelLoader()) {

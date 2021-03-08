@@ -1,7 +1,7 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
 import com.baidu.d.c.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UploadUrlProvider {
     private static volatile UploadUrlProvider sSingleton;
     private UploadUrlListener mUploadUrlListener;

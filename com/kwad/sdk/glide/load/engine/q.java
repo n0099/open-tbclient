@@ -11,16 +11,14 @@ import java.util.List;
 public class q<Data, ResourceType, Transcode> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Class<Data> f10246a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final Pools.Pool<List<Throwable>> f10247b;
+    private final Class<Data> f6770a;
+    private final Pools.Pool<List<Throwable>> b;
     private final List<? extends g<Data, ResourceType, Transcode>> c;
     private final String d;
 
     public q(Class<Data> cls, Class<ResourceType> cls2, Class<Transcode> cls3, List<g<Data, ResourceType, Transcode>> list, Pools.Pool<List<Throwable>> pool) {
-        this.f10246a = cls;
-        this.f10247b = pool;
+        this.f6770a = cls;
+        this.b = pool;
         this.c = (List) com.kwad.sdk.glide.g.j.a(list);
         this.d = "Failed LoadPath{" + cls.getSimpleName() + PerfFrameTrackUIUtil.SEPERATOR_ARROR + cls2.getSimpleName() + PerfFrameTrackUIUtil.SEPERATOR_ARROR + cls3.getSimpleName() + "}";
     }
@@ -54,11 +52,11 @@ public class q<Data, ResourceType, Transcode> {
     }
 
     public s<Transcode> a(com.kwad.sdk.glide.load.a.e<Data> eVar, @NonNull com.kwad.sdk.glide.load.e eVar2, int i, int i2, g.a<ResourceType> aVar) {
-        List<Throwable> list = (List) com.kwad.sdk.glide.g.j.a(this.f10247b.acquire());
+        List<Throwable> list = (List) com.kwad.sdk.glide.g.j.a(this.b.acquire());
         try {
             return a(eVar, eVar2, i, i2, aVar, list);
         } finally {
-            this.f10247b.release(list);
+            this.b.release(list);
         }
     }
 

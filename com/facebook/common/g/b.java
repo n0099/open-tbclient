@@ -4,10 +4,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import java.io.FileDescriptor;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface b {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void hu(String str, String str2);
     }

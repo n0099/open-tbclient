@@ -1,12 +1,12 @@
 package com.yy.audioengine;
 
 import com.yy.audioengine.Constant;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FilePlayer {
     private IFilePlayerNotify mNotify = null;
     private long mPlayerCtx;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum FilePlayerMixerType {
         LocalPlay,
         OverrideMic,

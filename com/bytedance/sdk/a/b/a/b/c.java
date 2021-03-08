@@ -33,48 +33,46 @@ import org.apache.http.protocol.HTTP;
 public final class c extends g.b implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f5864a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f5865b;
+    public boolean f3951a;
+    public int b;
     public int c = 1;
     public final List<Reference<g>> d = new ArrayList();
     public long e = Long.MAX_VALUE;
-    private final m poX;
-    private final com.bytedance.sdk.a.b.d poY;
-    private Socket poZ;
-    private Socket ppa;
-    private u ppb;
-    private w ppc;
-    private com.bytedance.sdk.a.b.a.e.g ppd;
-    private com.bytedance.sdk.a.a.e ppe;
-    private com.bytedance.sdk.a.a.d ppf;
+    private final m pre;
+    private final com.bytedance.sdk.a.b.d prf;
+    private Socket prg;
+    private Socket prh;
+    private u pri;
+    private w prj;
+    private com.bytedance.sdk.a.b.a.e.g prk;
+    private com.bytedance.sdk.a.a.e prl;
+    private com.bytedance.sdk.a.a.d prm;
 
     public c(m mVar, com.bytedance.sdk.a.b.d dVar) {
-        this.poX = mVar;
-        this.poY = dVar;
+        this.pre = mVar;
+        this.prf = dVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0099, code lost:
-        if (r9.poY.d() == false) goto L31;
+        if (r9.prf.d() == false) goto L31;
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x009d, code lost:
-        if (r9.poZ != null) goto L31;
+        if (r9.prg != null) goto L31;
      */
     /* JADX WARN: Code restructure failed: missing block: B:26:0x00ac, code lost:
         throw new com.bytedance.sdk.a.b.a.b.e(new java.net.ProtocolException("Too many tunnel connections attempted: 21"));
      */
     /* JADX WARN: Code restructure failed: missing block: B:40:0x0107, code lost:
-        if (r9.ppd == null) goto L43;
+        if (r9.prk == null) goto L43;
      */
     /* JADX WARN: Code restructure failed: missing block: B:41:0x0109, code lost:
-        r1 = r9.poX;
+        r1 = r9.pre;
      */
     /* JADX WARN: Code restructure failed: missing block: B:42:0x010b, code lost:
         monitor-enter(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:43:0x010c, code lost:
-        r9.c = r9.ppd.a();
+        r9.c = r9.prk.a();
      */
     /* JADX WARN: Code restructure failed: missing block: B:44:0x0114, code lost:
         monitor-exit(r1);
@@ -90,45 +88,45 @@ public final class c extends g.b implements l {
     */
     public void a(int i, int i2, int i3, boolean z, h hVar, t tVar) {
         e eVar;
-        if (this.ppc != null) {
+        if (this.prj != null) {
             throw new IllegalStateException("already connected");
         }
-        List<n> f = this.poY.epT().f();
+        List<n> f = this.prf.eqa().f();
         b bVar = new b(f);
-        if (this.poY.epT().eoX() == null) {
-            if (!f.contains(n.ptW)) {
+        if (this.prf.eqa().epe() == null) {
+            if (!f.contains(n.pwb)) {
                 throw new e(new UnknownServiceException("CLEARTEXT communication not enabled for client"));
             }
-            String f2 = this.poY.epT().eoR().f();
-            if (!com.bytedance.sdk.a.b.a.g.e.epH().b(f2)) {
+            String f2 = this.prf.eqa().eoY().f();
+            if (!com.bytedance.sdk.a.b.a.g.e.epO().b(f2)) {
                 throw new e(new UnknownServiceException("CLEARTEXT communication to " + f2 + " not permitted by network security policy"));
             }
         }
         e eVar2 = null;
         while (true) {
             try {
-                if (this.poY.d()) {
+                if (this.prf.d()) {
                     a(i, i2, i3, hVar, tVar);
-                    if (this.poZ == null) {
+                    if (this.prg == null) {
                         break;
                     }
                 } else {
                     a(i, i2, hVar, tVar);
                 }
                 a(bVar, hVar, tVar);
-                tVar.a(hVar, this.poY.epV(), this.poY.epU(), this.ppc);
+                tVar.a(hVar, this.prf.eqc(), this.prf.eqb(), this.prj);
                 break;
             } catch (IOException e) {
-                com.bytedance.sdk.a.b.a.c.a(this.ppa);
-                com.bytedance.sdk.a.b.a.c.a(this.poZ);
-                this.ppa = null;
-                this.poZ = null;
-                this.ppe = null;
-                this.ppf = null;
-                this.ppb = null;
-                this.ppc = null;
-                this.ppd = null;
-                tVar.a(hVar, this.poY.epV(), this.poY.epU(), null, e);
+                com.bytedance.sdk.a.b.a.c.a(this.prh);
+                com.bytedance.sdk.a.b.a.c.a(this.prg);
+                this.prh = null;
+                this.prg = null;
+                this.prl = null;
+                this.prm = null;
+                this.pri = null;
+                this.prj = null;
+                this.prk = null;
+                tVar.a(hVar, this.prf.eqc(), this.prf.eqb(), null, e);
                 if (eVar2 == null) {
                     eVar = new e(e);
                 } else {
@@ -145,17 +143,17 @@ public final class c extends g.b implements l {
     }
 
     private void a(int i, int i2, int i3, h hVar, t tVar) throws IOException {
-        ab epd = epd();
-        s eoR = epd.eoR();
+        ab epk = epk();
+        s eoY = epk.eoY();
         for (int i4 = 0; i4 < 21; i4++) {
             a(i, i2, hVar, tVar);
-            epd = a(i2, i3, epd, eoR);
-            if (epd != null) {
-                com.bytedance.sdk.a.b.a.c.a(this.poZ);
-                this.poZ = null;
-                this.ppf = null;
-                this.ppe = null;
-                tVar.a(hVar, this.poY.epV(), this.poY.epU(), null);
+            epk = a(i2, i3, epk, eoY);
+            if (epk != null) {
+                com.bytedance.sdk.a.b.a.c.a(this.prg);
+                this.prg = null;
+                this.prm = null;
+                this.prl = null;
+                tVar.a(hVar, this.prf.eqc(), this.prf.eqb(), null);
             } else {
                 return;
             }
@@ -163,40 +161,40 @@ public final class c extends g.b implements l {
     }
 
     private void a(int i, int i2, h hVar, t tVar) throws IOException {
-        Proxy epU = this.poY.epU();
-        this.poZ = (epU.type() == Proxy.Type.DIRECT || epU.type() == Proxy.Type.HTTP) ? this.poY.epT().eoT().createSocket() : new Socket(epU);
-        tVar.a(hVar, this.poY.epV(), epU);
-        this.poZ.setSoTimeout(i2);
+        Proxy eqb = this.prf.eqb();
+        this.prg = (eqb.type() == Proxy.Type.DIRECT || eqb.type() == Proxy.Type.HTTP) ? this.prf.eqa().epa().createSocket() : new Socket(eqb);
+        tVar.a(hVar, this.prf.eqc(), eqb);
+        this.prg.setSoTimeout(i2);
         try {
-            com.bytedance.sdk.a.b.a.g.e.epH().a(this.poZ, this.poY.epV(), i);
+            com.bytedance.sdk.a.b.a.g.e.epO().a(this.prg, this.prf.eqc(), i);
             try {
-                this.ppe = com.bytedance.sdk.a.a.l.c(com.bytedance.sdk.a.a.l.g(this.poZ));
-                this.ppf = com.bytedance.sdk.a.a.l.b(com.bytedance.sdk.a.a.l.f(this.poZ));
+                this.prl = com.bytedance.sdk.a.a.l.c(com.bytedance.sdk.a.a.l.g(this.prg));
+                this.prm = com.bytedance.sdk.a.a.l.b(com.bytedance.sdk.a.a.l.f(this.prg));
             } catch (NullPointerException e) {
                 if ("throw with null exception".equals(e.getMessage())) {
                     throw new IOException(e);
                 }
             }
         } catch (ConnectException e2) {
-            ConnectException connectException = new ConnectException("Failed to connect to " + this.poY.epV());
+            ConnectException connectException = new ConnectException("Failed to connect to " + this.prf.eqc());
             connectException.initCause(e2);
             throw connectException;
         }
     }
 
     private void a(b bVar, h hVar, t tVar) throws IOException {
-        if (this.poY.epT().eoX() == null) {
-            this.ppc = w.HTTP_1_1;
-            this.ppa = this.poZ;
+        if (this.prf.eqa().epe() == null) {
+            this.prj = w.HTTP_1_1;
+            this.prh = this.prg;
             return;
         }
         tVar.b(hVar);
         a(bVar);
-        tVar.a(hVar, this.ppb);
-        if (this.ppc == w.HTTP_2) {
-            this.ppa.setSoTimeout(0);
-            this.ppd = new g.a(true).a(this.ppa, this.poY.epT().eoR().f(), this.ppe, this.ppf).a(this).epA();
-            this.ppd.c();
+        tVar.a(hVar, this.pri);
+        if (this.prj == w.HTTP_2) {
+            this.prh.setSoTimeout(0);
+            this.prk = new g.a(true).a(this.prh, this.prf.eqa().eoY().f(), this.prl, this.prm).a(this).epH();
+            this.prk.c();
         }
     }
 
@@ -205,10 +203,10 @@ public final class c extends g.b implements l {
         AssertionError e;
         SSLSocket sSLSocket;
         SSLSocket sSLSocket2 = null;
-        com.bytedance.sdk.a.b.a epT = this.poY.epT();
+        com.bytedance.sdk.a.b.a eqa = this.prf.eqa();
         try {
             try {
-                sSLSocket = (SSLSocket) epT.eoX().createSocket(this.poZ, epT.eoR().f(), epT.eoR().g(), true);
+                sSLSocket = (SSLSocket) eqa.epe().createSocket(this.prg, eqa.eoY().f(), eqa.eoY().g(), true);
             } catch (AssertionError e2) {
                 e = e2;
             }
@@ -218,23 +216,23 @@ public final class c extends g.b implements l {
         try {
             n a2 = bVar.a(sSLSocket);
             if (a2.d()) {
-                com.bytedance.sdk.a.b.a.g.e.epH().a(sSLSocket, epT.eoR().f(), epT.e());
+                com.bytedance.sdk.a.b.a.g.e.epO().a(sSLSocket, eqa.eoY().f(), eqa.e());
             }
             sSLSocket.startHandshake();
             u a3 = u.a(sSLSocket.getSession());
-            if (!epT.eoY().verify(epT.eoR().f(), sSLSocket.getSession())) {
+            if (!eqa.epf().verify(eqa.eoY().f(), sSLSocket.getSession())) {
                 X509Certificate x509Certificate = (X509Certificate) a3.b().get(0);
-                throw new SSLPeerUnverifiedException("Hostname " + epT.eoR().f() + " not verified:\n    certificate: " + j.a(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + com.bytedance.sdk.a.b.a.i.e.a(x509Certificate));
+                throw new SSLPeerUnverifiedException("Hostname " + eqa.eoY().f() + " not verified:\n    certificate: " + j.a(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + com.bytedance.sdk.a.b.a.i.e.a(x509Certificate));
             }
-            epT.eoZ().a(epT.eoR().f(), a3.b());
-            String c = a2.d() ? com.bytedance.sdk.a.b.a.g.e.epH().c(sSLSocket) : null;
-            this.ppa = sSLSocket;
-            this.ppe = com.bytedance.sdk.a.a.l.c(com.bytedance.sdk.a.a.l.g(this.ppa));
-            this.ppf = com.bytedance.sdk.a.a.l.b(com.bytedance.sdk.a.a.l.f(this.ppa));
-            this.ppb = a3;
-            this.ppc = c != null ? w.a(c) : w.HTTP_1_1;
+            eqa.epg().a(eqa.eoY().f(), a3.b());
+            String c = a2.d() ? com.bytedance.sdk.a.b.a.g.e.epO().c(sSLSocket) : null;
+            this.prh = sSLSocket;
+            this.prl = com.bytedance.sdk.a.a.l.c(com.bytedance.sdk.a.a.l.g(this.prh));
+            this.prm = com.bytedance.sdk.a.a.l.b(com.bytedance.sdk.a.a.l.f(this.prh));
+            this.pri = a3;
+            this.prj = c != null ? w.a(c) : w.HTTP_1_1;
             if (sSLSocket != null) {
-                com.bytedance.sdk.a.b.a.g.e.epH().d(sSLSocket);
+                com.bytedance.sdk.a.b.a.g.e.epO().d(sSLSocket);
             }
         } catch (AssertionError e3) {
             e = e3;
@@ -246,7 +244,7 @@ public final class c extends g.b implements l {
             th = th3;
             sSLSocket2 = sSLSocket;
             if (sSLSocket2 != null) {
-                com.bytedance.sdk.a.b.a.g.e.epH().d(sSLSocket2);
+                com.bytedance.sdk.a.b.a.g.e.epO().d(sSLSocket2);
             }
             com.bytedance.sdk.a.b.a.c.a((Socket) sSLSocket2);
             throw th;
@@ -254,56 +252,56 @@ public final class c extends g.b implements l {
     }
 
     private ab a(int i, int i2, ab abVar, s sVar) throws IOException {
-        com.bytedance.sdk.a.b.b epR;
+        com.bytedance.sdk.a.b.b epY;
         String str = "CONNECT " + com.bytedance.sdk.a.b.a.c.a(sVar, true) + " HTTP/1.1";
         do {
-            com.bytedance.sdk.a.b.a.d.a aVar = new com.bytedance.sdk.a.b.a.d.a(null, null, this.ppe, this.ppf);
-            this.ppe.eoy().c(i, TimeUnit.MILLISECONDS);
-            this.ppf.eoy().c(i2, TimeUnit.MILLISECONDS);
-            aVar.a(abVar.epx(), str);
+            com.bytedance.sdk.a.b.a.d.a aVar = new com.bytedance.sdk.a.b.a.d.a(null, null, this.prl, this.prm);
+            this.prl.eoF().b(i, TimeUnit.MILLISECONDS);
+            this.prm.eoF().b(i2, TimeUnit.MILLISECONDS);
+            aVar.a(abVar.epE(), str);
             aVar.b();
-            epR = aVar.Ba(false).f(abVar).epR();
-            long d = com.bytedance.sdk.a.b.a.c.e.d(epR);
+            epY = aVar.AZ(false).f(abVar).epY();
+            long d = com.bytedance.sdk.a.b.a.c.e.d(epY);
             if (d == -1) {
                 d = 0;
             }
             com.bytedance.sdk.a.a.s ir = aVar.ir(d);
             com.bytedance.sdk.a.b.a.c.b(ir, Integer.MAX_VALUE, TimeUnit.MILLISECONDS);
             ir.close();
-            switch (epR.c()) {
+            switch (epY.c()) {
                 case 200:
-                    if (this.ppe.eoz().e() && this.ppf.eoz().e()) {
+                    if (this.prl.eoG().e() && this.prm.eoG().e()) {
                         return null;
                     }
                     throw new IOException("TLS tunnel buffered too many bytes!");
                 case 407:
-                    abVar = this.poY.epT().eoU().a(this.poY, epR);
+                    abVar = this.prf.eqa().epb().a(this.prf, epY);
                     if (abVar != null) {
                         break;
                     } else {
                         throw new IOException("Failed to authenticate with proxy");
                     }
                 default:
-                    throw new IOException("Unexpected response code for CONNECT: " + epR.c());
+                    throw new IOException("Unexpected response code for CONNECT: " + epY.c());
             }
-        } while (!"close".equalsIgnoreCase(epR.a(HTTP.CONN_DIRECTIVE)));
+        } while (!"close".equalsIgnoreCase(epY.a(HTTP.CONN_DIRECTIVE)));
         return abVar;
     }
 
-    private ab epd() {
-        return new ab.a().f(this.poY.epT().eoR()).ho("Host", com.bytedance.sdk.a.b.a.c.a(this.poY.epT().eoR(), true)).ho("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).ho("User-Agent", com.bytedance.sdk.a.b.a.d.a()).eqJ();
+    private ab epk() {
+        return new ab.a().f(this.prf.eqa().eoY()).ho("Host", com.bytedance.sdk.a.b.a.c.a(this.prf.eqa().eoY(), true)).ho("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).ho("User-Agent", com.bytedance.sdk.a.b.a.d.a()).eqQ();
     }
 
     public boolean a(com.bytedance.sdk.a.b.a aVar, com.bytedance.sdk.a.b.d dVar) {
-        if (this.d.size() >= this.c || this.f5864a || !com.bytedance.sdk.a.b.a.a.poD.a(this.poY.epT(), aVar)) {
+        if (this.d.size() >= this.c || this.f3951a || !com.bytedance.sdk.a.b.a.a.pqK.a(this.prf.eqa(), aVar)) {
             return false;
         }
-        if (aVar.eoR().f().equals(epe().epT().eoR().f())) {
+        if (aVar.eoY().f().equals(epl().eqa().eoY().f())) {
             return true;
         }
-        if (this.ppd != null && dVar != null && dVar.epU().type() == Proxy.Type.DIRECT && this.poY.epU().type() == Proxy.Type.DIRECT && this.poY.epV().equals(dVar.epV()) && dVar.epT().eoY() == com.bytedance.sdk.a.b.a.i.e.pro && a(aVar.eoR())) {
+        if (this.prk != null && dVar != null && dVar.eqb().type() == Proxy.Type.DIRECT && this.prf.eqb().type() == Proxy.Type.DIRECT && this.prf.eqc().equals(dVar.eqc()) && dVar.eqa().epf() == com.bytedance.sdk.a.b.a.i.e.ptu && a(aVar.eoY())) {
             try {
-                aVar.eoZ().a(aVar.eoR().f(), epg().b());
+                aVar.epg().a(aVar.eoY().f(), epn().b());
                 return true;
             } catch (SSLPeerUnverifiedException e) {
                 return false;
@@ -313,50 +311,50 @@ public final class c extends g.b implements l {
     }
 
     public boolean a(s sVar) {
-        if (sVar.g() != this.poY.epT().eoR().g()) {
+        if (sVar.g() != this.prf.eqa().eoY().g()) {
             return false;
         }
-        if (sVar.f().equals(this.poY.epT().eoR().f())) {
+        if (sVar.f().equals(this.prf.eqa().eoY().f())) {
             return true;
         }
-        return this.ppb != null && com.bytedance.sdk.a.b.a.i.e.pro.a(sVar.f(), (X509Certificate) this.ppb.b().get(0));
+        return this.pri != null && com.bytedance.sdk.a.b.a.i.e.ptu.a(sVar.f(), (X509Certificate) this.pri.b().get(0));
     }
 
     public com.bytedance.sdk.a.b.a.c.c a(z zVar, x.a aVar, g gVar) throws SocketException {
-        if (this.ppd != null) {
-            return new com.bytedance.sdk.a.b.a.e.f(zVar, aVar, gVar, this.ppd);
+        if (this.prk != null) {
+            return new com.bytedance.sdk.a.b.a.e.f(zVar, aVar, gVar, this.prk);
         }
-        this.ppa.setSoTimeout(aVar.c());
-        this.ppe.eoy().c(aVar.c(), TimeUnit.MILLISECONDS);
-        this.ppf.eoy().c(aVar.d(), TimeUnit.MILLISECONDS);
-        return new com.bytedance.sdk.a.b.a.d.a(zVar, gVar, this.ppe, this.ppf);
+        this.prh.setSoTimeout(aVar.c());
+        this.prl.eoF().b(aVar.c(), TimeUnit.MILLISECONDS);
+        this.prm.eoF().b(aVar.d(), TimeUnit.MILLISECONDS);
+        return new com.bytedance.sdk.a.b.a.d.a(zVar, gVar, this.prl, this.prm);
     }
 
     @Override // com.bytedance.sdk.a.b.l
-    public com.bytedance.sdk.a.b.d epe() {
-        return this.poY;
+    public com.bytedance.sdk.a.b.d epl() {
+        return this.prf;
     }
 
-    public Socket epf() {
-        return this.ppa;
+    public Socket epm() {
+        return this.prh;
     }
 
     public boolean a(boolean z) {
         boolean z2 = true;
-        if (this.ppa.isClosed() || this.ppa.isInputShutdown() || this.ppa.isOutputShutdown()) {
+        if (this.prh.isClosed() || this.prh.isInputShutdown() || this.prh.isOutputShutdown()) {
             return false;
         }
-        if (this.ppd != null) {
-            return !this.ppd.d();
+        if (this.prk != null) {
+            return !this.prk.d();
         } else if (z) {
             try {
-                int soTimeout = this.ppa.getSoTimeout();
-                this.ppa.setSoTimeout(1);
-                if (this.ppe.e()) {
-                    this.ppa.setSoTimeout(soTimeout);
+                int soTimeout = this.prh.getSoTimeout();
+                this.prh.setSoTimeout(1);
+                if (this.prl.e()) {
+                    this.prh.setSoTimeout(soTimeout);
                     z2 = false;
                 } else {
-                    this.ppa.setSoTimeout(soTimeout);
+                    this.prh.setSoTimeout(soTimeout);
                 }
                 return z2;
             } catch (SocketTimeoutException e) {
@@ -376,20 +374,20 @@ public final class c extends g.b implements l {
 
     @Override // com.bytedance.sdk.a.b.a.e.g.b
     public void a(com.bytedance.sdk.a.b.a.e.g gVar) {
-        synchronized (this.poX) {
+        synchronized (this.pre) {
             this.c = gVar.a();
         }
     }
 
-    public u epg() {
-        return this.ppb;
+    public u epn() {
+        return this.pri;
     }
 
     public boolean d() {
-        return this.ppd != null;
+        return this.prk != null;
     }
 
     public String toString() {
-        return "Connection{" + this.poY.epT().eoR().f() + ":" + this.poY.epT().eoR().g() + ", proxy=" + this.poY.epU() + " hostAddress=" + this.poY.epV() + " cipherSuite=" + (this.ppb != null ? this.ppb.eqb() : "none") + " protocol=" + this.ppc + '}';
+        return "Connection{" + this.prf.eqa().eoY().f() + ":" + this.prf.eqa().eoY().g() + ", proxy=" + this.prf.eqb() + " hostAddress=" + this.prf.eqc() + " cipherSuite=" + (this.pri != null ? this.pri.eqi() : "none") + " protocol=" + this.prj + '}';
     }
 }

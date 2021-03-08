@@ -9,7 +9,7 @@ import java.util.Random;
 public class PassBioDataEncryptor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3978a = "PassBioDataEncryptor";
+    private static final String f2762a = "PassBioDataEncryptor";
 
     private static String a(int i) {
         Random random = new Random();
@@ -27,7 +27,7 @@ public class PassBioDataEncryptor {
         try {
             return new String(SecurityUtil.base64Decode(new AES().decrypt(SecurityUtil.base64Decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
         } catch (Throwable th) {
-            Log.e(f3978a, f3978a, th);
+            Log.e(f2762a, f2762a, th);
             return "";
         }
     }
@@ -39,7 +39,7 @@ public class PassBioDataEncryptor {
         try {
             return SecurityUtil.base64Encode(new AES().encrypt(SecurityUtil.base64Encode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2));
         } catch (Throwable th) {
-            Log.e(f3978a, f3978a, th);
+            Log.e(f2762a, f2762a, th);
             return "";
         }
     }
@@ -57,7 +57,7 @@ public class PassBioDataEncryptor {
             str2 = SecurityUtil.base64Encode(RSA.encrypt(a2));
         } catch (Exception e2) {
             e = e2;
-            Log.e(f3978a, f3978a, e);
+            Log.e(f2762a, f2762a, e);
             str2 = "";
             return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{str2, str3});
         }

@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
-    NavigationBar gjT;
-    FrameLayout hVb;
-    com.baidu.tieba.play.operableVideoView.e mHO;
+    NavigationBar glw;
+    FrameLayout hWK;
+    com.baidu.tieba.play.operableVideoView.e mJV;
     private String thumbUrl;
     private String videoUrl;
 
@@ -25,26 +25,26 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         super.onCreate(bundle);
         initView();
         initData(bundle);
-        setContentView(this.hVb);
+        setContentView(this.hWK);
     }
 
     private void initView() {
-        this.hVb = new FrameLayout(this);
-        ap.setBackgroundColor(this.hVb, R.color.CAM_X0611);
-        this.hVb.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.hWK = new FrameLayout(this);
+        ap.setBackgroundColor(this.hWK, R.color.CAM_X0611);
+        this.hWK.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         FrameLayout frameLayout = new FrameLayout(this);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.hVb.addView(frameLayout, layoutParams);
-        this.mHO = new com.baidu.tieba.play.operableVideoView.e(this, frameLayout);
-        this.mHO.setStageType("2006");
-        this.gjT = new NavigationBar(this);
-        this.gjT.hideBottomLine();
-        this.gjT.getTopCoverBgView().setVisibility(8);
+        this.hWK.addView(frameLayout, layoutParams);
+        this.mJV = new com.baidu.tieba.play.operableVideoView.e(this, frameLayout);
+        this.mJV.setStageType("2006");
+        this.glw = new NavigationBar(this);
+        this.glw.hideBottomLine();
+        this.glw.getTopCoverBgView().setVisibility(8);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
         layoutParams2.gravity = 48;
-        this.hVb.addView(this.gjT, layoutParams2);
-        SvgManager.bsR().a((ImageView) this.gjT.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.play.SimpleVideoPlayActivity.1
+        this.hWK.addView(this.glw, layoutParams2);
+        SvgManager.bsU().a((ImageView) this.glw.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.play.SimpleVideoPlayActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SimpleVideoPlayActivity.this.finish();
@@ -60,21 +60,21 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             this.videoUrl = getIntent().getStringExtra("video_url");
             this.thumbUrl = getIntent().getStringExtra("thumb_url");
         }
-        this.mHO.setData(this.thumbUrl, this.videoUrl);
+        this.mJV.setData(this.thumbUrl, this.videoUrl);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.mHO.startPlay();
+        this.mJV.startPlay();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.mHO.stopPlay();
+        this.mJV.stopPlay();
     }
 
     @Override // android.app.Activity

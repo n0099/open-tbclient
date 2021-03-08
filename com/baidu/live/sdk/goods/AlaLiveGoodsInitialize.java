@@ -13,23 +13,23 @@ import com.baidu.live.sdk.goods.message.LiveGoodsIntroduceHttpResponseMessage;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveGoodsInitialize {
     static {
         initTasks();
     }
 
     private static void initTasks() {
-        PL();
-        PK();
-        PI();
-        PJ();
-        PM();
-        PN();
         PO();
+        PN();
+        PL();
+        PM();
+        PP();
+        PQ();
+        PR();
     }
 
-    private static void PI() {
+    private static void PL() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913206, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.sdk.goods.AlaLiveGoodsInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.m.b> run(CustomMessage<TbPageContext> customMessage) {
@@ -40,7 +40,7 @@ public class AlaLiveGoodsInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void PJ() {
+    private static void PM() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913207, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.live.sdk.goods.AlaLiveGoodsInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.m.a> run(CustomMessage<TbPageContext> customMessage) {
@@ -51,7 +51,7 @@ public class AlaLiveGoodsInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void PK() {
+    private static void PN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021144, TbConfig.SERVER_HOST + "liveserver/livegoods/getvideogoodslist");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -61,7 +61,7 @@ public class AlaLiveGoodsInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void PL() {
+    private static void PO() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021143, TbConfig.SERVER_HOST + "liveserver/livegoods/hasgoodsauth");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -71,7 +71,7 @@ public class AlaLiveGoodsInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void PM() {
+    private static void PP() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021201, TbConfig.SERVER_HOST + "liveserver/livegoods/getGoodsInfoByIds");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -81,7 +81,7 @@ public class AlaLiveGoodsInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void PN() {
+    private static void PQ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021202, TbConfig.SERVER_HOST + "liveserver/livegoods/sendbuggoodsmsg");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -91,7 +91,7 @@ public class AlaLiveGoodsInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void PO() {
+    private static void PR() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021208, TbConfig.SERVER_HOST + "liveserver/livegoods/introducegoods");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

@@ -1,25 +1,15 @@
 package com.fun.ad.sdk;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FunAdSlot {
-    public AdLoadMode adLoadMode;
-    public FunAdView adView;
     public int expressHeight;
     public int expressWidth;
     public String sid;
     public boolean smallImgStyle;
 
-    /* loaded from: classes6.dex */
-    public enum AdLoadMode {
-        TIME_FIRST,
-        PRIORITY_FIRST
-    }
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
-        public AdLoadMode adLoadMode = AdLoadMode.PRIORITY_FIRST;
-        public FunAdView adView;
         public int expressHeight;
         public int expressWidth;
         public String sid;
@@ -30,20 +20,8 @@ public class FunAdSlot {
             funAdSlot.sid = this.sid;
             funAdSlot.expressWidth = this.expressWidth;
             funAdSlot.expressHeight = this.expressHeight;
-            funAdSlot.adLoadMode = this.adLoadMode;
             funAdSlot.smallImgStyle = this.smallImgStyle;
-            funAdSlot.adView = this.adView;
             return funAdSlot;
-        }
-
-        public Builder setAdLoadMode(AdLoadMode adLoadMode) {
-            this.adLoadMode = adLoadMode;
-            return this;
-        }
-
-        public Builder setAdView(FunAdView funAdView) {
-            this.adView = funAdView;
-            return this;
         }
 
         public Builder setExpressHeight(int i) {
@@ -68,14 +46,6 @@ public class FunAdSlot {
     }
 
     public FunAdSlot() {
-    }
-
-    public AdLoadMode getAdLoadMode() {
-        return this.adLoadMode;
-    }
-
-    public FunAdView getAdView() {
-        return this.adView;
     }
 
     public int getExpressHeight() {

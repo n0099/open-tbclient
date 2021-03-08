@@ -42,25 +42,25 @@ import tbclient.ThreadInfo;
 /* loaded from: classes2.dex */
 public class b {
     private boolean isLoading;
-    private a krP;
-    private DataRes.Builder krR;
+    private a ktR;
+    private DataRes.Builder ktT;
     private TbPageContext mPageContext;
-    private boolean iZm = true;
-    private com.baidu.adp.framework.listener.a krS = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_VIDEO_TAB, 309648) { // from class: com.baidu.tieba.homepage.video.b.b.1
+    private boolean jaV = true;
+    private com.baidu.adp.framework.listener.a ktU = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_VIDEO_TAB, 309648) { // from class: com.baidu.tieba.homepage.video.b.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             b.this.isLoading = false;
-            b.this.iZm = false;
+            b.this.jaV = false;
             if (responsedMessage != null) {
                 b.this.h(responsedMessage);
-            } else if (b.this.krP != null) {
-                b.this.krP.n(-1, "", false);
+            } else if (b.this.ktR != null) {
+                b.this.ktR.n(-1, "", false);
             }
         }
     };
     private List<n> mDataList = new LinkedList();
-    private List<ThreadInfo> kfH = new LinkedList();
-    private List<ThreadPersonalized> krQ = new LinkedList();
+    private List<ThreadInfo> khJ = new LinkedList();
+    private List<ThreadPersonalized> ktS = new LinkedList();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -95,18 +95,18 @@ public class b {
                 sv(z);
             }
         }
-        if (this.krP != null) {
+        if (this.ktR != null) {
             if (responsedMessage.getError() != 0) {
-                this.krP.n(responsedMessage.getError(), responsedMessage.getErrorString(), z);
+                this.ktR.n(responsedMessage.getError(), responsedMessage.getErrorString(), z);
             } else {
-                this.krP.g(i, z, false);
+                this.ktR.g(i, z, false);
             }
         }
     }
 
     public b(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
-        this.krP = aVar;
+        this.ktR = aVar;
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309648);
         bVar.setResponsedClass(VideoTabSocketResMessage.class);
         bVar.setNeedAck(true);
@@ -118,15 +118,15 @@ public class b {
     }
 
     public void registerListener() {
-        MessageManager.getInstance().registerListener(this.krS);
+        MessageManager.getInstance().registerListener(this.ktU);
     }
 
-    public void cSC() {
+    public void cSJ() {
         if (!this.isLoading) {
             this.isLoading = true;
-            if (this.iZm) {
-                bld();
-                this.iZm = false;
+            if (this.jaV) {
+                blf();
+                this.jaV = false;
             }
             VideoTabRequestMessage videoTabRequestMessage = new VideoTabRequestMessage();
             videoTabRequestMessage.new_net_type = j.netType();
@@ -137,7 +137,7 @@ public class b {
         }
     }
 
-    public void cFF() {
+    public void cFL() {
         if (!this.isLoading) {
             this.isLoading = true;
             VideoTabRequestMessage videoTabRequestMessage = new VideoTabRequestMessage();
@@ -153,14 +153,14 @@ public class b {
         return this.mDataList;
     }
 
-    public void KY(String str) {
+    public void Lh(String str) {
         if (!y.isEmpty(this.mDataList)) {
             Iterator<n> it = this.mDataList.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (next instanceof com.baidu.tieba.card.data.b) {
                     com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) next;
-                    if (bVar.bln() != null && bVar.bln().getTid() != null && bVar.bln().getTid().equals(str)) {
+                    if (bVar.blp() != null && bVar.blp().getTid() != null && bVar.blp().getTid().equals(str)) {
                         it.remove();
                     }
                 }
@@ -168,19 +168,19 @@ public class b {
         }
     }
 
-    public void LW(String str) {
-        if (this.krR != null && !y.isEmpty(this.krR.thread_list)) {
+    public void Mc(String str) {
+        if (this.ktT != null && !y.isEmpty(this.ktT.thread_list)) {
             long j = com.baidu.adp.lib.f.b.toLong(str, 0L);
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.krR.thread_list.size()) {
-                    ThreadInfo threadInfo = this.krR.thread_list.get(i2);
+                if (i2 < this.ktT.thread_list.size()) {
+                    ThreadInfo threadInfo = this.ktT.thread_list.get(i2);
                     if (threadInfo == null || threadInfo.tid == null || threadInfo.tid.longValue() != j) {
                         i = i2 + 1;
                     } else {
-                        this.krR.thread_list.remove(i2);
-                        a(this.krR);
+                        this.ktT.thread_list.remove(i2);
+                        a(this.ktT);
                         return;
                     }
                 } else {
@@ -192,48 +192,48 @@ public class b {
 
     private void sv(boolean z) {
         DataRes.Builder builder = new DataRes.Builder();
-        if (y.getCount(this.kfH) >= 12) {
+        if (y.getCount(this.khJ) >= 12) {
             if (z) {
-                builder.thread_list = this.kfH.subList(this.kfH.size() - 12, this.kfH.size());
+                builder.thread_list = this.khJ.subList(this.khJ.size() - 12, this.khJ.size());
                 a(builder, true);
             } else {
-                builder.thread_list = this.kfH.subList(0, 12);
+                builder.thread_list = this.khJ.subList(0, 12);
                 a(builder, false);
             }
         } else {
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.kfH);
+            arrayList.addAll(this.khJ);
             builder.thread_list = arrayList;
             a(builder, false);
         }
-        this.krR = builder;
+        this.ktT = builder;
         a(builder);
     }
 
     private void a(DataRes.Builder builder, boolean z) {
         if (builder != null) {
-            if (y.getCount(this.krQ) >= 12) {
+            if (y.getCount(this.ktS) >= 12) {
                 if (z) {
-                    builder.thread_personalized = this.krQ.subList(this.krQ.size() - 12, this.krQ.size());
+                    builder.thread_personalized = this.ktS.subList(this.ktS.size() - 12, this.ktS.size());
                     return;
                 } else {
-                    builder.thread_personalized = this.krQ.subList(0, 12);
+                    builder.thread_personalized = this.ktS.subList(0, 12);
                     return;
                 }
             }
             LinkedList linkedList = new LinkedList();
-            linkedList.addAll(this.krQ);
+            linkedList.addAll(this.ktS);
             builder.thread_personalized = linkedList;
         }
     }
 
-    private void bld() {
+    private void blf() {
         af.a(new ae<DataRes>() { // from class: com.baidu.tieba.homepage.video.b.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ae
-            /* renamed from: cSD */
+            /* renamed from: cSK */
             public DataRes doInBackground() {
-                l<byte[]> dE = com.baidu.tbadk.core.c.a.bqr().dE("tb.video_tab", TbadkCoreApplication.getCurrentAccount());
+                l<byte[]> dE = com.baidu.tbadk.core.c.a.bqt().dE("tb.video_tab", TbadkCoreApplication.getCurrentAccount());
                 if (dE == null) {
                     return null;
                 }
@@ -254,12 +254,12 @@ public class b {
             /* renamed from: a */
             public void onReturnDataInUI(DataRes dataRes) {
                 if (dataRes != null) {
-                    b.this.krR = new DataRes.Builder(dataRes);
+                    b.this.ktT = new DataRes.Builder(dataRes);
                     int count = y.getCount(dataRes.thread_list);
                     if (count > 0) {
                         b.this.a(dataRes, false);
-                        if (b.this.krP != null) {
-                            b.this.krP.g(count, false, true);
+                        if (b.this.ktR != null) {
+                            b.this.ktR.g(count, false, true);
                         }
                     }
                 }
@@ -271,8 +271,8 @@ public class b {
     public void a(DataRes dataRes, boolean z) {
         s(dataRes.thread_list, !z);
         t(dataRes.thread_personalized, z ? false : true);
-        this.mDataList = cQw();
-        com.baidu.tieba.homepage.video.b.a.y(this.krQ, this.mDataList);
+        this.mDataList = cQD();
+        com.baidu.tieba.homepage.video.b.a.x(this.ktS, this.mDataList);
     }
 
     private void t(List<ThreadPersonalized> list, boolean z) {
@@ -280,12 +280,12 @@ public class b {
             if (z) {
                 LinkedList linkedList = new LinkedList();
                 linkedList.addAll(list);
-                linkedList.addAll(this.krQ);
-                this.krQ.clear();
-                this.krQ.addAll(linkedList);
+                linkedList.addAll(this.ktS);
+                this.ktS.clear();
+                this.ktS.addAll(linkedList);
                 return;
             }
-            this.krQ.addAll(list);
+            this.ktS.addAll(list);
         }
     }
 
@@ -294,30 +294,30 @@ public class b {
             if (z) {
                 LinkedList linkedList = new LinkedList();
                 linkedList.addAll(list);
-                linkedList.addAll(this.kfH);
-                this.kfH.clear();
-                this.kfH.addAll(linkedList);
+                linkedList.addAll(this.khJ);
+                this.khJ.clear();
+                this.khJ.addAll(linkedList);
                 return;
             }
-            this.kfH.addAll(list);
+            this.khJ.addAll(list);
         }
     }
 
-    private List<n> cQw() {
+    private List<n> cQD() {
         int i;
         String format;
         LinkedList linkedList = new LinkedList();
-        if (y.isEmpty(this.kfH)) {
+        if (y.isEmpty(this.khJ)) {
             return linkedList;
         }
         int i2 = 0;
-        for (ThreadInfo threadInfo : this.kfH) {
+        for (ThreadInfo threadInfo : this.khJ) {
             cb cbVar = new cb();
             cbVar.a(threadInfo);
-            cbVar.eTG = true;
+            cbVar.eVh = true;
             if (com.baidu.tieba.card.data.l.ae(cbVar)) {
                 k aF = d.aF(cbVar);
-                if (aF != null && aF.eJQ != null && aF.eJQ.bpG() != null && !StringUtils.isNull(aF.eJQ.bpG().forumName)) {
+                if (aF != null && aF.eLr != null && aF.eLr.bpI() != null && !StringUtils.isNull(aF.eLr.bpI().forumName)) {
                     aF.tid = cbVar.getTid();
                     aF.position = i2;
                     d.h(aF);
@@ -339,13 +339,13 @@ public class b {
                     aE.tid = cbVar.getTid();
                     aE.position = i2;
                     if (aE instanceof k) {
-                        if (cbVar.bpN()) {
+                        if (cbVar.bpP()) {
                             d.d(aE);
-                        } else if (cbVar.boX() == 1) {
+                        } else if (cbVar.boZ() == 1) {
                             d.b(aE);
-                            aE.eQj = imageWidthAndHeight[0];
-                            aE.eQk = imageWidthAndHeight[1];
-                        } else if (cbVar.boX() >= 2) {
+                            aE.eRK = imageWidthAndHeight[0];
+                            aE.eRL = imageWidthAndHeight[1];
+                        } else if (cbVar.boZ() >= 2) {
                             d.c(aE);
                         } else {
                             d.e(aE);
@@ -355,16 +355,16 @@ public class b {
                     }
                 }
                 if (aE != null && aE.isValid()) {
-                    if (!cbVar.bmz() && cbVar.bnQ() != null && cbVar.bpG() != null && !StringUtils.isNull(cbVar.bpG().forumName)) {
-                        SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), cbVar.bnQ().getName_show()));
-                        spannableString.setSpan(new f(16, cbVar.bnQ().getUserId()) { // from class: com.baidu.tieba.homepage.video.b.b.4
+                    if (!cbVar.bmB() && cbVar.bnS() != null && cbVar.bpI() != null && !StringUtils.isNull(cbVar.bpI().forumName)) {
+                        SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), cbVar.bnS().getName_show()));
+                        spannableString.setSpan(new f(16, cbVar.bnS().getUserId()) { // from class: com.baidu.tieba.homepage.video.b.b.4
                             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                             public void onClick(View view) {
                                 com.baidu.tieba.homepage.video.c.a.o(aE);
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(view.getContext(), getLink(), null)));
                             }
                         }, 0, format.length() - 1, 33);
-                        aE.eJQ.a(spannableString);
+                        aE.eLr.a(spannableString);
                     }
                     linkedList.add(aE);
                 }
@@ -404,7 +404,7 @@ public class b {
             public Object doInBackground() {
                 DataRes.Builder builder2 = new DataRes.Builder(builder.build(true));
                 try {
-                    com.baidu.tbadk.core.c.a.bqr().dE("tb.video_tab", TbadkCoreApplication.getCurrentAccount()).setForever(TbadkCoreApplication.getCurrentAccount(), builder2.build(true).toByteArray());
+                    com.baidu.tbadk.core.c.a.bqt().dE("tb.video_tab", TbadkCoreApplication.getCurrentAccount()).setForever(TbadkCoreApplication.getCurrentAccount(), builder2.build(true).toByteArray());
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e);
@@ -415,6 +415,6 @@ public class b {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.krS);
+        MessageManager.getInstance().unRegisterListener(this.ktU);
     }
 }

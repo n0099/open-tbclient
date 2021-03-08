@@ -4,14 +4,12 @@ import android.view.KeyEvent;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import com.tencent.open.a.f;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class a extends InputConnectionWrapper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f13453a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f13454b = false;
+    public static String f8001a;
+    public static boolean b = false;
     public static boolean c = false;
 
     public a(InputConnection inputConnection, boolean z) {
@@ -21,7 +19,7 @@ public class a extends InputConnectionWrapper {
     @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
     public boolean setComposingText(CharSequence charSequence, int i) {
         c = true;
-        f13453a = charSequence.toString();
+        f8001a = charSequence.toString();
         f.a("openSDK_LOG.CaptureInputConnection", "-->setComposingText: " + charSequence.toString());
         return super.setComposingText(charSequence, i);
     }
@@ -29,7 +27,7 @@ public class a extends InputConnectionWrapper {
     @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
     public boolean commitText(CharSequence charSequence, int i) {
         c = true;
-        f13453a = charSequence.toString();
+        f8001a = charSequence.toString();
         f.a("openSDK_LOG.CaptureInputConnection", "-->commitText: " + charSequence.toString());
         return super.commitText(charSequence, i);
     }
@@ -38,11 +36,11 @@ public class a extends InputConnectionWrapper {
     public boolean sendKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0) {
             f.c("openSDK_LOG.CaptureInputConnection", "sendKeyEvent");
-            f13453a = String.valueOf((char) keyEvent.getUnicodeChar());
+            f8001a = String.valueOf((char) keyEvent.getUnicodeChar());
             c = true;
-            f.b("openSDK_LOG.CaptureInputConnection", "s: " + f13453a);
+            f.b("openSDK_LOG.CaptureInputConnection", "s: " + f8001a);
         }
-        f.b("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + f13453a);
+        f.b("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + f8001a);
         return super.sendKeyEvent(keyEvent);
     }
 }

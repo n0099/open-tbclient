@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.bytedance.sdk.adnet.b.i;
 import com.bytedance.sdk.adnet.b.j;
+import com.bytedance.sdk.adnet.core.o;
 import com.ss.android.a.a.a.g;
 import com.ss.android.a.a.a.p;
 import java.lang.ref.WeakReference;
@@ -13,16 +14,16 @@ import java.util.Map;
 public class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f7064a;
+    private final WeakReference<Context> f4702a;
 
     public c(Context context) {
-        this.f7064a = new WeakReference<>(context);
+        this.f4702a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.a.a.a.g
     public void a(String str, String str2, final Map<String, Object> map, p pVar) {
         int i;
-        com.bytedance.sdk.adnet.core.p pVar2;
+        o oVar;
         String valueOf;
         char c = 65535;
         switch (str.hashCode()) {
@@ -50,8 +51,8 @@ public class c implements g {
                 i = 0;
                 break;
         }
-        i eqP = i.eqP();
-        new j(i, str2, eqP) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
+        i eqX = i.eqX();
+        new j(i, str2, eqX) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
             @Override // com.bytedance.sdk.adnet.core.Request
             protected Map<String, String> c() throws com.bytedance.sdk.adnet.err.a {
                 HashMap hashMap = new HashMap();
@@ -60,25 +61,25 @@ public class c implements g {
                 }
                 return hashMap;
             }
-        }.build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).d());
+        }.build(com.bytedance.sdk.openadsdk.h.d.a(com.bytedance.sdk.openadsdk.core.p.a()).d());
         try {
-            pVar2 = eqP.get();
+            oVar = eqX.get();
         } catch (Throwable th) {
-            pVar2 = null;
+            oVar = null;
         }
-        if (pVar2 != null && pVar2.a()) {
+        if (oVar != null && oVar.a()) {
             if (pVar != null) {
-                pVar.a((String) pVar2.f6047a);
+                pVar.a((String) oVar.f4049a);
                 return;
             }
             return;
         }
-        boolean z = TextUtils.isEmpty(pVar2 != null && pVar2.pvP != null ? pVar2.pvP.getMessage() : null) ? false : true;
+        boolean z = TextUtils.isEmpty(oVar != null && oVar.pxT != null ? oVar.pxT.getMessage() : null) ? false : true;
         if (pVar != null) {
             if (z) {
-                valueOf = pVar2.pvP.getMessage();
+                valueOf = oVar.pxT.getMessage();
             } else {
-                valueOf = pVar2 != null ? String.valueOf(pVar2.h) : "";
+                valueOf = oVar != null ? String.valueOf(oVar.h) : "";
             }
             pVar.a(new Exception(valueOf));
         }

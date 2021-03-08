@@ -3,16 +3,16 @@ package com.facebook.common.time;
 import android.os.SystemClock;
 import com.facebook.common.internal.d;
 @d
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RealtimeSinceBootClock implements b {
-    private static final RealtimeSinceBootClock pzY = new RealtimeSinceBootClock();
+    private static final RealtimeSinceBootClock pCd = new RealtimeSinceBootClock();
 
     private RealtimeSinceBootClock() {
     }
 
     @d
     public static RealtimeSinceBootClock get() {
-        return pzY;
+        return pCd;
     }
 
     @Override // com.facebook.common.time.b

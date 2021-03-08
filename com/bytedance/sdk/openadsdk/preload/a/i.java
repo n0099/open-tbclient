@@ -1,90 +1,79 @@
 package com.bytedance.sdk.openadsdk.preload.a;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
-final class i implements b {
+public final class i extends l implements Iterable<l> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected e f7428a;
+    private final List<l> f5033a = new ArrayList();
 
-    /* renamed from: b  reason: collision with root package name */
-    private int f7429b;
-    private List<h> c;
-    private d d;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(List<h> list, int i, e eVar, d dVar) {
-        this.c = list;
-        this.f7429b = i;
-        this.f7428a = eVar;
-        this.d = dVar;
+    public void a(l lVar) {
+        if (lVar == null) {
+            lVar = n.f5034a;
+        }
+        this.f5033a.add(lVar);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.lang.Object */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.bytedance.sdk.openadsdk.preload.a.b
-    public Object a(Object obj) throws Exception {
-        if (this.d != null) {
-            this.d.c = obj;
-            this.d.f();
-        }
-        Object obj2 = obj;
-        if (this.f7429b < this.c.size()) {
-            h hVar = this.c.get(this.f7429b);
-            Class<? extends d> a2 = hVar.a();
-            d dVar = (d) this.f7428a.a(a2);
-            if (dVar == null) {
-                throw new IllegalArgumentException("interceptor == null , index = " + obj + " , class: " + a2);
-            }
-            com.bytedance.sdk.openadsdk.preload.a.b.a b2 = hVar.b();
-            i iVar = new i(this.c, this.f7429b + 1, this.f7428a, dVar);
-            dVar.a(iVar, this.d, obj, b2, hVar.c());
-            dVar.d();
-            try {
-                Object a_ = dVar.a_(iVar, obj);
-                dVar.e();
-                obj2 = a_;
-            } catch (a e) {
-                dVar.c(e.getCause());
-                throw e;
-            } catch (Throwable th) {
-                dVar.b(th);
-                throw new a(th);
-            }
-        }
-        return obj2;
+    @Override // java.lang.Iterable
+    public Iterator<l> iterator() {
+        return this.f5033a.iterator();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.preload.a.b
-    public Object a(Class cls) {
-        d c = c(cls);
-        if (c == null) {
-            throw new IllegalArgumentException("can not find pre Interceptor , class:" + cls);
+    @Override // com.bytedance.sdk.openadsdk.preload.a.l
+    public Number a() {
+        if (this.f5033a.size() == 1) {
+            return this.f5033a.get(0).a();
         }
-        return c.f7421b;
+        throw new IllegalStateException();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.preload.a.b
-    public Object b(Class cls) {
-        d c = c(cls);
-        if (c == null) {
-            throw new IllegalArgumentException("can not find pre Interceptor , class:" + cls);
+    @Override // com.bytedance.sdk.openadsdk.preload.a.l
+    public String b() {
+        if (this.f5033a.size() == 1) {
+            return this.f5033a.get(0).b();
         }
-        return c.c;
+        throw new IllegalStateException();
     }
 
-    private d c(Class cls) {
-        d dVar = this.d;
-        while (dVar != null && dVar.getClass() != cls) {
-            dVar = dVar.f7420a;
+    @Override // com.bytedance.sdk.openadsdk.preload.a.l
+    public double c() {
+        if (this.f5033a.size() == 1) {
+            return this.f5033a.get(0).c();
         }
-        return dVar;
+        throw new IllegalStateException();
     }
 
-    /* loaded from: classes6.dex */
-    static final class a extends Exception {
-        a(Throwable th) {
-            super(th);
+    @Override // com.bytedance.sdk.openadsdk.preload.a.l
+    public long d() {
+        if (this.f5033a.size() == 1) {
+            return this.f5033a.get(0).d();
         }
+        throw new IllegalStateException();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.preload.a.l
+    public int e() {
+        if (this.f5033a.size() == 1) {
+            return this.f5033a.get(0).e();
+        }
+        throw new IllegalStateException();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.preload.a.l
+    public boolean f() {
+        if (this.f5033a.size() == 1) {
+            return this.f5033a.get(0).f();
+        }
+        throw new IllegalStateException();
+    }
+
+    public boolean equals(Object obj) {
+        return obj == this || ((obj instanceof i) && ((i) obj).f5033a.equals(this.f5033a));
+    }
+
+    public int hashCode() {
+        return this.f5033a.hashCode();
     }
 }

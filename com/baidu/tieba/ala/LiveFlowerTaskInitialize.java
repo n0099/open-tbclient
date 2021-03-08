@@ -6,14 +6,14 @@ import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.adp.framework.task.CustomMessageTask;
 import com.baidu.live.tbadk.TbPageContext;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class LiveFlowerTaskInitialize {
     static {
-        bOP();
-        bOO();
+        bOV();
+        bOU();
     }
 
-    private static void bOO() {
+    private static void bOU() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913219, new CustomMessageTask.CustomRunnable<TbPageContext>() { // from class: com.baidu.tieba.ala.LiveFlowerTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ag.d> run(CustomMessage<TbPageContext> customMessage) {
@@ -24,7 +24,7 @@ public class LiveFlowerTaskInitialize {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bOP() {
+    private static void bOV() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913034, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.LiveFlowerTaskInitialize.2
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ag.b> run(CustomMessage<Context> customMessage) {
@@ -44,7 +44,7 @@ public class LiveFlowerTaskInitialize {
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2913136, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.ala.LiveFlowerTaskInitialize.4
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.ag.c> run(CustomMessage<Object> customMessage) {
-                return new CustomResponsedMessage<>(2913136, com.baidu.tieba.ala.liveroom.task.b.ckG());
+                return new CustomResponsedMessage<>(2913136, com.baidu.tieba.ala.liveroom.task.b.ckM());
             }
         });
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

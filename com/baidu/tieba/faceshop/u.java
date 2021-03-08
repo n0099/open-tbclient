@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class u {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     interface a {
-        void czE();
+        void czK();
 
         void da(List<String> list);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void b(ImageUploadResult imageUploadResult);
     }
@@ -44,7 +44,7 @@ public class u {
                             if (!com.baidu.tbadk.core.util.y.isEmpty(arrayList2)) {
                                 aVar.da(arrayList2);
                             } else {
-                                aVar.czE();
+                                aVar.czK();
                             }
                         }
                     }
@@ -54,7 +54,7 @@ public class u {
     }
 
     private void a(final ImageFileInfo imageFileInfo, final b bVar) {
-        com.baidu.tieba.newfaceshop.a.diq().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.u.2
+        com.baidu.tieba.newfaceshop.a.diz().execute(new Runnable() { // from class: com.baidu.tieba.faceshop.u.2
             @Override // java.lang.Runnable
             public void run() {
                 String filePath = imageFileInfo.getFilePath();

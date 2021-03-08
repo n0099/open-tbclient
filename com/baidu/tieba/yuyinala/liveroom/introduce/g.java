@@ -12,37 +12,37 @@ import com.baidu.live.tbadk.ubc.UbcStatisticItem;
 import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class g extends com.baidu.tieba.yuyinala.liveroom.a {
-    private ab aDd;
-    public PlayIntroduceView owB;
+    private ab aED;
+    public PlayIntroduceView oyG;
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void af(ab abVar) {
-        this.aDd = abVar;
+        this.aED = abVar;
     }
 
-    public void cGZ() {
-        if (this.owB != null) {
-            this.owB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
+    public void cHf() {
+        if (this.oyG != null) {
+            this.oyG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    new d(g.this.getPageContext().getPageActivity()).ae(g.this.aDd);
-                    g.this.ebE();
+                    new d(g.this.getPageContext().getPageActivity()).ae(g.this.aED);
+                    g.this.ebM();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ebE() {
+    public void ebM() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aDd.aIU.croom_id);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.aED.aKu.croom_id);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -56,44 +56,44 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.owB != null && this.owB.getParent() != null) {
-            ((ViewGroup) this.owB.getParent()).removeView(this.owB);
+        if (this.oyG != null && this.oyG.getParent() != null) {
+            ((ViewGroup) this.oyG.getParent()).removeView(this.oyG);
         }
-        if (this.owB == null) {
-            this.owB = new PlayIntroduceView(getPageContext().getPageActivity());
+        if (this.oyG == null) {
+            this.oyG = new PlayIntroduceView(getPageContext().getPageActivity());
         }
-        this.owB.setId(a.f.ala_liveroom_play_introduce);
+        this.oyG.setId(a.f.ala_liveroom_play_introduce);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, a.f.ala_liveroom_charm_rank);
         layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
         layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds19);
         layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-        viewGroup.addView(this.owB, layoutParams);
+        viewGroup.addView(this.oyG, layoutParams);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
-    public void Ar() {
-        super.Ar();
-        if (this.owB != null && this.owB.getParent() != null) {
-            ((ViewGroup) this.owB.getParent()).removeView(this.owB);
+    public void Au() {
+        super.Au();
+        if (this.oyG != null && this.oyG.getParent() != null) {
+            ((ViewGroup) this.oyG.getParent()).removeView(this.oyG);
         }
-        if (this.owB != null) {
-            this.owB.destory();
-            this.owB = null;
+        if (this.oyG != null) {
+            this.oyG.destory();
+            this.oyG = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.owB != null) {
-            this.owB.destory();
-            this.owB = null;
+        if (this.oyG != null) {
+            this.oyG.destory();
+            this.oyG = null;
         }
     }
 
-    public void cks() {
+    public void cky() {
     }
 
-    public void ckt() {
+    public void ckz() {
     }
 }

@@ -9,6 +9,6 @@ public class e extends a {
     }
 
     public String toString() {
-        return "mPackageName: " + this.f1174b + ", mAppId: " + this.f1173a + ", mUserId: " + this.d + ", mPushSDKVersion: " + this.c;
+        return "mPackageName: " + this.b + ", mAppId: " + this.f1078a + ", mUserId: " + this.d + ", mPushSDKVersion: " + this.c;
     }
 }

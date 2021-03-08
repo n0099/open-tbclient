@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.recorder.RecorderCallback;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RecorderHandler extends Handler {
     private static final String KEY_BUFFER_CHANGED = "buffer_chenged";
     private static final String KEY_CURLEVEL = "curlevel";

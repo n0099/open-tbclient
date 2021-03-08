@@ -3,7 +3,7 @@ package com.thunder.livesdk;
 import com.thunder.livesdk.ThunderEventHandler;
 import java.util.ArrayList;
 import java.util.HashSet;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ThunderNotification {
     public static final int kThunderAPINotification_AudioRouteChanged = 47;
     public static final int kThunderAPINotification_DeviceStats = 45;
@@ -65,19 +65,19 @@ public class ThunderNotification {
     public static final int kThunderNotification_VideoExtraInfo = 32;
     public static final int kThunderNotification_VideoSizeChange = 21;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderConnectionLost {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderLeaveRoom {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderTokenRequest {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderFirstVideoFrameSend {
         private int mElapsedTime;
 
@@ -90,7 +90,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderFirstAudioFrameSend {
         private int mElapsedTime;
 
@@ -103,7 +103,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderJoinRoomSuccess {
         private int mElapsedTime;
         private String mRoomName;
@@ -128,7 +128,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderRemoteVideoPlay {
         private int mElapsedTime;
         private int mHeigh;
@@ -159,7 +159,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderBizAuthRes {
         private boolean bPublish;
         private int mResult;
@@ -178,7 +178,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderBizAuthStreamRes {
         private boolean bPublish;
         private int mResult;
@@ -203,7 +203,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderSdkAuthRes {
         public static final int THUNDER_SDK_AUTHRES_ERR_APPID = 10003;
         public static final int THUNDER_SDK_AUTHRES_ERR_NO_APP = 10006;
@@ -224,7 +224,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderUserBanned {
         private boolean bBanned;
 
@@ -237,7 +237,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderTokenWillExpire {
         private String token;
 
@@ -250,7 +250,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioCaptureVolume {
         private int mCpt;
         private int mMicVolume;
@@ -275,7 +275,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class AudioPlayVolume {
         private long pts;
         private String uid;
@@ -288,7 +288,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioPlayVolume {
         private int totalVolume;
         private HashSet<ThunderEventHandler.AudioVolumeInfo> volumes;
@@ -308,7 +308,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioPlayData {
         private int cpt;
         private byte[] data;
@@ -351,7 +351,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioPlaySpectrumData {
         private byte[] data;
 
@@ -364,7 +364,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioCapturePcmData {
         private int channel;
         private byte[] data;
@@ -395,7 +395,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderUserAppMsgData {
         private int len;
         String msgData;
@@ -420,7 +420,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAppMsgDataFailStatus {
         private int status;
 
@@ -433,7 +433,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioRenderPcmData {
         private int channel;
         private byte[] data;
@@ -470,7 +470,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderHttpsRequest {
         private int target;
         private String url;
@@ -489,7 +489,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderRemoteVideoStopped {
         private boolean bStop;
         private String roomId;
@@ -514,7 +514,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderRemoteAudioStopped {
         private boolean bStop;
         private String roomId;
@@ -539,7 +539,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderVideoSizeChange {
         private int height;
         private String uid;
@@ -564,7 +564,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderVideoCaptureFocusChanged {
         private int height;
         private int posX;
@@ -595,7 +595,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderVideoCaptureExposureChanged {
         private int height;
         private int posX;
@@ -626,7 +626,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderConnectionStatus {
         public static final int CONNETED = 1;
         public static final int CONNETING = 0;
@@ -642,7 +642,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RoomStats {
         public int lastmileDelay;
         public int localIpStack;
@@ -685,7 +685,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderNetworkStateChange {
         private int status;
 
@@ -698,7 +698,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderPublishStreamToCdnStatus {
         private int errorCode;
         private String url;
@@ -717,7 +717,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderUserJoined {
         private int elapsedTime;
         private String uid;
@@ -736,7 +736,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderUserOffline {
         private int reason;
         private String uid;
@@ -755,7 +755,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderNetworkQuality {
         private int rxQuality;
         private int txQuality;
@@ -780,7 +780,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioExtraInfo {
         private byte[] extraInfo;
         private String uid;
@@ -799,7 +799,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioExtraFailStatus {
         private int status;
 
@@ -812,7 +812,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderVideoExtraInfo {
         private byte[] extraInfo;
         private String uid;
@@ -831,7 +831,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderMixVideoExtraInfo {
         private String mUid;
         private ArrayList<ThunderEventHandler.MixVideoInfo> mixVideoExtraInfos;
@@ -851,7 +851,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderMixAudioExtraInfo {
         private String mUid;
         private ArrayList<ThunderEventHandler.MixAudioInfo> mixAudioExtraInfos;
@@ -871,7 +871,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioCaptureStatus {
         private int mStatus;
 
@@ -884,7 +884,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderVideoCaptureStatus {
         private int mStatus;
 
@@ -897,7 +897,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderLocalVideoStats {
         private int mCodecType;
         private int mConfigBitRate;
@@ -1006,7 +1006,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderLocalAudioStats {
         private int mEnableVad;
         private int mEncodedBitrate;
@@ -1043,7 +1043,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RemoteVideoStats {
         private int mCodecType;
         private int mDecodedType;
@@ -1128,7 +1128,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RemoteAudioStats {
         private int mFrameLossRate;
         private int mFrozenRate;
@@ -1201,7 +1201,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderRemoteAudioStateChanged {
         private int elapsedTime;
         private int reason;
@@ -1232,7 +1232,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderRemoteVideoStateChanged {
         private int mElapsedTime;
         private int mReason;
@@ -1263,7 +1263,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderPrivateCallBack {
         private String mJsonStr;
         private int mKey;
@@ -1282,7 +1282,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderRemoteAudioPlay {
         private int elapsedTime;
         private String uid;
@@ -1301,7 +1301,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class LocalAudioStatusChanged {
         private int mErrorReason;
         private int mStaus;
@@ -1320,7 +1320,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class LocalVideoStatusChanged {
         private int mError;
         private int mStatus;
@@ -1339,7 +1339,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderDeviceStats {
         private double cpuAppUsage;
         private double cpuTotalUsage;
@@ -1370,7 +1370,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioRouteChanged {
         private int routing;
 
@@ -1383,7 +1383,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderUserRoleChanged {
         private int mNewRole;
         private int mOldRole;
@@ -1402,7 +1402,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderHowlingDetectResult {
         private boolean value;
 
@@ -1415,7 +1415,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderEchoDetectResult {
         private boolean value;
 
@@ -1428,7 +1428,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioInputDeviceTestVolume {
         private int volume;
 
@@ -1441,7 +1441,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioOutputDeviceTestVolume {
         private int volume;
 
@@ -1454,7 +1454,7 @@ public class ThunderNotification {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThunderAudioRecordState {
         private int duration;
         private int errorCode;

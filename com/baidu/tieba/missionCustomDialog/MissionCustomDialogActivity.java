@@ -29,25 +29,25 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
 /* loaded from: classes2.dex */
 public class MissionCustomDialogActivity extends BaseActivity {
-    private ActiveCenterData eEA;
-    private ImageView gfq;
-    private RoundRelativeLayout ltL;
-    private ImageView ltM;
-    private TextView ltN;
-    private TextView ltO;
-    private SignItemView ltP;
-    private RoundRelativeLayout ltQ;
-    private TextView ltR;
-    private TextView ltS;
-    private TBSpecificationBtn ltT;
-    private TextView ltU;
-    private View.OnClickListener ltV = new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.1
+    private ActiveCenterData eGb;
+    private ImageView ggT;
+    private RoundRelativeLayout lvN;
+    private ImageView lvO;
+    private TextView lvP;
+    private TextView lvQ;
+    private SignItemView lvR;
+    private RoundRelativeLayout lvS;
+    private TextView lvT;
+    private TextView lvU;
+    private TBSpecificationBtn lvV;
+    private TextView lvW;
+    private View.OnClickListener lvX = new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MissionCustomDialogActivity.this.dgA();
+            MissionCustomDialogActivity.this.dgJ();
         }
     };
-    SignItemView.a ltW = new SignItemView.a() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.3
+    SignItemView.a lvY = new SignItemView.a() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.3
         @Override // com.baidu.tbadk.widget.mission.SignItemView.a
         public void b(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
             MissionCustomDialogActivity.this.d(activeCenterStatusData);
@@ -61,124 +61,124 @@ public class MissionCustomDialogActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_mission_custom_dialog);
         initView();
-        cHO();
+        cHU();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        q.bhU().bid().bij();
+        q.bhW().bif().bil();
     }
 
     private void initView() {
-        this.ltL = (RoundRelativeLayout) findViewById(R.id.content_background);
-        this.ltL.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
-        this.ltM = (ImageView) findViewById(R.id.dialog_background);
-        this.gfq = (ImageView) findViewById(R.id.img_close);
-        this.ltN = (TextView) findViewById(R.id.dialog_title);
-        this.ltO = (TextView) findViewById(R.id.dialog_detail);
-        this.ltP = (SignItemView) findViewById(R.id.sign_view);
-        this.ltQ = (RoundRelativeLayout) findViewById(R.id.bottom_action_layout);
-        this.ltR = (TextView) findViewById(R.id.bottom_title);
-        this.ltS = (TextView) findViewById(R.id.bottom_detail);
-        this.ltT = (TBSpecificationBtn) findViewById(R.id.bottom_btn);
-        this.ltU = (TextView) findViewById(R.id.bottom_btn_text);
-        this.ltP.setItemClickListener(this.ltW);
-        this.ltT.setOnClickListener(this.ltV);
-        this.gfq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.2
+        this.lvN = (RoundRelativeLayout) findViewById(R.id.content_background);
+        this.lvN.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
+        this.lvO = (ImageView) findViewById(R.id.dialog_background);
+        this.ggT = (ImageView) findViewById(R.id.img_close);
+        this.lvP = (TextView) findViewById(R.id.dialog_title);
+        this.lvQ = (TextView) findViewById(R.id.dialog_detail);
+        this.lvR = (SignItemView) findViewById(R.id.sign_view);
+        this.lvS = (RoundRelativeLayout) findViewById(R.id.bottom_action_layout);
+        this.lvT = (TextView) findViewById(R.id.bottom_title);
+        this.lvU = (TextView) findViewById(R.id.bottom_detail);
+        this.lvV = (TBSpecificationBtn) findViewById(R.id.bottom_btn);
+        this.lvW = (TextView) findViewById(R.id.bottom_btn_text);
+        this.lvR.setItemClickListener(this.lvY);
+        this.lvV.setOnClickListener(this.lvX);
+        this.ggT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TiebaStatic.log(new ar("c13742").ap("obj_source", c.bhn().bhs() ? 2 : 1).ap("obj_type", 3));
+                TiebaStatic.log(new ar("c13742").aq("obj_source", c.bhp().bhu() ? 2 : 1).aq("obj_type", 3));
                 MissionCustomDialogActivity.this.finish();
             }
         });
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void cHO() {
-        ActiveCenterData bhX = q.bhU().bhX();
-        if (bhX == null || bhX.mission == null || bhX.mission_status_list == null || bhX.mission_status_list.size() <= 0) {
+    private void cHU() {
+        ActiveCenterData bhZ = q.bhW().bhZ();
+        if (bhZ == null || bhZ.mission == null || bhZ.mission_status_list == null || bhZ.mission_status_list.size() <= 0) {
             finish();
             return;
         }
-        q.bhU().iY(true);
-        this.eEA = bhX;
-        this.ltN.setText(au.cutChineseAndEnglishWithSuffix(this.eEA.win_title, 14, StringHelper.STRING_MORE));
-        this.ltO.setText(au.cutChineseAndEnglishWithSuffix(this.eEA.win_desc, 30, StringHelper.STRING_MORE));
-        this.ltP.setData(bhX);
-        d(this.eEA.getTodayMissionStatus());
+        q.bhW().iY(true);
+        this.eGb = bhZ;
+        this.lvP.setText(au.cutChineseAndEnglishWithSuffix(this.eGb.win_title, 14, StringHelper.STRING_MORE));
+        this.lvQ.setText(au.cutChineseAndEnglishWithSuffix(this.eGb.win_desc, 30, StringHelper.STRING_MORE));
+        this.lvR.setData(bhZ);
+        d(this.eGb.getTodayMissionStatus());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(ActiveCenterData.ActiveCenterStatusData activeCenterStatusData) {
-        if (this.eEA != null && this.eEA.mission != null && activeCenterStatusData != null) {
-            this.ltQ.setAllCornerRound(l.getDimens(this, R.dimen.tbds21));
+        if (this.eGb != null && this.eGb.mission != null && activeCenterStatusData != null) {
+            this.lvS.setAllCornerRound(l.getDimens(this, R.dimen.tbds21));
             String str = activeCenterStatusData.mission;
-            TextView textView = this.ltR;
+            TextView textView = this.lvT;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
             String str2 = activeCenterStatusData.desc;
-            TextView textView2 = this.ltS;
+            TextView textView2 = this.lvU;
             if (str2 == null) {
                 str2 = "";
             }
             textView2.setText(str2);
             if (activeCenterStatusData.is_today_mission == 0) {
-                this.ltT.setVisibility(0);
-                this.ltU.setVisibility(8);
+                this.lvV.setVisibility(0);
+                this.lvW.setVisibility(8);
                 if (activeCenterStatusData.is_completed) {
-                    this.ltT.setText("已完成");
-                    this.ltT.setClickable(false);
-                    this.ltT.setEnabled(false);
+                    this.lvV.setText("已完成");
+                    this.lvV.setClickable(false);
+                    this.lvV.setEnabled(false);
                 } else {
-                    this.ltT.setText("已过期");
-                    this.ltT.setClickable(false);
-                    this.ltT.setEnabled(false);
+                    this.lvV.setText("已过期");
+                    this.lvV.setClickable(false);
+                    this.lvV.setEnabled(false);
                 }
             } else if (activeCenterStatusData.is_today_mission == 1) {
-                this.ltT.setVisibility(0);
-                this.ltU.setVisibility(8);
-                if (this.eEA.mission.task_type == 13) {
+                this.lvV.setVisibility(0);
+                this.lvW.setVisibility(8);
+                if (this.eGb.mission.task_type == 13) {
                     if (activeCenterStatusData.is_completed) {
-                        this.ltT.setText("去领取");
-                        this.ltT.setClickable(true);
-                        this.ltT.setEnabled(true);
+                        this.lvV.setText("去领取");
+                        this.lvV.setClickable(true);
+                        this.lvV.setEnabled(true);
                     } else {
-                        this.ltT.setText("未达标");
-                        this.ltT.setClickable(false);
-                        this.ltT.setEnabled(false);
+                        this.lvV.setText("未达标");
+                        this.lvV.setClickable(false);
+                        this.lvV.setEnabled(false);
                     }
                 } else {
-                    if (this.eEA.mission.task_type == 6) {
-                        if (q.bhU().bid().areNotificationsEnabled()) {
+                    if (this.eGb.mission.task_type == 6) {
+                        if (q.bhW().bif().areNotificationsEnabled()) {
                             activeCenterStatusData.is_completed = true;
                         } else {
                             activeCenterStatusData.is_completed = false;
                         }
                     }
                     if (activeCenterStatusData.is_completed) {
-                        this.ltT.setText("已完成");
-                        this.ltT.setClickable(false);
-                        this.ltT.setEnabled(false);
+                        this.lvV.setText("已完成");
+                        this.lvV.setClickable(false);
+                        this.lvV.setEnabled(false);
                     } else {
-                        this.ltT.setText("去完成");
-                        this.ltT.setClickable(true);
-                        this.ltT.setEnabled(true);
+                        this.lvV.setText("去完成");
+                        this.lvV.setClickable(true);
+                        this.lvV.setEnabled(true);
                     }
                 }
             } else {
-                this.ltT.setVisibility(8);
-                this.ltU.setVisibility(0);
-                this.ltU.setText("未开始");
+                this.lvV.setVisibility(8);
+                this.lvW.setVisibility(0);
+                this.lvW.setText("未开始");
             }
             a aVar = new a();
-            aVar.pR(R.color.CAM_X0301);
-            aVar.pO(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
-            this.ltT.setConfig(aVar);
-            this.ltT.setTextSize(R.dimen.tbds34);
+            aVar.pS(R.color.CAM_X0301);
+            aVar.pP(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
+            this.lvV.setConfig(aVar);
+            this.lvV.setTextSize(R.dimen.tbds34);
         }
     }
 
@@ -186,22 +186,22 @@ public class MissionCustomDialogActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ap.setBackgroundColor(this.ltL, R.color.CAM_X0211);
-        SvgManager.bsR().a(this.ltM, R.drawable.ic_pic_mask_newuser_background_svg, SvgManager.SvgResourceStateType.NORMAL);
-        ap.setViewTextColor(this.ltN, R.color.CAM_X0311);
-        ap.setViewTextColor(this.ltO, R.color.CAM_X0301);
-        ap.setBackgroundColor(this.ltQ, R.color.CAM_X0204);
-        ap.setViewTextColor(this.ltR, R.color.CAM_X0105);
-        ap.setViewTextColor(this.ltS, R.color.CAM_X0109);
-        ap.setViewTextColor(this.ltU, R.color.CAM_X0109);
-        if (this.ltT != null) {
+        ap.setBackgroundColor(this.lvN, R.color.CAM_X0211);
+        SvgManager.bsU().a(this.lvO, R.drawable.ic_pic_mask_newuser_background_svg, SvgManager.SvgResourceStateType.NORMAL);
+        ap.setViewTextColor(this.lvP, R.color.CAM_X0311);
+        ap.setViewTextColor(this.lvQ, R.color.CAM_X0301);
+        ap.setBackgroundColor(this.lvS, R.color.CAM_X0204);
+        ap.setViewTextColor(this.lvT, R.color.CAM_X0105);
+        ap.setViewTextColor(this.lvU, R.color.CAM_X0109);
+        ap.setViewTextColor(this.lvW, R.color.CAM_X0109);
+        if (this.lvV != null) {
             a aVar = new a();
-            aVar.pR(R.color.CAM_X0301);
-            aVar.pO(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
-            this.ltT.setConfig(aVar);
+            aVar.pS(R.color.CAM_X0301);
+            aVar.pP(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
+            this.lvV.setConfig(aVar);
         }
-        this.ltP.onChangeSkinType(i);
-        ap.setImageResource(this.gfq, R.drawable.ic_icon_popup_close_n);
+        this.lvR.onChangeSkinType(i);
+        ap.setImageResource(this.ggT, R.drawable.ic_icon_popup_close_n);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -219,91 +219,91 @@ public class MissionCustomDialogActivity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 25046 && TbadkCoreApplication.isLogin()) {
-            dgA();
+            dgJ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgA() {
-        TiebaStatic.log(new ar("c13742").ap("obj_source", c.bhn().bhs() ? 2 : 1).ap("obj_type", 2));
-        if (this.eEA != null) {
-            int curTaskType = this.eEA.getCurTaskType();
+    public void dgJ() {
+        TiebaStatic.log(new ar("c13742").aq("obj_source", c.bhp().bhu() ? 2 : 1).aq("obj_type", 2));
+        if (this.eGb != null) {
+            int curTaskType = this.eGb.getCurTaskType();
             if (curTaskType == 12) {
-                dgB();
+                dgK();
             } else if (curTaskType == 6) {
-                dgC();
+                dgL();
             } else if (curTaskType == 10) {
-                dgD();
+                dgM();
             } else if (curTaskType == 7) {
-                dgE();
+                dgN();
             } else if (curTaskType == 5) {
-                dgF();
+                dgO();
             } else if (curTaskType == 9) {
-                dgG();
+                dgP();
             } else if (curTaskType == 13) {
-                dgH();
+                dgQ();
             }
         }
     }
 
-    private void dgB() {
+    private void dgK() {
         if (TbadkCoreApplication.isLogin()) {
-            q.bhU().bic().e(getPageContext());
-            q.bhU().bic().bij();
+            q.bhW().bie().e(getPageContext());
+            q.bhW().bie().bil();
             finish();
             return;
         }
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void dgC() {
+    private void dgL() {
         if (TbadkCoreApplication.isLogin()) {
-            q.bhU().bid().e(getPageContext());
+            q.bhW().bif().e(getPageContext());
             finish();
             return;
         }
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void dgD() {
+    private void dgM() {
         if (TbadkCoreApplication.isLogin()) {
-            q.bhU().bie().e(getPageContext());
+            q.bhW().big().e(getPageContext());
             finish();
             return;
         }
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void dgE() {
+    private void dgN() {
         if (TbadkCoreApplication.isLogin()) {
-            q.bhU().bif().e(getPageContext());
+            q.bhW().bih().e(getPageContext());
             finish();
             return;
         }
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void dgF() {
+    private void dgO() {
         if (TbadkCoreApplication.isLogin()) {
-            q.bhU().big().e(getPageContext());
+            q.bhW().bii().e(getPageContext());
             finish();
             return;
         }
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void dgG() {
+    private void dgP() {
         if (TbadkCoreApplication.isLogin()) {
-            q.bhU().bih().e(getPageContext());
+            q.bhW().bij().e(getPageContext());
             finish();
             return;
         }
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
     }
 
-    private void dgH() {
+    private void dgQ() {
         if (TbadkCoreApplication.isLogin()) {
-            q.bhU().bii().e(getPageContext());
+            q.bhW().bik().e(getPageContext());
             finish();
             return;
         }

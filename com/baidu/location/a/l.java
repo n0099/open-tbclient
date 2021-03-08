@@ -55,13 +55,13 @@ public class l extends i {
     private class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ l f2569a;
+        final /* synthetic */ l f1927a;
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f2569a.E) {
-                this.f2569a.E = false;
-                if (!this.f2569a.F) {
+            if (this.f1927a.E) {
+                this.f1927a.E = false;
+                if (!this.f1927a.F) {
                 }
             }
         }
@@ -95,19 +95,19 @@ public class l extends i {
     }
 
     private boolean a(com.baidu.location.b.a aVar) {
-        this.f2554b = com.baidu.location.b.b.a().f();
-        if (this.f2554b == aVar) {
+        this.b = com.baidu.location.b.b.a().f();
+        if (this.b == aVar) {
             return false;
         }
-        return this.f2554b == null || aVar == null || !aVar.a(this.f2554b);
+        return this.b == null || aVar == null || !aVar.a(this.b);
     }
 
     private boolean a(com.baidu.location.b.h hVar) {
-        this.f2553a = com.baidu.location.b.i.a().o();
-        if (hVar == this.f2553a) {
+        this.f1916a = com.baidu.location.b.i.a().o();
+        if (hVar == this.f1916a) {
             return false;
         }
-        return this.f2553a == null || hVar == null || !hVar.c(this.f2553a);
+        return this.f1916a == null || hVar == null || !hVar.c(this.f1916a);
     }
 
     public static synchronized l c() {
@@ -262,8 +262,8 @@ public class l extends i {
                 }
                 String l = com.baidu.location.b.i.a().l();
                 a2 = l != null ? l + b() + j2[0] : "" + b() + j2[0];
-                if (this.f2554b != null && this.f2554b.g() != null) {
-                    a2 = this.f2554b.g() + a2;
+                if (this.b != null && this.b.g() != null) {
+                    a2 = this.b.g() + a2;
                 }
                 String a3 = com.baidu.location.d.b.a().a(true);
                 if (a3 != null) {
@@ -275,8 +275,8 @@ public class l extends i {
                 this.j = null;
             }
             this.e.a(a2);
-            this.n = this.f2554b;
-            this.m = this.f2553a;
+            this.n = this.b;
+            this.m = this.f1916a;
             if (this.q) {
                 this.q = false;
                 if (!com.baidu.location.b.i.i() || message == null || com.baidu.location.a.a.a().e(message) < 1000) {

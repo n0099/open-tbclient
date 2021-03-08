@@ -4,12 +4,12 @@ import android.graphics.Bitmap;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     private String groupId;
     private String groupName;
     private int height;
-    private ArrayList<String> iTh = new ArrayList<>();
+    private ArrayList<String> iUQ = new ArrayList<>();
     private int width;
 
     public c(EmotionGroupData emotionGroupData) {
@@ -21,8 +21,8 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     private void init() {
-        qZ(2);
-        qY(4);
+        ra(2);
+        qZ(4);
         Bitmap eQ = b.eQ(this.groupId, "panel.png");
         Bitmap eQ2 = b.eQ(this.groupId, "panel_momo.png");
         if (eQ != null) {
@@ -31,34 +31,34 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
         if (eQ2 != null) {
             d(new com.baidu.adp.widget.ImageView.a(eQ2, false));
         }
-        this.iTh.clear();
-        for (EmotionData emotionData : i.cyL().JF(this.groupId)) {
-            this.iTh.add(emotionData.getSharpText());
+        this.iUQ.clear();
+        for (EmotionData emotionData : i.cyR().JO(this.groupId)) {
+            this.iUQ.add(emotionData.getSharpText());
         }
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String qX(int i) {
-        if (i >= this.iTh.size()) {
+    public String qY(int i) {
+        if (i >= this.iUQ.size()) {
             return null;
         }
-        return this.iTh.get(i);
+        return this.iUQ.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean CN(String str) {
-        return this.iTh.contains(str);
+    public boolean CU(String str) {
+        return this.iUQ.contains(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType bBB() {
+    public EmotionGroupType bBE() {
         return EmotionGroupType.BIG_EMOTION;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CO(String str) {
+    public com.baidu.adp.widget.ImageView.a CV(String str) {
         String aM;
-        if (Jh(str)) {
+        if (Jq(str)) {
             aM = b.j(str, true, false);
         } else {
             aM = b.aM(str, false);
@@ -70,7 +70,7 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
         return new com.baidu.adp.widget.ImageView.a(eQ, false, str);
     }
 
-    public boolean Jh(String str) {
+    public boolean Jq(String str) {
         if (str.startsWith("#(meme,")) {
             String replace = str.replace("#(meme,", "");
             String substring = replace.substring(0, replace.indexOf(","));
@@ -80,13 +80,13 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a CP(String str) {
+    public com.baidu.adp.widget.ImageView.a CW(String str) {
         return null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        return this.iTh.size();
+        return this.iUQ.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
@@ -110,7 +110,7 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean bBA() {
+    public boolean bBD() {
         return false;
     }
 }

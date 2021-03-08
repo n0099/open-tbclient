@@ -14,13 +14,13 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class TaskStackBuilder implements Iterable<Intent> {
     private static final String TAG = "TaskStackBuilder";
     private final ArrayList<Intent> mIntents = new ArrayList<>();
     private final Context mSourceContext;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public interface SupportParentable {
         @Nullable
         Intent getSupportParentActivityIntent();

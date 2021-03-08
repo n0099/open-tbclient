@@ -1,5 +1,5 @@
 package com.yy.videoplayer.render;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFProgram2D extends YMFProgramBase {
     private static String FRAGMENT_SHADER = "precision mediump float;\nvarying vec2 vTextureCoord;\nvarying vec2 vTextureCoordWater;\nuniform sampler2D uTexture0;\nuniform sampler2D uTextureWater;\nuniform int uWaterMarkEnabled;\n\nvoid main()\n{\n    vec4 outputColor = texture2D(uTexture0, vTextureCoord);\n    if (uWaterMarkEnabled == 1) {\n        vec4 overlay = texture2D(uTextureWater, vTextureCoordWater);\n        outputColor.r = overlay.r + outputColor.r * outputColor.a * (1.0 - overlay.a);\n        outputColor.g = overlay.g + outputColor.g * outputColor.a * (1.0 - overlay.a);\n        outputColor.b = overlay.b + outputColor.b * outputColor.a * (1.0 - overlay.a);\n        outputColor.a = overlay.a + outputColor.a * (1.0 - overlay.a);\n    }\n    gl_FragColor = outputColor; //vec4(color.y, color.y, color.y, 1.0);\n}";
     public static final String FRAGMENT_SHADER_2D = "precision highp float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nvoid main() {\n    gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";

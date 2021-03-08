@@ -2,7 +2,7 @@ package com.baidu.live.adp.framework.controller;
 
 import com.baidu.live.adp.framework.message.Message;
 import com.baidu.live.adp.framework.task.MessageTask;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public abstract class MessageRule<T extends Message<?>, M extends MessageTask> extends Rule<T> {
     public abstract T process(T t, M m);
 

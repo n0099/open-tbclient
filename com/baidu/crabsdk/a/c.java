@@ -9,30 +9,30 @@ import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
 public class c {
     private static boolean an = false;
-    private static c aok;
-    private static Context aol;
-    private static ExecutorService aom;
-    public l aoi;
-    public p aoj;
+    private static c apK;
+    private static Context apL;
+    private static ExecutorService apM;
+    public l apI;
+    public p apJ;
 
     private c(Context context) {
-        aol = context;
-        this.aoj = new p(Looper.getMainLooper().getThread(), a.W);
-        this.aoi = new l(new d(this), context);
-        if (aom == null) {
-            aom = Executors.newSingleThreadExecutor();
+        apL = context;
+        this.apJ = new p(Looper.getMainLooper().getThread(), a.W);
+        this.apI = new l(new d(this), context);
+        if (apM == null) {
+            apM = Executors.newSingleThreadExecutor();
         }
     }
 
-    public static c ad(Context context) {
-        if (aok == null) {
+    public static c ac(Context context) {
+        if (apK == null) {
             synchronized (c.class) {
-                if (aok == null) {
-                    aok = new c(context);
+                if (apK == null) {
+                    apK = new c(context);
                 }
             }
         }
-        return aok;
+        return apK;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,22 +43,22 @@ public class c {
             return;
         }
         a uh = a.uh();
-        uh.aoe = f;
+        uh.apE = f;
         uh.a(j, j2, j3, j4);
     }
 
     public static void start() {
         an = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.aoo.start();
-            com.baidu.crabsdk.c.a.ds("start FrameMonitor...");
+            e.apO.start();
+            com.baidu.crabsdk.c.a.dw("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         an = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.aoo.stop();
+            e.apO.stop();
         }
     }
 }

@@ -5,10 +5,10 @@ import android.animation.AnimatorListenerAdapter;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 class AnimatorUtils {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     interface AnimatorPauseListenerCompat {
         void onAnimationPause(Animator animator);
 

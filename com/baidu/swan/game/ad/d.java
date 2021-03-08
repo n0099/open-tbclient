@@ -9,15 +9,15 @@ import com.baidu.swan.game.ad.c;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
 /* loaded from: classes5.dex */
 public class d extends b {
-    private boolean dXt;
+    private boolean dYU;
 
     public d(Context context, AdElementInfo adElementInfo, com.baidu.swan.game.ad.jsbridge.a aVar) {
         super(context, adElementInfo, aVar);
-        this.dXt = false;
+        this.dYU = false;
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View aRe() {
+    public View aRh() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_land_play, (ViewGroup) null);
     }
 
@@ -25,14 +25,14 @@ public class d extends b {
     public void a(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         int videoWidth = adElementInfo.getVideoWidth();
         int videoHeight = adElementInfo.getVideoHeight();
-        this.dWZ = com.baidu.swan.games.view.a.c.aZq();
-        this.dXa = com.baidu.swan.games.view.a.c.aZr();
+        this.dYA = com.baidu.swan.games.view.a.c.aZt();
+        this.dYB = com.baidu.swan.games.view.a.c.aZu();
         if (videoWidth < videoHeight) {
-            this.dXt = true;
-            int i = (int) (((this.dWZ - videoWidth) / 2) * 0.8d);
-            int i2 = (int) (((this.dWZ - videoWidth) / 2) * 0.1d);
+            this.dYU = true;
+            int i = (int) (((this.dYA - videoWidth) / 2) * 0.8d);
+            int i2 = (int) (((this.dYA - videoWidth) / 2) * 0.1d);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
-            layoutParams.leftMargin = (this.dWZ - i) - i2;
+            layoutParams.leftMargin = (this.dYA - i) - i2;
             layoutParams.addRule(15);
             layoutParams.removeRule(13);
             layoutParams.removeRule(12);
@@ -43,7 +43,7 @@ public class d extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public String aRf() {
-        return this.dXt ? "reward_banner_land_html" : "reward_banner_html";
+    public String aRi() {
+        return this.dYU ? "reward_banner_land_html" : "reward_banner_html";
     }
 }

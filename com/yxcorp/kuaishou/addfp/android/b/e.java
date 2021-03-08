@@ -14,10 +14,10 @@ import java.net.UnknownHostException;
 public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14392a;
+    private Context f8626a;
 
     public e(Context context) {
-        this.f14392a = context;
+        this.f8626a = context;
     }
 
     public static String a(int i) {
@@ -52,11 +52,11 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
         String str2 = "KWE_OTHER";
         try {
             d a2 = c.a(new String[]{str}, false, true);
-            if (!TextUtils.isEmpty(a2.f14390a)) {
-                str2 = a2.f14390a;
-            } else if (!TextUtils.isEmpty(a2.f14391b) && a2.f14391b.contains("denied")) {
+            if (!TextUtils.isEmpty(a2.f8625a)) {
+                str2 = a2.f8625a;
+            } else if (!TextUtils.isEmpty(a2.b) && a2.b.contains("denied")) {
                 str2 = "KWE_PN";
-            } else if (TextUtils.isEmpty(a2.f14390a)) {
+            } else if (TextUtils.isEmpty(a2.f8625a)) {
                 str2 = "KWE_N";
             }
             return str2;
@@ -173,13 +173,13 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public String b() {
-        String b2 = com.yxcorp.kuaishou.addfp.a.b.d.a.a.jc(this.f14392a).b();
-        return TextUtils.isEmpty(b2) ? "" : b2;
+        String b = com.yxcorp.kuaishou.addfp.a.b.d.a.a.iW(this.f8626a).b();
+        return TextUtils.isEmpty(b) ? "" : b;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public boolean c() {
-        return com.yxcorp.kuaishou.addfp.a.b.d.a.a.jc(this.f14392a).a();
+        return com.yxcorp.kuaishou.addfp.a.b.d.a.a.iW(this.f8626a).a();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a

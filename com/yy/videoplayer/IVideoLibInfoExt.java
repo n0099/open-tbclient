@@ -3,7 +3,7 @@ package com.yy.videoplayer;
 import android.content.Context;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IVideoLibInfoExt extends IVideoLibInfo {
     boolean HWCodecConfigGetIsRooted();
 

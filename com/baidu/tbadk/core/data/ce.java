@@ -14,7 +14,7 @@ public class ce {
         return this.title;
     }
 
-    public String bqi() {
+    public String bqk() {
         return this.title_link;
     }
 

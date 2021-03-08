@@ -264,9 +264,9 @@ public final class BIMLogPb {
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
             public final boolean isInitialized() {
-                byte b2 = this.memoizedIsInitialized;
-                if (b2 != -1) {
-                    return b2 == 1;
+                byte b = this.memoizedIsInitialized;
+                if (b != -1) {
+                    return b == 1;
                 }
                 this.memoizedIsInitialized = (byte) 1;
                 return true;
@@ -507,9 +507,9 @@ public final class BIMLogPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b2 = this.memoizedIsInitialized;
-            if (b2 != -1) {
-                return b2 == 1;
+            byte b = this.memoizedIsInitialized;
+            if (b != -1) {
+                return b == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;
@@ -957,9 +957,9 @@ public final class BIMLogPb {
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            byte b2 = this.memoizedIsInitialized;
-            if (b2 != -1) {
-                return b2 == 1;
+            byte b = this.memoizedIsInitialized;
+            if (b != -1) {
+                return b == 1;
             }
             this.memoizedIsInitialized = (byte) 1;
             return true;

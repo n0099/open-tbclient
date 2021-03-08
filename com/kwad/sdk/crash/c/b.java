@@ -17,10 +17,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9631a = UUID.randomUUID().toString();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static File f9632b;
+    public static final String f6376a = UUID.randomUUID().toString();
+    public static File b;
     protected e c;
     protected AtomicInteger d = new AtomicInteger();
     protected File e;
@@ -31,11 +29,11 @@ public abstract class b {
     protected com.kwad.sdk.crash.report.c j;
 
     public static void a(File file) {
-        f9632b = file;
-        if (f9632b.exists()) {
+        b = file;
+        if (b.exists()) {
             return;
         }
-        f9632b.mkdirs();
+        b.mkdirs();
     }
 
     public final com.kwad.sdk.crash.report.c a() {
@@ -47,9 +45,9 @@ public abstract class b {
         if (!this.e.exists()) {
             this.e.mkdirs();
         }
-        this.f = new File(this.e, f9631a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d + ".dump");
-        this.g = new File(this.e, f9631a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-        this.h = new File(this.e, f9631a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d + ".jtrace");
+        this.f = new File(this.e, f6376a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d + ".dump");
+        this.g = new File(this.e, f6376a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
+        this.h = new File(this.e, f6376a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d + ".jtrace");
         this.c = eVar;
         this.j = cVar;
     }
@@ -78,14 +76,14 @@ public abstract class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(File file) {
-        if (f9632b == null) {
+        if (b == null) {
             return;
         }
-        if (!f9632b.exists()) {
-            f9632b.mkdirs();
+        if (!b.exists()) {
+            b.mkdirs();
         }
         try {
-            g.a(file.getParentFile().getParentFile(), f9632b);
+            g.a(file.getParentFile().getParentFile(), b);
         } catch (IOException e) {
             com.kwad.sdk.core.d.a.b(e);
         }

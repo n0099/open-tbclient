@@ -12,53 +12,53 @@ import org.json.JSONObject;
 public class cn {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f5828a;
+    private final Context f3931a;
     private final SharedPreferences c;
     private final SharedPreferences e;
     private volatile JSONObject f;
     private volatile JSONObject g;
-    private final l pnV;
-    private final SharedPreferences pnW;
+    private final l pqf;
+    private final SharedPreferences pqg;
 
     public cn(Context context, l lVar) {
-        this.f5828a = context;
-        this.pnV = lVar;
-        this.e = this.f5828a.getSharedPreferences("embed_applog_stats", 0);
-        this.c = this.f5828a.getSharedPreferences("embed_header_custom", 0);
-        this.pnW = this.f5828a.getSharedPreferences("embed_last_sp_session", 0);
+        this.f3931a = context;
+        this.pqf = lVar;
+        this.e = this.f3931a.getSharedPreferences("embed_applog_stats", 0);
+        this.c = this.f3931a.getSharedPreferences("embed_header_custom", 0);
+        this.pqg = this.f3931a.getSharedPreferences("embed_last_sp_session", 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
-        return this.pnV.enJ();
+        return this.pqf.enT();
     }
 
     public String c() {
-        return this.pnW.getString("session_last_day", "");
+        return this.pqg.getString("session_last_day", "");
     }
 
     public void a(String str, int i) {
-        this.pnW.edit().putString("session_last_day", str).putInt("session_order", i).apply();
+        this.pqg.edit().putString("session_last_day", str).putInt("session_order", i).apply();
     }
 
     public int d() {
-        return this.pnW.getInt("session_order", 0);
+        return this.pqg.getInt("session_order", 0);
     }
 
-    public SharedPreferences eoo() {
+    public SharedPreferences eox() {
         return this.e;
     }
 
     public boolean f() {
-        return this.pnV.enG();
+        return this.pqf.enQ();
     }
 
-    public JSONObject eop() {
+    public JSONObject g() {
         return this.g;
     }
 
     public void a(JSONObject jSONObject) {
-        if (au.f5788b) {
+        if (au.b) {
             au.a("setConfig, " + jSONObject.toString(), null);
         }
         this.g = jSONObject;
@@ -94,7 +94,7 @@ public class cn {
         } else {
             edit.remove("bav_log_collect");
         }
-        au.f5787a = optBoolean;
+        au.f3906a = optBoolean;
         if (jSONObject.optBoolean("bav_ab_config", false)) {
             edit.putBoolean("bav_ab_config", true);
         } else {
@@ -121,27 +121,27 @@ public class cn {
     }
 
     public String j() {
-        return this.pnV.uB();
+        return this.pqf.uE();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String k() {
-        return this.pnV.getChannel();
+        return this.pqf.getChannel();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String l() {
-        return this.pnV.enH();
+        return this.pqf.enR();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String m() {
-        return this.pnV.getLanguage();
+        return this.pqf.getLanguage();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String n() {
-        return this.pnV.enI();
+        return this.pqf.enS();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -165,10 +165,10 @@ public class cn {
     }
 
     public boolean r() {
-        if (this.pnV.getProcess() == 0) {
-            this.pnV.AX(!av.a(this.f5828a).contains(":"));
+        if (this.pqf.getProcess() == 0) {
+            this.pqf.AW(!av.a(this.f3931a).contains(":"));
         }
-        return this.pnV.getProcess() == 1;
+        return this.pqf.getProcess() == 1;
     }
 
     public long s() {
@@ -183,10 +183,10 @@ public class cn {
     }
 
     public String t() {
-        return !TextUtils.isEmpty(this.pnV.enP()) ? this.pnV.enP() : this.c.getString("ab_version", null);
+        return !TextUtils.isEmpty(this.pqf.enZ()) ? this.pqf.enZ() : this.c.getString("ab_version", null);
     }
 
-    public JSONObject eoq() {
+    public JSONObject u() {
         JSONObject jSONObject = this.f;
         if (jSONObject == null) {
             synchronized (this) {
@@ -211,11 +211,11 @@ public class cn {
         return this.e.getBoolean("bav_log_collect", false);
     }
 
-    public long eor() {
+    public long eoy() {
         return this.e.getLong("session_interval", 30000L);
     }
 
-    public long eos() {
+    public long eoz() {
         return this.e.getLong("batch_event_interval", 30000L);
     }
 
@@ -226,7 +226,7 @@ public class cn {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String A() {
-        return this.pnV.enF();
+        return this.pqf.enP();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -245,63 +245,63 @@ public class cn {
     public void a(long j) {
     }
 
-    public long eot() {
+    public long eoA() {
         return 10000L;
     }
 
     public String D() {
-        return this.pnV.getAppName();
+        return this.pqf.getAppName();
     }
 
     public int E() {
-        return this.pnV.getVersionCode();
+        return this.pqf.getVersionCode();
     }
 
     public int F() {
-        return this.pnV.enM();
+        return this.pqf.enW();
     }
 
     public int G() {
-        return this.pnV.enN();
+        return this.pqf.enX();
     }
 
     public String H() {
-        return this.pnV.getVersion();
+        return this.pqf.getVersion();
     }
 
     public String I() {
-        return this.pnV.enL();
+        return this.pqf.enV();
     }
 
-    public String J() {
-        return this.pnV.enO();
+    public String up() {
+        return this.pqf.enY();
     }
 
-    public String K() {
-        return this.pnV.enQ();
+    public String uq() {
+        return this.pqf.eoa();
     }
 
     public String L() {
-        return this.pnV.enR();
+        return this.pqf.eob();
     }
 
     public String M() {
-        return this.pnV.enS();
+        return this.pqf.eoc();
     }
 
     public String N() {
-        return this.pnV.enV() == null ? "" : this.pnV.enV();
+        return this.pqf.eog() == null ? "" : this.pqf.eog();
     }
 
     public boolean O() {
-        return this.pnV.enU();
+        return this.pqf.eoe();
     }
 
-    public l eou() {
-        return this.pnV;
+    public l eoB() {
+        return this.pqf;
     }
 
-    public CharSequence eov() {
-        return this.pnV.enT();
+    public CharSequence eoC() {
+        return this.pqf.eod();
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.tieba.ala.live.guess.result;
 import android.text.SpannableStringBuilder;
 import com.baidu.live.data.o;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
-    void He(String str);
+    void Hn(String str);
 
-    void Hf(String str);
+    void Ho(String str);
 
-    void Hg(String str);
+    void Hp(String str);
 
     void a(o.c cVar, boolean z, String str);
 
@@ -29,9 +29,9 @@ public interface b {
 
     void u(boolean z, String str);
 
-    void uI(int i);
-
-    void uJ(int i);
-
     void uK(int i);
+
+    void uL(int i);
+
+    void uM(int i);
 }

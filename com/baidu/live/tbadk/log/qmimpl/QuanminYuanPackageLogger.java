@@ -6,7 +6,7 @@ import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.log.LogManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class QuanminYuanPackageLogger implements IYuanPackageLogger {
     @Override // com.baidu.live.tbadk.log.IYuanPackageLogger
     public void doDisplayOneGiftBagLog(String str, String str2, String str3, String str4, long j) {

@@ -2,7 +2,7 @@ package com.yy.mediaframework.beautystyle;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractStyle implements IBeautyStyle {
     protected float[] sMinParams = {0.6f, 0.6f, 0.6f, 0.0f};
     protected float[] sDefaultParams = {0.67f, 0.75f, 0.7f, 0.1f, 0.7f};

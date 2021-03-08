@@ -3,20 +3,20 @@ package com.baidu.swan.apps.statistic;
 import android.text.TextUtils;
 import com.baidu.swan.apps.ao.ai;
 import java.util.HashSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int dKY = 0;
+    private static int dMz = 0;
 
     public static int getStartType() {
-        return dKY;
+        return dMz;
     }
 
     public static void setStartType(int i) {
-        dKY = i;
+        dMz = i;
     }
 
-    public static String sH(String str) {
+    public static String sO(String str) {
         if (!TextUtils.isEmpty(str)) {
             String params = ai.getParams(str);
             if (!TextUtils.isEmpty(params)) {
@@ -31,20 +31,20 @@ public final class g {
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT a(EvenT event) {
-        return (EvenT) a(event, "coreState", Integer.valueOf(com.baidu.swan.apps.core.turbo.d.asd()));
+        return (EvenT) a(event, "coreState", Integer.valueOf(com.baidu.swan.apps.core.turbo.d.asg()));
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT b(EvenT event) {
-        return (EvenT) a(event, "packageState", Integer.valueOf(com.baidu.swan.apps.runtime.d.aIG().aIC().aIR()));
+        return (EvenT) a(event, "packageState", Integer.valueOf(com.baidu.swan.apps.runtime.d.aIJ().aIF().aIU()));
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT c(EvenT event) {
-        return (EvenT) a(event, "isDownloading", Integer.valueOf(com.baidu.swan.apps.runtime.d.aIG().aIC().aIQ() ? 1 : 0));
+        return (EvenT) a(event, "isDownloading", Integer.valueOf(com.baidu.swan.apps.runtime.d.aIJ().aIF().aIT() ? 1 : 0));
     }
 
     public static <EvenT extends com.baidu.swan.apps.statistic.a.e> EvenT a(EvenT event, String str, Object obj) {
         if (event != null && !TextUtils.isEmpty(str)) {
-            event.r(str, obj);
+            event.s(str, obj);
         }
         return event;
     }

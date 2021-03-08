@@ -1,15 +1,41 @@
 package com.bytedance.sdk.openadsdk.j.a;
-
-import java.io.File;
 /* loaded from: classes6.dex */
-public abstract class a {
-    public abstract File c(String str);
+public class a {
 
-    public abstract File d(String str);
+    /* renamed from: a  reason: collision with root package name */
+    private String f4860a;
+    private int b;
+    private int c;
+    private long d;
+    private long e;
 
-    public void a(String str) {
+    public a(String str, int i, int i2, long j, long j2) {
+        this.d = 0L;
+        this.e = 0L;
+        this.f4860a = str;
+        this.b = i;
+        this.c = i2;
+        this.d = j;
+        this.e = j2;
     }
 
-    public void b(String str) {
+    public String a() {
+        return this.f4860a;
+    }
+
+    public int b() {
+        return this.b;
+    }
+
+    public int c() {
+        return this.c;
+    }
+
+    public long d() {
+        return this.d;
+    }
+
+    public long e() {
+        return this.e;
     }
 }

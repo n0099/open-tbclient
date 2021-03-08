@@ -6,14 +6,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public b() {
-        dkX();
-        dkY();
+        dlg();
+        dlh();
     }
 
-    private void dkX() {
+    private void dlg() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(CmdConfigSocket.CMD_GET_FINE_PB);
         bVar.setResponsedClass(ChosenPbSocketResponse.class);
         bVar.setNeedAck(true);
@@ -21,7 +21,7 @@ public class b {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void dkY() {
+    private void dlh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003006, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.FINE_PB_PAGE, CmdConfigSocket.CMD_GET_FINE_PB));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

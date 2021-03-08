@@ -148,7 +148,7 @@ public class a extends b {
 
     @Override // com.baidu.ueg.lib.b
     void b(byte[] bArr, int i, int i2, b.a aVar) {
-        byte b2;
+        byte b;
         if (!aVar.eof) {
             if (i2 < 0) {
                 aVar.eof = true;
@@ -160,14 +160,14 @@ public class a extends b {
                 }
                 byte[] a2 = a(this.decodeSize, aVar);
                 int i4 = i + 1;
-                byte b3 = bArr[i];
-                if (b3 == 61) {
+                byte b2 = bArr[i];
+                if (b2 == 61) {
                     aVar.eof = true;
                     break;
                 }
-                if (b3 >= 0 && b3 < DECODE_TABLE.length && (b2 = DECODE_TABLE[b3]) >= 0) {
+                if (b2 >= 0 && b2 < DECODE_TABLE.length && (b = DECODE_TABLE[b2]) >= 0) {
                     aVar.modulus = (aVar.modulus + 1) % 4;
-                    aVar.ibitWorkArea = b2 + (aVar.ibitWorkArea << 6);
+                    aVar.ibitWorkArea = b + (aVar.ibitWorkArea << 6);
                     if (aVar.modulus == 0) {
                         int i5 = aVar.pos;
                         aVar.pos = i5 + 1;
@@ -239,7 +239,7 @@ public class a extends b {
     }
 
     @Override // com.baidu.ueg.lib.b
-    protected boolean isInAlphabet(byte b2) {
-        return b2 >= 0 && b2 < this.decodeTable.length && this.decodeTable[b2] != -1;
+    protected boolean isInAlphabet(byte b) {
+        return b >= 0 && b < this.decodeTable.length && this.decodeTable[b] != -1;
     }
 }

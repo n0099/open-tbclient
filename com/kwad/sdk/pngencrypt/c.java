@@ -96,10 +96,10 @@ public class c extends b {
             }
             this.i = new com.kwad.sdk.pngencrypt.chunk.e(this.e);
         }
-        if (chunkReader.f10487a == ChunkReader.ChunkReaderMode.BUFFER && d(chunkReader.a().c)) {
-            this.k += chunkReader.a().f10503a;
+        if (chunkReader.f6912a == ChunkReader.ChunkReaderMode.BUFFER && d(chunkReader.a().c)) {
+            this.k += chunkReader.a().f6921a;
         }
-        if (chunkReader.f10487a == ChunkReader.ChunkReaderMode.BUFFER || this.m) {
+        if (chunkReader.f6912a == ChunkReader.ChunkReaderMode.BUFFER || this.m) {
             try {
                 this.i.a(this.r.a(chunkReader.a(), j()), this.h);
             } catch (PngjException e) {

@@ -13,7 +13,7 @@ import com.yy.videoplayer.stat.VideoPlayerStatistic;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SpeedStatData {
     private static final String TAG = "SpeedStatData";
 

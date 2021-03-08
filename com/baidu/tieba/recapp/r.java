@@ -26,17 +26,17 @@ public interface r {
 
     void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
 
-    m dDn();
+    void dDA();
 
-    o dDo();
+    m dDv();
 
-    com.baidu.tieba.r.a dDp();
+    o dDw();
 
-    j dDq();
+    com.baidu.tieba.r.a dDx();
 
-    List<AppData> dDr();
+    j dDy();
 
-    void dDs();
+    List<AppData> dDz();
 
     void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4);
 }

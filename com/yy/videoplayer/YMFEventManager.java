@@ -14,7 +14,7 @@ import com.yy.videoplayer.utils.YMFLog;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFEventManager {
     private static final int MSG_NOTIFY_DECODER = 3;
     private static final int MSG_NOTIFY_RENDER = 1;

@@ -2,21 +2,21 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import tbclient.PlaceOrder.DataRes;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
-    private int aXz;
+    private int aYZ;
     private String goodsName;
-    private int jXo;
-    private int jXp;
-    private long jXq;
-    private String jXr;
-    private int jXs;
-    private String jXt;
-    private long jXu;
-    private int jXv;
-    private int jXw;
-    private long jXx;
-    private long jXy;
+    private long jZA;
+    private int jZq;
+    private int jZr;
+    private long jZs;
+    private String jZt;
+    private int jZu;
+    private String jZv;
+    private long jZw;
+    private int jZx;
+    private int jZy;
+    private long jZz;
     private String orderId;
     private int payType;
     private long timeStamp;
@@ -26,37 +26,37 @@ public class a {
         if (dataRes != null) {
             this.timeStamp = dataRes.timestamp.intValue();
             this.goodsName = dataRes.goods_name;
-            this.jXo = dataRes.scene_id.intValue();
-            this.jXp = dataRes.goods_user_level.intValue();
-            this.jXq = dataRes.goods_duration.intValue();
-            this.jXr = dataRes.goods_pic;
-            this.jXs = dataRes.terminal.intValue();
+            this.jZq = dataRes.scene_id.intValue();
+            this.jZr = dataRes.goods_user_level.intValue();
+            this.jZs = dataRes.goods_duration.intValue();
+            this.jZt = dataRes.goods_pic;
+            this.jZu = dataRes.terminal.intValue();
             this.orderId = dataRes.order_id;
-            this.jXt = dataRes.goods_unit;
-            this.jXu = dataRes.tdou_num.intValue();
-            this.jXv = dataRes.goods_price.intValue();
-            this.jXw = dataRes.goods_num.intValue();
+            this.jZv = dataRes.goods_unit;
+            this.jZw = dataRes.tdou_num.intValue();
+            this.jZx = dataRes.goods_price.intValue();
+            this.jZy = dataRes.goods_num.intValue();
             this.payType = dataRes.pay_type.intValue();
             this.userId = dataRes.user_id.longValue();
-            this.jXx = dataRes.tb_timestamp.intValue();
-            this.jXy = dataRes.open_id.longValue();
-            this.aXz = dataRes.gift_count.intValue();
+            this.jZz = dataRes.tb_timestamp.intValue();
+            this.jZA = dataRes.open_id.longValue();
+            this.aYZ = dataRes.gift_count.intValue();
         }
     }
 
-    public PaymentConfirmRequestData cOn() {
+    public PaymentConfirmRequestData cOu() {
         PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
-        paymentConfirmRequestData.setTdou_num(this.jXu);
-        paymentConfirmRequestData.setOpen_id(this.jXy);
+        paymentConfirmRequestData.setTdou_num(this.jZw);
+        paymentConfirmRequestData.setOpen_id(this.jZA);
         paymentConfirmRequestData.setOrder_id(this.orderId);
-        paymentConfirmRequestData.setScene_id(this.jXo);
+        paymentConfirmRequestData.setScene_id(this.jZq);
         paymentConfirmRequestData.setGoods_name(this.goodsName);
-        paymentConfirmRequestData.setGoods_pic(this.jXr);
-        paymentConfirmRequestData.setTerminal("" + this.jXs);
-        paymentConfirmRequestData.setGoods_num(this.jXw);
-        paymentConfirmRequestData.setGoods_unit(this.jXt);
-        paymentConfirmRequestData.setGoods_duration(this.jXq);
-        paymentConfirmRequestData.setGoods_user_level(this.jXp);
+        paymentConfirmRequestData.setGoods_pic(this.jZt);
+        paymentConfirmRequestData.setTerminal("" + this.jZu);
+        paymentConfirmRequestData.setGoods_num(this.jZy);
+        paymentConfirmRequestData.setGoods_unit(this.jZv);
+        paymentConfirmRequestData.setGoods_duration(this.jZs);
+        paymentConfirmRequestData.setGoods_user_level(this.jZr);
         paymentConfirmRequestData.setPay_type(this.payType);
         return paymentConfirmRequestData;
     }

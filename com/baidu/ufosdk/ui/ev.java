@@ -30,14 +30,12 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ev extends Dialog implements DialogInterface.OnDismissListener, TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f5580a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public EditText f5581b;
+    public View f3773a;
+    public EditText b;
     public Button c;
     public String d;
     public int e;
@@ -86,16 +84,16 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         inflate.findViewById(R.id.btn_dialog_close).setOnClickListener(this);
         inflate.findViewById(R.id.header_transparent).setOnClickListener(this);
         window.setContentView(inflate);
-        this.f5580a = com.baidu.ufosdk.f.i.b(this.g, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
+        this.f3773a = com.baidu.ufosdk.f.i.b(this.g, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        this.f5580a.setVisibility(8);
-        ((RelativeLayout) inflate.findViewById(R.id.rl_root)).addView(this.f5580a, layoutParams);
+        this.f3773a.setVisibility(8);
+        ((RelativeLayout) inflate.findViewById(R.id.rl_root)).addView(this.f3773a, layoutParams);
         window.setLayout(-1, -2);
         this.c = (Button) inflate.findViewById(R.id.btn_sumbit_evaluate);
         this.c.setOnClickListener(this);
-        this.f5581b = (EditText) inflate.findViewById(R.id.et_input);
-        this.f5581b.setOnClickListener(this);
+        this.b = (EditText) inflate.findViewById(R.id.et_input);
+        this.b.setOnClickListener(this);
         if (this.l != null && this.l.length() > 0) {
             this.h = 0;
             inflate.findViewById(R.id.ll_checkboxs).setVisibility(0);
@@ -144,13 +142,13 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         this.i = 0;
         RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.rl_input);
         relativeLayout.setVisibility(0);
-        this.f5581b.setHint(this.j);
-        this.f5581b.clearFocus();
-        this.f5581b.setFocusable(false);
+        this.b.setHint(this.j);
+        this.b.clearFocus();
+        this.b.setFocusable(false);
         relativeLayout.setBackgroundResource(R.drawable.dialog_checkbox_bg_normal);
-        this.f5581b.setOnClickListener(this);
-        this.f5581b.addTextChangedListener(this);
-        this.f5581b.setOnFocusChangeListener(new ew(this, relativeLayout));
+        this.b.setOnClickListener(this);
+        this.b.addTextChangedListener(this);
+        this.b.setOnFocusChangeListener(new ew(this, relativeLayout));
         if (this.k == 0) {
             this.c.setBackgroundResource(R.drawable.dialog_btn_selector);
             this.c.setTextColor(-1);
@@ -179,7 +177,7 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
         hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("appvn", com.baidu.ufosdk.b.e.b());
         hashMap.put("uid", com.baidu.ufosdk.b.d);
-        hashMap.put("username", com.baidu.ufosdk.b.f5358b);
+        hashMap.put("username", com.baidu.ufosdk.b.b);
         hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
         hashMap.put("osvn", Build.VERSION.RELEASE);
         hashMap.put("extra", com.baidu.ufosdk.b.f);
@@ -224,19 +222,19 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
     }
 
     private void b() {
-        this.f5580a.setVisibility(0);
-        this.f5580a.bringToFront();
+        this.f3773a.setVisibility(0);
+        this.f3773a.bringToFront();
         this.c.setBackgroundResource(R.drawable.dialog_btn_bg_normal);
         this.c.setTextColor(872415231);
         this.c.setClickable(false);
-        this.f5581b.clearFocus();
-        this.f5581b.setFocusable(false);
+        this.b.clearFocus();
+        this.b.setFocusable(false);
         new Thread(new ex(this)).start();
     }
 
     public final void a() {
         this.m.clear();
-        this.f5581b.setText("");
+        this.b.setText("");
         a(this.p);
         a(this.q);
         a(this.r);
@@ -246,15 +244,15 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
 
     @Override // android.text.TextWatcher
     public final void afterTextChanged(Editable editable) {
-        if (this.f5581b.getText().toString().trim().length() > com.baidu.ufosdk.b.aa) {
-            String substring = this.f5581b.getText().toString().substring(0, com.baidu.ufosdk.b.aa);
-            this.f5581b.setText(substring);
-            this.f5581b.setSelection(substring.length());
+        if (this.b.getText().toString().trim().length() > com.baidu.ufosdk.b.aa) {
+            String substring = this.b.getText().toString().substring(0, com.baidu.ufosdk.b.aa);
+            this.b.setText(substring);
+            this.b.setSelection(substring.length());
             Toast.makeText(this.g, com.baidu.ufosdk.f.s.a(com.tencent.connect.common.Constants.VIA_REPORT_TYPE_START_WAP), 0).show();
         }
-        if (this.f5581b.getText().toString().trim().length() >= 4) {
+        if (this.b.getText().toString().trim().length() >= 4) {
             this.i = 2;
-        } else if (this.f5581b.getText().toString().trim().length() > 0) {
+        } else if (this.b.getText().toString().trim().length() > 0) {
             this.i = 1;
         } else {
             this.i = 0;
@@ -324,13 +322,13 @@ public final class ev extends Dialog implements DialogInterface.OnDismissListene
             dismiss();
         }
         if (view.getId() != R.id.et_input) {
-            this.f5581b.clearFocus();
-            this.f5581b.setFocusable(false);
+            this.b.clearFocus();
+            this.b.setFocusable(false);
         } else {
             this.n.obtainMessage(18, "focus true").sendToTarget();
-            this.f5581b.setFocusable(true);
-            this.f5581b.setFocusableInTouchMode(true);
-            this.f5581b.requestFocus();
+            this.b.setFocusable(true);
+            this.b.setFocusableInTouchMode(true);
+            this.b.requestFocus();
         }
         if (view.getId() == R.id.btn_sumbit_evaluate) {
             if (this.h == -1) {

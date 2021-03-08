@@ -1,7 +1,7 @@
 package com.baidu.helios.common.cc;
 
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class c {
     public static byte[] a(byte[] bArr, int i) {
         if (bArr == null || bArr.length == 0) {

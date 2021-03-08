@@ -24,20 +24,20 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 /* loaded from: classes.dex */
 public class InputView extends EditText implements n {
-    private EditorTools acR;
-    private int acS;
-    private boolean fCU;
-    private boolean fCV;
-    private boolean fCW;
-    private int fCX;
+    private EditorTools ael;
+    private int aem;
+    private boolean fEt;
+    private boolean fEu;
+    private boolean fEv;
+    private int fEw;
 
     public InputView(Context context, boolean z) {
         super(context);
-        this.acS = 0;
-        this.fCU = false;
-        this.fCV = true;
-        this.fCW = true;
-        this.fCX = -1;
+        this.aem = 0;
+        this.fEt = false;
+        this.fEu = true;
+        this.fEv = true;
+        this.fEw = -1;
         setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.ds64));
         setMaxLines(4);
         if (z) {
@@ -58,11 +58,11 @@ public class InputView extends EditText implements n {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (!InputView.this.fCW) {
-                    InputView.this.fCW = true;
-                    if (InputView.this.fCX != -1) {
-                        InputView.this.setSelection(InputView.this.fCX);
-                        InputView.this.fCX = -1;
+                if (!InputView.this.fEv) {
+                    InputView.this.fEv = true;
+                    if (InputView.this.fEw != -1) {
+                        InputView.this.setSelection(InputView.this.fEw);
+                        InputView.this.fEw = -1;
                     }
                 }
             }
@@ -93,7 +93,7 @@ public class InputView extends EditText implements n {
                 case 3:
                     if (getSelectionStart() > 0) {
                         String substring = getText().toString().substring(0, getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.iSy.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.iUh.matcher(substring);
                         if (matcher.find()) {
                             getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                             return;
@@ -142,7 +142,7 @@ public class InputView extends EditText implements n {
                     return;
                 case 44:
                     if (aVar.data != null && (aVar.data instanceof String)) {
-                        CQ((String) aVar.data);
+                        CX((String) aVar.data);
                         return;
                     }
                     return;
@@ -155,7 +155,7 @@ public class InputView extends EditText implements n {
     private void d(com.baidu.tbadk.editortools.a aVar) {
         if (aVar != null && aVar.data != null && (aVar.data instanceof u)) {
             u uVar = (u) aVar.data;
-            if (uVar.bwv() == EmotionGroupType.NET_SUG) {
+            if (uVar.bwy() == EmotionGroupType.NET_SUG) {
                 a(uVar);
             } else {
                 b(uVar);
@@ -166,8 +166,8 @@ public class InputView extends EditText implements n {
     private void a(u uVar) {
         if (uVar != null && !TextUtils.isEmpty(uVar.getName()) && !TextUtils.isEmpty(uVar.getUrl())) {
             String obj = getText().toString();
-            if (this.fCV && com.baidu.tieba.face.a.Jt(obj) >= 10 && getContext() != null) {
-                e.brY().showToast(R.string.too_many_face);
+            if (this.fEu && com.baidu.tieba.face.a.JC(obj) >= 10 && getContext() != null) {
+                e.brZ().showToast(R.string.too_many_face);
             } else {
                 b.a(getContext(), uVar, this);
             }
@@ -175,10 +175,10 @@ public class InputView extends EditText implements n {
     }
 
     private void b(u uVar) {
-        if (!this.fCU || uVar.bwv() == EmotionGroupType.LOCAL) {
+        if (!this.fEt || uVar.bwy() == EmotionGroupType.LOCAL) {
             String obj = getText().toString();
-            if (this.fCV && com.baidu.tieba.face.a.Jt(obj) >= 10 && getContext() != null) {
-                e.brY().showToast(R.string.too_many_face);
+            if (this.fEu && com.baidu.tieba.face.a.JC(obj) >= 10 && getContext() != null) {
+                e.brZ().showToast(R.string.too_many_face);
             } else {
                 b.b(getContext(), uVar, this);
             }
@@ -205,36 +205,36 @@ public class InputView extends EditText implements n {
         }
     }
 
-    private void CQ(String str) {
+    private void CX(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.fCU = z;
+        this.fEt = z;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setEditorTools(EditorTools editorTools) {
-        this.acR = editorTools;
+        this.ael = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.acR != null) {
-            this.acR.b(aVar);
+        if (this.ael != null) {
+            this.ael.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public void setToolId(int i) {
-        this.acS = i;
+        this.aem = i;
     }
 
     @Override // com.baidu.tbadk.editortools.n
     public int getToolId() {
-        return this.acS;
+        return this.aem;
     }
 
     @Override // com.baidu.tbadk.editortools.n
@@ -264,6 +264,6 @@ public class InputView extends EditText implements n {
     }
 
     public void setNeedFaceMaxCount(boolean z) {
-        this.fCV = z;
+        this.fEu = z;
     }
 }

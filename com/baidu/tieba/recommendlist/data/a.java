@@ -2,14 +2,14 @@ package com.baidu.tieba.recommendlist.data;
 
 import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.widget.listview.IAdapterData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements IAdapterData {
-    public static BdUniqueId nbh = BdUniqueId.gen();
-    public AlaRecommendLiveData nbi;
+    public static BdUniqueId ndl = BdUniqueId.gen();
+    public AlaRecommendLiveData ndm;
     public int type;
 
     @Override // com.baidu.live.adp.widget.listview.IAdapterData
     public BdUniqueId getType() {
-        return nbh;
+        return ndl;
     }
 }

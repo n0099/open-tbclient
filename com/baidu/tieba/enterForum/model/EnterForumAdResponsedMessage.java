@@ -15,7 +15,7 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         this.adData = new com.baidu.tieba.enterForum.data.b();
-        this.adData.eh(jSONObject);
+        this.adData.ej(jSONObject);
         if (!this.adData.isValid()) {
             this.adData = null;
         }

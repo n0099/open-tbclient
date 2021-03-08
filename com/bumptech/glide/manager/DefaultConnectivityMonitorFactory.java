@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import com.bumptech.glide.manager.ConnectivityMonitor;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFactory {
     private static final String NETWORK_PERMISSION = "android.permission.ACCESS_NETWORK_STATE";
     private static final String TAG = "ConnectivityMonitor";
@@ -23,6 +23,9 @@ public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFac
             }
             Log.d(TAG, str);
         }
-        return z ? new DefaultConnectivityMonitor(context, connectivityListener) : new NullConnectivityMonitor();
+        if (z) {
+            return new DefaultConnectivityMonitor(context, connectivityListener);
+        }
+        return new NullConnectivityMonitor();
     }
 }

@@ -8,11 +8,11 @@ import android.os.Message;
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4423a;
+    final /* synthetic */ b f3062a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f4423a = bVar;
+        this.f3062a = bVar;
     }
 
     @Override // android.os.Handler
@@ -30,23 +30,23 @@ public class c extends Handler {
             int i4 = message.arg2;
             if (i4 == 1 || i4 == 0) {
                 if (i3 != 0) {
-                    aVar = this.f4423a.f4421a;
+                    aVar = this.f3062a.f3061a;
                     if (aVar != null) {
-                        aVar2 = this.f4423a.f4421a;
+                        aVar2 = this.f3062a.f3061a;
                         aVar2.a(i3);
                         return;
                     }
                     return;
                 }
                 com.baidu.platform.comapi.wnplatform.model.b R = com.baidu.platform.comapi.walknavi.b.a().R();
-                b bVar = this.f4423a;
-                i = this.f4423a.f4422b;
+                b bVar = this.f3062a;
+                i = this.f3062a.b;
                 a2 = bVar.a(i);
-                i2 = this.f4423a.f4422b;
+                i2 = this.f3062a.b;
                 R.a(a2, i2);
-                aVar3 = this.f4423a.f4421a;
+                aVar3 = this.f3062a.f3061a;
                 if (aVar3 != null) {
-                    aVar4 = this.f4423a.f4421a;
+                    aVar4 = this.f3062a.f3061a;
                     aVar4.b();
                 }
             }

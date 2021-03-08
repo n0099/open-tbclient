@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.model;
 
 import androidx.annotation.Keep;
-import com.bytedance.sdk.openadsdk.d.a.c;
+import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.List;
 import java.util.Map;
 @Keep
@@ -17,11 +17,9 @@ public class ComponentModel {
         @c(a = "c")
 
         /* renamed from: a  reason: collision with root package name */
-        public String f7506a;
+        public String f5093a;
         @c(a = "clean_type")
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f7507b;
+        public int b;
         @c(a = "version")
         public List<Long> c;
     }
@@ -31,7 +29,7 @@ public class ComponentModel {
         @c(a = "specified_clean")
 
         /* renamed from: a  reason: collision with root package name */
-        public List<a> f7508a;
+        public List<a> f5094a;
     }
 
     public Map<String, List<UpdatePackage>> getPackages() {

@@ -21,10 +21,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1067a {
-
-    /* renamed from: b  reason: collision with root package name */
-    final com.ksad.lottie.f f8096b;
+public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1084a {
+    final com.ksad.lottie.f b;
     final Layer c;
     final o d;
     private final String p;
@@ -48,13 +46,13 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1067a {
     private final RectF o = new RectF();
 
     /* renamed from: a  reason: collision with root package name */
-    final Matrix f8095a = new Matrix();
+    final Matrix f5400a = new Matrix();
     private final List<com.ksad.lottie.a.b.a<?, ?>> u = new ArrayList();
     private boolean v = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(com.ksad.lottie.f fVar, Layer layer) {
-        this.f8096b = fVar;
+        this.b = fVar;
         this.c = layer;
         this.p = layer.f() + "#draw";
         this.k.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
@@ -66,7 +64,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1067a {
             this.j.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
         this.d = layer.o().h();
-        this.d.a((a.InterfaceC1067a) this);
+        this.d.a((a.InterfaceC1084a) this);
         if (layer.j() != null && !layer.j().isEmpty()) {
             this.q = new com.ksad.lottie.a.b.g(layer.j());
             for (com.ksad.lottie.a.b.a<h, Path> aVar : this.q.b()) {
@@ -177,7 +175,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1067a {
     }
 
     private void b(float f) {
-        this.f8096b.r().a().a(this.c.f(), f);
+        this.b.r().a().a(this.c.f(), f);
     }
 
     private void b(RectF rectF, Matrix matrix) {
@@ -218,8 +216,8 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1067a {
         }
         final com.ksad.lottie.a.b.c cVar = new com.ksad.lottie.a.b.c(this.c.d());
         cVar.a();
-        cVar.a(new a.InterfaceC1067a() { // from class: com.ksad.lottie.model.layer.a.1
-            @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
+        cVar.a(new a.InterfaceC1084a() { // from class: com.ksad.lottie.model.layer.a.1
+            @Override // com.ksad.lottie.a.b.a.InterfaceC1084a
             public void a() {
                 a.this.a(cVar.e().floatValue() == 1.0f);
             }
@@ -229,7 +227,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1067a {
     }
 
     private void f() {
-        this.f8096b.invalidateSelf();
+        this.b.invalidateSelf();
     }
 
     private void g() {
@@ -246,7 +244,7 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1067a {
         }
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1067a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1084a
     public void a() {
         f();
     }
@@ -333,8 +331,8 @@ public abstract class a implements com.ksad.lottie.a.a.d, a.InterfaceC1067a {
     @Override // com.ksad.lottie.a.a.d
     @CallSuper
     public void a(RectF rectF, Matrix matrix) {
-        this.f8095a.set(matrix);
-        this.f8095a.preConcat(this.d.d());
+        this.f5400a.set(matrix);
+        this.f5400a.preConcat(this.d.d());
     }
 
     public void a(com.ksad.lottie.a.b.a<?, ?> aVar) {

@@ -1,5 +1,5 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CreateBucketResponse {
     private String name = null;
     private String location = null;

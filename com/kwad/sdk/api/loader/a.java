@@ -9,38 +9,36 @@ class a {
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    static class C1070a {
+    static class C1087a {
 
         /* renamed from: a  reason: collision with root package name */
-        int f8191a;
-
-        /* renamed from: b  reason: collision with root package name */
-        String f8192b;
+        int f5457a;
+        String b;
         String c;
         long d;
         String e;
         transient File f;
 
-        C1070a() {
+        C1087a() {
         }
 
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f8191a = jSONObject.optInt("dynamicType");
-            this.f8192b = jSONObject.optString("dynamicUrl");
+            this.f5457a = jSONObject.optInt("dynamicType");
+            this.b = jSONObject.optString("dynamicUrl");
             this.c = jSONObject.optString("md5");
             this.d = jSONObject.optLong("interval");
             this.e = jSONObject.optString(CommandMessage.SDK_VERSION);
         }
 
         public boolean a() {
-            return this.f8191a == 1;
+            return this.f5457a == 1;
         }
 
         public boolean b() {
-            return this.f8191a == -1;
+            return this.f5457a == -1;
         }
     }
 
@@ -48,25 +46,23 @@ class a {
     static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        long f8193a;
-
-        /* renamed from: b  reason: collision with root package name */
-        String f8194b;
-        C1070a c;
+        long f5458a;
+        String b;
+        C1087a c;
 
         public void a(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f8193a = jSONObject.optLong("result");
-            this.f8194b = jSONObject.optString(TiebaInitialize.LogFields.ERROR_MESSAGE);
-            this.c = new C1070a();
+            this.f5458a = jSONObject.optLong("result");
+            this.b = jSONObject.optString(TiebaInitialize.LogFields.ERROR_MESSAGE);
+            this.c = new C1087a();
             this.c.a(jSONObject.optJSONObject("data"));
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public boolean a() {
-            return this.f8193a == 1 && this.c != null;
+            return this.f5458a == 1 && this.c != null;
         }
     }
 }

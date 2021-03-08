@@ -1,5 +1,5 @@
 package com.yy.mediaframework.beautystyle;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class STBeautyStyle extends AbstractStyle {
     public STBeautyStyle() {
         this.sMinParams = new float[]{0.0f, 0.0f, 0.15f, 0.0f};

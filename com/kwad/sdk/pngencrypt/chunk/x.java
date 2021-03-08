@@ -13,10 +13,10 @@ public class x extends s {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
+        int b;
         int b2;
         int b3;
         int b4;
-        int b5;
         int i;
         int i2 = 0;
         while (true) {
@@ -42,33 +42,33 @@ public class x extends s {
         while (i4 < length) {
             if (this.i == 8) {
                 int i6 = i3 + 1;
-                b2 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i3);
+                b = com.kwad.sdk.pngencrypt.n.a(dVar.d, i3);
                 int i7 = i6 + 1;
-                b3 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i6);
+                b2 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i6);
                 int i8 = i7 + 1;
-                b4 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i7);
+                b3 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i7);
                 i = i8 + 1;
-                b5 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i8);
+                b4 = com.kwad.sdk.pngencrypt.n.a(dVar.d, i8);
             } else {
-                b2 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i3);
+                b = com.kwad.sdk.pngencrypt.n.b(dVar.d, i3);
                 int i9 = i3 + 2;
-                b3 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i9);
+                b2 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i9);
                 int i10 = i9 + 2;
-                b4 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i10);
+                b3 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i10);
                 int i11 = i10 + 2;
-                b5 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i11);
+                b4 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i11);
                 i = i11 + 2;
             }
-            int b6 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i);
+            int b5 = com.kwad.sdk.pngencrypt.n.b(dVar.d, i);
             int i12 = i5 + 1;
-            this.j[i5] = b2;
+            this.j[i5] = b;
             int i13 = i12 + 1;
-            this.j[i12] = b3;
+            this.j[i12] = b2;
             int i14 = i13 + 1;
-            this.j[i13] = b4;
+            this.j[i13] = b3;
             int i15 = i14 + 1;
-            this.j[i14] = b5;
-            this.j[i15] = b6;
+            this.j[i14] = b4;
+            this.j[i15] = b5;
             i4++;
             i5 = i15 + 1;
             i3 = i + 2;

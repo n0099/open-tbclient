@@ -5,16 +5,16 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaManagerMikeHttpResponseMessage;
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.k;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class o {
     private String mikeStatus;
-    private a oHh;
+    private a oJm;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
-        void Ae(boolean z);
+        void Ad(boolean z);
 
-        void edH();
+        void edP();
     }
 
     public void gW(final String str, final String str2) {
@@ -24,56 +24,56 @@ public class o {
             public void a(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage) {
                 if (!alaManagerMikeHttpResponseMessage.isError()) {
                     o.this.gX(str, str2);
-                } else if (o.this.oHh != null) {
-                    o.this.oHh.edH();
+                } else if (o.this.oJm != null) {
+                    o.this.oJm.edP();
                 }
             }
 
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.k.a
             public void b(AlaManagerMikeHttpResponseMessage alaManagerMikeHttpResponseMessage) {
-                if (o.this.oHh != null) {
-                    o.this.oHh.edH();
+                if (o.this.oJm != null) {
+                    o.this.oJm.edP();
                 }
             }
-        }).aU(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().ym(), str, str2);
+        }).aU(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecZ().yp(), str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gX(String str, String str2) {
-        com.baidu.tieba.yuyinala.liveroom.wheat.a.b ecT = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecR().ecT();
-        if (ecT != null) {
-            if (q.edM().Wf(str)) {
-                ecT.Aa(Wz(str2));
-                if (this.oHh != null) {
-                    this.oHh.Ae(true);
+        com.baidu.tieba.yuyinala.liveroom.wheat.a.b edb = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.ecZ().edb();
+        if (edb != null) {
+            if (q.edU().Wm(str)) {
+                edb.zZ(WG(str2));
+                if (this.oJm != null) {
+                    this.oJm.Ad(true);
                 }
             } else {
-                ecT.bg(str, Wz(str2));
-                if (this.oHh != null) {
-                    this.oHh.Ae(false);
+                edb.bg(str, WG(str2));
+                if (this.oJm != null) {
+                    this.oJm.Ad(false);
                 }
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501009, Headers.REFRESH));
         }
     }
 
-    private boolean Wz(String str) {
+    private boolean WG(String str) {
         return "1".equals(str);
     }
 
     public void a(a aVar) {
-        this.oHh = aVar;
+        this.oJm = aVar;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b implements a {
         private String mikeStatus;
 
-        public void WA(String str) {
+        public void WH(String str) {
             this.mikeStatus = str;
         }
 
-        public String edI() {
+        public String edQ() {
             return this.mikeStatus;
         }
     }

@@ -14,19 +14,19 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class GetEmotionInfosModel extends BdBaseModel {
-    private a fGp;
-    private final HttpMessageListener fGq = new HttpMessageListener(1003353) { // from class: com.baidu.tbadk.img.GetEmotionInfosModel.1
+    private a fHO;
+    private final HttpMessageListener fHP = new HttpMessageListener(1003353) { // from class: com.baidu.tbadk.img.GetEmotionInfosModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && GetEmotionInfosModel.this.fGp != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && GetEmotionInfosModel.this.fHO != null) {
                 GetEmotionInfosResponseMessage getEmotionInfosResponseMessage = (GetEmotionInfosResponseMessage) httpResponsedMessage;
                 if (getEmotionInfosResponseMessage.getEmotionList() != null) {
-                    GetEmotionInfosModel.this.fGp.aj(getEmotionInfosResponseMessage.getEmotionList());
+                    GetEmotionInfosModel.this.fHO.aj(getEmotionInfosResponseMessage.getEmotionList());
                 } else {
-                    GetEmotionInfosModel.this.fGp.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
+                    GetEmotionInfosModel.this.fHO.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
                 }
-                GetEmotionInfosModel.this.fGp = null;
+                GetEmotionInfosModel.this.fHO = null;
             }
         }
     };
@@ -41,9 +41,9 @@ public class GetEmotionInfosModel extends BdBaseModel {
     public GetEmotionInfosModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.fGq.setTag(getUniqueId());
-        this.fGq.setSelfListener(true);
-        registerListener(this.fGq);
+        this.fHP.setTag(getUniqueId());
+        this.fHP.setSelfListener(true);
+        registerListener(this.fHP);
     }
 
     private void registerTask() {
@@ -54,7 +54,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
 
     public void a(List<String> list, a aVar) {
         int i = 0;
-        this.fGp = aVar;
+        this.fHO = aVar;
         if (list == null || list.isEmpty()) {
             if (aVar != null) {
                 aVar.onFail(0, "list is empty");
@@ -87,7 +87,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.fGq);
+        MessageManager.getInstance().unRegisterListener(this.fHP);
         MessageManager.getInstance().unRegisterTask(1003353);
         return true;
     }

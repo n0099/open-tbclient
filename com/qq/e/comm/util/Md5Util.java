@@ -7,11 +7,11 @@ import com.baidu.pass.biometrics.face.liveness.d.b;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class Md5Util {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f12757a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", b.f4046a, "c", "d", "e", "f"};
+    private static final String[] f7595a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", b.f2804a, "c", "d", "e", "f"};
 
     public static String byteArrayToHexString(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
@@ -19,59 +19,62 @@ public class Md5Util {
             if (i < 0) {
                 i += 256;
             }
-            stringBuffer.append(f12757a[i / 16] + f12757a[i % 16]);
+            stringBuffer.append(f7595a[i / 16] + f7595a[i % 16]);
         }
         return stringBuffer.toString();
     }
 
     public static String encode(File file) {
+        Throwable th;
         FileInputStream fileInputStream;
+        MessageDigest messageDigest;
         FileInputStream fileInputStream2;
         if (file == null) {
             return "";
         }
+        FileInputStream fileInputStream3 = null;
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-            fileInputStream = new FileInputStream(file);
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read <= 0) {
-                        String byteArrayToHexString = byteArrayToHexString(messageDigest.digest());
-                        try {
-                            fileInputStream.close();
-                            return byteArrayToHexString;
-                        } catch (Exception e) {
-                            return byteArrayToHexString;
-                        }
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-            } catch (Exception e2) {
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception e3) {
-                    }
-                }
-                return "";
-            } catch (Throwable th) {
-                th = th;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e4) {
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception e5) {
-            fileInputStream2 = null;
+            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
+            fileInputStream2 = new FileInputStream(file);
+        } catch (Exception e) {
         } catch (Throwable th2) {
             th = th2;
             fileInputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = fileInputStream2.read(bArr);
+                if (read <= 0) {
+                    String byteArrayToHexString = byteArrayToHexString(messageDigest.digest());
+                    try {
+                        fileInputStream2.close();
+                        return byteArrayToHexString;
+                    } catch (Exception e2) {
+                        return byteArrayToHexString;
+                    }
+                }
+                messageDigest.update(bArr, 0, read);
+            }
+        } catch (Exception e3) {
+            fileInputStream3 = fileInputStream2;
+            if (fileInputStream3 != null) {
+                try {
+                    fileInputStream3.close();
+                } catch (Exception e4) {
+                }
+            }
+            return "";
+        } catch (Throwable th3) {
+            th = th3;
+            fileInputStream = fileInputStream2;
+            if (fileInputStream != null) {
+                try {
+                    fileInputStream.close();
+                } catch (Exception e5) {
+                }
+            }
+            throw th;
         }
     }
 

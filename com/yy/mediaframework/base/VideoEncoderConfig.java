@@ -1,7 +1,7 @@
 package com.yy.mediaframework.base;
 
 import com.yy.mediaframework.stat.VideoDataStatUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoEncoderConfig {
     public static final int DEFAULT_ENCODE_HIGH_BITRATE = 1200000;
     public static final int DEFAULT_ENCODE_HIGH_FRAMERATE = 24;

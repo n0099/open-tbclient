@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class bt {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static String a(byte[] bArr) {
             try {
@@ -18,7 +18,7 @@ public final class bt {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static String a(byte[] bArr) {
             try {

@@ -3,17 +3,17 @@ package com.baidu.mobads.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 class w extends com.baidu.mobads.f.a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f3512a;
+    final /* synthetic */ Context f2497a;
     final /* synthetic */ t c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar, Context context) {
         this.c = tVar;
-        this.f3512a = context;
+        this.f2497a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,19 +36,19 @@ class w extends com.baidu.mobads.f.a<String> {
         String str8;
         try {
             str2 = t.j;
-            if (str2 == null && this.f3512a != null) {
+            if (str2 == null && this.f2497a != null) {
                 h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-                String unused = t.j = this.f3512a.getSharedPreferences("__x_adsdk_agent_header__", 0).getString("guid", "");
+                String unused = t.j = this.f2497a.getSharedPreferences("__x_adsdk_agent_header__", 0).getString("guid", "");
                 str3 = t.j;
                 if (str3 != null) {
                     str8 = t.j;
                 }
-                String unused2 = t.j = commonUtils.md5(this.c.getMacAddress(this.f3512a) + ETAG.ITEM_SEPARATOR + this.c.getIMEI(this.f3512a) + ETAG.ITEM_SEPARATOR + ETAG.ITEM_SEPARATOR);
+                String unused2 = t.j = commonUtils.md5(this.c.getMacAddress(this.f2497a) + ETAG.ITEM_SEPARATOR + this.c.getIMEI(this.f2497a) + ETAG.ITEM_SEPARATOR + ETAG.ITEM_SEPARATOR);
                 str4 = t.j;
                 if (str4 != null) {
                     str6 = t.j;
                     if (str6.length() > 0) {
-                        SharedPreferences.Editor edit = this.f3512a.getSharedPreferences("__x_adsdk_agent_header__", 0).edit();
+                        SharedPreferences.Editor edit = this.f2497a.getSharedPreferences("__x_adsdk_agent_header__", 0).edit();
                         str7 = t.j;
                         edit.putString("guid", str7).commit();
                     }

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaEmoticonListResponseMessage extends JsonHttpResponsedMessage {
     private int mSendIntervalTime;
-    private List<a> oWC;
+    private List<a> oYH;
 
     public AlaEmoticonListResponseMessage() {
         super(1031004);
@@ -22,18 +22,18 @@ public class AlaEmoticonListResponseMessage extends JsonHttpResponsedMessage {
         this.mSendIntervalTime = optJSONObject.optInt("interval_time", 4);
         JSONArray optJSONArray = optJSONObject.optJSONArray("img");
         if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.oWC = new ArrayList();
+            this.oYH = new ArrayList();
             int length = optJSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 a aVar = new a();
                 aVar.parse(optJSONArray.getJSONObject(i2));
-                this.oWC.add(aVar);
+                this.oYH.add(aVar);
             }
         }
     }
 
     public List<a> getEmoticonList() {
-        return this.oWC;
+        return this.oYH;
     }
 
     public int getSendIntervalTime() {

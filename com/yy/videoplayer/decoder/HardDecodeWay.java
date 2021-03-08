@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.yy.videoplayer.IVideoInfoCallback;
 import com.yy.videoplayer.decoder.VideoConstant;
 import com.yy.videoplayer.decoder.VideoDecoderCenterExt;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface HardDecodeWay extends VideoSurfaceListener {
     Bitmap GetScreenShot();
 

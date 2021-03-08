@@ -21,6 +21,7 @@ import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.sdk.VideoCloudSetting;
+import com.fun.ad.sdk.FunAdSdk;
 import com.kwai.video.player.KsMediaMeta;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import dalvik.system.BaseDexClassLoader;
@@ -49,10 +50,8 @@ import org.json.JSONTokener;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1793a = ".video_cache";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f1794b = "last_file_cache_time";
+    public static String f1442a = ".video_cache";
+    public static String b = "last_file_cache_time";
     public static long c = 86400000;
     public static long d = KsMediaMeta.AV_CH_STEREO_LEFT;
     private static volatile int e = -1;
@@ -64,7 +63,7 @@ public class n {
             long i = d.i();
             d.f();
             long i2 = d.i();
-            CyberCfgManager.getInstance().setPrefLong(f1794b, System.currentTimeMillis());
+            CyberCfgManager.getInstance().setPrefLong(b, System.currentTimeMillis());
             CyberLog.i("sdk_Utils", "delete file success,  beforeSpace = " + i + " afterSpace = " + i2 + " deleteSpaceSize = " + (i - i2));
             return i - i2;
         }
@@ -330,7 +329,7 @@ public class n {
             CyberLog.e("sdk_Utils", "getVideoStatisticsPath ctx = null");
         } else {
             String a2 = a(context);
-            r0 = TextUtils.isEmpty(a2) ? null : a2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+            r0 = TextUtils.isEmpty(a2) ? null : a2 + File.separator + FunAdSdk.PLATFORM_BAIDU + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
             String str = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
             CyberLog.i("sdk_Utils", "Utils.getExternalStorageSpace():" + f());
             if (f() < 10485760 || r0 == null) {
@@ -592,7 +591,7 @@ public class n {
     private static boolean r() {
         boolean z = false;
         try {
-            long prefLong = CyberCfgManager.getInstance().getPrefLong(f1794b, 0L);
+            long prefLong = CyberCfgManager.getInstance().getPrefLong(b, 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (prefLong > 0) {
                 boolean z2 = currentTimeMillis - prefLong > s();
@@ -601,7 +600,7 @@ public class n {
                     z = true;
                 }
             } else {
-                CyberCfgManager.getInstance().setPrefLong(f1794b, currentTimeMillis);
+                CyberCfgManager.getInstance().setPrefLong(b, currentTimeMillis);
             }
             return z;
         } catch (Exception e2) {

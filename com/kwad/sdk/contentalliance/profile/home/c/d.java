@@ -3,9 +3,7 @@ package com.kwad.sdk.contentalliance.profile.home.c;
 import com.kwad.sdk.internal.api.SceneImpl;
 /* loaded from: classes3.dex */
 public class d extends com.kwad.sdk.contentalliance.profile.home.b.a {
-
-    /* renamed from: b  reason: collision with root package name */
-    private boolean f8791b;
+    private boolean b;
     private long c;
     private String d;
     private SceneImpl e;
@@ -21,10 +19,10 @@ public class d extends com.kwad.sdk.contentalliance.profile.home.b.a {
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            if (d.this.f8791b) {
+            if (d.this.b) {
                 com.kwad.sdk.core.report.e.c(d.this.e);
             } else {
-                d.this.f8791b = true;
+                d.this.b = true;
                 com.kwad.sdk.core.report.e.b(d.this.e);
             }
             d.this.c = System.currentTimeMillis();
@@ -35,13 +33,13 @@ public class d extends com.kwad.sdk.contentalliance.profile.home.b.a {
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f = this.f8780a.e;
+        this.f = this.f5850a.e;
         if (this.f == null) {
             return;
         }
         this.f.a(this.g);
-        this.e = this.f8780a.f8782b;
-        this.d = String.valueOf(this.f8780a.f8781a.hashCode());
+        this.e = this.f5850a.b;
+        this.d = String.valueOf(this.f5850a.f5851a.hashCode());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

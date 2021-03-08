@@ -7,7 +7,7 @@ import com.yy.mediaframework.utils.CommonUtil;
 import com.yy.mediaframework.utils.YMFLog;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoDataStatistic {
     private static final String TAG = "VideoDataStatistic";
     private static LinkedHashMap<String, Object> mCoreUploadDataHashMap = new LinkedHashMap<>();
@@ -42,7 +42,7 @@ public class VideoDataStatistic {
     private static HashMap<Integer, Integer> mVideoPtsDtsMaxDiff = new HashMap<>();
     private static HashMap<Integer, Integer> mVideoEncodeTimeDiff = new HashMap<>();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private interface AnchorHiidoAssistantStatisticKey {
         public static final String CpuDeviceInfo = "cpu";
         public static final String GpuDeviceInfo = "gpu";
@@ -50,7 +50,7 @@ public class VideoDataStatistic {
         public static final String VideoLibVer = "vver";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface AnchorHiidoCoreStatisticKey {
         public static final String AppCpuRate = "s7";
         public static final String CaptureDesiredFps = "sfr";

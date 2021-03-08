@@ -30,12 +30,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class m {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f6610b;
+    public static volatile TTCustomController b;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f6609a = false;
+    public static volatile boolean f4464a = false;
     private static AtomicBoolean c = new AtomicBoolean(false);
 
     public static void a(Context context) {
@@ -51,14 +49,13 @@ public class m {
 
     private static void c(final Context context) {
         long currentTimeMillis = System.currentTimeMillis();
-        Log.d("InitHelper", "init start: " + f6609a);
-        com.bytedance.sdk.openadsdk.k.a.a(com.bytedance.sdk.openadsdk.multipro.b.b());
+        Log.d("InitHelper", "init start: " + f4464a);
         p.a(context.getApplicationContext());
-        if (com.bytedance.sdk.openadsdk.core.h.j.a()) {
+        if (com.bytedance.sdk.openadsdk.core.h.g.a()) {
             com.bytedance.sdk.openadsdk.multipro.d.a(context);
             e(context);
-            if (f6609a) {
-                com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.m.1
+            if (f4464a) {
+                com.bytedance.sdk.openadsdk.j.e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.m.1
                     @Override // java.lang.Runnable
                     public void run() {
                         m.d(context);
@@ -73,9 +70,9 @@ public class m {
 
     private static void a() {
         Context a2;
-        if (p.h().e() && (a2 = p.a()) != null) {
+        if (p.h().d() && (a2 = p.a()) != null) {
             try {
-                com.bytedance.sdk.adnet.a.a(new com.bytedance.sdk.openadsdk.i.c(a2));
+                com.bytedance.sdk.adnet.a.a(new com.bytedance.sdk.openadsdk.h.c(a2));
                 com.bytedance.sdk.adnet.a.a(true);
                 com.bytedance.sdk.adnet.a.a(a2, (Application) a2, com.bytedance.sdk.openadsdk.multipro.b.b());
             } catch (Exception e) {
@@ -111,13 +108,13 @@ public class m {
         p.c().a();
         p.e().a();
         p.d().a();
-        p.j().a();
+        p.i().a();
         String a2 = k.a(context);
         if (!TextUtils.isEmpty(a2)) {
             p.g().a(a2);
         }
         s.b(a2);
-        com.bytedance.sdk.openadsdk.downloadnew.a.e.a(context);
+        com.bytedance.sdk.openadsdk.downloadnew.a.g.a(context);
         c();
         com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a();
         com.bytedance.sdk.openadsdk.core.g.a.a().b();
@@ -127,27 +124,27 @@ public class m {
 
     private static void e(Context context) {
         com.bytedance.embedapplog.l lVar = new com.bytedance.embedapplog.l(String.valueOf(164362), "unionser_slardar_applog");
-        if (f6610b != null) {
-            lVar.AZ(f6610b.isCanUsePhoneState());
-            if (!f6610b.isCanUsePhoneState()) {
-                lVar.YH(f6610b.getDevImei());
+        if (b != null) {
+            lVar.AY(b.isCanUsePhoneState());
+            if (!b.isCanUsePhoneState()) {
+                lVar.YO(b.getDevImei());
             }
-            lVar.AY(f6610b.isCanUseWifiState());
+            lVar.AX(b.isCanUseWifiState());
         }
         lVar.a(new com.bytedance.embedapplog.k() { // from class: com.bytedance.sdk.openadsdk.core.m.2
             public String getImsi() {
-                return (m.f6610b == null || m.f6610b.isCanUsePhoneState()) ? k.f(p.a()) : "";
+                return (m.b == null || m.b.isCanUsePhoneState()) ? k.f(p.a()) : "";
             }
 
             @Override // com.bytedance.embedapplog.k
             public String getMac() {
-                if (m.f6610b == null || m.f6610b.isCanUseWifiState()) {
+                if (m.b == null || m.b.isCanUseWifiState()) {
                     return k.h(p.a());
                 }
                 return null;
             }
         });
-        lVar.Or(0);
+        lVar.Ov(0);
         com.bytedance.embedapplog.b.a(context, lVar);
         com.bytedance.embedapplog.b.a(new com.bytedance.embedapplog.g() { // from class: com.bytedance.sdk.openadsdk.core.m.3
             @Override // com.bytedance.embedapplog.g
@@ -189,16 +186,16 @@ public class m {
                 hashMap.put("ac", com.bytedance.sdk.openadsdk.utils.x.f(context));
                 hashMap.put("aid", 164362);
                 hashMap.put("app_name", "unionser_slardar_applog");
+                String g = aj.g();
+                if (!TextUtils.isEmpty(g)) {
+                    hashMap.put("app_version", g);
+                }
                 String f = aj.f();
                 if (!TextUtils.isEmpty(f)) {
-                    hashMap.put("app_version", f);
+                    hashMap.put("version_code", f);
+                    hashMap.put("update_version_code", f);
                 }
-                String e = aj.e();
-                if (!TextUtils.isEmpty(e)) {
-                    hashMap.put("version_code", e);
-                    hashMap.put("update_version_code", e);
-                }
-                hashMap.put(SharedPrefConfig.VERSION_NAME, "3.2.5.1");
+                hashMap.put(SharedPrefConfig.VERSION_NAME, "3.4.0.1");
                 hashMap.put("device_platform", HttpConstants.OS_TYPE_VALUE);
                 hashMap.put("os", "Android");
                 hashMap.put(HttpConstants.DEVICE_TYPE, Build.MODEL);
@@ -214,7 +211,7 @@ public class m {
                         str = str.substring(0, 10);
                     }
                     hashMap.put("os_version", str);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                 }
                 hashMap.put("openudid", k.c(context));
                 hashMap.put("dpi", String.valueOf(ak.f(context)));
@@ -229,7 +226,7 @@ public class m {
 
             @Override // com.bytedance.tea.crash.d
             public String c() {
-                return com.bytedance.embedapplog.b.enA();
+                return com.bytedance.embedapplog.b.enK();
             }
 
             @Override // com.bytedance.tea.crash.d
@@ -250,12 +247,12 @@ public class m {
             @Override // com.bytedance.tea.crash.d
             public Map<String, Object> g() {
                 HashMap hashMap = new HashMap();
-                String e = i.c().e();
-                if (TextUtils.isEmpty(e)) {
-                    e = String.valueOf(164362);
+                String f = i.d().f();
+                if (TextUtils.isEmpty(f)) {
+                    f = String.valueOf(164362);
                 }
-                hashMap.put("host_appid", e);
-                hashMap.put(SapiContext.KEY_SDK_VERSION, "3.2.5.1");
+                hashMap.put("host_appid", f);
+                hashMap.put(SapiContext.KEY_SDK_VERSION, "3.4.0.1");
                 return hashMap;
             }
         }, true, false);
@@ -266,9 +263,11 @@ public class m {
                     StringWriter stringWriter = new StringWriter();
                     th.printStackTrace(new PrintWriter(stringWriter));
                     String stringWriter2 = stringWriter.toString();
-                    if (stringWriter2 != null && stringWriter2.contains(AdSlot.class.getPackage().getName())) {
-                        com.bytedance.tea.crash.g.a(e.a().b());
-                        return true;
+                    if (stringWriter2 != null) {
+                        if (stringWriter2.contains(AdSlot.class.getPackage().getName()) || stringWriter2.contains("com.bytedance.msdk")) {
+                            com.bytedance.tea.crash.g.a(e.a().b());
+                            return true;
+                        }
                     }
                 } catch (Throwable th2) {
                 }

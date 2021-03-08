@@ -7,7 +7,7 @@ public interface f {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void U(String str, int i);
+        void V(String str, int i);
 
         void b(String str, String str2, JSONObject jSONObject);
 

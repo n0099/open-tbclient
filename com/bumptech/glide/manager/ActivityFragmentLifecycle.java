@@ -5,7 +5,7 @@ import com.bumptech.glide.util.Util;
 import java.util.Collections;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 class ActivityFragmentLifecycle implements Lifecycle {
     private boolean isDestroyed;
     private boolean isStarted;

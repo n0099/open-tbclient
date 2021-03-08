@@ -3,7 +3,7 @@ package com.cmic.sso.sdk.e;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class l {
     public static byte[] a(Context context, String str) {
         PackageManager packageManager = context.getPackageManager();

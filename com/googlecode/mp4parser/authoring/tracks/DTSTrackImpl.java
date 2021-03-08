@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import androidx.core.internal.view.SupportMenu;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DTSTrackImpl extends AbstractTrack {
     int bcCoreBitRate;
     int bcCoreChannelMask;
@@ -238,7 +237,7 @@ public class DTSTrackImpl extends AbstractTrack {
         this.maxSampleRate = (byteBuffer.get() << 16) | (byteBuffer.getShort() & 65535);
         this.numFramesTotal = byteBuffer.getInt();
         this.samplesPerFrameAtMaxFs = byteBuffer.getShort();
-        this.numSamplesOrigAudioAtMaxFs = (byteBuffer.get() << 32) | (byteBuffer.getInt() & SupportMenu.USER_MASK);
+        this.numSamplesOrigAudioAtMaxFs = (byteBuffer.get() << 32) | (byteBuffer.getInt() & 65535);
         this.channelMask = byteBuffer.getShort();
         this.codecDelayAtMaxFs = byteBuffer.getShort();
         int i2 = 21;

@@ -12,10 +12,8 @@ import java.security.spec.X509EncodedKeySpec;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12852a = a.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private static Boolean f12853b = Boolean.valueOf(f.f12821b);
+    private static final String f7648a = a.class.getSimpleName();
+    private static Boolean b = Boolean.valueOf(f.b);
 
     public static PublicKey a(String str) {
         try {
@@ -27,7 +25,7 @@ public class a {
             aVar.a(byteArrayInputStream, byteArrayOutputStream);
             return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
         } catch (Exception e) {
-            c.b(f12852a, e.toString(), f12853b);
+            c.b(f7648a, e.toString(), b);
             return null;
         }
     }

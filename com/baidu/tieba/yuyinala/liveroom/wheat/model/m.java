@@ -8,27 +8,27 @@ import com.baidu.live.adp.framework.message.HttpResponsedMessage;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaWheatSwitchHttpResponseMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class m extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oKt;
+    private a oMy;
     private HttpMessageListener messageListener = new HttpMessageListener(1031026) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.m.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaWheatSwitchHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == m.this.aCW && m.this.oKt != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaWheatSwitchHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == m.this.aEw && m.this.oMy != null) {
                 AlaWheatSwitchHttpResponseMessage alaWheatSwitchHttpResponseMessage = (AlaWheatSwitchHttpResponseMessage) httpResponsedMessage;
                 if (alaWheatSwitchHttpResponseMessage.getError() != 0 || !alaWheatSwitchHttpResponseMessage.isSuccess()) {
-                    m.this.oKt.b(alaWheatSwitchHttpResponseMessage);
+                    m.this.oMy.b(alaWheatSwitchHttpResponseMessage);
                 } else {
-                    m.this.oKt.a(alaWheatSwitchHttpResponseMessage);
+                    m.this.oMy.a(alaWheatSwitchHttpResponseMessage);
                 }
             }
         }
     };
-    private BdUniqueId aCW = BdUniqueId.gen();
+    private BdUniqueId aEw = BdUniqueId.gen();
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(AlaWheatSwitchHttpResponseMessage alaWheatSwitchHttpResponseMessage);
 
@@ -36,15 +36,15 @@ public class m extends BdBaseModel {
     }
 
     public m(TbPageContext tbPageContext, a aVar) {
-        setUniqueId(this.aCW);
+        setUniqueId(this.aEw);
         this.mPageContext = tbPageContext;
-        this.oKt = aVar;
-        zH();
+        this.oMy = aVar;
+        zK();
         registerListener(this.messageListener);
     }
 
-    private void zH() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031026, com.baidu.live.a.avJ + "ala/audio/link/switch");
+    private void zK() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031026, com.baidu.live.a.axj + "ala/audio/link/switch");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(AlaWheatSwitchHttpResponseMessage.class);

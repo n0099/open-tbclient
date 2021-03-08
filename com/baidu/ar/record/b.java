@@ -2,7 +2,7 @@ package com.baidu.ar.record;
 
 import android.content.Context;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface b {
     void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j);
 

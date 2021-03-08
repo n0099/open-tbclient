@@ -4,13 +4,13 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class ar {
     private Context context;
-    private String eOj;
+    private String ePK;
     private String url = null;
 
     public ar(Context context, String str) {
-        this.eOj = null;
+        this.ePK = null;
         this.context = context;
-        this.eOj = str;
+        this.ePK = str;
     }
 
     public void setUrl(String str) {
@@ -21,8 +21,8 @@ public class ar {
         return this.url;
     }
 
-    public String bmk() {
-        return this.eOj;
+    public String bmm() {
+        return this.ePK;
     }
 
     public Context getContext() {

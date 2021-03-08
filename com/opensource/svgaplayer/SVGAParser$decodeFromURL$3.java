@@ -6,7 +6,7 @@ import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.jvm.a.b<Exception, h> {
     final /* synthetic */ d.c $callback;
     final /* synthetic */ d this$0;
@@ -24,12 +24,12 @@ public final class SVGAParser$decodeFromURL$3 extends Lambda implements kotlin.j
     @Override // kotlin.jvm.a.b
     public /* bridge */ /* synthetic */ h invoke(Exception exc) {
         invoke2(exc);
-        return h.qto;
+        return h.qtQ;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(Exception exc) {
-        p.o(exc, "it");
+        p.p(exc, "it");
         this.this$0.a(exc, this.$callback);
     }
 }

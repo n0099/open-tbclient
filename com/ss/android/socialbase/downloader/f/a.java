@@ -6,19 +6,19 @@ import android.util.Log;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f13149a = 4;
-    private static AbstractC1252a qgq;
+    private static int f7829a = 4;
+    private static AbstractC1242a qhf;
 
     public static void a(int i) {
-        f13149a = i;
+        f7829a = i;
     }
 
     public static boolean a() {
-        return f13149a <= 3;
+        return f7829a <= 3;
     }
 
     public static void a(String str, String str2) {
-        if (str2 != null && f13149a <= 2) {
+        if (str2 != null && f7829a <= 2) {
             Log.v(str, str2);
         }
     }
@@ -32,58 +32,58 @@ public class a {
     }
 
     public static void b(String str, String str2) {
-        if (str2 != null && f13149a <= 3) {
+        if (str2 != null && f7829a <= 3) {
             Log.d(b(str), str2);
         }
     }
 
     public static void c(String str, String str2) {
         if (str2 != null) {
-            if (f13149a <= 4) {
+            if (f7829a <= 4) {
                 Log.i(b(str), str2);
             }
-            if (qgq != null) {
-                qgq.a(b(str), str2);
+            if (qhf != null) {
+                qhf.a(b(str), str2);
             }
         }
     }
 
     public static void d(String str, String str2) {
         if (str2 != null) {
-            if (f13149a <= 5) {
+            if (f7829a <= 5) {
                 Log.w(b(str), str2);
             }
-            if (qgq != null) {
-                qgq.c(b(str), str2);
+            if (qhf != null) {
+                qhf.c(b(str), str2);
             }
         }
     }
 
     public static void e(String str, String str2) {
         if (str2 != null) {
-            if (f13149a <= 6) {
+            if (f7829a <= 6) {
                 Log.e(b(str), str2);
             }
-            if (qgq != null) {
-                qgq.b(b(str), str2);
+            if (qhf != null) {
+                qhf.b(b(str), str2);
             }
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
         if (str2 != null || th != null) {
-            if (f13149a <= 6) {
+            if (f7829a <= 6) {
                 Log.e(b(str), str2, th);
             }
-            if (qgq != null) {
-                qgq.a(b(str), str2, th);
+            if (qhf != null) {
+                qhf.a(b(str), str2, th);
             }
         }
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static abstract class AbstractC1252a {
+    public static abstract class AbstractC1242a {
         public void a(String str, String str2) {
         }
 

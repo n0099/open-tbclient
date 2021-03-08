@@ -23,13 +23,13 @@ import com.baidu.live.tbadk.ubc.UbcStatisticLiveKey;
 import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a implements com.baidu.live.c.a {
-    private d aID;
-    private PendantParentView hpZ;
-    private PendantChildView hqa;
-    private AlaAppPromotionView hqb;
-    private ApkData hqc;
+    private d aKd;
+    private PendantParentView hrI;
+    private PendantChildView hrJ;
+    private AlaAppPromotionView hrK;
+    private ApkData hrL;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
@@ -39,64 +39,64 @@ public class a implements com.baidu.live.c.a {
     @Override // com.baidu.live.c.a
     public void b(ViewGroup viewGroup, ab abVar) {
         resetView();
-        if (abVar == null || abVar.aID == null) {
-            this.aID = null;
-            this.hqb = null;
+        if (abVar == null || abVar.aKd == null) {
+            this.aKd = null;
+            this.hrK = null;
             return;
         }
-        this.aID = abVar.aID;
+        this.aKd = abVar.aKd;
         if (viewGroup instanceof PendantParentView) {
-            this.hpZ = (PendantParentView) viewGroup;
+            this.hrI = (PendantParentView) viewGroup;
         }
         D(abVar);
     }
 
     private void D(ab abVar) {
-        if (this.aID.Bi() && caa()) {
-            this.hqc = a(this.aID);
+        if (this.aKd.Bl() && cag()) {
+            this.hrL = a(this.aKd);
             E(abVar);
-            bZX();
+            cad();
             F(abVar);
         }
     }
 
-    private void bZX() {
+    private void cad() {
         String string;
-        if (this.hqb != null) {
-            if (!TextUtils.isEmpty(this.aID.icon) || !TextUtils.isEmpty(this.aID.des)) {
-                this.hqb.setImage(this.aID.icon);
-                ApkStatus apkStatus = ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), this.hqc);
+        if (this.hrK != null) {
+            if (!TextUtils.isEmpty(this.aKd.icon) || !TextUtils.isEmpty(this.aKd.des)) {
+                this.hrK.setImage(this.aKd.icon);
+                ApkStatus apkStatus = ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), this.hrL);
                 if (apkStatus == ApkStatus.READY) {
-                    string = this.mPageContext.getResources().getString(a.h.ala_app_promotion_open, this.aID.des);
+                    string = this.mPageContext.getResources().getString(a.h.ala_app_promotion_open, this.aKd.des);
                 } else if (apkStatus == ApkStatus.DOWNLOADED) {
                     string = this.mPageContext.getResources().getString(a.h.ala_app_promotion_downloaded);
                 } else {
-                    string = this.mPageContext.getResources().getString(a.h.ala_app_promotion_download, this.aID.des);
-                    if (ApkManager.getInstance().isDownloading(this.hqc)) {
-                        bZZ();
+                    string = this.mPageContext.getResources().getString(a.h.ala_app_promotion_download, this.aKd.des);
+                    if (ApkManager.getInstance().isDownloading(this.hrL)) {
+                        caf();
                     }
                 }
-                this.hqb.setStatus(string);
+                this.hrK.setStatus(string);
             }
         }
     }
 
     private void resetView() {
-        if (this.hqb != null && (this.hqb.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.hqb.getParent()).removeView(this.hqb);
+        if (this.hrK != null && (this.hrK.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.hrK.getParent()).removeView(this.hrK);
         }
-        if (this.hqa != null && (this.hqa.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.hqa.getParent()).removeView(this.hqa);
+        if (this.hrJ != null && (this.hrJ.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.hrJ.getParent()).removeView(this.hrJ);
         }
     }
 
     @Override // com.baidu.live.c.a
     public void setCanVisible(boolean z) {
-        if (this.hqb != null) {
+        if (this.hrK != null) {
             if (z) {
-                this.hqb.setVisibility(0);
+                this.hrK.setVisibility(0);
             } else {
-                this.hqb.setVisibility(4);
+                this.hrK.setVisibility(4);
             }
         }
     }
@@ -104,13 +104,13 @@ public class a implements com.baidu.live.c.a {
     private ApkData a(d dVar) {
         ApkData apkData = new ApkData();
         apkData.apkPackageName = dVar.packageName;
-        apkData.apkDeeplinkScheme = dVar.aGg;
+        apkData.apkDeeplinkScheme = dVar.aHG;
         apkData.apkUrl = dVar.downloadUrl;
         apkData.apkStatusCallBack = new ApkStatusCallback() { // from class: com.baidu.tieba.ala.liveroom.apppromotion.a.1
             @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
             public void onJoinDownloadQueue() {
-                if (a.this.hqb != null && a.this.hqb.getParent() != null && a.this.mPageContext != null) {
-                    a.this.hqb.setStatus(a.this.mPageContext.getResources().getString(a.h.ala_app_promotion_download_ready));
+                if (a.this.hrK != null && a.this.hrK.getParent() != null && a.this.mPageContext != null) {
+                    a.this.hrK.setStatus(a.this.mPageContext.getResources().getString(a.h.ala_app_promotion_download_ready));
                 }
             }
 
@@ -120,22 +120,22 @@ public class a implements com.baidu.live.c.a {
 
             @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
             public void onApkDownloadProgress(long j, long j2) {
-                if (a.this.hqb != null && a.this.hqb.getParent() != null) {
-                    a.this.hqb.setProgress(j, j2);
+                if (a.this.hrK != null && a.this.hrK.getParent() != null) {
+                    a.this.hrK.setProgress(j, j2);
                 }
             }
 
             @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
             public void onApkDownloadSucceed(ApkData apkData2) {
-                if (a.this.hqb != null && a.this.hqb.getParent() != null && a.this.mPageContext != null) {
-                    a.this.hqb.setStatus(a.this.mPageContext.getResources().getString(a.h.ala_app_promotion_downloaded));
+                if (a.this.hrK != null && a.this.hrK.getParent() != null && a.this.mPageContext != null) {
+                    a.this.hrK.setStatus(a.this.mPageContext.getResources().getString(a.h.ala_app_promotion_downloaded));
                 }
             }
 
             @Override // com.baidu.live.tbadk.apk.ApkStatusCallback
             public void onApkDownloadFailed(ApkData apkData2, int i, String str) {
-                if (a.this.hqb != null && a.this.hqb.getParent() != null && a.this.mPageContext != null) {
-                    a.this.hqb.setStatus(a.this.mPageContext.getResources().getString(a.h.ala_app_promotion_download, a.this.aID.des));
+                if (a.this.hrK != null && a.this.hrK.getParent() != null && a.this.mPageContext != null) {
+                    a.this.hrK.setStatus(a.this.mPageContext.getResources().getString(a.h.ala_app_promotion_download, a.this.aKd.des));
                 }
             }
 
@@ -147,8 +147,8 @@ public class a implements com.baidu.live.c.a {
     }
 
     private void E(final ab abVar) {
-        if (this.hqa == null) {
-            this.hqa = new PendantChildView(this.mPageContext.getPageActivity()) { // from class: com.baidu.tieba.ala.liveroom.apppromotion.a.2
+        if (this.hrJ == null) {
+            this.hrJ = new PendantChildView(this.mPageContext.getPageActivity()) { // from class: com.baidu.tieba.ala.liveroom.apppromotion.a.2
                 @Override // com.baidu.live.pendantview.PendantChildView
                 public PendantParentView.Position getVerticalPosition() {
                     return PendantParentView.Position.RIGHT;
@@ -176,70 +176,70 @@ public class a implements com.baidu.live.c.a {
 
                 @Override // com.baidu.live.pendantview.PendantChildView
                 public int getPriority() {
-                    if (this.bwT == PendantParentView.Model.VERTICAL) {
+                    if (this.byt == PendantParentView.Model.VERTICAL) {
                         return 91;
                     }
-                    if (this.bwT == PendantParentView.Model.VERTICAL_PK) {
+                    if (this.byt == PendantParentView.Model.VERTICAL_PK) {
                         return 99;
                     }
                     return 104;
                 }
             };
-            this.hqa.setBackgroundColor(0);
-            this.hqa.setId(a.f.ala_pendant_app_promotion);
+            this.hrJ.setBackgroundColor(0);
+            this.hrJ.setId(a.f.ala_pendant_app_promotion);
         }
-        if (this.hpZ != null && this.hpZ.indexOfChild(this.hqa) < 0) {
-            this.hpZ.a(this.hqa, new LinearLayout.LayoutParams(-2, -2));
+        if (this.hrI != null && this.hrI.indexOfChild(this.hrJ) < 0) {
+            this.hrI.a(this.hrJ, new LinearLayout.LayoutParams(-2, -2));
         }
-        if (this.hqb == null) {
-            this.hqb = new AlaAppPromotionView(this.mPageContext.getPageActivity());
-            this.hqb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.apppromotion.a.3
+        if (this.hrK == null) {
+            this.hrK = new AlaAppPromotionView(this.mPageContext.getPageActivity());
+            this.hrK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.apppromotion.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.G(abVar);
-                    a.this.bZY();
+                    a.this.cae();
                 }
             });
         }
-        if (this.hqa.indexOfChild(this.hqb) < 0) {
+        if (this.hrJ.indexOfChild(this.hrK) < 0) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.rightMargin = this.mPageContext.getResources().getDimensionPixelOffset(a.d.sdk_ds20);
-            this.hqa.addView(this.hqb, layoutParams);
+            this.hrJ.addView(this.hrK, layoutParams);
         }
-        this.hqa.setVisibility(0);
+        this.hrJ.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bZY() {
-        ApkStatus apkStatus = ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), this.hqc);
+    public void cae() {
+        ApkStatus apkStatus = ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), this.hrL);
         if (apkStatus == ApkStatus.READY) {
-            ApkManager.getInstance().launchApkByDeeplink(this.mPageContext.getPageActivity(), this.hqc);
+            ApkManager.getInstance().launchApkByDeeplink(this.mPageContext.getPageActivity(), this.hrL);
         } else if (apkStatus == ApkStatus.DOWNLOADED) {
-            ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), this.hqc, false);
+            ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), this.hrL, false);
         } else {
-            a(this.hqc);
+            a(this.hrL);
         }
     }
 
     private void a(ApkData apkData) {
         if (apkData != null) {
-            ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), this.hqc, true);
+            ApkManager.getInstance().startDownloadAndLaunchApk(this.mPageContext.getPageActivity(), this.hrL, true);
         }
     }
 
-    private void bZZ() {
-        ApkManager.getInstance().addFileDownloadCallback(this.hqc, this.mPageContext.getPageActivity());
+    private void caf() {
+        ApkManager.getInstance().addFileDownloadCallback(this.hrL, this.mPageContext.getPageActivity());
     }
 
     @Override // com.baidu.live.c.a
-    public void xh() {
-        ApkManager.getInstance().removeFileDownloadCallback(this.hqc);
+    public void xk() {
+        ApkManager.getInstance().removeFileDownloadCallback(this.hrL);
         resetView();
     }
 
     @Override // com.baidu.live.c.a
     public void onStart() {
-        bZX();
+        cad();
     }
 
     @Override // com.baidu.live.c.a
@@ -247,7 +247,7 @@ public class a implements com.baidu.live.c.a {
         resetView();
     }
 
-    private boolean caa() {
+    private boolean cag() {
         if (Build.VERSION.SDK_INT >= 24) {
             return (TextUtils.isEmpty(TbConfig.FILE_PROVIDER_AUTHORITIES) || TextUtils.isEmpty(TbConfig.FILE_OUTPUT_FILE_ROOT_PATH)) ? false : true;
         }
@@ -256,7 +256,7 @@ public class a implements com.baidu.live.c.a {
 
     private void F(ab abVar) {
         String str;
-        if (ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), this.hqc) == ApkStatus.READY) {
+        if (ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), this.hrL) == ApkStatus.READY) {
             str = NotificationCompat.CATEGORY_CALL;
         } else {
             str = "new";
@@ -276,7 +276,7 @@ public class a implements com.baidu.live.c.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void G(ab abVar) {
         String str;
-        if (ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), this.hqc) == ApkStatus.READY) {
+        if (ApkManager.getInstance().getApkStatus(this.mPageContext.getPageActivity(), this.hrL) == ApkStatus.READY) {
             str = NotificationCompat.CATEGORY_CALL;
         } else {
             str = "new";

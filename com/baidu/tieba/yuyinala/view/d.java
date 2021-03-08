@@ -2,7 +2,7 @@ package com.baidu.tieba.yuyinala.view;
 
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {

@@ -6,48 +6,48 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @V8JavascriptField
     public JsObject canvas = null;
-    private com.baidu.swan.games.f.b ecD;
+    private com.baidu.swan.games.f.b eee;
 
     public e(com.baidu.swan.games.f.b bVar) {
-        this.ecD = bVar;
-        aXI();
-        aXJ();
+        this.eee = bVar;
+        aXL();
+        aXM();
     }
 
-    private boolean aXI() {
-        return dg(this.ecD.getInitBasePath(), "swan-game-open-data.js");
+    private boolean aXL() {
+        return dg(this.eee.getInitBasePath(), "swan-game-open-data.js");
     }
 
-    private boolean aXJ() {
-        String azS = com.baidu.swan.apps.v.f.aAl().azS();
-        String aXM = f.aXK().aXM();
+    private boolean aXM() {
+        String azV = com.baidu.swan.apps.v.f.aAo().azV();
+        String aXP = f.aXN().aXP();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + azS);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aXM);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + azV);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + aXP);
         }
-        return dg(azS, aXM);
+        return dg(azV, aXP);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.ecD.aVX().aWj();
+        this.eee.aWa().aWm();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.ecD.aWa().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.eee.aWd().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
     private boolean dg(String str, String str2) {
-        if (!f.aXK().aXL() || TextUtils.isEmpty(str)) {
+        if (!f.aXN().aXO() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.ecD.aVX().cT(str, str2);
+        this.eee.aWa().cT(str, str2);
         return true;
     }
 }

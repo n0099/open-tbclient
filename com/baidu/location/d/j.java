@@ -12,7 +12,6 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
-import com.fun.ad.sdk.FunAdConfig;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -31,10 +30,8 @@ import java.util.Locale;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2642a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f2643b = false;
+    public static boolean f1974a = false;
+    public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;
     private static String aw = "http://loc.map.baidu.com/sdk.php";
@@ -98,7 +95,7 @@ public class j {
     public static int ad = 300;
     public static int ae = 1000;
     public static int af = Integer.MAX_VALUE;
-    public static long ag = FunAdConfig.Builder.AD_EXPIRED_INTERVAL;
+    public static long ag = 900000;
     public static long ah = 420000;
     public static long ai = 180000;
     public static long aj = 0;

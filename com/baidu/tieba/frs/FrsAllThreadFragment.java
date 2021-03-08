@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ao {
     private String forumId;
-    private View jfI;
-    private RecyclerView jfJ;
+    private View jhr;
+    private RecyclerView jhs;
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     @Nullable
@@ -28,36 +28,36 @@ public class FrsAllThreadFragment extends BaseFragment implements ao {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        cCf();
-        return this.jfI;
+        cCl();
+        return this.jhr;
     }
 
     public void setView(View view) {
-        this.jfI = view;
-        this.jfJ = (RecyclerView) this.jfI.findViewById(R.id.frs_lv_thread);
-        cCf();
+        this.jhr = view;
+        this.jhs = (RecyclerView) this.jhr.findViewById(R.id.frs_lv_thread);
+        cCl();
     }
 
-    private void cCf() {
-        if (this.jfI != null && (this.jfI.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.jfI.getParent()).removeView(this.jfI);
-            this.jfI.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void cCl() {
+        if (this.jhr != null && (this.jhr.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.jhr.getParent()).removeView(this.jhr);
+            this.jhr.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void cCg() {
-        if (this.jfJ != null) {
-            this.jfJ.scrollToPosition(0);
+    public void cCm() {
+        if (this.jhs != null) {
+            this.jhs.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void bSx() {
-        cCg();
+    public void bSD() {
+        cCm();
         t tVar = new t();
         tVar.tabId = 1;
-        tVar.gcC = true;
+        tVar.gec = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
     }
 
@@ -71,7 +71,7 @@ public class FrsAllThreadFragment extends BaseFragment implements ao {
     }
 
     private void bA(int i, String str) {
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c13008").dR("fid", this.forumId).dR("obj_type", str).ap("obj_locate", i).dR("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c13008").dR("fid", this.forumId).dR("obj_type", str).aq("obj_locate", i).dR("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment

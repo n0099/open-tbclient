@@ -18,10 +18,8 @@ import com.ss.android.socialbase.downloader.downloader.f;
 import com.ss.android.socialbase.downloader.g.c;
 /* loaded from: classes6.dex */
 public class DownloadTaskDeleteActivity extends Activity {
-
-    /* renamed from: b  reason: collision with root package name */
-    private Intent f13061b;
-    private j qeE;
+    private Intent b;
+    private j qft;
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
@@ -45,20 +43,20 @@ public class DownloadTaskDeleteActivity extends Activity {
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        this.f13061b = getIntent();
+        this.b = getIntent();
         b();
-        if (this.qeE != null && !this.qeE.b()) {
-            this.qeE.a();
-        } else if (this.qeE == null) {
+        if (this.qft != null && !this.qft.b()) {
+            this.qft.a();
+        } else if (this.qft == null) {
             finish();
         }
     }
 
     private void b() {
-        if (this.qeE == null && this.f13061b != null) {
+        if (this.qft == null && this.b != null) {
             try {
-                final int intExtra = this.f13061b.getIntExtra("extra_click_download_ids", 0);
-                final c h = f.iB(getApplicationContext()).h(intExtra);
+                final int intExtra = this.b.getIntExtra("extra_click_download_ids", 0);
+                final c h = f.iC(getApplicationContext()).h(intExtra);
                 if (h != null) {
                     String i = h.i();
                     if (TextUtils.isEmpty(i)) {
@@ -66,29 +64,29 @@ public class DownloadTaskDeleteActivity extends Activity {
                         return;
                     }
                     String format = String.format(getString(i.a(this, "appdownloader_notification_download_delete")), i);
-                    com.ss.android.socialbase.appdownloader.c.c eFq = d.eFv().eFq();
+                    com.ss.android.socialbase.appdownloader.c.c eFu = d.eFz().eFu();
                     k kVar = null;
-                    if (eFq != null) {
-                        kVar = eFq.iz(this);
+                    if (eFu != null) {
+                        kVar = eFu.iA(this);
                     }
                     if (kVar == null) {
                         kVar = new com.ss.android.socialbase.appdownloader.d.a(this);
                     }
                     if (kVar != null) {
                         int a2 = i.a(this, "appdownloader_tip");
-                        kVar.QW(a2).aaV(format).h(i.a(this, "appdownloader_label_ok"), new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity.3
+                        kVar.Ra(a2).aba(format).h(i.a(this, "appdownloader_label_ok"), new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity.3
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i2) {
-                                com.ss.android.socialbase.appdownloader.c.d eFr = d.eFv().eFr();
-                                if (eFr != null) {
-                                    eFr.a(h);
+                                com.ss.android.socialbase.appdownloader.c.d eFv = d.eFz().eFv();
+                                if (eFv != null) {
+                                    eFv.a(h);
                                 }
-                                com.ss.android.socialbase.downloader.d.d Rt = f.iB(b.eGC()).Rt(intExtra);
-                                if (Rt != null) {
-                                    Rt.a(10, h, "", "");
+                                com.ss.android.socialbase.downloader.d.d Rx = f.iC(b.eGG()).Rx(intExtra);
+                                if (Rx != null) {
+                                    Rx.a(10, h, "", "");
                                 }
-                                if (b.eGC() != null) {
-                                    f.iB(b.eGC()).b(intExtra);
+                                if (b.eGG() != null) {
+                                    f.iC(b.eGG()).b(intExtra);
                                 }
                                 DownloadTaskDeleteActivity.this.finish();
                             }
@@ -103,7 +101,7 @@ public class DownloadTaskDeleteActivity extends Activity {
                                 DownloadTaskDeleteActivity.this.finish();
                             }
                         });
-                        this.qeE = kVar.eFg();
+                        this.qft = kVar.eFk();
                     }
                 }
             } catch (Exception e) {

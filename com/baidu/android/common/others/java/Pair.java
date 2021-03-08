@@ -29,7 +29,7 @@ public class Pair<F, S> {
         return ((this.mFirst.hashCode() + 31) * 31) + this.mSecond.hashCode();
     }
 
-    public static <A, B> Pair<A, B> create(A a2, B b2) {
-        return new Pair<>(a2, b2);
+    public static <A, B> Pair<A, B> create(A a2, B b) {
+        return new Pair<>(a2, b);
     }
 }

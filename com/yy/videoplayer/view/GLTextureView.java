@@ -18,7 +18,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GLTextureView extends TextureView implements TextureView.SurfaceTextureListener, View.OnLayoutChangeListener {
     public static final int DEBUG_CHECK_GL_ERROR = 1;
     public static final int DEBUG_LOG_GL_CALLS = 2;
@@ -45,31 +45,31 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     private Renderer mRenderer;
     private final WeakReference<GLTextureView> mThisWeakRef;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface EGLConfigChooser {
         EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface EGLContextFactory {
         EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void destroyContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface EGLWindowSurfaceFactory {
         EGLSurface createWindowSurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj);
 
         void destroySurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLSurface eGLSurface);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface GLWrapper {
         GL wrap(GL gl);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface Renderer {
         void onDrawFrame(GL10 gl10);
 
@@ -261,7 +261,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class DefaultContextFactory implements EGLContextFactory {
         private int EGL_CONTEXT_CLIENT_VERSION;
 
@@ -288,7 +288,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class DefaultWindowSurfaceFactory implements EGLWindowSurfaceFactory {
         private DefaultWindowSurfaceFactory() {
         }
@@ -309,7 +309,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private abstract class BaseConfigChooser implements EGLConfigChooser {
         protected int[] mConfigSpec;
 
@@ -358,7 +358,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class ComponentSizeChooser extends BaseConfigChooser {
         protected int mAlphaSize;
         protected int mBlueSize;
@@ -405,7 +405,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private class SimpleEGLConfigChooser extends ComponentSizeChooser {
         public SimpleEGLConfigChooser(boolean z) {
             super(8, 8, 8, 0, z ? 16 : 0, 0);
@@ -413,7 +413,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class EglHelper {
         EGL10 mEgl;
         EGLConfig mEglConfig;
@@ -561,7 +561,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class GLThread extends Thread {
         private EglHelper mEglHelper;
         private boolean mExited;
@@ -1065,7 +1065,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class LogWriter extends Writer {
         private StringBuilder mBuilder = new StringBuilder();
 
@@ -1109,7 +1109,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class GLThreadManager {
         private static String TAG = "GLThreadManager";
 

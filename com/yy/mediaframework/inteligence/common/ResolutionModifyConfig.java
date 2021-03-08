@@ -1,7 +1,7 @@
 package com.yy.mediaframework.inteligence.common;
 
 import com.yy.mediaframework.base.VideoEncoderType;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResolutionModifyConfig {
     public String encoderParams;
     public int height;

@@ -10,11 +10,11 @@ import java.net.URL;
 public class f extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f2635a;
+    final /* synthetic */ e f1970a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f2635a = eVar;
+        this.f1970a = eVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:60:0x0119 A[LOOP:0: B:3:0x001b->B:60:0x0119, LOOP_END] */
@@ -31,21 +31,21 @@ public class f extends Thread {
         HttpURLConnection httpURLConnection;
         boolean z;
         boolean z2;
-        this.f2635a.h = j.c();
-        this.f2635a.b();
-        this.f2635a.a();
+        this.f1970a.h = j.c();
+        this.f1970a.b();
+        this.f1970a.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.f2635a.i;
+        int i = this.f1970a.i;
         while (i > 0) {
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.f2635a.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.f1970a.h).openConnection();
                 try {
                     httpURLConnection.setRequestMethod("GET");
                     httpURLConnection.setDoInput(true);
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setUseCaches(false);
-                    httpURLConnection.setConnectTimeout(a.f2622b);
-                    httpURLConnection.setReadTimeout(a.f2622b);
+                    httpURLConnection.setConnectTimeout(a.b);
+                    httpURLConnection.setReadTimeout(a.b);
                     httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                     httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
                     if (httpURLConnection.getResponseCode() == 200) {
@@ -64,8 +64,8 @@ public class f extends Thread {
                                     }
                                     inputStream.close();
                                     byteArrayOutputStream2.close();
-                                    this.f2635a.j = new String(byteArrayOutputStream2.toByteArray(), "utf-8");
-                                    this.f2635a.a(true);
+                                    this.f1970a.j = new String(byteArrayOutputStream2.toByteArray(), "utf-8");
+                                    this.f1970a.a(true);
                                     httpURLConnection.disconnect();
                                     z2 = true;
                                 } catch (Throwable th2) {
@@ -92,7 +92,7 @@ public class f extends Thread {
                                     throw th;
                                 }
                             } catch (Exception e3) {
-                                Log.d(a.f2621a, "NetworkCommunicationException!");
+                                Log.d(a.f1963a, "NetworkCommunicationException!");
                                 if (httpURLConnection != null) {
                                     httpURLConnection.disconnect();
                                 }
@@ -185,7 +185,7 @@ public class f extends Thread {
             return;
         }
         e.p++;
-        this.f2635a.j = null;
-        this.f2635a.a(false);
+        this.f1970a.j = null;
+        this.f1970a.a(false);
     }
 }

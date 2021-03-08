@@ -1,5 +1,5 @@
 package com.baidu.live.storage.opt;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface a {
     boolean a(long j, Object obj);
 

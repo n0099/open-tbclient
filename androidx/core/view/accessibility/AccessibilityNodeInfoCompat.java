@@ -11,7 +11,7 @@ import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class AccessibilityNodeInfoCompat {
     public static final int ACTION_ACCESSIBILITY_FOCUS = 64;
     public static final String ACTION_ARGUMENT_COLUMN_INT = "android.view.accessibility.action.ARGUMENT_COLUMN_INT";
@@ -65,7 +65,7 @@ public class AccessibilityNodeInfoCompat {
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public int mParentVirtualDescendantId = -1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static class AccessibilityActionCompat {
         public static final AccessibilityActionCompat ACTION_CONTEXT_CLICK;
         public static final AccessibilityActionCompat ACTION_HIDE_TOOLTIP;
@@ -139,7 +139,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static class CollectionInfoCompat {
         public static final int SELECTION_MODE_MULTIPLE = 2;
         public static final int SELECTION_MODE_NONE = 0;
@@ -193,7 +193,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static class CollectionItemInfoCompat {
         final Object mInfo;
 
@@ -258,7 +258,7 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static class RangeInfoCompat {
         public static final int RANGE_TYPE_FLOAT = 1;
         public static final int RANGE_TYPE_INT = 0;

@@ -1,41 +1,39 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ep {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13996a;
+    private int f8353a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f379a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f13997b;
+    private String f300a;
+    private String b;
     private String c;
     private String d;
 
     public int a() {
-        return this.f13996a;
+        return this.f8353a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m291a() {
-        return this.f379a;
+    public String m270a() {
+        return this.f300a;
     }
 
     public void a(int i) {
-        this.f13996a = i;
+        this.f8353a = i;
     }
 
     public void a(String str) {
-        this.f379a = str;
+        this.f300a = str;
     }
 
     public String b() {
-        return this.f13997b;
+        return this.b;
     }
 
     public void b(String str) {
-        this.f13997b = str;
+        this.b = str;
     }
 
     public String c() {

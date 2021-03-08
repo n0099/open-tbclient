@@ -28,7 +28,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AppActivityImp {
     public static final String EXTRA_AD_INSTANCE_INFO = "EXTRA_DATA_STRING_AD";
     public static final String EXTRA_COMMAND_EXTRA_INFO = "EXTRA_DATA_STRING_COM";
@@ -39,27 +39,25 @@ public class AppActivityImp {
     private static Class<?> d;
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f3269a;
+    private Activity f2344a;
     private Object c;
     private Method[] e = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static boolean f3268b = false;
+    private static boolean b = false;
     private static AppActivity.ActionBarColorTheme f = AppActivity.ActionBarColorTheme.ACTION_BAR_WHITE_THEME;
 
     public AppActivityImp(Activity activity) {
-        this.f3269a = activity;
+        this.f2344a = activity;
     }
 
     public AppActivityImp() {
     }
 
     public void setActivity(Activity activity) {
-        this.f3269a = activity;
+        this.f2344a = activity;
     }
 
     public static void canLpShowWhenLocked(boolean z) {
-        f3268b = z;
+        b = z;
     }
 
     private Method a(String str) {
@@ -212,7 +210,7 @@ public class AppActivityImp {
                 d = loadLocalApk("com.baidu.mobads.container.landingpage.AppPriActivity");
             }
             this.e = d.getDeclaredMethods();
-            this.c = d.getConstructor(Activity.class).newInstance(this.f3269a);
+            this.c = d.getConstructor(Activity.class).newInstance(this.f2344a);
         } catch (Exception e) {
             com.baidu.mobads.utils.q.a().d(e);
         }
@@ -222,25 +220,25 @@ public class AppActivityImp {
     /* JADX INFO: Access modifiers changed from: protected */
     public void onCreate(Bundle bundle) {
         try {
-            Intent intent = this.f3269a.getIntent();
+            Intent intent = this.f2344a.getIntent();
             if (intent != null) {
                 if (!TextUtils.isEmpty(intent.getStringExtra("privacy_link"))) {
                     a(bundle);
                     return;
                 }
                 intent.setExtrasClassLoader(getClass().getClassLoader());
-                a(AppActivity.ActionBarColorTheme.class, f, this.f3269a.getIntent().getStringExtra(EXTRA_LP_THEME));
-                f3268b = intent.getBooleanExtra("showWhenLocked", true);
+                a(AppActivity.ActionBarColorTheme.class, f, this.f2344a.getIntent().getStringExtra(EXTRA_LP_THEME));
+                b = intent.getBooleanExtra("showWhenLocked", true);
             }
             com.baidu.mobads.utils.f fVar = new com.baidu.mobads.utils.f();
             if (intent != null) {
-                intent.putExtra("multiProcess", fVar.webviewMultiProcess(this.f3269a));
+                intent.putExtra("multiProcess", fVar.webviewMultiProcess(this.f2344a));
             }
             if (AppActivity.isAnti() && intent != null && intent.getParcelableExtra(EXTRA_DATA) == null) {
                 XAdLandingPageExtraInfo xAdLandingPageExtraInfo = new XAdLandingPageExtraInfo((String) null, new XAdInstanceInfo(new JSONObject()));
-                a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.f3269a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
-                a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.f3269a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
-                a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.f3269a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
+                a(XAdLandingPageExtraInfo.class, xAdLandingPageExtraInfo, this.f2344a.getIntent().getStringExtra(EXTRA_LANDINGPAGE_EXTRA_INFO));
+                a(XAdCommandExtraInfo.class, xAdLandingPageExtraInfo, this.f2344a.getIntent().getStringExtra(EXTRA_COMMAND_EXTRA_INFO));
+                a(XAdInstanceInfo.class, xAdLandingPageExtraInfo.getAdInstanceInfo(), this.f2344a.getIntent().getStringExtra(EXTRA_AD_INSTANCE_INFO));
                 intent.putExtra(EXTRA_DATA, xAdLandingPageExtraInfo);
             }
             DexClassLoader d2 = com.baidu.mobads.g.b.d();
@@ -250,8 +248,8 @@ public class AppActivityImp {
                 d = loadLocalApk("com.baidu.mobads.container.landingpage.App2Activity");
             }
             this.e = d.getDeclaredMethods();
-            this.c = d.getConstructor(Activity.class).newInstance(this.f3269a);
-            invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(f3268b));
+            this.c = d.getConstructor(Activity.class).newInstance(this.f2344a);
+            invokeRemoteStatic("canLpShowWhenLocked", Boolean.valueOf(b));
             invokeRemoteStatic("setActionBarColor", Integer.valueOf(f.closeColor), Integer.valueOf(f.titleColor), Integer.valueOf(f.progressColor), Integer.valueOf(f.backgroundColor));
             com.baidu.mobads.utils.q.a().d("com.baidu.mobads.container.landingpage.App2Activity", d, this.c);
         } catch (Exception e) {
@@ -264,7 +262,7 @@ public class AppActivityImp {
         Class<?> cls = null;
         com.baidu.mobads.utils.q a2 = com.baidu.mobads.utils.q.a();
         try {
-            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f3269a), this.f3269a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
+            cls = Class.forName(str, true, new DexClassLoader(com.baidu.mobads.g.g.a(this.f2344a), this.f2344a.getFilesDir().getAbsolutePath(), null, getClass().getClassLoader()));
         } catch (Exception e) {
             a2.d(e);
         }
@@ -318,10 +316,10 @@ public class AppActivityImp {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDestroy() {
-        if (this.f3269a != null) {
+        if (this.f2344a != null) {
             Intent intent = new Intent();
             intent.setAction("lp_close");
-            this.f3269a.sendBroadcast(intent);
+            this.f2344a.sendBroadcast(intent);
         }
         a(MissionEvent.MESSAGE_DESTROY, new Object[0]);
     }

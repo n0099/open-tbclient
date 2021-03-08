@@ -8,7 +8,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import java.util.Objects;
 /* loaded from: classes.dex */
 public class bi {
-    private final long ePe;
+    private final long eQF;
     private String forumId = "0";
     private boolean isRunning;
     private int progress;
@@ -18,7 +18,7 @@ public class bi {
     }
 
     private bi(long j) {
-        this.ePe = j;
+        this.eQF = j;
     }
 
     public static bi a(@NonNull WriteData writeData, int i) {
@@ -32,12 +32,12 @@ public class bi {
 
     public void ju(boolean z) {
         this.isRunning = z;
-        if (this.ePe > 0) {
+        if (this.eQF > 0) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921526, this));
         }
     }
 
-    public boolean zZ(String str) {
+    public boolean Ag(String str) {
         return this.forumId.equals(str);
     }
 
@@ -49,7 +49,7 @@ public class bi {
         return this.isRunning;
     }
 
-    public void bmS() {
+    public void bmU() {
         this.isRunning = false;
     }
 
@@ -64,10 +64,10 @@ public class bi {
         if (this == obj) {
             return true;
         }
-        return (obj instanceof bi) && this.ePe == ((bi) obj).ePe;
+        return (obj instanceof bi) && this.eQF == ((bi) obj).eQF;
     }
 
     public int hashCode() {
-        return Objects.hash(Long.valueOf(this.ePe));
+        return Objects.hash(Long.valueOf(this.eQF));
     }
 }

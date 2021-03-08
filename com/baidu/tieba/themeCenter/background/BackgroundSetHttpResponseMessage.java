@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.SetBackground.SetBackgroundResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BackgroundSetHttpResponseMessage extends TbHttpResponsedMessage {
     public BackgroundSetHttpResponseMessage(int i) {
         super(i);

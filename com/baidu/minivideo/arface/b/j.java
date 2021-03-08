@@ -6,21 +6,21 @@ import android.util.Log;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class j {
-    private File ckA;
-    private File ckB;
-    private List<b> ckV = new ArrayList();
-    private a ckW;
-    private com.baidu.minivideo.arface.a.a ckX;
+    private File cma;
+    private File cmb;
+    private List<b> cmw = new ArrayList();
+    private a cmx;
+    private com.baidu.minivideo.arface.a.a cmy;
     private int mProgress;
     private long mTotalSize;
     private String mUrl;
 
     public j(String str, File file) {
         this.mUrl = str;
-        this.ckA = file;
-        this.ckB = new File(this.ckA.getAbsolutePath() + ".loading");
+        this.cma = file;
+        this.cmb = new File(this.cma.getAbsolutePath() + ".loading");
     }
 
     public String getUrl() {
@@ -32,57 +32,57 @@ public class j {
     }
 
     public boolean isLoaded() {
-        return this.ckA != null && this.ckA.exists();
+        return this.cma != null && this.cma.exists();
     }
 
     public boolean isLoading() {
-        return this.ckW != null && this.ckW.isLoading();
+        return this.cmx != null && this.cmx.isLoading();
     }
 
     public File getLocalFile() {
-        return this.ckA;
+        return this.cma;
     }
 
     public void a(b bVar) {
         if (isLoaded()) {
             if (bVar != null) {
-                bVar.e(this, this.ckA.getAbsolutePath());
+                bVar.f(this, this.cma.getAbsolutePath());
                 return;
             }
             return;
         }
-        if (bVar != null && !this.ckV.contains(bVar)) {
-            this.ckV.add(bVar);
+        if (bVar != null && !this.cmw.contains(bVar)) {
+            this.cmw.add(bVar);
         }
-        acr();
+        acu();
     }
 
-    private void acr() {
+    private void acu() {
         if (!isLoaded() && !isLoading()) {
             synchronized (this) {
                 if (!isLoaded() && !isLoading()) {
-                    if (this.ckW == null) {
-                        this.ckW = new a();
-                        this.ckW.I(this);
+                    if (this.cmx == null) {
+                        this.cmx = new a();
+                        this.cmx.K(this);
                     }
-                    com.baidu.minivideo.arface.a.b abH = com.baidu.minivideo.arface.b.abH();
-                    if (abH != null) {
-                        abH.a(this.mUrl, this.ckB.getParent(), this.ckB.getName(), this.ckW);
+                    com.baidu.minivideo.arface.a.b abK = com.baidu.minivideo.arface.b.abK();
+                    if (abK != null) {
+                        abK.a(this.mUrl, this.cmb.getParent(), this.cmb.getName(), this.cmx);
                     }
                 }
             }
         }
     }
 
-    protected boolean jh(String str) {
+    protected boolean jn(String str) {
         boolean z;
         boolean z2 = true;
         File file = new File(str);
         try {
             if (isDebug()) {
-                d("onCompleted-unzip:" + str + "\nto " + this.ckA.getAbsolutePath());
+                d("onCompleted-unzip:" + str + "\nto " + this.cma.getAbsolutePath());
             }
-            File file2 = new File(this.ckA + ".ziping");
+            File file2 = new File(this.cma + ".ziping");
             if (file2.exists()) {
                 if (isDebug()) {
                     d("delete older exists " + file2);
@@ -105,7 +105,7 @@ public class j {
                 }
                 com.baidu.minivideo.arface.utils.f.deleteFileOrDir(file2);
             } else {
-                z2 &= file2.renameTo(this.ckA);
+                z2 &= file2.renameTo(this.cma);
             }
         } catch (Exception e2) {
             d("Exception on onFileLoaderCompledted " + e2.getMessage());
@@ -130,16 +130,16 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a<T> implements com.baidu.minivideo.arface.a.a {
-        private T ckY;
+        private T cmz;
         private boolean mIsLoading;
 
         private a() {
         }
 
-        public void I(T t) {
-            this.ckY = t;
+        public void K(T t) {
+            this.cmz = t;
         }
 
         public boolean isLoading() {
@@ -155,17 +155,17 @@ public class j {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= j.this.ckV.size()) {
+                if (i2 >= j.this.cmw.size()) {
                     break;
                 }
-                b bVar = (b) j.this.ckV.get(i2);
+                b bVar = (b) j.this.cmw.get(i2);
                 if (bVar != null) {
-                    bVar.J(this.ckY);
+                    bVar.L(this.cmz);
                 }
                 i = i2 + 1;
             }
-            if (j.this.ckX != null) {
-                j.this.ckX.onStarted();
+            if (j.this.cmy != null) {
+                j.this.cmy.onStarted();
             }
         }
 
@@ -178,17 +178,17 @@ public class j {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= j.this.ckV.size()) {
+                if (i2 >= j.this.cmw.size()) {
                     break;
                 }
-                b bVar = (b) j.this.ckV.get(i2);
+                b bVar = (b) j.this.cmw.get(i2);
                 if (bVar != null) {
-                    bVar.a(this.ckY, j, z);
+                    bVar.a(this.cmz, j, z);
                 }
                 i = i2 + 1;
             }
-            if (j.this.ckX != null) {
-                j.this.ckX.onConnected(j, z);
+            if (j.this.cmy != null) {
+                j.this.cmy.onConnected(j, z);
             }
         }
 
@@ -200,17 +200,17 @@ public class j {
                 int i2 = 0;
                 while (true) {
                     int i3 = i2;
-                    if (i3 >= j.this.ckV.size()) {
+                    if (i3 >= j.this.cmw.size()) {
                         break;
                     }
-                    b bVar = (b) j.this.ckV.get(i3);
+                    b bVar = (b) j.this.cmw.get(i3);
                     if (bVar != null) {
-                        bVar.a(this.ckY, j, j2, i);
+                        bVar.a(this.cmz, j, j2, i);
                     }
                     i2 = i3 + 1;
                 }
-                if (j.this.ckX != null) {
-                    j.this.ckX.onProgress(j, j2, i);
+                if (j.this.cmy != null) {
+                    j.this.cmy.onProgress(j, j2, i);
                 }
             }
         }
@@ -224,7 +224,7 @@ public class j {
             new Thread() { // from class: com.baidu.minivideo.arface.b.j.a.1
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    j.this.jh(str);
+                    j.this.jn(str);
                     a.this.k(null);
                 }
             }.start();
@@ -232,7 +232,7 @@ public class j {
         }
 
         protected void k(final Exception exc) {
-            if (j.this.ckV != null && !j.this.ckV.isEmpty()) {
+            if (j.this.cmw != null && !j.this.cmw.isEmpty()) {
                 final boolean isLoaded = j.this.isLoaded();
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.minivideo.arface.b.j.a.2
                     /* JADX DEBUG: Multi-variable search result rejected for r0v16, resolved type: com.baidu.minivideo.arface.b.j$b */
@@ -244,34 +244,34 @@ public class j {
                         if (isLoaded) {
                             while (true) {
                                 int i2 = i;
-                                if (i2 >= j.this.ckV.size()) {
+                                if (i2 >= j.this.cmw.size()) {
                                     break;
                                 }
-                                b bVar = (b) j.this.ckV.get(i2);
+                                b bVar = (b) j.this.cmw.get(i2);
                                 if (bVar != 0) {
-                                    bVar.e(a.this.ckY, j.this.ckA.getAbsolutePath());
+                                    bVar.f(a.this.cmz, j.this.cma.getAbsolutePath());
                                 }
                                 i = i2 + 1;
                             }
-                            if (j.this.ckX != null) {
-                                j.this.ckX.onCompleted(j.this.ckA.getAbsolutePath());
+                            if (j.this.cmy != null) {
+                                j.this.cmy.onCompleted(j.this.cma.getAbsolutePath());
                                 return;
                             }
                             return;
                         }
                         while (true) {
                             int i3 = i;
-                            if (i3 >= j.this.ckV.size()) {
+                            if (i3 >= j.this.cmw.size()) {
                                 break;
                             }
-                            b bVar2 = (b) j.this.ckV.get(i3);
+                            b bVar2 = (b) j.this.cmw.get(i3);
                             if (bVar2 != 0) {
-                                bVar2.a(a.this.ckY, exc);
+                                bVar2.a(a.this.cmz, exc);
                             }
                             i = i3 + 1;
                         }
-                        if (j.this.ckX != null) {
-                            j.this.ckX.onFailed(exc);
+                        if (j.this.cmy != null) {
+                            j.this.cmy.onFailed(exc);
                         }
                     }
                 });
@@ -283,14 +283,14 @@ public class j {
             if (j.this.isDebug()) {
                 d("onDownloadPaused");
             }
-            for (int i = 0; i < j.this.ckV.size(); i++) {
-                b bVar = (b) j.this.ckV.get(i);
+            for (int i = 0; i < j.this.cmw.size(); i++) {
+                b bVar = (b) j.this.cmw.get(i);
                 if (bVar != null) {
-                    bVar.onDownloadPaused(this.ckY);
+                    bVar.onDownloadPaused(this.cmz);
                 }
             }
-            if (j.this.ckX != null) {
-                j.this.ckX.onDownloadPaused();
+            if (j.this.cmy != null) {
+                j.this.cmy.onDownloadPaused();
             }
             this.mIsLoading = false;
         }
@@ -300,14 +300,14 @@ public class j {
             if (j.this.isDebug()) {
                 d("onDownloadCanceled");
             }
-            for (int i = 0; i < j.this.ckV.size(); i++) {
-                b bVar = (b) j.this.ckV.get(i);
+            for (int i = 0; i < j.this.cmw.size(); i++) {
+                b bVar = (b) j.this.cmw.get(i);
                 if (bVar != null) {
-                    bVar.K(this.ckY);
+                    bVar.M(this.cmz);
                 }
             }
-            if (j.this.ckX != null) {
-                j.this.ckX.onDownloadCanceled();
+            if (j.this.cmy != null) {
+                j.this.cmy.onDownloadCanceled();
             }
             this.mIsLoading = false;
         }
@@ -317,17 +317,17 @@ public class j {
             if (j.this.isDebug()) {
                 d("onFailed: " + j.this.mUrl + "\n" + (exc != null ? exc.getMessage() : ""));
             }
-            if (j.this.ckB.exists()) {
-                j.this.ckB.delete();
+            if (j.this.cmb.exists()) {
+                j.this.cmb.delete();
             }
-            for (int i = 0; i < j.this.ckV.size(); i++) {
-                b bVar = (b) j.this.ckV.get(i);
+            for (int i = 0; i < j.this.cmw.size(); i++) {
+                b bVar = (b) j.this.cmw.get(i);
                 if (bVar != null) {
-                    bVar.a(this.ckY, exc);
+                    bVar.a(this.cmz, exc);
                 }
             }
-            if (j.this.ckX != null) {
-                j.this.ckX.onFailed(exc);
+            if (j.this.cmy != null) {
+                j.this.cmy.onFailed(exc);
             }
             this.mIsLoading = false;
         }
@@ -337,9 +337,9 @@ public class j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class b<T> {
-        public void J(T t) {
+        public void L(T t) {
         }
 
         public void a(T t, long j, boolean z) {
@@ -351,10 +351,10 @@ public class j {
         public void onDownloadPaused(T t) {
         }
 
-        public void K(T t) {
+        public void M(T t) {
         }
 
-        public void e(T t, String str) {
+        public void f(T t, String str) {
         }
 
         public void a(T t, Exception exc) {

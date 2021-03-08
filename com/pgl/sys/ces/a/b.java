@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
-    private static final FileFilter qaE = new FileFilter() { // from class: com.pgl.sys.ces.a.b.1
+    private static final FileFilter qbs = new FileFilter() { // from class: com.pgl.sys.ces.a.b.1
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             return Pattern.matches("cpu[0-9]", file.getName());
@@ -17,12 +17,12 @@ public class b {
     public static String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            HashMap<String, String> b2 = b();
+            HashMap<String, String> b = b();
             jSONObject.put("core", c());
-            jSONObject.put("hw", c(b2, "Hardware"));
+            jSONObject.put("hw", c(b, "Hardware"));
             jSONObject.put("max", a("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq"));
             jSONObject.put("min", a("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq"));
-            jSONObject.put("ft", c(b2, "Features"));
+            jSONObject.put("ft", c(b, "Features"));
         } catch (Throwable th) {
         }
         String jSONObject2 = jSONObject.toString();
@@ -233,7 +233,7 @@ public class b {
 
     private static int c() {
         try {
-            return new File("/sys/devices/system/cpu/").listFiles(qaE).length;
+            return new File("/sys/devices/system/cpu/").listFiles(qbs).length;
         } catch (Throwable th) {
             return -1;
         }

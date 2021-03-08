@@ -4,22 +4,20 @@ import android.content.Context;
 import android.view.View;
 import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class df implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f5526a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ String f5527b;
+    final /* synthetic */ Context f3732a;
+    final /* synthetic */ String b;
     final /* synthetic */ String c;
     final /* synthetic */ FeedbackListActivity d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public df(FeedbackListActivity feedbackListActivity, Context context, String str, String str2) {
         this.d = feedbackListActivity;
-        this.f5526a = context;
-        this.f5527b = str;
+        this.f3732a = context;
+        this.b = str;
         this.c = str2;
     }
 

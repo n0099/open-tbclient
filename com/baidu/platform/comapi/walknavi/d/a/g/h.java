@@ -14,10 +14,8 @@ import java.io.InputStream;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4247a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f4248b = "";
+    public static String f2938a = "";
+    public static String b = "";
     public static String c = "";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [222=4] */

@@ -4,21 +4,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e extends InputStream {
     private ByteBuffer mBuffer;
-    private final d oSw;
-    private boolean oSx;
-    private IOException oSy;
+    private final d oUB;
+    private boolean oUC;
+    private IOException oUD;
 
     public e(d dVar) {
-        this.oSw = dVar;
+        this.oUB = dVar;
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        ehv();
-        if (ehw()) {
+        ehD();
+        if (ehE()) {
             return this.mBuffer.get() & 255;
         }
         return -1;
@@ -32,8 +32,8 @@ public class e extends InputStream {
         if (i2 == 0) {
             return 0;
         }
-        ehv();
-        if (ehw()) {
+        ehD();
+        if (ehE()) {
             int min = Math.min(this.mBuffer.limit() - this.mBuffer.position(), i2);
             this.mBuffer.get(bArr, i, min);
             return min;
@@ -43,24 +43,24 @@ public class e extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(IOException iOException) {
-        this.oSy = iOException;
-        this.oSx = true;
+        this.oUD = iOException;
+        this.oUC = true;
         this.mBuffer = null;
     }
 
-    private void ehv() throws IOException {
-        if (this.oSx) {
-            if (this.oSy != null) {
-                throw this.oSy;
+    private void ehD() throws IOException {
+        if (this.oUC) {
+            if (this.oUD != null) {
+                throw this.oUD;
             }
-        } else if (!ehw()) {
+        } else if (!ehE()) {
             if (this.mBuffer == null) {
                 this.mBuffer = ByteBuffer.allocateDirect(32768);
             }
             this.mBuffer.clear();
-            this.oSw.p(this.mBuffer);
-            if (this.oSy != null) {
-                throw this.oSy;
+            this.oUB.p(this.mBuffer);
+            if (this.oUD != null) {
+                throw this.oUD;
             }
             if (this.mBuffer != null) {
                 this.mBuffer.flip();
@@ -68,7 +68,7 @@ public class e extends InputStream {
         }
     }
 
-    private boolean ehw() {
+    private boolean ehE() {
         return this.mBuffer != null && this.mBuffer.hasRemaining();
     }
 }

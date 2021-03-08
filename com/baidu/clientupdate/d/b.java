@@ -7,7 +7,7 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import com.baidu.util.LogUtil;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static long a(File file) {
         StatFs statFs = new StatFs(file.getPath());
@@ -60,12 +60,12 @@ public final class b {
             return null;
         }
         long a4 = a(file);
-        long b2 = b(file);
-        double d = a4 / b2;
+        long b = b(file);
+        double d = a4 / b;
         LogUtil.logD("Helpers", "download dir is: " + file.getAbsolutePath());
         LogUtil.logD("Helpers", "available space is: " + a4);
-        LogUtil.logD("Helpers", "totalBytes space is: " + b2);
-        LogUtil.logD("Helpers", "available/totalBytes percent is: " + (a4 / b2));
+        LogUtil.logD("Helpers", "totalBytes space is: " + b);
+        LogUtil.logD("Helpers", "available/totalBytes percent is: " + (a4 / b));
         LogUtil.logD("Helpers", "availablepercent<0.1 is: " + (d < 0.1d));
         LogUtil.logD("Helpers", " available < 20 * 1024 * 1024 is: " + (a4 < 20971520));
         if (z2) {

@@ -7,10 +7,8 @@ import com.baidu.mobstat.Config;
 class c implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f10189a = new b();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final h<a, Bitmap> f10190b = new h<>();
+    private final b f6740a = new b();
+    private final h<a, Bitmap> b = new h<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
@@ -18,24 +16,22 @@ class c implements l {
     public static class a implements m {
 
         /* renamed from: a  reason: collision with root package name */
-        private final b f10191a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private int f10192b;
+        private final b f6741a;
+        private int b;
         private int c;
         private Bitmap.Config d;
 
         public a(b bVar) {
-            this.f10191a = bVar;
+            this.f6741a = bVar;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.m
         public void a() {
-            this.f10191a.a(this);
+            this.f6741a.a(this);
         }
 
         public void a(int i, int i2, Bitmap.Config config) {
-            this.f10192b = i;
+            this.b = i;
             this.c = i2;
             this.d = config;
         }
@@ -43,17 +39,17 @@ class c implements l {
         public boolean equals(Object obj) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f10192b == aVar.f10192b && this.c == aVar.c && this.d == aVar.d;
+                return this.b == aVar.b && this.c == aVar.c && this.d == aVar.d;
             }
             return false;
         }
 
         public int hashCode() {
-            return (this.d != null ? this.d.hashCode() : 0) + (((this.f10192b * 31) + this.c) * 31);
+            return (this.d != null ? this.d.hashCode() : 0) + (((this.b * 31) + this.c) * 31);
         }
 
         public String toString() {
-            return c.c(this.f10192b, this.c, this.d);
+            return c.c(this.b, this.c, this.d);
         }
     }
 
@@ -88,17 +84,17 @@ class c implements l {
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public Bitmap a() {
-        return this.f10190b.a();
+        return this.b.a();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public Bitmap a(int i, int i2, Bitmap.Config config) {
-        return this.f10190b.a((h<a, Bitmap>) this.f10189a.a(i, i2, config));
+        return this.b.a((h<a, Bitmap>) this.f6740a.a(i, i2, config));
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public void a(Bitmap bitmap) {
-        this.f10190b.a(this.f10189a.a(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
+        this.b.a(this.f6740a.a(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
@@ -117,6 +113,6 @@ class c implements l {
     }
 
     public String toString() {
-        return "AttributeStrategy:\n  " + this.f10190b;
+        return "AttributeStrategy:\n  " + this.b;
     }
 }

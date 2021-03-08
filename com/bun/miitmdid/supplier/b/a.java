@@ -6,22 +6,20 @@ import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
 import com.huawei.android.hms.pps.AdvertisingIdClient;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5743a;
-    private SupplierListener pmp;
+    private Context f3876a;
+    private SupplierListener pox;
     private boolean f = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f5744b = "";
+    private String b = "";
     private String c = "";
     private String d = "";
     private String e = "";
 
     public a(Context context) {
-        this.f5743a = context;
+        this.f3876a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -29,11 +27,11 @@ public class a implements InnerIdSupplier {
         try {
             this.f = !TextUtils.isEmpty(this.c);
             if (this.f) {
-                if (this.pmp != null) {
-                    this.pmp.OnSupport(this.f, this);
+                if (this.pox != null) {
+                    this.pox.OnSupport(this.f, this);
                 }
-            } else if (this.pmp != null) {
-                this.pmp.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
+            } else if (this.pox != null) {
+                this.pox.OnSupport(this.f, new com.bun.miitmdid.supplier.a());
             }
         } catch (Exception e) {
             com.bun.miitmdid.utils.a.a(getClass().getSimpleName(), "CallBack", e);
@@ -42,12 +40,12 @@ public class a implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void a(SupplierListener supplierListener) {
-        this.pmp = supplierListener;
+        this.pox = supplierListener;
         new Thread(new Runnable() { // from class: com.bun.miitmdid.supplier.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(a.this.f5743a);
+                    AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(a.this.f3876a);
                     a.this.c = advertisingIdInfo.getId();
                     advertisingIdInfo.isLimitAdTrackingEnabled();
                 } catch (Exception e) {

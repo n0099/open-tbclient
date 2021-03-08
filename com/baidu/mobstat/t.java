@@ -3,9 +3,10 @@ package com.baidu.mobstat;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import androidx.exifinterface.media.ExifInterface;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum t {
     SERVICE(1) { // from class: com.baidu.mobstat.t.1
         @Override // com.baidu.mobstat.t
@@ -28,8 +29,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3644a = false;
-                acVar.f3645b = "M";
+                acVar.f2570a = false;
+                acVar.b = "M";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -42,8 +43,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3644a = false;
-                acVar.f3645b = "R";
+                acVar.f2570a = false;
+                acVar.b = "R";
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }
@@ -56,8 +57,8 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f3644a = false;
-                acVar.f3645b = "E";
+                acVar.f2570a = false;
+                acVar.b = ExifInterface.LONGITUDE_EAST;
                 acVar.c = false;
                 a2.a(applicationContext, acVar.a());
             }

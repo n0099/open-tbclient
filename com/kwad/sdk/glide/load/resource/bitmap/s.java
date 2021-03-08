@@ -9,34 +9,30 @@ import java.io.InputStream;
 public class s implements com.kwad.sdk.glide.load.f<InputStream, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final k f10296a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f10297b;
+    private final k f6797a;
+    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public static class a implements k.a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final RecyclableBufferedInputStream f10298a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private final com.kwad.sdk.glide.g.d f10299b;
+        private final RecyclableBufferedInputStream f6798a;
+        private final com.kwad.sdk.glide.g.d b;
 
         a(RecyclableBufferedInputStream recyclableBufferedInputStream, com.kwad.sdk.glide.g.d dVar) {
-            this.f10298a = recyclableBufferedInputStream;
-            this.f10299b = dVar;
+            this.f6798a = recyclableBufferedInputStream;
+            this.b = dVar;
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.k.a
         public void a() {
-            this.f10298a.a();
+            this.f6798a.a();
         }
 
         @Override // com.kwad.sdk.glide.load.resource.bitmap.k.a
         public void a(com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar, Bitmap bitmap) {
-            IOException a2 = this.f10299b.a();
+            IOException a2 = this.b.a();
             if (a2 != null) {
                 if (bitmap != null) {
                     eVar.a(bitmap);
@@ -47,8 +43,8 @@ public class s implements com.kwad.sdk.glide.load.f<InputStream, Bitmap> {
     }
 
     public s(k kVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f10296a = kVar;
-        this.f10297b = bVar;
+        this.f6797a = kVar;
+        this.b = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,11 +57,11 @@ public class s implements com.kwad.sdk.glide.load.f<InputStream, Bitmap> {
             z = false;
         } else {
             z = true;
-            recyclableBufferedInputStream = new RecyclableBufferedInputStream(inputStream, this.f10297b);
+            recyclableBufferedInputStream = new RecyclableBufferedInputStream(inputStream, this.b);
         }
         com.kwad.sdk.glide.g.d a2 = com.kwad.sdk.glide.g.d.a(recyclableBufferedInputStream);
         try {
-            return this.f10296a.a(new com.kwad.sdk.glide.g.h(a2), i, i2, eVar, new a(recyclableBufferedInputStream, a2));
+            return this.f6797a.a(new com.kwad.sdk.glide.g.h(a2), i, i2, eVar, new a(recyclableBufferedInputStream, a2));
         } finally {
             a2.b();
             if (z) {
@@ -77,6 +73,6 @@ public class s implements com.kwad.sdk.glide.load.f<InputStream, Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     public boolean a(@NonNull InputStream inputStream, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return this.f10296a.a(inputStream);
+        return this.f6797a.a(inputStream);
     }
 }

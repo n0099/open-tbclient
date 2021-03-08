@@ -1,7 +1,7 @@
 package com.baidu.mobads.interfaces;
 
 import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface IXAdEvent4PDK extends IOAdEvent {
     IXAdProd getAdSlot();
 }

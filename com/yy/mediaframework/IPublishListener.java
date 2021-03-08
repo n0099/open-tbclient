@@ -2,7 +2,7 @@ package com.yy.mediaframework;
 
 import com.yy.mediaframework.Constant;
 import com.yy.mediaframework.api.YMFVideoEncodeFrame;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IPublishListener {
     void onEncodeFrameData(YMFVideoEncodeFrame yMFVideoEncodeFrame);
 

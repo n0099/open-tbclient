@@ -2,8 +2,10 @@ package com.bytedance.sdk.openadsdk.core.widget.webview.a;
 
 import android.os.Environment;
 import com.bytedance.sdk.adnet.b.i;
-import com.bytedance.sdk.openadsdk.core.d.p;
+import com.bytedance.sdk.adnet.core.o;
+import com.bytedance.sdk.openadsdk.core.d.q;
 import com.bytedance.sdk.openadsdk.core.h;
+import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.j;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.File;
@@ -17,10 +19,8 @@ import java.util.concurrent.atomic.AtomicLong;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static File f6828a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static volatile b f6829b;
+    private static File f4629a;
+    private static volatile b b;
     private AtomicBoolean c = new AtomicBoolean(true);
     private AtomicBoolean d = new AtomicBoolean(false);
     private boolean e = false;
@@ -28,14 +28,14 @@ public class b {
     private AtomicLong g = new AtomicLong();
 
     public static b a() {
-        if (f6829b == null) {
+        if (b == null) {
             synchronized (b.class) {
-                if (f6829b == null) {
-                    f6829b = new b();
+                if (b == null) {
+                    b = new b();
                 }
             }
         }
-        return f6829b;
+        return b;
     }
 
     private b() {
@@ -43,7 +43,7 @@ public class b {
     }
 
     private void f() {
-        com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.b.1
+        com.bytedance.sdk.openadsdk.j.e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.a.b.1
             @Override // java.lang.Runnable
             public void run() {
                 f.a();
@@ -62,12 +62,12 @@ public class b {
     public void g() {
         boolean z;
         u.b("TemplateManager", "check template usable1");
-        p b2 = f.b();
-        if (b2 == null || !b2.e()) {
+        q b2 = f.b();
+        if (b2 == null || !b2.f()) {
             u.b("TemplateManager", "check template usable2");
             return;
         }
-        for (p.a aVar : b2.d()) {
+        for (q.a aVar : b2.e()) {
             String a2 = aVar.a();
             File file = new File(e(), j.a(a2));
             String a3 = j.a(file);
@@ -91,7 +91,7 @@ public class b {
         return this.e;
     }
 
-    public p c() {
+    public q c() {
         return f.b();
     }
 
@@ -104,7 +104,7 @@ public class b {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(boolean z) {
-        com.bytedance.sdk.adnet.core.p pVar;
+        o oVar;
         if (this.c.get()) {
             u.b("TemplateManager", "loadTemplate error1");
             return;
@@ -118,9 +118,9 @@ public class b {
                 return;
             }
             this.d.set(true);
-            p a2 = com.bytedance.sdk.openadsdk.core.p.f().a();
-            p b2 = f.b();
-            if (a2 == null || !a2.e()) {
+            q a2 = p.f().a();
+            q b2 = f.b();
+            if (a2 == null || !a2.f()) {
                 this.d.set(false);
                 a(109);
                 u.b("TemplateManager", "loadTemplate error3");
@@ -129,33 +129,33 @@ public class b {
                 this.g.set(System.currentTimeMillis());
                 u.b("TemplateManager", "loadTemplate error4");
             } else {
-                ArrayList<p.a> arrayList = new ArrayList();
-                ArrayList<p.a> arrayList2 = new ArrayList();
-                if (b2 == null || b2.d().isEmpty()) {
-                    arrayList2.addAll(a2.d());
+                ArrayList<q.a> arrayList = new ArrayList();
+                ArrayList<q.a> arrayList2 = new ArrayList();
+                if (b2 == null || b2.e().isEmpty()) {
+                    arrayList2.addAll(a2.e());
                     u.b("TemplateManager", "loadTemplate update1");
-                } else if (a2.d().isEmpty()) {
-                    arrayList.addAll(b2.d());
+                } else if (a2.e().isEmpty()) {
+                    arrayList.addAll(b2.e());
                     u.b("TemplateManager", "loadTemplate update2");
                 } else {
-                    for (p.a aVar : a2.d()) {
-                        if (!b2.d().contains(aVar)) {
+                    for (q.a aVar : a2.e()) {
+                        if (!b2.e().contains(aVar)) {
                             arrayList2.add(aVar);
                         } else {
-                            p.a a3 = f.a(aVar.a());
+                            q.a a3 = f.a(aVar.a());
                             if (a3 != null && aVar.b() != null && !aVar.b().equals(a3.b())) {
                                 arrayList2.add(aVar);
                             }
                         }
                     }
-                    for (p.a aVar2 : b2.d()) {
-                        if (!a2.d().contains(aVar2)) {
+                    for (q.a aVar2 : b2.e()) {
+                        if (!a2.e().contains(aVar2)) {
                             arrayList.add(aVar2);
                         }
                     }
                     u.b("TemplateManager", "loadTemplate update3");
                 }
-                for (p.a aVar3 : arrayList2) {
+                for (q.a aVar3 : arrayList2) {
                     String a4 = aVar3.a();
                     File file = new File(e(), j.a(a4));
                     File file2 = new File(file + ".tmp");
@@ -171,14 +171,14 @@ public class b {
                         } catch (Throwable th2) {
                         }
                     }
-                    i eqP = i.eqP();
-                    new com.bytedance.sdk.adnet.b.c(file.getAbsolutePath(), a4, eqP).build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).c());
+                    i eqX = i.eqX();
+                    new com.bytedance.sdk.adnet.b.c(file.getAbsolutePath(), a4, eqX).build(com.bytedance.sdk.openadsdk.h.d.a(p.a()).c());
                     try {
-                        pVar = eqP.get();
+                        oVar = eqX.get();
                     } catch (Throwable th3) {
-                        pVar = null;
+                        oVar = null;
                     }
-                    if (pVar == null || !pVar.a()) {
+                    if (oVar == null || !oVar.a()) {
                         this.d.set(false);
                         a(arrayList2);
                         u.b("TemplateManager", "loadTemplate error5");
@@ -187,7 +187,7 @@ public class b {
                     while (r2.hasNext()) {
                     }
                 }
-                for (p.a aVar4 : arrayList) {
+                for (q.a aVar4 : arrayList) {
                     File file3 = new File(e(), j.a(aVar4.a()));
                     File file4 = new File(file3 + ".tmp");
                     if (file3.exists()) {
@@ -217,7 +217,7 @@ public class b {
     }
 
     private void a(int i) {
-        com.bytedance.sdk.openadsdk.h.a.a().h(com.bytedance.sdk.openadsdk.h.a.d.b().b(i).g(h.a(i)));
+        com.bytedance.sdk.openadsdk.g.a.a().h(com.bytedance.sdk.openadsdk.g.a.c.b().b(i).g(h.a(i)));
     }
 
     private void h() {
@@ -226,9 +226,9 @@ public class b {
         }
     }
 
-    private void a(List<p.a> list) {
+    private void a(List<q.a> list) {
         if (list != null && !list.isEmpty()) {
-            for (p.a aVar : list) {
+            for (q.a aVar : list) {
                 File file = new File(e(), j.a(aVar.a()));
                 File file2 = new File(file + ".tmp");
                 if (file.exists()) {
@@ -249,20 +249,20 @@ public class b {
 
     public static File e() {
         File externalCacheDir;
-        if (f6828a == null) {
+        if (f4629a == null) {
             try {
-                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && com.bytedance.sdk.openadsdk.core.p.a().getExternalCacheDir() != null) {
-                    externalCacheDir = com.bytedance.sdk.openadsdk.core.p.a().getExternalCacheDir();
+                if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && p.a().getExternalCacheDir() != null) {
+                    externalCacheDir = p.a().getExternalCacheDir();
                 } else {
-                    externalCacheDir = com.bytedance.sdk.openadsdk.core.p.a().getCacheDir();
+                    externalCacheDir = p.a().getCacheDir();
                 }
                 File file = new File(new File(externalCacheDir, "tt_tmpl_pkg"), "template");
                 file.mkdirs();
-                f6828a = file;
+                f4629a = file;
             } catch (Throwable th) {
                 u.c("TemplateManager", "getTemplateDir error", th);
             }
         }
-        return f6828a;
+        return f4629a;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.searchbox.logsystem.basic.upload.BaseAttachFileUploader;
 import com.baidu.searchbox.logsystem.basic.upload.ResponseEntity;
 import com.baidu.searchbox.logsystem.basic.upload.identity.LokiIdentityManager;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BOSAttachFileUploader extends BaseAttachFileUploader {
     private static final String BIZ_CRASH = "crash";
 

@@ -5,7 +5,7 @@ import android.util.JsonReader;
 import com.airbnb.lottie.model.content.PolystarShape;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class z {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static PolystarShape t(JsonReader jsonReader, com.airbnb.lottie.d dVar) throws IOException {

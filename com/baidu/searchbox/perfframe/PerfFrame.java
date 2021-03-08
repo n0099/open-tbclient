@@ -7,7 +7,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.perfframe.impl.PerfExpInfo;
 import com.baidu.searchbox.perfframe.impl.PerfFrameContext;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrame;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class PerfFrame implements IPerfFrame {
     private static String TAG = "PerfFrame";
     private boolean mIsNeedDynamicperf;
@@ -40,7 +40,7 @@ public class PerfFrame implements IPerfFrame {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Builder {
         private boolean mIsNeedDynamicperf;
         private boolean mIsNeedMainStackTrace;

@@ -4,21 +4,21 @@ import io.reactivex.internal.util.NotificationLite;
 import org.a.c;
 import org.a.d;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b<T> extends a<T> {
     volatile boolean done;
     boolean emitting;
-    final a<T> qsN;
+    final a<T> qtp;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a<T> aVar) {
-        this.qsN = aVar;
+        this.qtp = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        this.qsN.subscribe(cVar);
+        this.qtp.subscribe(cVar);
     }
 
     @Override // io.reactivex.j, org.a.c
@@ -45,7 +45,7 @@ public final class b<T> extends a<T> {
             dVar.cancel();
             return;
         }
-        this.qsN.onSubscribe(dVar);
+        this.qtp.onSubscribe(dVar);
         emitLoop();
     }
 
@@ -64,7 +64,7 @@ public final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.qsN.onNext(t);
+                    this.qtp.onNext(t);
                     emitLoop();
                 }
             }
@@ -87,7 +87,7 @@ public final class b<T> extends a<T> {
                         aVar = new io.reactivex.internal.util.a<>(4);
                         this.queue = aVar;
                     }
-                    aVar.bN(NotificationLite.error(th));
+                    aVar.bO(NotificationLite.error(th));
                     return;
                 }
                 z = false;
@@ -96,7 +96,7 @@ public final class b<T> extends a<T> {
             if (z) {
                 io.reactivex.d.a.onError(th);
             } else {
-                this.qsN.onError(th);
+                this.qtp.onError(th);
             }
         }
     }
@@ -117,7 +117,7 @@ public final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.qsN.onComplete();
+                    this.qtp.onComplete();
                 }
             }
         }
@@ -134,7 +134,7 @@ public final class b<T> extends a<T> {
                 }
                 this.queue = null;
             }
-            aVar.b(this.qsN);
+            aVar.b(this.qtp);
         }
     }
 }

@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class BitmapThumbnailImageViewTarget extends ThumbnailImageViewTarget<Bitmap> {
     public BitmapThumbnailImageViewTarget(ImageView imageView) {
         super(imageView);

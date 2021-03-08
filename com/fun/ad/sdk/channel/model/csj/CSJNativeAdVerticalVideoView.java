@@ -1,0 +1,47 @@
+package com.fun.ad.sdk.channel.model.csj;
+
+import a.a.a.a.r.b.b.b;
+import android.app.Activity;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.R;
+/* loaded from: classes4.dex */
+public final class CSJNativeAdVerticalVideoView extends b {
+    public FrameLayout f;
+
+    public CSJNativeAdVerticalVideoView(Context context) {
+        super(context);
+    }
+
+    public CSJNativeAdVerticalVideoView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public CSJNativeAdVerticalVideoView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+    }
+
+    @Override // a.a.a.a.r.b.b.b
+    public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
+        super.a(activity, tTNativeAd, adInteractionListener);
+        View adView = tTNativeAd.getAdView();
+        if (adView != null && adView.getParent() != null) {
+            ((ViewGroup) adView.getParent()).removeView(adView);
+        }
+        if (adView != null) {
+            this.f.removeAllViews();
+            this.f.addView(adView);
+        }
+    }
+
+    @Override // a.a.a.a.r.b.b.b, android.view.View
+    public void onFinishInflate() {
+        super.onFinishInflate();
+        this.f = (FrameLayout) findViewById(R.id.ad_video);
+    }
+}

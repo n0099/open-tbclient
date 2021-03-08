@@ -6,7 +6,7 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveRecorderPerfData extends AlaLivePerfBaseData implements Serializable {
     public static final int ERROR_SUB_CANT_START_RECORD = -1;
     public static final int ERROR_SUB_NEED_VERIFY = -2;

@@ -20,89 +20,89 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> bns = new LinkedList();
-    private EnterForumTabFeedFragment iOi;
-    private BdTypeRecyclerView iOj;
-    private k iOk;
-    private com.baidu.tieba.enterForum.tabfeed.a.b iOl;
-    private d iOm;
-    private c iOn;
-    private e iOo;
-    private l iOp;
-    private g iOq;
-    private i iOr;
-    private h iOs;
-    private f iOt;
-    private j iOu;
-    private com.baidu.tieba.enterForum.tabfeed.a.a iOv;
-    private m iOw;
+    private List<com.baidu.adp.widget.ListView.a> boS = new LinkedList();
+    private EnterForumTabFeedFragment iPR;
+    private BdTypeRecyclerView iPS;
+    private k iPT;
+    private com.baidu.tieba.enterForum.tabfeed.a.b iPU;
+    private d iPV;
+    private c iPW;
+    private e iPX;
+    private l iPY;
+    private g iPZ;
+    private i iQa;
+    private h iQb;
+    private f iQc;
+    private j iQd;
+    private com.baidu.tieba.enterForum.tabfeed.a.a iQe;
+    private m iQf;
 
     public a(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.iOi = enterForumTabFeedFragment;
-        this.iOj = bdTypeRecyclerView;
-        Kw();
+        this.iPR = enterForumTabFeedFragment;
+        this.iPS = bdTypeRecyclerView;
+        Kz();
     }
 
-    private void Kw() {
-        this.iOk = new k(this.iOi.getPageContext(), cb.eQs, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOk.a(this.iOj);
-        this.bns.add(this.iOk);
-        this.iOl = new com.baidu.tieba.enterForum.tabfeed.a.b(this.iOi.getPageContext(), cb.eQx, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOl.a(this.iOj);
-        this.bns.add(this.iOl);
-        this.iOm = new d(this.iOi.getPageContext(), cb.eQv, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOm.a(this.iOj);
-        this.bns.add(this.iOm);
-        this.iOn = new c(this.iOi.getPageContext(), cb.eQw, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOn.a(this.iOj);
-        this.bns.add(this.iOn);
-        this.iOo = new e(this.iOi.getPageContext(), cb.eQt, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOo.a(this.iOj);
-        this.bns.add(this.iOo);
-        this.iOp = new l(this.iOi.getPageContext(), cb.eQK, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOp.a(this.iOj);
-        this.bns.add(this.iOp);
-        this.iOq = new g(this.iOi.getPageContext(), cb.eQD, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOq.a(this.iOj);
-        this.bns.add(this.iOq);
-        this.iOr = new i(this.iOi.getPageContext(), cb.eQF, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOr.a(this.iOj);
-        this.bns.add(this.iOr);
-        this.iOs = new h(this.iOi.getPageContext(), cb.eQG, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOs.a(this.iOj);
-        this.bns.add(this.iOs);
-        this.iOt = new f(this.iOi.getPageContext(), cb.eQC, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOt.a(this.iOj);
-        this.bns.add(this.iOt);
-        this.iOu = new j(this.iOi.getPageContext(), cb.eQy, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOu.a(this.iOj);
-        this.bns.add(this.iOu);
-        this.iOv = new com.baidu.tieba.enterForum.tabfeed.a.a(this.iOi.getPageContext(), cb.eQB, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOv.a(this.iOj);
-        this.bns.add(this.iOv);
-        this.iOw = new m(this.iOi.getPageContext(), bv.ePC, this.iOi.getUniqueId(), this.iOi.getTabName());
-        this.iOw.a(this.iOj);
-        this.bns.add(this.iOw);
-        this.iOj.addAdapters(this.bns);
+    private void Kz() {
+        this.iPT = new k(this.iPR.getPageContext(), cb.eRT, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iPT.a(this.iPS);
+        this.boS.add(this.iPT);
+        this.iPU = new com.baidu.tieba.enterForum.tabfeed.a.b(this.iPR.getPageContext(), cb.eRY, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iPU.a(this.iPS);
+        this.boS.add(this.iPU);
+        this.iPV = new d(this.iPR.getPageContext(), cb.eRW, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iPV.a(this.iPS);
+        this.boS.add(this.iPV);
+        this.iPW = new c(this.iPR.getPageContext(), cb.eRX, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iPW.a(this.iPS);
+        this.boS.add(this.iPW);
+        this.iPX = new e(this.iPR.getPageContext(), cb.eRU, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iPX.a(this.iPS);
+        this.boS.add(this.iPX);
+        this.iPY = new l(this.iPR.getPageContext(), cb.eSl, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iPY.a(this.iPS);
+        this.boS.add(this.iPY);
+        this.iPZ = new g(this.iPR.getPageContext(), cb.eSe, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iPZ.a(this.iPS);
+        this.boS.add(this.iPZ);
+        this.iQa = new i(this.iPR.getPageContext(), cb.eSg, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iQa.a(this.iPS);
+        this.boS.add(this.iQa);
+        this.iQb = new h(this.iPR.getPageContext(), cb.eSh, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iQb.a(this.iPS);
+        this.boS.add(this.iQb);
+        this.iQc = new f(this.iPR.getPageContext(), cb.eSd, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iQc.a(this.iPS);
+        this.boS.add(this.iQc);
+        this.iQd = new j(this.iPR.getPageContext(), cb.eRZ, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iQd.a(this.iPS);
+        this.boS.add(this.iQd);
+        this.iQe = new com.baidu.tieba.enterForum.tabfeed.a.a(this.iPR.getPageContext(), cb.eSc, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iQe.a(this.iPS);
+        this.boS.add(this.iQe);
+        this.iQf = new m(this.iPR.getPageContext(), bv.eRd, this.iPR.getUniqueId(), this.iPR.getTabName());
+        this.iQf.a(this.iPS);
+        this.boS.add(this.iQf);
+        this.iPS.addAdapters(this.boS);
     }
 
     public void notifyDataSetChanged() {
-        this.iOj.getAdapter().notifyDataSetChanged();
+        this.iPS.getAdapter().notifyDataSetChanged();
     }
 
     public void setData(ArrayList<n> arrayList) {
-        this.iOj.setData(arrayList);
+        this.iPS.setData(arrayList);
     }
 
     public void setIsFromCDN(boolean z) {
-        if (this.iOl != null) {
-            this.iOl.setFromCDN(z);
+        if (this.iPU != null) {
+            this.iPU.setFromCDN(z);
         }
-        if (this.iOn != null) {
-            this.iOn.setFromCDN(z);
+        if (this.iPW != null) {
+            this.iPW.setFromCDN(z);
         }
-        if (this.iOm != null) {
-            this.iOm.setFromCDN(z);
+        if (this.iPV != null) {
+            this.iPV.setFromCDN(z);
         }
     }
 }

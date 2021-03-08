@@ -19,23 +19,21 @@ import java.util.concurrent.TimeUnit;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f1876a = 1000;
+    public static final long f1494a = 1000;
     private static final long e = Long.MAX_VALUE;
     private static final int f = 5;
     private static final int g = 128;
     private static final int h = 1;
     private static final boolean c = ApollonConstants.DEBUG;
     private static final String d = a.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, a> f1877b = new HashMap<>();
+    public static HashMap<String, a> b = new HashMap<>();
     private static a i = null;
     private final HashMap<Future<?>, Runnable> k = new HashMap<>();
     private final ThreadFactory l = new com.baidu.fsg.base.b.b(this);
     private long m = e;
     private Timer n = new Timer();
     private BlockingQueue<Runnable> o = new LinkedBlockingQueue(10);
-    private C0108a p = new C0108a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
+    private C0114a p = new C0114a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
     private b q = new b(this, null);
     private final HashMap<String, ArrayList<c>> j = new HashMap<>();
 
@@ -45,9 +43,9 @@ public final class a {
     public static synchronized a a(String str) {
         a aVar;
         synchronized (a.class) {
-            if (f1877b.get(str) == null) {
+            if (b.get(str) == null) {
                 i = new a();
-                f1877b.put(str, i);
+                b.put(str, i);
             }
             aVar = i;
         }
@@ -55,7 +53,7 @@ public final class a {
     }
 
     public boolean a(c cVar, String str) {
-        if (cVar == null || cVar.f1882b == null) {
+        if (cVar == null || cVar.b == null) {
             return false;
         }
         synchronized (this.j) {
@@ -96,9 +94,9 @@ public final class a {
             Iterator<c> it = c2.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next.f1881a.equals(str2)) {
+                if (next.f1497a.equals(str2)) {
                     b(next);
-                    c2.remove(next.f1881a);
+                    c2.remove(next.f1497a);
                 }
             }
         }
@@ -108,7 +106,7 @@ public final class a {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (TextUtils.equals(str, next.f1881a)) {
+            if (TextUtils.equals(str, next.f1497a)) {
                 return next;
             }
         }
@@ -126,10 +124,10 @@ public final class a {
 
     private boolean b(c cVar, String str) {
         boolean z = false;
-        if (cVar != null && cVar.f1882b != null) {
+        if (cVar != null && cVar.b != null) {
             synchronized (this.j) {
                 ArrayList<c> c2 = c(str);
-                c a2 = a(cVar.f1881a, c2);
+                c a2 = a(cVar.f1497a, c2);
                 if (a2 != null) {
                     b(a2);
                     c2.remove(a2);
@@ -196,7 +194,7 @@ public final class a {
     private boolean a(c cVar, ArrayList<c> arrayList) {
         Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(it.next().f1881a, cVar.f1881a)) {
+            if (TextUtils.equals(it.next().f1497a, cVar.f1497a)) {
                 return true;
             }
         }
@@ -205,11 +203,11 @@ public final class a {
 
     private void b(c cVar) {
         if (cVar.e) {
-            this.q.a(cVar.f1882b);
+            this.q.a(cVar.b);
             return;
         }
         for (Future<?> future : this.k.keySet()) {
-            if (this.k.get(future) == cVar.f1882b && future != null && (!future.isCancelled() || !future.isDone())) {
+            if (this.k.get(future) == cVar.b && future != null && (!future.isCancelled() || !future.isDone())) {
                 future.cancel(true);
             }
         }
@@ -233,20 +231,20 @@ public final class a {
             cVar.d = 0L;
         }
         if (cVar.e) {
-            this.q.execute(cVar.f1882b);
+            this.q.execute(cVar.b);
             return;
         }
-        this.k.put(this.p.submit(cVar.f1882b), cVar.f1882b);
+        this.k.put(this.p.submit(cVar.b), cVar.b);
         if (c) {
-            Log.d(d, "execute task, " + cVar.f1881a + " execute time is " + System.currentTimeMillis());
+            Log.d(d, "execute task, " + cVar.f1497a + " execute time is " + System.currentTimeMillis());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.base.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0108a extends ThreadPoolExecutor {
-        public C0108a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+    public class C0114a extends ThreadPoolExecutor {
+        public C0114a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
             super(i, i2, j, timeUnit, blockingQueue, threadFactory);
         }
 
@@ -262,13 +260,11 @@ public final class a {
     public class b implements Executor {
 
         /* renamed from: a  reason: collision with root package name */
-        final LinkedList<Runnable> f1879a;
-
-        /* renamed from: b  reason: collision with root package name */
-        Runnable f1880b;
+        final LinkedList<Runnable> f1496a;
+        Runnable b;
 
         private b() {
-            this.f1879a = new LinkedList<>();
+            this.f1496a = new LinkedList<>();
         }
 
         /* synthetic */ b(a aVar, com.baidu.fsg.base.b.b bVar) {
@@ -277,23 +273,23 @@ public final class a {
 
         @Override // java.util.concurrent.Executor
         public synchronized void execute(Runnable runnable) {
-            this.f1879a.offer(new e(this, runnable));
-            if (this.f1880b == null) {
+            this.f1496a.offer(new e(this, runnable));
+            if (this.b == null) {
                 a();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         public synchronized void a() {
-            Runnable poll = this.f1879a.poll();
-            this.f1880b = poll;
+            Runnable poll = this.f1496a.poll();
+            this.b = poll;
             if (poll != null) {
-                a.this.p.execute(this.f1880b);
+                a.this.p.execute(this.b);
             }
         }
 
         public synchronized void a(Runnable runnable) {
-            this.f1879a.remove(runnable);
+            this.f1496a.remove(runnable);
         }
     }
 
@@ -301,10 +297,8 @@ public final class a {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1881a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Runnable f1882b;
+        public String f1497a;
+        public Runnable b;
         public long c;
         public long d;
         public boolean e;
@@ -315,8 +309,8 @@ public final class a {
             this.f = System.currentTimeMillis() + j;
             this.c = j2;
             this.e = z;
-            this.f1882b = runnable;
-            this.f1881a = str;
+            this.b = runnable;
+            this.f1497a = str;
         }
     }
 }

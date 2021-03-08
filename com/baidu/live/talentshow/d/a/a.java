@@ -6,46 +6,46 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private ArrayList<Integer> bGj = new ArrayList<>();
-    private ArrayList<b> bGk = new ArrayList<>();
-    private boolean bGl = false;
+    private ArrayList<Integer> bHJ = new ArrayList<>();
+    private ArrayList<b> bHK = new ArrayList<>();
+    private boolean bHL = false;
 
     /* renamed from: com.baidu.live.talentshow.d.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0204a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0210a {
         void b(b bVar);
     }
 
     public a() {
-        Te();
+        Th();
     }
 
-    public synchronized int Tc() {
+    public synchronized int Tf() {
         int intValue;
-        if (this.bGj.size() == 0) {
+        if (this.bHJ.size() == 0) {
             BdLog.e("BCVideoChat getNextIndex fail");
             intValue = -1;
         } else {
-            this.bGj.remove(0);
-            intValue = this.bGj.get(0).intValue();
+            this.bHJ.remove(0);
+            intValue = this.bHJ.get(0).intValue();
         }
         return intValue;
     }
 
     public synchronized boolean isEmpty() {
-        return this.bGk.isEmpty();
+        return this.bHK.isEmpty();
     }
 
     public synchronized boolean isFull() {
-        return this.bGk.size() == 2;
+        return this.bHK.size() == 2;
     }
 
     public synchronized void reset() {
-        this.bGk.clear();
-        this.bGl = false;
-        Te();
+        this.bHK.clear();
+        this.bHL = false;
+        Th();
     }
 
     public synchronized boolean bp(long j) {
@@ -53,15 +53,15 @@ public class a {
         if (isEmpty()) {
             z = true;
         } else {
-            if (this.bGk.size() > 0) {
-                Iterator<b> it = this.bGk.iterator();
+            if (this.bHK.size() > 0) {
+                Iterator<b> it = this.bHK.iterator();
                 while (it.hasNext()) {
                     b next = it.next();
-                    if (next != null && next.bGn != null && next.bGn.ayk == j) {
+                    if (next != null && next.bHN != null && next.bHN.azK == j) {
                         BdLog.e("BCVideoChat add user duplicate imUK=" + j);
                         z = false;
                         break;
-                    } else if (next.status != d.bFJ && next.status != d.bFK) {
+                    } else if (next.status != d.bHj && next.status != d.bHk) {
                         z = false;
                         break;
                     }
@@ -73,22 +73,22 @@ public class a {
     }
 
     public synchronized int getCount() {
-        return this.bGk.size();
+        return this.bHK.size();
     }
 
     public synchronized void c(b bVar) {
         if (bVar != null) {
-            this.bGk.add(bVar);
-            BdLog.d("BCVideoChat addUser=" + bVar.bGn.ayk + " current=" + bVar.status);
+            this.bHK.add(bVar);
+            BdLog.d("BCVideoChat addUser=" + bVar.bHN.azK + " current=" + bVar.status);
         }
     }
 
     public void db(boolean z) {
-        this.bGl = z;
+        this.bHL = z;
     }
 
-    public boolean Td() {
-        return this.bGl;
+    public boolean Tg() {
+        return this.bHL;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002a, code lost:
@@ -106,14 +106,14 @@ public class a {
         boolean z2 = false;
         synchronized (this) {
             if (j != 0) {
-                Iterator<b> it = this.bGk.iterator();
+                Iterator<b> it = this.bHK.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     b next = it.next();
-                    if (next != null && next.bGn != null && next.bGn.ayk == j) {
+                    if (next != null && next.bHN != null && next.bHN.azK == j) {
                         break;
                     }
                 }
@@ -123,19 +123,19 @@ public class a {
         return z2;
     }
 
-    public synchronized void a(int i, InterfaceC0204a interfaceC0204a) {
-        Iterator<b> it = this.bGk.iterator();
+    public synchronized void a(int i, InterfaceC0210a interfaceC0210a) {
+        Iterator<b> it = this.bHK.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && next.status == i && interfaceC0204a != null) {
-                interfaceC0204a.b(next);
+            if (next != null && next.status == i && interfaceC0210a != null) {
+                interfaceC0210a.b(next);
             }
         }
     }
 
-    public synchronized boolean ek(int i) {
+    public synchronized boolean el(int i) {
         boolean z;
-        Iterator<b> it = this.bGk.iterator();
+        Iterator<b> it = this.bHK.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -157,40 +157,40 @@ public class a {
         if (r0.index == (-1)) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0052, code lost:
-        r5.bGj.add(java.lang.Integer.valueOf(r0.index));
-        Tf();
+        r5.bHJ.add(java.lang.Integer.valueOf(r0.index));
+        Ti();
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0060, code lost:
-        r5.bGk.remove(r0);
+        r5.bHK.remove(r0);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void bq(long j) {
         if (j != 0) {
-            Iterator<b> it = this.bGk.iterator();
+            Iterator<b> it = this.bHK.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 b next = it.next();
-                if (next != null && next.bGn != null && next.bGn.ayk == j) {
+                if (next != null && next.bHN != null && next.bHN.azK == j) {
                     break;
                 }
             }
         }
     }
 
-    public synchronized b el(int i) {
+    public synchronized b em(int i) {
         b bVar;
-        Iterator<b> it = this.bGk.iterator();
+        Iterator<b> it = this.bHK.iterator();
         while (true) {
             if (!it.hasNext()) {
                 bVar = null;
                 break;
             }
             bVar = it.next();
-            if (bVar != null && bVar.bGn != null && bVar.index == i) {
+            if (bVar != null && bVar.bHN != null && bVar.index == i) {
                 break;
             }
         }
@@ -199,30 +199,30 @@ public class a {
 
     public synchronized b br(long j) {
         b bVar;
-        Iterator<b> it = this.bGk.iterator();
+        Iterator<b> it = this.bHK.iterator();
         while (true) {
             if (!it.hasNext()) {
                 bVar = null;
                 break;
             }
             bVar = it.next();
-            if (bVar != null && bVar.bGn != null && bVar.bGn.ayk == j) {
+            if (bVar != null && bVar.bHN != null && bVar.bHN.azK == j) {
                 break;
             }
         }
         return bVar;
     }
 
-    private synchronized void Te() {
-        this.bGj.clear();
+    private synchronized void Th() {
+        this.bHJ.clear();
         for (int i = 1; i <= 2; i++) {
-            this.bGj.add(Integer.valueOf(i));
+            this.bHJ.add(Integer.valueOf(i));
         }
-        Tf();
+        Ti();
     }
 
-    private synchronized void Tf() {
-        Collections.sort(this.bGj, new Comparator<Integer>() { // from class: com.baidu.live.talentshow.d.a.a.1
+    private synchronized void Ti() {
+        Collections.sort(this.bHJ, new Comparator<Integer>() { // from class: com.baidu.live.talentshow.d.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */

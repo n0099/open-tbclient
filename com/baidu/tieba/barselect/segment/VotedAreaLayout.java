@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.d;
 import com.baidu.tieba.barselect.data.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class VotedAreaLayout extends CardBasicLayout {
-    private TextView fmD;
+    private TextView foc;
     private Context mContext;
 
     public VotedAreaLayout(Context context) {
@@ -41,29 +41,29 @@ public class VotedAreaLayout extends CardBasicLayout {
     }
 
     private void tz() {
-        this.fmD = (TextView) findViewById(R.id.vote_num);
+        this.foc = (TextView) findViewById(R.id.vote_num);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.ipv == null || this.itg == null || this.status < 0) {
+        if (this.ire == null || this.iuP == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.fmD.setText(au.numFormatOverWan(this.itg.crj()) + "票");
-        uu(TbadkCoreApplication.getInst().getSkinType());
+        this.foc.setText(au.numFormatOverWan(this.iuP.crp()) + "票");
+        uw(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
-            this.itg = dVar;
-            this.fmD.setText(au.numFormatOverWan(this.itg.crj()) + "票");
+            this.iuP = dVar;
+            this.foc.setText(au.numFormatOverWan(this.iuP.crp()) + "票");
         }
     }
 
-    public void uu(int i) {
-        ap.setViewTextColor(this.fmD, R.color.CAM_X0105, 1, i);
+    public void uw(int i) {
+        ap.setViewTextColor(this.foc, R.color.CAM_X0105, 1, i);
         ap.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
     }
 }

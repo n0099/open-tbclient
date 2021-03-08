@@ -3,7 +3,7 @@ package com.yy.mediaframework.model;
 import android.annotation.SuppressLint;
 import java.util.concurrent.ConcurrentLinkedQueue;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YYMediaSampleAlloc {
     private ConcurrentLinkedQueue<YYMediaSample> mFreeDeque = new ConcurrentLinkedQueue<>();
     private static volatile YYMediaSampleAlloc s_instance = null;

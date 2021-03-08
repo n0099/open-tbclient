@@ -10,34 +10,34 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final h<? super T, ? extends org.a.b<V>> itemTimeoutIndicator;
-    final org.a.b<? extends T> qoQ;
-    final org.a.b<U> qpl;
+    final org.a.b<U> qpN;
+    final org.a.b<? extends T> qps;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a extends FlowableTimeoutTimed.b {
         void onTimeoutError(long j, Throwable th);
     }
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        if (this.qoQ == null) {
+        if (this.qps == null) {
             TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.itemTimeoutIndicator);
             cVar.onSubscribe(timeoutSubscriber);
-            timeoutSubscriber.startFirstTimeout(this.qpl);
-            this.qow.a((j) timeoutSubscriber);
+            timeoutSubscriber.startFirstTimeout(this.qpN);
+            this.qoY.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.qoQ);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.qps);
         cVar.onSubscribe(timeoutFallbackSubscriber);
-        timeoutFallbackSubscriber.startFirstTimeout(this.qpl);
-        this.qow.a((j) timeoutFallbackSubscriber);
+        timeoutFallbackSubscriber.startFirstTimeout(this.qpN);
+        this.qoY.a((j) timeoutFallbackSubscriber);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class TimeoutSubscriber<T> extends AtomicLong implements a, j<T>, d {
         private static final long serialVersionUID = 3764492702657003550L;
         final org.a.c<? super T> actual;
@@ -66,7 +66,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                 }
                 this.actual.onNext(t);
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.m(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
+                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.n(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
                     TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j + 1, this);
                     if (this.task.replace(timeoutConsumer)) {
                         bVar2.subscribe(timeoutConsumer);
@@ -137,7 +137,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class TimeoutFallbackSubscriber<T> extends SubscriptionArbiter implements a, j<T> {
         private static final long serialVersionUID = 3764492702657003550L;
         final org.a.c<? super T> actual;
@@ -172,7 +172,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                 this.consumed++;
                 this.actual.onNext(t);
                 try {
-                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.m(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
+                    org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.n(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null Publisher.");
                     TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j + 1, this);
                     if (this.task.replace(timeoutConsumer)) {
                         bVar2.subscribe(timeoutConsumer);
@@ -247,7 +247,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class TimeoutConsumer extends AtomicReference<d> implements io.reactivex.disposables.b, j<Object> {
         private static final long serialVersionUID = 8708641127342403073L;
         final long idx;

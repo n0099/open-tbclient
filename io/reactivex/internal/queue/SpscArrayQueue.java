@@ -4,7 +4,7 @@ import io.reactivex.internal.a.e;
 import io.reactivex.internal.util.h;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements e<E> {
     private static final Integer MAX_LOOK_AHEAD_STEP = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     private static final long serialVersionUID = -1296597691183856449L;
@@ -15,7 +15,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
     long producerLookAhead;
 
     public SpscArrayQueue(int i) {
-        super(h.Sp(i));
+        super(h.So(i));
         this.mask = length() - 1;
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();

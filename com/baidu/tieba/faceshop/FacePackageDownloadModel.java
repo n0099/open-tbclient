@@ -7,37 +7,37 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FacePackageDownloadModel extends BdBaseModel<l> {
-    private a iVK;
-    private FacePackageDownloadData iVL;
-    private float iVm;
+    private float iWV;
+    private a iXt;
+    private FacePackageDownloadData iXu;
     private int mScreenHeight;
     private int mScreenWidth;
 
     public FacePackageDownloadModel(Context context) {
         super(null);
-        this.iVL = null;
+        this.iXu = null;
         this.mScreenWidth = 0;
         this.mScreenHeight = 0;
-        this.iVK = null;
+        this.iXt = null;
         TbadkApplication inst = TbadkApplication.getInst();
         this.mScreenWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(inst);
         this.mScreenHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(inst);
-        this.iVm = inst.getResources().getDisplayMetrics().density;
+        this.iWV = inst.getResources().getDisplayMetrics().density;
     }
 
-    public void JO(String str) {
-        if (this.iVK == null) {
-            this.iVK = new a(str);
-            this.iVK.setPriority(3);
-            this.iVK.execute(new Object[0]);
+    public void JX(String str) {
+        if (this.iXt == null) {
+            this.iXt = new a(str);
+            this.iXt.setPriority(3);
+            this.iXt.execute(new Object[0]);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     private class a extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
-        private com.baidu.tbadk.core.util.aa cml;
+        private com.baidu.tbadk.core.util.aa cnM;
         private String mPid;
 
         public a(String str) {
@@ -47,22 +47,22 @@ public class FacePackageDownloadModel extends BdBaseModel<l> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: x */
+        /* renamed from: v */
         public FacePackageDownloadData doInBackground(Object... objArr) {
             try {
                 if (this.mPid != null && this.mPid.length() > 0) {
-                    this.cml = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DOWNLOAD_URL);
-                    this.cml.addPostData("pid", this.mPid);
-                    this.cml.addPostData("scr_w", String.valueOf(FacePackageDownloadModel.this.mScreenWidth));
-                    this.cml.addPostData("scr_h", String.valueOf(FacePackageDownloadModel.this.mScreenHeight));
-                    this.cml.addPostData("scr_dip", String.valueOf(FacePackageDownloadModel.this.iVm));
-                    String postNetData = this.cml.postNetData();
-                    FacePackageDownloadModel.this.iVL = (FacePackageDownloadData) OrmObject.objectWithJsonStr(postNetData, FacePackageDownloadData.class);
+                    this.cnM = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DOWNLOAD_URL);
+                    this.cnM.addPostData("pid", this.mPid);
+                    this.cnM.addPostData("scr_w", String.valueOf(FacePackageDownloadModel.this.mScreenWidth));
+                    this.cnM.addPostData("scr_h", String.valueOf(FacePackageDownloadModel.this.mScreenHeight));
+                    this.cnM.addPostData("scr_dip", String.valueOf(FacePackageDownloadModel.this.iWV));
+                    String postNetData = this.cnM.postNetData();
+                    FacePackageDownloadModel.this.iXu = (FacePackageDownloadData) OrmObject.objectWithJsonStr(postNetData, FacePackageDownloadData.class);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            return FacePackageDownloadModel.this.iVL;
+            return FacePackageDownloadModel.this.iXu;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public class FacePackageDownloadModel extends BdBaseModel<l> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(FacePackageDownloadData facePackageDownloadData) {
-            FacePackageDownloadModel.this.iVK = null;
+            FacePackageDownloadModel.this.iXt = null;
             FacePackageDownloadModel.this.mLoadDataCallBack.callback(facePackageDownloadData);
             super.onPostExecute(facePackageDownloadData);
         }
@@ -78,11 +78,11 @@ public class FacePackageDownloadModel extends BdBaseModel<l> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cml != null) {
-                this.cml.cancelNetConnect();
-                this.cml = null;
+            if (this.cnM != null) {
+                this.cnM.cancelNetConnect();
+                this.cnM = null;
             }
-            FacePackageDownloadModel.this.iVK = null;
+            FacePackageDownloadModel.this.iXt = null;
         }
     }
 
@@ -93,8 +93,8 @@ public class FacePackageDownloadModel extends BdBaseModel<l> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iVK != null) {
-            this.iVK.cancel();
+        if (this.iXt != null) {
+            this.iXt.cancel();
             return false;
         }
         return false;

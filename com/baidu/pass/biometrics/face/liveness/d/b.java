@@ -6,14 +6,12 @@ import android.hardware.Sensor;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import com.baidu.pass.biometrics.base.debug.Log;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4046a = "b";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static long f4047b = 1000;
+    public static final String f2804a = "b";
+    private static long b = 1000;
     private Context c;
     private SensorManager d;
     private Sensor e;
@@ -21,7 +19,7 @@ public class b {
     private long g = 0;
     private float h = 2.1474836E9f;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface a {
         void a(float f);
     }
@@ -32,7 +30,7 @@ public class b {
 
     @TargetApi(3)
     public void b() {
-        Log.w(f4046a, "unRegisterSensorListener()");
+        Log.w(f2804a, "unRegisterSensorListener()");
         SensorManager sensorManager = this.d;
         if (sensorManager == null || this.e == null) {
             return;
@@ -45,7 +43,7 @@ public class b {
         this.d = (SensorManager) this.c.getSystemService("sensor");
         SensorManager sensorManager = this.d;
         if (sensorManager == null) {
-            Log.w(f4046a, "sensorManager|senserManager == null");
+            Log.w(f2804a, "sensorManager|senserManager == null");
             return;
         }
         this.e = sensorManager.getDefaultSensor(5);
@@ -56,7 +54,7 @@ public class b {
     }
 
     public float a() {
-        if (this.g != 0 && System.currentTimeMillis() - this.g > f4047b) {
+        if (this.g != 0 && System.currentTimeMillis() - this.g > b) {
             this.h = 0.0f;
         }
         return this.h;

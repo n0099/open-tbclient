@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 /* loaded from: classes2.dex */
 public class aa extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.h, CardViewHolder<a>> {
-    private static final int kkr = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
+    private static final int kmt = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,9 +40,9 @@ public class aa extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         a(new com.baidu.adp.widget.ListView.w() { // from class: com.baidu.tieba.homepage.personalize.adapter.aa.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, com.baidu.adp.widget.ListView.n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if (view != null && aVar != null && !au.isEmpty(aVar.ggD)) {
+                if (view != null && aVar != null && !au.isEmpty(aVar.gih)) {
                     TiebaStatic.log(new ar("c12885"));
-                    bf.bsV().b(aa.this.mPageContext, new String[]{aVar.ggD});
+                    bf.bsY().b(aa.this.mPageContext, new String[]{aVar.gih});
                 }
             }
         });
@@ -53,44 +53,44 @@ public class aa extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.h hVar, CardViewHolder<a> cardViewHolder) {
-        if (hVar == null || cardViewHolder == null || cardViewHolder.cti() == null) {
+        if (hVar == null || cardViewHolder == null || cardViewHolder.cto() == null) {
             return null;
         }
         TiebaStatic.log(new ar("c12884"));
-        cardViewHolder.cti().a(hVar);
-        return cardViewHolder.cti().getView();
+        cardViewHolder.cto().a(hVar);
+        return cardViewHolder.cto().getView();
     }
 
     /* loaded from: classes2.dex */
     public static class a extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.personalize.data.h> {
-        private View eHA;
-        private ImageView eHB;
-        private String ggD;
-        private TbImageView kku;
+        private View eJb;
+        private ImageView eJc;
+        private String gih;
+        private TbImageView kmw;
 
         public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
-            this.kku = (TbImageView) getView().findViewById(R.id.quiz_entrance_img);
-            this.kku.setAutoChangeStyle(true);
-            this.kku.setRadiusById(R.string.J_X06);
-            this.kku.setConrers(15);
-            this.kku.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.kku.setPlaceHolder(2);
-            this.eHA = getView().findViewById(R.id.close_layout);
-            this.eHB = (ImageView) getView().findViewById(R.id.close);
-            this.eHA.setOnClickListener(this);
+            this.kmw = (TbImageView) getView().findViewById(R.id.quiz_entrance_img);
+            this.kmw.setAutoChangeStyle(true);
+            this.kmw.setRadiusById(R.string.J_X06);
+            this.kmw.setConrers(15);
+            this.kmw.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.kmw.setPlaceHolder(2);
+            this.eJb = getView().findViewById(R.id.close_layout);
+            this.eJc = (ImageView) getView().findViewById(R.id.close);
+            this.eJb.setOnClickListener(this);
             getView().setOnClickListener(this);
-            WebPManager.a(this.eHB, R.drawable.icon_pure_card_close22, R.color.CAM_X0101, null);
+            WebPManager.a(this.eJc, R.drawable.icon_pure_card_close22, R.color.CAM_X0101, null);
             onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
 
         private void cG(int i, int i2) {
             int i3;
-            if (this.kku != null) {
+            if (this.kmw != null) {
                 Context context = TbadkCoreApplication.getInst().getContext();
-                ViewGroup.LayoutParams layoutParams = this.kku.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.kmw.getLayoutParams();
                 if (context != null && layoutParams != null) {
-                    int i4 = aa.kkr;
+                    int i4 = aa.kmt;
                     if (i > 0 && i2 > 0) {
                         i3 = (int) (((i4 * 1.0f) * i2) / i);
                     } else {
@@ -98,7 +98,7 @@ public class aa extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
                     }
                     layoutParams.width = -1;
                     layoutParams.height = i3;
-                    this.kku.setLayoutParams(layoutParams);
+                    this.kmw.setLayoutParams(layoutParams);
                 }
             }
         }
@@ -106,7 +106,7 @@ public class aa extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         @Override // com.baidu.tieba.card.b
         public void onChangeSkinType(TbPageContext tbPageContext, int i) {
             ap.setBackgroundColor(getView(), R.color.transparent);
-            WebPManager.a(this.eHB, R.drawable.icon_pure_card_close22, R.color.CAM_X0101, null);
+            WebPManager.a(this.eJc, R.drawable.icon_pure_card_close22, R.color.CAM_X0101, null);
         }
 
         @Override // com.baidu.tieba.card.b
@@ -118,17 +118,17 @@ public class aa extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage
         @Override // com.baidu.tieba.card.b
         public void a(com.baidu.tieba.homepage.personalize.data.h hVar) {
             if (hVar != null) {
-                cG(hVar.alp, hVar.klK);
-                this.kku.setPlaceHolder(2);
-                this.kku.startLoad(hVar.imgUrl, 10, false);
-                this.ggD = hVar.aHq;
+                cG(hVar.amH, hVar.knM);
+                this.kmw.setPlaceHolder(2);
+                this.kmw.startLoad(hVar.imgUrl, 10, false);
+                this.gih = hVar.aIQ;
             }
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == this.eHA) {
+            if (view == this.eJb) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016569));
             }
         }

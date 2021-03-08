@@ -12,30 +12,30 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaAudioMoreFeatureInitialize {
     static {
-        eju();
-        ejv();
-        ejr();
-        ejs();
-        eiZ();
-        ejt();
+        ejE();
+        ejF();
+        ejB();
+        ejC();
+        ejj();
+        ejD();
     }
 
-    private static void ejr() {
+    private static void ejB() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501033) { // from class: com.baidu.yuyinala.more.AlaAudioMoreFeatureInitialize.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501033 && (customResponsedMessage.getData() instanceof ab)) {
-                    a.ejw().aS((ab) customResponsedMessage.getData());
+                    a.ejG().aS((ab) customResponsedMessage.getData());
                 }
             }
         });
     }
 
-    private static void ejs() {
+    private static void ejC() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501015) { // from class: com.baidu.yuyinala.more.AlaAudioMoreFeatureInitialize.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -45,14 +45,14 @@ public class AlaAudioMoreFeatureInitialize {
                     Object obj = hashMap.get("context");
                     Object obj2 = hashMap.get("listener");
                     if ((obj instanceof TbPageContext) && (obj2 instanceof e)) {
-                        a.ejw().a((TbPageContext) obj, (e) obj2);
+                        a.ejG().a((TbPageContext) obj, (e) obj2);
                     }
                 }
             }
         });
     }
 
-    private static void ejt() {
+    private static void ejD() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2501025) { // from class: com.baidu.yuyinala.more.AlaAudioMoreFeatureInitialize.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -62,15 +62,15 @@ public class AlaAudioMoreFeatureInitialize {
                     Object obj = hashMap.get("is_new_user");
                     Object obj2 = hashMap.get("show_super_recharge");
                     if ((obj instanceof Boolean) && (obj2 instanceof Boolean)) {
-                        a.ejw().aG(((Boolean) obj).booleanValue(), ((Boolean) obj2).booleanValue());
+                        a.ejG().aG(((Boolean) obj).booleanValue(), ((Boolean) obj2).booleanValue());
                     }
                 }
             }
         });
     }
 
-    private static void eju() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031017, com.baidu.live.a.avJ + "ala/audio/room/clearCharm");
+    private static void ejE() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031017, com.baidu.live.a.axj + "ala/audio/room/clearCharm");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
@@ -81,8 +81,8 @@ public class AlaAudioMoreFeatureInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void ejv() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031022, com.baidu.live.a.avJ + "ala/audio/closeLive");
+    private static void ejF() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031022, com.baidu.live.a.axj + "ala/audio/closeLive");
         tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
@@ -93,13 +93,13 @@ public class AlaAudioMoreFeatureInitialize {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void eiZ() {
+    private static void ejj() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2913097) { // from class: com.baidu.yuyinala.more.AlaAudioMoreFeatureInitialize.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.ejw().FA();
+                    a.ejG().FD();
                 }
             }
         });

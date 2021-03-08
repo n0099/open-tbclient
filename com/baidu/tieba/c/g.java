@@ -23,15 +23,15 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g {
-    private cb akU;
-    private com.baidu.tbadk.coreExtra.model.a faF;
-    private int gdP;
-    private int gdQ;
-    private int gdR;
-    private PopupWindow gdU;
-    private TextView gdV;
-    private TBSpecificationBtn gdW;
-    private com.baidu.tbadk.core.view.commonBtn.b gdX;
+    private cb amn;
+    private com.baidu.tbadk.coreExtra.model.a fce;
+    private TBSpecificationBtn gfA;
+    private com.baidu.tbadk.core.view.commonBtn.b gfB;
+    private int gft;
+    private int gfu;
+    private int gfv;
+    private PopupWindow gfy;
+    private TextView gfz;
     private View mAnchor;
     private ViewGroup mContentView;
     private TbPageContext mPageContext;
@@ -44,51 +44,51 @@ public class g {
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.c.g.1
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (g.this.gdU != null) {
-                g.this.gdU.dismiss();
-                g.this.gdU = null;
+            if (g.this.gfy != null) {
+                g.this.gfy.dismiss();
+                g.this.gfy = null;
             }
         }
     };
-    private View.OnClickListener iDN = new View.OnClickListener() { // from class: com.baidu.tieba.c.g.2
+    private View.OnClickListener iFw = new View.OnClickListener() { // from class: com.baidu.tieba.c.g.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!j.isNetworkAvailableForImmediately()) {
                 g.this.mPageContext.showToast(R.string.network_ungeilivable);
             }
             if (bh.checkUpIsLogin(g.this.mPageContext.getPageActivity())) {
-                if (g.this.akU != null) {
-                    g.this.faF.a(false, g.this.akU.bnQ().getPortrait(), g.this.akU.bnQ().getUserId(), g.this.akU.bnQ().isGod(), "0", g.this.mPageContext.getUniqueId(), null, "0");
+                if (g.this.amn != null) {
+                    g.this.fce.a(false, g.this.amn.bnS().getPortrait(), g.this.amn.bnS().getUserId(), g.this.amn.bnS().isGod(), "0", g.this.mPageContext.getUniqueId(), null, "0");
                     TiebaStatic.log(new ar("c13571"));
                 } else {
                     return;
                 }
             }
-            if (g.this.gdU != null && g.this.mPopupWindow != null) {
-                g.this.gdU.dismiss();
+            if (g.this.gfy != null && g.this.mPopupWindow != null) {
+                g.this.gfy.dismiss();
                 g.this.mPopupWindow.dismiss();
                 g.this.mPopupWindow = null;
-                g.this.gdU = null;
+                g.this.gfy = null;
             }
         }
     };
 
     public g(TbPageContext tbPageContext, View view) {
         this.mPageContext = tbPageContext;
-        this.faF = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.fce = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
         this.mAnchor = view;
-        ctN();
+        ctT();
     }
 
     public void r(cb cbVar) {
-        this.akU = cbVar;
+        this.amn = cbVar;
     }
 
-    private void ctN() {
-        this.gdR = l.getDimens(this.mPageContext.getContext(), R.dimen.M_W_X005);
+    private void ctT() {
+        this.gfv = l.getDimens(this.mPageContext.getContext(), R.dimen.M_W_X005);
         this.mXOffset = l.getDimens(this.mPageContext.getContext(), R.dimen.M_W_X004);
         this.mYOffset = l.getDimens(this.mPageContext.getContext(), R.dimen.tbds14);
-        this.gdQ = l.getDimens(this.mPageContext.getContext(), R.dimen.tbds160);
+        this.gfu = l.getDimens(this.mPageContext.getContext(), R.dimen.tbds160);
     }
 
     private View getContentView() {
@@ -97,29 +97,29 @@ public class g {
         }
         if (this.mContentView == null) {
             this.mContentView = (ViewGroup) LayoutInflater.from(this.mPageContext.getContext()).inflate(R.layout.neg_feedback_popupwindow, (ViewGroup) null);
-            this.gdV = (TextView) this.mContentView.findViewById(R.id.head_text);
-            this.gdV.setText(this.mPageContext.getString(R.string.confirm_unlike));
-            ap.setViewTextColor(this.gdV, R.color.CAM_X0105, 1);
-            this.gdW = (TBSpecificationBtn) this.mContentView.findViewById(R.id.uninterested_btn);
-            this.gdW.setText(this.mPageContext.getString(R.string.confirm_unlike_confirm));
-            this.gdW.setTextSize(R.dimen.T_X08);
-            this.gdW.setOnClickListener(this.iDN);
-            this.gdX = new com.baidu.tbadk.core.view.commonBtn.b();
-            this.gdX.pR(R.color.CAM_X0304);
-            this.gdW.setConfig(this.gdX);
-            this.mContentView.setPadding(this.gdR, 0, this.gdR, 0);
+            this.gfz = (TextView) this.mContentView.findViewById(R.id.head_text);
+            this.gfz.setText(this.mPageContext.getString(R.string.confirm_unlike));
+            ap.setViewTextColor(this.gfz, R.color.CAM_X0105, 1);
+            this.gfA = (TBSpecificationBtn) this.mContentView.findViewById(R.id.uninterested_btn);
+            this.gfA.setText(this.mPageContext.getString(R.string.confirm_unlike_confirm));
+            this.gfA.setTextSize(R.dimen.T_X08);
+            this.gfA.setOnClickListener(this.iFw);
+            this.gfB = new com.baidu.tbadk.core.view.commonBtn.b();
+            this.gfB.pS(R.color.CAM_X0304);
+            this.gfA.setConfig(this.gfB);
+            this.mContentView.setPadding(this.gfv, 0, this.gfv, 0);
         }
-        bup();
+        bus();
         return this.mContentView;
     }
 
-    public void ctO() {
+    public void ctU() {
         if (this.mPageContext.getContext() != null) {
             View contentView = getContentView();
             this.mWindowWidth = l.getEquipmentWidth(this.mPageContext.getContext()) - (this.mXOffset * 2);
             this.mWindowHeight = getWindowMeasuredHeight();
             int[] iArr = new int[2];
-            boolean a2 = a(this.mPageContext.getContext(), this.mAnchor, this.mWindowHeight, this.mWindowWidth, this.gdQ, this.mYOffset, iArr);
+            boolean a2 = a(this.mPageContext.getContext(), this.mAnchor, this.mWindowHeight, this.mWindowWidth, this.gfu, this.mYOffset, iArr);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
             gradientDrawable.setColor(ap.getColor(R.color.CAM_X0204));
@@ -129,11 +129,11 @@ public class g {
             this.mPopupWindow.setFocusable(true);
             this.mPopupWindow.setTouchable(true);
             this.mPopupWindow.setOnDismissListener(this.mOnDismissListener);
-            this.gdU = new PopupWindow(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
+            this.gfy = new PopupWindow(LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
             if (Build.VERSION.SDK_INT >= 22) {
-                this.gdU.setAttachedInDecor(false);
+                this.gfy.setAttachedInDecor(false);
             }
-            this.gdU.showAtLocation(this.mAnchor, 0, 0, 0);
+            this.gfy.showAtLocation(this.mAnchor, 0, 0, 0);
             if (iArr[0] != 0 || iArr[1] != 0) {
                 this.mPopupWindow.setBackgroundDrawable(new ColorDrawable(0));
                 if (a2) {
@@ -151,8 +151,8 @@ public class g {
             return 0;
         }
         this.mContentView.measure(0, 0);
-        this.gdP = this.mContentView.getMeasuredHeight();
-        return this.gdP;
+        this.gft = this.mContentView.getMeasuredHeight();
+        return this.gft;
     }
 
     private boolean a(Context context, View view, int i, int i2, int i3, int i4, int[] iArr) {
@@ -175,10 +175,10 @@ public class g {
         return z;
     }
 
-    private void bup() {
+    private void bus() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
-            ap.setViewTextColor(this.gdV, R.color.CAM_X0105, 1);
+            ap.setViewTextColor(this.gfz, R.color.CAM_X0105, 1);
             this.mSkinType = skinType;
         }
     }

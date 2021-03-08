@@ -32,7 +32,7 @@ public interface l<T> {
 
     void asyncSetForever(String str, T t);
 
-    b<T> by(String str);
+    b<T> bC(String str);
 
     T get(String str);
 

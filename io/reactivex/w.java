@@ -1,13 +1,13 @@
 package io.reactivex;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class w<T> implements aa<T> {
     protected abstract void b(y<? super T> yVar);
 
     @Override // io.reactivex.aa
     public final void a(y<? super T> yVar) {
-        io.reactivex.internal.functions.a.m(yVar, "subscriber is null");
+        io.reactivex.internal.functions.a.n(yVar, "subscriber is null");
         y<? super T> a2 = io.reactivex.d.a.a(this, yVar);
-        io.reactivex.internal.functions.a.m(a2, "subscriber returned by the RxJavaPlugins hook is null");
+        io.reactivex.internal.functions.a.n(a2, "subscriber returned by the RxJavaPlugins hook is null");
         try {
             b(a2);
         } catch (NullPointerException e) {

@@ -18,69 +18,69 @@ import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b implements a {
     private TbPageContext<?> mPageContext;
-    private com.baidu.tieba.videoEasterEgg.b nUA;
-    private com.baidu.tieba.videoEasterEgg.a.a nUz = new com.baidu.tieba.videoEasterEgg.a.b();
+    private com.baidu.tieba.videoEasterEgg.a.a nWD = new com.baidu.tieba.videoEasterEgg.a.b();
+    private com.baidu.tieba.videoEasterEgg.b nWE;
 
     public b(TbPageContext<?> tbPageContext, com.baidu.tieba.videoEasterEgg.b bVar, Intent intent) {
         this.mPageContext = tbPageContext;
-        this.nUA = bVar;
-        this.nUz.M(intent);
-        this.nUz.F(tbPageContext.getUniqueId());
+        this.nWE = bVar;
+        this.nWD.M(intent);
+        this.nWD.G(tbPageContext.getUniqueId());
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void onClose() {
-        if (this.nUA != null) {
-            this.nUA.finishActivity();
+        if (this.nWE != null) {
+            this.nWE.finishActivity();
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void daw() {
+    public void daF() {
         if (this.mPageContext != null) {
             if (ShareSwitch.isOn() || bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-                buF();
+                buI();
             }
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void dVh() {
-        if (this.nUz != null && this.nUA != null) {
-            this.nUA.UQ(this.nUz.getVideoUrl());
+    public void dVp() {
+        if (this.nWD != null && this.nWE != null) {
+            this.nWE.UX(this.nWD.getVideoUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cMO() {
-        if (this.nUA != null) {
-            this.nUA.arY();
+    public void cMU() {
+        if (this.nWE != null) {
+            this.nWE.asb();
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void dVi() {
-        if (this.nUA != null && this.nUz != null) {
-            this.nUA.gL(this.nUz.getPopText(), this.nUz.getPopImageUrl());
+    public void dVq() {
+        if (this.nWE != null && this.nWD != null) {
+            this.nWE.gL(this.nWD.getPopText(), this.nWD.getPopImageUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void dVj() {
-        if (this.nUz != null) {
-            com.baidu.tbadk.core.sharedPref.b.brQ().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.nUz.getID()), false);
+    public void dVr() {
+        if (this.nWD != null) {
+            com.baidu.tbadk.core.sharedPref.b.brR().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.nWD.getID()), false);
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void onResume() {
-        dVk();
+        dVs();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dVk() {
-        if (this.nUz != null && this.nUA != null) {
-            this.nUA.UP(this.nUz.getVideoUrl());
+    public void dVs() {
+        if (this.nWD != null && this.nWE != null) {
+            this.nWE.UW(this.nWD.getVideoUrl());
         }
     }
 
@@ -92,15 +92,15 @@ public class b implements a {
     public void onDestroy() {
     }
 
-    private void buF() {
-        if (this.nUz != null && this.mPageContext != null) {
+    private void buI() {
+        if (this.nWD != null && this.mPageContext != null) {
             final ShareItem shareItem = new ShareItem();
-            shareItem.title = this.nUz.getShareTitle();
-            shareItem.content = this.nUz.getShareContent();
-            shareItem.linkUrl = this.nUz.getShareUrl();
-            shareItem.fuT = this.nUz.getShareUrl();
-            if (!au.isEmpty(this.nUz.getShareImageUrl())) {
-                shareItem.imageUri = Uri.parse(this.nUz.getShareImageUrl());
+            shareItem.title = this.nWD.getShareTitle();
+            shareItem.content = this.nWD.getShareContent();
+            shareItem.linkUrl = this.nWD.getShareUrl();
+            shareItem.fws = this.nWD.getShareUrl();
+            if (!au.isEmpty(this.nWD.getShareImageUrl())) {
+                shareItem.imageUri = Uri.parse(this.nWD.getShareImageUrl());
             }
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.mPageContext.getPageActivity(), shareItem, true, true);
             shareDialogConfig.setIsCopyLink(true);
@@ -114,7 +114,7 @@ public class b implements a {
             shareDialogConfig.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.videoEasterEgg.b.b.2
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
-                    b.this.dVk();
+                    b.this.dVs();
                 }
             });
             this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));

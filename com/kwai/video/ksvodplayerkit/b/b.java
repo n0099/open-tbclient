@@ -7,11 +7,11 @@ public final class b {
     public static String a(a aVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("adaptationId", aVar.f11043a);
+            jSONObject.put("adaptationId", aVar.f7273a);
         } catch (Exception e) {
         }
         try {
-            jSONObject.put("duration", aVar.f11044b);
+            jSONObject.put("duration", aVar.b);
         } catch (Exception e2) {
         }
         try {

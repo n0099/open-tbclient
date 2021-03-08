@@ -3,28 +3,26 @@ package com.cmic.sso.sdk.c.d;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7719a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Map<String, List<String>> f7720b;
+    private int f5215a;
+    private Map<String, List<String>> b;
     private String c;
 
     public b(int i, Map<String, List<String>> map, String str) {
-        this.f7719a = i;
-        this.f7720b = map;
+        this.f5215a = i;
+        this.b = map;
         this.c = str;
     }
 
     public int a() {
-        return this.f7719a;
+        return this.f5215a;
     }
 
     public Map<String, List<String>> b() {
-        return this.f7720b == null ? new HashMap() : this.f7720b;
+        return this.b == null ? new HashMap() : this.b;
     }
 
     public String c() {
@@ -32,6 +30,6 @@ public class b {
     }
 
     public boolean d() {
-        return this.f7719a == 302 || this.f7719a == 301;
+        return this.f5215a == 302 || this.f5215a == 301;
     }
 }

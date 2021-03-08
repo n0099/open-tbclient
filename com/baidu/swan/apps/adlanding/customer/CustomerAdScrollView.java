@@ -3,18 +3,18 @@ package com.baidu.swan.apps.adlanding.customer;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class CustomerAdScrollView extends ScrollView {
-    private boolean cEj;
-    private boolean cEk;
-    private float cEl;
-    private a cEm;
+    private boolean cFJ;
+    private boolean cFK;
+    private float cFL;
+    private a cFM;
 
     public CustomerAdScrollView(Context context) {
         super(context);
-        this.cEj = false;
-        this.cEk = false;
-        this.cEm = null;
+        this.cFJ = false;
+        this.cFK = false;
+        this.cFM = null;
         setVerticalScrollBarEnabled(false);
     }
 
@@ -23,14 +23,14 @@ public class CustomerAdScrollView extends ScrollView {
         float y = motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.cEl = y;
+                this.cFL = y;
                 break;
             case 2:
-                if (y - this.cEl < 0.0f) {
-                    if (!this.cEj || this.cEk) {
+                if (y - this.cFL < 0.0f) {
+                    if (!this.cFJ || this.cFK) {
                         return false;
                     }
-                } else if (!this.cEk) {
+                } else if (!this.cFK) {
                     return false;
                 }
                 break;
@@ -41,20 +41,20 @@ public class CustomerAdScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.cEm != null) {
-            this.cEm.onScrollChanged(i, i2, i3, i4);
+        if (this.cFM != null) {
+            this.cFM.onScrollChanged(i, i2, i3, i4);
         }
     }
 
     public void setScrollViewListener(a aVar) {
-        this.cEm = aVar;
+        this.cFM = aVar;
     }
 
     public void setIsWebViewOnBottom(boolean z) {
-        this.cEj = z;
+        this.cFJ = z;
     }
 
     public void setIsFooterLayoutShow(boolean z) {
-        this.cEk = z;
+        this.cFK = z;
     }
 }

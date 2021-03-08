@@ -8,18 +8,18 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tieba.yuyinala.d.c;
 import com.baidu.live.tieba.yuyinala.e.a;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a {
-    private String bMT;
-    private com.baidu.live.tieba.yuyinala.e.a bNf;
-    private c bNg;
-    private com.baidu.live.tieba.yuyinala.d.b bNh;
+    private com.baidu.live.tieba.yuyinala.e.a bOF;
+    private c bOG;
+    private com.baidu.live.tieba.yuyinala.d.b bOH;
+    private String bOt;
     private String mLiveId;
     private String mRoomId;
     private TbPageContext mTbPageContext;
-    private final c.a bNi = new c.a() { // from class: com.baidu.live.tieba.yuyinala.b.a.1
+    private final c.a bOI = new c.a() { // from class: com.baidu.live.tieba.yuyinala.b.a.1
         @Override // com.baidu.live.tieba.yuyinala.d.c.a
-        public void Pg() {
+        public void Pj() {
             BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.h.txt_person_report_success);
             a.this.mTbPageContext.getPageActivity().finish();
         }
@@ -32,19 +32,19 @@ public class a {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.yuyinala.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.bNf.Vh().length() > 20) {
+            if (a.this.bOF.Vk().length() > 20) {
                 BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.h.txt_describe_feedback_reason_text_max_limit);
-            } else if (TextUtils.isEmpty(a.this.mRoomId) || a.this.bNg == null) {
-                if (!TextUtils.isEmpty(a.this.mRoomId) && !TextUtils.isEmpty(a.this.bMT) && a.this.bNh != null) {
-                    a.this.bNh.D(a.this.mRoomId, a.this.bNf.Vh(), a.this.bMT);
+            } else if (TextUtils.isEmpty(a.this.mRoomId) || a.this.bOG == null) {
+                if (!TextUtils.isEmpty(a.this.mRoomId) && !TextUtils.isEmpty(a.this.bOt) && a.this.bOH != null) {
+                    a.this.bOH.D(a.this.mRoomId, a.this.bOF.Vk(), a.this.bOt);
                 }
             } else {
-                a.this.bNg.aO(a.this.mRoomId, a.this.bNf.Vh());
+                a.this.bOG.aO(a.this.mRoomId, a.this.bOF.Vk());
             }
         }
     };
-    private final a.InterfaceC0221a bNj = new a.InterfaceC0221a() { // from class: com.baidu.live.tieba.yuyinala.b.a.3
-        @Override // com.baidu.live.tieba.yuyinala.e.a.InterfaceC0221a
+    private final a.InterfaceC0227a bOJ = new a.InterfaceC0227a() { // from class: com.baidu.live.tieba.yuyinala.b.a.3
+        @Override // com.baidu.live.tieba.yuyinala.e.a.InterfaceC0227a
         public void afterTextChanged(Editable editable) {
         }
     };
@@ -53,40 +53,40 @@ public class a {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
         this.mRoomId = str2;
-        this.bNf = new com.baidu.live.tieba.yuyinala.e.a(this.mTbPageContext, this.mOnClickListener, this.bNj);
-        this.bNf.aN(this.mLiveId, str2);
-        this.bNg = new c(this.mTbPageContext.getContext());
-        this.bNg.a(this.bNi);
+        this.bOF = new com.baidu.live.tieba.yuyinala.e.a(this.mTbPageContext, this.mOnClickListener, this.bOJ);
+        this.bOF.aN(this.mLiveId, str2);
+        this.bOG = new c(this.mTbPageContext.getContext());
+        this.bOG.a(this.bOI);
     }
 
     public a(TbPageContext tbPageContext, String str, String str2, String str3) {
         this.mTbPageContext = tbPageContext;
         this.mLiveId = str;
         this.mRoomId = str2;
-        this.bMT = str3;
-        this.bNf = new com.baidu.live.tieba.yuyinala.e.a(this.mTbPageContext, this.mOnClickListener, this.bNj);
-        this.bNf.aN(this.mLiveId, str2);
-        this.bNh = new com.baidu.live.tieba.yuyinala.d.b(this.mTbPageContext.getContext());
-        this.bNh.a(this.bNi);
+        this.bOt = str3;
+        this.bOF = new com.baidu.live.tieba.yuyinala.e.a(this.mTbPageContext, this.mOnClickListener, this.bOJ);
+        this.bOF.aN(this.mLiveId, str2);
+        this.bOH = new com.baidu.live.tieba.yuyinala.d.b(this.mTbPageContext.getContext());
+        this.bOH.a(this.bOI);
     }
 
     public View getView() {
-        return this.bNf.getView();
+        return this.bOF.getView();
     }
 
     public void onDestroy() {
-        if (this.bNg != null) {
-            this.bNg.onDestroy();
+        if (this.bOG != null) {
+            this.bOG.onDestroy();
         }
-        if (this.bNh != null) {
-            this.bNh.onDestroy();
+        if (this.bOH != null) {
+            this.bOH.onDestroy();
         }
-        this.bNf.onDestroy();
+        this.bOF.onDestroy();
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.bNf != null) {
-            this.bNf.onKeyboardVisibilityChanged(z);
+        if (this.bOF != null) {
+            this.bOF.onKeyboardVisibilityChanged(z);
         }
     }
 }

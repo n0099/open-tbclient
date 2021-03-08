@@ -7,16 +7,14 @@ import android.text.TextUtils;
 public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SharedPreferencesUtil f4058a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static SharedPreferences f4059b = null;
+    private static SharedPreferencesUtil f2810a = null;
+    private static SharedPreferences b = null;
     private static final String c = "sapi_system";
     private static String d;
     private static Context e;
 
     private SharedPreferencesUtil(Context context, String str) {
-        f4059b = context.getSharedPreferences(str, 0);
+        b = context.getSharedPreferences(str, 0);
         e = context.getApplicationContext();
     }
 
@@ -53,15 +51,15 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
             }
             switch (c2) {
                 case 0:
-                    return (T) Boolean.valueOf(f4059b.getBoolean(str, ((Boolean) t).booleanValue()));
+                    return (T) Boolean.valueOf(b.getBoolean(str, ((Boolean) t).booleanValue()));
                 case 1:
-                    return (T) Long.valueOf(f4059b.getLong(str, ((Long) t).longValue()));
+                    return (T) Long.valueOf(b.getLong(str, ((Long) t).longValue()));
                 case 2:
-                    return (T) Float.valueOf(f4059b.getFloat(str, ((Float) t).floatValue()));
+                    return (T) Float.valueOf(b.getFloat(str, ((Float) t).floatValue()));
                 case 3:
-                    return (T) Integer.valueOf(f4059b.getInt(str, ((Integer) t).intValue()));
+                    return (T) Integer.valueOf(b.getInt(str, ((Integer) t).intValue()));
                 default:
-                    return (T) f4059b.getString(str, (String) t);
+                    return (T) b.getString(str, (String) t);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -83,15 +81,15 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     public static synchronized void getInstance(Context context) {
         synchronized (SharedPreferencesUtil.class) {
-            if (f4058a == null) {
-                f4058a = new SharedPreferencesUtil(context, c);
+            if (f2810a == null) {
+                f2810a = new SharedPreferencesUtil(context, c);
             }
         }
     }
 
     public static boolean put(String str, Object obj) {
         boolean z = true;
-        SharedPreferences.Editor edit = f4059b.edit();
+        SharedPreferences.Editor edit = b.edit();
         String simpleName = obj.getClass().getSimpleName();
         char c2 = 65535;
         try {
@@ -147,6 +145,6 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
     }
 
     public static void remove(String str) {
-        f4059b.edit().remove(str).apply();
+        b.edit().remove(str).apply();
     }
 }

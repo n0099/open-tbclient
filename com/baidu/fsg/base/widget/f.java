@@ -5,11 +5,11 @@ import android.view.View;
 class f implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardPopupWindow f2038a;
+    final /* synthetic */ SafeKeyBoardPopupWindow f1592a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-        this.f2038a = safeKeyBoardPopupWindow;
+        this.f1592a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnFocusChangeListener

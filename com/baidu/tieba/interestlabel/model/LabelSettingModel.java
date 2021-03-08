@@ -15,27 +15,27 @@ import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LabelSettingModel extends BdBaseModel {
-    private a kXT;
-    private com.baidu.adp.framework.listener.a kYd;
-    private com.baidu.adp.framework.listener.a kYe;
+    private a kZV;
+    private com.baidu.adp.framework.listener.a laf;
+    private com.baidu.adp.framework.listener.a lag;
     private b mLabelDataSet;
     private TbPageContext<?> mPageContext;
 
     public LabelSettingModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.kYd = new com.baidu.adp.framework.listener.a(1003333, CmdConfigSocket.CMD_GET_INTEREST_LABEL_LIST) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.1
+        this.laf = new com.baidu.adp.framework.listener.a(1003333, CmdConfigSocket.CMD_GET_INTEREST_LABEL_LIST) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-                    if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.kXT != null) {
-                        LabelSettingModel.this.kXT.a(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.mLabelDataSet : null, responsedMessage.getError());
+                    if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.kZV != null) {
+                        LabelSettingModel.this.kZV.a(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.mLabelDataSet : null, responsedMessage.getError());
                     }
                 }
             }
         };
-        this.kYe = new com.baidu.adp.framework.listener.a(1003334, CmdConfigSocket.CMD_SUB_INTEREST_LABEL_LIST) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.2
+        this.lag = new com.baidu.adp.framework.listener.a(1003334, CmdConfigSocket.CMD_SUB_INTEREST_LABEL_LIST) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
@@ -43,8 +43,8 @@ public class LabelSettingModel extends BdBaseModel {
                         if (responsedMessage.getError() != 0 && !StringUtils.isNull(responsedMessage.getErrorString())) {
                             LabelSettingModel.this.mPageContext.showToast(responsedMessage.getErrorString());
                         }
-                        if (LabelSettingModel.this.kXT != null) {
-                            LabelSettingModel.this.kXT.a(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
+                        if (LabelSettingModel.this.kZV != null) {
+                            LabelSettingModel.this.kZV.a(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
                         }
                     }
                 }
@@ -52,18 +52,18 @@ public class LabelSettingModel extends BdBaseModel {
         };
         this.mPageContext = tbPageContext;
         this.mLabelDataSet = new b();
-        registerListener(this.kYd);
-        registerListener(this.kYe);
+        registerListener(this.laf);
+        registerListener(this.lag);
     }
 
     public void a(a aVar) {
-        this.kXT = aVar;
+        this.kZV = aVar;
     }
 
-    public void daP() {
+    public void daY() {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.kXT != null) {
-                this.kXT.a(LabelRequestEnum.GET_LABEL, null, -1);
+            if (this.kZV != null) {
+                this.kZV.a(LabelRequestEnum.GET_LABEL, null, -1);
                 return;
             }
             return;

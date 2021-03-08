@@ -5,12 +5,12 @@ import com.kwad.sdk.mvp.Presenter;
 public abstract class a extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    protected b f8924a;
+    protected b f5945a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8924a = (b) n();
+        this.f5945a = (b) n();
     }
 }

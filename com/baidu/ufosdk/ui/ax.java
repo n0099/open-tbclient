@@ -7,15 +7,15 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 final class ax extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackHotActivity f5449a;
+    final /* synthetic */ FeedbackHotActivity f3670a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(FeedbackHotActivity feedbackHotActivity) {
-        this.f5449a = feedbackHotActivity;
+        this.f3670a = feedbackHotActivity;
     }
 
     @Override // android.os.Handler
@@ -29,23 +29,23 @@ final class ax extends Handler {
         WebView webView3;
         super.handleMessage(message);
         if (message.what == 3) {
-            webView = this.f5449a.j;
+            webView = this.f3670a.j;
             if (webView.getProgress() < 100) {
-                webView2 = this.f5449a.j;
+                webView2 = this.f3670a.j;
                 webView2.stopLoading();
-                view = this.f5449a.l;
+                view = this.f3670a.l;
                 view.setVisibility(8);
-                Context applicationContext = this.f5449a.getApplicationContext();
-                textView2 = this.f5449a.m;
+                Context applicationContext = this.f3670a.getApplicationContext();
+                textView2 = this.f3670a.m;
                 com.baidu.ufosdk.f.i.a(applicationContext, textView2);
-                linearLayout = this.f5449a.h;
+                linearLayout = this.f3670a.h;
                 linearLayout.setVisibility(0);
-                webView3 = this.f5449a.j;
+                webView3 = this.f3670a.j;
                 webView3.setVisibility(8);
             }
         }
         if (message.what == 0) {
-            textView = this.f5449a.n;
+            textView = this.f3670a.n;
             textView.setText(com.baidu.ufosdk.f.s.a("8"));
         }
     }

@@ -3,7 +3,7 @@ package kotlin.collections;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import java.util.Collection;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public abstract class a<E> implements Collection<E> {
     @Override // java.util.Collection
     public boolean add(E e) {
@@ -44,7 +44,7 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public boolean containsAll(Collection<? extends Object> collection) {
-        kotlin.jvm.internal.p.o(collection, "elements");
+        kotlin.jvm.internal.p.p(collection, "elements");
         Collection<? extends Object> collection2 = collection;
         if (collection2.isEmpty()) {
             return true;
@@ -71,15 +71,15 @@ public abstract class a<E> implements Collection<E> {
     @Override // java.util.Collection
     public Object[] toArray() {
         Object[] r = kotlin.jvm.internal.n.r(this);
-        kotlin.jvm.internal.p.n(r, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
+        kotlin.jvm.internal.p.o(r, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
         return r;
     }
 
     @Override // java.util.Collection
     public <T> T[] toArray(T[] tArr) {
-        kotlin.jvm.internal.p.o(tArr, com.baidu.fsg.base.statistics.b.j);
+        kotlin.jvm.internal.p.p(tArr, com.baidu.fsg.base.statistics.b.j);
         T[] tArr2 = (T[]) kotlin.jvm.internal.n.a(this, tArr);
-        kotlin.jvm.internal.p.n(tArr2, "kotlin.jvm.internal.Coll…oArray(collection, array)");
+        kotlin.jvm.internal.p.o(tArr2, "kotlin.jvm.internal.Coll…oArray(collection, array)");
         return tArr2;
     }
 

@@ -14,13 +14,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HttpExecutor {
     private static final String TAG = "HttpExecutor";
     private static volatile HttpExecutor mInstance;
     private OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(new HttpExecutorLogger()).connectTimeout(5, TimeUnit.SECONDS).readTimeout(5, TimeUnit.SECONDS).writeTimeout(5, TimeUnit.SECONDS).build();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface HttpRequest {
         Map<String, String> getHeaders();
 
@@ -35,7 +35,7 @@ public class HttpExecutor {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface ResponseHandler {
         void onFailure(int i, String str);
 
@@ -99,7 +99,7 @@ public class HttpExecutor {
         LogUtils.e(TAG, "failedResponse errorCode ：" + i + ", errorMsg :" + str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private class HttpExecutorLogger implements Interceptor {
         private HttpExecutorLogger() {
         }

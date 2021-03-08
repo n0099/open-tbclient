@@ -6,7 +6,7 @@ import android.view.View;
 import com.yy.videoplayer.decoder.VideoConstant;
 import com.yy.videoplayer.view.YMFLayoutParams;
 import com.yy.videoplayer.view.YMFPlayerSession;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class YMFPlayerAPI {
     private static final String TAG = "[YMFPlayerAPI]";
     private YMFPlayerSession mPlayerSession;

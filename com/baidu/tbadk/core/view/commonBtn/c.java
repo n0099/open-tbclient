@@ -10,62 +10,62 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends TBSpecificationButtonConfig {
-    private boolean fnq;
+    private boolean foQ;
 
     public c() {
-        this.fnb = R.color.CAM_X0302;
-        this.fnq = false;
+        this.foB = R.color.CAM_X0302;
+        this.foQ = false;
     }
 
-    public void pR(@ColorRes int i) {
-        this.fnb = i;
-        this.fnq = false;
-        this.fnm = true;
-        if (this.fno != null) {
-            this.fno.buU();
+    public void pS(@ColorRes int i) {
+        this.foB = i;
+        this.foQ = false;
+        this.foM = true;
+        if (this.foO != null) {
+            this.foO.buX();
         }
     }
 
-    public void pU(@ColorInt int i) {
-        this.fnb = i;
-        this.fnq = false;
-        this.fnm = false;
-        if (this.fno != null) {
-            this.fno.buU();
+    public void pV(@ColorInt int i) {
+        this.foB = i;
+        this.foQ = false;
+        this.foM = false;
+        if (this.foO != null) {
+            this.foO.buX();
         }
     }
 
-    public void buY() {
-        this.fnb = R.color.CAM_X0101;
-        this.fnq = false;
-        this.fnm = true;
-        if (this.fno != null) {
-            this.fno.buU();
+    public void bvb() {
+        this.foB = R.color.CAM_X0101;
+        this.foQ = false;
+        this.foM = true;
+        if (this.foO != null) {
+            this.foO.buX();
         }
     }
 
-    public void pT(@ColorRes int i) {
-        this.fnb = i;
-        this.fnc = R.color.CAM_X0902;
-        this.fnq = true;
-        this.fnm = true;
-        if (this.fno != null) {
-            this.fno.buU();
+    public void pU(@ColorRes int i) {
+        this.foB = i;
+        this.foC = R.color.CAM_X0902;
+        this.foQ = true;
+        this.foM = true;
+        if (this.foO != null) {
+            this.foO.buX();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable ak(float f) {
-        return am(f);
+    public Drawable ao(float f) {
+        return aq(f);
     }
 
-    private Drawable am(float f) {
+    private Drawable aq(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.fnq) {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), ap.getColor(this.ajU, this.fnc));
+        if (this.foQ) {
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), ap.getColor(this.aln, this.foC));
         } else {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(this.fnm ? ap.getColor(this.ajU, this.fnb) : this.fnb, com.baidu.tbadk.core.elementsMaven.a.nM(R.string.A_X07)));
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(this.foM ? ap.getColor(this.aln, this.foB) : this.foB, com.baidu.tbadk.core.elementsMaven.a.nN(R.string.A_X07)));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

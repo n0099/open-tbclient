@@ -1,38 +1,38 @@
 package com.baidu.poly.util;
 
 import android.util.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public class d {
-    private static String coX = null;
-    private static String coY = null;
-    private static int coZ = 0;
-    public static boolean cpa = true;
+    private static String cqA = null;
+    private static int cqB = 0;
+    public static boolean cqC = true;
+    private static String cqz;
 
     private static void b(StackTraceElement[] stackTraceElementArr) {
-        coX = stackTraceElementArr[1].getFileName();
-        coY = stackTraceElementArr[1].getMethodName();
-        coZ = stackTraceElementArr[1].getLineNumber();
+        cqz = stackTraceElementArr[1].getFileName();
+        cqA = stackTraceElementArr[1].getMethodName();
+        cqB = stackTraceElementArr[1].getLineNumber();
+    }
+
+    private static String dO(String str) {
+        return Thread.currentThread().getName() + "[" + cqz + ":" + cqA + ":" + cqB + "]" + str;
     }
 
     public static void info(String str) {
-        if (!cpa) {
+        if (!cqC) {
             return;
         }
         Log.i("CashierSdk", str);
     }
 
-    private static String t(String str) {
-        return Thread.currentThread().getName() + "[" + coX + ":" + coY + ":" + coZ + "]" + str;
-    }
-
     public static void a(Object... objArr) {
-        if (cpa) {
+        if (cqC) {
             b(new Throwable().getStackTrace());
-            Log.e("CashierSdk", m(objArr));
+            Log.e("CashierSdk", l(objArr));
         }
     }
 
-    private static String m(Object... objArr) {
+    private static String l(Object... objArr) {
         if (objArr == null) {
             return "";
         }
@@ -42,13 +42,13 @@ public class d {
                 sb.append(obj.toString());
             }
         }
-        return t(sb.toString());
+        return dO(sb.toString());
     }
 
     public static void a(String str, Throwable th) {
-        if (cpa) {
+        if (cqC) {
             b(new Throwable().getStackTrace());
-            Log.e("CashierSdk", m(str), th);
+            Log.e("CashierSdk", l(str), th);
         }
     }
 }

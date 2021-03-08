@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.util.ag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.AlaPlayAnimationView;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
     private static final int MAX_USERNAME_LENGTH = 10;
     private HeadImageView alaCardUserHeadImg;
@@ -59,11 +59,11 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     }
 
     public void setData(cb cbVar) {
-        if (cbVar != null && cbVar.boj() != null) {
-            AlaUserInfoData alaUserInfoData = cbVar.boj().user_info;
+        if (cbVar != null && cbVar.bol() != null) {
+            AlaUserInfoData alaUserInfoData = cbVar.bol().user_info;
             String str = "";
-            if (cbVar.bnQ() != null) {
-                str = cbVar.bnQ().getName_show();
+            if (cbVar.bnS() != null) {
+                str = cbVar.bnS().getName_show();
             } else if (alaUserInfoData != null) {
                 str = alaUserInfoData.user_name;
             }
@@ -74,7 +74,7 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
                 this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
             }
             this.alaCardUserName.setText(str);
-            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), au.numFormatOverWan(cbVar.boj().audience_count)));
+            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), au.numFormatOverWan(cbVar.bol().audience_count)));
         }
     }
 

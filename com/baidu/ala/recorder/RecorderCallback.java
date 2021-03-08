@@ -2,7 +2,7 @@ package com.baidu.ala.recorder;
 
 import com.baidu.ala.helper.AlaLiveDebugInfo;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RecorderCallback {
     public static final int ERROR_CAMERA_CAN_NOT_OPEN_ERROR = 10;
     public static final int ERROR_CAMERA_EGL_ERROR = 3;

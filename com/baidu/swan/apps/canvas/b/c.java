@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.ao.ah;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c extends a {
     private int mHeight;
     private int mWidth;
@@ -21,10 +21,10 @@ public class c extends a {
         super(str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.mX = ah.P((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.mY = ah.P((float) jSONObject.optDouble("y"));
-            this.mWidth = ah.P((float) jSONObject.optDouble("width"));
-            this.mHeight = ah.P((float) jSONObject.optDouble("height"));
+            this.mX = ah.T((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.mY = ah.T((float) jSONObject.optDouble("y"));
+            this.mWidth = ah.T((float) jSONObject.optDouble("width"));
+            this.mHeight = ah.T((float) jSONObject.optDouble("height"));
         } catch (Exception e) {
             com.baidu.swan.apps.console.c.e("canvasGetImageData", "CanvasGetImageData meets json exception", e);
         }
@@ -68,7 +68,7 @@ public class c extends a {
 
     @NonNull
     private Bitmap i(@NonNull Bitmap bitmap) {
-        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.awW());
+        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.awZ());
         Matrix matrix = new Matrix();
         matrix.postScale(density, density);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);

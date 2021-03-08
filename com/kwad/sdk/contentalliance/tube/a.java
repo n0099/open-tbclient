@@ -31,7 +31,7 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
 
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z, @NonNull AdResultData adResultData) {
-            if (a.this.f8624a.isEmpty()) {
+            if (a.this.f5755a.isEmpty()) {
                 a.this.g = 0;
                 m.e();
             }
@@ -39,7 +39,7 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
                 adTemplate.mIsTubeEpisodeList = true;
                 com.kwad.sdk.core.d.a.a("DataFetcherTubeImpl", "onSuccess PhotoId=" + d.k(adTemplate.photoInfo) + " 集：" + d.B(adTemplate.photoInfo));
             }
-            a.this.f8624a.addAll(adResultData.adTemplateList);
+            a.this.f5755a.addAll(adResultData.adTemplateList);
             a.e(a.this);
         }
 
@@ -63,15 +63,15 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
     }
 
     private long e() {
-        if (this.f8624a == null || this.f8624a.isEmpty()) {
+        if (this.f5755a == null || this.f5755a.isEmpty()) {
             return 0L;
         }
-        return d.k(this.f8624a.get(this.f8624a.size() - 1).photoInfo);
+        return d.k(this.f5755a.get(this.f5755a.size() - 1).photoInfo);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.a
     public void a(boolean z, boolean z2, int i) {
-        if (z2 && this.f8624a.size() >= this.c) {
+        if (z2 && this.f5755a.size() >= this.c) {
             a(f.g.k, f.g.l);
             return;
         }
@@ -82,16 +82,16 @@ public class a extends com.kwad.sdk.contentalliance.home.a.a {
         a(z, z2, i, this.g);
         if (!c.a()) {
             if (z) {
-                this.f8624a.clear();
+                this.f5755a.clear();
                 this.g = 0;
             }
             this.f.a(z2, e());
             return;
         }
-        this.f8624a.clear();
+        this.f5755a.clear();
         this.g = 0;
         m.e();
-        this.f8624a.addAll(c.b());
+        this.f5755a.addAll(c.b());
         c.c();
         a(z, this.g);
         this.g++;

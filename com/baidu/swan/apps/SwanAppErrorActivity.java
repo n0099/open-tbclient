@@ -13,27 +13,27 @@ import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.swan.support.v4.app.m;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanAppErrorActivity extends FragmentActivity {
     public static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.u.c.b cCj;
-    private ForbiddenInfo cCk;
-    private String cCl;
-    private com.baidu.swan.apps.ai.b cCh = null;
-    private int cCm = 0;
-    private int cCn = 0;
+    private com.baidu.swan.apps.u.c.b cDJ;
+    private ForbiddenInfo cDK;
+    private String cDL;
+    private com.baidu.swan.apps.ai.b cDH = null;
+    private int cDM = 0;
+    private int cDN = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        Y(a.C0352a.aiapps_hold, a.C0352a.aiapps_slide_out_to_bottom);
+        Y(a.C0358a.aiapps_hold, a.C0358a.aiapps_slide_out_to_bottom);
         int releaseFixedOrientation = ak.releaseFixedOrientation(this);
         super.onCreate(bundle);
         ak.fixedOrientation(this, releaseFixedOrientation);
         setContentView(a.g.aiapps_error_activity);
         k(getIntent());
-        agk();
         agn();
+        agq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,14 +41,14 @@ public class SwanAppErrorActivity extends FragmentActivity {
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         k(intent);
-        agk();
+        agn();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        eF(com.baidu.swan.apps.t.a.axs().aii());
+        eF(com.baidu.swan.apps.t.a.axv().ail());
     }
 
     public void eF(boolean z) {
@@ -60,23 +60,23 @@ public class SwanAppErrorActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.cCh == null) {
-            this.cCh = new com.baidu.swan.apps.ai.b();
+        if (this.cDH == null) {
+            this.cDH = new com.baidu.swan.apps.ai.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.cCh.H(viewGroup);
+            this.cDH.H(viewGroup);
         } else {
-            this.cCh.I(viewGroup);
+            this.cDH.I(viewGroup);
         }
     }
 
-    private void agk() {
+    private void agn() {
         d dVar;
-        m beb = bdY().beb();
+        m bed = bea().bed();
         if (getIntent() != null) {
-            dVar = d.a(this.cCl, this.cCk);
-        } else if (this.cCj == null) {
+            dVar = d.a(this.cDL, this.cDK);
+        } else if (this.cDJ == null) {
             if (DEBUG) {
                 Log.e("SwanAppErrorActivity", "launchInfo is null,error");
                 return;
@@ -85,45 +85,45 @@ public class SwanAppErrorActivity extends FragmentActivity {
         } else {
             dVar = new d();
         }
-        beb.a(a.f.ai_apps_error_layout, dVar);
-        beb.commit();
+        bed.a(a.f.ai_apps_error_layout, dVar);
+        bed.commit();
     }
 
     private void k(Intent intent) {
         if (intent != null) {
-            this.cCj = com.baidu.swan.apps.u.c.b.t(intent);
-            this.cCk = (ForbiddenInfo) intent.getParcelableExtra("swan_error_forbidden_info");
-            if (TextUtils.isEmpty(this.cCj.getAppId()) && this.cCk != null) {
-                this.cCj.oR(this.cCk.appId);
+            this.cDJ = com.baidu.swan.apps.u.c.b.t(intent);
+            this.cDK = (ForbiddenInfo) intent.getParcelableExtra("swan_error_forbidden_info");
+            if (TextUtils.isEmpty(this.cDJ.getAppId()) && this.cDK != null) {
+                this.cDJ.oY(this.cDK.appId);
             }
-            this.cCl = intent.getStringExtra("swan_error_type");
+            this.cDL = intent.getStringExtra("swan_error_type");
         }
     }
 
-    public com.baidu.swan.apps.u.c.b agl() {
-        return this.cCj;
+    public com.baidu.swan.apps.u.c.b ago() {
+        return this.cDJ;
     }
 
     private void Y(int i, int i2) {
-        this.cCm = i;
-        this.cCn = i2;
+        this.cDM = i;
+        this.cDN = i2;
     }
 
-    private void agm() {
-        if (this.cCm != 0 || this.cCn != 0) {
-            overridePendingTransition(this.cCm, this.cCn);
-            this.cCm = 0;
-            this.cCn = 0;
+    private void agp() {
+        if (this.cDM != 0 || this.cDN != 0) {
+            overridePendingTransition(this.cDM, this.cDN);
+            this.cDM = 0;
+            this.cDN = 0;
         }
     }
 
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        agm();
+        agp();
     }
 
-    private void agn() {
+    private void agq() {
         com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
     }
 }

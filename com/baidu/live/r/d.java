@@ -10,12 +10,12 @@ import com.baidu.live.tbadk.core.util.NetWork;
 import com.baidu.live.tbadk.core.util.httpnet.HttpRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class d extends BdAsyncTask<String, Void, b> {
-    private c bxc;
+    private c byC;
 
     public d(c cVar) {
-        this.bxc = cVar;
+        this.byC = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class d extends BdAsyncTask<String, Void, b> {
     /* renamed from: m */
     public b doInBackground(String... strArr) {
         b bVar = new b();
-        NetWork netWork = new NetWork(com.baidu.live.a.avJ + "ala/audio/user/getUserInfoSDK");
+        NetWork netWork = new NetWork(com.baidu.live.a.axj + "ala/audio/user/getUserInfoSDK");
         netWork.addPostData("uk", strArr[0]);
         netWork.addPostData("group_id", strArr[1]);
         netWork.addPostData("live_id", strArr[2]);
@@ -42,8 +42,8 @@ public class d extends BdAsyncTask<String, Void, b> {
                     bVar.errCode = errorData.error_code;
                     bVar.errMsg = errorData.error_msg;
                     if (optJSONObject != null) {
-                        bVar.bxd = new PersonUserData();
-                        bVar.bxd.parserJson(optJSONObject);
+                        bVar.byD = new PersonUserData();
+                        bVar.byD.parserJson(optJSONObject);
                     }
                 } catch (JSONException e) {
                     BdLog.detailException(e);
@@ -58,11 +58,11 @@ public class d extends BdAsyncTask<String, Void, b> {
     @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
     /* renamed from: a */
     public void onPostExecute(b bVar) {
-        if (this.bxc != null && bVar != null) {
+        if (this.byC != null && bVar != null) {
             if (bVar.errCode == 0) {
-                this.bxc.a(bVar.bxd);
+                this.byC.a(bVar.byD);
             } else {
-                this.bxc.z(bVar.errCode, bVar.errMsg);
+                this.byC.z(bVar.errCode, bVar.errMsg);
             }
         }
     }

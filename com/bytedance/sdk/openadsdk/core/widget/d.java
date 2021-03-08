@@ -15,10 +15,8 @@ import com.bytedance.sdk.openadsdk.utils.ac;
 public class d extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f6800a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private TextView f6801b;
+    private TextView f4609a;
+    private TextView b;
     private Button c;
     private TextView d;
     private TextView e;
@@ -52,15 +50,15 @@ public class d extends AlertDialog {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(ac.f(this.g, "tt_common_download_dialog"));
-        setCanceledOnTouchOutside(true);
+        setCanceledOnTouchOutside(false);
         a();
     }
 
     private void a() {
-        this.f6800a = (TextView) findViewById(ac.e(this.g, "tt_download_title"));
+        this.f4609a = (TextView) findViewById(ac.e(this.g, "tt_download_title"));
         this.d = (TextView) findViewById(ac.e(this.g, "tt_download_app_detail"));
         this.c = (Button) findViewById(ac.e(this.g, "tt_download_btn"));
-        this.f6801b = (TextView) findViewById(ac.e(this.g, "tt_download_app_version"));
+        this.b = (TextView) findViewById(ac.e(this.g, "tt_download_app_version"));
         this.e = (TextView) findViewById(ac.e(this.g, "tt_download_cancel"));
         this.h = (TextView) findViewById(ac.e(this.g, "tt_download_app_privacy"));
         this.i = (TextView) findViewById(ac.e(this.g, "tt_download_app_developer"));
@@ -116,19 +114,19 @@ public class d extends AlertDialog {
         if (this.g == null) {
             this.g = p.a();
         }
-        if (this.f6800a != null) {
-            this.f6800a.setText(this.j);
+        if (this.f4609a != null) {
+            this.f4609a.setText(this.j);
         }
         if (this.f != null && !TextUtils.isEmpty(this.l)) {
-            com.bytedance.sdk.openadsdk.i.e.a(this.g).a(this.l, this.f);
+            com.bytedance.sdk.openadsdk.h.d.a(this.g).a(this.l, this.f);
         }
         if (this.i != null) {
             String a2 = ac.a(this.g, "tt_open_app_detail_developer");
             this.i.setText(TextUtils.isEmpty(this.m) ? String.format(a2, "补充中，可于应用官网查看") : String.format(a2, this.m));
         }
-        if (this.f6801b != null) {
+        if (this.b != null) {
             String a3 = ac.a(this.g, "tt_open_app_version");
-            this.f6801b.setText(TextUtils.isEmpty(this.k) ? String.format(a3, "暂无") : String.format(a3, this.k));
+            this.b.setText(TextUtils.isEmpty(this.k) ? String.format(a3, "暂无") : String.format(a3, this.k));
         }
     }
 

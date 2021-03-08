@@ -6,14 +6,12 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5099a = "login_";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f5100b = "login_pop";
+    public static final String f3443a = "login_";
+    public static final String b = "login_pop";
     public static final String c = "modifyPWD_widge";
     public static final String d = "normal_incomplete";
     public static final String e = "normal_guest";

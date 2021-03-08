@@ -8,16 +8,16 @@ import com.baidu.mobstat.Config;
 import com.yy.mediaframework.CameraInterface;
 import com.yy.mediaframework.Constant;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoEntities {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoData {
         public byte[] data;
         public long pts;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoInfo {
         public int width = 0;
         public int height = 0;
@@ -26,7 +26,7 @@ public class VideoEntities {
         public boolean videoStabilization = false;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class WaterMark {
         public int height;
         public int offsetx;
@@ -36,7 +36,7 @@ public class VideoEntities {
         public int width;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RectSize {
         public int mHeight;
         public int mWidth;
@@ -47,7 +47,7 @@ public class VideoEntities {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoSizes {
         public int mViewHeight;
         public int mViewWidth;
@@ -65,7 +65,7 @@ public class VideoEntities {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class VideoParameters implements Parcelable {
         public static final Parcelable.Creator<VideoParameters> CREATOR = new Parcelable.Creator<VideoParameters>() { // from class: com.yy.mediaframework.utils.VideoEntities.VideoParameters.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -144,7 +144,7 @@ public class VideoEntities {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ScreenRecordConfig {
         private int mScreenWidth = 0;
         private int mScreenHeight = 0;
@@ -163,7 +163,7 @@ public class VideoEntities {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class CameraPreviewConfig {
         private int mCameraFacing;
         private int mOrientation;
@@ -237,7 +237,7 @@ public class VideoEntities {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ResolutionItem {
         public int height;
         public String showText;
@@ -254,7 +254,7 @@ public class VideoEntities {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class BitRateItem {
         public int bitrateInKbps;
         public String showText;
@@ -269,7 +269,7 @@ public class VideoEntities {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class FrameRateItem {
         public int frameRate;
         public String showText;
@@ -284,12 +284,12 @@ public class VideoEntities {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class CodecItem {
         public CodecId codecId;
         public String showText;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public enum CodecId {
             SOFT_ENCODER_X264,
             HARD_ENCODER_H264,
@@ -306,7 +306,7 @@ public class VideoEntities {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class CameraItem {
         public int cameraFacing;
         public String showText;

@@ -113,12 +113,12 @@ public class a extends com.kwad.sdk.contentalliance.detail.a {
     public com.kwad.sdk.contentalliance.detail.c c() {
         com.kwad.sdk.contentalliance.detail.c cVar = new com.kwad.sdk.contentalliance.detail.c();
         cVar.k = this;
-        cVar.f8404a = this.e;
+        cVar.f5600a = this.e;
         cVar.l = this.d;
         cVar.j = this.i;
         cVar.i = this.h;
         com.kwad.sdk.contentalliance.detail.video.b bVar = new com.kwad.sdk.contentalliance.detail.video.b(this, this.d, this.j, this.i, this.h);
-        cVar.f8405b.add(bVar);
+        cVar.b.add(bVar);
         cVar.c.add(bVar.d());
         cVar.m = bVar;
         return cVar;

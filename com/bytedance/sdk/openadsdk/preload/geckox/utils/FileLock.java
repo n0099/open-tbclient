@@ -8,10 +8,8 @@ import java.util.Map;
 public class FileLock {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, Integer> f7521a = new HashMap();
-
-    /* renamed from: b  reason: collision with root package name */
-    private final int f7522b;
+    private static final Map<String, Integer> f5103a = new HashMap();
+    private final int b;
     private final String c;
 
     private static native int nGetFD(String str) throws Exception;
@@ -32,7 +30,7 @@ public class FileLock {
 
     private FileLock(String str, int i) {
         this.c = str;
-        this.f7522b = i;
+        this.b = i;
     }
 
     public static FileLock a(String str) {
@@ -82,12 +80,12 @@ public class FileLock {
 
     private static int d(String str) throws Exception {
         Integer num;
-        synchronized (f7521a) {
-            num = f7521a.get(str);
+        synchronized (f5103a) {
+            num = f5103a.get(str);
             if (num == null) {
                 new File(str).getParentFile().mkdirs();
                 num = Integer.valueOf(nGetFD(str));
-                f7521a.put(str, num);
+                f5103a.put(str, num);
             }
         }
         return num.intValue();
@@ -95,7 +93,7 @@ public class FileLock {
 
     public void a() {
         try {
-            nUnlockFile(this.f7522b);
+            nUnlockFile(this.b);
         } catch (Exception e) {
             throw new RuntimeException("release lock failed，path:" + this.c);
         }
@@ -103,8 +101,8 @@ public class FileLock {
 
     public void b() {
         Integer remove;
-        synchronized (f7521a) {
-            remove = f7521a.remove(this.c);
+        synchronized (f5103a) {
+            remove = f5103a.remove(this.c);
         }
         try {
             nRelease(remove.intValue());

@@ -3,17 +3,15 @@ package com.sdk.base.framework.a;
 final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f12774a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f12775b = System.currentTimeMillis();
+    private long f7606a;
+    private long b = System.currentTimeMillis();
 
     public c(a aVar, long j) {
-        this.f12774a = 1500L;
-        this.f12774a = 2000L;
+        this.f7606a = 1500L;
+        this.f7606a = 2000L;
     }
 
     public final boolean a() {
-        return System.currentTimeMillis() - this.f12775b > this.f12774a;
+        return System.currentTimeMillis() - this.b > this.f7606a;
     }
 }

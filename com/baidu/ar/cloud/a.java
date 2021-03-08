@@ -3,7 +3,7 @@ package com.baidu.ar.cloud;
 import com.baidu.ar.c;
 import com.baidu.ar.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a extends d implements ICloudIR {
     private WeakReference<ICloudIR> mj;
     private ICloudIRStateChangedListener mk;

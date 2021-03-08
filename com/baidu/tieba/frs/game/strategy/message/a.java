@@ -49,10 +49,10 @@ public class a {
             cb cbVar = new cb();
             bVar.setThreadData(cbVar);
             cbVar.a(list.get(i2));
-            cbVar.boP();
-            if (!TextUtils.isEmpty(cbVar.bpb())) {
+            cbVar.boR();
+            if (!TextUtils.isEmpty(cbVar.bpd())) {
                 an anVar = new an();
-                anVar.zV(cbVar.bpb());
+                anVar.Ac(cbVar.bpd());
                 linkedList.add(anVar);
             } else {
                 linkedList.add(bVar);

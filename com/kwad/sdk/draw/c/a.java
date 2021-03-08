@@ -15,10 +15,8 @@ public class a {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private AdTemplate f9711a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private long f9712b;
+    private AdTemplate f6428a;
+    private long b;
     private g c;
     private com.kwad.sdk.contentalliance.detail.video.a d;
     private c e;
@@ -30,7 +28,7 @@ public class a {
                 return;
             }
             if (a.this.e == null) {
-                a.this.e = new c(a.this.f9712b, System.currentTimeMillis());
+                a.this.e = new c(a.this.b, System.currentTimeMillis());
                 a.this.d.a(a.this.e);
             }
             a.this.c();
@@ -39,8 +37,8 @@ public class a {
 
     public a(@NonNull AdTemplate adTemplate, @NonNull g gVar, @NonNull DetailVideoView detailVideoView) {
         adTemplate.mKsPlayerClickTimeParam = System.currentTimeMillis();
-        this.f9711a = adTemplate;
-        this.f9712b = com.kwad.sdk.core.response.b.a.k(com.kwad.sdk.core.response.b.c.j(this.f9711a));
+        this.f6428a = adTemplate;
+        this.b = com.kwad.sdk.core.response.b.a.k(com.kwad.sdk.core.response.b.c.j(this.f6428a));
         this.c = gVar;
         this.d = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
         f();
@@ -55,13 +53,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
         if (this.c.d()) {
-            this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f9712b, j));
+            this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.b, j));
             this.d.f();
         }
     }
 
     private void f() {
-        this.d.a(new d.a().a(com.kwad.sdk.core.response.b.c.l(this.f9711a)).a(this.f9711a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.c.a(this.f9711a)).a());
+        this.d.a(new d.a().a(com.kwad.sdk.core.response.b.c.l(this.f6428a)).a(this.f6428a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.c.a(this.f6428a)).a());
         this.d.e();
     }
 

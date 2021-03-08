@@ -59,17 +59,15 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ay {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final ay f3734b = new ay();
+    private static final ay b = new ay();
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, String> f3735a = new HashMap<>();
+    private HashMap<String, String> f2623a = new HashMap<>();
 
     public static ay a() {
-        return f3734b;
+        return b;
     }
 
     private ay() {
@@ -83,7 +81,7 @@ public class ay {
     }
 
     private void b() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f3735a.size() == 0) {
+        if (Build.VERSION.SDK_INT >= 14 && this.f2623a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -363,12 +361,12 @@ public class ay {
     }
 
     private void a(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !this.f3735a.containsKey(str)) {
-            this.f3735a.put(str, str2.toUpperCase(Locale.ENGLISH));
+        if (!TextUtils.isEmpty(str) && !this.f2623a.containsKey(str)) {
+            this.f2623a.put(str, str2.toUpperCase(Locale.ENGLISH));
         }
     }
 
     public String a(String str) {
-        return this.f3735a.get(str);
+        return this.f2623a.get(str);
     }
 }

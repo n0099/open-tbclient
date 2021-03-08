@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class f implements d {
-    private final b pKA;
+    private final b pMF;
 
     /* loaded from: classes5.dex */
     public interface b {
-        List<Integer> eyl();
+        List<Integer> eyu();
 
-        int eym();
+        int eyv();
     }
 
     /* loaded from: classes5.dex */
@@ -21,12 +21,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> eyl() {
+        public List<Integer> eyu() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int eym() {
+        public int eyv() {
             return 0;
         }
     }
@@ -36,23 +36,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.pKA = (b) g.checkNotNull(bVar);
+        this.pMF = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public int PI(int i) {
-        List<Integer> eyl = this.pKA.eyl();
-        if (eyl == null || eyl.isEmpty()) {
+    public int PM(int i) {
+        List<Integer> eyu = this.pMF.eyu();
+        if (eyu == null || eyu.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < eyl.size()) {
-                if (eyl.get(i3).intValue() <= i) {
+            if (i3 < eyu.size()) {
+                if (eyu.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return eyl.get(i3).intValue();
+                    return eyu.get(i3).intValue();
                 }
             } else {
                 return Integer.MAX_VALUE;
@@ -61,7 +61,7 @@ public class f implements d {
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
-    public h PJ(int i) {
-        return com.facebook.imagepipeline.f.g.k(i, i >= this.pKA.eym(), false);
+    public h PN(int i) {
+        return com.facebook.imagepipeline.f.g.k(i, i >= this.pMF.eyv(), false);
     }
 }

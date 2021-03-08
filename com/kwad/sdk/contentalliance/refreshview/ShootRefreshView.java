@@ -23,7 +23,7 @@ import com.kwad.sdk.utils.ao;
 public class ShootRefreshView extends View implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Property<ShootRefreshView, Float> f8831a = new Property<ShootRefreshView, Float>(Float.class, null) { // from class: com.kwad.sdk.contentalliance.refreshview.ShootRefreshView.1
+    public static final Property<ShootRefreshView, Float> f5883a = new Property<ShootRefreshView, Float>(Float.class, null) { // from class: com.kwad.sdk.contentalliance.refreshview.ShootRefreshView.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         /* renamed from: a */
@@ -39,9 +39,7 @@ public class ShootRefreshView extends View implements d {
             shootRefreshView.invalidate();
         }
     };
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Property<ShootRefreshView, Float> f8832b = new Property<ShootRefreshView, Float>(Float.class, null) { // from class: com.kwad.sdk.contentalliance.refreshview.ShootRefreshView.2
+    public static final Property<ShootRefreshView, Float> b = new Property<ShootRefreshView, Float>(Float.class, null) { // from class: com.kwad.sdk.contentalliance.refreshview.ShootRefreshView.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
         /* renamed from: a */
@@ -192,7 +190,7 @@ public class ShootRefreshView extends View implements d {
                 ShootRefreshView.this.invalidate();
             }
         });
-        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this, PropertyValuesHolder.ofFloat(f8831a, 0.5235988f, 1.2566371f), PropertyValuesHolder.ofFloat(f8832b, -(c / 2.0f), (-(c / 2.0f)) - 120.0f));
+        ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this, PropertyValuesHolder.ofFloat(f5883a, 0.5235988f, 1.2566371f), PropertyValuesHolder.ofFloat(b, -(c / 2.0f), (-(c / 2.0f)) - 120.0f));
         ofPropertyValuesHolder.setInterpolator(new DecelerateInterpolator());
         ofPropertyValuesHolder.setDuration(350L);
         this.w = new AnimatorSet();

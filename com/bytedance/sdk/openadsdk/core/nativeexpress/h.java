@@ -10,58 +10,51 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.core.widget.TTRatingBar;
 import com.bytedance.sdk.openadsdk.utils.ac;
 import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.u;
-import com.bytedance.sdk.openadsdk.utils.x;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 class h extends BackupView {
-    private static i[] j = {new i(2, 3.0241935f, 375, Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER), new i(3, 1.25f, 375, 300), new i(4, 1.4044944f, 375, 267), new i(16, 1.25f, 375, 300), new i(5, 1.25f, 375, 300), new i(15, 1.25f, 375, 300)};
-    boolean h;
-    boolean i;
-    private int k;
-    private View l;
-    private NativeExpressView m;
-    private com.bytedance.sdk.openadsdk.downloadnew.core.a n;
+    private static i[] k = {new i(2, 3.0241935f, 375, Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER), new i(3, 1.25f, 375, 300), new i(4, 1.4044944f, 375, 267), new i(16, 1.25f, 375, 300), new i(5, 1.25f, 375, 300), new i(15, 1.25f, 375, 300)};
+    private int l;
+    private View m;
+    private NativeExpressView n;
+    private com.bytedance.sdk.openadsdk.downloadnew.core.a o;
 
     public h(@NonNull Context context) {
         super(context);
-        this.h = true;
-        this.i = true;
-        this.f6617a = context;
+        this.f4471a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.bytedance.sdk.openadsdk.core.d.l lVar, NativeExpressView nativeExpressView, com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
         u.b("FeedExpressBackupView", "show backup view");
         setBackgroundColor(-1);
-        this.f6618b = lVar;
-        this.m = nativeExpressView;
-        this.n = aVar;
-        this.k = aj.d(this.f6618b.W());
-        b(this.k);
-        c();
-        this.m.addView(this, new ViewGroup.LayoutParams(-2, -2));
+        this.b = lVar;
+        this.n = nativeExpressView;
+        this.o = aVar;
+        this.l = aj.d(this.b.aj());
+        a(this.l);
+        b();
+        this.n.addView(this, new ViewGroup.LayoutParams(-2, -2));
     }
 
-    private void c() {
-        i a2 = a(this.f6618b.X());
-        this.f = ak.c(this.f6617a, this.m.getExpectExpressWidth());
-        this.g = ak.c(this.f6617a, this.m.getExpectExpressHeight());
+    private void b() {
+        i b = b(this.b.ak());
+        this.f = ak.c(this.f4471a, this.n.getExpectExpressWidth());
+        this.g = ak.c(this.f4471a, this.n.getExpectExpressHeight());
         if (this.f <= 0) {
-            this.f = ak.c(this.f6617a);
+            this.f = ak.c(this.f4471a);
         }
         if (this.g <= 0) {
-            this.g = Float.valueOf(this.f / a2.f6647b).intValue();
+            this.g = Float.valueOf(this.f / b.c).intValue();
         }
-        if (this.f > 0 && this.f > ak.c(this.f6617a)) {
-            float c = ak.c(this.f6617a) / this.f;
-            this.f = ak.c(this.f6617a);
+        if (this.f > 0 && this.f > ak.c(this.f4471a)) {
+            float c = ak.c(this.f4471a) / this.f;
+            this.f = ak.c(this.f4471a);
             this.g = Float.valueOf(c * this.g).intValue();
         }
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -74,42 +67,42 @@ class h extends BackupView {
             ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
         }
         setLayoutParams(layoutParams);
-        if (aj.c(this.f6618b.W()) == 9) {
+        if (aj.c(this.b.aj()) == 9) {
             this.e = "draw_ad";
-            h();
+            g();
             return;
         }
         this.e = "embeded_ad";
-        switch (this.f6618b.X()) {
+        switch (this.b.ak()) {
             case 2:
-                d();
+                c();
                 return;
             case 3:
-                f();
-                return;
-            case 4:
                 e();
                 return;
+            case 4:
+                d();
+                return;
             case 5:
-                i();
+                h();
                 return;
             case 15:
-                g();
+                f();
                 return;
             case 16:
-                j();
+                i();
                 return;
             default:
                 return;
         }
     }
 
-    private i a(int i) {
+    private i b(int i) {
         i[] iVarArr;
-        i iVar = j[0];
+        i iVar = k[0];
         try {
-            for (i iVar2 : j) {
-                if (iVar2.f6646a == i) {
+            for (i iVar2 : k) {
+                if (iVar2.f4494a == i) {
                     return iVar2;
                 }
             }
@@ -120,15 +113,15 @@ class h extends BackupView {
     }
 
     private void a(ImageView imageView) {
-        com.bytedance.sdk.openadsdk.i.e.a(this.f6617a).a(this.f6618b.M().get(0).a(), imageView);
+        com.bytedance.sdk.openadsdk.h.d.a(this.f4471a).a(this.b.Z().get(0).a(), imageView);
     }
 
-    private void d() {
-        this.l = LayoutInflater.from(this.f6617a).inflate(ac.f(this.f6617a, "tt_backup_feed_img_small"), (ViewGroup) this, true);
-        a((ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_img")));
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_desc"))).setText(getDescription());
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_title"))).setText(getTitle());
-        ((ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.1
+    private void c() {
+        this.m = LayoutInflater.from(this.f4471a).inflate(ac.f(this.f4471a, "tt_backup_feed_img_small"), (ViewGroup) this, true);
+        a((ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_img")));
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_desc"))).setText(getDescription());
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_title"))).setText(getTitle());
+        ((ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 h.this.a();
@@ -137,216 +130,171 @@ class h extends BackupView {
         a((View) this, true);
     }
 
-    private void e() {
-        this.l = LayoutInflater.from(this.f6617a).inflate(ac.f(this.f6617a, "tt_backup_feed_img_group"), (ViewGroup) this, true);
-        TextView textView = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_download"));
-        String a2 = this.f6618b.M().get(0).a();
-        String a3 = this.f6618b.M().get(1).a();
-        String a4 = this.f6618b.M().get(2).a();
-        com.bytedance.sdk.openadsdk.i.e.a(this.f6617a).a(a2, (ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_img_1")));
-        com.bytedance.sdk.openadsdk.i.e.a(this.f6617a).a(a3, (ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_img_2")));
-        com.bytedance.sdk.openadsdk.i.e.a(this.f6617a).a(a4, (ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_img_3")));
-        com.bytedance.sdk.openadsdk.i.e.a(this.f6617a).a(this.f6618b.I().a(), (ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_icon")));
-        ((ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.2
+    private void d() {
+        this.m = LayoutInflater.from(this.f4471a).inflate(ac.f(this.f4471a, "tt_backup_feed_img_group"), (ViewGroup) this, true);
+        TextView textView = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_download"));
+        String a2 = this.b.Z().get(0).a();
+        String a3 = this.b.Z().get(1).a();
+        String a4 = this.b.Z().get(2).a();
+        com.bytedance.sdk.openadsdk.h.d.a(this.f4471a).a(a2, (ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_img_1")));
+        com.bytedance.sdk.openadsdk.h.d.a(this.f4471a).a(a3, (ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_img_2")));
+        com.bytedance.sdk.openadsdk.h.d.a(this.f4471a).a(a4, (ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_img_3")));
+        com.bytedance.sdk.openadsdk.h.d.a(this.f4471a).a(this.b.U().a(), (ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_icon")));
+        ((ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 h.this.a();
             }
         });
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_desc"))).setText(getDescription());
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_title"))).setText(getTitle());
-        if (!TextUtils.isEmpty(this.f6618b.S())) {
-            textView.setText(this.f6618b.S());
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_desc"))).setText(getDescription());
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_title"))).setText(getTitle());
+        if (!TextUtils.isEmpty(this.b.af())) {
+            textView.setText(this.b.af());
+        }
+        a((View) this, false);
+        a((View) textView, true);
+    }
+
+    private void e() {
+        this.m = LayoutInflater.from(this.f4471a).inflate(ac.f(this.f4471a, "tt_backup_feed_horizontal"), (ViewGroup) this, true);
+        this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_container")).setVisibility(8);
+        this.m.findViewById(ac.e(this.f4471a, "tt_bu_img_container")).setVisibility(0);
+        ImageView imageView = (ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_img"));
+        TextView textView = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_download"));
+        imageView.setAdjustViewBounds(true);
+        imageView.setMaxHeight(this.g);
+        a(imageView);
+        ((ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                h.this.a();
+            }
+        });
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_desc"))).setText(getDescription());
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_title"))).setText(getTitle());
+        if (!TextUtils.isEmpty(this.b.af())) {
+            textView.setText(this.b.af());
         }
         a((View) this, false);
         a((View) textView, true);
     }
 
     private void f() {
-        this.l = LayoutInflater.from(this.f6617a).inflate(ac.f(this.f6617a, "tt_backup_feed_horizontal"), (ViewGroup) this, true);
-        this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_container")).setVisibility(8);
-        this.l.findViewById(ac.e(this.f6617a, "tt_bu_img_container")).setVisibility(0);
-        ImageView imageView = (ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_img"));
-        TextView textView = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_download"));
-        imageView.setAdjustViewBounds(true);
-        imageView.setMaxHeight(this.g);
-        a(imageView);
-        ((ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.3
+        this.m = LayoutInflater.from(this.f4471a).inflate(ac.f(this.f4471a, "tt_backup_feed_vertical"), (ViewGroup) this, true);
+        this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_container")).setVisibility(0);
+        this.m.findViewById(ac.e(this.f4471a, "tt_bu_img_container")).setVisibility(8);
+        FrameLayout frameLayout = (FrameLayout) this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_container_inner"));
+        TextView textView = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_desc"));
+        TextView textView2 = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_title"));
+        TextView textView3 = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_name1"));
+        TextView textView4 = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_name2"));
+        TextView textView5 = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_download"));
+        TextView textView6 = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_score"));
+        TTRatingBar tTRatingBar = (TTRatingBar) this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_score_bar"));
+        com.bytedance.sdk.openadsdk.h.d.a(this.f4471a).a(this.b.U().a(), (ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_icon")));
+        ((ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 h.this.a();
             }
         });
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_desc"))).setText(getDescription());
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_title"))).setText(getTitle());
-        if (!TextUtils.isEmpty(this.f6618b.S())) {
-            textView.setText(this.f6618b.S());
-        }
-        a((View) this, false);
-        a((View) textView, true);
-    }
-
-    private void g() {
-        this.l = LayoutInflater.from(this.f6617a).inflate(ac.f(this.f6617a, "tt_backup_feed_vertical"), (ViewGroup) this, true);
-        this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_container")).setVisibility(0);
-        this.l.findViewById(ac.e(this.f6617a, "tt_bu_img_container")).setVisibility(8);
-        FrameLayout frameLayout = (FrameLayout) this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_container_inner"));
-        TextView textView = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_desc"));
-        TextView textView2 = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_title"));
-        TextView textView3 = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_name1"));
-        TextView textView4 = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_name2"));
-        TextView textView5 = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_download"));
-        TextView textView6 = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_score"));
-        TTRatingBar tTRatingBar = (TTRatingBar) this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_score_bar"));
-        com.bytedance.sdk.openadsdk.i.e.a(this.f6617a).a(this.f6618b.I().a(), (ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_icon")));
-        ((ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                h.this.a();
-            }
-        });
-        int e = this.f6618b.U() != null ? this.f6618b.U().e() : 4;
+        int e = this.b.ah() != null ? this.b.ah().e() : 4;
         textView6.setText(String.format(Locale.getDefault(), "%.1f", Float.valueOf(e)));
         tTRatingBar.setStarEmptyNum(1);
         tTRatingBar.setStarFillNum(e);
-        tTRatingBar.setStarImageWidth(ak.c(this.f6617a, 15.0f));
-        tTRatingBar.setStarImageHeight(ak.c(this.f6617a, 14.0f));
-        tTRatingBar.setStarImagePadding(ak.c(this.f6617a, 4.0f));
+        tTRatingBar.setStarImageWidth(ak.c(this.f4471a, 15.0f));
+        tTRatingBar.setStarImageHeight(ak.c(this.f4471a, 14.0f));
+        tTRatingBar.setStarImagePadding(ak.c(this.f4471a, 4.0f));
         tTRatingBar.a();
         textView3.setText(getNameOrSource());
         textView4.setText(getTitle());
         textView.setText(getDescription());
         textView2.setText(getTitle());
-        if (!TextUtils.isEmpty(this.f6618b.S())) {
-            textView5.setText(this.f6618b.S());
+        if (!TextUtils.isEmpty(this.b.af())) {
+            textView5.setText(this.b.af());
         }
-        View b2 = b();
-        if (b2 != null) {
+        View videoView = getVideoView();
+        if (videoView != null) {
             int i = (this.f * Constants.METHOD_IM_FRIEND_GROUP_QUERY) / 375;
             frameLayout.removeAllViews();
-            frameLayout.addView(b2, new ViewGroup.LayoutParams(i, (i * 16) / 9));
+            frameLayout.addView(videoView, new ViewGroup.LayoutParams(i, (i * 16) / 9));
         }
         a((View) this, false);
         a((View) textView5, true);
     }
 
-    private void h() {
-        this.l = LayoutInflater.from(this.f6617a).inflate(ac.f(this.f6617a, "tt_backup_draw"), (ViewGroup) this, true);
-        FrameLayout frameLayout = (FrameLayout) this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_container"));
-        TextView textView = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_desc"));
-        TextView textView2 = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_title"));
-        TextView textView3 = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_download"));
+    private void g() {
+        this.m = LayoutInflater.from(this.f4471a).inflate(ac.f(this.f4471a, "tt_backup_draw"), (ViewGroup) this, true);
+        FrameLayout frameLayout = (FrameLayout) this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_container"));
+        TextView textView = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_desc"));
+        TextView textView2 = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_title"));
+        TextView textView3 = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_download"));
         textView.setText(getDescription());
         textView2.setText(getTitle());
-        if (!TextUtils.isEmpty(this.f6618b.S())) {
-            textView3.setText(this.f6618b.S());
+        if (!TextUtils.isEmpty(this.b.af())) {
+            textView3.setText(this.b.af());
         }
-        View b2 = b();
-        if (b2 != null) {
+        View videoView = getVideoView();
+        if (videoView != null) {
             frameLayout.removeAllViews();
-            frameLayout.addView(b2, new ViewGroup.LayoutParams(-1, -1));
+            frameLayout.addView(videoView, new ViewGroup.LayoutParams(-1, -1));
         }
         a((View) textView2, false);
         a((View) textView, false);
         a((View) textView3, true);
     }
 
-    private void i() {
-        this.l = LayoutInflater.from(this.f6617a).inflate(ac.f(this.f6617a, "tt_backup_feed_horizontal"), (ViewGroup) this, true);
-        FrameLayout frameLayout = (FrameLayout) this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_container"));
+    private void h() {
+        this.m = LayoutInflater.from(this.f4471a).inflate(ac.f(this.f4471a, "tt_backup_feed_horizontal"), (ViewGroup) this, true);
+        FrameLayout frameLayout = (FrameLayout) this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_container"));
         frameLayout.setVisibility(0);
-        this.l.findViewById(ac.e(this.f6617a, "tt_bu_img_container")).setVisibility(8);
-        TextView textView = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_download"));
-        ((ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.5
+        this.m.findViewById(ac.e(this.f4471a, "tt_bu_img_container")).setVisibility(8);
+        TextView textView = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_download"));
+        ((ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 h.this.a();
             }
         });
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_desc"))).setText(getDescription());
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_title"))).setText(getTitle());
-        if (!TextUtils.isEmpty(this.f6618b.S())) {
-            textView.setText(this.f6618b.S());
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_desc"))).setText(getDescription());
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_title"))).setText(getTitle());
+        if (!TextUtils.isEmpty(this.b.af())) {
+            textView.setText(this.b.af());
         }
-        View b2 = b();
-        if (b2 != null) {
+        View videoView = getVideoView();
+        if (videoView != null) {
             frameLayout.removeAllViews();
-            frameLayout.addView(b2, new ViewGroup.LayoutParams(this.f, (this.f * 9) / 16));
+            frameLayout.addView(videoView, new ViewGroup.LayoutParams(this.f, (this.f * 9) / 16));
         }
         a((View) this, false);
         a((View) textView, true);
     }
 
-    private void j() {
-        this.l = LayoutInflater.from(this.f6617a).inflate(ac.f(this.f6617a, "tt_backup_feed_vertical"), (ViewGroup) this, true);
-        this.l.findViewById(ac.e(this.f6617a, "tt_bu_video_container")).setVisibility(8);
-        this.l.findViewById(ac.e(this.f6617a, "tt_bu_img_container")).setVisibility(0);
-        TextView textView = (TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_download"));
-        a((ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_img")));
-        ((ImageView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.6
+    private void i() {
+        this.m = LayoutInflater.from(this.f4471a).inflate(ac.f(this.f4471a, "tt_backup_feed_vertical"), (ViewGroup) this, true);
+        this.m.findViewById(ac.e(this.f4471a, "tt_bu_video_container")).setVisibility(8);
+        this.m.findViewById(ac.e(this.f4471a, "tt_bu_img_container")).setVisibility(0);
+        TextView textView = (TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_download"));
+        a((ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_img")));
+        ((ImageView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_close"))).setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 h.this.a();
             }
         });
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_desc"))).setText(getDescription());
-        ((TextView) this.l.findViewById(ac.e(this.f6617a, "tt_bu_title"))).setText(getTitle());
-        if (!TextUtils.isEmpty(this.f6618b.S())) {
-            textView.setText(this.f6618b.S());
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_desc"))).setText(getDescription());
+        ((TextView) this.m.findViewById(ac.e(this.f4471a, "tt_bu_title"))).setText(getTitle());
+        if (!TextUtils.isEmpty(this.b.af())) {
+            textView.setText(this.b.af());
         }
         a((View) this, false);
         a((View) textView, true);
-    }
-
-    public View b() {
-        NativeVideoTsView nativeVideoTsView;
-        if (this.f6618b == null || this.f6617a == null) {
-            return null;
-        }
-        if (k()) {
-            try {
-                nativeVideoTsView = new NativeVideoTsView(this.f6617a, this.f6618b);
-                nativeVideoTsView.setControllerStatusCallBack(new NativeVideoTsView.a() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.h.7
-                    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.a
-                    public void a(boolean z, long j2, long j3, long j4, boolean z2) {
-                    }
-                });
-                nativeVideoTsView.setIsAutoPlay(this.h);
-                nativeVideoTsView.setIsQuiet(this.i);
-            } catch (Throwable th) {
-                nativeVideoTsView = null;
-            }
-        } else {
-            nativeVideoTsView = null;
-        }
-        if (k() && nativeVideoTsView != null && nativeVideoTsView.a(0L, true, false)) {
-            return nativeVideoTsView;
-        }
-        return null;
-    }
-
-    private void b(int i) {
-        this.i = p.h().a(this.k);
-        int c = p.h().c(i);
-        if (3 == c) {
-            this.h = false;
-        } else if (1 == c && x.d(this.f6617a)) {
-            this.h = true;
-        } else if (2 == c) {
-            if (x.e(this.f6617a) || x.d(this.f6617a)) {
-                this.h = true;
-            }
-        }
-    }
-
-    private boolean k() {
-        return this.f6618b != null && (this.f6618b.X() == 5 || this.f6618b.X() == 15);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.BackupView
     protected void a(int i, com.bytedance.sdk.openadsdk.core.d.j jVar) {
-        if (this.m != null) {
-            this.m.a(i, jVar);
+        if (this.n != null) {
+            this.n.a(i, jVar);
         }
     }
 }

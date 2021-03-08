@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 @NotProguard
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class JSEvent {
     @V8JavascriptField
     public Object currentTarget;

@@ -2,7 +2,7 @@ package com.baidu.live.videochat;
 
 import android.view.View;
 import com.baidu.live.data.AlaLiveUserInfoData;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void J(int i, String str);
 
@@ -12,9 +12,9 @@ public interface b {
 
     void M(int i, String str);
 
-    void RP();
+    void RS();
 
-    void VL();
+    void VO();
 
     void a(boolean z, long j, View view, View view2);
 

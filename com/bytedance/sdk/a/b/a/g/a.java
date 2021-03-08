@@ -17,26 +17,25 @@ import java.security.cert.X509Certificate;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class a extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Class<?> f5929a;
-    private final d<Socket> prg;
-    private final d<Socket> prh;
-    private final d<Socket> pri;
-    private final d<Socket> prj;
-    private final c prk = c.epF();
+    private final Class<?> f3988a;
+    private final d<Socket> ptl;
+    private final d<Socket> ptm;
+    private final d<Socket> ptn;
+    private final d<Socket> pto;
+    private final c ptp = c.epM();
 
     a(Class<?> cls, d<Socket> dVar, d<Socket> dVar2, d<Socket> dVar3, d<Socket> dVar4) {
-        this.f5929a = cls;
-        this.prg = dVar;
-        this.prh = dVar2;
-        this.pri = dVar3;
-        this.prj = dVar4;
+        this.f3988a = cls;
+        this.ptl = dVar;
+        this.ptm = dVar2;
+        this.ptn = dVar3;
+        this.pto = dVar4;
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
@@ -62,40 +61,22 @@ public class a extends e {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.a.b.a.g.e
-    public X509TrustManager a(SSLSocketFactory sSLSocketFactory) {
-        Object a2;
-        Object a3 = a(sSLSocketFactory, this.f5929a, "sslParameters");
-        if (a3 == null) {
-            try {
-                a2 = a(sSLSocketFactory, Class.forName("com.google.android.gms.org.conscrypt.SSLParametersImpl", false, sSLSocketFactory.getClass().getClassLoader()), "sslParameters");
-            } catch (ClassNotFoundException e) {
-                return super.a(sSLSocketFactory);
-            }
-        } else {
-            a2 = a3;
-        }
-        X509TrustManager x509TrustManager = (X509TrustManager) a(a2, X509TrustManager.class, "x509TrustManager");
-        return x509TrustManager != null ? x509TrustManager : (X509TrustManager) a(a2, X509TrustManager.class, "trustManager");
-    }
-
     @Override // com.bytedance.sdk.a.b.a.g.e
     public void a(SSLSocket sSLSocket, String str, List<w> list) {
         if (str != null) {
-            this.prg.c(sSLSocket, true);
-            this.prh.c(sSLSocket, str);
+            this.ptl.c(sSLSocket, true);
+            this.ptm.c(sSLSocket, str);
         }
-        if (this.prj != null && this.prj.a((d<Socket>) sSLSocket)) {
-            this.prj.e(sSLSocket, gF(list));
+        if (this.pto != null && this.pto.a((d<Socket>) sSLSocket)) {
+            this.pto.e(sSLSocket, gF(list));
         }
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
     public String c(SSLSocket sSLSocket) {
-        if (this.pri != null && this.pri.a((d<Socket>) sSLSocket)) {
-            byte[] bArr = (byte[]) this.pri.e(sSLSocket, new Object[0]);
-            return bArr != null ? new String(bArr, com.bytedance.sdk.a.b.a.c.ppA) : null;
+        if (this.ptn != null && this.ptn.a((d<Socket>) sSLSocket)) {
+            byte[] bArr = (byte[]) this.ptn.e(sSLSocket, new Object[0]);
+            return bArr != null ? new String(bArr, com.bytedance.sdk.a.b.a.c.prF) : null;
         }
         return null;
     }
@@ -128,12 +109,12 @@ public class a extends e {
 
     @Override // com.bytedance.sdk.a.b.a.g.e
     public Object a(String str) {
-        return this.prk.a(str);
+        return this.ptp.a(str);
     }
 
     @Override // com.bytedance.sdk.a.b.a.g.e
     public void a(String str, Object obj) {
-        if (!this.prk.a(obj)) {
+        if (!this.ptp.a(obj)) {
             a(5, str, (Throwable) null);
         }
     }
@@ -191,13 +172,13 @@ public class a extends e {
     public com.bytedance.sdk.a.b.a.i.c a(X509TrustManager x509TrustManager) {
         try {
             Class<?> cls = Class.forName("android.net.http.X509TrustManagerExtensions");
-            return new C0996a(cls.getConstructor(X509TrustManager.class).newInstance(x509TrustManager), cls.getMethod("checkServerTrusted", X509Certificate[].class, String.class, String.class));
+            return new C1004a(cls.getConstructor(X509TrustManager.class).newInstance(x509TrustManager), cls.getMethod("checkServerTrusted", X509Certificate[].class, String.class, String.class));
         } catch (Exception e) {
             return super.a(x509TrustManager);
         }
     }
 
-    public static e epE() {
+    public static e epL() {
         Class<?> cls;
         d dVar;
         d dVar2;
@@ -235,23 +216,21 @@ public class a extends e {
 
     /* renamed from: com.bytedance.sdk.a.b.a.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    static final class C0996a extends com.bytedance.sdk.a.b.a.i.c {
+    static final class C1004a extends com.bytedance.sdk.a.b.a.i.c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Object f5930a;
+        private final Object f3989a;
+        private final Method b;
 
-        /* renamed from: b  reason: collision with root package name */
-        private final Method f5931b;
-
-        C0996a(Object obj, Method method) {
-            this.f5930a = obj;
-            this.f5931b = method;
+        C1004a(Object obj, Method method) {
+            this.f3989a = obj;
+            this.b = method;
         }
 
         @Override // com.bytedance.sdk.a.b.a.i.c
         public List<Certificate> s(List<Certificate> list, String str) throws SSLPeerUnverifiedException {
             try {
-                return (List) this.f5931b.invoke(this.f5930a, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), RSAUtil.ALGORITHM_RSA, str);
+                return (List) this.b.invoke(this.f3989a, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), RSAUtil.ALGORITHM_RSA, str);
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             } catch (InvocationTargetException e2) {
@@ -262,7 +241,7 @@ public class a extends e {
         }
 
         public boolean equals(Object obj) {
-            return obj instanceof C0996a;
+            return obj instanceof C1004a;
         }
 
         public int hashCode() {
@@ -274,23 +253,21 @@ public class a extends e {
     static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Method f5934a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private final Method f5935b;
+        private final Method f3991a;
+        private final Method b;
         private final Method c;
 
         c(Method method, Method method2, Method method3) {
-            this.f5934a = method;
-            this.f5935b = method2;
+            this.f3991a = method;
+            this.b = method2;
             this.c = method3;
         }
 
         Object a(String str) {
-            if (this.f5934a != null) {
+            if (this.f3991a != null) {
                 try {
-                    Object invoke = this.f5934a.invoke(null, new Object[0]);
-                    this.f5935b.invoke(invoke, str);
+                    Object invoke = this.f3991a.invoke(null, new Object[0]);
+                    this.b.invoke(invoke, str);
                     return invoke;
                 } catch (Exception e) {
                 }
@@ -310,7 +287,7 @@ public class a extends e {
             return false;
         }
 
-        static c epF() {
+        static c epM() {
             Method method;
             Method method2;
             Method method3;
@@ -332,20 +309,18 @@ public class a extends e {
     static final class b implements f {
 
         /* renamed from: a  reason: collision with root package name */
-        private final X509TrustManager f5932a;
-
-        /* renamed from: b  reason: collision with root package name */
-        private final Method f5933b;
+        private final X509TrustManager f3990a;
+        private final Method b;
 
         b(X509TrustManager x509TrustManager, Method method) {
-            this.f5933b = method;
-            this.f5932a = x509TrustManager;
+            this.b = method;
+            this.f3990a = x509TrustManager;
         }
 
         @Override // com.bytedance.sdk.a.b.a.i.f
         public X509Certificate b(X509Certificate x509Certificate) {
             try {
-                TrustAnchor trustAnchor = (TrustAnchor) this.f5933b.invoke(this.f5932a, x509Certificate);
+                TrustAnchor trustAnchor = (TrustAnchor) this.b.invoke(this.f3990a, x509Certificate);
                 if (trustAnchor != null) {
                     return trustAnchor.getTrustedCert();
                 }
@@ -363,13 +338,13 @@ public class a extends e {
             }
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                return this.f5932a.equals(bVar.f5932a) && this.f5933b.equals(bVar.f5933b);
+                return this.f3990a.equals(bVar.f3990a) && this.b.equals(bVar.b);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f5932a.hashCode() + (this.f5933b.hashCode() * 31);
+            return this.f3990a.hashCode() + (this.b.hashCode() * 31);
         }
     }
 }

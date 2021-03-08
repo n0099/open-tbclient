@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDrawable> {
     private static final GifDecoderFactory GIF_DECODER_FACTORY = new GifDecoderFactory();
     private static final GifHeaderParserPool PARSER_POOL = new GifHeaderParserPool();
@@ -72,7 +72,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[CONST_STR, INVOKE]}, finally: {[CONST_STR, INVOKE, CONST_STR, CONSTRUCTOR, CONST_STR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [121=4, 122=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=4, 129=4] */
     @Nullable
     private GifDrawableResource decode(ByteBuffer byteBuffer, int i, int i2, GifHeaderParser gifHeaderParser, Options options) {
         long logTime = LogTime.getLogTime();
@@ -115,7 +115,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class GifDecoderFactory {
         GifDecoderFactory() {
         }
@@ -127,7 +127,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class GifHeaderParserPool {
         private final Queue<GifHeaderParser> pool = Util.createQueue(0);
 

@@ -1,17 +1,17 @@
 package com.vivo.push.b;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class d extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f13576a;
+    private boolean f8014a;
 
     public d(boolean z) {
         super(100);
-        this.f13576a = z;
+        this.f8014a = z;
     }
 
     public final boolean d() {
-        return this.f13576a;
+        return this.f8014a;
     }
 
     @Override // com.vivo.push.y

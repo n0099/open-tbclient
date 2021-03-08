@@ -9,7 +9,7 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
 import com.yy.videoplayer.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class EglCore {
     private static final int EGL_RECORDABLE_ANDROID = 12610;
     public static final int FLAG_RECORDABLE = 1;

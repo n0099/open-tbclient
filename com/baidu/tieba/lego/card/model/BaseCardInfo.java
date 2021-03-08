@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.lego.a.b;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BaseCardInfo extends BaseLegoCardInfo {
     public BaseCardInfo(JSONObject jSONObject) {
         super(jSONObject);
@@ -18,7 +18,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
                 return responseAttentionUser(aVar.toUid, aVar.isAttention);
             } else if (obj instanceof com.baidu.tieba.lego.c.b) {
                 com.baidu.tieba.lego.c.b bVar = (com.baidu.tieba.lego.c.b) obj;
-                return responseAttentionForum(bVar.fid, bVar.ePK);
+                return responseAttentionForum(bVar.fid, bVar.eRl);
             }
         }
         return false;
@@ -41,11 +41,11 @@ public class BaseCardInfo extends BaseLegoCardInfo {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getTouidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.a.NB(str).NA("touid") : "";
+        return !TextUtils.isEmpty(str) ? b.a.NH(str).NG("touid") : "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getFidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.a.NB(str).NA("fid") : "";
+        return !TextUtils.isEmpty(str) ? b.a.NH(str).NG("fid") : "";
     }
 }

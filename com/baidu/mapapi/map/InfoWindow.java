@@ -6,10 +6,8 @@ import com.baidu.mapapi.model.LatLng;
 public class InfoWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    BitmapDescriptor f2719a;
-
-    /* renamed from: b  reason: collision with root package name */
-    View f2720b;
+    BitmapDescriptor f2022a;
+    View b;
     LatLng c;
     OnInfoWindowClickListener d;
     int e;
@@ -23,7 +21,7 @@ public class InfoWindow {
         if (view == null || latLng == null) {
             throw new IllegalArgumentException("view and position can not be null");
         }
-        this.f2720b = view;
+        this.b = view;
         this.c = latLng;
         this.e = i;
     }
@@ -32,7 +30,7 @@ public class InfoWindow {
         if (bitmapDescriptor == null || latLng == null) {
             throw new IllegalArgumentException("bitmapDescriptor and position can not be null");
         }
-        this.f2719a = bitmapDescriptor;
+        this.f2022a = bitmapDescriptor;
         this.c = latLng;
         this.d = onInfoWindowClickListener;
         this.e = i;

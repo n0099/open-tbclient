@@ -14,9 +14,7 @@ import com.kwad.sdk.glide.load.h;
 import java.security.MessageDigest;
 /* loaded from: classes3.dex */
 public class a implements h<Bitmap> {
-
-    /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.glide.load.engine.bitmap_recycle.e f9020b;
+    private com.kwad.sdk.glide.load.engine.bitmap_recycle.e b;
     private int c;
     private int d;
     private int e;
@@ -24,7 +22,7 @@ public class a implements h<Bitmap> {
     private int g;
 
     public a(Context context, int i, int i2, int i3, int i4, int i5) {
-        this.f9020b = com.kwad.sdk.glide.c.a(context).a();
+        this.b = com.kwad.sdk.glide.c.a(context).a();
         this.c = i;
         this.d = i2;
         this.f = i4;
@@ -55,7 +53,7 @@ public class a implements h<Bitmap> {
         Bitmap e = sVar.e();
         int width = e.getWidth();
         int height = e.getHeight();
-        Bitmap a2 = this.f9020b.a(width, height, Bitmap.Config.ARGB_8888);
+        Bitmap a2 = this.b.a(width, height, Bitmap.Config.ARGB_8888);
         Bitmap createBitmap = a2 == null ? Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888) : a2;
         Canvas canvas = new Canvas(createBitmap);
         Paint paint = new Paint();
@@ -66,7 +64,7 @@ public class a implements h<Bitmap> {
         paint2.setStyle(Paint.Style.STROKE);
         paint2.setStrokeWidth(this.e);
         a(canvas, paint, width, height, paint2);
-        return com.kwad.sdk.glide.load.resource.bitmap.d.a(createBitmap, this.f9020b);
+        return com.kwad.sdk.glide.load.resource.bitmap.d.a(createBitmap, this.b);
     }
 
     @Override // com.kwad.sdk.glide.load.c

@@ -3,13 +3,13 @@ package com.baidu.swan.apps.adaptation.a;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.SwanAppActivity;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ac {
     void a(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable com.baidu.swan.apps.u.c.b bVar);
 
-    void aiC();
+    void aiF();
 
-    void aiD();
+    void aiG();
 
-    void aiE();
+    void aiH();
 }

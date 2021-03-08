@@ -47,10 +47,8 @@ public class ah {
     private static long l;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f10776a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f10777b = "";
+    private static String f7115a = "";
+    private static String b = "";
     private static String c = "";
     private static String d = "";
     private static String e = "";
@@ -207,22 +205,22 @@ public class ah {
         if (g) {
             return "";
         }
-        if (!TextUtils.isEmpty(f10777b) || context == null) {
-            return f10777b;
+        if (!TextUtils.isEmpty(b) || context == null) {
+            return b;
         }
         try {
             r1 = a(context, "android.permission.READ_PHONE_STATE") == 0;
             if (r1) {
-                f10777b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
             }
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
-            f10777b = null;
+            b = null;
         }
         if (r1 && c == null) {
             g = true;
         }
-        return f10777b;
+        return b;
     }
 
     public static String e() {
@@ -361,13 +359,13 @@ public class ah {
         if (context == null || !m) {
             return "";
         }
-        if (TextUtils.isEmpty(f10776a)) {
+        if (TextUtils.isEmpty(f7115a)) {
             try {
                 WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
                 if (connectionInfo != null) {
-                    f10776a = connectionInfo.getMacAddress();
+                    f7115a = connectionInfo.getMacAddress();
                 }
-                if (TextUtils.isEmpty(f10776a) || f10776a.equals(Config.DEF_MAC_ID)) {
+                if (TextUtils.isEmpty(f7115a) || f7115a.equals(Config.DEF_MAC_ID)) {
                     Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -385,21 +383,21 @@ public class ah {
                                 if (sb.length() > 0) {
                                     sb.deleteCharAt(sb.length() - 1);
                                 }
-                                f10776a = sb.toString();
+                                f7115a = sb.toString();
                             }
                         }
                     }
                 }
-                if (TextUtils.isEmpty(f10776a) || f10776a.equals(Config.DEF_MAC_ID)) {
-                    f10776a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
+                if (TextUtils.isEmpty(f7115a) || f7115a.equals(Config.DEF_MAC_ID)) {
+                    f7115a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
                 }
-                if (!TextUtils.isEmpty(f10776a)) {
-                    f10776a = f10776a.toUpperCase(Locale.US);
+                if (!TextUtils.isEmpty(f7115a)) {
+                    f7115a = f7115a.toUpperCase(Locale.US);
                 }
             } catch (Exception e2) {
             }
         }
-        return f10776a;
+        return f7115a;
     }
 
     public static String l() {

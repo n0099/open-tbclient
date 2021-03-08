@@ -11,13 +11,13 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
     private final TbPageContext<?> pageContext;
 
     public VideoMiddlePageViewModelFactory(TbPageContext<?> tbPageContext) {
-        p.o(tbPageContext, "pageContext");
+        p.p(tbPageContext, "pageContext");
         this.pageContext = tbPageContext;
     }
 
     @Override // androidx.lifecycle.ViewModelProvider.Factory
     public <T extends ViewModel> T create(Class<T> cls) {
-        p.o(cls, "modelClass");
+        p.p(cls, "modelClass");
         if (cls.isAssignableFrom(VideoMiddlePageViewModel.class)) {
             return new VideoMiddlePageViewModel(this.pageContext);
         }

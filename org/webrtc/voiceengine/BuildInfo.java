@@ -1,7 +1,7 @@
 package org.webrtc.voiceengine;
 
 import android.os.Build;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public final class BuildInfo {
     public static String getAndroidBuildId() {
         return Build.ID;

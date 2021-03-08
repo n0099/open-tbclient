@@ -5,16 +5,14 @@ import com.kwad.sdk.glide.load.c;
 import java.security.MessageDigest;
 /* loaded from: classes3.dex */
 public final class a implements c {
-
-    /* renamed from: b  reason: collision with root package name */
-    private static final a f9984b = new a();
+    private static final a b = new a();
 
     private a() {
     }
 
     @NonNull
     public static a a() {
-        return f9984b;
+        return b;
     }
 
     @Override // com.kwad.sdk.glide.load.c

@@ -10,145 +10,145 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.swan.apps.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SliderBar extends View {
-    private static final String[] dwW = {"小", "中", "大", "特大"};
-    private int bLv;
-    private ValueAnimator dwJ;
-    private int dwX;
-    private String[] dwY;
-    private float dwZ;
-    private float dxa;
-    private int dxb;
-    private float dxc;
-    private int dxd;
-    private int dxe;
-    private int dxf;
-    private int dxg;
-    private int dxh;
-    private int dxi;
-    private boolean dxj;
-    private int dxk;
-    private boolean dxl;
-    private c dxm;
-    private a dxn;
-    private b dxo;
-    private int dxp;
-    private boolean dxq;
+    private static final String[] dyx = {"小", "中", "大", "特大"};
+    private int bMV;
+    private float dyA;
+    private float dyB;
+    private int dyC;
+    private float dyD;
+    private int dyE;
+    private int dyF;
+    private int dyG;
+    private int dyH;
+    private int dyI;
+    private int dyJ;
+    private boolean dyK;
+    private int dyL;
+    private boolean dyM;
+    private c dyN;
+    private a dyO;
+    private b dyP;
+    private int dyQ;
+    private boolean dyR;
+    private ValueAnimator dyk;
+    private int dyy;
+    private String[] dyz;
     private int mDefaultWidth;
     private int mTextColor;
     private int mTextSize;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(SliderBar sliderBar, int i);
     }
 
     public SliderBar(Context context) {
         super(context);
-        this.dwX = 4;
-        this.dwY = dwW;
-        this.dwZ = 15.0f;
-        this.dxa = 3.0f;
-        this.dxb = -7829368;
-        this.dxc = 30.0f;
-        this.dxd = -1;
-        this.dxe = -1;
-        this.dxf = 1711276032;
-        this.dxg = 3;
+        this.dyy = 4;
+        this.dyz = dyx;
+        this.dyA = 15.0f;
+        this.dyB = 3.0f;
+        this.dyC = -7829368;
+        this.dyD = 30.0f;
+        this.dyE = -1;
+        this.dyF = -1;
+        this.dyG = 1711276032;
+        this.dyH = 3;
         this.mTextSize = 40;
         this.mTextColor = -7829368;
-        this.dxh = -7829368;
-        this.dxi = 50;
+        this.dyI = -7829368;
+        this.dyJ = 50;
         this.mDefaultWidth = 500;
-        this.dxj = false;
-        this.dxk = -3355444;
-        this.dxl = true;
-        this.dxp = -1;
-        this.bLv = 0;
-        this.dxq = true;
+        this.dyK = false;
+        this.dyL = -3355444;
+        this.dyM = true;
+        this.dyQ = -1;
+        this.bMV = 0;
+        this.dyR = true;
     }
 
     public SliderBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dwX = 4;
-        this.dwY = dwW;
-        this.dwZ = 15.0f;
-        this.dxa = 3.0f;
-        this.dxb = -7829368;
-        this.dxc = 30.0f;
-        this.dxd = -1;
-        this.dxe = -1;
-        this.dxf = 1711276032;
-        this.dxg = 3;
+        this.dyy = 4;
+        this.dyz = dyx;
+        this.dyA = 15.0f;
+        this.dyB = 3.0f;
+        this.dyC = -7829368;
+        this.dyD = 30.0f;
+        this.dyE = -1;
+        this.dyF = -1;
+        this.dyG = 1711276032;
+        this.dyH = 3;
         this.mTextSize = 40;
         this.mTextColor = -7829368;
-        this.dxh = -7829368;
-        this.dxi = 50;
+        this.dyI = -7829368;
+        this.dyJ = 50;
         this.mDefaultWidth = 500;
-        this.dxj = false;
-        this.dxk = -3355444;
-        this.dxl = true;
-        this.dxp = -1;
-        this.bLv = 0;
-        this.dxq = true;
+        this.dyK = false;
+        this.dyL = -3355444;
+        this.dyM = true;
+        this.dyQ = -1;
+        this.bMV = 0;
+        this.dyR = true;
         init(attributeSet);
     }
 
     public SliderBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dwX = 4;
-        this.dwY = dwW;
-        this.dwZ = 15.0f;
-        this.dxa = 3.0f;
-        this.dxb = -7829368;
-        this.dxc = 30.0f;
-        this.dxd = -1;
-        this.dxe = -1;
-        this.dxf = 1711276032;
-        this.dxg = 3;
+        this.dyy = 4;
+        this.dyz = dyx;
+        this.dyA = 15.0f;
+        this.dyB = 3.0f;
+        this.dyC = -7829368;
+        this.dyD = 30.0f;
+        this.dyE = -1;
+        this.dyF = -1;
+        this.dyG = 1711276032;
+        this.dyH = 3;
         this.mTextSize = 40;
         this.mTextColor = -7829368;
-        this.dxh = -7829368;
-        this.dxi = 50;
+        this.dyI = -7829368;
+        this.dyJ = 50;
         this.mDefaultWidth = 500;
-        this.dxj = false;
-        this.dxk = -3355444;
-        this.dxl = true;
-        this.dxp = -1;
-        this.bLv = 0;
-        this.dxq = true;
+        this.dyK = false;
+        this.dyL = -3355444;
+        this.dyM = true;
+        this.dyQ = -1;
+        this.bMV = 0;
+        this.dyR = true;
         init(attributeSet);
     }
 
     public void init(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.SliderBar);
         try {
-            this.dwZ = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_tickDiameter, 15.0f);
-            this.dxa = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barLineWide, 3.0f);
-            this.dxb = obtainStyledAttributes.getColor(a.j.SliderBar_barLineColor, -7829368);
-            this.dxc = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_thumbRadius, 30.0f);
-            this.dxd = obtainStyledAttributes.getColor(a.j.SliderBar_thumbColorNormal, -1);
-            this.dxe = obtainStyledAttributes.getColor(a.j.SliderBar_thumbColorPressed, -1);
-            this.dxf = obtainStyledAttributes.getColor(a.j.SliderBar_thumbCircleColor, 1711276032);
-            this.dxg = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_thumbCircleWide, 3.0f);
+            this.dyA = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_tickDiameter, 15.0f);
+            this.dyB = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barLineWide, 3.0f);
+            this.dyC = obtainStyledAttributes.getColor(a.j.SliderBar_barLineColor, -7829368);
+            this.dyD = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_thumbRadius, 30.0f);
+            this.dyE = obtainStyledAttributes.getColor(a.j.SliderBar_thumbColorNormal, -1);
+            this.dyF = obtainStyledAttributes.getColor(a.j.SliderBar_thumbColorPressed, -1);
+            this.dyG = obtainStyledAttributes.getColor(a.j.SliderBar_thumbCircleColor, 1711276032);
+            this.dyH = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_thumbCircleWide, 3.0f);
             this.mTextSize = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barTextSize, 40.0f);
             this.mTextColor = obtainStyledAttributes.getColor(a.j.SliderBar_barTextColor, -7829368);
-            this.dxh = obtainStyledAttributes.getColor(a.j.SliderBar_barChosenTextColor, -7829368);
-            this.dxi = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barTextPadding, 50.0f);
+            this.dyI = obtainStyledAttributes.getColor(a.j.SliderBar_barChosenTextColor, -7829368);
+            this.dyJ = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_barTextPadding, 50.0f);
             this.mDefaultWidth = (int) obtainStyledAttributes.getDimension(a.j.SliderBar_defaultWidth, 500.0f);
-            this.bLv = obtainStyledAttributes.getInt(a.j.SliderBar_currentIndex, 0);
-            this.dxl = obtainStyledAttributes.getBoolean(a.j.SliderBar_animation, true);
-            this.dxj = obtainStyledAttributes.getBoolean(a.j.SliderBar_isShowShadow, false);
-            this.dxk = obtainStyledAttributes.getColor(a.j.SliderBar_shadowColor, -3355444);
+            this.bMV = obtainStyledAttributes.getInt(a.j.SliderBar_currentIndex, 0);
+            this.dyM = obtainStyledAttributes.getBoolean(a.j.SliderBar_animation, true);
+            this.dyK = obtainStyledAttributes.getBoolean(a.j.SliderBar_isShowShadow, false);
+            this.dyL = obtainStyledAttributes.getColor(a.j.SliderBar_shadowColor, -3355444);
         } finally {
             obtainStyledAttributes.recycle();
         }
     }
 
     public void init() {
-        this.dxn = new a(getXCoordinate(), getYCoordinate(), getBarLineLength());
-        this.dxm = new c(getXCoordinate() + (this.dxn.aHb() * this.bLv), getYCoordinate());
+        this.dyO = new a(getXCoordinate(), getYCoordinate(), getBarLineLength());
+        this.dyN = new c(getXCoordinate() + (this.dyO.aHe() * this.bMV), getYCoordinate());
     }
 
     @Override // android.view.View
@@ -169,7 +169,7 @@ public class SliderBar extends View {
     }
 
     private int getMinHeight() {
-        return (int) ((this.dxc * 2.0f) + this.dxi + getFontHeight() + getPaddingTop() + getPaddingBottom());
+        return (int) ((this.dyD * 2.0f) + this.dyJ + getFontHeight() + getPaddingTop() + getPaddingBottom());
     }
 
     @Override // android.view.View
@@ -181,8 +181,8 @@ public class SliderBar extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.dxn.draw(canvas);
-        this.dxm.draw(canvas);
+        this.dyO.draw(canvas);
+        this.dyN.draw(canvas);
     }
 
     @Override // android.view.View
@@ -207,38 +207,38 @@ public class SliderBar extends View {
                 return r(motionEvent.getX(), motionEvent.getY());
             case 2:
                 getParent().requestDisallowInterceptTouchEvent(true);
-                return I(motionEvent.getX());
+                return M(motionEvent.getX());
             default:
                 return true;
         }
     }
 
     private boolean q(float f, float f2) {
-        if (!this.dxm.aHd() && this.dxm.u(f, f2)) {
-            aGX();
+        if (!this.dyN.aHg() && this.dyN.u(f, f2)) {
+            aHa();
             return true;
         }
-        this.dxp = s(f, f2);
+        this.dyQ = s(f, f2);
         return true;
     }
 
-    private boolean I(float f) {
-        if (this.dxm.aHd()) {
-            J(f);
+    private boolean M(float f) {
+        if (this.dyN.aHg()) {
+            N(f);
             return true;
         }
         return true;
     }
 
     private boolean r(float f, float f2) {
-        if (this.dxm.aHd()) {
-            aGY();
+        if (this.dyN.aHg()) {
+            aHb();
             return true;
-        } else if (this.dxp == s(f, f2) && this.dxp != -1) {
-            t(this.dxm.getX(), getXCoordinate() + (this.dxp * this.dxn.aHb()));
-            this.bLv = this.dxp;
-            if (this.dxo != null) {
-                this.dxo.a(this, this.bLv);
+        } else if (this.dyQ == s(f, f2) && this.dyQ != -1) {
+            t(this.dyN.getX(), getXCoordinate() + (this.dyQ * this.dyO.aHe()));
+            this.bMV = this.dyQ;
+            if (this.dyP != null) {
+                this.dyP.a(this, this.bMV);
                 return true;
             }
             return true;
@@ -248,7 +248,7 @@ public class SliderBar extends View {
     }
 
     private int s(float f, float f2) {
-        for (int i = 0; i < this.dwX; i++) {
+        for (int i = 0; i < this.dyy; i++) {
             if (b(f, f2, i)) {
                 return i;
             }
@@ -257,247 +257,247 @@ public class SliderBar extends View {
     }
 
     private boolean b(float f, float f2, int i) {
-        return Math.abs(f - (getXCoordinate() + (this.dxn.aHb() * ((float) i)))) < this.dxm.aHc() && Math.abs(f2 - getYCoordinate()) < this.dxm.aHc() * 2.0f;
+        return Math.abs(f - (getXCoordinate() + (this.dyO.aHe() * ((float) i)))) < this.dyN.aHf() && Math.abs(f2 - getYCoordinate()) < this.dyN.aHf() * 2.0f;
     }
 
-    private void aGX() {
-        this.dxm.aHe();
+    private void aHa() {
+        this.dyN.aHh();
         invalidate();
     }
 
-    private void J(float f) {
-        if (f >= this.dxn.aGZ() && f <= this.dxn.aHa()) {
-            this.dxm.setX(f);
+    private void N(float f) {
+        if (f >= this.dyO.aHc() && f <= this.dyO.aHd()) {
+            this.dyN.setX(f);
             invalidate();
         }
     }
 
-    private void aGY() {
-        int b2 = this.dxn.b(this.dxm);
-        if (this.bLv != b2) {
-            this.bLv = b2;
-            if (this.dxo != null) {
-                this.dxo.a(this, this.bLv);
+    private void aHb() {
+        int b2 = this.dyO.b(this.dyN);
+        if (this.bMV != b2) {
+            this.bMV = b2;
+            if (this.dyP != null) {
+                this.dyP.a(this, this.bMV);
             }
         }
-        float x = this.dxm.getX();
-        float a2 = this.dxn.a(this.dxm);
-        if (this.dxl) {
+        float x = this.dyN.getX();
+        float a2 = this.dyO.a(this.dyN);
+        if (this.dyM) {
             t(x, a2);
         } else {
-            this.dxm.setX(a2);
+            this.dyN.setX(a2);
             invalidate();
         }
-        this.dxm.release();
+        this.dyN.release();
     }
 
     private void t(float f, float f2) {
         stopAnimation();
-        this.dwJ = ValueAnimator.ofFloat(f, f2);
-        this.dwJ.setDuration(80L);
-        this.dwJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.SliderBar.1
+        this.dyk = ValueAnimator.ofFloat(f, f2);
+        this.dyk.setDuration(80L);
+        this.dyk.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.SliderBar.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                SliderBar.this.dxm.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                SliderBar.this.dyN.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 SliderBar.this.invalidate();
             }
         });
-        this.dwJ.start();
+        this.dyk.start();
     }
 
     public SliderBar a(b bVar) {
-        this.dxo = bVar;
+        this.dyP = bVar;
         return this;
     }
 
-    public SliderBar iC(int i) {
-        if (i < 0 || i >= this.dwX) {
+    public SliderBar iD(int i) {
+        if (i < 0 || i >= this.dyy) {
             throw new IllegalArgumentException("A thumb index is out of bounds");
         }
-        if (this.bLv != i) {
-            this.bLv = i;
-            if (this.dxm != null && this.dxn != null) {
-                this.dxm.setX(getXCoordinate() + (this.dxn.aHb() * this.bLv));
+        if (this.bMV != i) {
+            this.bMV = i;
+            if (this.dyN != null && this.dyO != null) {
+                this.dyN.setX(getXCoordinate() + (this.dyO.aHe() * this.bMV));
                 invalidate();
             }
-            if (this.dxo != null) {
-                this.dxo.a(this, this.bLv);
+            if (this.dyP != null) {
+                this.dyP.a(this, this.bMV);
             }
         }
         return this;
     }
 
     public int getCurrentIndex() {
-        return this.bLv;
+        return this.bMV;
     }
 
     private float getXCoordinate() {
-        return getPaddingLeft() + this.dxc;
+        return getPaddingLeft() + this.dyD;
     }
 
     private float getYCoordinate() {
-        return ((getHeight() - getPaddingBottom()) - ((getHeight() - getMinHeight()) / 2.0f)) - this.dxc;
+        return ((getHeight() - getPaddingBottom()) - ((getHeight() - getMinHeight()) / 2.0f)) - this.dyD;
     }
 
     private float getFontHeight() {
-        if (this.dwY == null || this.dwY.length == 0) {
+        if (this.dyz == null || this.dyz.length == 0) {
             return 0.0f;
         }
         Paint paint = new Paint();
         paint.setTextSize(this.mTextSize);
-        paint.measureText(this.dwY[0]);
+        paint.measureText(this.dyz[0]);
         Paint.FontMetrics fontMetrics = paint.getFontMetrics();
         return fontMetrics.descent - fontMetrics.ascent;
     }
 
     private float getBarLineLength() {
-        return ((getWidth() - (2.0f * this.dxc)) - getPaddingLeft()) - getPaddingRight();
+        return ((getWidth() - (2.0f * this.dyD)) - getPaddingLeft()) - getPaddingRight();
     }
 
     private boolean isAnimationRunning() {
-        return this.dwJ != null && this.dwJ.isRunning();
+        return this.dyk != null && this.dyk.isRunning();
     }
 
     private void stopAnimation() {
-        if (this.dwJ != null) {
-            this.dwJ.cancel();
-            this.dwJ = null;
+        if (this.dyk != null) {
+            this.dyk.cancel();
+            this.dyk = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a {
-        private Paint bhF;
-        private final float dwp;
-        private final float dxs;
-        private final float dxt;
-        private int dxu;
-        private float dxv;
-        private float dxw;
-        private Paint dxx = new Paint();
-        private Paint dxy;
+        private Paint bjh;
+        private final float dxQ;
+        private final float dyT;
+        private final float dyU;
+        private int dyV;
+        private float dyW;
+        private float dyX;
+        private Paint dyY = new Paint();
+        private Paint dyZ;
 
         a(float f, float f2, float f3) {
-            this.dxw = 7.5f;
-            this.dwp = f;
-            this.dxs = f + f3;
-            this.dxt = f2;
-            this.dxu = SliderBar.this.dwX - 1;
-            this.dxv = f3 / this.dxu;
-            this.dxw = SliderBar.this.dwZ / 2.0f;
-            this.dxx.setColor(SliderBar.this.dxb);
-            this.dxx.setStrokeWidth(SliderBar.this.dxa);
-            this.dxx.setAntiAlias(true);
-            this.bhF = new Paint();
-            this.bhF.setColor(SliderBar.this.mTextColor);
-            this.bhF.setTextSize(SliderBar.this.mTextSize);
-            this.bhF.setAntiAlias(true);
-            this.dxy = new Paint();
-            this.dxy.setColor(SliderBar.this.dxh);
-            this.dxy.setTextSize(SliderBar.this.mTextSize);
-            this.dxy.setAntiAlias(true);
+            this.dyX = 7.5f;
+            this.dxQ = f;
+            this.dyT = f + f3;
+            this.dyU = f2;
+            this.dyV = SliderBar.this.dyy - 1;
+            this.dyW = f3 / this.dyV;
+            this.dyX = SliderBar.this.dyA / 2.0f;
+            this.dyY.setColor(SliderBar.this.dyC);
+            this.dyY.setStrokeWidth(SliderBar.this.dyB);
+            this.dyY.setAntiAlias(true);
+            this.bjh = new Paint();
+            this.bjh.setColor(SliderBar.this.mTextColor);
+            this.bjh.setTextSize(SliderBar.this.mTextSize);
+            this.bjh.setAntiAlias(true);
+            this.dyZ = new Paint();
+            this.dyZ.setColor(SliderBar.this.dyI);
+            this.dyZ.setTextSize(SliderBar.this.mTextSize);
+            this.dyZ.setAntiAlias(true);
         }
 
         void draw(Canvas canvas) {
             v(canvas);
-            if (SliderBar.this.dxq) {
+            if (SliderBar.this.dyR) {
                 w(canvas);
             }
         }
 
         private void v(Canvas canvas) {
-            canvas.drawLine(this.dwp, this.dxt, this.dxs, this.dxt, this.dxx);
+            canvas.drawLine(this.dxQ, this.dyU, this.dyT, this.dyU, this.dyY);
         }
 
         private void w(Canvas canvas) {
-            for (int i = 0; i <= this.dxu; i++) {
-                float f = this.dwp + (this.dxv * i);
-                canvas.drawCircle(f, this.dxt, this.dxw, this.dxx);
-                if (SliderBar.this.dwY != null && SliderBar.this.dwY.length > 0) {
-                    String str = SliderBar.this.dwY[i];
+            for (int i = 0; i <= this.dyV; i++) {
+                float f = this.dxQ + (this.dyW * i);
+                canvas.drawCircle(f, this.dyU, this.dyX, this.dyY);
+                if (SliderBar.this.dyz != null && SliderBar.this.dyz.length > 0) {
+                    String str = SliderBar.this.dyz[i];
                     if (!TextUtils.isEmpty(str)) {
-                        if (i == SliderBar.this.bLv) {
-                            Paint.FontMetrics fontMetrics = this.dxy.getFontMetrics();
-                            canvas.drawText(str, f - (rn(str) / 2.0f), ((this.dxt - SliderBar.this.dxc) - SliderBar.this.dxi) - (fontMetrics.bottom - fontMetrics.descent), this.dxy);
+                        if (i == SliderBar.this.bMV) {
+                            Paint.FontMetrics fontMetrics = this.dyZ.getFontMetrics();
+                            canvas.drawText(str, f - (ru(str) / 2.0f), ((this.dyU - SliderBar.this.dyD) - SliderBar.this.dyJ) - (fontMetrics.bottom - fontMetrics.descent), this.dyZ);
                         } else {
-                            Paint.FontMetrics fontMetrics2 = this.bhF.getFontMetrics();
-                            canvas.drawText(str, f - (rn(str) / 2.0f), ((this.dxt - SliderBar.this.dxc) - SliderBar.this.dxi) - (fontMetrics2.bottom - fontMetrics2.descent), this.bhF);
+                            Paint.FontMetrics fontMetrics2 = this.bjh.getFontMetrics();
+                            canvas.drawText(str, f - (ru(str) / 2.0f), ((this.dyU - SliderBar.this.dyD) - SliderBar.this.dyJ) - (fontMetrics2.bottom - fontMetrics2.descent), this.bjh);
                         }
                     }
                 }
             }
         }
 
-        float aGZ() {
-            return this.dwp;
+        float aHc() {
+            return this.dxQ;
         }
 
-        float aHa() {
-            return this.dxs;
+        float aHd() {
+            return this.dyT;
         }
 
-        float aHb() {
-            return this.dxv;
+        float aHe() {
+            return this.dyW;
         }
 
         float a(c cVar) {
-            return this.dwp + (this.dxv * b(cVar));
+            return this.dxQ + (this.dyW * b(cVar));
         }
 
         int b(c cVar) {
-            return K(cVar.getX());
+            return O(cVar.getX());
         }
 
-        int K(float f) {
-            return (int) (((f - this.dwp) + (this.dxv / 2.0f)) / this.dxv);
+        int O(float f) {
+            return (int) (((f - this.dxQ) + (this.dyW / 2.0f)) / this.dyW);
         }
 
-        float rn(String str) {
-            return this.bhF.measureText(str);
+        float ru(String str) {
+            return this.bjh.measureText(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c {
-        private boolean dxA;
-        private Paint dxB = new Paint();
-        private Paint dxC;
-        private Paint dxD;
-        private final float dxz;
+        private final float dza;
+        private boolean dzb;
+        private Paint dzc = new Paint();
+        private Paint dzd;
+        private Paint dze;
         private float mX;
         private final float mY;
 
         c(float f, float f2) {
             this.mX = f;
             this.mY = f2;
-            this.dxz = (int) Math.max(50.0f, SliderBar.this.dxc * 2.0f);
-            this.dxB.setColor(SliderBar.this.dxd);
-            this.dxB.setAntiAlias(true);
-            this.dxC = new Paint();
-            this.dxC.setColor(SliderBar.this.dxe);
-            this.dxC.setAntiAlias(true);
-            this.dxD = new Paint();
-            this.dxD.setStyle(Paint.Style.STROKE);
-            this.dxD.setColor(SliderBar.this.dxf);
-            this.dxD.setAntiAlias(true);
-            this.dxD.setStrokeWidth(SliderBar.this.dxg);
-            if (SliderBar.this.dxj) {
-                SliderBar.this.setLayerType(1, this.dxB);
-                SliderBar.this.setLayerType(1, this.dxC);
-                this.dxB.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.dxk);
-                this.dxC.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.dxk);
+            this.dza = (int) Math.max(50.0f, SliderBar.this.dyD * 2.0f);
+            this.dzc.setColor(SliderBar.this.dyE);
+            this.dzc.setAntiAlias(true);
+            this.dzd = new Paint();
+            this.dzd.setColor(SliderBar.this.dyF);
+            this.dzd.setAntiAlias(true);
+            this.dze = new Paint();
+            this.dze.setStyle(Paint.Style.STROKE);
+            this.dze.setColor(SliderBar.this.dyG);
+            this.dze.setAntiAlias(true);
+            this.dze.setStrokeWidth(SliderBar.this.dyH);
+            if (SliderBar.this.dyK) {
+                SliderBar.this.setLayerType(1, this.dzc);
+                SliderBar.this.setLayerType(1, this.dzd);
+                this.dzc.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.dyL);
+                this.dzd.setShadowLayer(3.0f, 0.0f, 3.0f, SliderBar.this.dyL);
             }
         }
 
         void draw(Canvas canvas) {
-            if (this.dxA) {
-                canvas.drawCircle(this.mX, this.mY, SliderBar.this.dxc, this.dxC);
+            if (this.dzb) {
+                canvas.drawCircle(this.mX, this.mY, SliderBar.this.dyD, this.dzd);
             } else {
-                canvas.drawCircle(this.mX, this.mY, SliderBar.this.dxc, this.dxB);
+                canvas.drawCircle(this.mX, this.mY, SliderBar.this.dyD, this.dzc);
             }
-            canvas.drawCircle(this.mX, this.mY, SliderBar.this.dxc, this.dxD);
+            canvas.drawCircle(this.mX, this.mY, SliderBar.this.dyD, this.dze);
         }
 
         void setX(float f) {
@@ -508,24 +508,24 @@ public class SliderBar extends View {
             return this.mX;
         }
 
-        float aHc() {
-            return this.dxz;
+        float aHf() {
+            return this.dza;
         }
 
-        boolean aHd() {
-            return this.dxA;
+        boolean aHg() {
+            return this.dzb;
         }
 
-        void aHe() {
-            this.dxA = true;
+        void aHh() {
+            this.dzb = true;
         }
 
         void release() {
-            this.dxA = false;
+            this.dzb = false;
         }
 
         boolean u(float f, float f2) {
-            return Math.abs(f - this.mX) <= this.dxz && Math.abs(f2 - this.mY) <= this.dxz;
+            return Math.abs(f - this.mX) <= this.dza && Math.abs(f2 - this.mY) <= this.dza;
         }
     }
 }

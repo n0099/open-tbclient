@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public class b {
     public static final String TAG = b.class.getSimpleName();
 
@@ -17,11 +17,11 @@ public class b {
             return com.baidu.l.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.l.a.adh();
+            return !com.baidu.l.a.adk();
         }
     }
 
-    public static boolean Q(Context context) {
+    public static boolean P(Context context) {
         if (context == null) {
             return false;
         }
@@ -38,7 +38,7 @@ public class b {
             return checkPermissionGranted;
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.l.a.adh();
+            return !com.baidu.l.a.adk();
         }
     }
 

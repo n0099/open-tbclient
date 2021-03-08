@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.extensions.loginauthmobile;
 import android.content.Intent;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.swan.bdprivate.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
@@ -18,10 +18,10 @@ public class b extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     @Override // com.baidu.swan.apps.a.a
     public void onResult(int i) {
         this.mResult.putInt("loginStatusCode", i);
-        aPH();
+        aPK();
     }
 
-    private void aPH() {
+    private void aPK() {
         c.release();
         finish();
     }

@@ -8,36 +8,36 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class b {
-    public static String anN;
-    public static String anO;
+    public static String apm;
+    public static String apn;
 
-    public static String Y(Context context) {
+    public static String X(Context context) {
         return z(context, AlaRecorderLog.Protocol.RTC);
     }
 
-    public static String Z(Context context) {
-        if (TextUtils.isEmpty(anN)) {
+    public static String Y(Context context) {
+        if (TextUtils.isEmpty(apm)) {
             tZ();
         }
-        return y(context, anN) + File.separator + "jniLibs" + File.separator + getCPUType();
+        return y(context, apm) + File.separator + "jniLibs" + File.separator + getCPUType();
     }
 
-    public static void dn(String str) {
+    public static void dr(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "armeabi-v7a";
         }
-        anO = str;
+        apn = str;
     }
 
     public static String getCPUType() {
-        return TextUtils.isEmpty(anO) ? "armeabi-v7a" : anO;
+        return TextUtils.isEmpty(apn) ? "armeabi-v7a" : apn;
     }
 
     public static String m(Context context, String str, String str2) {
         if (TextUtils.isEmpty(str2)) {
-            str2 = Y(context);
+            str2 = X(context);
         }
         return str2 + File.separator + md5(str);
     }
@@ -48,8 +48,8 @@ public class b {
         }
         try {
             String str2 = "";
-            for (byte b2 : MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes())) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str.getBytes())) {
+                String hexString = Integer.toHexString(b & 255);
                 if (hexString.length() == 1) {
                     hexString = "0" + hexString;
                 }
@@ -71,8 +71,8 @@ public class b {
     }
 
     public static String tZ() {
-        anN = "https://b.bdstatic.com/searchbox/androidvideo/" + ua();
-        return anN;
+        apm = "https://b.bdstatic.com/searchbox/androidvideo/" + ua();
+        return apm;
     }
 
     public static String ua() {
@@ -80,7 +80,7 @@ public class b {
     }
 
     public static String y(Context context, String str) {
-        return m(context, str, Y(context));
+        return m(context, str, X(context));
     }
 
     public static String z(Context context, String str) {

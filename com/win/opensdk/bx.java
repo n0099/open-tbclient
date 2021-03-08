@@ -1,96 +1,179 @@
 package com.win.opensdk;
 
-import android.view.MotionEvent;
-import android.view.View;
-import com.win.opensdk.core.Info;
-import java.util.HashMap;
-/* loaded from: classes3.dex */
-public final class bx implements View.OnTouchListener {
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.mobstat.Config;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
+/* loaded from: classes14.dex */
+public class bx {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13733a;
+    public Context f8135a;
+    public JSONStringer qlo = new JSONStringer();
+    public String c = "";
 
-    /* renamed from: a  reason: collision with other field name */
-    private long f32a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f13734b;
-
-    /* renamed from: case  reason: not valid java name */
-    private int f33case;
-    private int java;
-    private Info qjI;
-    private long qkp;
-    private final a qln;
-    private float qlo;
-    private float qlp;
-    private boolean qjq = false;
-    private long qjJ = 0;
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        boolean abQ(String str);
-
-        void abR(String str);
+    public bx(ca caVar, Context context) {
+        this.f8135a = context;
     }
 
-    public bx(Info info, a aVar) {
-        this.qln = aVar;
-        this.qjI = info;
+    public bx H(int i, long j) {
+        try {
+            this.qlo = ca.eJe();
+            hD("e", "bce").hD("timeis", ca.a()).P(BdStatsConstant.StatsKey.COUNT, i).P("dr", j);
+        } catch (JSONException e) {
+        }
+        return this;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.qjq = true;
-                this.qjJ = System.currentTimeMillis();
-                this.qlo = motionEvent.getX();
-                this.qlp = motionEvent.getY();
-                this.java = (int) motionEvent.getRawX();
-                this.f33case = (int) motionEvent.getRawY();
-                this.qkp = System.currentTimeMillis();
-                return false;
-            case 1:
-                this.f13733a = (int) motionEvent.getRawX();
-                this.f13734b = (int) motionEvent.getRawY();
-                this.f32a = System.currentTimeMillis();
-                boolean z = Math.abs(motionEvent.getX() - this.qlo) < 51.0f;
-                boolean z2 = Math.abs(motionEvent.getY() - this.qlp) < 51.0f;
-                boolean z3 = System.currentTimeMillis() - this.qjJ < 2000;
-                if (z && z2 && z3 && this.qjq) {
-                    String str = null;
-                    try {
-                        str = eJk().toString();
-                        this.qln.abR(str);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return this.qln.abQ(str);
-                } else if (this.qln != null) {
-                    try {
-                        this.qln.abR(eJk().toString());
-                        return false;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            default:
-                return false;
+    public bx P(String str, long j) {
+        try {
+            this.qlo.key(str).value(j);
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx a(cd cdVar) {
+        try {
+            this.qlo = ca.a("as", cdVar);
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx a(cd cdVar, int i) {
+        try {
+            this.qlo = ca.a("wdin", cdVar);
+            P(BdStatsConstant.StatsKey.COUNT, i);
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx a(cd cdVar, int i, int i2) {
+        try {
+            this.qlo = ca.a("asr", cdVar);
+            P("width", i);
+            P("height", i2);
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx a(cd cdVar, int i, long j) {
+        try {
+            this.qlo = ca.a("bpe", cdVar);
+            P(BdStatsConstant.StatsKey.COUNT, i).P("dr", j);
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx a(cd cdVar, int i, String str) {
+        try {
+            this.qlo = ca.a("wbe", cdVar);
+            P(BdStatsConstant.StatsKey.COUNT, i).hD("msg", ca.a(str));
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx a(cd cdVar, long j, int i, int i2) {
+        try {
+            this.qlo = ca.a("be", cdVar);
+            P("dr", j).P(BdStatsConstant.StatsKey.COUNT, i).P("num", i2);
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx a(cd cdVar, String str) {
+        try {
+            this.qlo = ca.a("ac", cdVar);
+            hD("msg", ca.a(str));
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx a(cd cdVar, String str, int i) {
+        try {
+            this.qlo = ca.a("dplop", cdVar);
+            hD("msg", ca.a(str));
+            P(BdStatsConstant.StatsKey.COUNT, i);
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx b(cd cdVar) {
+        try {
+            this.qlo = ca.a("ao", cdVar);
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx b(cd cdVar, int i) {
+        try {
+            this.qlo = ca.a("wde", cdVar);
+            P(BdStatsConstant.StatsKey.COUNT, i);
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public bx hD(String str, String str2) {
+        try {
+            if (!TextUtils.isEmpty(str2)) {
+                this.qlo.key(str).value(str2);
+            }
+        } catch (JSONException e) {
+        }
+        return this;
+    }
+
+    public final boolean a(String str) {
+        if (bp.iQ(this.f8135a) < 0) {
+            return false;
+        }
+        return v.a(ca.f8138a, str) ? bp.iQ(this.f8135a) < 1 : v.a(ca.b, str) ? bp.iQ(this.f8135a) < 2 : v.a(ca.c, str) ? bp.iQ(this.f8135a) < 3 : v.a(ca.d, str) && bp.iQ(this.f8135a) < 4;
+    }
+
+    public void a() {
+        JSONArray jSONArray = new JSONArray();
+        try {
+            if (!TextUtils.isEmpty(this.qlo.toString())) {
+                this.qlo.endObject();
+                this.c = this.qlo.toString();
+            }
+            JSONObject jSONObject = new JSONObject(this.c);
+            String optString = jSONObject.optString("e");
+            if (!a(optString)) {
+                boolean z = !v.a(ca.f8138a, optString);
+                jSONArray.put(jSONObject);
+                bt.a(new bu(this, z, jSONArray.toString()));
+            }
+        } catch (JSONException e) {
         }
     }
 
-    private HashMap<String, Object> eJk() {
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("dx", Integer.valueOf(this.java));
-        hashMap.put("dy", Integer.valueOf(this.f33case));
-        hashMap.put("dts", Long.valueOf(this.qkp));
-        hashMap.put("ux", Integer.valueOf(this.f13733a));
-        hashMap.put("uy", Integer.valueOf(this.f13734b));
-        hashMap.put("uts", Long.valueOf(this.f32a));
-        return hashMap;
+    public bx a(cd cdVar, String str, int i, int i2) {
+        try {
+            this.qlo = ca.a("wdre", cdVar);
+            try {
+                str = v.a(str);
+            } catch (Exception e) {
+            }
+            hD(Config.INPUT_DEF_PKG, str);
+            P("vsc", i);
+            P(BdStatsConstant.StatsKey.COUNT, i2);
+        } catch (JSONException e2) {
+        }
+        return this;
     }
 }

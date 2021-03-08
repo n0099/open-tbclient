@@ -2,15 +2,15 @@ package com.baidu.live.yuyingift.yuyinhousegift;
 
 import android.content.Context;
 import com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends d {
-    private InterfaceC0239a cbA;
-    private YuyinAlaRoomComboGiftView cbz;
+    private YuyinAlaRoomComboGiftView cda;
+    private InterfaceC0245a cdb;
 
     /* renamed from: com.baidu.live.yuyingift.yuyinhousegift.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public interface InterfaceC0239a {
-        void Zs();
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0245a {
+        void Zv();
 
         void a(YuyinAlaRoomComboGiftView yuyinAlaRoomComboGiftView);
 
@@ -24,70 +24,70 @@ public class a extends d {
     }
 
     private void init() {
-        this.cbz = new YuyinAlaRoomComboGiftView(this.mContext);
-        this.cbz.setAnimCallback(new YuyinAlaRoomComboGiftView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.a.1
+        this.cda = new YuyinAlaRoomComboGiftView(this.mContext);
+        this.cda.setAnimCallback(new YuyinAlaRoomComboGiftView.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.a.1
             @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView.a
             public void s(com.baidu.live.yuyingift.a.c cVar) {
-                if (a.this.cbA != null) {
-                    a.this.cbA.a(a.this.cbz);
+                if (a.this.cdb != null) {
+                    a.this.cdb.a(a.this.cda);
                 }
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView.a
             public void t(com.baidu.live.yuyingift.a.c cVar) {
-                if (a.this.cbA != null) {
-                    a.this.cbA.Zs();
+                if (a.this.cdb != null) {
+                    a.this.cdb.Zv();
                 }
             }
 
             @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView.a
             public void u(com.baidu.live.yuyingift.a.c cVar) {
-                if (a.this.cbA != null) {
-                    a.this.cbA.b(a.this.cbz);
+                if (a.this.cdb != null) {
+                    a.this.cdb.b(a.this.cda);
                 }
-                if (a.this.cbA != null) {
-                    a.this.cbA.Zs();
+                if (a.this.cdb != null) {
+                    a.this.cdb.Zv();
                 }
             }
         });
     }
 
     public void p(com.baidu.live.yuyingift.a.c cVar) {
-        if (this.cbz != null) {
-            this.cbz.b(cVar, x(cVar), false);
+        if (this.cda != null) {
+            this.cda.b(cVar, x(cVar), false);
         }
     }
 
     public void q(com.baidu.live.yuyingift.a.c cVar) {
-        if (this.cbz != null) {
-            this.cbz.q(cVar);
+        if (this.cda != null) {
+            this.cda.q(cVar);
         }
     }
 
     public com.baidu.live.yuyingift.a.c getLastShowGift() {
-        if (this.cbz != null) {
-            return this.cbz.getLastShowGift();
+        if (this.cda != null) {
+            return this.cda.getLastShowGift();
         }
         return null;
     }
 
     public boolean isRunning() {
-        return this.cbz != null && this.cbz.Zz();
+        return this.cda != null && this.cda.ZC();
     }
 
     public void r(com.baidu.live.yuyingift.a.c cVar) {
-        if (this.cbz != null) {
-            this.cbz.b(cVar, x(cVar), true);
+        if (this.cda != null) {
+            this.cda.b(cVar, x(cVar), true);
         }
     }
 
-    public void a(InterfaceC0239a interfaceC0239a) {
-        this.cbA = interfaceC0239a;
+    public void a(InterfaceC0245a interfaceC0245a) {
+        this.cdb = interfaceC0245a;
     }
 
     public void onDestory() {
-        if (this.cbz != null) {
-            this.cbz.onDestory();
+        if (this.cda != null) {
+            this.cda.onDestory();
         }
     }
 }

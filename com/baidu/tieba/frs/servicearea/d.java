@@ -20,10 +20,10 @@ public class d {
                 tbPageContext = ((BaseFragmentActivity) context).getPageContext();
             }
             if (tbPageContext != null) {
-                if (abVar.nwa != null) {
-                    com.baidu.tieba.aiapps.a.b(abVar.nwa.id, abVar.nwa.link, "1191003700000000", abVar.nwa.eEp);
+                if (abVar.nye != null) {
+                    com.baidu.tieba.aiapps.a.b(abVar.nye.id, abVar.nye.link, "1191003700000000", abVar.nye.eFQ);
                 } else {
-                    bf.bsV().b(tbPageContext, new String[]{abVar.link});
+                    bf.bsY().b(tbPageContext, new String[]{abVar.link});
                 }
             }
         }
@@ -33,8 +33,8 @@ public class d {
         if (abVar != null) {
             ar arVar = new ar("c13627");
             arVar.dR("fid", abVar.forumId);
-            arVar.ap("obj_type", abVar.nwa == null ? 1 : 2);
-            arVar.ap("obj_locate", abVar.index);
+            arVar.aq("obj_type", abVar.nye == null ? 1 : 2);
+            arVar.aq("obj_locate", abVar.index);
             arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
             arVar.dR("obj_name", abVar.name);
             TiebaStatic.log(arVar);
@@ -45,8 +45,8 @@ public class d {
         if (abVar != null) {
             ar arVar = new ar("c13626");
             arVar.dR("fid", abVar.forumId);
-            arVar.ap("obj_type", abVar.nwa == null ? 1 : 2);
-            arVar.ap("obj_locate", abVar.index);
+            arVar.aq("obj_type", abVar.nye == null ? 1 : 2);
+            arVar.aq("obj_locate", abVar.index);
             arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
             arVar.dR("obj_name", abVar.name);
             TiebaStatic.log(arVar);

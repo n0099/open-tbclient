@@ -51,11 +51,11 @@ public class a {
     }
 
     public static String a() {
-        String c = aj.c();
-        if (c == null || c.length() != 16) {
+        String d = aj.d();
+        if (d == null || d.length() != 16) {
             return null;
         }
-        return c;
+        return d;
     }
 
     public static String a(String str) {

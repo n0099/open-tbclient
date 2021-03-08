@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.view.c;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.tieba.ueg.a {
-    private BdUniqueId agC;
+    private BdUniqueId ahU;
     private Context mContext;
     private com.baidu.tbadk.core.view.a mWaitingDialog;
-    private HttpMessageListener fay = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.pb.pb.report.a.2
+    private HttpMessageListener fbX = new HttpMessageListener(1003402) { // from class: com.baidu.tieba.pb.pb.report.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -31,60 +31,60 @@ public class a implements com.baidu.tieba.ueg.a {
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    a.this.Pv(url);
+                    a.this.PB(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(R.string.neterror);
                 }
-                a.this.mgf.showFailToast(errorString);
+                a.this.mii.showFailToast(errorString);
             }
         }
     };
-    private b mge = new b();
-    private c mgf = new c();
+    private b mih = new b();
+    private c mii = new c();
 
     public a(Context context) {
         this.mContext = context;
-        this.mgf.toastTime = 1000L;
+        this.mii.toastTime = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void x(BdUniqueId bdUniqueId) {
-        this.agC = bdUniqueId;
-        this.mge.setTag(bdUniqueId);
-        this.fay.setTag(bdUniqueId);
-        this.fay.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.fay);
+    public void y(BdUniqueId bdUniqueId) {
+        this.ahU = bdUniqueId;
+        this.mih.setTag(bdUniqueId);
+        this.fbX.setTag(bdUniqueId);
+        this.fbX.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.fbX);
     }
 
-    public void PV(String str) {
+    public void Qb(String str) {
         showLoadingDialog();
-        this.mge.PV(str);
+        this.mih.Qb(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void PW(String str) {
+    public void Qc(String str) {
         showLoadingDialog();
-        this.mge.PW(str);
+        this.mih.Qc(str);
     }
 
     private void showLoadingDialog() {
         TbPageContext tbPageContext;
         if (this.mWaitingDialog == null) {
-            f<?> K = j.K(this.mContext);
-            if (!(K instanceof TbPageContext)) {
+            f<?> J = j.J(this.mContext);
+            if (!(J instanceof TbPageContext)) {
                 tbPageContext = null;
             } else {
-                tbPageContext = (TbPageContext) K;
+                tbPageContext = (TbPageContext) J;
             }
             if (tbPageContext != null) {
                 this.mWaitingDialog = new com.baidu.tbadk.core.view.a(tbPageContext);
                 this.mWaitingDialog.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.pb.report.a.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
-                        MessageManager.getInstance().removeMessage(a.this.agC);
+                        MessageManager.getInstance().removeMessage(a.this.ahU);
                     }
                 });
             } else {
@@ -95,7 +95,7 @@ public class a implements com.baidu.tieba.ueg.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pv(String str) {
+    public void PB(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(R.string.pb_web_view_report_title), str, true)));
     }
 }

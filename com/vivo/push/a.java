@@ -5,20 +5,18 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bundle f13560a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f13561b;
+    private Bundle f8004a;
+    private String b;
     private String c;
 
     public a(String str, String str2, Bundle bundle) {
-        this.f13561b = str;
+        this.b = str;
         this.c = str2;
-        this.f13560a = bundle;
+        this.f8004a = bundle;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:9:0x001e, code lost:
@@ -55,88 +53,88 @@ public final class a {
     }
 
     public final void a(String str, int i) {
-        if (this.f13560a == null) {
-            this.f13560a = new Bundle();
+        if (this.f8004a == null) {
+            this.f8004a = new Bundle();
         }
-        this.f13560a.putInt(str, i);
+        this.f8004a.putInt(str, i);
     }
 
     public final void a(String str, long j) {
-        if (this.f13560a == null) {
-            this.f13560a = new Bundle();
+        if (this.f8004a == null) {
+            this.f8004a = new Bundle();
         }
-        this.f13560a.putLong(str, j);
+        this.f8004a.putLong(str, j);
     }
 
     public final void a(String str, String str2) {
-        if (this.f13560a == null) {
-            this.f13560a = new Bundle();
+        if (this.f8004a == null) {
+            this.f8004a = new Bundle();
         }
-        this.f13560a.putString(str, str2);
+        this.f8004a.putString(str, str2);
     }
 
     public final void a(String str, Serializable serializable) {
-        if (this.f13560a == null) {
-            this.f13560a = new Bundle();
+        if (this.f8004a == null) {
+            this.f8004a = new Bundle();
         }
-        this.f13560a.putSerializable(str, serializable);
+        this.f8004a.putSerializable(str, serializable);
     }
 
     public final void a(String str, boolean z) {
-        if (this.f13560a == null) {
-            this.f13560a = new Bundle();
+        if (this.f8004a == null) {
+            this.f8004a = new Bundle();
         }
-        this.f13560a.putBoolean(str, z);
+        this.f8004a.putBoolean(str, z);
     }
 
     public final void a(String str, ArrayList<String> arrayList) {
-        if (this.f13560a == null) {
-            this.f13560a = new Bundle();
+        if (this.f8004a == null) {
+            this.f8004a = new Bundle();
         }
-        this.f13560a.putStringArrayList(str, arrayList);
+        this.f8004a.putStringArrayList(str, arrayList);
     }
 
     public final String a(String str) {
-        if (this.f13560a == null) {
+        if (this.f8004a == null) {
             return null;
         }
-        return this.f13560a.getString(str);
+        return this.f8004a.getString(str);
     }
 
     public final int b(String str, int i) {
-        return this.f13560a == null ? i : this.f13560a.getInt(str, i);
+        return this.f8004a == null ? i : this.f8004a.getInt(str, i);
     }
 
     public final ArrayList<String> b(String str) {
-        if (this.f13560a == null) {
+        if (this.f8004a == null) {
             return null;
         }
-        return this.f13560a.getStringArrayList(str);
+        return this.f8004a.getStringArrayList(str);
     }
 
     public final long b(String str, long j) {
-        return this.f13560a == null ? j : this.f13560a.getLong(str, j);
+        return this.f8004a == null ? j : this.f8004a.getLong(str, j);
     }
 
     public final Serializable c(String str) {
-        if (this.f13560a == null) {
+        if (this.f8004a == null) {
             return null;
         }
-        return this.f13560a.getSerializable(str);
+        return this.f8004a.getSerializable(str);
     }
 
     public final boolean d(String str) {
-        if (this.f13560a == null) {
+        if (this.f8004a == null) {
             return false;
         }
-        return this.f13560a.getBoolean(str, false);
+        return this.f8004a.getBoolean(str, false);
     }
 
     public final String a() {
-        return this.f13561b;
+        return this.b;
     }
 
     public final Bundle b() {
-        return this.f13560a;
+        return this.f8004a;
     }
 }

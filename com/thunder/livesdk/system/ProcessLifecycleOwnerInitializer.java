@@ -8,7 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ProcessLifecycleOwnerInitializer extends ContentProvider implements Application.ActivityLifecycleCallbacks {
     @Override // android.content.ContentProvider
     public boolean onCreate() {

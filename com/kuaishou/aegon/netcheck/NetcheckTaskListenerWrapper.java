@@ -6,25 +6,23 @@ import java.util.EnumSet;
 import java.util.concurrent.Executor;
 /* loaded from: classes3.dex */
 public class NetcheckTaskListenerWrapper {
-
-    /* renamed from: b  reason: collision with root package name */
-    public Executor f8118b;
-    public a.b pYu;
+    public Executor b;
+    public a.b pZi;
 
     @Keep
     public void OnFinish(long j, String str) {
-        a.EnumC1069a[] values;
-        EnumSet noneOf = EnumSet.noneOf(a.EnumC1069a.class);
-        for (a.EnumC1069a enumC1069a : a.EnumC1069a.values()) {
-            if (((1 << enumC1069a.a()) & j) != 0) {
-                noneOf.add(enumC1069a);
+        a.EnumC1086a[] values;
+        EnumSet noneOf = EnumSet.noneOf(a.EnumC1086a.class);
+        for (a.EnumC1086a enumC1086a : a.EnumC1086a.values()) {
+            if (((1 << enumC1086a.a()) & j) != 0) {
+                noneOf.add(enumC1086a);
             }
         }
-        this.f8118b.execute(c.b(this, noneOf, str));
+        this.b.execute(c.b(this, noneOf, str));
     }
 
     @Keep
     public void OnProgress(int i) {
-        this.f8118b.execute(b.b(this, i));
+        this.b.execute(b.b(this, i));
     }
 }

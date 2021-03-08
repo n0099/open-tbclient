@@ -1,7 +1,7 @@
 package com.yy.videoplayer.render;
 
 import android.opengl.GLES20;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class YMFFramebuffer {
     private int[] mFrameBuffers = new int[1];
 

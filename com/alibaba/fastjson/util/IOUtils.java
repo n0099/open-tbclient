@@ -283,12 +283,12 @@ public class IOUtils {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0006 */
-    public static void getChars(byte b2, int i, char[] cArr) {
+    public static void getChars(byte b, int i, char[] cArr) {
         char c = 0;
-        int i2 = b2;
-        if (b2 < 0) {
+        int i2 = b;
+        if (b < 0) {
             c = '-';
-            i2 = -b2;
+            i2 = -b;
         }
         while (true) {
             int i3 = (52429 * i2) >>> 19;
@@ -611,50 +611,50 @@ public class IOUtils {
         int i6 = i5;
         while (i6 < i3) {
             int i7 = i6 + 1;
-            byte b2 = bArr[i6];
-            if (b2 >= 0) {
-                cArr[i4] = (char) b2;
+            byte b = bArr[i6];
+            if (b >= 0) {
+                cArr[i4] = (char) b;
                 i4++;
                 i6 = i7;
-            } else if ((b2 >> 5) == -2 && (b2 & 30) != 0) {
+            } else if ((b >> 5) == -2 && (b & 30) != 0) {
                 if (i7 >= i3) {
                     return -1;
                 }
                 i6 = i7 + 1;
-                byte b3 = bArr[i7];
-                if ((b3 & 192) != 128) {
+                byte b2 = bArr[i7];
+                if ((b2 & 192) != 128) {
                     return -1;
                 }
-                cArr[i4] = (char) ((b3 ^ (b2 << 6)) ^ 3968);
+                cArr[i4] = (char) ((b2 ^ (b << 6)) ^ 3968);
                 i4++;
-            } else if ((b2 >> 4) == -2) {
+            } else if ((b >> 4) == -2) {
                 if (i7 + 1 >= i3) {
                     return -1;
                 }
                 int i8 = i7 + 1;
-                byte b4 = bArr[i7];
+                byte b3 = bArr[i7];
                 i6 = i8 + 1;
-                byte b5 = bArr[i8];
-                if ((b2 == -32 && (b4 & 224) == 128) || (b4 & 192) != 128 || (b5 & 192) != 128) {
+                byte b4 = bArr[i8];
+                if ((b == -32 && (b3 & 224) == 128) || (b3 & 192) != 128 || (b4 & 192) != 128) {
                     return -1;
                 }
-                char c = (char) ((b5 ^ (-123008)) ^ ((b4 << 6) ^ (b2 << 12)));
+                char c = (char) ((b4 ^ (-123008)) ^ ((b3 << 6) ^ (b << 12)));
                 if (c >= 55296 && c < 57344) {
                     return -1;
                 }
                 cArr[i4] = c;
                 i4++;
-            } else if ((b2 >> 3) != -2 || i7 + 2 >= i3) {
+            } else if ((b >> 3) != -2 || i7 + 2 >= i3) {
                 return -1;
             } else {
                 int i9 = i7 + 1;
-                byte b6 = bArr[i7];
+                byte b5 = bArr[i7];
                 int i10 = i9 + 1;
-                byte b7 = bArr[i9];
+                byte b6 = bArr[i9];
                 int i11 = i10 + 1;
-                byte b8 = bArr[i10];
-                int i12 = (((b2 << 18) ^ (b6 << 12)) ^ (b7 << 6)) ^ (3678080 ^ b8);
-                if ((b6 & 192) != 128 || (b7 & 192) != 128 || (b8 & 192) != 128 || !Character.isSupplementaryCodePoint(i12)) {
+                byte b7 = bArr[i10];
+                int i12 = (((b << 18) ^ (b5 << 12)) ^ (b6 << 6)) ^ (3678080 ^ b7);
+                if ((b5 & 192) != 128 || (b6 & 192) != 128 || (b7 & 192) != 128 || !Character.isSupplementaryCodePoint(i12)) {
                     return -1;
                 }
                 int i13 = i4 + 1;

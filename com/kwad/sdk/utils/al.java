@@ -8,10 +8,8 @@ public class al {
     private static volatile al l;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f10781a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private volatile boolean f10782b = false;
+    private volatile boolean f7118a = false;
+    private volatile boolean b = false;
     private volatile boolean c = false;
     private volatile boolean d = false;
     private volatile boolean e = false;
@@ -37,8 +35,8 @@ public class al {
     }
 
     private void e(@NonNull AdTemplate adTemplate) {
-        if (this.k && !this.f10782b) {
-            this.f10782b = true;
+        if (this.k && !this.b) {
+            this.b = true;
             this.h = System.currentTimeMillis();
             com.kwad.sdk.core.report.a aVar = new com.kwad.sdk.core.report.a(66L, adTemplate);
             aVar.l = this.h - this.g;
@@ -77,8 +75,8 @@ public class al {
 
     public void a(@NonNull AdTemplate adTemplate) {
         this.k = com.kwad.sdk.core.config.c.U();
-        if (this.k && !this.f10781a) {
-            this.f10781a = true;
+        if (this.k && !this.f7118a) {
+            this.f7118a = true;
             this.g = System.currentTimeMillis();
             com.kwad.sdk.core.report.g.c(new com.kwad.sdk.core.report.a(65L, adTemplate));
         }

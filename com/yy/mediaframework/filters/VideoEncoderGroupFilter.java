@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoEncoderGroupFilter extends AbstractYYMediaFilter implements IEncoderListener, AbstractEncoderFilter.IEncodeStateCallBack, AbstractEncoderFilter.IEncodedDataOutCallBack, AbstractVideoLiveQualityFilter.IWeakerNetworkCallback, IEncodeParamListener {
     private static final int DEFAULT_START_ENCODER_TRY_COUNT = 3;
     private static final String TAG = "VideoEncoderGroupFilter";

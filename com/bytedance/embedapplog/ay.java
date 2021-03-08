@@ -8,20 +8,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
 final class ay {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicBoolean f5793a = new AtomicBoolean(false);
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f5794b = "";
+    private static final AtomicBoolean f3910a = new AtomicBoolean(false);
+    private static String b = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String c(SharedPreferences sharedPreferences) {
-        if (f5793a.compareAndSet(false, true)) {
-            f5794b = sharedPreferences.getString("cdid", "");
-            if (TextUtils.isEmpty(f5794b)) {
-                f5794b = UUID.randomUUID().toString();
-                sharedPreferences.edit().putString("cdid", f5794b).apply();
+        if (f3910a.compareAndSet(false, true)) {
+            b = sharedPreferences.getString("cdid", "");
+            if (TextUtils.isEmpty(b)) {
+                b = UUID.randomUUID().toString();
+                sharedPreferences.edit().putString("cdid", b).apply();
             }
         }
-        return f5794b;
+        return b;
     }
 }

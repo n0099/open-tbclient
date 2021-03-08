@@ -8,134 +8,134 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class x {
-    private final y oTN;
+    private final y oVS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(Context context) {
-        this.oTN = y.hn(context);
+        this.oVS = y.hm(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(n nVar) {
-        this.oTN.b(nVar);
+        this.oVS.b(nVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bc(List<n> list) {
-        this.oTN.bc(list);
+        this.oVS.bc(list);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean ehT() {
-        return this.oTN.ehT();
+    public boolean eib() {
+        return this.oVS.eib();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(p pVar) {
-        this.oTN.b(pVar);
+        this.oVS.b(pVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, int i, long j, JSONArray jSONArray) {
-        this.oTN.a(str, i, j, jSONArray);
+        this.oVS.a(str, i, j, jSONArray);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void O(String str, int i) {
-        this.oTN.O(str, i);
+    public void P(String str, int i) {
+        this.oVS.P(str, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void i(String str, int i, String str2) {
-        this.oTN.i(str, i, str2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bem() {
-        this.oTN.bem();
-    }
-
-    public void a(f fVar) {
-        this.oTN.a(fVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void e(SparseArray<ArrayList> sparseArray) {
-        this.oTN.e(sparseArray);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k XB(String str) {
-        return this.oTN.XB(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean XC(String str) {
-        return this.oTN.XC(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int a(ArrayList<j> arrayList, aj ajVar) {
-        return this.oTN.a(arrayList, ajVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int a(aj ajVar, aj ajVar2) {
-        return this.oTN.a(ajVar, ajVar2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int c(aj ajVar) {
-        return this.oTN.c(ajVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean gr(List<k> list) {
-        return this.oTN.gr(list);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int ehU() {
-        return this.oTN.ehU();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public HashMap<String, String> bi(ArrayList<String> arrayList) {
-        return this.oTN.bi(arrayList);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean a(SparseArray<Integer> sparseArray, ArrayList<String> arrayList, boolean z, String str) {
-        return this.oTN.a(sparseArray, arrayList, z, str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o XD(String str) {
-        return this.oTN.XD(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void yr(String str) {
-        this.oTN.yr(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void ben() {
-        this.oTN.ben();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void ys(String str) {
-        this.oTN.ys(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void dt(String str, String str2) {
-        this.oTN.dt(str, str2);
+        this.oVS.i(str, i, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void beo() {
-        this.oTN.beo();
+        this.oVS.beo();
+    }
+
+    public void a(f fVar) {
+        this.oVS.a(fVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void c(SparseArray<ArrayList> sparseArray) {
+        this.oVS.c(sparseArray);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k XI(String str) {
+        return this.oVS.XI(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean XJ(String str) {
+        return this.oVS.XJ(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int a(ArrayList<j> arrayList, aj ajVar) {
+        return this.oVS.a(arrayList, ajVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int a(aj ajVar, aj ajVar2) {
+        return this.oVS.a(ajVar, ajVar2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int c(aj ajVar) {
+        return this.oVS.c(ajVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean gr(List<k> list) {
+        return this.oVS.gr(list);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int eic() {
+        return this.oVS.eic();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public HashMap<String, String> bi(ArrayList<String> arrayList) {
+        return this.oVS.bi(arrayList);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean a(SparseArray<Integer> sparseArray, ArrayList<String> arrayList, boolean z, String str) {
+        return this.oVS.a(sparseArray, arrayList, z, str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o XK(String str) {
+        return this.oVS.XK(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void yy(String str) {
+        this.oVS.yy(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void bep() {
+        this.oVS.bep();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void yz(String str) {
+        this.oVS.yz(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void dt(String str, String str2) {
+        this.oVS.dt(str, str2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void beq() {
+        this.oVS.beq();
     }
 }

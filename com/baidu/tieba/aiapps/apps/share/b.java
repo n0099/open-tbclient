@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends ActivityDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
@@ -29,25 +29,25 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        bNJ();
+        bNP();
         f(getAgent(), this.mParams.getString("options"));
     }
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onSelfFinish() {
-        bNK();
+        bNQ();
     }
 
-    private void bNJ() {
+    private void bNP() {
     }
 
-    private void bNK() {
+    private void bNQ() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void mg(boolean z) {
         this.mResult.putBoolean("share_result", z);
-        bNK();
+        bNQ();
         finish();
     }
 
@@ -58,13 +58,13 @@ public class b extends ActivityDelegation {
         }
         a aVar = new a();
         try {
-            aVar.dC(new JSONObject(str));
-            TbadkCoreApplication.getInst().setCurAiAppid(aVar.fvo);
+            aVar.dE(new JSONObject(str));
+            TbadkCoreApplication.getInst().setCurAiAppid(aVar.fwN);
             if (!TextUtils.isEmpty(aVar.getMediaType())) {
                 int aR = aR(-1, aVar.getMediaType());
-                if (!TextUtils.isEmpty(aVar.bNH()) && !TextUtils.isEmpty(aVar.bNI())) {
+                if (!TextUtils.isEmpty(aVar.bNN()) && !TextUtils.isEmpty(aVar.bNO())) {
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                    httpMessage.addParam("scheme", aVar.bNH());
+                    httpMessage.addParam("scheme", aVar.bNN());
                     httpMessage.setExtra(new com.baidu.tbadk.core.atomData.a(aVar, activity, aR, new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.1
                         @Override // android.content.DialogInterface.OnCancelListener
                         public void onCancel(DialogInterface dialogInterface) {
@@ -78,7 +78,7 @@ public class b extends ActivityDelegation {
                 mg(com.baidu.tbadk.coreExtra.share.a.F(activity, aR));
                 return;
             }
-            TiebaStatic.log(new ar("c13530").dR("obj_id", aVar.fvo).ap("obj_type", aVar.fvp).dR("obj_source", aVar.fvq));
+            TiebaStatic.log(new ar("c13530").dR("obj_id", aVar.fwN).aq("obj_type", aVar.fwO).dR("obj_source", aVar.fwP));
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, aVar, false);
             shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.b.2
                 @Override // android.content.DialogInterface.OnCancelListener
@@ -91,12 +91,12 @@ public class b extends ActivityDelegation {
                 public void onDismiss(DialogInterface dialogInterface) {
                 }
             };
-            JSONArray bNG = aVar.bNG();
-            if (bNG != null && !TextUtils.isEmpty(aVar.bNH()) && !TextUtils.isEmpty(aVar.bNI())) {
+            JSONArray bNM = aVar.bNM();
+            if (bNM != null && !TextUtils.isEmpty(aVar.bNN()) && !TextUtils.isEmpty(aVar.bNO())) {
                 ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < bNG.length(); i++) {
+                for (int i = 0; i < bNM.length(); i++) {
                     try {
-                        arrayList.add(Integer.valueOf(aR(-1, bNG.getString(i))));
+                        arrayList.add(Integer.valueOf(aR(-1, bNM.getString(i))));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -105,7 +105,7 @@ public class b extends ActivityDelegation {
                     aVar.bD(arrayList);
                 }
                 HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                httpMessage2.addParam("scheme", aVar.bNH());
+                httpMessage2.addParam("scheme", aVar.bNN());
                 httpMessage2.setExtra(new com.baidu.tbadk.core.atomData.a(aVar, activity, shareDialogConfig.onCancelListener));
                 MessageManager.getInstance().sendMessage(httpMessage2);
                 return;

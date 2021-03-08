@@ -6,11 +6,11 @@ import com.baidu.swan.games.view.webview.GameWebViewJavascriptInterface;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject dLv;
-    protected JSONObject dLw;
+    protected JSONObject dMW;
+    protected JSONObject dMX;
     public String mAppId;
     public String mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
     public String mPage;
@@ -35,16 +35,16 @@ public class e {
             }
             jSONObject.put("source", this.mSource);
             if (!TextUtils.isEmpty(this.mPage)) {
-                this.mPage = com.baidu.swan.apps.statistic.g.sH(this.mPage);
+                this.mPage = com.baidu.swan.apps.statistic.g.sO(this.mPage);
                 jSONObject.put("page", this.mPage);
             }
-            if (this.dLv == null) {
-                this.dLv = new JSONObject();
+            if (this.dMW == null) {
+                this.dMW = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.dLv.put("appid", this.mAppId);
+                this.dMW.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.dLv);
+            jSONObject.put("ext", this.dMW);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -54,16 +54,16 @@ public class e {
         }
     }
 
-    public void ch(JSONObject jSONObject) {
+    public void cj(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dLv == null) {
-                this.dLv = new JSONObject();
+            if (this.dMW == null) {
+                this.dMW = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dLv.put(next, jSONObject.opt(next));
+                    this.dMW.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -73,10 +73,10 @@ public class e {
         }
     }
 
-    public void sT(String str) {
+    public void ta(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                ch(new JSONObject(str));
+                cj(new JSONObject(str));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -85,20 +85,20 @@ public class e {
         }
     }
 
-    public void ci(JSONObject jSONObject) {
+    public void ck(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.dLv == null) {
-                this.dLv = new JSONObject();
+            if (this.dMW == null) {
+                this.dMW = new JSONObject();
             }
-            this.dLw = this.dLv.optJSONObject("extlog");
-            if (this.dLw == null) {
-                this.dLw = new JSONObject();
+            this.dMX = this.dMW.optJSONObject("extlog");
+            if (this.dMX == null) {
+                this.dMX = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.dLw.put(next, jSONObject.opt(next));
+                    this.dMX.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -106,7 +106,7 @@ public class e {
                 }
             }
             try {
-                this.dLv.put("extlog", this.dLw);
+                this.dMW.put("extlog", this.dMX);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -115,12 +115,12 @@ public class e {
         }
     }
 
-    public void r(@NonNull String str, Object obj) {
-        if (this.dLv == null) {
-            this.dLv = new JSONObject();
+    public void s(@NonNull String str, Object obj) {
+        if (this.dMW == null) {
+            this.dMW = new JSONObject();
         }
         try {
-            this.dLv.put(str, obj);
+            this.dMW.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -128,12 +128,12 @@ public class e {
         }
     }
 
-    public JSONObject aLK() {
-        if (this.dLv == null) {
+    public JSONObject aLN() {
+        if (this.dMW == null) {
             return null;
         }
         try {
-            return new JSONObject(this.dLv.toString());
+            return new JSONObject(this.dMW.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

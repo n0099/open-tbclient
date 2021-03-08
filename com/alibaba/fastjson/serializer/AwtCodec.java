@@ -51,7 +51,7 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
             Color color = (Color) obj;
             serializeWriter.writeFieldValue(writeClassName(serializeWriter, Color.class, '{'), "r", color.getRed());
             serializeWriter.writeFieldValue(',', IXAdRequestInfo.GPS, color.getGreen());
-            serializeWriter.writeFieldValue(',', b.f4046a, color.getBlue());
+            serializeWriter.writeFieldValue(',', b.f2804a, color.getBlue());
             if (color.getAlpha() > 0) {
                 serializeWriter.writeFieldValue(',', "alpha", color.getAlpha());
             }
@@ -164,7 +164,7 @@ public class AwtCodec implements ObjectDeserializer, ObjectSerializer {
                     } else if (stringVal.equalsIgnoreCase(IXAdRequestInfo.GPS)) {
                         i = i3;
                         i4 = intValue;
-                    } else if (stringVal.equalsIgnoreCase(b.f4046a)) {
+                    } else if (stringVal.equalsIgnoreCase(b.f2804a)) {
                         i = intValue;
                     } else if (!stringVal.equalsIgnoreCase("alpha")) {
                         throw new JSONException("syntax error, " + stringVal);

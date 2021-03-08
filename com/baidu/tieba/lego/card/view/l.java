@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.view;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface l {
-    void Ed(int i);
+    void Eg(int i);
 
-    void aS(float f);
+    void aW(float f);
 }

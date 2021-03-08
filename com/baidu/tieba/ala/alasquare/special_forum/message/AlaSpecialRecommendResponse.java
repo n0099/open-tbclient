@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public boolean hasMore;
     public List<cb> livesList;
@@ -46,8 +46,8 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                 this.hasMore = false;
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-            if (this.mSpecialActivityListData != null && this.mSpecialActivityListData.gGV == null) {
-                this.mSpecialActivityListData.gGV = new ArrayList();
+            if (this.mSpecialActivityListData != null && this.mSpecialActivityListData.gIE == null) {
+                this.mSpecialActivityListData.gIE = new ArrayList();
             }
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
@@ -55,7 +55,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     if (optJSONObject3 != null) {
                         b bVar = new b();
                         bVar.parseJson(optJSONObject3);
-                        this.mSpecialActivityListData.gGV.add(bVar);
+                        this.mSpecialActivityListData.gIE.add(bVar);
                     }
                 }
             }

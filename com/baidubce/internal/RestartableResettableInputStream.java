@@ -4,7 +4,7 @@ import com.baidubce.BceClientException;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RestartableResettableInputStream extends RestartableInputStream {
     private InputStream input;
 

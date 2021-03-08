@@ -13,7 +13,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.scheme.actions.aa;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b extends aa {
     public b(j jVar) {
         super(jVar, "/swanAPI/setBackgroundTextStyle");
@@ -30,8 +30,8 @@ public class b extends aa {
         if (DEBUG) {
             Log.d("setBackgroundTextStyle", optParamsAsJo.toString());
         }
-        f afX = com.baidu.swan.apps.v.f.aAl().afX();
-        if (afX == null) {
+        f aga = com.baidu.swan.apps.v.f.aAo().aga();
+        if (aga == null) {
             c.e("setBackgroundTextStyle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -41,7 +41,7 @@ public class b extends aa {
             c.e("setBackgroundTextStyle", "text style is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (!afX.apy().apm().gf(SwanAppConfigData.rM(optString))) {
+        } else if (!aga.apB().app().gg(SwanAppConfigData.rT(optString))) {
             c.e("setBackgroundTextStyle", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

@@ -6,15 +6,15 @@ import com.baidu.card.view.MutiImgSingleHorizontalLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class x extends a<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a agj;
-    private MutiImgSingleHorizontalLayout ahr;
+    private com.baidu.tbadk.core.data.a ahB;
+    private MutiImgSingleHorizontalLayout aiK;
     private String mFrom;
     private int mSkinType;
 
     public x(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.ahr = new MutiImgSingleHorizontalLayout(context);
+        this.aiK = new MutiImgSingleHorizontalLayout(context);
     }
 
     public void setFrom(String str) {
@@ -24,20 +24,20 @@ public class x extends a<com.baidu.tbadk.core.data.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.a
     public View getView() {
-        return this.ahr;
+        return this.aiK;
     }
 
     @Override // com.baidu.card.a
     public void setOnCardSubClickListener(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.ahr.setSubClickListener(abVar);
+        this.aiK.setSubClickListener(abVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.p
     /* renamed from: b */
-    public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.agj = aVar;
-        this.ahr.C(aVar);
+    public void E(com.baidu.tbadk.core.data.a aVar) {
+        this.ahB = aVar;
+        this.aiK.E(aVar);
     }
 
     @Override // com.baidu.card.q
@@ -53,6 +53,6 @@ public class x extends a<com.baidu.tbadk.core.data.a> {
     }
 
     public void setFromCDN(boolean z) {
-        this.ahr.setFromCDN(z);
+        this.aiK.setFromCDN(z);
     }
 }

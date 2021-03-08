@@ -34,29 +34,29 @@ import com.baidu.tieba.homepage.concern.adapter.RecommendBarPageAdapter;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes2.dex */
 public class RecommendBarLayout extends LinearLayout implements View.OnClickListener, q {
-    private ImageView jPF;
-    private CustomMessageListener kaE;
-    private byte kbH;
-    private FrameLayout kcG;
-    private TextView kcH;
-    private ViewPager kcI;
-    private RecommendBarPageAdapter kcJ;
+    private ImageView jRo;
+    private CustomMessageListener kcG;
+    private byte kdJ;
+    private FrameLayout keJ;
+    private TextView keK;
+    private ViewPager keL;
+    private RecommendBarPageAdapter keM;
     private final Context mContext;
     private int mSkinType;
     private TbPageContext<?> pageContext;
     private BdUniqueId pageId;
 
-    public RecommendBarLayout(TbPageContext<?> tbPageContext, Context context, BdUniqueId bdUniqueId, byte b2) {
+    public RecommendBarLayout(TbPageContext<?> tbPageContext, Context context, BdUniqueId bdUniqueId, byte b) {
         super(context, null, 0);
         this.mSkinType = 3;
-        this.kaE = new CustomMessageListener(0) { // from class: com.baidu.tieba.homepage.concern.view.RecommendBarLayout.2
+        this.kcG = new CustomMessageListener(0) { // from class: com.baidu.tieba.homepage.concern.view.RecommendBarLayout.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                     long longValue = ((Long) customResponsedMessage.getData()).longValue();
                     if (longValue != 0) {
-                        RecommendBarLayout.this.kcJ.n(longValue, customResponsedMessage.getCmd() == 2001335);
+                        RecommendBarLayout.this.keM.n(longValue, customResponsedMessage.getCmd() == 2001335);
                     }
                 }
             }
@@ -64,49 +64,49 @@ public class RecommendBarLayout extends LinearLayout implements View.OnClickList
         this.pageId = bdUniqueId;
         this.mContext = context;
         this.pageContext = tbPageContext;
-        this.kbH = b2;
+        this.kdJ = b;
         initUI();
-        cPt();
+        cPA();
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
         this.pageId = bdUniqueId;
     }
 
-    private void cPt() {
-        this.kaE.setTag(this.pageId);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LIKE_FORUM, this.kaE);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_UNLIKE_FORUM, this.kaE);
+    private void cPA() {
+        this.kcG.setTag(this.pageId);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LIKE_FORUM, this.kcG);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_UNLIKE_FORUM, this.kcG);
     }
 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.recommend_bar_card, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-        this.kcG = (FrameLayout) findViewById(R.id.recommend_bar_top);
-        this.kcH = (TextView) findViewById(R.id.recommend_bar_title);
-        this.kcI = (ViewPager) findViewById(R.id.recommend_bar_view_pager);
-        this.jPF = (ImageView) findViewById(R.id.recommend_bar_right_arrow);
-        this.kcI.setOffscreenPageLimit(2);
-        this.kcJ = new RecommendBarPageAdapter(this.pageContext, this.kbH);
-        this.kcI.setAdapter(this.kcJ);
-        this.kcI.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.homepage.concern.view.RecommendBarLayout.1
+        this.keJ = (FrameLayout) findViewById(R.id.recommend_bar_top);
+        this.keK = (TextView) findViewById(R.id.recommend_bar_title);
+        this.keL = (ViewPager) findViewById(R.id.recommend_bar_view_pager);
+        this.jRo = (ImageView) findViewById(R.id.recommend_bar_right_arrow);
+        this.keL.setOffscreenPageLimit(2);
+        this.keM = new RecommendBarPageAdapter(this.pageContext, this.kdJ);
+        this.keL.setAdapter(this.keM);
+        this.keL.addOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.homepage.concern.view.RecommendBarLayout.1
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                n Bv = RecommendBarLayout.this.kcJ.Bv(i);
-                if (Bv instanceof d) {
-                    d dVar = (d) Bv;
-                    ar ap = new ar("c14004").dR("uid", TbadkApplication.getCurrentAccount()).ap("obj_locate", RecommendBarLayout.this.kbH).ap("obj_param1", i);
-                    if (!StringUtils.isNull(dVar.kbT)) {
-                        ap = ap.dR("obj_name", dVar.kbT);
+                n By = RecommendBarLayout.this.keM.By(i);
+                if (By instanceof d) {
+                    d dVar = (d) By;
+                    ar aq = new ar("c14004").dR("uid", TbadkApplication.getCurrentAccount()).aq("obj_locate", RecommendBarLayout.this.kdJ).aq("obj_param1", i);
+                    if (!StringUtils.isNull(dVar.kdV)) {
+                        aq = aq.dR("obj_name", dVar.kdV);
                     }
-                    TiebaStatic.log(ap);
-                    ar ap2 = new ar("c13643").dR("uid", TbadkApplication.getCurrentAccount()).dR("fid", dVar.cPl()).ap("obj_locate", RecommendBarLayout.this.kbH);
-                    TiebaStatic.log(StringUtils.isNull(dVar.kbT) ? ap2 : ap2.dR("obj_name", dVar.kbT));
+                    TiebaStatic.log(aq);
+                    ar aq2 = new ar("c13643").dR("uid", TbadkApplication.getCurrentAccount()).dR("fid", dVar.cPs()).aq("obj_locate", RecommendBarLayout.this.kdJ);
+                    TiebaStatic.log(StringUtils.isNull(dVar.kdV) ? aq2 : aq2.dR("obj_name", dVar.kdV));
                 }
             }
 
@@ -114,40 +114,40 @@ public class RecommendBarLayout extends LinearLayout implements View.OnClickList
             public void onPageScrollStateChanged(int i) {
             }
         });
-        this.kcG.setOnClickListener(this);
+        this.keJ.setOnClickListener(this);
     }
 
     @Override // com.baidu.card.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (i != this.mSkinType) {
-            c.br(this.kcH).oa(R.string.F_X02).nY(R.color.CAM_X0105);
-            SvgManager.bsR().a(this.jPF, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            this.kcJ.onSkinTypeChanged(i);
+            c.br(this.keK).ob(R.string.F_X02).nZ(R.color.CAM_X0105);
+            SvgManager.bsU().a(this.jRo, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.keM.onSkinTypeChanged(i);
         }
         this.mSkinType = i;
     }
 
     public void setData(com.baidu.tieba.homepage.concern.a.c cVar) {
-        if (cVar == null || y.isEmpty(cVar.cPj())) {
+        if (cVar == null || y.isEmpty(cVar.cPq())) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        ((LinearLayout.LayoutParams) this.kcI.getLayoutParams()).height = l.getDimens(this.pageContext.getPageActivity(), cVar.cPk() ? R.dimen.tbds660 : R.dimen.tbds728);
-        this.kcI.setCurrentItem(0, true);
-        this.kcJ.a(cVar);
-        TiebaStatic.log(new ar("c13907").dR("uid", TbadkApplication.getCurrentAccount()).ap("obj_locate", this.kbH));
+        ((LinearLayout.LayoutParams) this.keL.getLayoutParams()).height = l.getDimens(this.pageContext.getPageActivity(), cVar.cPr() ? R.dimen.tbds660 : R.dimen.tbds728);
+        this.keL.setCurrentItem(0, true);
+        this.keM.a(cVar);
+        TiebaStatic.log(new ar("c13907").dR("uid", TbadkApplication.getCurrentAccount()).aq("obj_locate", this.kdJ));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.recommend_bar_top) {
-            n Bv = this.kcJ.Bv(this.kcI.getCurrentItem());
-            if (Bv instanceof d) {
-                d dVar = (d) Bv;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(this.mContext, dVar.aHq)));
-                ar ap = new ar("c13645").dR("uid", TbadkApplication.getCurrentAccount()).ap("obj_locate", this.kbH);
-                TiebaStatic.log(StringUtils.isNull(dVar.kbT) ? ap : ap.dR("obj_name", dVar.kbT));
+            n By = this.keM.By(this.keL.getCurrentItem());
+            if (By instanceof d) {
+                d dVar = (d) By;
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(this.mContext, dVar.aIQ)));
+                ar aq = new ar("c13645").dR("uid", TbadkApplication.getCurrentAccount()).aq("obj_locate", this.kdJ);
+                TiebaStatic.log(StringUtils.isNull(dVar.kdV) ? aq : aq.dR("obj_name", dVar.kdV));
             }
         }
     }

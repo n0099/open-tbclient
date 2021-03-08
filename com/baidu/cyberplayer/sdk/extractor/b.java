@@ -15,17 +15,17 @@ import java.util.Map;
 public class b extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private MediaExtractor f1762a = new MediaExtractor();
+    private MediaExtractor f1422a = new MediaExtractor();
 
     private Integer a(String str) {
         Integer num = null;
-        if (this.f1762a != null && Build.VERSION.SDK_INT >= 16) {
-            int trackCount = this.f1762a.getTrackCount();
+        if (this.f1422a != null && Build.VERSION.SDK_INT >= 16) {
+            int trackCount = this.f1422a.getTrackCount();
             int i = 0;
             while (true) {
                 if (i >= trackCount) {
                     break;
-                } else if (this.f1762a.getTrackFormat(i).getString(IMediaFormat.KEY_MIME).startsWith(str)) {
+                } else if (this.f1422a.getTrackFormat(i).getString(IMediaFormat.KEY_MIME).startsWith(str)) {
                     num = Integer.valueOf(i);
                     break;
                 } else {
@@ -40,13 +40,13 @@ public class b extends ExtractorProvider {
     public Bundle getMediaMeta() {
         MediaFormat trackFormat;
         Bundle bundle = new Bundle();
-        if (this.f1762a != null) {
+        if (this.f1422a != null) {
             int intValue = a("video/").intValue();
             int intValue2 = a("audio/").intValue();
             if (intValue != -1) {
                 intValue2 = intValue;
             }
-            if (intValue2 != -1 && (trackFormat = this.f1762a.getTrackFormat(intValue2)) != null) {
+            if (intValue2 != -1 && (trackFormat = this.f1422a.getTrackFormat(intValue2)) != null) {
                 try {
                     bundle.putLong("duration", trackFormat.getLong("durationUs") / 1000);
                     if (intValue != -1) {
@@ -65,17 +65,17 @@ public class b extends ExtractorProvider {
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void release() {
         CyberLog.i("MediaExtractorImpl", "release");
-        if (this.f1762a != null) {
-            this.f1762a.release();
-            this.f1762a = null;
+        if (this.f1422a != null) {
+            this.f1422a.release();
+            this.f1422a = null;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri) {
-        if (this.f1762a != null) {
+        if (this.f1422a != null) {
             try {
-                this.f1762a.setDataSource(context, uri, (Map<String, String>) null);
+                this.f1422a.setDataSource(context, uri, (Map<String, String>) null);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -84,9 +84,9 @@ public class b extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        if (this.f1762a != null) {
+        if (this.f1422a != null) {
             try {
-                this.f1762a.setDataSource(context, uri, map);
+                this.f1422a.setDataSource(context, uri, map);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -95,9 +95,9 @@ public class b extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(FileDescriptor fileDescriptor) {
-        if (this.f1762a != null) {
+        if (this.f1422a != null) {
             try {
-                this.f1762a.setDataSource(fileDescriptor);
+                this.f1422a.setDataSource(fileDescriptor);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -106,9 +106,9 @@ public class b extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setDataSource(String str) {
-        if (this.f1762a != null) {
+        if (this.f1422a != null) {
             try {
-                this.f1762a.setDataSource(str);
+                this.f1422a.setDataSource(str);
             } catch (IOException e) {
                 e.printStackTrace();
             }

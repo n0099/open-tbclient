@@ -1,11 +1,11 @@
 package com.baidu.live.liveroom.d;
 
 import android.view.View;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface d {
-    String JK();
+    String JN();
 
-    short JL();
+    short JO();
 
     void enterBackground();
 

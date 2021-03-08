@@ -154,8 +154,8 @@ public final class PayUtils {
         }
         byte[] digest = messageDigest.digest();
         StringBuilder sb2 = new StringBuilder();
-        for (byte b2 : digest) {
-            sb2.append(Integer.toHexString((b2 & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
+        for (byte b : digest) {
+            sb2.append(Integer.toHexString((b & 255) | InputDeviceCompat.SOURCE_ANY).substring(6));
         }
         return RimArmor.getInstance().encrypt(sb2.toString());
     }

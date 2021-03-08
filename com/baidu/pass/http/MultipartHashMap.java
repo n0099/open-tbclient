@@ -9,22 +9,20 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
     static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f4098a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f4099b;
+        public String f2839a;
+        public String b;
         public String c;
         public InputStream d;
 
         public a(String str, InputStream inputStream, String str2, String str3) {
-            this.f4098a = str;
+            this.f2839a = str;
             this.d = inputStream;
-            this.f4099b = str2;
+            this.b = str2;
             this.c = str3;
         }
 
         public String a() {
-            String str = this.f4099b;
+            String str = this.b;
             return str != null ? str : "nofilename";
         }
     }

@@ -21,7 +21,7 @@ public class ak extends ac {
 
     public ak(String str, String str2, int i) {
         this.k = 1;
-        this.i = b.enC();
+        this.i = b.enM();
         this.j = str;
         this.l = str2;
         this.m = i;
@@ -36,8 +36,8 @@ public class ak extends ac {
     @Override // com.bytedance.embedapplog.ac
     @NonNull
     public ac C(@NonNull Cursor cursor) {
-        this.f5776a = cursor.getLong(0);
-        this.f5777b = cursor.getLong(1);
+        this.f3899a = cursor.getLong(0);
+        this.b = cursor.getLong(1);
         this.c = cursor.getString(2);
         this.d = cursor.getString(3);
         this.j = cursor.getString(4);
@@ -51,8 +51,8 @@ public class ak extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected void d(@NonNull ContentValues contentValues) {
-        contentValues.put("local_time_ms", Long.valueOf(this.f5776a));
-        contentValues.put("tea_event_index", Long.valueOf(this.f5777b));
+        contentValues.put("local_time_ms", Long.valueOf(this.f3899a));
+        contentValues.put("tea_event_index", Long.valueOf(this.b));
         contentValues.put("session_id", this.c);
         contentValues.put("user_unique_id", this.d);
         contentValues.put(LuaMessageHelper.KEY_EVENT_NAME, this.j);
@@ -65,8 +65,8 @@ public class ak extends ac {
 
     @Override // com.bytedance.embedapplog.ac
     protected void a(@NonNull JSONObject jSONObject) {
-        jSONObject.put("local_time_ms", this.f5776a);
-        jSONObject.put("tea_event_index", this.f5777b);
+        jSONObject.put("local_time_ms", this.f3899a);
+        jSONObject.put("tea_event_index", this.b);
         jSONObject.put("session_id", this.c);
         jSONObject.put("user_unique_id", this.d);
         jSONObject.put(LuaMessageHelper.KEY_EVENT_NAME, this.j);
@@ -89,9 +89,9 @@ public class ak extends ac {
     }
 
     @Override // com.bytedance.embedapplog.ac
-    protected ac eR(@NonNull JSONObject jSONObject) {
-        this.f5776a = jSONObject.optLong("local_time_ms", 0L);
-        this.f5777b = jSONObject.optLong("tea_event_index", 0L);
+    protected ac eU(@NonNull JSONObject jSONObject) {
+        this.f3899a = jSONObject.optLong("local_time_ms", 0L);
+        this.b = jSONObject.optLong("tea_event_index", 0L);
         this.c = jSONObject.optString("session_id", null);
         this.d = jSONObject.optString("user_unique_id", null);
         this.j = jSONObject.optString(LuaMessageHelper.KEY_EVENT_NAME, null);

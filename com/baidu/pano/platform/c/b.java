@@ -19,10 +19,8 @@ import java.util.Scanner;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static String f3908a;
-
-    /* renamed from: b  reason: collision with root package name */
-    static String f3909b;
+    static String f2721a;
+    static String b;
     static String c;
     static int d;
     static int e;
@@ -56,8 +54,8 @@ public final class b {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (f3908a != null && !f3908a.equals("")) {
-                f3909b = f3908a + File.separator + "BaiduPanoSDK" + File.separator + "cache";
+            if (f2721a != null && !f2721a.equals("")) {
+                b = f2721a + File.separator + "BaiduPanoSDK" + File.separator + "cache";
                 c = context.getCacheDir().getAbsolutePath();
                 d = 20971520;
                 e = 52428800;
@@ -65,9 +63,9 @@ public final class b {
                 return;
             }
             if (context.getCacheDir() != null) {
-                f3909b = context.getCacheDir().getAbsolutePath();
+                b = context.getCacheDir().getAbsolutePath();
             } else {
-                f3909b = "";
+                b = "";
             }
             c = "";
             d = Log.FILE_LIMETE;
@@ -93,7 +91,7 @@ public final class b {
                     if (str != null && str.length() > 0 && "mounted".equals(method2.invoke(storageManager, str)) && b(str)) {
                         arrayList.add(str);
                         if (a(a(str))) {
-                            f3908a = str;
+                            f2721a = str;
                             return;
                         }
                     }
@@ -115,7 +113,7 @@ public final class b {
                             }
                         }
                         if (!z && b(absolutePath) && a(a(absolutePath))) {
-                            f3908a = absolutePath;
+                            f2721a = absolutePath;
                             return;
                         }
                     }
@@ -202,7 +200,7 @@ public final class b {
             }
             String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             if (a(a(absolutePath))) {
-                f3908a = absolutePath;
+                f2721a = absolutePath;
                 if (0 != 0) {
                     scanner2.close();
                     return;
@@ -213,7 +211,7 @@ public final class b {
                 if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                     File file3 = new File(str2);
                     if (file3.exists() && file3.isDirectory() && file3.canWrite() && a(a(absolutePath))) {
-                        f3908a = absolutePath;
+                        f2721a = absolutePath;
                         if (0 != 0) {
                             scanner2.close();
                             return;
@@ -234,7 +232,7 @@ public final class b {
     }
 
     public static String b() {
-        return f3909b + File.separator + "cacheNet";
+        return b + File.separator + "cacheNet";
     }
 
     @SuppressLint({"NewApi"})

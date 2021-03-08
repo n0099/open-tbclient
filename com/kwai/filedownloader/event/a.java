@@ -8,10 +8,8 @@ import java.util.concurrent.Executor;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Executor f10920a = com.kwai.filedownloader.f.b.a(10, "EventPool");
-
-    /* renamed from: b  reason: collision with root package name */
-    private final HashMap<String, LinkedList<c>> f10921b = new HashMap<>();
+    private final Executor f7206a = com.kwai.filedownloader.f.b.a(10, "EventPool");
+    private final HashMap<String, LinkedList<c>> b = new HashMap<>();
 
     private void a(LinkedList<c> linkedList, b bVar) {
         Object[] array;
@@ -20,26 +18,26 @@ public class a {
                 break;
             }
         }
-        if (bVar.f10924a != null) {
-            bVar.f10924a.run();
+        if (bVar.f7208a != null) {
+            bVar.f7208a.run();
         }
     }
 
     public boolean a(b bVar) {
-        if (d.f10930a) {
+        if (d.f7212a) {
             d.e(this, "publish %s", bVar.b());
         }
         if (bVar == null) {
             throw new IllegalArgumentException("event must not be null!");
         }
-        String b2 = bVar.b();
-        LinkedList<c> linkedList = this.f10921b.get(b2);
+        String b = bVar.b();
+        LinkedList<c> linkedList = this.b.get(b);
         if (linkedList == null) {
-            synchronized (b2.intern()) {
-                linkedList = this.f10921b.get(b2);
+            synchronized (b.intern()) {
+                linkedList = this.b.get(b);
                 if (linkedList == null) {
-                    if (d.f10930a) {
-                        d.c(this, "No listener for this event %s", b2);
+                    if (d.f7212a) {
+                        d.c(this, "No listener for this event %s", b);
                     }
                     return false;
                 }
@@ -51,18 +49,18 @@ public class a {
 
     public boolean a(String str, c cVar) {
         boolean add;
-        if (d.f10930a) {
+        if (d.f7212a) {
             d.e(this, "setListener %s", str);
         }
         if (cVar == null) {
             throw new IllegalArgumentException("listener must not be null!");
         }
-        LinkedList<c> linkedList = this.f10921b.get(str);
+        LinkedList<c> linkedList = this.b.get(str);
         if (linkedList == null) {
             synchronized (str.intern()) {
-                linkedList = this.f10921b.get(str);
+                linkedList = this.b.get(str);
                 if (linkedList == null) {
-                    HashMap<String, LinkedList<c>> hashMap = this.f10921b;
+                    HashMap<String, LinkedList<c>> hashMap = this.b;
                     linkedList = new LinkedList<>();
                     hashMap.put(str, linkedList);
                 }
@@ -75,13 +73,13 @@ public class a {
     }
 
     public void b(final b bVar) {
-        if (d.f10930a) {
+        if (d.f7212a) {
             d.e(this, "asyncPublishInNewThread %s", bVar.b());
         }
         if (bVar == null) {
             throw new IllegalArgumentException("event must not be null!");
         }
-        this.f10920a.execute(new Runnable() { // from class: com.kwai.filedownloader.event.a.1
+        this.f7206a.execute(new Runnable() { // from class: com.kwai.filedownloader.event.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {

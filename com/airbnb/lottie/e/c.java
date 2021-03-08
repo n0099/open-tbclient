@@ -2,21 +2,21 @@ package com.airbnb.lottie.e;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c<T> {
-    private final b<T> EO;
+    private final b<T> Gi;
     @Nullable
-    private com.airbnb.lottie.a.b.a<?, ?> HX;
+    private com.airbnb.lottie.a.b.a<?, ?> Jv;
     @Nullable
     protected T value;
 
     public c() {
-        this.EO = new b<>();
+        this.Gi = new b<>();
         this.value = null;
     }
 
     public c(@Nullable T t) {
-        this.EO = new b<>();
+        this.Gi = new b<>();
         this.value = null;
         this.value = t;
     }
@@ -29,11 +29,11 @@ public class c<T> {
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public final T c(float f, float f2, T t, T t2, float f3, float f4, float f5) {
-        return a(this.EO.b(f, f2, t, t2, f3, f4, f5));
+        return a(this.Gi.b(f, f2, t, t2, f3, f4, f5));
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public final void b(@Nullable com.airbnb.lottie.a.b.a<?, ?> aVar) {
-        this.HX = aVar;
+        this.Jv = aVar;
     }
 }

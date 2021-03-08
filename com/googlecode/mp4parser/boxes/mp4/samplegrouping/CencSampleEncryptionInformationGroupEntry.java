@@ -5,7 +5,7 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "seig";
@@ -47,8 +47,8 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
         return this.ivSize;
     }
 
-    public void setIvSize(byte b2) {
-        this.ivSize = b2;
+    public void setIvSize(byte b) {
+        this.ivSize = b;
     }
 
     public byte[] getKid() {

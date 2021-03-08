@@ -7,71 +7,70 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes14.dex */
 public class NativeMethodInjectHelper {
-    private static volatile NativeMethodInjectHelper qkS;
-    private ArrayMap<String, ArrayMap<String, Method>> qkT = new ArrayMap<>();
-    private List<Class<?>> qkr = new ArrayList();
+    public static volatile NativeMethodInjectHelper c;
 
-    public static NativeMethodInjectHelper eJp() {
-        NativeMethodInjectHelper nativeMethodInjectHelper = qkS;
+    /* renamed from: a  reason: collision with root package name */
+    public ArrayMap f8129a = new ArrayMap();
+    public List b = new ArrayList();
+
+    public static NativeMethodInjectHelper eJh() {
+        NativeMethodInjectHelper nativeMethodInjectHelper = c;
         if (nativeMethodInjectHelper == null) {
             synchronized (NativeMethodInjectHelper.class) {
-                nativeMethodInjectHelper = qkS;
+                nativeMethodInjectHelper = c;
                 if (nativeMethodInjectHelper == null) {
                     nativeMethodInjectHelper = new NativeMethodInjectHelper();
-                    qkS = nativeMethodInjectHelper;
+                    c = nativeMethodInjectHelper;
                 }
             }
         }
         return nativeMethodInjectHelper;
     }
 
-    private NativeMethodInjectHelper() {
-    }
-
-    public NativeMethodInjectHelper E(Class<?> cls) {
-        if (cls == null) {
-            throw new NullPointerException("NativeMethodInjectHelper:The clazz can not be null!");
+    public NativeMethodInjectHelper E(Class cls) {
+        if (cls != null) {
+            this.b.add(cls);
+            return this;
         }
-        this.qkr.add(cls);
-        return this;
+        throw new NullPointerException("NativeMethodInjectHelper:The clazz can not be null!");
     }
 
-    public void eJq() {
+    public void eJi() {
         Method[] declaredMethods;
         Class<?>[] parameterTypes;
-        int size = this.qkr.size();
+        int size = this.b.size();
         if (size != 0) {
-            this.qkT.clear();
+            this.f8129a.clear();
             for (int i = 0; i < size; i++) {
-                Class<?> cls = this.qkr.get(i);
+                Class cls = (Class) this.b.get(i);
                 if (cls != null) {
-                    ArrayMap<String, Method> arrayMap = new ArrayMap<>();
+                    ArrayMap arrayMap = new ArrayMap();
                     for (Method method : cls.getDeclaredMethods()) {
                         int modifiers = method.getModifiers();
                         if ((modifiers & 1) != 0 && (modifiers & 8) != 0 && method.getReturnType() == Void.TYPE && (parameterTypes = method.getParameterTypes()) != null && parameterTypes.length == 3 && WebView.class == parameterTypes[0] && JSONObject.class == parameterTypes[1] && JsCallback.class == parameterTypes[2]) {
                             arrayMap.put(method.getName(), method);
                         }
                     }
-                    this.qkT.put(cls.getSimpleName(), arrayMap);
+                    this.f8129a.put(cls.getSimpleName(), arrayMap);
                 }
             }
-            this.qkr.clear();
+            this.b.clear();
         }
     }
 
-    public Method hF(String str, String str2) {
+    public Method hE(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        if (this.qkT.containsKey(str)) {
-            ArrayMap<String, Method> arrayMap = this.qkT.get(str);
+        if (this.f8129a.containsKey(str)) {
+            ArrayMap arrayMap = (ArrayMap) this.f8129a.get(str);
             if (arrayMap == null) {
                 return null;
             }
             if (arrayMap.containsKey(str2)) {
-                return arrayMap.get(str2);
+                return (Method) arrayMap.get(str2);
             }
         }
         return null;

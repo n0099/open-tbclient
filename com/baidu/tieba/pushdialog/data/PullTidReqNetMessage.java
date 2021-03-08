@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.util.v;
 import tbclient.GetLockWindowTid.DataReq;
 import tbclient.GetLockWindowTid.GetLockWindowTidReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PullTidReqNetMessage extends NetMessage {
     public PullTidReqNetMessage(int i, int i2) {
         super(i, i2);

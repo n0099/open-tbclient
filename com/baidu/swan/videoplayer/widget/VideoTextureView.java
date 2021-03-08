@@ -3,7 +3,7 @@ package com.baidu.swan.videoplayer.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.TextureView;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class VideoTextureView extends TextureView {
     public VideoTextureView(Context context) {
         super(context);

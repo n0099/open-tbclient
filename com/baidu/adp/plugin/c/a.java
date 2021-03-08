@@ -15,22 +15,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a TY = null;
-    private HashMap<String, ArrayList<Message<?>>> TX = null;
+    private static volatile a Vu = null;
+    private HashMap<String, ArrayList<Message<?>>> Vt = null;
 
     public static a pl() {
-        if (TY == null) {
+        if (Vu == null) {
             synchronized (a.class) {
-                if (TY == null) {
-                    TY = new a();
+                if (Vu == null) {
+                    Vu = new a();
                 }
             }
         }
-        return TY;
+        return Vu;
     }
 
     public void init() {
-        this.TX = new HashMap<>();
+        this.Vt = new HashMap<>();
         pn();
         pm();
     }
@@ -44,13 +44,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.TW == 0 && a.this.TX.size() > 0 && (arrayList = (ArrayList) a.this.TX.get(aVar.TV)) != null && arrayList.size() > 0) {
+                    if (aVar.Vs == 0 && a.this.Vt.size() > 0 && (arrayList = (ArrayList) a.this.Vt.get(aVar.Vr)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.TX.remove(aVar.TV);
+                    a.this.Vt.remove(aVar.Vr);
                 }
             }
         });
@@ -64,7 +64,7 @@ public class a {
                     return false;
                 }
                 String aL = c.pX().aL(message.getCmd());
-                if (TextUtils.isEmpty(aL) || c.pX().cL(aL)) {
+                if (TextUtils.isEmpty(aL) || c.pX().cP(aL)) {
                     return false;
                 }
                 if (!PluginCenter.getInstance().hasInstance(aL)) {
@@ -83,10 +83,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.TX.get(str);
+            ArrayList<Message<?>> arrayList = this.Vt.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.TX.put(str, arrayList);
+                this.Vt.put(str, arrayList);
             }
             arrayList.add(message);
         }

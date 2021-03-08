@@ -15,10 +15,8 @@ import com.baidu.android.pushservice.i.m;
 public class PushService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4502a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    private Handler f4503b = new Handler();
+    private boolean f3103a = false;
+    private Handler b = new Handler();
     private boolean c = false;
     private final Runnable d = new Runnable() { // from class: com.baidu.pushservice.PushService.1
         @Override // java.lang.Runnable
@@ -35,14 +33,14 @@ public class PushService extends Service {
     };
 
     private void a(boolean z, boolean z2) {
-        this.f4502a = z;
+        this.f3103a = z;
         a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
         if (z2) {
             this.d.run();
             return;
         }
-        this.f4503b.removeCallbacks(this.d);
-        this.f4503b.postDelayed(this.d, 1000L);
+        this.b.removeCallbacks(this.d);
+        this.b.postDelayed(this.d, 1000L);
     }
 
     @Override // android.app.Service
@@ -68,9 +66,9 @@ public class PushService extends Service {
         a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
         m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         g.b();
-        if (this.f4502a) {
-            this.f4503b.removeCallbacks(this.e);
-            this.f4503b.postDelayed(this.e, 1000L);
+        if (this.f3103a) {
+            this.b.removeCallbacks(this.e);
+            this.b.postDelayed(this.e, 1000L);
         }
         if (this.c) {
             try {
@@ -92,8 +90,8 @@ public class PushService extends Service {
                 new b.c(getApplicationContext()).a(Log.getStackTraceString(e)).a();
             }
         }
-        this.f4503b.removeCallbacks(this.d);
-        this.f4503b.removeCallbacks(this.e);
+        this.b.removeCallbacks(this.d);
+        this.b.removeCallbacks(this.e);
         try {
             this.c = g.a(this).a(intent);
             if (this.c) {

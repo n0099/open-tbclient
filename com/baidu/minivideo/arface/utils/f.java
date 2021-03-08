@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static void deleteFileOrDir(File file) {
         if (file.isDirectory()) {

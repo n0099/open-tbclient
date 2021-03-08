@@ -1,49 +1,50 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class n {
-    private Object nwP;
-    private boolean nwQ = false;
-    private boolean nwR = false;
-    private boolean nwS = false;
-    public final long nwT = System.currentTimeMillis();
+    private boolean nyT = false;
+    private boolean nyU = false;
+    private boolean nyV = false;
+    private String nyW = "";
+    private int nyX = -1;
+    private Object nyY;
 
-    public n(Object obj) {
-        this.nwP = obj;
+    public boolean dNx() {
+        return this.nyT;
     }
 
-    public Object dNp() {
-        return this.nwP;
-    }
-
-    public void aR(Object obj) {
-        this.nwP = obj;
-    }
-
-    public boolean dNq() {
-        return this.nwQ;
-    }
-
-    public boolean dNr() {
-        return this.nwR;
+    public boolean dNy() {
+        return this.nyU;
     }
 
     public void yp(boolean z) {
-        this.nwR = z;
+        this.nyU = z;
     }
 
     public void yq(boolean z) {
-        this.nwQ = z;
+        this.nyT = z;
     }
 
-    public boolean dNs() {
-        return this.nwS;
+    public Object dNz() {
+        return this.nyY;
     }
 
-    public void yr(boolean z) {
-        this.nwS = z;
+    public void aT(Object obj) {
+        this.nyY = obj;
     }
 
-    public boolean isValid() {
-        return System.currentTimeMillis() - this.nwT < 1020000;
+    public String dNA() {
+        return this.nyW;
+    }
+
+    public void Tv(String str) {
+        this.nyW = str;
+    }
+
+    public void JH(int i) {
+        this.nyX = i;
+    }
+
+    public int dNB() {
+        return this.nyX;
     }
 }

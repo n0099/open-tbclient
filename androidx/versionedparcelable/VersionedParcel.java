@@ -26,7 +26,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes15.dex */
+/* loaded from: classes5.dex */
 public abstract class VersionedParcel {
     private static final int EX_BAD_PARCELABLE = -2;
     private static final int EX_ILLEGAL_ARGUMENT = -3;
@@ -202,9 +202,9 @@ public abstract class VersionedParcel {
         return !readField(i) ? bundle : readBundle();
     }
 
-    public void writeByte(byte b2, int i) {
+    public void writeByte(byte b, int i) {
         setOutputField(i);
-        writeInt(b2);
+        writeInt(b);
     }
 
     @RequiresApi(api = 21)
@@ -697,8 +697,8 @@ public abstract class VersionedParcel {
         }
     }
 
-    public byte readByte(byte b2, int i) {
-        return !readField(i) ? b2 : (byte) (readInt() & 255);
+    public byte readByte(byte b, int i) {
+        return !readField(i) ? b : (byte) (readInt() & 255);
     }
 
     @RequiresApi(api = 21)
@@ -921,7 +921,7 @@ public abstract class VersionedParcel {
         return Class.forName(String.format("%s.%sParcelizer", cls.getPackage().getName(), cls.getSimpleName()), false, cls.getClassLoader());
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes5.dex */
     public static class ParcelException extends RuntimeException {
         public ParcelException(Throwable th) {
             super(th);

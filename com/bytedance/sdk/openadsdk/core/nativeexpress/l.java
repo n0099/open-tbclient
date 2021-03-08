@@ -7,12 +7,15 @@ import com.bytedance.sdk.openadsdk.TTAdDislike;
 import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
 import com.bytedance.sdk.openadsdk.TTDislikeDialogAbstract;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.bytedance.sdk.openadsdk.d.a;
+import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class l implements TTNativeExpressAd {
-    public AtomicBoolean e = new AtomicBoolean(false);
+    public AtomicBoolean m = new AtomicBoolean(false);
+    protected a n;
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public View getExpressAdView() {
@@ -63,6 +66,11 @@ public class l implements TTNativeExpressAd {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd
+    public TTAdDislike getDislikeDialog(Activity activity) {
+        return null;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void showInteractionExpressAd(Activity activity) {
     }
 
@@ -86,5 +94,77 @@ public class l implements TTNativeExpressAd {
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public Map<String, Object> getMediaExtraInfo() {
         return null;
+    }
+
+    /* loaded from: classes6.dex */
+    protected static class a implements TTAppDownloadListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        private WeakReference<TTAppDownloadListener> f4498a;
+        private String b;
+
+        public a(TTAppDownloadListener tTAppDownloadListener, String str) {
+            this.b = "";
+            this.f4498a = new WeakReference<>(tTAppDownloadListener);
+            this.b = str;
+        }
+
+        public void a(TTAppDownloadListener tTAppDownloadListener) {
+            this.f4498a = new WeakReference<>(tTAppDownloadListener);
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+        public void onIdle() {
+            if (this.f4498a != null && this.f4498a.get() != null) {
+                this.f4498a.get().onIdle();
+            }
+            a.C1028a.a(this.b, 1, 0);
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+        public void onDownloadActive(long j, long j2, String str, String str2) {
+            if (this.f4498a != null && this.f4498a.get() != null) {
+                this.f4498a.get().onDownloadActive(j, j2, str, str2);
+            }
+            if (j > 0) {
+                a.C1028a.a(this.b, 3, (int) ((100 * j2) / j));
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+        public void onDownloadPaused(long j, long j2, String str, String str2) {
+            if (this.f4498a != null && this.f4498a.get() != null) {
+                this.f4498a.get().onDownloadPaused(j, j2, str, str2);
+            }
+            if (j > 0) {
+                a.C1028a.a(this.b, 2, (int) ((100 * j2) / j));
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+        public void onDownloadFailed(long j, long j2, String str, String str2) {
+            if (this.f4498a != null && this.f4498a.get() != null) {
+                this.f4498a.get().onDownloadFailed(j, j2, str, str2);
+            }
+            if (j > 0) {
+                a.C1028a.a(this.b, 4, (int) ((100 * j2) / j));
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+        public void onDownloadFinished(long j, String str, String str2) {
+            if (this.f4498a != null && this.f4498a.get() != null) {
+                this.f4498a.get().onDownloadFinished(j, str, str2);
+            }
+            a.C1028a.a(this.b, 5, 100);
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+        public void onInstalled(String str, String str2) {
+            if (this.f4498a != null && this.f4498a.get() != null) {
+                this.f4498a.get().onInstalled(str, str2);
+            }
+            a.C1028a.a(this.b, 6, 100);
+        }
     }
 }

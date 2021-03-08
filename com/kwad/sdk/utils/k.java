@@ -15,11 +15,11 @@ import java.nio.charset.Charset;
 /* loaded from: classes3.dex */
 public class k {
     public static int a(Reader reader, Writer writer) {
-        long b2 = b(reader, writer);
-        if (b2 > 2147483647L) {
+        long b = b(reader, writer);
+        if (b > 2147483647L) {
             return -1;
         }
-        return (int) b2;
+        return (int) b;
     }
 
     public static long a(Reader reader, Writer writer, char[] cArr) {

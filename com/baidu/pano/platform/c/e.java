@@ -9,10 +9,8 @@ import android.telephony.TelephonyManager;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3912a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f3913b = "";
+    public static boolean f2723a = false;
+    public static String b = "";
     public static int c = 0;
 
     public static NetworkInfo a(Context context) {

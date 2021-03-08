@@ -43,14 +43,12 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bw {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3777a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private static String f3778b = null;
+    private static String f2646a = null;
+    private static String b = null;
     private static String c = null;
     private static final Pattern d = Pattern.compile("\\s*|\t|\r|\n");
 
@@ -591,7 +589,7 @@ public class bw {
 
     private static String y(Context context) {
         String str;
-        String str2 = f3777a;
+        String str2 = f2646a;
         if (str2 == null) {
             try {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -609,7 +607,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f3777a = str;
+            f2646a = str;
             return str;
         }
         return str2;
@@ -636,7 +634,7 @@ public class bw {
     }
 
     public static String u(Context context) {
-        String str = f3778b;
+        String str = b;
         if (str == null) {
             String y = y(context);
             str = b(context, y);
@@ -646,7 +644,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f3778b = str;
+            b = str;
         }
         return str;
     }

@@ -14,10 +14,8 @@ import org.json.JSONObject;
 public class MzNotifyActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1479a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f1480b;
+    private String f1252a;
+    private String b;
     private String c;
     private String d;
     private String e;
@@ -48,7 +46,7 @@ public class MzNotifyActivity extends Activity {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                         if (!jSONObject2.isNull("Msgid")) {
-                            this.f1479a = jSONObject2.getString("Msgid");
+                            this.f1252a = jSONObject2.getString("Msgid");
                         }
                         if (!jSONObject2.isNull("msgBody")) {
                             this.c = jSONObject2.getString("msgBody");
@@ -63,11 +61,11 @@ public class MzNotifyActivity extends Activity {
                             this.e = jSONObject3.getString("pkg_content");
                         }
                         if (!jSONObject3.isNull("mzpri_signinfo")) {
-                            this.f1480b = jSONObject3.getString("mzpri_signinfo");
+                            this.b = jSONObject3.getString("mzpri_signinfo");
                         }
                     }
                 }
-                if (f.a(this, this.f1480b, (this.f1479a + this.d).replaceAll("\\\\", ""))) {
+                if (f.a(this, this.b, (this.f1252a + this.d).replaceAll("\\\\", ""))) {
                     if (TextUtils.isEmpty(this.e)) {
                         Intent intent2 = new Intent();
                         intent2.setClassName(getPackageName(), a(this, getPackageName()));

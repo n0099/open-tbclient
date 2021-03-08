@@ -28,7 +28,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class ZeusLogUploader {
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
     private static final int BUFF_SIZE = 4096;
@@ -58,7 +58,7 @@ public final class ZeusLogUploader {
     private static boolean sIsEnabled = true;
     private static boolean mUploadCrashLogFailedEncrypt = true;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public static class LogFilter implements FilenameFilter {
         String mLogType;
 
@@ -83,7 +83,7 @@ public final class ZeusLogUploader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public class MyRunner implements Runnable {
         String cuid;
         boolean deletAfterUpload;
@@ -195,7 +195,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes14.dex */
     public interface OnFinishedListener {
         void onFinished(String str, int i, String str2);
     }

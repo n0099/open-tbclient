@@ -12,30 +12,30 @@ import org.apache.http.HttpHost;
 public final class a {
     final List<w> e;
     final List<n> f;
-    final SSLSocketFactory poA;
-    final HostnameVerifier poB;
-    final j poC;
-    final s pou;
-    final r pov;
-    final SocketFactory pow;
-    final e pox;
-    final ProxySelector poy;
-    final Proxy poz;
+    final s pqB;
+    final r pqC;
+    final SocketFactory pqD;
+    final e pqE;
+    final ProxySelector pqF;
+    final Proxy pqG;
+    final SSLSocketFactory pqH;
+    final HostnameVerifier pqI;
+    final j pqJ;
 
     public a(String str, int i, r rVar, SocketFactory socketFactory, SSLSocketFactory sSLSocketFactory, HostnameVerifier hostnameVerifier, j jVar, e eVar, Proxy proxy, List<w> list, List<n> list2, ProxySelector proxySelector) {
-        this.pou = new s.a().YV(sSLSocketFactory != null ? "https" : HttpHost.DEFAULT_SCHEME_NAME).YT(str).OH(i).eqi();
+        this.pqB = new s.a().Zc(sSLSocketFactory != null ? "https" : HttpHost.DEFAULT_SCHEME_NAME).Za(str).OL(i).eqp();
         if (rVar == null) {
             throw new NullPointerException("dns == null");
         }
-        this.pov = rVar;
+        this.pqC = rVar;
         if (socketFactory == null) {
             throw new NullPointerException("socketFactory == null");
         }
-        this.pow = socketFactory;
+        this.pqD = socketFactory;
         if (eVar == null) {
             throw new NullPointerException("proxyAuthenticator == null");
         }
-        this.pox = eVar;
+        this.pqE = eVar;
         if (list == null) {
             throw new NullPointerException("protocols == null");
         }
@@ -47,27 +47,27 @@ public final class a {
         if (proxySelector == null) {
             throw new NullPointerException("proxySelector == null");
         }
-        this.poy = proxySelector;
-        this.poz = proxy;
-        this.poA = sSLSocketFactory;
-        this.poB = hostnameVerifier;
-        this.poC = jVar;
+        this.pqF = proxySelector;
+        this.pqG = proxy;
+        this.pqH = sSLSocketFactory;
+        this.pqI = hostnameVerifier;
+        this.pqJ = jVar;
     }
 
-    public s eoR() {
-        return this.pou;
+    public s eoY() {
+        return this.pqB;
     }
 
-    public r eoS() {
-        return this.pov;
+    public r eoZ() {
+        return this.pqC;
     }
 
-    public SocketFactory eoT() {
-        return this.pow;
+    public SocketFactory epa() {
+        return this.pqD;
     }
 
-    public e eoU() {
-        return this.pox;
+    public e epb() {
+        return this.pqE;
     }
 
     public List<w> e() {
@@ -78,45 +78,45 @@ public final class a {
         return this.f;
     }
 
-    public ProxySelector eoV() {
-        return this.poy;
+    public ProxySelector epc() {
+        return this.pqF;
     }
 
-    public Proxy eoW() {
-        return this.poz;
+    public Proxy epd() {
+        return this.pqG;
     }
 
-    public SSLSocketFactory eoX() {
-        return this.poA;
+    public SSLSocketFactory epe() {
+        return this.pqH;
     }
 
-    public HostnameVerifier eoY() {
-        return this.poB;
+    public HostnameVerifier epf() {
+        return this.pqI;
     }
 
-    public j eoZ() {
-        return this.poC;
+    public j epg() {
+        return this.pqJ;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && this.pou.equals(((a) obj).pou) && a((a) obj);
+        return (obj instanceof a) && this.pqB.equals(((a) obj).pqB) && a((a) obj);
     }
 
     public int hashCode() {
-        return (((this.poB != null ? this.poB.hashCode() : 0) + (((this.poA != null ? this.poA.hashCode() : 0) + (((this.poz != null ? this.poz.hashCode() : 0) + ((((((((((((this.pou.hashCode() + 527) * 31) + this.pov.hashCode()) * 31) + this.pox.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.poy.hashCode()) * 31)) * 31)) * 31)) * 31) + (this.poC != null ? this.poC.hashCode() : 0);
+        return (((this.pqI != null ? this.pqI.hashCode() : 0) + (((this.pqH != null ? this.pqH.hashCode() : 0) + (((this.pqG != null ? this.pqG.hashCode() : 0) + ((((((((((((this.pqB.hashCode() + 527) * 31) + this.pqC.hashCode()) * 31) + this.pqE.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.pqF.hashCode()) * 31)) * 31)) * 31)) * 31) + (this.pqJ != null ? this.pqJ.hashCode() : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(a aVar) {
-        return this.pov.equals(aVar.pov) && this.pox.equals(aVar.pox) && this.e.equals(aVar.e) && this.f.equals(aVar.f) && this.poy.equals(aVar.poy) && com.bytedance.sdk.a.b.a.c.a(this.poz, aVar.poz) && com.bytedance.sdk.a.b.a.c.a(this.poA, aVar.poA) && com.bytedance.sdk.a.b.a.c.a(this.poB, aVar.poB) && com.bytedance.sdk.a.b.a.c.a(this.poC, aVar.poC) && eoR().g() == aVar.eoR().g();
+        return this.pqC.equals(aVar.pqC) && this.pqE.equals(aVar.pqE) && this.e.equals(aVar.e) && this.f.equals(aVar.f) && this.pqF.equals(aVar.pqF) && com.bytedance.sdk.a.b.a.c.a(this.pqG, aVar.pqG) && com.bytedance.sdk.a.b.a.c.a(this.pqH, aVar.pqH) && com.bytedance.sdk.a.b.a.c.a(this.pqI, aVar.pqI) && com.bytedance.sdk.a.b.a.c.a(this.pqJ, aVar.pqJ) && eoY().g() == aVar.eoY().g();
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder().append("Address{").append(this.pou.f()).append(":").append(this.pou.g());
-        if (this.poz != null) {
-            append.append(", proxy=").append(this.poz);
+        StringBuilder append = new StringBuilder().append("Address{").append(this.pqB.f()).append(":").append(this.pqB.g());
+        if (this.pqG != null) {
+            append.append(", proxy=").append(this.pqG);
         } else {
-            append.append(", proxySelector=").append(this.poy);
+            append.append(", proxySelector=").append(this.pqF);
         }
         append.append("}");
         return append.toString();

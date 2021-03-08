@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.b;
 /* loaded from: classes5.dex */
 public class t implements n {
-    private static t pIi = null;
+    private static t pKn = null;
 
     private t() {
     }
 
-    public static synchronized t ewh() {
+    public static synchronized t ewq() {
         t tVar;
         synchronized (t.class) {
-            if (pIi == null) {
-                pIi = new t();
+            if (pKn == null) {
+                pKn = new t();
             }
-            tVar = pIi;
+            tVar = pKn;
         }
         return tVar;
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void evZ() {
+    public void ewi() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
@@ -26,11 +26,11 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void ewa() {
+    public void ewj() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void ewb() {
+    public void ewk() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
@@ -38,7 +38,7 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void ewc() {
+    public void ewl() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
@@ -46,19 +46,19 @@ public class t implements n {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void ewd() {
+    public void ewm() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void ewe() {
+    public void ewn() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void ewf() {
+    public void ewo() {
     }
 
     @Override // com.facebook.imagepipeline.b.n
-    public void ewg() {
+    public void ewp() {
     }
 
     @Override // com.facebook.imagepipeline.b.n

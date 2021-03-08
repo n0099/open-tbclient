@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
-    private static final int jdj = R.id.assist_apply_tip;
-    private com.baidu.tbadk.coreExtra.view.b fpW;
+    private static final int jeS = R.id.assist_apply_tip;
+    private com.baidu.tbadk.coreExtra.view.b frx;
     private View.OnClickListener mClickListener;
 
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -25,11 +25,11 @@ public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                Object tag = view.getTag(k.jdj);
+                Object tag = view.getTag(k.jeS);
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     k.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    bf.bsV().b((TbPageContext) com.baidu.adp.base.j.K(k.this.mContext), new String[]{tag.toString()});
+                    bf.bsY().b((TbPageContext) com.baidu.adp.base.j.J(k.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -53,23 +53,23 @@ public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
                 managerApplyViewHolder.mRootLayout.setVisibility(8);
             } else {
                 if (managerApplyViewHolder.mSkinType != this.mSkinType) {
-                    ap.setViewTextColor(managerApplyViewHolder.jds, R.color.CAM_X0109, 1);
-                    ap.setViewTextColor(managerApplyViewHolder.jdr, R.color.CAM_X0105, 1);
-                    ap.setBackgroundResource(managerApplyViewHolder.jdt, R.drawable.frs_member_manito_bg);
+                    ap.setViewTextColor(managerApplyViewHolder.jfb, R.color.CAM_X0109, 1);
+                    ap.setViewTextColor(managerApplyViewHolder.jfa, R.color.CAM_X0105, 1);
+                    ap.setBackgroundResource(managerApplyViewHolder.jfc, R.drawable.frs_member_manito_bg);
                 }
-                int cAV = lVar.cAV();
-                if (cAV > 0) {
-                    managerApplyViewHolder.jds.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), au.numberUniformFormat(cAV)));
-                    managerApplyViewHolder.jdt.setTag(jdj, lVar.cAW());
-                    managerApplyViewHolder.jdt.setOnClickListener(this.mClickListener);
-                    managerApplyViewHolder.jdt.setEnabled(true);
-                    managerApplyViewHolder.jdt.setClickable(true);
+                int cBb = lVar.cBb();
+                if (cBb > 0) {
+                    managerApplyViewHolder.jfb.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), au.numberUniformFormat(cBb)));
+                    managerApplyViewHolder.jfc.setTag(jeS, lVar.cBc());
+                    managerApplyViewHolder.jfc.setOnClickListener(this.mClickListener);
+                    managerApplyViewHolder.jfc.setEnabled(true);
+                    managerApplyViewHolder.jfc.setClickable(true);
                 } else {
-                    managerApplyViewHolder.jds.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    managerApplyViewHolder.jdt.setEnabled(false);
-                    managerApplyViewHolder.jdt.setClickable(false);
+                    managerApplyViewHolder.jfb.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    managerApplyViewHolder.jfc.setEnabled(false);
+                    managerApplyViewHolder.jfc.setClickable(false);
                 }
-                managerApplyViewHolder.jds.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                managerApplyViewHolder.jfb.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 managerApplyViewHolder.mSkinType = this.mSkinType;
             }
         }
@@ -79,23 +79,23 @@ public class k extends com.baidu.tieba.frs.k<l, ManagerApplyViewHolder> {
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
         Activity activity;
-        com.baidu.adp.base.f<?> K = com.baidu.adp.base.j.K(this.mContext);
-        if (!(K instanceof TbPageContext)) {
+        com.baidu.adp.base.f<?> J = com.baidu.adp.base.j.J(this.mContext);
+        if (!(J instanceof TbPageContext)) {
             activity = null;
         } else {
-            activity = ((TbPageContext) K).getPageActivity();
+            activity = ((TbPageContext) J).getPageActivity();
         }
-        if (this.fpW == null) {
-            this.fpW = new com.baidu.tbadk.coreExtra.view.b(activity);
+        if (this.frx == null) {
+            this.frx = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.fpW.bzA();
-        this.fpW.setAccountData(accountData);
-        this.fpW.qD(1);
+        this.frx.bzD();
+        this.frx.setAccountData(accountData);
+        this.frx.qE(1);
     }
 
     public void onDestroy() {
-        if (this.fpW != null) {
-            this.fpW.onDestroy();
+        if (this.frx != null) {
+            this.frx.onDestroy();
         }
     }
 }

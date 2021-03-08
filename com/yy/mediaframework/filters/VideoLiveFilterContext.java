@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoLiveFilterContext {
     private static final String TAG = "VideoLiveFilterContext";
     public Context mAndroidContext;
@@ -85,7 +85,7 @@ public class VideoLiveFilterContext {
     private boolean mYuvTextureMode = false;
     public AtomicBoolean mChangeEncoderFlag = new AtomicBoolean(false);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface waterMarkUpdate {
         void onWaterMarkUpdate(WaterMark waterMark);
     }
@@ -141,7 +141,7 @@ public class VideoLiveFilterContext {
 
     public String getVideoFlowInfomation() {
         String str;
-        StringBuilder append = new StringBuilder().append(" Capture:").append(isUseYuvCapture() ? "yuv" : "tex").append(" beauty:").append(isDisableBeauty() ? "dis" : h.f1945a).append(" Encoder:").append(getEncoderInputMode() == Constant.EncoderInputMode.SURFACE ? "surface" : " buffer").append(" preview:");
+        StringBuilder append = new StringBuilder().append(" Capture:").append(isUseYuvCapture() ? "yuv" : "tex").append(" beauty:").append(isDisableBeauty() ? "dis" : h.f1535a).append(" Encoder:").append(getEncoderInputMode() == Constant.EncoderInputMode.SURFACE ? "surface" : " buffer").append(" preview:");
         if (isUseCanvasSurfaceView()) {
             str = "canvas";
         } else {

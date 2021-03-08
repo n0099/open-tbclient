@@ -2,61 +2,61 @@ package com.baidu.swan.games.screenrecord;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d eky = null;
-    private GameRecorderController ehp;
-    private boolean ekz;
+    private static volatile d elZ = null;
+    private GameRecorderController eiQ;
+    private boolean ema;
 
     private d() {
     }
 
-    public static d aXX() {
-        if (eky == null) {
+    public static d aYa() {
+        if (elZ == null) {
             synchronized (d.class) {
-                if (eky == null) {
-                    eky = new d();
+                if (elZ == null) {
+                    elZ = new d();
                 }
             }
         }
-        return eky;
+        return elZ;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        if (this.ehp != null && this.ehp != gameRecorderController) {
-            this.ehp.release();
+        if (this.eiQ != null && this.eiQ != gameRecorderController) {
+            this.eiQ.release();
         }
-        this.ehp = gameRecorderController;
+        this.eiQ = gameRecorderController;
     }
 
     @NonNull
-    public GameRecorderController aXY() {
+    public GameRecorderController aYb() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.ehp);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.eiQ);
         }
-        return this.ehp == null ? GameRecorderController.aXW() : this.ehp;
+        return this.eiQ == null ? GameRecorderController.aXZ() : this.eiQ;
     }
 
     public void h(GameRecorderController gameRecorderController) {
-        if (this.ehp != null && this.ehp == gameRecorderController) {
-            this.ehp.release();
-            this.ehp = null;
+        if (this.eiQ != null && this.eiQ == gameRecorderController) {
+            this.eiQ.release();
+            this.eiQ = null;
         }
     }
 
-    public boolean aXZ() {
+    public boolean aYc() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.ekz);
+            Log.i("GameRecorderManager", "isGamePause:" + this.ema);
         }
-        return this.ekz;
+        return this.ema;
     }
 
-    public void aYa() {
-        this.ekz = true;
+    public void aYd() {
+        this.ema = true;
     }
 
-    public void aYb() {
-        this.ekz = false;
+    public void aYe() {
+        this.ema = false;
     }
 }

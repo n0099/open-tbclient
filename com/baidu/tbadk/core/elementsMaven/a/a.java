@@ -5,7 +5,7 @@ import android.graphics.RectF;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class a {
-    public static float[] m(float f) {
+    public static float[] q(float f) {
         float[] fArr = new float[8];
         Arrays.fill(fArr, f);
         return fArr;

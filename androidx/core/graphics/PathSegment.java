@@ -3,7 +3,7 @@ package androidx.core.graphics;
 import android.graphics.PointF;
 import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class PathSegment {
     private final PointF mEnd;
     private final float mEndFraction;

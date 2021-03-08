@@ -1,21 +1,21 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 class gc implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ fz f14043a;
+    final /* synthetic */ fz f8382a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f463a;
+    final /* synthetic */ String f384a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public gc(fz fzVar, String str) {
-        this.f14043a = fzVar;
-        this.f463a = str;
+        this.f8382a = fzVar;
+        this.f384a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        cz.a().a(this.f463a, true);
+        cz.a().a(this.f384a, true);
     }
 }

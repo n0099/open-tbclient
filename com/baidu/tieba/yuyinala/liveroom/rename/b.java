@@ -1,7 +1,7 @@
 package com.baidu.tieba.yuyinala.liveroom.rename;
 
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static int x(CharSequence charSequence) {
         if (charSequence == null) {

@@ -7,18 +7,18 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private CallbackHandler dbO;
-    public JSONObject djl;
+    private CallbackHandler ddq;
+    public JSONObject dkM;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.dbO = callbackHandler;
-        this.djl = jSONObject;
+        this.ddq = callbackHandler;
+        this.dkM = jSONObject;
     }
 
-    public void pw(String str) {
+    public void pD(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is Null");
@@ -27,7 +27,7 @@ public class a {
             return;
         }
         try {
-            this.djl = new JSONObject(str);
+            this.dkM = new JSONObject(str);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is not jsonObject");
@@ -35,21 +35,21 @@ public class a {
         }
     }
 
-    public void px(String str) {
-        h(str, null);
+    public void pE(String str) {
+        i(str, null);
     }
 
-    public void h(String str, JSONObject jSONObject) {
-        if (this.djl != null) {
+    public void i(String str, JSONObject jSONObject) {
+        if (this.dkM != null) {
             JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-            this.dbO.handleSchemeDispatchCallback(this.djl.optString(str), wrapCallbackParamsWithEncode.toString());
+            this.ddq.handleSchemeDispatchCallback(this.dkM.optString(str), wrapCallbackParamsWithEncode.toString());
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
             }
         }
     }
 
-    public boolean aAU() {
-        return UnitedSchemeUtility.isInvokedFromSwanGame(this.dbO);
+    public boolean aAX() {
+        return UnitedSchemeUtility.isInvokedFromSwanGame(this.ddq);
     }
 }

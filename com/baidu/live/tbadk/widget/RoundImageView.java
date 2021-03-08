@@ -6,7 +6,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class RoundImageView extends ImageView {
     private int height;
     private boolean isTop;

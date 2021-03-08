@@ -6,7 +6,7 @@ import com.squareup.wire.Wire;
 import java.util.Collections;
 import java.util.List;
 import tbclient.GetStoreRemindTime.GetStoreRemindTimeResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetStoreRemindTimeSocketResponseMessage extends SocketResponsedMessage {
     public List<String> timeList;
 

@@ -102,7 +102,7 @@ public class KuangFloatingWindowController {
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = c.Kr(2002);
+        layoutParams.type = c.Kw(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;

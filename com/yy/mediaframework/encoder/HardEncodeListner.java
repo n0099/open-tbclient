@@ -4,7 +4,7 @@ import android.graphics.SurfaceTexture;
 import android.media.MediaCodec;
 import android.media.MediaFormat;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface HardEncodeListner {
     void onEncodedDataAvailable(ByteBuffer byteBuffer, int i, int i2, long j, long j2);
 

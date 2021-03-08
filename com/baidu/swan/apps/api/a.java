@@ -10,7 +10,7 @@ import com.baidu.swan.apps.api.a.b;
 import com.baidu.swan.apps.api.module.network.SwanApiNetworkV8Module;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private WeakReference<Activity> mActivityRef;
@@ -34,13 +34,13 @@ public class a implements b {
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public CallbackHandler ajL() {
+    public CallbackHandler ajO() {
         return this.mCallbackHandler;
     }
 
     @Override // com.baidu.swan.apps.api.a.b
     @NonNull
-    public com.baidu.swan.apps.core.container.a ajM() {
+    public com.baidu.swan.apps.core.container.a ajP() {
         return this.mJSContainer;
     }
 
@@ -53,11 +53,11 @@ public class a implements b {
     }
 
     private void a(@NonNull com.baidu.swan.games.f.b bVar) {
-        a(bVar, SwanApi$$ModulesProvider.getV8ApiModules(this), com.baidu.swan.apps.t.a.axy().getV8ApiModules(this));
+        a(bVar, SwanApi$$ModulesProvider.getV8ApiModules(this), com.baidu.swan.apps.t.a.axB().getV8ApiModules(this));
     }
 
     private void b(@NonNull com.baidu.swan.apps.core.container.a aVar) {
-        a(aVar, SwanApi$$ModulesProvider.getWebviewApiModules(this), com.baidu.swan.apps.t.a.axy().getWebviewApiModules(this));
+        a(aVar, SwanApi$$ModulesProvider.getWebviewApiModules(this), com.baidu.swan.apps.t.a.axB().getWebviewApiModules(this));
     }
 
     private void a(@NonNull com.baidu.swan.apps.core.container.a aVar, Map<String, Object> map, Map<String, Object> map2) {

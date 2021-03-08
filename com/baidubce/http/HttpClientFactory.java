@@ -21,7 +21,7 @@ import okhttp3.Response;
 import okhttp3.Route;
 import org.apache.http.auth.AUTH;
 import org.apache.http.client.params.AuthPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HttpClientFactory {
     public OkHttpClient createHttpClient(BceClientConfiguration bceClientConfiguration) {
         ArrayList arrayList = new ArrayList();
@@ -52,7 +52,7 @@ public class HttpClientFactory {
         return followSslRedirects.build();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class NTLMAuthenticator implements Authenticator {
         private final String domain;
         final NTLMEngineImpl engine = new NTLMEngineImpl();

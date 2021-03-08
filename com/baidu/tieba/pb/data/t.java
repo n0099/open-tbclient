@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.cb;
 /* loaded from: classes2.dex */
 public class t implements com.baidu.adp.widget.ListView.n {
     public static BdUniqueId TYPE = BdUniqueId.gen();
-    public cb eJQ;
+    public cb eLr;
 
     @Override // com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {

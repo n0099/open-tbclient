@@ -12,24 +12,24 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class i {
-    private final j<?> ewt;
+    private final j<?> exV;
 
     public static final i a(j<?> jVar) {
         return new i(jVar);
     }
 
     private i(j<?> jVar) {
-        this.ewt = jVar;
+        this.exV = jVar;
     }
 
-    public k bdY() {
-        return this.ewt.bea();
+    public k bea() {
+        return this.exV.bec();
     }
 
     public int getActiveFragmentsCount() {
-        ArrayList<Fragment> arrayList = this.ewt.ews.ewL;
+        ArrayList<Fragment> arrayList = this.exV.exU.eyp;
         if (arrayList == null) {
             return 0;
         }
@@ -37,129 +37,129 @@ public class i {
     }
 
     public List<Fragment> getActiveFragments(List<Fragment> list) {
-        if (this.ewt.ews.ewL == null) {
+        if (this.exV.exU.eyp == null) {
             return null;
         }
         if (list == null) {
             list = new ArrayList<>(getActiveFragmentsCount());
         }
-        list.addAll(this.ewt.ews.ewL);
+        list.addAll(this.exV.exU.eyp);
         return list;
     }
 
     public void h(Fragment fragment) {
-        this.ewt.ews.a(this.ewt, this.ewt, fragment);
+        this.exV.exU.a(this.exV, this.exV, fragment);
     }
 
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.ewt.ews.onCreateView(view, str, context, attributeSet);
+        return this.exV.exU.onCreateView(view, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {
-        this.ewt.ews.noteStateNotSaved();
+        this.exV.exU.noteStateNotSaved();
     }
 
     public Parcelable saveAllState() {
-        return this.ewt.ews.saveAllState();
+        return this.exV.exU.saveAllState();
     }
 
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
-        this.ewt.ews.restoreAllState(parcelable, list);
+        this.exV.exU.restoreAllState(parcelable, list);
     }
 
     public List<Fragment> retainNonConfig() {
-        return this.ewt.ews.bec();
+        return this.exV.exU.bee();
     }
 
     public void dispatchCreate() {
-        this.ewt.ews.dispatchCreate();
+        this.exV.exU.dispatchCreate();
     }
 
     public void dispatchActivityCreated() {
-        this.ewt.ews.dispatchActivityCreated();
+        this.exV.exU.dispatchActivityCreated();
     }
 
     public void dispatchStart() {
-        this.ewt.ews.dispatchStart();
+        this.exV.exU.dispatchStart();
     }
 
     public void dispatchResume() {
-        this.ewt.ews.dispatchResume();
+        this.exV.exU.dispatchResume();
     }
 
     public void dispatchPause() {
-        this.ewt.ews.dispatchPause();
+        this.exV.exU.dispatchPause();
     }
 
     public void dispatchStop() {
-        this.ewt.ews.dispatchStop();
+        this.exV.exU.dispatchStop();
     }
 
     public void dispatchReallyStop() {
-        this.ewt.ews.dispatchReallyStop();
+        this.exV.exU.dispatchReallyStop();
     }
 
     public void dispatchDestroy() {
-        this.ewt.ews.dispatchDestroy();
+        this.exV.exU.dispatchDestroy();
     }
 
     public void dispatchConfigurationChanged(Configuration configuration) {
-        this.ewt.ews.dispatchConfigurationChanged(configuration);
+        this.exV.exU.dispatchConfigurationChanged(configuration);
     }
 
     public void dispatchLowMemory() {
-        this.ewt.ews.dispatchLowMemory();
+        this.exV.exU.dispatchLowMemory();
     }
 
     public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        return this.ewt.ews.dispatchCreateOptionsMenu(menu, menuInflater);
+        return this.exV.exU.dispatchCreateOptionsMenu(menu, menuInflater);
     }
 
     public boolean dispatchPrepareOptionsMenu(Menu menu) {
-        return this.ewt.ews.dispatchPrepareOptionsMenu(menu);
+        return this.exV.exU.dispatchPrepareOptionsMenu(menu);
     }
 
     public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
-        return this.ewt.ews.dispatchOptionsItemSelected(menuItem);
+        return this.exV.exU.dispatchOptionsItemSelected(menuItem);
     }
 
     public boolean dispatchContextItemSelected(MenuItem menuItem) {
-        return this.ewt.ews.dispatchContextItemSelected(menuItem);
+        return this.exV.exU.dispatchContextItemSelected(menuItem);
     }
 
     public void dispatchOptionsMenuClosed(Menu menu) {
-        this.ewt.ews.dispatchOptionsMenuClosed(menu);
+        this.exV.exU.dispatchOptionsMenuClosed(menu);
     }
 
     public boolean execPendingActions() {
-        return this.ewt.ews.execPendingActions();
+        return this.exV.exU.execPendingActions();
     }
 
     public void doLoaderStart() {
-        this.ewt.doLoaderStart();
+        this.exV.doLoaderStart();
     }
 
     public void doLoaderStop(boolean z) {
-        this.ewt.doLoaderStop(z);
+        this.exV.doLoaderStop(z);
     }
 
     public void doLoaderDestroy() {
-        this.ewt.doLoaderDestroy();
+        this.exV.doLoaderDestroy();
     }
 
     public void reportLoaderStart() {
-        this.ewt.reportLoaderStart();
+        this.exV.reportLoaderStart();
     }
 
-    public com.baidu.swan.support.v4.b.f<String, o> bdZ() {
-        return this.ewt.bdZ();
+    public com.baidu.swan.support.v4.b.f<String, o> beb() {
+        return this.exV.beb();
     }
 
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.ewt.a(fVar);
+        this.exV.a(fVar);
     }
 
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.ewt.dumpLoaders(str, fileDescriptor, printWriter, strArr);
+        this.exV.dumpLoaders(str, fileDescriptor, printWriter, strArr);
     }
 }

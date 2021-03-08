@@ -7,20 +7,20 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<c> epY;
-    private b epZ;
-    private boolean eqa;
-    private String eqb;
+    private List<c> erA;
+    private b erB;
+    private boolean erC;
+    private String erD;
     private Context mContext;
     private RecyclerView mRecyclerView;
 
     public LocationDetailAdapter(Context context, RecyclerView recyclerView, b bVar, boolean z) {
         this.mRecyclerView = recyclerView;
         this.mContext = context;
-        this.epZ = bVar;
-        this.eqa = z;
+        this.erB = bVar;
+        this.erC = z;
     }
 
     public LocationDetailAdapter(Context context, RecyclerView recyclerView, b bVar) {
@@ -33,7 +33,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             case 101:
                 return new LocationFooterViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_footer, viewGroup, false));
             default:
-                return new LocationDetailViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_item, viewGroup, false), this, this.epZ);
+                return new LocationDetailViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_item, viewGroup, false), this, this.erB);
         }
     }
 
@@ -41,15 +41,15 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         switch (viewHolder.getItemViewType()) {
             case 101:
-                ((LocationFooterViewHolder) viewHolder).iv(bba());
+                ((LocationFooterViewHolder) viewHolder).iv(bbd());
                 return;
             default:
-                ((LocationDetailViewHolder) viewHolder).a(this.epY.get(i), this.eqb, bbb());
+                ((LocationDetailViewHolder) viewHolder).a(this.erA.get(i), this.erD, bbe());
                 return;
         }
     }
 
-    private boolean bba() {
+    private boolean bbd() {
         return this.mRecyclerView != null && this.mRecyclerView.computeVerticalScrollOffset() > 0;
     }
 
@@ -59,31 +59,31 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     public void setData(List<c> list, String str) {
         if (list != null) {
-            this.epY = list;
-            this.eqb = str;
+            this.erA = list;
+            this.erD = str;
             notifyDataSetChanged();
         }
     }
 
-    private boolean bbb() {
-        return !TextUtils.isEmpty(this.eqb);
+    private boolean bbe() {
+        return !TextUtils.isEmpty(this.erD);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.epY == null) {
+        if (this.erA == null) {
             return 0;
         }
-        return (this.eqa ? 1 : 0) + this.epY.size();
+        return (this.erC ? 1 : 0) + this.erA.size();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        return (!this.eqa || i < getItemCount() + (-1)) ? 100 : 101;
+        return (!this.erC || i < getItemCount() + (-1)) ? 100 : 101;
     }
 
-    public void bbc() {
-        for (c cVar : this.epY) {
+    public void bbf() {
+        for (c cVar : this.erA) {
             cVar.isSelected = false;
         }
     }

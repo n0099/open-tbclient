@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaPersonCardActivityConfig extends IntentConfig {
     public static final String PERSON_APP_ID = "PERSON_APP_ID";
     public static final String PERSON_DESCRIPTION = "PERSON_DESCRIPTION";

@@ -10,32 +10,32 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
-    private TextView aDt;
-    private TailData lta;
-    private TextView ltb;
+    private TextView aET;
+    private TailData lvd;
+    private TextView lve;
     private String mColor;
     private Context mContext;
     private View mRootView;
 
-    public View gB(Context context) {
+    public View gA(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.tail_management_item, (ViewGroup) null);
         this.mRootView.setTag(this);
-        this.aDt = (TextView) this.mRootView.findViewById(R.id.tail_management_item_text);
-        this.ltb = (TextView) this.mRootView.findViewById(R.id.tail_management_item_delete);
-        this.ltb.setTag(this);
+        this.aET = (TextView) this.mRootView.findViewById(R.id.tail_management_item_text);
+        this.lve = (TextView) this.mRootView.findViewById(R.id.tail_management_item_delete);
+        this.lve.setTag(this);
         return this.mRootView;
     }
 
     private void setContent(String str) {
-        this.aDt.setText(TbFaceManager.bCO().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.Oq(str), null));
+        this.aET.setText(TbFaceManager.bCR().a(this.mContext, com.baidu.tieba.memberCenter.tail.a.d.Ow(str), null));
     }
 
     private void setColor(String str) {
         this.mColor = str;
-        this.aDt.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.Op(str));
+        this.aET.setTextColor(com.baidu.tieba.memberCenter.tail.a.c.Ov(str));
     }
 
     public void D(TbPageContext<?> tbPageContext) {
@@ -44,25 +44,25 @@ public class c {
         setColor(this.mColor);
     }
 
-    public TailData dga() {
-        return this.lta;
+    public TailData dgj() {
+        return this.lvd;
     }
 
     public void b(TailData tailData) {
-        this.lta = tailData;
+        this.lvd = tailData;
         setContent(tailData.getContent());
         setColor(tailData.getFontColor());
     }
 
-    public void J(View.OnClickListener onClickListener) {
+    public void K(View.OnClickListener onClickListener) {
         this.mRootView.setOnClickListener(onClickListener);
     }
 
-    public void K(View.OnClickListener onClickListener) {
-        this.ltb.setOnClickListener(onClickListener);
+    public void L(View.OnClickListener onClickListener) {
+        this.lve.setOnClickListener(onClickListener);
     }
 
     public void o(Boolean bool) {
-        this.ltb.setVisibility(bool.booleanValue() ? 0 : 8);
+        this.lve.setVisibility(bool.booleanValue() ? 0 : 8);
     }
 }

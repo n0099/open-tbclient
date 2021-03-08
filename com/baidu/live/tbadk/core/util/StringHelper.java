@@ -5,6 +5,7 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdStringHelper;
@@ -24,7 +25,7 @@ import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class StringHelper extends BdStringHelper {
     public static final String STRING_MORE = "...";
     private static long MS_TO_SEC = 1000;
@@ -575,9 +576,9 @@ public class StringHelper extends BdStringHelper {
         if (j < 9999000.0d) {
             float f = ((float) (j / 1000)) / 10.0f;
             if (f % 1.0f == 0.0f) {
-                return ((int) f) + "W";
+                return ((int) f) + ExifInterface.LONGITUDE_WEST;
             }
-            return f + "W";
+            return f + ExifInterface.LONGITUDE_WEST;
         }
         return "999.9W";
     }
@@ -592,9 +593,9 @@ public class StringHelper extends BdStringHelper {
         if (j < 10000000) {
             float f = ((float) (j / 1000)) / 10.0f;
             if (f % 1.0f == 0.0f) {
-                return ((int) f) + "W";
+                return ((int) f) + ExifInterface.LONGITUDE_WEST;
             }
-            return f + "W";
+            return f + ExifInterface.LONGITUDE_WEST;
         }
         float f2 = ((float) (j / TimeUtils.NANOS_PER_MS)) / 10.0f;
         if (f2 >= 9999.0f) {
@@ -618,7 +619,7 @@ public class StringHelper extends BdStringHelper {
 
     public static String numFormatOver10000ReturnInt(long j) {
         if (j > 9999) {
-            return ((int) (((float) j) / 10000.0f)) + "W";
+            return ((int) (((float) j) / 10000.0f)) + ExifInterface.LONGITUDE_WEST;
         }
         if (j < 0) {
             return "0";
@@ -641,7 +642,7 @@ public class StringHelper extends BdStringHelper {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + "W";
+            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
         }
         if (j > 10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -660,7 +661,7 @@ public class StringHelper extends BdStringHelper {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + "W";
+            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
         }
         if (j > 10000) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
@@ -681,7 +682,7 @@ public class StringHelper extends BdStringHelper {
             if (((float) round) > f) {
                 round--;
             }
-            return round + "W";
+            return round + ExifInterface.LONGITUDE_WEST;
         } else if (j < 0) {
             return "0";
         } else {
@@ -696,7 +697,7 @@ public class StringHelper extends BdStringHelper {
             if (((float) round) > f) {
                 round--;
             }
-            return round >= 9999 ? "9999W+" : j + "W";
+            return round >= 9999 ? "9999W+" : j + ExifInterface.LONGITUDE_WEST;
         } else if (j < 0) {
             return "0";
         } else {
@@ -726,7 +727,7 @@ public class StringHelper extends BdStringHelper {
             if (((float) round) > f) {
                 round--;
             }
-            return round + "W";
+            return round + ExifInterface.LONGITUDE_WEST;
         } else if (j < 0) {
             return "0";
         } else {
@@ -957,13 +958,13 @@ public class StringHelper extends BdStringHelper {
             DecimalFormat decimalFormat = new DecimalFormat("#.#");
             float f = ((float) j) / 10000.0f;
             if (f < 1000.0f) {
-                return decimalFormat.format(f) + "W";
+                return decimalFormat.format(f) + ExifInterface.LONGITUDE_WEST;
             }
             long round = Math.round(f);
             if (((float) round) > f) {
                 round--;
             }
-            return round + "W";
+            return round + ExifInterface.LONGITUDE_WEST;
         }
         return String.valueOf(j);
     }

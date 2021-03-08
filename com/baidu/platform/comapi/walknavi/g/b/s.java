@@ -8,17 +8,15 @@ import com.baidu.platform.comapi.walknavi.g.b.c;
 public class s implements c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f4320a;
-
-    /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ c.d f4321b;
+    final /* synthetic */ String f2989a;
+    final /* synthetic */ c.d b;
     final /* synthetic */ c c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(c cVar, String str, c.d dVar) {
         this.c = cVar;
-        this.f4320a = str;
-        this.f4321b = dVar;
+        this.f2989a = str;
+        this.b = dVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.b
@@ -31,15 +29,15 @@ public class s implements c.b {
             context = this.c.l;
             Toast.makeText(context, "模型更新成功，下次进入时即可生效", 0).show();
         } else if (com.baidu.platform.comapi.wnplatform.a.a().c()) {
-            this.c.b(this.f4320a, str);
-            if (this.f4321b != null) {
-                this.f4321b.a();
+            this.c.b(this.f2989a, str);
+            if (this.b != null) {
+                this.b.a();
             }
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.b
     public void a(int i) {
-        this.f4321b.b();
+        this.b.b();
     }
 }

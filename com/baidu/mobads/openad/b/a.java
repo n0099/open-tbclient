@@ -9,11 +9,9 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends c {
-
-    /* renamed from: b  reason: collision with root package name */
-    private String f3420b;
+    private String b;
     private Boolean c;
     private AtomicBoolean d;
     private IXAdLogger e;
@@ -54,7 +52,7 @@ public class a extends c {
         this.d = new AtomicBoolean();
         this.e = XAdSDKFoundationFacade.getInstance().getAdLogger();
         this.f = new aa();
-        this.f3420b = str;
+        this.b = str;
     }
 
     public a() {
@@ -72,19 +70,19 @@ public class a extends c {
 
     public void a(b bVar, double d) {
         try {
-            com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new C0266a(bVar, d));
+            com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new C0272a(bVar, d));
         } catch (Throwable th) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mobads.openad.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public class C0266a extends com.baidu.mobads.f.a {
+    /* loaded from: classes4.dex */
+    public class C0272a extends com.baidu.mobads.f.a {
         private b c;
         private double d;
 
-        public C0266a(b bVar, double d) {
+        public C0272a(b bVar, double d) {
             this.c = bVar;
             this.d = d;
         }
@@ -116,7 +114,7 @@ public class a extends c {
                 java.lang.Thread.sleep(r2)     // Catch: java.lang.Throwable -> L10c
             L17:
                 com.baidu.mobads.openad.b.b r0 = r9.c     // Catch: java.lang.Throwable -> L106
-                java.lang.String r0 = r0.f3422a     // Catch: java.lang.Throwable -> L106
+                java.lang.String r0 = r0.f2438a     // Catch: java.lang.Throwable -> L106
                 java.lang.String r2 = "mobads.baidu.com"
                 int r0 = r0.indexOf(r2)     // Catch: java.lang.Throwable -> L106
                 if (r0 <= r7) goto L2d
@@ -126,7 +124,7 @@ public class a extends c {
             L2d:
                 java.net.URL r0 = new java.net.URL     // Catch: java.lang.Throwable -> L10c
                 com.baidu.mobads.openad.b.b r2 = r9.c     // Catch: java.lang.Throwable -> L10c
-                java.lang.String r2 = r2.f3422a     // Catch: java.lang.Throwable -> L10c
+                java.lang.String r2 = r2.f2438a     // Catch: java.lang.Throwable -> L10c
                 r0.<init>(r2)     // Catch: java.lang.Throwable -> L10c
                 com.baidu.mobads.utils.XAdSDKFoundationFacade r2 = com.baidu.mobads.utils.XAdSDKFoundationFacade.getInstance()     // Catch: java.lang.Throwable -> L10c
                 com.baidu.mobads.interfaces.utils.IXAdURIUitls r2 = r2.getURIUitls()     // Catch: java.lang.Throwable -> L10c
@@ -140,15 +138,15 @@ public class a extends c {
                 r0 = 0
                 r4.setUseCaches(r0)     // Catch: java.lang.Throwable -> L21f
                 com.baidu.mobads.openad.b.b r0 = r9.c     // Catch: java.lang.Throwable -> L21f
-                java.lang.String r0 = r0.f3423b     // Catch: java.lang.Throwable -> L21f
+                java.lang.String r0 = r0.b     // Catch: java.lang.Throwable -> L21f
                 if (r0 == 0) goto L6c
                 com.baidu.mobads.openad.b.b r0 = r9.c     // Catch: java.lang.Throwable -> L21f
-                java.lang.String r0 = r0.f3423b     // Catch: java.lang.Throwable -> L21f
+                java.lang.String r0 = r0.b     // Catch: java.lang.Throwable -> L21f
                 int r0 = r0.length()     // Catch: java.lang.Throwable -> L21f
                 if (r0 <= 0) goto L6c
                 java.lang.String r0 = "User-Agent"
                 com.baidu.mobads.openad.b.b r2 = r9.c     // Catch: java.lang.Throwable -> L21f
-                java.lang.String r2 = r2.f3423b     // Catch: java.lang.Throwable -> L21f
+                java.lang.String r2 = r2.b     // Catch: java.lang.Throwable -> L21f
                 r4.setRequestProperty(r0, r2)     // Catch: java.lang.Throwable -> L21f
             L6c:
                 java.lang.String r0 = "Content-type"
@@ -185,7 +183,7 @@ public class a extends c {
                 java.io.InputStream r0 = r4.getInputStream()     // Catch: java.lang.Throwable -> L21f
                 java.lang.String r2 = com.baidu.mobads.openad.b.a.a(r0)     // Catch: java.lang.Throwable -> L282
                 com.baidu.mobads.openad.b.b r3 = r9.c     // Catch: java.lang.Throwable -> L286
-                java.lang.String r3 = r3.f3422a     // Catch: java.lang.Throwable -> L286
+                java.lang.String r3 = r3.f2438a     // Catch: java.lang.Throwable -> L286
                 java.lang.String r5 = "mobads.baidu.com"
                 int r3 = r3.indexOf(r5)     // Catch: java.lang.Throwable -> L286
                 if (r3 <= r7) goto Ldc
@@ -389,7 +387,7 @@ public class a extends c {
                 r3 = move-exception
                 goto Ldc
             */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.mobads.openad.b.a.C0266a.a():java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.mobads.openad.b.a.C0272a.a():java.lang.Object");
         }
     }
 

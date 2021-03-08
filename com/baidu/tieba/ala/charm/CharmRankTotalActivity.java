@@ -36,20 +36,20 @@ import com.baidu.tieba.ala.charm.c;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import com.baidu.tieba.ala.charm.view.CharmRankTotalHeaderView;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class CharmRankTotalActivity extends BaseActivity implements View.OnTouchListener {
-    private TextView aYt;
-    private CharmRankTotalHeaderView gNL;
-    private PbListView gNM;
-    private com.baidu.tieba.ala.charm.view.e gNN;
-    private c gNO;
+    private TextView aZT;
+    private CharmRankTotalHeaderView gPu;
+    private PbListView gPv;
+    private com.baidu.tieba.ala.charm.view.e gPw;
+    private c gPx;
     private BdListView mListView;
     private View mRootView;
     private int mScreenWidth;
-    private boolean aWt = false;
-    private boolean baH = false;
-    private boolean baI = false;
-    private ViewTreeObserver.OnGlobalLayoutListener baD = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.6
+    private boolean aXT = false;
+    private boolean bch = false;
+    private boolean bci = false;
+    private ViewTreeObserver.OnGlobalLayoutListener bcd = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.6
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(CharmRankTotalActivity.this.getPageContext().getPageActivity());
@@ -82,28 +82,28 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
         initView();
         setContentView(this.mRootView);
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-        this.baH = false;
+        this.bch = false;
         this.mRootView.setVisibility(4);
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
             i.ae(this.mRootView);
         }
-        Gd();
+        Gg();
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        UZ();
+        Vc();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.live.tbadk.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (!this.aWt) {
+        if (!this.aXT) {
             this.mRootView.setVisibility(0);
-            Gb();
-            this.aWt = true;
+            Ge();
+            this.aXT = true;
         }
     }
 
@@ -130,7 +130,7 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
                 i.af(this.mRootView);
                 r.e(getActivity(), true);
             }
-            UZ();
+            Vc();
         }
     }
 
@@ -138,19 +138,19 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gNO != null) {
-            this.gNO.release();
+        if (this.gPx != null) {
+            this.gPx.release();
         }
-        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.baD);
-        this.baD = null;
+        getWindow().getDecorView().getViewTreeObserver().removeGlobalOnLayoutListener(this.bcd);
+        this.bcd = null;
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        Gc();
+        Gf();
     }
 
-    private void UZ() {
+    private void Vc() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());
@@ -164,7 +164,7 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
                 getWindowManager().updateViewLayout(decorView, attributes);
             }
             window.setBackgroundDrawableResource(17170445);
-            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.baD);
+            window.getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.bcd);
             if (this.mRootView.getLayoutParams() instanceof FrameLayout.LayoutParams) {
                 int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.sdk_ds26);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mRootView.getLayoutParams();
@@ -188,13 +188,13 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
         }
     }
 
-    private void Gb() {
+    private void Ge() {
         Animation loadAnimation;
-        this.baH = true;
+        this.bch = true;
         if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_right);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_in_from_right);
         } else {
-            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_in_from_bottom);
+            loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_in_from_bottom);
         }
         loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.1
             @Override // android.view.animation.Animation.AnimationListener
@@ -203,7 +203,7 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                CharmRankTotalActivity.this.baH = false;
+                CharmRankTotalActivity.this.bch = false;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -213,13 +213,13 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
         this.mRootView.startAnimation(loadAnimation);
     }
 
-    private void Gc() {
+    private void Gf() {
         Animation loadAnimation;
-        if (!this.baI && !this.baH) {
+        if (!this.bci && !this.bch) {
             if (UtilHelper.getRealScreenOrientation(getActivity()) == 2) {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_right);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_out_to_right);
             } else {
-                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0195a.sdk_out_to_bottom);
+                loadAnimation = AnimationUtils.loadAnimation(getActivity(), a.C0201a.sdk_out_to_bottom);
             }
             loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.2
                 @Override // android.view.animation.Animation.AnimationListener
@@ -236,7 +236,7 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
                 public void onAnimationRepeat(Animation animation) {
                 }
             });
-            this.baI = true;
+            this.bci = true;
             this.mRootView.startAnimation(loadAnimation);
         }
     }
@@ -244,63 +244,63 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
     private void initView() {
         this.mRootView = LayoutInflater.from(this).inflate(a.g.sdk_charm_activity_rank_total, (ViewGroup) null);
         this.mRootView.setClickable(true);
-        this.gNL = new CharmRankTotalHeaderView(this.mRootView.getContext());
-        this.gNL.setCallback(new CharmRankTotalHeaderView.a() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.3
+        this.gPu = new CharmRankTotalHeaderView(this.mRootView.getContext());
+        this.gPu.setCallback(new CharmRankTotalHeaderView.a() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.3
             @Override // com.baidu.tieba.ala.charm.view.CharmRankTotalHeaderView.a
             public void a(ALaCharmData aLaCharmData) {
-                if (CharmRankTotalActivity.this.gNO != null) {
-                    CharmRankTotalActivity.this.gNO.a(aLaCharmData);
+                if (CharmRankTotalActivity.this.gPx != null) {
+                    CharmRankTotalActivity.this.gPx.a(aLaCharmData);
                 }
             }
         });
         this.mListView = (BdListView) this.mRootView.findViewById(a.f.lv);
-        this.mListView.addHeaderView(this.gNL);
+        this.mListView.addHeaderView(this.gPu);
         BdListView bdListView = this.mListView;
         com.baidu.tieba.ala.charm.view.e eVar = new com.baidu.tieba.ala.charm.view.e();
-        this.gNN = eVar;
+        this.gPw = eVar;
         bdListView.setAdapter((ListAdapter) eVar);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.4
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (CharmRankTotalActivity.this.gNO != null && CharmRankTotalActivity.this.gNN != null) {
-                    CharmRankTotalActivity.this.gNO.a(CharmRankTotalActivity.this.gNN.getItem(i));
+                if (CharmRankTotalActivity.this.gPx != null && CharmRankTotalActivity.this.gPw != null) {
+                    CharmRankTotalActivity.this.gPx.a(CharmRankTotalActivity.this.gPw.getItem(i));
                 }
             }
         });
-        this.gNM = new PbListView(this);
-        this.gNM.setTextColor(getResources().getColor(a.c.sdk_cp_cont_j));
-        this.gNM.setSkinType(0);
-        this.gNM.setContainerBackgroundColorResId(a.c.sdk_transparent);
-        this.gNM.createView();
-        this.aYt = (TextView) this.mRootView.findViewById(a.f.tv_tip);
+        this.gPv = new PbListView(this);
+        this.gPv.setTextColor(getResources().getColor(a.c.sdk_cp_cont_j));
+        this.gPv.setSkinType(0);
+        this.gPv.setContainerBackgroundColorResId(a.c.sdk_transparent);
+        this.gPv.createView();
+        this.aZT = (TextView) this.mRootView.findViewById(a.f.tv_tip);
     }
 
-    private void Gd() {
-        this.gNO = new b(getPageContext());
-        this.gNO.a(getIntent().getStringExtra("user_id"), getIntent().getStringExtra("group_id"), getIntent().getStringExtra("live_id"), getIntent().getBooleanExtra("live_owner_flag", false), getIntent().getStringExtra("live_owner_uid"), getIntent().getStringExtra(IntentConfig.OTHER_PARAMS));
-        this.gNO.a(new c.a() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.5
+    private void Gg() {
+        this.gPx = new b(getPageContext());
+        this.gPx.a(getIntent().getStringExtra("user_id"), getIntent().getStringExtra("group_id"), getIntent().getStringExtra("live_id"), getIntent().getBooleanExtra("live_owner_flag", false), getIntent().getStringExtra("live_owner_uid"), getIntent().getStringExtra(IntentConfig.OTHER_PARAMS));
+        this.gPx.a(new c.a() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.5
             @Override // com.baidu.tieba.ala.charm.c.a
             public void b(List<ALaCharmData> list, List<ALaCharmData> list2, String str) {
-                if (CharmRankTotalActivity.this.gNL != null && CharmRankTotalActivity.this.gNN != null) {
-                    CharmRankTotalActivity.this.gNL.setData(list);
-                    CharmRankTotalActivity.this.gNN.setData(list2);
-                    CharmRankTotalActivity.this.gNN.notifyDataSetChanged();
+                if (CharmRankTotalActivity.this.gPu != null && CharmRankTotalActivity.this.gPw != null) {
+                    CharmRankTotalActivity.this.gPu.setData(list);
+                    CharmRankTotalActivity.this.gPw.setData(list2);
+                    CharmRankTotalActivity.this.gPw.notifyDataSetChanged();
                     if (CharmRankTotalActivity.this.mListView.getEmptyView() != null) {
                         CharmRankTotalActivity.this.mListView.getEmptyView().setVisibility(8);
                     }
                     CharmRankTotalActivity.this.mListView.setVisibility(0);
                     if (!TextUtils.isEmpty(str)) {
-                        CharmRankTotalActivity.this.mListView.setNextPage(CharmRankTotalActivity.this.gNM);
-                        CharmRankTotalActivity.this.gNM.endLoadDataWithNoMore(str);
-                        CharmRankTotalActivity.this.aYt.setVisibility(8);
+                        CharmRankTotalActivity.this.mListView.setNextPage(CharmRankTotalActivity.this.gPv);
+                        CharmRankTotalActivity.this.gPv.endLoadDataWithNoMore(str);
+                        CharmRankTotalActivity.this.aZT.setVisibility(8);
                         return;
                     }
-                    CharmRankTotalActivity.this.aYt.setVisibility(0);
+                    CharmRankTotalActivity.this.aZT.setVisibility(0);
                 }
             }
 
             @Override // com.baidu.tieba.ala.charm.c.a
-            public void up(String str) {
+            public void uw(String str) {
                 CharmRankTotalActivity.this.showToast(str);
                 if (CharmRankTotalActivity.this.mListView != null && CharmRankTotalActivity.this.mListView.getEmptyView() == null) {
                     RelativeLayout relativeLayout = (RelativeLayout) CharmRankTotalActivity.this.mListView.getParent();
@@ -309,7 +309,7 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
                     commonEmptyView.setRefreshButton(a.h.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.CharmRankTotalActivity.5.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            CharmRankTotalActivity.this.gNO.bEN();
+                            CharmRankTotalActivity.this.gPx.bER();
                         }
                     });
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
@@ -327,6 +327,6 @@ public class CharmRankTotalActivity extends BaseActivity implements View.OnTouch
                 CharmRankTotalActivity.this.finish();
             }
         });
-        this.gNO.bEN();
+        this.gPx.bER();
     }
 }

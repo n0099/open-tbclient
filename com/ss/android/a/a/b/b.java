@@ -13,9 +13,7 @@ public interface b {
 
     String e();
 
-    Object eEb();
-
-    JSONObject eEc();
+    Object eEh();
 
     String f();
 
@@ -30,4 +28,6 @@ public interface b {
     boolean l();
 
     boolean m();
+
+    JSONObject n();
 }

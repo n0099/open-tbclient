@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId KR;
-    private BdAsyncTaskParallelType KS;
+    private BdUniqueId Mp;
+    private BdAsyncTaskParallelType Mq;
     private int mExecuteNum;
 
     /* loaded from: classes.dex */
@@ -19,26 +19,26 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.KR = null;
-        this.KS = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.Mp = null;
+        this.Mq = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.KS = bdAsyncTaskParallelType;
-        this.KR = bdUniqueId;
+        this.Mq = bdAsyncTaskParallelType;
+        this.Mp = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.KR = null;
-        this.KS = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.Mp = null;
+        this.Mq = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.KS = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.Mq = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
         this.mExecuteNum = i;
-        this.KR = bdUniqueId;
+        this.Mp = bdUniqueId;
     }
 
     public int getExecuteNum() {
@@ -46,13 +46,13 @@ public class BdAsyncTaskParallel {
     }
 
     public int getTag() {
-        if (this.KR == null) {
+        if (this.Mp == null) {
             return 0;
         }
-        return this.KR.getId();
+        return this.Mp.getId();
     }
 
     public BdAsyncTaskParallelType lr() {
-        return this.KS;
+        return this.Mq;
     }
 }

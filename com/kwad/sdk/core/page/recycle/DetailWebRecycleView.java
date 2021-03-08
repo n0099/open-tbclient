@@ -14,10 +14,8 @@ import com.kwad.sdk.utils.n;
 public class DetailWebRecycleView extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    a f9351a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f9352b;
+    a f6207a;
+    private int b;
     private boolean c;
     private boolean d;
     private int e;
@@ -42,7 +40,7 @@ public class DetailWebRecycleView extends b {
 
     public DetailWebRecycleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f9352b = 1000;
+        this.b = 1000;
         this.c = false;
         this.d = false;
         this.i = new Runnable() { // from class: com.kwad.sdk.core.page.recycle.DetailWebRecycleView.1
@@ -51,7 +49,7 @@ public class DetailWebRecycleView extends b {
                 try {
                     Object a2 = n.a(DetailWebRecycleView.this, "mGapWorker");
                     if (a2 != null) {
-                        n.a(a2, "postFromTraversal", DetailWebRecycleView.this, 0, Integer.valueOf(DetailWebRecycleView.this.f9352b));
+                        n.a(a2, "postFromTraversal", DetailWebRecycleView.this, 0, Integer.valueOf(DetailWebRecycleView.this.b));
                     }
                 } catch (RuntimeException e) {
                     com.kwad.sdk.core.d.a.a(e);
@@ -82,7 +80,7 @@ public class DetailWebRecycleView extends b {
 
     @Override // com.kwad.sdk.core.page.recycle.b, androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f9351a == null || !this.f9351a.a(motionEvent)) {
+        if (this.f6207a == null || !this.f6207a.a(motionEvent)) {
             this.f = computeVerticalScrollOffset();
             if (motionEvent.getY() <= this.e - this.f) {
                 return super.onInterceptTouchEvent(motionEvent);
@@ -157,7 +155,7 @@ public class DetailWebRecycleView extends b {
     }
 
     public void setInterceptTouchListener(a aVar) {
-        this.f9351a = aVar;
+        this.f6207a = aVar;
     }
 
     public void setTopViewHeight(int i) {

@@ -1,7 +1,7 @@
 package com.yy.audioengine;
 
 import com.yy.audioengine.Constant;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AudioEncoder {
     private static final String TAG = "AudioEncoder";
     private long mCodecCtx;

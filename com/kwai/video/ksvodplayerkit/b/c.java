@@ -5,10 +5,8 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11045a = "1.0";
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f11046b = "hls";
+    public String f7274a = "1.0";
+    public String b = "hls";
     public a c;
     public transient String d;
 
@@ -16,6 +14,6 @@ public class c {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<f> f11047a;
+        public List<f> f7275a;
     }
 }

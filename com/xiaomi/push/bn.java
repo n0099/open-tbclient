@@ -2,56 +2,54 @@ package com.xiaomi.push;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class bn implements ge {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13886a = false;
+    public static boolean f8279a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    private fs f208a;
+    private fs f129a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SimpleDateFormat f211a = new SimpleDateFormat("hh:mm:ss aaa");
+    private SimpleDateFormat f132a = new SimpleDateFormat("hh:mm:ss aaa");
 
     /* renamed from: a  reason: collision with other field name */
-    private a f207a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private a f13887b = null;
+    private a f128a = null;
+    private a b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private fv f209a = null;
+    private fv f130a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private final String f210a = "[Slim] ";
+    private final String f131a = "[Slim] ";
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements fx, gf {
 
         /* renamed from: a  reason: collision with other field name */
-        String f212a;
+        String f133a;
 
         a(boolean z) {
-            this.f212a = z ? " RCV " : " Sent ";
+            this.f133a = z ? " RCV " : " Sent ";
         }
 
         @Override // com.xiaomi.push.fx
         public void a(fl flVar) {
-            if (bn.f13886a) {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + flVar.toString());
+            if (bn.f8279a) {
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f132a.format(new Date()) + this.f133a + flVar.toString());
             } else {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " Blob [" + flVar.m305a() + "," + flVar.a() + "," + flVar.e() + "]");
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f132a.format(new Date()) + this.f133a + " Blob [" + flVar.m284a() + "," + flVar.a() + "," + flVar.e() + "]");
             }
         }
 
         @Override // com.xiaomi.push.fx, com.xiaomi.push.gf
         public void a(gj gjVar) {
-            if (bn.f13886a) {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " PKT " + gjVar.m341a());
+            if (bn.f8279a) {
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f132a.format(new Date()) + this.f133a + " PKT " + gjVar.m320a());
             } else {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f211a.format(new Date()) + this.f212a + " PKT [" + gjVar.k() + "," + gjVar.j() + "]");
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f132a.format(new Date()) + this.f133a + " PKT [" + gjVar.k() + "," + gjVar.j() + "]");
             }
         }
 
@@ -62,16 +60,16 @@ public class bn implements ge {
     }
 
     public bn(fs fsVar) {
-        this.f208a = null;
-        this.f208a = fsVar;
+        this.f129a = null;
+        this.f129a = fsVar;
         a();
     }
 
     private void a() {
-        this.f207a = new a(true);
-        this.f13887b = new a(false);
-        this.f208a.a(this.f207a, this.f207a);
-        this.f208a.b(this.f13887b, this.f13887b);
-        this.f209a = new bo(this);
+        this.f128a = new a(true);
+        this.b = new a(false);
+        this.f129a.a(this.f128a, this.f128a);
+        this.f129a.b(this.b, this.b);
+        this.f130a = new bo(this);
     }
 }

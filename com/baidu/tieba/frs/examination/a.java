@@ -19,50 +19,50 @@ import com.google.gson.Gson;
 /* loaded from: classes2.dex */
 public abstract class a implements View.OnClickListener {
     protected Gson gson = new Gson();
-    protected final BaseFragmentActivity iKH;
-    protected View jiW;
-    protected final ForumWriteData jtH;
-    protected TextView jtI;
-    protected SerializableItemInfo jtJ;
-    protected final c jtK;
-    private i jtL;
-    private SaveDraftDialogView jtM;
+    protected final BaseFragmentActivity iMq;
+    protected View jkF;
+    protected final ForumWriteData jvq;
+    protected TextView jvr;
+    protected SerializableItemInfo jvs;
+    protected final c jvt;
+    private i jvu;
+    private SaveDraftDialogView jvv;
     protected TextView mCenterText;
     protected NavigationBar mNavigationBar;
     protected View mRoot;
 
-    public abstract void bCn();
+    public abstract void bCq();
 
-    protected abstract void cGS();
+    protected abstract void cGY();
 
-    public abstract void cGU();
+    public abstract void cHa();
 
     protected abstract void initUI();
 
     public a(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
-        this.iKH = baseFragmentActivity;
-        this.jtH = forumWriteData;
-        this.jtJ = serializableItemInfo;
-        this.jtK = new c(this.iKH, this.iKH.getUniqueId(), this.jtH, this.jtJ);
+        this.iMq = baseFragmentActivity;
+        this.jvq = forumWriteData;
+        this.jvs = serializableItemInfo;
+        this.jvt = new c(this.iMq, this.iMq.getUniqueId(), this.jvq, this.jvs);
         initUI();
-        bEL();
-        cGS();
+        bEP();
+        cGY();
     }
 
-    protected void bEL() {
+    protected void bEP() {
         if (this.mNavigationBar != null) {
-            this.jtI = new TextView(this.iKH);
-            this.jtI.setAlpha(0.5f);
-            this.jtI.setText(this.iKH.getString(R.string.send_post));
-            this.jtI.setTextSize(0, l.getDimens(this.iKH, R.dimen.tbds44));
+            this.jvr = new TextView(this.iMq);
+            this.jvr.setAlpha(0.5f);
+            this.jvr.setText(this.iMq.getString(R.string.send_post));
+            this.jvr.setTextSize(0, l.getDimens(this.iMq, R.dimen.tbds44));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            layoutParams.rightMargin = l.getDimens(this.iKH, R.dimen.tbds44);
-            this.jtI.setLayoutParams(layoutParams);
-            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.jtI, this);
-            this.mCenterText = this.mNavigationBar.setCenterTextTitle(this.iKH.getString(R.string.publish_comment));
-            this.mCenterText.setTextSize(0, l.getDimens(this.iKH, R.dimen.tbds44));
-            this.jiW = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            layoutParams.rightMargin = l.getDimens(this.iMq, R.dimen.tbds44);
+            this.jvr.setLayoutParams(layoutParams);
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.jvr, this);
+            this.mCenterText = this.mNavigationBar.setCenterTextTitle(this.iMq.getString(R.string.publish_comment));
+            this.mCenterText.setTextSize(0, l.getDimens(this.iMq, R.dimen.tbds44));
+            this.jkF = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
 
@@ -74,42 +74,42 @@ public abstract class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cGT() {
-        if (this.jtM == null) {
-            this.jtM = new SaveDraftDialogView(this.iKH);
-            this.jtM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.examination.a.1
+    public void cGZ() {
+        if (this.jvv == null) {
+            this.jvv = new SaveDraftDialogView(this.iMq);
+            this.jvv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.examination.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (view != null) {
                         int id = view.getId();
                         if (id == R.id.save_draft_dialog_not_save) {
-                            a.this.cGV();
-                            a.this.iKH.finish();
+                            a.this.cHb();
+                            a.this.iMq.finish();
                         } else if (id == R.id.save_draft_dialog_save) {
-                            a.this.bCn();
-                            a.this.iKH.finish();
+                            a.this.bCq();
+                            a.this.iMq.finish();
                         }
-                        a.this.jtL.dismiss();
+                        a.this.jvu.dismiss();
                     }
                 }
             });
         }
-        if (this.jtL == null) {
-            this.jtL = new i(this.iKH.getPageContext());
-            this.jtL.setContentView(this.jtM);
+        if (this.jvu == null) {
+            this.jvu = new i(this.iMq.getPageContext());
+            this.jvu.setContentView(this.jvv);
         }
-        this.jtM.setText(this.iKH.getString(R.string.write_save_draft_dialog_normal_title), null, this.iKH.getString(R.string.save));
-        this.jtL.QE();
+        this.jvv.setText(this.iMq.getString(R.string.write_save_draft_dialog_normal_title), null, this.iMq.getString(R.string.save));
+        this.jvu.QH();
     }
 
-    protected void cGV() {
-        if (this.jtH != null) {
-            y.g(String.valueOf(this.jtH.forumId), null);
+    protected void cHb() {
+        if (this.jvq != null) {
+            y.g(String.valueOf(this.jvq.forumId), null);
         }
     }
 
     public void onDestroy() {
-        g.dismissDialog(this.jtL, this.iKH);
+        g.dismissDialog(this.jvu, this.iMq);
     }
 
     public void onChangeSkinType() {
@@ -117,8 +117,8 @@ public abstract class a implements View.OnClickListener {
         if (this.mCenterText != null) {
             ap.setViewTextColor(this.mCenterText, R.color.CAM_X0105);
         }
-        if (this.jtI != null) {
-            ap.setViewTextColor(this.jtI, R.color.CAM_X0304);
+        if (this.jvr != null) {
+            ap.setViewTextColor(this.jvr, R.color.CAM_X0304);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onBackBtnOnChangeSkin();

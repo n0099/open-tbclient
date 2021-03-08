@@ -4,15 +4,15 @@ package com.baidu.location.a;
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ l f2571a;
+    final /* synthetic */ l f1929a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.f2571a = lVar;
+        this.f1929a = lVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2571a.g(null);
+        this.f1929a.g(null);
     }
 }

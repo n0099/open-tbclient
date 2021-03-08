@@ -3,7 +3,7 @@ package com.baidu.live.view.web.a;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class f extends com.baidu.live.view.web.a {
     @Override // com.baidu.live.view.web.a
     public String getName() {
@@ -11,7 +11,7 @@ public class f extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void is(String str) {
+    public void iy(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -20,7 +20,7 @@ public class f extends com.baidu.live.view.web.a {
                     if (!TextUtils.isEmpty(optString)) {
                         String[] split = optString.contains(",") ? optString.split(",") : new String[]{optString};
                         if (split != null) {
-                            com.baidu.live.view.a.Xo().o(split);
+                            com.baidu.live.view.a.Xr().o(split);
                         }
                     }
                 }

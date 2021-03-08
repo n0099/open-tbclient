@@ -1,34 +1,65 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+import android.text.TextUtils;
+import java.util.Date;
+/* loaded from: classes14.dex */
 public class u {
-    private static u qkg = null;
-    private String java = "Poseidon";
-    public PBInterstitial qjt;
-    private WeakReference qkh;
+    public static u qkA;
 
-    private u(Context context) {
-        this.qkh = new WeakReference(context);
-    }
-
-    public static u iK(Context context) {
-        if (qkg == null) {
+    public static u eJa() {
+        if (qkA == null) {
             synchronized (u.class) {
-                if (qkg == null) {
-                    qkg = new u(context);
+                if (qkA == null) {
+                    qkA = new u();
                 }
             }
         }
-        return qkg;
+        return qkA;
     }
 
-    public final Context eJc() {
-        Object obj;
-        if (this.qkh == null || (obj = this.qkh.get()) == null || !(obj instanceof Context)) {
-            return null;
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0077, code lost:
+        if (((r4 / 60) / 60) >= r2.f8147a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L8;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x002b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(Context context, String str) {
+        boolean z = false;
+        if (context != null) {
+            context.getApplicationContext();
+            if (!TextUtils.isEmpty(str)) {
+                bp.e(context, str);
+            }
+            bt.a(new s(this, context));
+            cu iU = cu.iU(context);
+            long iP = bp.iP(iU.f8147a);
+            if (iP > 0) {
+                try {
+                    long time = (new Date().getTime() - iP) / 1000;
+                    if (time < 0) {
+                        iU.b();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    z = true;
+                }
+                if (z) {
+                    iU.b = System.currentTimeMillis();
+                    bt.a(new cr(iU));
+                }
+                v.f(context);
+                bc.a(context);
+                return;
+            }
+            z = true;
+            if (z) {
+            }
+            v.f(context);
+            bc.a(context);
+            return;
         }
-        return (Context) obj;
+        throw new RuntimeException("Error:Context is not allowed to be null");
     }
 }

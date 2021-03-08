@@ -8,7 +8,7 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f extends v.c implements io.reactivex.disposables.b {
     volatile boolean disposed;
     private final ScheduledExecutorService executor;
@@ -18,7 +18,7 @@ public class f extends v.c implements io.reactivex.disposables.b {
     }
 
     @Override // io.reactivex.v.c
-    public io.reactivex.disposables.b E(Runnable runnable) {
+    public io.reactivex.disposables.b C(Runnable runnable) {
         return c(runnable, 0L, null);
     }
 
@@ -29,7 +29,7 @@ public class f extends v.c implements io.reactivex.disposables.b {
 
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
         Future<?> schedule;
-        ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(io.reactivex.d.a.G(runnable));
+        ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(io.reactivex.d.a.E(runnable));
         try {
             if (j <= 0) {
                 schedule = this.executor.submit(scheduledDirectTask);
@@ -46,9 +46,9 @@ public class f extends v.c implements io.reactivex.disposables.b {
 
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         Future<?> schedule;
-        Runnable G = io.reactivex.d.a.G(runnable);
+        Runnable E = io.reactivex.d.a.E(runnable);
         if (j2 <= 0) {
-            c cVar = new c(G, this.executor);
+            c cVar = new c(E, this.executor);
             try {
                 if (j <= 0) {
                     schedule = this.executor.submit(cVar);
@@ -62,7 +62,7 @@ public class f extends v.c implements io.reactivex.disposables.b {
                 return EmptyDisposable.INSTANCE;
             }
         }
-        ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(G);
+        ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(E);
         try {
             scheduledDirectPeriodicTask.setFuture(this.executor.scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
             return scheduledDirectPeriodicTask;
@@ -74,7 +74,7 @@ public class f extends v.c implements io.reactivex.disposables.b {
 
     public ScheduledRunnable a(Runnable runnable, long j, TimeUnit timeUnit, io.reactivex.internal.disposables.a aVar) {
         Future<?> schedule;
-        ScheduledRunnable scheduledRunnable = new ScheduledRunnable(io.reactivex.d.a.G(runnable), aVar);
+        ScheduledRunnable scheduledRunnable = new ScheduledRunnable(io.reactivex.d.a.E(runnable), aVar);
         if (aVar == null || aVar.a(scheduledRunnable)) {
             try {
                 if (j <= 0) {

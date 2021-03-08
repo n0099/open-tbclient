@@ -1,34 +1,34 @@
 package com.baidu.tieba.square.square;
 
 import com.baidu.tbadk.core.data.by;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i implements com.baidu.tbadk.core.flow.a.a {
-    private by ntt;
+    private by nvy;
 
     public i(by byVar) {
-        this.ntt = byVar;
+        this.nvy = byVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        if (this.ntt == null) {
+        if (this.nvy == null) {
             return null;
         }
-        return this.ntt.getImgUrl();
+        return this.nvy.getImgUrl();
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String blL() {
-        if (this.ntt == null) {
+    public String blN() {
+        if (this.nvy == null) {
             return null;
         }
-        return this.ntt.getLink();
+        return this.nvy.getLink();
     }
 
-    public String dMq() {
-        if (this.ntt == null) {
+    public String dMy() {
+        if (this.nvy == null) {
             return null;
         }
-        return this.ntt.bnh();
+        return this.nvy.bnj();
     }
 }

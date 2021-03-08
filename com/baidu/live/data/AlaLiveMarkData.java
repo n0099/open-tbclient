@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveMarkData implements Serializable {
     public static final String DEFAULT_ANCHOR_USER_ID = "0";
     public static final int NOBLE_LEVEL_BARON = 2;
@@ -127,7 +127,7 @@ public class AlaLiveMarkData implements Serializable {
                     this.width = this.levelWidth;
                     this.height = this.levelHeight;
                 }
-            } else if (com.baidu.live.ae.a.Qj().buX != null && (str = com.baidu.live.ae.a.Qj().buX.aNx.get(Integer.valueOf(this.userLevel))) != null) {
+            } else if (com.baidu.live.ae.a.Qm().bwx != null && (str = com.baidu.live.ae.a.Qm().bwx.aOX.get(Integer.valueOf(this.userLevel))) != null) {
                 this.mark_pic = str;
                 this.height = 48;
                 if (this.userLevel <= 9) {

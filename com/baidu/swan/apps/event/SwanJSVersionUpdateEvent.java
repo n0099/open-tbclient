@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SwanJSVersionUpdateEvent {
     private static final boolean DEBUG = b.DEBUG;
     private static final String TAG = "SwanJSVersionUpdateEven";
@@ -13,9 +13,9 @@ public class SwanJSVersionUpdateEvent {
     private final String mVersionString;
 
     private SwanJSVersionUpdateEvent() {
-        SwanCoreVersion jC = com.baidu.swan.apps.swancore.b.jC(0);
-        if (jC != null) {
-            this.mVersionNum = jC.swanCoreVersion;
+        SwanCoreVersion jD = com.baidu.swan.apps.swancore.b.jD(0);
+        if (jD != null) {
+            this.mVersionNum = jD.swanCoreVersion;
             this.mVersionString = com.baidu.swan.apps.swancore.b.cY(this.mVersionNum);
             return;
         }
@@ -34,7 +34,7 @@ public class SwanJSVersionUpdateEvent {
     public static void sendEvent(long j) {
         SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
         if (swanJSVersionUpdateEvent.mVersionString != null) {
-            com.baidu.swan.apps.t.a.axF().a(swanJSVersionUpdateEvent);
+            com.baidu.swan.apps.t.a.axI().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
                 Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionString() + "(" + swanJSVersionUpdateEvent.getVersionNum() + ")");
             }

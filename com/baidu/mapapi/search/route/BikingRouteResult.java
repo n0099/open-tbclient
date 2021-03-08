@@ -10,18 +10,16 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BikingRouteLine> CREATOR = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<BikingRouteLine> f2890a;
-
-    /* renamed from: b  reason: collision with root package name */
-    private SuggestAddrInfo f2891b;
+    private List<BikingRouteLine> f2127a;
+    private SuggestAddrInfo b;
 
     public BikingRouteResult() {
     }
 
     protected BikingRouteResult(Parcel parcel) {
-        this.f2890a = new ArrayList();
-        parcel.readList(this.f2890a, BikingRouteLine.class.getClassLoader());
-        this.f2891b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f2127a = new ArrayList();
+        parcel.readList(this.f2127a, BikingRouteLine.class.getClassLoader());
+        this.b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -30,24 +28,24 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     }
 
     public List<BikingRouteLine> getRouteLines() {
-        return this.f2890a;
+        return this.f2127a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
-        return this.f2891b;
+        return this.b;
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
-        this.f2890a = list;
+        this.f2127a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
-        this.f2891b = suggestAddrInfo;
+        this.b = suggestAddrInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f2890a);
-        parcel.writeParcelable(this.f2891b, 1);
+        parcel.writeList(this.f2127a);
+        parcel.writeParcelable(this.b, 1);
     }
 }

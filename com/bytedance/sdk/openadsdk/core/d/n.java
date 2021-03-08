@@ -1,85 +1,40 @@
 package com.bytedance.sdk.openadsdk.core.d;
+
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6517a;
+    private String f4401a;
 
-    /* renamed from: b  reason: collision with root package name */
-    private double f6518b;
-    private double c;
-    private double d;
-    private double e;
-    private double f;
-    private double g;
-    private String h;
-    private int i;
-
-    public boolean a() {
-        return this.f6517a;
+    public String a() {
+        return this.f4401a;
     }
 
-    public void a(boolean z) {
-        this.f6517a = z;
-    }
-
-    public double b() {
-        return this.f6518b;
-    }
-
-    public void a(double d) {
-        this.f6518b = d;
-    }
-
-    public double c() {
-        return this.c;
-    }
-
-    public void b(double d) {
-        this.c = d;
-    }
-
-    public double d() {
-        return this.d;
-    }
-
-    public void c(double d) {
-        this.d = d;
-    }
-
-    public double e() {
-        return this.e;
-    }
-
-    public void d(double d) {
-        this.e = d;
-    }
-
-    public double f() {
-        return this.f;
-    }
-
-    public void e(double d) {
-        this.f = d;
-    }
-
-    public double g() {
-        return this.g;
-    }
-
-    public void f(double d) {
-        this.g = d;
+    public static String a(l lVar) {
+        n h;
+        if (lVar == null || (h = lVar.h()) == null) {
+            return null;
+        }
+        return h.a();
     }
 
     public void a(String str) {
-        this.h = str;
+        this.f4401a = str;
     }
 
-    public int h() {
-        return this.i;
+    public JSONObject b() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("playable_url", a());
+        } catch (Exception e) {
+        }
+        return jSONObject;
     }
 
-    public void a(int i) {
-        this.i = i;
+    public static n a(JSONObject jSONObject) {
+        n nVar = new n();
+        nVar.a(jSONObject.optString("playable_url", ""));
+        return nVar;
     }
 }

@@ -67,7 +67,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class RecyclerView extends ViewGroup implements NestedScrollingChild2, ScrollingView {
     static final boolean ALLOW_SIZE_IN_UNSPECIFIED_SPEC;
     static final boolean ALLOW_THREAD_GAP_WORK;
@@ -184,24 +184,24 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
     private static final int[] NESTED_SCROLLING_ATTRS = {16843830};
     private static final int[] CLIP_TO_PADDING_ATTR = {16842987};
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface ChildDrawingOrderCallback {
         int onGetChildDrawingOrder(int i, int i2);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnChildAttachStateChangeListener {
         void onChildViewAttachedToWindow(@NonNull View view);
 
         void onChildViewDetachedFromWindow(@NonNull View view);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class OnFlingListener {
         public abstract boolean onFling(int i, int i2);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface OnItemTouchListener {
         boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent);
 
@@ -212,16 +212,16 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface Orientation {
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public interface RecyclerListener {
         void onViewRecycled(@NonNull ViewHolder viewHolder);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class ViewCacheExtension {
         @Nullable
         public abstract View getViewForPositionAndType(@NonNull Recycler recycler, int i, int i2);
@@ -3154,7 +3154,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class ViewFlinger implements Runnable {
         private int mLastFlingX;
         private int mLastFlingY;
@@ -3396,7 +3396,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class RecyclerViewDataObserver extends AdapterDataObserver {
         RecyclerViewDataObserver() {
         }
@@ -3453,7 +3453,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class EdgeEffectFactory {
         public static final int DIRECTION_BOTTOM = 3;
         public static final int DIRECTION_LEFT = 0;
@@ -3461,7 +3461,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         public static final int DIRECTION_TOP = 1;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public @interface EdgeDirection {
         }
 
@@ -3471,14 +3471,14 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class RecycledViewPool {
         private static final int DEFAULT_MAX_SCRAP = 5;
         SparseArray<ScrapData> mScrap = new SparseArray<>();
         private int mAttachCount = 0;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static class ScrapData {
             final ArrayList<ViewHolder> mScrapHeap = new ArrayList<>();
             int mMaxScrap = 5;
@@ -3642,7 +3642,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         return 0L;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public final class Recycler {
         static final int DEFAULT_CACHE_SIZE = 2;
         RecycledViewPool mRecyclerPool;
@@ -4298,7 +4298,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class Adapter<VH extends ViewHolder> {
         private final AdapterDataObservable mObservable = new AdapterDataObservable();
         private boolean mHasStableIds = false;
@@ -4462,7 +4462,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class LayoutManager {
         ChildHelper mChildHelper;
         private int mHeight;
@@ -4554,12 +4554,12 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         private boolean mMeasurementCacheEnabled = true;
         private boolean mItemPrefetchEnabled = true;
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public interface LayoutPrefetchRegistry {
             void addPosition(int i, int i2);
         }
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static class Properties {
             public int orientation;
             public boolean reverseLayout;
@@ -5703,7 +5703,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class ItemDecoration {
         public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView, @NonNull State state) {
             onDraw(canvas, recyclerView);
@@ -5731,7 +5731,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class SimpleOnItemTouchListener implements OnItemTouchListener {
         @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
         public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
@@ -5747,7 +5747,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class OnScrollListener {
         public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
         }
@@ -5756,7 +5756,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class ViewHolder {
         static final int FLAG_ADAPTER_FULLUPDATE = 1024;
         static final int FLAG_ADAPTER_POSITION_UNKNOWN = 512;
@@ -6172,7 +6172,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         return getScrollingChildHelper().dispatchNestedPreFling(f, f2);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         final Rect mDecorInsets;
         boolean mInsetsDirty;
@@ -6244,7 +6244,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class AdapterDataObserver {
         public void onChanged() {
         }
@@ -6266,7 +6266,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class SmoothScroller {
         private LayoutManager mLayoutManager;
         private boolean mPendingInitialRun;
@@ -6277,7 +6277,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         private int mTargetPosition = -1;
         private final Action mRecyclingAction = new Action(0, 0);
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public interface ScrollVectorProvider {
             @Nullable
             PointF computeScrollVectorForPosition(int i);
@@ -6420,7 +6420,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             pointF.y /= sqrt;
         }
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static class Action {
             public static final int UNDEFINED_DURATION = Integer.MIN_VALUE;
             private boolean mChanged;
@@ -6543,7 +6543,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class AdapterDataObservable extends Observable<AdapterDataObserver> {
         AdapterDataObservable() {
         }
@@ -6588,7 +6588,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: androidx.recyclerview.widget.RecyclerView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -6632,7 +6632,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class State {
         static final int STEP_ANIMATIONS = 4;
         static final int STEP_LAYOUT = 2;
@@ -6746,7 +6746,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private class ItemAnimatorRestoreListener implements ItemAnimator.ItemAnimatorListener {
         ItemAnimatorRestoreListener() {
         }
@@ -6764,7 +6764,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class ItemAnimator {
         public static final int FLAG_APPEARED_IN_PRE_LAYOUT = 4096;
         public static final int FLAG_CHANGED = 2;
@@ -6779,17 +6779,17 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         private long mChangeDuration = 250;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public @interface AdapterChanges {
         }
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public interface ItemAnimatorFinishedListener {
             void onAnimationsFinished();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public interface ItemAnimatorListener {
             void onAnimationFinished(@NonNull ViewHolder viewHolder);
         }
@@ -6922,7 +6922,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             return new ItemHolderInfo();
         }
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes14.dex */
         public static class ItemHolderInfo {
             public int bottom;
             public int changeFlags;

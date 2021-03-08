@@ -7,10 +7,8 @@ import com.baidu.mapsdkplatform.comapi.map.MessageCenter;
 public class b extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f4421a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private int f4422b = 1;
+    private a f3061a = null;
+    private int b = 1;
     private Handler c = new c(this);
 
     public b() {
@@ -21,7 +19,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         this.c = null;
-        this.f4421a = null;
+        this.f3061a = null;
         MessageCenter.registMessage(4099, this.c);
     }
 
@@ -39,7 +37,7 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(a aVar) {
-        this.f4421a = aVar;
+        this.f3061a = aVar;
     }
 
     public boolean a(int[] iArr, int[] iArr2, int[] iArr3, int[] iArr4) {
@@ -47,8 +45,8 @@ public class b extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public int a(int i, int i2, int i3, byte[] bArr) {
-        if (this.f4421a != null) {
-            this.f4421a.a();
+        if (this.f3061a != null) {
+            this.f3061a.a();
         }
         return com.baidu.platform.comapi.walknavi.b.a().D().a(i, i2, i3, bArr);
     }

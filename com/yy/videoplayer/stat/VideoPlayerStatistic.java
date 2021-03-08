@@ -5,7 +5,7 @@ import com.yy.videoplayer.utils.CPUTool;
 import com.yy.videoplayer.utils.YMFLog;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoPlayerStatistic {
     private static final String TAG = "VideoPlayerStatistic";
     private static VideoPlayerStatistic mInstance;
@@ -30,14 +30,14 @@ public class VideoPlayerStatistic {
     private static HashMap<Long, Integer> mRenderMeanLatency = new HashMap<>();
     private static Object mSyncObj = new Object();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface AudienceHiidoAssistantStatisticKey {
         public static final String CpuDeviceInfo = "cpu";
         public static final String GpuDeviceInfo = "gpu";
         public static final String VideoLibVer = "vver";
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface AudienceHiidoCoreStatisticKey {
         public static final String AppCpuRate = "s7";
         public static final String DecodeId = "did";

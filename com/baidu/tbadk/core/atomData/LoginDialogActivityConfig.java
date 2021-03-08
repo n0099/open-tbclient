@@ -30,42 +30,42 @@ public class LoginDialogActivityConfig extends IntentConfig {
 
     private LoginDialogActivityConfig(ar arVar) {
         super(arVar.getContext());
-        getIntent().putExtra(LOGIN_DIALOG_DATA_LOCATE, arVar.bmk());
-        String bmk = arVar.bmk();
+        getIntent().putExtra(LOGIN_DIALOG_DATA_LOCATE, arVar.bmm());
+        String bmm = arVar.bmm();
         char c = 65535;
-        switch (bmk.hashCode()) {
+        switch (bmm.hashCode()) {
             case -1723264065:
-                if (bmk.equals("pb_shoucang")) {
+                if (bmm.equals("pb_shoucang")) {
                     c = 1;
                     break;
                 }
                 break;
             case -1142545818:
-                if (bmk.equals("frs_fabu")) {
+                if (bmm.equals("frs_fabu")) {
                     c = 2;
                     break;
                 }
                 break;
             case -652469911:
-                if (bmk.equals("pb_huifu_louzhonglou")) {
+                if (bmm.equals("pb_huifu_louzhonglou")) {
                     c = 4;
                     break;
                 }
                 break;
             case -72485631:
-                if (bmk.equals("pb_huitie")) {
+                if (bmm.equals("pb_huitie")) {
                     c = 3;
                     break;
                 }
                 break;
             case 844222914:
-                if (bmk.equals("pb_chakanhuifu")) {
+                if (bmm.equals("pb_chakanhuifu")) {
                     c = 0;
                     break;
                 }
                 break;
             case 1683575996:
-                if (bmk.equals("sousuo_dianji")) {
+                if (bmm.equals("sousuo_dianji")) {
                     c = 5;
                     break;
                 }

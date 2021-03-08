@@ -123,10 +123,10 @@ public class b {
     }
 
     public static int j(Context context, String str) {
-        int b2 = b(context, "mz_push_preference", str + ".message_seq") + 1;
-        c(context, str, b2);
-        com.meizu.cloud.a.a.e("mz_push_preference", "current messageSeq " + b2);
-        return b2;
+        int b = b(context, "mz_push_preference", str + ".message_seq") + 1;
+        c(context, str, b);
+        com.meizu.cloud.a.a.e("mz_push_preference", "current messageSeq " + b);
+        return b;
     }
 
     public static boolean j(Context context, String str, String str2) {

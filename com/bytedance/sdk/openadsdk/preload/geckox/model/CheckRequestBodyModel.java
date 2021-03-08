@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.model;
 
 import androidx.annotation.Keep;
-import com.bytedance.sdk.openadsdk.d.a.c;
+import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +12,7 @@ public class CheckRequestBodyModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    private Common f7505common;
+    private Common f5092common;
     @c(a = "custom")
     private Map<String, Map<String, Object>> custom;
     @c(a = "deployment")
@@ -65,7 +65,7 @@ public class CheckRequestBodyModel {
     }
 
     public void setCommon(Common common2) {
-        this.f7505common = common2;
+        this.f5092common = common2;
     }
 
     public void putChannelInfo(String str, List<ChannelInfo> list) {

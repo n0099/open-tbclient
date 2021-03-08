@@ -39,7 +39,7 @@ public class ClientStartStatic {
                         if (SystemClock.elapsedRealtime() - this.mTimeStamp > 30000) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new ar(TbadkCoreStatisticKey.HOST_START).ap("obj_param1", 1).ap(TiebaInitialize.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).ap(TiebaInitialize.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
+                        TiebaStatic.log(new ar(TbadkCoreStatisticKey.HOST_START).aq("obj_param1", 1).aq(TiebaInitialize.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).aq(TiebaInitialize.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
                     }
                 }
             });
@@ -60,8 +60,8 @@ public class ClientStartStatic {
                 aa aaVar = new aa(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
                 aaVar.addPostData("type", "1");
                 aaVar.postNetData();
-                if (TbSingleton.getInstance().getBaiduIdForAnti() == null && aaVar.bsr() != null && aaVar.bsr().btb() != null && aaVar.bsr().btb().mHeader != null) {
-                    List<String> list = aaVar.bsr().btb().mHeader.get(SM.SET_COOKIE);
+                if (TbSingleton.getInstance().getBaiduIdForAnti() == null && aaVar.bsu() != null && aaVar.bsu().bte() != null && aaVar.bsu().bte().mHeader != null) {
+                    List<String> list = aaVar.bsu().bte().mHeader.get(SM.SET_COOKIE);
                     if (!y.isEmpty(list)) {
                         boolean z = false;
                         for (int i = 0; i < list.size(); i++) {

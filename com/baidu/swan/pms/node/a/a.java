@@ -4,20 +4,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private JSONArray evn;
-    private JSONObject evo;
+    private JSONArray ewO;
+    private JSONObject ewP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(JSONArray jSONArray, JSONObject jSONObject) {
-        this.evn = jSONArray;
-        this.evo = jSONObject;
+        this.ewO = jSONArray;
+        this.ewP = jSONObject;
     }
 
-    public JSONObject bdy() {
-        return this.evo;
+    public JSONObject bdA() {
+        return this.ewP;
     }
 
-    public JSONArray bdz() {
-        return this.evn;
+    public JSONArray bdB() {
+        return this.ewO;
     }
 }

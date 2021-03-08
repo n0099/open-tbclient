@@ -15,11 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.sdk.a;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class RoundRectFrameLayout extends FrameLayout {
-    private float[] bTG;
-    private boolean bTt;
-    private boolean bTu;
+    private boolean bUT;
+    private boolean bUU;
+    private float[] bVg;
     private Paint mPaint;
     private Path mPath;
     private RectF mRectF;
@@ -34,25 +34,25 @@ public class RoundRectFrameLayout extends FrameLayout {
     }
 
     public void setCornerRadius(float f) {
-        if (this.bTG == null) {
-            this.bTG = new float[8];
+        if (this.bVg == null) {
+            this.bVg = new float[8];
         }
-        Arrays.fill(this.bTG, f);
+        Arrays.fill(this.bVg, f);
         postInvalidate();
     }
 
     public void setCornerRadius(float f, float f2, float f3, float f4) {
-        if (this.bTG == null) {
-            this.bTG = new float[8];
+        if (this.bVg == null) {
+            this.bVg = new float[8];
         }
-        this.bTG[0] = f;
-        this.bTG[1] = f;
-        this.bTG[2] = f2;
-        this.bTG[3] = f2;
-        this.bTG[4] = f3;
-        this.bTG[5] = f3;
-        this.bTG[6] = f4;
-        this.bTG[7] = f4;
+        this.bVg[0] = f;
+        this.bVg[1] = f;
+        this.bVg[2] = f2;
+        this.bVg[3] = f2;
+        this.bVg[4] = f3;
+        this.bVg[5] = f3;
+        this.bVg[6] = f4;
+        this.bVg[7] = f4;
         postInvalidate();
     }
 
@@ -64,7 +64,7 @@ public class RoundRectFrameLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.bTu) {
+        if (this.bUU) {
             i(canvas);
         } else {
             j(canvas);
@@ -73,8 +73,8 @@ public class RoundRectFrameLayout extends FrameLayout {
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        if (this.bTt) {
-            if (this.bTu) {
+        if (this.bUT) {
+            if (this.bUU) {
                 k(canvas);
                 return;
             } else {
@@ -95,41 +95,41 @@ public class RoundRectFrameLayout extends FrameLayout {
         this.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         this.mPath = new Path();
         this.mRectF = new RectF();
-        this.bTG = new float[8];
-        this.bTt = true;
-        this.bTu = Build.VERSION.SDK_INT >= 28;
+        this.bVg = new float[8];
+        this.bUT = true;
+        this.bUU = Build.VERSION.SDK_INT >= 28;
     }
 
     private void initAttrs(AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, a.j.sdk_RoundRectRelativeLayout);
-            this.bTt = obtainStyledAttributes.getBoolean(a.j.sdk_RoundRectRelativeLayout_sdk_rrrl_clip_background, true);
+            this.bUT = obtainStyledAttributes.getBoolean(a.j.sdk_RoundRectRelativeLayout_sdk_rrrl_clip_background, true);
             int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius, 0);
             int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius_top_left, dimensionPixelOffset);
             int dimensionPixelOffset3 = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius_top_right, dimensionPixelOffset);
             int dimensionPixelOffset4 = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius_bottom_left, dimensionPixelOffset);
             int dimensionPixelOffset5 = obtainStyledAttributes.getDimensionPixelOffset(a.j.sdk_RoundRectRelativeLayout_sdk_rrrl_corner_radius_bottom_right, dimensionPixelOffset);
             obtainStyledAttributes.recycle();
-            this.bTG[0] = dimensionPixelOffset2;
-            this.bTG[1] = dimensionPixelOffset2;
-            this.bTG[2] = dimensionPixelOffset3;
-            this.bTG[3] = dimensionPixelOffset3;
-            this.bTG[4] = dimensionPixelOffset5;
-            this.bTG[5] = dimensionPixelOffset5;
-            this.bTG[6] = dimensionPixelOffset4;
-            this.bTG[7] = dimensionPixelOffset4;
+            this.bVg[0] = dimensionPixelOffset2;
+            this.bVg[1] = dimensionPixelOffset2;
+            this.bVg[2] = dimensionPixelOffset3;
+            this.bVg[3] = dimensionPixelOffset3;
+            this.bVg[4] = dimensionPixelOffset5;
+            this.bVg[5] = dimensionPixelOffset5;
+            this.bVg[6] = dimensionPixelOffset4;
+            this.bVg[7] = dimensionPixelOffset4;
         }
     }
 
-    private Path Xv() {
+    private Path Xy() {
         this.mPath.reset();
-        this.mPath.addRoundRect(this.mRectF, this.bTG, Path.Direction.CW);
+        this.mPath.addRoundRect(this.mRectF, this.bVg, Path.Direction.CW);
         return this.mPath;
     }
 
     private void i(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(Xv());
+        canvas.clipPath(Xy());
         super.dispatchDraw(canvas);
         canvas.restore();
     }
@@ -137,13 +137,13 @@ public class RoundRectFrameLayout extends FrameLayout {
     private void j(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.dispatchDraw(canvas);
-        canvas.drawPath(Xv(), this.mPaint);
+        canvas.drawPath(Xy(), this.mPaint);
         canvas.restore();
     }
 
     private void k(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(Xv());
+        canvas.clipPath(Xy());
         super.draw(canvas);
         canvas.restore();
     }
@@ -151,7 +151,7 @@ public class RoundRectFrameLayout extends FrameLayout {
     private void l(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.draw(canvas);
-        canvas.drawPath(Xv(), this.mPaint);
+        canvas.drawPath(Xy(), this.mPaint);
         canvas.restore();
     }
 }

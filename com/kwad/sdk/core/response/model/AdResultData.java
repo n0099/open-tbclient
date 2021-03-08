@@ -95,9 +95,9 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
             } catch (Exception e) {
                 com.kwad.sdk.core.d.a.a(e);
             }
-            String b2 = d.b(jSONObject.optString("impAdInfo"));
-            if (!ag.a(b2)) {
-                JSONArray jSONArray = new JSONArray(b2);
+            String b = d.b(jSONObject.optString("impAdInfo"));
+            if (!ag.a(b)) {
+                JSONArray jSONArray = new JSONArray(b);
                 if (jSONArray.length() > 0) {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         JSONObject optJSONObject = jSONArray.optJSONObject(i);
@@ -135,7 +135,7 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
-            if (com.kwad.sdk.core.d.a.f9056a) {
+            if (com.kwad.sdk.core.d.a.f6021a) {
                 com.kwad.sdk.core.d.a.a(TAG, toJson().toString());
             }
         } catch (Exception e3) {

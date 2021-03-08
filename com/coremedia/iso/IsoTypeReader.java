@@ -7,7 +7,7 @@ import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class IsoTypeReader {
     private static IntHashMap codeCache = new IntHashMap();
     private static byte[] codeBytes = new byte[4];
@@ -42,16 +42,16 @@ public final class IsoTypeReader {
         return byte2int(byteBuffer.get());
     }
 
-    public static int byte2int(byte b2) {
-        return b2 < 0 ? b2 + GDiffPatcher.EOF : b2;
+    public static int byte2int(byte b) {
+        return b < 0 ? b + GDiffPatcher.EOF : b;
     }
 
     public static String readString(ByteBuffer byteBuffer) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         while (true) {
-            byte b2 = byteBuffer.get();
-            if (b2 != 0) {
-                byteArrayOutputStream.write(b2);
+            byte b = byteBuffer.get();
+            if (b != 0) {
+                byteArrayOutputStream.write(b);
             } else {
                 return Utf8.convert(byteArrayOutputStream.toByteArray());
             }

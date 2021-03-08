@@ -237,9 +237,9 @@ public class c extends k {
                                 if (optJSONObject6 != null) {
                                     i2 += optJSONObject6.optInt("distance");
                                     i3 += optJSONObject6.optInt("duration");
-                                    List<DrivingRouteLine.DrivingStep> b2 = b(optJSONObject6.optJSONArray("stepis"), a4);
-                                    if (b2 != null) {
-                                        arrayList3.addAll(b2);
+                                    List<DrivingRouteLine.DrivingStep> b = b(optJSONObject6.optJSONArray("stepis"), a4);
+                                    if (b != null) {
+                                        arrayList3.addAll(b);
                                     }
                                 }
                             }

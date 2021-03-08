@@ -8,12 +8,12 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.ExceptionsUtils;
 import rx.internal.util.ScalarSynchronousObservable;
 import rx.internal.util.a.ae;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class b<T, R> implements d.a<R> {
     final int prefetch;
-    final rx.d<? extends T> qyO;
-    final rx.functions.f<? super T, ? extends rx.d<? extends R>> qzg;
-    final int qzh;
+    final rx.functions.f<? super T, ? extends rx.d<? extends R>> qzI;
+    final int qzJ;
+    final rx.d<? extends T> qzq;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -21,16 +21,16 @@ public final class b<T, R> implements d.a<R> {
     }
 
     public b(rx.d<? extends T> dVar, rx.functions.f<? super T, ? extends rx.d<? extends R>> fVar, int i, int i2) {
-        this.qyO = dVar;
-        this.qzg = fVar;
+        this.qzq = dVar;
+        this.qzI = fVar;
         this.prefetch = i;
-        this.qzh = i2;
+        this.qzJ = i2;
     }
 
     public void call(rx.j<? super R> jVar) {
-        final c cVar = new c(this.qzh == 0 ? new rx.b.e<>(jVar) : jVar, this.qzg, this.prefetch, this.qzh);
+        final c cVar = new c(this.qzJ == 0 ? new rx.b.e<>(jVar) : jVar, this.qzI, this.prefetch, this.qzJ);
         jVar.add(cVar);
-        jVar.add(cVar.qzm);
+        jVar.add(cVar.qzO);
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.b.1
             @Override // rx.f
             public void request(long j) {
@@ -38,36 +38,36 @@ public final class b<T, R> implements d.a<R> {
             }
         });
         if (!jVar.isUnsubscribed()) {
-            this.qyO.a((rx.j<? super Object>) cVar);
+            this.qzq.a((rx.j<? super Object>) cVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class c<T, R> extends rx.j<T> {
         volatile boolean active;
         final rx.j<? super R> actual;
         volatile boolean done;
         final Queue<Object> queue;
-        final rx.functions.f<? super T, ? extends rx.d<? extends R>> qzg;
-        final int qzh;
-        final rx.subscriptions.d qzm;
-        final rx.internal.producers.a qzl = new rx.internal.producers.a();
+        final rx.functions.f<? super T, ? extends rx.d<? extends R>> qzI;
+        final int qzJ;
+        final rx.subscriptions.d qzO;
+        final rx.internal.producers.a qzN = new rx.internal.producers.a();
         final AtomicInteger wip = new AtomicInteger();
         final AtomicReference<Throwable> error = new AtomicReference<>();
 
         public c(rx.j<? super R> jVar, rx.functions.f<? super T, ? extends rx.d<? extends R>> fVar, int i, int i2) {
             Queue<Object> cVar;
             this.actual = jVar;
-            this.qzg = fVar;
-            this.qzh = i2;
-            if (ae.eNI()) {
+            this.qzI = fVar;
+            this.qzJ = i2;
+            if (ae.eNq()) {
                 cVar = new rx.internal.util.a.q<>(i);
             } else {
                 cVar = new rx.internal.util.atomic.c<>(i);
             }
             this.queue = cVar;
-            this.qzm = new rx.subscriptions.d();
+            this.qzO = new rx.subscriptions.d();
             request(i);
         }
 
@@ -85,12 +85,12 @@ public final class b<T, R> implements d.a<R> {
         public void onError(Throwable th) {
             if (ExceptionsUtils.addThrowable(this.error, th)) {
                 this.done = true;
-                if (this.qzh == 0) {
+                if (this.qzJ == 0) {
                     Throwable terminate = ExceptionsUtils.terminate(this.error);
                     if (!ExceptionsUtils.isTerminated(terminate)) {
                         this.actual.onError(terminate);
                     }
-                    this.qzm.unsubscribe();
+                    this.qzO.unsubscribe();
                     return;
                 }
                 drain();
@@ -107,7 +107,7 @@ public final class b<T, R> implements d.a<R> {
 
         void requestMore(long j) {
             if (j > 0) {
-                this.qzl.request(j);
+                this.qzN.request(j);
             } else if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
@@ -120,7 +120,7 @@ public final class b<T, R> implements d.a<R> {
         void a(Throwable th, long j) {
             if (!ExceptionsUtils.addThrowable(this.error, th)) {
                 W(th);
-            } else if (this.qzh == 0) {
+            } else if (this.qzJ == 0) {
                 Throwable terminate = ExceptionsUtils.terminate(this.error);
                 if (!ExceptionsUtils.isTerminated(terminate)) {
                     this.actual.onError(terminate);
@@ -128,16 +128,16 @@ public final class b<T, R> implements d.a<R> {
                 unsubscribe();
             } else {
                 if (j != 0) {
-                    this.qzl.produced(j);
+                    this.qzN.produced(j);
                 }
                 this.active = false;
                 drain();
             }
         }
 
-        void jz(long j) {
+        void jy(long j) {
             if (j != 0) {
-                this.qzl.produced(j);
+                this.qzN.produced(j);
             }
             this.active = false;
             drain();
@@ -149,7 +149,7 @@ public final class b<T, R> implements d.a<R> {
 
         void drain() {
             if (this.wip.getAndIncrement() == 0) {
-                int i = this.qzh;
+                int i = this.qzJ;
                 while (!this.actual.isUnsubscribed()) {
                     if (!this.active) {
                         if (i == 1 && this.error.get() != null) {
@@ -176,20 +176,20 @@ public final class b<T, R> implements d.a<R> {
                             }
                         } else if (!z2) {
                             try {
-                                rx.d<? extends R> call = this.qzg.call((Object) NotificationLite.getValue(poll));
+                                rx.d<? extends R> call = this.qzI.call((Object) NotificationLite.getValue(poll));
                                 if (call == null) {
                                     X(new NullPointerException("The source returned by the mapper was null"));
                                     return;
-                                } else if (call != rx.d.eMJ()) {
+                                } else if (call != rx.d.eMr()) {
                                     if (call instanceof ScalarSynchronousObservable) {
                                         this.active = true;
-                                        this.qzl.setProducer(new a(((ScalarSynchronousObservable) call).get(), this));
+                                        this.qzN.setProducer(new a(((ScalarSynchronousObservable) call).get(), this));
                                     } else {
-                                        C1320b c1320b = new C1320b(this);
-                                        this.qzm.f(c1320b);
-                                        if (!c1320b.isUnsubscribed()) {
+                                        C1302b c1302b = new C1302b(this);
+                                        this.qzO.f(c1302b);
+                                        if (!c1302b.isUnsubscribed()) {
                                             this.active = true;
-                                            call.a((rx.j<? super Object>) c1320b);
+                                            call.a((rx.j<? super Object>) c1302b);
                                         } else {
                                             return;
                                         }
@@ -228,56 +228,56 @@ public final class b<T, R> implements d.a<R> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.operators.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C1320b<T, R> extends rx.j<R> {
+    /* loaded from: classes4.dex */
+    public static final class C1302b<T, R> extends rx.j<R> {
         long produced;
-        final c<T, R> qzk;
+        final c<T, R> qzM;
 
-        public C1320b(c<T, R> cVar) {
-            this.qzk = cVar;
+        public C1302b(c<T, R> cVar) {
+            this.qzM = cVar;
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.qzk.qzl.setProducer(fVar);
+            this.qzM.qzN.setProducer(fVar);
         }
 
         @Override // rx.e
         public void onNext(R r) {
             this.produced++;
-            this.qzk.innerNext(r);
+            this.qzM.innerNext(r);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.qzk.a(th, this.produced);
+            this.qzM.a(th, this.produced);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.qzk.jz(this.produced);
+            this.qzM.jy(this.produced);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a<T, R> implements rx.f {
         boolean once;
-        final c<T, R> qzk;
+        final c<T, R> qzM;
         final R value;
 
         public a(R r, c<T, R> cVar) {
             this.value = r;
-            this.qzk = cVar;
+            this.qzM = cVar;
         }
 
         @Override // rx.f
         public void request(long j) {
             if (!this.once && j > 0) {
                 this.once = true;
-                c<T, R> cVar = this.qzk;
+                c<T, R> cVar = this.qzM;
                 cVar.innerNext(this.value);
-                cVar.jz(1L);
+                cVar.jy(1L);
             }
         }
     }

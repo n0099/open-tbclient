@@ -2,7 +2,7 @@ package com.baidu.swan.impl.map.a.a.a;
 
 import android.animation.TypeEvaluator;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class a implements TypeEvaluator<LatLng> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator

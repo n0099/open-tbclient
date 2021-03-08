@@ -3,7 +3,7 @@ package androidx.core.view;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.Gravity;
-/* loaded from: classes4.dex */
+/* loaded from: classes14.dex */
 public final class GravityCompat {
     public static final int END = 8388613;
     public static final int RELATIVE_HORIZONTAL_GRAVITY_MASK = 8388615;

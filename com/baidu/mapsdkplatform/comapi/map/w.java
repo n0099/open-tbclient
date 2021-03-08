@@ -6,10 +6,8 @@ import android.os.Message;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3073a = w.class.getSimpleName();
-
-    /* renamed from: b  reason: collision with root package name */
-    private v f3074b;
+    private static final String f2234a = w.class.getSimpleName();
+    private v b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Message message) {
@@ -32,8 +30,8 @@ public class w {
             case 12:
             case 101:
             case 102:
-                if (this.f3074b != null) {
-                    this.f3074b.a(message.arg1, message.arg2);
+                if (this.b != null) {
+                    this.b.a(message.arg1, message.arg2);
                     return;
                 }
                 return;
@@ -44,11 +42,11 @@ public class w {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(v vVar) {
-        this.f3074b = vVar;
+        this.b = vVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(v vVar) {
-        this.f3074b = null;
+        this.b = null;
     }
 }

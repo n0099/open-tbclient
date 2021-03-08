@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class jc extends Exception {
     public jc() {
     }

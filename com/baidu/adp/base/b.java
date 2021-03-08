@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class b {
-    private static b Ia;
+    private static b Jx;
     private static ArrayList<SoftReference<Activity>> sActivityStack;
-    private a Ib;
+    private a Jy;
     private int mActivityStackMaxSize = 0;
 
     /* loaded from: classes.dex */
@@ -22,7 +22,7 @@ public final class b {
     }
 
     public void a(a aVar) {
-        this.Ib = aVar;
+        this.Jy = aVar;
     }
 
     private b() {
@@ -32,10 +32,10 @@ public final class b {
     }
 
     public static b kB() {
-        if (Ia == null) {
-            Ia = new b();
+        if (Jx == null) {
+            Jx = new b();
         }
-        return Ia;
+        return Jx;
     }
 
     public int getSize() {
@@ -116,8 +116,8 @@ public final class b {
         if (activity != null) {
             int size = sActivityStack.size();
             if (size == 0) {
-                if (this.Ib != null) {
-                    this.Ib.onActivityClosed();
+                if (this.Jy != null) {
+                    this.Jy.onActivityClosed();
                     return;
                 }
                 return;
@@ -128,13 +128,13 @@ public final class b {
                     sActivityStack.remove(i);
                 } else if (activity.equals(softReference.get())) {
                     sActivityStack.remove(i);
-                    if (sActivityStack.size() == 0 && this.Ib != null) {
-                        this.Ib.onActivityClosed();
+                    if (sActivityStack.size() == 0 && this.Jy != null) {
+                        this.Jy.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (sActivityStack.size() == 0 && this.Ib != null) {
-                    this.Ib.onActivityClosed();
+                } else if (sActivityStack.size() == 0 && this.Jy != null) {
+                    this.Jy.onActivityClosed();
                 }
             }
         }
@@ -149,7 +149,7 @@ public final class b {
         return null;
     }
 
-    public boolean bo(String str) {
+    public boolean bs(String str) {
         if (sActivityStack.size() == 0) {
             return false;
         }
@@ -183,8 +183,8 @@ public final class b {
                 }
             }
         }
-        if (this.Ib != null) {
-            this.Ib.onActivityClosed();
+        if (this.Jy != null) {
+            this.Jy.onActivityClosed();
         }
     }
 

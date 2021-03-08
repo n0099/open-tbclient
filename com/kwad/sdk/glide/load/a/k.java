@@ -9,23 +9,23 @@ import java.io.InputStream;
 public final class k implements e<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final RecyclableBufferedInputStream f10054a;
+    private final RecyclableBufferedInputStream f6650a;
 
     /* loaded from: classes3.dex */
     public static final class a implements e.a<InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f10055a;
+        private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f6651a;
 
         public a(com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-            this.f10055a = bVar;
+            this.f6651a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.a.e.a
         @NonNull
         public e<InputStream> a(InputStream inputStream) {
-            return new k(inputStream, this.f10055a);
+            return new k(inputStream, this.f6651a);
         }
 
         @Override // com.kwad.sdk.glide.load.a.e.a
@@ -36,13 +36,13 @@ public final class k implements e<InputStream> {
     }
 
     k(InputStream inputStream, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f10054a = new RecyclableBufferedInputStream(inputStream, bVar);
-        this.f10054a.mark(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE);
+        this.f6650a = new RecyclableBufferedInputStream(inputStream, bVar);
+        this.f6650a.mark(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE);
     }
 
     @Override // com.kwad.sdk.glide.load.a.e
     public void b() {
-        this.f10054a.b();
+        this.f6650a.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public final class k implements e<InputStream> {
     @NonNull
     /* renamed from: c */
     public InputStream a() {
-        this.f10054a.reset();
-        return this.f10054a;
+        this.f6650a.reset();
+        return this.f6650a;
     }
 }

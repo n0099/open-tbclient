@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SingleBarFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {

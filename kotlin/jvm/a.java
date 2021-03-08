@@ -6,12 +6,12 @@ import kotlin.jvm.internal.l;
 import kotlin.jvm.internal.p;
 import kotlin.reflect.c;
 @e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [71=9] */
     public static final <T> Class<T> a(c<T> cVar) {
-        p.o(cVar, "$receiver");
-        Class<T> cls = (Class<T>) ((l) cVar).eLs();
+        p.p(cVar, "$receiver");
+        Class<T> cls = (Class<T>) ((l) cVar).eLa();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {

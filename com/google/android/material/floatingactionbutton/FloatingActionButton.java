@@ -51,7 +51,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 @CoordinatorLayout.DefaultBehavior(Behavior.class)
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FloatingActionButton extends VisibilityAwareImageButton implements TintableBackgroundView, TintableImageSourceView, ExpandableTransformationWidget {
     private static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
     private static final String EXPANDABLE_WIDGET_HELPER_KEY = "expandableWidgetHelper";
@@ -81,11 +81,11 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public @interface Size {
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static abstract class OnVisibilityChangedListener {
         public void onShown(FloatingActionButton floatingActionButton) {
         }
@@ -528,7 +528,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         return super.onTouchEvent(motionEvent);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public static class Behavior extends BaseBehavior<FloatingActionButton> {
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButton.BaseBehavior
         public /* bridge */ /* synthetic */ boolean getInsetDodgeRect(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton floatingActionButton, @NonNull Rect rect) {
@@ -574,7 +574,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     protected static class BaseBehavior<T extends FloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         private static final boolean AUTO_HIDE_DEFAULT = true;
         private boolean autoHideEnabled;
@@ -795,7 +795,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     public class ShadowDelegateImpl implements ShadowViewDelegate {
         ShadowDelegateImpl() {
         }

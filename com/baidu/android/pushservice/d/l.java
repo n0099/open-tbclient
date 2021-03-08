@@ -29,7 +29,7 @@ public class l {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(Context context) {
         int a2 = a.MODEL_O.a();
-        int b2 = com.baidu.android.pushservice.b.d.a(context).b();
-        return com.baidu.android.pushservice.b.d.l(context) ? a.MODEL_HW.a() : com.baidu.android.pushservice.b.d.k(context) ? a.MODEL_XM.a() : com.baidu.android.pushservice.b.d.m(context) ? a.MODEL_OP.a() : com.baidu.android.pushservice.b.d.n(context) ? a.MODEL_VI.a() : com.baidu.android.pushservice.b.d.j(context) ? a.MODEL_MZ.a() : (b2 == 2 || b2 == 4 || b2 == 3) ? a.MODEL_C.a() : a2;
+        int b = com.baidu.android.pushservice.b.d.a(context).b();
+        return com.baidu.android.pushservice.b.d.l(context) ? a.MODEL_HW.a() : com.baidu.android.pushservice.b.d.k(context) ? a.MODEL_XM.a() : com.baidu.android.pushservice.b.d.m(context) ? a.MODEL_OP.a() : com.baidu.android.pushservice.b.d.n(context) ? a.MODEL_VI.a() : com.baidu.android.pushservice.b.d.j(context) ? a.MODEL_MZ.a() : (b == 2 || b == 4 || b == 3) ? a.MODEL_C.a() : a2;
     }
 }

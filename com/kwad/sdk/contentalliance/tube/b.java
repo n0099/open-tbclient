@@ -14,16 +14,14 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-
-    /* renamed from: b  reason: collision with root package name */
-    private a f8911b;
+    private a b;
     private i<com.kwad.sdk.contentalliance.tube.b.a, AdResultData> c;
     private long e;
     private SceneImpl f;
     private AtomicBoolean d = new AtomicBoolean(false);
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f8910a = new Handler(Looper.getMainLooper());
+    private Handler f5938a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -43,33 +41,33 @@ public class b {
     public b(SceneImpl sceneImpl, long j, a aVar) {
         this.f = sceneImpl;
         this.e = j;
-        this.f8911b = aVar;
+        this.b = aVar;
     }
 
     private void a(boolean z) {
-        if (this.f8911b != null) {
-            this.f8911b.a(z);
+        if (this.b != null) {
+            this.b.a(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, int i, String str) {
-        if (this.f8911b != null) {
-            this.f8911b.a(z, i, str);
+        if (this.b != null) {
+            this.b.a(z, i, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, AdResultData adResultData) {
-        if (this.f8911b != null) {
-            this.f8911b.a(z, adResultData);
+        if (this.b != null) {
+            this.b.a(z, adResultData);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
-        if (this.f8911b != null) {
-            this.f8911b.b(z);
+        if (this.b != null) {
+            this.b.b(z);
         }
     }
 
@@ -77,8 +75,8 @@ public class b {
         if (this.c != null) {
             this.c.e();
         }
-        this.f8911b = null;
-        this.f8910a.removeCallbacksAndMessages(null);
+        this.b = null;
+        this.f5938a.removeCallbacksAndMessages(null);
     }
 
     public void a(final boolean z, final long j) {
@@ -88,10 +86,10 @@ public class b {
         com.kwad.sdk.core.d.a.a("TubeFeedLoadManager", "loadData startRequest loadMore =" + z + " lastPhotoId=" + j);
         a(z);
         f fVar = new f(this.f);
-        fVar.f9168b = this.f.getPageScene();
+        fVar.b = this.f.getPageScene();
         fVar.c = 100L;
-        com.kwad.sdk.core.d.a.a("TubeFeedLoadManager", "pageScene=" + fVar.f9168b + " lastPhotoId=" + j);
-        final a.C1086a c1086a = new a.C1086a(fVar, this.e, j, 15);
+        com.kwad.sdk.core.d.a.a("TubeFeedLoadManager", "pageScene=" + fVar.b + " lastPhotoId=" + j);
+        final a.C1103a c1103a = new a.C1103a(fVar, this.e, j, 15);
         this.c = new i<com.kwad.sdk.contentalliance.tube.b.a, AdResultData>() { // from class: com.kwad.sdk.contentalliance.tube.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -110,7 +108,7 @@ public class b {
             @NonNull
             /* renamed from: c */
             public com.kwad.sdk.contentalliance.tube.b.a b() {
-                return new com.kwad.sdk.contentalliance.tube.b.a(c1086a);
+                return new com.kwad.sdk.contentalliance.tube.b.a(c1103a);
             }
         };
         this.c.a(new j<com.kwad.sdk.contentalliance.tube.b.a, AdResultData>() { // from class: com.kwad.sdk.contentalliance.tube.b.2
@@ -118,7 +116,7 @@ public class b {
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.contentalliance.tube.b.a aVar, final int i, final String str) {
                 com.kwad.sdk.core.d.a.a("TubeFeedLoadManager", "lastPhotoId=" + j + " errorCode = " + i + " errorMsg=" + str);
-                b.this.f8910a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.b.2.2
+                b.this.f5938a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.b.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.c("TubeFeedLoadManager", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
@@ -131,7 +129,7 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.contentalliance.tube.b.a aVar, @NonNull final AdResultData adResultData) {
-                b.this.f8910a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.b.2.1
+                b.this.f5938a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.b.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         b.this.a(z, adResultData);

@@ -3,7 +3,7 @@ package com.thunder.livesdk.video;
 import com.yy.videoplayer.VideoDecodeEventNotify;
 import com.yy.videoplayer.VideoRenderNotify;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IThunderVideoPlay {
     void onDecodedFrameData(long j, int i, int i2, byte[] bArr, int i3, long j2);
 

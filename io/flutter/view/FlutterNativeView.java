@@ -12,7 +12,7 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
-/* loaded from: classes15.dex */
+/* loaded from: classes14.dex */
 public class FlutterNativeView implements BinaryMessenger {
     private static final String TAG = "FlutterNativeView";
     private boolean applicationIsRunning;
@@ -141,7 +141,7 @@ public class FlutterNativeView implements BinaryMessenger {
         this.dartExecutor.onAttachedToJNI();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes14.dex */
     private final class EngineLifecycleListenerImpl implements FlutterEngine.EngineLifecycleListener {
         private EngineLifecycleListenerImpl() {
         }

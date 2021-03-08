@@ -8,35 +8,35 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.core.view.HeadImageView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class e {
-    private String gpR;
-    private boolean gpS;
-    private TextView iiV;
-    private FrameLayout iiW;
-    private HeadImageView iiX;
-    private TextView iiY;
+    private String grA;
+    private boolean grB;
+    private TextView ikE;
+    private FrameLayout ikF;
+    private HeadImageView ikG;
+    private TextView ikH;
     private Context mContext;
     private String mPortrait;
     private View view;
 
     public e(Context context, String str, boolean z, String str2) {
         this.mContext = context;
-        this.gpR = str;
-        this.gpS = z;
+        this.grA = str;
+        this.grB = z;
         this.mPortrait = str2;
         initView();
     }
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.g.ala_rank_list_defend_bottom_view, (ViewGroup) null);
-        this.iiV = (TextView) this.view.findViewById(a.f.ala_rank_list_user_rank);
-        this.iiW = (FrameLayout) this.view.findViewById(a.f.ala_rank_list_header_layout);
-        this.iiX = (HeadImageView) this.view.findViewById(a.f.ala_rank_list_user_header);
-        this.iiY = (TextView) this.view.findViewById(a.f.ala_rank_list_user_name);
-        if (this.iiX != null) {
-            this.iiX.setIsRound(true);
-            this.iiX.setAutoChangeStyle(false);
+        this.ikE = (TextView) this.view.findViewById(a.f.ala_rank_list_user_rank);
+        this.ikF = (FrameLayout) this.view.findViewById(a.f.ala_rank_list_header_layout);
+        this.ikG = (HeadImageView) this.view.findViewById(a.f.ala_rank_list_user_header);
+        this.ikH = (TextView) this.view.findViewById(a.f.ala_rank_list_user_name);
+        if (this.ikG != null) {
+            this.ikG.setIsRound(true);
+            this.ikG.setAutoChangeStyle(false);
         }
     }
 

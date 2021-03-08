@@ -8,23 +8,23 @@ import io.reactivex.x;
 import io.reactivex.y;
 import io.reactivex.z;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SingleCreate<T> extends w<T> {
-    final z<T> qqE;
+    final z<T> qrg;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         Emitter emitter = new Emitter(yVar);
         yVar.onSubscribe(emitter);
         try {
-            this.qqE.a(emitter);
+            this.qrg.a(emitter);
         } catch (Throwable th) {
             io.reactivex.exceptions.a.N(th);
             emitter.onError(th);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     static final class Emitter<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, x<T> {
         private static final long serialVersionUID = -2467358622224974244L;
         final y<? super T> actual;

@@ -1,68 +1,68 @@
 package com.baidu.h.b;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class a {
-    private static volatile a cfk;
-    private com.baidu.h.a.b.a.b cfl;
-    private com.baidu.h.a.a.a cfm;
-    private com.baidu.h.a.c.a cfn;
-    private com.baidu.h.a.d.a cfo;
-    private b cfp;
+    private static volatile a cgK;
+    private com.baidu.h.a.b.a.b cgL;
+    private com.baidu.h.a.a.a cgM;
+    private com.baidu.h.a.c.a cgN;
+    private com.baidu.h.a.d.a cgO;
+    private b cgP;
     private Context mContext;
 
     private a(Context context) {
         this.mContext = context.getApplicationContext();
     }
 
-    public static a bA(Context context) {
-        if (cfk == null) {
+    public static a bz(Context context) {
+        if (cgK == null) {
             synchronized (a.class) {
-                if (cfk == null) {
-                    cfk = new a(context);
+                if (cgK == null) {
+                    cgK = new a(context);
                 }
             }
         }
-        return cfk;
+        return cgK;
     }
 
-    public com.baidu.h.a.b.a.b ZU() {
-        return this.cfl;
+    public com.baidu.h.a.b.a.b ZX() {
+        return this.cgL;
     }
 
     public void a(com.baidu.h.a.b.a.b bVar) {
-        this.cfl = bVar;
+        this.cgL = bVar;
     }
 
-    public com.baidu.h.a.a.a ZV() {
-        return this.cfm;
+    public com.baidu.h.a.a.a ZY() {
+        return this.cgM;
     }
 
     public void a(com.baidu.h.a.a.a aVar) {
-        this.cfm = aVar;
+        this.cgM = aVar;
     }
 
-    public com.baidu.h.a.c.a ZW() {
-        return this.cfn;
+    public com.baidu.h.a.c.a ZZ() {
+        return this.cgN;
     }
 
     public void a(com.baidu.h.a.c.a aVar) {
-        this.cfn = aVar;
+        this.cgN = aVar;
     }
 
-    public com.baidu.h.a.d.a ZX() {
-        return this.cfo;
+    public com.baidu.h.a.d.a aaa() {
+        return this.cgO;
     }
 
     public void a(com.baidu.h.a.d.a aVar) {
-        this.cfo = aVar;
+        this.cgO = aVar;
     }
 
-    public b ZY() {
-        return this.cfp;
+    public b aab() {
+        return this.cgP;
     }
 
     public void a(b bVar) {
-        this.cfp = bVar;
+        this.cgP = bVar;
     }
 }

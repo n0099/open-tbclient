@@ -25,7 +25,7 @@ import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rx.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends aa {
     @NonNull
     protected abstract String getUrl();
@@ -45,19 +45,19 @@ public abstract class a extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
         }
-        JSONObject b2 = b(unitedSchemeEntity, "params");
-        if (b2 == null) {
+        JSONObject b = b(unitedSchemeEntity, "params");
+        if (b == null) {
             com.baidu.swan.apps.console.c.e("recommend", "param is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        String optString = b2.optString("cb");
+        String optString = b.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("recommend", "cb is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
             return false;
         }
-        JSONObject optJSONObject = b2.optJSONObject("data");
+        JSONObject optJSONObject = b.optJSONObject("data");
         if (optJSONObject == null || optJSONObject.length() <= 0) {
             com.baidu.swan.apps.console.c.e("recommend", "param data is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "param data is empty");
@@ -72,9 +72,9 @@ public abstract class a extends aa {
     private void b(@NonNull final Context context, @NonNull final CallbackHandler callbackHandler, @NonNull final String str, @NonNull JSONObject jSONObject) {
         com.baidu.swan.apps.console.c.i("recommend", "get request params");
         final com.baidu.swan.bdprivate.extensions.g.b.a aVar = new com.baidu.swan.bdprivate.extensions.g.b.a(context, jSONObject);
-        d<com.baidu.swan.bdprivate.extensions.g.b.b> eo = eo(context);
-        if (eo != null) {
-            eo.h(60L, TimeUnit.MILLISECONDS).a(new rx.functions.b<com.baidu.swan.bdprivate.extensions.g.b.b>() { // from class: com.baidu.swan.bdprivate.extensions.g.a.a.1
+        d<com.baidu.swan.bdprivate.extensions.g.b.b> en = en(context);
+        if (en != null) {
+            en.g(60L, TimeUnit.MILLISECONDS).a(new rx.functions.b<com.baidu.swan.bdprivate.extensions.g.b.b>() { // from class: com.baidu.swan.bdprivate.extensions.g.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: a */
@@ -96,7 +96,7 @@ public abstract class a extends aa {
         a(context, callbackHandler, str, aVar);
     }
 
-    private d<com.baidu.swan.bdprivate.extensions.g.b.b> eo(Context context) {
+    private d<com.baidu.swan.bdprivate.extensions.g.b.b> en(Context context) {
         if (context == null) {
             return null;
         }
@@ -105,16 +105,16 @@ public abstract class a extends aa {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(final rx.j<? super com.baidu.swan.bdprivate.extensions.g.b.b> jVar) {
-                    com.baidu.swan.apps.t.a.axo().a(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new d.a() { // from class: com.baidu.swan.bdprivate.extensions.g.a.a.3.1
+                    com.baidu.swan.apps.t.a.axr().a(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new d.a() { // from class: com.baidu.swan.bdprivate.extensions.g.a.a.3.1
                         @Override // com.baidu.swan.apps.t.b.d.a
                         public void a(com.baidu.swan.apps.scheme.actions.f.b bVar) {
                             com.baidu.swan.bdprivate.extensions.g.b.b bVar2 = new com.baidu.swan.bdprivate.extensions.g.b.b();
                             if (bVar != null && !TextUtils.isEmpty(bVar.coorType)) {
-                                bVar2.dVk = bVar.coorType;
+                                bVar2.dWL = bVar.coorType;
                                 bVar2.latitude = bVar.latitude;
                                 bVar2.longitude = bVar.longitude;
                             } else {
-                                bVar2.dVk = "unknown";
+                                bVar2.dWL = "unknown";
                             }
                             jVar.onNext(bVar2);
                             jVar.onCompleted();
@@ -139,10 +139,10 @@ public abstract class a extends aa {
         ResponseCallback<JSONObject> G = G(d);
         MediaType parse = MediaType.parse(HttpHelper.CONTENT_JSON);
         com.baidu.swan.apps.console.c.i("recommend", "encrypt request param");
-        String uI = com.baidu.swan.bdprivate.extensions.g.c.a.uI(aVar.toJsonString());
-        if (TextUtils.isEmpty(uI)) {
+        String uP = com.baidu.swan.bdprivate.extensions.g.c.a.uP(aVar.toJsonString());
+        if (TextUtils.isEmpty(uP)) {
             com.baidu.swan.apps.console.c.e("recommend", "encrypt request param fail");
-            d.L(null);
+            d.N(null);
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("info", "encrypt request param fail");
@@ -151,11 +151,11 @@ public abstract class a extends aa {
                     e.printStackTrace();
                 }
             }
-            com.baidu.swan.bdprivate.extensions.g.c.a.uJ(jSONObject.toString());
+            com.baidu.swan.bdprivate.extensions.g.c.a.uQ(jSONObject.toString());
             return;
         }
         com.baidu.swan.apps.console.c.i("recommend", "execute request");
-        ((PostBodyRequest.PostBodyRequestBuilder) HttpManager.getDefault(context.getApplicationContext()).postRequest().url(processCommonParams)).requestBody(RequestBody.create(parse, uI)).build().executeAsync(G);
+        ((PostBodyRequest.PostBodyRequestBuilder) HttpManager.getDefault(context.getApplicationContext()).postRequest().url(processCommonParams)).requestBody(RequestBody.create(parse, uP)).build().executeAsync(G);
     }
 
     @NonNull
@@ -164,7 +164,7 @@ public abstract class a extends aa {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: onCallback */
-            public void L(JSONObject jSONObject) {
+            public void N(JSONObject jSONObject) {
                 if (jSONObject == null) {
                     com.baidu.swan.apps.console.c.e("recommend", "response is null");
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "response is null").toString());
@@ -197,7 +197,7 @@ public abstract class a extends aa {
                                 e.printStackTrace();
                             }
                         }
-                        com.baidu.swan.bdprivate.extensions.g.c.a.uJ(jSONObject.toString());
+                        com.baidu.swan.bdprivate.extensions.g.c.a.uQ(jSONObject.toString());
                         return null;
                     }
                     return new JSONObject(string);
@@ -220,7 +220,7 @@ public abstract class a extends aa {
                         e2.printStackTrace();
                     }
                 }
-                com.baidu.swan.bdprivate.extensions.g.c.a.uJ(jSONObject2.toString());
+                com.baidu.swan.bdprivate.extensions.g.c.a.uQ(jSONObject2.toString());
                 return null;
             }
 
@@ -238,15 +238,15 @@ public abstract class a extends aa {
                             e.printStackTrace();
                         }
                     }
-                    com.baidu.swan.bdprivate.extensions.g.c.a.uJ(jSONObject2.toString());
+                    com.baidu.swan.bdprivate.extensions.g.c.a.uQ(jSONObject2.toString());
                 }
-                bVar.L(jSONObject);
+                bVar.N(jSONObject);
             }
 
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 com.baidu.swan.apps.console.c.e("recommend", "http response with exception:", exc);
-                bVar.L(null);
+                bVar.N(null);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("info", "http request fail with exception : " + exc.getMessage());
@@ -255,7 +255,7 @@ public abstract class a extends aa {
                         e.printStackTrace();
                     }
                 }
-                com.baidu.swan.bdprivate.extensions.g.c.a.uJ(jSONObject.toString());
+                com.baidu.swan.bdprivate.extensions.g.c.a.uQ(jSONObject.toString());
             }
         };
     }

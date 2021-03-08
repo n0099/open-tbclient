@@ -8,18 +8,18 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m {
     public static void init() {
-        cUl();
-        dBB();
+        cUs();
+        dBJ();
     }
 
-    public static void cUl() {
+    public static void cUs() {
         com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_USER_POST_PAGE, UserPostPageSocketResponsedMessage.class, false, false);
     }
 
-    private static void dBB() {
+    private static void dBJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001503, com.baidu.tieba.tbadkCore.a.a.bV(Config.USER_POST_ADDRESS, CmdConfigSocket.CMD_USER_POST_PAGE));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

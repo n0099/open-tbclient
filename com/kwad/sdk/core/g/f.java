@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Handler f9245a = new Handler(Looper.getMainLooper());
+    private static final Handler f6142a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -31,7 +31,7 @@ public class f {
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                AdResultData adResultData = new AdResultData(com.kwad.sdk.core.g.a.f.this.f9167a);
+                AdResultData adResultData = new AdResultData(com.kwad.sdk.core.g.a.f.this.f6100a);
                 adResultData.parseJson(jSONObject);
                 return adResultData;
             }
@@ -47,7 +47,7 @@ public class f {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.core.g.a aVar2, final int i, final String str) {
-                f.f9245a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.2
+                f.f6142a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.c("PatchAdRequestManager", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
@@ -62,7 +62,7 @@ public class f {
                 if (adResultData.isAdResultDataEmpty()) {
                     a(aVar2, com.kwad.sdk.core.network.f.c.k, com.kwad.sdk.core.network.f.c.l);
                 } else {
-                    f.f9245a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.1
+                    f.f6142a.post(new Runnable() { // from class: com.kwad.sdk.core.g.f.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             a.this.a(j, adResultData.adTemplateList.get(0));

@@ -14,10 +14,8 @@ import java.util.List;
 public class ArBridge {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArBridge f1492a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    private WeakReference<BaiduArView> f1493b;
+    private static ArBridge f1262a = null;
+    private WeakReference<BaiduArView> b;
     private Handler d;
     private List<a> e;
     private f g;
@@ -128,20 +126,20 @@ public class ArBridge {
     public static synchronized ArBridge getInstance() {
         ArBridge arBridge;
         synchronized (ArBridge.class) {
-            if (f1492a == null) {
-                f1492a = new ArBridge();
+            if (f1262a == null) {
+                f1262a = new ArBridge();
             }
-            arBridge = f1492a;
+            arBridge = f1262a;
         }
         return arBridge;
     }
 
     public void setArView(BaiduArView baiduArView) {
-        this.f1493b = new WeakReference<>(baiduArView);
+        this.b = new WeakReference<>(baiduArView);
     }
 
     public void surfaceViewCapture(c cVar) {
-        BaiduArView baiduArView = this.f1493b.get();
+        BaiduArView baiduArView = this.b.get();
         if (baiduArView != null) {
             baiduArView.takeSnapshot(new l(this, cVar));
         } else {
@@ -162,8 +160,8 @@ public class ArBridge {
     }
 
     private void sendMessageImpl(int i, int i2, HashMap<String, Object> hashMap, int i3) {
-        if (this.f1493b != null && this.f1493b.get() != null) {
-            this.f1493b.get().queueEvent(new q(this, i2, i, hashMap, i3));
+        if (this.b != null && this.b.get() != null) {
+            this.b.get().queueEvent(new q(this, i2, i, hashMap, i3));
         }
     }
 
@@ -209,9 +207,9 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: private */
     public void processIncomingMessage(b bVar) {
         for (a aVar : this.e) {
-            if (aVar.f1494a == 0 || bVar.f1496a == aVar.f1494a) {
-                if (-1 == aVar.f1495b || bVar.d == aVar.f1495b) {
-                    aVar.c.a(bVar.f1496a, bVar.f1497b, bVar.c);
+            if (aVar.f1263a == 0 || bVar.f1264a == aVar.f1263a) {
+                if (-1 == aVar.b || bVar.d == aVar.b) {
+                    aVar.c.a(bVar.f1264a, bVar.b, bVar.c);
                 }
             }
         }
@@ -222,16 +220,14 @@ public class ArBridge {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1496a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f1497b;
+        public int f1264a;
+        public int b;
         public HashMap<String, Object> c;
         public int d;
 
         public b(int i, int i2, HashMap<String, Object> hashMap, int i3) {
-            this.f1496a = i;
-            this.f1497b = i2;
+            this.f1264a = i;
+            this.b = i2;
             this.c = hashMap;
             this.d = i3;
         }
@@ -242,15 +238,13 @@ public class ArBridge {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f1494a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f1495b;
+        public int f1263a;
+        public int b;
         public d c;
 
         public a(int i, int i2, d dVar) {
-            this.f1494a = i;
-            this.f1495b = i2;
+            this.f1263a = i;
+            this.b = i2;
             this.c = dVar;
         }
     }
@@ -260,18 +254,18 @@ public class ArBridge {
     }
 
     public void executeOnGLThread(Runnable runnable) {
-        if (this.f1493b != null && this.f1493b.get() != null) {
+        if (this.b != null && this.b.get() != null) {
             if (this.f == Thread.currentThread().getId()) {
                 runnable.run();
             } else {
-                this.f1493b.get().queueEvent(runnable);
+                this.b.get().queueEvent(runnable);
             }
         }
     }
 
     public int createCase(String str, HashMap<String, Object> hashMap, int i, int i2) {
-        if (this.f1493b != null && this.f1493b.get() != null) {
-            this.f1493b.get().mNeedDestroy = false;
+        if (this.b != null && this.b.get() != null) {
+            this.b.get().mNeedDestroy = false;
         }
         int caseId = getCaseId();
         executeOnGLThread(new t(this, str, caseId, hashMap, i, i2));
@@ -299,15 +293,15 @@ public class ArBridge {
     }
 
     public void destroyCase() {
-        if (this.f1493b != null && this.f1493b.get() != null && this.f1493b.get().mUpdating) {
-            this.f1493b.get().mNeedDestroy = true;
+        if (this.b != null && this.b.get() != null && this.b.get().mUpdating) {
+            this.b.get().mNeedDestroy = true;
         } else {
             nativeDestroyCase();
         }
     }
 
     public void onResumeByUser() {
-        if (this.f1493b == null || this.f1493b.get() == null) {
+        if (this.b == null || this.b.get() == null) {
             this.l = true;
         }
         executeOnGLThread(new com.baidu.ar.npc.e(this));
@@ -357,8 +351,8 @@ public class ArBridge {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        if (this.h == null && this.f1493b.get() != null) {
-            this.h = new k(this, this.f1493b.get().getContext(), 3);
+        if (this.h == null && this.b.get() != null) {
+            this.h = new k(this, this.b.get().getContext(), 3);
         }
         if (this.h != null && this.h.canDetectOrientation()) {
             this.h.enable();

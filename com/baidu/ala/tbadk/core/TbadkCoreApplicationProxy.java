@@ -5,7 +5,7 @@ import com.baidu.ala.adp.lib.util.BackGroundSwitchListener;
 import com.baidu.ala.recorder.IRecorderDependency;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TbadkCoreApplicationProxy {
     private static volatile TbadkCoreApplicationProxy sApp = null;
     Context mApplicationContext;

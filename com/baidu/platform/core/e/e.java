@@ -59,9 +59,9 @@ public class e extends com.baidu.platform.base.e {
                 break;
         }
         aVar.a(IXAdRequestInfo.SN, str2);
-        aVar.a(com.baidu.fsg.base.statistics.h.f1945a, str4);
-        this.f4143a.a("url", "http://map.baidu.com/?newmap=1&s=" + str5 + (AppMD5.encodeUrlParamsValue(ETAG.ITEM_SEPARATOR + aVar.a() + ("&start=" + name + "&end=" + name2)) + str6));
-        this.f4143a.a("from", "android_map_sdk");
+        aVar.a(com.baidu.fsg.base.statistics.h.f1535a, str4);
+        this.f2867a.a("url", "http://map.baidu.com/?newmap=1&s=" + str5 + (AppMD5.encodeUrlParamsValue(ETAG.ITEM_SEPARATOR + aVar.a() + ("&start=" + name + "&end=" + name2)) + str6));
+        this.f2867a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

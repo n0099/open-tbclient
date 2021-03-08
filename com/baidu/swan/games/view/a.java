@@ -1,9 +1,9 @@
 package com.baidu.swan.games.view;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface a {
-    void aSV();
+    void aSY();
 
-    void aSW();
+    void aSZ();
 
-    void aSX();
+    void aTa();
 }

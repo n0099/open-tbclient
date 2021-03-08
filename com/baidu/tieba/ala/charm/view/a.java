@@ -10,65 +10,65 @@ import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> eVV = new ArrayList<>();
-    private View.OnClickListener gPd;
-    private View.OnClickListener gPe;
-    private View.OnClickListener gPf;
-    private int gPg;
+    private ArrayList<ALaCharmData> eXu = new ArrayList<>();
+    private View.OnClickListener gQM;
+    private View.OnClickListener gQN;
+    private View.OnClickListener gQO;
+    private int gQP;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.gPg = 1;
+        this.gQP = 1;
         this.mPageContext = tbPageContext;
-        this.gPg = i;
+        this.gQP = i;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.gPd = onClickListener;
+        this.gQM = onClickListener;
     }
 
     public void p(View.OnClickListener onClickListener) {
-        this.gPf = onClickListener;
+        this.gQO = onClickListener;
     }
 
     public void q(View.OnClickListener onClickListener) {
-        this.gPe = onClickListener;
+        this.gQN = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.eVV.clear();
-            this.eVV.addAll(arrayList);
+            this.eXu.clear();
+            this.eXu.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void W(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.eVV.addAll(arrayList);
+            this.eXu.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eVV == null) {
+        if (this.eXu == null) {
             return 0;
         }
-        return this.eVV.size();
+        return this.eXu.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uj */
+    /* renamed from: ul */
     public ALaCharmData getItem(int i) {
-        if (this.eVV == null) {
+        if (this.eXu == null) {
             return null;
         }
-        return this.eVV.get(i);
+        return this.eXu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.gPg == 1) {
+            if (this.gQP == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.gPg == 2) {
+            } else if (this.gQP == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.g.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            dVar = new d(inflate, this.gPg);
-            dVar.r(this.gPf);
-            dVar.o(this.gPd);
-            dVar.s(this.gPe);
+            dVar = new d(inflate, this.gQP);
+            dVar.r(this.gQO);
+            dVar.o(this.gQM);
+            dVar.s(this.gQN);
             inflate.setTag(dVar);
             view = inflate;
         } else {
@@ -105,8 +105,8 @@ public class a extends BaseAdapter {
     }
 
     public void aA(String str, boolean z) {
-        if (this.eVV != null && str != null) {
-            Iterator<ALaCharmData> it = this.eVV.iterator();
+        if (this.eXu != null && str != null) {
+            Iterator<ALaCharmData> it = this.eXu.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

@@ -21,99 +21,99 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private Object[] jAf;
+    private Object[] jBO;
     private List<n> mData = new ArrayList();
-    private List<cb> jAe = new ArrayList();
+    private List<cb> jBN = new ArrayList();
 
     public void a(int i, com.baidu.tieba.frs.gamerecommend.data.a aVar) {
         if (aVar != null) {
             if (1 == i) {
                 this.mData.clear();
-                this.jAe.clear();
-                this.jAf = new Object[aVar.jzR + 10];
+                this.jBN.clear();
+                this.jBO = new Object[aVar.jBA + 10];
             }
-            if (!y.isEmpty(aVar.jzS)) {
-                ArrayList arrayList = new ArrayList(aVar.jzS.size());
-                for (cb cbVar : aVar.jzS) {
+            if (!y.isEmpty(aVar.jBB)) {
+                ArrayList arrayList = new ArrayList(aVar.jBB.size());
+                for (cb cbVar : aVar.jBB) {
                     if (cbVar != null) {
                         arrayList.add(cbVar);
                     }
                 }
-                this.jAe.addAll(arrayList);
+                this.jBN.addAll(arrayList);
             }
             if (1 == i) {
                 a(aVar);
             }
             this.mData.clear();
-            cIm();
-            cIn();
+            cIs();
+            cIt();
             b(aVar);
         }
     }
 
     private void a(com.baidu.tieba.frs.gamerecommend.data.a aVar) {
-        if (!y.isEmpty(aVar.jzU)) {
-            for (FeatureCardHot featureCardHot : aVar.jzU) {
+        if (!y.isEmpty(aVar.jBD)) {
+            for (FeatureCardHot featureCardHot : aVar.jBD) {
                 if (featureCardHot != null && featureCardHot.isValid()) {
-                    zN(featureCardHot.floor.intValue());
-                    this.jAf[featureCardHot.floor.intValue()] = featureCardHot;
+                    zO(featureCardHot.floor.intValue());
+                    this.jBO[featureCardHot.floor.intValue()] = featureCardHot;
                 }
             }
         }
-        if (!y.isEmpty(aVar.jzV)) {
-            for (FeatureCardTopic featureCardTopic : aVar.jzV) {
+        if (!y.isEmpty(aVar.jBE)) {
+            for (FeatureCardTopic featureCardTopic : aVar.jBE) {
                 if (featureCardTopic != null && featureCardTopic.isValid()) {
-                    zN(featureCardTopic.floor.intValue());
-                    this.jAf[featureCardTopic.floor.intValue()] = featureCardTopic;
+                    zO(featureCardTopic.floor.intValue());
+                    this.jBO[featureCardTopic.floor.intValue()] = featureCardTopic;
                 }
             }
         }
-        if (!y.isEmpty(aVar.jzW)) {
-            for (b bVar : aVar.jzW) {
+        if (!y.isEmpty(aVar.jBF)) {
+            for (b bVar : aVar.jBF) {
                 if (bVar != null && bVar.isValid()) {
-                    zN(bVar.floor.intValue());
-                    this.jAf[bVar.floor.intValue()] = bVar;
+                    zO(bVar.floor.intValue());
+                    this.jBO[bVar.floor.intValue()] = bVar;
                 }
             }
         }
-        if (!y.isEmpty(aVar.jzX)) {
-            for (FeatureCardCompetition featureCardCompetition : aVar.jzX) {
+        if (!y.isEmpty(aVar.jBG)) {
+            for (FeatureCardCompetition featureCardCompetition : aVar.jBG) {
                 if (featureCardCompetition != null && featureCardCompetition.isValid()) {
-                    zN(featureCardCompetition.floor.intValue());
-                    this.jAf[featureCardCompetition.floor.intValue()] = featureCardCompetition;
+                    zO(featureCardCompetition.floor.intValue());
+                    this.jBO[featureCardCompetition.floor.intValue()] = featureCardCompetition;
                 }
             }
         }
-        if (!y.isEmpty(aVar.jzY)) {
-            for (FeatureCardGod featureCardGod : aVar.jzY) {
+        if (!y.isEmpty(aVar.jBH)) {
+            for (FeatureCardGod featureCardGod : aVar.jBH) {
                 if (featureCardGod != null && featureCardGod.isValid()) {
-                    zN(featureCardGod.floor.intValue());
-                    this.jAf[featureCardGod.floor.intValue()] = featureCardGod;
+                    zO(featureCardGod.floor.intValue());
+                    this.jBO[featureCardGod.floor.intValue()] = featureCardGod;
                 }
             }
         }
-        if (!y.isEmpty(aVar.jzZ)) {
-            for (FeatureCardGame featureCardGame : aVar.jzZ) {
+        if (!y.isEmpty(aVar.jBI)) {
+            for (FeatureCardGame featureCardGame : aVar.jBI) {
                 if (featureCardGame != null && featureCardGame.isValid()) {
-                    zN(featureCardGame.floor.intValue());
-                    this.jAf[featureCardGame.floor.intValue()] = featureCardGame;
+                    zO(featureCardGame.floor.intValue());
+                    this.jBO[featureCardGame.floor.intValue()] = featureCardGame;
                 }
             }
         }
     }
 
-    private void zN(int i) {
-        if (i >= this.jAf.length) {
-            this.jAf = Arrays.copyOf(this.jAf, i + 1);
+    private void zO(int i) {
+        if (i >= this.jBO.length) {
+            this.jBO = Arrays.copyOf(this.jBO, i + 1);
         }
     }
 
-    private void cIm() {
+    private void cIs() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.jAe.size()) {
-                cb cbVar = this.jAe.get(i2);
+            if (i2 < this.jBN.size()) {
+                cb cbVar = this.jBN.get(i2);
                 if (cbVar != null) {
                     if (i2 % 4 == 0) {
                         com.baidu.tieba.e.a aVar = new com.baidu.tieba.e.a();
@@ -132,10 +132,10 @@ public class a {
         }
     }
 
-    private void cIn() {
-        if (this.jAf != null && this.jAf.length > 0) {
-            for (int i = 0; i < this.jAf.length; i++) {
-                Object obj = this.jAf[i];
+    private void cIt() {
+        if (this.jBO != null && this.jBO.length > 0) {
+            for (int i = 0; i < this.jBO.length; i++) {
+                Object obj = this.jBO[i];
                 if (obj != null) {
                     int i2 = i - 1;
                     if (i2 < 0) {
@@ -175,7 +175,7 @@ public class a {
 
     private void b(com.baidu.tieba.frs.gamerecommend.data.a aVar) {
         g gVar = new g();
-        gVar.a(aVar.jzT);
+        gVar.a(aVar.jBC);
         this.mData.add(0, gVar);
     }
 

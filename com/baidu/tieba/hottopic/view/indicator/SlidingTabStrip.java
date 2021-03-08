@@ -9,13 +9,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SlidingTabStrip extends LinearLayout {
-    private final Paint Zs;
-    private final int kzd;
-    private final Paint kze;
-    private int kzf;
-    private int kzg;
+    private final Paint aaK;
+    private final int kBf;
+    private final Paint kBg;
+    private int kBh;
+    private int kBi;
     private int mSelectedPosition;
 
     public SlidingTabStrip(Context context) {
@@ -25,11 +25,11 @@ public class SlidingTabStrip extends LinearLayout {
     public SlidingTabStrip(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setWillNotDraw(false);
-        this.kzd = getResources().getDimensionPixelSize(R.dimen.ds5);
-        this.Zs = new Paint();
-        this.Zs.setColor(ap.getSkinColor(null, R.color.CAM_X0105));
-        this.kze = new Paint();
-        this.kze.setColor(ap.getColor(R.color.CAM_X0204));
+        this.kBf = getResources().getDimensionPixelSize(R.dimen.ds5);
+        this.aaK = new Paint();
+        this.aaK.setColor(ap.getSkinColor(null, R.color.CAM_X0105));
+        this.kBg = new Paint();
+        this.kBg.setColor(ap.getColor(R.color.CAM_X0204));
     }
 
     public void i(int i, float f) {
@@ -42,15 +42,15 @@ public class SlidingTabStrip extends LinearLayout {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds64);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds14);
         if (i == 0) {
-            this.kzf = childAt.getLeft();
+            this.kBh = childAt.getLeft();
         } else {
-            this.kzf = childAt.getLeft() + dimensionPixelSize2;
+            this.kBh = childAt.getLeft() + dimensionPixelSize2;
         }
-        this.kzg = this.kzf + dimensionPixelSize;
+        this.kBi = this.kBh + dimensionPixelSize;
         if (f >= 0.0f && i < getChildCount() - 1) {
             View childAt2 = getChildAt(i + 1);
-            this.kzf = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.kzf));
-            this.kzg = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.kzg));
+            this.kBh = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f) + ((1.0f - f) * this.kBh));
+            this.kBi = (int) (((childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize) * f) + ((1.0f - f) * this.kBi));
         }
     }
 
@@ -61,11 +61,11 @@ public class SlidingTabStrip extends LinearLayout {
         int left = childAt.getLeft();
         float left2 = (childAt2.getLeft() - left) * f;
         if (this.mSelectedPosition == 0) {
-            this.kzf = (int) (left + left2);
+            this.kBh = (int) (left + left2);
         } else {
-            this.kzf = (int) (dimensionPixelSize + left + left2);
+            this.kBh = (int) (dimensionPixelSize + left + left2);
         }
-        this.kzg = getResources().getDimensionPixelSize(R.dimen.ds64) + this.kzf;
+        this.kBi = getResources().getDimensionPixelSize(R.dimen.ds64) + this.kBh;
         invalidate();
     }
 
@@ -101,15 +101,15 @@ public class SlidingTabStrip extends LinearLayout {
     }
 
     private void c(Canvas canvas, int i) {
-        if (this.kzg <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
-            this.kzg = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
+        if (this.kBi <= 0 && this.mSelectedPosition >= 0 && this.mSelectedPosition < getChildCount()) {
+            this.kBi = getChildAt(this.mSelectedPosition).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
         }
-        canvas.drawRoundRect(new RectF(this.kzf, i - this.kzd, this.kzg, i), 10.0f, 10.0f, this.Zs);
+        canvas.drawRoundRect(new RectF(this.kBh, i - this.kBf, this.kBi, i), 10.0f, 10.0f, this.aaK);
     }
 
     public void onChangeSkinType(int i) {
-        this.Zs.setColor(ap.getSkinColor(null, R.color.CAM_X0105));
-        this.kze.setColor(ap.getColor(R.color.CAM_X0204));
+        this.aaK.setColor(ap.getSkinColor(null, R.color.CAM_X0105));
+        this.kBg.setColor(ap.getColor(R.color.CAM_X0204));
         invalidate();
         int childCount = getChildCount();
         if (childCount > 0) {

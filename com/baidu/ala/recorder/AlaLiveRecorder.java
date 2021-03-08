@@ -51,7 +51,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler, ICameraStatusHandler.Beauty {
     public static final int ALA_STREAM_CONNECT_FAIL = 0;
     public static final int ALA_STREAM_CONNECT_INIT = -1;
@@ -1796,7 +1796,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     class SendDataInfo {
         public byte[] data;
         public int displayRotate;
@@ -1809,7 +1809,7 @@ public class AlaLiveRecorder implements IFaceUnityOperator, ICameraStatusHandler
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class SendHandler extends Handler {
         public SendHandler(Looper looper) {
             super(looper);

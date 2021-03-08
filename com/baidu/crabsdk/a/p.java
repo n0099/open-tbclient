@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 /* loaded from: classes5.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> aoF = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> aqf = new LinkedHashMap<>();
     private int X;
-    private Thread aoG;
+    private Thread aqg;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.X = a.X;
-        this.aoG = thread;
+        this.aqg = thread;
         this.X = i;
     }
 
@@ -21,14 +21,14 @@ public final class p extends n {
 
     public static ArrayList<String> f(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (aoF) {
-            for (Long l : aoF.keySet()) {
+        synchronized (aqf) {
+            for (Long l : aqf.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(aoF.get(l));
+                    arrayList.add(aqf.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.ds("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.dw("result : " + arrayList.toString());
         return arrayList;
     }
 
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void o() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.aoG.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.aqg.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (aoF) {
-            if (aoF.size() == this.X && this.X > 0) {
-                aoF.remove(aoF.keySet().iterator().next());
+        synchronized (aqf) {
+            if (aqf.size() == this.X && this.X > 0) {
+                aqf.remove(aqf.keySet().iterator().next());
             }
-            aoF.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            aqf.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

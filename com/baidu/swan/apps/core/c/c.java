@@ -8,10 +8,10 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.adaptation.a.e;
 import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.e;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class c {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void n(boolean z, String str);
     }
@@ -39,6 +39,6 @@ public class c {
     }
 
     public static void af(Context context, String str) {
-        new g.a(context).f(context.getString(a.h.aiapps_debug_switch_title)).rx(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).aHX();
+        new g.a(context).f(context.getString(a.h.aiapps_debug_switch_title)).rE(str).a(new com.baidu.swan.apps.view.c.a()).c(a.h.aiapps_confirm, (DialogInterface.OnClickListener) null).aIa();
     }
 }

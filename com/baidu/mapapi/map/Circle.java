@@ -8,10 +8,8 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 public final class Circle extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2699a;
-
-    /* renamed from: b  reason: collision with root package name */
-    int f2700b;
+    LatLng f2012a;
+    int b;
     int c;
     Stroke d;
 
@@ -24,11 +22,11 @@ public final class Circle extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2699a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2012a);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.f2699a, this.c));
-        Overlay.a(this.f2700b, bundle);
+        bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.f2012a, this.c));
+        Overlay.a(this.b, bundle);
         if (this.d == null) {
             bundle.putInt("has_stroke", 0);
         } else {
@@ -39,11 +37,11 @@ public final class Circle extends Overlay {
     }
 
     public LatLng getCenter() {
-        return this.f2699a;
+        return this.f2012a;
     }
 
     public int getFillColor() {
-        return this.f2700b;
+        return this.b;
     }
 
     public int getRadius() {
@@ -58,12 +56,12 @@ public final class Circle extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("circle center can not be null");
         }
-        this.f2699a = latLng;
+        this.f2012a = latLng;
         this.listener.b(this);
     }
 
     public void setFillColor(int i) {
-        this.f2700b = i;
+        this.b = i;
         this.listener.b(this);
     }
 

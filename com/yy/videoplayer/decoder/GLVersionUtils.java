@@ -4,7 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.yy.videoplayer.utils.YMFLog;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GLVersionUtils {
     static int glVersion = 0;
 

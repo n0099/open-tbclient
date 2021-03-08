@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static SpannableString m(long j, boolean z) {
         String formatOverBaiwanNum = au.formatOverBaiwanNum(j);

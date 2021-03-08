@@ -1,5 +1,5 @@
 package com.yy.mediaframework.beautystyle;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WhiteStyle extends AbstractStyle {
     public WhiteStyle() {
         this.sMinParams = new float[]{0.62f, 0.36f, 0.42f, 0.0f};

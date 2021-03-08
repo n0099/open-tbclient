@@ -4,7 +4,7 @@ import kotlin.collections.x;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.p;
 @kotlin.e
-/* loaded from: classes6.dex */
+/* loaded from: classes14.dex */
 final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements kotlin.jvm.a.b<x<? extends T>, Boolean> {
     final /* synthetic */ kotlin.jvm.a.c $predicate;
 
@@ -21,7 +21,7 @@ final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements 
     }
 
     public final boolean invoke(x<? extends T> xVar) {
-        p.o(xVar, "it");
+        p.p(xVar, "it");
         return ((Boolean) this.$predicate.invoke(Integer.valueOf(xVar.getIndex()), xVar.getValue())).booleanValue();
     }
 }

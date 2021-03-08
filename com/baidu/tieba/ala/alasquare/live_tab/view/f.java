@@ -5,28 +5,28 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-/* loaded from: classes10.dex */
+/* loaded from: classes9.dex */
 public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
-    private h gFa;
-    private h gFb;
+    private h gGJ;
+    private h gGK;
     private ViewGroup rootView;
 
     public f(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i) {
         super(tbPageContext, viewGroup);
-        this.gFa = new h(tbPageContext, i);
-        this.gFb = new h(tbPageContext, i);
+        this.gGJ = new h(tbPageContext, i);
+        this.gGK = new h(tbPageContext, i);
         this.rootView = (ViewGroup) getView();
         View view = new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.gFa.getView());
+        this.rootView.addView(this.gGJ.getView());
         this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.rootView.addView(this.gFb.getView());
+        this.rootView.addView(this.gGK.getView());
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.gFa.onChangeSkinType(tbPageContext, i);
-        this.gFb.onChangeSkinType(tbPageContext, i);
+        this.gGJ.onChangeSkinType(tbPageContext, i);
+        this.gGK.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -38,8 +38,8 @@ public class f extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
         if (eVar != null) {
-            this.gFa.a(eVar.gBa);
-            this.gFb.a(eVar.gBb);
+            this.gGJ.a(eVar.gCJ);
+            this.gGK.a(eVar.gCK);
         }
     }
 

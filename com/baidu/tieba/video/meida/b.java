@@ -13,7 +13,7 @@ import com.baidu.tieba.video.meida.g;
 import com.kwai.video.player.misc.IMediaFormat;
 import java.io.FileOutputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(String str) {
@@ -37,7 +37,7 @@ public class b extends c {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str2 = this.nPA;
+        String str2 = this.nRF;
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(str2);
         int i2 = 0;
@@ -63,9 +63,9 @@ public class b extends c {
         c.b bVar = new c.b();
         bVar.channel = aVar2.channelCount;
         bVar.sampleRate = aVar2.sampleRate;
-        bVar.nPD = aVar2.nPD;
-        bVar.nPC = str;
-        FileOutputStream fileOutputStream = new FileOutputStream(bVar.nPC);
+        bVar.nRI = aVar2.nRI;
+        bVar.nRH = str;
+        FileOutputStream fileOutputStream = new FileOutputStream(bVar.nRH);
         MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString(IMediaFormat.KEY_MIME));
         createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
         createDecoderByType.start();
@@ -103,11 +103,11 @@ public class b extends c {
                                         byte[] bArr2 = null;
                                         byte[] bArr3 = null;
                                         if (!z) {
-                                            if (aVar2.dTD()) {
-                                                bArr2 = g.b(aVar2.nPD / 8, aVar.nPD / 8, bArr);
+                                            if (aVar2.dTL()) {
+                                                bArr2 = g.b(aVar2.nRI / 8, aVar.nRI / 8, bArr);
                                             }
-                                            if (aVar2.dTC()) {
-                                                bArr3 = g.b(aVar2.channelCount, aVar.channelCount, aVar.nPD / 8, bArr2 == null ? bArr : bArr2);
+                                            if (aVar2.dTK()) {
+                                                bArr3 = g.b(aVar2.channelCount, aVar.channelCount, aVar.nRI / 8, bArr2 == null ? bArr : bArr2);
                                             }
                                         }
                                         if (bArr3 != null) {
@@ -116,10 +116,10 @@ public class b extends c {
                                             bArr2 = bArr;
                                         }
                                         fileOutputStream.write(bArr2);
-                                        if (this.nPB != null) {
-                                            this.nPB.b(bArr, bufferInfo.presentationTimeUs / d);
+                                        if (this.nRG != null) {
+                                            this.nRG.b(bArr, bufferInfo.presentationTimeUs / d);
                                         }
-                                        BdLog.i(this.nPA + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        BdLog.i(this.nRF + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
                                     } else {
                                         i = i3;
                                     }
@@ -169,8 +169,8 @@ public class b extends c {
             outputBuffers = byteBufferArr;
         }
         bVar.size = i3;
-        if (this.nPB != null) {
-            this.nPB.b(null, 1.0d);
+        if (this.nRG != null) {
+            this.nRG.b(null, 1.0d);
         }
         BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - currentTimeMillis) + " milliseconds !");
         return bVar;

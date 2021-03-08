@@ -2,7 +2,7 @@ package androidx.collection;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LongSparseArray<E> implements Cloneable {
     private static final Object DELETED = new Object();
     private boolean mGarbage;

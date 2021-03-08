@@ -17,27 +17,27 @@ import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerVie
 import com.baidu.swan.apps.v.h;
 import com.baidu.swan.apps.v.i;
 import com.baidu.swan.apps.view.narootview.SwanAppInlineFullScreenContainer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final ViewGroup.LayoutParams dem = new FrameLayout.LayoutParams(-1, -1);
-    private String cTO;
-    private int dej;
-    private a dek;
-    private C0428b del;
+    private static final ViewGroup.LayoutParams dfO = new FrameLayout.LayoutParams(-1, -1);
+    private String cVo;
+    private int dfL;
+    private a dfM;
+    private C0434b dfN;
     private Context mContext;
     private View mCustomView;
     private FrameLayout mFullscreenContainer;
     private int mOriginalOrientation;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void onCustomViewHidden();
     }
 
     public b(Context context, String str) {
         this.mContext = context;
-        this.cTO = str;
+        this.cVo = str;
     }
 
     public void a(View view, int i, @Nullable a aVar) {
@@ -53,7 +53,7 @@ public class b {
             if (this.mCustomView != null) {
                 if (aVar != null) {
                     aVar.onCustomViewHidden();
-                    this.dek = aVar;
+                    this.dfM = aVar;
                     return;
                 }
                 return;
@@ -61,21 +61,21 @@ public class b {
             this.mOriginalOrientation = swanAppActivity.getRequestedOrientation();
             ViewGroup viewGroup = (ViewGroup) swanAppActivity.getWindow().getDecorView();
             this.mFullscreenContainer = new SwanAppInlineFullScreenContainer(swanAppActivity);
-            this.mFullscreenContainer.addView(view, dem);
-            viewGroup.addView(this.mFullscreenContainer, dem);
+            this.mFullscreenContainer.addView(view, dfO);
+            viewGroup.addView(this.mFullscreenContainer, dfO);
             this.mCustomView = view;
             setFullscreen(swanAppActivity, true);
             swanAppActivity.setRequestedOrientation(i);
-            if (com.baidu.swan.apps.t.a.axs().aii() && (swanAppActivity instanceof SwanAppActivity)) {
+            if (com.baidu.swan.apps.t.a.axv().ail() && (swanAppActivity instanceof SwanAppActivity)) {
                 swanAppActivity.l(true, false);
             }
-            this.dej = viewGroup.getSystemUiVisibility();
+            this.dfL = viewGroup.getSystemUiVisibility();
             viewGroup.setSystemUiVisibility(4098);
-            if (this.del == null) {
-                this.del = new C0428b(swanAppActivity, this.cTO);
+            if (this.dfN == null) {
+                this.dfN = new C0434b(swanAppActivity, this.cVo);
             }
-            i.a(this.del);
-            ak.k(new Runnable() { // from class: com.baidu.swan.apps.inlinewidget.e.b.1
+            i.a(this.dfN);
+            ak.j(new Runnable() { // from class: com.baidu.swan.apps.inlinewidget.e.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (b.this.mCustomView != null) {
@@ -94,50 +94,50 @@ public class b {
             Context context = this.mContext;
             Activity activity = context instanceof Activity ? (Activity) context : null;
             if (activity != null) {
-                i.b(this.del);
-                this.del = null;
+                i.b(this.dfN);
+                this.dfN = null;
                 setFullscreen(activity, false);
                 ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
                 viewGroup.removeView(this.mFullscreenContainer);
                 this.mFullscreenContainer = null;
                 this.mCustomView = null;
-                if (this.dek != null) {
-                    this.dek.onCustomViewHidden();
+                if (this.dfM != null) {
+                    this.dfM.onCustomViewHidden();
                 }
                 activity.setRequestedOrientation(this.mOriginalOrientation);
-                viewGroup.setSystemUiVisibility(this.dej);
+                viewGroup.setSystemUiVisibility(this.dfL);
             }
         }
     }
 
     @UiThread
-    public synchronized void oj(String str) {
-        SwanAppComponentContainerView alg;
+    public synchronized void or(String str) {
+        SwanAppComponentContainerView alj;
         if (DEBUG) {
             Log.d("SwanCustomViewHelper", "addComponentToFullScreen: " + str);
         }
-        com.baidu.swan.apps.component.b.a bj = com.baidu.swan.apps.component.container.a.bj(this.cTO, str);
-        if (bj != null && (("coverView".equals(bj.ale().cLp) || "coverImage".equals(bj.ale().cLp)) && this.mFullscreenContainer != null && (alg = bj.alg()) != null)) {
-            ViewParent parent = alg.getParent();
+        com.baidu.swan.apps.component.b.a bj = com.baidu.swan.apps.component.container.a.bj(this.cVo, str);
+        if (bj != null && (("coverView".equals(bj.alh().cMP) || "coverImage".equals(bj.alh().cMP)) && this.mFullscreenContainer != null && (alj = bj.alj()) != null)) {
+            ViewParent parent = alj.getParent();
             if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(alg);
-                this.mFullscreenContainer.addView(alg);
+                ((ViewGroup) parent).removeView(alj);
+                this.mFullscreenContainer.addView(alj);
             }
         }
     }
 
     @UiThread
-    public synchronized void ok(String str) {
-        SwanAppComponentContainerView alg;
+    public synchronized void os(String str) {
+        SwanAppComponentContainerView alj;
         if (DEBUG) {
             Log.d("SwanCustomViewHelper", "removeComponentFromFullScreen: " + str);
         }
-        com.baidu.swan.apps.component.b.a bj = com.baidu.swan.apps.component.container.a.bj(this.cTO, str);
-        if (bj != null && (("coverView".equals(bj.ale().cLp) || "coverImage".equals(bj.ale().cLp)) && (alg = bj.alg()) != null)) {
-            ViewParent parent = alg.getParent();
+        com.baidu.swan.apps.component.b.a bj = com.baidu.swan.apps.component.container.a.bj(this.cVo, str);
+        if (bj != null && (("coverView".equals(bj.alh().cMP) || "coverImage".equals(bj.alh().cMP)) && (alj = bj.alj()) != null)) {
+            ViewParent parent = alj.getParent();
             if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(alg);
-                bj.alb();
+                ((ViewGroup) parent).removeView(alj);
+                bj.ale();
             }
         }
     }
@@ -149,14 +149,14 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.inlinewidget.e.b$b  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C0428b implements h {
-        private String cTO;
+    /* loaded from: classes8.dex */
+    public static class C0434b implements h {
+        private String cVo;
         private Activity mActivity;
 
-        public C0428b(Activity activity, String str) {
+        public C0434b(Activity activity, String str) {
             this.mActivity = activity;
-            this.cTO = str;
+            this.cVo = str;
         }
 
         @Override // com.baidu.swan.apps.v.h
@@ -165,7 +165,7 @@ public class b {
 
         @Override // com.baidu.swan.apps.v.h
         public void b(e eVar) {
-            if (TextUtils.equals(eVar.aiY(), this.cTO)) {
+            if (TextUtils.equals(eVar.ajb(), this.cVo)) {
                 b.setFullscreen(this.mActivity, true);
                 ((ViewGroup) this.mActivity.getWindow().getDecorView()).setSystemUiVisibility(4098);
             }

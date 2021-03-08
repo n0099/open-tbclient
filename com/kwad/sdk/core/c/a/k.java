@@ -8,8 +8,8 @@ public class k implements com.kwad.sdk.core.c<o.a> {
     @Override // com.kwad.sdk.core.c
     public JSONObject a(o.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "photoPlaySecond", aVar.f9430a);
-        com.kwad.sdk.utils.o.a(jSONObject, "itemClickType", aVar.f9431b);
+        com.kwad.sdk.utils.o.a(jSONObject, "photoPlaySecond", aVar.f6254a);
+        com.kwad.sdk.utils.o.a(jSONObject, "itemClickType", aVar.b);
         com.kwad.sdk.utils.o.a(jSONObject, "itemCloseType", aVar.c);
         com.kwad.sdk.utils.o.a(jSONObject, "elementType", aVar.d);
         com.kwad.sdk.utils.o.a(jSONObject, "payload", aVar.f);
@@ -33,8 +33,8 @@ public class k implements com.kwad.sdk.core.c<o.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f9430a = jSONObject.optInt("photoPlaySecond");
-        aVar.f9431b = jSONObject.optInt("itemClickType");
+        aVar.f6254a = jSONObject.optInt("photoPlaySecond");
+        aVar.b = jSONObject.optInt("itemClickType");
         aVar.c = jSONObject.optInt("itemCloseType");
         aVar.d = jSONObject.optInt("elementType");
         aVar.f = jSONObject.optString("payload");

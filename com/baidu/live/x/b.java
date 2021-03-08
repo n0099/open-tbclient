@@ -2,7 +2,7 @@ package com.baidu.live.x;
 
 import android.view.View;
 import android.widget.TextView;
-/* loaded from: classes11.dex */
+/* loaded from: classes10.dex */
 public interface b {
     View getRankItemRootView();
 

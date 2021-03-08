@@ -13,11 +13,11 @@ import java.util.logging.Logger;
 public final class h implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Logger f5912a = Logger.getLogger(e.class.getName());
+    static final Logger f3979a = Logger.getLogger(e.class.getName());
     private final boolean e;
-    private final com.bytedance.sdk.a.a.e ppQ;
-    private final a pqM;
-    final d.a pqN;
+    private final com.bytedance.sdk.a.a.e prV;
+    private final a psR;
+    final d.a psS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
@@ -45,10 +45,10 @@ public final class h implements Closeable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(com.bytedance.sdk.a.a.e eVar, boolean z) {
-        this.ppQ = eVar;
+        this.prV = eVar;
         this.e = z;
-        this.pqM = new a(this.ppQ);
-        this.pqN = new d.a(4096, this.pqM);
+        this.psR = new a(this.prV);
+        this.psS = new d.a(4096, this.psR);
     }
 
     public void a(b bVar) throws IOException {
@@ -58,61 +58,61 @@ public final class h implements Closeable {
             }
             return;
         }
-        com.bytedance.sdk.a.a.f ii = this.ppQ.ii(e.ppY.g());
-        if (f5912a.isLoggable(Level.FINE)) {
-            f5912a.fine(com.bytedance.sdk.a.b.a.c.a("<< CONNECTION %s", ii.e()));
+        com.bytedance.sdk.a.a.f ii = this.prV.ii(e.psd.g());
+        if (f3979a.isLoggable(Level.FINE)) {
+            f3979a.fine(com.bytedance.sdk.a.b.a.c.a("<< CONNECTION %s", ii.e()));
         }
-        if (!e.ppY.equals(ii)) {
+        if (!e.psd.equals(ii)) {
             throw e.j("Expected a connection header but was %s", ii.a());
         }
     }
 
     public boolean a(boolean z, b bVar) throws IOException {
         try {
-            this.ppQ.a(9L);
-            int a2 = a(this.ppQ);
+            this.prV.a(9L);
+            int a2 = a(this.prV);
             if (a2 < 0 || a2 > 16384) {
                 throw e.j("FRAME_SIZE_ERROR: %s", Integer.valueOf(a2));
             }
-            byte eoC = (byte) (this.ppQ.eoC() & 255);
-            if (z && eoC != 4) {
-                throw e.j("Expected a SETTINGS frame but was %s", Byte.valueOf(eoC));
+            byte eoJ = (byte) (this.prV.eoJ() & 255);
+            if (z && eoJ != 4) {
+                throw e.j("Expected a SETTINGS frame but was %s", Byte.valueOf(eoJ));
             }
-            byte eoC2 = (byte) (this.ppQ.eoC() & 255);
-            int j = this.ppQ.j() & Integer.MAX_VALUE;
-            if (f5912a.isLoggable(Level.FINE)) {
-                f5912a.fine(e.a(true, j, a2, eoC, eoC2));
+            byte eoJ2 = (byte) (this.prV.eoJ() & 255);
+            int j = this.prV.j() & Integer.MAX_VALUE;
+            if (f3979a.isLoggable(Level.FINE)) {
+                f3979a.fine(e.a(true, j, a2, eoJ, eoJ2));
             }
-            switch (eoC) {
+            switch (eoJ) {
                 case 0:
-                    b(bVar, a2, eoC2, j);
+                    b(bVar, a2, eoJ2, j);
                     return true;
                 case 1:
-                    a(bVar, a2, eoC2, j);
+                    a(bVar, a2, eoJ2, j);
                     return true;
                 case 2:
-                    c(bVar, a2, eoC2, j);
+                    c(bVar, a2, eoJ2, j);
                     return true;
                 case 3:
-                    d(bVar, a2, eoC2, j);
+                    d(bVar, a2, eoJ2, j);
                     return true;
                 case 4:
-                    e(bVar, a2, eoC2, j);
+                    e(bVar, a2, eoJ2, j);
                     return true;
                 case 5:
-                    f(bVar, a2, eoC2, j);
+                    f(bVar, a2, eoJ2, j);
                     return true;
                 case 6:
-                    g(bVar, a2, eoC2, j);
+                    g(bVar, a2, eoJ2, j);
                     return true;
                 case 7:
-                    h(bVar, a2, eoC2, j);
+                    h(bVar, a2, eoJ2, j);
                     return true;
                 case 8:
-                    i(bVar, a2, eoC2, j);
+                    i(bVar, a2, eoJ2, j);
                     return true;
                 default:
-                    this.ppQ.h(a2);
+                    this.prV.h(a2);
                     return true;
             }
         } catch (IOException e) {
@@ -125,23 +125,23 @@ public final class h implements Closeable {
             throw e.j("PROTOCOL_ERROR: TYPE_HEADERS streamId == 0", new Object[0]);
         }
         boolean z = (b2 & 1) != 0;
-        short eoC = (b2 & 8) != 0 ? (short) (this.ppQ.eoC() & 255) : (short) 0;
+        short eoJ = (b2 & 8) != 0 ? (short) (this.prV.eoJ() & 255) : (short) 0;
         if ((b2 & 32) != 0) {
             a(bVar, i2);
             i -= 5;
         }
-        bVar.a(z, i2, -1, a(a(i, b2, eoC), eoC, b2, i2));
+        bVar.a(z, i2, -1, a(a(i, b2, eoJ), eoJ, b2, i2));
     }
 
     private List<c> a(int i, short s, byte b2, int i2) throws IOException {
-        a aVar = this.pqM;
-        this.pqM.d = i;
-        aVar.f5913a = i;
-        this.pqM.pqO = s;
-        this.pqM.f5914b = b2;
-        this.pqM.c = i2;
-        this.pqN.a();
-        return this.pqN.b();
+        a aVar = this.psR;
+        this.psR.d = i;
+        aVar.f3980a = i;
+        this.psR.psT = s;
+        this.psR.b = b2;
+        this.psR.c = i2;
+        this.psS.a();
+        return this.psS.b();
     }
 
     private void b(b bVar, int i, byte b2, int i2) throws IOException {
@@ -152,9 +152,9 @@ public final class h implements Closeable {
         if ((b2 & 32) != 0) {
             throw e.j("PROTOCOL_ERROR: FLAG_COMPRESSED without SETTINGS_COMPRESS_DATA", new Object[0]);
         }
-        short eoC = (b2 & 8) != 0 ? (short) (this.ppQ.eoC() & 255) : (short) 0;
-        bVar.a(z, i2, this.ppQ, a(i, b2, eoC));
-        this.ppQ.h(eoC);
+        short eoJ = (b2 & 8) != 0 ? (short) (this.prV.eoJ() & 255) : (short) 0;
+        bVar.a(z, i2, this.prV, a(i, b2, eoJ));
+        this.prV.h(eoJ);
     }
 
     private void c(b bVar, int i, byte b2, int i2) throws IOException {
@@ -168,8 +168,8 @@ public final class h implements Closeable {
     }
 
     private void a(b bVar, int i) throws IOException {
-        int j = this.ppQ.j();
-        bVar.a(i, j & Integer.MAX_VALUE, (this.ppQ.eoC() & 255) + 1, (Integer.MIN_VALUE & j) != 0);
+        int j = this.prV.j();
+        bVar.a(i, j & Integer.MAX_VALUE, (this.prV.eoJ() & 255) + 1, (Integer.MIN_VALUE & j) != 0);
     }
 
     private void d(b bVar, int i, byte b2, int i2) throws IOException {
@@ -179,7 +179,7 @@ public final class h implements Closeable {
         if (i2 == 0) {
             throw e.j("TYPE_RST_STREAM streamId == 0", new Object[0]);
         }
-        int j = this.ppQ.j();
+        int j = this.prV.j();
         com.bytedance.sdk.a.b.a.e.b a2 = com.bytedance.sdk.a.b.a.e.b.a(j);
         if (a2 == null) {
             throw e.j("TYPE_RST_STREAM unexpected error code: %d", Integer.valueOf(j));
@@ -201,19 +201,19 @@ public final class h implements Closeable {
         } else {
             n nVar = new n();
             for (int i3 = 0; i3 < i; i3 += 6) {
-                short eoD = this.ppQ.eoD();
-                int j = this.ppQ.j();
-                switch (eoD) {
+                short eoK = this.prV.eoK();
+                int j = this.prV.j();
+                switch (eoK) {
                     case 2:
                         if (j != 0 && j != 1) {
                             throw e.j("PROTOCOL_ERROR SETTINGS_ENABLE_PUSH != 0 or 1", new Object[0]);
                         }
                         break;
                     case 3:
-                        eoD = 4;
+                        eoK = 4;
                         break;
                     case 4:
-                        eoD = 7;
+                        eoK = 7;
                         if (j < 0) {
                             throw e.j("PROTOCOL_ERROR SETTINGS_INITIAL_WINDOW_SIZE > 2^31 - 1", new Object[0]);
                         }
@@ -225,7 +225,7 @@ public final class h implements Closeable {
                         break;
                         break;
                 }
-                nVar.dV(eoD, j);
+                nVar.dV(eoK, j);
             }
             bVar.a(false, nVar);
         }
@@ -235,8 +235,8 @@ public final class h implements Closeable {
         if (i2 == 0) {
             throw e.j("PROTOCOL_ERROR: TYPE_PUSH_PROMISE streamId == 0", new Object[0]);
         }
-        short eoC = (b2 & 8) != 0 ? (short) (this.ppQ.eoC() & 255) : (short) 0;
-        bVar.b(i2, this.ppQ.j() & Integer.MAX_VALUE, a(a(i - 4, b2, eoC), eoC, b2, i2));
+        short eoJ = (b2 & 8) != 0 ? (short) (this.prV.eoJ() & 255) : (short) 0;
+        bVar.b(i2, this.prV.j() & Integer.MAX_VALUE, a(a(i - 4, b2, eoJ), eoJ, b2, i2));
     }
 
     private void g(b bVar, int i, byte b2, int i2) throws IOException {
@@ -246,7 +246,7 @@ public final class h implements Closeable {
         if (i2 != 0) {
             throw e.j("TYPE_PING streamId != 0", new Object[0]);
         }
-        bVar.b((b2 & 1) != 0, this.ppQ.j(), this.ppQ.j());
+        bVar.b((b2 & 1) != 0, this.prV.j(), this.prV.j());
     }
 
     private void h(b bVar, int i, byte b2, int i2) throws IOException {
@@ -256,16 +256,16 @@ public final class h implements Closeable {
         if (i2 != 0) {
             throw e.j("TYPE_GOAWAY streamId != 0", new Object[0]);
         }
-        int j = this.ppQ.j();
-        int j2 = this.ppQ.j();
+        int j = this.prV.j();
+        int j2 = this.prV.j();
         int i3 = i - 8;
         com.bytedance.sdk.a.b.a.e.b a2 = com.bytedance.sdk.a.b.a.e.b.a(j2);
         if (a2 == null) {
             throw e.j("TYPE_GOAWAY unexpected error code: %d", Integer.valueOf(j2));
         }
-        com.bytedance.sdk.a.a.f fVar = com.bytedance.sdk.a.a.f.f5844b;
+        com.bytedance.sdk.a.a.f fVar = com.bytedance.sdk.a.a.f.b;
         if (i3 > 0) {
-            fVar = this.ppQ.ii(i3);
+            fVar = this.prV.ii(i3);
         }
         bVar.a(j, a2, fVar);
     }
@@ -274,7 +274,7 @@ public final class h implements Closeable {
         if (i != 4) {
             throw e.j("TYPE_WINDOW_UPDATE length !=4: %s", Integer.valueOf(i));
         }
-        long j = this.ppQ.j() & 2147483647L;
+        long j = this.prV.j() & 2147483647L;
         if (j == 0) {
             throw e.j("windowSizeIncrement was 0", Long.valueOf(j));
         }
@@ -283,7 +283,7 @@ public final class h implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.ppQ.close();
+        this.prV.close();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -291,40 +291,38 @@ public final class h implements Closeable {
     public static final class a implements s {
 
         /* renamed from: a  reason: collision with root package name */
-        int f5913a;
-
-        /* renamed from: b  reason: collision with root package name */
-        byte f5914b;
+        int f3980a;
+        byte b;
         int c;
         int d;
-        short pqO;
-        private final com.bytedance.sdk.a.a.e pqg;
+        short psT;
+        private final com.bytedance.sdk.a.a.e psl;
 
         a(com.bytedance.sdk.a.a.e eVar) {
-            this.pqg = eVar;
+            this.psl = eVar;
         }
 
         @Override // com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             while (this.d == 0) {
-                this.pqg.h(this.pqO);
-                this.pqO = (short) 0;
-                if ((this.f5914b & 4) != 0) {
+                this.psl.h(this.psT);
+                this.psT = (short) 0;
+                if ((this.b & 4) != 0) {
                     return -1L;
                 }
                 b();
             }
-            long b2 = this.pqg.b(cVar, Math.min(j, this.d));
-            if (b2 != -1) {
-                this.d = (int) (this.d - b2);
-                return b2;
+            long b = this.psl.b(cVar, Math.min(j, this.d));
+            if (b != -1) {
+                this.d = (int) (this.d - b);
+                return b;
             }
             return -1L;
         }
 
         @Override // com.bytedance.sdk.a.a.s
-        public t eoy() {
-            return this.pqg.eoy();
+        public t eoF() {
+            return this.psl.eoF();
         }
 
         @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
@@ -333,17 +331,17 @@ public final class h implements Closeable {
 
         private void b() throws IOException {
             int i = this.c;
-            int a2 = h.a(this.pqg);
+            int a2 = h.a(this.psl);
             this.d = a2;
-            this.f5913a = a2;
-            byte eoC = (byte) (this.pqg.eoC() & 255);
-            this.f5914b = (byte) (this.pqg.eoC() & 255);
-            if (h.f5912a.isLoggable(Level.FINE)) {
-                h.f5912a.fine(e.a(true, this.c, this.f5913a, eoC, this.f5914b));
+            this.f3980a = a2;
+            byte eoJ = (byte) (this.psl.eoJ() & 255);
+            this.b = (byte) (this.psl.eoJ() & 255);
+            if (h.f3979a.isLoggable(Level.FINE)) {
+                h.f3979a.fine(e.a(true, this.c, this.f3980a, eoJ, this.b));
             }
-            this.c = this.pqg.j() & Integer.MAX_VALUE;
-            if (eoC != 9) {
-                throw e.j("%s != TYPE_CONTINUATION", Byte.valueOf(eoC));
+            this.c = this.psl.j() & Integer.MAX_VALUE;
+            if (eoJ != 9) {
+                throw e.j("%s != TYPE_CONTINUATION", Byte.valueOf(eoJ));
             }
             if (this.c != i) {
                 throw e.j("TYPE_CONTINUATION streamId changed", new Object[0]);
@@ -352,7 +350,7 @@ public final class h implements Closeable {
     }
 
     static int a(com.bytedance.sdk.a.a.e eVar) throws IOException {
-        return ((eVar.eoC() & 255) << 16) | ((eVar.eoC() & 255) << 8) | (eVar.eoC() & 255);
+        return ((eVar.eoJ() & 255) << 16) | ((eVar.eoJ() & 255) << 8) | (eVar.eoJ() & 255);
     }
 
     static int a(int i, byte b2, short s) throws IOException {
